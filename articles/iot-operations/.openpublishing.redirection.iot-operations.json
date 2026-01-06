@@ -699,6 +699,11 @@
             "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-wasm-onnx-inference.md",
             "redirect_url": "/azure/iot-operations/develop-edge-apps/howto-wasm-onnx-inference",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/develop-edge-apps/overview-iot-operations-sdks.md",
+            "redirect_url": "/azure/iot-operations/develop-edge-apps/overview-iot-operations-development",
+            "redirect_document_id": true
         }
     ]
 }

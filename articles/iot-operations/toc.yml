@@ -237,9 +237,9 @@ items:
             displayName: container insights, prometheus, opentelemetry, otel, metrics, Azure Monitor, Grafana, Log Analytics
       - name: Develop edge applications
         items:
-          - name: Azure IoT Operations SDKs
-            href: develop-edge-apps/overview-iot-operations-sdks.md
-            displayName: MQTT, client app, developer, C#, .Net, Go, Rust
+          - name: Developer guide
+            href: develop-edge-apps/overview-iot-operations-development.md
+            displayName: MQTT, client app, developer, C#, .Net, Go, Rust, Python, SDKs, VS Code, extension
           - name: Start developing with the SDKs
             href: develop-edge-apps/quickstart-get-started-sdks.md
             displayName: MQTT, client app, developer, C#, .Net, Go, Rust, quickstart, get started

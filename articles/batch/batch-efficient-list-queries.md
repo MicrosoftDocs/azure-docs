@@ -2,7 +2,7 @@
 title: Design efficient list queries for Batch resources
 description: Learn how to create more efficient list queries for your Batch resources to improve application performance.
 ms.topic: how-to
-ms.date: 07/01/2025
+ms.date: 01/05/2026
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 # Customer intent: As a developer, I want to create efficient queries for Batch resources, so that I can optimize application performance by reducing data retrieval and improving response times.
@@ -52,7 +52,7 @@ You can use the [Batch .NET](/dotnet/api/microsoft.azure.batch) and [Batch REST]
 
 For the Batch .NET API, see the [ODATADetailLevel Class properties](/dotnet/api/microsoft.azure.batch.odatadetaillevel#properties). Also review the section [Efficient querying in Batch .NET](#efficient-querying-in-batch-net).
 
-For the Batch REST API, see the [Batch REST API reference](/rest/api/batchservice/). Find the **List** reference for the resource you want to query. Then, review the **URI Parameters** section for details about `$filter`, `$select`, and `$expand`. For example, see the [URI parameters for Pool - List](/rest/api/batchservice/pool/list#uri-parameters). Also see [how to make efficient Batch queries with the Azure CLI](batch-cli-get-started.md#query-batch-resources-efficiently).
+For the Batch REST API, see the [Batch REST API reference](/rest/api/batchservice/). Find the **List** reference for the resource you want to query. Then, review the **URI Parameters** section for details about `$filter`, `$select`, and `$expand`. For example, see the [URI parameters for Pool - List](/rest/api/batchservice/pools/create-pool#uri-parameters). Also see [how to make efficient Batch queries with the Azure CLI](batch-cli-get-started.md#query-batch-resources-efficiently).
 
 > [!NOTE]
 > When constructing any of the three query string types, you must ensure that the property names and case match that of their REST API element counterparts. For example, when working with the .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) class, you must specify **state** instead of **State**, even though the .NET property is [CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask.state#Microsoft_Azure_Batch_CloudTask_State). For more information, see the [property mappings between the .NET and REST APIs](#mappings-for-select-strings).
@@ -141,16 +141,16 @@ Property names in filter, select, and expand strings must reflect their REST API
 
 | .NET list methods | REST list requests |
 | --- | --- |
-| [CertificateOperations.ListCertificates](/dotnet/api/microsoft.azure.batch.certificateoperations) |[List the certificates in an account](/rest/api/batchservice/certificate/list) |
+| [CertificateOperations.ListCertificates](/dotnet/api/microsoft.azure.batch.certificateoperations) |[List the certificates in an account](/rest/api/batchmanagement/certificate/list-by-batch-account) |
 | [CloudTask.ListNodeFiles](/dotnet/api/microsoft.azure.batch.cloudtask) |[List the files associated with a task](/rest/api/batchservice/file/listfromtask) |
 | [JobOperations.ListJobPreparationAndReleaseTaskStatus](/dotnet/api/microsoft.azure.batch.joboperations) |[List the status of the job preparation and job release tasks for a job](/rest/api/batchservice/job/listpreparationandreleasetaskstatus) |
-| [JobOperations.ListJobs](/dotnet/api/microsoft.azure.batch.joboperations) |[List the jobs in an account](/rest/api/batchservice/job/list) |
+| [JobOperations.ListJobs](/dotnet/api/microsoft.azure.batch.joboperations) |[List the jobs in an account](/rest/api/batchservice/jobs/list-jobs-from-schedule) |
 | [JobOperations.ListNodeFiles](/dotnet/api/microsoft.azure.batch.joboperations) |[List the files on a node](/rest/api/batchservice/file/listfromcomputenode) |
-| [JobOperations.ListTasks](/dotnet/api/microsoft.azure.batch.joboperations) |[List the tasks associated with a job](/rest/api/batchservice/task/list) |
+| [JobOperations.ListTasks](/dotnet/api/microsoft.azure.batch.joboperations) |[List the tasks associated with a job](/rest/api/batchservice/tasks/list-tasks) |
 | [JobScheduleOperations.ListJobSchedules](/dotnet/api/microsoft.azure.batch.jobscheduleoperations) |[List the job schedules in an account](/rest/api/batchservice/jobschedule/list) |
 | [JobScheduleOperations.ListJobs](/dotnet/api/microsoft.azure.batch.jobscheduleoperations) |[List the jobs associated with a job schedule](/rest/api/batchservice/job/listfromjobschedule) |
-| [PoolOperations.ListComputeNodes](/dotnet/api/microsoft.azure.batch.pooloperations) |[List the compute nodes in a pool](/rest/api/batchservice/computenode/list) |
-| [PoolOperations.ListPools](/dotnet/api/microsoft.azure.batch.pooloperations) |[List the pools in an account](/rest/api/batchservice/pool/list) |
+| [PoolOperations.ListComputeNodes](/dotnet/api/microsoft.azure.batch.pooloperations) |[List the compute nodes in a pool](/rest/api/batchservice/nodes/list-nodes) |
+| [PoolOperations.ListPools](/dotnet/api/microsoft.azure.batch.pooloperations) |[List the pools in an account](/rest/api/batchservice/pools/list-pools) |
 
 ### Mappings for select strings
 
@@ -159,16 +159,16 @@ Property names in filter, select, and expand strings must reflect their REST API
 
 | Batch .NET types | REST API entities |
 | --- | --- |
-| [Certificate](/dotnet/api/microsoft.azure.batch.certificate) |[Get information about a certificate](/rest/api/batchservice/certificate/get) |
-| [CloudJob](/dotnet/api/microsoft.azure.batch.cloudjob) |[Get information about a job](/rest/api/batchservice/job/get) |
-| [CloudJobSchedule](/dotnet/api/microsoft.azure.batch.cloudjobschedule) |[Get information about a job schedule](/rest/api/batchservice/jobschedule/get) |
+| [Certificate](/dotnet/api/microsoft.azure.batch.certificate) |[Get information about a certificate](/rest/api/batchmanagement/certificate/get) |
+| [CloudJob](/dotnet/api/microsoft.azure.batch.cloudjob) |[Get information about a job](/rest/api/batchservice/jobs/get-job) |
+| [CloudJobSchedule](/dotnet/api/microsoft.azure.batch.cloudjobschedule) |[Get information about a job schedule](/rest/api/batchservice/jobs/get-job) |
 | [ComputeNode](/dotnet/api/microsoft.azure.batch.computenode) |[Get information about a node](/rest/api/batchservice/computenode/get) |
-| [CloudPool](/dotnet/api/microsoft.azure.batch.cloudpool) |[Get information about a pool](/rest/api/batchservice/pool/get) |
-| [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) |[Get information about a task](/rest/api/batchservice/task/get) |
+| [CloudPool](/dotnet/api/microsoft.azure.batch.cloudpool) |[Get information about a pool](/rest/api/batchservice/pools/get-pool) |
+| [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) |[Get information about a task](/rest/api/batchservice/tasks/get-task) |
 
 ## Example: construct a filter string
 
-To construct a filter string for [ODATADetailLevel.FilterClause](/dotnet/api/microsoft.azure.batch.odatadetaillevel.filterclause), find the [corresponding REST API page](#mappings-for-filter-strings). Selectable properties and their supported operators are in the first multi-row table. For example, to retrieve all tasks whose exit code was nonzero, check [List the tasks associated with a job](/rest/api/batchservice/task/list) for the applicable property string and allowable operators:
+To construct a filter string for [ODATADetailLevel.FilterClause](/dotnet/api/microsoft.azure.batch.odatadetaillevel.filterclause), find the [corresponding REST API page](#mappings-for-filter-strings). Selectable properties and their supported operators are in the first multi-row table. For example, to retrieve all tasks whose exit code was nonzero, check [List the tasks associated with a job](/rest/api/batchservice/tasks/list-tasks) for the applicable property string and allowable operators:
 
 | Property | Operations allowed | Type |
 |:--- |:--- |:--- |
@@ -180,7 +180,7 @@ The related filter string is:
 
 ## Example: construct a select string
 
-To construct [ODATADetailLevel.SelectClause](/dotnet/api/microsoft.azure.batch.odatadetaillevel.selectclause), find the [corresponding REST API page](#mappings-for-filter-strings) for the entity that you're listing. Selectable properties and their supported operators are in the first multi-row table. For example, to retrieve only the ID and command line for each task in a list, check [Get information about a task](/rest/api/batchservice/task/get):
+To construct [ODATADetailLevel.SelectClause](/dotnet/api/microsoft.azure.batch.odatadetaillevel.selectclause), find the [corresponding REST API page](#mappings-for-filter-strings) for the entity that you're listing. Selectable properties and their supported operators are in the first multi-row table. For example, to retrieve only the ID and command line for each task in a list, check [Get information about a task](/rest/api/batchservice/tasks/get-task):
 
 | Property | Type | Notes |
 |:--- |:--- |:--- |

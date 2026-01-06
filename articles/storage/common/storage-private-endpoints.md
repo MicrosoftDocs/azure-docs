@@ -49,6 +49,8 @@ Storage account owners can manage consent requests and the private endpoints thr
 
 You can secure your storage account to only accept connections from your virtual network by [configuring the storage firewall](storage-network-security-set-default-access.md) to deny access through its public endpoint by default. You don't need a firewall rule to allow traffic from a virtual network that has a private endpoint, since the storage firewall only controls access through the public endpoint. Private endpoints instead rely on the consent flow for granting subnets access to the storage service.
 
+Additionally, when a private endpoint is configured, traffic from the associated virtual network is always allowed, even if public network access is disabled on the storage account.
+
 > [!NOTE]
 > When copying blobs between storage accounts, your client must have network access to both accounts. So if you choose to use a private link for only one account (either the source or the destination), make sure that your client has network access to the other account. To learn about other ways to configure network access, see [Configure Azure Storage firewalls and virtual networks](storage-network-security.md?toc=/azure/storage/blobs/toc.json).
 

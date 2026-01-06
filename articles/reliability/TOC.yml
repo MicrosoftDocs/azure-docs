@@ -39,7 +39,7 @@ items:
     - name: Azure Machine Learning
       href: /azure/machine-learning/how-to-high-availability-machine-learning?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Stream Analytics
-      href: ../stream-analytics/geo-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json 
+      href: reliability-stream-analytics.md
     - name: Microsoft Fabric
       href: reliability-fabric.md
     - name: Microsoft Purview

@@ -5,7 +5,7 @@ description: Describes how to protect your Azure Virtual Machines having high ch
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 11/24/2025
+ms.date: 01/06/2026
 ms.author: v-gajeronika
 ms.custom: references_regions 
 # Customer intent: As a cloud administrator, I want to enable High Churn support for Azure Virtual Machines, so that I can effectively protect high churning workloads and achieve better disaster recovery performance.
@@ -53,7 +53,6 @@ The following table summarizes Site Recovery limits:
 |Premium SSD with disk size 1TiB or more |8 KB|20 MB/s|
 |Premium SSD with disk size 1TiB or more |16 KB|35 MB/s|
 |Premium SSD with disk size 1TiB or more |24 KB and later |50 MB/s|
-
 
 ## Enable High Churn support
 
@@ -163,17 +162,27 @@ Source region and target region must be in the following regions only.
 
 Enhanced churn support for 500 MB/s is currently available in the following regions: 
 
-- West Central US
+- Australia East
+- Australia Southeast
+- Central India
 - Central US
+- East Asia
+- East US 2
+- France Central
+- Germany North
+- Japan East
+- Japan West
 - North Central US
+- Norway East
+- South Africa North
+- South Central US
+- Southeast Asia
+- UAE Central
+- UK South
+- West Central US
 - West US
 - West US 2
 - West US 3
-- East US 2
-- East Asia
-- Southeast Asia
-- Australia East
-- Australia Southeast 
 
 ### Enable preview 
 

@@ -27,6 +27,7 @@ This article discusses three commonly deployed scenarios with Azure Virtual WAN 
 >   * Pricing can change at any point. For current pricing information, see the [Virtual WAN pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page.
 >   * Inter-hub (hub-to-hub) charges do not show in the Virtual WAN pricing page because pricing is subject to Inter-Region (Intra/Inter-continental) charges. For more information, see [Azure data transfer charges](https://azure.microsoft.com/pricing/details/bandwidth/).
 >   * For virtual hub routing infrastructure unit pricing, see the [Virtual WAN pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page.
+>   * Traffic destined for private endpoints do **not** incur Virtual Network peering-related charges. Instead, you are charged inbound or outbound data processing charges for the Private Link resource. See [Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/) for more information.
 >
 
 ## <a name="pricing"></a>Pricing components
@@ -170,7 +171,7 @@ A **connection unit** applies to any on-premises/non-Microsoft endpoint connecti
 
 * Any traffic entering Azure isn't charged. Traffic leaving Azure (via VPN, ExpressRoute, or Point-to-site User VPN connections) is subject to the standard [Azure data transfer charges](https://azure.microsoft.com/pricing/details/bandwidth/) or, in the case of ExpressRoute, [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/).
 
-* Peering charges are applicable when a VNet connected to a vWAN hub sends or receives data. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
+* Peering charges are applicable when a VNet connected to a vWAN hub sends or receives data. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/). However, traffic destined to private endpoints deployed in Virtual Networks connected to Virutal WAN hubs are **excluded** from [Virtual Network peering charges](https://azure.microsoft.com/pricing/details/private-link/) and are instead billed as inbound or outbound data processed on the private link resource..
 
 * For data transfer charges between a Virtual WAN hub, and a remote Virtual WAN hub or VNet in a different region than the source hub, data transfer charges apply for traffic leaving a hub. Example: Traffic leaving an East US hub will be charged $0.02/GB going to a West US hub. There's no charge for traffic entering the West US hub. All hub to hub traffic is subject to Inter-Region (Intra/Inter-continental) charges [Azure data transfer charges](https://azure.microsoft.com/pricing/details/bandwidth/).
 

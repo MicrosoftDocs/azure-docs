@@ -2,7 +2,7 @@
 title: Copy applications and data to pool nodes
 description: Learn how to copy applications and data to pool nodes.
 ms.topic: how-to
-ms.date: 07/01/2025
+ms.date: 01/05/2026
 # Customer intent: As a cloud engineer, I want to understand the methods for copying applications and data to compute nodes in Azure Batch, so that I can effectively manage data dependencies for different job types and optimize resource usage across the pool.
 ---
 
@@ -20,9 +20,9 @@ You need to determine the scope of a file - is the file required for a pool, a j
 
 For applications or data that need to be installed on every node in the pool, use pool start task resource files. Use this method along with either an [application package](batch-application-packages.md) or the start task's resource file collection in order to perform an install command.  
 
-For example, you can use the start task command line to move or install applications. You can also specify a list of files or containers in an Azure storage account. For more information, see [Add#ResourceFile in REST documentation](/rest/api/batchservice/pool/add#resourcefile).
+For example, you can use the start task command line to move or install applications. You can also specify a list of files or containers in an Azure storage account. For more information, see [ResourceFile in REST documentation](/rest/api/batchservice/pools/create-pool#resourcefile).
 
-If every job that runs on the pool runs an application (.exe) that must first be installed with a .msi file, you'll need to set the start task's **wait for success** property to **true**. For more information, see [Add#StartTask in REST documentation](/rest/api/batchservice/pool/add#starttask).
+If every job that runs on the pool runs an application (.exe) that must first be installed with a .msi file, you'll need to set the start task's **wait for success** property to **true**. For more information, see [StartTask in REST documentation](/rest/api/batchmanagement/pool/create#starttask).
 
 ## Application package references
 

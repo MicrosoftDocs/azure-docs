@@ -108,10 +108,11 @@ To increase the timeout value, follow these steps:
 **Resolution:**
 
 1. Verify that the FQDN entered in the backend pool is correct and that it's a public domain, then try to resolve it from your local machine.
-1. If you can resolve the IP address, there might be something wrong with the DNS configuration in the virtual network.
-1. Check whether the virtual network is configured with a custom DNS server. If it is, check the DNS server about why it can't resolve to the IP address of the specified FQDN.
-1. If you're using Azure default DNS, verify with your domain name registrar that proper A record or CNAME record mapping is complete.
-1. If the domain is private or internal, try to resolve it from a VM in the same virtual network. If you can resolve it, restart Application Gateway and check again. To restart Application Gateway, you need to [stop](/powershell/module/az.network/stop-azapplicationgateway) and [start](/powershell/module/az.network/start-azapplicationgateway) by using the PowerShell commands described in these linked resources.
+2. If you can resolve the IP address, there might be something wrong with the DNS configuration in the virtual network.
+3. Check whether the virtual network is configured with a custom DNS server. If it is, check the DNS server about why it can't resolve to the IP address of the specified FQDN.
+4. If you're using Azure default DNS, verify with your domain name registrar that proper A record or CNAME record mapping is complete.
+5. If the domain is private or internal, try to resolve it from a VM in the same virtual network. If you cannnot resolve it, restart Application Gateway and check again. To restart Application Gateway, you need to [stop](/powershell/module/az.network/stop-azapplicationgateway) and [start](/powershell/module/az.network/start-azapplicationgateway) by using the PowerShell commands described in these linked resources.
+6. If you're using short names (single-label domain names like `server1` instead of a fully-qualified domain name `server1.contoso.com`), verify that your DNS server can resolve the short name. Azure's built-in DNS (168.63.129.16) only resolves short names for resources within the same virtual network. For on-premises short names, use a custom DNS server configured with the appropriate search domains.
 
 ### TCP connect error
 
