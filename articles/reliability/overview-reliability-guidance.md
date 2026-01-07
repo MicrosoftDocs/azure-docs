@@ -42,7 +42,6 @@ The following table provides links to reliability guidance for Azure services. E
 
 | Service | Reliability guide | Other reliability documentation |
 |----------|---------|---------|
-|Azure AI Health Insights| [Reliability in AI Health Insights](reliability-health-insights.md)||
 |Azure AI Search| [Reliability in AI Search](reliability-ai-search.md) ||
 |Azure API Center| [Reliability in Azure API Center](reliability-api-center.md) ||
 |Azure API Management | [Reliability in API Management](reliability-api-management.md) ||

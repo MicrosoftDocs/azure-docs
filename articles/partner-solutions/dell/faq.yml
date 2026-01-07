@@ -17,7 +17,7 @@ sections:
           Dell PowerScale is an enterprise-class, high-performance software-defined file storage solution that brings PowerScale OneFS software to Azure. It's jointly developed and managed by Microsoft and Dell, and available as a native service in the Azure portal and Azure Marketplace.
       - question: How do I provision Dell PowerScale on Azure?
         answer: |
-          You can provision Dell PowerScale directly from the Azure portal or from Azure Marketplace. Search for the service, select your preferred plan, and subscribe. Resources are created through the Dell.Storage resource provider. For more information, see [Create a resource](create.md).
+          You can provision Dell PowerScale directly from the Azure portal or from Azure Marketplace. Search for the service, select your preferred plan, and then subscribe. Resources are created through the *Dell.Storage* resource provider. For more information, see [Create a resource](create.md).
       - question: What protocols are supported?
         answer: |
           Dell PowerScale supports NFS, SMB, and S3 protocols.
@@ -41,4 +41,4 @@ sections:
           For instructions on how to delete a resource, see [Delete a resource](manage.md#delete-a-resource). Note that this action isn't reversible. The data contained in the file system is permanently deleted if you delete the resource.
       - question: Where can I find more documentation and support?
         answer: |
-          Visit the Dell documentation hub and support resources for information about configuration, management, and troubleshooting. See [PowerScale for Public Cloud](https://www.dell.com/support/product-details/en-us/product/apex-file-storage-public-cloud/resources/manuals).
+          For information about configuration, management, and troubleshooting, see [PowerScale for Public Cloud](https://www.dell.com/support/product-details/en-us/product/apex-file-storage-public-cloud/resources/manuals) on the Dell documentation hub.

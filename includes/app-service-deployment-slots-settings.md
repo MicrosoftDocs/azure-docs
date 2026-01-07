@@ -23,7 +23,6 @@ When you clone a configuration from another deployment slot, the cloned configur
 - Service endpoints
 - Azure Content Delivery Network
 - Path mappings
-- Virtual network integration
 
 **When you swap slots, these settings aren't swapped**
 
@@ -40,6 +39,7 @@ When you clone a configuration from another deployment slot, the cloned configur
 - Managed identities
 - Settings ending with the suffix `_EXTENSION_VERSION`
 - Settings that [Service Connector](../articles/service-connector/overview.md) created
+- Virtual network integration
 
 > [!NOTE]
 > Settings marked with * can be made swappable by adding the app setting `WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS` to every slot of the app and setting its value to `0` or `false`. This reverts to legacy swap behavior from before these settings were made slot-specific. When you use this override, these marked settings become either all swappable or all not swappable. You can't make just some settings swappable and not the others.

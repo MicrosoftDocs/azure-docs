@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 12/03/2025
+ms.date: 01/06/2026
 ms.author: mbaldwin
 #customer intent: As a cloud security administrator, I want to understand the shared responsibility model in Azure so that I can clearly identify which security tasks are mine and which are handled by Microsoft.
 ---
@@ -15,18 +15,56 @@ ms.author: mbaldwin
 As you consider and evaluate public cloud services, it's critical to understand the shared responsibility model and which security tasks the cloud provider handles and which tasks you handle. The workload responsibilities vary depending on whether the workload is hosted on Software as a Service (SaaS), Platform as a Service (PaaS), Infrastructure as a Service (IaaS), or in an on-premises datacenter.
 
 ## Division of responsibility
-In an on-premises datacenter, you own the whole stack. As you move to the cloud some responsibilities transfer to Microsoft. The following diagram illustrates the areas of responsibility between you and Microsoft, according to the type of deployment of your stack.
+
+In an on-premises datacenter, you own the whole stack. As you move to the cloud, some responsibilities transfer to Microsoft. The following diagram illustrates the areas of responsibility between you and Microsoft, according to the type of deployment of your stack.
 
 :::image type="content" source="media/shared-responsibility/shared-responsibility.svg" alt-text="Diagram showing responsibility zones." border="false":::
 
 For all cloud deployment types, you own your data and identities. You're responsible for protecting the security of your data and identities, on-premises resources, and the cloud components you control. Cloud components you control vary by service type.
 
+### Responsibility matrix
+
+The following table details the division of responsibility between you and Microsoft for each area of your stack:
+
+| Responsibility area | On-premises | IaaS | PaaS | SaaS |
+|---|---|---|---|---|
+| Customer data | Customer | Customer | Customer | Customer |
+| Configurations and settings | Customer | Customer | Customer | Customer |
+| Identities and users | Customer | Customer | Customer | Customer |
+| Client devices | Customer | Customer | Customer | Shared |
+| Applications | Customer | Customer | Shared | Shared |
+| Network controls | Customer | Customer | Shared | Microsoft |
+| Operating system | Customer | Customer | Microsoft | Microsoft |
+| Physical hosts | Customer | Microsoft | Microsoft | Microsoft |
+| Physical network | Customer | Microsoft | Microsoft | Microsoft |
+| Physical datacenter | Customer | Microsoft | Microsoft | Microsoft |
+
+### Responsibilities you always retain
+
 Regardless of the type of deployment, you always retain the following responsibilities:
 
-- Data
-- Endpoints
-- Account
-- Access management
+- **Data** - You're responsible for your data, including data classification, data protection, encryption decisions, and compliance with data governance requirements.
+- **Endpoints** - You're responsible for protecting client devices and endpoints that access your cloud services, including mobile devices, laptops, and desktops.
+- **Accounts** - You're responsible for managing user accounts, including creating, managing, and removing user access.
+- **Access management** - You're responsible for implementing and managing access controls, including role-based access control (RBAC), multifactor authentication, and conditional access policies.
+
+### Shared responsibilities explained
+
+Some responsibilities are shared between you and Microsoft, with the division varying by service model:
+
+- **Applications** - In IaaS, you're fully responsible for deployed applications. In PaaS and SaaS, Microsoft manages parts of the application stack, but you're responsible for application configuration, code security, and access controls.
+- **Network controls** - In IaaS, you configure all network security including firewalls and network segmentation. In PaaS, Microsoft provides baseline network security, but you configure application-level network controls. In SaaS, Microsoft manages network security.
+- **Client devices** - In SaaS scenarios, Microsoft may provide some device management capabilities, but you're responsible for endpoint protection and compliance.
+
+### Microsoft responsibilities
+
+Microsoft is responsible for the underlying cloud infrastructure, which includes:
+
+- **Physical security** - Securing datacenters, including facilities, physical access controls, and environmental controls.
+- **Physical network** - Managing network infrastructure, including routers, switches, and cables within datacenters.
+- **Physical hosts** - Managing and maintaining the physical servers that host cloud services.
+- **Hypervisor** - Managing the virtualization layer that enables virtual machines in IaaS and PaaS.
+- **Platform services** - In PaaS and SaaS, Microsoft manages operating systems, runtime environments, and middleware.
 
 ## AI Shared Responsibility
 

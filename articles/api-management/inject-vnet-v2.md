@@ -54,7 +54,7 @@ If you want to enable *public* inbound access to an API Management instance in t
 * Minimum: /27 (32 addresses)
 * Recommended: /24 (256 addresses) - to accommodate scaling of API Management instance
 
-### Examples
+#### Examples
 
 The following table shows subnet sizing examples for API Management virtual network injection, illustrating how different CIDR blocks affect the number of scale-out units possible:
 
@@ -64,18 +64,19 @@ The following table shows subnet sizing examples for API Management virtual netw
 | /26         | 64                  | 5                   | 2                            | 1                          | 56                          | 28                   | 29               |
 | /25         | 128                 | 5                   | 2                            | 1                          | 120                         | 30*                  | 30*              |
 
+<sup>*</sup> Premium v2 limit
 
-### Key Points
+#### Key points
 
 - **Minimum subnet size**: /27 (provides 24 usable IP addresses for API Management)
 - **Azure reserved IPs**: 5 addresses per subnet (first and last for protocol conformance, plus 3 for Azure services)
 - **Scale-out requirement**: Each scale-out unit requires 2 IP addresses
 - **Internal load balancer**: Only required when API Management is deployed in internal virtual network mode
-- **Premium V2 limit**: * Currently supports up to 30 units maximum.
+- **Premium V2 limit**: Currently supports up to 30 units maximum.
 
 > [!IMPORTANT]
-> API Management is a member of Azure Integration Services and is typically deployed as a pivotal service in enterprise architectures. It is prudent to err on the higher side of available IPs for the API Management subnet as changing it later can have far-reaching impact.
-> The private IP addresses of internal load balancer and API Management units are assigned dynamically. Therefore, it is impossible to anticipate the private IP of the API Management instance prior to its deployment. Additionally, changing to a different subnet and then returning might cause a change in the private IP address.
+> - API Management is a member of Azure Integration Services and is typically deployed as a pivotal service in enterprise architectures. It is prudent to err on the higher side of available IPs for the API Management subnet as changing it later can have far-reaching impact.
+> - The private IP addresses of internal load balancer and API Management units are assigned dynamically. Therefore, it is impossible to anticipate the private IP of the API Management instance prior to its deployment. Additionally, changing to a different subnet and then returning might cause a change in the private IP address.
 
 ### Network security group
 

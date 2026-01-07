@@ -1,26 +1,26 @@
 ---
 title: Configure WebAssembly Graph Definitions For Data Flow Graphs
-description: Learn how to create and configure WebAssembly graph definitions that define data processing workflows for Azure IoT Operations data flow graphs.
+description: Learn how to create and configure WebAssembly graph definitions that define data processing workflows for Azure IoT Operations data flow graphs and connectors.
 author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-operations
-ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 12/17/2025
+ms.date: 12/16/2025
 ai-usage: ai-assisted
 
 ---
 
-# Configure WebAssembly (WASM) graph definitions for data flow graphs
+# Configure WebAssembly (WASM) graph definitions for data flow graphs and connectors
 
-Graph definitions are central to WASM development because they define how your modules connect to processing workflows. Understanding the relationship between graph definitions and data flow graphs helps you develop effectively.
+Graph definitions are central to WASM development because they define how your modules connect to data flows and connectors. Understanding the relationship between graph definitions and data flow graphs or connectors helps you develop effectively.
 
-WebAssembly (WASM) graph definitions for data flow graphs are generally available.
-
-This article focuses on creating and configuring the YAML graph definitions. For information about deploying and testing WASM data flow graphs, see [Use WebAssembly with data flow graphs](howto-dataflow-graph-wasm.md).
+This article focuses on creating and configuring the YAML graph definitions. For information about deploying and testing data flow graphs, see [Deploy WebAssembly (WASM) modules and graph definitions](howto-deploy-wasm-graph-definitions.md).
 
 > [!IMPORTANT]
 > Data flow graphs currently only support MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage are not supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
+
+> [!IMPORTANT]
+> Currently the only connector that supports graph definitions for custom processing is the HTTP/REST connector.
 
 ## Graph definition structure
 
@@ -75,7 +75,7 @@ moduleRequirements:
 ```
 
 > [!TIP]
-> For guidance on enabling in-band ONNX inference with the `wasi-nn` feature, see [Run ONNX inference in WebAssembly data flow graphs](../develop-edge-apps/howto-wasm-onnx-inference.md).
+> For guidance on enabling in-band ONNX inference with the `wasi-nn` feature, see [Run ONNX inference in WebAssembly data flow graphs](./howto-wasm-onnx-inference.md).
 
 ## Example 1: Simple graph definition
 
@@ -83,7 +83,7 @@ The [simple graph definition](https://github.com/Azure-Samples/explore-iot-opera
 
 :::code language="yaml" source="~/azure-iot-operations-samples/samples/wasm/graph-simple.yaml":::
 
-For step-by-step deployment instructions and testing guidance for this example, see [Example 1: Basic deployment with one WASM module](howto-dataflow-graph-wasm.md#example-1-basic-deployment-with-one-wasm-module).
+For step-by-step deployment instructions, see [Deploy WebAssembly (WASM) modules and graph definitions](howto-deploy-wasm-graph-definitions.md). To try out a data flow that uses this example, see [Example 1: Basic deployment with one WASM module](../connect-to-cloud/howto-dataflow-graph-wasm.md#example-1-basic-deployment-with-one-wasm-module).
 
 ### How the simple graph works
 
@@ -111,7 +111,7 @@ The [complex graph definition](https://github.com/Azure-Samples/explore-iot-oper
 
 :::code language="yaml" source="~/azure-iot-operations-samples/samples/wasm/graph-complex.yaml":::
 
-For step-by-step deployment instructions and testing guidance for this example, see [Example 2: Deploy a complex graph](howto-dataflow-graph-wasm.md#example-2-deploy-a-complex-graph).
+For step-by-step deployment instructions, see [Deploy WebAssembly (WASM) modules and graph definitions](howto-deploy-wasm-graph-definitions.md). To try out a data flow that uses this example, see [Example 2: Deploy a complex graph](../connect-to-cloud/howto-dataflow-graph-wasm.md#example-2-deploy-a-complex-graph).
 
 ### How the complex graph works
 
@@ -196,7 +196,7 @@ The Azure Resource Manager or Kubernetes resource "wraps" the graph definition a
 
 For example, this diagram illustrates the relationship between graph definitions, WASM modules, and data flow graphs:
 
-:::image type="content" source="media/howto-develop-wasm-modules/wasm-dataflow-overall-architecture.svg" alt-text="Diagram showing the relationship between graph definitions, WASM modules, and data flow graphs." border="false":::
+:::image type="content" source="media/howto-configure-wasm-graph-definitions/wasm-dataflow-overall-architecture.svg" alt-text="Diagram showing the relationship between graph definitions, WASM modules, and data flow graphs." border="false":::
 
 <!--
 ```mermaid
@@ -240,6 +240,8 @@ graph LR
 ```
 -->
 
+To learn more about how to configure data flow graphs, see [Use WebAssembly with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md).
+
 ## Registry deployment
 
 Both graph definitions and WASM modules must be uploaded to a container registry as Open Container Initiative (OCI) artifacts before data flow graphs can reference them:
@@ -251,7 +253,7 @@ Both graph definitions and WASM modules must be uploaded to a container registry
 
 The separation enables reusable logic where the same graph definition deploys with different endpoints. It provides environment independence where development, staging, and production use different data sources. It also supports modular deployment where you update endpoint configurations without changing processing logic.
 
-For detailed instructions on uploading graph definitions and WASM modules to registries, see [Use WebAssembly with data flow graphs](howto-dataflow-graph-wasm.md). For complete deployment workflows including registry setup, authentication, and testing, see the examples in that guide.
+For detailed instructions on uploading graph definitions and WASM modules to registries, see [Deploy WebAssembly (WASM) modules and graph definitions](howto-deploy-wasm-graph-definitions.md).
 
 ## Module configuration parameters
 
@@ -278,7 +280,5 @@ For a complete implementation example, see the [branch module](https://github.co
 ## Next steps
 
 - [Develop WebAssembly modules for data flow graphs](howto-develop-wasm-modules.md)
-- [Use WebAssembly with data flow graphs](howto-dataflow-graph-wasm.md)
-- [Configure data flow endpoints](howto-configure-dataflow-endpoint.md)
-- [Configure registry endpoints](howto-configure-registry-endpoint.md)
-- [Configure MQTT data flow endpoints](howto-configure-mqtt-endpoint.md)
+- [Use WebAssembly with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md)
+- [Configure registry endpoints](../connect-to-cloud/howto-configure-registry-endpoint.md)

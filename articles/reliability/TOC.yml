@@ -10,8 +10,6 @@ items:
     href: overview-reliability-guidance.md
   - name: AI and machine learning
     items:
-    - name: Azure AI Health Insights
-      href: reliability-health-insights.md
     - name: Azure AI Search
       href: reliability-ai-search.md
     - name: Azure Bot Service 

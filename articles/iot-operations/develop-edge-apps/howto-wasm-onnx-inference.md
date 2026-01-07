@@ -4,7 +4,6 @@ description: Learn how to package and run ONNX models inside WebAssembly modules
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
-ms.subservice: azure-data-flows
 ms.topic: how-to
 ms.date: 11/24/2025
 ai-usage: ai-assisted
@@ -171,7 +170,7 @@ moduleConfigurations:
         required: false
 ```
 
-Your operator `init` can read these values through the module configuration interface. For details, see [Module configuration parameters](../connect-to-cloud/howto-configure-wasm-graph-definitions.md#module-configuration-parameters).
+Your operator `init` can read these values through the module configuration interface. For details, see [Module configuration parameters](./howto-configure-wasm-graph-definitions.md#module-configuration-parameters).
 
 ## Package the model
 
@@ -303,5 +302,5 @@ Inference in WASM data flow graphs has the following limitations:
 ## Next steps
 
 - [Develop WebAssembly modules](./howto-develop-wasm-modules.md)
-- [Configure WebAssembly graph definitions](../connect-to-cloud/howto-configure-wasm-graph-definitions.md)
+- [Configure WebAssembly graph definitions](./howto-configure-wasm-graph-definitions.md)
 - [Use WebAssembly with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md)

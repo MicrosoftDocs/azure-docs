@@ -184,7 +184,7 @@ If you're not using an LLM framework integration, you can interact with the sess
 
 ## Execute code in a session
 
-To execute code in a session, send a `POST` request to the `code/execute` endpoint with the code to run in the request body.
+To execute code in a session, send a `POST` request to the `code/execute` endpoint with the code to run in the request body. Each code execution is limited to a maximum runtime of 220 seconds.
 
 The following example prints `Hello, world!` in Python.
 

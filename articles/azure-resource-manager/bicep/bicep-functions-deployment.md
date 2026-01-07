@@ -3,7 +3,7 @@ title: Bicep functions - deployment
 description: Describes the functions to use in a Bicep file to retrieve deployment information.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 12/22/2025
+ms.date: 01/06/2026
 ---
 
 # Deployment functions for Bicep
@@ -61,59 +61,13 @@ For more information about Azure identities, see [What is an Azure Active Direct
 
 `deployment()`
 
-Returns information about the current deployment operation.
+Returns information about the current deployment operation. 
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
 ### Return value
 
-This function returns the object that is passed during deployment. The properties in the returned object differ based on whether you are:
-
-- deploying a local Bicep file.
-- deploying to a resource group or deploying to one of the other scopes ([Azure subscription](deploy-to-subscription.md), [management group](deploy-to-management-group.md), or [tenant](deploy-to-tenant.md)).
-
-When deploying a local Bicep file to a resource group, the function returns the following format:
-
-```json
-{
-  "name": "",
-  "properties": {
-    "template": {
-      "$schema": "",
-      "contentVersion": "",
-      "parameters": {},
-      "variables": {},
-      "resources": [],
-      "outputs": {}
-    },
-    "templateHash": "",
-    "parameters": {},
-    "mode": "",
-    "provisioningState": ""
-  }
-}
-```
-
-When you deploy to an Azure subscription, management group, or tenant, the return object includes a `location` property. The `location` property isn't included when deploying a local Bicep file. The format is:
-
-```json
-{
-  "name": "",
-  "location": "",
-  "properties": {
-    "template": {
-      "$schema": "",
-      "contentVersion": "",
-      "resources": [],
-      "outputs": {}
-    },
-    "templateHash": "",
-    "parameters": {},
-    "mode": "",
-    "provisioningState": ""
-  }
-}
-```
+Bicep files are sometimes compiled to [languageVersion 2.0](../templates/syntax.md#languageversion-20) ARM templates. Therefore, Bicep type checking considers the `deployment()` function to return only the subset of properties as would be returned in a languageVersion 2.0 ARM template. For more information, see [deployment() function for languageVersion 2.0](../templates/template-functions-deployment.md#deployment ).
 
 ### Example
 
@@ -127,23 +81,23 @@ The preceding example returns the following object:
 
 ```json
 {
-  "name": "deployment",
+  "name": "deploymentOutput",
+  "location": "",
   "properties": {
     "template": {
-      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
-      "resources": [],
-      "outputs": {
-        "deploymentOutput": {
-          "type": "Object",
-          "value": "[deployment()]"
+      "metadata": {
+        "_EXPERIMENTAL_WARNING": "This template uses ARM features that are experimental. Experimental features should be enabled for testing purposes only, as there are no guarantees about the quality or stability of these features. Do not enable these settings for any production usage, or your production environment may be subject to breaking.",
+        "_EXPERIMENTAL_FEATURES_ENABLED": [
+          "Asserts"
+        ],
+        "_generator": {
+          "name": "bicep",
+          "version": "0.39.26.7824",
+          "templateHash": "10348958332696598785"
         }
       }
-    },
-    "templateHash": "13135986259522608210",
-    "parameters": {},
-    "mode": "Incremental",
-    "provisioningState": "Accepted"
+    }
   }
 }
 ```
