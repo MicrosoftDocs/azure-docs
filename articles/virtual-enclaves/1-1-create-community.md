@@ -23,7 +23,7 @@ Azure Virtual Enclaves is an Azure service that accelerates and streamlines the 
 
 Communities are isolated hub networks that can securely and logically group several enclaves together for governance, management, and security purposes. A community owner can enable other communities or on-premises networks to connect through transit hub or endpoints.
 
-In this tutorial, part one of eight, you prepare a monitored and secure network cloud environment in the Azure portal using Azure Virtual Enclaves. One [enclave](./what-enclave.md) contains web applications and is publicly accessible by routing traffic through a second enclave with a Web Application Gateway, Web Application Firewall, and a Public IP address. An [enclave endpoint](./what-enclave-endpoint.md) for the Web App and establishing an [enclave connection](./what-enclave-connection.md) between the Web App enclave and second enclaves enables the networking behavior described above.
+In this tutorial, part one of eight, you prepare a monitored and secure network cloud environment in the Azure portal using Azure Virtual Enclaves. One [enclave](./what-enclave.md) contains web applications and is publicly accessible by routing traffic through a second enclave with a Web Application Gateway, Web Application Firewall, and a Public IP address. An [enclave endpoint](./what-enclave-endpoint.md) for the Web App and creating an [enclave connection](./what-enclave-connection.md) between the Web App enclave and second enclaves enables Web App access.
 
 You learn how to:
 - ✅ Plan your community architecture and address space
@@ -36,15 +36,15 @@ You learn how to:
 
 **Azure requirements:**
 - ✅ Azure subscription with appropriate quotas
-- ✅ Required Azure RBAC roles:
+- ✅ Required Azure role permissions for Role Based Access Control (RBAC):
   - Contributor on subscription or resource group
-  - User Access Administrator (for RBAC assignments)
+  - User Access Administrator (for other RBAC assignments)
 - ✅ Azure CLI or PowerShell installed (optional, for validation)
 
 **Knowledge:**
 - Basic understanding of Azure networking concepts
 - Familiarity with Azure Resource Manager
-- Understanding of private IP addressing (RFC 1918)
+- Understanding of private IP addressing
 
 ## Before you begin
 
@@ -59,10 +59,10 @@ Calculate the total IP space needed for all planned enclaves:
 - **Estimate enclave count**: Plan for current needs plus 20-30% growth
 - **Calculate required space**: Each enclave typically needs /16 to /24 CIDR
 - **Avoid overlaps**: Ensure no overlap with on-premises networks or other Azure environments
-- **Cannot be changed**: Address space cannot be modified after creation
+- **Can't be changed**: Address space can't be modified after creation
 
 **Example calculation:**
-- Planning 5 enclaves, each with /16 CIDR (65,536 IPs each and 327,680 IPs total)
+- Planning five enclaves, each with /16 CIDR (65,536 IPs each and 327,680 IPs total)
 - Minimum community CIDR: /12 (1,048,576 IPs total)
 - Recommended: /11 or /10 for growth buffer
 
@@ -100,7 +100,7 @@ Establish naming standards before deployment:
 Choose the Azure region based on:
 
 **Data residency requirements:**
-- Regulatory compliance (e.g., GDPR, HIPAA)
+- Regulatory compliance (for example, General Data Protection Regulation (GDPR), HIPAA)
 - Data sovereignty requirements
 - Industry-specific regulations
 
@@ -157,7 +157,7 @@ Communities provide multiple security layers:
 
 **Network security:**
 - Isolated network boundaries with Azure Firewall
-- Default deny for all traffic
+- Deny network traffic by default
 - Explicit allow rules through community and enclave endpoints
 - Network traffic logging for audit and compliance
 
@@ -206,7 +206,7 @@ Before creating a community, you need a resource group. An Azure resource group 
 
 ### Deploy the community
 
-Community deployments take approximately **30-45 minutes** to complete. Azure Virtual Enclaves provisions several components including networking, firewall, and monitoring infrastructure.
+Community deployments take approximately **30-45 minutes** to complete. Azure Virtual Enclaves creates several resources including networking, firewall, and monitoring infrastructure.
 
 #### Step 1: Navigate to Azure Virtual Enclaves
 
@@ -238,7 +238,7 @@ Community deployments take approximately **30-45 minutes** to complete. Azure Vi
 | **Subscription** | Azure subscription to bill resources | Use subscription with adequate quotas |
 | **Resource Group** | Logical container for community resources | Create new or use existing |
 | **Community name** | Unique identifier for the community | Follow naming convention, 3-24 characters |
-| **Region** | Azure region for deployment | Cannot be changed after creation |
+| **Region** | Azure region for deployment | Can't be changed after creation |
 | **Address space** | Private IP range for community | Must be RFC 1918, plan for growth |
 
 **Address space guidance:**
@@ -251,7 +251,7 @@ Private IP address ranges (RFC 1918):
 **For this tutorial:**
 - Using `10.0.0.0/16` provides 65,536 IP addresses
 - Sufficient for 3-5 enclaves with moderate-sized subnets
-- Consider larger CIDR (e.g., /14 or /12) for production to allow growth
+- Consider larger CIDR (for example, /14 or /12) for production to allow growth
 
 > [!CAUTION]
 > The community address space **cannot be changed** after deployment. Plan carefully and allocate sufficient space for future growth.
@@ -273,8 +273,8 @@ Private IP address ranges (RFC 1918):
 
 **What happens during deployment:**
 
-The deployment process provisions:
-1. **Virtual Network**: Hub VNet with community address space
+The deployment process creates:
+1. **Virtual Network**: Hub virtual network with community address space
 2. **Azure Firewall**: Premium or Standard tier for traffic filtering
 3. **Firewall Policy**: Default rules and policies
 4. **Log Analytics Workspace**: For monitoring and diagnostics
@@ -286,7 +286,7 @@ The deployment process provisions:
 - Track deployment status in Azure portal notifications
 - Review deployment logs if issues occur
 - Estimated time: 30-45 minutes
-- Status will show "Running" then "Succeeded"
+- Status shows "Running" then "Succeeded"
 
 ## Validate deployment
 
@@ -313,14 +313,14 @@ After the community deployment completes, perform these validation steps to ensu
 2. Review the resources created:
 
 **Expected resources in managed resource group:**
-- Virtual Network (VNet) with community address space
+- Virtual Network (virtual network) with community address space
 - Azure Firewall or Firewall Policy
 - Public IP address for firewall
 - Route tables
 - Network security groups
 
 **Verify Virtual Network:**
-- Navigate to the VNet in the managed resource group
+- Navigate to the virtual network in the managed resource group
 - Check address space matches your configuration
 - Confirm subnets created for firewall and other components
 
@@ -336,7 +336,7 @@ After the community deployment completes, perform these validation steps to ensu
 - Metrics collection enabled
 
 **Verify logging is working:**
-Adjust the `ago(1hr)` if more time has passed since deployment.
+Adjust the `ago(1hr)` if more time passed since the deployment.
 ```kusto
 // Query to verify logs are flowing (run in Log Analytics)
 AzureDiagnostics
@@ -353,7 +353,7 @@ AzureDiagnostics
 
 **Expected roles:**
 - Your user account should have appropriate permissions
-- Azure Virtual Enclaves service principal may have assignments
+- Azure Virtual Enclaves service principal might have assignments
 - Review inherited permissions from subscription/resource group
 
 ### Validation checklist
@@ -366,7 +366,7 @@ After deployment, confirm:
 - [ ] Azure Firewall deployed and running
 - [ ] Log Analytics workspace connected
 - [ ] Diagnostic settings enabled
-- [ ] RBAC permissions configured
+- [ ] RBAC permissions are configured
 - [ ] No deployment errors in activity log
 
 ## Clean up resources
@@ -374,19 +374,19 @@ After deployment, confirm:
 If you need to delete your community after completing this tutorial:
 
 > [!WARNING]
-> Deleting a community is **permanent** and **cannot be undone**. All enclaves, workloads, and resources within the community will also be deleted. Deletion will be blocked if any of the workload resources groups contain resources to prevent accidental deletion.
+> Deleting a community is **permanent** and **cannot be undone**. All enclaves, workloads, and resources within the community are deleted. Deletion is blocked if any of the workload resources groups contain resources to prevent accidental deletion.
 
 **Before deleting:**
 1. Export any important configurations or data
 2. Document network settings for reference
 3. Notify team members of planned deletion
-4. Remove any dependencies (VNet peering, connections)
+4. Remove any dependencies (virtual network peering, connections)
 
 **To delete a community:**
 
 1. Navigate to Azure Virtual Enclaves in Azure portal
 2. Select **Communities** from the left menu
-3. Select the community to delete (e.g., `fabrikam`)
+3. Select the community to delete (for example, `fabrikam`)
 4. Select **Delete** from the top menu
 5. Type the community name to confirm deletion
 6. Select **Delete**
@@ -405,7 +405,7 @@ az resource delete \
 **What gets deleted:**
 - Community resource
 - All enclaves within the community
-- All workloads and workload resource groups (if they are empty)
+- All workloads and workload resource groups (if they're empty)
 - Managed resource groups
 - Azure Firewall and associated resources
 - Log Analytics workspace (if not shared)
@@ -417,7 +417,7 @@ az resource delete \
 
 ## Next steps
 
-Congratulations! You've successfully deployed an Azure Virtual Enclaves community.
+Congratulations! You successfully deployed an Azure Virtual Enclaves community.
 
 In the next tutorial, you'll learn how to create isolated enclaves within your community to host workloads.
 
@@ -440,16 +440,16 @@ In the next tutorial, you'll learn how to create isolated enclaves within your c
 Deployment fails with error message about address space conflicts
 
 **Possible causes:**
-1. Address space overlaps with existing VNet in subscription
+1. Address space overlaps with existing virtual network in subscription
 2. Address space conflicts with on-premises network
-3. Address space overlaps with VNet peering connections
+3. Address space overlaps with virtual network peering connections
 
 **Resolution steps:**
 1. Review existing VNets in your subscription:
    ```azurecli
    az network vnet list --output table
    ```
-2. Choose a different, non-overlapping CIDR block
+2. Choose a different, nonoverlapping CIDR block
 3. Verify with network team if using hybrid connectivity
 4. Restart deployment with new address space
 
@@ -470,12 +470,12 @@ Deployment running for more than 60 minutes
 1. Check Azure status page for service health issues
 2. Review deployment logs in Activity Log
 3. Contact Azure support if deployment exceeds 90 minutes
-4. Do not cancel deployment unless explicitly advised
+4. Don't cancel deployment unless explicitly advised
 
 **Prevention:**
 Deploy during off-peak hours when possible
 
-### Issue: Cannot access community after deployment
+### Issue: Can't access community after deployment
 
 **Symptom:**
 Community deployed but inaccessible in portal
@@ -516,7 +516,7 @@ Be aware of the ongoing costs associated with a community:
 - **Azure Firewall**: Largest cost component
   - Premium tier: ~$0.875/hour + $0.016/GB processed
   - Standard tier: ~$1.25/hour + $0.016/GB processed
-- **Virtual Network**: Minimal cost (VNet peering charges may apply)
+- **Virtual Network**: Minimal cost (virtual network peering charges might apply)
 - **Public IP addresses**: ~$0.004/hour per IP
 - **Log Analytics**: Based on data ingestion and retention
 - **Virtual Network Gateways**: If using hybrid connectivity
@@ -525,4 +525,4 @@ Be aware of the ongoing costs associated with a community:
 - Use Standard tier firewall for dev/test
 - Configure log retention policies appropriately
 - Monitor and right-size resources
-- Use Azure Cost Management for tracking
+- Use Microsoft Cost Management for tracking
