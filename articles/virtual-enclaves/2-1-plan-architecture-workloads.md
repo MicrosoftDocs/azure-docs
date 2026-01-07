@@ -10,7 +10,7 @@ ms.custom: references_region
 
 # Tutorial 2-1: Plan your architecture for AVD and AKS workloads in Azure Virtual Enclaves
 
-This tutorial helps you plan and design your Azure Virtual Enclaves (AVE) architecture for deploying Azure Virtual Desktop (AVD) and Azure Kubernetes Service (AKS) workloads. Proper planning ensures optimal security, network isolation, and resource organization.
+This tutorial helps you plan your Azure Virtual Enclaves (AVE) architecture for deploying Azure Virtual Desktop (AVD) and Azure Kubernetes Service (AKS) workloads. Proper planning ensures optimal security, network isolation, and resource organization.
 
 In this tutorial, you learn how to:
 - ✅ Plan your enclave topology for workload isolation
@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-This tutorial assumes understanding of the concepts covered in tutorials 1-8:
+This tutorial assumes understanding of these concepts:
 - [Tutorial 1: Deploy a community](./1-1-create-community.md)
 - [Tutorial 2: Create enclaves inside a community](./1-2-create-enclaves-inside-community.md)
 - [Tutorial 3: Create workloads inside an enclave](./1-3-create-workloads-inside-enclave.md)
@@ -32,7 +32,7 @@ This tutorial assumes understanding of the concepts covered in tutorials 1-8:
 
 ## Architecture overview
 
-The following diagram shows the architecture you'll build across tutorials 10-13. This includes a community hub with firewall, separate enclaves for AVD and AKS workloads, and the necessary endpoints and connections.
+The following diagram shows the architecture tutorials 2-1 through 2-4. The architecture includes a community hub with firewall, separate enclaves for AVD and AKS workloads, and the necessary endpoints and connections.
 
 [ ![Diagram showing the complete architecture for AVD and AKS workloads in Azure Virtual Enclaves.](./media/mermaid-tutorial-avd-aks-architecture.png) ](./media/mermaid-tutorial-avd-aks-architecture.png#lightbox)
 
@@ -111,22 +111,22 @@ flowchart TB
     end
   end
 
-  ExtUsers -->|RDP/HTTPS| AzureServices
+  ExtUsers -->|RDP HTTPS| AzureServices
   AzureServices -->|Managed Traffic| Firewall
   Firewall --> CE_AVD
   Firewall --> CE_AKS
   CE_AVD -->|Allow AVD URLs| AVD_Hosts
   CE_AVD -->|Allow AVD URLs| AVD_Mgmt
   CE_AKS -->|Allow AKS URLs| AKS_Nodes
-  AVD_Hosts -.->|Session Access| SessionHosts
-  AVD_Mgmt -.->|Management| HostPool
+  AVD_Hosts --->|Session Access| SessionHosts
+  AVD_Mgmt --->|Management| HostPool
   EE_AVD_Mgmt -->|Enclave Connection| Shared_Resources
   EE_AKS_Mgmt -->|Enclave Connection| Shared_Resources
-  AKS_Nodes -.->|Workloads| Pods
-  AKS_API -.->|API Server| AKSCluster
+  AKS_Nodes --->|Workloads| Pods
+  AKS_API --->|API Server| AKSCluster
 
   %% Styling
-  linkStyle default stroke-width:2px,stroke:#666;
+  linkStyle default stroke-width:2px,stroke:Black;
   
   classDef internet fill:#f9f9f9,stroke:#999,color:#000;
   classDef community fill:#00A4EF,stroke:#004578,color:#fff;
