@@ -27,7 +27,7 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | -------------- | ----------------------- | ----------------------------- | -------------------------------- | -------- |---------|---------|---------|-----|
 | Australia East | Australia East (Sydney) | ✓         | ✓      | ✓ | ✓ | Preview available | ✓|  Dual   |
 | Australia Southeast | Australia Southeast (Melbourne) | ✓        | ✓ | | |  | |   Dual   |
-| Central India | India West (Mumbai) | ✓  | ✓ | | | | |   Single   |
+| Central India | India West (Mumbai) | ✓  | ✓ | | | | |   Dual   |
 | Japan East | Japan East (Tokyo) | ✓  | ✓  | ✓ | ✓ | ✓ | ✓ |   Dual   |
 | Japan West | Japan Central (Osaka) | ✓  | ✓ | | | | |   Single   |
 | South India | 	India South (Chennai) | ✓  | ✓ | | | | |   Single   |
@@ -54,7 +54,7 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | North Europe | Ireland (Dublin) | ✓  | ✓ |   | | | ✓ |   Dual   |
 | Spain Central | 	Spain Central (Madrid) | ✓  | ✓ |  |  | | |   Dual    |
 | Sweden Central | 	Sweden Central (Stockholm) | ✓  | ✓ | | ✓ | | |   Dual    |
-| Switzerland North | Switzerland North (Zurich) | ✓  | ✓ | | | | |   Single    |
+| Switzerland North | Switzerland North (Zurich) | ✓  | ✓ | | | | |   Dual    |
 | UAE Central | UAE Central (Abu Dhabi) | ✓  | ✓ | | | | |   Single    |
 | UAE North | UAE North (Dubai) | ✓  | ✓ | ✓ | | | ✓ |   Dual    |
 | UK South| UK South (London)   | ✓   | ✓   | ✓ | ✓ | ✓ | ✓ | Dual |
@@ -73,7 +73,7 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | East US 2        | US East (Ashburn)  | ✓    | ✓  | ✓  |  ✓   |   |  | Dual     |
 | North Central US | US Midwest (Chicago) | ✓  |  ✓ |  |  |  |  | Single   |
 | South Central US | US South (Dallas)| ✓  |  ✓  | |  |   |   | Dual |
-| West US          | US West (San Jose) | ✓    | ✓  | ✓  |  ✓   |  Preview available  |  | Single   |
+| West US          | US West (San Jose) | ✓    | ✓  | ✓  |  ✓   |  Preview available  | ✓ | Single   |
 | West US 2        | US West (Quincy) | ✓  | ✓ |  ✓ |   |  |  | Dual |
 | West US 3        | US West (Phoenix) | ✓ |   |  ✓ |   |  |  | Dual   |
 
