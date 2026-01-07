@@ -10,7 +10,7 @@ ms.custom: references_region
 
 # Tutorial 2-3: Deploy Azure Virtual Desktop (AVD) workload in Azure Virtual Enclaves
 
-This tutorial guides you through deploying Azure Virtual Desktop (AVD) in Azure Virtual Enclaves. You'll create AVD infrastructure including host pools, session hosts, application groups, and FSLogix storage, all secured within your enclave boundary.
+This tutorial guides you through deploying Azure Virtual Desktop (AVD) in Azure Virtual Enclaves. You create AVD infrastructure including host pools, session hosts, application groups, and FSLogix storage, all secured within your enclave boundary.
 
 In this tutorial, you learn how to:
 - ✅ Deploy AVD community endpoint for external connectivity
@@ -37,7 +37,7 @@ AVD requires an identity solution for user authentication. You have two options:
 
 | Solution | Requirements | Best For |
 |----------|--------------|----------|
-| **Microsoft Entra ID** | - Microsoft Entra tenant<br>- Users synced or cloud-only<br>- Microsoft Entra join for VMs | Cloud-native organizations |
+| **Microsoft Entra ID** | - Microsoft Entra tenant<br>- Users synced or cloud-only<br>- Microsoft Entra joined VMs | Cloud-native organizations |
 | **Active Directory Domain Services (AD DS)** | - Domain controller accessible from enclave<br>- Domain join for VMs<br>- Can be hybrid with Microsoft Entra Connect | Existing AD infrastructure |
 
 This tutorial supports both options. Choose the appropriate parameters during deployment.
@@ -63,8 +63,8 @@ The AVD community endpoint enables session hosts to communicate with AVD control
 2. Select **+ Add an Azure Service**.
 3. Search for and select **Azure Virtual Desktop Community Endpoint**.
 4. Configure the deployment:
-   - **Resource group**: Select your workload resource group (e.g., `rg-avd-workload`)
-   - **Community Resource Name**: Select your community (e.g., `fabrikam`)
+   - **Resource group**: Select your workload resource group (for example, `rg-avd-workload`)
+   - **Community Resource Name**: Select your community (for example, `fabrikam`)
    - **Community Endpoint Name**: `ce-avd-services`
    - **Include AVD URLs**: Check all required URLs:
      - `*.wvd.microsoft.com`
@@ -90,7 +90,7 @@ The AVD enclave template prepares your enclave with required subnets and network
    - **Location**: Same as enclave region
    
    **Network configuration:**
-   - **Virtual Network Name**: Leave default (uses enclave VNet)
+   - **Virtual Network Name**: Leave default (uses enclave virtual network)
    - **Management Subnet Name**: `AzureVirtualDesktopManagementSubnet`
    - **Session Hosts Subnet Name**: `AzureVirtualDesktopSessionHostsSubnet`
    - **Create NSGs**: **Yes** (if not already created)
@@ -129,7 +129,7 @@ Now deploy the AVD workload with host pool, session hosts, and supporting infras
 #### Session Host Configuration
 
 - **Session Host Name Prefix**: `avd-sh-`
-- **Virtual Machine Size**: `Standard_D4s_v5` (4 vCPU, 16 GB RAM minimum)
+- **Virtual Machine Size**: `Standard_D4s_v5` (4 vCPU, 16 GB of RAM minimum)
 - **Number of Session Hosts**: `2` (start small, scale later)
 - **OS Disk Type**: `Premium_LRS`
 - **Image Reference**: 
@@ -141,7 +141,7 @@ Now deploy the AVD workload with host pool, session hosts, and supporting infras
 #### Network Configuration
 
 - **Virtual Network Resource Group**: `avd-enclave-HostedResources-<guid>` (enclave MRG)
-- **Virtual Network Name**: Enclave VNet name
+- **Virtual Network Name**: Enclave virtual network name
 - **Subnet Name**: `AzureVirtualDesktopSessionHostsSubnet`
 
 #### Identity and Domain
@@ -236,7 +236,7 @@ Users need to be assigned to the application group to access AVD.
 
 ### Using Azure portal
 
-1. Navigate to your **Application Group** (e.g., `ag-desktop-prod`).
+1. Navigate to your **Application Group** (for example, `ag-desktop-prod`).
 2. Select **Assignments** > **+ Add**.
 3. Search for and select users or groups.
 4. Select **Select**.
@@ -292,7 +292,7 @@ Perform these validation steps to ensure proper deployment:
 
 ### Check session host status
 
-1. Navigate to your **Host Pool** (e.g., `hp-prod-01`)
+1. Navigate to your **Host Pool** (for example, `hp-prod-01`)
 2. Select **Session hosts**
 3. Verify all hosts show status: **Available**
 4. Check **Agent version** is current
@@ -370,7 +370,7 @@ Enable and configure AVD Insights for comprehensive monitoring.
 - Ensure DNS resolution works for domain FQDN
 - Verify OU path is correct (if specified)
 
-### Users cannot connect
+### Users can't connect
 
 **Symptom**: Connection fails during authentication
 
@@ -388,11 +388,11 @@ Enable and configure AVD Insights for comprehensive monitoring.
 - Verify storage account private endpoint is created
 - Check SMB connectivity on port 445
 - Verify users have RBAC permissions on file share
-- Check VNet link for private DNS zone
+- Check virtual network link for private DNS zone
 
 ### Poor performance
 
-**Symptom**: Slow or laggy sessions
+**Symptom**: Slow response sessions
 
 **Solutions**:
 - Check session host VM size is adequate
@@ -426,7 +426,7 @@ az group delete --name rg-avd-infrastructure --yes --no-wait
 ```
 
 > [!WARNING]
-> Deleting resources is permanent and cannot be undone.
+> Deleting resources is permanent and can't be undone.
 
 ## Next steps
 
