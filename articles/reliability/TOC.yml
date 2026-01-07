@@ -228,6 +228,8 @@ items:
       href: reliability-firewall.md
     - name: Azure Load Balancer
       href: reliability-load-balancer.md 
+    - name: Azure NAT Gateway
+      href: reliability-nat-gateway.md
     - name: Azure Network Watcher
       href: ../network-watcher/frequently-asked-questions.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#service-availability-and-redundancy
     - name: Azure Private Link

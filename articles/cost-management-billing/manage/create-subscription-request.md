@@ -8,7 +8,7 @@ ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/21/2025
+ms.date: 01/06/2026
 ms.custom: sfi-image-nochange
 service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---

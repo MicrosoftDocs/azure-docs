@@ -65,6 +65,8 @@ items:
 - name: Release notes
   expanded: false
   items: 
+    - name: "2026"
+      href: release-notes-2026.md
     - name: "2025"
       href: release-notes-2025.md
     - name: "2024"

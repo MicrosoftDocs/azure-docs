@@ -21,9 +21,16 @@ The gateway in API Management services created on or after 1 December 2025 no lo
 
 ## Is my service affected by this change?
 
+Trusted service connectivity retirement affects scenarios where the API Management gateway needs to communicate with Azure Storage, Key Vault, Key Vault Managed HSM, Service Bus, Event Hubs, or Container Registry services when they're configured as backends or accessed through policies such as `send-request`.
+
+> [!IMPORTANT]
+> Trusted service connectivity remains supported for API Management control plane operations. The following scenarios continue to work without changes when using trusted service connectivity:
+> - Accessing Azure Storage for backup and restore
+> - Accessing Azure Key Vault for managing named values, backend credentials, or custom hostname certificates
+
 First, check for an Azure Advisor recommendation:
 
-1. In the Azure portal, go to [Advisor](https://ms.portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/overview)
+1. In the Azure portal, go to [Advisor](https://ms.portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/overview).
 1. Select the **Recommendations > Operational excellence** category.
 1. Search for "**Disable trusted service connectivity in API Management**".
 

@@ -4,7 +4,7 @@ description: Understand business continuity, high availability, and disaster rec
 author: anaharris-ms
 ms.service: azure
 ms.topic: conceptual
-ms.date: 01/17/2025
+ms.date: 11/04/2025
 ms.author: anaharris
 ms.custom: subject-reliability
 ms.subservice: azure-reliability
@@ -41,6 +41,8 @@ To control or completely avoid a negative impact on business continuity, it's im
 A business continuity plan doesn't only take into consideration the resiliency features of the cloud platform itself but also the features of the application. A robust business continuity plan also incorporates all aspects of support in the business including people, business-related manual or automated processes, and other technologies.
 
 Business continuity planning should include the following sequential steps:
+
+1. **Criticality tier classification**. Workloads can be classified into different *criticality tiers* based on their importance to the business. Each tier has different requirements for availability, and therefore different requirements for business continuity planning. To determine your workload's critical tier, see [Well-Architected Framework - Select your criticality tier](/azure/well-architected/design-guides/disaster-recovery#select-your-criticality-tier).
 
 1. **Risk identification**. Identify risks to a workload's availability or functionality. Possible risks could be network issues, hardware failures, human error, region outage, etc. Understand the impact of each risk.
  
@@ -83,7 +85,7 @@ Here are some examples:
  
 Business continuity plans must address both common and uncommon risks.
 
-- *Common risks* are planned and expected. For example, in a cloud environment it's common for there to be *transient failures* including brief network outages, equipment restarts due to patches, timeouts when a service is busy, and so forth. Because these events happen regularly, workloads need to be resilient to them.
+- *Common risks* are planned and expected. For example, in a cloud environment it's common for there to be *transient failures* or *blips*,including brief network outages, equipment restarts due to patches, timeouts when a service is busy, and so forth. Because these events happen regularly, workloads need to be resilient to them.
 
   A high availability strategy must consider and control for each risk of this type.
 
@@ -93,7 +95,8 @@ Business continuity plans must address both common and uncommon risks.
 
 High availability and disaster recovery are interrelated, and so it's important to plan strategies for both of them together.
 
-It's important to understand that risk classification depends on workload architecture and the business requirements, and some risks can be classified as HA for one workload and DR for another workload. For example, a full Azure region outage would generally be considered a DR risk to workloads in that region. But for workloads that use multiple Azure regions in an active-active configuration with full replication, redundancy, and automatic region failover, a region outage is classified as an HA risk.
+Risk classification depends on workload architecture and the business requirements, and some risks can be classified as HA for one workload and DR for another workload. For example, a full Azure region outage would generally be considered a DR risk to workloads in that region. But for workloads that use multiple Azure regions in an active-active configuration with full replication, redundancy, and automatic region failover, a region outage is classified as an HA risk.
+
 
 #### Risk mitigation
 
@@ -283,7 +286,11 @@ Regardless of the cause of the disaster, it's important that you create a well-d
 
 DR isn't an automatic feature of Azure. However, many services do provide features and capabilities that you can use to support your DR strategies. You should review the [reliability guides for each Azure service](./overview-reliability-guidance.md) to understand how the service works and its capabilities, and then map those capabilities to your DR plan.
 
-The following sections list some common elements of a disaster recovery plan, and describe how Azure can help you to achieve them.
+A strong DR plan turns strategy into decisive action. It provides a clear roadmap for responding to disasters, minimizing downtime, and ensuring business continuity.
+
+To make this possible, every DR plan should be documented to include a clear runbook, a well-defined communication plan, and a structured escalation path. To learn more about these DR plan elements, see [Well-Architected Framework - Document your DR plan](/azure/well-architected/design-guides/disaster-recovery#document-your-dr-plan).
+
+The following sections list some common approaches in a disaster recovery plan, and describe how Azure can help you to achieve them.
 
 #### Failover and failback
 
@@ -315,6 +322,8 @@ Many Azure data and storage services support backups, such as the following:
 - [Azure Backup](/azure/reliability/reliability-backup) provides automated backups for virtual machine disks, storage accounts, AKS, and a variety of other sources.
 - Many Azure database services, including [Azure SQL Database](./reliability-sql-database.md) and [Azure Cosmos DB](/azure/reliability/reliability-cosmos-db-nosql), have an automated backup capability for your databases.
 - [Azure Key Vault](./reliability-key-vault.md) provides features to back up your secrets, certificates, and keys.
+
+To learn more about recovery strategies for backup and restore, see [Well-Architected Framework - Recovery strategy for backup and restore](/azure/well-architected/design-guides/disaster-recovery#recovery-strategy-for-backup-and-restore).
 
 #### Automated deployments
 
