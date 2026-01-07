@@ -14,7 +14,7 @@ Workloads are logical groups of Azure resources that you define inside an Azure 
 Workloads also automatically inherit security posture and policies of their enclave. Workloads can also, by default, utilize community services reachable from their Enclave.
 
 ## Why use a workload?
-Workloads are a logical way to organize your Azure resource groups and create a link to your Azure Virtual Enclaves environment. Workloads are another level where you can separate groups of policies and exceptions scoped and applied to a workload and the resources in the linked Workload Resource Groups. When using the managed resource group that comes with a workload, there are minor restrictions described [here](./best-practices.md#workload-resource-group).
+Workloads are a logical way to organize your Azure resource groups and create a link to your Azure Virtual Enclaves environment. Workloads are another level where you can separate groups of policies and exceptions scoped and applied to a workload and the resources in the linked Workload Resource Groups. When using the managed resource group that comes with a workload, there are minor restrictions described in the [Best Practices](./best-practices.md#workload-resource-group).
 
 The alternative is to deploy an Azure resource group through the portal that isn't managed. The workload managed resource group is equivalent to a normal Azure resource group with the added benefit of keeping the resources secured within the enclave boundary. Deploying a normal Azure resource group through the portal is still an option, but a normal Azure resource group wouldn't be secured within the enclave boundary.
 
@@ -23,6 +23,8 @@ Workloads are linked as a child resource to [enclaves](./what-enclave.md) and ar
 
 - [Azure Virtual Enclaves governance](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring)
 - [Enclave services and properties](./what-enclave.md)
+- [Well-Architected Framework Workload guidance](/azure/well-architected/workloads)
+- [Well-Architected Framework Service Guides](/azure/well-architected/service-guides/?product=popular)
 
 This diagram shows two example Workloads. The `Shared Workload` is linked to three Workload Resource Groups and the `AKS Workload` is linked to one Workload Resource Group. Resource Groups are highlighted in green and Azure resources are highlighted in dark blue.
 
