@@ -421,7 +421,7 @@ Verify that your environment is correctly configured:
 
 With your AVE environment configured, you're ready to deploy workloads. The next tutorial guides you through deploying Azure Virtual Desktop.
 
-> [Tutorial 12: Deploy Azure Virtual Desktop (AVD) workload](./12-deploy-avd-workload.md)
+> [Tutorial 2-3: Deploy Azure Virtual Desktop (AVD) workload](./2-3-deploy-virtual-desktop-workload.md)
 
 ## Related content
 
