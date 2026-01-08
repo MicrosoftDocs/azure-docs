@@ -156,6 +156,15 @@ Stale orchestration data should be purged periodically to ensure efficient stora
 
     [Extended sessions](../durable-functions-azure-storage-provider.md#extended-sessions) are not available in the Durable Task Scheduler backend yet.
 
+- **Task hub limits:**
+
+    You're limited in how many task hubs you can use depending on your billing SKU. 
+
+     - [When using the Dedicated SKU,](./durable-task-scheduler-dedicated-sku.md#dedicated-sku) task hubs are limited to 15. 
+     - [When using the Consumption SKU,](./durable-task-scheduler-dedicated-sku.md#consumption-sku-preview) task hubs are limited to 5. 
+
+    For more quota, [contact support](https://github.com/Azure/azure-functions-durable-extension/issues).
+
 ## Next steps
 
 > [!div class="nextstepaction"]

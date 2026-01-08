@@ -1,0 +1,211 @@
+### YamlMime:FAQ
+
+metadata:
+  title: Artifact Signing FAQ
+  description: Get answers to frequently asked questions about Artifact Signing.
+  author: TacoTechSharma
+  ms.author: mesharm
+  ms.service: trusted-signing
+  ms.topic: faq
+  ms.date: 12/31/2025
+title: Artifact Signing FAQ
+summary: |
+  Get answers to common questions about the Artifact Signing service. 
+
+sections:
+  - name: Get started
+    questions:
+      - question: What versions of Windows does Artifact Signing support?
+        answer: | 
+          The Artifact Signing service supports all versions of Windows that support the general user-mode code integrity (UMCI) security policy.  
+          
+          Support for signed binaries was added in the July 2021 Certificate Trust List (CTL) update for Windows. In a typical scenario, when an end-entity certificate from a chain is encountered on a computer, the system retrieves the root certificate authority (CA) certificate and adds it to the trust root store.  
+
+          For more information about Windows support for Artifact Signing, see [Artifact Signing Program Windows Support](https://support.microsoft.com/topic/kb5022661-windows-support-for-the-azure-code-signing-program-4b505a31-fa1e-4ea6-85dd-6630229e8ef4).  
+      - question: How do I grant API access to Artifact Signing in Microsoft Entra?
+        answer: | 
+         Ask your Microsoft Entra admin to approve your request for access. For more information about permissions, see these articles:
+
+          - [Overview of consent and permissions](https://learn.microsoft.com/entra/identity/enterprise-apps/user-admin-consent-overview)
+          - [Configure the admin consent workflow](https://learn.microsoft.com/entra/identity/enterprise-apps/configure-admin-consent-workflow)
+          - [Review permissions granted to applications](https://learn.microsoft.com/entra/identity/enterprise-apps/manage-application-permissions?pivots=portal)
+      - question: What if I don't see Microsoft.CodeSigning as a resource provider? 
+        answer: | 
+          To register the Microsoft.CodeSigning app, go to the subscription **Resource providers** pane as shown in this example:
+          
+          :::image type="content" source="media/artifact-signing-resource-provider.png" alt-text="Screenshot of registering the Microsoft.CodeSigning resource provider." lightbox="media/artifact-signing-resource-provider.png":::
+      - question: What is the cost of using Artifact Signing?
+        answer: | 
+          - For pricing information, see [Artifact Signing pricing](https://azure.microsoft.com/pricing/details/artifact-signing/).
+      - question: What are my support options when I set up Artifact Signing?
+        answer: | 
+          - You can create a support ticket in the Azure portal to get Azure support. Also, you can post a question or search for related questions on Microsoft Q&A (use the tag **artifact-signing**) or [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**).  
+  - name: Identity validation
+    questions:
+      - question: What if I need to create another identity validation for the same organization with a different primary email address?
+        answer: For cases where identity validation exists with a primary email address and another identity valiadation request is required, contact support to continue onboarding.
+      - question: What if my country/region is not listed in country/region drop down on the Identity Validation page?
+        answer: | 
+          - For Public Trust certificates, Artifact Signing is currently available to organizations in the USA, Canada, the European Union, and the United Kingdom, as well as individual developers in the USA and Canada. This limitation is not applicable to Private Trust certificates.
+      - question: What if my Artifact Signing subject name is different from the name in my certificate and my MSIX package name is different now? 
+        answer: |
+          - For Windows app MSIX packages, follow the guidance in [MSIX persistent identity](/windows/msix/package/persistent-identity).
+      - question: Can I use a custom CN or a custom O with Artifact Signing? 
+        answer: |
+          - No, you can't use a custom Common Name (CN) or a custom Organization (O) with Artifact Signing. Currently, the Artifact Signing service doesn't support customization. Also, keep in mind that per the Certification Authority Browser Forum (CA/Browser Forum) in the Code Signing Baseline Requirements (CSBRs) for publicly trusted code signing certificates, CN values must always be the legal entity's validated name (for example, `Contoso Corporation`).
+      - question: What if the "New identity validation" button in the Azure portal is inactive?
+        answer: |
+          - If the **New identity validation** button in the Azure portal is inactive and you can't select it, you don't have the Artifact Signing Identity Verifier role assigned to your account. To assign yourself the role, complete the steps in [Assign roles in Artifact Signing](tutorial-assign-roles.md). 
+      - question: What if my identity validation expires?
+        answer: |
+          - If you don't renew identity validation before the expiration date, certificate renewal stops. All signing processes that are associated with those specific certificate profiles stops. To continue signing by using the Artifact Signing service, create another identity validation and associate it with the relevant certificate profiles. We send multiple reminders starting at 60 days before an identity validation's expiration date to help you begin the process of renewing your identity validation. 
+      - question: What if Organization identity validation fails?
+        answer: | 
+          - Ensure that you didn't miss an email verification link that was sent to the primary email address you entered when you created your identity validation request. The link expires after seven days. If you overlooked the email or if you didn't select the link in the email within seven days, create a new identity validation request.   
+          - If identity validation fails, but not because of a missed email verification, the Microsoft validation team wasn't able to make a determination about your request based on the information that you provided. Even if you provide more documentation when we request it, if we can't validate the information, we can't onboard you to Artifact Signing. In this scenario, we recommend that you delete your Artifact Signing account so that you aren't billed for unused resources.
+          - In cases where additional documents were required, you've exhausted all 3 attempts. Therefore, we cannot proceed further with the onboarding.
+      - question: What if I need assistance with identity validation?
+        answer: | 
+          - For questions about identity validation in Artifact Signing, contact us via Azure Support or by using Microsoft Q&A (use the tag **artifact-signing**).
+          - Note: creating additional identity validation requests for the same entity that is in progress does not help. Identity Validation requests cannot be expedited.
+      - question: What if email validation link has expired?
+        answer: | 
+          - If you missed to click on the email verification within 7 days, you need to start a new identity validation request. A new link cannot be resent on the same request.
+      - question: What if email validation says "Failed" and you think you never received the email validation link?
+        answer: | 
+          - Create another identity validation request. Ensure that the email address used is not a distribution list and the email address can receive links from external email addresses.
+      - question: Where can I find Identity Validation Id? 
+        answer: |
+          -  On Identity Validation page, click on the Identity Validation you intend to use. The Identity Validation Id will be shown as "Id" in the details pane that opens.
+             :::image type="content" source="media/artifact-signing-identity-validation-id-faq.png" alt-text="Screenshot that shows copying the identity validation ID for an identity validation." lightbox="media/artifact-signing-identity-validation-id-faq.png":::
+      - question: What if I already have a Verified ID? 
+        answer: |  
+          - Follow the steps to present your existing valid (not an expired) VID for Artifact Signing.
+      - question: For Individual identity validation, what if I don’t have an address on a bank statement or utility bill? 
+        answer: |  
+          - Be sure to use a government-issued ID with an address on it, to successfully go through the process. 
+      - question: For Individual identity validation, I see an error - "You do not have permission to access this page". 
+        answer: |  
+          - If you see the error, it is because the email address entered in the individual identity validation request is different from the one being used to sign in to access the identity validation link. Make sure both the email addresses match.   
+          :::image type="content" source="media/artifact-signing-indie-validation-email-mismatch.png" alt-text="Screenshot of email mismatch when access link to verify individual developer." lightbox="media/artifact-signing-indie-validation-email-mismatch.png"::: 
+  - name: Certificate profiles
+    questions:
+      - question: What if my Artifact Signing subject name is different from the name in my certificate and my MSIX package name is different now? 
+        answer: |
+          - For Windows app MSIX packages, follow the guidance in [MSIX persistent identity](/windows/msix/package/persistent-identity).
+      - question: Does deleting a certificate profile revoke the certificates? 
+        answer: |
+          - Deleting a certificate profile does not revoke any previously issued certificates or invalidate their signatures; they remain valid.
+      - question: Can I add OU field to Public Trust or Public Trust Test or VBS enclave certificate profile? 
+        answer: |
+          - No. OU is only available for Private Trust and Private Trust CI Policy certificates.
+  - name: Signing
+    questions:
+      - question: What types of files can we sign by using Artifact Signing?
+        answer: |
+          You can sign [all file types that SignTool supports](https://learn.microsoft.com/windows/win32/seccrypto/cryptography-tools).
+      - question: What is the Artifact Signing compliance level?
+        answer: |
+          FIPS 140-2 Level 3.
+      - question: How do I include the appropriate EKU for our certificates in the ELAM driver resources? 
+        answer: |
+          For information about the Early Launch Antimalware (ELAM) driver configuration for protecting antimalware user-mode services, see the following guidance:  
+          
+          "Beginning in 2022, all user mode anti-malware service binaries must be signed by Microsoft's Artifact Signing signing service. The Artifact Signing issued Authenticode certificate for signing anti-malware binaries is valid for 3 days for security. To prevent the need to update the ELAM driver every time the certificate is updated, we recommend that anti-malware vendors include the Artifact Signing PCA certificate TBS hash in the CertHash portion of the ELAM driver resource file info. Additionally, the anti-malware vendor must include their unique Artifact Signing EKU identity in the EKU field of the resource file info. The EKU identity will begin with the prefix `1.3.6.1.4.1.311.97.*`."
+          
+          For the Microsoft ID Verified Code Signing PCA 2021 certificate, see the [Microsoft PKI Services repository](https://www.microsoft.com/pkiops/docs/repository.htm).
+      - question: What happens if we run binaries that are signed by using Artifact Signing on a computer that doesn't have the Artifact Signing update (especially binaries that are flagged for /INTEGRITYCHECK)?
+        answer: |
+          - If an /INTEGRITYCHECK flag is set, the user's signature isn't validated at runtime and it isn't run with /INTEGRITYCHECK.  
+          - To check whether the Artifact Signing update is installed, we recommend that you check against one of your packaged /INTEGRITYCHECK-linked DLLs. You can use a test version. This way, you can complete your check and determine the availability of our /INTEGRITYCHECK-linked binaries outside the platform.
+      - question: My Sectigo certificate is expiring. Can I get a new one, or do I have to use Artifact Signing?
+        answer: |
+          Currently, we don't extend cross-signed certificates. You must sign by using the Artifact Signing service.
+      - question: How is Artifact Signing different from the signing that partners do with Partner Center?
+        answer: |
+          Signing with the Partner Center is kernel-mode signing (no change with the introduction of Artifact Signing). Sign your user-mode binaries by using Artifact Signing. For your apps that interact with the Windows Security Center (WSC) service, you must include the Code Integrity bit (/INTEGRITYCHECK). Without the Artifact Signing signature, you can't register with the WSC, and Windows Defender runs in parallel.
+      - question: How do we get the Authenticode certificate?  
+        answer: |
+          The Authenticode certificate that's used for signing with the profile is never given to you. All certificates are securely stored within the service and are accessible only at the time of signing. The public certificate is always included in any binary that the service signs. 
+      - question: How do I check whether the time stamp service is healthy? 
+        answer: |
+          Run the following command: `curl http://timestamp.acs.microsoft.com`. If status code 200 is returned, the time stamp service is healthy and running. 
+      - question: I get errors when I do Private Trust signing. What should I do? 
+        answer: |
+          If you get an internal error, check that the CN name that you used matches the certificate name. Verify the package name, and copy the complete value for the subject from the Azure portal to the manifest file during signing. 
+      - question: I see the status "Command succeeded" for SignTool, but the file doesn't appear to be signed when I check the digital signature. What should I do? 
+        answer: |
+          If the signature doesn't appear in the digital signature property, run this command: `.\signtool.exe verify /v /debug /pa fileName`. Not all file types include the **Signature** tab in **Properties**.
+      - question: How do I fix pop-up credentials in an Azure virtual machine when I run the SignTool + dlib command?
+        answer: |
+          1. Create a [user-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). 
+          2. Add the user-assigned managed identity to the VM:
+             1. Select the VM.
+             2. On the left menu, select **Identity**, and then select **User assigned**.
+             3. Select **Add** to add the managed identity. 
+          3. In the resource group (or subscription) that has the Artifact Signing Certificate Profile Signer role, add the user-assigned managed identity to the role. To assign the correct role, go to **Access control (IAM)** > **Role assignments**.
+      - question: How do I fix pop-up credentials when I use Google Cloud Platform?
+        answer: |
+          - Because Google Cloud Platform (GCP) doesn't have an Azure managed identity resource by default, set up an [environment credential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet). Use the [EnvironmentCredential class](https://docs.microsoft.com/dotnet/api/azure.identity.environmentcredential?view=azure-dotnet) to set up the credential. We recommend that you use these variables:
+
+             - **AZURE_TENANT_ID** for the Microsoft Entra tenant (directory) ID.
+             - **AZURE_CLIENT_ID** for the client (application) ID of an app registration in the tenant. 
+             - **AZURE_CLIENT_SECRET** for a client secret that was generated for the app registration. 
+          - To create a client ID and secret, follow the guidance in [Create a service principal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+          - After you create the client ID and secret, go to the resource group (or subscription) that has the Artifact Signing Certificate Profile Signer role, and add this app to the role. 
+      - question: What if my Artifact Signing account is suspended?
+        answer: |
+          If a certificate is misused or abused per the service Terms of Use, Artifact Signing suspends the account or revokes a signing certificate or both. In this scenario, we engage with you directly and follow the guidelines in the CA/Browser Forum CSBRs. 
+      - question: What if I change my subscription ID or tenant ID?
+        answer: |
+         Currently, Artifact Signing resources can't be migrated across subscriptions or tenants or resource groups or resources. If you want to make any change to your tenant ID or subscription ID, you must create all your Artifact Signing resources again.
+      - question: Does Artifact Signing issue EV certificates?
+        answer: |
+          No, Artifact Signing doesn't issue Extended Validation (EV) certificates. There is no plan to issue EV certificates in the future.
+      - question: Why does SignTool keep looping when it signs MSIX packages?
+        answer: |
+          Looping multiple times is expected in MSIX signing because each application file and manifest file inside the package is signed.
+      - question: Common error codes and mitigations
+        answer: |
+          | Error       | Details     |
+          | :------------------- | :------------------- |
+          | 400          | An Azure authentication error. This error is due to caching of certificates. Add `"ExcludeCredentials": ["<include list of credentials to be excluded>"]` to your JSON file. For more information, see [DefaultAzureCredential Class (Azure.Identity)](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet). |
+          | 401          |  You aren't authenticated. Sign out, and then sign in again. |
+          | 404          |  Ensure that no changes were made to your configuration or firewalls rules. |
+          | `"MsalUiRequiredException"`         |  This error typically occurs due to the local cache. The error resolves after the cache is refreshed from Azure. |
+          | No certificates were found that met all the given criteria.         |  Check the dlib path, dlib version, dlib name, filename, and SignTool version. This error indicates that SignTool is attempting to pull certificates from your local computer instead of using Artifact Signing certificates. |
+          | Error: "SignerSign() failed." (-2147024846/0x80070032)           |  Ensure that you're using the latest version of SignTool. |
+          | Error code (-2147024885/0x8007000b)            |  For MSIX signing, this error indicates that the publisher in the manifest file doesn't match the certificate subject. Check the publisher that's listed in the manifest file. |
+          | Error code (-2147467259/0x80004005)            |  If you use Service Principal + certificate based authentication, check your Environment Variables listed under the table for ["Service principal with certificate"](https://learn.microsoft.com/dotnet/api/azure.identity.environmentcredential?view=azure-dotnet).|
+          | No error codes, SignTool silently fails          |  Ensure that the relevant .NET runtime version is installed. |
+          | `Azure.Identity.CredentialUnavailableException`      |  You might see this error in [environments outside Azure](https://github.com/Azure/azure-sdk-for-net/issues/29471). If you are working outside of Azure, we recommend that you add "exclude ManagedIdentity" to your manifest file. |
+          | 403          |  - Check the status of your Azure subscription should be "Registered".  <br>  - Check the identity trying to sign the file has Artifact Signing Certificate Profile Signer role.  <br>  - Check the Artifact Signing account name and the Artifact Signing certificate profile name in your *metadata.json* file. <br> - Check the dlib and dlib path. <br>  - Install C++ Redistributables from https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170. <br>  - Check your .NET version, dlib version, and Windows SDK version. <br>  - Check if the corresponding identity validation has a status of **Completed**.<br> - Check the status of the Certificate Profile must be active.  <br> - Verify whether you access the Artifact Signing endpoint from this virtual machine or computer. Try executing the action on a different virtual machine or computer. The error might indicate a network issue. <br> - For Private Trust scenarios 403: The user object ID that does the signing is different from the user object ID that calls  `Get-azCodeSigningRootCert`. The appropriate object ID must have the role Artifact Signing Certificate Profile Signer.|
+  - name: Cost management and billing
+    questions:  
+       - question: How do I view usage costs and billing information for Artifact Signing resources?
+         answer: | 
+          To review cost information, in the Azure portal, go to your subscription overview. On the left menu, select **Cost Management**. For more information, see [Cost Management](https://learn.microsoft.com/azure/cost-management-billing/costs/).
+
+          To review billing information, go to your subscription overview. On the left menu, select **Billing**. For more information, see [Billing](https://learn.microsoft.com/azure/cost-management-billing/manage/).
+       - question: Is the pricing pro-rated or it is full amount regardless of when you begin to use the service?
+         answer: | 
+          The pricing is not calculated on a pro rata basis. The invoice is generated with the full amount for the SKU that you selected when you created the account, regardless of when you begin to use the service after you create your account. 
+       - question: What does the signing quota include?
+         answer: | 
+          The signing quota encompasses all signing activities across any certificate profile within an Artifact Signing account. 
+  - name: Unenroll from the Artifact Signing service
+    questions:  
+       - question: How do I unenroll from Artifact Signing?
+         answer: |
+          - To unenroll from Artifact Signing, delete your Artifact Signing account.  
+          - Unregister Microsoft.CodeSigning as the resource provider. 
+          - Deleting the account deletes the certificate profiles underneath this account. This stops certificate renewal, effectively halting the signing process that's associated with those specific certificate profiles. However, deleting the account doesn't affect the certificates that were already used to sign your files. 
+          - The associated identity validation needs to be explicitly deleted as identity validation is shared across different Artifact Signing accounts within the same subscription and can impact certificate profiles and signing from those accounts.
+  - name: Misuse and abuse of Artifact Signing certificates
+    questions:  
+       - question: How can someone external report to Microsoft the suspected misuse and abuse of Artifact Signing certificates?
+         answer: |
+          Please reach out here: https://www.microsoft.com/en-us/wdsi/filesubmission.
+       - question: What happens when misuse and abuse of Artifact Signing certificate is confirmed?
+         answer: |
+          Artifact Signing may revoke certificate(s) and suspend access to Artifact Signing service if misuse or abuse is confirmed.

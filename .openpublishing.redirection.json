@@ -566,6 +566,81 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/trusted-signing/overview.md",
+      "redirect_url": "/azure/artifact-signing/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/how-to-sign-ci-policy.md",
+      "redirect_url": "/azure/artifact-signing/how-to-sign-ci-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/quickstart.md",
+      "redirect_url": "/azure/artifact-signing/quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/tutorial-assign-roles.md",
+      "redirect_url": "/azure/artifact-signing/tutorial-assign-roles",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/how-to-signing-integrations.md",
+      "redirect_url": "/azure/artifact-signing/how-to-signing-integrations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/how-to-sign-history.md",
+      "redirect_url": "/azure/artifact-signing/how-to-sign-history",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/how-to-renew-identity-validation.md",
+      "redirect_url": "/azure/artifact-signing/how-to-renew-identity-validation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/how-to-device-guard-signing-service-migration.md",
+      "redirect_url": "/azure/artifact-signing/how-to-device-guard-signing-service-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/how-to-change-sku.md",
+      "redirect_url": "/azure/artifact-signing/how-to-change-sku",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/how-to-cert-revocation.md",
+      "redirect_url": "/azure/artifact-signing/how-to-cert-revocation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/concept-trust-models.md",
+      "redirect_url": "/azure/artifact-signing/concept-trust-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/concept-resources-roles.md",
+      "redirect_url": "/azure/artifact-signing/concept-resources-roles",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/concept-cert-management.md",
+      "redirect_url": "/azure/artifact-signing/concept-certificate-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/index.yml",
+      "redirect_url": "/azure/artifact-signing/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/faq.yml",
+      "redirect_url": "/azure/artifact-signing/faq",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/managed-ccf/application-scenarios.md",
       "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
       "redirect_document_id": false
@@ -6579,7 +6654,11 @@
       "source_path": "articles/reliability/reliability-health-insights.md",
       "redirect_url": "/azure/azure-health-insights/reliability-health-insights",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/migrate-load-balancer.md",
+      "redirect_url": "/azure/reliability/reliability-load-balancer",
+      "redirect_document_id": false
     }
-    
   ]
 }

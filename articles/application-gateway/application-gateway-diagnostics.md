@@ -60,9 +60,9 @@ Resource-specific mode provides:
 
 For Application Gateway, resource-specific mode creates the following tables: 
 
-- [AGWAccessLogs](/azure/azure-monitor/reference/tables/agwaccesslogs.md)
-- [AGWPerformanceLogs](/azure/azure-monitor/reference/tables/agwperformancelogs.md)
-- [AGWFirewallLogs](/azure/azure-monitor/reference/tables/agwfirewalllogs.md)
+- [AGWAccessLogs](/azure/azure-monitor/reference/tables/agwaccesslogs#columns)
+- [AGWPerformanceLogs](/azure/azure-monitor/reference/tables/agwperformancelogs#columns)
+- [AGWFirewallLogs](/azure/azure-monitor/reference/tables/agwfirewalllogs#columns)
 
 **Selecting the collection type in Log analytics**
 
@@ -73,7 +73,7 @@ Azure services are transitioning to resource-specific mode. As part of this migr
 
 The toggle determines whether logs for the selected categories are routed to dedicated tables or to the AzureDiagnostics table. When switching to resource-specific mode, only newly selected categories use the dedicated tables; existing streams continue unchanged until reconfigured.  
 
-Selecting resource-specific mode provides enhanced flexibility through workspace transformations, allowing you to preprocess data before ingestion.For guidance on configuring workspace transformations, see: [Tutorial: Add a workspace transformation to Azure Monitor Logs by using the Azure portal](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal.md)
+Selecting resource-specific mode provides enhanced flexibility through workspace transformations, allowing you to preprocess data before ingestion.For guidance on configuring workspace transformations, see: [Tutorial: Add a workspace transformation to Azure Monitor Logs by using the Azure portal](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal#overview)
  
 
 ## Examples of optimizing access logs using Workspace Transformations
@@ -99,7 +99,7 @@ Other storage locations:
 - **Azure Event Hubs**: Event hubs are a great option for integrating with other security information and event management (SIEM) tools to get alerts on your resources.
 - **Azure Monitor partner integrations**.
 
-Learn more about the Azure Monitor's [diagnostic settings destinations](/azure/azure-monitor/essentials/diagnostic-settings.md) .
+Learn more about the Azure Monitor's [diagnostic settings destinations](/azure/azure-monitor/essentials/diagnostic-settings#create-a-diagnostic-setting) .
 
 ## Enable logging through PowerShell
 

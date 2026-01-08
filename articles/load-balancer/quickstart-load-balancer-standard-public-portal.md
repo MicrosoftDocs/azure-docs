@@ -5,7 +5,7 @@ description: Learn how to create a public load balancer using the Azure portal.
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 06/28/2024 
+ms.date: 01/09/2026
 ms.author: mbender
 ms.custom:
   - mvc

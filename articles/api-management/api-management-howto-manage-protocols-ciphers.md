@@ -1,12 +1,12 @@
 ---
-title: Manage protocols and ciphers in Azure API Management | Microsoft Learn
+title: Manage Protocols and Ciphers in Azure API Management
 description: Learn how to manage transport layer security (TLS) protocols and cipher suites in Azure API Management.
 services: api-management
 author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 10/10/2025
+ms.date: 01/06/2026
 ms.author: danlep
 ---
 
@@ -41,7 +41,7 @@ API Management supports TLS versions up to TLS 1.3 for client and backend connec
 
 ## How to manage TLS protocols and cipher suites
 
-1. In the sidebar of your API Management instance, under **Security**, select **Protocols + ciphers**.  
+1. In the sidebar menu of your API Management instance, under **Security**, select **Protocols + ciphers**.  
 1. Enable or disable desired protocols or ciphers.
 1. Select **Save**.
 
@@ -58,7 +58,7 @@ TLS 1.3 is a major revision of the TLS protocol that provides improved security 
 
 TLS 1.3 doesn't support certificate renegotiation. Certificate renegotiation in TLS allows client and server to renegotiate connection parameters mid-session for authentication without terminating the connection.
 
-Services that API Management identifies as reliant on client certificate renegotiation do not have TLS 1.3 enabled by default. You can choose to enable TLS 1.3 manually. 
+API Management instances that are detected as reliant on client certificate renegotiation do not have TLS 1.3 enabled by default. In these instances, you can choose to enable TLS 1.3 manually. 
 
 > [!WARNING]
 > If your APIs are accessed by TLS-compliant clients that rely on certificate renegotiation, enabling TLS 1.3 for client-side connections will cause those clients to fail to connect. Review APIs that recently used certificate renegotiation before enabling client-side TLS 1.3 in any service that doesn't have it enabled by default.

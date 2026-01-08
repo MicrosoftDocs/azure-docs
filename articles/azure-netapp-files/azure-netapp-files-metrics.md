@@ -268,6 +268,13 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 
     :::image type="content" source="./media/azure-netapp-files-metrics/throughput-limit-reached.png" alt-text="Screenshot that shows Azure NetApp Files metrics a line graph demonstrating throughput limit reached." lightbox="./media/azure-netapp-files-metrics/throughput-limit-reached.png":::
 
+- *QoS Latency Delta*
+    
+    QoS Latency Delta represents the total QoS latency for a volume over a time period (measured in ms).
+    
+    :::image type="content" source="./media/azure-netapp-files-metrics/quality-of-service-latency-delta.png" alt-text="Screenshot that shows Azure NetApp Files metrics displaying the total latency for the exceeded throughput." lightbox="./media/azure-netapp-files-metrics/quality-of-service-latency-delta.png":::
+
+
 ## Performance metrics for volumes
 
 > [!NOTE] 

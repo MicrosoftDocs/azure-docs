@@ -3,7 +3,7 @@ title: What is Bicep?
 description: Understand the Bicep language for deploying infrastructure to Azure. Gain an improved authoring experience over one with JSON to develop templates.
 ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 12/22/2025
+ms.date: 01/08/2026
 ---
 
 # What is Bicep?
@@ -11,6 +11,8 @@ ms.date: 12/22/2025
 Bicep is a domain-specific language that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure and then use that file throughout the development lifecycle to repeatedly deploy that infrastructure. Your resources are deployed in a consistent manner.
 
 Bicep provides concise syntax, reliable type safety, and support for reusing code. Bicep offers an optimal authoring experience for your [infrastructure-as-code](/devops/deliver/what-is-infrastructure-as-code) solutions in Azure.
+
+[!INCLUDE [Bicep-experimental-features-not-supported](../../../includes/resource-manager-experimental-features.md)]
 
 ## Benefits of Bicep
 

@@ -72,7 +72,7 @@ To send SMS, you must have a sender ID—this can be a phone number or an alphan
 | Canada           | ✅        | ✅         | –     | –              | –              | –              |
 | Puerto Rico      | ✅        | –          | –     | –              | –              | –              |
 | United Kingdom   | –         | ✅         | –     | ✅             | –             | ✅             |
-| Australia        | –         | –          | –     | ✅             | –              | ✅             |
+| Australia        | –         | –          | –     | ✅             | –              | -             |
 | Austria          | –         | –          | –     | –              | ✅              |–              |
 | Germany          | –         | –          | –     | –              | ✅             | –              |
 | France           | –         | –          | –     | –              | ✅             | –              |
