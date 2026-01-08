@@ -269,7 +269,11 @@
       - name: 8.8.0 Release Notes
         href: ./release-notes/8-8-0.md
   - name: Release Notes - CycleCloud Workspace for Slurm
-    href: ./release-notes/ccws/release-notes.md       
+    items:
+      - name: Current Release - 2025.12.01
+        href: ./release-notes/ccws/2025-12-01.md
+      - name: All Releases
+        href: ./release-notes/ccws/release-notes.md
   - name: Service Policy
     href: service-policy.md
   - name: Data Usage Policy

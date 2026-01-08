@@ -5,6 +5,7 @@ author: jemorey
 ms.author: padmalathas
 ms.reviewer: xpillons
 ms.date: 12/31/2025
+ms.update-cycle: 1095-days
 ---
 
 # Deploy a multi‑region HPC cluster

@@ -1885,7 +1885,9 @@
           "articles/site-recovery/**/*.md",
           "articles/storsimple/storsimple-configure-mpio-on-linux.md",
           "articles/web-application-firewall/afds/waf-front-door-drs.md",
-          "articles/web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md"
+          "articles/web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md",
+          "articles/sentinel/includes/connector-details.md",
+          "articles/sentinel/includes/deprecated-connectors.md"
         ]
       },
       "sensitive-language-wl": {
@@ -1903,7 +1905,9 @@
           "articles/role-based-access-control/resource-provider-operations.md",
           "articles/site-recovery/**/*.md",
           "articles/storsimple/storsimple-configure-mpio-on-linux.md",
-          "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md"
+          "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md",
+          "articles/sentinel/includes/connector-details.md",
+          "articles/sentinel/includes/deprecated-connectors.md"
         ]
       }
     }

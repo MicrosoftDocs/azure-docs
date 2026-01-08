@@ -1,23 +1,26 @@
 ---
-title: 'Create a site-to-site high bandwidth tunnels in the Azure portal'
+title: 'Create site-to-site high bandwidth tunnels in the Azure portal'
 description: In this article, you learn how to create a VPN Gateway site-to-site IPsec with High Bandwidth tunnels to establish connection between your on-premises network and a virtual network through the ExpressRoute private peering.
 titleSuffix: Azure VPN Gateway
 author: fabferri
 ms.author: jonor
 ms.service: azure-vpn-gateway
 ms.topic: tutorial
-ms.date: 07/18/2025
+ms.date: 01/08/2026
 
 #customer intent: As a network engineer, I want to create a site-to-site VPN connection between my on-premises location and my Azure virtual network with High Bandwidth tunnels with transit through ExpressRoute private peering.
 ---
 
-# Create a site-to-site high bandwidth tunnels in the Azure portal **(Preview)**
+# Create site-to-site high bandwidth tunnels in the Azure portal
 
 The Azure VPN Gateway High Bandwidth tunnels feature, part of the Advanced Connectivity capabilities, delivers enhanced tunnel throughput for high-performance IPsec connections between your on-premises network and Azure virtual network. These tunnels are established between your on-premises VPN device and the Azure VPN Gateway, with traffic transiting through ExpressRoute private peering. High Bandwidth tunnels use private IP addresses on-premises to establish a secure, encrypted overlay network between your on-premises infrastructure and Azure.
 
 High Bandwidth tunnels provide end-to-end encryption to meet security compliance requirements and eliminate encryption bottlenecks. This feature enables you to establish up to four IPsec tunnels between the Azure VPN Gateway and your on-premises VPN device—organized as two Connections, each supporting two tunnels. Each tunnel can deliver up to 5 Gbps of encrypted throughput, for a combined maximum of 20 Gbps. The following network diagram illustrates this configuration:
 
 :::image type="content" source="media/site-to-site-high-bandwidth-tunnel/transit-high-bandwidth-tunnels.png" alt-text="Diagram showing Transit High Bandwidth IPsec tunnels architecture.":::
+
+> [!IMPORTANT]
+> There are know issues and regional limitations with this VPN Gateway. Ensure you're familiar with the limitations listed at the end of this document!
 
 ## Prerequisites
 
@@ -217,7 +220,7 @@ Configuring your on-premises VPN device is the final step. At this stage, you sh
 
 When configuring your VPN device, you need the following details:
 
-- **Shared key (preshared key)**: This key is specified when you create your site-to-site VPN connections. While the examples use a simple key, we recommend generating a complex, secure key for production environments.
+- **Shared key (pre-shared key)**: This key is specified when you create your site-to-site VPN connections. While the examples use a simple key, we recommend generating a complex, secure key for production environments.
 - **Private tunnel IP addresses of the Azure VPN Gateway**: Each VPN Gateway instance provides two private tunnel IPs, for a total of four IPsec tunnels in a High Bandwidth configuration. Many VPN devices support this setup using Virtual Tunnel Interfaces (VTIs), allowing each on-premises outbound interface IP to be associated with up to two VTIs.
 - **Azure virtual network address space**: The address range assigned to your Azure virtual network.
 
@@ -285,6 +288,37 @@ If you no longer need the resources you created, you can delete them to avoid un
 2. On the resource group page, select **Delete resource group**.
 3. When prompted, type the name of the resource group to confirm, then select **Delete**.
 This action permanently removes the resource group and all resources it contains.
+
+## Unsupported Regions
+The advanced functionality of this gateway requires some of the latest hardware components. These components are available in most but not all Azure Regions. As of January 8, 2026, the Advanced Connectivity VPN Gateway WILL NOT deploy in the following regions:
+ - Australia Central
+ - Brazil South
+ - Central US
+ - Denmark East
+ - East US 2
+ - East US 2 EUAP
+ - Korea Central
+ - Malaysia South
+ - Mexico Central
+ - North Central US
+ - North Europe
+ - Qatar Central
+ - South Central US
+ - Southeast US 5
+ - West Europe
+ - West India
+ - West US 2
+ - West US 3
+
+## Known Issues
+The first release of the Advanced Connectivity VPN Gateway doesn't support some VPN Gateway functions. This list is on our backlog and will be delivered as quickly as possible. The currently unsupported functions are:
+ - Internet based VPN, currently this Gateway is only available over ExpressRoute Private Peering
+ - IKEv1 and P2S aren't supported
+ - No migration path from existing gateways
+ - No APIPA support for BGP sessions
+ - No NAT support
+ - No IPv6 support
+ - No interoperability with Virtual WAN (vWAN)
 
 ## Next steps
 

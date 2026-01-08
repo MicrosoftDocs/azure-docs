@@ -3,6 +3,7 @@ title: Service Monitoring
 description: Learn to monitor external services using Azure CycleCloud. Use Ganglia or Azure Monitor to collect performance metrics such as CPU, memory, and bandwidth usage.
 author: KimliW
 ms.date: 08/01/2018
+ms.update-cycle: 1095-days
 ms.author: adjohnso
 ---
 

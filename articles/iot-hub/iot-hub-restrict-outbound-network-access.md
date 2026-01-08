@@ -6,7 +6,7 @@ author: cwatson-cat
 ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 08/24/2021
+ms.date: 08/13/2025
 ms.custom: ['Role: Cloud Development']
 ---
 
@@ -18,7 +18,7 @@ IoT Hub supports data egress to other services through [routing to custom endpoi
 
 To enable the feature, use any method to update the IoT Hub resource properties (a `PUT`) to set the `restrictOutboundNetworkAccess` to `true` while including an `allowedFqdnList` containing Fully Qualified Domain Names (FQDNs) as an array. 
 
-An example showing the JSON representation to use with the [create or update method](/rest/api/iothub/iothubresource/createorupdate):
+An example showing the JSON representation to use with the [Iot Hub Resource - Create Or Update](/rest/api/iothub/iothubresource/createorupdate) method:
 
 ```json
 {
@@ -57,4 +57,4 @@ If `restrictOutboundNetworkAccess` is set to `true`, the built-in event hub comp
 ## Next steps
 
 - To use managed identity for data egress, see [IoT Hub support for managed identities](iot-hub-managed-identity.md).
-- To restrict inbound network access, see [Managing public network access for your IoT hub](iot-hub-public-network-access.md) and [IoT Hub support for virtual networks with Private Link](virtual-network-support.md).
+- To restrict inbound network access, see [Managing public network access for your IoT hub](iot-hub-public-network-access.md) and [IoT Hub support for virtual networks with Azure Private Link](virtual-network-support.md).
