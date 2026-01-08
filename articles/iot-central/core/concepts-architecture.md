@@ -106,6 +106,17 @@ IoT Central applications internally use multiple Azure services such as IoT Hub 
 
 IoT Central automatically scales its IoT hubs based on the load profiles in your application. IoT Central can scale up individual IoT hubs and scale out the number of IoT hubs in an application. IoT Central also automatically scales other underlying services.
 
+Note: IoT Central’s auto scale behavior does not consider **file-upload operations**. If your solution relies heavily on file uploads, you may need to manually scale the underlying IoT Hub to avoid throttling, please contact Microsoft support if this is the case.
+
+### Best practices to avoid unexpected throttling for File Upload Scenarios:
+
+-	Stagger uploads across devices
+-	Avoid synchronized uploads (e.g., at top of the hour)
+-	Implement client-side exponential backoff on 429 / ThrottleBacklogTimeout
+-	Consider alternative ingestion mechanisms (e.g., ADX ingestion, Fabric pipelines, direct storage writes)
+-	Test workload behavior under expected production upload patterns
+
+
 ### Data export
 
 IoT Central applications often use other, user configured services. For example, you can configure your IoT Central application to continuously export data to services such as Azure Event Hubs and Azure Blob Storage.
