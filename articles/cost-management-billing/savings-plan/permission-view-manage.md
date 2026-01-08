@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 07/09/2025
+ms.date: 01/08/2026
 ms.author: onwokolo
 ---
 
@@ -29,11 +29,11 @@ You can view, manage, and delegate permissions to savings plans by using built-i
     - **Microsoft Partner Agreement**: Not supported
 - Manage savings plans (achieved by delegating permissions for the full billing profile/enrollment):
     - **Microsoft Customer Agreement**: Users with billing profile contributor or above
-    - **Enterprise Agreement**: Users with Enterprise Agreement administrator or above
+    - **Enterprise Agreement**: Users with Enterprise Agreement administrator
     - **Microsoft Partner Agreement**: Not supported
 - Delegate savings plan permissions:
     - **Microsoft Customer Agreement**: Users with billing profile contributor or above
-    - **Enterprise Agreement**: Users with Enterprise Agreement purchaser or above
+    - **Enterprise Agreement**: Users with Enterprise Agreement administrator
     - **Microsoft Partner Agreement**: Not supported
 
 ### View and manage savings plans as a billing admin
@@ -86,7 +86,7 @@ In addition, users who held the subscription owner role when the subscription wa
 
 ### View savings plans with RBAC access
 
-If you have savings plan-specific RBAC roles (savings plan administrator, purchaser, contributor, or reader), purchased savings plans, or were added as an owner to savings plans, follow these steps to view and manage savings plans in the Azure portal.
+If you have savings plan-specific RBAC roles (savings plan administrator, purchaser, contributor, or reader), purchased a savings plan, or were added as an owner to savings plans, follow these steps to view and manage savings plans in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **Home** > **Savings plans** to list savings plans to which you have access.

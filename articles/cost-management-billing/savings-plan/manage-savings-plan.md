@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 07/09/2025
+ms.date: 01/08/2026
 ms.author: onwokolo
 ---
 
@@ -27,12 +27,12 @@ You can't make the following types of changes after purchase:
 - Billing frequency
 
 > [!NOTE]
-> A billing administer can fully manage savings plans. However, after purchase, a savings plan’s directory can’t get changed.
+> A billing administrator can fully manage savings plans. However, after purchase, a savings plan's directory can't get changed.
 
 To learn more, see [Savings plan permissions](permission-view-manage.md). _Permission needed to manage a savings plan is separate from subscription permission._
 
 ## Change the savings plan scope
-Your hourly savings plan benefit is to automatically use from savings plan-eligible resources that run in the savings plan's benefit scope. To learn more, see [Savings plan scopes](scope-savings-plan.md). Changing a savings plan's benefit scope doesn't alter the savings plan's term.
+Your hourly savings plan benefit automatically applies to savings plan-eligible resources that run in the savings plan's benefit scope. To learn more, see [Savings plan scopes](scope-savings-plan.md). Changing a savings plan's benefit scope doesn't alter the savings plan's term.
 
 To update a savings plan scope as a billing administrator:
 1. Sign in to the Azure portal and go to **Cost Management + Billing**.
@@ -66,7 +66,7 @@ To learn more about modifying auto-renewal settings for a savings plan, see [cha
 - To learn more about viewing savings plan amortized costs, see [view amortized costs](../reservations/view-amortized-costs.md).
 
 ## Delegate savings plan RBAC roles
-Users and groups who gain the ability to purchase, manage, or view savings plans via RBAC roles must do so from **Home** > **Savings plan**.
+Users and groups who gain the ability to purchase, manage, or view savings plans through RBAC must do so from **Home** > **Savings plan**.
 
 ### Delegate the savings plan purchaser role to a specific subscription
 To delegate the purchaser role to a specific subscription, and after you have elevated access:
@@ -90,7 +90,7 @@ To delegate the administrator, contributor, or reader roles to a specific saving
 ## Cancellations, exchanges, and trade-ins
 Unlike reservations, you can't cancel or exchange savings plans. You can trade-in select compute reservations for a savings plan. To learn more, visit [reservation trade-in](reservation-trade-in.md).
 
-## Change Billing subscription
+## Change billing subscription
 Currently, the billing subscription used for monthly payments of a savings plan can't be changed.
 
 ## Check billing subscription for an Azure savings plan
@@ -99,11 +99,11 @@ To check the billing subscription for an Azure savings plan:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** > **Savings Plan**.
-3. Select the Savings Plan.
+3. Select the savings plan.
 4. Select **Renewal**.
 5. Select **Replace this savings plan with a new savings plan purchase**.
 
-These steps show you the billing subscription of current savings plan along with other details. You can update the details like scope, billing subscription, quantity, term, and billing frequency for the new savings plan which will be purchased automatically upon expiry of current savings plan.
+These steps show you the billing subscription of the current savings plan along with other details. You can update the details like scope, billing subscription, quantity, term, and billing frequency for the new savings plan, which will be purchased automatically upon expiry of the current savings plan.
 
 ## Transfer a savings plan
 Although you can't cancel, exchange, or refund a savings plan, you can transfer it from one supported agreement to another. For more information about supported transfers, see [Azure product transfer hub](../manage/subscription-transfer.md#product-transfer-support).

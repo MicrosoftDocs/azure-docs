@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: conceptual
-ms.date: 07/09/2025
+ms.date: 01/08/2026
 ms.author: onwokolo
 ---
 
@@ -19,7 +19,7 @@ Savings plan discounts only apply to resources associated with subscriptions pur
 > The Azure savings plan isn't supported for the China legacy Online Service Premium Agreement (OSPA) platform.
 
 ### Enterprise Agreement customers
-Saving plan purchasing for Enterprise Agreement customers is limited to:
+Savings plan purchasing for Enterprise Agreement customers is limited to:
 
 - Enterprise Agreement admins with write permissions can purchase savings plans from **Cost Management + Billing** > **Savings plan**. No subscription-specific permissions are needed.
 - Users with subscription owner or savings plan purchaser roles in at least one subscription in the enrollment account can purchase savings plans from **Home** > **Savings plan**.
@@ -33,7 +33,7 @@ Savings plan purchasing for Microsoft Customer Agreement customers is limited to
 - Users with billing profile contributor permissions or higher can purchase savings plans from **Cost Management + Billing** > **Savings plan** experience. No subscription-specific permissions are needed.
 - Users with subscription owner or savings plan purchaser roles in at least one subscription in the billing profile can purchase savings plans from **Home** > **Savings plan**.
 
-Microsoft Customer Agreement (MCA), Billing Profile Owners can restrict savings plan purchases by disabling the **Add Savings Plan** policy option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Beginning in June 2025, Microsoft Customer Agreement (MCA), Billing Profile, and Billing Account Owners will have the ability to purchase savings plans even if the Add Savings plan policy option is disabled in the Azure portal. To change settings, navigate to the **Policies** menu under **Billing Profile**.
+Microsoft Customer Agreement (MCA), Billing Profile Owners can restrict savings plan purchases by disabling the **Add Savings Plan** policy option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Beginning in June 2025, Microsoft Customer Agreement (MCA) Billing Profile and Billing Account Owners will have the ability to purchase savings plans even if the Add Savings plan policy option is disabled in the Azure portal. To change settings, navigate to the **Policies** menu under **Billing Profile**.
 
 ### Microsoft Partner Agreement partners
 

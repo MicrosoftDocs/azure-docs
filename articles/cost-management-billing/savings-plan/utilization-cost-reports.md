@@ -1,13 +1,13 @@
 ---
 title: View Azure savings plan cost and usage
 titleSuffix: Microsoft Cost Management
-description: Learn how to view saving plan cost and usage details.
+description: Learn how to view savings plan cost and usage details.
 author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 07/09/2025
+ms.date: 01/08/2026
 ms.author: onwokolo
 ---
 
@@ -49,24 +49,23 @@ Comparison of two data sets:
 
 ## Get Azure consumption and savings plan cost data using API
 
-You can get the data using the API or download it from Azure portal. Call the [Cost Details API](/rest/api/cost-management/generate-cost-details-report/create-operation)to get the new data. For details about terminology, see [usage terms](../understand/understand-usage.md). For more information about how to call the Cost Details API, see [Get cost data on demand](../automate/get-small-usage-datasets-on-demand.md).
+You can get the data using the API or download it from Azure portal. Call the [Cost Details API](/rest/api/cost-management/generate-cost-details-report/create-operation) to get the new data. For details about terminology, see [usage terms](../understand/understand-usage.md). For more information about how to call the Cost Details API, see [Get cost data on demand](../automate/get-small-usage-datasets-on-demand.md).
 
 Information in the following table about metrics and filters can help solve for common savings plan problems.
 
-| Type of API data  | API call action  |
+| Type of API data | API call action |
 | --- | --- |
-| All Charges (usage and purchases)  | Request for an ActualCost report.  |
-| Usage that got savings plan discount  | Request for an ActualCost report.
- Once you've ingested all the usage, look for records with ChargeType = `Usage` and `PricingModel` = `SavingsPlan`. |
-| Usage that didn't get savings plan discount  | Request for an ActualCost report. <br><br> Once you've ingested all the usage, filter for usage records with `PricingModel` = `OnDemand`. |
-| Amortized charges (usage and purchases)  | Request for an AmortizedCost report.  |
-| Unused savings plan report  | Request for an AmortizedCost report.<br><br> Once you've ingested all of the usage, filter for usage records with ChargeType = `UnusedSavingsPlan` and `PricingModel` =`SavingsPlan`. |
-| Savings plan purchases  | Request for an ActualCost report. <br><br> Once you've ingested all the usage, filter for usage records with `ChargeType` = `Purchase` and `PricingModel` = `SavingsPlan`. |
-| Refunds  | Request for an ActualCost report. <br><br> Once you've ingested all the usage, filter for usage records with `ChargeType` = `Refund`. |
+| All Charges (usage and purchases) | Request for an ActualCost report. |
+| Usage that got savings plan discount | Request for an ActualCost report. <br><br> Once you've ingested all the usage, look for records with ChargeType = `Usage` and `PricingModel` = `SavingsPlan`. |
+| Usage that didn't get savings plan discount | Request for an ActualCost report. <br><br> Once you've ingested all the usage, filter for usage records with `PricingModel` = `OnDemand`. |
+| Amortized charges (usage and purchases) | Request for an AmortizedCost report. |
+| Unused savings plan report | Request for an AmortizedCost report.<br><br> Once you've ingested all of the usage, filter for usage records with ChargeType = `UnusedSavingsPlan` and `PricingModel` =`SavingsPlan`. |
+| Savings plan purchases | Request for an ActualCost report. <br><br> Once you've ingested all the usage, filter for usage records with `ChargeType` = `Purchase` and `PricingModel` = `SavingsPlan`. |
+| Refunds | Request for an ActualCost report. <br><br> Once you've ingested all the usage, filter for usage records with `ChargeType` = `Refund`. |
 
 ## Download the cost CSV file with new data
 
-To download your saving plan cost and usage file, use the information in the following sections.
+To download your savings plan cost and usage file, use the information in the following sections.
 
 ### EA customers
 
@@ -141,12 +140,12 @@ Keep in mind that if you have an underutilized savings plan, the `UnusedSavingsP
 
 ### Savings plan purchases and amortization in cost analysis
 
-Savings plan costs are available in [cost analysis](https://aka.ms/costanalysis). By default, cost analysis shows  **Actual cost** , which is how costs are shown on your bill. To view savings plan purchases broken down and associated with the resources that used the benefit, switch to **Amortized cost**. Here's an example.
+Savings plan costs are available in [cost analysis](https://aka.ms/costanalysis). By default, cost analysis shows **Actual cost**, which is how costs are shown on your bill. To view savings plan purchases broken down and associated with the resources that used the benefit, switch to **Amortized cost**. Here's an example.
 
 :::image type="content" source="./media/utilization-cost-reports/portal-cost-analysis-amortized-view.png" alt-text="Example showing where to select amortized cost in cost analysis." lightbox="./media/utilization-cost-reports/portal-cost-analysis-amortized-view.png" :::
 
-Group by **Charge Type** to see a breakdown of usage, purchases, and refunds; or by **Pricing Model** for a breakdown of savings plan and on-demand costs. You can also group by **Benefit** and use the **BenefitId** and **BenefitName** associated with your savings plan to identify the costs related to specific savings plan purchases. The only savings plan costs you'll see when looking at actual cost are purchases. Costs will be allocated to the individual resources that used the benefit when looking at amortized cost. You'll also see a new **UnusedSavingsPlan** plan charge type when looking at amortized cost.
+Group by **Charge Type** to see a breakdown of usage, purchases, and refunds; or by **Pricing Model** for a breakdown of savings plan and on-demand costs. You can also group by **Benefit** and use the **BenefitId** and **BenefitName** associated with your savings plan to identify the costs related to specific savings plan purchases. The only savings plan costs you'll see when looking at actual cost are purchases. Costs will be allocated to the individual resources that used the benefit when looking at amortized cost. You'll also see a new **UnusedSavingsPlan** charge type when looking at amortized cost.
 
 ## Next steps
 
-- Learn more about how to [Charge back Azure saving plan costs](charge-back-costs.md).
+- Learn more about how to [Charge back Azure savings plan costs](charge-back-costs.md).

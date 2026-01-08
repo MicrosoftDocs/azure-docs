@@ -7,18 +7,18 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: overview
-ms.date: 07/09/2025
+ms.date: 01/08/2026
 ms.author: onwokolo
 ---
 
 # What is Azure savings plans for compute?
 
 Azure savings plan for compute enables organizations to reduce eligible compute usage costs by up to 65% (off list pay-as-you-go rates) by making an hourly spend commitment for 1 or 3 years.
-Unlike Azure reservations, which are targeted at stable and predictable workloads, Azure savings plans are targeted for dynamic and/or evolving workloads. To learn more, visit [Decide between a savings plan and a reservation](decide-between-savings-plan-reservation.md). Savings plans is a billing discount - it doesn't affect the runtime state of your resources. 
+Unlike Azure reservations, which are targeted at stable and predictable workloads, Azure savings plans are targeted for dynamic and/or evolving workloads. To learn more, visit [Decide between a savings plan and a reservation](decide-between-savings-plan-reservation.md). Savings plans are a billing discount - they don't affect the runtime state of your resources. 
 
 Azure savings plans is available to organizations with either Enterprise Agreement (EA), Microsoft Customer Agreement (MCA), or Microsoft Partner Agreement (MPA) agreements. Enterprise Agreement customers must have an offer type of MS-AZR-0017P (EA) or MS-AZR-0148P (DevTest) to purchase Azure savings plans. To learn more, visit [Buy an Azure savings plan](buy-savings-plan.md).
 
-Savings plan rates are priced in USD for MCA and MPA customers, and in local currency for EA customers. Each hour, eligible compute usage, up to commitment amount, is discounted and used to burn down the hourly commitment. Once the commitment amount is consumed, the remainder of the usage is billed at the customer's pay-as-you-go rate. Any unused commitment from any hour is lost. To learn more, visit [How saving plan discount is applied](discount-application.md).
+Savings plan rates are priced in USD for MCA and MPA customers, and in local currency for EA customers. Each hour, eligible compute usage, up to the commitment amount, is discounted and used to burn down the hourly commitment. Once the commitment amount is consumed, the remainder of the usage is billed at the customer's pay-as-you-go rate. Any unused commitment from any hour is lost. To learn more, visit [How savings plan discount is applied](discount-application.md).
 
 Azure savings plan for compute supports products in different compute services. To learn more, visit [savings plan-eligible services](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#Select-services). Savings plan discounts vary by product and by commitment term (1- or 3-years), not the commitment amount. To learn about included products, visit [included compute products](download-savings-plan-price-sheet.md).  Usage from certain virtual machines that power select compute and non-compute services (e.g. Azure Virtual Desktop, Azure Kubernetes Service, Azure Red Hat OpenShift and Azure Machine Learning) may be eligible for savings plan benefits.
 
@@ -28,7 +28,7 @@ You can buy savings plans in the Azure portal or with the Savings plan API. To l
 
 ## Why buy a savings plan?
 
-If you have consistent compute spend, but your use of disparate resources makes Azure reservations infeasible, buying a savings plan gives you the ability to reduce your costs. For example, if you consistently spend at least $X every hour, but your usage comes from different resources and/or different datacenter regions, you likely can't effectively cover these costs with reservations. When you buy a savings plan, your hourly usage, up to your commitment amount, is discounted. For this usage, you no longer charged at the pay-as-you-go rates.
+If you have consistent compute spend, but your use of disparate resources makes Azure reservations infeasible, buying a savings plan gives you the ability to reduce your costs. For example, if you consistently spend at least $X every hour, but your usage comes from different resources and/or different datacenter regions, you likely can't effectively cover these costs with reservations. When you buy a savings plan, your hourly usage, up to your commitment amount, is discounted. For this usage, you are no longer charged at the pay-as-you-go rates.
 
 ## How savings plan benefits are applied
 
@@ -38,7 +38,7 @@ You don't need to assign a savings plan to your compute resources. The savings p
 
 For more information about how savings plan discounts are applied, see [Savings plan discount application](discount-application.md).
 
-For more information about how savings plan scope works, see [Saving plan scopes](scope-savings-plan.md).
+For more information about how savings plan scope works, see [Savings plan scopes](scope-savings-plan.md).
 
 ## Determine your savings plan commitment
 Azure provides commitment recommendations based on usage from your last 30 days. The recommendations are found in:
@@ -49,7 +49,7 @@ Azure provides commitment recommendations based on usage from your last 30 days.
 
 Some compute products can benefit from both savings plans and reservations. If you buy either a savings plan or a reservation, allow at least 7 days for recommendation systems to update and reflect your purchase before considering the other option. Avoid purchasing both products at the same time to ensure recommendations are accurate and to maximize your savings.
 
-For more information, see [Choose an Azure saving plan commitment amount](choose-commitment-amount.md).
+For more information, see [Choose an Azure savings plan commitment amount](choose-commitment-amount.md).
 
 ## Buy a savings plan
 
@@ -59,7 +59,7 @@ You can purchase savings from the [Azure portal](https://portal.azure.com/) and 
 To learn about included products, visit [included compute products](download-savings-plan-price-sheet.md).
 
 ## How is a savings plan billed?
-The savings plan is charged to the payment method tied to the subscription. The savings plan cost is deducted from your Azure Prepayment (previously called monetary commitment) balance, if available. When your Azure Prepayment balance doesn't cover the cost of the savings plan, you're billed the overage. If you have a subscription from an individual plan with pay-as-you-go rates, the credit card you have in your account is billed immediately for up-front and for monthly purchases. Monthly payments that you've made appear on your invoice. When get billed by invoice, you see the charges on your next invoice.
+The savings plan is charged to the payment method tied to the subscription. The savings plan cost is deducted from your Azure Prepayment (previously called monetary commitment) balance, if available. When your Azure Prepayment balance doesn't cover the cost of the savings plan, you're billed the overage. If you have a subscription from an individual plan with pay-as-you-go rates, the credit card you have in your account is billed immediately for up-front and for monthly purchases. Monthly payments that you've made appear on your invoice. When you get billed by invoice, you see the charges on your next invoice.
 
 ## Who can buy a savings plan?
 To determine what roles are permitted to purchase savings plans, see [Permissions to buy an Azure savings plan](permission-buy-savings-plan.md).
