@@ -213,7 +213,7 @@ Now deploy the AKS cluster with full encryption and monitoring.
 #### Identity Configuration
 
 - **Identity Type**: **UserAssigned** (recommended)
-- **User Assigned Identity**: Select identity from Tutorial 11 (for example, `id-ave-encryption`)
+- **User Assigned Identity**: Select identity from Tutorial 2-2 (for example, `id-ave-encryption`)
 - **Create New Identity**: **No** (using existing)
 
 > [!NOTE]
@@ -222,7 +222,7 @@ Now deploy the AKS cluster with full encryption and monitoring.
 #### Encryption Configuration
 
 - **Enable Disk Encryption Set**: **Yes**
-- **Disk Encryption Set**: Select DES from Tutorial 11 (for example, `des-ave-encryption`)
+- **Disk Encryption Set**: Select DES from Tutorial 2-2 (for example, `des-ave-encryption`)
 - **Enable Encryption at Host**: **Yes** (requires feature flag)
 - **Key Vault Name**: `kv-ave-shared-<uniqueid>`
 - **Encryption Key Name**: `cmk-ave-encryption`

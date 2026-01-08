@@ -18,7 +18,7 @@ In this tutorial, part three of eight, you deploy workloads into an enclave. You
 - ✅ View workloads in Azure portal
 
 ## Before you begin
-In the previous [tutorial](./1-2-create-enclaves-inside-community.md), you used Azure portal to create an enclave. If you didn't create the enclave yet, return to [Tutorial 2 - Create enclaves within a community](./1-2-create-enclaves-inside-community.md).
+In the previous [tutorial](./1-2-create-enclaves-inside-community.md), you used Azure portal to create an enclave. If you didn't create the enclave yet, return to [Tutorial 1-2 - Create enclaves within a community](./1-2-create-enclaves-inside-community.md).
 
 ## Create a workload using Azure Virtual Enclaves
 Before creating your resources, you need to create the AVE workload resource. Workloads are logical groups of Azure resources, similar to an Azure resource group, that you define to create and audit connections in Azure Virtual Enclaves.

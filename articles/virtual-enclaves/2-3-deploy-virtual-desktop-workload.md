@@ -177,8 +177,8 @@ Now deploy the AVD workload with host pool, session hosts, and supporting infras
 #### Encryption Configuration
 
 - **Enable CMK Encryption**: **Yes**
-- **Disk Encryption Set Resource ID**: Resource ID from Tutorial 11 common dependencies
-- **User Assigned Identity Resource ID**: Resource ID from Tutorial 11 common dependencies
+- **Disk Encryption Set Resource ID**: Resource ID from Tutorial 2-2 common dependencies
+- **User Assigned Identity Resource ID**: Resource ID from Tutorial 2-2 common dependencies
 
 #### Monitoring
 

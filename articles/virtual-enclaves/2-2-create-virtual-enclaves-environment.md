@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 This tutorial assumes you have:
 - An existing community deployed from Tutorial 1
-- Planned your architecture including subnet sizes (see Tutorial 10)
+- Planned your architecture including subnet sizes (see Tutorial 2-1)
 - Identified the Azure region for your enclaves
 
 > [!IMPORTANT]
