@@ -33,9 +33,16 @@ ms.date: 07/01/2025
     "executionInfo": {
         "startTime": "2016-09-08T16:32:23.799Z",
         "endTime": "2016-09-08T16:34:00.666Z",
-        "exitCode": 0,
+        "exitCode": 1,
         "retryCount": 0,
-        "requeueCount": 0
+        "requeueCount": 0,
+        "result": "Failure",
+        "schedulingError": {
+            "category": "UserError",
+            "code": "FailureExitCode",
+            "message": "The task exited with an exit code representing a failure",
+            "details": []
+        }
     }
 }
 ```
@@ -77,6 +84,17 @@ ms.date: 07/01/2025
 |------------------|----------|-----------|
 |`startTime`|DateTime|The time when the task started running. 'Running' corresponds to the **running** state, so if the task specifies resource files or application packages, then the start time reflects the time when the task started downloading or deploying these. If the task restarted or retried, this is the most recent time at which the task started running.|
 |`endTime`|DateTime|The time when the task completed.|
-|`exitCode`|Int32|The exit code of the task.|
+|`exitCode`|Int32|The exit code of the task. If task failed before task running, then exitCode is null.|
 |`retryCount`|Int32|The number of times the task is retried by the Batch service. The task is retried if it exits with a nonzero exit code, up to the specified MaxTaskRetryCount.|
 |`requeueCount`|Int32|The number of times the task is requeued by the Batch service as the result of a user request.<br /><br /> When you remove nodes from a pool (by resizing or shrinking it) or disable a job, you can choose to requeue the running tasks on those nodes for execution. This count tracks how many times the task requeued for these reasons.|
+|`result`|String|The task result string, it could be "Success" or "Failure".|
+|[`schedulingErrror`](#schedulingError)|Complex Type|Contain detailed information about error.|
+
+###  <a name="schedulingError"></a> schedulingError
+
+|Element name|Type|Notes|
+|------------------|----------|-----------|
+|`category`|String|The error category, e.g. "UserError".|
+|`code`|String|The error code, e.g. "FailureExitCode".|
+|`message`|String|The error message.|
+|`details`|Array|The error details.|
