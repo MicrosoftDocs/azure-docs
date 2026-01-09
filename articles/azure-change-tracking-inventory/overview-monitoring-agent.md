@@ -6,8 +6,8 @@ services: automation
 ms.date: 12/03/2025
 ms.topic: overview
 ms.service: azure-change-tracking-inventory
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # About Azure Change Tracking and Inventory

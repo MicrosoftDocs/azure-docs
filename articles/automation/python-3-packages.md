@@ -7,8 +7,8 @@ ms.date: 08/08/2025
 ms.topic: how-to
 ms.custom: has-adal-ref, references_regions, devx-track-azurepowershell, devx-track-python
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Manage Python 3 packages in Azure Automation

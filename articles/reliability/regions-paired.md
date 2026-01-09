@@ -46,7 +46,6 @@ Most region pairs are *symmetrical*, which means that each region is bidirection
 *Asymmetrical region pairs* involve regions that are not bidirectionally paired. The list below includes public asymmetrical regions pairs:
 
 - Brazil South is paired with South Central US, which is outside of the Brazil geography. South Central US isn't paired with Brazil South.
-- US Gov Arizona is paired with US Gov Texas. US Gov Texas is bidirectionally paired with US Gov Virginia.
 - West India is paired with South India, but South India is paired with Central India.
 - West US 3 is paired in one direction with East US. East US is bidirectionally paired with West US.
 

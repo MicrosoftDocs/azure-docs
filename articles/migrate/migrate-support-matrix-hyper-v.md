@@ -61,8 +61,8 @@ The following table summarizes port requirements for assessment.
 Device | Connection
 --- | ---
 Appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app by using the URL: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Outbound connections on ports 443 (HTTPS) to send discovery and performance metadata to Azure Migrate and Modernize.
-Hyper-V host/cluster | Inbound connection on WinRM port 5985 (HTTP) to pull metadata and performance data for servers on Hyper-V by using a Common Information Model (CIM) session.
-Servers | Windows servers need access on port 5985 (HTTP). Linux servers need access on port 22 (TCP) to perform software inventory and agentless dependency analysis.
+Hyper-V host/cluster | Inbound connection uses WinRM port 5986 (HTTPS) by default. If HTTPS prerequisites aren't configured on the target servers, the communication falls back to WinRM port 5985 (HTTP) to collect metadata and performance data for Hyper‑V servers by using a Common Information Model (CIM) session.
+Servers | Windows servers need access on port 5986 (HTTPS) or port 5985 (HTTP). Linux servers need access on port 22 (TCP) to perform software inventory and agentless dependency analysis.
 
 ## Software inventory requirements
 
@@ -74,7 +74,7 @@ Supported servers | You can perform software inventory on up to 5,000 servers ru
 Operating systems | All Windows and Linux versions with [Hyper-V integration services](/virtualization/hyper-v-on-windows/reference/integration-services) enabled.
 Server requirements | Windows servers must have PowerShell remoting enabled and PowerShell version 2.0 or later installed. <br/><br/> WMI must be enabled and available on Windows servers to gather the details of the roles and features installed on the servers.<br/><br/> Linux servers must have Secure Shell (SSH) connectivity enabled and ensure that the following commands can be executed on the Linux servers to pull the application data: list, tail, awk, grep, locate, head, sed, ps, print, sort, uniq. Based on OS type and the type of package manager being used, here are some more commands: rpm/snap/dpkg, yum/apt-cache, mssql-server.
 Server access | You can add multiple domains and nondomain (Windows/Linux) credentials in the appliance configuration manager for software inventory.<br /><br /> You must have a guest user account for Windows servers and a standard user account (non-sudo access) for all Linux servers.
-Port access | Windows servers need access on port 5985 (HTTP). Linux servers need access on port 22 (TCP).<br /> <br />If you use domain credentials, the Azure Migrate appliance must be able to connect to the following TCP and UDP ports: <br /><br />TCP 135 – RPC Endpoint<br />TCP 389 – LDAP<br />TCP 636 – LDAP SSL<br />TCP 445 – SMB<br />TCP/UDP 88 – Kerberos authentication<br />TCP/UDP 464 – Kerberos change operations
+Port access | Windows servers need access on port 5986 (HTTPS) or port 5985 (HTTP). Linux servers need access on port 22 (TCP).<br /> <br />If you use domain credentials, the Azure Migrate appliance must be able to connect to the following TCP and UDP ports: <br /><br />TCP 135 – RPC Endpoint<br />TCP 389 – LDAP<br />TCP 636 – LDAP SSL<br />TCP 445 – SMB<br />TCP/UDP 88 – Kerberos authentication<br />TCP/UDP 464 – Kerberos change operations
 Discovery | Software inventory is performed by directly connecting to the servers by using the server credentials added on the appliance. <br/><br/> The appliance gathers the information about the software inventory from Windows servers by using PowerShell remoting and from Linux servers by using the SSH connection. <br/><br/> Software inventory is agentless. No agent is installed on the servers.
 
 ## SQL Server instance and database discovery requirements
@@ -312,7 +312,7 @@ Operating systems | All Windows and Linux versions with [Hyper-V integration ser
 Server requirements | Windows servers must have PowerShell remoting enabled and PowerShell version 2.0 or later installed. <br/><br/> Linux servers must have SSH connectivity enabled and ensure that the following commands can be executed on the Linux servers: touch, chmod, cat, ps, grep, echo, sha256sum, awk, netstat, ls, sudo, dpkg, rpm, sed, getcap, which, date.
 Windows server access |  A user account (local or domain) with administrator permissions on servers
 Linux server access | A sudo user account with permissions to execute ls and netstat commands. If you're providing a sudo user account, ensure that you enable **NOPASSWD** for the account to run the required commands without prompting for a password every time a sudo command is invoked. <br /><br /> 
-Port access | Windows servers need access on port 5985 (HTTP). Linux servers need access on port 22 (TCP).
+Port access | Windows servers need access on port 5986 (HTTPS) or port 5985 (HTTP). Linux servers need access on port 22 (TCP).
 Discovery method |  Agentless dependency analysis is performed by directly connecting to the servers by using the server credentials added on the appliance. <br/><br/> The appliance gathers the dependency information from Windows servers by using PowerShell remoting and from Linux servers by using the SSH connection. <br/><br/> No agent is installed on the servers to pull dependency data.
 
 ## Agent-based dependency analysis requirements

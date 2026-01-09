@@ -25,7 +25,7 @@ To speed up development, you might find it easier to deploy your function app pr
 - Deployment logs.
 - Syncing function triggers in a [Consumption plan](functions-scale.md) function app.
 
-For more information, see the [.zip deployment reference](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
+For more information, see the [.zip deployment reference](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
 >[!IMPORTANT]
 > When you use .zip deployment, any files from an existing deployment that aren't found in the .zip file are deleted from your function app.  
@@ -146,5 +146,3 @@ You can also download a .zip file from a GitHub repository. When you download a 
 
 > [!div class="nextstepaction"]
 > [Run your functions from a package file in Azure](run-functions-from-deployment-package.md)
-
-[.zip push deployment reference topic]: https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file

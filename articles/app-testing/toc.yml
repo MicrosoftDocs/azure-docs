@@ -251,6 +251,8 @@ items:
       items:
         - name: Troubleshoot test run failures
           href: playwright-workspaces/troubleshoot-test-run-failures.md
+        - name: Troubleshoot Playwright Workspaces reporting
+          href: playwright-workspaces/troubleshoot-playwright-workspaces-reporting.md
     - name: Resources
       items: 
         - name: Azure roadmap

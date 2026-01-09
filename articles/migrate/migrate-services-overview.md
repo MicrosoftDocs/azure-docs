@@ -22,6 +22,12 @@ Azure Migrate is a service that helps you decide on, plan, and execute your migr
 ::: moniker-end
 
 
+::: moniker range="migrate"
+
+For more information on migrating or modernizing multi-tier applications using Azure Migrate and how it simplifies planning and execution, see the [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azuremigrationblog/migrate-or-modernize-your-applications-using-azure-migrate/4468587).
+
+::: moniker-end
+
 ## Migration phases
 
 Azure Migrate provides a simplified migration, modernization, and optimization service for customers who want to migrate their on-premises workloads to Azure. It gives you a one-stop solution for migrating your infrastructure, data, and web application workloads.
@@ -30,11 +36,12 @@ A general migration journey includes the following phases. Azure Migrate provide
 
 :::image type="content" source="./media/migrate-services-overview/migrate-journey.png" alt-text="Screenshot that shows the phases of migrating workloads to Azure." lightbox="./media/migrate-services-overview/migrate-journey.png":::
 
-Watch the following video to learn about key phases of a typical migration: Decide, Plan, and Execute—and how Azure Migrate supports each step.
+::: moniker range="migrate"
 
+Watch this video to learn how Azure Migrate delivers enhanced experiences. It helps you identify and visualize workloads, estimate cost savings, create high-fidelity migration plans, and confidently migrate complex environments.
 
-> [!VIDEO https://learn-video.azurefd.net/vod/player?id=edd9a562-f4c1-49cb-8312-952f214a1cd6]
-
+> [!VIDEO https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed-one-stream.html?id=08b50a5e-0ee6-4dc5-91d8-9e55350547c6]
+::: moniker-end
 
 ### Decide
 

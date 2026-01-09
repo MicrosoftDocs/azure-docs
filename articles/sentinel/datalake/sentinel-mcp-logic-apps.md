@@ -71,9 +71,9 @@ To add the entity analyzer tool by using an existing logic app:
     ![Screenshot of entity analyzer as listed under Microsoft Sentinel MCP tools connector.](media/sentinel-mcp/logic-app-existing.png)
 
 1. Provide the following required information: 
-    - **Analyze Entity Request Workspace ID** - Microsoft Sentinel data lake workspace ID (GUID) 
-    - **Analyze Entity Request Look Back Days** - How far back this tool searches (depending on your use case)
-    - **Analyze Entity Request Properties** - Any of the following options:
+    - **Workspace ID** - Microsoft Sentinel data lake workspace ID (GUID) 
+    - **Look Back Days** - How far back this tool searches (depending on your use case)
+    - **Properties** - Any of the following options:
         - For URL entity:
             ```
             {

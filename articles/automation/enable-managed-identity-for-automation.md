@@ -6,8 +6,8 @@ ms.subservice: process-automation
 ms.date: 01/20/2025
 ms.topic: how-to 
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ms.custom:
   - devx-track-azurepowershell
   - sfi-ropc-nochange

@@ -8,8 +8,8 @@ ms.subservice: process-automation
 ms.custom: mode-ui
 #Customer intent: As an administrator, I want to enable managed identities for my Automation account so that I can securely access other Azure resources.
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Quickstart: Enable managed identities for your Automation account using the Azure portal

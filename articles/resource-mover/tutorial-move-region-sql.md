@@ -3,8 +3,8 @@ title: Move Azure SQL resources between regions with Azure Resource Mover
 description: Learn how to move Azure SQL resources to another region with Azure Resource Mover.
 ms.service: azure-resource-mover
 ms.topic: tutorial
-author: jasminemehndir
-ms.author: v-jasmineme
+author: RochakSingh-blr
+ms.author: v-rochak2
 ms.date: 07/31/2025
 ms.custom: mvc, engagement-fy23
 # Customer intent: "As an Azure administrator, I want to move SQL databases and elastic pools to different regions, so that I can optimize performance and manage resources according to regional requirements."

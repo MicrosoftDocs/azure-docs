@@ -7,8 +7,8 @@ ms.subservice: desired-state-config
 ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 11/17/2025
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Remediate noncompliant Azure Automation State Configuration servers

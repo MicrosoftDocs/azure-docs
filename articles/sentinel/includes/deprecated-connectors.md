@@ -2,7 +2,7 @@
 author: EdB-MSFT
 ms.author: edbayansh
 ms.topic: include
-ms.date: 01/06/2026
+ms.date: 01/09/2026
 
 # This file is auto-generated . Do not edit manually. Changes will be overwritten.
 ---
@@ -12,11 +12,11 @@ ms.date: 01/06/2026
 
 > [!NOTE]
 > The following table lists the deprecated and legacy data connectors. Deprecated connectors are no longer supported.
- 
-  
 
-**Connector** 
-<a name="deprecated-github-enterprise-audit-log"></a><details><summary>**[Deprecated] GitHub Enterprise Audit Log**</summary> <br> 
+
+
+<a name="deprecated-github-enterprise-audit-log"></a><details><summary>**[Deprecated] GitHub Enterprise Audit Log**</summary>
+
 **Supported by:** [Microsoft Corporation](https://azure.microsoft.com/support/options/)
 
 The GitHub audit log connector provides the capability to ingest GitHub logs into Microsoft Sentinel. By connecting GitHub audit logs into Microsoft Sentinel, you can view this data in workbooks, use it to create custom alerts, and improve your investigation process. 
@@ -31,19 +31,18 @@ The GitHub audit log connector provides the capability to ingest GitHub logs int
 |---|---|---|
 |`GitHubAuditLogPolling_CL`|No|No|
 
-
-**Data collection rule support:**  Not currently supported
+**Data collection rule support:** Not currently supported
 
 **Prerequisites:**
 
- - **GitHub API personal access token**: You need a GitHub personal access token to enable polling for the organization audit log. You may use either a classic token with 'read:org' scope OR a fine-grained token with 'Administration: Read-only' scope.
-- **GitHub Enterprise type**: This connector will only function with GitHub Enterprise Cloud; it will not support GitHub Enterprise Server. 
+- **GitHub API personal access token**: You need a GitHub personal access token to enable polling for the organization audit log. You may use either a classic token with 'read:org' scope OR a fine-grained token with 'Administration: Read-only' scope.
+- **GitHub Enterprise type**: This connector will only function with GitHub Enterprise Cloud; it will not support GitHub Enterprise Server. <br><br>
+</details> 
 
-<br><br></details>
+ ---
+   
+<a name="deprecated-infoblox-soc-insight-data-connector-via-legacy-agent"></a><details><summary>**[Deprecated] Infoblox SOC Insight Data Connector via Legacy Agent**</summary>
 
----
- 
-<a name="deprecated-infoblox-soc-insight-data-connector-via-legacy-agent"></a><details><summary>**[Deprecated] Infoblox SOC Insight Data Connector via Legacy Agent**</summary> <br> 
 **Supported by:** [Infoblox](https://support.infoblox.com/)
 
 The Infoblox SOC Insight Data Connector allows you to easily connect your Infoblox BloxOne SOC Insight data with Microsoft Sentinel. By connecting your logs to Microsoft Sentinel, you can take advantage of search & correlation, alerting, and threat intelligence enrichment for each log. 
@@ -60,13 +59,13 @@ This data connector ingests Infoblox SOC Insight CDC logs into your Log Analytic
 |---|---|---|
 |[`CommonSecurityLog`](/azure/azure-monitor/reference/tables/CommonSecurityLog)|Yes|Yes|
 
+**Data collection rule support:** [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal)<br><br>
+</details> 
 
-**Data collection rule support:**  [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal)
-<br><br></details>
+ ---
+   
+<a name="deprecated-lookout"></a><details><summary>**[Deprecated] Lookout**</summary>
 
----
- 
-<a name="deprecated-lookout"></a><details><summary>**[Deprecated] Lookout**</summary> <br> 
 **Supported by:** [Lookout](https://www.lookout.com/support)
 
 The [Lookout](https://lookout.com) data connector provides the capability to ingest [Lookout](https://enterprise.support.lookout.com/hc/en-us/articles/115002741773-Mobile-Risk-API-Guide#commoneventfields) events into Microsoft Sentinel through the Mobile Risk API. Refer to [API documentation](https://enterprise.support.lookout.com/hc/en-us/articles/115002741773-Mobile-Risk-API-Guide) for more information. The [Lookout](https://lookout.com) data connector provides ability to get events which helps to examine potential security risks and more.
@@ -79,19 +78,18 @@ The [Lookout](https://lookout.com) data connector provides the capability to ing
 |---|---|---|
 |`Lookout_CL`|No|No|
 
-
-**Data collection rule support:**  Not currently supported
+**Data collection rule support:** Not currently supported
 
 **Prerequisites:**
 
- - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. For more information, see [Azure Functions](/azure/azure-functions/).
-- **Mobile Risk API Credentials/permissions**: **EnterpriseName** & **ApiKey** are required for Mobile Risk API. For more information, see [API](https://enterprise.support.lookout.com/hc/en-us/articles/115002741773-Mobile-Risk-API-Guide). Check all [requirements and follow  the instructions](https://enterprise.support.lookout.com/hc/en-us/articles/115002741773-Mobile-Risk-API-Guide#authenticatingwiththemobileriskapi) for obtaining credentials.
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. For more information, see [Azure Functions](/azure/azure-functions/).
+- **Mobile Risk API Credentials/permissions**: **EnterpriseName** & **ApiKey** are required for Mobile Risk API. For more information, see [API](https://enterprise.support.lookout.com/hc/en-us/articles/115002741773-Mobile-Risk-API-Guide). Check all [requirements and follow  the instructions](https://enterprise.support.lookout.com/hc/en-us/articles/115002741773-Mobile-Risk-API-Guide#authenticatingwiththemobileriskapi) for obtaining credentials.<br><br>
+</details> 
 
-<br><br></details>
+ ---
+   
+<a name="deprecated-microsoft-exchange-logs-and-events"></a><details><summary>**[Deprecated] Microsoft Exchange Logs and Events**</summary>
 
----
- 
-<a name="deprecated-microsoft-exchange-logs-and-events"></a><details><summary>**[Deprecated] Microsoft Exchange Logs and Events**</summary> <br> 
 **Supported by:** [Community](https://github.com/Azure/Azure-Sentinel/issues)
 
 Deprecated, use the 'ESI-Opt' dataconnectors. You can stream all Exchange Audit events, IIS Logs, HTTP Proxy logs and Security Event logs from the Windows machines connected to your Microsoft Sentinel workspace using the Windows agent. This connection enables you to view dashboards, create custom alerts, and improve investigation. This is used by Microsoft Exchange Security Workbooks to provide security insights of your On-Premises Exchange environment
@@ -100,25 +98,24 @@ Deprecated, use the 'ESI-Opt' dataconnectors. You can stream all Exchange Audit 
 
 |Table|DCR support|Lake-only ingestion|
 |---|---|---|
-|[`Event`](/azure/azure-monitor/reference/tables/Event)|Yes|Yes|
+|[`Event`](/azure/azure-monitor/reference/tables/Event)|Yes|No|
 |[`SecurityEvent`](/azure/azure-monitor/reference/tables/SecurityEvent)|Yes|Yes|
 |[`W3CIISLog`](/azure/azure-monitor/reference/tables/W3CIISLog)|Yes|No|
 |`MessageTrackingLog_CL`|No|No|
 |`ExchangeHttpProxy_CL`|No|No|
 
-
-**Data collection rule support:**  [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal)
+**Data collection rule support:** [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal)
 
 **Prerequisites:**
 
- - Azure Log Analytics will be deprecated, to collect data from non-Azure VMs, Azure Arc is recommended. [Learn more](/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)
-- **Detailled documentation**: >**NOTE:** Detailled documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)
+- Azure Log Analytics will be deprecated, to collect data from non-Azure VMs, Azure Arc is recommended. [Learn more](/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)
+- **Detailled documentation**: >**NOTE:** Detailled documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
+</details> 
 
-<br><br></details>
+ ---
+   
+<a name="security-events-via-legacy-agent"></a><details><summary>**Security Events via Legacy Agent**</summary>
 
----
- 
-<a name="security-events-via-legacy-agent"></a><details><summary>**Security Events via Legacy Agent**</summary> <br> 
 **Supported by:** [Microsoft Corporation](https://support.microsoft.com/)
 
 You can stream all security events from the Windows machines connected to your Microsoft Sentinel workspace using the Windows agent. This connection enables you to view dashboards, create custom alerts, and improve investigation. This gives you more insight into your organization’s network and improves your security operation capabilities. For more information, see the [Microsoft Sentinel documentation](https://go.microsoft.com/fwlink/p/?linkid=2220093&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).
@@ -129,13 +126,13 @@ You can stream all security events from the Windows machines connected to your M
 |---|---|---|
 |[`SecurityEvent`](/azure/azure-monitor/reference/tables/SecurityEvent)|Yes|Yes|
 
+**Data collection rule support:** [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal)<br><br>
+</details> 
 
-**Data collection rule support:**  [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal)
-<br><br></details>
+ ---
+   
+<a name="subscription-based-microsoft-defender-for-cloud-legacy"></a><details><summary>**Subscription-based Microsoft Defender for Cloud (Legacy)**</summary>
 
----
- 
-<a name="subscription-based-microsoft-defender-for-cloud-legacy"></a><details><summary>**Subscription-based Microsoft Defender for Cloud (Legacy)**</summary> <br> 
 **Supported by:** [Microsoft Corporation](https://support.microsoft.com/)
 
 Microsoft Defender for Cloud is a security management tool that allows you to detect and quickly respond to threats across Azure, hybrid, and multi-cloud workloads. This connector allows you to stream your security alerts from Microsoft Defender for Cloud into Microsoft Sentinel, so you can view Defender data in workbooks, query it to produce alerts, and investigate and respond to incidents.
@@ -146,15 +143,15 @@ Microsoft Defender for Cloud is a security management tool that allows you to de
 
 |Table|DCR support|Lake-only ingestion|
 |---|---|---|
-|[`SecurityAlert`](/azure/azure-monitor/reference/tables/SecurityAlert)|Yes|No|
+|[`SecurityAlert`](/azure/azure-monitor/reference/tables/SecurityAlert)|Yes|Yes|
 
+**Data collection rule support:** [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal)<br><br>
+</details> 
 
-**Data collection rule support:**  [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal)
-<br><br></details>
+ ---
+   
+<a name="syslog-via-legacy-agent"></a><details><summary>**Syslog via Legacy Agent**</summary>
 
----
- 
-<a name="syslog-via-legacy-agent"></a><details><summary>**Syslog via Legacy Agent**</summary> <br> 
 **Supported by:** [Microsoft Corporation](https://support.microsoft.com/)
 
 Syslog is an event logging protocol that is common to Linux. Applications will send messages that may be stored on the local machine or delivered to a Syslog collector. When the Agent for Linux is installed, it configures the local Syslog daemon to forward messages to the agent. The agent then sends the message to the workspace.
@@ -167,9 +164,8 @@ Syslog is an event logging protocol that is common to Linux. Applications will s
 |---|---|---|
 |[`Syslog`](/azure/azure-monitor/reference/tables/Syslog)|Yes|Yes|
 
+**Data collection rule support:** [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal)<br><br>
+</details> 
 
-**Data collection rule support:**  [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal)
-<br><br></details>
-
----
- 
+ ---
+   

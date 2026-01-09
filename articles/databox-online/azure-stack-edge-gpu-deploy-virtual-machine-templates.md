@@ -95,7 +95,7 @@ ResourceGroupName : myaserg1
 Location          : dbelocal
 ProvisioningState : Succeeded
 Tags              :
-ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myaserg1
+ResourceId        : /subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myaserg1
 
 PS C:\WINDOWS\system32> 
 ```
@@ -120,7 +120,7 @@ ResourceGroupName : myasegpurgvm
 Location          : dbelocal
 ProvisioningState : Succeeded
 Tags              :
-ResourceId        : /subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myasegpurgvm
+ResourceId        : /subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myasegpurgvm
 
 PS C:\windows\system32>
 ```

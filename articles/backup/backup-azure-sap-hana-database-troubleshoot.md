@@ -2,7 +2,7 @@
 title: Troubleshoot SAP HANA databases back up errors
 description: Describes how to troubleshoot common errors that might occur when you use Azure Backup to back up SAP HANA databases.
 ms.topic: troubleshooting
-ms.date: 10/14/2025
+ms.date: 01/09/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -15,7 +15,7 @@ This article provides troubleshooting information to back up SAP HANA databases 
 
 ## Prerequisites and Permissions
 
-See the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What the preregistration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) sections before configuring backups.
+See the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What the preregistration script does](tutorial-backup-sap-hana-db.md#preregistration-script-functionality-for-sap-hana-database-backup) sections before configuring backups.
 
 ## Common user errors for backup and restore of SAP HANA databases
 
@@ -299,7 +299,7 @@ Upgrades to the OS, SDC version change, or MDC version change that don't cause a
 - Ensure that the new OS version, SDC, or MDC version are currently [supported by Azure Backup](sap-hana-backup-support-matrix.md#scenario-support)
 - [Stop protection with retain data](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) for the database
 - Perform the upgrade or update
-- Rerun the pre-registration script. Often, the upgrade process might remove [the necessary roles](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does). Run the pre-registration script to verify all the required roles.
+- Rerun the pre-registration script. Often, the upgrade process might remove [the necessary roles](tutorial-backup-sap-hana-db.md#preregistration-script-functionality-for-sap-hana-database-backup). Run the pre-registration script to verify all the required roles.
 - Resume protection for the database again
 
 ## SDC to MDC upgrade with no change in SID

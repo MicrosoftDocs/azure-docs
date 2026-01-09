@@ -2,7 +2,7 @@
 title: Manage backed up SAP HANA databases on Azure VMs
 description: In this article, you'll learn common tasks for managing and monitoring SAP HANA databases that are running on Azure virtual machines.
 ms.topic: how-to
-ms.date: 08/19/2025
+ms.date: 01/09/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -272,7 +272,7 @@ Follow these steps:
 To switch HANA System Replication (HSR) to standalone databases and configure backup, follow these steps:
 
 1. [Stop protection and retain data for the currently protected databases](#stop-protection-for-an-sap-hana-database-or-hana-instance).
-2. Run [pre-registration script](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) on both the nodes as Standalone.
+2. Run [pre-registration script](tutorial-backup-sap-hana-db.md#preregistration-script-functionality-for-sap-hana-database-backup) on both the nodes as Standalone.
 3. [Re-discover the databases](backup-azure-sap-hana-database.md#discover-the-databases) on both nodes.
 4. [Protect the databases as Standalone](backup-azure-sap-hana-database.md#configure-backup) on both the nodes.
 

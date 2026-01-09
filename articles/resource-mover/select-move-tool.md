@@ -1,8 +1,8 @@
 ---
 title: Choose a tool for moving Azure resources across regions
 description: Review options and tools for moving Azure resources across regions.
-author: jasminemehndir
-ms.author: v-jasmineme
+author: RochakSingh-blr
+ms.author: v-rochak2
 ms.date: 07/31/2025
 ms.service: azure-resource-mover
 ms.topic: overview
