@@ -2,7 +2,7 @@
 title: Azure Batch task fail event
 description: Reference for Batch task fail event. This event is emitted in addition to a task complete event and can be used to detect when a task fails.
 ms.topic: reference
-ms.date: 07/01/2025
+ms.date: 01/09/2026
 # Customer intent: As a cloud operations engineer, I want to receive notifications for task failure events, so that I can quickly identify issues and take corrective actions to ensure job reliability and efficiency.
 ---
 
@@ -35,7 +35,14 @@ ms.date: 07/01/2025
         "endTime": "2016-09-08T16:34:00.666Z",
         "exitCode": 1,
         "retryCount": 2,
-        "requeueCount": 0
+        "requeueCount": 0，
+        "result": "Failure",
+        "schedulingError": {
+            "category": "UserError",
+            "code": "FailureExitCode",
+            "message": "The task exited with an exit code representing a failure",
+            "details": []
+        }
     }
 }
 ```
@@ -78,6 +85,16 @@ ms.date: 07/01/2025
 |------------------|----------|-----------|
 |`startTime`|DateTime|The time when the task started running. 'Running' corresponds to the **running** state, so if the task specifies resource files or application packages, then the start time reflects the time at which the task started downloading or deploying them. If the task is restarted or retried, it's the most recent time at which the task started running.|
 |`endTime`|DateTime|The time when the task completed.|
-|`exitCode`|Int32|The exit code of the task.|
+|`exitCode`|Int32|The exit code of the task. If task failed before task running, then exitCode is null.|
 |`retryCount`|Int32|The number of times the task is retried by the Batch service. The task is retried if it exits with a nonzero exit code, up to the specified MaxTaskRetryCount.|
 |`requeueCount`|Int32|The number of times the task is requeued by the Batch service as a result of user request.<br /><br /> When users remove nodes from a pool (by resizing or shrinking it) or disable a job, they can choose to requeue the running tasks on those nodes for execution. This count tracks how many times the task is requeued for these reasons.|
+|[`schedulingErrror`](#schedulingError)|Complex Type|Contain detailed information about error.|
+
+###  <a name="schedulingError"></a> schedulingError
+
+|Element name|Type|Notes|
+|------------------|----------|-----------|
+|`category`|String|The error category, e.g. "UserError".|
+|`code`|String|The error code, e.g. "FailureExitCode".|
+|`message`|String|The error message.|
+|`details`|Array|The error details.|
