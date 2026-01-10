@@ -16,7 +16,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-This article provides information about the roles and features of the API Management *gateway* component and compares the gateways you can deploy.
+This article describes the roles and features of the API Management *gateway* component. It also compares the gateways you can deploy.
 
 Related information:
 
@@ -34,21 +34,21 @@ The API Management *gateway* (also called *data plane* or *runtime*) is the serv
 
 
 > [!NOTE]
-> All requests to the API Management gateway, including those rejected by policy configurations, count toward configured rate limits, quotas, and billing limits if applied in the service tier. 
+> All requests to the API Management gateway, including those rejected by policy configurations, count toward configured rate limits, quotas, and billing limits if the service tier applies them. 
 
 
-## Managed and self-hosted
+## Managed and self-hosted gateways
 
 API Management offers both managed and self-hosted gateways:
 
-* **Managed** - The managed gateway is the default gateway component that is deployed in Azure for every API Management instance in every service tier. A standalone managed gateway can also be associated with a [workspace](workspaces-overview.md) in an API Management instance. With the managed gateway, all API traffic flows through Azure regardless of where backends implementing the APIs are hosted. 
+* **Managed** - The managed gateway is the default gateway component that Azure deploys for every API Management instance in every service tier. You can also associate a standalone managed gateway with a [workspace](workspaces-overview.md) in an API Management instance in select service tiers. By using the managed gateway, all API traffic flows through Azure regardless of where backends implementing the APIs are hosted.  
 
     > [!NOTE]
     > Because of differences in the underlying service architecture, the gateways provided in the different API Management service tiers have some differences in capabilities. For details, see the section [Feature comparison: Managed versus self-hosted gateways](#feature-comparison-managed-versus-self-hosted-gateways).
     >    
  
 
-* **Self-hosted** - The [self-hosted gateway](self-hosted-gateway-overview.md) is an optional, containerized version of the default managed gateway that is available in select service tiers. It's useful for hybrid and multicloud scenarios where there's a requirement to run the gateways off of Azure in the same environments where API backends are hosted. The self-hosted gateway enables customers with hybrid IT infrastructure to manage APIs hosted on-premises and across clouds from a single API Management service in Azure. 
+* **Self-hosted** - The [self-hosted gateway](self-hosted-gateway-overview.md) is an optional, containerized version of the default managed gateway that's available in select service tiers. It's useful for hybrid and multicloud scenarios where there's a requirement to run the gateways off of Azure in the same environments where API backends are hosted. The self-hosted gateway enables customers with hybrid IT infrastructure to manage APIs hosted on-premises and across clouds from a single API Management service in Azure. 
 
     * The self-hosted gateway is [packaged](self-hosted-gateway-overview.md#packaging) as a Linux-based Docker container and is commonly deployed to Kubernetes, including to [Azure Kubernetes Service](how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md) and [Azure Arc-enabled Kubernetes](how-to-deploy-self-hosted-gateway-azure-arc.md).
 
@@ -66,7 +66,7 @@ The following tables compare features available in the following API Management 
 
 > [!NOTE]
 > * Some features of managed and self-hosted gateways are supported only in certain [service tiers](api-management-features.md) or with certain [deployment environments](self-hosted-gateway-overview.md#packaging) for self-hosted gateways.
-> * For the current supported features of the self-hosted gateway, ensure that you have upgraded to the latest major version of the self-hosted gateway [container image](self-hosted-gateway-overview.md#container-images).
+> * To see the current supported features of the self-hosted gateway, make sure you upgraded to the latest major version of the self-hosted gateway [container image](self-hosted-gateway-overview.md#container-images).
 > * See also self-hosted gateway [limitations](self-hosted-gateway-overview.md#limitations).
 
 ### Infrastructure
@@ -90,7 +90,7 @@ The following tables compare features available in the following API Management 
 
 <sup>1</sup> Depends on how the gateway is deployed, but is the responsibility of the customer.<br/>
 <sup>2</sup> Connectivity to the self-hosted gateway v2 [configuration endpoint](self-hosted-gateway-overview.md#fqdn-dependencies) requires DNS resolution of the endpoint hostname.<br/>
-<sup>3</sup> CA root certificates for self-hosted gateway are managed separately per gateway<br/>
+<sup>3</sup> CA root certificates for self-hosted gateway are managed separately per gateway.<br/>
 <sup>4</sup> Client protocol needs to be enabled.<br/>
 <sup>5</sup> Configure using the [forward-request](forward-request-policy.md) policy.<br/>
 <sup>6</sup> Configure CA certificate details for backend certificate authentication in [backend](backends.md) settings.
@@ -154,7 +154,7 @@ For details about monitoring options, see [Observability in Azure API Management
 | [Request tracing](api-management-howto-api-inspector.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 
 <sup>1</sup> The v2 tiers support Azure Monitor-based analytics.<br/>
-<sup>2</sup> Gateway uses [Azure Application Insight's built-in memory buffer](/azure/azure-monitor/app/telemetry-channels#built-in-telemetry-channels) and does not provide delivery guarantees.<br/>
+<sup>2</sup> Gateway uses [Azure Application Insight's built-in memory buffer](/azure/azure-monitor/app/telemetry-channels#built-in-telemetry-channels) and doesn't provide delivery guarantees.<br/>
 <sup>3</sup> The self-hosted gateway currently doesn't send resource logs (diagnostic logs) to Azure Monitor. Optionally [send metrics](how-to-configure-cloud-metrics-logs.md) to Azure Monitor, or [configure and persist logs locally](how-to-configure-local-metrics-logs.md) where the self-hosted gateway is deployed.<br/>
 
 ### Authentication and authorization
@@ -169,17 +169,17 @@ Managed and self-hosted gateways support all available [API authentication and a
 ## Gateway throughput and scaling
 
 > [!IMPORTANT]
-> Throughput is affected by the number and rate of concurrent client connections, the kind and number of configured policies, payload sizes, backend API performance, and other factors. Self-hosted gateway throughput is also dependent on the compute capacity (CPU and memory) of the host where it runs. Perform gateway load testing using anticipated production conditions to determine expected throughput accurately.
+> Throughput depends on many factors, including the number and rate of concurrent client connections, the kind and number of configured policies, payload sizes, backend API performance, and other factors. Self-hosted gateway throughput also depends on the compute capacity (CPU and memory) of the host where it runs. To accurately determine expected throughput, perform gateway load testing by using anticipated production conditions.
 
 ### Managed gateway
 
 For estimated maximum gateway throughput in the API Management service tiers, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
 
 > [!IMPORTANT]
-> Throughput figures are presented for information only and must not be relied upon for capacity and budget planning. See [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/) for details.
+> Use the throughput figures for information only. Don't rely on them for capacity and budget planning. See [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/) for details.
 
 * **Classic tiers**
-    * Scale gateway capacity by adding and removing scale [units](upgrade-and-scale.md), or upgrade the service tier. (Scaling not available in the Developer tier.)
+    * Scale gateway capacity by adding and removing scale [units](upgrade-and-scale.md), or upgrade the service tier. (Scaling isn't available in the Developer tier.)
     * In the Basic, Standard, and Premium tiers, optionally configure [Azure Monitor autoscale](api-management-howto-autoscale.md).
     * In the Premium tier, optionally add and distribute gateway capacity across multiple [regions](api-management-howto-deploy-multi-region.md).
 
@@ -197,6 +197,19 @@ For estimated maximum gateway throughput in the API Management service tiers, se
 ### Workspace gateway
 
 Scale capacity by adding and removing scale [units](upgrade-and-scale.md) in the workspace gateway.
+
+## Gateway health check endpoint
+
+In all tiers except the Consumption tier, Azure API Management provides a built-in gateway health check endpoint at path `/status-0123456789abcdef`. Reach this endpoint to help confirm that the API gateway is available and functioning correctly. It doesn't test backend APIs, only the gateway itself.
+
+A request to the endpoint returns a `200 OK` HTTP response when the gateway is healthy; failures indicate networking or gateway issues.  
+
+* Azure uses this endpoint internally for continuous SLA monitoring and gateway health validation.
+* Customers can integrate requests to this endpoint into their own monitoring tools and probes.
+* The endpoint is available for managed gateways (including regional gateways in multi-region deployments), self-hosted gateways, and workspace gateways. 
+
+> [!TIP]
+> When you [integrate Azure Application Insights](api-management-howto-app-insights.md) with API Management, you can optionally enable availability monitoring of the gateway. This setting regularly polls the gateway health check endpoint and reports results on the **Availability** tab in Application Insights.
 
 ## Related content
 

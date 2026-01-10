@@ -1,9 +1,9 @@
 ---
-title: NSX Scale and Performance Recommendations for VMware HCX
+title: NSX Scale and Performance Recommendations 
 description: Learn about the default NSX Topology in Azure VMware Solution and recommended practices to mitigate performance issues around HCX migration use cases. 
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 12/19/2024
+ms.date: 1/9/2026
 ms.custom: engagement-fy25
 # Customer intent: As an IT administrator managing HCX migrations on Azure VMware Solution, I want to optimize NSX Edge performance and mitigate bottlenecks, so that I can ensure efficient data transfer and reliable application performance during migration tasks.
 ---
@@ -62,7 +62,7 @@ Using the built-in NSX alarm framework is recommended to monitor and identify ke
 
 ### How to Monitor and Identify NSX Edge Data Path Resource Constraints
 
-NSX Edge performance can be monitored and identified by using the built-in NSX alarm framework. The following critical NSX Edge alarms identify the NSX Edge data path resource constraints:
+NSX Edge performance can be monitored and identified by using the built-in NSX alarm framework. Customer can use the NSX UI or API to monitor alarms, or utilize Azure VMware Solution Resource Health notifications to alert customers when Edge resource constraint alarms are triggered.  More information on the resource health feature is documented [here](resource-health-for-azure-vmware-solution-overview.md). The following critical NSX Edge alarms identify the NSX Edge data path resource constraints. 
 
 1. Edge NIC Out of Transmit/Receive buffer.
 
@@ -74,7 +74,7 @@ NSX Edge performance can be monitored and identified by using the built-in NSX a
 
 ## How to fix the NSX Edge resource constraints
 
-To validate the issue, check Historic/Realtime traffic throughput at the alarm time for the correlation. 
+To validate the issue, check Historic/Real time traffic throughput at the alarm time for the correlation. 
 
 :::image type="content" source="media/nsxt/nsx-edge-performance-charts.png" alt-text="Diagram showing NSX Edge VM performance charts." border="false" lightbox="media/nsxt/nsx-edge-performance-charts.png":::
 
@@ -88,9 +88,18 @@ Mitigation options:
 
      * Edge Scale up may not help if you have one or more heavy flows, for example, HCX Network Extension (NE) to Network Extension (NE) traffic, as this traffic could potentially pin to one of the DPDK CPU cores.
 
-2. Tier-1 Gateway Topology Change: Change the Azure VMware Solution NSX default Tier-1 Gateway topology with multiple Tier-1 Gateways to split the traffic across multiple Edge VMs
+2. NSX Tier-1 Gateway Topology Change: 
 
-     * More details in the next section with an example of HCX migration use case.
+     * Set up a new Tier-1 gateway in "Distributed-only" mode and migrate all segments to it to optimize usage of all available Edges through distributed flow based hashing for all north-south traffic. Note that the NSX distributed Tier-1 gateway does not support gateway services such as Gateway Firewall, VPN, DNS, or DHCP
+  
+     * If you require NSX gateway services and want to utilize all Edge resources, adjust the Azure VMware Solution NSX default Tier-1 Gateway topology by deploying multiple Tier-1 Gateways. Then, manually assign Edge resources to each Tier-1 and move the segments to the respective Tier-1 Gateways. This approach helps distribute north-south traffic across Edge VMs optimally.
+  
+     * More details in the next section with an example of HCX migration use case. 
+  
+ >[!NOTE]
+ > Tier-1 topology change options work for all use case where one of the NSX Edge being over utilized.
+
+
 
 3. Edge Scale-OUT: If you have a large number of Hosts in the SDDC and workloads, NSX Edge Scale-OUT (from two Edges to four Edges) could be an option to add additional NSX Edge data path resources.
 
@@ -100,7 +109,7 @@ Mitigation options:
 
 ### Default and configuration recommendations to the NSX Edge data path performance
 
-Here are a few configuration recommendations to mitigate an NSX Edge VMs performance challenges.
+Here are a few configuration recommendations to mitigate NSX Edge VMs performance challenges.
 
 1. By default, Edge VMs are part of Azure VMware Solution management resource pool on vCenter. All appliances in the management resource pool have dedicated computing resources assigned.  
 
@@ -111,6 +120,8 @@ Here are a few configuration recommendations to mitigate an NSX Edge VMs perform
 4. Verify that NSX Edge VMs and HCX Network Extension (NE) appliances are on separate hosts, to avoid multiple heavy packet processing workloads on same hosts.
 
 5. Verify for HCX migration use case, that the HCX Network Extension (NE) and HCX Interconnect (IX) appliances have the CPU reserved. Reserving the CPU allows HCX to optimally process the HCX migration traffic. (By default, these appliances have no CPU reservations).
+
+6.  Ensure that Cluster-1, which hosts all VCF management appliances and HCX service mesh appliances, has optimal resources with the necessary CPU oversubscription ratio to help with overall performance.
 
 ## How to optimize Azure VMware Solution NSX Data Path Performance - HCX Use Case 
  
@@ -153,7 +164,7 @@ Active/Standby Option:
 
 3. Select the **Edge VM** that is not currently active as the preferred option.
 
-4. For the **Fail Over** setting, select **Preemptive**, this ensures that traffic will always failback to the preferred Edge VM selected in Step 3.
+4. For the **Fail Over** setting, select **Preemptive**, this ensures that traffic always failback to the preferred Edge VM selected in Step 3.
 
 5. Select **All Connected Segments and Service Ports** to be advertised.
 
@@ -173,7 +184,7 @@ For detailed instructions on NSX Segment creation. [NSX Segment Creation](tutori
 Select the newly created Tier-1 Gateway when creating your new NSX Segment. 
 
 >[!NOTE]
->When creating a new NSX Segment, customers cannot utilize the Azure VMware Solution reserved IP space.
+>Customers cannot utilize the Azure VMware Solution reserved IP space, when creating a new NSX Segment.
  
 :::image type="content" source="media/nsxt/nsx-segment-creation.png" alt-text="Diagram showing the creation of an NSX segment." border="false" lightbox="media/nsxt/nsx-segment-creation.png":::
 

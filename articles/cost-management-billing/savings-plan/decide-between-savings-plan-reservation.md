@@ -29,4 +29,4 @@ Opt for savings plans when your workloads are dynamic or evolving, particularly 
 
 ## Related content
 
-For general information about savings plans, see [What is Azure savings plans for compute?](savings-plan-compute-overview.md).
+For general information about savings plans, see [What are Azure savings plans for compute?](savings-plan-compute-overview.md).

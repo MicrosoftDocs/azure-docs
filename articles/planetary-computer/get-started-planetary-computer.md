@@ -5,7 +5,7 @@ author: prasadko
 ms.author: prasadkomma
 ms.service: planetary-computer-pro
 ms.topic: get-started
-ms.date: 12/01/2025
+ms.date: 01/09/2026
 #customer intent: As a new customer, I want to learn how to use Microsoft Planetary Computer Pro to solve my geospatial data management challenges.
 ms.custom:
 ---
@@ -26,7 +26,7 @@ Microsoft Planetary Computer Pro is an Azure cloud service for storing, catalogi
 | [Create a STAC Collection to organize your data](#create-a-stac-collection-to-organize-your-data) | [Create a STAC Collection to organize your data](./create-collection-web-interface.md)                |
 | [Ingest Data into a STAC Collection](#ingest-data-into-a-stac-collection) | [Concept: Ingestion](./ingestion-overview.md)      |
 | [Configure Your STAC Collection for Visualization](#configure-your-stac-collection-for-visualization) | [Concept: STAC Collection Configuration & Visualization](./configure-collection-web-interface.md)  |
-| [Connect and Build Applications with your Data](#connect-and-build-applications-with-your-data) | [Connect and Build Applications with Your Data](./build-applications-with-planetary-computer-pro.md) |
+| [Connect and build applications with your data](#connect-and-build-applications-with-your-data) | [Connect and build applications with your data](./build-applications-with-planetary-computer-pro.md) |
 
 ## Deploy a GeoCatalog resource in your Azure subscription
 

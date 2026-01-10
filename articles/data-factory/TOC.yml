@@ -23,6 +23,8 @@ items:
     href: /fabric/data-factory/connector-parity?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
   - name: Migration planning
     href: /fabric/data-factory/migrate-planning-azure-data-factory?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+  - name: Migrate global parameters to variable libraries
+    href: /fabric/data-factory/convert-global-parameters-to-variable-libraries?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
   - name: Migration best practices
     href: /fabric/data-factory/migration-best-practices?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
   - name: Bring your Azure Data Factory to Fabric

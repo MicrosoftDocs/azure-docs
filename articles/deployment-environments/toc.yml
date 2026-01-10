@@ -25,7 +25,7 @@ items:
       - name: Best practices for designing catalogs
         href: best-practice-catalog-structure.md
       - name: Reliability in Azure Deployment Environments
-        href: ../reliability/reliability-deployment-environments.md?toc=/azure/deployment-environments/toc.json&bc=/azure/deployment-environments/breadcrumb/toc.json
+        href: concept-reliability-deployment-environments.md
       - name: Azure role-based access control
         href: concept-deployment-environments-role-based-access-control.md
   - name: Configure resources
@@ -83,8 +83,8 @@ items:
   - name: Security
     items:
       - name: Grant access to Azure Deployment Environments
-        displayName: role-based access control, RBAC, permissions, roles, access, manage
         href: how-to-manage-deployment-environments-access.md
+        displayName: role-based access control, RBAC, permissions, roles, access, manage
       - name: Authenticate to REST APIs
         href: how-to-authenticate.md
   - name: Automate with CI/CD

@@ -73,14 +73,16 @@
     href: queryables-for-explorer-custom-search-filter.md
   - name: Supported color maps
     href: supported-colormaps.md
-- name: Build and use applications
+- name: Connect and build applications
   items:
-  - name: Build applications
+  - name: Connect and build applications with your data
     href: build-applications-with-planetary-computer-pro.md
   - name: Use the explorer
     href: use-explorer.md
   - name: Application authentication
     href: application-authentication.md
+  - name: Build a web application
+    href: build-web-application.md
   - name: Connect to ArcGIS Pro
     href: create-connection-arc-gis-pro.md
   - name: Connect to QGIS

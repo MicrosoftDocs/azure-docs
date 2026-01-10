@@ -1,86 +1,95 @@
 ---
-title: Building Custom Applications with Microsoft Planetary Computer Pro
-description: "Learn the basics of how to connect Microsoft Planetary Computer Pro (Planetary Computer Pro) to applications or build your application on top of Planetary Computer Pro's API services."
+title: Connect and build applications with your data
+description: "Learn how to connect to Microsoft Planetary Computer Pro from the built-in Explorer, desktop GIS applications, or custom applications using REST APIs."
 author: prasadko
 ms.author: prasadkomma
 ms.service: planetary-computer-pro
 ms.topic: concept-article #Don't change.
-ms.date: 04/29/2025
+ms.date: 01/09/2026
 
-#customer intent: As a developer, I want to understand how to build applications that integrate with Microsoft Planetary Computer Pro so that I can create solutions leveraging geospatial data at scale.
+#customer intent: As a user, I want to understand how to connect to and use my geospatial data in Microsoft Planetary Computer Pro so that I can choose the right tool for my needs.
 ms.custom:
   - build-2025
 ---
 
-# Building applications with Microsoft Planetary Computer Pro
+# Connect and build applications with your data
 
-Microsoft Planetary Computer Pro offers APIs and connectors that enable developers to build applications that can access, analyze, and visualize large-scale geospatial datasets. This article provides an overview of the application development options available with Planetary Computer Pro and key concepts for integrating with its services.
+Microsoft Planetary Computer Pro provides multiple ways to connect to your geospatial data—whether you want to explore it visually, integrate it with desktop GIS tools, or build custom applications. This article helps you choose the right integration approach for your needs.
+
+## Choose your integration approach
+
+[ ![Diagram illustrating how to connect to Microsoft Planetary Computer Pro, showing integration points, APIs, and supported workflows.](media/connect-and-build-diagram.png) ](media/connect-and-build-diagram.png#lightbox)
+
+Select the approach that best fits your use case:
+
+| Use case | Recommended approach | Get started |
+|----------|---------------------|-------------|
+| [**Explore and visualize data**](#built-in-explorer) | Use the built-in Explorer web application | [Use the Explorer](./use-explorer.md) |
+| [**Desktop GIS with ArcGIS Pro**](#desktop-gis-applications) | Connect ArcGIS Pro directly to GeoCatalog | [Configure ArcGIS Pro](./create-connection-arc-gis-pro.md) |
+| [**Desktop GIS with QGIS**](#desktop-gis-applications) | Connect QGIS to GeoCatalog via STAC | [Configure QGIS](./configure-qgis.md) |
+| [**Build a custom web application**](#custom-applications-with-rest-apis) | Browser-based app with JavaScript/TypeScript using MSAL.js | [Build a web application](./build-web-application.md) |
+| **Batch processing on Azure** | Run processing jobs with Azure Batch and managed identity | [Use Azure Batch](./azure-batch.md) |
+| **Backend/server-side integration** | Python applications using managed identity or service principal | [Configure application authentication](./application-authentication.md) |
 
 ## Prerequisites
 
-- An Azure account and subscription [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- Access to a Microsoft Planetary Computer Pro [GeoCatalog resource](./deploy-geocatalog-resource.md)
+- An Azure account and subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- Access to a Microsoft Planetary Computer Pro [GeoCatalog resource](./deploy-geocatalog-resource.md).
 
-## Application integration approaches
+## Integration options
 
-Planetary Computer Pro supports multiple integration approaches depending on your application's requirements. You can build applications that access Planetary Computer Pro's data and services in several ways:
+### Built-in Explorer
 
-[ ![Diagram illustrating how to build applications with Microsoft Planetary Computer Pro, showing integration points, APIs, and supported workflows.](media/build-apps-diagram.png) ](media/build-apps-diagram.png#lightbox)
+The fastest way to get started is with the built-in **Explorer** web application. Explorer allows you to visualize and interact with geospatial data directly in your browser—no coding required.
 
-### Direct API integration
+With Explorer, you can:
+- Browse collections and view items on an interactive map
+- Apply filters and mosaic definitions to refine your data
+- Generate code samples for Python integration
+- Create collection thumbnails
 
-The primary way to integrate with Planetary Computer Pro is through its REST APIs. Planetary Computer Pro provides a comprehensive set of APIs to build applications. These APIs are summarized in the next table:
+Once your data is [configured for visualization](./collection-configuration-concept.md), you can [use the Explorer](./use-explorer.md) immediately. Explorer is ideal for data exploration, quick visualization, and sharing insights with stakeholders.
+
+### Desktop GIS applications
+
+For geospatial professionals who prefer working with desktop GIS tools, Planetary Computer Pro integrates with industry-standard applications:
+
+**ArcGIS Pro** — Connect Planetary Computer Pro data directly to ESRI ArcGIS Pro to access and analyze cloud-hosted geospatial datasets, use advanced visualization and analysis capabilities, and integrate cloud-based data with local projects. For more information, see [Configure ArcGIS Pro to access a GeoCatalog](./create-connection-arc-gis-pro.md).
+
+**QGIS** — The open-source QGIS desktop application connects via the STAC API for browsing and visualization. QGIS enables direct interaction with STAC collections, so you can visualize, analyze, and style data on the fly. For more information, see [Configure QGIS to access a GeoCatalog resource](./configure-qgis.md).
+
+### Custom applications with REST APIs
+
+For full control over your application's functionality, integrate directly with Planetary Computer Pro's REST APIs. You can build custom web applications, backend services, and automated pipelines.
 
 | API Name      | Description                                                                                   |
 |---------------|----------------------------------------------------------------------------------------------|
-| STAC API      | Search, discover, and access geospatial data using the SpatioTemporal Asset Catalog (STAC) specification.                   |
+| STAC API      | Search, discover, and access geospatial data using the SpatioTemporal Asset Catalog (STAC) specification. |
 | Tiler API     | Serve map tiles and imagery for visualization in web maps and GIS apps.                      |
 | SAS API       | Generate secure, time-limited access tokens for sharing geospatial data.                     |
-| Ingestion API | Ingest and transform new geospatial datasets into the GeoCatalog.      |
+| Ingestion API | Ingest and transform new geospatial datasets into the GeoCatalog.                            |
 
-These APIs support [standard authentication through Microsoft Entra ID](/entra/architecture/guide-for-independent-software-developers), enabling secure access to your resources. Integrating your web application requires the use of [application authentication](./application-authentication.md). Once your app is registered with Microsoft Entra, it can securely use the APIs to access all data inside a GeoCatalog. 
+These APIs support [standard authentication through Microsoft Entra ID](/entra/architecture/guide-for-independent-software-developers), enabling secure access to your resources. For a complete walkthrough of building a browser-based application, see [Build a web application with Microsoft Planetary Computer Pro](./build-web-application.md).
+
+You can also integrate data in Planetary Computer Pro with Microsoft applications such as [Fabric](/fabric) and [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry).
 
 The [REST API is detailed in the API reference](/rest/api/planetarycomputer).
 
-### Fist Party Application Support
+## Authentication
 
-Planetary Computer Pro has a built-in application called Explorer which allows users to visualize ingested data in a GeoCatalog resource from their browser. Once the data is [configured for visualization](./collection-configuration-concept.md), it can be [used in the explorer](./use-explorer.md).
+All integrations with Planetary Computer Pro require authentication through Microsoft Entra ID. The recommended authentication method depends on where your application runs:
 
-In more, by using [the API services](#direct-api-integration), data in Planetary Computer Pro can be integrated with first party Microsoft applications such as [Fabric](/fabric) and [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning). 
+- **Applications on Azure** — Use managed identities for credential-free authentication with automatic token management.
+- **Applications outside Azure** — Register a service principal in Microsoft Entra ID and manage credentials securely.
 
-### GIS application connectivity
-
-Planetary Computer Pro integrates directly with the ESRI ArcGIS Pro desktop GIS application. 
-
-Integrating Microsoft Planetary Computer Pro with ESRI ArcGIS Pro provides a seamless workflow for geospatial professionals who rely on industry-standard desktop GIS tools. By connecting Planetary Computer Pro data directly to ArcGIS Pro, users can:
-
-- Access and analyze large-scale, cloud-hosted geospatial datasets without complex data transfers.
-- Use ArcGIS Pro’s advanced visualization, editing, and analysis capabilities on authoritative data from Planetary Computer Pro.
-- Streamline collaboration by combining enterprise GIS workflows with the latest planetary-scale datasets.
-- Accelerate decision-making by integrating cloud-based data with local projects, enabling richer insights and more informed outcomes.
-
-For more information on how to connect ArcGIS Pro to a GeoCatalog resource, see the [Configure ArcGIS Pro to access a GeoCatalog](./create-connection-arc-gis-pro.md).
-
-Another desktop integration option is [QGIS](./configure-qgis.md), which connects via the STAC API for browsing and visualization.
-
-## Authentication and authorization
-
-All applications that interact with Planetary Computer Pro must authenticate properly using Microsoft Entra ID. 
-
-### Authentication options and recommendations:
-
-| Application Hosting Environment | Access Type Required | Recommended Identity Type        | Explanation                                                                                                                               |
-| :------------------------------ | :------------------- | :------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Running on Azure** (VM, App Service, Functions, Container Apps, etc.) | App-Only (Application acts as itself) | Managed Identity (User-assigned recommended) | **Security & Manageability:** Eliminates the need to store and manage credentials (secrets/certificates) in code or configuration. Azure handles credential rotation automatically. User-assigned is preferred for sharing across multiple resources. |
-| **Running on Azure** (VM, App Service, Functions, Container Apps, etc.) | Delegated (Application acts on behalf of a user) | Managed Identity (User-assigned recommended) | **Leverages Azure Integration:** Combines the security benefits of Managed Identity for the application itself with standard user authentication flows. Simplifies infrastructure setup within Azure. |
-| **Running Outside Azure** (On-premises, other cloud, developer machine) | App-Only (Application acts as itself) | Service Principal | **Standard for External Apps:** The established method for non-Azure applications to authenticate with Microsoft Entra ID. Requires managing credentials (secrets/certificates) securely. |
-| **Running Outside Azure** (On-premises, other cloud, developer machine) | Delegated (Application acts on behalf of a user) | Service Principal | **Standard for External Apps:** Enables standard OAuth 2.0 flows for user sign-in and consent for applications outside Azure, using the application's registered identity in Entra ID. |
-| **Running Outside Azure (Alternative)** | App-Only or Delegated | Managed Identity | **Brings Azure Benefits:** By hosting the application in an Azure compute service (like a VM or Container App), it can use the enhanced security and manageability of Managed Identities, avoiding credential management even though the *origin* might be considered non-Azure. |
-
-For detailed authentication guidance, see [Set up application authentication for Planetary Computer Pro](./application-authentication.md).
-
+For step-by-step guidance on configuring authentication, including RBAC role assignments and token acquisition, see [Configure application authentication for Planetary Computer Pro](./application-authentication.md).
 
 ## Related content
 
-- [Connect ArcGIS Pro to Microsoft Planetary Computer Pro](./create-connection-arc-gis-pro.md)
+- [Configure application authentication for Planetary Computer Pro](./application-authentication.md)
+- [Build a web application with Microsoft Planetary Computer Pro](./build-web-application.md)
+- [Use Azure Batch with Microsoft Planetary Computer Pro](./azure-batch.md)
+- [Configure ArcGIS Pro to access a GeoCatalog](./create-connection-arc-gis-pro.md)
+- [Configure QGIS to access a GeoCatalog resource](./configure-qgis.md)
 - [Manage access to Microsoft Planetary Computer Pro](./manage-access.md)
+- [Microsoft Planetary Computer Pro REST API reference](/rest/api/planetarycomputer)
