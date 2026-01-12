@@ -4,12 +4,16 @@ description: List of devices that have passed the Edge Secured-core certificatio
 author: sufenfong
 ms.author: sufon
 ms.topic: conceptual 
-ms.date: 08/06/2024 
+ms.date: 01/12/2026
 ms.custom: Edge Secured-core certified devices
 ms.service: azure-certified-device
 ---
 
 # Edge Secured-core certified devices
+> [!IMPORTANT]
+> The Edge Secured-core certification program has been discontinued as of December 2025. Devices listed below were certified prior to this date.
+> For similar certification programs, please refer to [Secured-core PC on Windows](/windows-hardware/design/device-experiences/oem-highly-secure-11).
+
 This page contains a list of devices that have successfully passed the Edge Secured-core certification. The listed models may not be shipped as secure-by-default. When ordering, please request specifically for Edge Secured-core devices. 
 
 |Manufacturer|Device Name|OS|Last Updated|

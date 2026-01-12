@@ -21,4 +21,3 @@ To check if your device is Edge Secured-core enabled:
 
 4.	Go to "Data encryption" to ensure that "Device encryption" is on.
 :::image type="content" source="./media/images/device-encryption.png" alt-text="Screenshot of Device Encryption Status." lightbox="./media/images/device-encryption-expanded.png" border="true":::  
-
