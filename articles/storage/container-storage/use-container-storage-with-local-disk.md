@@ -292,7 +292,7 @@ csisc-2pkx4   local           1373172Mi   aks-storagepool-31410930-vmss000001
 csisc-gnmm9   local           1373172Mi   aks-storagepool-31410930-vmss000000
 ```
 
-If you encounter empty capacity output, confirm that a StorageClass for **localdisk.csi.acstor.io** exists. The **csistoragecapacities.storage.k8s.io** resource is only generated after a StorageClass for **localdisk.csi.acstor.io** exists.
+If you encounter empty capacity output, confirm that a StorageClass for `localdisk.csi.acstor.io` exists. The `csistoragecapacities.storage.k8s.io` resource is only generated after a StorageClass for `localdisk.csi.acstor.io` exists.
 
 ### Expand storage capacity
 
@@ -308,7 +308,7 @@ az aks nodepool scale --cluster-name <cluster-name> --name <nodepool-name> --res
 
 To clean up storage resources, you must first delete all PersistentVolumeClaims and/or PersistentVolumes. Deleting the Azure Container Storage StorageClass doesn't automatically remove your existing PersistentVolumes/PersistentVolumeClaims.
 
-To delete a storage class named **local**, run the following command:
+To delete a storage class named `local`, run the following command:
 
 ```azurecli
 kubectl delete storageclass local

@@ -203,6 +203,46 @@ To validate that the Azure Storage is mounted successfully for the app:
    tcpping Storageaccount.file.core.windows.net 
    ```
 
+### Storage mount health checks and auto‑recovery
+
+Azure App Service includes a built‑in health‑check mechanism to ensure that mounted Azure Storage volumes (Azure Files or Azure Blob) remain accessible and responsive. This system helps prevent application hangs caused by stale or disconnected storage mounts.
+
+#### How the health check works
+
+1. **Periodic I/O test**  
+   App Service periodically performs file I/O on a marker file named `__lastCheckTime.txt`.  
+   - **Location:** A `LogFiles` subdirectory under the mounted path (for example, `/mount/path/LogFiles/__lastCheckTime.txt`).  
+   - **Behavior:**  
+     - A read operation is attempted on this file.  
+     - The file does *not* need to exist—“file not found” is treated as a successful check.
+
+2. **Frequency**  
+   The check runs every **5 seconds** by default.
+
+3. **Failure handling**  
+   - Each failed or timed‑out check increments a *failed ping counter*.  
+   - When failures exceed the configured threshold:  
+     - **Azure Files:** 18 failed pings  
+     - **Azure Blob:** 15 failed pings  
+   - The mount is marked **Faulted**, and **App Service automatically restarts the app** to restore connectivity to the share.
+
+#### Configuration via App Settings
+
+You can customize health‑check behavior using the following app settings.
+
+| Storage type | Setting name | Default value | Description |
+|--------------|--------------|---------------|-------------|
+| Azure Files | `WEBSITE_BYOS_FILES_HEALTH_CHECK_FREQUENCY` | `5` | Interval in seconds between health checks. |
+| Azure Files | `WEBSITE_BYOS_FILES_MAX_FAILED_PINGS` | `18` | Number of consecutive failures before marking the volume as faulted. |
+| Azure Files | `WEBSITE_BYOS_FILES_AUTO_RECOVERY_ENABLED` | `true` | Set to `false` to disable auto‑recovery logic. |
+| Azure Blob | `WEBSITE_BYOS_BLOB_HEALTH_CHECK_FREQUENCY` | `5` | Interval in seconds between health checks. |
+| Azure Blob | `WEBSITE_BYOS_BLOB_MAX_FAILED_PINGS` | `15` | Number of consecutive failures before marking the volume as faulted. |
+| Azure Blob | `WEBSITE_BYOS_BLOB_AUTO_RECOVERY_ENABLED` | `true` | Set to `false` to disable auto‑recovery logic. |
+
+#### Notes
+- Auto‑recovery helps prevent long‑running application hangs caused by unresponsive storage paths.  
+- Disabling auto‑recovery is not recommended unless troubleshooting specific mount behavior.
+
 ## Best practices
 
 ### Performance

@@ -422,6 +422,43 @@ When you export your data by using OpenTelemetry, keep these considerations in m
 * You don't need to manually register middleware; the Java worker autodiscovers `OpenTelemetryInvocationMiddleware`.
 ::: zone-end  
 
+## Resource detectors and semantic conventions
+
+In Azure Functions, resource attributes describe the function app process and its environment. Span attributes describe a single invocation.
+
+### Default behavior (no action required)
+
+In Azure Functions on App Service, resource detectors typically populate common attributes automatically, including:
+
+- `service.name` (defaults to the function app name)
+- Azure cloud attributes such as `cloud.provider`, `cloud.region`, and `cloud.resource_id`
+
+In most cases, these defaults are sufficient for correct Application Map grouping and Azure context.
+
+### When to override `service.name` (Cloud Role Name)
+
+Override only if you need a different, stable node name in Application Insights (Application Map grouping), for example to normalize naming across slots or environments.
+
+Set `OTEL_SERVICE_NAME` to override the detected value:
+
+```bash
+export OTEL_SERVICE_NAME="my-function-app"
+```
+
+### Invocation span attributes (usually automatic)
+
+You won’t have to set these manually unless you’re creating a custom invocation span.
+
+- `faas.name` (function name)
+- `faas.trigger` (for example `http`, `servicebus`, `eventhubs`)
+- `faas.execution` (invocation/execution identifier)
+
+> [!IMPORTANT]
+> Function apps can host multiple functions in one process. Do not put function-specific values on the resource. Put per-invocation identity on spans.
+
+> [!NOTE]
+> When running locally (Functions Core Tools) or in containerized/self-hosted environments where Azure metadata is unavailable, `service.name` may default to a generic value. Set `OTEL_SERVICE_NAME` locally to match production naming.
+
 ## Troubleshooting
 
 When you export your data by using OpenTelemetry, keep these common issues and solutions in mind.

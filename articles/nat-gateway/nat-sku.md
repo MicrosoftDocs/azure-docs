@@ -50,7 +50,7 @@ For information on the Service Level Agreement (SLA), see [SLA for Azure NAT Gat
 
 StandardV2 SKU NAT Gateway is **zone-redundant** by default. It automatically spans across multiple availability zones in a region, ensuring continued outbound connectivity even if one zone becomes unavailable. 
 
-For more information, see [Availability zones](./nat-availability-zones.md).      
+For more information, see [Reliability in Azure NAT Gateway](/azure/reliability/reliability-nat-gateway).
 
 ### Performance 
 

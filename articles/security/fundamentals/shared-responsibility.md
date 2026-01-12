@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/08/2026
+ms.date: 01/12/2026
 ms.author: mbaldwin
 #customer intent: As a cloud security administrator, I want to understand the shared responsibility model in Azure so that I can clearly identify which security tasks are mine and which are handled by Microsoft.
 ---
@@ -72,7 +72,7 @@ Microsoft is responsible for the underlying cloud infrastructure, which includes
 - **Hypervisor** - Managing the virtualization layer that enables virtual machines in IaaS and PaaS.
 - **Platform services** - In PaaS and SaaS, Microsoft manages operating systems, runtime environments, and middleware.
 
-## AI Shared Responsibility
+## AI shared responsibility
 
 When using AI services, the shared responsibility model introduces unique considerations beyond traditional IaaS, PaaS, and SaaS. Microsoft is responsible for securing the AI infrastructure, model hosting, and platform-level safeguards. Customers, however, remain accountable for how AI is applied within their environment—this includes protecting sensitive data, managing prompt security, mitigating prompt injection risks, and ensuring compliance with organizational and regulatory requirements.
 

@@ -2,19 +2,16 @@
 title: Azure Operational Security | Microsoft Docs
 description: Introduce yourself to Microsoft Azure Monitor logs, its services, and how it works by reading this overview.
 services: security
-author: UnifyCloud
-manager: barbkess
-editor: TomSh
-
+author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article 
-ms.date: 11/21/2017
-ms.author: TomSh
+ms.date: 01/12/2026
+ms.author: mbaldwin
 
 ---
 
-# Azure Operational Security
+# Azure operational security
 ## Introduction
 
 ### Overview
@@ -91,7 +88,7 @@ The Azure Monitor service manages your cloud-based data securely by using the fo
 
 Protected data in Azure Backup is stored in a backup vault located in a particular geographic region. The data is replicated within the same region and, depending on the type of vault, may also be replicated to another region for further resiliency.
 
-### Management Solutions
+### Management solutions
 [Azure Monitor](../../security-center/security-center-introduction.md) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.
 
 
@@ -172,7 +169,7 @@ Cloud applications are complex with many moving parts. Monitoring provides data 
 
 In addition, you can use monitoring data to gain deep insights about your application. That knowledge can help you to improve application performance or maintainability, or automate actions that would otherwise require manual intervention.
 
-### Azure Activity Log
+### Azure activity log
 
 
 It is a log that provides insight into the operations that were performed on resources in your subscription. The Activity Log was previously known as “Audit Logs” or “Operational Logs,” since it reports control-plane events for your subscriptions.
@@ -181,7 +178,7 @@ It is a log that provides insight into the operations that were performed on res
 
 Using the Activity Log, you can determine the ‘what, who, and when’ for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties. The Activity Log does not include read (GET) operations or operations for resources that use the Classic model.
 
-### Azure Diagnostic Logs
+### Azure diagnostic logs
 
 These logs are emitted by a resource and provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type.
 
@@ -325,7 +322,7 @@ This article explains
 </ul>
 </ul>
 
-## Next Steps
+## Next steps
 
 - [Design and operational security](https://www.microsoft.com/trustcenter/security/designopsecurity)
 

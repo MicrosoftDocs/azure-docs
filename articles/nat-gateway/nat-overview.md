@@ -197,9 +197,9 @@ Azure NAT Gateway provides secure, scalable outbound connectivity for resources 
 
 * A Standard SKU NAT Gateway can be created in a specific availability zone or placed in **no zone**. 
 
-* Standard NAT Gateway can be isolated in a specific zone when you create [zone isolation scenarios](./nat-availability-zones.md). After NAT Gateway is deployed, the zone selection can't be changed.
+* Standard NAT Gateway can be isolated in a specific zone when you create a [zonal NAT Gateway](/azure/reliability/reliability-nat-gateway). After NAT Gateway is deployed, the zone selection can't be changed.
 
-* Standard NAT Gateway is placed in **no zone** by default. A [nonzonal NAT Gateway](./nat-availability-zones.md#standard-nat-gateway---zonal-vs-nonzonal) is placed in a zone for you by Azure.
+* Standard NAT Gateway is placed in **no zone** by default. A [nonzonal NAT Gateway](/azure/reliability/reliability-nat-gateway) is placed in a zone for you by Azure.
 
 * A StandardV2 SKU NAT Gateway is zone-redundant and operates across all availability zones in a region to maintain connectivity during a single zone failure.
 

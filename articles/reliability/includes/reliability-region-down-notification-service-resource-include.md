@@ -1,5 +1,5 @@
 ---
-title: Availability zone - region-down notifications (Service Health + Resource Health)
+title: Region - region-down notifications (Service Health + Resource Health)
 description: Include file for the region-down behavior section's *Notification* bullet that describes how Service Health and Resource Health can be used together.
 author: anaharris-ms
 ms.service: azure

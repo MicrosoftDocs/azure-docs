@@ -325,12 +325,14 @@
               href: entity-pages.md
             - name: User and entity behavior analytics (UEBA)
               href: identify-threats-with-entity-behavior-analytics.md
+            - name: Aggregate behavioral insights from raw logs 
+              href: entity-behaviors-layer.md 
             - name: Create custom entity activities
               href: customize-entity-activities.md
         - name: Watchlists
           items:
             - name: Overview
-              href: watchlists.md
+              href: watchlists.md 
             - name: Create watchlists
               href: watchlists-create.md
             - name: Build queries or rules
@@ -716,10 +718,12 @@
               href: cef-syslog-ama-overview.md
             - name: CEF and Syslog via AMA
               href: connect-cef-syslog-ama.md
-            - name: CEF - configure security device
+            - name: Device configuration for CEF via AMA
               href: unified-connector-cef-device.md
             - name: Syslog - configure security device
               href: unified-connector-syslog-device.md
+            - name: Troubleshoot CEF and Syslog via AMA
+              href: cef-syslog-ama-troubleshooting.md  
         - name: Custom log sources (text files)
           items:
             - name: Collect logs from text files via AMA
@@ -1039,6 +1043,12 @@
           href: stix-objects-api.md
         - name: Legacy upload indicator API reference
           href: upload-indicators-api.md
+- name: Responsible AI
+  items:
+    - name: Responsible AI FAQ for UEBA behaviors layer
+      href: entity-behaviors-layer-rai-faqs.md
+    - name: Responsible AI FAQ for Microsoft Sentinel MCP
+      href: datalake/sentinel-mcp-responsible-ai-faq.md
 - name: Microsoft Sentinel blog
   href: https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/bg-p/MicrosoftSentinelBlog
 - name: Pricing

@@ -17,8 +17,7 @@ zone_pivot_groups: azure-cli-or-terraform
 
 If you prefer the open-source version of Azure Container Storage, visit the [local-csi-driver](https://github.com/Azure/local-csi-driver) repository for alternate installation instructions.
 
-> [!IMPORTANT]
-> This article applies to [Azure Container Storage (version 2.x.x)](container-storage-introduction.md). For earlier versions, see [Azure Container Storage (version 1.x.x) documentation](container-storage-introduction-version-1.md). If you already have Azure Container Storage (version 1.x.x) installed on your AKS cluster, remove it by following [these steps](remove-container-storage-version-1.md).
+By the end of this tutorial, you will:
 
 ::: zone pivot="azurecli"
 
@@ -27,6 +26,9 @@ If you prefer the open-source version of Azure Container Storage, visit the [loc
 > * Create or select a resource group for your cluster
 > * Confirm your node pool virtual machine types meet the installation criteria
 > * Install Azure Container Storage by creating a new AKS cluster or enabling it on an existing cluster
+
+> [!IMPORTANT]
+> This article applies to [Azure Container Storage (version 2.x.x)](container-storage-introduction.md). For earlier versions, see [Azure Container Storage (version 1.x.x) documentation](container-storage-introduction-version-1.md). If you already have Azure Container Storage (version 1.x.x) installed on your AKS cluster, remove it by following [these steps](remove-container-storage-version-1.md).
 
 ## Prerequisites
 
@@ -123,6 +125,9 @@ The deployment takes 5-10 minutes. When it completes, the targeted AKS cluster h
 > * Define your resource group and AKS cluster configuration
 > * Confirm your node pool virtual machine types meet the installation criteria
 > * Apply Terraform to deploy Azure Container Storage or enable it on an existing cluster
+
+> [!IMPORTANT]
+> This article applies to [Azure Container Storage (version 2.x.x)](container-storage-introduction.md). For earlier versions, see [Azure Container Storage (version 1.x.x) documentation](container-storage-introduction-version-1.md). If you already have Azure Container Storage (version 1.x.x) installed on your AKS cluster, remove it by following [these steps](remove-container-storage-version-1.md).
 
 ## Prerequisites
 

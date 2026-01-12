@@ -35,7 +35,7 @@ For information about public IP prefixes and a NAT gateway, see [Manage NAT gate
     | Availability Zone | Select **No Zone**. |
     | TCP idle timeout (minutes) | Leave the default of **4**. |
 
-    For information about availability zones and NAT gateway, see [NAT gateway and availability zones](../articles/nat-gateway/nat-availability-zones.md).
+    For information about availability zones and NAT gateway, see [Reliability in Azure NAT Gateway](/azure/reliability/reliability-nat-gateway).
 
 1. Select the **Outbound IP** tab, or select the **Next: Outbound IP** button at the bottom of the page.
 

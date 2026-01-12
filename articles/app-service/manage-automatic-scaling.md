@@ -4,32 +4,50 @@ description: Learn how to scale automatically in Azure App Service with no confi
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: how-to
-ms.date: 04/18/2025
+ms.date: 01/09/2026
 ms.custom: devx-track-azurecli
-
 ms.service: azure-app-service
 ---
 
 # Automatic scaling in Azure App Service
 
-> [!NOTE]
-> Automatic scaling is available for all app types: Windows and Linux (deploy as code and container). Automatic scaling isn't supported for deployment slot traffic.
->
+> [!NOTE]  
+> Automatic scaling is available for all app types: Windows and Linux (deploy as code or container).  
+> Automatic scaling isn't supported for deployment slot traffic.
 
-Automatic scaling is a scale-out option that automatically handles scaling decisions for your web apps and App Service plans. It's different from **[Azure autoscale](/azure/azure-monitor/autoscale/autoscale-overview)**, which lets you define scaling rules based on schedules and resources.
+Automatic scaling is a scale-out option that automatically handles scaling decisions for your web apps and App Service plans. It's different from [Azure autoscale](/azure/azure-monitor/autoscale/autoscale-overview), which lets you define scaling rules based on metrics and schedules.
 
-With automatic scaling, you can adjust scaling settings to improve your app's performance and avoid cold start issues. The platform prewarms instances to act as a buffer when scaling out, ensuring smooth performance transitions. You're charged per second for every instance, including prewarmed instances.
+With automatic scaling, you can adjust scaling settings to improve performance and reduce cold-start delays. The platform prewarms instances to act as a buffer, ensuring smooth scaling transitions. You're billed per second for every instance, including prewarmed instances.
 
-The following table compares scale-out and scale-in options available on App Service:
+## Before you begin
 
-| | **Manual** | **Autoscale** | **Automatic scaling** |
-| --- | --- | --- | --- |
-| Available pricing tiers | Basic and up | Standard and up | Premium V2 (P1V2, P2V2, and P3V2) pricing tiers. Premium V3 (P0V3, P1V3, P2V3, P3V3, P1MV3, P2MV3, P3MV3, P4MV3, and P5MV3) pricing tiers.|
-|Rule-based scaling |No |Yes   |No, the platform manages the scale-out and scale-in based on HTTP traffic. |
-|Schedule-based scaling |No |Yes |No |
-|Always-ready instances | No, your web app runs on the number of manually scaled instances. | No, your web app runs on other instances available during the scale-out operation, based on the threshold defined for autoscale rules. | Yes (minimum 1) |
-|Prewarmed instances |No |No |Yes (default 1) |
-|Per-app maximum |No |No |Yes |
+Automatic scaling in App Service is different from autoscale.  
+Use automatic scaling when you want App Service to handle scaling automatically based on HTTP traffic, without creating rules or schedules.
+
+**Automatic scaling (this article):**
+- Scales automatically based on incoming HTTP traffic  
+- Configured per app  
+- Supports Always ready, per-app limits, Maximum burst, and prewarmed instances  
+
+**Autoscale:**
+- Uses metrics (CPU, memory, queue length, custom metrics)  
+- Supports schedule-based scaling  
+- Applies to the entire App Service plan  
+
+If you need CPU-, memory-, or time-based scaling, use autoscale instead.  
+Only one scaling method should be active for an App Service plan.
+
+## Scale-out options available in App Service
+
+| &nbsp; | **Manual** | **Autoscale** | **Automatic scaling** |
+|--------|------------|---------------|------------------------|
+| Available tiers | Basic and up | Standard and up | Premium v2 and Premium v3 |
+| Rule-based scaling | No | Yes | No (traffic-based) |
+| Schedule-based scaling | No | Yes | No |
+| Always-ready instances | No | No | Yes (minimum 1) |
+| Prewarmed instances | No | No | Yes (default 1) |
+| Per-app maximum | No | No | Yes |
+| ARR affinity behavior | On by default | On unless manually disabled | [Should be disabled manually](#arr-affinity) |
 
 ## How automatic scaling works
 
@@ -175,7 +193,7 @@ If your web app returns a 5xx status, these endpoint pings might result in inter
 ### How do I track the number of scaled-out instances during the automatic scaling event?
 
 The `AutomaticScalingInstanceCount` metric reports the number of virtual machines on which the app is running, including the prewarmed instance if it's deployed. This metric can also be used to track the maximum number of instances your web app scaled out during an automatic scaling event. This metric is available only for the apps that have **Automatic Scaling** enabled.
-
+<a name='arr-affinity'></a>
 ### How does ARR Affinity affect automatic scaling?
 
 > [!NOTE]

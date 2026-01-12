@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 12/03/2025
+ms.date: 01/12/2026
 ms.author: mbaldwin
 
 ---
@@ -98,7 +98,7 @@ You can also use monitoring data to gain deep insights about your application. T
 
 Azure Monitor includes the following components.
 
-### Azure Activity Log
+### Azure activity log
 
 The [Azure Activity Log](/azure/azure-monitor/essentials/platform-logs-overview) provides insight into the operations that were performed on resources in your subscription. It was previously known as “Audit Log” or “Operational Log,” because it reports control-plane events for your subscriptions.
 
@@ -114,7 +114,7 @@ Diagnostic logs differ from the [Activity Log](/azure/azure-monitor/essentials/p
 
 Azure Monitor provides telemetry that gives you visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the [metrics](/azure/azure-monitor/data-platform) (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
 
-### Azure Diagnostics
+### Azure diagnostics
 
 Azure Diagnostics enables the collection of diagnostic data on a deployed application. You can use the Diagnostics extension from various sources. Currently supported are [Azure cloud service roles](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure virtual machines](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service) running Microsoft Windows, and [Azure Service Fabric](/azure/azure-monitor/agents/diagnostics-extension-overview).
 
@@ -144,13 +144,13 @@ Network Watcher currently has the following capabilities:
 
 For more information, see [Configure Network Watcher](../../network-watcher/network-watcher-create.md).
 
-## Cloud Service Provider Access Transparency
+## Cloud service provider access transparency
 
 [Customer Lockbox for Microsoft Azure](customer-lockbox-overview.md) is a service integrated into Azure portal that gives you explicit control in the rare instance when a Microsoft Support Engineer may need access to your data to resolve an issue.
 There are very few instances, such as a debugging remote access issue, where a Microsoft Support Engineer requires elevated permissions to resolve this issue. In such cases, Microsoft engineers use just-in-time access service that provides limited, time-bound authorization with access limited to the service.  
 While Microsoft has always obtained customer consent for access, Customer Lockbox now gives you the ability to review and approve or deny such requests from the Azure portal. Microsoft support engineers will not be granted access until you approve the request.
 
-## Standardized and Compliant Deployments
+## Standardized and compliant deployments
 
 [Azure Blueprints](../../governance/blueprints/overview.md) enable cloud architects and central information technology groups to define a repeatable set of Azure resources that implement and adhere to an organization's standards, patterns, and requirements.  
 This makes it possible for DevOps teams to rapidly build and stand up new environments and trust that they're building them with infrastructure that maintains organizational compliance.

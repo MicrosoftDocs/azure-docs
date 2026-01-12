@@ -14,11 +14,13 @@ ms.author: mbaldwin
 ---
 
 # Azure Operational Security best practices
+
 This article provides a set of operational best practices for protecting your data, applications, and other assets in Azure.
 
 The best practices are based on a consensus of opinion, and they work with current Azure platform capabilities and feature sets. Opinions and technologies change over time and this article is updated on a regular basis to reflect those changes.
 
 ## Define and deploy strong operational security practices
+
 Azure operational security refers to the services, controls, and features available to users for protecting their data, applications, and other assets in Azure. Azure operational security is built on a framework that incorporates the knowledge gained through capabilities that are unique to Microsoft, including the [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl), the [Microsoft Security Response Center](https://www.microsoft.com/msrc?rtc=1) program, and deep awareness of the cybersecurity threat landscape.
 
 <a name='enforce-multi-factor-verification-for-users'></a>

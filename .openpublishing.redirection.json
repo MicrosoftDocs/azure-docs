@@ -6659,6 +6659,11 @@
       "source_path": "articles/reliability/migrate-load-balancer.md",
       "redirect_url": "/azure/reliability/reliability-load-balancer",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/nat-gateway/nat-availability-zones.md",
+      "redirect_url": "/azure/reliability/reliability-nat-gateway",
+      "redirect_document_id": false
     }
   ]
 }

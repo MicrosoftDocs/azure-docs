@@ -177,7 +177,35 @@ sections:
 
       - question: What about support for ISV backup solutions?
         answer: As these backup solutions are installed and managed by customers, they can reach out to the respective ISV for support. 
-   
+
+  - name: Reliability and availability
+    questions:
+
+      - question: Can I deploy a stretched cluster across availability zones for higher availability?
+        answer: Azure VMware Solution supports stretched clusters across availability zones in supported Azure regions and configurations. Availability varies by Azure VMware Solution generation and region. For more information, see [Deploy a stretched cluster](deploy-vsan-stretched-clusters.md).
+
+      - question: Does Azure VMware Solution Gen2 support Availability Zones?
+        answer: Yes. In Azure VMware Solution Gen2, you can select the Availability Zone where your private cloud is deployed (subject to capacity availability in that zone). You can also deploy separate private clouds in different Availability Zones as part of a disaster recovery (DR) or high-availability strategy.
+
+      - question: Does Azure VMware Solution Gen2 support vSAN stretched clusters across Availability Zones?
+        answer: No. vSAN stretched clusters (a single private cloud stretched across two Availability Zones) aren't supported on Azure VMware Solution Gen2 today.
+
+      - question: In Azure VMware Solution Gen1, can I choose the Availability Zone for my private cloud?
+        answer: No. In Azure VMware Solution Gen1, selecting an Availability Zone isn't supported when deploying a private cloud.
+
+      - question: In Azure VMware Solution Gen1 stretched clusters, what happens if the Availability Zone hosting the vSAN witness becomes unavailable?
+        answer: |
+          Azure VMware Solution Gen1 uses a single vSAN witness that is statically placed in a specific Availability Zone within a region. If the Availability Zone hosting the witness becomes unavailable, the witness becomes unreachable.
+
+          As long as sufficient data replicas remain available, data hosts and running workloads continue operating without immediate data loss. However, vSAN loses quorum awareness in this state, which prevents it from safely making placement and recovery decisions and causes certain operations (such as VM power-on after failures, rebalancing, and repairs) to be blocked.
+
+          The witness isn't automatically recreated or moved to another Availability Zone during this time.
+
+      - question: Do four-zone Azure regions change how Azure VMware Solution uses Availability Zones?
+        answer: No. Azure VMware Solution remains unaffected. Availability Zone capabilities depend on what Azure VMware Solution supports in that region and available capacity.
+
+      - question: Are there built-in capabilities to run workloads across multiple Azure VMware Solution private clouds for DR/HA?
+        answer: No. Deploying workloads across multiple private clouds (for example, across Availability Zones) typically requires customer-managed orchestration and replication. For DR, customers commonly use third-party solutions such as Jetstream, Zerto, or Azure Site Recovery, based on workload requirements.
 
   - name: Networking and interconnectivity
     questions:
@@ -330,7 +358,7 @@ sections:
         answer: No. We currently don't support cloudadmin extension privileges and have no plans to support it.   
 
 
-  - name: CSP and multi-tenancy
+  - name: CSP and multitenancy
     questions:
 
       - question: Does Azure VMware Solution provide an option for hoster partners to resell the service?
