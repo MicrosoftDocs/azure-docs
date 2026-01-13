@@ -115,7 +115,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Plan Architecture for Workload
-            url: 2-1-plan-architecture-avd-aks-workload.md
+            url: 2-1-plan-architecture-workloads.md
           - text: Create Azure Virtual Enclaves Environment
             url: 2-2-create-virtual-enclaves-environment.md
           - text: Deploy Azure Virtual Desktop Workload

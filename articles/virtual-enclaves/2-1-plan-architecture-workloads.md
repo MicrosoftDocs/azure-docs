@@ -111,19 +111,19 @@ flowchart TB
     end
   end
 
-  ExtUsers -->|RDP HTTPS| AzureServices
-  AzureServices -->|Managed Traffic| Firewall
-  Firewall --> CE_AVD
-  Firewall --> CE_AKS
-  CE_AVD -->|Allow AVD URLs| AVD_Hosts
-  CE_AVD -->|Allow AVD URLs| AVD_Mgmt
-  CE_AKS -->|Allow AKS URLs| AKS_Nodes
-  AVD_Hosts --->|Session Access| SessionHosts
-  AVD_Mgmt --->|Management| HostPool
-  EE_AVD_Mgmt -->|Enclave Connection| Shared_Resources
-  EE_AKS_Mgmt -->|Enclave Connection| Shared_Resources
-  AKS_Nodes --->|Workloads| Pods
-  AKS_API --->|API Server| AKSCluster
+  ExtUsers ---|RDP HTTPS| AzureServices
+  AzureServices ---|Managed Traffic| Firewall
+  Firewall --- CE_AVD
+  Firewall --- CE_AKS
+  CE_AVD ---|Allow AVD URLs| AVD_Hosts
+  CE_AVD ---|Allow AVD URLs| AVD_Mgmt
+  CE_AKS ---|Allow AKS URLs| AKS_Nodes
+  AVD_Hosts ----|Session Access| SessionHosts
+  AVD_Mgmt ----|Management| HostPool
+  EE_AVD_Mgmt ---|Enclave Connection| Shared_Resources
+  EE_AKS_Mgmt ---|Enclave Connection| Shared_Resources
+  AKS_Nodes ----|Workloads| Pods
+  AKS_API ----|API Server| AKSCluster
 
   %% Styling
   linkStyle default stroke-width:2px,stroke:Black;
