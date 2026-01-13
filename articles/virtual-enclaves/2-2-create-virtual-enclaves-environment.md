@@ -10,7 +10,7 @@ ms.custom: references_region
 
 # Tutorial 2-2: Create Azure Virtual Enclave environment for workloads
 
-This tutorial guides you through creating the Azure Virtual Enclaves environment for AVD and AKS workloads. You'll set up common dependencies, create separate enclaves with properly sized subnets, deploy private DNS zones, and configure community and enclave endpoints for network connectivity.
+This tutorial guides you through creating the Azure Virtual Enclaves environment for AVD and AKS workloads. You set up common dependencies, create separate enclaves with properly sized subnets, deploy private DNS zones, and configure community and enclave endpoints for network connectivity.
 
 In this tutorial, you learn how to:
 - ✅ Set up common dependencies (managed identity, Key Vault, encryption)
@@ -45,7 +45,7 @@ Both AVD and AKS workloads require common dependencies for encryption and securi
 First, create a workload in your existing enclave (or create a new enclave) to host shared services.
 
 1. In the Azure portal, navigate to your **Azure Virtual Enclaves** service.
-2. Select **Communities** and open your community (e.g., `fabrikam`).
+2. Select **Communities** and open your community (for example, `fabrikam`).
 3. Select an existing enclave or create a new **Shared Services Enclave**:
    - **Enclave name**: `shared-services`
    - **Address space**: `10.1.0.0/16` (adjust based on your community CIDR)
@@ -69,9 +69,9 @@ A managed identity provides an identity for Azure resources to authenticate with
    - **Name**: `id-ave-encryption`
 3. Select **Review + create** and then **Create**.
 4. After deployment completes, navigate to the managed identity.
-5. Note the **Object (principal) ID** - you'll need this for role assignments.
+5. Note the **Object (principal) ID** - you need this for role assignments.
 
-### Create Key Vault with RBAC
+### Create Key Vault
 
 Azure Key Vault stores encryption keys, secrets, and certificates securely.
 
@@ -90,7 +90,7 @@ Azure Key Vault stores encryption keys, secrets, and certificates securely.
 
 The customer-managed key encrypts data at rest in your workloads.
 
-1. Navigate to your Key Vault (e.g., `kv-ave-shared-<uniqueid>`).
+1. Navigate to your Key Vault (for example, `kv-ave-shared-<uniqueid>`).
 2. Select **Keys** > **+ Generate/Import**.
 3. Configure the key:
    - **Options**: **Generate**
@@ -101,7 +101,7 @@ The customer-managed key encrypts data at rest in your workloads.
    - Leave other settings as default
 4. Select **Create**.
 5. Select the created key, then select the current version.
-6. Copy the **Key Identifier** URL - you'll need this later.
+6. Copy the **Key Identifier** URL - you need this later.
 
 ### Grant managed identity access to Key Vault key
 
@@ -142,7 +142,7 @@ The disk encryption set applies the customer-managed key to VM disks.
 
 For AVE-managed resources, the identity needs contributor access.
 
-1. Navigate to your **Shared Services Enclave** resource group (the managed resource group, e.g., `shared-services-HostedResources-<guid>`).
+1. Navigate to your **Shared Services Enclave** resource group (the managed resource group, for example, `shared-services-HostedResources-<guid>`).
 2. Select **Access control (IAM)**.
 3. Select **+ Add** > **Add role assignment**.
 4. Assign the **Contributor** role:
@@ -166,7 +166,7 @@ Verify all resources are created and configured correctly:
 
 Now create a dedicated enclave for Azure Virtual Desktop workloads.
 
-1. In your community (e.g., `fabrikam`), select **Enclaves** > **+ Create**.
+1. In your community (for example, `fabrikam`), select **Enclaves** > **+ Create**.
 2. Configure the AVD enclave:
    - **Enclave name**: `avd-enclave`
    - **Region**: Same region as your community
@@ -267,7 +267,7 @@ Private DNS zones enable private endpoint DNS resolution for Azure services.
 6. Configure the Private DNS Zones deployment:
    - **Resource group**: `rg-aks-workload`
    - **Additional Private DNS Zone names**: Enter the AKS private DNS zone:
-     - `privatelink.<region>.azmk8s.io` (replace `<region>` with your region, e.g., `eastus`)
+     - `privatelink.<region>.azmk8s.io` (replace `<region>` with your region, for example, `eastus`)
    - Also add shared service zones:
      - `privatelink.vaultcore.azure.net`
      - `privatelink.blob.core.windows.net`
@@ -280,7 +280,7 @@ Community endpoints allow traffic from your enclaves to external Azure services 
 
 ### Create AVD community endpoint
 
-1. Navigate to your community (e.g., `fabrikam`).
+1. Navigate to your community (for example, `fabrikam`).
 2. Select **Community endpoints** > **+ Create**.
 3. Configure the endpoint:
    - **Name**: `ce-avd-services`
@@ -360,7 +360,7 @@ Community endpoints allow traffic from your enclaves to external Azure services 
 4. Select **Review + create** and then **Create**.
 
 > [!NOTE]
-> Service tags are not currently available in AVE. You must use specific FQDNs for AKS endpoints.
+> Service tags aren't currently available in AVE. You must use specific FQDNs for AKS endpoints.
 
 ## Create enclave endpoints and connections
 
