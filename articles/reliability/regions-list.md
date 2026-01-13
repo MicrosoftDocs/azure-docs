@@ -42,6 +42,7 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 | Central India | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | South India | Pune | India | centralindia |
 | Central US | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | East US 2 | Iowa | United States | centralus |
 | Chile Central | :::image alt-text="Yes" type="content" source="media/icon-checkmark.svg" border="false"::: | N/A | Santiago | Chile | chilecentral |
+| :::image type="content" source="media/icon-region-coming-soon.svg"  alt-text="Icon that shows that this region is coming soon."  border="false"::: Denmark East | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | N/A | Copenhagen | Denmark | denmarkeast |
 | East Asia | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | Southeast Asia | Hong Kong SAR | Asia Pacific | eastasia |
 | East US | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | West US | Virginia | United States | eastus |
 | East US 2 | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | Central US | Virginia | United States | eastus2 |

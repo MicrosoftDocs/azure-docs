@@ -73,7 +73,8 @@ To learn more on how to deploy StandardV2 NAT Gateway, see [Create a StandardV2 
     * Azure Data Factory - Data Movement 
     * Microsoft Power Platform services 
     * Azure Stream Analytics 
-    * Azure Web Apps 
+    * Azure Web Apps
+    * Azure Container Apps
     * Azure DNS Private Resolver 
 
 ### Known issues of StandardV2 NAT Gateway

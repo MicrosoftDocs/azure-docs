@@ -104,7 +104,51 @@ Microsoft Azure provides various cloud-based computing services that include a w
 
 ### Isolated Virtual Machine Sizes
 
-[!INCLUDE [virtual-machines-common-isolation](~/reusable-content/ce-skilling/azure/includes/virtual-machines-common-isolation.md)]
+Azure Compute offers virtual machine sizes that are Isolated to a specific hardware type and dedicated to a single customer. The Isolated sizes live and operate on specific hardware generation and will be deprecated when the hardware generation is retired or new hardware generation is available.
+
+Isolated virtual machine sizes are best suited for workloads that require a high degree of isolation from other customers' workloads. This is sometimes required to meet compliance and regulatory requirements.  Utilizing an isolated size guarantees that your virtual machine is the only one running on that specific server instance. 
+
+
+Additionally, as the Isolated size VMs are large, customers may choose to subdivide the resources of these VMs by using [Azure support for nested virtual machines](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
+
+The current Isolated virtual machine offerings include:
+* Standard_E80ids_v4
+* Standard_E80is_v4
+* Standard_E104i_v5
+* Standard_E104is_v5
+* Standard_E104id_v5
+* Standard_E104ids_v5
+* Standard_M192is_v2
+* Standard_M192ims_v2
+* Standard_M192ids_v2
+* Standard_M192idms_v2
+* Standard_F72s_v2
+* Standard_M832ids_16_v3
+* Standard_M832is_16_v3
+* Standard_M896ixds_24_v3
+* Standard_M896ixds_32_v3
+* Standard_M1792ixds_32_v3
+
+
+> [!NOTE]
+> Isolated VM Sizes have a limited lifespan due to hardware deprecation.
+
+#### Deprecation of Isolated VM Sizes
+
+Isolated VM sizes have a hardware limited lifespan. Azure issues reminders 12 months in advance of the official deprecation date of the sizes and provides an updated isolated offering for your consideration. The following sizes have retirement announced.
+
+| Size | Isolation Retirement Date | 
+| --- | --- |
+| Standard_DS15_v2  | May 15, 2021      |
+| Standard_D15_v2   | May 15, 2021      |
+| Standard_G5       | February 15, 2022 |
+| Standard_GS5      | February 15, 2022 |
+| Standard_E64i_v3  | February 15, 2022 |
+| Standard_E64is_v3 | February 15, 2022 |
+| Standard_M192is_v2| March 31, 2027    |
+| Standard_M192ims_v2| March 31, 2027   |
+| Standard_M192ids_v2| March 31, 2027   |
+| Standard_M192idms_v2| March 31, 2027  |
 
 ### Dedicated hosts
 

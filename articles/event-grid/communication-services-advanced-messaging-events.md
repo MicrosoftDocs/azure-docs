@@ -21,7 +21,6 @@ Azure Communication Services emits the following Advanced Messaging event types:
 | --- | --- |
 | [Microsoft.Communication.AdvancedMessageReceived](#microsoftcommunicationadvancedmessagereceived-event) | Published when Communication Services Advanced Messaging receives a message. |
 | [Microsoft.Communication.AdvancedMessageDeliveryStatusUpdated](#microsoftcommunicationadvancedmessagedeliverystatusupdated-event) | Published when Communication Services Advanced Messaging receives a status update for a previously sent message notification. |
-| [Microsoft.Communication.AdvancedMessageAnalysisCompleted(Preview)](#microsoftcommunicationadvancedmessageanalysiscompletedpreview-event) | Published when Communication Service completes an AI Analysis with a customer message. |
 
 ## Event responses
 
@@ -421,69 +420,6 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
   "dataVersion": "1.0",
   "metadataVersion": "1",
   "eventTime": "2023-07-06T18:42:28.8454662Z"
-}]
-```
-
-
-### Microsoft.Communication.AdvancedMessageAnalysisCompleted(Preview) event
-
-Published when Communication Service completes an AI Analysis with a customer message.
-
-Example scenario: A WhatsApp user sends a message to a WhatsApp Business Number connected to an active Advanced Messaging channel in a Communication Services resource that opted in for Message Analysis feature. As a result, the system publishes a `Microsoft.Communication.AdvancedMessageAnalysisCompleted` with the analysis of the user's WhatsApp message.
-
-#### Attribute list
-
-Details for the attributes specific to `Microsoft.Communication.AdvancedMessageAnalysisCompleted` events.
-
-| Attribute | Type | Nullable | Description |
-|:--------- |:---:|:---:| --- |
-| channelType  | `string` | ✔️ | Channel type of the channel that the message was sent on.   |
-| from    | `string` | ✔️ | The channel ID that sent the message, formatted as a GUID.  |
-| to | `string` | ✔️ | Recipient ID that the message was sent to.   |
-| receivedTimestamp | `DateTimeOffset` | ✔️ | Timestamp of the message. |
-| originalMessage    | `string` | ✔️ | The original user message.    |
-| intentAnalysis  | `string` | ✔️ | The intent analysis of the received user message.    |
-| languageDetection   | [`LanguageDetection`](#languagedetection) | ✔️ | Contains the language detection of the received user message.   |
-| extractedKeyPhrases   | `List<string>` | ✔️ | Contains the key phrases of  of the received user message.|
-
-##### LanguageDetection
-
-| Attribute | Type| Nullable | Description   |
-|:--------- |:---:|:---:| --- |
-| language    | `string` | ✔️ | The language detected.    |
-| confidenceScore | `float` | ✔️ | The confidence score of the language detected. |
-| translation | `string` | ✔️ | The message translation. |
-
-#### Examples
-
-##### Message analysis completed
-
-```json
-[{
-  "id": "df1c2d92-6155-4ad7-a865-cb8497106c52",
-  "topic": "/subscriptions/{subscription-id}/resourcegroups/{resourcegroup-name}/providers/microsoft.communication/communicationservices/acsxplatmsg-test",
-  "subject": "advancedMessage/sender/{sender@id}/recipient/00000000-0000-0000-0000-000000000000",
-  "data": {
-    "originalMessage": "Hello, could u help me order some flowers for Mother’s Day?",
-    "channelType": "whatsapp",
-    "languageDetection": {
- "language": "English",
- "confidenceScore": 0.99
-    },
-    "intentAnalysis": "Order request: The customer is contacting customer service to request assistance with ordering flowers for Mother's Day.",
-    "extractedKeyPhrases": [
- "order",
- "flowers",
- "Mother's Day"
-    ],
-    "from": "{sender@id}",
-    "to": "00000000-0000-0000-0000-000000000000",
-    "receivedTimestamp": "2024-07-05T19:10:35.28+00:00"
-  },
-  "eventType": "Microsoft.Communication.AdvancedMessageAnalysisCompleted",
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "eventTime": "2024-07-05T19:10:35.2806524Z"
 }]
 ```
 

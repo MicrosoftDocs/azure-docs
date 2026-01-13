@@ -112,8 +112,6 @@ When an availability zone becomes unavailable, Table Storage automatically handl
 
 [!INCLUDE [Storage - Resilience to region-wide failures](includes/storage/reliability-storage-multi-region-support-include.md)]
 
-### Geo-redundant storage
-
 [!INCLUDE [Storage - Resilience to region-wide failures - RA-GRS addendum](includes/storage/reliability-storage-multi-region-support-read-access-include.md)]
 
 [!INCLUDE [Storage - Resilience to region-wide failures - failover types](includes/storage/reliability-storage-multi-region-support-failover-types-include.md)]

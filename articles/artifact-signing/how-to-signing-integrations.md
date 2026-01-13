@@ -118,14 +118,14 @@ For example:
 
 To download and install the Artifact Signing dlib package (a .zip file):
 
-1. Download the [Artifact Signing dlib package](https://www.nuget.org/packages/Microsoft.Trusted.Signing.Client).
+1. Download the [Artifact Signing dlib package](https://www.nuget.org/packages/Microsoft.ArtifactSigning.Client).
 
 1. Extract the Artifact Signing dlib zipped content and install it on your signing node in your choice of directory. The node must be the node where you use SignTool to sign files.
 
-Another option is to download the [Artifact Signing dlib package](https://www.nuget.org/packages/Microsoft.Trusted.Signing.Client) via NuGet similar like the Windows SDK Build Tools NuGet package:
+Another option is to download the [Artifact Signing dlib package](https://www.nuget.org/packages/Microsoft.ArtifactSigning.Client) via NuGet similar like the Windows SDK Build Tools NuGet package:
 
 ```powershell
-.\nuget.exe install Microsoft.Trusted.Signing.Client -x
+.\nuget.exe install Microsoft.ArtifactSigning.Client -x
 ```
 
 > [!NOTE]
@@ -223,4 +223,4 @@ You can also use the following tools or platforms to set up signing integrations
 
 - **Artifact Signing SDK**: To create your own signing integration, you can use our open-source [Artifact Signing SDK](https://www.nuget.org/packages/Azure.CodeSigning.Sdk). 
 
-- [**Azure.Developer.TrustedSigning.CryptoProvider**](https://www.nuget.org/packages/Azure.Developer.TrustedSigning.CryptoProvider): Simplifies integration of the service with a .NET crypto provider that abstracts the service endpoint integration from the consumer. 
+- [**Azure.Developer.ArtifactSigning.CryptoProvider**](https://www.nuget.org/packages/Azure.Developer.ArtifactSigning.CryptoProvider): Simplifies integration of the service with a .NET crypto provider that abstracts the service endpoint integration from the consumer. 

@@ -28,6 +28,18 @@ A snapshot reference is stored as a key-value whose value contains the name of t
 > [!NOTE]
 > You don't have to call a specialized API to opt into snapshot references. If you select the key-value that is a snapshot reference, resolution is automatic.
 
+## Creating a snapshot reference
+
+1. Open your App Configuration store in the Azure portal.
+2. Select **Configuration Explorer**.
+3. Choose **Create**.
+4. Select **Snapshot reference**.
+5. Enter a key for the reference. Optionally set a label.
+6. Choose the target snapshot name from the list (or enter it).
+7. Select **Create**.
+
+Once created, the snapshot reference appears alongside other key-values in Configuration Explorer.
+
 ## Consuming snapshot references
 
 No new code is required to use a snapshot reference. If the key for a snapshot reference is part of the selected key-values when building configuration, the provider automatically resolves and loads the referenced snapshot's key-values. Compare this to direct snapshot usage where you explicitly call an API such as `SelectSnapshot("SnapshotName")`, fixing the snapshot choice at startup so switching later requires a code change or redeployment.

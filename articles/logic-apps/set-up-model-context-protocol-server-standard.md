@@ -265,7 +265,7 @@ Now set up Easy Auth authentication on the Standard logic app that you want to u
    |----------|----------|-------------|
    | **Application (client) ID** | Yes | The application (client) ID from your previously created app registration. |
    | **Issuer URL** | Yes | The following URL where you replace <*tenant-ID*> with the GUID for your directory (tenant): <br><br> **`https://login.microsoftonline.com/<tenant-ID>/v2.0`** |
-   | **Allowed token audiences** | Yes | The application ID URI from your previously created app registration in the following format: <br><br>**`api://<application-ID-URI>/`** <br><br>**Important**: Make sure that you include the trailing slash at the end of the URI, for example: <br><br>**`api://11112222-bbbb-3333-cccc-4444dddd5555/`** |
+   | **Allowed token audiences** | Yes | The application ID URI from your previously created app registration in the following format: <br><br>**`api://<application-ID-URI>/`** <br><br>**Important**: Make sure that you include the trailing slash at the end of the URI, for example: <br><br>**`api://aaaabbbb-0000-cccc-1111-dddd2222eeee/`** |
 
 1. In the **Additional checks** section, select the following options or provide information to further control authentication and access:
 

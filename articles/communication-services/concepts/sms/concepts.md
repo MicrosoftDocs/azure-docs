@@ -64,7 +64,22 @@ To send SMS, you must have a sender ID—this can be a phone number or an alphan
 
 \* For detailed formatting requirements, see [Alphanumeric sender ID FAQ](./sms-faq.md#alphanumeric-sender-id) .
 
-## Sender Type Availability by Country (destination)
+## Sender Type Availability by Country/Region
+
+> [!IMPORTANT]
+> **Sender geographic scope**
+>
+> SMS senders are **country/region-scoped**. A sender can deliver messages only within the country/region (or countries/regions) for which it was provisioned, enabled, or approved.
+>
+> - **Short Codes:**  
+>   US Short Codes send SMS only to the **United States and Puerto Rico**. Short Codes in all other countries/regions can send SMS **only within the country/region where they were obtained**.
+>
+> - **All other sender types** (Toll-Free numbers, 10-digit long codes, mobile numbers, and Alphanumeric Sender IDs) can send SMS **only to the countries/regions where they are purchased, enabled, or registered**.
+>
+> Cross-country/region SMS delivery using a single sender is not supported. For multi-country/region messaging, you can use [Messaging Connect](../sms/messaging-connect.md).
+
+
+
 
 | Supported Destinations           | Toll-Free | Short Code | 10DLC | Mobile Number | Dynamic Alpha | Prereg. Alpha |
 |------------------|-----------|------------|-------|----------------|----------------|----------------|
