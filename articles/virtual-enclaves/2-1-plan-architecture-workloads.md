@@ -156,11 +156,11 @@ You need to decide whether to deploy AVD and AKS in separate enclaves or a share
 
 | Option | Benefits | Considerations |
 |--------|----------|----------------|
-| **Separate Enclaves** | • Maximum isolation between workload types<br>• Independent network policies<br>• Easier to manage different compliance requirements<br>• Clear security boundaries | • More complex enclave connections<br>• Additional enclave resources<br>• Potential for duplicate shared services |
+| **Separate Enclaves** | • Maximum isolation between workload types<br>• Independent network policies<br>• Easier to manage different compliance requirements<br>• Clear security boundaries | • More complex enclave connections<br>• More enclave resources<br>• Potential for duplicate shared services |
 | **Shared Enclave** | • Simplified networking<br>• Shared common services<br>• Fewer enclave connections needed<br>• Lower management overhead | • Less isolation between workloads<br>• Shared network policies<br>• Potential for resource contention |
-| **Hybrid with Shared Services Enclave** | • Isolate workloads while sharing common resources<br>• Centralized services like Key Vault, DNS<br>• Best of both approaches | • Most complex to set up initially<br>• Requires careful planning of enclave connections |
+| **Hybrid with Shared Services Enclave** | • Isolate workloads while sharing common resources<br>• Centralized services like Key Vault, Domain Name System (DNS)<br>• Best of both approaches | • Most complex to set up initially<br>• Requires careful planning of enclave connections |
 
-**Recommendation**: For production environments with strict security requirements, use separate enclaves for AVD and AKS with a shared services enclave for common resources. This tutorial series uses this approach.
+**Recommendation**: For production environments with strict security requirements, use separate enclaves for AVD and AKS and a third enclave for shared services and common resources. This tutorial series uses this approach.
 
 ### Subnet sizing for AVD
 
@@ -168,15 +168,15 @@ AVD requires at least two subnets in the enclave:
 
 | Subnet | Purpose | Recommended Size | Calculation |
 |--------|---------|------------------|-------------|
-| **Management Subnet** | Host pool, workspace, application groups, private endpoints | /26 (64 IPs) | 5 reserved Azure IPs + management resources + growth |
-| **Session Hosts Subnet** | AVD session host VMs | Depends on VM count | `(Number of VMs + 5 reserved) + 20% growth` |
+| **Management Subnet** | Host pool, workspace, application groups, private endpoints | /26 (64 IPs) | Five reserved Azure IPs + management resources + growth |
+| **Session Hosts Subnet** | AVD session host virtual machines (VMs) | Depends on VM count | `(Number of VMs + 5 reserved) + 20% growth` |
 
 **Example calculation for Session Hosts Subnet**:
 - 50 session hosts planned
 - Formula: `(50 + 5) × 1.2 = 66 IPs needed`
 - Recommended: `/26` (64 IPs) or `/25` (128 IPs) for growth
 
-**Important**: You cannot resize a subnet after resources are deployed. Plan for growth.
+**Important**: You can't resize a subnet after resources are deployed. Plan for growth.
 
 ### Subnet sizing for AKS
 
@@ -192,7 +192,7 @@ AKS requires at least three subnets in the enclave:
 - Formula: `(3 + 1) + ((3 + 1) × 30) = 4 + 120 = 124 IPs needed`
 - Recommended: `/25` (128 IPs) minimum
 
-**Important**: Plan for upgrade operations which require an extra node. The formula already accounts for this (+1).
+**Important**: Plan for upgrade operations that require an extra node.
 
 ## Network requirements
 
@@ -200,7 +200,7 @@ AKS requires at least three subnets in the enclave:
 
 AVD requires connectivity to the following endpoints via community endpoints:
 
-| Purpose | FQDNs | Ports | Protocol |
+| Purpose | Endpoint Name | Ports | Protocol |
 |---------|-------|-------|----------|
 | **AVD Control Plane** | `*.wvd.microsoft.com`<br>`*.prod.warm.ingest.monitor.core.windows.net` | 443 | HTTPS |
 | **Authentication** | `login.microsoftonline.com`<br>`login.windows.net` | 443 | HTTPS |
@@ -215,7 +215,7 @@ Reference: [AVD required URLs](/azure/virtual-desktop/required-fqdn-endpoint)
 
 AKS requires connectivity to the following endpoints via community endpoints:
 
-| Purpose | FQDNs | Ports | Protocol |
+| Purpose | Endpoint Name | Ports | Protocol |
 |---------|-------|-------|----------|
 | **Container Registry** | `mcr.microsoft.com`<br>`*.data.mcr.microsoft.com` | 443 | HTTPS |
 | **Cluster Management** | `*.hcp.<region>.azmk8s.io` | 443 | HTTPS |
@@ -223,13 +223,13 @@ AKS requires connectivity to the following endpoints via community endpoints:
 | **Authentication** | `login.microsoftonline.com` | 443 | HTTPS |
 | **Package Repository** | `packages.microsoft.com`<br>`acs-mirror.azureedge.net` | 443 | HTTPS |
 
-**Note**: Service tags are not yet available in AVE, so specific FQDNs must be used. Additional outbound NSG rules may be required for internet access on port 443.
+**Note**: Service tags aren't yet available in AVE, so specific endpoint names must be used. Other outbound NSG rules might be required for internet access on port 443.
 
 Reference: [AKS required outbound network rules](/azure/aks/outbound-rules-control-egress)
 
 ### Inter-enclave communication
 
-If using separate enclaves, you'll need enclave endpoints and connections for:
+If using separate enclaves, you need enclave endpoints and connections for:
 
 | Source | Destination | Purpose | Ports |
 |--------|-------------|---------|-------|
@@ -272,7 +272,7 @@ Both AVD and AKS require these common dependencies:
 | **Private DNS Zones** | Private endpoint DNS resolution | Shared across enclaves |
 | **Log Analytics Workspace** | Centralized logging and monitoring | Shared across enclaves |
 
-**Recommendation**: Deploy common dependencies in a shared services enclave or workload to avoid duplication.
+**Recommendation**: Reduce duplicate resources by deploying common dependencies in a shared services enclave or workload.
 
 ## Security considerations
 
@@ -281,18 +281,18 @@ Both AVD and AKS require these common dependencies:
 - Use separate subnets for different resource types
 - Apply network security group (NSG) rules to subnets
 - Use private endpoints for Azure PaaS services
-- Minimize community endpoints to only required FQDNs
+- Minimize community endpoints to endpoints required for your needs
 
 ### Encryption
 
 - Enable customer-managed keys (CMK) for all data at rest
 - Use disk encryption sets for VM disks
 - Enable encryption at host for AKS nodes
-- Store all keys in Azure Key Vault with RBAC
+- Store all keys in Azure Key Vault and assign the least privilege access permissions
 
 ### Access control
 
-- Use Azure RBAC for resource access
+- Use Azure role assignments for resource access
 - Implement just-in-time (JIT) access for administrative operations
 - Use managed identities instead of service principals where possible
 - Apply principle of least privilege to all role assignments
@@ -306,10 +306,10 @@ Both AVD and AKS require these common dependencies:
 
 ## Next steps
 
-Now that you've planned your architecture, the next tutorial guides you through creating the AVE environment for your workloads.
+Now that you planned your architecture, the next tutorial guides you through creating the AVE environment for your workloads.
 
 > [!div class="nextstepaction"]
-> [Tutorial 11: Create Azure Virtual Enclave environment for workloads](./11-create-ave-environment-workloads.md)
+> [Tutorial 2-2: Create Azure Virtual Enclave environment for workloads](./2-2-create-virtual-enclaves-environment.md)
 
 ## Related content
 
