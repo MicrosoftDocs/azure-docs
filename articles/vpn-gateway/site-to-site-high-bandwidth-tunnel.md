@@ -20,7 +20,7 @@ High Bandwidth tunnels provide end-to-end encryption to meet security compliance
 :::image type="content" source="media/site-to-site-high-bandwidth-tunnel/transit-high-bandwidth-tunnels.png" alt-text="Diagram showing Transit High Bandwidth IPsec tunnels architecture.":::
 
 > [!IMPORTANT]
-> There are know issues and regional limitations with this VPN Gateway. Ensure you're familiar with the limitations listed at the end of this document!
+> There are known issues and regional limitations with this VPN Gateway. Ensure you're familiar with the limitations listed at the end of this document!
 
 ## Prerequisites
 

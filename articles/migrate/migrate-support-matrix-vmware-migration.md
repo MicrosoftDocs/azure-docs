@@ -92,6 +92,7 @@ The table summarizes agentless migration requirements for VMware vSphere VMs.
 **iSCSI targets** | VMs with iSCSI targets aren't supported for agentless migration.
 **Multipath IO** | Not supported.
 **Storage vMotion** | Supported. 
+**VMware Cloud Director's Fast Provisioning** | Not supported.
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
 **NVMe disks** | Not supported.

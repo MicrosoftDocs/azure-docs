@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  conceptual
-ms.date: 06/16/2025
+ms.date: 01/12/2026
 ms.author: cshoe
 ---
 
@@ -23,6 +23,7 @@ Private endpoints incur additional charges. When you enable a private endpoint i
 1. **Azure Container Apps** - Billing for the dedicated private endpoint infrastructure for Azure Container Apps which appears as a separate **"Dedicated Plan Management"** charge and applies to both Consumption and Dedicated plans.
 
 ### Tutorials
+
 - To learn more about how to configure private endpoints in Azure Container Apps, see the [Use a private endpoint with an Azure Container Apps environment](how-to-use-private-endpoint.md) tutorial.
 - Private link connectivity with Azure Front Door is supported for Azure Container Apps. Refer to [create a private link with Azure Front Door](./how-to-integrate-with-azure-front-door.md) for more information.
 
@@ -51,7 +52,16 @@ Configuring DNS in your Azure Container Apps environment's virtual network is im
 
 ### Custom DNS
 
-If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. When configuring your network security group (NSG) or firewall, don't block the `168.63.129.16` address, otherwise, your Container Apps environment won't function correctly.
+If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests.
+
+When configuring your network security group (NSG) or firewall, the DNS requirements differ between workload profile types:
+
+- **Consumption plan**: You must allow traffic to the `AzurePlatformDNS` service tag (which includes `168.63.129.16`). Blocking this service tag will prevent your Container Apps environment from functioning correctly, even if you have a custom DNS server configured.
+
+- **Dedicated workload profiles**: You can block the `AzurePlatformDNS` service tag if desired, as dedicated workload profiles don't require access to Azure Platform DNS for basic functionality.
+
+> [!IMPORTANT]
+> For organizations with strict DNS security requirements (such as banking and healthcare), Dedicated workload profiles provide the option to completely control DNS traffic flow through your custom DNS servers without requiring Azure Platform DNS access.
 
 ### VNet-scope ingress
 

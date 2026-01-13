@@ -103,9 +103,9 @@ Premium v4 is available in the following regions:
 - Canada Central<sup>*</sup>
 - Central India
 - Central US
-- East Asia
+- East Asia<sup>*</sup>
 - East US
-- East US 2<sup>*</sup>
+- East US 2
 - France Central<sup>*</sup>
 - Germany West Central<sup>*</sup>
 - Indonesia Central<sup>*</sup>

@@ -133,7 +133,7 @@ while ($true) {
 The following command retrieves a general summary of your firmware analysis results. Replace each argument with the appropriate value for your resource group, subscription, workspace name, and firmware ID.
 
 ```powershell
-Get-AzFirmwareAnalysisSumary -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default -Type Firmware
+Get-AzFirmwareAnalysisSummary -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default -Type Firmware
 ```
 
 ### SBOM
@@ -155,7 +155,7 @@ Get-AzFirmwareAnalysisCve -FirmwareId sampleFirmwareID -ResourceGroupName myReso
 For a summary of your CVEs, run the following command:
 
 ```powershell
-Get-AzFirmwareAnalysisSumary -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default -Type CVE
+Get-AzFirmwareAnalysisSummary -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default -Type CVE
 ```
 
 ### Binary hardening
@@ -169,7 +169,7 @@ Get-AzFirmwareAnalysisBinaryHardening -FirmwareId sampleFirmwareID -ResourceGrou
 For a summary of your binary hardening results, run the following command:
 
 ```powershell
-Get-AzFirmwareAnalysisSumary -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default -Type BinaryHardening
+Get-AzFirmwareAnalysisSummary -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default -Type BinaryHardening
 ```
 
 ### Password hashes
@@ -191,7 +191,7 @@ Get-AzFirmwareAnalysisCryptoCertificate -FirmwareId sampleFirmwareID -ResourceGr
 For a summary of your certificates, run the following command:
 
 ```powershell
-Get-AzFirmwareAnalysisSumary -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default -Type CryptoCertificate
+Get-AzFirmwareAnalysisSummary -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default -Type CryptoCertificate
 ```
 
 ### Keys
@@ -205,5 +205,5 @@ Get-AzFirmwareAnalysisCryptoKey -FirmwareId sampleFirmwareID -ResourceGroupName 
 For a summary of your keys, run the following command:
 
 ```powershell
-Get-AzFirmwareAnalysisSumary -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default -Type CryptoKey
+Get-AzFirmwareAnalysisSummary -FirmwareId sampleFirmwareID -ResourceGroupName myResourceGroup -WorkspaceName default -Type CryptoKey
 ```

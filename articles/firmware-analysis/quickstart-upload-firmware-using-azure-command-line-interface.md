@@ -128,7 +128,7 @@ Once you've confirmed that your analysis status is "Ready", you can run commands
 The following command retrieves a general summary of your firmware analysis results. Replace each argument with the appropriate value for your resource group, workspace name, and firmware ID.
 
 ```azurecli
-az firmwareanalysis firmware summary --resource-group myResourceGroup --workspace-name default --firmware-id 123e4567-e89b-12d3-a456-426614174000 --summary-type Firmware
+az firmwareanalysis firmware summary --resource-group myResourceGroup --workspace-name default --firmware-id 123e4567-e89b-12d3-a456-426614174000 --name Firmware
 ```
 
 ### SBOM
@@ -150,7 +150,7 @@ az firmwareanalysis firmware cve --resource-group myResourceGroup --subscription
 For a summary of your CVEs, run the following command:
 
 ```azurecli
-az firmwareanalysis firmware summary --resource-group myResourceGroup --workspace-name default --firmware-id 123e4567-e89b-12d3-a456-426614174000 --summary-type CommonVulnerabilitiesAndExposures
+az firmwareanalysis firmware summary --resource-group myResourceGroup --workspace-name default --firmware-id 123e4567-e89b-12d3-a456-426614174000 --name CVE
 ```
 
 ### Binary hardening
@@ -164,7 +164,7 @@ az firmwareanalysis firmware binary-hardening --resource-group myResourceGroup -
 For a summary of your binary hardening results, run the following command:
 
 ```azurecli
-az firmwareanalysis firmware summary --resource-group myResourceGroup --workspace-name default --firmware-id 123e4567-e89b-12d3-a456-426614174000 --summary-type BinaryHardening
+az firmwareanalysis firmware summary --resource-group myResourceGroup --workspace-name default --firmware-id 123e4567-e89b-12d3-a456-426614174000 --name BinaryHardening
 ```
 
 ### Password hashes
@@ -186,7 +186,7 @@ az firmwareanalysis firmware crypto-certificate --resource-group myResourceGroup
 For a summary of your certificates, run the following command:
 
 ```azurecli
-az firmwareanalysis firmware summary --resource-group myResourceGroup --workspace-name default --firmware-id 123e4567-e89b-12d3-a456-426614174000 --summary-type CryptoCertificate
+az firmwareanalysis firmware summary --resource-group myResourceGroup --workspace-name default --firmware-id 123e4567-e89b-12d3-a456-426614174000 --name CryptoCertificate
 ```
 
 ### Keys
@@ -200,5 +200,5 @@ az firmwareanalysis firmware crypto-key --resource-group myResourceGroup --subsc
 For a summary of your keys, run the following command:
 
 ```azurecli
-az firmwareanalysis firmware summary --resource-group myResourceGroup --workspace-name default --firmware-id 123e4567-e89b-12d3-a456-426614174000 --summary-type CryptoKey
+az firmwareanalysis firmware summary --resource-group myResourceGroup --workspace-name default --firmware-id 123e4567-e89b-12d3-a456-426614174000 --name CryptoKey
 ```

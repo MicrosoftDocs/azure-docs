@@ -4,7 +4,7 @@ description: Azure PowerShell Script Sample - Learn how to create multiple Elast
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: sample
-ms.date: 05/31/2024
+ms.date: 01/09/2026
 ms.author: rogarana
 ms.custom: devx-track-azurepowershell
 # Customer intent: "As a cloud architect, I want to create multiple Elastic SAN volumes in a batch using a CSV file, so that I can streamline the volume provisioning process and improve efficiency in managing storage resources."
@@ -12,13 +12,13 @@ ms.custom: devx-track-azurepowershell
 
 # Create multiple elastic SAN volumes in a batch
 
-To simplify creating multiple volumes as a batch, you can use a .csv with pre-filled values to create as many volumes of varying sizes as you like.
+The PowerShell script in this article simplifies creating multiple Azure Elastic SAN volumes as a batch. To use the script, make a .csv file with pre-filled values to create as many volumes of varying sizes as you want.
 
-Format your .csv with five columns, **ResourceGroupName**, **ElasticSanName**, **VolumeGroupName**, **Name**, and **SizeGiB**. The following screenshot provides an example:
+Format your .csv file with five columns: **ResourceGroupName**, **ElasticSanName**, **VolumeGroupName**, **Name**, and **SizeGiB**. The following screenshot provides an example:
 
 :::image type="content" source="media/elastic-san-batch-create-sample/batch-elastic-san.png" alt-text="Screenshot of an example csv file, with example column names and values." lightbox="media/elastic-san-batch-create-sample/batch-elastic-san.png":::
 
-Then you can use the following script to create your volumes.
+Then, use the following script to create your volumes.
 
 ```azurepowershell
 $filePath = "D:\ElasticSan\TestCsv3.csv" 
