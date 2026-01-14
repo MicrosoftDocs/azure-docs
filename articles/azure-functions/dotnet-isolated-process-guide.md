@@ -799,6 +799,9 @@ host.Run();
 
 In the built-in model, the system translates the incoming HTTP request message into an [HttpRequestData] object that it passes to the function. This object provides data from the request, including `Headers`, `Cookies`, `Identities`, `URL`, and optionally a message `Body`. This object represents the HTTP request but isn't directly connected to the underlying HTTP listener or the received message. 
 
+> [!IMPORTANT]
+> If you use `HttpRequestData`, the body of the HTTP request can't be a stream. For example, if the request has the `Transfer-Encoding: chunked` header and no `Content-Length` header, the `HttpRequestData` object's `Body` property will be a null stream. If you need to work with streaming HTTP requests, consider using the [ASP.NET Core integration model](#aspnet-core-integration) instead.
+
 Likewise, the function returns an [HttpResponseData] object, which provides data used to create the HTTP response, including message `StatusCode`, `Headers`, and optionally a message `Body`.  
 
 The following example demonstrates the use of `HttpRequestData` and `HttpResponseData`:

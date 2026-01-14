@@ -194,6 +194,12 @@
       href: quickstart-chat-completion-dotnet.md
     - name: Go
       href: quickstart-chat-completion-go.md
+  - name: Agent framework
+    items:
+    - name: Get started
+      href: howto-ai-agent-config.md
+    - name: Python
+      href: howto-ai-agent-config-python.md
 - name: Feature management
   items:
   - name: Overview

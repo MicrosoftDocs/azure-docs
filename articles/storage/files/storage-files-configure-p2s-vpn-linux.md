@@ -1,10 +1,10 @@
 ---
-title: Configure a point-to-site VPN on Linux for Azure Files
-description: Learn how to configure a point-to-site (P2S) virtual private network (VPN) on Linux to mount your Azure file shares directly on premises.
+title: Configure a Point-to-Site VPN on Linux for Azure Files
+description: Learn how to configure a point-to-site virtual private network (VPN) on Linux to mount your Azure file shares directly on premises.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/09/2024
+ms.date: 01/14/2026
 ms.author: kendownie
 ms.custom:
   - devx-track-azurecli
@@ -13,9 +13,9 @@ ms.custom:
 # Customer intent: As a Linux system administrator, I want to configure a point-to-site VPN to connect to Azure file shares, so that I can securely access and mount my Azure file shares directly from my on-premises environment.
 ---
 
-# Configure a point-to-site (P2S) VPN on Linux for use with Azure Files
+# Configure a point-to-site VPN on Linux for use with Azure Files
 
-You can use a point-to-site (P2S) virtual private network (VPN) connection to mount your Azure file shares from outside of Azure, without sending data over the open internet. A point-to-site VPN connection is a VPN connection between Azure and an individual client. To use a P2S VPN connection with Azure Files, you need to configure a P2S VPN connection for each client that wants to connect. If you have many clients that need to connect to your Azure file shares from your on-premises network, you can use a site-to-site (S2S) VPN connection instead of a point-to-site connection for each client. To learn more, see [Configure a site-to-site VPN for use with Azure Files](storage-files-configure-s2s-vpn.md).
+You can use a point-to-site virtual private network (VPN) connection to mount your Azure file shares from outside of Azure, without sending data over the open internet. A point-to-site VPN connection is a VPN connection between Azure and an individual client. To use a point-to-site VPN connection with Azure Files, you need to configure a point-to-site VPN connection for each client that wants to connect. If you have many clients that need to connect to your Azure file shares from your on-premises network, you can use a site-to-site VPN connection instead of a point-to-site connection for each client. To learn more, see [Configure a site-to-site VPN for use with Azure Files](storage-files-configure-s2s-vpn.md).
 
 We strongly recommend that you read [Azure Files networking overview](storage-files-networking-overview.md) before continuing with this article for a complete discussion of the networking options available for Azure Files.
 
@@ -37,7 +37,7 @@ The article details the steps to configure a point-to-site VPN on Linux to mount
 
 ## Prerequisites
 
-- The most recent version of the Azure CLI. For information on how to install the Azure CLI, see [Install the Azure PowerShell CLI](/cli/azure/install-azure-cli) and select your operating system. If you prefer to use the Azure PowerShell module on Linux, you may. However, the instructions below are for Azure CLI.
+- The most recent version of the Azure CLI. For information on how to install the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli) and select your operating system. If you prefer to use the Azure PowerShell module on Linux, you may. However, the instructions below are for Azure CLI.
 
 - An Azure file share you'd like to mount on-premises. Azure file shares are deployed within storage accounts, which are management constructs that represent a shared pool of storage in which you can deploy multiple file shares. You can learn more about how to deploy Azure file shares and storage accounts in [Create an Azure file share](storage-how-to-create-file-share.md).
 
@@ -56,7 +56,7 @@ sudo apt install strongswan strongswan-pki libstrongswan-extra-plugins curl libx
 INSTALL_DIR="/etc/"
 ```
 
-If the installation fails or you get an error such as **EAP_IDENTITY not supported, sending EAP_NAK**, you might need to install extra plugins:
+If the installation fails or you get an error such as `EAP_IDENTITY not supported, sending EAP_NAK`, you might need to install extra plugins:
 
 ```bash
 sudo apt install -y libcharon-extra-plugins
@@ -64,11 +64,11 @@ sudo apt install -y libcharon-extra-plugins
 
 ### Deploy a virtual network
 
-To access your Azure file share and other Azure resources from on-premises via a Point-to-Site VPN, you must create a virtual network, or VNet. You can think of the P2S VPN connection create as a bridge between your on-premises Linux machine and this Azure virtual network.
+To access your Azure file share and other Azure resources from on-premises via a point-to-site VPN, you must create a virtual network. You can think of the point-to-site VPN connection as creating a bridge between your on-premises Linux machine and this Azure virtual network.
 
 The following script creates an Azure virtual network with three subnets: one for your storage account's service endpoint, one for your storage account's private endpoint, which is required to access the storage account on-premises without creating custom routing for the public IP of the storage account that may change, and one for your virtual network gateway that provides the VPN service. 
 
-Remember to replace `<region>`, `<resource-group>`, and `<desired-vnet-name>` with the appropriate values for your environment.
+Replace `<region>`, `<resource-group>`, and `<desired-vnet-name>` with the appropriate values for your environment.
 
 ```bash
 REGION="<region>"
@@ -148,12 +148,12 @@ The Azure virtual network gateway is the service that your on-premises Linux cli
 - A public IP address that identifies the gateway to your clients wherever they are in the world.
 - The root certificate you created earlier that is used to authenticate your clients
 
-Remember to replace `<desired-vpn-name-here>` with the name you would like for these resources.
+Replace `<desired-vpn-name-here>` with the name you would like for these resources.
 
 > [!NOTE]
 > Deploying the Azure virtual network gateway can take up to 45 minutes. While this resource is being deployed, this bash script blocks the deployment from being completed.
 >
-> P2S IKEv2/OpenVPN connections aren't supported with the **Basic** SKU. This script uses the **VpnGw1** SKU for the virtual network gateway.
+> Point-to-site IKEv2/OpenVPN connections aren't supported with the **Basic** SKU. This script uses the **VpnGw1** SKU for the virtual network gateway.
 
 ```azurecli
 VPN_NAME="<desired-vpn-name-here>"
@@ -174,7 +174,7 @@ az network vnet-gateway create \
     --public-ip-addresses $PUBLIC_IP_ADDR \
     --location $REGION \
     --sku "VpnGw1" \
-    --gateway-typ "Vpn" \
+    --gateway-type "Vpn" \
     --vpn-type "RouteBased" \
     --address-prefixes "172.16.201.0/24" \
     --client-protocol "IkeV2" > /dev/null
@@ -208,7 +208,7 @@ sudo cp "${INSTALL_DIR}ipsec.conf" "${INSTALL_DIR}ipsec.conf.backup"
 sudo cp "Generic/VpnServerRoot.cer_0" "${INSTALL_DIR}ipsec.d/cacerts"
 sudo cp "${USERNAME}.p12" "${INSTALL_DIR}ipsec.d/private" 
 
-sudo tee -a "${installDir}ipsec.conf" <<EOF
+sudo tee -a "${INSTALL_DIR}ipsec.conf" <<EOF
 conn $VIRTUAL_NETWORK_NAME
     keyexchange=$VPN_TYPE
     type=tunnel
@@ -216,9 +216,9 @@ conn $VIRTUAL_NETWORK_NAME
     left=%any
     leftauth=eap-tls
     leftid=%client
-    right=$vpnServer
-    rightid=%$vpnServer
-    rightsubnet=$routes
+    right=$VPN_SERVER
+    rightid=%$VPN_SERVER
+    rightsubnet=$ROUTES
     leftsourceip=%config
     auto=add
 EOF
@@ -231,10 +231,10 @@ sudo ipsec up $VIRTUAL_NETWORK_NAME
 
 ## Mount Azure file share
 
-After setting up your Point-to-Site VPN, you can mount your Azure file share. See [Mount SMB file shares to Linux](storage-how-to-use-files-linux.md) or [Mount NFS file share to Linux](storage-files-how-to-mount-nfs-shares.md). 
+After setting up your point-to-site VPN, you can mount your Azure file share. See [Mount SMB file shares to Linux](storage-how-to-use-files-linux.md) or [Mount NFS file share to Linux](storage-files-how-to-mount-nfs-shares.md). 
 
 ## See also
 
 - [Azure Files networking overview](storage-files-networking-overview.md)
-- [Configure a Point-to-Site (P2S) VPN on Windows for use with Azure Files](storage-files-configure-p2s-vpn-windows.md)
-- [Configure a Site-to-Site (S2S) VPN for use with Azure Files](storage-files-configure-s2s-vpn.md)
+- [Configure a point-to-site VPN on Windows for use with Azure Files](storage-files-configure-p2s-vpn-windows.md)
+- [Configure a site-to-site VPN for use with Azure Files](storage-files-configure-s2s-vpn.md)

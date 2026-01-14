@@ -176,7 +176,7 @@ A list of all Azure CLI references for Private Link Configuration on Application
 After registering the feature, configuration of NSG, Route Table, and private IP address frontend configuration can be performed using any methods. For example: REST API, ARM Template, Bicep deployment, Terraform, PowerShell, CLI, or Portal.
 
 > [!NOTE]
-> If your client application connects to App Gateway via a private IP, requires an idle timeout greater > than 4 minutes, and the client application does not send TCP keep-alive packets, contact appgw-idle-timeout@microsoft.com to request initiation of keep‑alive from Application Gateway.
+> If your client application connects to App Gateway via a private IP, requires an idle timeout greater > than 4 minutes, and the client application does not send TCP keep-alive packets, contact agprivateip-keepalive@microsoft.com to request initiation of keep‑alive from Application Gateway.
 
 ## Application Gateway Subnet 
 

@@ -49,7 +49,7 @@ This article explains how to create a new IoT Hub with [Azure Device Registry (A
         az extension add --upgrade --source https://github.com/Azure/azure-iot-cli-extension/releases/download/v0.30.0b1/azure_iot-0.30.0b1-py3-none-any.whl
         ```
     
-    1. After the install, validate your azure-iot extension version is greater than **0.30.0b1**.
+    1. After the install, validate your azure-iot extension version is at least **0.30.0b1**.
     
         ```azurecli-interactive
         az extension list

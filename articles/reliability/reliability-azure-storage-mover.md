@@ -148,7 +148,7 @@ Update-AzStorageMoverJobDefinition `
 
 #### Grant the agent access to the target storage container
 
-You need to assign the data contributor role to the managed identity to successfully perform a migration job. Assign the Hybrid Compute resource's system managed identity access to the target storage account resource. The [assign a managed identity access to a resource](/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal) article provides guidance on how to grant access to the target resource.
+You need to assign the data contributor role to the managed identity to successfully perform a migration job. Assign the Hybrid Compute resource's system managed identity access to the target storage account resource. The [assign a managed identity access to a resource](/entra/identity/managed-identities-azure-resources/grant-managed-identity-resource-access-azure-portal) article provides guidance on how to grant access to the target resource.
 
 You're now ready to start migration jobs using the newly deployed Storage Mover resources.
 
