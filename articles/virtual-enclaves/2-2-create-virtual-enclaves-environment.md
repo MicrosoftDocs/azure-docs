@@ -112,12 +112,12 @@ For AVE-managed resources, the identity needs contributor access.
 
 Verify all resources are created and configured correctly:
 
-- <input type="checkbox" unchecked> User Assigned Managed Identity `id-ave-encryption` created
-- <input type="checkbox" unchecked> Key Vault `kv-ave-shared-<uniqueid>` created
-- <input type="checkbox" unchecked> Customer Managed Key `cmk-ave-encryption` created in Key Vault
-- <input type="checkbox" unchecked> Managed identity has `Key Vault Crypto Service Encryption User` role on the key
-- <input type="checkbox" unchecked> Disk Encryption Set `des-ave-encryption` created and linked to key and identity
-- <input type="checkbox" unchecked> Managed identity has `Contributor` role on enclave managed resource group
+- ✅ User Assigned Managed Identity `id-ave-encryption` created
+- ✅ Key Vault `kv-ave-shared-<uniqueid>` created
+- ✅ Customer Managed Key `cmk-ave-encryption` created in Key Vault
+- ✅ Managed identity has `Key Vault Crypto Service Encryption User` role on the key
+- ✅ Disk Encryption Set `des-ave-encryption` created and linked to key and identity
+- ✅ Managed identity has `Contributor` role on enclave managed resource group
 
 ## Create AVD enclave
 
@@ -364,13 +364,13 @@ Create enclave connections to link the enclaves together.
 
 Verify that your environment is correctly configured:
 
-- <input type="checkbox" unchecked> Common dependencies deployed in shared services workload
-- <input type="checkbox" unchecked> AVD enclave created with management and session hosts subnets
-- <input type="checkbox" unchecked> AKS enclave created with node, API server, and private endpoint subnets
-- <input type="checkbox" unchecked> Private DNS zones deployed and linked to enclaves
-- <input type="checkbox" unchecked> Community endpoints created for AVD and AKS external connectivity
-- <input type="checkbox" unchecked> Enclave endpoints created for shared services
-- <input type="checkbox" unchecked> Enclave connections created from AVD and AKS to shared services
+- ✅ Common dependencies deployed in shared services workload
+- ✅ AVD enclave created with management and session hosts subnets
+- ✅ AKS enclave created with node, API server, and private endpoint subnets
+- ✅ Private DNS zones deployed and linked to enclaves
+- ✅ Community endpoints created for AVD and AKS external connectivity
+- ✅ Enclave endpoints created for shared services
+- ✅ Enclave connections created from AVD and AKS to shared services
 
 ## Next steps
 

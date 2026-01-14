@@ -362,14 +362,14 @@ AzureDiagnostics
 
 After deployment, confirm:
 
-- <input type="checkbox" unchecked> Community status shows **Succeeded**
-- <input type="checkbox" unchecked> Community managed resource group created with expected resources
-- <input type="checkbox" unchecked> Virtual Network configured with correct address space and subnets
-- <input type="checkbox" unchecked> Azure Firewall deployed and running
-- <input type="checkbox" unchecked> Log Analytics workspace connected
-- <input type="checkbox" unchecked> Diagnostic settings enabled
-- <input type="checkbox" unchecked> RBAC permissions are configured
-- <input type="checkbox" unchecked> No deployment errors in activity log
+- ✅ Community status shows **Succeeded**
+- ✅ Community managed resource group created with expected resources
+- ✅ Virtual Network configured with correct address space and subnets
+- ✅ Azure Firewall deployed and running
+- ✅ Log Analytics workspace connected
+- ✅ Diagnostic settings enabled
+- ✅ RBAC permissions are configured
+- ✅ No deployment errors in activity log
 
 ## Clean up resources
 
