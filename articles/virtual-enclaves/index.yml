@@ -170,8 +170,8 @@ landingContent:
             url: deploy-storage-account-service-catalog.md
           - text: Deploy Azure Kubernetes Service from the service catalog
             url: deploy-azure-kubernetes-service-service-catalog.md
-          - text: Deploy RemoteApp Virtual Machine from the service catalog
-            url: deploy-remoteapp-vm-service-catalog.md
+          - text: Deploy Virtual Machine from the service catalog
+            url: deploy-virtual-machine-service-catalog.md
       - linkListType: deploy
         links:
           - text: Deploy Azure App Service from the service catalog
