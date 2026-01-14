@@ -7,7 +7,7 @@ ms.topic: overview
 ms.date: 9/30/2025
 ---
 
-# Tutorial 3: Create workloads in an enclave on Azure Virtual Enclaves
+# Tutorial 1-3: Create workloads in an enclave on Azure Virtual Enclaves
 
 Workloads are logical groups of Azure resources that you define to create and audit connections in Azure Virtual Enclaves (AVE). They also automatically inherit security posture and policies of their enclave.
 

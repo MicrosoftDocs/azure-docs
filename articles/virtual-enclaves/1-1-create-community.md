@@ -5,10 +5,10 @@ author: aserfass-msft
 ms.author: aserfass
 ms.topic: tutorial
 ms.date: 12/18/2024
-ms.custom: references_region
+ms.custom: references_regions
 ---
 
-# Tutorial 1: Deploy a community on Azure Virtual Enclaves
+# Tutorial 1-1: Deploy a community on Azure Virtual Enclaves
 
 ⏱️ **Estimated time to complete:**
 - Reading: 15 minutes
@@ -100,7 +100,7 @@ Establish naming standards before deployment:
 Choose the Azure region based on:
 
 **Data residency requirements:**
-- Regulatory compliance (for example, General Data Protection Regulation (GDPR), HIPAA)
+- Regulatory compliance
 - Data sovereignty requirements
 - Industry-specific regulations
 
@@ -210,19 +210,19 @@ Community deployments take approximately **30-45 minutes** to complete. Azure Vi
 
 #### Step 1: Navigate to Azure Virtual Enclaves
 
-1. In the **Azure Virtual Enclaves** page, select the **Communities** option in the left menu.
+In the **Azure Virtual Enclaves** page, select the **Communities** option in the left menu.
 
 [ ![Screenshot showing the Azure portal homepage for Azure Virtual Enclaves with the Create a Community button.](./media/azure-virtual-enclaves-homepage.png) ](./media/azure-virtual-enclaves-homepage.png#lightbox)
 
 #### Step 2: Start community creation
 
-2. On the `Communities` page, select `Create`.
+On the `Communities` page, select `Create`.
 
 [ ![Screenshot showing the Azure Virtual Enclaves portal page with the communities list selected.](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-list.png) ](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-list.png#lightbox)
 
 #### Step 3: Configure community settings
 
-3. Enter the basic details for your community:
+Enter the basic details for your community:
 
 **Basic configuration:**
 - **Subscription**: Select your Azure subscription
@@ -260,7 +260,7 @@ Private IP address ranges (RFC 1918):
 
 #### Step 4: Review and create
 
-4. Select `Review + create` and validate the details for your community are correct.
+Select `Review + create` and validate the details for your community are correct.
 
 **Validation checks:**
 - Verify subscription and resource group are correct
@@ -269,18 +269,20 @@ Private IP address ranges (RFC 1918):
 - Check address space is appropriate size and doesn't overlap
 - Review any validation warnings or errors
 
-5. Select `Create` to begin deployment.
+#### Step 5: Create
+
+Select `Create` to begin deployment.
 
 **What happens during deployment:**
 
 The deployment process creates:
-1. **Virtual Network**: Hub virtual network with community address space
-2. **Azure Firewall**: Premium or Standard tier for traffic filtering
-3. **Firewall Policy**: Default rules and policies
-4. **Log Analytics Workspace**: For monitoring and diagnostics
-5. **Managed Resource Group**: Contains Azure-managed infrastructure
-6. **Diagnostic Settings**: Logs and metrics configuration
-7. **Network Security Groups**: Default security rules
+- **Virtual Network**: Hub virtual network with community address space
+- **Azure Firewall**: Premium or Standard tier for traffic filtering
+- **Firewall Policy**: Default rules and policies
+- **Log Analytics Workspace**: For monitoring and diagnostics
+- **Managed Resource Group**: Contains Azure-managed infrastructure
+- **Diagnostic Settings**: Logs and metrics configuration
+- **Network Security Groups**: Default security rules
 
 **Monitoring deployment progress:**
 - Track deployment status in Azure portal notifications
@@ -360,14 +362,14 @@ AzureDiagnostics
 
 After deployment, confirm:
 
-- [ ] Community status shows **Succeeded**
-- [ ] Managed resource group created with expected resources
-- [ ] Virtual Network configured with correct address space
-- [ ] Azure Firewall deployed and running
-- [ ] Log Analytics workspace connected
-- [ ] Diagnostic settings enabled
-- [ ] RBAC permissions are configured
-- [ ] No deployment errors in activity log
+- <input type="checkbox" unchecked> Community status shows **Succeeded**
+- <input type="checkbox" unchecked> Community managed resource group created with expected resources
+- <input type="checkbox" unchecked> Virtual Network configured with correct address space and subnets
+- <input type="checkbox" unchecked> Azure Firewall deployed and running
+- <input type="checkbox" unchecked> Log Analytics workspace connected
+- <input type="checkbox" unchecked> Diagnostic settings enabled
+- <input type="checkbox" unchecked> RBAC permissions are configured
+- <input type="checkbox" unchecked> No deployment errors in activity log
 
 ## Clean up resources
 
@@ -377,10 +379,10 @@ If you need to delete your community after completing this tutorial:
 > Deleting a community is **permanent** and **cannot be undone**. All enclaves, workloads, and resources within the community are deleted. Deletion is blocked if any of the workload resources groups contain resources to prevent accidental deletion.
 
 **Before deleting:**
-1. Export any important configurations or data
-2. Document network settings for reference
-3. Notify team members of planned deletion
-4. Remove any dependencies (virtual network peering, connections)
+- Export any important configurations or data
+- Document network settings for reference
+- Notify team members of planned deletion
+- Remove any dependencies (virtual network peering, connections)
 
 **To delete a community:**
 
@@ -415,23 +417,6 @@ az resource delete \
 - Any resources not managed by AVE
 - Log Analytics data (based on retention settings)
 
-## Next steps
-
-Congratulations! You successfully deployed an Azure Virtual Enclaves community.
-
-In the next tutorial, you'll learn how to create isolated enclaves within your community to host workloads.
-
-> [Tutorial 2: Create enclaves inside a community](./1-2-create-enclaves-inside-community.md)
-
-## Related content
-
-- [What is a community?](./what-community.md)
-- [What is an enclave?](./what-enclave.md)
-- [Best practices for Azure Virtual Enclaves](./best-practices.md)
-- [Azure Virtual Enclaves FAQs](./virtual-enclaves-faq.md)
-- [Naming rules and restrictions](./name-rules-restrictions-azure-virtual-enclaves-resources.md)
-- [Quotas and region availability](./quotas-region-availability-azure-virtual-enclaves.md)
-
 ## Troubleshooting
 
 ### Issue: Deployment fails with address space overlap error
@@ -440,9 +425,9 @@ In the next tutorial, you'll learn how to create isolated enclaves within your c
 Deployment fails with error message about address space conflicts
 
 **Possible causes:**
-1. Address space overlaps with existing virtual network in subscription
-2. Address space conflicts with on-premises network
-3. Address space overlaps with virtual network peering connections
+- Address space overlaps with existing virtual network in subscription
+- Address space conflicts with on-premises network
+- Address space overlaps with virtual network peering connections
 
 **Resolution steps:**
 1. Review existing VNets in your subscription:
@@ -462,9 +447,9 @@ Maintain an IP address management (IPAM) spreadsheet documenting all allocated r
 Deployment running for more than 60 minutes
 
 **Possible causes:**
-1. Azure region experiencing high load
-2. Complex firewall policy configurations
-3. Resource provider registration delays
+- Azure region experiencing high load
+- Complex firewall policy configurations
+- Resource provider registration delays
 
 **Resolution steps:**
 1. Check Azure status page for service health issues
@@ -481,9 +466,9 @@ Deploy during off-peak hours when possible
 Community deployed but inaccessible in portal
 
 **Possible causes:**
-1. Insufficient RBAC permissions
-2. Conditional Access policies blocking access
-3. Managed resource group permissions issue
+- Insufficient RBAC permissions
+- Conditional Access policies blocking access
+- Managed resource group permissions issue
 
 **Resolution steps:**
 1. Verify you have Reader or Contributor role on community
@@ -510,19 +495,27 @@ If you continue experiencing issues:
 
 ## Understanding community costs
 
-Be aware of the ongoing costs associated with a community:
-
-**Primary cost components:**
-- **Azure Firewall**: Largest cost component
-  - Premium tier: ~$0.875/hour + $0.016/GB processed
-  - Standard tier: ~$1.25/hour + $0.016/GB processed
-- **Virtual Network**: Minimal cost (virtual network peering charges might apply)
-- **Public IP addresses**: ~$0.004/hour per IP
-- **Log Analytics**: Based on data ingestion and retention
-- **Virtual Network Gateways**: If using hybrid connectivity
+Create an Azure Calculator estimate for your [community](https://aka.ms/ave/calc).
 
 **Cost optimization tips:**
 - Use Standard tier firewall for dev/test
 - Configure log retention policies appropriately
 - Monitor and right-size resources
 - Use Microsoft Cost Management for tracking
+
+## Next steps
+
+Congratulations! You successfully deployed an Azure Virtual Enclaves community.
+
+In the next tutorial, you'll learn how to create isolated enclaves within your community to host workloads.
+
+> [Tutorial 1-2: Create enclaves inside a community](./1-2-create-enclaves-inside-community.md)
+
+## Related content
+
+- [What is a community?](./what-community.md)
+- [What is an enclave?](./what-enclave.md)
+- [Best practices for Azure Virtual Enclaves](./best-practices.md)
+- [Azure Virtual Enclaves FAQs](./virtual-enclaves-faq.md)
+- [Naming rules and restrictions](./name-rules-restrictions-azure-virtual-enclaves-resources.md)
+- [Quotas and region availability](./quotas-region-availability-azure-virtual-enclaves.md)

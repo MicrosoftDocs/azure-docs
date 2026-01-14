@@ -8,7 +8,7 @@ ms.date: 9/30/2025
 ms.custom: references_region
 ---
 
-# Tutorial 2: Create enclaves in a community on Azure Virtual Enclaves
+# Tutorial 1-2: Create enclaves in a community on Azure Virtual Enclaves
 
 An enclave is an isolated Azure Virtual Network that is part of a community in which one or more workloads are hosted. 
 
@@ -69,4 +69,4 @@ If you need to delete your enclaves created after completing this tutorial, this
 ![Screenshot showing the completed enclave in the Azure Virtual Enclaves portal page.](./media/tutorial-step-two-azure-virtual-enclaves-page-enclaves-list-both-deployed.png)
 
 ## Next steps
-In this tutorial, you created two sample enclaves using Azure portal. In the next tutorial, you learn how to create several workloads within your enclave.
+In this tutorial, you created two sample enclaves using Azure portal. In the [next tutorial](./1-3-create-workloads-inside-enclave.md), you learn how to create several workloads within your enclave.

@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 
 - Completion of [Tutorial 2-2: Create Azure Virtual Enclaves Environment](./2-2-create-virtual-enclaves-environment.md)
 - AVD enclave with management and session hosts subnets
-- Common dependencies (Key Vault, managed identity, disk encryption set) from Tutorial 11
+- Common dependencies (Key Vault, managed identity, disk encryption set) from Tutorial 2-2
 - Private DNS zones for AVD deployed
 - **Virtual Machine Contributor** role on the AVD workload resource group
 - Active Directory or Microsoft Entra ID configured for user authentication
@@ -55,7 +55,7 @@ This tutorial uses example names. Use your organization's naming convention:
 The AVD community endpoint enables session hosts to communicate with AVD control plane services.
 
 > [!NOTE]
-> If you created the AVD community endpoint in Tutorial 11, you can skip this section.
+> If you created the AVD community endpoint in Tutorial 2-2, you can skip this section.
 
 ### Use service catalog template
 
@@ -96,7 +96,7 @@ The AVD enclave template prepares your enclave with required subnets and network
    - **Create NSGs**: **Yes** (if not already created)
    
    **Private DNS:**
-   - **Create Private DNS Zones**: **No** (already created in Tutorial 11)
+   - **Create Private DNS Zones**: **No** (already created in Tutorial 2-2)
    - **Link to VNet**: **Yes**
    
 4. Select **Review + Add** and then **Create**.
@@ -106,11 +106,10 @@ The AVD enclave template prepares your enclave with required subnets and network
 
 Now deploy the AVD workload with host pool, session hosts, and supporting infrastructure.
 
-### Configure deployment parameters
+### Select the Azure Virtual Desktop Workload template
 
 1. In your **AVD workload**, select **+ Add an Azure Service**.
 2. Search for and select **Azure Virtual Desktop Workload**.
-3. Configure the deployment:
 
 #### Basics tab
 
@@ -121,7 +120,7 @@ Now deploy the AVD workload with host pool, session hosts, and supporting infras
 #### Host Pool Configuration
 
 - **Host Pool Name**: `hp-prod-01`
-- **Host Pool Type**: **Pooled** or **Personal**
+- **Host Pool Type**: `Pooled`
 - **Load Balancer Type**: **BreadthFirst** (distributes evenly) or **DepthFirst**
 - **Max Session Limit**: `10` (for pooled, sessions per host)
 - **Validation Environment**: **No** (unless testing)
@@ -177,8 +176,8 @@ Now deploy the AVD workload with host pool, session hosts, and supporting infras
 #### Encryption Configuration
 
 - **Enable CMK Encryption**: **Yes**
-- **Disk Encryption Set Resource ID**: Resource ID from Tutorial 2-2 common dependencies
-- **User Assigned Identity Resource ID**: Resource ID from Tutorial 2-2 common dependencies
+- **Disk Encryption Set Resource ID**: Resource ID from Tutorial 2-2 [common dependencies](./2-2-create-virtual-enclaves-environment.md#set-up-common-dependencies)
+- **User Assigned Identity Resource ID**: Resource ID from Tutorial 2-2 [common dependencies](./2-2-create-virtual-enclaves-environment.md#set-up-common-dependencies)
 
 #### Monitoring
 
@@ -198,7 +197,7 @@ Now deploy the AVD workload with host pool, session hosts, and supporting infras
 Create enclave endpoints to allow management traffic from admin resources.
 
 1. Navigate to your **AVD enclave**.
-2. Select **Enclave endpoints** > **+ Create**.
+2. Select `Enclave endpoints` then select `+ Create`.
 3. Configure the endpoint:
    - **Name**: `ee-avd-management`
    - **Description**: `Allow management access to AVD resources`
@@ -216,19 +215,19 @@ Create enclave endpoints to allow management traffic from admin resources.
    - **Port**: `5985,5986`
    - **Source**: Admin subnet CIDR
    
-5. Select **Review + create** and then **Create**.
+5. Select `Review + create` and then `Create`.
 
 ## Configure enclave connection for FSLogix
 
 If your FSLogix storage is in a different enclave, create an enclave connection.
 
 1. Navigate to your **AVD enclave**.
-2. Select **Enclave connections** > **+ Create**.
+2. Select `Enclave connections` then select `+ Create`.
 3. Configure the connection:
    - **Name**: `conn-avd-to-storage`
    - **Source enclave**: `avd-enclave`
    - **Destination enclave endpoint**: Select endpoint in shared services enclave
-4. Select **Review + create** and then **Create**.
+4. Select `Review + create` and then `Create`.
 
 ## Assign users to application group
 
@@ -237,9 +236,9 @@ Users need to be assigned to the application group to access AVD.
 ### Using Azure portal
 
 1. Navigate to your **Application Group** (for example, `ag-desktop-prod`).
-2. Select **Assignments** > **+ Add**.
+2. Select `Assignments` then select `+ Add`.
 3. Search for and select users or groups.
-4. Select **Select**.
+4. Select `Select`.
 
 ### Using Azure PowerShell
 
@@ -278,7 +277,7 @@ Users can access AVD through various clients.
 
 1. Download the [Windows App](https://aka.ms/windowsapp) from the Microsoft Store or direct download
 2. Install and launch Windows App
-3. Select **Add account** or **+** to add a workspace
+3. Select `Add account` or `+` to add a workspace
 4. Sign in with your Microsoft Entra credentials
 5. Your AVD resources automatically appear
 6. Select a desktop or application to connect
@@ -293,8 +292,8 @@ Perform these validation steps to ensure proper deployment:
 ### Check session host status
 
 1. Navigate to your **Host Pool** (for example, `hp-prod-01`)
-2. Select **Session hosts**
-3. Verify all hosts show status: **Available**
+2. Select `Session hosts`
+3. Verify all hosts show status: `Available`
 4. Check **Agent version** is current
 5. Verify **Domain joined** status
 
@@ -309,15 +308,15 @@ Perform these validation steps to ensure proper deployment:
 ### Verify encryption
 
 1. Navigate to a session host VM
-2. Select **Disks**
+2. Select `Disks`
 3. Select the OS disk
-4. Verify **Encryption type**: **Encryption at rest with a customer-managed key**
+4. Verify `Encryption type`: `Encryption at rest with a customer-managed key`
 5. Check encryption set is applied
 
 ### Check diagnostic logs
 
 1. Navigate to the **Host Pool**
-2. Select **Diagnostic settings**
+2. Select `Diagnostic settings`
 3. Verify logs are flowing to Log Analytics
 4. Query logs for connection events:
 
@@ -349,8 +348,8 @@ Test-NetConnection -ComputerName login.microsoftonline.com -Port 443
 Enable and configure AVD Insights for comprehensive monitoring.
 
 1. Navigate to your **Host Pool**
-2. Select **Insights**
-3. Select **Open Insights workbook**
+2. Select `Insights`
+3. Select `Open Insights workbook`
 4. Review metrics:
    - Connection success rate
    - Active sessions

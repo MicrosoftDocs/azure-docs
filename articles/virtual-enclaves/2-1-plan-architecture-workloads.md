@@ -34,7 +34,7 @@ This tutorial assumes understanding of these concepts:
 
 The following diagram shows the architecture tutorials 2-1 through 2-4. The architecture includes a community hub with firewall, separate enclaves for AVD and AKS workloads, and the necessary endpoints and connections.
 
-[ ![Diagram showing the complete architecture for AVD and AKS workloads in Azure Virtual Enclaves.](./media/mermaid-tutorial-avd-aks-architecture.png) ](./media/mermaid-tutorial-avd-aks-architecture.png#lightbox)
+[ ![Diagram showing the complete architecture for AVD and AKS workloads in Azure Virtual Enclaves.](./media/mermaid-tutorial-architecture.png) ](./media/mermaid-tutorial-architecture.png#lightbox)
 
 <!--
 This is the mermaid definition for the above graph. Use this to edit and regenerate the PNG image.
@@ -48,18 +48,17 @@ config:
 flowchart TB
   subgraph Internet ["Internet / External Networks"]
     ExtUsers["External Users"]
-    AzureServices["Azure Services
-                  (ARM, Entra ID, AVD, etc)"]
   end
 
-  subgraph Community ["Community (Hub)"]
-    Firewall["Azure Firewall"]
-    subgraph CommunityEndpoints ["Community Endpoints"]
-      CE_AVD["AVD Endpoints
-            (wvd.microsoft.com, etc)"]
-      CE_AKS["AKS Endpoints
-            (mcr.microsoft.com, etc)"]
-    end
+  subgraph Community [ ]
+    Firewall["Community
+            Azure VWAN with Firewall"]
+    CE_AVD["AVD Community Endpoints
+          (privatelink.wvd.microsoft.com,
+          etc)"]
+    CE_AKS["AKS Community Endpoints
+          (privatelink.eastus.azmk8s.io,
+          etc)"]
   end
 
   subgraph Enclave_AVD ["AVD Enclave"]
@@ -69,16 +68,12 @@ flowchart TB
       AVD_Hosts["Session Hosts Subnet
                 (/24)"]
     end
-    subgraph AVD_Workloads ["Workloads"]
-      WL_AVD["AVD Workload"]
+    subgraph AVD_Workloads ["AVD Workloads"]
       subgraph AVD_Resources ["Resources"]
         HostPool["Host Pool"]
-        SessionHosts["Session Hosts"]
         Storage["FSLogix Storage"]
+        SessionHosts["Session Hosts"]
       end
-    end
-    subgraph AVD_EnclaveEndpoints ["Enclave Endpoints"]
-      EE_AVD_Mgmt["Management Access"]
     end
   end
 
@@ -91,39 +86,24 @@ flowchart TB
       AKS_PE["Private Endpoint Subnet
             (/26)"]
     end
-    subgraph AKS_Workloads ["Workloads"]
-      WL_AKS["AKS Workload"]
+    subgraph AKS_Workloads ["AKS Workloads"]
       subgraph AKS_Resources ["Resources"]
-        AKSCluster["AKS Cluster"]
         Pods["Pods/Containers"]
+        AKSCluster["AKS Cluster"]
       end
     end
-    subgraph AKS_EnclaveEndpoints ["Enclave Endpoints"]
-      EE_AKS_Mgmt["Management Access"]
-    end
   end
 
-  subgraph Enclave_Shared ["Shared Services Enclave (Optional)"]
-    subgraph Shared_Resources ["Shared Resources"]
-      KeyVault["Key Vault"]
-      LogAnalytics["Log Analytics"]
-      PrivateDNS["Private DNS Zones"]
-    end
-  end
-
-  ExtUsers ---|RDP HTTPS| AzureServices
-  AzureServices ---|Managed Traffic| Firewall
+  ExtUsers ---|RDP HTTPS| Firewall
   Firewall --- CE_AVD
   Firewall --- CE_AKS
   CE_AVD ---|Allow AVD URLs| AVD_Hosts
   CE_AVD ---|Allow AVD URLs| AVD_Mgmt
   CE_AKS ---|Allow AKS URLs| AKS_Nodes
-  AVD_Hosts ----|Session Access| SessionHosts
-  AVD_Mgmt ----|Management| HostPool
-  EE_AVD_Mgmt ---|Enclave Connection| Shared_Resources
-  EE_AKS_Mgmt ---|Enclave Connection| Shared_Resources
-  AKS_Nodes ----|Workloads| Pods
-  AKS_API ----|API Server| AKSCluster
+  AVD_Hosts --- SessionHosts
+  AVD_Mgmt --- HostPool
+  AKS_Nodes --- Pods
+  AKS_API --- AKSCluster
 
   %% Styling
   linkStyle default stroke-width:2px,stroke:Black;
@@ -136,6 +116,7 @@ flowchart TB
   classDef resource fill:#e6f3ff,stroke:#0078d4,color:#000;
   classDef endpoint fill:#fff4ce,stroke:#ff8c00,color:#000;
   classDef firewall fill:#ff6b6b,stroke:#c92a2a,color:#fff;
+  classDef hidden fill:none,stroke:none
 
   class Internet,ExtUsers,AzureServices internet;
   class Community,CommunityEndpoints community;
@@ -176,7 +157,8 @@ AVD requires at least two subnets in the enclave:
 - Formula: `(50 + 5) × 1.2 = 66 IPs needed`
 - Recommended: `/26` (64 IPs) or `/25` (128 IPs) for growth
 
-**Important**: You can't resize a subnet after resources are deployed. Plan for growth.
+> [!IMPORTANT]
+> You can't resize a subnet after resources are deployed. Plan for growth.
 
 ### Subnet sizing for AKS
 
@@ -192,7 +174,8 @@ AKS requires at least three subnets in the enclave:
 - Formula: `(3 + 1) + ((3 + 1) × 30) = 4 + 120 = 124 IPs needed`
 - Recommended: `/25` (128 IPs) minimum
 
-**Important**: Plan for upgrade operations that require an extra node.
+> [!IMPORTANT]
+> Plan for upgrade operations that require an extra node.
 
 ## Network requirements
 
@@ -223,7 +206,8 @@ AKS requires connectivity to the following endpoints via community endpoints:
 | **Authentication** | `login.microsoftonline.com` | 443 | HTTPS |
 | **Package Repository** | `packages.microsoft.com`<br>`acs-mirror.azureedge.net` | 443 | HTTPS |
 
-**Note**: Service tags aren't yet available in AVE, so specific endpoint names must be used. Other outbound NSG rules might be required for internet access on port 443.
+> [!NOTE]
+> Service tags aren't yet available in AVE, so specific endpoint names must be used. Other outbound NSG rules might be required for internet access on port 443.
 
 Reference: [AKS required outbound network rules](/azure/aks/outbound-rules-control-egress)
 
