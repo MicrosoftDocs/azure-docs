@@ -26,7 +26,7 @@ Content-Type: application/problem+json; charset=utf-8
 ```json
 {
   "type": "https://azconfig.io/errors/ip-address-rejected",
-  "title": "Access to this resource is governed by a network access policy. The client IP address fails to meet the criteria for access.",
+  "title": "Access to this resource is governed by a network access policy. The client IP address fails to meet the criteria for access. See https://aka.ms/appconfig/network-access-errors for more information.",
   "status": 403
 }
 ```

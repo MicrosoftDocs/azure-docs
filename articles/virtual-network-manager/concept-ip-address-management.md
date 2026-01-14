@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 11/18/2025
+ms.date: 01/09/2026
 ms.custom:
   - references_regions
   - ai-gen-docs-bap
@@ -19,7 +19,7 @@ ms.custom:
 
 [!INCLUDE [virtual-network-manager-ipam](../../includes/virtual-network-manager-ipam.md)]
 
-In this article, you learn about the IP address management (IPAM) feature in Azure Virtual Network Manager and how it can help you manage IP addresses in your virtual networks. With Azure Virtual Network Manager's IP address management, you can create pools for IP address planning, automatically assign nonoverlapping classless inter-domain routing (CIDR) addresses to Azure resources, and prevent address space conflicts across on-premises and multicloud environments.
+In this article, you learn about the IP address management (IPAM) feature in Azure Virtual Network Manager and how it can help you manage IP addresses in your virtual networks. By using Azure Virtual Network Manager's IP address management, you can create pools for IP address planning, automatically assign nonoverlapping classless inter-domain routing (CIDR) addresses to Azure resources, and prevent address space conflicts across on-premises and multicloud environments.
 
 ## What is IP address management (IPAM)?
 
@@ -53,11 +53,11 @@ The IPAM feature in Azure Virtual Network Manager works through the following ke
 
 ### Manage IP address pools
 
-IPAM allows network administrators to plan and organize IP address usage by creating pools with address spaces and respective sizes.
+IPAM helps network administrators plan and organize IP address usage by creating pools with address spaces and respective sizes.
 
 These pools act as containers for groups of CIDRs, enabling logical grouping for specific networking purposes. You can create a structured hierarchy of pools by dividing a larger pool into smaller, more manageable pools. This hierarchy provides more granular control and organization of your network's IP address space.
 
-There are two types of pools in IPAM:
+IPAM includes two types of pools:
 
 - **Root pool**: The first pool you create in your instance. This pool represents your entire IP address range.
 
@@ -71,11 +71,11 @@ You can also allocate static CIDRs to a pool. This allocation is useful for occu
 
 ### Delegating permissions for IPAM
 
-With IPAM, you can delegate permission to other users to utilize the IP address pools. This approach ensures controlled access and management while democratizing pool allocation.
+By using IPAM, you can delegate permission to other users to utilize the IP address pools. This approach ensures controlled access and management while democratizing pool allocation.
 
 These permissions allow users to see the pools they have access to, which helps them choose the right pool for their needs.
 
-Delegating permissions also grants others the ability to view usage statistics and lists of resources associated with the pool. Within your network manager, you can access complete usage statistics, including:
+When you delegate permissions, you grant others the ability to view usage statistics and lists of resources associated with the pool. Within your network manager, you can access complete usage statistics, including:
 
 - The total number of IPs in the pool.
 
@@ -96,7 +96,7 @@ The system ensures that the automatically allocated CIDRs don't overlap within t
 
 You can now associate a single IPAM pool with virtual networks in multiple regions. This feature simplifies governance and ensures consistent CIDR allocation globally. Azure PowerShell and Azure CLI support this capability in the preview regions listed in the preceding note.
 
-### Create a virtual network in Region A and associate with an IPAM pool located in Region B
+### Create a virtual network in Region A and associate it with an IPAM pool located in Region B
 
 In the following example, you create a virtual network in *Region A* and associate it with an IPAM pool located in *Region B*.
 
@@ -142,7 +142,7 @@ The **IPAM Pool User** role alone is sufficient for delegation when using IPAM. 
 
 Without this role, users with only the **IPAM Pool User** role don't see available pools and virtual networks.
 
-Learn more about [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview).
+For more information, see [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview).
 
 ## Next steps
 

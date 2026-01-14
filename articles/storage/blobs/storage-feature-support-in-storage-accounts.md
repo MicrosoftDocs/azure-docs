@@ -56,7 +56,7 @@ The following table describes whether a feature is supported in a standard gener
 | [Blobfuse](storage-how-to-mount-container-linux.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Change feed](storage-blob-change-feed.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Custom domains](storage-custom-domain-name.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
-| [Customer-managed planned failover](../common/storage-disaster-recovery-guidance.md#customer-managed-planned-failover) | &#x1F7E6; | &#x1F7E6; | &nbsp;&#x2B24; | &#x1F7E6; |
+| [Customer-managed planned failover](../common/storage-disaster-recovery-guidance.md#customer-managed-planned-failover) | &#x2705; | &#x2705; | &nbsp;&#x2B24; | &#x2705; |
 | [Customer-managed (unplanned) failover](../common/storage-disaster-recovery-guidance.md#customer-managed-unplanned-failover) | &#x2705; | &#x2705; | &nbsp;&#x2B24; | &#x2705; |
 | [Customer-managed keys with key vault in the same tenant](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Customer-managed keys with key vault in a different tenant (cross-tenant)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |

@@ -27,7 +27,8 @@ You can grant two types of identities to an API Management instance:
 - A *user-assigned identity* is a standalone Azure resource that can be assigned to your service. The service can have multiple user-assigned identities.
 
 > [!NOTE]
-> Managed identities are specific to the Microsoft Entra tenant in which your Azure subscription is hosted. They don't get updated if a subscription is moved to a different directory. If a subscription is moved, you need to re-create and reconfigure the identities.  
+> - Managed identities are specific to the Microsoft Entra tenant in which your Azure subscription is hosted. They don't get updated if a subscription is moved to a different directory. If a subscription is moved, you need to recreate and reconfigure the identities.  
+> - API Management managed identities are also specific to the Azure subscription in which the service is hosted. If you move the service to a different subscription in the same tenant, you need to recreate and reconfigure the identities.
 
 [!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 

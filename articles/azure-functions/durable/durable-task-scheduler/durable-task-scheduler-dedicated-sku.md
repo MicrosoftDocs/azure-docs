@@ -57,7 +57,7 @@ Durable Task Scheduler offers two SKU options: Dedicated and Consumption (previe
 
 The Dedicated SKU provides  performance and pricing through preallocated Capacity Units (CUs). You can purchase up to three CUs. 
 
-Currently, you're limited to 15 task hubs when using the Dedicated SKU. For more quota, [contact support](https://github.com/Azure/azure-functions-durable-extension/issues).
+Currently, you're limited to 25 task hubs when using the Dedicated SKU. For more quota, [contact support](https://github.com/Azure/azure-functions-durable-extension/issues).
 
 #### Key features
 
