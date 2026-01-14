@@ -49,9 +49,9 @@ Review network activity through the enclave or community Log Analytics Workspace
 
 ## Monitoring your workloads in Azure Virtual Enclaves
 
-Review workload activity through the enclave Log Analytics Workspace. The enclave logs are configured so they are only accessible from the enclave network to protect the log data.
+Review workload activity through the enclave Log Analytics Workspace. The enclave logs are configured so they're only accessible from the enclave network to protect the log data.
 
-1. Login to an [Admin VM](./deploy-admin-vm-service-catalog.md) or another VM with network access to the enclave network. 
+1. Sign in to an [Admin VM](./deploy-admin-vm-service-catalog.md) or another VM with network access to the enclave network. 
 2. In the Azure portal from an Admin VM, navigate to your enclave managed resource group.
 3. Open the **Log Analytics Workspace** linked to your enclave.
 4. Select **Logs** from the left navigation menu.
@@ -59,9 +59,9 @@ Review workload activity through the enclave Log Analytics Workspace. The enclav
    - Virtual Machine performance metrics (CPU, memory, disk usage)
    - Application logs from Azure App Service or Container instances
    - Security events and system logs
-6. Set up metric alerts for critical thresholds (e.g., high CPU usage, disk space warnings).
+6. Set up metric alerts for critical thresholds (for example, high CPU usage, disk space warnings).
 7. Use Azure Monitor Application Insights if your applications are instrumented for deeper application performance monitoring.
-8. Review and configure diagnostic settings on individual workload resources to ensure logs are flowing to the workspace.
+8. Verify logs are flowing to the workspace by reviewing and configuring diagnostic settings on individual workload resources.
 
 ## Closing
 In this tutorial series, you prepared a monitored and secure network cloud environment in the Azure portal using Azure Virtual Enclaves.

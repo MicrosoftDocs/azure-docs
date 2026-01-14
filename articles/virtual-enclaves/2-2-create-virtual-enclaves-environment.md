@@ -1,6 +1,6 @@
 ---
-title: Create Azure Virtual Enclave environment for AVD and AKS workloads
-description: Set up the Azure Virtual Enclaves environment with enclaves, subnets, DNS zones, and endpoints for AVD and AKS workloads.
+title: Create Azure Virtual Enclave environment for workloads
+description: Set up the Azure Virtual Enclaves environment for AVD and AKS workloads.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: tutorial
@@ -72,7 +72,7 @@ Add required dependency resources to your workload:
    - **Key Vault Name**: Provide a unique Key Vault name `kv-ave-shared-<uniqueid>`
    - **CMK Key Name**: Provide a CMK name like `cmk-ave-encryption`
    - **User Assigned Managed Identity Name**: Provide a managed identity resource name like `id-ave-encryption`
-   - **Identity Type**: Select `UserAssigned` in the drop down.
+   - **Identity Type**: Select `UserAssigned` in the drop-down.
    - **Disk Encryption Set Name**: `des-ave-encryption`
 5. Select `Review + create` and then `Create`.
 6. After deployment completes, navigate to the managed identity.
@@ -113,7 +113,7 @@ For AVE-managed resources, the identity needs contributor access.
 Verify all resources are created and configured correctly:
 
 - <input type="checkbox" unchecked> User Assigned Managed Identity `id-ave-encryption` created
-- <input type="checkbox" unchecked> Key Vault `kv-ave-shared-<uniqueid>` created with RBAC enabled
+- <input type="checkbox" unchecked> Key Vault `kv-ave-shared-<uniqueid>` created
 - <input type="checkbox" unchecked> Customer Managed Key `cmk-ave-encryption` created in Key Vault
 - <input type="checkbox" unchecked> Managed identity has `Key Vault Crypto Service Encryption User` role on the key
 - <input type="checkbox" unchecked> Disk Encryption Set `des-ave-encryption` created and linked to key and identity
@@ -146,7 +146,7 @@ Now create a dedicated enclave for Azure Virtual Desktop workloads.
 6. Select `Review + create` and then `Create`.
 
 > [!NOTE]
-> Enclave deployment takes 30-45 minutes. You can continue to plan the AKS enclave while this deploys.
+> Enclave deployment takes 30-45 minutes. You can continue to plan the AKS enclave during deployment.
 
 ## Create AKS enclave
 
