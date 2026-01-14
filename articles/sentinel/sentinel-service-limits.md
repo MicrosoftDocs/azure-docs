@@ -1,12 +1,11 @@
 ---
 title: Microsoft Sentinel service limits
 description: This article provides a list of service limits for Microsoft Sentinel, divided into the different service areas.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: reference
 ms.date: 03/19/2025
-ms.author: yelevin
 ms.service: microsoft-sentinel
-
 
 #Customer intent: As a security architect, I want to understand the service limits of Microsoft Sentinel so that I can effectively manage and optimize my organization's security monitoring and incident response activities.
 
@@ -74,7 +73,6 @@ The following limits apply to case management in Microsoft Sentinel.
 | Cases per tenant   | 100,000 cases                 | None       |
 | Attachments per tenant    | 500 GB         | None       |
 | Linked incidents per case  | 100 incidents       | None       |
-| Case retention period | 180 days | None       |
 
 ## Machine learning-based limits
 

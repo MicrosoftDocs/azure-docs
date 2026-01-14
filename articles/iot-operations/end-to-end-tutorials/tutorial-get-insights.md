@@ -4,9 +4,10 @@ description: "Tutorial: Use a Real-Time Dashboard to capture insights from the O
 author: baanders
 ms.author: baanders
 ms.topic: tutorial
+ms.date: 03/26/2025
 ms.custom:
   - ignite-2023
-ms.date: 03/26/2025
+  - sfi-image-nochange
 
 #CustomerIntent: As an OT user, I want to create a visual report for my processed OPC UA data that I can use to analyze and derive insights from it.
 ---

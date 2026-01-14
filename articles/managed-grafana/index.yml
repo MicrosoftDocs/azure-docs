@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: maud-lv
   ms.author: malev
-  ms.date: 12/15/2024
+  ms.date: 11/21/2025
 
 landingContent:
   - title: About Azure Managed Grafana
@@ -79,8 +79,6 @@ landingContent:
             url: how-to-set-up-private-access.md
           - text: Use service accounts
             url: how-to-service-accounts.md
-          - text: Call Grafana APIs programmatically
-            url: how-to-api-calls.md
           - text: Configure Grafana settings
             url: grafana-settings.md
           - text: Use deterministic outbound IPs

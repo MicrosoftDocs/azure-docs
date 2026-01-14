@@ -3,7 +3,7 @@ title: Configure Multi-user authorization using Resource Guard
 description: This article explains how to configure Multi-user authorization using Resource Guard.
 ms.topic: how-to
 zone_pivot_groups: backup-vaults-recovery-services-vault-backup-vault
-ms.date: 06/09/2025
+ms.date: 11/21/2025
 ms.service: azure-backup
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 author: AbhishekMallick-MS
@@ -654,7 +654,7 @@ Once the Security admin approves the Backup admin's request for the **Backup MUA
 >[!NOTE]
 >If the access was assigned using a JIT mechanism, the **Backup MUA Operator** role is retracted at the end of the approved period. Otherwise, the Security admin manually removes the **Backup MUA Operator** role assigned to the Backup admin to perform the critical operation.
 
-The following screenshot shows an example of [disabling soft delete](backup-azure-security-feature-cloud.md?tabs=azure-portal#disable-soft-delete) for an MUA-enabled vault.
+The following screenshot shows an example of [disabling soft delete](multi-user-authorization.md?tabs=azure-portal&pivots=vaults-recovery-services-vault#protected-operations-using-mua) for an MUA-enabled vault.
 
 :::image type="content" source="./media/multi-user-authorization/disable-soft-delete-inline.png" alt-text="Screenshot showing to disable soft delete for an MUA enabled vault." lightbox="./media/multi-user-authorization/disable-soft-delete-expanded.png":::
 

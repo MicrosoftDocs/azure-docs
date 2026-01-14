@@ -31,7 +31,7 @@ In this article, you created a Service Bus namespace and a queue in the namespac
 - [Python](service-bus-python-how-to-use-queues.md)
 - [Go](service-bus-go-how-to-use-queues.md)
 
-[free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[free account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [Azure portal]: https://portal.azure.com/
 
 [service-bus-flow]: ./media/service-bus-quickstart-portal/service-bus-flow.png

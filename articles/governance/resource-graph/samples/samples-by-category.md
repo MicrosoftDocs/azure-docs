@@ -19,6 +19,8 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 ## Azure App Service
 
+[!INCLUDE [app-service-resources-list-resources](../includes/samples-by-category/query/app-service-resources-list-resources.md)]
+
 [!INCLUDE [app-service-resources-tls-version](../includes/samples-by-category/query/app-service-resources-tls-version.md)]
 
 ## Azure Arc

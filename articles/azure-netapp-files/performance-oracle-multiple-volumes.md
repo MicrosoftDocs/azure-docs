@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 07/20/2025
 ms.author: anfdocs
+ms.custom: sfi-image-nochange
 # Customer intent: As a database administrator, I want to optimize Oracle database performance on Azure using Azure NetApp Files with multiple volumes, so that I can handle demanding workloads efficiently and ensure scalability in the cloud.
 ---
 

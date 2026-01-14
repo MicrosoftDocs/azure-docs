@@ -2,13 +2,13 @@
 title: Pay your Microsoft Customer Agreement or Microsoft Online Subscription Program bill
 description: Learn how to pay your bill in the Azure portal. You must be a billing profile owner, contributor, or invoice manager to pay in the portal.
 keywords: billing, past due, balance, pay now,
-author: lindseyshep
-ms.author: lishepar
-ms.reviewer: lishepar, jobailey
+author: kennyday
+ms.author: drjones
+ms.reviewer: drjones
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/01/2025
+ms.date: 10/21/2025
 ---
 
 # Pay your Microsoft Customer Agreement or Microsoft Online Subscription Program bill
@@ -43,11 +43,13 @@ Here's a table that summarizes payment methods for agreement types:
 
 ## Reserve Bank of India
 
-In October 2021, automatic payments in India might block some credit card transactions, especially transactions that exceed 5,000 INR. Because of this situation, you might need to make payments for your Microsoft Online Subscription Program (MOSP) account manually in the Azure portal. This directive doesn't affect the total amount you're charged for your Azure usage.
+In October 2021, automatic payments in India were restricted under RBI’s e-mandate guidelines, which initially capped recurring transactions at ₹5,000. Customers often had to make manual payments for Microsoft Online Subscription Program (MOSP) accounts in the Azure portal. This directive did not affect the total amount charged for Azure usage.
 
-In June 2022, the Reserve Bank of India increased the limit of e-mandates on cards for recurring payments from 5,000 to 15,000 INR. Learn more about this directive on the [Reserve Bank of India website](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11668&Mode=0).
+In June 2022, the Reserve Bank of India (RBI) raised the e-mandate limit for recurring card transactions from ₹5,000 to ₹15,000. Learn more on the [Reserve Bank of India website](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11668&Mode=0).
 
 In September 2022, Microsoft and other online merchants no longer store credit card information. To comply with this regulation, Microsoft removed all stored card details from Azure. Learn more about this directive on the [Reserve Bank of India website](https://rbidocs.rbi.org.in/rdocs/notification/PDFs/DPSSC09B09841EF3746A0A7DC4783AC90C8F3.PDF).
+
+**Recent Updates:** As of December 2023, RBI further increased the e-mandate limit for certain categories—mutual fund subscriptions, insurance premium payments, and credit card bill payments—from ₹15,000 to ₹1,00,000 per transaction. This change allows higher-value recurring transactions without additional authentication steps for these categories. Additionally, RBI issued the *Authentication Mechanisms for Digital Payment Transactions Directions, 2025*, introducing broader principles for secure digital payments and enabling alternative authentication methods beyond SMS-based OTP. These directions take effect by April 1, 2026. Learn more on the [Reserve Bank of India notifications page](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12898).
 
 ### UPI and NetBanking payment options
 
@@ -58,7 +60,7 @@ Azure supports two alternate payment methods for India customers for MOSP accoun
 
 #### How do I make a payment with UPI or NetBanking?
 
-UPI and NetBanking are supported only for one-time transactions.
+UPI and NetBanking are supported only for one-time payment transactions.
 
 To make a payment with UPI or NetBanking:
 
@@ -78,7 +80,7 @@ Refunds are treated as a regular charge. They go to your bank account.
 
 Partial payment is available for Azure global pay-as-you-go customers who experience a payment failure during the [Pay Now](/azure/cost-management-billing/understand/pay-bill#pay-now-in-the-azure-portal) flow. If you accrue usage higher than your credit card limit, you can use the following self-serve process to split the invoice amount across multiple credit cards.
 
-A minimum payment has a minimum value that you can pay, which varies by country/region.
+There is a minimum value required for each payment that you can submit, which varies by country/region.
 
 > [!NOTE]
 > To avoid service interruption, pay the full invoice amount by the due date on the invoice.

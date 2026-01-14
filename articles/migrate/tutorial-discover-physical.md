@@ -7,7 +7,13 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 02/07/2025
 ms.service: azure-migrate
-ms.custom: mvc, subject-rbac-steps, engagement-fy24, linux-related-content
+ms.reviewer: v-uhabiba
+ms.custom:
+  - mvc
+  - subject-rbac-steps
+  - engagement-fy24
+  - linux-related-content
+  - sfi-ropc-nochange
 #Customer intent: As a server admin I want to discover my on-premises server inventory.
 # Customer intent: As a server administrator, I want to discover and assess my on-premises physical servers using a migration tool, so that I can efficiently plan for migration to the cloud.
 ---
@@ -92,7 +98,7 @@ Defaults:AzMigrateLeastprivuser !requiretty
 | Operating system| Versions |
 | --- | --- | 
 | Red Hat Enterprise Linux | 5.1, 5.3, 5.11, 6.x, 7.x, 8.x, 9.x, 9.5|
-| Ubuntu | 524.04, 22.04, 12.04, 14.04, 16.04, 18.04, 20.04, 22.04|
+| Ubuntu | 12.04, 14.04, 16.04, 18.04, 20.04, 22.04, 24.04|
 | Oracle Linux| 6.1, 6.7, 6.8, 6.9, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.3, 8.5|
 | SUSE Linux| 10, 11 SP4, 12 SP1, 12 SP2, 12 SP3, 12 SP4, 15 SP2, 15 SP3|
 | Debian | 7, 8, 9, 10, 11|
@@ -121,17 +127,8 @@ To generate the project key, follow the steps:
 ## Download the installer script
 
 1. In **Download Azure Migrate appliance**, select **Download**.
-1. Verify security: Before you install, check that the zipped file is safe.
-    On the server where you downloaded the file, open a command window as an administrator.
-1. Run this command to generate the hash for the zipped file: 
-    - `C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]`
-    - For example: `C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256`
-1. Verify the latest appliance version and hash value to ensure that they match.
-
-| Download | Hash value | 
-| --- | --- |
-| [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)| c88e90691ebf87166243dafb2d3a18dd34066b4624595ee3f9b4fbe6885e81da |
-
+1. Before you run the script, [verify security](migrate-appliance.md#verify-security) by validating the SHA256 values.
+    
 >[!Note]
 > You can use the same script to set up the physical appliance for both Azure Public and Azure Government cloud.
 
@@ -314,7 +311,7 @@ To see how many months are left until the end of support, select **Columns** > *
 After discovery starts, you can delete any added server from the appliance configuration manager by searching for the server name in the **Add discovery source** table and selecting **Delete**.
 
 >[!Note]
-> If you delete a server after discovery starts, it stops the ongoing discovery and assessment. This action might affect the confidence rating of the assessment that includes the server. [Learn more](common-questions-discovery-assessment.md#why-is-the-confidence-rating-of-my-assessment-low).
+> If you delete a server after discovery starts, it stops the ongoing discovery and assessment. This action might affect the performance coverage of the assessment that includes the server. [Learn more](common-questions-discovery-assessment.md#why-is-the-performance-coverage-of-my-assessment-low).
 
 ## Next steps
 

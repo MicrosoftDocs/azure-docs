@@ -47,14 +47,14 @@ This is an overview of each feature and its current status for different framewo
 - **N/A (Not Available)**: It is not planned to offer the feature for the specified framework or language.
 
 Feature | .NET | Spring | Kubernetes | Python | JavaScript | Go |
-------- | ---- | ------ | ---------- | ------ | ----------
+------- | ---- | ------ | ---------- | ------ | ---------- | -- |
 Connection String Authentication | [GA](./reference-dotnet-provider.md#load-configuration) | GA | GA | GA | [GA](./reference-javascript-provider.md#load-configuration) | GA 
 Entra ID Authentication | [GA](./reference-dotnet-provider.md#load-configuration) | GA | GA | GA | [GA](./reference-javascript-provider.md#load-configuration) | GA 
 Dynamic Refresh (Poll Mode) | [GA](./reference-dotnet-provider.md#refresh-on-sentinel-key) | GA | GA | GA | [GA](./reference-javascript-provider.md#refresh-on-sentinel-key) | GA
 Dynamic Refresh (Push Mode) | GA | GA | N/A | N/A | N/A | N/A
 Dynamic Refresh (Collection Monitoring) | [GA](./reference-dotnet-provider.md#configuration-refresh) | WIP | GA | WIP | [GA](./reference-javascript-provider.md#configuration-refresh) | GA
 JSON Content Type Handling | [GA](./reference-dotnet-provider.md#json-content-type-handling) | GA | GA | GA | [GA](./reference-javascript-provider.md#json-content-type-handling) | GA
-JSON with Comments | WIP | WIP | GA | WIP | [GA](./reference-javascript-provider.md#json-content-type-handling) | GA
+JSON with Comments | [GA](./reference-dotnet-provider.md#json-content-type-handling) | GA | GA | GA | [GA](./reference-javascript-provider.md#json-content-type-handling) | GA
 Configuration Setting Mapping | [GA](./reference-dotnet-provider.md#configuration-setting-mapping) | N/A | N/A | N/A | N/A | N/A
 Key Vault References | [GA](./reference-dotnet-provider.md#key-vault-reference) | GA | GA | GA | [GA](./reference-javascript-provider.md#key-vault-reference) | GA
 Key Vault Secret Refresh | [GA](./reference-dotnet-provider.md#key-vault-secret-refresh) | WIP | GA | WIP | [GA](./reference-javascript-provider.md#key-vault-secret-refresh) | GA
@@ -64,14 +64,15 @@ Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | GA | GA | GA
 Variant Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | Preview | GA | GA | [GA](./reference-javascript-provider.md#feature-flag) | GA
 Feature Flag Telemetry | GA | Preview | GA | GA | GA | WIP
 Key Prefix Trim | [GA](./reference-dotnet-provider.md#trim-prefix-from-keys) | GA | GA | GA | [GA](./reference-javascript-provider.md#trim-prefix-from-keys) | GA
-Configurable Startup Time-out | [GA](./reference-dotnet-provider.md#startup-retry) | WIP | N/A | WIP | [GA](./reference-javascript-provider.md#startup-retry) | WIP
+Configurable Startup Time-out | [GA](./reference-dotnet-provider.md#startup-retry) | WIP | N/A | WIP | [GA](./reference-javascript-provider.md#startup-retry) | GA
 Replica Auto Discovery | [GA](./reference-dotnet-provider.md#geo-replication) | GA | GA | GA | [GA](./reference-javascript-provider.md#geo-replication) | GA
 Replica Failover | [GA](./reference-dotnet-provider.md#geo-replication) | GA | GA | GA | [GA](./reference-javascript-provider.md#geo-replication) | GA
 Replica Load Balancing | [GA](./reference-dotnet-provider.md#geo-replication) | WIP | GA | GA | [GA](./reference-javascript-provider.md#geo-replication) | GA
-Snapshots | [GA](./reference-dotnet-provider.md#snapshot) | GA | GA | WIP | [GA](./reference-javascript-provider.md#snapshot) | WIP
-Distributed Tracing | [GA](./reference-dotnet-provider.md#distributed-tracing) | WIP | WIP | WIP | WIP | WIP
-Health Check | [GA](./reference-dotnet-provider.md#health-check) | GA | WIP | WIP | WIP | WIP 
-Select by Tag Filters | [GA](./reference-dotnet-provider.md#load-specific-key-values-using-selectors) | WIP | WIP | GA | [GA](./reference-javascript-provider.md#tag-filters) | WIP 
+Snapshots | [GA](./reference-dotnet-provider.md#snapshot) | GA | GA | WIP | [GA](./reference-javascript-provider.md#snapshot) | GA
+Distributed Tracing | [GA](./reference-dotnet-provider.md#distributed-tracing) | WIP | WIP | WIP | WIP | N/A
+Health Check | [GA](./reference-dotnet-provider.md#health-check) | GA | WIP | WIP | WIP | N/A 
+Select by Tag Filters | [GA](./reference-dotnet-provider.md#load-specific-key-values-using-selectors) | WIP | GA | GA | [GA](./reference-javascript-provider.md#tag-filters) | GA 
+Snapshot Reference | [GA](./reference-dotnet-provider.md#snapshot-reference) | WIP | WIP | WIP | WIP | WIP
 
 ## Support policy
 

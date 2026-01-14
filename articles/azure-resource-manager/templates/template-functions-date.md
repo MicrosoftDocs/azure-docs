@@ -146,7 +146,7 @@ The next example template shows how to set the start time for an automation sche
     ...
     {
       "type": "Microsoft.Automation/automationAccounts/schedules",
-      "apiVersion": "2022-08-08",
+      "apiVersion": "2024-10-23",
       "name": "[concat(parameters('omsAutomationAccountName'), '/', parameters('scheduleName'))]",
 
       "properties": {
@@ -371,7 +371,7 @@ The next example shows how to use a value from the function when setting a tag v
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2025-04-01",
       "name": "[parameters('rgName')]",
       "location": "westeurope",
       "tags": {

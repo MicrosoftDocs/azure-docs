@@ -44,7 +44,7 @@ sections:
       - question: |
           What rules are currently available for the WAF?
         answer: |
-          The WAF currently supports Core Rule Set (CRS) [3.2](application-gateway-crs-rulegroups-rules.md#owasp32), [3.1](application-gateway-crs-rulegroups-rules.md#owasp31), and [3.0](application-gateway-crs-rulegroups-rules.md#owasp30). These rules provide baseline security against most of the top 10 vulnerabilities that Open Web Application Security Project (OWASP) identifies: 
+          The WAF currently supports Default Rule Set (DRS) [2.1](application-gateway-crs-rulegroups-rules.md#drs21), Core Rule Set (CRS) [3.2](application-gateway-crs-rulegroups-rules.md#owasp32), and [3.1](application-gateway-crs-rulegroups-rules.md#owasp31). These rules provide baseline security against most of the top 10 vulnerabilities that Open Web Application Security Project (OWASP) identifies: 
           
           * Protection against SQL injection
           * Protection against cross-site scripting
@@ -56,7 +56,7 @@ sections:
           
           For more information, see the [OWASP top 10 vulnerabilities](https://owasp.org/www-project-top-ten/).
 
-          CRS 2.2.9 is no longer supported for new WAF policies. We recommend that you upgrade to the latest CRS version. You can't use CRS 2.2.9 along with CRS 3.2/DRS 2.1 and later versions. 
+          CRS 2.2.9 and 3.0 are no longer supported for new WAF policies. We recommend that you [upgrade to the latest DRS version](/azure/web-application-firewall/ag/upgrade-ruleset-version). You can't use CRS 2.2.9 along with CRS 3.2/DRS 2.1 and later versions. 
           
       - question: |
           What content types does the WAF support?

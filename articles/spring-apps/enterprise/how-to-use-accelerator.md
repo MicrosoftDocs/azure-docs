@@ -8,7 +8,11 @@ ms.date: 08/19/2025
 ms.update-cycle: 1095-days
 ms.author: karler
 ms.reviewer: caiqing
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Use VMware Tanzu Application Accelerator with the Azure Spring Apps Enterprise plan
@@ -26,8 +30,7 @@ App Accelerator helps you bootstrap developing your applications and deploying t
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- Understand and fulfill the requirements listed in the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli) with the Azure Spring Apps extension. Use the following command to remove previous versions and install the latest extension. If you previously installed the `spring-cloud` extension, uninstall it to avoid configuration and version mismatches.
 
   ```azurecli

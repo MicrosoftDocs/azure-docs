@@ -3,10 +3,17 @@ title: Azure App Containerization Java; Containerization and migration of Java w
 description: Tutorial:Containerize & migrate Java web applications to Azure Kubernetes Service.
 author: habibaum
 ms.author: v-uhabiba
-ms.custom: devx-track-java, devx-track-javaee, migration-java, subject-rbac-steps, devx-track-extended-java
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 09/19/2024
+ms.custom:
+  - devx-track-java
+  - devx-track-javaee
+  - migration-java
+  - subject-rbac-steps
+  - devx-track-extended-java
+  - sfi-image-nochange
+  - sfi-ga-nochange
 # Customer intent: "As a software developer, I want to containerize my Java web applications using Azure Migrate so that I can efficiently deploy them to Azure Kubernetes Service and improve management and resource utilization without rewriting existing code."
 ---
 # Java web app containerization and migration to Azure Kubernetes Service
@@ -82,7 +89,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
     | Setting | Value |
     | --- | --- |

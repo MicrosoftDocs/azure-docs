@@ -12,6 +12,6 @@ ms.custom: include file
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure storage account - [create a storage account](../../articles/storage/common/storage-account-create.md)
 - [Go 1.18+](https://go.dev/dl/)

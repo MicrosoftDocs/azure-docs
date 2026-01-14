@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: release-notes
-ms.date: 7/21/2025
+ms.date: 11/10/2025
 ms.author: mbender
 # Customer intent: As a Kubernetes operator, I want to access the release notes for the ALB Controller, so that I can understand the latest updates and changes to optimize my configuration and deployments of Application Gateway for Containers.
 ---
@@ -27,15 +27,18 @@ Instructions for new or existing deployments of ALB Controller are found in the 
 
 | ALB Controller Version | Gateway API Version | Minimum Kubernetes Version | Release Notes |
 | ---------------------- | ------------------- | ------------------ | ------------- |
-| 1.7.9 | v1.2.1 | v1.27 | [Web Application Firewall (WAF) Public Preview](https://aka.ms/agc/waf), Updated to Gateway API v1.2.1, [nodeSelector support](https://github.com/Azure/AKS/issues/4370#issuecomment-2894487836), [Permissions fix for Overlay networks](https://github.com/Azure/AKS/issues/5039), fix for SAN regex matching, misc. performance improvements |
+| 1.8.12 | v1.2.1 | v1.27 | WAF improvements |
 
 ## Release history
 
 | ALB Controller Version | Gateway API Version | Minimum Kubernetes Version | Release Notes |
 | ---------------------- | ------------------- | ------------------ | ------------- |
-| 1.6.7 | v1.1.1 | v1.27 | [Fix for SSE timeout value of 0](https://aka.ms/qa2153620), [Overlay CNI fix](https://github.com/Azure/AKS/issues/4950), [support readinessProbe port by name](https://github.com/Azure/AKS/issues/4861), leverage init container during bootstrap, misc. bug fixes and improvements |
+| 1.8.9 | v1.2.1 | v1.27 | [Slow start load balancing algorithm](api-specification-kubernetes.md#alb.networking.azure.io/v1.BackendLoadBalancingPolicy), Image updated to use [Azure Linux 3.0](https://github.com/microsoft/azurelinux), [nodeSelector fix](https://github.com/Azure/AKS/issues/5302), miscellaneous bug fixes and enhancements |
+| 1.7.12 | v1.2.1 | v1.27 | Hotfix for pod crash due to [invalid Provider ID](https://github.com/Azure/AKS/issues/5310) |
+| 1.7.9 | v1.2.1 | v1.27 | [Web Application Firewall (WAF) Public Preview](https://aka.ms/agc/waf), Updated to Gateway API v1.2.1, [nodeSelector support](https://github.com/Azure/AKS/issues/4370#issuecomment-2894487836), [Permissions fix for Overlay networks](https://github.com/Azure/AKS/issues/5039), fix for SAN regex matching, miscellaneous performance improvements |
+| 1.6.7 | v1.1.1 | v1.27 | [Fix for SSE timeout value of 0](https://aka.ms/qa2153620), [Overlay CNI fix](https://github.com/Azure/AKS/issues/4950), [support readinessProbe port by name](https://github.com/Azure/AKS/issues/4861), leverage init container during bootstrap, miscellaneous bug fixes and improvements |
 | 1.5.2 | v1.1.1 | v1.26 | Support for Azure CNI Overlay |
-| 1.4.12 | v1.1.1 | v1.26 | Updated to Gateway API version 1.1.1, Regex match support for path and header match in HTTP and GRPC routes, [Wildcard hostname fix](https://github.com/Azure/AKS/issues/4713), Misc. bug fixes and improvements |
+| 1.4.12 | v1.1.1 | v1.26 | Updated to Gateway API version 1.1.1, Regex match support for path and header match in HTTP and GRPC routes, [Wildcard hostname fix](https://github.com/Azure/AKS/issues/4713), miscellaneous bug fixes and improvements |
 | 1.3.7| v1.1 | v1.26 | Minor fixes and improvements |
 | 1.2.3| v1.1 | v1.26 | Gateway API v1.1, gRPC support, frontend mutual authentication, readiness probe fixes, custom health probe port and TLS mode  |
 | 1.0.2| v1 | v1.26 | ECDSA + RSA certificate support for both Ingress and Gateway API, Ingress fixes, Server-sent events support |

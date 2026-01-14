@@ -6,7 +6,7 @@ ms.date: 07/26/2023
 ms.author: glenga
 ---
 
-+ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 + [Node.js 14.x](https://nodejs.org/en/about/previous-releases) or above. Use the `node --version` command to check your version.  
 

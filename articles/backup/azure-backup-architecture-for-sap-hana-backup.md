@@ -16,7 +16,7 @@ ms.author: v-mallicka
 
 Azure Backup provides a streaming backup solution to back up SAP HANA databases running on an Azure VM. This backup offering requires zero-infrastructure setup, thereby eliminating the need to deploy and manage backup-infrastructure.
 
-Azure Backup is [Backint certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5) by SAP, provides native backup support by using SAP HANA’s native APIs. With this solution, you can seamlessly back up and restore SAP HANA databases running on Azure VMs and use the enterprise management capabilities that Azure Backup provides.
+Azure Backup is [Backint certified](https://www.sap.com/dmc/exp/sap-certified-solutions/#/solutions?search=backint&id=s:afc92223-d92f-42e6-9cab-6b6e13bb18f0) by SAP, provides native backup support by using SAP HANA’s native APIs. With this solution, you can seamlessly back up and restore SAP HANA databases running on Azure VMs and use the enterprise management capabilities that Azure Backup provides.
 
 [Learn more](./sap-hana-db-about.md#added-value) about  the added values that Azure Backup provides for SAP HANA.
 

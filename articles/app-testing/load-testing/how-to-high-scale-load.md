@@ -16,7 +16,7 @@ In this article, you learn how to configure your load test for high-scale with A
 
 ## Prerequisites  
 
-- An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
+- An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.  
 
 - An existing Azure load testing resource. To create an Azure load testing resource, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).
 

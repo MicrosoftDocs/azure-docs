@@ -1,6 +1,6 @@
 ---
 title: Azure Synapse Runtime for Apache Spark 3.5 
-description: The new Azure Synapse Runtime for Apache Spark is available for public preview. Try it and use Spark 3.5, Python 3.10, Delta Lake 3.2.
+description: The new Azure Synapse Runtime for Apache Spark is available for General Availability. Try it and use Spark 3.5, Python 3.10, Delta Lake 3.2.
 author: jeacla
 ms.author: arali
 ms.service: azure-synapse-analytics
@@ -10,7 +10,7 @@ ms.custom: devx-track-python
 ms.date: 05/12/2025 
 ---
 
-# Azure Synapse Runtime for Apache Spark 3.5 (Public Preview)
+# Azure Synapse Runtime for Apache Spark 3.5 (GA)
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document covers the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.5.
 
 ## Component versions

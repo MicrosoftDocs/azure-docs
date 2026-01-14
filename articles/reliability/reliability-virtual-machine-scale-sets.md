@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Virtual Machine Scale Sets
-description: Learn about reliability in Azure Virtual Machine Scale Sets. 
+description: Learn how to ensure reliability and high availability in Azure Virtual Machine Scale Sets by using availability zones, fault domains, and zone-redundant deployments.
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
@@ -257,7 +257,7 @@ To use best-effort zone balance, set `zoneBalance` to *false*. The `zoneBalance`
 
 ### Migrate to availability zone support
 
-To learn how to redeploy a regional scale set to availability zone support, see [Migrate Virtual Machines and Virtual Machine Scale Sets to availability zone support](./migrate-vm.md).
+To learn how to redeploy a regional scale set to availability zone support, see [Update scale set to add availability zones](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#update-scale-set-to-add-availability-zones).
 
 
 ## Additional guidance

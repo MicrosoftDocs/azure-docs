@@ -8,18 +8,36 @@ items:
   expanded: true
 - name: Concepts
   items:
-  - name: Management components
-    href: management-components.md
   - name: Planning for deployment
     href: deployment-planning.md
+  - name: Management components
+    href: management-components.md  
   - name: Pricing
     href: pricing.md
+  - name: Reliability
+    href: ../reliability/reliability-storage-discovery.md?toc=/azure/storage-discovery/toc.json
+- name: Tutorials
+  items:
+  - name: Deploy Storage Discovery and access insights
+    href: get-storage-estate-insights.md
 - name: How-To
   items: 
   - name: Deploy
     items:
-    - name: Create Storage Discovery Workspace
-      href: create-workspace.md     
+    - name: Create a Storage Discovery workspace
+      href: create-workspace.md
+    - name: Bicep template for creating a workspace
+      href: create-workspace-bicep.md
+  - name: Explore insights
+    items:
+    - name: Get Started on Storage Discovery reports
+      href: get-started-reports.md
+    - name: Access your insights through Azure Copilot
+      href: /azure/copilot/discover-storage-estate-insights?toc=/azure/storage-discovery/toc.json
+  - name: Manage
+    items:
+    - name: Move resources to other locations in Azure
+      href: resource-move.md
 - name: Resources
   items:
   - name: Release notes

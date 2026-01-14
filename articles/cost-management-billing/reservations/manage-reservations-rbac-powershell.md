@@ -2,7 +2,7 @@
 title: Grant RBAC access to Azure reservations using PowerShell
 description: Learn how to delegate access management for Azure reservations using PowerShell.
 author: dekadays
-ms.reviewer: sornaks
+ms.reviewer: liuyizhu
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.custom: devx-track-azurepowershell

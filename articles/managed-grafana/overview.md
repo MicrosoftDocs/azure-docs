@@ -6,7 +6,7 @@ author: maud-lv
 ms.author: malev 
 ms.service: azure-managed-grafana
 ms.topic: overview 
-ms.date: 06/22/2025
+ms.date: 09/29/2025
 
 --- 
 
@@ -38,18 +38,21 @@ You can create dashboards instantaneously by importing existing charts directly 
 
 ## Service tiers
 
-Azure Managed Grafana is available in the two service tiers presented below.
+Azure Managed Grafana is available in the service tiers presented below.
+
+> [!IMPORTANT] 
+> The Essential (preview) service tier for Azure Managed Grafana is being replaced with the Standard service tier and Azure Monitor dashboards with Grafana. Use the Standard tier for all new workspaces and upgrade any existing Essential workspaces to Standard or migrate to Azure Monitor dashboards with Grafana. For details, see [Migrate from Essential (preview) service tier](how-to-migrate-essential-service-tier.md).
 
 | Tier      | Description                                                                                                                                                                               |
 |-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Essential (preview) | Provides the core Grafana functionalities in use with Azure data sources. Since it doesn't provide an SLA guarantee, this tier should only be used for non-production environments.   |
-| Standard            | The default tier, offering better performance, more features and an SLA. It's recommended for most situations. Two instance sizes are available within the Standard tier: **X1** (default) and **X2**. The X2 size offers more memory and supports 1,000 alert rules per organization, compared to 500 for the X1 size. See [Limits and quotas](known-limitations.md#throttling-limits-and-quotas) for more details. The X2 size comes at an additional cost. |
+| Essential (preview). See important note above. | Provides core Grafana functionalities in use with Azure data sources. This tier is intended for evaluation and testing scenarios only and does not provide an SLA.   |
+| Standard (recommended)           | The default tier, offering enhanced performance, more features and an SLA. It's recommended for most situations. Two instance sizes are available within the Standard tier: **X1** (default) and **X2**. The X2 size offers more memory and supports 1,000 alert rules per organization, compared to 500 for the X1 size. See [Limits and quotas](known-limitations.md#throttling-limits-and-quotas) for more details. The X2 size comes at an additional cost. |
 
 Refer to the [Azure Managed Grafana pricing page](https://azure.microsoft.com/pricing/details/managed-grafana/) for details about the costs of each tier and instance size.
 
 The following table lists the main features supported in each tier:
 
-| Feature                                                                  | Essential (preview)                 | Standard                                                                                                        |
+| Feature                                                                  | Essential (preview). See important note above. | Standard                                                                                                        |
 |--------------------------------------------------------------------------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------|
 | [Zone redundancy](how-to-enable-zone-redundancy.md)                      | -                                   | ✔                                                                                                              |
 | [Deterministic outbound IPs](how-to-deterministic-ip.md)                 | -                                   | ✔                                                                                                              |

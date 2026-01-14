@@ -133,7 +133,7 @@ The following example shows a copy loop and the index value included in the name
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-06-01",
       "name": "[format('{0}storage{1}', range(0, parameters('storageCount'))[copyIndex()], uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {

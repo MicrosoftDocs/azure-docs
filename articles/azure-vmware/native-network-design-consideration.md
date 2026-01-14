@@ -15,7 +15,7 @@ ms.custom:
 This article outlines key design considerations for Azure VMware Solution Generation 2 (Gen 2) private clouds. It explains the capabilities this generation brings to VMware-based private cloud environments, enabling access for your applications from both on-premises infrastructure and Azure-based resources. There are several considerations to review before you set up your Azure VMware Solution Gen 2 private cloud. This article provides solutions for use cases that you might encounter when you're using the private cloud type.
 
 > [!Note]
-> Generation 2 is available in specific Azure public regions. SLAs are region specific. Contact your Microsoft account team or Microsoft Support to confirm coverage.
+> Generation 2 is available in specific Azure public regions. Contact your Microsoft account team or Microsoft Support to confirm coverage.
 
 ## Limitations
 
@@ -23,28 +23,42 @@ The following functionality is limited during this time. These limitations will 
 
 1. You cannot delete your **Resource Group**, which contains your private cloud. You must delete the private cloud first before deleting the resource group.  
 2. You can only deploy **1 private cloud per Azure virtual network**.  
-3. You can only create **1 private cloud per Resource Group**. Multiple private clouds in a single Resource Group are not supported.  
+1. You can only create **1 private cloud per Resource Group**. Multiple private clouds in a single Resource Group are not supported. 
+
 4. Your private cloud and virtual network for your private cloud must be in the ***same*** Resource Group.  
 5. You cannot ***move*** your private cloud from one Resource Group to another after the private cloud is created.  
 6. You cannot ***move*** your private cloud from one tenant to another after the private cloud is created.  
-7. **Service Endpoints** direct connectivity from Azure VMware Solution workloads isn't supported.  
-8. Only host-level mounts of Azure NetApp Files are supported. **Mounting directly from Azure VMware Solution virtual machines** is not supported.  
+1. **Service Endpoints** direct connectivity from Azure VMware Solution workloads isn't supported.  
 9. **vCloud Director** using Private Endpoints is supported. However, vCloud Director using Public Endpoints isn't supported.  
 10. **vSAN Stretched Clusters** isn't supported.  
 11. **Public IP down to the VMware NSX Microsoft Edge** for configuring internet will not be supported. You can find what internet options are supported in [Internet connectivity options](native-internet-connectivity-design-considerations.md).  
 12. During **unplanned maintenance** – like a host hardware failure – on any of the first four hosts in your SDDC, you may experience a temporary North-South network connectivity disruption for some workloads, lasting up to 30 seconds. North-South connectivity refers to traffic between your AVS VMware workloads and external endpoints beyond the NSX-T Tier-0 (T0) Edge—such as Azure services or on-premises environments.  
 13. **Network Security Groups** associated with the private cloud host virtual network must be created in the ***same*** resource group as the private cloud and its virtual network.  
-14. **Cross-resource group references** from customer virtual networks to the Azure VMware Solution virtual network are not supported by default. This includes resource types such as: User-defined routes (UDRs), DDoS Protection Plans, and other linked networking resources. If a customer virtual network is associated with one of these references that resides in a different resource group than the Azure VMware Solution virtual network, network programming (such as NSX segment propagation) may fail. To avoid issues, customers must ensure that the Azure VMware Solution virtual network isn't linked to resources in a different resource group and detach such resources (for example, DDoS Protection Plans) from the virtual network before proceeding.  
-    - To maintain your cross-resource group reference, create a role assignment from your cross-resource group and give the “AzS VIS Prod App” the "AVS on Fleet VIS Role". The role assignment allows you to use reference and have your reference correctly applied for your Azure VMware Solution private cloud.  
+14. **Cross-resource group and cross-subscription references** from customer virtual networks to the Azure VMware Solution virtual network are not supported by default. This includes resource types such as: User-defined routes (UDRs), DDoS Protection Plans, and other linked networking resources. If a customer virtual network is associated with one of these references that resides in a different resource group or subscription than the Azure VMware Solution virtual network, network programming (such as NSX segment propagation) may fail. To avoid issues, customers must ensure that the Azure VMware Solution virtual network isn't linked to resources in a different resource group or subscription and detach such resources (for example, DDoS Protection Plans) from the virtual network before proceeding.  
+    - To maintain your cross-resource group reference, create a role assignment from your cross-resource group or subscription and give the “AzS VIS Prod App” the "AVS on Fleet VIS Role". The role assignment allows you to use reference and have your reference correctly applied for your Azure VMware Solution private cloud.  
 15. Gen 2 private cloud **deployments may fail if Azure policies that enforce strict rules for Network Security Groups or route tables (for example, specific naming conventions)**. These policy constraints can block required Azure VMware Solution Network Security Group and route table creation during deployment. You must remove these policies from the Azure VMware Solution virtual network before deploying your private cloud. Once your private cloud is deployed, these policies can be added back to your Azure VMware Solution private cloud.  
 16. If you are using **Private DNS** for your Azure VMware Solution Gen 2 private cloud, using **Custom DNS** on the virtual network where an Azure VMware Solution Gen 2 private cloud is deployed is unsupported. Custom DNS breaks lifecycle operations such as scaling, upgrades, and patching.  
-17. If you are deleting your private cloud and some Azure VMware Solution created resources are not removed, you can retry the deletion of the Azure VMware Solution private cloud using the Azure CLI.  
-        
+17. If you are **deleting** your private cloud and some Azure VMware Solution created resources are not removed, you can retry the deletion of the Azure VMware Solution private cloud using the Azure CLI.
+18. Azure VMware Solution Gen 2 uses an HTTP Proxy to distinguish between customer and management network traffic. Certain VMware cloud service endpoints **may not follow the same network path or proxy rules as general vCenter-managed traffic**. Examples include: "scapi.vmware" and "apigw.vmware". The VAMI proxy governs the vCenter Server Appliance’s (VCSA) general outbound internet access, but not all service endpoint interactions flow through this proxy. Some interactions originate directly from the user’s browser or from integration components, which instead follow the workstation’s proxy settings or initiate connections independently. As a result, traffic to VMware cloud service endpoints may bypass the VCSA proxy entirely.
+
 ## Unsupported integrations
 
 The following 1st-party and 3rd-party integrations aren't available:
 - **Zerto DR**
-- **JetStream DR**
+
+## Delegated Subnets and Network Security Groups for Gen 2
+When an Azure VMware Solution (AVS) Gen 2 private cloud is deployed, Azure automatically creates several delegated subnets within the private cloud’s host virtual network. These subnets are used to isolate and protect the private cloud’s management components.
+
+Customers can manage access to these subnets using Network Security Groups (NSGs) that are visible in the Azure portal or through Azure CLI/PowerShell. In addition to customer-manageable NSGs, AVS applies additional system-managed NSGs to critical management interfaces. These system-managed NSGs are not visible or editable by customers and exist to ensure that the private cloud remains secure by default.
+
+As part of the default security posture:
+- Internet access is disabled for the private cloud unless the customer explicitly enables it.
+- Only required management traffic is allowed to reach platform services.
+
+> [!Note]
+> You may see a warning in the Azure portal indicating that certain ports appear to be exposed to the internet. This occurs because the portal evaluates only the customer-visible Network Security Group (NSG) configuration. However, Azure VMware Solution also applies additional system-managed Network Security Groups that are not visible in the portal. These system-managed Network Security Groups block inbound traffic unless access has been explicitly enabled through Azure VMware Solution configuration.
+
+This design ensures that the AVS environment is isolated and secure out of the box, while still allowing customers to control and customize network access based on their specific requirements.
 
 ## Routing and subnet considerations
 

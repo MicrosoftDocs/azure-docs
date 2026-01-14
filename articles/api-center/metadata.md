@@ -49,7 +49,7 @@ The following tables list built-in metadata provided for Azure API Center entiti
 
 ## Custom metadata
 
-Define custom metadata using the [Azure portal](add-metadata-properties.md), the Azure API Center [REST API](/rest/api/resource-manager/apicenter/metadata-schemas), or the [Azure CLI](/cli/azure/apic/metadata) to help organize and filter APIs, environments, and deployments in your API center. Azure API Center supports custom metadata of the following types. 
+Define custom metadata using the [Azure portal](././tutorials/add-metadata-properties.md), the Azure API Center [REST API](/rest/api/resource-manager/apicenter/metadata-schemas), or the [Azure CLI](/cli/azure/apic/metadata) to help organize and filter APIs, environments, and deployments in your API center. Azure API Center supports custom metadata of the following types. 
 
 Type | Description | Example name |
 |--------|----------|-------------|
@@ -87,4 +87,4 @@ Use built-in and custom metadata to organize your APIs, environments, and deploy
 
 * [What is Azure API Center?](overview.md)
 * [API Center - key concepts](key-concepts.md)
-* [Tutorial: Define custom metadata](add-metadata-properties.md)
+* [Tutorial: Define custom metadata](././tutorials/add-metadata-properties.md)

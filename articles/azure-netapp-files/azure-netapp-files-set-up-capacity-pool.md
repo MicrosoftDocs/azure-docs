@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 08/14/2025
+ms.date: 10/02/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
@@ -25,21 +25,6 @@ Creating a capacity pool enables you to create volumes within it.
     >[!IMPORTANT]
     >To create a 1-TiB capacity pool with a tag, you must use API versions `2023-07-01_preview` to `2024-01-01_preview` or stable releases from `2024-01-01`.
 * The Standard, Premium, and Ultra service levels are generally available (GA). No registration is required. 
-* <a name="flexible"></a> The **Flexible** service level is currently in preview and supported in all Azure NetApp Files regions. You must register the feature before using it for the first time:
-
-    1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFlexibleServiceLevel
-    ```
-
-    2. Check the status of feature registration with the command:
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFlexibleServiceLevel
-    ```
-    
-    You can also use [Azure CLI commands](/cli/azure/feature) `az feature show` to register the feature and display the registration status. 
     
 ## Considerations
 
@@ -50,7 +35,7 @@ Creating a capacity pool enables you to create volumes within it.
     * The minimum throughput for Flexible service level capacity pools is 128 MiB/second. Maximum throughput is calculated based on the size of the capacity pool using the formula 5 x 128 MiB/second/TiB  x capacity pool size in TiB. If your capacity pool is 1 TiB, the maximum is 640 MiB/second (5 x 128 x 1). For more examples, see [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md#flexible-examples).
     * You can increase the throughput of a Flexible service level pool at any time. Decreases to throughput on Flexible service level capacity pools can only occur following a 24-hour cool-down period. The 24-hour cool-down period initiates after any change to the throughput of the Flexible service level capacity pool.
     * Only single encryption is currently supported for Flexible service level capacity pools. 
-    * Volumes in Flexible service level capacity pools can't be moved to capacity pools of a different service level. Similarly, you can't move volumes from capacity pools with different service levels into a Flexible service level capacity pool.
+    * Volumes in Flexible service level capacity pools can't be moved to another capacity pool. You also can't move volumes into a Flexible service level capacity pool. 
 
 ## Steps 
 

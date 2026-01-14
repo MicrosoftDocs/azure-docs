@@ -4,7 +4,7 @@ metadata:
   description: 'Answers to common questions about'
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 06/23/2025
+  ms.date: 10/27/2025
   author: AbhishekMallick-MS
   ms.author: v-mallicka
   ms.custom: engagement-fy24
@@ -285,6 +285,10 @@ sections:
           How long is data retained when stopping backups, but selecting the option to retain backup data?
         answer: |
           When backups are stopped and the data is retained, existing policy rules for data pruning will cease and data will be retained indefinitely until initiated by the administrator for deletion.
+      - question: |
+          I have an Azure VM stored in a zone with a Premium SSD ZRS disk. What happens if I restore this VM to a Paired region using CRR where ZRS is not supported?
+        answer: |
+          When restoring a VM to a peered region that does not support Zone-Redundant Storage (ZRS), Azure Backup will automatically create the disk in the same performance tier (e.g., Standard or Premium) as the original disk, but with Locally Redundant Storage (LRS) instead of ZRS. This ensures that the restore operation completes successfully, even though the redundancy model changes.
 
   - name: Encryption
     questions:

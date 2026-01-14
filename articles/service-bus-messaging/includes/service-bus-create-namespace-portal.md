@@ -6,7 +6,9 @@
  ms.topic: include
  ms.date: 06/11/2025
  ms.author: spelluru
- ms.custom: include file
+ ms.custom:
+   - include file
+   - sfi-image-nochange
 ---
 
 ## Create a namespace in the Azure portal

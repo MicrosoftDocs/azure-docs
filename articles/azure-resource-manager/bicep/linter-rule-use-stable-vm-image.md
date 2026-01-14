@@ -3,7 +3,7 @@ title: Linter rule - use stable VM image
 description: Linter rule - use stable VM image
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 02/12/2025
+ms.date: 10/30/2025
 ---
 
 # Linter rule - use stable VM image
@@ -16,7 +16,7 @@ Virtual machines shouldn't use preview images. This rule checks the following pr
 
 ## Linter rule code
 
-Use the following value in the [Bicep configuration file](bicep-config-linter.md) to customize rule settings:
+To customize rule settings, use the following value in the [Bicep configuration file](bicep-config-linter.md)
 
 `use-stable-vm-image`
 
@@ -27,7 +27,7 @@ The following example fails this test.
 ```bicep
 param location string = resourceGroup().location
 
-resource vm 'Microsoft.Compute/virtualMachines@2024-03-01' = {
+resource vm 'Microsoft.Compute/virtualMachines@2025-04-01' = {
   name: 'virtualMachineName'
   location: location
   properties: {
@@ -42,12 +42,12 @@ resource vm 'Microsoft.Compute/virtualMachines@2024-03-01' = {
 }
 ```
 
-You can fix it by using an image that does not contain the string `preview` in the imageReference.
+You can fix it by using an image that doesn't contain the string `preview` in the imageReference.
 
 ```bicep
 param location string = resourceGroup().location
 
-resource vm 'Microsoft.Compute/virtualMachines@2024-03-01' = {
+resource vm 'Microsoft.Compute/virtualMachines@2025-04-01' = {
   name: 'virtualMachineName'
   location: location
   properties: {

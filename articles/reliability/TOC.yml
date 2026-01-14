@@ -16,6 +16,8 @@ items:
       href: reliability-ai-search.md
     - name: Azure Bot Service 
       href: reliability-bot.md
+    - name: Azure Databricks
+      href: reliability-databricks.md
     - name: Azure Machine Learning Service
       href: /azure/machine-learning/how-to-high-availability-machine-learning?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json   
   - name: Analytics
@@ -28,6 +30,8 @@ items:
       href: reliability-data-factory.md
     - name: Azure Data Share
       href: ../data-share/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Databricks
+      href: reliability-databricks.md
     - name: Azure Event Hubs
       href: /azure/event-hubs/event-hubs-business-continuity-outages-disasters?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure HDInsight
@@ -49,7 +53,7 @@ items:
     - name: Azure Batch
       href: reliability-batch.md
     - name: Azure Container Apps
-      href: reliability-azure-container-apps.md
+      href: reliability-container-apps.md
     - name: Azure Container Instances
       href: reliability-container-instances.md
     - name: Azure Data Factory
@@ -64,8 +68,6 @@ items:
         href: /azure/service-fabric/service-fabric-cross-availability-zones?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Disaster recovery
         href: /azure/service-fabric/service-fabric-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-of-the-service-fabric-cluster
-    - name: Azure Spring Apps
-      href: reliability-spring-apps.md
     - name: Azure Virtual Machines
       href: reliability-virtual-machines.md
     - name: Azure Virtual Machine Image Builder
@@ -83,7 +85,7 @@ items:
       - name: Disaster recovery
         href: ../azure-app-configuration/concept-disaster-recovery.md?tabs=core2x?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Container Apps
-      href: reliability-azure-container-apps.md
+      href: reliability-container-apps.md
     - name: Azure Container Instances
       href: reliability-container-instances.md
     - name: Azure Container Registry
@@ -106,8 +108,6 @@ items:
         href: ../azure-cache-for-redis/cache-how-to-geo-replication.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Cosmos DB for NoSQL
       href: reliability-cosmos-db-nosql.md
-    - name: Azure Cosmos DB for MongoDB vCore
-      href: reliability-cosmos-mongodb.md
     - name: Azure Cosmos DB for PostgreSQL
       items: 
       - name: Availability zones
@@ -122,14 +122,12 @@ items:
         href: /azure/mysql/flexible-server/concepts-high-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Disaster recovery
         href: /azure/mysql/flexible-server/how-to-restore-server-portal?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#geo-restore-to-latest-restore-point
-    - name: Azure Database for PostgreSQL - Flexible Server
-      href: reliability-postgresql-flexible-server.md
+    - name: Azure Database for PostgreSQL
+      href: reliability-azure-database-postgresql.md
+    - name: Azure DocumentDB
+      href: reliability-documentdb.md
     - name: Azure SQL Database
-      items:
-      - name: Availability zones
-        href: /azure/azure-sql/database/high-availability-sla?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Disaster recovery
-        href: /azure/azure-sql/database/recovery-using-backups?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#geo-restore
+      href: reliability-sql-database.md
     - name: Azure SQL Managed Instance
       href: reliability-sql-managed-instance.md
   - name: Developer tools
@@ -152,8 +150,6 @@ items:
     items:
     - name: Microsoft Community Training
       href: reliability-community-training.md
-    - name: Sustainability data solutions in Fabric
-      href: reliability-sustainability-data-solutions-fabric.md
   - name: Integration
     items:
     - name: Azure API Management
@@ -164,6 +160,8 @@ items:
       href: reliability-energy-data-services.md
     - name: Azure Event Grid
       href: ./reliability-event-grid.md
+    - name: Azure Event Hubs
+      href: ./reliability-event-hubs.md
     - name: Azure Functions 
       href: reliability-functions.md
     - name: Azure Health Data Services
@@ -175,7 +173,7 @@ items:
     - name: Azure Logic Apps
       href: reliability-logic-apps.md
     - name: Azure Service Bus
-      href: ../service-bus-messaging/service-bus-outages-disasters.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones
+      href: reliability-service-bus.md
   - name: Internet of Things
     items:
     - name: Azure Device Registry
@@ -226,12 +224,8 @@ items:
       href: reliability-dns.md
     - name: Azure DDoS Protection
       href: reliability-ddos.md
-    - name: Azure ExpressRoute
-      items:
-      - name: Availability zones
-        href: ../expressroute/designing-for-high-availability-with-expressroute.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Disaster recovery
-        href: ../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure ExpressRoute gateway
+      href: reliability-virtual-network-gateway.md?pivot=expressroute
     - name: Azure Firewall
       href: reliability-firewall.md
     - name: Azure Load Balancer
@@ -255,11 +249,7 @@ items:
       - name: Disaster recovery
         href: ../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure VPN Gateway
-      items:
-      - name: Availability zones
-        href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json   
-      - name: Disaster recovery
-        href: ../vpn-gateway/vpn-gateway-highlyavailable.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json    
+      href: reliability-virtual-network-gateway.md?pivot=vpn
   - name: Security
     items:
     - name: Azure Disk Encryption 
@@ -280,6 +270,8 @@ items:
       href: ../databox/data-box-disk-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-can-i-recover-my-data-if-an-entire-region-fails-
     - name: Azure Elastic SAN
       href: reliability-elastic-san.md
+    - name: Azure Files
+      href: reliability-storage-files.md
     - name: Azure NetApp Files
       href: reliability-netapp-files.md
     - name: Azure Queue Storage
@@ -301,7 +293,7 @@ items:
     - name: Azure App Service
       href: reliability-app-service.md
     - name: Azure Container Apps
-      href: reliability-azure-container-apps.md
+      href: reliability-container-apps.md
     - name: Azure Notification Hubs
       href: reliability-notification-hubs.md
     - name: Azure SignalR Service
@@ -324,6 +316,8 @@ items:
     href: availability-zones-overview.md
   - name: Services with availability zone support
     href: availability-zones-service-support.md
+  - name: Single zone (zonal) resources
+    href: availability-zones-zonal-resource-resiliency.md
   - name: Enable zone resiliency
     items:
     - name: Overview
@@ -351,7 +345,7 @@ items:
       - name: Azure Cache for Redis
         href: migrate-cache-redis.md
       - name: Azure Container Apps
-        href: reliability-azure-container-apps.md#availability-zone-migration
+        href: reliability-container-apps.md#resilience-to-availability-zone-failures
       - name: Azure Container Instances
         href: migrate-container-instances.md#configure-availability-zone-support
       - name: Azure Container Registry
@@ -377,13 +371,15 @@ items:
       - name: Azure Service Fabric
         href: migrate-service-fabric.md
       - name: Azure Service Bus
-        href: /azure/service-bus-messaging/service-bus-outages-disasters#availability-zones?toc=/azure/reliability
+        href: reliability-service-bus.md#configure-availability-zone-support
       - name: Azure SQL Database
-        href: /azure/azure-sql/database/enable-zone-redundancy?view=azuresql-db&preserve-view=true&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: reliability-sql-database.md
       - name: Azure SQL Managed Instance
         href: reliability-sql-managed-instance.md#configure-availability-zone-support
-      - name: Azure Virtual Machines and Virtual Machine Scale Sets
-        href: migrate-vm.md
+      - name: Azure Virtual Machine Scale Sets
+        href: reliability-virtual-machine-scale-sets.md#migrate-to-availability-zone-support
+      - name: Azure Virtual Machines
+        href: reliability-virtual-machines.md#configure-availability-zone-support
 - name: Reliability concepts
   items:
   - name: Business continuity, high availability, and disaster recovery
@@ -412,5 +408,3 @@ items:
     href: /azure/well-architected/reliability
   - name: Azure Service Manager retirement
     href: asm-retirement.md 
-
-

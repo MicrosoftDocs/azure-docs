@@ -39,8 +39,6 @@ landingContent:
             url: manage-mqtt-broker/overview-broker.md
           - text: Route and transform data
             url: connect-to-cloud/overview-dataflow.md
-          - text: Manage layered network
-            url: manage-layered-network/overview-layered-network.md
           - text: Configure observability and monitoring
             url: configure-observability-monitoring/howto-configure-observability.md
 

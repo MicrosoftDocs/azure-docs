@@ -78,7 +78,7 @@ CycleCloud doesn't lock you into a specific cluster topology. It includes templa
 
 ![CycleCloud Deployment](./images/architecture-deployment.png)
 
-You can deploy an entire CycleCloud HPC system on Azure infrastructure. You install CycleCloud as an application server on a VM in Azure that requires outbound access to Azure Resource Provider APIs. CycleCloud starts and manages the VMs that make up your HPC system. These VMs usually include scheduler head nodes and compute nodes. You can also add other components like NFS servers, BeeGFS clusters, authentication nodes, or bastion hosts, depending on your needs. You define the full setup in CycleCloud templates. You can also connect to Azure services like NetApp Files, HPC Cache, and Microsoft Entra ID Services.
+You can deploy an entire CycleCloud HPC system on Azure infrastructure. You install CycleCloud as an application server on a VM in Azure that requires outbound access to Azure Resource Provider APIs. CycleCloud starts and manages the VMs that make up your HPC system. These VMs usually include scheduler head nodes and compute nodes. You can also add other components like NFS servers, authentication nodes, or bastion hosts, depending on your needs. You can define the full setup in CycleCloud templates. You can also connect to Azure services like NetApp Files or Microsoft Entra ID Services.
 
 ## Next steps
 

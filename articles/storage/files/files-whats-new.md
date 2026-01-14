@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 07/11/2025
+ms.date: 11/18/2025
 ms.author: kendownie
 ms.custom:
   - build-2025
@@ -17,7 +17,30 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 
 ## What's new in 2025
 
+### 2025 quarter 4 (October, November, December)
+
+#### Entra-only identity support for SMB Azure file shares is now in public preview
+
+Microsoft Entra Kerberos authentication now supports cloud-only identities. With native Microsoft Entra ID authentication, customers can move beyond the limitations of on-premises Active Directory and hybrid sync tools, enabling cloud-created identities to access file shares securely, from anywhere. 
+
+To learn more, read the [blog post](https://techcommunity.microsoft.com/blog/azurestorageblog/cloud-native-identity-with-azure-files-entra-only-secure-access-for-the-modern-e/4469778).
+
 ### 2025 quarter 3 (July, August, September)
+
+#### Azure Files vaulted backup is now generally available for SSD file shares
+
+Azure Backup now supports vaulted backup of SSD file shares to protect against ransomware and data loss. You can define backup schedules and retention settings to store data in the Backup vault for up to 10 years. Vaulted backups provide an offsite copy of your data. In case of data loss on the source account, you can restore it to an alternate account. You can manage vaulted backups at scale via Azure Business Continuity Center and monitor them using Azure Backup's alerting and reporting features.
+
+We recommend switching from snapshot backups to vaulted backups for comprehensive protection against data loss.
+
+For more information, read the [blog post](https://techcommunity.microsoft.com/blog/azurestorageblog/general-availability-of-azure-backup-vaulted-support-for-azure-files-premium-ssd/4455307).
+
+#### Azure file share using Microsoft.FileShares is now in public preview
+
+Azure file share using Microsoft.FileShares is now in public preview, bringing a modern, share-centric management experience to Azure Files. This update makes file shares a top-level resource in Azure, eliminating the need for storage accounts and enabling several key enhancements. This new model is ideal for cloud-native applications, CI/CD pipelines, and teams managing large volumes of file shares. In preview, we support NFSv4.1 on SSD with provisioned v2 billing only.
+
+To learn more, read the [blog post](https://techcommunity.microsoft.com/blog/azurestorageblog/simplifying-file-share-management-and-control-for-azure-files/4452634).
+
 #### Provisioned v2 for SSD file shares
 The provisioned v2 model for Azure Files SSD (premium) pairs predictability of total cost of ownership with flexibility, allowing you to create a file share that meets your exact storage and performance requirements. Provisioned v2 SSD shares enable independent provisioning of storage, IOPS, and throughput. In addition to predictable pricing and flexible provisioning, provisioned v2 SSD also enables increased file share size range from 32 GiB up to 256 TiB.
 
@@ -42,7 +65,7 @@ Metadata caching is an enhancement for SMB Azure SSD file shares aimed to reduce
 
 Azure File Sync support for managed identities is now generally available, enabling customers to be secure by default. Using managed identities eliminates the need for shared keys (storage account key, SAS keys) to authenticate to Azure Files by utilizing a system-assigned managed identity provided by Microsoft Entra ID. [Learn more](../file-sync/file-sync-managed-identities.md).
 
-#### Azure Files vaulted backup is now generally available
+#### Azure Files vaulted backup is now generally available for HDD file shares
 
 Azure Backup now supports vaulted backup of HDD file shares to protect against ransomware and data loss. You can define backup schedules and retention settings to store data in the Backup vault for up to 10 years. Vaulted backups provide an offsite copy of your data. In case of data loss on the source account, you can restore it to an alternate account. You can manage vaulted backups at scale via Azure Business Continuity Center and monitor them using Azure Backup's alerting and reporting features.
 

@@ -5,10 +5,11 @@ items:
       - name: Overview
         href: overview-iot-operations.md
         displayName: Arc-enabled, Kubernetes, AKS, Edge Essentials, industrial, metaverse, adaptive cloud, architecture
-      - name: Azure IoT Operations versions and support
+      - name: Azure IoT Operations versions, support, and licensing
         href: overview-support.md
         displayName: supported environments, generally available, GA, preview, regions
       - name: Quickstart
+        expanded: true
         items:
           - name: Run Azure IoT Operations in Codespaces
             href: get-started-end-to-end-sample/quickstart-deploy.md
@@ -36,6 +37,9 @@ items:
           - name: Manage, update, or uninstall
             href: deploy-iot-ops/howto-manage-update-uninstall.md
             displayName: Kubernetes, deployment manifest, delete
+          - name: Clone an instance
+            href: deploy-iot-ops/howto-clone-instance.md
+            displayName: Kubernetes, instance, clone, snapshot, backup, restore
           - name: Upgrade
             href: deploy-iot-ops/howto-upgrade.md
             displayName: Kubernetes, version
@@ -67,65 +71,56 @@ items:
             displayName: Kubernetes, cluster, secrets, management, user-assigned, managed identity
       - name: Discover and manage assets and devices
         items:
-          - name: Asset and device management overview
+          - name: Understand asset and device management
             href: discover-manage-assets/overview-manage-assets.md
-            displayName: operations, experience, connector, OPC UA, ONVIF, media, device, registry, discovery, detect, discover, southbound
+            displayName: operations, experience, connector, Akri, Akri services, OPC UA, ONVIF, media, device, registry, discovery, detect, discover, southbound
           - name: Understand assets and devices
             href: discover-manage-assets/concept-assets-devices.md
-            displayName: data points, events, operations, experience, southbound
-          - name: Understand connectivity with Akri services
+            displayName: data points, events, operations, experience, southbound, namespace assets, namespace
+          - name: Understand Akri services
             href: discover-manage-assets/overview-akri.md
             displayName: OPC UA, akri, discover, detect, device, registry, southbound
           - name: Use the operations experience UI
-            href: discover-manage-assets/howto-manage-assets-devices.md
+            href: discover-manage-assets/howto-use-operations-experience.md
             displayName: operations, experience, site, instance, device, data points, events, CLI, kubectl, southbound
-          - name: Use asset endpoints to manage assets
-            href: /previous-versions/azure/iot-operations/discover-manage-assets/overview-manage-assets
-            displayName: connector, tags, southbound, asset endpoint profile
           - name: Connect to OPC UA servers
             items:
               - name: Understand the connector for OPC UA
                 href: discover-manage-assets/overview-opc-ua-connector.md
                 displayName: OPC UA server, OPC UA client, payload, southbound
-              - name: Discover OPC UA assets and devices
-                href: discover-manage-assets/howto-autodetect-opc-ua-assets-use-akri.md
-                displayName: connector, OPC UA, detect, akri, southbound
               - name: Configure OPC UA assets and devices
                 href: discover-manage-assets/howto-configure-opc-ua.md
                 displayName: operations, experience, OPC UA, device, data points, events, southbound
+              - name: Detect OPC UA assets
+                href: discover-manage-assets/howto-detect-opc-ua-assets.md
+                displayName: connector, OPC UA, detect, akri, southbound
+              - name: Control OPC UA assets
+                href: discover-manage-assets/howto-control-opc-ua.md
+                displayName: connector, OPC UA, commander, write, southbound, process control
               - name: Understand OPC UA application authentication
                 href: discover-manage-assets/overview-opc-ua-connector-certificates-management.md
                 displayName: connector, X.509, certificate, instance, trusted, issuer, cert-manager, auth, authn, southbound
               - name: Configure OPC UA application authentication
                 href: discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md
                 displayName: connector, X.509, certificate, instance, trusted, issuer, cert-manager, enterprise, CA, auth, authn, southbound
-              - name: Configure OPC UA user authentication
-                href: discover-manage-assets/howto-configure-opc-ua-authentication-options.md
-                displayName: connector, username, password, Key Vault, secret, sync, synchronize, auth, authn, southbound
           - name: Connect to media sources
-            items:
-              - name: Understand the media connector
-                href: discover-manage-assets/overview-media-connector.md
-                displayName: image, video, camera, stream, snapshot, RTSP, RTCP, RTP, MJPEG, container, storage, southbound
-              - name: Use the media connector
-                href: discover-manage-assets/howto-use-media-connector.md
-                displayName: image, video, camera, stream, snapshot, RTSP, RTCP, RTP, MJPEG, container, storage, southbound
-          - name: Control ONVIF assets
-            items:
-              - name: Understand the connector for ONVIF
-                href: discover-manage-assets/overview-onvif-connector.md
-                displayName: camera, PTZ, pan, tilt, zoom, southbound
-              - name: Use the connector for ONVIF
-                href: discover-manage-assets/howto-use-onvif-connector.md
-                displayName: camera, PTZ, pan, tilt, zoom, DiscoveredAsset, DiscoveredAssetEndpointProfile, media, events, stream, southbound
-          - name: Connect to REST/HTTP endpoints
-            items:
-              - name: Understand the connector for REST/HTTP
-                href: discover-manage-assets/overview-http-connector.md
-                displayName: HTTP, REST, API, southbound
-              - name: Use the connector for REST/HTTP
-                href: discover-manage-assets/howto-use-http-connector.md
-                displayName: HTTP, REST, API, southbound
+            href: discover-manage-assets/howto-use-media-connector.md
+            displayName: image, video, camera, stream, snapshot, RTSP, RTCP, RTP, MJPEG, container, storage, southbound
+          - name: Connect to ONVIF-compliant cameras
+            href: discover-manage-assets/howto-use-onvif-connector.md
+            displayName: camera, PTZ, pan, tilt, zoom, DiscoveredAsset, DiscoveredAssetEndpointProfile, media, events, stream, southbound
+          - name: Connect to HTTP/REST endpoints
+            href: discover-manage-assets/howto-use-http-connector.md
+            displayName: HTTP, REST, API, southbound
+          - name: Connect to SSE endpoints
+            href: discover-manage-assets/howto-use-sse-connector.md
+            displayName: HTTP, SSE, API, southbound, server-sent, events
+          - name: Connect to MQTT endpoints
+            href: discover-manage-assets/howto-use-mqtt-connector.md
+            displayName: southbound, broker, events
+          - name: Use asset endpoints to manage assets
+            href: /previous-versions/azure/iot-operations/discover-manage-assets/overview-manage-assets
+            displayName: connector, tags, southbound, asset endpoint profile
       - name: Manage MQTT broker
         items:
           - name: Broker overview
@@ -146,7 +141,7 @@ items:
           - name: Disk-backed message buffer
             href: manage-mqtt-broker/howto-disk-backed-message-buffer.md
             displayName: MQTT, broker, persistence, storage
-          - name: Persistence (preview)
+          - name: Persistence
             href: manage-mqtt-broker/howto-broker-persistence.md
             displayName: MQTT, broker, persistence, storage
           - name: Diagnostic settings
@@ -212,7 +207,7 @@ items:
               - name: Enrich data
                 href: connect-to-cloud/concept-dataflow-enrich.md
                 displayName: data flow, transform, context, contextualization
-          - name: Use WASM data flow graphs (preview)
+          - name: Use WASM data flow graphs
             items:
               - name: Deploy data flow graphs
                 href: connect-to-cloud/howto-dataflow-graph-wasm.md
@@ -236,30 +231,8 @@ items:
         items:
           - name: Overview
             href: manage-layered-network/overview-layered-network.md
-            displayName: ISA-95, Purdue, layered, network, isolated
           - name: IoT Operations in layered network
             href: manage-layered-network/concept-iot-operations-in-layered-network.md
-            displayName: ISA-95, Purdue, isolated, level 2, level 3, level 4, L2, L3, L4
-          - name: Configure Layered Network Management
-            href: manage-layered-network/howto-deploy-aks-layered-network.md
-            displayName: ISA-95, Purdue, isolated, level 2, level 3, level 4, L2, L3, L4
-          - name: How to
-            items:
-              - name: Deploy Azure IoT Operations in isolated network
-                href: manage-layered-network/howto-configure-aks-edge-essentials-layered-network.md
-                displayName: ISA-95, Purdue, isolated, level 2, level 3, level 4, L2, L3, L4
-              - name: Create sample network environment
-                href: manage-layered-network/howto-configure-layered-network.md
-                displayName: ISA-95, Purdue, isolated, level 2, level 3, level 4, L2, L3, L4
-              - name: Configure L4 cluster
-                href: manage-layered-network/howto-configure-l4-cluster-layered-network.md
-                displayName: ISA-95, Purdue, isolated, level 4, L4
-              - name: Configure L3 cluster
-                href: manage-layered-network/howto-configure-l3-cluster-layered-network.md
-                displayName: ISA-95, Purdue, isolated, level 3, L3
-              - name: Connect Azure Arc-enabled servers
-                href: manage-layered-network/howto-connect-arc-enabled-servers.md
-                displayName: ISA-95, Purdue, isolated, level 2, level 3, level 4, L2, L3, L4
       - name: Configure observability and monitoring
         items:
           - name: Deploy observability resources
@@ -289,8 +262,8 @@ items:
               - name: State store protocol
                 href: develop-edge-apps/reference-state-store-protocol.md
                 displayName: MQTT, client app, developer
-              - name: SDKS documentation
-                href: https://github.com/Azure/iot-operations-sdks/tree/main/doc
+              - name: SDKS reference documentation
+                href: https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/README.md
                 displayName: MQTT, client app, developer
               - name: Dapr apps
                 items:
@@ -339,8 +312,6 @@ items:
             href: troubleshoot/iot-operations-faq.yml
       - name: Reference
         items:
-          - name: Azure IoT Operations Arc Jumpstart scenario
-            href: https://aka.ms/ArcJumpstartAIO
           - name: Azure IoT Operations release notes
             href: https://github.com/Azure/azure-iot-operations/releases
           - name: Azure IoT Operations CLI

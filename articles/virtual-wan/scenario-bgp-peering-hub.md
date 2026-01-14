@@ -35,7 +35,7 @@ The virtual hub router now also exposes the ability to peer with it, thereby exc
   * Configuring BGP peering between an on-premises NVA and the virtual hub router isn't supported.  
   * Configuring BGP peering between an Azure Route Server and the virtual hub router isn't supported. 
 * The virtual hub router only supports 16-bit (2 bytes) ASN.
-* The virtual network connection that has the NVA BGP connection endpoint must always be associated and propagating to defaultRouteTable. Custom route tables aren't supported at this time.
+* Virtual WAN considers the NVA BGP connection an on-premises branch connection like ExpressRoute of VPN. Therefore, Tthe virtual network connection that has the NVA BGP connection endpoint must  be associated to the defaultRouteTable and proapgate to the **same set** of custom route tables as ExpressRoute and VPN connections to the same Virtual hub . This means the NVA BGP connection **can propagate to custom route tables**, as long as the routing configuration is consistent with ExpressRoute and VPN connected to that hub.
 * The virtual hub router supports transit connectivity between virtual networks connected to virtual hubs. This has nothing to do with this feature for BGP peering capability as Virtual WAN already supports transit connectivity. Examples:
   * VNET1: NVA1 connected to Virtual Hub 1 -> (transit connectivity) -> VNET2: NVA2 connected to Virtual Hub 1.
   * VNET1: NVA1 connected to Virtual Hub 1 -> (transit connectivity) -> VNET2: NVA2 connected to Virtual Hub 2.

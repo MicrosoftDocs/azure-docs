@@ -6,11 +6,16 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 02/07/2025
-ms.custom: mvc, subject-rbac-steps, engagement-fy24
 ms.collection:
  - migration
  - gcp-to-azure
+ms.custom:
+  - mvc
+  - subject-rbac-steps
+  - engagement-fy24
+  - sfi-ropc-nochange
 # Customer intent: "As a server administrator, I want to discover my GCP instances using a migration tool, so that I can assess and plan for their migration to Azure efficiently."
 ---
 
@@ -63,7 +68,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
     | Setting | Value |
     | --- | --- |

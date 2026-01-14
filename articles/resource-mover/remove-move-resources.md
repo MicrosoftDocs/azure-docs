@@ -6,7 +6,7 @@ ms.topic: how-to
 author: jasminemehndir
 ms.author: v-jasmineme
 ms.date: 07/31/2025
-ms.custom:
+ms.custom: sfi-image-nochange
 # Customer intent: As an Azure administrator, I want to remove resources from a move collection, so that I can efficiently manage the migration of resources between regions.
 ---
 # Manage move collections and resource groups

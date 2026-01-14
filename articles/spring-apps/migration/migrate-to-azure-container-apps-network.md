@@ -21,7 +21,7 @@ In Azure Spring Apps, you can deploy your applications within a managed virtual 
 
 ## Prerequisites
 
-- An active Azure subscription. If you don't have one, you can [create a free Azure account](https://azure.microsoft.com/free).
+- An active Azure subscription. If you don't have one, you can [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create an Azure Container Apps environment with a virtual network
@@ -138,4 +138,3 @@ Azure Container Apps supports deployment with a private DNS zone. For more infor
 Azure Container Apps provides both [Public network access](../../container-apps/networking.md#public-network-access) and [Private endpoint](../../container-apps/private-endpoints-with-dns.md) features to expose applications to the internet or to secure them within a private network. Similarly, Azure Spring Apps supports these features as described in the following articles:
 
 - [Access an app in Azure Spring Apps in a virtual network](../basic-standard/access-app-virtual-network.md)
-- [Access applications using Azure Spring Apps Standard consumption and dedicated plan in a virtual network](../consumption-dedicated/quickstart-access-standard-consumption-within-virtual-network.md)

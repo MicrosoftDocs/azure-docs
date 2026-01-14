@@ -5,7 +5,10 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 04/02/2025
 ai-usage: ai-assisted
-ms.custom: mvc, devx-track-python
+ms.custom:
+  - mvc
+  - devx-track-python
+  - sfi-ropc-nochange
 # Customer intent: "As a data engineer, I want to create and execute an Azure Data Factory pipeline that runs a Batch workload with a Python script, so that I can process and manipulate data stored in Azure Blob Storage efficiently."
 ---
 
@@ -24,7 +27,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A Batch account with a linked Azure Storage account. You can create the accounts by using any of the following methods: [Azure portal](quick-create-portal.md) | [Azure CLI](quick-create-cli.md) | [Bicep](quick-create-bicep.md) | [ARM template](quick-create-template.md) | [Terraform](quick-create-terraform.md).
 - A Data Factory instance. To create the data factory, follow the instructions in [Create a data factory](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory).
 - [Batch Explorer](https://azure.github.io/BatchExplorer) downloaded and installed.

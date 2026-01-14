@@ -2,9 +2,11 @@
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
-ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 05/21/2023
+ms.custom:
+  - devx-track-azurecli
+  - sfi-ga-nochange
 ---
 
 ## Install the Service Connector passwordless extension

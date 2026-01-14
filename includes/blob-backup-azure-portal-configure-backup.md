@@ -2,7 +2,7 @@
 author: AbhishekMallick-MS
 ms.service: azure-backup
 ms.topic: include
-ms.date: 12/19/2024
+ms.date: 11/25/2025
 ms.author: v-abhmallick
 ---
 
@@ -12,7 +12,7 @@ You can use a single backup policy to back up one or more storage accounts to th
 
 To configure backup for storage accounts, follow these steps:
 
-1. Go to **Business Continuity Center** > **Overview**, and then select **+ Configure protection**.
+1. Go to **Resiliency** > **Overview**, and then select **+ Configure protection**.
 
    :::image type="content" source="./media/blob-backup-azure-portal-configure-backup/start-vaulted-backup.png" alt-text="Screenshot shows how to initiate vaulted blob backup.":::
 

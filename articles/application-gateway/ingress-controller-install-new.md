@@ -5,8 +5,9 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 4/4/2025
+ms.date: 04/04/2025
 ms.author: mbender
+ms.custom: sfi-ropc-nochange
 # Customer intent: "As a Kubernetes administrator, I want to deploy the Application Gateway Ingress Controller with a new Application Gateway, so that I can manage ingress traffic efficiently for my applications running on Azure Kubernetes Service."
 ---
 

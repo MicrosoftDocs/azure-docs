@@ -1,7 +1,7 @@
 ---
 title:  Purchase Reserved Instances and Savings Plans - Azure portal
 description: Learn how to purchase a Reserved Instance or a Savings Plan for your Azure Extended Zone resources using the Azure portal.
-author: svaldes
+author: svaldesgzz
 ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: how-to
@@ -12,10 +12,12 @@ ms.date: 08/30/2025
 # Purchase Reserved Instances and/or Savings Plans in the Azure portal
 
 In this article, you learn how to purchase a **Reserved Instance** and how to purchase a **Savings Plan** for your Azure Extended Zone resources using the Azure portal.
+- An Azure account with an active subscription.
+- An existing Extended Zone resource, with a couple of days of usage, to be targeted for reservations and/or savings plans.
     > [!NOTE]
     > Meters need to be minted for both Reserved Instances and Savings Plans, so the functionality is applicable only to SKUs with live meters supported in the respective AEZ. Most meters should be supported by end of 2025. If your SKU isn't supported yet, check back later or contact support for more information.
     > [!NOTE]
-    > Reserved Instances for Extended Zones are currently available for purchase only through the **Recommendations** workflow, and working as expected once contracted. The **All Products** list workflow isn't currently enabled. Upon selecting the **All Products** list workflow, you may notice that no Extended Zone is listed under the "Region" filter.
+    > Recommendations may take up to 7 days to appear in both **Reserved Instances** and **Savings Plans** after the Extended Zone resource is created. If you don't see any recommendations, check back later. If you still don't see them after seven days, contact support.> Reserved Instances for Extended Zones are currently available for purchase only through the **Recommendations** workflow, and working as expected once contracted. The **All Products** list workflow isn't currently enabled. Upon selecting the **All Products** list workflow, you may notice that no Extended Zone is listed under the "Region" filter.
 
 ## Prerequisites
 

@@ -140,8 +140,8 @@ If your VCF subscription expires before your AVS Reservation (RI) ends, you have
 ### 2. Can I change back and forth between AVS to AVS VCF BYOL anytime?
 Yes, you can switch between AVS and AVS VCF BYOL SKUs anytime. 
 
-### 3. Will the AVS 30-day Pilot Program support AVS VCF BYOL?
-The 30-day Pilot Program **does not** require you to bring your own VCF subscription, as you can leverage AVS-owned VCF during the Pilot period. However, if you wish to bring your own VCF subscription instead of continuing with the AVS-owned VCF after the Pilot, you must **register your VCF subscription before the Pilot program ends**. If you don't register before the end of the Pilot program, you'll automatically be converted to AVS pay-as-you-go pricing.
+### 3. Will the AVS 60-day Pilot Program support AVS VCF BYOL?
+The 60-day Pilot Program (previously 30 days) requires customers to obtain a VCF trial license from Broadcom before deployment can commence. When the pilot ends after 60 days, customers can either uninstall the pilot nodes or continue their VCF / AVS journey using the current VCF key or as directed by Broadcom. 
 
 ### 4. Is VCF portability available for Gov Cloud as well?**
 Yes, VCF portability is **now available in Gov Cloud.** 

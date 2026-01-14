@@ -2,7 +2,7 @@
 title: About Azure Files backup
 description: Learn how to back up Azure Files in the Recovery Services vault
 ms.topic: overview
-ms.date: 05/06/2025
+ms.date: 09/26/2025
 ms.service: azure-backup
 ms.custom:
   - engagement-fy23
@@ -15,6 +15,8 @@ ms.author: v-mallicka
 # About Azure Files backup
 
 Azure Files backup is a native cloud solution that protects your data and eliminates on-premises maintenance overheads. Azure Backup integrates with Azure File Sync, centralizing your File Share data and backups. The secure, managed backup solution supports **snapshot** and **vaulted** backups to protect your enterprise File Shares, ensuring data recovery from accidental or malicious deletion.
+
+Azure Backup now offers general availability of Vaulted Backup for Azure Files (Standard tier), enabling secure, long-term protection with ransomware defense, cross-region recovery, and compliance-ready retention—all managed through a unified backup policy. For more insights, see the [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azurestorageblog/general-availability-vaulted-backup-for-azure-files---boost-your-data-security-a/4395344). To know the latest product enhancements and feature updates in Azure, see [Microsoft Azure Updates](https://azure.microsoft.com/updates?id=482659).
 
 ## Key benefits of Azure Files backup
 
@@ -85,9 +87,6 @@ For snapshot tier, you incur the following costs:
 - **Protected Instance fee**: Starting from September 1, 2020, you're charged a protected instance fee as per the [pricing details](https://azure.microsoft.com/pricing/details/backup/). The protected instance fee depends on the total size of protected File Shares in a storage account.
 
 To get detailed estimates for backing up Azure Files, you can download the detailed [Azure Backup pricing estimator](https://aka.ms/AzureBackupCostEstimates).  
-
->[!IMPORTANT]
->For vaulted backup, you will incur a protected instance fee and charges for backup storage for your standard and premium shares from April 1,2025.
 
 ## How lease snapshot works?
 

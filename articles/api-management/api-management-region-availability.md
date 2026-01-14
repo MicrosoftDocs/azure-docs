@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 07/21/2025
+ms.date: 11/11/2025
 ms.author: danlep
 ms.custom:
   - references_regions
@@ -25,7 +25,7 @@ API Management [v2 tiers](v2-service-tiers-overview.md) and API Management [work
 Information in the following table is updated regularly. Capacity availability in Azure regions may vary.
 
 
-| Region | Basic v2 | Standard v2 | Premium v2 (preview) | Workspace gateway (Premium) | 
+| Region | Basic v2 | Standard v2 | Premium v2 | Workspace gateway (Premium) | 
 |-----|:---:|:---:|:---:|:---:|
 | Australia Central | ✅ | ✅ | | |
 | Australia East | ✅ | ✅ | ✅ | ✅ |

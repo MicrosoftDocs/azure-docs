@@ -139,7 +139,7 @@ const { size, color } = appConfig.get("font");
 ```
 
 > [!NOTE]
-> Starting with version *2.2.0* of `@azure/app-configuration-provider`, the configuration provider can properly recognize JSON with comments([JSONC](https://jsonc.org/)) and convert it into object.
+> Starting with version *2.2.0* of `@azure/app-configuration-provider`, the configuration provider allows comments, as defined in ([JSONC](https://jsonc.org/)), in key-values with an `application/json` content type.
 
 ### Load specific key-values using selectors
 

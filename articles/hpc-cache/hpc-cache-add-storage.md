@@ -5,8 +5,10 @@ author: ekpgh
 ms.service: azure-hpc-cache
 ms.topic: how-to
 ms.date: 3/1/2023
-ms.custom: subject-rbac-steps
 ms.author: kianaharris
+ms.custom:
+  - subject-rbac-steps
+  - sfi-image-nochange
 # Customer intent: "As an IT administrator, I want to configure storage targets for Azure HPC Cache, so that I can optimize data access using my on-premises NFS or Azure Blob storage for efficient file storage and retrieval."
 ---
 
@@ -103,7 +105,7 @@ You can do this ahead of time, or by clicking a link on the portal page where yo
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following roles, one at a time. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+1. Assign the following roles, one at a time. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
     | Setting | Value |
     | --- | --- |

@@ -15,8 +15,10 @@ ms.custom:
 
 If you accidentally deleted an app in Azure App Service, you can now restore it by using the Azure portal or PowerShell.
 
-> [!IMPORTANT]
-> This feature isn't supported for apps hosted on App Service plans using the Free and Shared tiers.
+- This feature isn't supported for apps hosted on App Service plans using the Free and Shared tiers.
+- Deleted apps are purged from the system 30 days after the initial deletion. After an app is purged, it can't be recovered.
+- Undelete functionality isn't supported for function apps hosted on the Consumption plan or Elastic Premium plan.
+- If the app was hosted on and then deleted from an App Service Environment, it can be restored only if the corresponding App Service Environment still exists.
 
 ## Restore a deleted App Service app by using the Azure portal
 
@@ -33,10 +35,6 @@ If you deleted your app in Azure App Service, you can restore it from the portal
 ## Restore a deleted App Service app by using PowerShell
 
 If you deleted your app in Azure App Service, you can restore it by using the commands from the [`Az PowerShell module`](/powershell/azure/).
-
-> [!NOTE]
-> * Deleted apps are purged from the system 30 days after the initial deletion. After an app is purged, it can't be recovered.
-> * Undelete functionality isn't supported for function apps hosted on the Consumption plan or Elastic Premium plan.
 
 ## Re-register App Service resource provider
 
@@ -124,9 +122,6 @@ The inputs for command are:
 - **ResourceGroupName**: Original resource group for the deleted app. You can get it from `Get-AzDeletedWebApp -Name <your_deleted_app> -Location <your_deleted_app_location>`.
 - **Slot**: Slot for the deleted app.
 - **RestoreContentOnly**: By default `Restore-AzDeletedWebApp` restores both your app configuration as well any content. If you want to only restore content, you can use the `-RestoreContentOnly` flag with this cmdlet.
-
-> [!NOTE]
-> If the app was hosted on and then deleted from an App Service Environment, it can be restored only if the corresponding App Service Environment still exists.
 
 ## Restore deleted Azure Functions app
 

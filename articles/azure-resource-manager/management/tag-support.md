@@ -499,16 +499,16 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | DataControllers | Yes | Yes |
+> | DataControllers | Yes | No |
 > | DataControllers / ActiveDirectoryConnectors | No | No |
-> | PostgresInstances | Yes | Yes |
-> | SqlManagedInstances | Yes | Yes |
+> | PostgresInstances | Yes | No |
+> | SqlManagedInstances | Yes | No |
 > | SqlManagedInstances / FailoverGroups | No | No |
-> | SqlServerEsuLicenses | Yes | Yes |
-> | SqlServerInstances | Yes | Yes |
-> | SqlServerInstances / AvailabilityGroups | Yes | Yes |
-> | SqlServerInstances / Databases | Yes | Yes |
-> | SqlServerLicenses | Yes | Yes |
+> | SqlServerEsuLicenses | Yes | No |
+> | SqlServerInstances | Yes | No |
+> | SqlServerInstances / AvailabilityGroups | Yes | No |
+> | SqlServerInstances / Databases | Yes | No |
+> | SqlServerLicenses | Yes | No |
 
 ## Microsoft.AzureDataTransfer
 
@@ -1248,7 +1248,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | images | Yes | Yes |
 > | payloadGroups | No | No |
 > | proximityPlacementGroups | Yes | Yes |
-> | restorePointCollections | Yes | Yes |
+> | restorePointCollections | Yes | No |
 > | restorePointCollections / restorePoints | No | No |
 > | restorePointCollections / restorePoints / diskRestorePoints | No | No |
 > | sharedVMExtensions | Yes | Yes |
@@ -1944,24 +1944,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | digitalTwinsInstances / endpoints | No | No |
 > | digitalTwinsInstances / ingressEndpoints | No | No |
 > | digitalTwinsInstances / timeSeriesDatabaseConnections | No | No |
-
-## Microsoft.Discovery
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | agents | Yes | Yes |
-> | bookshelves | Yes | Yes |
-> | datacontainers | Yes | Yes |
-> | datacontainers / dataassets | Yes | Yes |
-> | models | Yes | Yes |
-> | storages | Yes | Yes |
-> | supercomputers | Yes | Yes |
-> | supercomputers / nodepools | Yes | Yes |
-> | tools | Yes | Yes |
-> | workflows | Yes | Yes |
-> | workspaces | Yes | Yes |
-> | workspaces / projects | Yes | Yes |
 
 ## Microsoft.DocumentDB
 
@@ -4087,7 +4069,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | accounts | Yes | Yes |
+> | accounts | Yes | No |
 > | accounts / privateEndpointConnections | No | No |
 > | accounts / privateLinkResources | No | No |
 

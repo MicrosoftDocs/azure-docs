@@ -2,12 +2,15 @@
 title: 'Tutorial: Deploy a Spring Boot app connected to Apache Kafka on Confluent Cloud with Service Connector in Azure Spring Apps'
 description: Create a Spring Boot app connected to Apache Kafka on Confluent Cloud with Service Connector in Azure Spring Apps.
 ms.devlang: java
-ms.custom: devx-track-extended-java, devx-track-azurecli
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 11/20/2023
+ms.custom:
+  - devx-track-extended-java
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Tutorial: Deploy a Spring Boot app connected to Apache Kafka on Confluent Cloud with Service Connector in Azure Spring Apps
@@ -27,7 +30,7 @@ Learn how to access Apache Kafka on Confluent Cloud for a Spring Boot applicatio
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * Java 8 or a more recent version with long-term support (LTS) 1.
 

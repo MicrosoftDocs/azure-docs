@@ -3,21 +3,20 @@ title: Workflow Definition Language schema reference
 description: Reference guide to the JSON schema and syntax for the Workflow Definition Language that describes workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: reference
-ms.date: 07/18/2025
+ms.date: 10/06/2025
 ---
 
 # Schema reference guide for the Workflow Definition Language in Azure Logic Apps
 
-When you create a logic app in [Azure Logic Apps](../logic-apps/logic-apps-overview.md), your logic app has an underlying workflow definition that 
-describes the actual logic that runs in your logic app. That workflow definition uses [JSON](https://www.json.org/) and follows a structure that's validated by the Workflow Definition Language schema. This reference provides an overview about this structure and how the schema defines attributes in your workflow definition.
+When you create a logic app workflow in [Azure Logic Apps](../logic-apps/logic-apps-overview.md), the workflow has an underlying JavaScript Object Notation (JSON) definition that describes the actual logic that runs the workflow. The workflow definition follows a structure that is validated against the Workflow Definition Language schema. This reference provides an overview about this structure and how the schema defines attributes in your workflow definition.
 
 ## Workflow definition structure
 
-A workflow definition always includes a trigger for instantiating your logic app, plus one or more actions that run after the trigger fires.
+A workflow definition always includes a trigger that instantiates the workflow, plus one or more actions that run after the trigger fires.
 
-Here is the high-level structure for a workflow definition:
+Here's the high-level structure for a workflow definition:
 
 ```json
 "definition": {
@@ -52,9 +51,9 @@ In a workflow definition, the `triggers` and `actions` sections define the calls
 
 ## Parameters
 
-The deployment lifecycle usually has different environments for development, test, staging, and production. When deploying logic apps to various environments, you likely want to use different values, such as connection strings, based on your deployment needs. Or, you might have values that you want to reuse throughout your logic app without hardcoding or that change often. In your workflow definition's `parameters` section, you can define or edit parameters for the values that your logic app uses at runtime. You must define these parameters first before you can reference these parameters elsewhere in your workflow definition.
+The deployment lifecycle usually has different environments for development, test, staging, and production. When deploying logic apps to various environments, you likely want to use different values, such as connection strings, based on your deployment needs. Or, you might have values that you want to reuse throughout your workflow without hardcoding or that change often. In your workflow definition's `parameters` section, you can define or edit parameters for the values that your workflow uses at runtime. You must define these parameters first before you can reference these parameters elsewhere in your workflow definition.
 
-Here is the general structure for a parameter definition:
+Here's the general structure for a parameter definition:
 
 ```json
 "parameters": {
@@ -73,11 +72,11 @@ Here is the general structure for a parameter definition:
 |-----------|----------|------|-------------|
 | <*parameter-name*> | Yes | String | The name for the parameter that you want to define |
 | <*parameter-type*> | Yes | int, float, string, bool, array, object, securestring, secureobject <br><br><br><br>**Note**: For all passwords, keys, and secrets, use the `securestring` or `secureobject` types because the `GET` operation doesn't return these types. For more information about securing parameters, see [Security recommendations for action and input parameters](logic-apps-securing-a-logic-app.md#secure-action-parameters). | The type for the parameter |
-| <*default-parameter-value*> | Yes | Same as `type` | The default parameter value to use if no value is specified when the workflow instantiates. The `defaultValue` attribute is required so that the Logic App Designer can correctly show the parameter, but you can specify an empty value. |
+| <*default-parameter-value*> | Yes | Same as `type` | The default parameter value to use if no value is specified when the workflow instantiates. The `defaultValue` attribute is required so that the workflow designer can correctly show the parameter, but you can specify an empty value. |
 | <*array-with-permitted-parameter-values*> | No | Array | An array with values that the parameter can accept |
 | <*parameter-description*> | No | JSON object | Any other parameter details, such as a description for the parameter |
 
-Next, create an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) for your workflow definition, define template parameters that accept the values you want at deployment, replace hardcoded values with references to template or workflow definition parameters as appropriate, and store the values to use at deployment in a separate [parameter file](../azure-resource-manager/templates/parameter-files.md). That way, you can change those values more easily through the parameter file without having to update and redeploy your logic app. For information that is sensitive or must be secured, such as usernames, passwords, and secrets, you can store those values in Azure Key Vault and have your parameter file retrieve those values from your key vault. For more information and examples about defining parameters at the template and workflow definition levels, see [Overview: Automate deployment for logic apps with Azure Resource Manager templates](logic-apps-azure-resource-manager-templates-overview.md).
+Next, create an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) for your workflow definition, define template parameters that accept the values you want at deployment, replace hardcoded values with references to template or workflow definition parameters as appropriate, and store the values to use at deployment in a separate [parameter file](../azure-resource-manager/templates/parameter-files.md). That way, you can change those values more easily through the parameter file without having to update and redeploy your logic app. For information that's sensitive or must be secured, such as usernames, passwords, and secrets, you can store those values in Azure Key Vault and have your parameter file retrieve those values from your key vault. For more information and examples about defining parameters at the template and workflow definition levels, see [Overview: Automate deployment for logic apps with Azure Resource Manager templates](logic-apps-azure-resource-manager-templates-overview.md).
 
 <a name="static-results"></a>
 
@@ -258,7 +257,7 @@ In the `outputs` section, define the data that your workflow can return when fin
 > When responding to incoming requests from a service's REST API, don't use `outputs`. Instead, use the `Response` action type. 
 > For more information, see [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
-Here is the general structure for an output definition:
+Here's the general structure for an output definition:
 
 ```json
 "outputs": {
@@ -285,10 +284,10 @@ In [expressions](#expressions) and [functions](#functions), operators perform sp
 
 | Operator | Task |
 |----------|------|
-| `'` | To use a string literal as input or in expressions and functions, wrap the string only with single quotation marks, for example, `'<myString>'`. Do not use double quotation marks (`""`), which conflict with the JSON formatting around an entire expression. For example: <br><br>**Yes**: length('Hello') </br>**No**: length("Hello") <br><br>When you pass arrays or numbers, you don't need wrapping punctuation. For example: <br><br>**Yes**: length([1, 2, 3]) </br>**No**: length("[1, 2, 3]") |
+| `'` | To use a string literal as input or in expressions and functions, wrap the string only with single quotation marks, for example, `'<myString>'`. Don't use double quotation marks (`""`), which conflict with the JSON formatting around an entire expression. For example: <br><br>**Yes**: length('Hello') </br>**No**: length("Hello") <br><br>When you pass arrays or numbers, you don't need wrapping punctuation. For example: <br><br>**Yes**: length([1, 2, 3]) </br>**No**: length("[1, 2, 3]") |
 | `[]` | To reference a value at a specific position (index) in an array or inside a JSON object, use square brackets, for example: <br><br>- To get the second item in an array: <br><br>`myArray[1]` <br><br>- To access the properties inside a JSON object: <br><br>*Example 1*: <br>`setProperty(<object>, '<parent-property>', addProperty(<object>['<parent-property>'], '<child-property>', <value>)` <br><br>*Example 2*: <br>`lastIndexOf(triggerBody()?['subject'],'some string')` |
 | `.` | To reference a property in an object, use the dot operator. For example, to get the `name` property for a `customer` JSON object: <br><br>`"parameters('customer').name"` |
-| `?` | To reference null properties in an object without a runtime error, use the null-ignore (**?**) operator. For example, to handle null outputs from a trigger, you can use the following expression: <br><br>`coalesce(trigger().outputs?.body?['<someProperty>'], '<property-default-value>')` |
+| `?` | To reference an object's property without risking a runtime error or the workflow failing, use the question mark operator (`?`), also known as the *null ignore operator*, preceding the property. This operator lets you safely access a property or array element when the parent object or referenced property might contain `null` or is missing. <br><br>- If the parent object that appears before the `?` operator is `null` or is missing the referenced property, the entire expression returns `null`, rather than the workflow failing. <br><br>- If the object or property exists, the expression returns the property's value. <br><br>For example, suppose you have the following expression: <br><br>`triggerBody()?['ContentData']` <br><br>- If `triggerBody()` returns an object from the `ContentData` property, you get the object's value. <br><br>- If `triggerBody()` is `null` or is missing the `ContentData` property, the function returns `null` rather than fail with the error **"Unable to process template language expressions"**. <br><br>The `?` operator also lets you safely chain access properties and is useful in the following scenarios: <br><br>- Manage expressions that work with optional JSON fields. <br>- Handle connector outputs that might omit certain properties. <br>- Avoid brittle expressions in conditional logic. <br><br>For example, to chain property access and handle null outputs from a trigger, you can use the following expression: <br><br>`coalesce(trigger().outputs?.body?['<property-name>'], '<property-default-value>')` |
 
 <a name="functions"></a>
 

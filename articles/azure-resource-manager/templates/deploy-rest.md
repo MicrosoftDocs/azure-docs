@@ -163,7 +163,7 @@ The examples in this article use resource group deployments.
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2022-09-01",
+            "apiVersion": "2025-06-01",
             "name": "[variables('storageAccountName')]",
             "location": "[parameters('location')]",
             "sku": {

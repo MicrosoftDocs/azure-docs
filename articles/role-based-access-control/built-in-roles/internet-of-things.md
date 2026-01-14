@@ -15,6 +15,156 @@ ms.custom: generated
 
 This article lists the Azure built-in roles in the Internet of Things category.
 
+## Azure Device Registry Contributor
+
+Allows for full access to IoT devices within Azure Device Registry Namespace.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.deviceregistry/namespaces/read | Get a Namespace |
+> | microsoft.deviceregistry/namespaces/devices/* |  |
+> | microsoft.deviceregistry/namespaces/discovereddevices/* |  |
+> | microsoft.deviceregistry/namespaces/credentials/read | Get a Credential |
+> | microsoft.deviceregistry/namespaces/credentials/policies/read | List Policy resources by Credential |
+> | [microsoft.devices](../permissions/internet-of-things.md#microsoftdevices)/iothubs/certificates/* |  |
+> | [microsoft.devices](../permissions/internet-of-things.md#microsoftdevices)/iothubs/read | Gets the IotHub resource(s) |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | microsoft.deviceregistry/namespaces/credentials/policies/issueCertificate/action | Allows certificate issuance using certificate based policies. |
+> | [microsoft.devices](../permissions/internet-of-things.md#microsoftdevices)/iothubs/devices/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for full access to IoT devices within Azure Device Registry Namespace.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/a5c3590a-3a1a-4cd4-9648-ea0a32b15137",
+  "name": "a5c3590a-3a1a-4cd4-9648-ea0a32b15137",
+  "permissions": [
+    {
+      "actions": [
+        "microsoft.deviceregistry/namespaces/read",
+        "microsoft.deviceregistry/namespaces/devices/*",
+        "microsoft.deviceregistry/namespaces/discovereddevices/*",
+        "microsoft.deviceregistry/namespaces/credentials/read",
+        "microsoft.deviceregistry/namespaces/credentials/policies/read",
+        "microsoft.devices/iothubs/certificates/*",
+        "microsoft.devices/iothubs/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "microsoft.deviceregistry/namespaces/credentials/policies/issueCertificate/action",
+        "microsoft.devices/iothubs/devices/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Device Registry Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Device Registry Credentials Contributor
+
+Allows for full access to manage credentials and policies within Azure Device Registry Namespace.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.deviceregistry/namespaces/credentials/* |  |
+> | microsoft.deviceregistry/namespaces/credentials/policies/* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for full access to manage credentials and policies within Azure Device Registry Namespace.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/09267e11-2e06-40b5-8fe4-68cea20794c9",
+  "name": "09267e11-2e06-40b5-8fe4-68cea20794c9",
+  "permissions": [
+    {
+      "actions": [
+        "microsoft.deviceregistry/namespaces/credentials/*",
+        "microsoft.deviceregistry/namespaces/credentials/policies/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Device Registry Credentials Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Device Registry Onboarding
+
+Allows for full access to Azure Device Registry Namespace and X.509 certificate provisioning.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | Microsoft.DeviceRegistry/namespaces/read | Get a Namespace |
+> | Microsoft.DeviceRegistry/namespaces/write | Update a Namespace |
+> | Microsoft.DeviceRegistry/namespaces/delete | Delete a Namespace |
+> | Microsoft.DeviceRegistry/namespaces/credentials/* |  |
+> | Microsoft.DeviceRegistry/namespaces/credentials/policies/* |  |
+> | [Microsoft.Devices](../permissions/internet-of-things.md#microsoftdevices)/iothubs/* |  |
+> | [Microsoft.Devices](../permissions/internet-of-things.md#microsoftdevices)/provisioningServices/* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Devices](../permissions/internet-of-things.md#microsoftdevices)/provisioningServices/enrollments/* |  |
+> | [Microsoft.Devices](../permissions/internet-of-things.md#microsoftdevices)/provisioningServices/enrollmentGroups/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for full access to Azure Device Registry Namespace and X.509 certificate provisioning.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/547f7f0a-69c0-4807-bd9e-0321dfb66a84",
+  "name": "547f7f0a-69c0-4807-bd9e-0321dfb66a84",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.DeviceRegistry/namespaces/read",
+        "Microsoft.DeviceRegistry/namespaces/write",
+        "Microsoft.DeviceRegistry/namespaces/delete",
+        "Microsoft.DeviceRegistry/namespaces/credentials/*",
+        "Microsoft.DeviceRegistry/namespaces/credentials/policies/*",
+        "Microsoft.Devices/iothubs/*",
+        "Microsoft.Devices/provisioningServices/*"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Devices/provisioningServices/enrollments/*",
+        "Microsoft.Devices/provisioningServices/enrollmentGroups/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Device Registry Onboarding",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
 
 ## Azure Digital Twins Data Owner
 

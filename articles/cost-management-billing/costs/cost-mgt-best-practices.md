@@ -2,13 +2,13 @@
 title: Optimize your cloud investment with Cost Management
 titleSuffix: Microsoft Cost Management
 description: This article helps get the most value out of your cloud investments, reduce your costs, and evaluate where your money is being spent.
-author: maddieminn
-ms.author: maminn
+author: vikramdesai01
+ms.author: vikdesai
 ms.date: 07/09/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: sadoulta
+ms.reviewer: vikdesai
 ---
 
 # How to optimize your cloud investment with Cost Management
@@ -89,7 +89,7 @@ The first step in maximizing your experience within Cost Management is to invest
 
 To learn more about the various options, visit [How to buy Azure](https://azure.microsoft.com/pricing/purchase-options/). Several of the most common billing models are identified below.
 
-#### [Free](https://azure.microsoft.com/free/)
+#### [Free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 - 12 months of popular free services
 - $200 credit in your billing currency to explore services for 30 days

@@ -26,7 +26,7 @@ In this tutorial, you perform the following tasks:
 > * Create and configure an Azure Stream Analytics job to read temperature telemetry from your consumer group and send it to Power BI.
 > * Create a report of the temperature data in Power BI and share it to the web.
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

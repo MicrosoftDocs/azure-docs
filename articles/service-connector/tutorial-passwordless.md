@@ -6,7 +6,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
-ms.date: 10/22/2024
+ms.date: 09/29/2025
 ms.devlang: azurecli
 ms.custom: passwordless-dotnet, passwordless-java, devx-track-azurecli
 zone_pivot_group_filename: service-connector/zone-pivot-groups.json
@@ -28,7 +28,7 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An app deployed to [Azure App Service](../app-service/overview.md) in a [region supported by Service Connector](./concept-region-support.md).
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.61.0 or higher.
 

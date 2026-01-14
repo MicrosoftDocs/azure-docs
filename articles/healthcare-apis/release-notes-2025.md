@@ -17,6 +17,45 @@ ms.custom:
 
 This article describes features, enhancements, and bug fixes released in 2025 for the FHIR&reg; service, Azure API for FHIR, DICOM&reg; service, and MedTech service in Azure Health Data Services.
 
+## October 2025
+### FHIR service
+
+**Enhancement to _not-referenced search and delete**: Adds the ability to use not referenced search and delete to look for the lack of specific references. For example, to search for Patients without an Encounter listing them as a subject: /Patient?_not-referenced=Encounter:subject.
+
+#### Bug fixes:
+
+**URL construction for bundles with forwarded headers**: Fixed an issue with forwarded headers, like X-Forwarded-Host, where their values weren't respected when used with requests containing bundles. In some cases the paths could be erroneous while at other times they would be missing completely.
+
+**SMART on FHIR compartment searches**: Previously, SMART compartment search expressions weren't properly comparing CompartmentId values and could return resources from different compartments. This issue has now been fixed.
+
+**SMART on FHIR system level searches with historical records**:  Previously, if historical records were in the system and a SMART system level search on all resource types was conducted, the search could return an empty result set even if there exists resources in a compartment. This issue is fixed, and resources are correctly returned.
+
+**Reindex fix**: Previously, after adding and reindexing a new search parameter, a warning would sometimes be returned "Search Parameter not recognized". This issue is fixed by improving background refresh and synchronization.
+
+**Bulk delete remove references bug fix**: Previously, during bulk delete query with “_remove-references” parameter, resources with IDs that partially matched another reference ID were incorrectly removed. The issue is now fixed by changing the ID check from a “contains” match to an “exact” match, ensuring only the intended reference is removed.
+
+**Conditional Create – Latency Improvement via Optimized Profile Loading**: Changed the way profiles are loaded by the validator to prevent long waits on locks when the cache isn’t expired. This update addresses intermittent delays reported by users during create operations, traced to validation. While the issue occurred only occasionally, this change aims to eliminate a potential source of latency.
+
+**Reindex Orchestrator – Reliability and Performance Improvements**: Enhanced the reindex orchestrator for better reliability, accuracy, and performance. Updates include optimized surrogate ID range handling, improved job completion tracking, refined polling intervals to reduce database load, and fixes for query and parameter handling to ensure accurate progress reporting.
+
+**SMART Wildcard _include and _revinclude Scope Enforcement**: Previously, SMART searches using wildcards for _include and _revinclude could return resource types that aren't part of the current scope of the SMART user. This issue has been addressed, and proper responses are returned for _include and _revinclude SMART wildcard searches now.
+
+## September 2025
+### FHIR service
+
+#### Bulk Update capability is in GA
+The $bulk-update operation allows you to update multiple FHIR resources in bulk using asynchronous processing. Follow this link to learn more [`$bulk-update`](./fhir/fhir-bulk-update.md).
+
+#### Bug fixes:
+
+**Bug fix for $status requests with empty parameters**: Previously, there were issues when using selectable search parameters SearchParameter/$status request with an unexpected request body returning misleading error messages. When the request body was omitted, 500 (Internal Server Error) was returned due to mishandling of the missing body. This issue is now fixed, and a 400 (Bad Request) will be returned. When the request body was an empty array of parameters, a 200 response was returned, which is misleading, as no search parameter status is actually updated. This issue is now fixed, and a 400 (Bad Request) response will be returned now, as the request requires search parameter URLs whose status need to be updated.
+
+**Bug fix for uploading new search parameters that have no resources impacted**: Previously, search parameters that were added that have no current resources impacted (thus resulting in no need to reindex) were marked as not supported. Now, these search parameters that have no records to process will still be correctly enabled, so that they can be properly used as soon as relevant records are loaded.
+
+**Bug fix for _revinclude wildcard search**: Previously, a wildcard search using _revinclude (for example,  GET [base]/Patient?_id=123&_revinclude=* ) would result in a 500 InternalServerError. After this fix, the service processes the request successfully with 200 code, aligning with the same behavior as _include.
+
+**Bug fix for duplicate code value custom search parameters**: Previously, the FHIR server would block the creation of a new custom search parameter if it had the same resource type and code as a search parameter already existing on the FHIR server. This could be an issue when trying to upload certain search parameters for implementation guides (such as US Core). This issue has now been fixed, and new custom search parameters that have the same resource type and code as an existing search parameter can be successfully added to the server now, as long as it has a unique URL and expression that is a subset/superset of an existing search parameter on the server. 
+
 ## August 2025
 ### FHIR service
 

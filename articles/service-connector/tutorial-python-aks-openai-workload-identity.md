@@ -11,12 +11,12 @@ keywords: "azure openai aks, kubernetes openai, service connector, workload iden
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ms.topic: tutorial
-ms.date: 08/26/2025
+ms.date: 09/30/2025
 ---
 
 # Tutorial: Connect AKS to Azure OpenAI
 
-This tutorial shows you how to connect your Azure Kubernetes Service (AKS) applications to Azure OpenAI using Service Connector with workload identity authentication. You'll establish credential-free connections by deploying a sample Python application that communicates with the Azure OpenAI service.
+This tutorial shows you how to connect your Azure Kubernetes Service (AKS) applications to Azure OpenAI using Service Connector with workload identity authentication. You'll establish credential-free connections by deploying a sample Python application that communicates with the Azure OpenAI.
 
 You'll complete the following tasks:
 
@@ -31,7 +31,7 @@ You'll complete the following tasks:
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 * [Docker](https://docs.docker.com/get-docker/) and [kubectl](https://kubernetes.io/docs/tasks/tools/) to manage container images and Kubernetes resources.
 * A basic understanding of containers and AKS. Get started from [preparing an application for AKS](/azure/aks/tutorial-kubernetes-prepare-app).

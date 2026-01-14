@@ -38,7 +38,7 @@ module m1 'module1.bicep' = {
  name: 'm1'
 }
 
-resource storageaccount 'Microsoft.Storage/storageAccounts@2024-03-01' = {
+resource storageaccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: 'storageaccount'
   location: location
   kind: 'StorageV2'
@@ -53,7 +53,7 @@ resource storageaccount 'Microsoft.Storage/storageAccounts@2024-03-01' = {
 ```bicep
 param location string = resourceGroup().location
 
-resource stg 'Microsoft.Storage/storageAccounts@2024-03-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: 'stg'
   location: location
   kind: 'StorageV2'
@@ -77,7 +77,7 @@ module m1 'module1.bicep' = {
   }
 }
 
-resource storageaccount 'Microsoft.Storage/storageAccounts@2024-03-01' = {
+resource storageaccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: 'storageaccount'
   location: location
   kind: 'StorageV2'

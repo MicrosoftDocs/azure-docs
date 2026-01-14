@@ -19,7 +19,7 @@ In this article, we use Azure Pipelines to deploy a Windows container applicatio
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure DevOps organization. [Create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up). 
 - A working Windows app with Dockerfile hosted on [Azure Repos](https://docs.github.com/get-started/quickstart/create-a-repo). 
 

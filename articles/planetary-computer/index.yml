@@ -142,6 +142,8 @@ landingContent:
             url: application-authentication.md
           - text: Connect to ArcGIS Pro
             url: create-connection-arc-gis-pro.md
+          - text: Connect to QGIS
+            url: configure-qgis.md
       - linkListType: quickstart
         links:
           - text: Azure Batch and Microsoft Planetary Computer Pro
@@ -162,10 +164,6 @@ landingContent:
         links:
           - text: Get started with data cubes
             url: data-cube-quickstart.md
-      - linkListType: how-to-guide
-        links:
-          - text: Visualize data cubes
-            url: visualize-assets.md
       - linkListType: quickstart
         links:
           - text: Get a collection SAS token

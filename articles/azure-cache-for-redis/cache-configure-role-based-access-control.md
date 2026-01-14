@@ -12,6 +12,8 @@ appliesto:
 
 # Configure custom data access policies
 
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+
 Managing access to your Azure Redis cache instance is critical to ensuring that the right users have access to the right set of data and commands. Redis version 6 introduced the [Access Control List](https://redis.io/docs/latest/operate/oss_and_stack/management/security/acl/) (ACL), which lists the keys that specific users can access and the commands that they can execute. For example, you can prohibit specific users from using the [DEL](https://redis.io/commands/del/) command to delete keys in the cache.
 
 Azure Cache for Redis integrates this ACL functionality with Microsoft Entra to allow you to configure and assign data access policies for your application's users, service principal, and managed identity. Azure Cache for Redis offers three built-in access policies that you can assign via role-based access control (RBAC): **Data Owner**, **Data Contributor**, and **Data Reader**.

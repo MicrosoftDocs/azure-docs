@@ -4,9 +4,9 @@ description: Reference documentation for the Azure Logic Apps Automated Test SDK
 services: logic-apps
 ms.suite: integration
 author: wsilveiranz
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: concept-article
-ms.date: 07/18/2025
+ms.date: 12/03/2025
 ---
 
 # Azure Logic Apps Automated Test SDK
@@ -17,7 +17,7 @@ The SDK contains several key components that work together to provide a complete
 
 | Component | Description |
 |-----------|-------------|
-| **Test execution** | Core classes for running workflow tests |
+| **Test execution** | Core classes for running workflow tests and data map transformations |
 | **Mock data** | Classes for creating mock triggers and actions |
 | **Test context** | Classes that represent test execution state and context |
 | **Results** | Classes that contain workflow execution results and status information |
@@ -28,6 +28,7 @@ The SDK contains several key components that work together to provide a complete
 | Class/Enum | Description | Type |
 |------------|-------------|------|
 | [UnitTestExecutor](unit-test-executor-class-definition.md) | Main entry point for executing unit tests for Standard workflows in Azure Logic Apps | Class |
+| [DataMapTestExecutor](data-map-test-executor-class-definition.md) | Provides functionality to compile, generate XSLT, and execute data map tests for Standard workflows | Class |
 | [ActionMock](action-mock-class-definition.md) | Represents a mock action for workflow testing. | Class |
 | [TriggerMock](trigger-mock-class-definition.md) | Represents a mock trigger for workflow testing. | Class |
 | [TestActionExecutionContext](test-action-execution-context-class-definition.md) | Represents the execution context for a specific action in a test workflow. | Class |
@@ -44,11 +45,13 @@ The SDK contains several key components that work together to provide a complete
 
 ## Get started
 
-To begin using the Azure Logic Apps Automated Test SDK, set up and run your workflow tests by starting with the [**`UnitTestExecutor`**](unit-test-executor-class-definition.md) class. Create test data with the [**`ActionMock`**](action-mock-class-definition.md) and [**`TriggerMock`**](trigger-mock-class-definition.md) classes, and validate your workflow behavior by examining the [**`TestWorkflowRun`**](test-workflow-run-class-definition.md) results.
+To begin using the Azure Logic Apps Automated Test SDK, set up and run your workflow tests by starting with the [**`UnitTestExecutor`**](unit-test-executor-class-definition.md) class. For data map testing and transformations, use the [**`DataMapTestExecutor`**](data-map-test-executor-class-definition.md) class. Create test data with the [**`ActionMock`**](action-mock-class-definition.md) and [**`TriggerMock`**](trigger-mock-class-definition.md) classes, and validate your workflow behavior by examining the [**`TestWorkflowRun`**](test-workflow-run-class-definition.md) results.
 
 ## Key concepts
 
 ### Test execution flow
+
+#### Workflow testing
 
 1. **Initialize**: Create a **`UnitTestExecutor`** object with your workflow definition and configuration files.
 
@@ -57,6 +60,16 @@ To begin using the Azure Logic Apps Automated Test SDK, set up and run your work
 1. **Execute**: Run the workflow using the **`RunWorkflowAsync()`** method.
 
 1. **Validate**: Examine the **`TestWorkflowRun`** result to verify the expected behavior.
+
+#### Data map testing
+
+1. **Initialize**: Create a **`DataMapTestExecutor`** object with your logic app project path.
+
+1. **Generate XSLT**: Compile your data map definition to XSLT using the **`GenerateXslt()`** method.
+
+1. **Execute**: Run the transformation using the **`RunMapAsync()`** method with sample input data.
+
+1. **Validate**: Examine the transformation output to verify the expected results.
 
 ### Mock objects
 

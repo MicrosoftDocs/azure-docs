@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: tutorial
 ms.date: 07/15/2024
+ms.custom: sfi-image-nochange
 # Customer intent: As a security administrator, I want to create and configure a web application firewall policy for Azure Front Door, so that I can protect my applications from web vulnerabilities and control traffic effectively.
 ---
 

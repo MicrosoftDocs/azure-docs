@@ -2,7 +2,7 @@
 title: Use Archive tier
 description: Learn about using Archive tier Support for Azure Backup.
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 11/12/2025
 ms.custom: devx-track-azurepowershell-azurecli, devx-track-azurecli
 zone_pivot_groups: backup-client-portaltier-powershelltier-clitier
 ms.service: azure-backup
@@ -304,7 +304,7 @@ For more information about various restore methods for Azure Virtual Machines, s
 Restore-AzRecoveryServicesBackupItem -VaultLocation $vault.Location -RehydratePriority "Standard" -RehydrateDuration 15 -RecoveryPoint $rp -StorageAccountName "SampleSA" -StorageAccountResourceGroupName "SArgName" -TargetResourceGroupName $vault.ResourceGroupName -VaultId $vault.ID
 ```
 
-To restore SQL Server, follow [these steps](backup-azure-sql-automation.md#restore-sql-dbs). The `Restore-AzRecoveryServicesBackupItem` cmdlet requires two other parameters, `RehydrationDuration` and `RehydrationPriority`.
+To restore SQL Server, follow [these steps](backup-azure-sql-automation.md#restore-sql-databases-in-azure-vms). The `Restore-AzRecoveryServicesBackupItem` cmdlet requires two other parameters, `RehydrationDuration` and `RehydrationPriority`.
 
 ## View jobs
 
@@ -595,6 +595,7 @@ Run the following commands:
 ## Next steps
 
 - Use Archive tier support via [Azure portal](?pivots=client-portaltier)/[PowerShell](?pivots=client-powershelltier).
+- [Frequently asked questions for Archive tier](archive-tier-support.md#frequently-asked-questions).
 - [Troubleshoot Archive tier errors](troubleshoot-archive-tier.md)
 
 ::: zone-end

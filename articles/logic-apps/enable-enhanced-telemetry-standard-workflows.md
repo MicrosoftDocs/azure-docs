@@ -8,6 +8,7 @@ ms.author: kewear
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 06/19/2025
+ms.custom: sfi-image-nochange
 
 # Customer intent: As a developer, I want to turn on and view enhanced telemetry in Application Insights for Standard logic app workflows.
 ---
@@ -39,7 +40,7 @@ This guide shows how to turn on enhanced telemetry collection in Application Ins
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An [Application Insights](/azure/azure-monitor/app/app-insights-overview) instance. You create this resource [in advance](/azure/azure-monitor/app/create-workspace-resource), when you create your Standard logic app, or after logic app deployment.
 

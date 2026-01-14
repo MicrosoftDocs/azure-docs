@@ -8,7 +8,11 @@ ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 10/18/2024
-ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+ms.custom:
+  - devx-track-java
+  - devguide-java
+  - devx-track-extended-java
+  - sfi-ropc-nochange
 # Customer intent: "As a Java developer, I want to integrate my application with Azure Blob Storage, so that I can effectively manage and interact with large amounts of unstructured data."
 ---
 
@@ -24,7 +28,7 @@ If you're looking to start with a complete example, see [Quickstart: Azure Blob 
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
 - [Apache Maven](https://maven.apache.org/download.cgi) is used for project management in this example

@@ -29,7 +29,7 @@ The following two options are available to make the endpoint you assigned access
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - (Optional) [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 - An existing application in an Azure Spring Apps service instance deployed to a virtual network. For more information, see [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md).
 
@@ -82,7 +82,7 @@ Use the following steps to grant permission:
 
    :::image type="content" source="media/access-app-virtual-network/access-control.png" alt-text="Screenshot of the Azure portal Access Control (IAM) page that shows the Check access tab with the Add role assignment button highlighted." lightbox="media/access-app-virtual-network/access-control.png":::
 
-1. Assign the `Private DNS Zone Contributor` role to the Azure Spring Apps Resource Provider. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+1. Assign the `Private DNS Zone Contributor` role to the Azure Spring Apps Resource Provider. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
    > [!NOTE]
    > If you don't find Azure Spring Apps Resource Provider, search for *Azure Spring Cloud Resource Provider*.

@@ -17,13 +17,13 @@ ms.service: azure-app-service
 
 > [!TIP]
 >
-> You can also ask Copilot in Azure these questions:
+> You can also ask [Azure Copilot](/azure/copilot/) these questions:
 >
 > - *How does a local cache work in Azure App Service?*
 > - *What are the benefits of using a local cache in Azure App Service?*
 > - *What are the limitations of using a local cache in Azure App Service?*
 >
-> To use Copilot in Azure, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
+> To use Azure Copilot, in the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
 
 Azure App Service content is stored in Azure Storage and is exposed as a durable content share. This design works with various apps and has the following attributes:  
 

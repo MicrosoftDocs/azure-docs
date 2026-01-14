@@ -7,7 +7,10 @@ ms.topic: conceptual
 ms.date: 02/18/2024
 ms.author: lianwei
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-azurecli
+ms.custom:
+  - devx-track-csharp
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # Azure SignalR Service authentication

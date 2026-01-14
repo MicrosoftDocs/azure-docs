@@ -1,11 +1,11 @@
 ---
 title: Enable zone-to-zone disaster recovery for Azure virtual machines
 description: This article describes when and how to use zone-to-zone disaster recovery for Azure virtual machines.
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 02/12/2025
-ms.author: jsuri
+ms.author: v-gajeronika
 ms.custom: references_regions
 # Customer intent: "As a cloud architect, I want to implement zone-to-zone disaster recovery for Azure virtual machines, so that I can enhance business continuity by minimizing downtime during regional outages."
 ---
@@ -33,7 +33,7 @@ Support for zone-to-zone disaster recovery is currently limited to the following
 | East US 2 | Norway East | | | Japan East |
 | South Central US | Poland Central  | | | Korea Central |
 | US Gov Virginia | Sweden Central  | | | Southeast Asia |
-| West US 2 | Switzerland North | | | |
+| West US 2 | Switzerland North | | | New Zealand North |
 | West US 3 | UK South | | | |
 || West Europe ||||
 ||Spain Central ||||

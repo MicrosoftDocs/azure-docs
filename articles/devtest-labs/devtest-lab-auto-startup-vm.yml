@@ -8,8 +8,9 @@ metadata:
   ms.date: 07/11/2025
   ms.topic: how-to
   ms.custom:
-    - UpdateFrequency2
+    - sfi-image-nochange
     - ge-structured-content-pilot
+    - UpdateFrequency2
   #customer intent: As a developer, I want to configure autostart settings for VMs so that VMs start automatically according to a schedule. 
 
 title: |

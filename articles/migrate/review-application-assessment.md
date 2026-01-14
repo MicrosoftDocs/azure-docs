@@ -5,8 +5,9 @@ author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
 ms.topic: concept-article
+ms.reviewer: v-uhabiba
 ms.date: 11/05/2024
-monikerRange: migrate
+monikerRange:
 # Customer intent: As a migration planner, I want to conduct an application assessment for my workloads, so that I can determine the best migration strategies and prepare for a successful transition to Azure.
 ---
 
@@ -32,23 +33,20 @@ To review an application/cross-workload assessment, follow the steps:
 
 1. Each application assessment, if created on workloads discovered by the appliance, indicate a confidence rating. The confidence rating is a measure of quality of the data that was available to create the assessment. Explore the details about [confidence ratings](confidence-ratings.md) and ways to improve them.
 1. Review the **Overview** page to get the summary of assessed workloads and different migration paths. You can check the recommended migration path that is selected based on your migration preference.  
-
-   [ ![Screenshot of list of assessed workloads.](./media/review-application-assessment/assessed-workloads-inline.png) ](./media/review-application-assessment/assessed-workloads-expanded.png#lightbox)
-
+      :::image type="content" source="./media/review-application-assessment/assessment-overview.png" alt-text="The screenshot that shows where the user can start with application assessment review." lightbox="./media/review-application-assessment/assessment-overview.png":::
    Each migration path provides you with the assessment insights for all the workloads in the scope of the assessment and thus, each path can help you identify the migration insights for each workload based on the targets associated with the migration path. There are four migration paths for each application assessment:
 
     | **Migration Strategy** | **Details**  |
     |----------|------|
     | PaaS preferred  | PaaS preferred migration path identifies the right-sized Azure targets for your workloads in such a way that you can maximize the PaaS coverage for your workloads. Workloads are assessed for PaaS targets (selected while creating the assessment) and if found ready are recommended as targets and the workloads that aren't ready fall back to Azure VM lift and shift.   |
     | PaaS Only      | PaaS Only migration path identifies the right-sized Azure targets and readiness of your discovered workloads for PaaS targets (selected while creating the assessment) and if found ready are recommended as targets, if the workloads aren't ready, they aren't recommended for fallback targets. All the unidentified workloads are assessed for Azure VM lift and shift.   |
-    | Lift and Shift to Azure VM  | The lift and shift to Azure VM migration path can be used to identify the readiness, right-sized targets, and cost if you want to migrate your workloads to Azure VM   |
-    | Migrate to AVS (Azure VMware Solution)  | The Migrate to AVS migration path can be used to identify the readiness, right-sized targets, and cost to migrate and host your workloads on Azure VMware Solution   |
+    | Lift and shift to Azure VM  | The lift and shift to Azure VM migration path can be used to identify the readiness, right-sized targets, and cost if you want to migrate your workloads to Azure VM   |
+    | Lift and shift to AVS (Azure VMware Solution)  | The Migrate to AVS migration path can be used to identify the readiness, right-sized targets, and cost to migrate and host your workloads on Azure VMware Solution   |
 
 1. The recommended migration path is selected based on migration preference. If your migration preference is "Modernize", the recommended migration path tries to maximize the PaaS coverage and if your preference is the minimum migration time the recommended strategy is the one that takes minimum time to migrate. You can change the migration preference to change the migration strategy.
 
-   [ ![Screenshot of migration preference dropdown.](./media/review-application-assessment/migration-preference-inline.png) ](./media/review-application-assessment/migration-preference-expanded.png#lightbox)
-
 1. You can review the details of each strategy by navigating through the strategy tabs on the top or by clicking on View details on the migration path card.  
-1. On the migration path tab, you can review the workload to Azure Service mapping. Each mapping indicates how the source workloads fare against the target Azure service, you can review the readiness coverage, Targets, number of sources and mapped number of targets and the migration strategy.  
-1. You can select the Workload to Azure Service mapping to analyze each of them in detail. The detailed drilldowns can be used to identify readiness, right-sized targets, source properties, migration tools, estimated cost of hosting the source on the Azure, migration guidance, and recommendation reasoning for each workload.
+1. On the migration path tab, you can review the application level details. for migration strategy, TCO for the application and readiness breakup. For each application you can review the readiness coverage, Targets, number of sources and mapped number of targets and the migration strategy.  
+1. You can select the application to analyze each of them in detail. The detailed drilldowns can be used to identify readiness, right-sized targets, source properties, migration tools, estimated cost of hosting the source on the Azure, migration guidance, and recommendation reasoning for each workload that is a part of the assessment.
+:::image type="content" source="./media/review-application-assessment/application-drilldown.png" alt-text="The screenshot that shows where the user can review application level drilldown in the assessment." lightbox="./media/review-application-assessment/application-drilldown.png":::
 1. Review the drill-down details for [servers](review-assessment.md), [databases](review-sql-assessment.md), and [web apps](review-web-app-assessment.md).

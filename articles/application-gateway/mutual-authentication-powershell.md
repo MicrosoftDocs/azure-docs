@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 07/11/2025
+ms.date: 11/18/2025
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell
 # Customer intent: "As an IT admin, I want to configure mutual authentication for my Application Gateway using PowerShell, so that I can ensure secure client-server communication through certificate verification."
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 # Configure mutual authentication with Application Gateway through PowerShell
 This article describes how to use PowerShell to configure mutual authentication on your Application Gateway. Mutual authentication means Application Gateway authenticates the client sending the request using the client certificate you upload onto the Application Gateway. 
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 > [!NOTE]
 > We recommend that you use the Azure Az PowerShell module to interact with Azure. To get started, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell). To learn how to migrate to the Az PowerShell module, see [Migrate Azure PowerShell from AzureRM to Az](/powershell/azure/migrate-from-azurerm-to-az).
@@ -25,7 +25,7 @@ This article requires the Azure PowerShell module version 1.0.0 or later. Run `G
 
 To configure mutual authentication with an Application Gateway, you need a client certificate to upload to the gateway. The client certificate is used to validate the certificate the client presents to Application Gateway. For testing purposes, you can use a self-signed certificate. However, this is not advised for production workloads, because they're harder to manage and aren't completely secure.
 
-To learn more, especially about what kind of client certificates you can upload, see [Overview of mutual authentication with Application Gateway](./mutual-authentication-overview.md#certificates-supported-for-mutual-authentication).
+To learn more, especially about what kind of client certificates you can upload, see [Overview of mutual authentication with Application Gateway](./mutual-authentication-overview.md#certificates-supported-for-mutual-tls-strict-mode-authentication).
 
 ## Create a resource group
 

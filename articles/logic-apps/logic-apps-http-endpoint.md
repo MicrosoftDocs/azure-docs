@@ -4,8 +4,10 @@ description: Learn how to create workflows that receive inbound requests through
 services: logic-apps
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.custom: engagement-fy23
 ms.date: 06/20/2025
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 ---
 
 # Create workflows that you can call, trigger, or nest using HTTPS endpoints in Azure Logic Apps
@@ -22,7 +24,7 @@ This guide shows how to create a callable endpoint for your workflow by adding t
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * The logic app resource with the workflow where you want to create the callable endpoint.
 

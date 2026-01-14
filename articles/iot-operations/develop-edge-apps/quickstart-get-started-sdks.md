@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Start developing with the Azure IoT Operations SDKs (preview)"
 description: Setup up a development environment for building and running the samples, as well as creating and testing your own Azure IoT Operations highly available edge applications.
-author: asergaz
-ms.author: sergaz
+author: dominicbetts
+ms.author: dobett
 ms.topic: quickstart-sdk
 ms.date: 05/08/2025
 ---
@@ -17,7 +17,7 @@ Get started developing with the Azure IoT Operations SDKs. Follow these steps to
 
 Before you begin, prepare the following prerequisites:
 
-* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * A [GitHub](https://github.com) account.
 
@@ -31,9 +31,6 @@ Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with
 > The following development environment setup options, use [K3s](https://k3s.io/) running in [K3d](https://k3d.io/) for a lightweight Kubernetes cluster, and deploys Azure IoT Operations with [test settings](../deploy-iot-ops/overview-deploy.md#test-settings-deployment). For production deployments, choose [secure settings](../deploy-iot-ops/overview-deploy.md#secure-settings-deployment). <br> If you want to use secure settings, we recommend you follow the instructions in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) to create a K3s cluster on Ubuntu and [Deploy Azure IoT Operations to a production cluster](../deploy-iot-ops/howto-deploy-iot-operations.md) to deploy with secure settings. Then proceed to [configure Azure IoT Operations for deployment](#configure-azure-iot-operations-for-development).
 
 ### [Codespaces](#tab/codespaces)
-
-> [!CAUTION]
-> We're currently experiencing container corruption with Azure IoT Operations deployed in a codespace, so we don't recommend this path until we resolve the issue with the GitHub team.
 
 GitHub Codespaces provides the most streamlined experience and can get the development environment up and running in a couple of minutes.
 

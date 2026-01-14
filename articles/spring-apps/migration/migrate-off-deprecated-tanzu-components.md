@@ -19,7 +19,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article describes the options available for migrating away from deprecated VMware Tanzu components.
 
-VMware Tanzu components are commercial products used in Azure Spring Apps Enterprise plan. According to Broadcom's product lifecycle, the following components have been deprecated and will reach the end of support on August 31, 2025:
+VMware Tanzu components are commercial products used in Azure Spring Apps Enterprise plan. According to Broadcom's product lifecycle, the following components have been deprecated and reached the end of support on August 31, 2025:
 
 - Application Configuration Service for VMware Tanzu
 - Application Live View for VMware Tanzu

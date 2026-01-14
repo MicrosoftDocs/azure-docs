@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 # ms.devlang: csharp, java, python, javascript
 ms.topic: how-to
-ms.date: 01/13/2025
+ms.date: 08/25/2025
 ms.author: zhiyuanliang
 ms.custom: devx-track-azurecli
 
@@ -22,7 +22,7 @@ To learn more about the concept of geo-replication, see [Geo-replication in Azur
 
 ## Prerequisites
 
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free)
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - We assume you already have an App Configuration store. If you want to create one, [create an App Configuration store](quickstart-aspnet-core-app.md).
 
 ## Create and list a replica
@@ -116,7 +116,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 
 ### [Java Spring](#tab/spring)
 
-Specify the `replicaDiscoveryEnabled` property in the `bootstrap.properties` file of your application.
+Specify the `replicaDiscoveryEnabled` property in the `application.properties` file of your application.
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].replica-discovery-enabled=false
@@ -246,7 +246,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 
 ### [Java Spring](#tab/spring)
 
-Edit the `endpoints` or `connection-strings` properties in the `bootstrap.properties` file of your application.
+Edit the `endpoints` or `connection-strings` properties in the `application.properties` file of your application.
 
 **Connect with Microsoft Entra ID**
 
@@ -374,6 +374,11 @@ appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
 > Load balancing support is available if you use version **1.2.0** or later of [azureappconfiguration](https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration).
 
 ---
+
+## Use geo-replication with Azure Front Door
+
+Replica discovery and load balancing cannot be enabled when using Azure Front Door. To use geo-replication with Azure Front Door, add replicas to your Azure Front Door origin group. For more information, see [Origins and origin groups in Azure Front Door](/azure/frontdoor/origin).
+
 
 ## Next steps
 

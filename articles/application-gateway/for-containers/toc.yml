@@ -23,22 +23,28 @@
     href: container-networking.md
   - name: Custom health probe
     href: custom-health-probe.md
-  - name: ECDSA and RSA certificates
-    href: ecdsa-rsa-certificates.md
-  - name: gRPC
-    href: grpc.md
+  - name: Protocols & Communication
+    items:
+    - name: gRPC
+      href: grpc.md
+    - name: Server-sent events
+      href: server-sent-events.md
+    - name: WebSockets
+      href: websockets.md
   - name: Scaling and zone resiliency
     href: scaling-zone-resiliency.md
-  - name: Server-sent events
-    href: server-sent-events.md
+  - name: Service mesh integration
+    href: service-mesh-integration.md
   - name: Session affinity
     href: session-affinity.md
-  - name: TLS policy
-    href: tls-policy.md
-  - name: Web Application Firewall (WAF)
-    href: web-application-firewall.md
-  - name: WebSockets
-    href: websockets.md
+  - name: Security & Certificates
+    items:
+      - name: ECDSA and RSA certificates
+        href: ecdsa-rsa-certificates.md
+      - name: TLS policy
+        href: tls-policy.md
+      - name: Web Application Firewall (WAF)
+        href: web-application-firewall.md
   - name: Frequently Asked Questions (FAQ)
     href: faq.yml
   - name: Understanding pricing
@@ -107,6 +113,8 @@
   items:
   - name: ALB Controller Helm Chart
     href: alb-controller-helm-chart.md
+  - name: ALB Service Mesh Helm Chart
+    href: service-mesh-helm-chart.md
   - name: API Specification
     href: api-specification-kubernetes.md
 - name: Reference

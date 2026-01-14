@@ -3,7 +3,7 @@ title: Deploy an Amazon Web Services VM with an Azure Automation runbook
 description: This article tells how to automate the creation of an Amazon Web Services VM.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/09/2024
+ms.date: 11/17/2025
 ms.topic: overview
 ms.service: azure-automation
 ms.author: v-jasmineme

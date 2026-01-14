@@ -7,7 +7,8 @@ ms.service: azure-managed-grafana
 ms.topic: quickstart
 author: maud-lv
 ms.author: malev
-ms.date: 04/16/2025
+ms.date: 09/29/2025
+ms.custom: sfi-image-nochange
 --- 
 
 # Quickstart: Create an Azure Managed Grafana workspace using the Azure portal
@@ -16,7 +17,7 @@ In this quickstart, you get started with Azure Managed Grafana by creating an Az
 
 ## Prerequisites
 
-- An Azure account for work or school and an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account for work or school and an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Minimum required role to create a workspace: resource group Contributor.
 
 ## Create an Azure Managed Grafana workspace
@@ -37,7 +38,7 @@ In this quickstart, you get started with Azure Managed Grafana by creating an Az
     | Resource group name | *my-resource-group*   | Create a resource group for your Azure Managed Grafana resources.                                                                                                                                                                                                                                                               |
     | Location            | *(US) East US*        | Use Location to specify the geographic location in which to host your resource. Choose the location closest to you.                                                                                                                                                                                                             |
     | Name                | *my-grafana*          | Enter a unique resource name. It will be used as the domain name in your Azure Managed Grafana workspace URL.                                                                                                                                                                                                                    |
-    | Pricing plan        | *Essential (preview)* | Choose between the Essential (preview) or the Standard plan. The Essential plan is the cheapest option you can use to evaluate the service. This plan doesn't have an SLA and isn't recommended for production use. For more information about Azure Managed Grafana plans, go to [pricing plans](overview.md#service-tiers). |
+    | Pricing plan        | *Standard* | Select the Standard plan. For more information about Azure Managed Grafana plans, go to [pricing plans](overview.md#service-tiers). |
     | Grafana version     | *11*                  | Choose the latest Grafana version, or the version that best suits your needs. |
 
 1. If you choose the Standard plan, select either the default **X1** instance size or the **X2** size, and optionally enable zone redundancy for your workspace.

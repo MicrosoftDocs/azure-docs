@@ -133,7 +133,7 @@ var tags {
   deployedBy: 'Bicep'
 }
 
-resource storage 'Microsoft.Storage/storageAccounts@2023-01-01' = {
+resource storage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: '${resourcePrefix}storage${instanceCount}'
   location: 'westus'
   tags: tags

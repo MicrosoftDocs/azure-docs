@@ -6,17 +6,33 @@ ms.author: yutlin
 ms.service: azure-app-service
 ms.topic: conceptual
 ms.date: 07/28/2025
+#customer intent: As an Azure App Service administrator, I want to understand upcoming changes to managed certificates so that I can ensure my applications remain secure and compliant.
 ---
 
-# App Service Managed Certificate (ASMC) changes – July 28, 2025
+# App Service Managed Certificate Changes – July 2025 and November 2025 Updates
+This article summarizes updates to App Service Managed Certificates (ASMC) introduced in July 2025 and November 2025. With the November 2025 update, ASMC now remains supported even if the site is not publicly accessible, provided all other requirements are met. Details on requirements, exceptions, and validation steps are included below.
 
+## November 2025 update
+Starting November 2025, App Service now allows DigiCert's requests to the `https://<hostname>/.well-known/pki-validation/fileauth.txt` endpoint, even if the site blocks public access. When DigiCert tries to reach the validation endpoint, [App Service front ends](/archive/msdn-magazine/2017/february/azure-inside-the-azure-app-service-architecture#front-end) present the token, and the request terminates at the front end layer. DigiCert's request does not reach the [workers](/archive/msdn-magazine/2017/february/azure-inside-the-azure-app-service-architecture#web-workers) running the application.
+
+This behavior is now the default for ASMC issuance for initial certificate creation and renewals. Customers do not need to specifically allow DigiCert's IP addresses.
+
+### Exceptions and Unsupported Scenarios
+This update addresses most scenarios that restrict public access, including App Service Authentication, disabling public access, IP restrictions, private endpoints, and client certificates. However, a public DNS record is still required. For example, sites using a private endpoint with a custom domain on a private DNS cannot validate domain ownership and obtain a certificate.
+
+Even with all validations now relying on HTTP token validation and DigiCert requests being allowed through, certain configurations are still not supported for ASMC:
+- Sites configured as "Nested" or "External" endpoints behind Traffic Manager. Only "Azure" endpoints are supported.
+- Certificates requested for domains ending in *.trafficmanager.net are not supported.
+
+### Testing 
+Customers can easily test whether their site’s configuration or set-up supports ASMC by attempting to create one for their site. If the initial request succeeds, renewals should also work, provided all requirements are met and the site is not listed in an unsupported scenario.
+
+## July 2025 update
 Starting July 28, 2025, Azure App Service Managed Certificates (ASMC) are subject to new issuance and renewal requirements due to DigiCert’s migration to a new validation platform. This change is driven by industry-wide compliance with Multi-Perspective Issuance Corroboration (MPIC).
 
 For a detailed explanation of the underlying changes at DigiCert, refer to [changes to the managed Transport Layer Security (TLS) feature](../security/fundamentals/managed-tls-changes.md).
 
-## What’s changing
-
-**Validation method update**: ASMC now uses HTTP Token validation for both apex and subdomains. Previously, subdomains were validated using CNAME records, which did not require public access. With HTTP Token, DigiCert must reach a specific endpoint on your app to verify domain ownership.
+**Validation method update**: ASMC now uses HTTP Token validation for both apex and subdomains. Previously, subdomains were validated using CNAME records, which did not require public access. With HTTP Token, DigiCert must reach `https://<hostname>/.well-known/pki-validation/fileauth.txt` endpoint on your app to verify domain ownership.
 
 App Service automatically places the required token at the correct path for validation. This process applies to both initial certificate issuance and renewals, meaning:
 
@@ -27,17 +43,13 @@ App Service automatically places the required token at the correct path for vali
 > [!IMPORTANT]
 > While App Service continues to handle token placement automatically during renewals, DigiCert must still reach the validation endpoint on your app. Public access is still required at the time of renewal. If your app is not publicly accessible, renewal fails even if the token is correctly placed.
 
-## Impacted scenarios
+## Impacted scenarios as of November 2025
 
 You can't create or renew ASMCs if your:
-- Site is not publicly accessible:
-   - Public accessibility to your app is required. If your app is only accessible through private configurations, such as requiring a client certificate, disabling public network access, using private endpoints, or applying IP restrictions, you can't create or renew a managed certificate.
-   - Other configurations that restrict public access, such as firewalls, authentication gateways, or custom access policies, may also affect eligibility for managed certificate issuance or renewal.
-
 - Site is an Azure Traffic Manager "nested" or "external" endpoint:
    - Only "Azure Endpoints" on Traffic Manager is supported for certificate creation and renewal.
    - "Nested endpoints" and "External endpoints" is not supported.
-- Site relies on _*.trafficmanager.net_ domains:
+- Certificate issued to _*.trafficmanager.net_ domains:
    - Certificates for _*.trafficmanager.net_ domains is not supported for creation or renewal.
 
 Existing certificates remain valid until expiration (up to six months), but will not renew automatically if your configuration is unsupported.
@@ -45,53 +57,10 @@ Existing certificates remain valid until expiration (up to six months), but will
 > [!NOTE]
 > In addition to the new changes, all existing ASMC requirements still apply. Refer to [App Service Managed Certificate documentation](configure-ssl-certificate.md#create-a-free-managed-certificate) for more information.
 
-## Identify impacted resources
+## Identify impacted resources as of November 2025
 You can use [Azure Resource Graph (ARG)](https://portal.azure.com/?feature.customPortal=false#view/HubsExtension/ArgQueryBlade) queries to help identify resources that may be affected under each scenario. These queries are provided as a starting point and may not capture every configuration. Review your environment for any unique setups or custom configurations. 
 
-### Scenario 1: Site is not publicly accessible
-This ARG query retrieves a list of sites that either have the public network access property disabled or are configured to use client certificates. It then filters for sites that are using App Service Managed Certificates (ASMC) for their custom hostname SSL bindings. These certificates are the ones that could be affected by the upcoming changes. However, this query does not provide complete coverage, as there may be other configurations impacting public access to your app that are not included here. Ultimately, this query serves as a helpful guide for users, but a thorough review of your environment is recommended. You can copy this query, paste it into [ARG Explorer](https://portal.azure.com/?feature.customPortal=false#view/HubsExtension/ArgQueryBlade), and then click "Run query" to view the results for your environment. 
-
-> [!NOTE]
-> ARG can only retrive site property values (ie. client certificate and public network access), however it cannot retrieve any site config values (ie. IP restrictions). If you would like to retrive both site properties and site config values as well, you can refer to this [PowerShell script from GitHub](https://github.com/nimccoll/AppServiceManagedCertificates).
-> 
-
-```kql
-// ARG Query: Identify App Service sites that commonly restrict public access and use ASMC for custom hostname SSL bindings 
-resources 
-| where type == "microsoft.web/sites" 
-// Extract relevant properties for public access and client certificate settings 
-| extend  
-    publicNetworkAccess = tolower(tostring(properties.publicNetworkAccess)), 
-    clientCertEnabled = tolower(tostring(properties.clientCertEnabled)) 
-// Filter for sites that either have public network access disabled  
-// or have client certificates enabled (both can restrict public access) 
-| where publicNetworkAccess == "disabled"  
-    or clientCertEnabled != "false" 
-// Expand the list of SSL bindings for each site 
-| mv-expand hostNameSslState = properties.hostNameSslStates 
-| extend  
-    hostName = tostring(hostNameSslState.name), 
-    thumbprint = tostring(hostNameSslState.thumbprint) 
-// Only consider custom domains (exclude default *.azurewebsites.net) and sites with an SSL certificate bound 
-| where tolower(hostName) !endswith "azurewebsites.net" and isnotempty(thumbprint) 
-// Select key site properties for output 
-| project siteName = name, siteId = id, siteResourceGroup = resourceGroup, thumbprint, publicNetworkAccess, clientCertEnabled 
-// Join with certificates to find only those using App Service Managed Certificates (ASMC) 
-// ASMCs are identified by the presence of the "canonicalName" property 
-| join kind=inner ( 
-    resources 
-    | where type == "microsoft.web/certificates" 
-    | extend  
-        certThumbprint = tostring(properties.thumbprint), 
-        canonicalName = tostring(properties.canonicalName) // Only ASMC uses the "canonicalName" property 
-    | where isnotempty(canonicalName) 
-    | project certName = name, certId = id, certResourceGroup = tostring(properties.resourceGroup), certExpiration = properties.expirationDate, certThumbprint, canonicalName 
-) on $left.thumbprint == $right.certThumbprint 
-// Final output: sites with restricted public access and using ASMC for custom hostname SSL bindings 
-| project siteName, siteId, siteResourceGroup, publicNetworkAccess, clientCertEnabled, thumbprint, certName, certId, certResourceGroup, certExpiration, canonicalName
-```
-
-### Scenario 2: Site is an Azure Traffic Manager "nested" or "external" endpoint
+### Scenario 1: Site is an Azure Traffic Manager "nested" or "external" endpoint
 If your App Service uses custom domains routed through **Azure Traffic Manager**, you may be impacted if your profile includes **external** or **nested endpoints**. These endpoint types are not supported for certificate issuance or renewal under the new validation.
 
 To help identify affected Traffic Manager profiles across your subscriptions, we recommend using [this PowerShell script](https://github.com/nimccoll/NonAzureTrafficManagerEndpoints) developed by the Microsoft team. It scans for profiles with non-Azure endpoints and outputs a list of potentially impacted resources.
@@ -108,7 +77,7 @@ To run the script:
    .\TrafficManagerNonAzureEndpoints.ps1
    ```
 
-### Scenario 3: Site relies on _*.trafficmanager.net_ domains
+### Scenario 2: Certificate issued to _*.trafficmanager.net_ domains
 This ARG query helps you identify App Service Managed Certificates (ASMC) that were issued to _*.trafficmanager.net domains_. In addition, it also checks whether any web apps are currently using those certificates for custom domain SSL bindings. You can copy this query, paste it into [ARG Explorer](https://portal.azure.com/?feature.customPortal=false#view/HubsExtension/ArgQueryBlade), and then click "Run query" to view the results for your environment. 
 
 ```kql
@@ -142,62 +111,9 @@ resources
 | project certName, certId, certResourceGroup, certExpiration, canonicalName, siteName, siteId, siteResourceGroup
 ```
 
-## Mitigation guidance
+## Mitigation guidance as of November 2025
 
-### Scenario 1: Site is not publicly accessible
-
-Apps that are not accessible from the public internet cannot create or renew ASMCs. These configurations may include restrictions enforced through private endpoints, firewalls, IP filtering, client certificates, authentication gateways, or custom access policies.
-
-We recognize that making applications publicly accessible may conflict with customer security policies or introduce risk. The recommended mitigation is to replace ASMC with a custom certificate and update the TLS/SSL binding for your custom domain.
-
-**Recommended steps:**
-
-1. **Acquire a certificate for your custom domain**  
-   You may use any certificate provider that meets your security and operational requirements. The certificate should be compatible with Azure App Service and ideally stored in Azure Key Vault for easier management.
-
-2. **Add the certificate to the site**  
-   After acquiring a certificate for your custom domain, you need to upload it to your App Service app and configure it for use. After acquiring a certificate for your custom domain, you need to upload it to your App Service app and configure it for use.
-   > [!TIP]  
-   > Make sure to [authorized App Service to read the certificates from Key vault](configure-ssl-certificate.md#authorize-app-service-to-read-from-the-vault). Use the specific identity listed in the documentation and not the Managed Identity of the site.
-   - [REST API: Import KV certificate to site](/rest/api/appservice/certificates/create-or-update)
-   - [CLI: Import KV certificate to site](/cli/azure/webapp/config/ssl#az-webapp-config-ssl-import)
-
-4. **Update the custom domain binding**  
-   > [!IMPORTANT]  
-   > **To avoid any service downtime, do not delete the TLS/SSL binding**. You can update the binding with the new certificate thumbprint or name that was added to the web app without deleting the current binding.
-
-   - [REST API: Update hostname binding](/rest/api/appservice/web-apps/create-or-update-host-name-binding)
-   - [CLI: Update hostname binding](/cli/azure/webapp/config/ssl#az-webapp-config-ssl-bind)
-
-5. **Remove other dependencies on ASMC**
-
-   - **Custom domain TLS/SSL bindings**  
-     Determine whether ASMCs are actively used for TLS/SSL bindings in your web app's custom domain configuration. If so, follow the steps above to replace the certificate and update the binding.
-
-   - **Certificate used in application code**  
-     Certificates may be used in application code for tasks such as authentication. If your app uses the `WEBSITE_LOAD_CERTIFICATES` setting to load ASMCs, update your code to use the new certificate instead.
-
-6. **Delete ASMC resources**  
-   After confirming that your environment or services no longer depend on ASMC, delete the ASMCs associated with your site.  
-   Deleting ASMCs helps prevent accidental reuse, which could result in service downtime when the certificate fails to renew.
-
-   - [REST API: Delete Certificate](/rest/api/appservice/certificates/delete)
-   - [CLI: Delete certificate](/cli/azure/webapp/config/ssl#az-webapp-config-ssl-delete)
-
-**Temporary mitigation: DigiCert IP allowlisting**  
-Some customers may choose to allowlist [DigiCert’s domain validation IPs](https://knowledge.digicert.com/alerts/ip-address-domain-validation) as a short-term workaround. This may help maintain certificate issuance while transitioning away from using ASMC for websites that aren’t publicly accessible.
-> [!NOTE]
-> Allowlisting DigiCert's IP isn’t an official or supported long-term solution. Microsoft’s stance remains that **public access is required** to avoid potential service disruptions. Keep in mind:
->
-> - DigiCert manages its own IPs and may change them without notice.
-> - Microsoft doesn’t control DigiCert’s infrastructure and can’t guarantee the documentation stay up to date.
-> - Microsoft doesn’t provide alerts if DigiCert updates its IPs.
-> - Use this approach at your own risk.
-
-For guidance on configuring access restrictions, refer to [set up Azure App Service access restrictions](app-service-ip-restrictions.md).
-
-
-### Scenario 2: Site is an Azure Traffic Manager "nested" or "external" endpoint
+### Scenario 1: Site is an Azure Traffic Manager "nested" or "external" endpoint
 
 Only "Azure Endpoints" are supported. "Nested" and "External" endpoints are not supported for ASMC validation.
 
@@ -207,7 +123,7 @@ Only "Azure Endpoints" are supported. "Nested" and "External" endpoints are not 
 - For guidance on using App Service as an Azure Traffic Manager endpoint, refer to [App Service and Traffic Manager Profiles](web-sites-traffic-manager.md#app-service-and-traffic-manager-profiles).
 
 
-### Scenario 3: Site relies on _*.trafficmanager.net_ domains
+### Scenario 2: Certificate issued to _*.trafficmanager.net_ domains
 
 Certificates for `*.trafficmanager.net` domains are not supported. If your app relies on this domain and uses ASMC, you need to remove that dependency and secure your app using a custom domain and certificate.
 
@@ -255,13 +171,15 @@ Certificates for `*.trafficmanager.net` domains are not supported. If your app r
 ## Frequently asked questions (FAQ)
 
 **Why is public access now required?**  
-Due to MPIC compliance, App Service is migrating to Http Token validation for all ASMC creation and renewal requests. DigiCert must verify domain ownership by reaching a specific endpoint on your app. A successful validation with Http token is only possible if the app is publicly accessible. 
+Previously, public access was required so DigiCert could reach the validation file at `https://<hostname>/.well-known/pki-validation/fileauth.txt` during certificate issuance and renewal.
+
+[November 2025 update](#november-2025-update): Public access is no longer required for ASMC issuance. App Service now intercepts DigiCert’s validation requests at the front-end layer and presents the token without exposing your app. This behavior is the default for both initial certificate creation and renewals. Prerequisites such as correct DNS configuration still apply.
+
+**What if I allowlist DigiCert IP addresses?**  
+You no longer need to allowlist DigiCert IP addresses. The [November 2025 update](#november-2025-update) ensures DigiCert’s requests never reach your app’s workers. The front-end handles validation securely, so IP allowlisting is unnecessary.
 
 **Can I still use CNAME records?**  
 Yes, you can still use CNAME records for domain name system (DNS) routing and for verifying domain ownership.
-
-**What if I allowlist DigiCert IP addresses?**  
-Allowlisting DigiCert’s domain validation IPs may work as a temporary workaround. However, Microsoft cannot guarantee that these IPs won’t change. DigiCert may update them without notice, and Microsoft does not maintain documentation for these IPs. Customers are responsible for monitoring and maintaining this configuration.
 
 **Are certificates for \*.azurewebsites.net impacted?**  
 No, these changes do not apply to the *.azurewebsites.net certificates. ASMC is only issued to customer’s custom domain and not the default hostname.

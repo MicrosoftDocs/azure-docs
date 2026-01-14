@@ -208,7 +208,6 @@ Embed a map in a web page using the map control npm package.
 
 Azure Maps offers other modules as npm packages that can be integrated into your application. These modules include:
 - [azure-maps-drawing-tools]
-- [azure-maps-indoor]
 - [azure-maps-spatial-io]
 
 The following sample shows how to import a module and use it in your application. This sample uses [azure-maps-spatial-io] to read a `POINT(-122.34009 47.60995)` string as GeoJSON and renders it on the map using a bubble layer.
@@ -308,5 +307,4 @@ Learn best practices and see samples:
 [webpack]: https://webpack.js.org/
 [style-loader]: https://webpack.js.org/loaders/style-loader/
 [azure-maps-drawing-tools]: ./set-drawing-options.md
-[azure-maps-indoor]: ./how-to-use-indoor-module.md
 [azure-maps-spatial-io]: ./how-to-use-spatial-io-module.md

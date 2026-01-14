@@ -1,12 +1,12 @@
 ---
-title: Develop with Durable Task Scheduler (preview)
+title: Develop with Durable Task Scheduler
 description: Learn how to develop with the Durable Task Scheduler using the Azure CLI for both Durable Functions and Durable Task Scheduler.
 ms.topic: how-to
-ms.date: 05/06/2025
+ms.date: 11/05/2025
 zone_pivot_groups: dts-devexp
 ---
 
-# Develop with Durable Task Scheduler (preview)
+# Develop with Durable Task Scheduler
 
 The Durable Task Scheduler is a highly performant, fully managed backend provider for Durable Functions with an [out-of-the-box monitoring dashboard](./durable-task-scheduler-dashboard.md). Azure offers two developer-oriented orchestration frameworks that work with Durable Functions to build apps: Durable Task SDKs and Durable Functions. 
 
@@ -64,8 +64,17 @@ The Durable Task Scheduler emulator is only available as a Docker image today.
 1. If you already installed the Durable Task Scheduler CLI extension, upgrade to the latest version.
 
     ```azurecli
-    az extension add --upgrade --name durabletask
+    az extension update --name durabletask
     ```
+
+1. Check your installed version:
+   
+   ```azurecli
+   az extension show --name durabletask
+   ```
+
+[Learn more about the various `az durabletask` commands you can use.](https://github.com/Azure/azure-cli-extensions/tree/main/src/durabletask)   
+
 ::: zone-end 
 
 ## Create a scheduler and task hub
@@ -78,6 +87,8 @@ The Durable Task Scheduler emulator is only available as a Docker image today.
     ```
 
 1. Using the `durabletask` CLI extension, create a scheduler.
+
+   #### [Dedicated SKU](#tab/dedicated)
 
     ```azurecli
     az durabletask scheduler create --name "YOUR_SCHEDULER" --resource-group "YOUR_RESOURCE_GROUP" --location "LOCATION" --ip-allowlist "[0.0.0.0/0]" --sku-name "dedicated" --sku-capacity "1"
@@ -117,6 +128,49 @@ The Durable Task Scheduler emulator is only available as a Docker image today.
     }
     ```
 
+   #### [Consumption SKU](#tab/consumption)
+
+   > [!NOTE]
+   > The Consumption SKU is currently in preview. [Learn more about the SKU and orchestration framework combinations recommended for production use.](./choose-orchestration-framework.md#orchestration-framework-options)
+
+    ```azurecli
+    az durabletask scheduler create --name "YOUR_SCHEDULER" --resource-group "YOUR_RESOURCE_GROUP" --location "LOCATION" --ip-allowlist "[0.0.0.0/0]" --sku-name "consumption"
+    ```
+
+    The creation process may take up to 15 minutes to complete.
+
+    *Output*
+
+    ```json
+    {
+        "id": "/subscriptions/YOUR_SUBSCRIPTION_ID/resourceGroups/YOUR_RESOURCE_GROUP/providers/Microsoft.DurableTask/schedulers/YOUR_SCHEDULER",
+        "location": "northcentralus",
+        "name": "YOUR_SCHEDULER",
+        "properties": {
+            "endpoint": "https://YOUR_SCHEDULER.northcentralus.durabletask.io",
+            "ipAllowlist": [
+                "0.0.0.0/0"
+            ],
+            "provisioningState": "Succeeded",
+            "sku": {
+                "name": "Consumption",
+                "redundancyState": "None"
+            }
+        },
+        "resourceGroup": "YOUR_RESOURCE_GROUP",
+        "systemData": {
+            "createdAt": "2025-01-06T21:22:59Z",
+            "createdBy": "YOUR_EMAIL@example.com",
+            "createdByType": "User",
+            "lastModifiedAt": "2025-01-06T21:22:59Z",
+            "lastModifiedBy": "YOUR_EMAIL@example.com",
+            "lastModifiedByType": "User"
+        },
+        "tags": {}
+    }
+    ```
+    ---
+
 1. Create a task hub.
 
     ```azurecli
@@ -152,11 +206,16 @@ The Durable Task Scheduler emulator is only available as a Docker image today.
 
     :::image type="content" source="media/create-durable-task-scheduler/search-for-durable-task-scheduler.png" alt-text="Screenshot of searching for the Durable Task Scheduler in the portal.":::
 
-1. Click **Create** to open the **Azure Functions: Durable Task Scheduler (preview)** pane.
+1. Click **Create** to open the **Azure Functions: Durable Task Scheduler** pane.
 
     :::image type="content" source="media/create-durable-task-scheduler/top-level-create-form.png" alt-text="Screenshot of the create page for the Durable Task Scheduler.":::
 
-1. Fill out the fields in the **Basics** tab. Click **Review + create**. Once the validation passes, click **Create**. 
+1. Fill out the fields in the **Basics** tab. Click **Review + create**. 
+
+   > [!NOTE]
+   > The Consumption SKU is currently in preview. [Learn more about the SKU and orchestration framework combinations recommended for production use.](./choose-orchestration-framework.md#orchestration-framework-options)
+
+1. Once the validation passes, click **Create**. 
 
     Deployment may take around 15 to 20 minutes. 
 
@@ -193,11 +252,11 @@ You can see the list of scheduler resources created in all subscriptions you hav
 
 ::: zone pivot="az-cli" 
 
-1. Retrieve a list of task hubs in a specific scheduler by running: 
+Retrieve a list of task hubs in a specific scheduler by running: 
 
-    ```azurecli
-    az durabletask taskhub list --resource-group <RESOURCE_GROUP_NAME> --scheduler-name <SCHEDULER_NAME>
-    ```
+```azurecli
+az durabletask taskhub list --resource-group <RESOURCE_GROUP_NAME> --scheduler-name <SCHEDULER_NAME>
+```
 ::: zone-end
 
 ::: zone pivot="az-portal"

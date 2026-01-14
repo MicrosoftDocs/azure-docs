@@ -17,6 +17,9 @@ Azure Front Door supports WebSocket on both Standard and Premium tiers without r
 
 WebSocket is ideal for applications needing real-time updates or continuous data streams, such as chat apps, dashboards, financial updates, GPS, online education, live streaming, and gaming. For instance, a trading website can use WebSocket to push and update pricing data in real-time.
 
+> [!Note]
+> Front Door does not support Server-Sent Events (SSE).
+
 ## Use WebSocket on Azure Front Door
 
 When using WebSocket on Azure Front Door, consider the following:

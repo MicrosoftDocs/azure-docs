@@ -16,14 +16,17 @@ ms.custom:
 
 This article guides the reader through the process of deploying a GeoCatalog resource. The GeoCatalog resource is the top-level container for Geospatial data stored using Microsoft Planetary Computer Pro. Once a GeoCatalog resource is deployed, the user can begin to ingest geospatial data into Planetary Computer Pro. Geospatial data stored in a GeoCatalog is indexed, queried, and retrieved using the SpatioTemporal Access Catalog (STAC) open-standard. For more information on STAC, see [STAC overview](./stac-overview.md).
 
+> [!NOTE]
+> Due to the recovery from recent  [Azure Front Door issues](https://azure.status.microsoft/status/history/?trackingId=YKYN-BWZ), users can expect deployments to take up to 2 hours.
+
 ## Prerequisites
 
-- An Azure account and subscription [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Azure CLI](/cli/azure/install-azure-cli) (For using the REST API) 
 
 ## Methods
 
-This article describes two methods for deploying an Planetary Computer Pro GeoCatalog:
+This article describes two methods for deploying a Planetary Computer Pro GeoCatalog:
 
 - Using the Azure portal.  
 - Using the Azure REST API.  
@@ -64,7 +67,7 @@ This article describes two methods for deploying an Planetary Computer Pro GeoCa
 
    [ ![Screenshot of the Tags tab in the Create GeoCatalog Resource workflow.](media/create-geocatalog-tags.png) ](media/create-geocatalog-tags.png#lightbox)
 
-1. From the "Review and create" tab, review selections made in the previous step. Make necessary corrections in previous sections by selecting the **Previous** button at the bottom of the page. You can also directly navigate to a tab in the workflow by selecting on that tab's name. Once you're satisfied with your settings and selections, select the **Create** button.
+1. From the "Review and create" tab, review selections made in the previous step. Make necessary corrections in previous sections by selecting the **Previous** button at the bottom of the page. You can also directly navigate to a tab in the workflow by selecting that tab's name. Once you're satisfied with your settings and selections, select the **Create** button.
 
    [ ![Screenshot of the Review and create tab in the Create GeoCatalog Resource workflow.](media/review-create-geocatalog-resource.png) ](media/review-create-geocatalog-resource.png#lightbox)
 

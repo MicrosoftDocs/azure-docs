@@ -5,6 +5,7 @@ author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-edge
 services: iot-edge
+ms.custom: sfi-ropc-nochange
 ---
 
 ## Register your device

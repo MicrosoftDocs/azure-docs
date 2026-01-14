@@ -7,6 +7,7 @@ ms.service: azure-firewall-manager
 ms.topic: how-to
 ms.date: 01/08/2025
 ms.author: duau
+ms.custom: sfi-image-nochange
 ---
 
 # Secure traffic destined to private endpoints in Azure Virtual WAN

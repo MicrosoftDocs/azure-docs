@@ -2,9 +2,10 @@
 title: Azure Functions Core Tools reference
 description: Reference documentation that supports the Azure Functions Core Tools (func.exe).
 ms.topic: reference
+ms.date: 11/06/2025
 ms.custom:
   - ignite-2023
-ms.date: 08/20/2023
+  - sfi-ropc-nochange
 ---
 
 # Azure Functions Core Tools reference
@@ -173,6 +174,18 @@ In version 1.x, you can also use the [`func run`](#func-run) command to run a sp
 
 ---
 
+## `func azure functionapp` global options
+
+All `func azure functionapp` commands support these options:
+
+| Option     | Description                            |
+| ------------ | -------------------------------------- |
+| **`--slot`** | Targets a specific named [deployment slot](functions-deployment-slots.md), if configured. |
+| **`--access-token`** | Provides an access token, other than the default token, to use for performing authenticated actions in Azure.  |
+| **`--access-token-stdin `** | Reads a specific access token from a standard input. Use this when reading the token directly from a previous command such as [`az account get-access-token`](/cli/azure/account#az-account-get-access-token). |
+| **`--management-url`** | Sets the management URL for the Azure cloud, which defaults to `https://management.azure.com`. Use this option when your function app runs in a sovereign cloud.  |
+| **`--subscription`** | Sets the default Azure subscription.  |
+
 ## `func azure functionapp fetch-app-settings`
 
 Gets settings from a specific function app.
@@ -192,6 +205,11 @@ Returns a list of the functions in the specified function app.
 ```command
 func azure functionapp list-functions <APP_NAME>
 ```
+
+| Option     | Description                            |
+| ------------ | -------------------------------------- |
+| **`--show-keys`** | The function endpoint URLs that are returned include function-level access key values. |
+
 ## `func azure functionapp logstream`
 
 Connects the local command prompt to streaming logs for the function app in Azure.
@@ -200,7 +218,7 @@ Connects the local command prompt to streaming logs for the function app in Azur
 func azure functionapp logstream <APP_NAME>
 ```
 
-The default timeout for the connection is 2 hours. You can change the timeout by adding an app setting named [SCM_LOGSTREAM_TIMEOUT](functions-app-settings.md#scm_logstream_timeout), with a timeout value in seconds. Not yet supported for Linux apps in the Consumption plan. For these apps, use the `--browser` option to view logs in the portal.
+The default timeout for the connection is 2 hours. You can change the timeout by adding an app setting named [SCM_LOGSTREAM_TIMEOUT](functions-app-settings.md#scm_logstream_timeout), with a timeout value in seconds. Not yet supported for Linux in a [Flex Consumption](flex-consumption-plan.md) or [Consumption](consumption-plan.md) plan. For these apps, use the `--browser` option to view logs in the portal.
 
 The `deploy` action supports the following options:
 
@@ -226,8 +244,6 @@ The following publish options apply, based on version:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--access-token`** | Lets you use a specific access token when performing authenticated `azure` actions. |
-| **`--access-token-stdin `** | Reads a specific access token from a standard input. Use this when reading the token directly from a previous command such as [`az account get-access-token`](/cli/azure/account#az-account-get-access-token). |
 | **`--additional-packages`** | List of packages to install when building native dependencies. For example: `python3-dev libevent-dev`. |
 | **`--build`**, **`-b`** | Performs build action when deploying to a Linux function app. Accepts: `remote` and `local`. |
 | **`--build-native-deps`** | Skips generating the `.wheels` folder when publishing Python function apps. |
@@ -236,15 +252,11 @@ The following publish options apply, based on version:
 | **`--force`** | Ignore prepublishing verification in certain scenarios. |
 |**`--list-ignored-files`** | Displays a list of files that are ignored during publishing, which is based on the `.funcignore` file. |
 | **`--list-included-files`** | Displays a list of files that are published, which is based on the `.funcignore` file. |
-| **`--management-url`** | Sets the management URL for your cloud. Use this when running in a sovereign cloud. |
 | **`--no-build`** | Project isn't built during publishing. For Python, `pip install` isn't performed. |
 | **`--nozip`** | Turns the default `Run-From-Package` mode off. |
 | **`--overwrite-settings -y`** | Suppress the prompt to overwrite app settings when `--publish-local-settings -i` is used.|
 | **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists. If you're using a [local storage emulator](functions-develop-local.md#local-storage-emulator), first change the app setting to an [actual storage connection](#func-azure-storage-fetch-connection-string). |
 | **`--publish-settings-only`**, **`-o`** |  Only publish settings and skip the content. Default is prompt. |
-| **`--slot`** | Optional name of a specific slot to which to publish. |
-| **`--subscription`** | Sets the default subscription to use. |
-
 
 # [v1.x](#tab/v1)
 
@@ -278,20 +290,16 @@ The following deployment options apply:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--access-token`** | Lets you use a specific access token when performing authenticated `azure` actions. |
-| **`--access-token-stdin `** | Reads a specific access token from a standard input. Use this when reading the token directly from a previous command such as [`az account get-access-token`](/cli/azure/account#az-account-get-access-token). |
 | **`--environment`** | The name of an existing Container Apps environment.| 
 | **`--image-build`** | When set to `true`, skips the local Docker build. |
 | **`--image-name`** | The image name of an existing container in a container registry. The image name includes the tag name. |
 | **`--location `** | Region for the deployment. Ideally, this is the same region as the environment and storage account resources. |
-| **`--management-url`** | Sets the management URL for your cloud. Use this when running in sovereign cloud. |
 | **`--name`** | The name used for the function app deployment in the Container Apps environment. This same name is also used when managing the function app in the portal. The name should be unique in the environment. | 
 | **`--registry`** | When set, a Docker build is run and the image is pushed to the registry set in `--registry`. You can't use `--registry` with `--image-name`. For Docker Hub, also use `--registry-username`.|
 | **`--registry-password`** | The password or token used to retrieve the image from a private registry.|
 | **`--registry-username`** | The username used to retrieve the image from a private registry.|
 | **`--resource-group`** | The resource group in which to create the functions-related resources.|
 | **`--storage-account`** | The connection string for the storage account to be used by the function app.|
-| **`--subscription`** | Sets the default subscription to use. |
 | **`--worker-runtime`** | Sets the runtime language of the function app. This parameter is only used with `--image-name` and `--image-build`, otherwise the language is determined during the local build. Supported values are: `dotnet`, `dotnetIsolated`, `node`, `python`, `powershell`, and `custom` (for customer handlers). |
 
 

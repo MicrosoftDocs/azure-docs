@@ -2,9 +2,14 @@
 title: Dapr Extension for Azure Functions
 description: Learn to use the Dapr triggers and bindings in Azure Functions.
 ms.topic: reference
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, build-2024
 ms.date: 05/10/2024
 zone_pivot_groups: programming-languages-set-functions-lang-workers
+ms.custom:
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - build-2024
+  - sfi-image-nochange
 ---
 
 # Dapr Extension for Azure Functions

@@ -22,7 +22,7 @@ However, if you have chosen to create a hardened linux image by removing the Azu
 This "how to" document describes the steps to deploy a virtual machine scale set instance while comprehending the functional limitations of the hardened image on deploying the vmss instance.
 ## Prerequisites
 
-- Azure subscription - If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- Azure subscription - If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - If your free trial accounts don't have access to the VMs used in this tutorial, one option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
 - A hardened linux image - you can create one from this [article](harden-a-linux-image-to-remove-azure-guest-agent.md).
   

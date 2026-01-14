@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 05/27/2025
+ms.date: 11/20/2025
 ms.author: anfdocs
 # Customer intent: As a cloud storage administrator, I want to analyze performance and usage metrics for Azure NetApp Files, so that I can optimize storage provisioning and ensure efficient operation of my storage resources.
 ---
@@ -26,7 +26,7 @@ Understanding the terminology related to performance and capacity in Azure NetAp
 
 An operation in Azure NetApp Files is defined as _something_ that happens during a client/server conversation. For instance, when a client requests a file to be read from Azure NetApp Files, read and other operations are sent and received between the client and server.  
 
-When monitoring the Azure NetApp Files volume, read and write operations are self-explanatory. Also included in the metrics is a metric called **Other IOPS**, meaning any operation that isn't a read or write. **Other IOPS** encompasses operations such as metadata, which is present alongside most read and write operations.
+When monitoring the Azure NetApp Files volume, read and write operations are self-explanatory. Also included in the metrics is a metric called **Other IOPS**, meaning any operation that isn't a read or write. The **Other IOPS** metric encompasses operations such as metadata, which is present alongside most read and write operations.
 
 The following types of metadata operations are included in the **Other IOPS** metric: 
 
@@ -127,38 +127,35 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
 - From Azure monitor, select **Metrics**, select a capacity pool or volume. Then select **Metric** to view the available metrics:
    
     :::image type="content" source="./media/azure-netapp-files-metrics/metrics-select-pool-volume.png" alt-text="Screenshot that shows how to access Azure NetApp Files metrics for capacity pools or volumes." lightbox="./media/azure-netapp-files-metrics/metrics-select-pool-volume.png":::
+
+    >[!TIP]
+    >For [cache volumes](#cache-volume-metrics-preview), enter the cache's full resource ID in the search filter. 
   	
 - From the Azure NetApp Files capacity pool or volume, select **Metrics**. Then select **Metric** to view the available metrics:
    
     :::image type="content" source="./media/azure-netapp-files-metrics/metrics-navigate-volume.png" alt-text="Snapshot that shows how to navigate to the Metric pull-down." lightbox="./media/azure-netapp-files-metrics/metrics-navigate-volume.png":::
 
-## <a name="subscription-quota-metrics"></a> Subscription quota metrics (preview)
+## Subscription quota metrics
 
 Subscription quota metrics display subscription-level quotas relative to the imposed limits. These metrics are displayed in two columns: the available limit and the consumption by your subscription.
 
 :::image type="content" source="./media/azure-netapp-files-metrics/subscription-quota.png" alt-text="Screenshot of subscription quota metrics." lightbox="./media/azure-netapp-files-metrics/subscription-quota.png":::
 
-Subscription quota metrics are currently in preview. Before you can access subscription-level quota metrics, you need to register the feature: 
-
-1. Register the feature
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFQuotaLimit
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFQuotaLimit
-    ```
-    You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
-
 - *Accounts per subscription*
 
     Number of NetApp accounts per region 
+
+- *Capacity pools per subscription*
+
+    Number of capacity pools per subscription
+
+- *Snapshots per volume*
+
+    Number of snapshots per volume
+
+- *Buckets per volume*
+
+    Number of buckets per volume
 
 - *Total backup enabled volumes per subscription*
 
@@ -168,18 +165,30 @@ Subscription quota metrics are currently in preview. Before you can access subsc
 
     Total number of cool access volumes per subscription 
 
+- *Volumes per subscription*
+
+    Total number of volumes per subscription
+
+- *Volumes per capacity pool*
+
+    Total number of volumes per capacity pool
+
 - *Total DP volumes per subscription* 
 
-    Total number of data protection volumes per subscription  
+    Total number of data protection volumes per subscription (destination volumes)
+
+- *Short-term clone volumes per source volume*
+
+    Total number of short-term clone volumes per source volume
+
+- *Short-term clone volumes per subscription*
+
+    Total number of short-term clone volumes per subscription
 
 - *Total TIBs per subscription* 
 
     Total regional capacity per subscription 
 
-- *Total volumes per subscription* 
-
-    Total number of volumes per subscription  
-    
 ## <a name="capacity_pools"></a>Usage metrics for capacity pools
 
 - *Pool Allocated Size*   
@@ -238,13 +247,14 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
     Throughput limit reached is a boolean metric that denotes the volume is hitting its QoS limits. If the metric displays 1, the volume has reached its throughput, and throughput for this volume will be throttled. The value 0 means this limit hasn't yet been reached.
 
      > [!NOTE] 
-     > The Throughput limit reached metrics is collected every 5 minutes. If the limit has been reached in the five-minute window, it means the limit has been reached in that window. 
+     > The "Throughput limit reached" metric is collected every 5 minutes. If the limit has been reached during the previous five-minute window, it means the limit has been reached in that window. 
     
     If the volume is hitting the throughput limit, it's not sized appropriately for the application's demands. To resolve throughput issues:
 
     - Resize the volume: 
 
-        Increase the volume size to allocate more throughput to the volume so it's not throttled.
+        To avoid throttling, increase the volume's size to allocate more throughput.
+        
     - Modify the service level:
     
         The Premium and Ultra service levels in Azure NetApp Files cater to workloads with higher throughput requirements. [Moving the volume to a capacity pool in a higher service level](dynamic-change-volume-service-level.md) automatically increases these limits for the volume. 
@@ -287,22 +297,22 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
     Whether the status of the volume replication is transferring. 
 
 - *Volume replication lag time* <br>
-    Lag time is the actual amount of time the replication lags behind the source. It indicates the age of the replicated data in the destination volume relative to the source volume.
+    The delay between when data is written to the source volume and when it’s available on the destination volume.
 
 > [!NOTE]
 > When assessing the health status of the volume replication, consider the volume replication lag time. If the lag time is greater than the replication schedule, the replication volume won't catch up to the source. To resolve this issue, adjust the replication speed or the replication schedule. 
 
 - *Volume replication last transfer duration*   
-    The amount of time in seconds it took for the last transfer to complete. 
+    The time taken for the most recent replication session to transfer all changed data (example: blocks, snapshots) from the source volume to the destination volume. 
 
 - *Volume replication last transfer size*    
-    The total number of bytes transferred as part of the last transfer. 
-
+    The total amount of data transferred during the most recent replication session from a source volume to its destination volume.
+  
 - *Volume replication progress*    
     The total amount of data in bytes transferred for the current transfer operation. 
 
 - *Volume replication total transfer*   
-    The cumulative bytes transferred for the relationship. 
+    The cumulative volume of data transferred from the source volume to the destination volume throughout the entire lifetime of the replication relationship. 
 
 ## Throughput metrics for capacity pools   
 
@@ -369,7 +379,29 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 
 * *Volume cool tier data write size*   
     Data tiered out using `PUT` per volume. 
- 
+
+## Cache volume metrics (preview)
+
+* *Cache miss blocks*      
+
+    This metric counts missed blocks in the caching process. During steady-state, after warming of cache, if this value exceeds client requested blocks, this is indicative of a less than ideal workload type.
+
+* *Client requested blocks*
+
+    A data movement over time count to provide insights into latency. 
+
+* *Constituents at capacity count*    
+
+    A count of the constituents that are at least 90% full.
+
+* *Flex Cache connection status*  
+
+    The metric displays 1 if all the cache volumes can connect to the origin volume. A value of 0 means the connection isn't working. 
+
+* *Maximum file size*  
+   
+    The maximum file size in bytes.
+
 ## Next steps
 
 * [Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)

@@ -1,9 +1,9 @@
 ---
 title: Quickstart - Create a budget with an Azure Resource Manager template
 description: Quickstart showing how to Create a budget with an Azure Resource Manager template.
-author: jojohpm
-ms.author: jojoh
-ms.reviewer: jojoh
+author: vikramdesai01
+ms.author: vikdesai
+ms.reviewer: vikdesai
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
@@ -27,7 +27,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 If you have a new subscription, you can't immediately create a budget or use other Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
 

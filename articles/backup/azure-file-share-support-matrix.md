@@ -1,23 +1,25 @@
 ---
-title: Support Matrix for Azure files backup by using Azure Backup
-description: Provides a summary of support settings and limitations when backing up Azure files.
+title: Support Matrix for Azure Files backup by using Azure Backup
+description: Provides a summary of support settings and limitations when backing up Azure Files.
 ms.topic: reference
-ms.date: 07/10/2025
+ms.date: 09/26/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
-# Customer intent: "As a cloud architect, I want to understand the supported configurations and limitations for backing up Azure files using Azure Backup, so that I can ensure my backup strategy meets compliance and operational requirements."
+# Customer intent: "As a cloud architect, I want to understand the supported configurations and limitations for backing up Azure Files using Azure Backup, so that I can ensure my backup strategy meets compliance and operational requirements."
 ---
 
-# Support matrix for Azure files backup
+# Support matrix for Azure Files backup
 
-This article summarizes the supported settings and limitations when backing up Azure files by using Azure Backup.
+This article summarizes the supported settings and limitations when backing up Azure Files by using Azure Backup.
 
-You can use the [Azure Backup service](./backup-overview.md) to back up Azure files. This article summarizes support settings when you back up Azure files with Azure Backup.
+You can use the [Azure Backup service](./backup-overview.md) to back up Azure Files. This article summarizes support settings when you back up Azure Files with Azure Backup.
+
+Azure Backup now offers general availability of Vaulted Backup for Azure Files (Standard tier), enabling secure, long-term protection with ransomware defense, cross-region recovery, and compliance-ready retention—all managed through a unified backup policy. For more insights, see the [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azurestorageblog/general-availability-vaulted-backup-for-azure-files---boost-your-data-security-a/4395344). To know the latest product enhancements and feature updates in Azure, see [Microsoft Azure Updates](https://azure.microsoft.com/updates?id=482659).
 
 > [!NOTE]
-> Azure Backup currently doesn't support Network File Shares(NFS).
+> Azure Backup currently doesn't support file shares with the NFS (Network File System) protocol.
 
 ## Supported regions
 
@@ -25,7 +27,7 @@ You can use the [Azure Backup service](./backup-overview.md) to back up Azure fi
 
 # [Snapshot tier](#tab/snapshot-tier)
 
-Azure files backup is available in all regions, **except** for Germany Central (Sovereign), Germany Northeast (Sovereign), China East, China North, France South, and US Gov Iowa.
+Azure Files backup is available in all regions, **except** for Germany Central (Sovereign), Germany Northeast (Sovereign), China East, China North, France South, and US Gov Iowa.
 
 # [Vault-standard tier](#tab/vault-tier)
 
@@ -33,7 +35,7 @@ Vaulted backup for Azure Files is available in the following regions: UK South, 
 
 Cross Region Restore is supported in all preceding regions, except Italy North.
 
-Migration of  File Shares protected with snapshot backup to vaulted backup is supported in the following regions: UK South, UK West, Southeast Asia, East Asia, West Central US, India Central, Spain Central, Jio India West, Israel Central, Australia Central 2 and Germany North. 
+Migration of file shares protected with snapshot backup to vaulted backup is supported in the following regions: UK South, UK West, Southeast Asia, East Asia, West Central US, India Central, Spain Central, Jio India West, Israel Central, Australia Central 2 and Germany North, Brazil South, Switzerland North, South Africa North, Australia Southeast, Sweden Central, Norway East, UAE North, West US 3, Japan West, Korea Central, Canada East, South India, Italy North, Poland Central, Australia Central. 
 
 >[!Note]
 >Cross Subscription Backup and Restore are supported for vaulted backup.
@@ -48,16 +50,16 @@ Migration of  File Shares protected with snapshot backup to vaulted backup is su
 
 | Storage  account details | Support                                                      |
 | ------------------------ | ------------------------------------------------------------ |
-| Account  Kind            | Azure  Backup supports Azure files present in general-purpose v1, general-purpose v2, and file storage type storage accounts |
-| Performance              | Azure  Backup supports File Shares in both standard and Premium Storage accounts |
-| Replication              | Azure  files in storage accounts with any replication type are  supported |
-| Firewall enabled         | Azure files in storage accounts with Firewall rules that allow Microsoft Azure Services to access storage account are supported|
+| Account kind             | Azure Backup supports Azure Files present in general-purpose v1, general-purpose v2, and file storage type storage accounts |
+| Performance              | Azure Backup supports file shares in both SSD and HDD storage accounts |
+| Replication              | Azure Files in storage accounts with any replication type are supported |
+| Firewall enabled         | Azure Files in storage accounts with Firewall rules that allow Microsoft Azure Services to access storage account are supported |
 
 # [Vault-standard tier](#tab/vault-tier)
 
 | Storage account details | Support |
 | --- | --- |
-| Account Kind | Azure Backup supports Azure files present in general-purpose v2, and file storage type storage accounts. <br><br> Storage accounts configured with private endpoints are supported. However, a private endpoint on the vault doesn't apply to Azure Files backup scenarios.  |
+| Account kind | Azure Backup supports Azure Files present in general-purpose v2, and file storage type storage accounts. <br><br> Storage accounts configured with private endpoints are supported. However, a private endpoint on the vault doesn't apply to Azure Files backup scenarios.  |
 
 >[!Important]
 >The source Storage Account must have the **Allow storage account key access** setting enabled for successful Azure Files backup and restore.
@@ -65,7 +67,7 @@ Migration of  File Shares protected with snapshot backup to vaulted backup is su
 
 ---
 
-## Supported File Shares
+## Supported file shares
 
 **Choose a backup tier**:
 
@@ -73,20 +75,18 @@ Migration of  File Shares protected with snapshot backup to vaulted backup is su
 
 | File  share type                                   | Support   |
 | -------------------------------------------------- | --------- |
-| Standard (with large File Shares enabled)                                   | Supported |
-| Large                                              | Supported |
-| Premium                                            | Supported |
-| File Shares connected with Azure File Sync service | Supported |
+| HDD ("standard")                                   | Supported |
+| SSD ("premium")                                    | Supported |
+| File shares connected with Azure File Sync service | Supported |
 
 # [Vault-standard tier](#tab/vault-tier)
 
 
-| File Share type                                    | Support |
+| File share type                                    | Support |
 | -------------------------------------------------- | ------  |
-| Standard                                           | Supported  |
-| Large                                              | Supported |
-| Premium                                            | Supported (in preview) |
-| File Shares connected with Azure File Sync service | Supported |
+| HDD ("standard")                                   | Supported |
+| SSD ("premium")                                    | Supported |
+| File shares connected with Azure File Sync service | Supported |
 
 
 ---
@@ -95,10 +95,10 @@ Migration of  File Shares protected with snapshot backup to vaulted backup is su
 
 | Setting                                                      | Limit |
 | ------------------------------------------------------------ | ----- |
-| Maximum  number of File Shares that can be protected per vault per day| 200   |
-| Maximum  number of storage accounts that can be registered per vault per day | 50    |
-| Maximum  number of File Shares that can be protected  per vault | 2000   |
-| Maximum  number of storage accounts that can be registered per vault | 200   |
+| Maximum number of file shares that can be protected per vault per day| 200   |
+| Maximum number of storage accounts that can be registered per vault per day | 50    |
+| Maximum number of file shares that can be protected  per vault | 2000   |
+| Maximum number of storage accounts that can be registered per vault | 200   |
 
 ## Backup limits
 
@@ -121,8 +121,8 @@ Migration of  File Shares protected with snapshot backup to vaulted backup is su
 
 | Setting                                 | Limit     |
 | --------------------------------------- | ------    |
-| Maximum size of File Share              | 10 TB      |
-| Maximum number of files in a File Share | 10 million |
+| Maximum size of file share              | 10 TB      |
+| Maximum number of files in a file share | 10 million |
 
 >[!Note]
 >If you have multiple backups scheduled per day, only the last scheduled snapshot of the day is transferred to the vault.
@@ -142,8 +142,8 @@ Migration of  File Shares protected with snapshot backup to vaulted backup is su
 | Setting                                                      | Limit   |
 | ------------------------------------------------------------ | ------- |
 | Maximum size of a file (if the destination account is in a Vnet) | 1 TB |
-| Maximum  number of individual files or folders per restore, if ILR (Item level recovery)                         | 99      |
-| Maximum  recommended restore size per restore for large File Shares | 15  TiB |
+| Maximum number of individual files or folders per restore, if ILR (Item level recovery)                         | 99      |
+| Maximum recommended restore size per restore | 15 TiB |
 | Maximum duration of a restore job                           | 7 days
 
 # [Vault-standard tier](#tab/vault-tier)
@@ -162,13 +162,13 @@ Migration of  File Shares protected with snapshot backup to vaulted backup is su
 
 | Setting                                                      | Limit    |
 | ------------------------------------------------------------ | -------- |
-| Maximum total recovery points per  File Share at any point in time | 200      |
-| Maximum retention of recovery  point created by on-demand backup | 10 years |
-| Maximum retention of daily recovery points (snapshots) per File Share, if daily frequency | 200 days |
-| Maximum retention of daily recovery points (snapshots) per File Share, if hourly frequency | Floor (200/number of snapshots according to the schedule)-1 |
-| Maximum retention of weekly recovery points (snapshots) per File Share | 200 weeks |
-| Maximum retention of monthly recovery points (snapshots) per File Share | 120 months |
-| Maximum retention of  yearly recovery points (snapshots) per File Share | 10 years |
+| Maximum total recovery points per file share at any point in time | 200      |
+| Maximum retention of recovery point created by on-demand backup | 10 years |
+| Maximum retention of daily recovery points (snapshots) per file share, if daily frequency | 200 days |
+| Maximum retention of daily recovery points (snapshots) per file share, if hourly frequency | Floor (200/number of snapshots according to the schedule)-1 |
+| Maximum retention of weekly recovery points (snapshots) per file share | 200 weeks |
+| Maximum retention of monthly recovery points (snapshots) per file share | 120 months |
+| Maximum retention of yearly recovery points (snapshots) per file share | 10 years |
 
 # [Vault-standard tier](#tab/vault-tier)
 
@@ -192,14 +192,14 @@ Migration of  File Shares protected with snapshot backup to vaulted backup is su
 
 | Restore method     | Details                                                      |
 | ------------------ | ------------------------------------------------------------ |
-| Full Share Restore | You can restore the complete file  share to the original or an alternate location |
+| Full Share Restore | You can restore the complete file share to the original or an alternate location |
 | Item Level Restore | You can restore individual files and folders to the original or an alternate location |
 
 # [Vault-standard tier](#tab/vault-tier)
 
 | Restore method | Description |
 | --- | --- |
-| Full Share Restore | You can restore the complete File Share to an alternate location
+| Full Share Restore | You can restore the complete file share to an alternate location
 
 >[!Note]
 >Original location restores (OLR) and file-level recovery aren't supported. You can perform restore to an empty folder with the **Overwrite** option only.

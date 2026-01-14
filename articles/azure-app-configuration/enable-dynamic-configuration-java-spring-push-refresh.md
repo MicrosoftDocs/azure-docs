@@ -9,7 +9,7 @@ ms.service: azure-app-configuration
 ms.devlang: java
 ms.custom: devx-track-extended-java
 ms.topic: tutorial
-ms.date: 06/18/2025
+ms.date: 10/07/2025
 ms.author: mametcal
 #Customer intent: I want to use push refresh to dynamically update my app to use the latest configuration data in App Configuration.
 ---
@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 11.
 - [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 - An existing Azure App Configuration Store.
@@ -63,7 +63,7 @@ In this tutorial, you learn how to:
         <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.22.0</version>
+        <version>6.0.0</version>
         <type>pom</type>
         <scope>import</scope>
         </dependency>
@@ -77,12 +77,13 @@ In this tutorial, you learn how to:
    mvn com.microsoft.azure:azure-webapp-maven-plugin:2.5.0:config
    ```
 
-1. Navigate to the `resources` directory of your app and open `bootstrap.properties` and configure Azure App Configuration Push Refresh. If the file doesn't exist, create it. Add the following line to the file.
+1. Navigate to the `resources` directory of your app and open `application.properties` and configure Azure App Configuration Push Refresh. If the file doesn't exist, create it. Add the following line to the file.
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
     You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application. Create a new file named *AppConfigCredential.java* and add the following lines:
 
     ```properties
+    spring.config.import=azureAppConfiguration
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
     spring.cloud.azure.appconfiguration.stores[0].monitoring.enabled= true
     spring.cloud.azure.appconfiguration.stores[0].monitoring.refresh-interval= 30d
@@ -121,6 +122,7 @@ In this tutorial, you learn how to:
 
     ### [Connection string](#tab/connection-string)
     ```properties
+    spring.config.import=azureAppConfiguration
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_CONNECTION_STRING}
     spring.cloud.azure.appconfiguration.stores[0].monitoring.enabled= true
     spring.cloud.azure.appconfiguration.stores[0].monitoring.refresh-interval= 30d

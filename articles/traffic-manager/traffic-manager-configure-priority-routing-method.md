@@ -7,7 +7,9 @@ ms.service: azure-traffic-manager
 ms.topic: tutorial
 ms.date: 04/26/2023
 ms.author: allensu
-ms.custom: template-tutorial
+ms.custom:
+  - template-tutorial
+  - sfi-image-nochange
 # Customer intent: "As a network administrator, I want to configure priority traffic routing in a traffic management system, so that I can ensure reliable service failover and optimal traffic distribution to my endpoints."
 ---
 
@@ -26,7 +28,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * For the *Add an endpoint* section we will connect to an app service. To learn more, see [Create an App Service app](../app-service/overview.md)
 

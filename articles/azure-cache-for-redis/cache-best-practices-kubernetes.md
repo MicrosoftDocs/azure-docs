@@ -11,6 +11,8 @@ appliesto:
 
 # Kubernetes-hosted client applications
 
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+
 This article provides best practices for using Azure Cache for Redis in Kubernetes-hosted client applications.
 
 ## Stagger multiple connections

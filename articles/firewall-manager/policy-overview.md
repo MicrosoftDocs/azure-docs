@@ -7,6 +7,7 @@ services: firewall-manager
 ms.topic: concept-article
 ms.date: 07/09/2025
 ms.author: sujamiya
+ms.custom: sfi-image-nochange
 ---
 
 # Azure Firewall Manager policy overview

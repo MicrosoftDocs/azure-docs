@@ -30,11 +30,9 @@ In this article, you learn how to:
 > * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
 > * Create a standard zone-redundant public IPv4 address prefix named **myIPv4**
 > * Create a standard zonal public IPv4 address named **myIPv4Zonal**
-> * Create a standard non-zonal public IPv4 address named **myIPv4NonZonal**
 > * Create a standard public IPv4 address named **myIPv4RPInternet** that supports the Routing Preference feature
 > * Create a standard zone-redundant public IPv6 address prefix named **myIPv6**
 > * Create a standard zonal public IPv6 address named **myIPv6Zonal**
-> * Create a standard non-zonal public IPv6 address named **myIPv6NonZonal**
 > * Create a static public IP IPv4 address from an IP prefix
 > * Create a static public IP IPv6 address from an IP prefix
 
@@ -51,7 +49,7 @@ An Azure resource group is a logical container into which Azure resources are de
 
 ## Create a public IP address prefix
 
-In this section, you create a zone redundant, a zonal, and a non-zonal public IP prefix using Azure PowerShell. 
+In this section, you create a zone redundant and a zonal public IP prefix using Azure PowerShell. 
 
 The prefixes in the examples are:
 
@@ -63,7 +61,7 @@ For more information on available prefix sizes, see [Prefix sizes](public-ip-add
 
 ## IPv4
 
-# [Zone redundant IPv4 prefix](#tab/ipv4-zone-redundant)
+# [Zone-Redundant IPv4 prefix](#tab/ipv4-zone-redundant)
 
 To create an IPv4 public IP prefix, specify **IPv4** as the `ip_version` value. To create a zone redundant IPv4 prefix, specify **["1", "2", "3"]** as the `zone` value.
 
@@ -78,16 +76,6 @@ To create an IPv4 public IP prefix, specify **IPv4** as the `ip_version` value. 
 >[!NOTE]
 >For more information about availability zones, see [What are availability zones?](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-# [Non-zonal IPv4 prefix](#tab/ipv4-non-zonal)
-
-To create an IPv4 public IP prefix, specify **IPv4** as the `ip_version` value. To create a non-zonal IP prefix, omit the `zone` field.
-
-:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="36-44"  highlight="7-8":::
-
-The omission of the `zone` field is valid in all regions.  
-
-The omission of the `zone` field is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
 ---
 
 # [Routing Preference Internet IPv4 prefix](#tab/ipv4-routing-pref)
@@ -100,7 +88,7 @@ To create an IPv4 public IP prefix with routing preference set to Internet, add 
 
 ## IPv6
 
-# [Zone redundant IPv6 prefix](#tab/ipv6-zone-redundant)
+# [Zone-Redundant IPv6 prefix](#tab/ipv6-zone-redundant)
 
 To create an IPv6 public IP prefix, specify **IPv6** as the `ip_version` value. To create a zone redundant IPv6 prefix, specify **["1", "2", "3"]** as the `zone` value.
 
@@ -114,16 +102,6 @@ To create an IPv6 public IP prefix, specify **IPv6** as the `ip_version` value. 
 
 >[!NOTE]
 >For more information about availability zones, see [What are availability zones?](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-# [Non-zonal IPv6 prefix](#tab/ipv6-non-zonal)
-
-To create an IPv6 public IP prefix, specify **IPv6** as the `ip_version` value. To create a non-zonal IP prefix, omit the `zone` field.
-
-:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="84-92"  highlight="7-8":::
-
-The omission of the `zone` field is valid in all regions.  
-
-The omission of the `zone` field is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ---
 

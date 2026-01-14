@@ -20,14 +20,14 @@ This article provides step-by-step instructions for both the Azure portal and Az
 ## Prerequisites
 
 ::: zone pivot="azure-portal"
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A function app in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [create one](../azure-functions/how-to-create-function-azure-cli.md?pivots=programming-language-python).
 - A target resource to connect your function app to, such as a [Blob Storage account](../storage/common/storage-account-create.md).
 - The [necessary permissions](./concept-permission.md) to create and manage service connections.
 ::: zone-end
 
 ::: zone pivot="azure-cli"
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A function app in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [create one](../azure-functions/how-to-create-function-azure-cli.md?pivots=programming-language-python).
 - A target resource to connect your function app to, such as a [Blob Storage account](../storage/common/storage-account-create.md).
 - The [permissions required](./concept-permission.md) to create and manage service connections.

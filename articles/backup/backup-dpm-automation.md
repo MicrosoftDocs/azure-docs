@@ -3,7 +3,7 @@ title: Use PowerShell to back up DPM workloads
 description: Learn how to deploy and manage Azure Backup for Data Protection Manager (DPM) using PowerShell
 ms.service: azure-backup
 ms.topic: how-to
-ms.date: 11/26/2024
+ms.date: 11/14/2025
 ms.custom: devx-track-azurepowershell, engagement-fy24
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -13,7 +13,7 @@ ms.author: v-mallicka
 
 This article describes how to use PowerShell to set up Azure Backup on a DPM server, and to manage backup and recovery.
 
-## Set up the PowerShell environment
+## Set up the PowerShell environment for DPM
 
 Before you can use PowerShell to manage backups from Data Protection Manager to Azure, you need to have the right environment in PowerShell. At the start of the PowerShell session, ensure that you run the following command to import the right modules and allow you to correctly reference the DPM cmdlets:
 
@@ -32,7 +32,7 @@ Get definition of a cmdlet: Get-Command <cmdlet-name> -Syntax
 Sample DPM scripts: Get-DPMSampleScript
 ```
 
-## Setup and Registration
+## Setup and Registration of DPM to Azure Backup using PowerShell
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
@@ -139,7 +139,7 @@ The available options include:
 | /pu |Proxy Host UserName |- |
 | /pw |Proxy Password |- |
 
-## Registering DPM to a Recovery Services vault
+## Register DPM to a Recovery Services vault
 
 After you created the Recovery Services vault, download the latest agent and the vault credentials and store it in a convenient location like C:\Downloads.
 
@@ -182,7 +182,7 @@ All modifications are made to this local PowerShell object ```$setting```  and t
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
 ```
 
-## Networking
+## Networking settings of DPM to Azure Backup
 
 If the connectivity of the DPM machine to the Azure Backup service on the internet is through a proxy server, then the proxy server settings should be provided for successful backups. This is done by using the ```-ProxyServer```and ```-ProxyPort```, ```-ProxyUsername``` and the ```ProxyPassword``` parameters with the [Set-DPMCloudSubscriptionSetting](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting) cmdlet. In this example, there's no proxy server so we're explicitly clearing any proxy-related information.
 
@@ -196,7 +196,7 @@ Bandwidth usage can also be controlled with options of ```-WorkHourBandwidth``` 
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -NoThrottle
 ```
 
-## Configure the staging Area
+## Configure the staging Area of DPM to Azure Backup
 
 The Azure Backup agent running on the DPM server needs temporary storage for data restored from the cloud (local staging area). Configure the staging area using the [Set-DPMCloudSubscriptionSetting](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting) cmdlet and the ```-StagingAreaPath``` parameter.
 

@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Replicate 3rd Party (3P) Images into an Azure Extended Zone with Azure Compute Gallery"
 description: Learn how to Replicate 3rd Party (3P) Images into an Azure Extended Zone with Azure Compute Gallery.
-author: svaldes
+author: svaldesgzz
 ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: tutorial
@@ -13,7 +13,7 @@ ms.date: 08/26/2025
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Create a user-assigned managed identity.
-> - Assign a Contibutor role to the managed identity.
+> - Assign a Contributor role to the managed identity.
 > - Assign the managed identity to an Azure Compute Gallery.
 > - Replicate 3rd Party (3P) Images into an Azure Extended Zone with Azure Compute Gallery.
 
@@ -23,13 +23,13 @@ Azure Compute Gallery (previously Shared Image Gallery) is available in Extended
 > Platform Image Repositories are currently being replicated in Extended Zones to be on par with the region. Should you not be able to find your required image within a given Extended Zone, contact aezsupport@microsoft.com. The product’s engineering team is happy to help replicating it ahead of the broader replication. 
 
 ## Prerequisites
-- An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](/entra/identity/managed-identities-azure-resources/overview). Be sure to review the [difference between a system-assigned and user-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview#managed-identity-types).
 - Both gallery and gallery image definition need to be created in the same region for these instructions to work; they can't be in different regions.
 - A user assigned managed identity is required to be set to the gallery, so that features available on that subscription can be queried. One of the features is set by EdgeZone Resource Provider, when the subscription is given access to use the Extended Zone. Azure Compute Gallery will query Azure Resource Manager with the assigned managed identity to get the list of features.
  
 ## Create a user-assigned managed identity
-To create a user-assigned managed identity, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
+To create a user-assigned managed identity, your account needs the [Managed Identity Reader](/azure/role-based-access-control/built-in-roles#general) role assignment.
 
 # [**Portal**](#tab/portal)
 
@@ -67,14 +67,14 @@ if ($null -eq $existingIdentity) { Write-Output "Managed Identity '$identityName
  
 ---
 
-## Assign a Contributor role to the managed identity
-Once the identity is created, you should be able to find it in the resources section of the subscription. You'll need to give the Managed Identity **Contributor** role to the subscription to read the features registered for that subscription.
+## Assign a Reader role to the managed identity
+Once the identity is created, you should be able to find it in the resources section of the subscription. You'll need to give the Managed Identity **Reader** (or higher) role to the subscription to read the features registered for that subscription.
 
 # [**Portal**](#tab/portal)
 
 1. Select on the recently created identity and select on **JSON View** to get the resource ID. Copy and save it for a later step.
 1. Select on **Access Control**, on the left side menu, and select **Add**.
-1. Select **Privileged administrator roles** and select **Contributor** from the list. 
+1. Within **Job function roles**, select **Reader** from the list. 
 1. Select the user-assigned managed identity recently created.
 1. In the **Members** tab, select **Managed identity**.
 1. Verify it's added by selecting **Azure role assignments** and confirming in the listed managed identities.
@@ -88,7 +88,7 @@ $token = Get-AzAccessToken
 # Get the managed identity
 $identity = Get-AzUserAssignedIdentity -ResourceGroupName $resourceGroupName -Name $identityName
 
-#Assign Contributor role to the identity
+#Assign Reader role to the identity
 New-AzRoleAssignment `
     -ObjectId $identity.PrincipalId `
     -RoleDefinitionName $roleDefinitionName `
@@ -118,10 +118,6 @@ Body:
 ```powershell
 $requestBody = @{ location = $location identity = @{ type = "UserAssigned" userAssignedIdentities = @{ $userAssignedIdentity.Id = @{} } } }
 $requestBodyJson = $requestBody | convertto-json -Depth 8 $uri = "https://$location.management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Compute/galleries/${galleryName}?api-version=2023-07-03" $params = @{ Headers = @{'authorization'="Bearer $($token.Token)"}; Method = 'PUT'; URI = $uri; Body = $requestBodyJson; ContentType = 'application/json' } $response = Invoke-RestMethod @params $response | convertto-json -Depth 8
-```
-
-```powershell
-$uri = "https://$location.management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Compute/galleries/${galleryName}?api-version=2023-07-03" $params = @{ Headers = @{'authorization'="Bearer $($token.Token)"}; Method = 'GET'; URI = $uri; } $response = Invoke-RestMethod @params $response | convertto-json -Depth 8
 ```
 ---
 ## Code/script version

@@ -8,6 +8,7 @@ ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 09/27/2021
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 ---
 # Kubernetes networking on Azure Stack Edge Pro GPU device
 

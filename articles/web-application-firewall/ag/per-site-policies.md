@@ -7,7 +7,9 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to 
 ms.date: 12/09/2020
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: "As a security engineer, I want to configure per-site Web Application Firewall policies using PowerShell, so that I can implement tailored security settings for individual applications while maintaining global policy controls."
 ---
 
@@ -31,7 +33,7 @@ In this article, you learn how to:
 
 :::image type="content" source="../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png" alt-text="Diagram of the Web application firewall example." lightbox="../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png":::
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 

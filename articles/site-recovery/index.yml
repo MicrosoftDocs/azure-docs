@@ -10,17 +10,19 @@ metadata:
   ms.service: azure-site-recovery
   ms.topic: landing-page
 
-  author: jyothisuri
-  ms.author: jsuri
-  ms.date: 08/19/2025
+  author: Jeronika-MS
+  ms.author: v-gajeronika
+  ms.date: 11/18/2025
 
 landingContent:
-  - title: About Site Recovery
+  - title: Get started with Azure Site Recovery
     linkLists:
       - linkListType: overview
         links:
           - text: What is Site Recovery?
             url: ./site-recovery-overview.md
+      - linkListType: whats-new
+        links:
           - text: What's new in Site Recovery
             url: ./site-recovery-whats-new.md
 
@@ -28,78 +30,80 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Try out disaster recovery for an Azure VM
+          - text: Try out disaster recovery for Azure VMs
             url: ./azure-to-azure-quickstart.md
-
-      - linkListType: concept
-        links:
-          - text: Azure VM Disaster Recovery - High Churn support 
-            url: concepts-azure-to-azure-high-churn-support.md
-
-      - linkListType: tutorial
-        links:
-          - text: Disaster recovery for Azure VMs
-            url: ./azure-to-azure-tutorial-enable-replication.md
-          - text: Disaster recovery for Azure VMs using shared disks
-            url: ./tutorial-shared-disk.md
-          - text: Move Azure VMs to another region (Resource Mover)
-            url: ../resource-mover/tutorial-move-region-virtual-machines.md
-      - linkListType: learn
-        links:
-          - text: Azure VM disaster recovery architecture
-            url: ./azure-to-azure-architecture.md
-          - text: Azure to Azure support matrix
-            url: ./azure-to-azure-support-matrix.md
+      -  linkListType: concept
+         links:
+          - text: Azure VM Disaster Recovery - High Churn support
+            url: ./concepts-azure-to-azure-high-churn-support.md
           - text: Common questions
             url: ./azure-to-azure-common-questions.md
-          - text: About moving Azure VMs
-            url: ./azure-to-azure-move-overview.md
+      - linkListType: deploy
+        links:
+          - text: Support matrix
+            url: ./azure-to-azure-support-matrix.md
+      - linkListType: tutorial
+        links:
+          - text: Move Azure VMs to another region
+            url: ../resource-mover/tutorial-move-region-virtual-machines.md
       - linkListType: how-to-guide
         links:
           - text: Zone to zone disaster recovery
             url: ./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
-          - text: Networking for Azure VM disaster recovery
-            url: ./azure-to-azure-about-networking.md
-          - text: Disaster recovery after migration to Azure
-            url: ./azure-to-azure-replicate-after-migration.md
 
-  - title: Disaster recovery for on-premises machines
+  - title: Disaster recovery for VMware VMs
     linkLists:
-      - linkListType: tutorial
+      - linkListType: quickstart
         links:
-          - text: Disaster recovery for VMware VMs
-            url: ./tutorial-prepare-azure.md
-          - text: Try out disaster recovery for a VMware VM (Modernized)
-            url: ./vmware-azure-set-up-replication-tutorial-modernized.md
-          - text: Disaster recovery for Hyper-V VMs
-            url: ./tutorial-prepare-azure-for-hyperv.md
-          - text: Disaster recovery for physical servers
-            url: ./physical-azure-disaster-recovery.md
+          - text: Try out disaster recovery for on-premises VMware VMs (Modernized)
+            url: ./quickstart-enable-replication.md
+      - linkListType: concept
+        links:
+          - text: On-premises disaster recovery failover/failback (Modernized)
+            url: ./failover-failback-overview-modernized.md
+          - text: Common questions
+            url: ./vmware-azure-common-questions.md
       - linkListType: deploy
         links:
-          - text: VMware support matrix
+          - text: Support matrix
             url: ./vmware-physical-azure-support-matrix.md
-          - text: Hyper-V support matrix
-            url: ./hyper-v-azure-support-matrix.md
-      - linkListType: learn
+      - linkListType: tutorial
         links:
-          - text: VMware disaster recovery architecture
-            url: ./vmware-azure-architecture.md
-          - text: VMware disaster recovery overview
-            url: ./vmware-azure-about-disaster-recovery.md
-          - text: Common questions for VMware disaster recovery
-            url: ./vmware-azure-common-questions.md
-          - text: Hyper-V disaster recovery architecture
-            url: ./hyper-v-azure-architecture.md
+          - text: Disaster recovery for on-premises VMware VMs - Modernized
+            url: ./vmware-azure-set-up-replication-tutorial-modernized.md
       - linkListType: how-to-guide
         links:
           - text: VMware disaster recovery at scale
             url: ./vmware-physical-large-deployment.md
-          - text: Plan VMware capacity
-            url: ./site-recovery-plan-capacity-vmware.md
+
+  - title: Disaster recovery for Hyper-V VMs
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Hyper-V to Azure disaster recovery
+            url: ./hyper-v-azure-architecture.md
+          - text: Common questions
+            url: ./hyper-v-azure-common-questions.md
+      - linkListType: deploy
+        links:
+          - text: Support matrix
+            url: ./hyper-v-azure-support-matrix.md
+      - linkListType: tutorial
+        links:
+          - text: Disaster recovery for Hyper-V VMs
+            url: ./tutorial-prepare-azure-for-hyperv.md
+      - linkListType: how-to-guide
+        links:
           - text: Plan Hyper-V capacity
             url: ./hyper-v-deployment-planner-overview.md
-            
+
+  - title: Disaster recovery for Azure Extended Zone (preview)
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Disaster recovery for Azure Extended Zone (preview) VMs 
+            url: tutorial-replicate-vms-edge-zone-to-azure-region.md      
+
   - title: Manage
     linkLists:
       - linkListType: how-to-guide
@@ -112,14 +116,7 @@ landingContent:
             url: monitor-log-analytics.md
           - text: Reports for Site Recovery with Azure Monitor logs
             url: report-site-recovery.md
-
-  - title: Disaster recovery for Azure Extended Zone (preview)
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Disaster recovery for Azure Extended Zone (preview) VMs 
-            url: tutorial-replicate-vms-edge-zone-to-azure-region.md      
-               
+              
   - title: Get involved
     linkLists:
       - linkListType: get-started
@@ -140,3 +137,4 @@ landingContent:
             url: /azure/well-architected/azure-vmware/operations
           - text: Azure Local stretched clusters for disaster recovery
             url: /azure/architecture/hybrid/azure-local-dr
+

@@ -1,10 +1,10 @@
 ---
 title: Deploy the Microsoft Sentinel solution for SAP applications
 description: Get an introduction to the process of deploying the Microsoft Sentinel solution for SAP applications.
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.topic: conceptual
-ms.date: 11/05/2024
+ms.date: 09/30/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -19,9 +19,6 @@ Use the Microsoft Sentinel solution for SAP applications to monitor your SAP sys
 
 This article introduces you to the Microsoft Sentinel solution for SAP applications deployment.
 
-> [!IMPORTANT]
-> Noted features are currently in **PREVIEW**. The agentless data connector is in **LIMITED PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Solution components
 
 The Microsoft Sentinel solution for SAP applications includes a data connector, which collects logs from your SAP systems and sends them to your Microsoft Sentinel workspace, and out-of-the-box security content, which helps you gain insight into your organization's SAP environment and detect and respond to security threats.
@@ -30,9 +27,11 @@ The Microsoft Sentinel solution for SAP applications includes a data connector, 
 
 The Microsoft Sentinel solution for SAP applications supports both an agentless data connector and a containerized data connector agent. Both agents collect application logs for all your onboarded SAP SIDs from across the entire SAP system landscape, and then send those logs to your Log Analytics workspace in Microsoft Sentinel.
 
+[!INCLUDE [data-connector-agent-deprecation](../includes/data-connector-agent-deprecation.md)]
+
 Select one of the following tabs to learn more:
 
-### [Agentless data connector (Limited preview)](#tab/agentless)
+### [Agentless data connector](#tab/agentless)
 
 The Microsoft Sentinel agentless data connector for SAP uses the SAP Cloud Connector and SAP Integration Suite to connect to your SAP system and pull logs from it, as shown in the following image:
 
@@ -40,11 +39,11 @@ The Microsoft Sentinel agentless data connector for SAP uses the SAP Cloud Conne
 
 By using the SAP Cloud Connector, the agentless data connector profits from already existing setups and established integration processes. This means you don't have to tackle network challenges again, as the people running your SAP Cloud Connector have already gone through that process.
 
-The agentless data connector is compatible with SAP S/4HANA Cloud, Private Edition RISE with SAP, SAP S/4HANA on-premises, and SAP ERP Central Component (ECC), ensuring continued functionality of existing security content, including detections, workbooks, and playbooks.
+The agentless data connector is compatible with [SAP NetWeaver based systems](https://help.sap.com/docs/SAP_NETWEAVER?state=PRODUCTION&version=ALL). Among them SAP S/4HANA Cloud, Private Edition (RISE with SAP), SAP S/4HANA on-premises, SAP ERP Central Component (ECC), SAP Business Warehouse (BW), and more, ensuring continued functionality of existing security content, including detections, workbooks, and playbooks.
 
 The agentless data connector ingests critical security logs such as the security audit log, change docs logs and user master data including user roles and authorizations.
 
-### [Containerized data connector agent](#tab/agent)
+### [Containerized data connector agent (deprecated)](#tab/agent)
 
 For example, the following image shows a multi-SID SAP landscape with a split between production and nonproduction systems, including the SAP Business Technology Platform. All the systems in this image are onboarded to Microsoft Sentinel for the SAP solution.
 
@@ -78,7 +77,7 @@ For more information, see [Microsoft Sentinel solution for SAP applications: sec
 
 Deploying the Microsoft Sentinel solutions for SAP applications involves several steps and requires collaboration across multiple teams, differing depending on whether you're using the agentless data connector or a data connector agent. Select one of the following tabs to learn more:
 
-### [Agentless data connector (Limited preview)](#tab/agentless)
+### [Agentless data connector](#tab/agentless)
 
 Deploying the Microsoft Sentinel solutions for SAP applications involves several steps and requires collaboration across your **security** and **SAP BASIS** teams. The following image shows the steps in deploying the Microsoft Sentinel solutions for SAP applications, with relevant teams indicated:
 

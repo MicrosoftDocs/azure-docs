@@ -2,7 +2,7 @@
 title: Learn Azure Policy for Kubernetes
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters running Kubernetes in Azure or on-premises.
 ms.date: 03/04/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom:
   - devx-track-azurecli
   - build-2025
@@ -610,12 +610,35 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 
 ### Add-on versions available per each AKS cluster version
 
+#### 1.15.3
+Patch CVE-2025-47914, CVE-2025-58181, CVE-2025-58187, CVE-2025-22872
+- Released Dec 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.20.1-2
+
+#### 1.15.1
+
+- Released Nov 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.20.1-2
+
+#### 1.14.2
+Patch [CVE-2025-4802](https://nvd.nist.gov/vuln/detail/cve-2025-4802).
+
+- Released Oct 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.20.1-2
+
+##### Gatekeeper 3.20.1-2
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.20.1
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.19.1...v3.20.1
+
 #### 1.13.1
 Patch [CVE-2025-47907](https://nvd.nist.gov/vuln/detail/CVE-2025-47907).
 
 - Released August 2025
 - Kubernetes 1.27+
-- Gatekeeper 3.20.0-1
+- Gatekeeper 3.20.0
 
 #### 1.13.0
 EU Data Boundary now supported by Azure Policy for Kubernetes on AKS. To learn more generally about the EU Data Boundary visit: [Overview of EU Data Boundary](/privacy/eudb/eu-data-boundary-learn).

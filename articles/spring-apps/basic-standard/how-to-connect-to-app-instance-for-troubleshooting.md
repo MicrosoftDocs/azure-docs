@@ -195,10 +195,10 @@ You can also use JDK-bundled tools such as `jps`, `jcmd`, and `jstat`.
 The following list shows the tools available, which depend on your service plan and type of app deployment:
 
 - Source Code, JAR, and artifacts deployment:
-  - Basic, Standard, and Standard Consumption & Dedicated Plan:
+  - Basic and Standard plans:
     - Common tools - Yes
     - JDK tools - Yes, for Java workloads only.
-  - Enterprise Plan:
+  - Enterprise plan:
     - Common tools - Depends on which OS Stack you've chosen in your [builder](../enterprise/how-to-enterprise-build-service.md#builders). Yes, for full OS Stack. No, for base OS Stack.
     - JDK tools - Yes, for Java workloads only.
 - Custom image deployment: Depends on the installed tool set in your image.

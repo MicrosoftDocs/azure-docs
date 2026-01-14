@@ -304,7 +304,7 @@ If you are using Azure CLI with version 2.3.0 or older, you can deploy a templat
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2018-10-01",
+  "apiVersion": "2025-04-01",
   "name": "[variables('vmName')]", // to customize name, change it in variables
   "location": "[
     parameters('location')

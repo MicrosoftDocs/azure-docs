@@ -9,8 +9,10 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/30/2021
 ms.topic: include
-ms.custom: include file
 ms.author: chpalm
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 Use the [Azure Communication Services SMS](../../../overview.md) connector and [Azure Logic Apps](../../../../logic-apps/logic-apps-overview.md) to create automated workflows that can send SMS messages.
@@ -26,7 +28,7 @@ Although this article focuses on using the connector to respond to a trigger, yo
 
 ## Prerequisites
 
-- An Azure account with an active subscription, or [create an Azure account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription, or [create an Azure account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An active Azure Communication Services resource, or [create a Communication Services resource](../../create-communication-resource.md).
 

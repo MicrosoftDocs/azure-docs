@@ -6,7 +6,7 @@ metadata:
   ms.author: halkazwini
   ms.service: azure-frontdoor
   ms.topic: faq
-  ms.date: 03/23/2025
+  ms.date: 11/05/2025
 title: Azure Front Door frequently asked questions (FAQ) 
 summary : |
   This article provides answers to the most frequently asked questions about Azure Front Door features and functionality. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
@@ -70,12 +70,26 @@ sections:
       - question: |
           What is the estimated time for deploying an Azure Front Door? Does my Front Door remain operational during the update process?
         answer: |
-          The deployment time for new Front Door configurations varies depending on the type of change. Typically, it takes between 3 and 20 minutes for the changes to propagate to all our edge locations worldwide.
+          Configuration propagation times for a single create, update, delete, WAF, and cache purge operation for Azure Front Door and CDN profiles might take up to 45 minutes for added safety. Back-to-back changes can extend the total deployment time to approximately 90 minutes. Each configuration update, including rules set adjustments, routing changes, origin or domain updates, and WAF modifications etc., is treated as a global operation. If additional operations are submitted while the first is still propagating (within its ~45-minute window), they are queued and begin only after the preceding operation completes. In this scenario, the first operation completes within the initial 45 minutes, and subsequent changes are processed in the following window. Ongoing platform enhancements are underway that will further reduce this time.
           
           > [!NOTE]  
-          > Custom TLS/SSL certificate updates might take longer, from several minutes up to an hour, to be deployed globally.
+          > Custom TLS/SSL certificate updates might take longer, up to an hour, to be deployed globally.
           
-          Updates to routes or origin groups/backend pools are seamless and don't cause any downtime (assuming the new configuration is correct). Certificate updates are also done atomically, so there's no risk of outage.
+          **Submit multiple purge requests**
+          
+          Each purge request can include up to 100 URLs (combination of domain and path). The first batch is processed and takes effect within approximately 45 minutes.
+          
+          If you have more than 100 URLs to purge, you must wait and verify for the first batch to complete (approximately 45 minutes) before you submit the next batch. If you submit a new purge request before the previous batch completes, the request will be rejected.
+
+          **Example: Purge 256 URLs**
+          1. Submit the first 100 URLs in the initial purge request.
+          2. Wait approximately 45 minutes and verify the first batch completed successfully.
+          3. Submit the next 101-200 URLs in the second request.
+          4. Wait approximately 45 minutes for the second batch to complete.
+          5. Submit the remaining 201-256 URLs in the third request.
+          
+          Updates to routes or origin groups/backend pools are seamless and don't cause any downtime (assuming the new configuration is correct). Certificate updates are also done atomically, so there is no downtime.
+
       - question: |
           Can I move Front Door and CDN profiles between resource groups or subscriptions without any downtime?
         answer:  |

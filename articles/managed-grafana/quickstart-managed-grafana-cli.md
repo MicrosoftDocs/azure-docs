@@ -5,7 +5,7 @@ ms.service: azure-managed-grafana
 ms.topic: quickstart
 author: maud-lv
 ms.author: malev
-ms.date: 03/14/2025
+ms.date: 09/29/2025
 ms.devlang: azurecli
 ms.custom: engagement-fy23, devx-track-azurecli
 # customer intent: As a developer or a data analyst, I want to create a new Azure Managed Grafana workspace using the Azure CLI.
@@ -15,12 +15,9 @@ ms.custom: engagement-fy23, devx-track-azurecli
 
 Get started using Azure Managed Grafana by creating an Azure Managed Grafana workspace using the Azure CLI.
 
->[!NOTE]
-> Azure Managed Grafana has [two pricing plans](overview.md#service-tiers). This guide takes you through creating a new workspace in the Standard plan. To create a workspace in the Essential (preview) plan, [use the Azure portal](quickstart-managed-grafana-portal.md).
-
 ## Prerequisites
 
-- An Azure account for work or school with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account for work or school with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Minimum required role to create a workspace: resource group Contributor.
 - Minimum required role to access the Grafana UI: resource group Owner.
 

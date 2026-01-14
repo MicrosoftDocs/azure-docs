@@ -18,6 +18,8 @@
       href: /azure/networking/foundations/network-foundations-overview
     - name: FAQ
       href: private-link-faq.yml
+    - name: Cost optimization
+      href: private-link-cost-optimization.md
 - name: Configure
   items:
     - name: Create a private endpoint
@@ -50,6 +52,8 @@
         - name: Create a Private Link service - ARM template
           href: create-private-link-service-template.md
           displayName: Azure Resource Manager
+    - name: Configure Private Link service Direct Connect
+      href: configure-private-link-service-direct-connect.md
     - name: Disable SNAT for traffic through NVA
       href: private-link-disable-snat.md
     - name: Increase Private Endpoint virtual network limits

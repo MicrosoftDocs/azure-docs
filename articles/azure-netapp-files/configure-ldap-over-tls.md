@@ -5,8 +5,9 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 07/01/2025
+ms.date: 11/28/2025
 ms.author: anfdocs
+ms.custom: sfi-image-nochange
 # Customer intent: “As a system administrator, I want to configure LDAP over TLS for Azure NetApp Files so that I can secure communication between the volumes and the Active Directory server.”
 ---
 # Configure AD DS LDAP over TLS for Azure NetApp Files
@@ -17,6 +18,7 @@ You can use Lightweight Directory Access Protocol (LDAP) over TLS to secure comm
 
 * DNS pointer (PTR) records must exist for each AD DS domain controller assigned to the **AD Site Name** specified in the Azure NetApp Files Active Directory connection.
 * PTR records must exist for all domain controllers in the site for AD DS LDAP over TLS to function properly.
+* Renew the Active Directory certificate before the expiry date for continued access.
 
 ## Generate and export root CA certificate 
 

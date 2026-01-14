@@ -2,7 +2,7 @@
 title: Choosing an orchestration framework
 description: Learn which orchestration framework works for your scenario.
 ms.topic: conceptual
-ms.date: 05/06/2025
+ms.date: 10/28/2025
 ---
 
 # Choosing an orchestration framework
@@ -45,7 +45,18 @@ You can implement an AI agent for each task, and then write an orchestration tha
 
 ## Orchestration framework options  
 
-Both Durable Functions and Durable Task SDK are available in multiple languages but there are some differences in how they can be used. The important differences and use case for each framework option are described in the following sections. 
+Both Durable Functions and Durable Task SDK are available in multiple languages but there are some differences in how they can be used. 
+
+Knowing which orchestration framework is recommended for production can help you decide which works best for your project. While the Durable Task backend is fully managed and supported, the Durable Functions extension and Durable Task SDKs vary in stability depending on [the pricing model](./durable-task-scheduler-dedicated-sku.md) and the language SDK you use. 
+
+The following table shows what client experience is fit for production use. 
+
+| Experience | Dedicated SKU | Consumption SKU |
+| ---------- | ------------- | --------------- |
+| Durable Functions extension in all languages | Generally available | Preview |
+| Durable Task .NET SDK | Generally available | Preview |
+| Durable Task Python SDK | Generally available | Preview |
+| Durable Task Java SDK | Preview | Preview |
 
 ### Durable Functions
  
@@ -60,7 +71,7 @@ Durable Functions persists states in a [storage backend](../durable-functions-st
   - Azure Storage 
   - Microsoft SQL 
 - An Azure managed backend:
-  - [Durable Task Scheduler](#durable-task-sdks-with-durable-task-scheduler-preview) 
+  - [Durable Task Scheduler](#durable-task-sdks-with-durable-task-scheduler) 
 
 #### When to use Durable Functions
 
@@ -79,7 +90,7 @@ Walk through one of the following quickstarts or samples to learn more about Dur
 
 |   | Quickstart | Description |
 | - | ---------- | ----------- |
-| **Durable Task Scheduler (preview)** | [Create a Durable Functions app with Durable Task Scheduler](./quickstart-durable-task-scheduler.md) | Create a "hello world" Durable Functions app that uses the Durable Task Scheduler as the backend, test locally, and publish to Azure. |
+| **Durable Task Scheduler** | [Create a Durable Functions app with Durable Task Scheduler](./quickstart-durable-task-scheduler.md) | Create a "hello world" Durable Functions app that uses the Durable Task Scheduler as the backend, test locally, and publish to Azure. |
 | **Azure Storage** | Create a Durable Functions app with the Azure Storage backend:<br>- [.NET](../durable-functions-isolated-create-first-csharp.md)<br>- [Python](../quickstart-python-vscode.md)<br>- [JavaScript/TypeScript](../quickstart-js-vscode.md)<br>- [Java](../quickstart-java.md)<br>- [PowerShell](../quickstart-powershell-vscode.md) | Create a "hello world" Durable Functions app that uses Azure Storage as the backend, test locally, and publish to Azure. |
 | **MSSQL** | [Create a Durable Functions app with MSSQL](../quickstart-mssql.md) | Create a "hello world" Durable Functions app that uses MSSQL as the backend, test locally, and publish to Azure. |
  
@@ -90,7 +101,7 @@ Walk through one of the following quickstarts or samples to learn more about Dur
 | **Order processing workflow** | Create an order processing workflow with Durable Functions:<br>- [.NET](/samples/azure-samples/durable-functions-order-processing/durable-func-order-processing/)<br>- [Python](/samples/azure-samples/durable-functions-order-processing-python/durable-func-order-processing-py/) | This sample implements an order processing workflow that includes checking inventory, processing payment, updating inventory, and notifying customer. |
 | **Intelligent PDF summarizer** | Create an app that processes PDFs with Durable Functions:<br>- [.NET](/samples/azure-samples/intelligent-pdf-summarizer-dotnet/durable-func-pdf-summarizer-csharp/)<br>- [Python](/samples/azure-samples/intelligent-pdf-summarizer/durable-func-pdf-summarizer/) | This sample demonstrates using Durable Functions to coordinate the steps for processing and summarizing PDFs using Azure Cognitive Services and Azure OpenAI. |
 
-### Durable Task SDKs with Durable Task Scheduler (preview)
+### Durable Task SDKs with Durable Task Scheduler
 
 The Durable Task SDKs are client SDKs that must be used with the Durable Task Scheduler. The Durable Task SDKs connect the orchestrations you write to the Durable Task Scheduler orchestration engine in Azure. Apps that use the Durable Task SDKs can be run on any compute platform, including:
 - Azure Kubernetes Service
@@ -98,7 +109,7 @@ The Durable Task SDKs are client SDKs that must be used with the Durable Task Sc
 - Azure App Service
 - Virtual Machines (VMs) on-premises
 
-The [Durable Task Scheduler](./durable-task-scheduler.md) (currently in preview) plays the role of both the orchestration engine and the storage backend for orchestration state persistence. The Durable Task Scheduler:
+The [Durable Task Scheduler](./durable-task-scheduler.md) (Java SDK currently in preview) plays the role of both the orchestration engine and the storage backend for orchestration state persistence. The Durable Task Scheduler:
 - Is fully managed by Azure, thus removing management overhead
 - Provides high orchestration throughput
 - Offers an out-of-the-box dashboard for orchestration monitoring and debugging

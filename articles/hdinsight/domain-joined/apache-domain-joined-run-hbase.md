@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 
 ## Before you begin
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Sign in to the [Azure portal](https://portal.azure.com/).
 * Create an [HDInsight HBase cluster with Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md).
 

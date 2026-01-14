@@ -7,6 +7,7 @@ ms.date: 07/22/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
+ms.custom: sfi-image-nochange
 ---
 
 # Using Private Link with IoT Edge

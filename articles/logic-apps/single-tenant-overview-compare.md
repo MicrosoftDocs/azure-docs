@@ -23,7 +23,7 @@ If you're new to Azure Logic Apps, review [What is Azure Logic Apps?](logic-apps
 
 The following table summarizes the differences between a **Consumption** logic app workflow and **Standard** logic app workflow. You also learn how the single-tenant environment differs from the multitenant environment for deploying, hosting, and running your workflows.
 
-[!INCLUDE [Logic app workflow and environment differences](../../includes/logic-apps-resource-environment-differences-table.md)]
+[!INCLUDE [Logic app workflow and environment differences](includes/logic-apps-resource-environment-differences-table.md)]
 
 <a name="resource-type-introduction"></a>
 

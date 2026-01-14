@@ -7,10 +7,16 @@ author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 06/24/2025
+ms.date: 07/09/2025
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, engagement-fy23, devx-track-extended-azdevcli, devx-track-terraform
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - engagement-fy23
+  - devx-track-extended-azdevcli
+  - devx-track-terraform
+  - sfi-image-nochange
 # Customer intent: "As a cloud developer, I want to create an Azure storage account using various deployment methods, so that I can efficiently store and manage blobs, files, queues, and tables in a scalable environment."
 ---
 
@@ -22,7 +28,7 @@ In this how-to article, you learn to create a storage account using the [Azure p
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 # [Portal](#tab/azure-portal)
 
@@ -73,7 +79,7 @@ None.
 
 # [Terraform](#tab/terraform)
 
-- You need an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- You need an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
 
@@ -173,14 +179,15 @@ On the **Basics** tab, provide the essential information for your storage accoun
 
 The following table describes the fields on the **Basics** tab.
 
-| Section          | Field                | Required or optional | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| ---------------- | -------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Project details  | Subscription         | Required             | Select the subscription for the new storage account.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Project details  | Resource group       | Required             | Create a new resource group for this storage account, or select an existing one. For more information, see [Resource groups](../../azure-resource-manager/management/overview.md#resource-groups).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Instance details | Storage account name | Required             | Choose a unique name for your storage account. Storage account names must be between 3 and 24 characters in length and might contain numbers and lowercase letters only.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Instance details | Region               | Required             | Select the appropriate region for your storage account. For more information, see [Regions and Availability Zones in Azure](../../reliability/availability-zones-overview.md).<br /><br />Not all regions are supported for all types of storage accounts or redundancy configurations. For more information, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />The choice of region can have a billing impact. For more information, see [Storage account billing](storage-account-overview.md#storage-account-billing).                                                                                                                                            |
-| Instance details | Performance          | Required             | Select **Standard** performance for general-purpose v2 storage accounts (default). This type of account is recommended by Microsoft for most scenarios. For more information, see [Types of storage accounts](storage-account-overview.md#types-of-storage-accounts).<br /><br />Select **Premium** for scenarios requiring low latency. After selecting **Premium**, select the type of premium storage account to create. The following types of premium storage accounts are available: <ul><li>[Block blobs](./storage-account-overview.md)</li><li>[File shares](../files/storage-files-planning.md)</li><li>[Page blobs](../blobs/storage-blob-pageblob-overview.md)</li></ul> |
-| Instance details | Redundancy           | Required             | Select your desired redundancy configuration. Not all redundancy options are available for all types of storage accounts in all regions. For more information about redundancy configurations, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />If you select a geo-redundant configuration (GRS or GZRS), your data is replicated to a data center in a different region. For read access to data in the secondary region, select **Make read access to data available in the event of regional unavailability**.                                                                                                                                                  |
+| Section | Field | Required or optional | Description |
+|--|--|--|--|
+| Project details | Subscription | Required | Select the subscription for the new storage account. |
+| Project details | Resource group | Required | Create a new resource group for this storage account, or select an existing one. For more information, see [Resource groups](../../azure-resource-manager/management/overview.md#resource-groups). |
+| Instance details | Storage account name | Required | Choose a unique name for your storage account. Storage account names must be between 3 and 24 characters in length and might contain numbers and lowercase letters only. |
+| Instance details | Region | Required | Select the appropriate region for your storage account. For more information, see [Regions and Availability Zones in Azure](../../reliability/availability-zones-overview.md).<br /><br />Not all regions are supported for all types of storage accounts or redundancy configurations. For more information, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />The choice of region can have a billing impact. For more information, see [Storage account billing](storage-account-overview.md#storage-account-billing). |
+| Instance details | Preferred storage type | Required | Preferred storage type allows us to provide relevant guidance in the account creation experience based on your selected storage type. There are four storage types to choose from: Blob storage or Azure Data Lake Storage (ADLS) Gen 2, Azure Files, Tables, and Queues. Choosing a preferred storage type does not limit you from using any other services inside the storage account. |
+| Instance details | Performance | Required | Select **Standard** performance for general-purpose v2 storage accounts (default). This type of account is recommended by Microsoft for most scenarios. For more information, see [Types of storage accounts](storage-account-overview.md#types-of-storage-accounts).<br /><br />Select **Premium** for scenarios requiring low latency. After selecting **Premium**, select the type of premium storage account to create. The following types of premium storage accounts are available: <ul><li>[Block blobs](./storage-account-overview.md)</li><li>[File shares](../files/storage-files-planning.md#management-concepts)</li><li>[Page blobs](../blobs/storage-blob-pageblob-overview.md)</li></ul>
+| Instance details | Redundancy | Required | Select your desired redundancy configuration. Not all redundancy options are available for all types of storage accounts in all regions. For more information about redundancy configurations, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />If you select a geo-redundant configuration (GRS or GZRS), your data is replicated to a data center in a different region. For read access to data in the secondary region, select **Make read access to data available in the event of regional unavailability**. |
 
 The following image shows a standard configuration of the basic properties for a new storage account.
 

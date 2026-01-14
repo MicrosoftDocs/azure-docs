@@ -1,10 +1,10 @@
 ---
 title: Work with Microsoft Sentinel incidents in many workspaces at once | Microsoft Docs
 description: How to view incidents in multiple workspaces concurrently in Microsoft Sentinel.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: conceptual
 ms.date: 10/17/2024
-ms.author: yelevin
 appliesto:
     - Microsoft Sentinel in the Azure portal
 

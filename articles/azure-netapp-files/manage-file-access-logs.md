@@ -1,16 +1,15 @@
 ---
 title: Manage file access logs in Azure NetApp Files
-description: File access logs provide file access logging for individual volumes, capturing file system operations on selected volume
+description: File access logs provide file access logging for individual volumes, capturing file system operations on selected volume.
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/01/2025
+ms.date: 11/12/2025
 ms.author: anfdocs
 ms.custom: references_regions
 # Customer intent: As a storage administrator, I want to enable file access logs on Azure NetApp Files volumes so that I can monitor file access operations and troubleshoot access issues effectively.
 ---
-
 # Manage file access logs in Azure NetApp Files
 
 File access logs provide file access logging for individual volumes, capturing file system operations on selected volumes. The logs capture [standard file operation](#recognized-events). File access logs provide insights beyond the platform logging captured in the [Azure Activity Log](/azure/azure-monitor/essentials/activity-log).
@@ -19,7 +18,6 @@ File access logs provide file access logging for individual volumes, capturing f
 
 >[!IMPORTANT]
 >The file access logs feature is only supported with SMB3, NFSv4.1, and dual-protocol volumes. It's not supported on NFSv3 volumes. 
-
 
 * Once file access logs are enabled on a volume, they can take up to 75 minutes to become visible. 
 * Each log entry consumes approximately 1 KB of space.
@@ -75,28 +73,7 @@ The events capture in file access logs depend on the protocol of your volume.
 * Set attribute 
 * Unlink
 * Write
-<!--
-## Register the feature
 
-If you're using file access logs for the first time, you need to register the feature. 
-
-1. Register the feature:
-
-    ```azurepowershell-interactive
-      Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFileAccessLogs
-    ```
-
-1. Check the status of the registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** can be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFileAccessLogs`
-    ```
-
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
--->
 ## Supported regions
 
 Availability for file access log is limited to the following regions: 
@@ -106,6 +83,7 @@ Availability for file access log is limited to the following regions:
 - Australia East
 - Australia Southeast
 - Brazil South
+- Brazil Southeast 
 - Canada Central
 - Canada East
 - Central India
@@ -113,17 +91,29 @@ Availability for file access log is limited to the following regions:
 - East Asia
 - East US
 - East US 2
+- France Central 
+- Germany North 
 - Japan East
 - Japan West
 - Korea Central
 - Korea South
+- New Zealand North
 - North Europe
+- Norway East
+- Norway West
+- South Africa North
 - South Central US
 - Southeast Asia
 - South India
+- Sweden Central
 - Switzerland North
 - Switzerland West
+- UAE Central 
+- UAE North 
 - UK South
+- UK West
+- US Gov Arizona 
+- US Gov Virginia
 - West Europe
 - West US
 - West US 2
@@ -135,12 +125,10 @@ You must set SACLs for SMB shares or Audit ACEs for NFSv4.1 exports for auditing
 
 ### [Set SACLs for SMB shares](#tab/sacls-smb)
 
-If you're logging access events on all files and directories within a volume, set SACLs by applying Storage-Level Access Guard security. 
+To enable logging access on individual files and directories, complete the following steps on the Windows administration host. 
 
 >[!NOTE]
 > Select only the events you need to log. Selecting too many log options can impact system performance. 
-
-To enable logging access on individual files and directories, complete the following steps on the  Windows administration host. 
 
 #### Steps 
 

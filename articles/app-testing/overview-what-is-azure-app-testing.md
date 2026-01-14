@@ -1,6 +1,6 @@
 ---
 title: What is Azure App Testing?
-description: 'Azure App Testing is a fully managed, cloud-based load-testing service for generating high-scale loads and identifying performance bottlenecks. Quickly create a URL-based load test, or upload a JMeter or Locust test script.'
+description: 'Improve your app performance at scale. Run end-to-end Playwright tests, or run automated load tests on the cloud using JMeter or Locust scripts with Azure App Testing.'
 ms.service: azure-app-testing
 ms.topic: overview
 ms.author: ninallam

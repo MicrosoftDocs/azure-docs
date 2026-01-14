@@ -6,7 +6,7 @@ ms.service: azure-app-configuration
 author: mrm9084
 ms.author: mametcal
 ms.topic: how-to
-ms.date: 07/08/2025
+ms.date: 11/05/2025
 ---
 
 # Enable telemetry for feature flags
@@ -58,6 +58,7 @@ These types of questions can be answered through the emission and analysis of fe
 
 1. Continue to the following instructions to use telemetry in your application for the language or platform you're using.
 
+    * [ASP.NET Core](./how-to-telemetry-aspnet-core.md)
     * [Python](./howto-telemetry-python.md)
     * [JavaScript](./howto-telemetry-javascript.md)
 
@@ -69,7 +70,7 @@ These types of questions can be answered through the emission and analysis of fe
 
 1. Use the time range selector to focus on specific periods to identify trends or investigate particular timeframes of interest.
 
-1. Filter by feature Flag
+1. Filter by feature flag
     1. Click on the dropdown menu above the event graph
     1. Under **Feature flags with events** select your feature flag
     1. The graph will now display only events related to the feature flag's evaluations

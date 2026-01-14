@@ -166,6 +166,7 @@ The following tables provide coverage information for the Azure Maps routing ser
 | Kazakhstan                              | ✓                                                           | ✓                 |             |
 | Kenya                                   | ✓                                                           | ✓                 |             |
 | Kiribati<sup>1</sup>                    | ✓                                                           |                   |             |
+| Korea<sup>2</sup>                       | ✓                                                           | ✓                 | ✓           |
 | Kuwait                                  | ✓                                                           | ✓                 |             |
 | Kyrgyzstan<sup>1</sup>                  | ✓                                                           |                   |             |
 | Laos                                    | ✓                                                           |                   |             |
@@ -246,7 +247,6 @@ The following tables provide coverage information for the Azure Maps routing ser
 | Somalia<sup>1</sup>                     | ✓                                                           |                   |             |
 | South Africa                            | ✓                                                           | ✓                 | ✓           |
 | South Georgia & South Sandwich Islands<sup>1</sup> | ✓                                                |                   |             |
-| South Korea2                            | ✓                                                           | ✓                 | ✓           |
 | South Sudan<sup>1</sup>                 | ✓                                                           |                   |             |
 | Spain                                   | ✓                                                           | ✓                 | ✓           |
 | Sri Lanka<sup>1</sup>                   | ✓                                                           |                   |             |
@@ -295,7 +295,7 @@ The following tables provide coverage information for the Azure Maps routing ser
 
 <sup>1</sup> Country/region has partial road data with at least coverage for major roads.
 
-<sup>2</sup> South Korea is only supported in the latest version of the Route service, with coverage dependent on enabling data processing. For more information, see [Configure global data processing](how-to-manage-consent.md).
+<sup>2</sup> Korea is only supported in the latest version of the Route service, with coverage dependent on enabling data processing. For more information, see [Configure global data processing](how-to-manage-consent.md).
 
 <!-----------------------------  ::: zone pivot="service-latest"   ---------------------------------------------------------------------
 
@@ -421,6 +421,7 @@ The Azure Maps Routing service contains different levels of geographic coverage 
 | Kazakhstan                             |               ✓                  |         ✓          |                        |          ✓           |
 | Kenya                                  |               ✓                  |         ✓          |                        |          ✓           |
 | Kiribati<sup>1</sup>                   |               ✓                  |                    |                        |          ✓           |
+| Korea<sup>2</sup>                      |               ✓                  |         ✓          |           ✓            |         ✓           |
 | Kosovo                                 |               ✓                  |                    |                        |                      |
 | Kuwait                                 |               ✓                  |         ✓          |                        |          ✓           |
 | Kyrgyzstan<sup>1</sup>                 |               ✓                  |                    |                        |          ✓           |
@@ -506,7 +507,6 @@ The Azure Maps Routing service contains different levels of geographic coverage 
 | Somalia<sup>1</sup>                    |               ✓                  |                    |                        |          ✓           |
 | South Africa                           |               ✓                  |         ✓          |           ✓            |          ✓           |
 | South Georgia & South Sandwich Islands<sup>1</sup> |   ✓                  |                    |                        |          ✓           |
-| South Korea<sup>2</sup>                |               ✓                  |         ✓          |           ✓            |         ✓           |
 | South Sudan<sup>1</sup>                |               ✓                  |                    |                        |          ✓           |
 | Spain                                  |               ✓                  |         ✓          |           ✓            |          ✓           |
 | Sri Lanka<sup>1</sup>                  |               ✓                  |                    |                        |          ✓           |
@@ -557,7 +557,7 @@ The Azure Maps Routing service contains different levels of geographic coverage 
 
 <sup>1</sup> Country/region has partial road data with at least coverage for major roads.
 
-<sup>2</sup> Coverage is dependent on enabling data processing in South Korea. For more information, see [Configure global data processing](how-to-manage-consent.md).
+<sup>2</sup> Coverage is dependent on enabling data processing in Korea. For more information, see [Configure global data processing](how-to-manage-consent.md).
 
 ::: zone-end -------------------------------------------------------------------------------------------------------------------------->
 

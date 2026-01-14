@@ -3,7 +3,7 @@ title: Move Azure App Service resources across resource groups or subscriptions
 description: Use Azure Resource Manager to move App Service resources to a new resource group or subscription.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 07/28/2025
+ms.date: 10/29/2025
 ---
 
 # Move App Service resources to a new resource group or subscription
@@ -62,6 +62,19 @@ When you use the portal to move your App Service resources, you might see an err
 You can't move a free App Service managed certificate. Instead, delete the managed certificate and recreate it after moving the web app. To get instructions for deleting the certificate, use the **Migration Operations** tool.
 
 If your free App Service managed certificate gets created in an unexpected resource group, try moving the app service plan back to its original resource group. Then, recreate the free managed certificate. This change fixes the issue.
+
+## Scale units and zone redundancy
+
+Apps can only move between App Service plans that are in the same scale unit. Zone redundancy is a property of the scale unit where the App Service plan is deployed. If your current App Service plan is in a scale unit that doesn't support zone redundancy, you can't enable zone redundancy on that plan.
+
+When you create a new App Service plan with zone redundancy enabled, it's deployed to a different scale unit than your existing non-zone-redundant plan. Because apps can't move between different scale units, you can't move your app to the zone-redundant plan (and therefore inherit its zone redundancy settings).
+
+If your App Service plan is on a scale unit that doesn't support zone redundancy, you can't enable zone redundancy on your plan. Instead, you need to:
+
+1. Create a new App Service plan **with zone redundancy explicitly selected at the time the new App Service plan is created** in a new resource group. When you create a new App Service plan with zone redundancy enabled in a different resource group, it's deployed to a different scale unit.
+1. Redeploy your apps to the new plan. When you create a new plan that's on a different scale unit, you need to redeploy your apps. You can't move apps between plans that are on different scale units.
+
+For more information about zone redundancy requirements and scale units, see [Reliability in Azure App Service](/azure/reliability/reliability-app-service#availability-zone-support).
 
 ## Move support
 

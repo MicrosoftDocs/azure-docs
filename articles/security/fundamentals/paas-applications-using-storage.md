@@ -3,11 +3,10 @@ title: Securing PaaS applications using Azure Storage | Microsoft Docs
 description: "Learn about Azure Storage security best practices for securing your PaaS web and mobile applications."
 services: security
 author: msmbaldwin
-manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 09/29/2024
+ms.date: 12/03/2025
 ms.author: mbaldwin
 
 ---
@@ -51,7 +50,7 @@ Organizations that don't enforce data access control by using capabilities such 
 
 To learn more about Azure RBAC see:
 
-- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml)
+- [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
 - [Azure built-in roles](../../role-based-access-control/built-in-roles.md)
 - [Security recommendations for Blob storage](../../storage/blobs/security-recommendations.md)
 

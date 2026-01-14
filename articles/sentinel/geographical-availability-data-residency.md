@@ -39,52 +39,37 @@ Data used by the service, including customer data, might be stored and processed
  
 ### Supported regions
 
-Regions supported for Microsoft Sentinel raw data, and for processed and configuration data in workspaces not onboarded to the Defender portal, include:
+The following table shows the supported regions supporting Microsoft Sentinel SIEM and data lake.
 
-|Continent | Country/Region | Azure Region |
-|---------|---------|---------|
-| **North America**| **Canada** | • Canada Central<br>• Canada East |
-| |   **United States** | • Central US<br>• East US<br>• East US 2<br>• East US 2 EUAP<br>• North Central US<br>• South Central US<br>• West US<br>• West US 2<br>• West US 3<br>• West Central US<br><br>**Azure government** <br>• USGov Arizona<br>• USGov Virginia<br>• USNat East<br>• USNat West<br>• USSec East<br>• USSec West|
+| Continent | Country/Region | SIEM supported region | Data lake supported region |
+|---------|---------|---------|---------|
+| **North America**| **Canada** | • Canada Central<br>• Canada East | • Canada Central |
+| |   **United States** | • Central US<br>• East US<br>• East US 2<br>• East US 2 EUAP<br>• North Central US<br>• South Central US<br>• West US<br>• West US 2<br>• West US 3<br>• West Central US<br><br>**Azure government** <br>• USGov Arizona<br>• USGov Virginia<br>• USNat East<br>• USNat West<br>• USSec East<br>• USSec West| • Central US<br>• East US<br>• East US 2<br>• South Central US<br>• West US 2 |
 |**South America** | **Brazil** | • Brazil South<br>• Brazil Southeast |
-|**Asia and Middle East** | |• East Asia<br>• Southeast Asia |
+|**Asia and Middle East** | |• East Asia<br>• Southeast Asia | • Southeast Asia |
 | | **China 21Vianet**| • China East 2<br>• China North 3|
-| | **India**| • Central India<br>• Jio India West<br>• Jio India Central|
-| | **Israel** | • Israel Central |
-| | **Japan** | • Japan East<br>• Japan West|
+| | **India**| • Central India<br>• Jio India West<br>• Jio India Central| • Central India |
+| | **Israel** | • Israel Central | • Israel Central |
+| | **Japan** | • Japan East<br>• Japan West| • Japan East |
 | | **Korea**| • Korea Central<br>• Korea South| 
 | | **Qatar** | • Qatar Central|
 | | **UAE**| • UAE Central<br>• UAE North        |
-|**Europe**| | • North Europe<br>• West Europe|
-| |**France**| • France Central<br>• France South|
+|**Europe**| | • North Europe<br>• West Europe| • North Europe<br>• West Europe |
+| |**France**| • France Central<br>• France South| • France Central |
 | |**Germany**| • Germany West Central|
 | | **Italy** |• Italy North|
 | | **Norway**|• Norway East<br>• Norway West|
 | |**Sweden**| • Sweden Central | 
-| | **Switzerland**| • Switzerland North<br>• Switzerland West| 
-| | **UK**| • UK South<br>• UK West |
-|**Australia** | **Australia**| • Australia Central<br>Australia Central 2<br>• Australia East<br>• Australia Southeast	|
+| | **Switzerland**| • Switzerland North<br>• Switzerland West| • Switzerland North |
+| | **UK**| • UK South<br>• UK West | • UK South |
+|**Australia** | **Australia**| • Australia Central<br>Australia Central 2<br>• Australia East<br>• Australia Southeast	|  • Australia East |
 |**Africa** | **South Africa**| • South Africa North |
 
-### Regions supported for Microsoft Sentinel data lake
-
 > [!NOTE]
-> The Microsoft Sentinel data lake is currently in preview. During this time onboarding may be temporarily unavailable in some regions. When onboarding is available in your region, an onboarding banner appears on the Microsoft Defender portal home page to guide you through the process.
+> In the light of strong customer demand in public preview, at GA we are expanding Microsoft Sentinel data lake availability to additional regions. These new regions will roll out progressively over the coming weeks.
 
-
-| Continent              | Country/Region   | Azure Region                          |
-|------------------------|------------------|---------------------------------------|
-| North America          | Canada           | Canada Central                        |
-| North America          | United States    | Central US<br>East US<br>East US 2<br>South Central US<br>West US2 |
-| Asia and Middle East   |       -          | Southeast Asia                        |
-|  Asia and Middle East  | India            | Central India                         |
-|  Asia and Middle East  | Israel           | Israel Central                        |
-|  Asia and Middle East  | Japan            | Japan East                            |
-| Europe                 |                  | North Europe<br>West Europe           |
-| Europe                 | France           | France Central                        |
-|  Europe                | Switzerland      | Switzerland North                     |
-|  Europe                | UK               | UK South                              |
-| Australia              | Australia        | Australia East                       |
-
+> [!IMPORTANT]
+> Microsoft Sentinel data lake must be deployed in the same Azure region as the associated primary Sentinel workspace.
 
 ## Data retention
 

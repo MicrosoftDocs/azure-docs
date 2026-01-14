@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 08/19/2025
+ms.date: 10/30/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
@@ -52,7 +52,7 @@ You need to be aware of several requirements and considerations before using Azu
 
 * If you need to delete a parent resource group or subscription that contains backups, delete any backups first. Deleting the resource group or subscription doesn't delete the backups.
 
-* Azure NetApp Files backups are supported with large volumes. To create a backup of an Azure NetApp Files large volume, you must be registered to use [large volumes](large-volumes-requirements-considerations.md#register-the-feature).
+* To use Azure NetApp Files backup with large volumes, you must be [registered to use large volumes](large-volumes-requirements-considerations.md#register-the-feature).  
 
 * If the volume reaches its maximum quota, backup creation can fail depending on the amount of data changed. If the backup fails, increase the size of the volume then wait for the next scheduled backup. 
 

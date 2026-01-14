@@ -6,7 +6,7 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 10/01/2024
+ms.date: 10/01/2025
 ms.author: kesheth
 ---
 
@@ -63,6 +63,9 @@ Logical Identifiers are considered "deterministic" because FHIR operations perfo
 * **Consider** using the `PUT` HTTP verb instead of POST where applicable. `PUT` requests can help maintain data integrity and optimize resource management. `POST` requests can lead to duplication of resources, poor data quality, and increase FHIR data size unnecessarily.
 * **Avoid** the use of `_revinclude` in search queries, as they can result in unbounded result sets and higher latencies.
 * **Avoid** using complex searches (for example: `_has`, or chained search parameters), as they impact query performance.
+
+> [!NOTE]
+> For the rare outliers or 1% of queries can be impacted due to transient conditions, maintenance or network variability. We recommend implementing retry logic to ensure reliability without degrading your application and user experience.
 
 ## Data extraction
 

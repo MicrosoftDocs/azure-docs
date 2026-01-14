@@ -5,11 +5,13 @@ items:
   items:
   - name: What is Azure Firewall?
     href: overview.md
+  - name: Azure Firewall features by SKU
+    href: features-by-sku.md
   - name: Architecture best practices for Azure Firewall
     href: /azure/well-architected/service-guides/azure-firewall?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
   - name: What is Azure network security?
     href: /azure/networking/security/network-security?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
-  - name: SKU comparison
+  - name: Choose the right SKU
     href: choose-firewall-sku.md
   - name: Preview features
     href: firewall-preview.md
@@ -50,7 +52,7 @@ items:
     href: tcp-session-behavior.md
   - name: Explicit Proxy
     href: explicit-proxy.md
-  - name: Multi hub and spoke
+  - name: Routing in hub and spoke 
     href: firewall-multi-hub-spoke.md
   - name: Central management
     href: central-management.md
@@ -60,14 +62,10 @@ items:
   items:
   - name: Firewall Basic
     items:
-    - name: Features
-      href: basic-features.md
     - name: Deploy Basic firewall
       href: deploy-firewall-basic-portal-policy.md
   - name: Firewall Standard
     items:
-    - name: Features
-      href: features.md
     - name: Portal
       href: tutorial-firewall-deploy-portal-policy.md
     - name: PowerShell
@@ -78,7 +76,7 @@ items:
     items:
     - name: Overview
       href: premium-portal.md
-    - name: Features
+    - name: Implementation guide
       href: premium-features.md
     - name: Portal
       href: premium-deploy.md
@@ -96,6 +94,8 @@ items:
       href: tutorial-hybrid-ps.md
   - name: Firewall with inbound DNAT rules
     href: tutorial-firewall-dnat-policy.md
+  - name: Private IP DNAT for overlapped and non-routable networks
+    href: tutorial-private-ip-dnat.md
   - name: Firewall with DDoS protection
     href: tutorial-protect-firewall.md
   - name: Integrate NAT gateway with Azure Firewall
@@ -164,6 +164,8 @@ items:
       href: dns-details.md
     - name: DNS proxy settings
       href: dns-settings.md
+  - name: Prescaling
+    href: prescaling.md
   - name: Tags
     items:
     - name: FQDN tags
@@ -178,6 +180,8 @@ items:
     href: snat-private-range.md
   - name: Customer-controlled maintenance
     href: customer-controlled-maintenance.md
+  - name: Packet capture on Azure Firewall
+    href: packet-capture.md
 - name: Secure
   items:
   - name: Secure firewall deployment
@@ -204,12 +208,10 @@ items:
     href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Migration and upgrades
   items:
-  - name: Migrate to Azure Firewall Premium
-    href: premium-migrate.md
+  - name: Change Azure Firewall SKU
+    href: change-sku.md
   - name: Migrate to Premium using Terraform
     href: /azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
-  - name: Easy upgrade/downgrade
-    href: easy-upgrade.md
 - name: Operational excellence
   items:
   - name: Monitoring
@@ -218,6 +220,8 @@ items:
       href: monitor-firewall.md
     - name: Azure Firewall Workbooks
       href: firewall-workbook.md
+    - name: Track rule set changes
+      href: rule-set-change-tracking.md
   - name: Threat intelligence
     href: threat-intel.md
   - name: Best practices for performance
@@ -248,7 +252,7 @@ items:
     href: /rest/api/firewall
   - name: Azure Resource Manager
     href: ../azure-resource-manager/management/overview.md
-  - name: Monitoring dataWinRT reference
+  - name: Monitoring Azure Firewall reference
     href: monitor-firewall-reference.md
 - name: Resources
   items:

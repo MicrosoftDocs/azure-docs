@@ -1,8 +1,8 @@
 ---
 title: Disk-backed message buffer for the Azure IoT Operations MQTT broker
 description: Learn how to configure the disk-backed message buffer feature for the Azure IoT Operations MQTT broker to manage message queues efficiently.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.topic: how-to
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker

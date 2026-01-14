@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/08/2025
+ms.date: 10/28/2025
 ms.author: primittal
 ---
 
@@ -75,37 +75,7 @@ Some Azure services do not support Reservation (RI) discounts, so it's important
 
 When you buy a reservation, the current UTC date and time are used to record the transaction.
 
-You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the following articles that apply to you when you're ready to make a reservation purchase:
-
-- [App Service](prepay-app-service.md)
-- [App Service - JBoss EA Integrated Support](prepay-jboss-eap-integrated-support-app-service.md)
-- [Azure Backup](../../backup/backup-azure-reserved-pricing-optimize-cost.md)
-- [Azure Cache for Redis](../../azure-cache-for-redis/cache-reserved-pricing.md)
-- [Azure Data Factory](../../data-factory/data-flow-understand-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json)
-- [Azure Database for MySQL](/azure/mysql/concept-reserved-pricing)
-- [Azure Database for PostgreSQL](/azure/postgresql/concept-reserved-pricing)
-- [Azure Blob storage](../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json)
-- [Azure Files](../../storage/files/files-reserve-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json)
-- [Azure VMware Solution](../../azure-vmware/reserved-instance.md?toc=/azure/cost-management-billing/reservations/toc.json)
-- [Azure Cosmos DB](/azure/cosmos-db/cosmos-db-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json)
-- [Azure OpenAI](azure-openai.md)
-- [Azure SQL Edge](prepay-sql-edge.md)
-- [Databricks](prepay-databricks-reserved-capacity.md)
-- [Data Explorer](/azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json)
-- [Dedicated Host](/azure/virtual-machines/prepay-dedicated-hosts-reserved-instances)
-- [Defender for Cloud - Pre-Purchase](/azure/defender-for-cloud/prepurchase-plan?toc=/azure/cost-management-billing/reservations/toc.json)
-- [Disk Storage](/azure/virtual-machines/disks-reserved-capacity)
-- [Microsoft Fabric](fabric-capacity.md)
-- [Microsoft Sentinel - Pre-Purchase](../../sentinel/billing-pre-purchase-plan.md?toc=/azure/cost-management-billing/reservations/toc.json)
-- [Nutanix on Azure BareMetal](nutanix-bare-metal.md)
-- [Red Hat OpenShift](prepay-red-hat-openshift.md)
-- [SAP HANA Large Instances](prepay-hana-large-instances-reserved-capacity.md)
-- [Software plans](/azure/virtual-machines/linux/prepay-suse-software-charges?toc=/azure/cost-management-billing/reservations/toc.json)
-- [SQL Database](/azure/azure-sql/database/reserved-capacity-overview?toc=/azure/cost-management-billing/reservations/toc.json)
-- [Synapse Analytics - data warehouse](prepay-sql-data-warehouse-charges.md)
-- [Synapse Analytics - Pre-Purchase](synapse-analytics-pre-purchase-plan.md)
-- [Virtual machines](/azure/virtual-machines/prepay-reserved-vm-instances?toc=/azure/cost-management-billing/reservations/toc.json)
-- [Virtual machine software](buy-vm-software-reservation.md)
+You can purchase reservations from Azure portal, APIs, PowerShell, CLI. You can read through the details for each reservation type in the left side menu.
 
 ## Buy reservations with monthly payments
 
@@ -113,7 +83,7 @@ You can pay for reservations with monthly payments. Unlike an up-front purchase 
 
 If reservation is purchased using Microsoft customer agreement (MCA), your monthly payment amount might vary, depending on the current month's market exchange rate for your local currency.
 
-Monthly payments aren't available for: Databricks, Synapse Analytics - Prepurchase, SUSE Linux reservations, Red Hat Plans, and Azure Red Hat OpenShift Licenses.
+Monthly payments aren't available for: SUSE Linux reservations, Red Hat Plans, Azure Red Hat OpenShift Licenses, and any of the pre-purchase plans.
 
 ### View payments made
 
@@ -131,7 +101,7 @@ When you exchange a reservation with monthly payments, the total cost of the new
 
 If you cancel a reservation that gets paid for monthly, canceled future payments accrue towards the $50,000 USD refund limit.
 
-For more information about exchange and refunds, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md).
+For more information about exchange and refunds, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md). Each reservation type can have their own refund and exchnage applicability, please review individual document.
 
 ## Reservation notifications
 

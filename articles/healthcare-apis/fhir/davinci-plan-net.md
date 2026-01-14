@@ -7,7 +7,8 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
-ms.date: 06/04/2024
+ms.date: 10/01/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Da Vinci Plan Net

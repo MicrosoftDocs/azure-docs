@@ -182,12 +182,17 @@
       href: concepts-azure-to-azure-high-churn-support.md
     - name: About moving Azure VMs to another region
       href: azure-to-azure-move-overview.md
+    - name: Alternative virtual machine size guidance
+      href: alternative-vm-size-failover-flow.md
   - name: About VMware VM disaster recovery
     items:
     - name: Deprecation of classic experience
       href: vmware-physical-azure-classic-deprecation.md
     - name: Failover and failback - Modernized
       href: failover-failback-overview-modernized.md
+      items:
+      - name: Configure on-premise disks for Azure through Hydration
+        href: hydration-process.md
     - name: VMware to Azure architecture - Modernized
       href: vmware-azure-architecture-modernized.md      
   - name: About Hyper-V VM disaster recovery
@@ -428,8 +433,6 @@
       items:
       - name: Deprecation of Site Recovery data encryption
         href: encryption-feature-deprecation.md
-      - name: Upgrade Windows Servers configured with Site Recovery
-        href: upgrade-2012R2-to-2016.md
       - name: Manage Site Recovery updates
         href: service-updates-how-to.md        
       - name: Remove servers and disable protection

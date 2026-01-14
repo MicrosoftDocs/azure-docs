@@ -1,19 +1,19 @@
 ---
-title: Export deidentified data from the FHIR service in Azure Health Data Services
-description: Learn to deidentify FHIR data with the FHIR service’s export feature. Use our sample config file for HIPAA Safe Harbor compliance and privacy protection.
+title: Export de-identified data from the FHIR service in Azure Health Data Services
+description: Learn to de-identify FHIR data with the FHIR service’s export feature. Use our sample config file for HIPAA Safe Harbor compliance and privacy protection.
 author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 05/06/2024
+ms.date: 10/01/2025
 ms.author: kesheth
 ---
 # Export de-identified data
 
 > [!NOTE] 
-> Results when using the FHIR&reg; service's deidentified (de-ID) export vary based on the nature of the data being exported, and what de-ID functions are in use. Microsoft is unable to evaluate deidentified export outputs or determine the acceptability for your use cases and compliance needs. The FHIR service's deidentified export is not guaranteed to meet any specific legal, regulatory, or compliance requirements.
+> Results when using the FHIR&reg; service's de-identified (de-ID) export vary based on the nature of the data being exported, and what de-ID functions are in use. Microsoft is unable to evaluate de-identified export outputs or determine the acceptability for your use cases and compliance needs. The FHIR service's de-identified export is not guaranteed to meet any specific legal, regulatory, or compliance requirements.
 
- The FHIR service can deidentify data when you run an `$export` operation. For deidentified export, the FHIR service uses the anonymization engine from the [FHIR tools for anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization) (OSS) project on GitHub. There's a [sample config file](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#sample-configuration-file) to help you get started redacting/transforming FHIR data fields that contain personally identifying information. 
+ The FHIR service can de-identify data when you run an `$export` operation. For de-identified export, the FHIR service uses the anonymization engine from the [FHIR tools for anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization) (OSS) project on GitHub. There's a [sample config file](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#sample-configuration-file) to help you get started redacting/transforming FHIR data fields that contain personally identifying information. 
 
 ## Configuration file
 
@@ -50,7 +50,7 @@ Here's a sample configuration file for FHIR R4:
 For more information, see [FHIR anonymization](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#configuration-file-format). 
 
 ## Manage Configuration File in storage account
-You need to create a container for the deidentified export in your ADLS Gen2 account and specify the `<<container_name>>` in the API request as shown. Additionally, you need to place the JSON config file with the anonymization rules inside the container and specify the `<<config file name>>` in the API request. 
+You need to create a container for the de-identified export in your ADLS Gen2 account and specify the `<<container_name>>` in the API request as shown. Additionally, you need to place the JSON config file with the anonymization rules inside the container and specify the `<<config file name>>` in the API request. 
 
 > [!NOTE] 
 > It is common practice to name the container `anonymization`. The JSON file within the container is often named `anonymizationConfig.json`.
@@ -65,14 +65,14 @@ We recommend that you host the export configuration files on Azure Container Reg
 4. Register the ACR servers in the FHIR service. You can use the portal to open "Artifacts" in the "Transform and transfer data" section to add the ACR server.
 5. Configure ACR firewall for secure access.
 
-## Using the `$export` endpoint for deidentifying data
+## Using the `$export` endpoint for de-identifying data
 
 Following is an example of an anonymized `$export' query.
 
  `https://<<FHIR service base URL>>/$export?_container=<<container_name>>&_anonymizationConfigCollectionReference=<<ACR image reference>>&_anonymizationConfig=<<config file name>>&_anonymizationConfigEtag=<<ETag on storage>>`
 
 > [!NOTE] 
-> Right now the FHIR service only supports deidentified export at the system level (`$export`).
+> Right now the FHIR service only supports de-identified export at the system level (`$export`).
 
 |Query parameter            | Example |Optionality| Description|
 |---------------------------|---------|-----------|------------|
@@ -82,7 +82,7 @@ Following is an example of an anonymized `$export' query.
 | _\_anonymizationConfigEtag_|"0x8D8494A069489EC"|Optional|Etag of the configuration file, which can be obtained from the blob property in Azure Storage Explorer. Specify this parameter only if the configuration file is stored in Azure storage account. If you use ACR to host the configuration file, you shouldn't include this parameter.|
 
 > [!IMPORTANT]
-> Both the raw export and deidentified export operations write to the same Azure storage account specified in the export configuration for the FHIR service. If you have need for multiple deidentification configurations, it is recommended that you create a different container for each configuration and manage user access at the container level.
+> Both the raw export and de-identified export operations write to the same Azure storage account specified in the export configuration for the FHIR service. If you have need for multiple deidentification configurations, it is recommended that you create a different container for each configuration and manage user access at the container level.
 
 ## Next steps
 

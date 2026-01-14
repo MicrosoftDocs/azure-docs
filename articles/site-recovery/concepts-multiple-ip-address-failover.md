@@ -1,11 +1,11 @@
 ---
 title: Configure failover of multiple IP addresses with Azure Site Recovery
 description: This article describes how to configure the failover of secondary IP configs for Azure virtual machines.
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.date: 11/11/2024
-ms.author: jsuri
+ms.author: v-gajeronika
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange

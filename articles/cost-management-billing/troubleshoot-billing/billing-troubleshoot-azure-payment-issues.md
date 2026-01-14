@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot Azure payment issues
 description: Resolving an issue when updating payment information account in the Azure portal.
-author: lindseyshep
-ms.reviewer: lishepar, jobailey
+author: kennyday
+ms.reviewer: drjones
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 05/01/2025
-ms.author: lishepar
+ms.date: 10/13/2025
+ms.author: drjones
 ---
 
 # Troubleshoot Azure payment issues
@@ -79,9 +79,9 @@ The issue occurs because of an outstanding balance. Clear any outstanding balanc
 
 ## Unable to change payment method because of an XML error response page
 
-You receive the message if you're using [the Azure portal](https://portal.azure.com/) to add a new credit card.
+You might have received this error message if you were using [the Azure portal](https://portal.azure.com/) to add a new credit card.
 
-To add card details, sign-in to the Azure Account portal by using the account administrator's email address.
+Please be sure to sign-in to the Azure portal by using the account administrator's email address.
 
 ## Why does my invoice appear as unpaid when I've paid it?
 

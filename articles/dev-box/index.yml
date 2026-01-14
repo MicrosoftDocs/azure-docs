@@ -14,10 +14,22 @@ metadata:
   ms.topic: landing-page
   ms.author: rosemalcolm
   author: RoseHJM
-  ms.date: 07/09/2025
+  ms.date: 12/05/2025
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
+  # Card
+  - title: Overview
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Microsoft Dev Box?
+            url: overview-what-is-microsoft-dev-box.md
+          - text: Dev Box and Windows 365
+            url: dev-box-windows-365-announcement.md
+          - text: Microsoft Dev Box Roadmap
+            url: dev-box-roadmap.md
+
   # Card
   - title: Get started
     linkLists:
@@ -35,31 +47,48 @@ landingContent:
             url: https://learn.microsoft.com/training/modules/explore-microsoft-dev-box-deployment-guidelines-best-practices/
 
   # Card
-  - title: Dev Box deployment at scale
+  - title: AI & Developer Productivity
     linkLists:
-      - linkListType: concept
+      - linkListType: overview
         links:
-          - text: What is Microsoft Dev Box?
-            url: overview-what-is-microsoft-dev-box.md
-          - text: Microsoft Dev Box concepts
-            url: concept-dev-box-concepts.md
-          - text: Architecture overview
-            url: concept-dev-box-architecture.md
-          - text: Microsoft Dev Box Roadmap
-            url: dev-box-roadmap.md
-      - linkListType: deploy
+          - text: What is Microsoft Dev Box MCP Server?
+            url: overview-what-is-dev-box-mcp-server.md
+      - linkListType: tutorial
         links:
-          - text: Design Dev Box deployment architecture
-            url: concept-dev-box-deployment-guide.md
-          
+          - text: Get started with the Dev Box MCP Server
+            url: tutorial-get-started-dev-box-mcp-server.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure serverless GPU for AI workloads
+            url: how-to-configure-dev-box-serverless-gpu.md
+          - text: Use GitHub Copilot to generate customization files
+            url: how-to-configure-team-customizations.md
+
+  # Card
+  - title: Cost optimization & management
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure Dev Box Hibernation
+            url: how-to-configure-dev-box-hibernation.md
+          - text: Autostop Dev Boxes on schedule
+            url: how-to-configure-stop-schedule.md
+          - text: Delete unused dev boxes
+            url: how-to-auto-delete-dev-box.md
+          - text: Request a quota limit increase
+            url: how-to-request-quota-increase.md
+          - text: Control resource use with project policies
+            url: how-to-configure-project-policy.md
 
   # Card
   - title: Configure ready-to-code dev boxes
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: concept
         links:
           - text: What are Dev Box Customizations
             url: concept-what-are-dev-box-customizations.md
+      - linkListType: how-to-guide
+        links:
           - text: Configure team customizations
             url: how-to-configure-team-customizations.md
           - text: Configure dev center imaging
@@ -72,38 +101,34 @@ landingContent:
             url: how-to-create-customization-tasks-catalog.md
           - text: 'Reference: imagedefinition.yaml and task.yaml files'
             url: reference-dev-box-customizations.md
+
+  # Card
+  - title: Dev Box deployment at scale
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Architecture overview
+            url: concept-dev-box-architecture.md
+      - linkListType: deploy
+        links:
+          - text: Design Dev Box deployment architecture
+            url: concept-dev-box-deployment-guide.md
   
   # Card
-  - title: Dev Box cost management
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Request a quota limit increase
-            url: how-to-request-quota-increase.md
-          - text: Configure Dev Box Hibernation
-            url: how-to-configure-dev-box-hibernation.md
-          - text: Delete unused dev boxes
-            url: how-to-auto-delete-dev-box.md
-          - text: Autostop Dev Boxes on schedule             
-            url: how-to-configure-stop-schedule.md
-          - text: Control resource use with project policies
-            url: how-to-configure-project-policy.md
-
-   # Card
   - title: Explore the developer portal
     linkLists:
         - linkListType: how-to-guide
           links:
           - text: Manage a dev box
             url: how-to-create-dev-boxes-developer-portal.md
+          - text: Self-service snapshot and restore
+            url: how-to-restore-from-snapshot.md
+          - text: Hibernate your Dev Box
+            url: how-to-hibernate-your-dev-box.md
           - text: Configure multiple monitors
             url: how-to-create-dev-boxes-developer-portal.md#configure-multiple-monitors
           - text: Skip or delay a scheduled shutdown
             url: how-to-skip-delay-stop.md
-          - text: Hibernate your Dev Box
-            url: how-to-hibernate-your-dev-box.md
-          - text: Restore your dev box
-            url: how-to-restore-from-snapshot.md
           - text: Use the Troubleshoot and Repair tool
             url: how-to-troubleshoot-repair-dev-box.md
 
@@ -116,10 +141,12 @@ landingContent:
             url: how-to-configure-intune-conditional-access-policies.md
           - text: Enable single sign-on for dev box
             url: how-to-enable-single-sign-on.md
+          - text: Open a dev box in VS Code with Dev Tunnels
+            url: how-to-set-up-dev-tunnels.md
           - text: Configure access policies for Dev tunnels
             url: how-to-conditional-access-dev-tunnels-service.md
 
-   # Card
+  # Card
   - title: Support & Reference
     linkLists:
         - linkListType: how-to-guide
@@ -142,4 +169,20 @@ landingContent:
             url: https://learn.microsoft.com/en-us/azure/dev-box/cli-reference-subset
           - text: REST API
             url: https://aka.ms/dev-box/restapidocs
+
+  # Card
+  - title: Additional resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Windows 365 documentation
+            url: https://learn.microsoft.com/windows-365/
+          - text: Microsoft Intune documentation
+            url: https://learn.microsoft.com/mem/intune/
+          - text: Microsoft Entra ID documentation
+            url: https://learn.microsoft.com/entra/identity/
+          - text: Azure Deployment Environments
+            url: https://learn.microsoft.com/azure/deployment-environments/
+          - text: Microsoft Dev Box community
+            url: https://aka.ms/DevBox/Feedback
 

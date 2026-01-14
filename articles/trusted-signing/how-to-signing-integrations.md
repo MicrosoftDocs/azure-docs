@@ -147,7 +147,8 @@ To sign by using Trusted Signing, you need to provide the details of your Truste
    }
    ```
 
-   The `"Endpoint"` URI value must be a URI that aligns with the region where you created your Trusted Signing account and certificate profile when you set up these resources. The table shows regions and their corresponding URIs.
+  > [!IMPORTANT]
+  > The `"Endpoint"` URI value must match the region where you created your Trusted Signing account **and** the certificate profile. Use one of the region-specific URIs in the table below. A region/endpoint mismatch commonly causes a 403 Forbidden error and an internal `SignerSign()` failure during signing.
 
    | Region       | Region class fields  | Endpoint URI value  |
    |--------------|-----------|------------|

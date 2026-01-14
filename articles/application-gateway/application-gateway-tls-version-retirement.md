@@ -5,7 +5,7 @@ services: application gateway
 author: jaesoni
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 09/04/2025
+ms.date: 10/15/2025
 ms.author: mbender
 ms.custom:
   - build-2025
@@ -35,14 +35,11 @@ The predefined policies 20150501 and 20170401 that support TLS v1.0 and 1.1 will
 
 ### Custom policies for V2 SKUs
 
-Azure Application Gateway V2 SKU offers two types of custom policies: Custom and CustomV2. The retirement of these TLS versions affects only the "Custom" policy. The newer "CustomV2" policy comes with TLS v1.3. Beyond August 2025, the older Custom policy will support only TLS v1.2 and the following cipher suites won't be supported.
+Azure Application Gateway V2 SKU offers two types of custom policies: Custom and CustomV2. The retirement of these TLS versions affects only the "Custom" policy. The newer "CustomV2" policy comes with TLS v1.3 and also v1.2. Beyond August 2025, the older Custom policy will support only TLS v1.2 and the following cipher suites won't be supported.
 
 | Unsupported cipher suites |
 | ---------- |
-| TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 |
-| TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 |
 | TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 |
-| TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 |
 | TLS_DHE_RSA_WITH_AES_256_CBC_SHA |
 | TLS_DHE_RSA_WITH_AES_128_CBC_SHA |
 | TLS_DHE_DSS_WITH_AES_256_CBC_SHA256 |
@@ -51,6 +48,7 @@ Azure Application Gateway V2 SKU offers two types of custom policies: Custom and
 | TLS_DHE_DSS_WITH_AES_128_CBC_SHA |
 | TLS_RSA_WITH_3DES_EDE_CBC_SHA |
 | TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA |
+
 
 ### Predefined policies for V1 SKUs
 

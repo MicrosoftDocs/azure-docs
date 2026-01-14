@@ -4,8 +4,12 @@ description: Learn how to create assessment for Azure App Service in Azure Migra
 ms.topic: tutorial
 ms.date: 02/07/2025
 ms.service: azure-migrate
-ms.custom: engagement-fy24, devx-track-extended-java
+ms.reviewer: v-uhabiba
 zone_pivot_groups: web-apps-assessment-app-service
+ms.custom:
+  - engagement-fy24
+  - devx-track-extended-java
+  - sfi-image-nochange
 ::: moniker range="migrate"
 # Customer intent: As an IT administrator managing on-premises web apps, I want to assess their readiness for migration to a cloud environment, so that I can identify risks and estimate costs involved in moving to a cloud-based application service.
 ---

@@ -5,7 +5,7 @@ keywords: powershell dsc, desired state configuration, powershell dsc azure
 services: automation
 ms.service: azure-automation
 ms.subservice: desired-state-config
-ms.date: 10/22/2024
+ms.date: 11/17/2025
 ms.topic: overview
 ms.author: v-jasmineme
 author: jasminemehndir

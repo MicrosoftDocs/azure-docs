@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 2/28/2025
+ms.date: 02/28/2025
 ms.author: mbender
 # Customer intent: As a Kubernetes administrator, I want to migrate from AGIC deployed through Helm to the AGIC add-on, so that I can utilize the latest features and improve the management of my Application Gateway within my AKS cluster.
 ---

@@ -1,23 +1,26 @@
 ---
 title: Azure Functions custom handlers
 description: Learn to use Azure Functions with any language or runtime version.
-author: ggailey777
-ms.author: glenga
-ms.date: 12/1/2020
-ms.topic: article
+ms.date: 11/12/2025
+ms.topic: concept-article
 ms.devlang: golang
+ms.custom: 
+  - sfi-ropc-nochange
+ms.collection: 
+  - ce-skilling-ai-copilot 
 ---
 
 # Azure Functions custom handlers
 
-Every Functions app is executed by a language-specific handler. While Azure Functions features many [language handlers](./supported-languages.md) by default, there are cases where you may want to use other languages or runtimes.
+Azure Functions executes your app code by using language-specific handlers. These language-specific handlers allow Functions to support [most key languages](./supported-languages.md) by default. However, you might need to run code in another language or package.
 
-Custom handlers are lightweight web servers that receive events from the Functions host. Any language that supports HTTP primitives can implement a custom handler.
+Custom handlers are lightweight web servers that receive events from the Azure Functions host process. You can use custom handlers to deploy to Azure Functions any code project that supports HTTP primitives.
 
 Custom handlers are best suited for situations where you want to:
 
-- Implement a function app in a language that's not currently offered out-of-the box, such as Go or Rust.
+- Implement a function app in a language that's not currently offered out-of-the-box, such as Go or Rust.
 - Implement a function app in a runtime that's not currently featured by default, such as Deno.
+- [Deploy a server](#deploy-self-hosted-mcp-servers) built with the standard MCP SDKs to Azure Functions.
 
 With custom handlers, you can use [triggers and input and output bindings](./functions-triggers-bindings.md) via [extension bundles](./functions-bindings-register.md).
 
@@ -29,21 +32,27 @@ The following diagram shows the relationship between the Functions host and a we
 
 ![Azure Functions custom handler overview](./media/functions-custom-handlers/azure-functions-custom-handlers-overview.png)
 
-1. Each event triggers a request sent to the Functions host. An event is any trigger that is supported by Azure Functions.
+1. Each event triggers a request sent to the Functions host. An event is any trigger that Azure Functions supports.
 1. The Functions host then issues a [request payload](#request-payload) to the web server. The payload holds trigger and input binding data and other metadata for the function.
 1. The web server executes the individual function, and returns a [response payload](#response-payload) to the Functions host.
 1. The Functions host passes data from the response to the function's output bindings for processing.
 
 An Azure Functions app implemented as a custom handler must configure the *host.json*, *local.settings.json*, and *function.json* files according to a few conventions.
 
+## Deploy self-hosted MCP servers
+
+Custom handlers also enables you to host MCP servers that you build by using official MCP SDKs in Azure Functions. Custom handlers provides a simple and streamlined experience for hosting your MCP servers in Azure. For more information, see [Self-hosted remote MCP server on Azure Functions](./self-hosted-mcp-servers.md). 
+
+[!INCLUDE [functions-custom-handler-mcp-preview](../../includes/functions-custom-handler-mcp-preview.md)]
+
 ## Application structure
 
-To implement a custom handler, you need the following aspects to your application:
+To implement a custom handler, your application needs the following aspects:
 
 - A *host.json* file at the root of your app
 - A *local.settings.json* file at the root of your app
 - A *function.json* file for each function (inside a folder that matches the function name)
-- A command, script, or executable, which runs a web server
+- A command, script, or executable that runs a web server
 
 The following diagram shows how these files look on the file system for a function named "MyQueueFunction" and a custom handler executable named *handler.exe*.
 
@@ -58,13 +67,13 @@ The following diagram shows how these files look on the file system for a functi
 
 ### Configuration
 
-The application is configured via the *host.json* and *local.settings.json* files.
+You configure the application through the *host.json* and *local.settings.json* files.
 
 #### host.json
 
-*host.json* tells the Functions host where to send requests by pointing to a web server capable of processing HTTP events.
+*host.json* directs the Functions host where to send requests by pointing to a web server that can process HTTP events.
 
-A custom handler is defined by configuring the *host.json* file with details on how to run the web server via the `customHandler` section.
+Define a custom handler by configuring the *host.json* file with details on how to run the web server through the `customHandler` section.
 
 ```json
 {
@@ -77,9 +86,9 @@ A custom handler is defined by configuring the *host.json* file with details on 
 }
 ```
 
-The `customHandler` section points to a target as defined by the `defaultExecutablePath`. The execution target may either be a command, executable, or file where the web server is implemented.
+The `customHandler` section points to a target as defined by the `defaultExecutablePath`. The execution target can be a command, executable, or file where the web server is implemented.
 
-Use the `arguments` array to pass any arguments to the executable. Arguments support expansion of environment variables (application settings) using `%%` notation.
+Use the `arguments` array to pass any arguments to the executable. Arguments support expansion of environment variables (application settings) by using `%%` notation.
 
 You can also change the working directory used by the executable with `workingDirectory`.
 
@@ -105,7 +114,7 @@ Standard triggers along with input and output bindings are available by referenc
 
 #### local.settings.json
 
-*local.settings.json* defines application settings used when running the function app locally. As it may contain secrets, *local.settings.json* should be excluded from source control. In Azure, use application settings instead.
+*local.settings.json* defines application settings used when running the function app locally. Because it might contain secrets, exclude *local.settings.json* from source control. In Azure, use application settings instead.
 
 For custom handlers, set `FUNCTIONS_WORKER_RUNTIME` to `Custom` in *local.settings.json*.
 
@@ -120,7 +129,7 @@ For custom handlers, set `FUNCTIONS_WORKER_RUNTIME` to `Custom` in *local.settin
 
 ### Function metadata
 
-When used with a custom handler, the *function.json* contents are no different from how you would define a function under any other context. The only requirement is that *function.json* files must be in a folder named to match the function name.
+When you use a custom handler, the *function.json* contents are the same as when you define a function in any other context. The only requirement is that you must place *function.json* files in a folder named to match the function name.
 
 The following *function.json* configures a function that has a queue trigger and a queue output binding. Because it's in a folder named *MyQueueFunction*, it defines a function named *MyQueueFunction*.
 
@@ -149,9 +158,9 @@ The following *function.json* configures a function that has a queue trigger and
 
 ### Request payload
 
-When a queue message is received, the Functions host sends an HTTP post request to the custom handler with a payload in the body.
+When the Functions host receives a queue message, it sends an HTTP post request to the custom handler with a payload in the body.
 
-The following code represents a sample request payload. The payload includes a JSON structure with two members: `Data` and `Metadata`.
+The following code shows a sample request payload. The payload includes a JSON structure with two members: `Data` and `Metadata`.
 
 The `Data` member includes keys that match input and trigger names as defined in the bindings array in the *function.json* file.
 
@@ -184,11 +193,11 @@ By convention, function responses are formatted as key/value pairs. Supported ke
 
 | <nobr>Payload key</nobr>   | Data type | Remarks                                                      |
 | ------------- | --------- | ------------------------------------------------------------ |
-| `Outputs`     | object    | Holds response values as defined by the `bindings` array in *function.json*.<br /><br />For instance, if a function is configured with a queue output binding named "myQueueOutput", then `Outputs` contains a key named `myQueueOutput`, which is set by the custom handler to the messages that are sent to the queue. |
-| `Logs`        | array     | Messages appear in the Functions invocation logs.<br /><br />When running in Azure, messages appear in Application Insights. |
+| `Outputs`     | object    | Holds response values as defined by the `bindings` array in *function.json*.<br /><br />For instance, if a function is configured with a queue output binding named "myQueueOutput", then `Outputs` contains a key named `myQueueOutput`, which the custom handler sets to the messages that it sends to the queue. |
+| `Logs`        | array     | Messages that appear in the Functions invocation logs.<br /><br />When running in Azure, messages appear in Application Insights. |
 | `ReturnValue` | string    | Used to provide a response when an output is configured as `$return` in the *function.json* file. |
 
-This is an example of a response payload.
+This table shows an example of a response payload.
 
 ```json
 {
@@ -211,11 +220,11 @@ This is an example of a response payload.
 
 ## Examples
 
-Custom handlers can be implemented in any language that supports receiving HTTP events. The following examples show how to implement a custom handler using the Go programming language.
+You can implement custom handlers in any language that supports receiving HTTP events. The following examples show how to implement a custom handler by using the Go programming language.
 
 ### Function with bindings
 
-The scenario implemented in this example features a function named `order` that accepts a `POST` with a payload representing a product order. As an order is posted to the function, a Queue Storage message is created and an HTTP response is returned.
+This example shows a function named `order` that accepts a `POST` request with a payload representing a product order. When you post an order to the function, it creates a Queue Storage message and returns an HTTP response.
 
 <a id="bindings-implementation" name="bindings-implementation"></a>
 
@@ -282,7 +291,7 @@ Content-Type: application/json
 }
 ```
 
-The Functions runtime will then send the following HTTP request to the custom handler:
+The Functions runtime sends the following HTTP request to the custom handler:
 
 ```http
 POST http://127.0.0.1:<FUNCTIONS_CUSTOMHANDLER_PORT>/order HTTP/1.1
@@ -370,11 +379,11 @@ func main() {
 }
 ```
 
-In this example, the custom handler runs a web server to handle HTTP events and is set to listen for requests via the `FUNCTIONS_CUSTOMHANDLER_PORT`.
+In this example, the custom handler runs a web server to handle HTTP events and listens for requests via the `FUNCTIONS_CUSTOMHANDLER_PORT`.
 
-Even though the Functions host received original HTTP request at `/api/order`, it invokes the custom handler using the function name (its folder name). In this example, the function is defined at the path of `/order`. The host sends the custom handler an HTTP request at the path of `/order`.
+Even though the Functions host receives the original HTTP request at `/api/order`, it invokes the custom handler by using the function name (its folder name). In this example, the function is defined at the path of `/order`. The host sends the custom handler an HTTP request at the path of `/order`.
 
-As `POST` requests are sent to this function, the trigger data and function metadata are available via the HTTP request body. The original HTTP request body can be accessed in the payload's `Data.req.Body`.
+When you send `POST` requests to this function, the trigger data and function metadata are available via the HTTP request body. You can access the original HTTP request body in the payload's `Data.req.Body`.
 
 The function's response is formatted into key/value pairs where the `Outputs` member holds a JSON value where the keys match the outputs as defined in the *function.json* file.
 
@@ -397,10 +406,10 @@ By setting the `message` output equal to the order data that came in from the re
 
 ### HTTP-only function
 
-For HTTP-triggered functions with no additional bindings or outputs, you may want your handler to work directly with the HTTP request and response instead of the custom handler [request](#request-payload) and [response](#response-payload) payloads. This behavior can be configured in *host.json* using the `enableForwardingHttpRequest` setting.
+For HTTP-triggered functions with no additional bindings or outputs, you might want your handler to work directly with the HTTP request and response instead of the custom handler [request](#request-payload) and [response](#response-payload) payloads. You can configure this behavior in *host.json* by using the `enableProxyingHttpRequest` setting, which supports response streaming.
 
 > [!IMPORTANT]
-> The primary purpose of the custom handlers feature is to enable languages and runtimes that do not currently have first-class support on Azure Functions. While it may be possible to run web applications using custom handlers, Azure Functions is not a standard reverse proxy. Some features such as response streaming, HTTP/2, and WebSockets are not available. Some components of the HTTP request such as certain headers and routes may be restricted. Your application may also experience excessive [cold start](event-driven-scaling.md#cold-start).
+> The primary purpose of the custom handlers feature is to enable languages and runtimes that don't currently have first-class support on Azure Functions. While you might be able to run web applications by using custom handlers, Azure Functions isn't a standard reverse proxy. Some components of the HTTP request, such as certain headers and routes, might be restricted. Your application might also experience excessive [cold start](event-driven-scaling.md#cold-start).
 >
 > To address these circumstances, consider running your web apps on [Azure App Service](../app-service/overview.md).
 
@@ -419,7 +428,7 @@ In a folder named *hello*, the *function.json* file configures the HTTP-triggere
   "bindings": [
     {
       "type": "httpTrigger",
-      "authLevel": "anonymous",
+      "authLevel": "function",
       "direction": "in",
       "name": "req",
       "methods": ["get", "post"]
@@ -433,9 +442,9 @@ In a folder named *hello*, the *function.json* file configures the HTTP-triggere
 }
 ```
 
-The function is configured to accept both `GET` and `POST` requests and the result value is provided via an argument named `res`.
+The function is configured to accept both `GET` and `POST` requests, and the result value is provided through an argument named `res`.
 
-At the root of the app, the *host.json* file is configured to run `handler.exe` and `enableForwardingHttpRequest` is set to `true`.
+At the root of the app, the *host.json* file is configured to run `handler.exe` and `enableProxyingHttpRequest` is set to `true`.
 
 ```json
 {
@@ -444,18 +453,13 @@ At the root of the app, the *host.json* file is configured to run `handler.exe` 
     "description": {
       "defaultExecutablePath": "handler.exe"
     },
-    "enableForwardingHttpRequest": true
+    "enableProxyingHttpRequest": true
   }
 }
 ```
 
-When `enableForwardingHttpRequest` is `true`, the behavior of HTTP-only functions differs from the default custom handlers behavior in these ways:
+The following is a POST request to the Functions host. The Functions host then sends the request to the custom handler.
 
-* The HTTP request does not contain the custom handlers [request](#request-payload) payload. Instead, the Functions host invokes the handler with a copy of the original HTTP request.
-* The Functions host invokes the handler with the same path as the original request including any query string parameters.
-* The Functions host returns a copy of the handler's HTTP response as the response to the original request.
-
-The following is a POST request to the Functions host. The Functions host then sends a copy of the request to the custom handler at the same path.
 
 ```http
 POST http://127.0.0.1:7071/api/hello HTTP/1.1
@@ -466,7 +470,7 @@ Content-Type: application/json
 }
 ```
 
-The file *handler.go* file implements a web server and HTTP function.
+The *handler.go* file implements a web server and HTTP function.
 
 ```go
 package main
@@ -501,22 +505,22 @@ func main() {
 }
 ```
 
-In this example, the custom handler creates a web server to handle HTTP events and is set to listen for requests via the `FUNCTIONS_CUSTOMHANDLER_PORT`.
+In this example, the custom handler creates a web server to handle HTTP events and listens for requests via the `FUNCTIONS_CUSTOMHANDLER_PORT`.
 
 `GET` requests are handled by returning a string, and `POST` requests have access to the request body.
 
 The route for the order function here is `/api/hello`, same as the original request.
 
 >[!NOTE]
->The `FUNCTIONS_CUSTOMHANDLER_PORT` is not the public facing port used to call the function. This port is used by the Functions host to call the custom handler.
+>The `FUNCTIONS_CUSTOMHANDLER_PORT` isn't the public facing port used to call the function. The Functions host uses this port to call the custom handler.
 
 ## Deploying
 
-A custom handler can be deployed to every Azure Functions hosting option. If your handler requires operating system or platform dependencies (such as a language runtime), you may need to use a [custom container](./functions-how-to-custom-container.md).
+You can deploy a custom handler to every Azure Functions hosting option. If your handler requires operating system or platform dependencies (such as a language runtime), you might need to use a [custom container](./functions-how-to-custom-container.md).
 
-When creating a function app in Azure for custom handlers, we recommend you select .NET Core as the stack. 
+When you create a function app in Azure for custom handlers, select .NET Core as the stack. 
 
-To deploy a custom handler app using Azure Functions Core Tools, run the following command.
+To deploy a custom handler app by using Azure Functions Core Tools, run the following command.
 
 ```bash
 func azure functionapp publish $functionAppName
@@ -531,13 +535,13 @@ func azure functionapp publish $functionAppName
 
 ## Samples
 
-Refer to the [custom handler samples GitHub repo](https://github.com/Azure-Samples/functions-custom-handlers) for examples of how to implement functions in a variety of different languages.
+For examples of how to implement functions in a variety of different languages, see the [custom handler samples GitHub repo](https://github.com/Azure-Samples/functions-custom-handlers).
 
 ## Troubleshooting and support
 
 ### Trace logging
 
-If your custom handler process fails to start up or if it has problems communicating with the Functions host, you can increase the function app's log level to `Trace` to see more diagnostic messages from the host.
+If your custom handler process fails to start or if it has problems communicating with the Functions host, increase the function app's log level to `Trace` to see more diagnostic messages from the host.
 
 To change the function app's default log level, configure the `logLevel` setting in the `logging` section of *host.json*.
 
@@ -557,7 +561,7 @@ To change the function app's default log level, configure the `logLevel` setting
 }
 ```
 
-The Functions host outputs extra log messages including information related to the custom handler process. Use the logs to investigate problems starting your custom handler process or invoking functions in your custom handler.
+The Functions host outputs extra log messages, including information related to the custom handler process. Use the logs to investigate problems starting your custom handler process or invoking functions in your custom handler.
 
 Locally, logs are printed to the console.
 
@@ -565,19 +569,19 @@ In Azure, [query Application Insights traces](analyze-telemetry-data.md#query-te
 
 ### Test custom handler in isolation
 
-Custom handler apps are a web server process, so it may be helpful to start it on its own and test function invocations by sending mock [HTTP requests](#request-payload). For sending HTTP requests with payloads, make sure to choose a tool that keeps your data secure. For more information, see [HTTP test tools](functions-develop-local.md#http-test-tools).
+Custom handler apps are web server processes, so it might be helpful to start them on their own and test function invocations by sending mock [HTTP requests](#request-payload). For sending HTTP requests with payloads, make sure to choose a tool that keeps your data secure. For more information, see [HTTP test tools](functions-develop-local.md#http-test-tools).
 
 You can also use this strategy in your CI/CD pipelines to run automated tests on your custom handler.
 
 ### Execution environment
 
-Custom handlers run in the same environment as a typical Azure Functions app. Test your handler to ensure the environment contains all the dependencies it needs to run. For apps that require additional dependencies, you may need to run them using a [custom container image](./functions-how-to-custom-container.md) hosted on Azure Functions [Premium plan](functions-premium-plan.md).
+Custom handlers run in the same environment as a typical Azure Functions app. Test your handler to ensure the environment contains all the dependencies it needs to run. For apps that require additional dependencies, you might need to run them by using a [custom container image](./functions-how-to-custom-container.md) hosted on Azure Functions [Premium plan](functions-premium-plan.md).
 
 ### Get support
 
-If you need help on a function app with custom handlers, you can submit a request through regular support channels. However, due to the wide variety of possible languages used to build custom handlers apps, support is not unlimited.
+If you need help on a function app with custom handlers, you can submit a request through regular support channels. However, due to the wide variety of possible languages used to build custom handlers apps, support isn't unlimited.
 
-Support is available if the Functions host has problems starting or communicating with the custom handler process. For problems specific to the inner workings of your custom handler process, such as issues with the chosen language or framework, our Support Team is unable to provide assistance in this context.
+Support is available if the Functions host has problems starting or communicating with the custom handler process. For problems specific to the inner workings of your custom handler process, such as issues with the chosen language or framework, our Support Team can't provide assistance in this context.
 
 ## Next steps
 

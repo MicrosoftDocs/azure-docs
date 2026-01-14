@@ -5,7 +5,7 @@ services: application-gateway
 author: jackstromberg
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 8/15/2025
+ms.date: 11/10/2025
 ms.author: jstrom
 ---
 
@@ -135,9 +135,16 @@ spec:
 
 The following functionality is not supported on an Azure Web Application Firewall policy that's associated with Application Gateway for Containers:
 
-* Azure Web Application Firewall integration in Microsoft Security Copilot
-* JavaScript challenge actions
-* Core Rule Set (CRS) 3.2 and earlier rule sets
+- **Cross-region, cross-subscription policy**: Your WAF policy must be in the same subscription and region as your Application Gateway for Containers resource.
+- **Core Rule Set (CRS) managed rules**: An Application Gateway for Containers WAF supports only Default Rule Set (DRS) managed rule sets.
+- **Legacy Bot Manager Rule Set**: Bot Manager Ruleset 0.1 isn't supported, but Bot Manager Ruleset versions 1.0 and 1.1 are supported.
+- **JavaScript challenge actions on Bot Manager rules**: You can't set the action on a Bot Manager rule to JavaScript challenge.
+- **Captcha challenge actions on Bot Manager rules**: You can't set the action on a Bot Manager rule to Captcha.
+- **Microsoft Security Copilot**: The Security Copilot is not supported on Application Gateway for Containers WAF.
+- **Custom Block Response**: Setting a custom block response in your WAF policy is not supported on Application Gateway for Containers WAF.
+- **X-Forwarded-For Header (XFF)**: Application Gateway for Containers WAF doesn't support the XFF variable in custom rules.
+- **HTTP DDoS Ruleset**: This managed ruleset isn't currenlty supported on Application Gateway for Containers.
 
-> [!NOTE]
-> The association of Application Gateway for Containers with Azure Web Application Firewall is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## Pricing
+
+For pricing details, see [Understanding pricing for Application Gateway for Containers](understanding-pricing.md).

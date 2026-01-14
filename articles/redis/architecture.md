@@ -1,11 +1,13 @@
 ---
 title: Azure Managed Redis Architecture
 description: Learn how Azure Managed Redis is architected
-ms.date: 08/18/2025
+ms.date: 11/10/2025
 ms.topic: conceptual
+ai-usage: ai-assisted
 ms.custom:
   - ignite-2024
   - build-2025
+
 appliesto:
   - ✅ Azure Managed Redis
 ---
@@ -83,34 +85,51 @@ In Active-Active databases, multi-key write commands (`DEL`, `MSET`, `UNLINK`) c
 
 Each SKU of Azure Managed Redis is configured to run a specific number of Redis server processes, _shards_ in parallel. The relationship between throughput performance, the number of shards, and number of vCPUs available on each instance is complicated. Adding shards generally increases performance as Redis operations can be run in parallel. However, if shards aren't able to run commands because no vCPUs are available to execute commands, performance can actually drop. The following table shows the sharding configuration for each Azure Managed Redis SKU. These shards are mapped to optimize the usage of each vCPU while reserving vCPU cycles for Redis Enterprise proxy, management agent, and OS system tasks which also affect performance.
 
->[!NOTE]
+> [!NOTE]
 > Azure Managed Redis optimizes performance over time by changing the number of shards and vCPUs used on each SKU.
 >
 
 [!INCLUDE [tier-preview](includes/tier-preview.md)]
 
-| Tiers     | Flash Optimized (preview) | Memory Optimized     | Balanced             | Compute Optimized    |
-|:---------:|:-------------------------:|:--------------------:|:--------------------:|:--------------------:|
-| Size (GB) | vCPUs/primary shards      | vCPUs/primary shards | vCPUs/primary shards | vCPUs/primary shards |
-| 0.5       | -                         | -                    | 2/1                  | -                    |
-| 1         | -                         | -                    | 2/1                  | -                    |
-| 3         | -                         | -                    | 2/2                  | 4/2                  |
-| 6         | -                         | -                    | 2/2                  | 4/2                  |
-| 12        | -                         | 2/2                  | 4/2                  | 8/6                  |
-| 24        | -                         | 4/2                  | 8/6                  | 16/12                |
-| 60        | -                         | 8/6                  | 16/12                | 32/24                |
-| 120       | -                         | 16/12                | 32/24                | 64/48                |
-| 180 *     | -                         | 24/24                | 48/48                | 96/96                |
-| 240 *     | 8/6                       | 32/24                | 64/48                | 128/96               |
-| 360 *     | -                         | 48/48                | 96/96                | 192/192              |
-| 480 *     | 16/12                     | 64/48                | 128/96               | 256/192              |
-| 720 *     | 24/24                     | 96/96                | 192/192              | 384/384              |
-| 960 *     | 32/24                     | 128/192              | 256/192              | -                    |
-| 1440 *    | 48/48                     | 192/192              | -                    | -                    |
-| 1920 *    | 64/48                     | 256/192              | -                    | -                    |
-| 4500 *    | 144/96                    | -                    | -                    | -                    |
+#### Memory optimized, Balanced, and Compute optimized SKUs
+
+
+| Tiers     | Memory Optimized     | Balanced             | Compute Optimized    |
+|:---------:|:--------------------:|:--------------------:|:--------------------:|
+| Size (GB) | vCPUs/primary shards | vCPUs/primary shards | vCPUs/primary shards |
+| 0.5       | -                    | 2/1                  | -                    |
+| 1         | -                    | 2/1                  | -                    |
+| 3         | -                    | 2/2                  | 4/2                  |
+| 6         | -                    | 2/2                  | 4/2                  |
+| 12        | 2/2                  | 4/2                  | 8/6                  |
+| 24        | 4/2                  | 8/6                  | 16/12                |
+| 60        | 8/6                  | 16/12                | 32/24                |
+| 120       | 16/12                | 32/24                | 64/48                |
+| 175       | 24/24                | 48/48                | 96/96                |
+| 235       | 32/24                | 64/48                | 128/96               |
+| 360 *     | 48/48                | 96/96                | 192/192              |
+| 480 *     | 64/48                | 128/96               | 256/192              |
+| 720 *     | 96/96                | 192/192              | 384/384              |
+| 960 *     | 128/192              | 256/192              | -                    |
+| 1440 *    | 192/192              | -                    | -                    |
+| 1920 *    | 256/192              | -                    | -                    |
 
   \* These tiers are in Public Preview.
+
+#### Flash optimized SKU
+
+| Tiers     | Flash Optimized (preview) |
+|:---------:|:-------------------------:|
+| Size (GB) | vCPUs/primary shards      |
+| 235 *     | 8/6                       |
+| 480 *     | 16/12                     |
+| 720 *     | 24/24                     |
+| 960 *     | 32/24                     |
+| 1440 *    | 48/48                     |
+| 1920 *    | 64/48                     |
+| 4500 *    | 144/96                    |
+
+\* These tiers are in Public Preview.
 
 ## Running without high availability mode enabled
 

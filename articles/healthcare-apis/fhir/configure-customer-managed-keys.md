@@ -7,6 +7,7 @@ ms.subservice: fhir
 ms.topic: how-to
 ms.date: 08/12/2025
 ms.author: kesheth
+ms.custom: sfi-image-nochange
 ---
 
 # Configure customer-managed keys for the FHIR service

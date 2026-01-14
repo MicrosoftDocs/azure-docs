@@ -5,8 +5,9 @@ services: azure-netapp-files
 author: whyistheinternetbroken
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 02/18/2025
+ms.date: 10/07/2025
 ms.author: anfdocs
+ms.custom: sfi-image-nochange
 # Customer intent: As a cloud storage administrator, I want to understand how lightweight directory access protocol (LDAP) integrates with Azure NetApp Files, so that I can effectively manage user identities and permissions for optimal security and performance in a dual-protocol environment.
 ---
 
@@ -50,8 +51,8 @@ LDAP offers various benefits for your UNIX users and groups as an identity sourc
     NIS, NIS+, and local files offer basic information such UID, GID, password, home directories, and so on. However, LDAP offers those attributes and many more. The additional attributes that LDAP uses makes dual-protocol management much more integrated with LDAP versus NIS. Only LDAP is supported as an external name service for identity management with Azure NetApp Files. 
 * **Microsoft Active Directory is built on LDAP.**  
     By default, Microsoft Active Directory uses an LDAP back-end for its user and group entries. However, this LDAP database doesn't contain UNIX style attributes. These attributes are added when the LDAP schema is extended through Identity Management for UNIX (Windows 2003R2 and later), Service for UNIX (Windows 2003 and earlier), or third-party LDAP tools such as *Centrify*. Because Microsoft uses LDAP as a back-end, it makes LDAP the perfect solution for environments that choose to leverage dual-protocol volumes in Azure NetApp Files. 
-    > [!NOTE]
-    > Azure NetApp Files currently only supports native Microsoft Active Directory for LDAP services.
+    >[!NOTE]
+    >In addition to native Active Directory, Azure NetApp Files [supports FreeIPA, OpenLDAP, and Red Hat Directory Server](configure-directory-server.md).
 
 ## LDAP basics in Azure NetApp Files 
 
@@ -122,6 +123,7 @@ The following section discusses the basics of LDAP as it pertains to Azure NetAp
 - [Understand allow local NFS users with LDAP option](lightweight-directory-access-protocol-local-users.md)
 - [Understand LDAP schemas](lightweight-directory-access-protocol-schemas.md)
 * [Configure AD DS LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md) 
+* [Configure LDAP directory servers](configure-directory-server.md)
 * [Understand NFS group memberships and supplemental groups](network-file-system-group-memberships.md)
 * [Azure NetApp Files NFS FAQ](faq-nfs.md)
 * [Azure NetApp Files SMB FAQ](faq-smb.md)

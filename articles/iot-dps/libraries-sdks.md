@@ -13,6 +13,9 @@ ms.subservice: azure-iot-hub-dps
 
 # Microsoft SDKs for IoT Hub Device Provisioning Service
 
+> [!IMPORTANT]
+> Certificate management in IoT Hub is in **public preview** and is supported only in the following DPS Device SDKs: Embedded C (Bare metal, Free RTOS), C, and Python. IoT Hub SDKs don't support it. For more information, see the [What is Certificate Management?](../iot-hub/iot-hub-certificate-management-overview.md).
+
 The Azure IoT Hub Device Provisioning Service (DPS) is a helper service for IoT Hub. The DPS package provides SDKs to help you build backend and device applications that leverage DPS to provide zero-touch, just-in-time provisioning to one or more IoT hubs. The SDKs are published in a variety of popular languages and handle the underlying transport and security protocols between your devices or backend apps and DPS, freeing developers to focus on application development. Additionally, using the SDKs provides you with support for future updates to DPS, including security updates.
 
 There are three categories of software development kits (SDKs) for working with DPS:

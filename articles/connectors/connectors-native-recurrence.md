@@ -39,7 +39,7 @@ The **Recurrence** trigger is part of the built-in Schedule connector and runs n
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * A [Consumption or Standard logic app resource](../logic-apps/logic-apps-overview.md#resource-environment-differences) with a blank workflow.
 

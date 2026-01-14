@@ -4,7 +4,7 @@ description: Plan for a deployment with Azure File Sync, a service that allows y
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 04/07/2025
+ms.date: 09/26/2025
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: "As an IT administrator, I want to plan for an Azure File Sync deployment so that I can effectively manage on-premises file caching and ensure seamless integration with cloud file shares."
@@ -33,9 +33,9 @@ The files are stored in the cloud in [Azure file shares](../files/storage-files-
 In Azure, a *resource* is a manageable item that you create and configure within your Azure subscriptions and resource groups. Resources are offered by *resource providers*, which are management services that deliver specific types of resources. To deploy Azure File Sync, you will work with two key resources:
 
 - **Storage accounts**, offered by the `Microsoft.Storage` resource provider. Storage accounts are top-level resources that represent a shared pool of storage, IOPS, and throughput in which you can deploy **classic file shares** or other storage resources, depending on the storage account kind. All storage resources that are deployed into a storage account share the limits that apply to that storage account. Classic file shares support both the SMB and NFS file sharing protocols, but you can only use Azure File Sync with SMB file shares.
-    
-    > [!NOTE]
-    > Azure Files also supports deploying file shares as a top-level Azure resources through the `Microsoft.FileShares` resource provider, however, these file shares only support the NFS file system protocol aren't supported by Azure File Sync.
+
+  > [!NOTE]
+  > Azure Files also supports deploying file shares as a top-level Azure resource through the `Microsoft.FileShares` resource provider. However, because these file shares currently only support the NFS protocol, they aren't supported by Azure File Sync.
 
 - **Storage Sync Services**, offered by the `Microsoft.StorageSync` resource provider. Storage Sync Services act as management containers that enable you to register Windows File Servers and define the sync relationships for Azure File Sync.
 
@@ -83,12 +83,12 @@ To enable the sync capability on Windows Server, you must install the Azure File
 
 Azure File Sync is supported with the following versions of Windows Server:
 
-| Version | Supported editions | Supported deployment options |
-|---------|----------------|------------------------------|
-| Windows Server 2025 | Azure, Datacenter, Essentials, Standard, and IoT | Full and Core |
-| Windows Server 2022 | Azure, Datacenter, Essentials, Standard, and IoT | Full and Core |
-| Windows Server 2019 | Datacenter, Essentials, Standard, and IoT | Full and Core |
-| Windows Server 2016 | Datacenter, Essentials, Standard, and Storage Server | Full and Core |
+| Version | RTM Version | Supported editions | Supported deployment options |
+|---------|-------------|--------------------|------------------------------|
+| Windows Server 2025 | 26100 | Azure, Datacenter, Essentials, Standard, and IoT | Full and Core |
+| Windows Server 2022 | 20348 | Azure, Datacenter, Essentials, Standard, and IoT | Full and Core |
+| Windows Server 2019 | 17763 | Datacenter, Essentials, Standard, and IoT | Full and Core |
+| Windows Server 2016 | 14393 | Datacenter, Essentials, Standard, and Storage Server | Full and Core |
 
 We recommend keeping all servers that you use with Azure File Sync up to date with the latest updates from Windows Update.
 
@@ -179,9 +179,39 @@ The following table shows the interoperability state of NTFS file system feature
 | Mount points | Partially supported | Mount points might be the root of a server endpoint, but they're skipped if a server endpoint's namespace contains them. |
 | Junctions | Skipped | Examples are Distributed File System (DFS) `DfrsrPrivate` and `DFSRoots` folders. |
 | Reparse points | Skipped | |
-| NTFS compression | Partially supported | Azure File Sync doesn't support server endpoints located on a volume that compresses the system volume information (SVI) directory. |
+| NTFS compression | Partially supported | Azure File Sync doesn't support server endpoints located on a volume that compresses the system volume information (SVI) directory. | 
 | Sparse files | Fully supported | Sparse files sync (aren't blocked), but they sync to the cloud as a full file. If the file contents change in the cloud (or on another server), the file is no longer sparse when the change is downloaded. |
 | Alternate Data Streams (ADS) | Preserved, but not synced | For example, classification tags that File Classification Infrastructure creates aren't synced. Existing classification tags on files on each of the server endpoints are untouched. |
+
+> [!NOTE]
+> **NTFS compression with cloud tiering**
+>
+> Using NTFS compression on tiered files can cause significant performance impact. It is recommended not to use cloud tiering with compressed files.  
+>
+> If compressed files have already been tiered, they must be uncompressed after recalling the data from the cloud by running:
+>
+> ```powershell
+> Invoke-StorageSyncFileRecall -FilePath <path>
+> compact /U /S <filepath>
+> ```
+> Using NTFS compression on tiered files can cause significant performance impact. It is recommended not to use cloud tiering with compressed files.
+> 
+> You can uncompress files using the [compact](/windows-server/administration/windows-commands/compact) command.
+>
+> On Windows Server 2019 or later, the **compact** command skips tiered files, so you must recall the file first before uncompressing it.
+> ```powershell
+> Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+> Invoke-StorageSyncFileRecall -FilePath <path>
+> compact /U /S <filepath>
+> ```
+>
+> If file recalls lead to low disk space issues, you should wait for background tiering to kick in and tier the file back before recalling more files or tier the file back
+> after uncompressing by running the cmdlet
+> ```powershell
+> Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+> Invoke-StorageSyncCloudTiering -Path <path>
+> ```
+
 
 <a id="files-skipped"></a>Azure File Sync also skips certain temporary files and system folders:
 
@@ -343,7 +373,21 @@ For more information, see [Azure File Sync performance metrics](./file-sync-scal
 
 ## Identity
 
-The administrator who registers the server and creates the cloud endpoint must be a member of the management role [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator), Owner, or Contributor for the storage sync service. You can configure this role under **Access Control (IAM)** on the Azure portal page for the storage sync service.
+The administrator who registers the server and creates the cloud endpoint must be a member of the management role [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator), Owner, or Contributor for the storage sync service. You can configure this role under **Access Control (IAM)** on the Azure portal page for the storage sync service. 
+
+When assigning the Azure File Sync Administrator role, follow these steps to ensure least privilege.
+ 
+1. Under the **Conditions** tab, select **Allow users to assign selected roles to only selected principals (fewer privileges)**.
+ 
+2. Click **Select Roles and Principals** and then select **Add Action** under Condition #1.
+ 
+3. Select **Create role assignment**, and then click **Select**.
+ 
+4. Select **Add expression**, and then select **Request**.
+ 
+5. Under **Attribute Source**, select **Role Definition Id** under **Attribute**, and then select **ForAnyOfAnyValues:GuidEquals** under **Operator**.
+ 
+6. Select **Add Roles**. Add **Reader and Data Access**, **Storage File Data Privileged Contributor**, and **Storage Account Contributor** roles, and then select **Save**.
 
 Azure File Sync works with your standard Active Directory-based identity without any special setup beyond setting up sync. When you're using Azure File Sync, the general expectation is that most accesses go through the Azure File Sync caching servers, rather than through the Azure file share. Because the server endpoints are on Windows Server, and Windows Server supports Active Directory and Windows-style ACLs, you don't need anything beyond ensuring that the Windows file servers registered with the storage sync service are domain joined. Azure File Sync stores ACLs on the files in the Azure file share, and it replicates those ACLs to all server endpoints.
 
@@ -450,9 +494,12 @@ For detailed guidance, see [Migrate to SMB Azure file shares](../files/storage-f
 
 ## Antivirus
 
-Because antivirus works by scanning files for known malicious code, an antivirus product might cause the recall of tiered files and high egress charges. Tiered files have the secure Windows attribute `FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS` set. We recommend consulting with your software vendor to learn how to configure its solution to skip reading files that have this attribute set. (Many do it automatically.)
+Because antivirus works by scanning files for known malicious code, an antivirus product might cause the recall of tiered files and high egress charges. Tiered files have the secure Windows attribute `FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS` set. We recommend consulting with your software vendor to learn how to configure its solution to skip reading files that have this attribute set. Many do it automatically.
 
-The Microsoft antivirus solutions Windows Defender and System Center Endpoint Protection automatically skip reading files that have this attribute set. We tested them and identified one minor issue: when you add a server to an existing sync group, files smaller than 800 bytes are recalled (downloaded) on the new server. These files remain on the new server and aren't tiered because they don't meet the tiering size requirement (more than 64 KiB).
+During on-demand scans, antivirus solutions Microsoft Defender and System Center Endpoint Protection automatically skip reading files that have this attribute set. We tested them and identified one minor issue: when you add a server to an existing sync group, files smaller than 800 bytes are recalled (downloaded) on the new server. These files remain on the new server and aren't tiered because they don't meet the tiering size requirement (more than 64 KiB).
+
+> [!NOTE]
+> Microsoft Defender and System Center Endpoint Protection only skip reading during on-demand scans. This doesn't apply to real-time protection (RTP).
 
 Antivirus vendors can check compatibility between their products and Azure File Sync by using the [Azure File Sync Antivirus Compatibility Test Suite](https://www.microsoft.com/download/details.aspx?id=58322) in the Microsoft Download Center.
 

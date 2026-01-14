@@ -9,12 +9,16 @@ items:
     href: whats-new.md
 - name: Quickstarts
   items:
+  - name: Prepare Azure accounts using built-in roles
+    href: prepare-azure-accounts.md
   - name: Create a project
     href: create-project.md
   - name: Create a project - ARM template
     href: quickstart-create-migrate-project.md
   - name: Create a project - Portal
     href: quickstart-create-project.md
+  - name: Evaluate migration readiness and savings for Arc resources
+    href: quickstart-evaluate-readiness-savings-for-arc-resources.md
   - name: Create a business case using imported inventory
     href: how-to-build-a-business-case.md
 - name: Key Concepts # Includes Glossary and key concepts for users to understand the terminologies and journey
@@ -31,6 +35,12 @@ items:
     href: how-to-use-azure-migrate-with-private-endpoints.md
   - name: Support Matrix
     href: migrate-support-matrix.md
+  - name: Assessment rules for PostgreSQL
+    href: assessment-rules-for-postgresql.md
+  - name: Agentless migration architecture
+    href: concepts-vmware-agentless-migration.md
+  - name: Hyper-V migration architecture
+    href: hyper-v-migration-architecture.md
 - name: Discover inventory
   items:
   - name: Discovery methods
@@ -41,42 +51,70 @@ items:
       href: migrate-appliance.md
     - name: Register appliance using pre-configured Entra app
       href: how-to-register-appliance-using-entra-app.md
-    - name: Discover VMware
-      items:
-      - name: Discover VMware estate
-        href: tutorial-discover-vmware.md
-      - name: Scoped discovery of VMware estate
-        href: set-discovery-scope.md
-      - name: Support matrix for VMware discovery 
-        href: migrate-support-matrix-vmware.md 
-    - name: Discover Hyper-V estate
-      items: 
-      - name: Discover Hyper-V
-        href: tutorial-discover-hyper-v.md
-      - name: Hyper-V discovery support
-        href: migrate-support-matrix-hyper-v.md
-    - name: Discover physical servers
-      items:  
-      - name: Discover physical servers and servers running in AWS and GCP
-        href: tutorial-discover-physical.md
-      - name: Physical server discovery support
-        href: migrate-support-matrix-physical.md
     - name: Appliance configuration
       items:
         - name: Provide server credentials
           href: add-server-credentials.md
         - name: Appliance diagnostics
           href: troubleshoot-appliance-diagnostic.md 
-    - name: Discover workloads
+    - name: Discover VMware estate
+      items:
+      - name: Discover Virtual Machines
+        href: tutorial-discover-vmware.md
+      - name: Scoped discovery of VMware hosted VMs
+        href: set-discovery-scope.md
+      - name: Support matrix for VMware discovery 
+        href: migrate-support-matrix-vmware.md 
+    - name: Discover Hyper-V estate
+      items: 
+      - name: Discover Virtual Machines
+        href: tutorial-discover-hyper-v.md
+      - name: Support matrix for Hyper-V discovery 
+        href: migrate-support-matrix-hyper-v.md
+    - name: Discover Physical or Public-cloud estate
       items:  
-      - name: Discover SQL servers and Webapps
-        href: how-to-discover-sql-existing-project.md
-      - name: Discover MySQL database instances
-        href: tutorial-discover-mysql-database-instances.md
-      - name: Discover software, databases, and web apps
-        href: how-to-discover-applications.md
-      - name: Create least privileged credentials for SQL discovery
-        href: least-privilege-credentials.md   
+      - name: Discover physical servers and servers running in AWS and GCP
+        href: tutorial-discover-physical.md
+      - name: Support matrix for Physical server discovery
+        href: migrate-support-matrix-physical.md
+    # - name: Appliance configuration
+    #   items:
+    #     - name: Provide server credentials
+    #       href: add-server-credentials.md
+    #     - name: Appliance diagnostics
+    #       href: troubleshoot-appliance-diagnostic.md 
+    - name: Discover software and workloads
+      href: how-to-discover-applications.md
+    - name: Deep discover database workloads
+      items:
+      - name: SQL instances
+        items: 
+        - name: Discover SQL servers
+          href: how-to-discover-sql-existing-project.md
+        - name: Create least privileged credentials for SQL discovery
+          href: least-privilege-credentials.md 
+      - name: PgSQL instances
+        items:
+        - name: Create least privileged credentials for PostgreSQL discovery
+          href: postgresql-least-privilege-configuration.md    
+      - name: MySQL instances
+        items: 
+        - name: Discover MySQL database instances
+          href: tutorial-discover-mysql-database-instances.md
+      # - name: Discover software, databases, and web apps
+      #   href: how-to-discover-applications.md
+        # - name: Create least privileged credentials for PostgreSQL discovery
+        #   href: postgresql-least-privilege-configuration.md
+  - name: Discovery using Azure Arc
+    items:
+    - name: Overview
+      href: concepts-arc-resource-discovery.md
+    - name: Manage Arc resource sync
+      href: how-to-manage-arc-resource-sync.md
+    - name: Collect additional data about Arc enabled servers
+      href: how-to-enable-additional-data-collection-for-arc-servers.md
+    - name: Azure Migrate VM Extension for Arc-enabled servers
+      href: migrate-virtual-machine-extension-reference.md
   - name: Discover using inventory import
     items: 
       - name: CSV import
@@ -91,6 +129,10 @@ items:
       href: how-to-review-discovered-inventory.md
     - name: Tags 
       href: resource-tagging.md
+    - name: Insights
+      href: insights-overview.md
+    - name: Define and manage applications
+      href: define-manage-applications.md
 - name: Create Business case
   items:
   - name: Business case overview
@@ -113,7 +155,7 @@ items:
       href: cost-estimation.md   
     - name: Target right-sizing # help users understand how perf data is used in depth
       href: target-right-sizing.md
-    - name: Confidence rating
+    - name: Performance coverage
       href: confidence-ratings.md
     - name: Application assessment
       items:
@@ -123,6 +165,10 @@ items:
           href: assessment-properties.md
         - name: Review assessment report
           href: review-application-assessment.md
+        - name: Code level insights
+          items:
+            - name: Integrate with CAST highlights
+              href: cast-highlights-integration.md
     - name: Workload specific assessments
       items:
       - name: Azure VM assessment
@@ -135,6 +181,14 @@ items:
           href: target-right-sizing.md
         - name: Review assessment report
           href: review-assessment.md
+      - name: Azure VMware Solution (AVS) assessment
+        items:
+        - name: Create an Azure VMware Solution (AVS) assessment
+          href: tutorial-assess-vmware-azure-vmware-solution.md
+        - name: Customize assessment settings
+          href: assessment-properties.md
+        - name: Review assessment report
+          href: review-azure-vmware-solution-assessment.md
       - name: Azure SQL assessment
         items:
         - name: Create an Azure SQL assessment
@@ -143,6 +197,14 @@ items:
           href: assessment-properties.md
         - name: Review assessment report
           href: review-sql-assessment.md
+      - name: Azure Database for PostgreSQL assessment
+        items:
+        - name: Create an Azure Database for PostgreSQL assessment
+          href: tutorial-assess-postgresql.md
+        - name: Review assessment PostgreSQL report
+          href: tutorial-review-postgresql-report.md
+        - name: PostgreSQL customize assessment settings
+          href: postgresql-assessment-properties.md
       - name: MySQL assessment
         items:
         - name: Assessment overview
@@ -163,6 +225,8 @@ items:
 #         href: assessment-properties.md
 #       - name: Review assessment report
 #         href: review-azure-vmware-solution-assessment.md
+        - name: Enhance web app assessment by adding code scan report
+          href: add-copilot-code-insights.md
 #      - name: SAP assessment
 #       items:
 #       - name: Create a SAP assessment
@@ -171,49 +235,67 @@ items:
 #         href: assessment-properties.md
 #       - name: Review assessment report
 #         href: review-sap-assessment.md
-- name: Execute Migrations
+  - name: Wave planning
+    items:
+    - name: Overview
+      href: overview.md
+    - name: Plan and create waves
+      href: how-to-plan-create-waves.md
+    - name: Complete a wave plan
+      href: how-to-complete-wave-plan.md  
+    - name: Execute and track waves
+      href: how-to-execute-track-waves.md  
+    - name: Wave planning
+      href: common-questions-wave-planning.md
+- name: Execute migrations
   items:
-  - name: Server Migrations
-    items: 
-    - name: Overview of Migration method
-      href: server-migrate-overview.md
-    - name: Agent-based migrations
-      items:
-      - name: Agent-based migration using portal
-        href: tutorial-migrate-vmware-agent.md
-      - name: Hydration process 
-        href: hydration-process.md
-    - name: Agentless migrations
-      items:
-      - name: Agentless migrations using portal
-        href: tutorial-migrate-vmware.md
-      - name: Agentless migrations using scripts
-        href: tutorial-migrate-vmware-powershell.md
+  - name: Overview of migration method
+    href: server-migrate-overview.md
+  - name: Agentless migrations using portal
+    href: tutorial-migrate-vmware.md
+  - name: Agent-based migration using portal
+    href: tutorial-migrate-vmware-agent.md
+  - name: Redeploy servers using IaC 
+    href: server-redeploy.md
+  - name: Support Matrix
+    items:
+    - name: VMware vSphere migration requirements 
+      href: migrate-support-matrix-vmware-migration.md
+    - name: Physical Agent-based migration requirements
+      href: ../site-recovery/vmware-physical-azure-support-matrix.md?toc=/azure/migrate/toc.json
+    - name: Hyper-V migration requirements
+      href: migrate-support-matrix-hyper-v-migration.md
+  # - name: Agent-based migrations
+  #   items:
+  #   - name: Hydration process 
+  #     href: hydration-process.md
+  #   - name: Agentless migrations using scripts
+  #     href: tutorial-migrate-vmware-powershell.md
 #   - name: Limitations
 - name: Modernize applications
   items:
-  - name: Web App Migration and Modernization
-    items:
-    - name: Containerize ASP.NET apps and migrate to AKS
-      href: tutorial-app-containerization-aspnet-kubernetes.md
-    - name: Containerize Java web apps and migrate to AKS
-      href: tutorial-app-containerization-java-kubernetes.md
-    - name: Containerize Java web apps and migrate to App Service containers
-      href: tutorial-app-containerization-java-app-service.md 
-    - name: Modernize ASP.NET web apps to App Service code
-      href: tutorial-modernize-asp-net-appservice-code.md
-    - name: CI/CD for Day 2 operations
-      href: tutorial-app-containerization-azure-pipeline.md
-    - name: Modernization to App service code
-      href: tutorial-modernize-asp-net-appservice-code.md
+  - name: Overview of Web App Migration and Modernization
+    href: web-app-migration-modernization.md
+  - name: Containerize ASP.NET apps and migrate to AKS
+    href: tutorial-app-containerization-aspnet-kubernetes.md
+  - name: Containerize Java web apps and migrate to AKS
+    href: tutorial-app-containerization-java-kubernetes.md
+  - name: Containerize Java web apps and migrate to App Service containers
+    href: tutorial-app-containerization-java-app-service.md 
+  - name: Modernize ASP.NET web apps to App Service code
+    href: tutorial-modernize-asp-net-appservice-code.md
+  - name: CI/CD for Day 2 operations
+    href: tutorial-app-containerization-azure-pipeline.md
+  - name: Modernization to App service code
+    href: tutorial-modernize-asp-net-appservice-code.md
 - name: Tutorials 
   items:
-  - name: Migration Scenarios
+  - name: Migration scenarios
     items:
     - name: Migrate VMware servers 
       items:
-        - name: Assess VMWare servers  
-          href: ../azure-vmware/tutorial-access-private-cloud.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json  
+        - name: Assess VMware servers  
+          href: tutorial-assess-vmware-azure-vm.md
         - name: Migrate to Azure Cloud
           href: tutorial-migrate-vmware.md
         - name: Migrate to Azure Local 
@@ -420,6 +502,8 @@ items:
     href: common-questions-appliance.md
   - name: Discovery and dependency analysis
     href: common-questions-discovery-dependency-analysis.md
+  - name: Software and Insights
+    href: software-insights-faq.yml
   - name: Assessment
     href: common-questions-discovery-assessment.md
   - name: Business case
@@ -577,23 +661,15 @@ items:
 #     items:
 #     - name: Build a migration plan
 #       href: concepts-migration-planning.md
-#     - name: VMware migration support
-#       href: migrate-support-matrix-vmware-migration.md
 #     - name: Hyper-V migration support
 #       href: migrate-support-matrix-hyper-v-migration.md
 #     - name: Physical server migration support
 #       href: migrate-support-matrix-physical-migration.md
 #     - name: Replication appliance requirements
 #       href: migrate-replication-appliance.md
-#     - name: VMware agentless migration architecture
-#       href: concepts-vmware-agentless-migration.md
 #       items:
 #         - name: Prepare for VMware agentless migration
 #           href: prepare-for-agentless-migration.md
-#     - name: Hyper-V migration architecture
-#       href: hyper-v-migration-architecture.md
-#     - name: VMware agent-based migration architecture
-#       href: agent-based-migration-architecture.md
 #     - name: Web apps migration support
 #       href: concepts-migration-webapps.md
 # - name: How-to guides

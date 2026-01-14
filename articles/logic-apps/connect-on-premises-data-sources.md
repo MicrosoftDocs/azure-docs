@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, mideboer, azla
 ms.topic: how-to
 ms.date: 04/22/2025
+ms.custom: sfi-image-nochange
 #Customer intent: As a logic apps developer, I want to create a data gateway resource in the Azure portal so that my logic app workflow can connect to on-premises data sources.
 ---
 

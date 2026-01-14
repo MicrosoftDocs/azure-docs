@@ -535,6 +535,7 @@ The following environment variables are related to [App Service authentication](
 | `WEBSITE_AUTH_ENABLED` | Read-only. Injected into a Windows or Linux app to indicate whether App Service authentication is enabled. |
 | `WEBSITE_AUTH_ENCRYPTION_KEY` | By default, the automatically generated key is used as the encryption key. To override, set to a desired key. We recommend this environment variable if you want to share tokens or sessions across multiple apps. If you specify it, it supersedes the `MACHINEKEY_DecryptionKey` setting. |
 | `WEBSITE_AUTH_SIGNING_KEY` | By default, the automatically generated key is used as the signing key. To override, set to a desired key. We recommend this environment variable if you want to share tokens or sessions across multiple apps. If you specify it, it supersedes the `MACHINEKEY_ValidationKey` setting. |
+| `WEBSITE_AUTH_PRM_DEFAULT_WITH_SCOPES` | A comma-separated list of scopes needed by the application. When set, this variable configures a default protected resource metadata document, which declares that the specified scopes are supported. The scopes are also included in authentication challenges returned by the application. |
 
 <!-- System settings
 WEBSITE_AUTH_RUNTIME_VERSION

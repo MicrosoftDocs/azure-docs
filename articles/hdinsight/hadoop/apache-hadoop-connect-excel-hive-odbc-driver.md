@@ -7,7 +7,7 @@ ms.custom: hdinsightactive
 author: hareshg
 ms.author: hgowrisankar
 ms.reviewer: nijelsf
-ms.date: 06/15/2024
+ms.date: 10/14/2025
 ---
 
 # Connect Excel to Apache Hadoop in Azure HDInsight with the Microsoft Hive ODBC driver
@@ -26,6 +26,9 @@ Before you begin this article, you must have the following items:
 * A workstation with Office 2010 Professional Plus or later, or Excel 2010 or later.
 
 ## Install Microsoft Hive ODBC driver
+
+> [!Note]
+> [Microsoft Hive ODBC driver](https://www.microsoft.com/en-us/download/details.aspx?id=40886) is no longer supported with HDInsight and to be discontinued.
 
 Download and install [Microsoft Hive ODBC Driver](https://www.microsoft.com/download/details.aspx?id=40886). Choose the version that matches the version of the application where you'll be using the ODBC driver.  For this article, the driver is used for Office Excel.
 

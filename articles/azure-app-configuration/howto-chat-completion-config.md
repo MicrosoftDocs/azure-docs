@@ -6,7 +6,7 @@ ms.service: azure-app-configuration
 author: MaryanneNjeri
 ms.author: mgichohi
 ms.topic: how-to
-ms.date: 04/20/2025
+ms.date: 11/21/2025
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ---
@@ -16,7 +16,7 @@ ms.collection: ce-skilling-ai-copilot
 Chat completion is an AI capability that enables models to generate conversational responses based on a series of messages. Unlike simple text completion, chat completion maintains context across multiple exchanges, simulating a natural conversation. With chat completion configuration, you can define and manage how AI models respond within your application. A typical configuration includes model selection, system and user prompts, and model-specific settings such as temperature or token limits.
 
 ## Prerequisites
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free)
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 
 ## Create a chat completion configuration
@@ -63,3 +63,4 @@ You successfully added your chat completion configuration named **ChatApp:ChatCo
 1. Continue to the following instructions to implement the chat completion configuration into your application for the language or platform you're using.
 
     - [.NET](./quickstart-chat-completion-dotnet.md)
+    - [.Go](./quickstart-chat-completion-go.md)

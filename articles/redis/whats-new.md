@@ -1,7 +1,7 @@
 ---
 title: What's new in Azure Managed Redis
 description: Recent updates for Azure Managed Redis
-ms.date: 08/19/2025
+ms.date: 11/17/2025
 ms.topic: conceptual
 ms.custom:
   - references_regions
@@ -13,6 +13,20 @@ appliesto:
 # What's New in Azure Managed Redis
 
 Find out what's new in Azure Managed Redis.
+
+## November 2025
+
+### General Availability for more tiers
+
+The in-memory SKUs at 175 GB and 235 GB, Compute Optimized, Balanced, and Memory Optimized, are now GA. For a complete list of the status of SKUs, see [Tiers and SKUs at a glance](overview.md#tiers-and-skus-at-a-glance).
+
+### Scheduled maintenance windows (preview)
+
+Using the **Maintenance (Preview)** item on the Resource menu, you can now define specific time windows when maintenance activities can occur on your Redis instances. For more information, see [Azure Managed Redis scheduled maintenance (preview)](scheduled-maintenance.md).
+
+### Reservations for caches
+
+You can now purchase reservations for your Azure Managed Redis caches. For more information, see [Prepay for Azure Managed Redis compute resources with reservations](reserved-pricing.md).
 
 ## August 2025
 
@@ -26,7 +40,7 @@ Some features that were previous in Public Preview have are now generally availa
 
 ### Azure Managed Redis General Availability (GA)
 
-Azure Managed Redis is now generally available (GA) for you to create and to use managed caches. Azure Managed Redis offers significant advantages over the Basic, Standard, and Premium tiers of Azure Cache for Redis. 
+Azure Managed Redis is now generally available (GA) for you to create and to use managed caches. Azure Managed Redis offers significant advantages over the Basic, Standard, and Premium tiers of Azure Cache for Redis.
 
 Certain features remain in Public Preview.
 
@@ -51,8 +65,8 @@ Azure Managed Redis (preview) is now available to create and use managed caches.
 Three tiers are for in-memory data:
 
 - **Memory Optimized** Ideal for memory-intensive use cases that require a high memory-to-vCPU ratio (1:8) but don't need the highest throughput performance. It provides a lower price point for scenarios where less processing power or throughput is necessary, making it an excellent choice for development and testing environments.
-- **Balanced (Memory + Compute)** Offers a balanced memory-to-vCPU (1:4) ratio, making it ideal for standard workloads. This tier provides a healthy balance of memory and compute resources. 
-- **Compute Optimized** Designed for performance-intensive workloads requiring maximum throughput, with a low memory-to-vCPU (1:2) ratio. It's ideal for applications that demand the highest performance. 
+- **Balanced (Memory + Compute)** Offers a balanced memory-to-vCPU (1:4) ratio, making it ideal for standard workloads. This tier provides a healthy balance of memory and compute resources.
+- **Compute Optimized** Designed for performance-intensive workloads requiring maximum throughput, with a low memory-to-vCPU (1:2) ratio. It's ideal for applications that demand the highest performance.
 
 One tier stores data both in-memory and on-disk:
 

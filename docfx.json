@@ -1,10 +1,7 @@
 {
   "build": {
-    "markdownEngineName": "markdig",
     "content": [
       {
-        "src": "articles",
-        "dest": ".",
         "files": [
           "**/*.md",
           "**/*.yml"
@@ -17,68 +14,68 @@
           "**/includes/**",
           "**/obj/**",
           "**/*.graffle"
-        ]
+        ],
+        "src": "articles",
+        "dest": "."
       },
       {
-        "group": "cyclecloud-7-group",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/includes/**",
+          "**/obj/**"
+        ],
         "src": "articles/cyclecloud",
         "dest": "./cyclecloud/",
+        "group": "cyclecloud-7-group"
+      },
+      {
         "files": [
           "**/*.md",
           "**/*.yml"
         ],
         "exclude": [
-            "**/_themes/**",
-            "**/includes/**",
-            "**/obj/**"
-        ]
-      },
-      {
-        "group": "grp-iot-edge",
+          "**/_themes/**",
+          "**/includes/**",
+          "**/obj/**"
+        ],
         "src": "articles/iot-edge",
         "dest": "./iot-edge/",
+        "group": "grp-iot-edge"
+      },
+      {
         "files": [
           "**/*.md",
           "**/*.yml"
         ],
         "exclude": [
-            "**/_themes/**",
-            "**/includes/**",
-            "**/obj/**"
-        ]
-      },
-      {
-        "group": "migrate",
+          "**/_themes/**",
+          "**/includes/**",
+          "**/obj/**"
+        ],
         "src": "articles/migrate",
         "dest": "./migrate/",
-        "files": [
-          "**/*.md",
-          "**/*.yml"
-        ],
-        "exclude": [
-            "**/_themes/**",
-            "**/includes/**",
-            "**/obj/**"
-        ]
+        "group": "migrate"
       },
       {
-        "src": "bread",
-        "dest": "bread",
         "files": [
           "**/*.md",
           "**/*.yml"
         ],
         "exclude": [
-            "**/_themes/**",
-            "**/includes/**",
-            "**/obj/**"
-        ]
+          "**/_themes/**",
+          "**/includes/**",
+          "**/obj/**"
+        ],
+        "src": "bread",
+        "dest": "bread"
       }
     ],
     "resource": [
       {
-        "src": "articles",
-        "dest": ".",
         "files": [
           "**/*.gif",
           "**/*.jpeg",
@@ -90,12 +87,27 @@
           "iot-edge/**",
           "**/_themes/**",
           "**/obj/**"
-        ]
+        ],
+        "src": "articles",
+        "dest": "."
       },
       {
-        "group": "cyclecloud-7-group",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/obj/**"
+        ],
         "src": "articles/cyclecloud",
         "dest": "./cyclecloud/",
+        "group": "cyclecloud-7-group"
+      },
+      {
         "files": [
           "**/*.gif",
           "**/*.jpeg",
@@ -106,12 +118,12 @@
         "exclude": [
           "**/_themes/**",
           "**/obj/**"
-        ]
-      },
-      {
-        "group": "grp-iot-edge",
+        ],
         "src": "articles/iot-edge",
         "dest": "./iot-edge/",
+        "group": "grp-iot-edge"
+      },
+      {
         "files": [
           "**/*.gif",
           "**/*.jpeg",
@@ -122,27 +134,12 @@
         "exclude": [
           "**/_themes/**",
           "**/obj/**"
-        ]
-      },
-      {
-        "group": "migrate",
+        ],
         "src": "articles/migrate",
         "dest": "./migrate/",
-        "files": [
-          "**/*.gif",
-          "**/*.jpeg",
-          "**/*.jpg",
-          "**/*.png",
-          "**/*.svg"
-        ],
-        "exclude": [
-          "**/_themes/**",
-          "**/obj/**"
-        ]
+        "group": "migrate"
       },
       {
-        "src": null,
-        "dest": null,
         "files": [
           "includes/**/*.gif",
           "includes/**/*.jpeg",
@@ -177,7 +174,10 @@
       ],
       "permissioned-type": "public",
       "recommendations": true,
-      "recommendation_types": ["Training", "Certification"],
+      "recommendation_types": [
+        "Training",
+        "Certification"
+      ],
       "uhfHeaderId": "azure",
       "ms.suite": "office",
       "adobe-target": true,
@@ -229,11 +229,11 @@
         "tysonn",
         "v-albemi",
         "v-ccolin",
-      	"v-dirichards",
-      	"v-emilypr",
-      	"v-lmcdonald",
-      	"v-regandowner",
-      	"v-savila",
+        "v-dirichards",
+        "v-emilypr",
+        "v-lmcdonald",
+        "v-regandowner",
+        "v-savila",
         "v-shils",
         "v-stsavell",
         "v-thepet",
@@ -265,7 +265,8 @@
         "articles/app-service/scripts/*.md": "cephalin",
         "articles/app-spaces/*.md": "msangapu-msft",
         "articles/automanage/*md": "johnmarc",
-        "articles/automation/**/*.md": "SnehaSudhirG",
+        "articles/automation/*.md": "jsuri",
+        "articles/automation/*.yml": "jsuri",
         "articles/azure-arc/**/*.md": "JnHs",
         "articles/azure-arc/servers/**/*.md": "johnmarco",
         "articles/azure-cache-for-redis/**/*.md": "flang-msft",
@@ -299,7 +300,7 @@
         "articles/azure-resource-manager/custom-providers/**/*.md": "MSEvanhi",
         "articles/azure-resource-manager/managed-applications/**/*.md": "MSEvanhi",
         "articles/azure-resource-manager/management/**/*.md": "mumian",
-        "articles/azure-resource-manager/management/relocation/**/*.md": "SomilGanguly",        
+        "articles/azure-resource-manager/management/relocation/**/*.md": "SomilGanguly",
         "articles/azure-resource-manager/templates/**/*.md": "mumian",
         "articles/azure-resource-manager/troubleshooting/**/*.md": "mumian",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "Juliako",
@@ -336,15 +337,15 @@
         "articles/event-hubs/**/*.md": "spelluru",
         "articles/frontdoor/**/*.md": "halkazwini",
         "articles/frontdoor/**/*.yml": "halkazwini",
-        "articles/governance/*.md": "jasongroce",
+        "articles/governance/*.md": "rmcmurray",
         "articles/governance/blueprints/**/*.md": "mumian",
         "articles/governance/machine-configuration/**/*.md": "michaeltlombardi",
-        "articles/governance/management-groups/**/*.md": "rthorn17",
-        "articles/governance/policy/**/*.md": "jasongroce",
+        "articles/governance/management-groups/**/*.md": "cynthn",
+        "articles/governance/policy/**/*.md": "rmcmurray",
         "articles/governance/resource-graph/**/*.md": "daphnemamsft",
         "articles/governance/service-groups/**/*.md": "kenieva",
         "articles/hdinsight/*.md": "yeturis",
-        "articles/hdinsight/**/*.yml": "yeturis",        
+        "articles/hdinsight/**/*.yml": "yeturis",
         "articles/hdinsight/**/*.md": "yeturis",
         "articles/integration-environments/*.md": "ecfan",
         "articles/integration-environments/*.yml": "ecfan",
@@ -360,8 +361,8 @@
         "articles/logic-apps/testing-framework/*.yml": "wsilveira",
         "articles/media-services/**/*.md": "Juliako",
         "articles/media-services/**/**/*.md": "Juliako",
-        "articles/migrate/**/*.md": "SnehaSudhirG",
-        "articles/migrate/**/*.yml": "SnehaSudhirG",
+        "articles/migrate/**/*.md": "vijain",
+        "articles/migrate/**/*.yml": "vijain",
         "articles/migration/**/*.md": "robbyatmicrosoft",
         "articles/migration/**/*.yml": "robbyatmicrosoft",
         "articles/network-watcher/**/*.md": "halkazwini",
@@ -375,7 +376,8 @@
         "articles/partner-solutions/**/*.yml": "ProfessorKendrick",
         "articles/partner-solutions/split-experimentation/**/*.md": "maud-lv",
         "articles/partner-solutions/split-experimentation/**/*.yml": "maud-lv",
-        "articles/playwright-testing/**/*.md": "vvs11",
+        "articles/playwright-testing/**/*.md": "mijacobs",
+        "articles/playwright-testing/**/*.yml": "mijacobs",
         "articles/quotas/**/*.md": "JnHs",
         "articles/quotas/**/*.yml": "JnHs",
         "articles/redis/**/*.md": "flang-msft",
@@ -520,7 +522,7 @@
         "articles/partner-solutions/palo-alto/**/*.md": "https://developercommunity.microsoft.com/pan/suggest",
         "articles/partner-solutions/partners.md": "https://developercommunity.microsoft.com/home",
         "articles/partner-solutions/qumulo/**/*.md": "https://developercommunity.microsoft.com/qumulo/suggest",
-        "articles/partner-solutions/split-experimentation/**/*.md":"https://github.com/Azure/AppConfiguration/issues",
+        "articles/partner-solutions/split-experimentation/**/*.md": "https://github.com/Azure/AppConfiguration/issues",
         "articles/planetary-computer/**/*.md": "https://feedback.azure.com/d365community/forum/dfd4ec11-0f41-f011-b4cb-6045bdd483e3",
         "articles/playwright-testing/**/*.md": "https://aka.ms/mpt/feedback",
         "articles/power-bi-embedded/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
@@ -549,8 +551,7 @@
         "articles/visual-studio/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "articles/vpn-gateway/**/*.md": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=9fa5490b-8326-ec11-b6e6-000d3a4f0789"
       },
-      "feedback_system": {
-      },
+      "feedback_system": {},
       "feedback_help_link_url": {
         "articles/active-directory-b2c/**/*": "https://learn.microsoft.com/answers/tags/455/entra-id",
         "articles/advisor/**/*": "https://learn.microsoft.com/answers/tags/398/azure-advisor/",
@@ -591,7 +592,7 @@
         "articles/baremetal-infrastructure/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/bastion/**/*": "https://learn.microsoft.com/answers/tags/119/azure-bastion/",
         "articles/batch/**/*": "https://learn.microsoft.com/answers/tags/140/azure-batch/",
-        "articles/business-continuity-center/NO-QA-TAG-USE-GLOBAL/": "",
+        "articles/resiliency/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/business-process-tracking/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/cdn/**/*": "https://learn.microsoft.com/answers/tags/155/azure-cdn/",
         "articles/certification/NO-QA-TAG-USE-GLOBAL/": "",
@@ -676,7 +677,6 @@
         "articles/operator-5g-core/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/operator-call-protection/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/operator-insights/NO-QA-TAG-USE-GLOBAL/": "",
-        "articles/operator-nexus/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/operator-service-manager/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/oracle/**/*": "https://learn.microsoft.com/answers/tags/94/azure-virtual-machines/",
         "articles/partner-solutions/NO-QA-TAG-USE-GLOBAL/": "",
@@ -690,7 +690,6 @@
         "articles/public-multi-access-edge-compute-mec/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/quotas/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/reliability/NO-QA-TAG-USE-GLOBAL/": "",
-        "articles/remote-rendering/**/*": "https://learn.microsoft.com/answers/tags/46/azure-remote-rendering/",
         "articles/resource-mover/**/*": "https://learn.microsoft.com/answers/tags/265/azure-resource-mover/",
         "articles/role-based-access-control/**/*": "https://learn.microsoft.com/answers/tags/189/azure-rbac/",
         "articles/route-server/**/*": "https://learn.microsoft.com/answers/tags/501/route-server/",
@@ -760,7 +759,7 @@
         "articles/azure-monitor/**/*.md": "orspodek",
         "articles/azure-netapp-files/**/*.md": "akashdubey",
         "articles/azure-portal/**/*.md": "rayoflores",
-        "articles/azure-sql-edge/**/*.md" : "jroth",
+        "articles/azure-sql-edge/**/*.md": "jroth",
         "articles/azure-vmware/**/*.md": "rayoflores",
         "articles/backup/**/*.md": "akashdubey",
         "articles/baremetal-infrastructure/**/*.md": "rayoflores",
@@ -812,7 +811,6 @@
         "articles/storage/**/*.md": "akashdubey",
         "articles/traffic-manager/**/*.md": "kumud",
         "articles/update-manager/**/*.md": "akashdubey",
-        "articles/remote-rendering/**/*.md": "jlyons",
         "articles/virtual-network/**/*.md": "kumud",
         "articles/vmware-cloudsimple/**/*.md": "rayoflores",
         "articles/vpn-gateway/**/*.md": "kumud",
@@ -874,8 +872,9 @@
         "articles/app-service/environment/*.md": "jordanselig",
         "articles/app-service/scripts/*.md": "cephalin",
         "articles/app-spaces/*.md": "msangapu",
-        "articles/automanage/*md": "memccror",
-        "articles/automation/**/*.md": "sudhirsneha",
+        "articles/automanage/*.md": "memccror",
+        "articles/automation/*.md": "jsuri",
+        "articles/automation/*.yml": "jsuri",
         "articles/azure-arc/**/*.md": "jenhayes",
         "articles/azure-arc/servers/**/*.md": "johnmarc",
         "articles/azure-cache-for-redis/**/*.md": "franlanglois",
@@ -909,7 +908,7 @@
         "articles/azure-resource-manager/custom-providers/**/*.md": "evanhi",
         "articles/azure-resource-manager/managed-applications/**/*.md": "evanhi",
         "articles/azure-resource-manager/management/**/*.md": "jgao",
-        "articles/azure-resource-manager/management/relocation/**/*.md": "sogangul",        
+        "articles/azure-resource-manager/management/relocation/**/*.md": "sogangul",
         "articles/azure-resource-manager/templates/**/*.md": "jgao",
         "articles/azure-resource-manager/troubleshooting/**/*.md": "jgao",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "juliako",
@@ -940,11 +939,11 @@
         "articles/devtest-labs/**/*.md": "rosemalcolm",
         "articles/event-grid/**/*.md": "spelluru",
         "articles/event-hubs/*.md": "spelluru",
-        "articles/governance/*.md": "jasongroce",
+        "articles/governance/*.md": "robmcm",
         "articles/governance/blueprints/**/*.md": "jgao",
         "articles/governance/machine-configuration/**/*.md": "mlombardi",
-        "articles/governance/management-groups/**/*.md": "rithorn",
-        "articles/governance/policy/**/*.md": "jasongroce",
+        "articles/governance/management-groups/**/*.md": "cynthn",
+        "articles/governance/policy/**/*.md": "robmcm",
         "articles/governance/resource-graph/**/*.md": "daphnema",
         "articles/governance/service-groups/**/*.md": "kenieva",
         "articles/hdinsight/*.md": "sairamyeturi",
@@ -961,8 +960,8 @@
         "articles/logic-apps/testing-framework/*.md": "wsilveira",
         "articles/media-services/*.md": "juliako",
         "articles/media-services/**/*.md": "juliako",
-        "articles/migrate/**/*.md": "sudhirsneha",
-        "articles/migrate/**/*.yml": "sudhirsneha",
+        "articles/migrate/**/*.md": "vijain",
+        "articles/migrate/**/*.yml": "vijain",
         "articles/migration/**/*.md": "robbymillsap",
         "articles/migration/**/*.yml": "robbymillsap",
         "articles/notebooks/*.md": "joshuapa",
@@ -972,9 +971,10 @@
         "articles/operator-insights/**/*.yml": "rdunstan",
         "articles/partner-solutions/**/*.md": "kkendrick",
         "articles/partner-solutions/**/*.yml": "kkendrick",
-        "articles/partner-solutions/split-experimentation/**/*.md":"malev",
-        "articles/partner-solutions/split-experimentation/**/*.yml":"malev",
-        "articles/playwright-testing/**/*.md": "vanshsingh",
+        "articles/partner-solutions/split-experimentation/**/*.md": "malev",
+        "articles/partner-solutions/split-experimentation/**/*.yml": "malev",
+        "articles/playwright-testing/**/*.md": "mijacobs",
+        "articles/playwright-testing/**/*.yml": "mijacobs",
         "articles/redis/**/*.md": "franlanglois",
         "articles/redis/**/*.yml": "franlanglois",
         "articles/quotas/**/*.md": "jenhayes",
@@ -1038,17 +1038,20 @@
         "articles/web-application-firewall/*.yml": "networking"
       },
       "ms.update-cycle": {
-        "articles/copilot/*.md": "180-days",
-        "articles/copilot/*.yml": "180-days",
-        "articles/iot-central/**/*.md": "1095-days",
-        "articles/iot-central/**/*.yml": "1095-days",
         "articles/azure-cache-for-redis/**/*.md": "1095-days",
         "articles/azure-cache-for-redis/**/*.yml": "1095-days",
-        "articles/iot-central/**/*.yml": "1095-days",
+        "articles/azure-resource-manager/bicep/*.md": "180-days",
+        "articles/azure-resource-manager/management/*.md": "365-days",
+        "articles/azure-resource-manager/templates/*.md": "365-days",
+        "articles/azure-resource-manager/troubleshooting/*.md": "1095-days",
+        "articles/copilot/*.md": "180-days",
+        "articles/copilot/*.yml": "180-days",
         "articles/digital-twins/**/*.md": "1095-days",
         "articles/digital-twins/**/*.yml": "1095-days",
         "articles/deployment-environments/**/*.md": "1095-days",
-        "articles/deployment-environments/**/*.yml": "1095-days"
+        "articles/deployment-environments/**/*.yml": "1095-days",
+        "articles/iot-central/**/*.md": "1095-days",
+        "articles/iot-central/**/*.yml": "1095-days"
       },
       "ms.service": {
         "articles/advisor/**/*.md": "azure-advisor",
@@ -1127,13 +1130,13 @@
         "articles/quotas/**/*.md": "azure-quotas",
         "articles/redis/**/*.md": "azure-managed-redis",
         "articles/redis/**/*.yml": "azure-managed-redis",
-        "articles/remote-rendering/**/*.md": "azure-remote-rendering",
         "articles/sentinel/**/*.md": "microsoft-sentinel",
         "articles/service-bus-messaging/**/*": "azure-service-bus",
         "articles/service-health/**/*.md": "azure-service-health",
         "articles/site-recovery/*.md": "azure-site-recovery",
         "articles/synapse-analytics/**/*": "azure-synapse-analytics",
-        "articles/terraform/**/*.md": "terraform"      },
+        "articles/terraform/**/*.md": "terraform"
+      },
       "ms.reviewer": {
         "articles/advisor/*.md": "ikhapova",
         "articles/healthcare-apis/*.md": "leeclontz",
@@ -1142,9 +1145,9 @@
         "articles/avere-vfxt/**/*.yml": "wwilliams, jushiman",
         "articles/azure-boost/**/*.yml": "wwilliams, jushiman",
         "articles/azure-compute-fleet/**/*.yml": "jushiman",
-        "articles/azure-functions/durable/durable-task-scheduler/**/*.md": "azfuncdf, jiayma",
+        "articles/azure-functions/durable/durable-task-scheduler/**/*.md": "azfuncdf",
         "articles/azure-large-instances/**/*.yml": "jacobjaygbay",
-        "articles/azure-netapp-files/**/*.yml": "padmalathas",
+        "articles/azure-netapp-files/**/*.yml": "akashdubey-ms",
         "articles/azure-vmware/**/*.yml": "jacobjaygbay",
         "articles/backup/**/*.yml": "ankitadutta",
         "articles/baremetal-infrastructure/**/*.yml": "jacobjaygbay",
@@ -1155,14 +1158,14 @@
         "articles/cloud-services-extended-support/**/*.yml": "wwilliams, jushiman",
         "articles/confidential-computing/**/*.yml": "wwilliams, jushiman",
         "articles/cyclecloud/**/*.yml": "padmalathas",
-        "articles/databox/**/*.yml": "padmalathas",
-        "articles/databox-gateway/**/*.yml": "padmalathas",
+        "articles/databox/**/*.yml": "akashdubey-ms",
+        "articles/databox-gateway/**/*.yml": "akashdubey-ms",
         "articles/ddos-protection/**/*.yml": "cherylmc, abell",
         "articles/dns/**/*.yml": "cherylmc, abell",
         "articles/expressroute/**/*.yml": "cherylmc, abell",
         "articles/firewall/**/*.yml": "cherylmc, abell",
         "articles/frontdoor/**/*.yml": "cherylmc, abell, halkazwini",
-        "articles/fxt-edge-filer/**/*.yml": "padmalathas",
+        "articles/fxt-edge-filer/**/*.yml": "akashdubey-ms",
         "articles/high-performance-computing/**/*.yml": "padmalathas",
         "articles/hpc-cache/**/*.yml": "padmalathas",
         "articles/import-export/**/*.yml": "ankitadutta",
@@ -1179,7 +1182,7 @@
         "articles/resource-mover/**/*.yml": "ankitadutta",
         "articles/sap/**/*.yml": "jacobjaygbay",
         "articles/site-recovery/**/*.yml": "ankitadutta",
-        "articles/storage/**/*.yml": "padmalathas",
+        "articles/storage/**/*.yml": "akashdubey-ms",
         "articles/traffic-manager/**/*.yml": "cherylmc, abell",
         "articles/update-manager/**/*.yml": "ankitadutta",
         "articles/virtual-network/**/*.yml": "cherylmc, abell",
@@ -1192,7 +1195,7 @@
         "articles/azure-boost/**/*.md": "wwilliams, jushiman",
         "articles/azure-compute-fleet/**/*.md": "jushiman",
         "articles/azure-large-instances/**/*.md": "jacobjaygbay",
-        "articles/azure-netapp-files/**/*.md": "padmalathas",
+        "articles/azure-netapp-files/**/*.md": "akashdubey-ms",
         "articles/azure-vmware/**/*.md": "jacobjaygbay",
         "articles/backup/**/*.md": "ankitadutta",
         "articles/baremetal-infrastructure/**/*.md": "jacobjaygbay",
@@ -1203,14 +1206,14 @@
         "articles/cloud-services-extended-support/**/*.md": "wwilliams, jushiman",
         "articles/confidential-computing/**/*.md": "wwilliams, jushiman",
         "articles/cyclecloud/**/*.md": "padmalathas",
-        "articles/databox/**/*.md": "padmalathas",
-        "articles/databox-gateway/**/*.md": "padmalathas",
+        "articles/databox/**/*.md": "akashdubey-ms",
+        "articles/databox-gateway/**/*.md": "akashdubey-ms",
         "articles/ddos-protection/**/*.md": "cherylmc, abell",
         "articles/dns/**/*.md": "cherylmc, abell",
         "articles/expressroute/**/*.md": "cherylmc, abell",
         "articles/firewall/**/*.md": "cherylmc, abell",
         "articles/frontdoor/**/*.md": "cherylmc, abell, halkazwini",
-        "articles/fxt-edge-filer/**/*.md": "padmalathas",
+        "articles/fxt-edge-filer/**/*.md": "akashdubey-ms",
         "articles/high-performance-computing/**/*.md": "padmalathas",
         "articles/hpc-cache/**/*.md": "padmalathas",
         "articles/import-export/**/*.md": "ankitadutta",
@@ -1227,7 +1230,7 @@
         "articles/resource-mover/**/*.md": "ankitadutta",
         "articles/sap/**/*.md": "jacobjaygbay",
         "articles/site-recovery/**/*.md": "ankitadutta",
-        "articles/storage/**/*.md": "padmalathas",
+        "articles/storage/**/*.md": "akashdubey-ms",
         "articles/traffic-manager/**/*.md": "cherylmc, abell",
         "articles/update-manager/**/*.md": "ankitadutta",
         "articles/virtual-network/**/*.md": "cherylmc, abell",
@@ -1300,101 +1303,376 @@
       "monikerRange": {
         "articles/migrate/**/*.md": "<=migrate-classic >=migrate"
       },
-      "recommendations": {
-      },
+      "recommendations": {},
       "no-loc": {
         "articles/governance/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]",
         "includes/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]"
       },
       "searchScope": {
-        "articles/advisor/**/*.md": ["Azure","Azure Advisor"],
-        "articles/advisor/**/*.yml": ["Azure","Azure Advisor"],
-        "articles/app-service/**/*.md": ["Azure","App Service"],
-        "articles/app-spaces/**/*.md": ["App Spaces"],
-        "articles/azure-app-configuration/**/*.md": ["Azure","AppConfig"],
-        "articles/azure-app-configuration/**/*.yml": ["Azure","AppConfig"],
-        "articles/azure-arc/**/*.md": ["Azure", "Azure Arc"],
-        "articles/azure-arc/**/*.yml": ["Azure", "Azure Arc"],
-        "articles/azure-cache-for-redis/**/*.md": ["Azure","Cache for Redis"],
-        "articles/azure-cache-for-redis/**/*.yml": ["Azure","Cache for Redis"],
-        "articles/azure-databricks/**/*.md": ["Azure","Azure Databricks"],
-        "articles/azure-databricks/**/*.yml": ["Azure","Azure Databricks"],
-        "articles/azure-functions/**/*.yml": ["Azure","Azure Functions"],
-        "articles/azure-monitor/**/*.md": ["Azure","Azure Monitor"],
-        "articles/azure-monitor/**/*.yml": ["Azure","Azure Monitor"],
-        "articles/azure-portal/**/*.md": ["Azure","Azure portal"],
-        "articles/azure-portal/**/*.yml": ["Azure","Azure portal"],
-        "articles/azure-portal/supportability/**/*.md": ["Azure","Azure supportability"],
-        "articles/azure-portal/supportability/**/*.yml": ["Azure","Azure supportability"],
-        "articles/azure-relay/**/*.md": ["Azure","Azure Relay"],
-        "articles/azure-relay/**/*.yml": ["Azure","Azure Relay"],
-        "articles/azure-resource-manager/bicep/**/*.md": ["Azure","Bicep"],
-        "articles/azure-resource-manager/bicep/**/*.yml": ["Azure","Bicep"],
-        "articles/azure-resource-manager/custom-providers/**/*.md": ["Azure","Custom Providers"],
-        "articles/azure-resource-manager/custom-providers/**/*.yml": ["Azure","Custom Providers"],
-        "articles/azure-resource-manager/managed-applications/**/*.md": ["Azure","Managed Applications"],
-        "articles/azure-resource-manager/managed-applications/**/*.yml": ["Azure","Managed Applications"],
-        "articles/azure-resource-manager/management/**/*.md": ["Azure","Azure management service"],
-        "articles/azure-resource-manager/management/**/*.yml": ["Azure","Azure management service"],
-        "articles/azure-resource-manager/templates/**/*.md": ["Azure","ARM templates"],
-        "articles/azure-resource-manager/templates/**/*.yml": ["Azure","ARM templates"],
-        "articles/azure-resource-manager/troubleshooting/**/*.md": ["Azure","Deployment troubleshooting"],
-        "articles/azure-resource-manager/troubleshooting/**/*.yml": ["Azure","Deployment troubleshooting"],
-        "articles/backup/**/*.md": ["Azure","Azure Backup"],
-        "articles/backup/**/*.yml": ["Azure","Azure Backup"],
-        "articles/cost-management-billing/**/*.md": ["Azure","Cost Management Billing"],
-        "articles/cost-management-billing/**/*.yml": ["Azure","Cost Management Billing"],
-        "articles/cyclecloud/**/*.md": ["CycleCloud"],
-        "articles/cyclecloud/**/*.yml": ["Azure","CycleCloud"],
-        "articles/data-catalog/**/*.md": ["Azure","Azure Data Catalog"],
-        "articles/data-catalog/**/*.yml": ["Azure","Azure Data Catalog"],
-        "articles/data-factory/**/*.md": ["Azure","Azure Data Factory"],
-        "articles/data-factory/**/*.yml": ["Azure","Azure Data Factory"],
-        "articles/data-share/**/*.md": ["Azure","Azure Data Share"],
-        "articles/data-share/**/*.yml": ["Azure","Azure Data Share"],
-        "articles/defender-for-iot/*.md": ["Azure","Defender for IoT"],
-        "articles/defender-for-iot/**/*.yml": ["Azure","Defender for IoT"],
-        "articles/defender-for-iot/device-builders/*.md": ["Azure","Defender for IoT"],
-        "articles/defender-for-iot/device-builders/**/*.yml": ["Azure","Defender for IoT"],
-        "articles/defender-for-iot/organizations/*.md": ["Azure","Defender for IoT"],
-        "articles/defender-for-iot/organizations/**/*.md": ["Azure","Defender for IoT"],
-        "articles/defender-for-iot/organizations/**/*.yml": ["Azure","Defender for IoT"],
-        "articles/digital-twins/**/*.md": ["Azure","IoT","Azure Digital Twins"],
-        "articles/digital-twins/**/*.yml": ["Azure","IoT","Azure Digital Twins"],
-        "articles/event-grid/**/*.md": ["Azure","Azure Event Grid"],
-        "articles/event-grid/**/*.yml": ["Azure","Azure Event Grid"],
-        "articles/event-hubs/**/*.md": ["Azure","Azure Event Hubs"],
-        "articles/event-hubs/**/*.yml": ["Azure","Azure Event Hubs"],
-        "articles/governance/policy/**/*.md": ["Azure","Azure Policy"],
-        "articles/governance/policy/**/*.yml": ["Azure","Azure Policy"],
-        "articles/governance/resource-graph/**/*.md": ["Azure","Azure Resource Graph"],
-        "articles/governance/resource-graph/**/*.yml": ["Azure","Azure Resource Graph"],
-        "articles/hdinsight/**/*.md": ["Azure","Azure HDInsight"],
-        "articles/hdinsight/**/*.yml": ["Azure","Azure HDInsight"],
-        "articles/iot-central/**/*.md": ["Azure","IoT","Azure IoT Central"],
-        "articles/iot-central/**/*.yml": ["Azure","IoT","Azure IoT Central"],
-        "articles/iot-dps/**/*.md": ["Azure","Azure IoT Hub","IoT","Azure IoT DPS"],
-        "articles/iot-dps/**/*.yml": ["Azure","Azure IoT Hub","IoT","Azure IoT DPS"],
-        "articles/iot-edge/**/*.md": ["Azure","IoT","Azure IoT Edge"],
-        "articles/iot-edge/**/*.yml": ["Azure","IoT","Azure IoT Edge"],
-        "articles/iot-hub/**/*.md": ["Azure","IoT","Azure IoT Hub"],
-        "articles/iot-hub/**/*.yml": ["Azure","IoT","Azure IoT Hub"],
-        "articles/iot-operations/**/*.md": ["Azure","IoT","Azure IoT Operations"],
-        "articles/iot-operations/**/*.yml": ["Azure","IoT","Azure IoT Operations"],
-        "articles/iot/**/*.md": ["Azure","IoT"],
-        "articles/iot/**/*.yml": ["Azure","IoT"],
-        "articles/notebooks/**/*.md": ["Azure","Azure Notebooks"],
-        "articles/notebooks/**/*.yml": ["Azure","Azure Notebooks"],
-        "articles/service-bus-messaging/**/*.md": ["Azure","Azure Service Bus Messaging"],
-        "articles/service-bus-messaging/**/*.yml": ["Azure","Azure Service Bus Messaging"],
-        "articles/service-health/**/*.md": ["Azure","Service Health"],
-        "articles/service-health/**/*.yml": ["Azure","Service Health"],
-        "articles/stream-analytics/**/*.md": ["Azure","Stream Analytics"],
-        "articles/stream-analytics/**/*.yml": ["Azure","Stream Analytics"],
-        "articles/synapse-analytics/**/*.md": ["Synapse Analytics","Azure"],
-        "articles/synapse-analytics/**/*.yml": ["Synapse Analytics","Azure"],
-        "articles/time-series-insights/**/*.md": ["Azure","Time Series Insights"],
-        "articles/time-series-insights/**/*.yml": ["Azure","Time Series Insights"]
+        "articles/advisor/**/*.md": [
+          "Azure",
+          "Azure Advisor"
+        ],
+        "articles/advisor/**/*.yml": [
+          "Azure",
+          "Azure Advisor"
+        ],
+        "articles/app-service/**/*.md": [
+          "Azure",
+          "App Service"
+        ],
+        "articles/app-spaces/**/*.md": [
+          "App Spaces"
+        ],
+        "articles/azure-app-configuration/**/*.md": [
+          "Azure",
+          "AppConfig"
+        ],
+        "articles/azure-app-configuration/**/*.yml": [
+          "Azure",
+          "AppConfig"
+        ],
+        "articles/azure-arc/**/*.md": [
+          "Azure",
+          "Azure Arc"
+        ],
+        "articles/azure-arc/**/*.yml": [
+          "Azure",
+          "Azure Arc"
+        ],
+        "articles/azure-cache-for-redis/**/*.md": [
+          "Azure",
+          "Cache for Redis"
+        ],
+        "articles/azure-cache-for-redis/**/*.yml": [
+          "Azure",
+          "Cache for Redis"
+        ],
+        "articles/azure-databricks/**/*.md": [
+          "Azure",
+          "Azure Databricks"
+        ],
+        "articles/azure-databricks/**/*.yml": [
+          "Azure",
+          "Azure Databricks"
+        ],
+        "articles/azure-functions/**/*.yml": [
+          "Azure",
+          "Azure Functions"
+        ],
+        "articles/azure-monitor/**/*.md": [
+          "Azure",
+          "Azure Monitor"
+        ],
+        "articles/azure-monitor/**/*.yml": [
+          "Azure",
+          "Azure Monitor"
+        ],
+        "articles/azure-portal/**/*.md": [
+          "Azure",
+          "Azure portal"
+        ],
+        "articles/azure-portal/**/*.yml": [
+          "Azure",
+          "Azure portal"
+        ],
+        "articles/azure-portal/supportability/**/*.md": [
+          "Azure",
+          "Azure supportability"
+        ],
+        "articles/azure-portal/supportability/**/*.yml": [
+          "Azure",
+          "Azure supportability"
+        ],
+        "articles/azure-relay/**/*.md": [
+          "Azure",
+          "Azure Relay"
+        ],
+        "articles/azure-relay/**/*.yml": [
+          "Azure",
+          "Azure Relay"
+        ],
+        "articles/azure-resource-manager/bicep/**/*.md": [
+          "Azure",
+          "Bicep"
+        ],
+        "articles/azure-resource-manager/bicep/**/*.yml": [
+          "Azure",
+          "Bicep"
+        ],
+        "articles/azure-resource-manager/custom-providers/**/*.md": [
+          "Azure",
+          "Custom Providers"
+        ],
+        "articles/azure-resource-manager/custom-providers/**/*.yml": [
+          "Azure",
+          "Custom Providers"
+        ],
+        "articles/azure-resource-manager/managed-applications/**/*.md": [
+          "Azure",
+          "Managed Applications"
+        ],
+        "articles/azure-resource-manager/managed-applications/**/*.yml": [
+          "Azure",
+          "Managed Applications"
+        ],
+        "articles/azure-resource-manager/management/**/*.md": [
+          "Azure",
+          "Azure management service"
+        ],
+        "articles/azure-resource-manager/management/**/*.yml": [
+          "Azure",
+          "Azure management service"
+        ],
+        "articles/azure-resource-manager/templates/**/*.md": [
+          "Azure",
+          "ARM templates"
+        ],
+        "articles/azure-resource-manager/templates/**/*.yml": [
+          "Azure",
+          "ARM templates"
+        ],
+        "articles/azure-resource-manager/troubleshooting/**/*.md": [
+          "Azure",
+          "Deployment troubleshooting"
+        ],
+        "articles/azure-resource-manager/troubleshooting/**/*.yml": [
+          "Azure",
+          "Deployment troubleshooting"
+        ],
+        "articles/backup/**/*.md": [
+          "Azure",
+          "Azure Backup"
+        ],
+        "articles/backup/**/*.yml": [
+          "Azure",
+          "Azure Backup"
+        ],
+        "articles/cost-management-billing/**/*.md": [
+          "Azure",
+          "Cost Management Billing"
+        ],
+        "articles/cost-management-billing/**/*.yml": [
+          "Azure",
+          "Cost Management Billing"
+        ],
+        "articles/cyclecloud/**/*.md": [
+          "CycleCloud"
+        ],
+        "articles/cyclecloud/**/*.yml": [
+          "Azure",
+          "CycleCloud"
+        ],
+        "articles/data-catalog/**/*.md": [
+          "Azure",
+          "Azure Data Catalog"
+        ],
+        "articles/data-catalog/**/*.yml": [
+          "Azure",
+          "Azure Data Catalog"
+        ],
+        "articles/data-factory/**/*.md": [
+          "Azure",
+          "Azure Data Factory"
+        ],
+        "articles/data-factory/**/*.yml": [
+          "Azure",
+          "Azure Data Factory"
+        ],
+        "articles/data-share/**/*.md": [
+          "Azure",
+          "Azure Data Share"
+        ],
+        "articles/data-share/**/*.yml": [
+          "Azure",
+          "Azure Data Share"
+        ],
+        "articles/defender-for-iot/*.md": [
+          "Azure",
+          "Defender for IoT"
+        ],
+        "articles/defender-for-iot/**/*.yml": [
+          "Azure",
+          "Defender for IoT"
+        ],
+        "articles/defender-for-iot/device-builders/*.md": [
+          "Azure",
+          "Defender for IoT"
+        ],
+        "articles/defender-for-iot/device-builders/**/*.yml": [
+          "Azure",
+          "Defender for IoT"
+        ],
+        "articles/defender-for-iot/organizations/*.md": [
+          "Azure",
+          "Defender for IoT"
+        ],
+        "articles/defender-for-iot/organizations/**/*.md": [
+          "Azure",
+          "Defender for IoT"
+        ],
+        "articles/defender-for-iot/organizations/**/*.yml": [
+          "Azure",
+          "Defender for IoT"
+        ],
+        "articles/digital-twins/**/*.md": [
+          "Azure",
+          "IoT",
+          "Azure Digital Twins"
+        ],
+        "articles/digital-twins/**/*.yml": [
+          "Azure",
+          "IoT",
+          "Azure Digital Twins"
+        ],
+        "articles/event-grid/**/*.md": [
+          "Azure",
+          "Azure Event Grid"
+        ],
+        "articles/event-grid/**/*.yml": [
+          "Azure",
+          "Azure Event Grid"
+        ],
+        "articles/event-hubs/**/*.md": [
+          "Azure",
+          "Azure Event Hubs"
+        ],
+        "articles/event-hubs/**/*.yml": [
+          "Azure",
+          "Azure Event Hubs"
+        ],
+        "articles/governance/policy/**/*.md": [
+          "Azure",
+          "Azure Policy"
+        ],
+        "articles/governance/policy/**/*.yml": [
+          "Azure",
+          "Azure Policy"
+        ],
+        "articles/governance/resource-graph/**/*.md": [
+          "Azure",
+          "Azure Resource Graph"
+        ],
+        "articles/governance/resource-graph/**/*.yml": [
+          "Azure",
+          "Azure Resource Graph"
+        ],
+        "articles/hdinsight/**/*.md": [
+          "Azure",
+          "Azure HDInsight"
+        ],
+        "articles/hdinsight/**/*.yml": [
+          "Azure",
+          "Azure HDInsight"
+        ],
+        "articles/iot-central/**/*.md": [
+          "Azure",
+          "IoT",
+          "Azure IoT Central"
+        ],
+        "articles/iot-central/**/*.yml": [
+          "Azure",
+          "IoT",
+          "Azure IoT Central"
+        ],
+        "articles/iot-dps/**/*.md": [
+          "Azure",
+          "Azure IoT Hub",
+          "IoT",
+          "Azure IoT DPS"
+        ],
+        "articles/iot-dps/**/*.yml": [
+          "Azure",
+          "Azure IoT Hub",
+          "IoT",
+          "Azure IoT DPS"
+        ],
+        "articles/iot-edge/**/*.md": [
+          "Azure",
+          "IoT",
+          "Azure IoT Edge"
+        ],
+        "articles/iot-edge/**/*.yml": [
+          "Azure",
+          "IoT",
+          "Azure IoT Edge"
+        ],
+        "articles/iot-hub/**/*.md": [
+          "Azure",
+          "IoT",
+          "Azure IoT Hub"
+        ],
+        "articles/iot-hub/**/*.yml": [
+          "Azure",
+          "IoT",
+          "Azure IoT Hub"
+        ],
+        "articles/iot-operations/**/*.md": [
+          "Azure",
+          "IoT",
+          "Azure IoT Operations"
+        ],
+        "articles/iot-operations/**/*.yml": [
+          "Azure",
+          "IoT",
+          "Azure IoT Operations"
+        ],
+        "articles/iot/**/*.md": [
+          "Azure",
+          "IoT"
+        ],
+        "articles/iot/**/*.yml": [
+          "Azure",
+          "IoT"
+        ],
+        "articles/notebooks/**/*.md": [
+          "Azure",
+          "Azure Notebooks"
+        ],
+        "articles/notebooks/**/*.yml": [
+          "Azure",
+          "Azure Notebooks"
+        ],
+        "articles/service-bus-messaging/**/*.md": [
+          "Azure",
+          "Azure Service Bus Messaging"
+        ],
+        "articles/service-bus-messaging/**/*.yml": [
+          "Azure",
+          "Azure Service Bus Messaging"
+        ],
+        "articles/service-health/**/*.md": [
+          "Azure",
+          "Service Health"
+        ],
+        "articles/service-health/**/*.yml": [
+          "Azure",
+          "Service Health"
+        ],
+        "articles/stream-analytics/**/*.md": [
+          "Azure",
+          "Stream Analytics"
+        ],
+        "articles/stream-analytics/**/*.yml": [
+          "Azure",
+          "Stream Analytics"
+        ],
+        "articles/synapse-analytics/**/*.md": [
+          "Synapse Analytics",
+          "Azure"
+        ],
+        "articles/synapse-analytics/**/*.yml": [
+          "Synapse Analytics",
+          "Azure"
+        ],
+        "articles/time-series-insights/**/*.md": [
+          "Azure",
+          "Time Series Insights"
+        ],
+        "articles/time-series-insights/**/*.yml": [
+          "Azure",
+          "Time Series Insights"
+        ]
       },
       "titleSuffix": {
         "articles/advisor/*.yml": "Azure Advisor",
@@ -1424,8 +1702,8 @@
         "articles/azure-fluid-relay/**/*.md": "Azure Fluid Relay",
         "articles/azure-fluid-relay/**/*.yml": "Azure Fluid Relay",
         "articles/azure-government/**/*.md": "Azure Government",
-        "articles/azure-monitor/**/*.md" : "Azure Monitor",
-        "articles/azure-monitor/**/*.yml" : "Azure Monitor",
+        "articles/azure-monitor/**/*.md": "Azure Monitor",
+        "articles/azure-monitor/**/*.yml": "Azure Monitor",
         "articles/azure-portal/**/*.md": "Azure portal",
         "articles/azure-portal/**/*.yml": "Azure portal",
         "articles/azure-portal/supportability/**/*.md": "Azure supportability",
@@ -1438,8 +1716,8 @@
         "articles/azure-video-analyzer/video-analyzer-docs/*.yml": "Azure Video Analyzer",
         "articles/azure-video-indexer/*.md": "Azure Video Indexer",
         "articles/azure-video-indexer/*.yml": "Azure Video Indexer",
-        "articles/azure-vmware/**/*.md" : "Azure VMware Solution",
-        "articles/azure-vmware/**/*.yml" : "Azure VMware Solution",
+        "articles/azure-vmware/**/*.md": "Azure VMware Solution",
+        "articles/azure-vmware/**/*.yml": "Azure VMware Solution",
         "articles/backup/**/*.md": "Azure Backup",
         "articles/backup/**/*.yml": "Azure Backup",
         "articles/baremetal-infrastructure/**/*.md": "Azure Baremetal Infrastructure",
@@ -1489,6 +1767,9 @@
         "articles/lighthouse/**/*.md": "Azure Lighthouse",
         "articles/logic-apps/*.md": "Azure Logic Apps",
         "articles/logic-apps/*.yml": "Azure Logic Apps",
+        "articles/logic-apps/enterprise-connectors/*.md": "Azure Logic Apps",
+        "articles/logic-apps/enterprise-integration/*.md": "Azure Logic Apps",
+        "articles/logic-apps/rules-engine/*.md": "Azure Logic Apps",
         "articles/logic-apps/testing-framework/*.md": "Azure Logic Apps",
         "articles/media-services/*.md": "Azure Media Services",
         "articles/media-services/*.yml": "Azure Media Services",
@@ -1504,8 +1785,6 @@
         "articles/playwright-testing/**/*.md": "Microsoft Playwright Testing",
         "articles/quotas/**/*.md": "Azure Quotas",
         "articles/quotas/**/*.yml": "Azure Quotas",
-        "articles/remote-rendering/**/*.md": "Azure Remote Rendering",
-        "articles/remote-rendering/**/*.yml": "Azure Remote Rendering",
         "articles/scheduler/*.md": "Azure Scheduler",
         "articles/service-bus-messaging/*.md": "Azure Service Bus",
         "articles/service-health/*.yml": "Azure Service Health",
@@ -1519,8 +1798,7 @@
         "articles/synapse-analytics/**/*.yml": "Azure Synapse Analytics",
         "articles/terraform/**/*.yml": "Terraform"
       },
-      "ms.custom": {
-      },
+      "ms.custom": {},
       "ms.topic": {
         "articles/cyclecloud/**/*.md": "conceptual",
         "articles/cyclecloud/**/*.yml": "conceptual",
@@ -1530,12 +1808,31 @@
         "articles/cyclecloud/how-to/**/*.md": "how-to",
         "articles/cyclecloud/**overview.md": "overview",
         "articles/cyclecloud/**overview.yml": "overview"
+      },
+      "exclude_monikers": {
+        "articles/migrate/concepts-azure-spring-apps-assessment-calculation.md": [
+          "migrate"
+        ],
+        "articles/migrate/how-to-create-azure-spring-apps-assessment.md": [
+          "migrate"
+        ],
+        "articles/migrate/troubleshoot-spring-boot-discovery.md": [
+          "migrate"
+        ],
+        "articles/migrate/tutorial-assess-spring-boot.md": [
+          "migrate"
+        ],
+        "articles/migrate/tutorial-discover-spring-boot.md": [
+          "migrate"
+        ]
       }
     },
     "template": [
       "docs.html",
-      "default","DocFx.Plugins.PlantUml/template"
+      "default",
+      "DocFx.Plugins.PlantUml/template"
     ],
+    "markdownEngineName": "markdig",
     "groups": {
       "cyclecloud-7-group": {
         "dest": "tempdest_cyclecloud_7",

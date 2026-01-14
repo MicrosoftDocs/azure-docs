@@ -6,7 +6,10 @@ ms.author: ali
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 09/16/2022
-ms.custom: subject-rbac-steps, devx-track-arm-template
+ms.custom:
+  - subject-rbac-steps
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Use Managed Identity to authenticate your Azure Stream Analytics job to Azure Blob Storage
@@ -176,7 +179,7 @@ Unless you need the job to create containers on your behalf, you should choose *
 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
     | Setting | Value |
     | --- | --- |
@@ -194,7 +197,7 @@ Unless you need the job to create containers on your behalf, you should choose *
 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
     | Setting | Value |
     | --- | --- |

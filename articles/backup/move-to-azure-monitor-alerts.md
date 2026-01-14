@@ -2,7 +2,7 @@
 title: Backup Classic Alerts using Azure Backup
 description: Learn how to back up Classic Alerts in the Azure Recovery Services vault.
 ms.topic: how-to
-ms.date: 03/17/2025
+ms.date: 11/26/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -91,7 +91,7 @@ If the frequency was set to an hourly digest, and an alert was raised and resolv
 
 > [!NOTE]
 >- If a destructive operation, such as **stop protection with delete data** is performed, an alert is raised and an email is sent to subscription owners, admins, and co-admins even if notifications aren't configured for the Recovery Services vault.
->- To configure notification for successful jobs, use [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
+>- To configure notification for successful jobs, use [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#monitor-backup-jobs-using-log-analytics-workspace).
 
 ## Inactivating alerts
 

@@ -20,7 +20,7 @@ General-purpose v2 (GPv2) storage accounts are the recommended account type for 
 This FAQ addresses common questions about migrating from legacy blob storage (blob only) accounts to GPv2. It covers migration procedures, billing considerations, feature differences, and guidance for selecting the right access tier. Use this resource to plan your upgrade and ensure a smooth transition before legacy blob storage retirement.
 
 > [!IMPORTANT]
-> Microsoft will retire legacy blob storage accounts on **September 1, 2026**. All legacy blob storage must be migrated to general-purpose v2 before this date to avoid service disruption.  
+> Microsoft will retire legacy blob storage accounts on **October 2026**. All legacy blob storage must be migrated to general-purpose v2 before this date to avoid service disruption.  
 > See: [Migrate to GPv2](storage-account-upgrade.md) and [general purpose v1 (GPv1) account migration overview](general-purpose-version-1-account-migration-overview.md) for more details.
 
 
@@ -28,7 +28,7 @@ A legacy blob storage account is a legacy Azure storage account type designed fo
 
 ### Can I still create a new legacy blob storage account?
 
-No. Starting **August 2026**, creation of new legacy blob storage accounts will be disabled.
+No. Starting **March 3 2026**, creation of new legacy blob storage accounts will be disabled.
 
 > [!IMPORTANT]
 > Plan migrations ahead of this date to ensure policy compliance and avoid deployment blocks for new storage needs.

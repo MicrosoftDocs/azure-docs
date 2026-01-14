@@ -12,7 +12,10 @@ ms.date: 07/12/2021
 ms.author: shaas
 ms.reviewer: ozgun
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-dotnet
+ms.custom:
+  - devx-track-csharp
+  - devx-track-dotnet
+  - sfi-ropc-blocked
 # Customer intent: As a developer, I want to create a stored access policy using .NET for Azure Storage, so that I can manage and control shared access signatures with specified permissions and time constraints effectively.
 ---
 

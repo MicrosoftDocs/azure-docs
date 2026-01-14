@@ -19,7 +19,7 @@ The [SAP on Azure Deployment Automation Framework](deployment-framework.md) uses
 
 - [Get, download, and prepare your SAP installation media and related files](bom-get-files.md) if you haven't already done so. Make sure to have the [name of the SAPCAR utility file that you downloaded](bom-get-files.md#acquire-media) available.
 - [Prepare your BOM](bom-prepare.md) if you haven't already done so. Make sure to have the BOM file that you created available.
-- An Azure subscription. If you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. If you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An SAP account with permissions to work with the database you want to use.
 - Optionally, create a virtual machine (VM) within Azure to use for transferring SAP media from your storage account. This method improves the transfer speed. Make sure you have connectivity between your VM and the target SAP VM. For example, check that your SSH keys are in place.
 

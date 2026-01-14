@@ -74,6 +74,9 @@ For example, the schema published for an Azure Blob storage event is:
 ]
 ```
 
+> [!NOTE]
+> The data object is unique to each event publisher. For system topics, refer to the [Event Schema store](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane) or the respective system topic documentation to see the exact schema for each publisher. For custom topics, the publisher defines the structure of the data object.
+
 ## Event properties
 
 All events have the same following top-level data:

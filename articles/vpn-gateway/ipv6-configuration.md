@@ -22,7 +22,7 @@ This article helps you configure IPv6 in dual stack for VPN Gateway using the Az
 
 ## Prerequisites
 
-During Preview, you can opt in to configure IPv6 in dual stack. To opt in, send your subscription ID to **vpnipv6preview@service.microsoft.com** and request your subscription to be enabled for IPv6.
+During Preview, you can opt in to configure IPv6 in dual stack. To opt in, send your subscription ID to **vpngwipv6preview@microsoft.com** and request your subscription to be enabled for IPv6.
 
 ## Configure using the Azure portal
 

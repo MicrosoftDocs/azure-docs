@@ -36,7 +36,7 @@ Before you install the MARS agent, ensure that you have performed the following 
 * Learn how [Azure Backup uses the MARS agent to back up Windows machines](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders).
 * Learn about the [backup architecture](backup-architecture.md#architecture-back-up-to-dpmmabs) that runs the MARS agent on a secondary MABS or Data Protection Manager server.
 * Review [what's supported and what you can back up](backup-support-matrix-mars-agent.md) by the MARS agent.
-* Make sure that you have an Azure account if you need to back up a server or client to Azure. If you don't have an account, you can create a [free one](https://azure.microsoft.com/free/) in just a few minutes.
+* Make sure that you have an Azure account if you need to back up a server or client to Azure. If you don't have an account, you can create a [free one](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) in just a few minutes.
 * Verify internet access on the machines that you want to back up.
 * Ensure the user installing and configuring the MARS agent has local administrator privileges on the server to be protected.
 * [Ensure your server is running on TLS 1.2](transport-layer-security.md).
@@ -128,6 +128,12 @@ To install and register  the MARRS agent, follow these steps:
     ![Screenshot shows how to set up internet access in the MARS wizard.](./media/backup-configure-vault/mars2.png)
 
 1. For **Installation**, review the prerequisites, and select **Install**.
+
+   >[!Note]
+   >MARS agent installation requires Windows Powershell 5.0 and Microsoft .NET Framework 4.8 (previously 4.5). You might need to install the .NET Framework 4.8 manually when upgrading from version 4.5.
+
+    ![Screenshot shows the prerequisites required to configure MARS agent.](./media/backup-configure-vault/mars-prerequisite.png)
+   
 1. After the agent is installed, select **Proceed to Registration**.
 1. In **Register Server Wizard** > **Vault Identification**, browse to and select the credentials file that you downloaded. Then select **Next**.
 

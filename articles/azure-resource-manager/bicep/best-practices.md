@@ -5,7 +5,7 @@ author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 07/11/2024
+ms.date: 10/30/2025
 ---
 # Best practices for Bicep
 

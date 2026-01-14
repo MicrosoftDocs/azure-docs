@@ -8,9 +8,11 @@ ms.service: azure-private-link
 ms.topic: concept-article
 ms.date: 03/25/2025
 ms.author: abell
-ms.custom: references_regions, ignite-2024
-#Customer intent: As someone who has a basic network background but is new to Azure, I want to understand the capabilities of private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
-# Customer intent: "As a network engineer new to Azure, I want to learn about private endpoints and their properties, so that I can securely connect Azure PaaS services to my virtual network while ensuring data protection and compliance."
+ms.custom:
+  - references_regions
+  - ignite-2024
+  - sfi-image-nochange
+#customer intent: As someone who has a basic network background but is new to Azure, I want to understand the capabilities of private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
 ---
 
 # What is a private endpoint?
@@ -217,7 +219,7 @@ The following information lists the known limitations to the use of private endp
 
 | Limitation | Description |
 | --------- | --------- | 
-| SNAT is recommended always. | Due to the variable nature of the private endpoint data-plane, it's recommended to SNAT traffic destined to a private endpoint to ensure return traffic is honored. |
+| SNAT is recommended. | Due to the variable nature of the private endpoint data-plane, it's recommended to SNAT traffic destined to a private endpoint to ensure return traffic is honored when going through an NVA. This limitation can be removed using [disableSnatOnPL tag](/azure/private-link/private-link-disable-snat) in your NVA. |
 | Feature unavailable in select regions. | Currently unavailable in the following regions: </br> West India </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast | 
 
 ### Application security group

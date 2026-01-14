@@ -9,7 +9,7 @@ ms.custom: build-2023
 ms.topic: quickstart
 ms.date: 07/24/2025
 
-#customer intent: As a developer, I want to create and acess an environment so that I can use preconfigured Azure resources to deploy an application.
+#customer intent: As a developer, I want to create and access an environment so that I can use preconfigured Azure resources to deploy an application.
 ---
 
 # Quickstart: Create and access an environment in Azure Deployment Environments

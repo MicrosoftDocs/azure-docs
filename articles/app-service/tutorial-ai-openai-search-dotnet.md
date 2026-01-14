@@ -6,11 +6,13 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 05/19/2025
+ms.date: 11/18/2025
 ms.custom:
   - devx-track-dotnet
   - devx-track-azurecli
   - build-2025
+ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ---
 
 # Tutorial: Build a retrieval augmented generation app in Azure App Service with Azure OpenAI and Azure AI Search (.NET)
@@ -34,7 +36,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription - [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- An Azure account with an active subscription - [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - GitHub account to use GitHub Codespaces - [Learn more about GitHub Codespaces](https://docs.github.com/codespaces/overview).
 
 ## 1. Open the sample with Codespaces

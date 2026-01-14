@@ -1,21 +1,21 @@
 ---
-title: Import an Azure AI Foundry API - Azure API Management
-description: How to import an API from Azure AI Foundry as a REST API in Azure API Management.
+title: Import a Microsoft Foundry API - Azure API Management
+description: How to import an API from Microsoft Foundry as a REST API in Azure API Management.
 ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 05/16/2025
+ms.date: 10/07/2025
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ms.custom: template-how-to, build-2024
 ---
 
-# Import an Azure AI Foundry API 
+# Import a Microsoft Foundry API 
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-You can import AI model endpoints deployed in Azure AI Foundry to your API Management instance as APIs. Use AI gateway policies and other capabilities in API Management to simplify integration, improve observability, and enhance control over the model endpoints.
+You can import AI model endpoints deployed in Microsoft Foundry to your API Management instance as APIs. Use AI gateway policies and other capabilities in API Management to simplify integration, improve observability, and enhance control over the model endpoints.
 
 Learn more about managing AI APIs in API Management:
 
@@ -24,23 +24,23 @@ Learn more about managing AI APIs in API Management:
 
 ## Client compatibility options
 
-API Management supports two client compatibility options for AI APIs. Choose the option suitable for your model deployment. The option determines how clients call the API and how the API Management instance routes requests to the AI service.
+API Management supports two client compatibility options for AI APIs from Microsoft Foundry. When you import the API using the wizard, choose the option suitable for your model deployment. The option determines how clients call the API and how the API Management instance routes requests to the AI service.
 
-* **Azure AI** - Manage model endpoints in Azure AI Foundry that are exposed through the [ Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api).
-
-    Clients call the deployment at a `/models` endpoint such as `/my-model/models/chat/completions`. Deployment name is passed in the request body. Use this option if you want flexibility to switch between models exposed through the Azure AI Model Inference API and those deployed in Azure OpenAI in Foundry Models.
-
-* **Azure OpenAI** - Manage model endpoints deployed in Azure OpenAI. 
+* **Azure OpenAI** - Manage Azure OpenAI in Microsoft Foundry model deployments. 
 
     Clients call the deployment at an `/openai` endpoint such as `/openai/deployments/my-deployment/chat/completions`. Deployment name is passed in the request path. Use this option if your AI service only includes Azure OpenAI model deployments. 
+
+* **Azure AI** - Manage model endpoints in Microsoft Foundry that are exposed through the [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api).
+
+    Clients call the deployment at a `/models` endpoint such as `/my-model/models/chat/completions`. Deployment name is passed in the request body. Use this option if you want flexibility to switch between models exposed through the Azure AI Model Inference API and those deployed in Azure OpenAI in Foundry Models.
 
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
 
-- An Azure AI service in your subscription with one or more models deployed. Examples include models deployed in Azure AI Foundry or Azure OpenAI.
+- An Azure AI service in your subscription with one or more models deployed. Examples include models deployed in Microsoft Foundry or Azure OpenAI.
 
-## Import AI Foundry API using the portal
+## Import Microsoft Foundry API using the portal
 
 Use the following steps to import an AI API to API Management. 
 
@@ -52,11 +52,11 @@ When you import the API, API Management automatically configures:
 * Authentication to the backend using the instance's system-assigned managed identity.
 * (optionally) Policies to help you monitor and manage the API.
 
-To import an AI Foundry API to API Management:
+To import an Microsoft Foundry API to API Management:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **APIs** > **+ Add API**.
-1. Under **Create from Azure resource**, select **Azure AI Foundry**.
+1. Under **Create from Azure resource**, select **Microsoft Foundry**.
 
     :::image type="content" source="media/azure-ai-foundry-api/ai-foundry-api.png" alt-text="Screenshot of creating an OpenAI-compatible API in the portal." :::
 1. On the **Select AI service** tab:
@@ -69,11 +69,11 @@ To import an AI Foundry API to API Management:
     1. In **Base path**, enter a path that your API Management instance uses to access the deployment endpoint.
     1. Optionally select one or more **Products** to associate with the API.  
     1. In **Client compatibility**, select either of the following based on the types of client you intend to support. See [Client compatibility options](#client-compatibility-options) for more information.
-        * **Azure OpenAI** - Select this option if your clients only need to access Azure OpenAI model deployments.
-        * **Azure AI** - Select this option if your clients need to access other models in Azure AI Foundry. 
+        * **Azure OpenAI** - Select this option if your clients only need to access Azure OpenAI in Microsoft Foundry model deployments.
+        * **Azure AI** - Select this option if your clients need to access other models in Microsoft Foundry. 
     1. Select **Next**.
 
-        :::image type="content" source="media/azure-ai-foundry-api/client-compatibility.png" alt-text="Screenshot of AI Foundry API configuration in the portal.":::
+        :::image type="content" source="media/azure-ai-foundry-api/client-compatibility.png" alt-text="Screenshot of Microsoft Foundry API configuration in the portal.":::
 
 1. On the **Manage token consumption** tab, optionally enter settings or accept defaults that define the following policies to help monitor and manage the API:
     * [Manage token consumption](llm-token-limit-policy.md)

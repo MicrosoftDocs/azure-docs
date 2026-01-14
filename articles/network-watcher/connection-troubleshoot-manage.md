@@ -6,9 +6,8 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 03/18/2025
+ms.date: 11/18/2025
 
-#CustomerIntent: As an Azure administrator, I want to learn how to use Connection Troubleshoot to diagnose outbound connectivity issues in Azure using the Azure portal, Powershell, or Azure CLI.
 # Customer intent: As a network administrator, I want to learn how to use the connection troubleshoot feature to diagnose outbound connectivity issues in Azure, so that I can ensure seamless communication between virtual machines and external endpoints.
 ---
 
@@ -20,11 +19,11 @@ In this article, you learn how to use the connection troubleshoot feature of Azu
 
 # [**Portal**](#tab/portal)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Network Watcher enabled in the region of the virtual machine (VM) you want to troubleshoot. By default, Azure enables Network Watcher in a region when you create a virtual network in it. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
 
-- A virtual machine with Network Watcher agent VM extension installed on it and has the following outbound TCP connectivity:
+- A virtual machine with the following outbound TCP connectivity:
     - to 169.254.169.254 over port 80
     - to 168.63.129.16 over port 8037
 
@@ -32,11 +31,11 @@ In this article, you learn how to use the connection troubleshoot feature of Azu
 
 # [**PowerShell**](#tab/powershell)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Network Watcher enabled in the region of the virtual machine (VM) you want to troubleshoot. By default, Azure enables Network Watcher in a region when you create a virtual network in it. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
 
-- A virtual machine with Network Watcher agent VM extension installed on it and has the following outbound TCP connectivity:
+- A virtual machine with the following outbound TCP connectivity:
     - to 169.254.169.254 over port 80
     - to 168.63.129.16 over port 8037
 
@@ -50,11 +49,11 @@ In this article, you learn how to use the connection troubleshoot feature of Azu
 
 # [**Azure CLI**](#tab/cli)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Network Watcher enabled in the region of the virtual machine (VM) you want to troubleshoot. By default, Azure enables Network Watcher in a region when you create a virtual network in it. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
 
-- A virtual machine with Network Watcher agent VM extension installed on it and has the following outbound TCP connectivity:
+- A virtual machine with the following outbound TCP connectivity:
     - to 169.254.169.254 over port 80
     - to 168.63.129.16 over port 8037
 
@@ -67,13 +66,6 @@ In this article, you learn how to use the connection troubleshoot feature of Azu
     You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
 
 ---
-
-> [!NOTE]
->  The Network Watcher agent VM extension is required on the source virtual machine to run the connection troubleshoot *connectivity test*. The extension is automatically installed on the virtual machine when using the Azure portal. If you don't have the extension installed, you can install it manually:
-> - To install the extension on a Windows virtual machine, see [Network Watcher agent VM extension for Windows](network-watcher-agent-windows.md).
-> - To install the extension on a Linux virtual machine, see [Network Watcher agent VM extension for Linux](network-watcher-agent-linux.md).
-> - To update an already installed extension, see [Update Network Watcher agent VM extension to the latest version](network-watcher-agent-update.md).
-
 
 ## Test connectivity to a virtual machine
 

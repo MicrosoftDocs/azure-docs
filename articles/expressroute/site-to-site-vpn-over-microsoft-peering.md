@@ -7,7 +7,10 @@ ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 03/31/2024
 ms.author: duau
-ms.custom: devx-track-azurepowershell, FY23 content-maintenance
+ms.custom:
+  - devx-track-azurepowershell
+  - FY23 content-maintenance
+  - sfi-image-nochange
 # Customer intent: As a network administrator, I want to configure a site-to-site VPN over ExpressRoute Microsoft peering, so that I can establish secure and efficient connectivity between my on-premises network and Azure virtual networks.
 ---
 

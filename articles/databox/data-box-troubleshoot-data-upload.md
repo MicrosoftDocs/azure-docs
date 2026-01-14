@@ -8,6 +8,7 @@ ms.service: azure-databox
 ms.topic: troubleshooting
 ms.date: 03/06/2025
 ms.author: shaas
+ms.custom: sfi-image-nochange
 # Customer intent: As a data administrator, I want to troubleshoot upload errors from Data Box devices to Azure, so that I can effectively manage data transfers and ensure successful uploads to the cloud.
 ---
 

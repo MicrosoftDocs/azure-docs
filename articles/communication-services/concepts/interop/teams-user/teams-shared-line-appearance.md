@@ -20,7 +20,7 @@ Microsoft Teams shared line appearance lets a user choose a delegate to answer o
 
 ## Prerequisites
 
-- An Azure account with an active subscription. See [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- An Azure account with an active subscription. See [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). 
 - A deployed Communication Services resource. See [Create a Communication Services resource](../../../quickstarts/create-communication-resource.md).
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../../quickstarts/identity/access-tokens.md).
 - Licensing requirements for delegator and delegates. See [Teams Phone license](/microsoftteams/shared-line-appearance#license-required).

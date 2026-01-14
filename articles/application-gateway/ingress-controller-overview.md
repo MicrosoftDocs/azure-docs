@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 8/26/2025
+ms.date: 08/26/2025
 ms.author: mbender
 # Customer intent: "As an AKS administrator, I want to deploy the Application Gateway Ingress Controller, so that I can efficiently manage ingress traffic and leverage Azure's L7 load-balancer capabilities for improved performance and security."
 ---
@@ -51,7 +51,7 @@ The AGIC add-on is still deployed as a pod in the customer's AKS cluster, howeve
 > [!NOTE]
 > Customers can only deploy one AGIC add-on per AKS cluster, and each AGIC add-on currently can only target one Application Gateway. For deployments that require more than one AGIC per cluster or multiple AGICs targeting one Application Gateway, please continue to use AGIC deployed through Helm.
 >
-> Both Helm and AGIC add-on doesn't support ExternalName service.
+> Both Helm and AGIC add-on don't support ExternalName service.
 
 ## Container networking and AGIC
 
@@ -81,7 +81,7 @@ With Azure CNI Overlay, please consider the following limitations:
 * Azure CNI Overlay with Application Gateway Ingress Controller is not supported in Azure Government cloud or Microsoft Azure operated by 21Vianet (Azure in China).
 
 >[!Note]
->Upgrade of the AKS cluster from Kubnet or CNI to CNI Overlay is automatically detected by Application Gateway Ingress Controller. It's recommended to schedule the upgrade during a maintenance window as traffic disruption can occur. The controller may take a few minutes post-cluster upgrade to detect and configure support for CNI Overlay.
+>Upgrade of the AKS cluster from Kubenet or CNI to CNI Overlay is automatically detected by Application Gateway Ingress Controller. It's recommended to schedule the upgrade during a maintenance window as traffic disruption can occur. The controller may take a few minutes post-cluster upgrade to detect and configure support for CNI Overlay.
 
 >[!WARNING]
 > Ensure the Application Gateway subnet is a /24 or smaller subnet prior to upgrading. Upgrading from CNI to CNI Overlay with a larger subnet (i.e. /23) will lead to an outage and require the Application Gateway subnet to be recreated with a supported subnet size.

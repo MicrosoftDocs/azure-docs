@@ -2,9 +2,6 @@
 metadata:
   title: Azure Cache for Redis development FAQs
   description: Learn the answers to common questions that help you develop for Azure Cache for Redis.
-  
-  
-  
   ms.topic: faq
   ms.devlang: csharp
   ms.custom: devx-track-csharp, ignite-2024
@@ -13,8 +10,9 @@ metadata:
     - ✅ Azure Cache for Redis
 
 title: Azure Cache for Redis development FAQs
-summary: This article provides answers to common questions about how to develop for Azure Cache for Redis.
-
+summary:  |
+          This article provides answers to common questions about how to develop for Azure Cache for Redis.
+          [!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 sections:
   - name: Ignored

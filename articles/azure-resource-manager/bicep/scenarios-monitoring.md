@@ -41,7 +41,7 @@ resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2023-09-01' exis
   name: logAnalyticsWorkspace
 }
 
-resource appServicePlan 'Microsoft.Web/serverfarms@2024-04-01' = {
+resource appServicePlan 'Microsoft.Web/serverfarms@2025-03-01' = {
   name: appPlanName
   location: location
   sku: {
@@ -343,7 +343,7 @@ param appPlanName string = '${uniqueString(resourceGroup().id)}asp'
 
 var appPlanSkuName = 'S1'
 
-resource appServicePlan 'Microsoft.Web/serverfarms@2023-12-01' = {
+resource appServicePlan 'Microsoft.Web/serverfarms@2025-03-01' = {
   name: appPlanName
   location: location
   properties: {}

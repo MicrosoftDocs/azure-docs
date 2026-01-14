@@ -9,6 +9,7 @@ ms.date: 08/11/2025
 ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
+ms.custom: sfi-image-nochange
 # Customer intent: "As an IT administrator, I want to integrate Commvault with Azure Blob storage for backups, so that I can ensure reliable offsite data protection and facilitate quick recovery in case of a disaster."
 ---
 
@@ -61,7 +62,7 @@ Remember, you need sufficient network capacity to support daily data transfers w
 To determine how much bandwidth you need, use the following resources:
 
 - Reports from your backup software.
-- Commvault provides standard reports to determine [change rate](https://documentation.commvault.com/v11/essential/index.html) and [total backup set size](https://documentation.commvault.com/v11/essential/index.html) for the initial baseline transfer to Azure.
+- Commvault provides standard reports to determine [change rate](https://documentation.commvault.com/11.40/software/reports_overview.html) and [total backup set size](https://documentation.commvault.com/11.40/software/reports_overview.html) for the initial baseline transfer to Azure.
 - Backup software-independent assessment and reporting tools such as:
   - [Aptare](https://www.veritas.com/insights/aptare-it-analytics)
   - [Datavoss](https://www.datavoss.com/)
@@ -210,8 +211,8 @@ You can also [create log alerts](/azure/service-health/alerts-activity-log-servi
 
 #### Commvault Command Center
 
-- [Create an alert for cloud storage pools](https://documentation.commvault.com/v11/essential/configuring_settings_for_dashboard_alert.html).
-- [View Dashboards](https://documentation.commvault.com/2023e/essential/dashboards.html).
+- [Create an alert for cloud storage pools](https://documentation.commvault.com/11.40/software/creating_alert.html).
+- [View Dashboards](https://documentation.commvault.com/2023e/software/dashboards.html).
 
 ### How to open support cases
 
@@ -240,7 +241,7 @@ In the [Azure portal](https://portal.azure.com) search for **support** in the se
 
 See the following Commvault documentation for further detail:
 
-- [Commvault User Guide](https://documentation.commvault.com/2023e/essential/quick_start_guide.html)
+- [Commvault User Guide](https://documentation.commvault.com/2023e/software/quick_start_guide.html)
 
 ### Marketplace offerings
 

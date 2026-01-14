@@ -21,13 +21,13 @@ This article provides step-by-step instructions for both the Azure portal and Az
 ## Prerequisites
 
 ::: zone pivot="azure-portal"
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An AKS cluster in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [deploy an AKS cluster](/azure/aks/learn/quick-kubernetes-deploy-portal).
 - The [necessary permissions](./concept-permission.md) to create and manage service connections.
 ::: zone-end
 
 ::: zone pivot="azure-cli"
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An AKS cluster in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet,  [deploy an AKS cluster](/azure/aks/learn/quick-kubernetes-deploy-cli).
 - The [necessary permissions](./concept-permission.md) to create and manage service connections.
 - An Azure Storage account. If you don't have one yet, [create an Azure Storage account](../storage/common/storage-account-create.md).

@@ -4,8 +4,8 @@ description: Use built-in authentication in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
-ms.date: 09/03/2025
+ms.topic: article
+ms.date: 12/04/2025
 ms.author: cshoe
 ---
 
@@ -224,6 +224,64 @@ Code that is written in any language or framework can get the information that i
 
 > [!NOTE]
 > Different language frameworks might present these headers to the app code in different formats, such as lowercase or title case.
+
+## Secure endpoints with EasyAuth
+
+When securing endpoints with Azure Container Apps authentication, you need to register an application with Microsoft Entra ID and configure the authentication settings.
+
+Follow these steps to set up secure access:
+
+1. Create Azure AD app registration
+
+    ```azurecli
+    az ad app create \
+      --display-name <APP_DISPLAY_NAME> \
+      --sign-in-audience AzureADMyOrg
+    ---
+
+1. Enable the app to issue ID tokens. This step is required for Easy Auth support.
+
+    ```azurecli
+    az ad app update \
+      --id <APPLICATION_ID> \
+      --enable-id-token-issuance true
+    ```
+
+1. Add the redirect URI for Easy Auth callback.
+
+    ```azurecli
+    az ad app update \
+      --id <APP_ID> \
+      --web-redirect-uris "https://<APP-NAME>.<ENVIRONMENT-NAME>.<REGION>.azurecontainerapps.io/.auth/login/aad/callback"
+    ---
+
+1. Generate a client secret
+
+    ```azurecli
+    az ad app credential reset \
+      --id <APP_ID>" \
+      --display-name "<APP_NAME>-Secret"
+    ---
+
+1. Create service principal for your application.
+
+    ```azurecli
+    az ad sp create --id <APP_ID>
+    ---
+
+1. Configure your container app to use Microsoft Entra ID authentication.
+
+    Make sure the value you provide for the `<APP_NAME>` placeholder is the name of the application that you configured to work with EasyAuth.
+
+    ```azurecli
+    az containerapp auth microsoft update \
+      --name <APP_NAME> \
+      --resource-group <RESOURCE_GROUP> \
+      --client-id <APP_ID> \
+      --client-secret CLIENT_SECRET> \
+      --tenant-id <TENANT_ID> \
+      --yes
+    ```
 
 ## Next steps
 

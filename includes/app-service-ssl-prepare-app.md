@@ -5,7 +5,9 @@ ms.service: azure-app-service
 ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
-ms.custom: "include file"
+ms.custom:
+  - "include file"
+  - sfi-image-nochange
 ---
 
 ## Prepare your web app

@@ -7,7 +7,9 @@
  ms.topic: include
  ms.date: 11/07/2019
  ms.author: sethm
- ms.custom: include file
+ ms.custom:
+   - include file
+   - sfi-ropc-nochange
 ---
 
 When you send template notifications, you only need to provide a set of properties. In this scenario, the set of properties contain the localized version of the current news.

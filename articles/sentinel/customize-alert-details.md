@@ -1,15 +1,14 @@
 ---
 title: Customize alert details in Microsoft Sentinel | Microsoft Docs
 description: Customize how alerts are named and described, along with their severity and assigned tactics, based on the alerts' content.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 10/16/2024
-ms.author: yelevin
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
-
 
 #Customer intent: As a security analyst, I want to customize alert details in my analytics rules so that I can ensure alerts are more relevant and actionable based on specific query results.
 

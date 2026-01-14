@@ -3,7 +3,9 @@ title: Manage workspace access
 description: Learn how to manage access to a Microsoft Playwright Testing workspace by using Azure role-based access control (Azure RBAC). Grant user permissions for a workspace by assigning roles.
 ms.topic: how-to
 ms.date: 10/04/2023
-ms.custom: playwright-testing-preview
+ms.custom:
+  - playwright-testing-preview
+  - sfi-image-nochange
 ---
 
 # Manage access to a workspace in Microsoft Playwright Testing Preview

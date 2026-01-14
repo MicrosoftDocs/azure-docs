@@ -4,7 +4,7 @@ description: Learn how using Microsoft Defender XDR together with Microsoft Sent
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
-ms.date: 07/16/2025
+ms.date: 10/25/2025
 appliesto:
     - Microsoft Sentinel with Defender XDR in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -116,11 +116,11 @@ If you onboard Microsoft Sentinel to the Defender portal and are licensed for De
 
 ### Azure portal integration
 
-If you want to sync Defender XDR data to Microsoft Sentinel in the Azure portal, you must enable the Microsoft Defender XDR connector in Microsoft Sentinel. When you enable the connector, it'll send all Defender XDR incidents and alerts information to Microsoft Sentinel and keep the incidents synchronized. 
+If you want to sync Defender XDR data to Microsoft Sentinel in the Azure portal, you must enable the Microsoft Defender XDR connector in Microsoft Sentinel. When you enable the connector, it sends all Defender XDR incidents and alerts information to Microsoft Sentinel and keep the incidents synchronized. 
 
 - First, install the **Microsoft Defender XDR** solution for Microsoft Sentinel from the **Content hub**. Then, enable the **Microsoft Defender XDR** data connector to collect incidents and alerts. For more information, see [Connect data from Microsoft Defender XDR to Microsoft Sentinel](connect-microsoft-365-defender.md).
 
-- After you enable alert and incident collection in the Defender XDR data connector, Defender XDR incidents appear in the Microsoft Sentinel incidents queue shortly after they're generated in Defender XDR. It can take up to 10 minutes from the time an incident is generated in Defender XDR to the time it appears in Microsoft Sentinel. In these incidents, the **Alert product name** field contains **Microsoft Defender XDR** or one of the component Defender services' names.
+- After you enable alert and incident collection in the Defender XDR data connector, Defender XDR incidents appear in the Microsoft Sentinel incidents queue shortly after they're generated in Defender XDR. It can take up to five minutes from the time an incident is generated in Defender XDR to the time it appears in Microsoft Sentinel. In these incidents, the **Alert product name** field contains **Microsoft Defender XDR** or one of the component Defender services' names.
 
 ### Ingestion costs
  
@@ -141,7 +141,7 @@ For the available options and more information, see:
 
 ### Microsoft incident creation rules
 
-To avoid creating *duplicate incidents for the same alerts*, the **Microsoft incident creation rules** setting is turned off for Defender XDR-integrated products when connecting Defender XDR. Defender XDR-integrated products include Microsoft Defender for Identity, Microsoft Defender for Office 365, and more.  Also, Microsoft incident creation rules aren't supported in the Defender portal because the Defender portal has its own incident creation engine. This change has the following potential impacts:
+To avoid creating *duplicate incidents for the same alerts*, the **Microsoft incident creation rules** setting is turned off for Defender XDR-integrated products when connecting Defender XDR. Defender XDR-integrated products include Microsoft Defender for Identity, Microsoft Defender for Office 365, and more. Also, Microsoft incident creation rules aren't supported in the Defender portal because the Defender portal has its own incident creation engine. This change has the following potential impacts:
 
 - **Alert filtering**. Microsoft Sentinel's incident creation rules allowed you to filter the alerts that would be used to create incidents. With these rules disabled, preserve the alert filtering capability by configuring [alert tuning in the Microsoft Defender portal](/microsoft-365/security/defender/investigate-alerts), or by using [automation rules](automate-incident-handling-with-automation-rules.md#incident-suppression) to suppress or close incidents you don't want.
 
@@ -195,6 +195,13 @@ The Defender XDR connector also lets you stream **advanced hunting** events&mdas
 - Use the raw event logs to provide further insights for your alerts, hunting, and investigation, and correlate these events with events from other data sources in Microsoft Sentinel.
 
 - Store the logs with increased retention, beyond the Defender XDR default retention of 30 days. You can do so by configuring the retention of your workspace or by configuring per-table retention in Log Analytics.
+
+## Custom detection rules creation
+
+[Custom detections](/defender-xdr/custom-detections-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) in Microsoft Defender is now the best way to create new rules across Microsoft Sentinel Security Information and Event Management (SIEM) and Microsoft Defender XDR. It supports a unified security operations center (SOC) experience in the Defender portal and provides greater opportunity for enhancements.
+
+With custom detections, you can reduce ingestion costs, get unlimited real-time detections, and benefit from seamless integration with Defender XDR data, functions, and remediation actions with automatic entity mapping. Microsoft Sentinel users can still use [analytics rules](threat-detection.md), but we encourage that they use custom detections to take advantage of the latest innovations.
+
 
 ## Related content
 

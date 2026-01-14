@@ -5,7 +5,7 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 09/27/2023
+ms.date: 11/20/2025
 ms.author: kesheth
 ---
 
@@ -37,7 +37,7 @@ Next, assign permission for Azure API for FHIR to write to the storage account.
 
 After you create a storage account, go to the **Access Control (IAM)** in the storage account, and then select **Add role assignment**. 
 
-For more information, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.yml).
+For more information, see [Azure built-in roles](/azure/role-based-access-control/role-assignments-portal).
 
 It's here that you add the role [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) to the service name, and then select **Save**.
 

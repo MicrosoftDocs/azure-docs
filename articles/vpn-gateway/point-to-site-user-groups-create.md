@@ -205,17 +205,19 @@ Configure four members, one for each group:
 
 ```azurepowershell-interactive
 $member1 = New-AzVirtualNetworkGatewayPolicyGroupMember -Name "member1" `
--AttributeType "CertificateGroupId" -AttributeValue "marketing.contoso.com" `
+-AttributeType "CertificateGroupId" -AttributeValue "marketing.contoso.com"
 
 $member2 = New-AzVirtualNetworkGatewayPolicyGroupMember -Name "member2" `
--AttributeType "CertificateGroupId" -AttributeValue "sale.contoso.com" `
+-AttributeType "CertificateGroupId" -AttributeValue "sale.contoso.com"
 
 $member3 = New-AzVirtualNetworkGatewayPolicyGroupMember -Name "member3" `
--AttributeType "AADGroupId" -AttributeValue "{ObjectId1}" `
+-AttributeType "AADGroupId" -AttributeValue "{ObjectId1}"
 
 $member4 = New-AzVirtualNetworkGatewayPolicyGroupMember -Name "member4" `
--AttributeType "AADGroupId" -AttributeValue "{ObjectId2}" `
+-AttributeType "AADGroupId" -AttributeValue "{ObjectId2}"
 ```
+> [!NOTE]
+> We use curly brackets {} to indicate placeholders, for example {ObjectId1}. Replace {ObjectId1} with the actual value, and do not include the curly brackets in the final value.
 
 ### 7. Create virtual network gateway policy groups
 

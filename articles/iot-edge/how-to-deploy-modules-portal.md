@@ -7,6 +7,7 @@ ms.date: 05/05/2025
 ms.topic: how-to
 ms.service: azure-iot-edge
 services: iot-edge
+ms.custom: sfi-image-nochange
 ---
 
 # Deploy Azure IoT Edge modules from the Azure portal

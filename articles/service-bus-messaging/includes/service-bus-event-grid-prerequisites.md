@@ -6,13 +6,15 @@ ms.service: azure-service-bus
 ms.topic: include
 ms.date: 06/19/2025
 ms.author: spelluru
-ms.custom: "include file"
+ms.custom:
+  - "include file"
+  - sfi-ropc-nochange
 
 ---
 
 ## Prerequisites
 
-If you don't have an [Azure subscription](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+If you don't have an [Azure subscription](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create a Service Bus namespace
 

@@ -4,11 +4,10 @@ ms.service: azure-api-management
 ms.topic: include
 ms.date: 01/11/2023
 ms.author: danlep
+ms.custom: sfi-image-nochange
 ---
 
 ### Prerequisites for key vault integration
-
-[!INCLUDE [api-management-workspace-availability](api-management-workspace-availability.md)]
 
 1. If you don't already have a key vault, create one. For information about creating a key vault, see [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal).
 

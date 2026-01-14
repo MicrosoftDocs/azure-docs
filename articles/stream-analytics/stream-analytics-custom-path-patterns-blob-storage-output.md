@@ -6,6 +6,7 @@ ms.author: raan
 ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 02/15/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Azure Stream Analytics custom blob output partitioning

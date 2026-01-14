@@ -5,8 +5,9 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: tutorial
-ms.date: 02/05/2025
+ms.date: 10/06/2025
 ms.author: mbender
+ms.custom: sfi-image-nochange
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can route my app traffic based on path-based routing rules.
 # Customer intent: As an IT administrator, I want to create an application gateway with URL path-based routing rules using the Azure portal, so that I can efficiently manage and direct web traffic to the appropriate backend servers based on specific URL patterns.
 ---
@@ -26,7 +27,7 @@ In this article, you learn how to:
 
 :::image type="content" source="./media/application-gateway-create-url-route-portal/scenario.png" alt-text="Diagram of application gateway URL routing example." lightbox="./media/application-gateway-create-url-route-portal/scenario.png":::
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 
@@ -48,7 +49,6 @@ In this example, you create three virtual machines to be used as backend servers
     - **Username**: Type a user name
     - **Password**: Type a password
 
-
 4. Select **Next:Disks**.
 5. Select **Next:Networking**
 6. For **Virtual network**, select **Create new** and then type these values for the virtual network:
@@ -59,6 +59,7 @@ In this example, you create three virtual machines to be used as backend servers
    - *10.0.1.0/24* - for the subnet address space.
    - *myAGSubnet* - for the second subnet name.
    - *10.0.0.0/24* - for the subnet address space.
+   
 7. Select **OK**.
 
 8. Ensure that under **Subnet**, **myBackendSubnet** is selected for the subnet, and then select **Next: Management**.
@@ -69,9 +70,6 @@ In this example, you create three virtual machines to be used as backend servers
 ### Install IIS
 
 1. Open the interactive shell and make sure that it's set to **PowerShell**.
-
-    ![Screenshot of install custom extension](./media/application-gateway-create-url-route-portal/application-gateway-extension.png)
-
 2. Run the following command to install IIS on the virtual machine: 
 
     ```azurepowershell

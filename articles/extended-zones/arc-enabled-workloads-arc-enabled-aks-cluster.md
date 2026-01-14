@@ -1,7 +1,7 @@
 ---
 title: "Create an Arc-enabled AKS cluster in an Extended Zone"
 description: Learn how to creat an Arc-enabled AKS cluster in an Extended Zone.
-author: svaldes
+author: svaldesgzz
 ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: how-to
@@ -16,7 +16,7 @@ In this article, you'll learn how to create an Arc-enabled AKS cluster in an Ext
 
 ## Prerequisites
 
-- [An Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) with an active subscription.
+- [An Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) with an active subscription.
 - Access to an Extended Zone. For more information, see [Request access to an Azure Extended Zone](request-access.md).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 - Access to a public or private container registry, such as the [Azure Container Registry](/azure/container-registry/).

@@ -2,17 +2,22 @@
 title: Configure Versioning for Durable Task Scheduler (preview)
 description: Learn how to use orchestration versioning in Durable Task Scheduler.
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 12/03/2025
 author: halspang
 ms.author: azfuncdf
+ms.reviewer: hannahhunter
 zone_pivot_groups: df-languages
 ---
 
 # Orchestration Versioning (preview)
 
-A key area to consider when using a durable orchestration system is how to handle the upgrading/downgrading of orchestrations. When an orchestration is interrupted and later resumed (for instance, during a host update), Durable Task Scheduler will replay the events of the orchestration. This is done to ensure reliability - the system replays to ensure all previous steps were executed successfully before the next step is taken - which is a core promise of the durable execution paradigm. So, if an orchestration changes between deployments, the steps it takes may no longer be the same. If this does happen, the system will throw a `NonDeterministicError` instead of allowing the orchestration to continue. 
+Upgrading and downgrading orchestrations is a key consideration when working with durable orchestration systems. If an orchestration is interrupted and later resumed (for instance, during a host update), Durable Task Scheduler replays the events of the orchestration, ensuring all previous steps were executed successfully before taking the next step. This action ensures reliability, one of the core promises of the durable execution paradigm. 
 
-Orchestration versioning helps to prevent problems related to non-determinism, allowing you to work seamlessly with new (or old) orchestrations. Durable Task Scheduler has two different styles of versioning which will be explored below. Note that the different versioning styles can be used separately or together.
+If an orchestration changes between deployments, the steps it takes may no longer be the same. In this case, the system throws a `NonDeterministicError`, instead of allowing the orchestration to continue. 
+
+_Orchestration versioning_ prevents problems related to nondeterminism, allowing you to work seamlessly with new (or old) orchestrations. Durable Task Scheduler has two different styles of versioning, which you can use separately or together:
+- [Client/context-based conditional versioning](#clientcontext-based-conditional-versioning)
+- [Worker-based versioning](#worker-based-versioning)
 
 ::: zone pivot="javascript"
 
@@ -26,25 +31,20 @@ Orchestration versioning helps to prevent problems related to non-determinism, a
 
 ::: zone-end
 
-::: zone pivot="python"
-
-> [!IMPORTANT]
-> Currently, versioning isn't available in the Python SDK.
-
-::: zone-end
-
-::: zone pivot="csharp,java"
+::: zone pivot="java,python,csharp"
 
 ## Client/context-based conditional versioning
 
-In order for an orchestration to have a version, it must first be set in the client. For the .NET SDK, this is done through the standard host builder extensions, as seen below:
+In order for an orchestration to have a version, you must first set it in the client.
 
 ::: zone-end
 
 ::: zone pivot="csharp"
 
+The .NET SDK uses the standard host builder extensions.
+
 > [!NOTE]
-> Available in the .NET SDK (Microsoft.DurableTask.Client.AzureManaged) since v1.9.0.
+> Available in the .NET SDK (`Microsoft.DurableTask.Client.AzureManaged`) since v1.9.0.
 
 ```csharp
 builder.Services.AddDurableTaskClient(builder =>
@@ -59,7 +59,7 @@ builder.Services.AddDurableTaskClient(builder =>
 ::: zone pivot="java"
 
 > [!NOTE]
-> Available in the Java SDK (com.microsoft:durabletask-client) since v1.6.0.
+> Available in the Java SDK (`com.microsoft:durabletask-client`) since v1.6.0.
 
 ```java
 public DurableTaskClient durableTaskClient(DurableTaskProperties properties) {
@@ -72,15 +72,26 @@ public DurableTaskClient durableTaskClient(DurableTaskProperties properties) {
 
 ::: zone-end
 
-::: zone pivot="csharp,java"
+::: zone pivot="python"
 
-Once that is added, any orchestration started by this host will use the version `1.0.0`. The version itself is a simple string and accepts any value. However, the SDK will try to convert it to .NET's `System.Version`. If it can be converted, that library is used for comparison, if not, a simple string comparison is used.
+```python
+ c = DurableTaskSchedulerClient(host_address=endpoint, secure_channel=secure_channel,
+                                   taskhub=taskhub_name, token_credential=credential,
+                                   default_version="1.0.0")
+```
 
-By supplying the version in the client, it also becomes available in the `TaskOrchestrationContext`. This means the version can be used in conditional statements. So long as newer versions of an orchestration have the appropriate version gating, both the old and the new version of the orchestration can run together on the same host. An example of how the version can be used is:
 
 ::: zone-end
 
 ::: zone pivot="csharp"
+
+Once you add the version to the client, any orchestration started by this host uses the version `1.0.0`. The version is a simple string and accepts any value. However, the SDK tries to convert it to .NET's `System.Version`. 
+- If it _can_ be converted, that library is used for comparison.
+- If _not,_ a simple string comparison is used.
+
+Supplying the version in the client also makes it available in the `TaskOrchestrationContext`, meaning you can use the version in conditional statements. As long as newer orchestration versions have the appropriate version gating, both the old and new orchestration versions can run together on the same host. 
+
+**Example:**
 
 ```csharp
 [DurableTask]
@@ -110,6 +121,12 @@ class HelloCities : TaskOrchestrator<string, List<string>>
 
 ::: zone pivot="java"
 
+Once you add the version to the client, any orchestration started by this client uses the version `1.0.0`. The version is a simple string and accepts any value. 
+
+Supplying the version in the client also makes it available in `TaskOrchestration`, meaning you can use the version in conditional statements. As long as newer orchestration versions have the appropriate version gating, both the old and new orchestration versions can run together on the same client. 
+
+**Example:**
+
 ```java
 public TaskOrchestration create() {
     return ctx -> {
@@ -128,43 +145,73 @@ public TaskOrchestration create() {
 
 ::: zone-end
 
+::: zone pivot="python"
+
+Once you add the version to the client, any orchestration started by this client uses the version `1.0.0`. The version is a simple string parsed using `packaging.version`, which supports semantic versioning comparison and accepts any value.  
+
+Supplying the version in the client also makes it available in the `task.OrchestrationContext`, meaning you can use the version in conditional statements. As long as newer orchestration versions have the appropriate version gating, both the old and new orchestration versions can run together on the same client. 
+
+**Example:**
+
+```python
+def orchestrator(ctx: task.OrchestrationContext, _):
+    if ctx.version == "1.0.0":
+        # For version 1.0.0, we use the original logic
+        result: int = yield ctx.call_activity(activity_v1, input="input for v1")
+    elif ctx.version == "2.0.0":
+        # For version 2.0.0, we use the updated logic
+        result: int = yield ctx.call_activity(activity_v2, input="input for v2")
+    else:
+        raise ValueError(f"Unsupported version: {ctx.version}")
+    return {
+        'result': result,
+    }
+```
+
+::: zone-end
+
 ::: zone pivot="csharp,java"
 
-In this example, we've added a `SayGoodbye` activity to the `HelloCities` orchestration. This is only called if the orchestration is at least version `2.0.0`. With the simple conditional statement, any orchestration with a version less than `2.0.0` will continue to function and any new orchestration will have the new activity in it.
+In this example, we added a `SayGoodbye` activity to the `HelloCities` orchestration. This activity is only called for orchestration versions `2.0.0` and higher. With the simple conditional statement, any orchestration with a version less than `2.0.0` continues to function and any new orchestration includes the new activity.
+
+::: zone-end
+
+::: zone pivot="csharp,java,python"
 
 ### When to use client versioning
 
-Client versioning provides the simplest mechanism for versioning orchestrations, but interacting with the version is also the most programming intensive. Essentially, the two functionalities that client versioning provides are the ability to set a version for all orchestrations and the ability to programmatically handle the version in the orchestration. It should be used if a standard version is desired across all versions or if custom logic around specific versions is required. 
+While client versioning provides the simplest mechanism for versioning orchestrations, interacting with the version can be programming intensive. Use client versioning if:
+- You want a standard version across all versions, or 
+- You require custom logic around specific versions. 
 
 ## Worker-based versioning
 
-An additional strategy that can be used for handling versions is setting up worker versioning. Orchestrations will still need a client version in order to have the version set, but this method allows the user to avoid conditionals in their orchestrations. Worker versioning allows the worker itself to choose how to act on different version of orchestrations before those orchestrations start executing. Worker versioning requires the following fields to be set:
+While orchestrations still need a client version to set the version, the worker-based versioning method helps you avoid conditionals in your orchestrations. The _worker_ chooses how to act on different versions of orchestrations before they start executing. 
 
-1. The version of the worker itself
-2. The default version that will be applied to suborchestrations started by the worker
-3. The strategy that the worker will use to match against the orchestration's version
-4. The strategy that the worker should take if the version doesn't meet the matching strategy
+Worker versioning requires the following fields to be set:
 
-The different match strategies are as follows:
+1. The version of the worker.
+1. The default version applied to suborchestrations started by the worker.
+1. The strategy that the worker uses to match against the orchestration's version.
 
-| Name           | Description                                                                              |
-|----------------|------------------------------------------------------------------------------------------|
-| None           | The version isn't considered when work is being processed                                |
-| Strict         | The version in the orchestration and the worker must match exactly                       |
-| CurrentOrOlder | The version in the orchestration must be equal to or less than the version in the worker |
+    | Name           | Description                                                                              |
+    |----------------|------------------------------------------------------------------------------------------|
+    | None           | The version isn't considered when work is being processed                                |
+    | Strict         | The version in the orchestration and the worker must match exactly                       |
+    | CurrentOrOlder | The version in the orchestration must be equal to or less than the version in the worker |
 
-The different failure strategies are as follows:
+1. The strategy that the worker takes if the version doesn't meet the matching strategy.
 
-| Name   | Description                                                                                               |
-|--------|-----------------------------------------------------------------------------------------------------------|
-| Reject | The orchestration will be rejected by the worker but remain in the work queue to be attempted again later |
-| Fail   | The orchestration will be failed and removed from the work queue                                          |
-
-Similar to the client versioning, these are all set via the standard host builder pattern:
+    | Name   | Description                                                                                               |
+    |--------|-----------------------------------------------------------------------------------------------------------|
+    | Reject | The orchestration is rejected by the worker but remains in the work queue to be attempted again later |
+    | Fail   | The orchestration is failed and removed from the work queue                                          |
 
 ::: zone-end
 
 ::: zone pivot="csharp"
+
+Similar to the client versioning, you can set these fields via the standard host builder pattern.
 
 > [!NOTE]
 > Available in the .NET SDK (Microsoft.DurableTask.Worker.AzureManaged) since v1.9.0.
@@ -237,14 +284,64 @@ private static DurableTaskGrpcWorker createTaskHubServer() {
 
 ::: zone-end
 
-::: zone pivot="csharp,java"
+::: zone pivot="python"
 
-The `Reject` failure strategy should be used when the desired behavior is to have the orchestration try again at a later time/on a different worker. When an orchestration is rejected, it's simply returned to the work queue. When it's dequeued again, it could land on a different worker or the same one again. The process will repeat until a worker that can actually handle the orchestration is available. This strategy allows for the seamless handling of deployments in which an orchestration is updated. As the deployment progresses, workers that can't handle the orchestration will reject it while workers that can handle it will process it. The ability to have mixed workers/orchestration versions allows for scenarios like blue-green deployments.
+```python
+with DurableTaskSchedulerWorker(host_address=endpoint, secure_channel=secure_channel,
+                                taskhub=taskhub_name, token_credential=credential) as w:
+    # This worker is versioned for v2, as the orchestrator code has already been updated
+    # CURRENT_OR_OLDER allows this worker to process orchestrations versioned below 2.0.0 - e.g. 1.0.0
+    w.use_versioning(worker.VersioningOptions(
+        version="2.0.0",
+        default_version="2.0.0",
+        match_strategy=worker.VersionMatchStrategy.CURRENT_OR_OLDER,
+        failure_strategy=worker.VersionFailureStrategy.FAIL
+    ))
+    w.add_orchestrator(orchestrator)
+    w.add_activity(activity_v1)
+    w.add_activity(activity_v2)
+    w.start()
+```
 
-The `Fail` failure strategy should be used when no other versions are expected. In this case, the new version is an anomaly and no worker should even attempt to work on it. So, the Durable Task Scheduler will fail the orchestration, putting it in a terminal state.
+::: zone-end
+
+::: zone pivot="csharp,java,python"
+
+### Failure strategies
+
+**Reject**
+
+Use the `Reject` failure strategy when the desired behavior is for the orchestration to retry at a later time or on a different worker. During the `Reject` failure:
+
+1. An orchestration is rejected and returned to the work queue. 
+1. An orchestration is dequeued.
+1. The dequeued orchestration could land on a different worker or the same one again. 
+
+The process repeats until a worker that can handle the orchestration is available. This strategy seamlessly handles deployments in which an orchestration is updated. As the deployment progresses, workers that can't handle the orchestration reject it, while workers that can handle it process it. 
+
+The ability to have mixed workers and orchestration versions allows for scenarios like blue-green deployments.
+
+**Fail**
+
+Use the `Fail` failure strategy when no other versions are expected. In this case, the new version is an anomaly and no worker should even attempt to work on it. The Durable Task Scheduler fails the orchestration, putting it in a terminal state.
 
 ### When to Use Worker Versioning
 
-Worker versioning should be used in scenarios where orchestrations of an unknown or unsupported version shouldn't be executed at all. Instead of placing version handling code in the worker, worker versioning stops the orchestration from ever executing. This allows for much simpler orchestration code. Without any code changes, various deployment scenarios can be handled, like blue-green deployments mentioned before.
+Use worker versioning in scenarios where unknown or unsupported orchestration versions shouldn't be executed at all. Instead of placing version handling code in the worker, worker versioning stops the orchestration from ever executing. This method allows for simpler orchestration code. Without any code changes, various deployment scenarios can be handled, like blue-green deployments.
+
+## Next steps
+::: zone-end
+
+::: zone pivot="csharp"
+[See more detailed examples and explanations in the code repository.](https://github.com/microsoft/durabletask-dotnet/tree/main)
+::: zone-end
+
+::: zone pivot="java"
+[See more detailed examples and explanations in the code repository.](https://github.com/microsoft/durabletask-java/tree/main)
+
+::: zone-end
+
+::: zone pivot="python"
+[See more detailed examples and explanations in the code repository.](https://github.com/microsoft/durabletask-python/tree/main)
 
 ::: zone-end

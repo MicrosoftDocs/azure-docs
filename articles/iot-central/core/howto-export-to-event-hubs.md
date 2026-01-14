@@ -4,10 +4,12 @@ description: Learn how to use the IoT Central data export capability to continuo
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/05/2024
+ms.date: 08/06/2025
 ms.topic: how-to
 ms.service: azure-iot-central
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # Export IoT data to Event Hubs
@@ -132,4 +134,4 @@ For Event Hubs, IoT Central exports new messages data to your event hub in near 
 
 ## Next steps
 
-Now that you know how to export to Event Hubs, a suggested next step is to learn [Export to Azure Data Explorer](howto-export-to-azure-data-explorer.md).
+Now that you know how to export to Event Hubs, a suggested next step is to learn how to [export IoT data to Azure Data Explorer](howto-export-to-azure-data-explorer.md).

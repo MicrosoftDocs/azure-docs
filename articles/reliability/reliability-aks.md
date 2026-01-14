@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Kubernetes Service (AKS)
-description: Learn about how to deploy reliable workloads in Azure Kubernetes Service (AKS), including availability zones and multi-region deployments.
+description: Learn how to deploy highly available production workloads in Azure Kubernetes Service (AKS) by using availability zones and multi-region architectures.
 author: schaffererin
 ms.author: schaffererin
 ms.topic: reliability-article
@@ -34,7 +34,7 @@ When you create an AKS cluster, the Azure platform automatically creates and con
 
 After this initial node pool setup is complete, you can [add or delete node pools](/azure/aks/create-node-pools) for your own user workloads. AKS doesn't manage node pools for reliability, and you must ensure that your workloads are resilient to infrastructure failures.
 
-:::image type="content" source="./media/reliability-aks/control-plane-and-nodes.png" alt-text="Diagram that shows the Kubernetes control plane and node components." border="false" lightbox="./media/reliability-aks/control-plane-and-nodes.png":::
+:::image type="content" source="./media/reliability-aks/control-plane-and-nodes.svg" alt-text="Diagram that shows the Kubernetes control plane and node components, including the system node pool and user node pools." border="false":::
 
 Resiliency is a shared responsibility between you and Microsoft. As a compute service, AKS manages some aspects of your cluster's reliability, but you're responsible for managing other aspects.
 
@@ -95,7 +95,6 @@ There's no extra charge to enable availability zone support in AKS. You pay for 
 
 ### Configure availability zone support
 
-
 - **Create a new AKS cluster that has availability zone support:** To configure availability zone support, see [Create an Azure Kubernetes Service (AKS) cluster that uses availability zones](/azure/aks/availability-zones).
 - **Migration:** You can't enable availability zone support after you create a cluster. Instead, you need to create a new cluster that has availability zone support enabled and delete the existing cluster.
 - **Disable availability zone support:** You can't disable availability zone support after you create a cluster. Instead, you need to create a new cluster that has availability zone support disabled and delete the existing cluster.
@@ -142,7 +141,7 @@ When the availability zone recovers, failback behavior depends on the component:
 
 - **Storage:** Any storage attached to pods recovers based on [how zone-redundant storage works](/azure/storage/common/storage-redundancy).
 
-### Testing for zone failures
+### Test for zone failures
 
 You can test your resiliency to availability zone failures by using the following methods:
 
@@ -178,7 +177,7 @@ For more information, see the following articles:
 - [What is Azure Kubernetes Service backup?](/azure/backup/azure-kubernetes-service-backup-overview)
 - [Back up AKS by using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-backup)
 
-For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't. For more information, see [Redundancy, replication, and backup](concept-redundancy-replication-backup.md).
+[!INCLUDE [Backups include ](includes/reliability-backups-include.md)]
 
 Strive to use stateless clusters that minimize the need for backup. Store data in external storage systems and databases instead of within your cluster.
 

@@ -24,7 +24,7 @@ In this tutorial, you learn to:
 
 - [GitLab](https://gitlab.com) account
 - [Azure](https://portal.azure.com) account
-  - If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
+  - If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Create a repository
 

@@ -22,13 +22,10 @@ There are many things to consider when upgrading to a new gateway SKU. The follo
 | Starting SKU | Target SKU | Eligible for SKU upgrade| Delete/Recreate only |
 | --- | --- |--- | --- |
 | Basic SKU | Any other SKU | No | Yes  |
-| Generation 1 SKU | Generation 1 SKU | Yes| No |
-| Generation 1 SKU | Generation 1 AZ SKU | No |Yes |
-| Generation 1 AZ SKU | Generation 1 AZ SKU |Yes | No |
-| Generation 1 AZ SKU | Generation 2 AZ SKU | No | Yes |
-| Generation 2 SKU | Generation 2 SKU | Yes | No |
-| Generation 2 SKU | Generation 2 AZ SKU | No |Yes |
-| Generation 2 AZ SKU | Generation 2 AZ SKU | Yes | No |
+| Generation 1 SKU | Generation 1 AZ SKU | Yes| No |
+| Generation 1 SKU | Generation 2 AZ SKU | No | Yes |
+| Generation 2 SKU | Generation 2 AZ SKU | Yes | No |
+| Generation 2 SKU | Generation 1 AZ SKU | No |Yes |
 
 For gateway SKU throughput and connection limits, see [About gateway SKUs](about-gateway-skus.md#benchmark).
 
@@ -44,7 +41,9 @@ Upgrading a gateway SKU takes about 45 minutes to complete.
 
 1. Go to the **Configuration** page for your virtual network gateway.
 1. On the right side of the page, click the dropdown arrow to show a list of available SKUs. The options listed are based on the starting SKU and SKU Generation. Select the SKU from the dropdown.
-1. **Save** your changes to begin the SKU upgrade. It takes about 45 minutes for the gateway SKU upgrade to complete.
+1. **Save** your changes to begin the SKU upgrade.
+   * If you are switching to an AZ SKU within the same tier (e.g., VpnGw1 → VpnGw1AZ), there will be no downtime.
+   * The upgrade process typically takes about 45 minutes to complete for all other scenarios (e.g., VpnGw1 → VpnGw2AZ).
 
 ## Workflow for SKUs that can't be upgraded
 

@@ -5,6 +5,7 @@ ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 02/06/2025
 ms.custom: engagement-fy24
+ms.reviewer: v-uhabiba
 # Customer intent: As an IT administrator, I want to evaluate the readiness of my on-premises servers for migration to Azure, so that I can determine the appropriate sizing recommendations and estimated costs for moving to cloud infrastructure.
 ---
 
@@ -282,11 +283,11 @@ After it calculates storage and network requirements, the assessment considers C
 - If a suitable size is found, Azure Migrate applies the storage and networking calculations. It then applies location and pricing-tier settings for the final VM size recommendation.
 - If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended.
 
-## Confidence ratings (performance-based)
+## Performance coverage (performance-based)
 
-Each performance-based Azure VM assessment in Azure Migrate is associated with a confidence rating. The rating ranges from one (lowest) to five (highest) stars. The confidence rating helps you estimate the reliability of the size recommendations Azure Migrate provides.
+Each performance-based Azure VM assessment in Azure Migrate is associated with a performance coverage. The coverage ranges from one (lowest) to five (highest) stars. The performance coverage helps you estimate the reliability of the size recommendations Azure Migrate provides.
 
-- The confidence rating is assigned to an assessment. The rating is based on the availability of data points that are needed to compute the assessment.
+- The performance coverage is assigned to an assessment. The coverage is based on the availability of data points that are needed to compute the assessment.
 - For performance-based sizing, the assessment needs:
     - The utilization data for CPU and RAM.
     - The disk IOPS and throughput data for every disk attached to the server.
@@ -295,13 +296,13 @@ Each performance-based Azure VM assessment in Azure Migrate is associated with a
 If any of these utilization numbers isn't available, the size recommendations might be unreliable.
 
 > [!NOTE]
-> Confidence ratings aren't assigned for servers assessed using an imported CSV file. Ratings also aren't applicable for as-is on-premises assessment.
+> Performance coverage isn't assigned for servers assessed using an imported inventory. Coverage also isn't applicable for as-is on-premises assessment.
 
-### Ratings
+### Coverage
 
-This table shows the assessment confidence ratings, which depend on the percentage of available data points:
+This table shows the assessment performance coverage, which depend on the percentage of available data points:
 
-   **Availability of data points** | **Confidence rating**
+   **Availability of data points** | **Performance coverage**
    --- | ---
    0-20% | 1 star
    21-40% | 2 stars
@@ -309,12 +310,12 @@ This table shows the assessment confidence ratings, which depend on the percenta
    61-80% | 4 stars
    81-100% | 5 stars
 
-### Low confidence ratings
+### Low performance coverage
 
-Here are a few reasons why an assessment could get a low confidence rating:
+Here are a few reasons why an assessment could get a low performance coverage:
 
 - You didn't profile your environment for the duration for which you're creating the assessment. For example, if you create the assessment with performance duration set to one day, you must wait at least a day after you start discovery for all the data points to get collected.
-- Assessment is not able to collect the performance data for some or all the servers in the assessment period. For a high confidence rating, ensure that: 
+- Assessment is not able to collect the performance data for some or all the servers in the assessment period. For a high performance coverage, ensure that: 
     - Servers are powered on for the duration of the assessment
     - Outbound connections on ports 443 are allowed
     - For Hyper-V servers, dynamic memory is enabled 
@@ -410,4 +411,4 @@ Costs are displayed in the currency specified in the assessment settings.
 - Review [best practices for creating assessments](best-practices-assessment.md).  
 - Learn about running assessments for servers running in [VMware](./tutorial-discover-vmware.md) and [Hyper-V ](./tutorial-discover-hyper-v.md) environment, and [physical servers](./tutorial-discover-physical.md). 
 - Learn about assessing servers [imported with a CSV file](./tutorial-discover-import.md). 
-- Learn about setting up [dependency visualization](concepts-dependency-visualization.md). 
+- Learn about setting up [dependency visualization](concepts-dependency-visualization.md).

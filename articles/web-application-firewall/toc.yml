@@ -86,6 +86,8 @@ items:
           href: ./ag/application-gateway-customize-waf-rules-powershell.md
         - name: Azure CLI
           href: ./ag/application-gateway-customize-waf-rules-cli.md
+    - name: HTTP DDoS protection
+      href: ./ag/ddos-ruleset.md
     - name: Bot protection
       items:
       - name: Overview
@@ -128,6 +130,8 @@ items:
         href: ./afds/waf-front-door-exclusion.md
       - name: Configure exclusion lists
         href: ./afds/waf-front-door-exclusion-configure.md
+    - name: HTTP DDoS protection
+      href: ./afds/http-ddos-ruleset.md
     - name: Configure bot protection
       href: ./afds/waf-front-door-policy-configure-bot-protection.md
     - name: Custom rules

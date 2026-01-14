@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 06/16/2025
+ms.date: 12/05/2025
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 ---
@@ -65,7 +65,7 @@ Azure generates two 512-bit storage account access keys for each storage account
 
     * If you enable a user-assigned managed identity, take note of the identity's **Client ID**.
     * If you will back up and restore to different API Management instances, enable a managed identity in both the source and target instances.
-1. Assign the identity the **Storage Blob Data Contributor** role, scoped to the storage account used for backup and restore. To assign the role, use the [Azure portal](../role-based-access-control/role-assignments-portal.yml) or other Azure tools.
+1. Assign the identity the **Storage Blob Data Contributor** role, scoped to the storage account used for backup and restore. To assign the role, use the [Azure portal](/azure/role-based-access-control/role-assignments-portal) or other Azure tools.
 
 
 ## Back up an API Management service
@@ -399,7 +399,18 @@ Restore is a long-running operation that may take several minutes to complete. I
 ## Storage networking constraints
 
 
-If the storage account is **[firewall][azure-storage-ip-firewall] enabled**, it's recommended to use the API Management instance's system-assigned managed identity for access to the account. Ensure that the storage account [grants access to trusted Azure services](../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services).
+If the storage account is **[firewall][azure-storage-ip-firewall] enabled**, it's recommended to use the API Management instance's system-assigned managed identity for access to the account. Ensure that you have networking line of sight from API Management. Configure one of the following network access options on the resource:
+
+- Allow public access from all networks.
+
+- Set a network security rule to allow API Management traffic based on the IP address or virtual network connectivity.
+
+- Secure traffic from API Management with Private Link connectivity.
+
+- Use a [network security perimeter](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) to secure the resource and allow traffic from API Management. 
+
+> [!IMPORTANT]
+> Starting March 2026, trusted service connectivity to Azure services from API Management by enabling the **Allow Trusted Microsoft Services to bypass this firewall** firewall setting will no longer be supported. To continue accessing these services from API Management after this change, ensure that you choose a supported network access option as described above. [Learn more](breaking-changes/trusted-service-connectivity-retirement-march-2026.md)
 
 ## What is not backed up
 -   **Usage data** used for creating analytics reports **isn't included** in the backup. Use [Azure API Management REST API][azure api management rest api] to periodically retrieve analytics reports for safekeeping.

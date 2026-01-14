@@ -5,7 +5,10 @@ ms.topic: quickstart
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/09/2025
-ms.custom: mode-ui, UpdateFrequency2
+ms.custom:
+  - mode-ui
+  - UpdateFrequency2
+  - sfi-image-nochange
 
 #customer intent: As a lab administrator, I want to learn how to quickly set up Azure DevTest Labs by using the Azure portal, so I can create labs for development, testing, or training.
 ---
@@ -16,7 +19,7 @@ This quickstart walks you through creating a lab in Azure DevTest Labs by using 
 
 ## Prerequisite
 
-- At least [Contributor](/azure/role-based-access-control/built-in-roles#contributor) access to an Azure subscription. If you don't have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- At least [Contributor](/azure/role-based-access-control/built-in-roles#contributor) access to an Azure subscription. If you don't have an Azure account, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Create a lab
 

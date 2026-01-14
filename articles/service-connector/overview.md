@@ -7,7 +7,7 @@ ms.service: service-connector
 ms.custom:
   - build-2024
 ms.topic: overview
-ms.date: 04/16/2025
+ms.date: 11/21/2025
 ---
 
 # What is Service Connector?
@@ -18,7 +18,7 @@ This article provides an overview of Service Connector.
 
 ## What is Service Connector used for?
 
-Any application that runs on Azure compute services and requires a backing service, can use Service Connector. Find below some examples that can use Service Connector to simplify service-to-service connection experience.
+Any application that runs on Azure compute services and requires a backing service can use Service Connector. Find below some examples that can use Service Connector to simplify service-to-service connection experience.
 
 * **Database:** Use Service Connector to connect databases, such as PostgreSQL, MySQL, or Azure Cosmos DB, to your apps.
 * **Storage:** Use Service Connector to use your preferred storage products, such as Azure Storage for any of your apps.
@@ -41,10 +41,10 @@ Once a service connection is created, developers can validate and check the heal
 Compute services:
 
 * Azure App Service
-* Azure Container Apps
+* Azure Container Apps — [Service Connector support scheduled for retirement](https://github.com/microsoft/azure-container-apps/issues/1566)
 * Azure Functions
 * Azure Kubernetes Service (AKS)
-* Azure Spring Apps (scheduled for retirement)
+* Azure Spring Apps — [service scheduled for retirement](/azure/spring-apps/basic-standard/retirement-announcement)
 
 Target services:
 

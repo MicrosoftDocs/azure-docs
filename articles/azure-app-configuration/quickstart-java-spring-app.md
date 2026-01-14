@@ -6,7 +6,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 06/18/2025
+ms.date: 08/25/2025
 ms.custom: devx-track-java, mode-api, devx-track-extended-java
 ms.author: mametcal
 #Customer intent: As a Java Spring developer, I want to manage all my app settings in one place.
@@ -18,7 +18,7 @@ In this quickstart, you incorporate Azure App Configuration into a Java Spring a
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 11.
 - [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
@@ -52,7 +52,7 @@ To install the Spring Cloud Azure Config starter module, add the following depen
         <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.22.0</version>
+        <version>6.0.0</version>
         <type>pom</type>
         <scope>import</scope>
         </dependency>
@@ -89,9 +89,10 @@ To install the Spring Cloud Azure Config starter module, add the following depen
     com.example.MyApplication
     ```
 
-1. Create a new file named *bootstrap.properties* under the resources directory of your app, and add the following line to the file.
+1. Create a new file named *application.properties* under the resources directory of your app, and add the following line to the file.
 
    ```properties
+   spring.config.import=azureAppConfiguration
    spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
    ```
 

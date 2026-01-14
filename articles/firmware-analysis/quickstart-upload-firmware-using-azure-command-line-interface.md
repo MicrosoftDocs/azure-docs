@@ -5,7 +5,7 @@ author: karengu0
 ms.author: karenguo
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.date: 07/17/2025
+ms.date: 09/12/2025
 ms.service: azure
 ---
 
@@ -39,15 +39,23 @@ This quickstart assumes a basic understanding of firmware analysis. For more inf
 
 ## Upload a firmware image to the workspace
 
-1. Create a firmware image to be uploaded. Insert your resource group name, subscription ID, and workspace name into the respective parameters.
+1. Generate a GUID to use as a unique firmware ID. For example:
+
+    ```python
+    python -c "import uuid; print(uuid.uuid4())"
+    ```
+
+Use the command's output as the firmware ID in the subsequent examples
+
+2. Create a firmware image to be uploaded. Insert your resource group name, subscription ID, and workspace name into the respective parameters.
 
     ```azurecli
-    az firmwareanalysis firmware create --resource-group myResourceGroup --subscription 123e4567-e89b-12d3-a456-426614174000 --workspace-name default
+    az firmwareanalysis firmware create --resource-group myResourceGroup --subscription 123e4567-e89b-12d3-a456-426614174000 --workspace-name default --firmware-id {firmware ID from command above} --vendor {vendor name} --model {model name} --version {version number}
     ```
 
 The output of this command includes a `name` property, which is your firmware ID. **Save this ID for the next command.**
 
-2. Generate a SAS URL, which you'll use in the next step to send your firmware image to Azure Storage. Replace `sampleFirmwareID` with the firmware ID that you saved from the previous step. You can store the SAS URL in a variable for easier access for future commands:
+3. Generate a SAS URL, which you'll use in the next step to send your firmware image to Azure Storage. Replace `sampleFirmwareID` with the firmware ID that you saved from the previous step. You can store the SAS URL in a variable for easier access for future commands:
 
     ```azurecli
     set resourceGroup=myResourceGroup
@@ -58,7 +66,7 @@ The output of this command includes a `name` property, which is your firmware ID
     for /f "tokens=*" %i in ('az firmwareanalysis workspace generate-upload-url --resource-group %resourceGroup% --subscription %subscription% --workspace-name %workspace% --firmware-id %firmwareID% --query "url"') do set sasURL=%i
     ```
 
-3. Upload your firmware image to Azure Storage. Replace `pathToFile` with the path to your firmware image on your local machine.
+4. Upload your firmware image to Azure Storage. Replace `pathToFile` with the path to your firmware image on your local machine.
 
     ```azurecli
     az storage blob upload -f "pathToFile" --blob-url %sasURL%
@@ -115,6 +123,14 @@ echo firmware analysis completed with status: %STATUS%
 
 Once you've confirmed that your analysis status is "Ready", you can run commands to pull the results.
 
+### Firmware summary
+
+The following command retrieves a general summary of your firmware analysis results. Replace each argument with the appropriate value for your resource group, workspace name, and firmware ID.
+
+```azurecli
+az firmwareanalysis firmware summary --resource-group myResourceGroup --workspace-name default --firmware-id 123e4567-e89b-12d3-a456-426614174000 --summary-type Firmware
+```
+
 ### SBOM
 
 The following command retrieves the SBOM in your firmware image. Replace each argument with the appropriate value for your resource group, subscription, workspace name, and firmware ID.
@@ -131,12 +147,24 @@ The following command retrieves CVEs found in your firmware image. Replace each 
 az firmwareanalysis firmware cve --resource-group myResourceGroup --subscription 123e4567-e89b-12d3-a456-426614174000 --workspace-name default --firmware-id sampleFirmwareID
 ```
 
+For a summary of your CVEs, run the following command:
+
+```azurecli
+az firmwareanalysis firmware summary --resource-group myResourceGroup --workspace-name default --firmware-id 123e4567-e89b-12d3-a456-426614174000 --summary-type CommonVulnerabilitiesAndExposures
+```
+
 ### Binary hardening
 
 The following command retrieves analysis results on binary hardening in your firmware image. Replace each argument with the appropriate value for your resource group, subscription, workspace name, and firmware ID.
 
 ```azurecli
 az firmwareanalysis firmware binary-hardening --resource-group myResourceGroup --subscription 123e4567-e89b-12d3-a456-426614174000 --workspace-name default --firmware-id sampleFirmwareID
+```
+
+For a summary of your binary hardening results, run the following command:
+
+```azurecli
+az firmwareanalysis firmware summary --resource-group myResourceGroup --workspace-name default --firmware-id 123e4567-e89b-12d3-a456-426614174000 --summary-type BinaryHardening
 ```
 
 ### Password hashes
@@ -155,10 +183,22 @@ The following command retrieves vulnerable crypto certificates that were found i
 az firmwareanalysis firmware crypto-certificate --resource-group myResourceGroup --subscription 123e4567-e89b-12d3-a456-426614174000 --workspace-name default --firmware-id sampleFirmwareID
 ```
 
+For a summary of your certificates, run the following command:
+
+```azurecli
+az firmwareanalysis firmware summary --resource-group myResourceGroup --workspace-name default --firmware-id 123e4567-e89b-12d3-a456-426614174000 --summary-type CryptoCertificate
+```
+
 ### Keys
 
 The following command retrieves vulnerable crypto keys that were found in your firmware image. Replace each argument with the appropriate value for your resource group, subscription, workspace name, and firmware ID.
 
 ```azurecli
 az firmwareanalysis firmware crypto-key --resource-group myResourceGroup --subscription 123e4567-e89b-12d3-a456-426614174000 --workspace-name default --firmware-id sampleFirmwareID
+```
+
+For a summary of your keys, run the following command:
+
+```azurecli
+az firmwareanalysis firmware summary --resource-group myResourceGroup --workspace-name default --firmware-id 123e4567-e89b-12d3-a456-426614174000 --summary-type CryptoKey
 ```

@@ -59,8 +59,8 @@ The table below summarizes the key differences most customers care about:
 | Date               | Milestone |
 |--------------------|---|
 | **September 2025** | Public announcement and documentation updates. |
-| **September 2026** | Creation of new GPv1/Blob‑Only/**general purpose v1 (GPv1) with ZRS redundancy** configurations blocked. |
-| **September 2026** | **Full retirement.** Any remaining general purpose v1 (GPv1) with ZRS redundancy accounts are automatically upgraded to GPv2. |
+| **March 3 2026** | Creation of new GPv1/Blob‑Only/**general purpose v1 (GPv1) with ZRS redundancy** configurations blocked. |
+| **October 2026** | **Full retirement.** Any remaining general purpose v1 (GPv1) with ZRS redundancy accounts are automatically upgraded to GPv2. |
 
 ## Preparing for migration
 
@@ -91,27 +91,56 @@ Resources
 | project name, type, tenantId, kind, location, resourceGroup, subscriptionId, managedBy, sku, plan, properties, tags, identity, zones, extendedLocation, Version
 
 ```
-[!NOTE] This query identifies both GPv1 accounts (kind `Storage`) and legacy blob storage accounts (kind `BlobStorage`) regardless of redundancy. Since both account types are being retired, be sure to review and include all affected accounts in your migration plan.
+>[!NOTE] 
+> This query identifies both GPv1 accounts (kind `Storage`) and legacy blob storage accounts (kind `BlobStorage`) regardless of redundancy. Since both account types are being retired, be sure to review and include all affected accounts in your migration plan.
 
 ## Regions without ZRS support
-The following regions do not support Zone Redundant Storage (ZRS), if you have a general purpose v1 (GPv1) with ZRS redundancy account in one or more of the following regions, please reach out to support to discuss moving to either LRS or GRS or migrating to a region that supports ZRS:
+The following regions do not support Zone Redundant Storage (ZRS), if you have a general purpose v1 (GPv1) with ZRS redundancy account in one or more of the following regions, you will need to convert to GPv2 with GPv2 LRS and before finally converting to GPv2 GRS or migrate to a region that supports GPv2 ZRS.
 
-- Australia Southeast
-- UK West
-- Canada East
-- US West Central
-- Korea South
-- South India
-- Australia Central
-- West India
-- Austria East
-- US West
-- US East 3
-- Finland Central
-- India South Central
+### Azure global cloud
+- Australia Central.
+- Australia Southeast.
+- Canada East.
+- Korea South.
+- North Central US.
+- South India.
+- Sweden South.
+- UK West.
+- West Central US.
+- West India.
+- West US.
+
+### Access-restricted regions
+- Australia Central 2.
+- Brazil Southeast.
+- France South.
+- Germany North.
+- Norway West.
+- South Africa West.
+- Switzerland West.
+- UAE Central.
+
+### Azure operated by 21Vianet
+- China East.
+- China East 2.
+- China East 3.
+- China North.
+- China North 2.
+
+### Information required for support request
+When contacting support, please provide the following information to help facilitate the migration process:
+- Subscription ID
+- Resource Group Name
+- Name of all Storage Account Names that need to be migrated
+- List of all regions where the accounts are located
+- Preferred redundancy option for each account (LRS or GRS)
+
+### What if I don't want LRS or GRS as my redundancy option after the upgrade?
+If you prefer a different redundancy option and you are in a region that doesn't support ZRS, you can choose to upgrade to GPv2 with LRS or GRS initially and then later migrate your account to a region that supports ZRS. Alternatively, you can create a new GPv2 account in a supported region with your desired redundancy option and migrate your data there.
+
 
 ## What happens if you don’t migrate by the deadline
-After **August 31, 2026**, you'll no longer be able to manage general purpose v1 (GPv1) with ZRS redundancy accounts. After **September 2026**, if you don't migrate your GPv1 with ZRS redundancy storage account to general-purpose v2, all existing GPv1 with ZRS redundancy accounts are auto migrated over to a general-purpose v2 account, which may result in higher billing costs. Your decision not to migrate an existing GPv1 with ZRS redundancy account will be construed as consent for Microsoft to migrate the account on your behalf.
+After **October 2026**, if you don't migrate your GPv1 with ZRS redundancy storage account to general-purpose v2, all existing GPv1 with ZRS redundancy accounts are auto migrated over to a general-purpose v2 account, which may result in higher billing costs. Your decision not to migrate an existing GPv1 with ZRS redundancy account will be construed as consent for Microsoft to migrate the account on your behalf.
 
 ## Where to get help and support
 If you have questions, get answers from community experts in Microsoft Q&A.

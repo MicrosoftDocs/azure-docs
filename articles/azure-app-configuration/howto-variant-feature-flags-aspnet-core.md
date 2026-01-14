@@ -39,7 +39,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
 
     ```dotnetcli
     dotnet add package Azure.Identity
-    dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
     dotnet add package Microsoft.FeatureManagement.AspNetCore
     ```
 
@@ -107,8 +107,12 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
         public string Author { get; set; }
     }
     
-    public class IndexModel(IVariantFeatureManagerSnapshot featureManager) : PageModel
+    public class IndexModel(
+        ILogger<IndexModel> logger,
+        IVariantFeatureManagerSnapshot featureManager
+    ) : PageModel
     {
+        private readonly ILogger<IndexModel> _logger = logger;
         private readonly IVariantFeatureManagerSnapshot _featureManager = featureManager;
     
         private Quote[] _quotes = [
@@ -217,7 +221,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
         <div class="quote-content">
             <h3 class="greeting-content">@(Model.GreetingMessage)</h3>
             <br />
-            <p class="quote">“@(Model.Quote?.Message ?? "< Quote not found >")”</p>
+            <p class="quote">"@(Model.Quote?.Message ?? "< Quote not found >")"</p>
             <p>- <b>@(Model.Quote?.Author ?? "Unknown")</b></p>
         </div>
     

@@ -10,6 +10,7 @@ ms.author: chpalm
 ms.date: 06/27/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.custom: sfi-ropc-nochange
 ---
 # Push notifications overview
 

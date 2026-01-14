@@ -4,7 +4,7 @@ description: Understand how to plan for an Azure Files deployment. You can eithe
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 07/31/2025
+ms.date: 09/18/2025
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: As a system architect, I want to evaluate deployment options for Azure Files, so that I can determine the best approach for directly mounting or caching file shares while considering performance, compatibility, and organizational needs.
@@ -55,7 +55,7 @@ File shares (preview) are a new top-level Azure resource provided by the `Micros
 
 - **Granular configuration**: Networking and security settings are applied at the file share level, giving you precise control of access boundaries and isolation. This makes it easier to enforce security policies for specific apps, teams, or environments.
 
-- **Predictable, flexible billing**: File shares use the provisioned v2 billing model, which enables you to independently provsiion storage, IOPS, and throughput per share. Because billing in Azure is done per top-level Azure resource, using file shares enables you to easily track the costs of each individual share for cost attribution back to the project, team, or customer that is using the file share.
+- **Predictable, flexible billing**: File shares use the provisioned v2 billing model, which enables you to independently provision storage, IOPS, and throughput per share. Because billing in Azure is done per top-level Azure resource, using file shares enables you to easily track the costs of each individual share for cost attribution back to the project, team, or customer that is using the file share.
 
 - **Improved scale and performance**: File shares support higher limits and lower deployment times than classic file shares. For more information, see [Azure Files scalability and performance targets](./storage-files-scale-targets.md).
 
@@ -63,22 +63,21 @@ File shares (preview) are a new top-level Azure resource provided by the `Micros
 Currently, creating a file share with Microsoft.FileShares (preview) is available in the following regions:
 
 - Australia East
+- Australia Central
 - Australia Southeast
 - East Asia
+- East US
+- Germany North
+- Korea South
 - Southeast Asia
 - North Europe
-- Japan West
-- Germany North
 - South Africa West
-- East US
 - South India
 - UAE Central
-- Korea South
-- Australia Central
 
-Currently, private endpoint support for file share with Microsoft.FileShares (preview) is available in the following regions:
+Currently, private endpoint support for file share with Microsoft.FileShares (preview) is available in a limited subset of regions:
 
-- East Asia
+- All Azure public cloud regions.
 
 #### Comparing resource providers: Microsoft.Storage versus Microsoft.FileShares
 
@@ -145,8 +144,8 @@ With both SMB and NFS file shares, Azure Files offers enterprise-grade file shar
 To access an Azure file share, the user of the file share must be authenticated and authorized to access the share. This is done based on the identity of the user accessing the file share. Azure Files supports the following methods of authentication:
 
 - **On-premises Active Directory Domain Services (AD DS, or on-premises AD DS)**: Azure storage accounts can be domain joined to a customer-owned Active Directory Domain Services, just like a Windows Server file server or NAS device. You can deploy a domain controller on-premises, in an Azure VM, or even as a VM in another cloud provider; Azure Files is agnostic to where your domain controller is hosted. Once a storage account is domain-joined, the end user can mount a file share with the user account they signed into their PC with. AD-based authentication uses the Kerberos authentication protocol.
-- **Microsoft Entra Domain Services**: Microsoft Entra Domain Services provides a Microsoft-managed domain controller that can be used for Azure resources. Domain joining your storage account to Microsoft Entra Domain Services provides similar benefits to domain joining it to a customer-owned AD DS. This deployment option is most useful for application lift-and-shift scenarios that require AD-based permissions. Since Microsoft Entra Domain Services provides AD-based authentication, this option also uses the Kerberos authentication protocol.
-- **Microsoft Entra Kerberos for hybrid identities**: Microsoft Entra Kerberos allows you to use Microsoft Entra ID to authenticate [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which are on-premises AD identities that are synced to the cloud. This configuration uses Microsoft Entra ID to issue Kerberos tickets to access the file share with the SMB protocol. This means your end users can access Azure file shares over the internet without requiring network connectivity to domain controllers from Microsoft Entra hybrid joined and Microsoft Entra joined VMs.
+- **Microsoft Entra Domain Services**: Microsoft Entra Domain Services provides a Microsoft-managed domain controller that can be used for Azure resources. Domain joining your storage account to Microsoft Entra Domain Services provides similar benefits to domain joining it to a customer-owned AD DS. This deployment option is most useful for application lift-and-shift scenarios that require AD-based permissions. Because Microsoft Entra Domain Services provides AD-based authentication, this option also uses the Kerberos authentication protocol.
+- **Microsoft Entra Kerberos**: Microsoft Entra Kerberos allows you to use Microsoft Entra ID to authenticate [hybrid](../../active-directory/hybrid/whatis-hybrid-identity.md) or cloud-only identities (preview). This configuration uses Microsoft Entra ID to issue Kerberos tickets to access the file share with the SMB protocol. This means your end users can access Azure file shares over the internet from Microsoft Entra hybrid joined and Microsoft Entra joined VMs.
 - **Active Directory authentication over SMB for Linux clients**: Azure Files supports identity-based authentication over SMB for Linux clients using the Kerberos authentication protocol through either AD DS or Microsoft Entra Domain Services.
 - **Azure storage account key**: Although it's not recommended for security reasons, you can also mount Azure file shares using an Azure storage account key instead of using an identity. To mount a file share using the storage account key, the storage account name is used as the username and the storage account key is used as a password. Using the storage account key to mount the Azure file share is effectively an administrator operation, because the mounted file share has full permissions to all of the files and folders on the share, even if they have ACLs. When using the storage account key to mount over SMB, the NTLMv2 authentication protocol is used. In nearly all cases, we recommend using [identity-based authentication](storage-files-active-directory-overview.md) instead of the storage account key to access SMB Azure file shares. However, if you must use the storage account key, we recommend using private endpoints or service endpoints as described in the [Networking](#networking) section.
 
@@ -252,3 +251,7 @@ The [migration overview article](storage-files-migration-overview.md) briefly co
 - [Deploying Azure Files](./storage-how-to-create-file-share.md)
 - [Deploying Azure File Sync](../file-sync/file-sync-deployment-guide.md)
 - [Check out the migration overview article to find the migration guide for your scenario](storage-files-migration-overview.md)
+
+
+
+

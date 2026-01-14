@@ -1,16 +1,16 @@
 ---
-title: Data persistence for the Azure IoT Operations MQTT broker (preview)
+title: Data persistence for the Azure IoT Operations MQTT broker
 description: Learn how to configure the data persistence feature for the Azure IoT Operations MQTT broker for data durability.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.topic: how-to
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
-ms.date: 07/28/2025
+ms.date: 10/27/2025
 
 ---
 
-# Configure MQTT broker persistence (preview)
+# Configure MQTT broker persistence
 
 The data persistence feature is designed as a complementary mechanism to the replication system. While the broker replicates data across multiple nodes, a cluster-wide shutdown can still result in data loss.
 
@@ -63,27 +63,40 @@ To configure volume settings in the Azure portal:
 
 # [Azure CLI](#tab/azurecli)
 
-To configure volume settings using Azure CLI, prepare a Broker configuration file in JSON format:
+1. To deploy MQTT Broker with the minimum required settings to enable disk persistence, use the `az iot ops create` command.
 
-```json
-{
-  "persistence": {
-    "maxSize": "10GiB",
-    "persistentVolumeClaimSpec": {
-      "storageClassName": "example-storage-class",
-      "accessModes": [
-        "ReadWriteOncePod"
-      ]
+    ```azurecli
+    az iot ops create --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP_NAME> --name <INSTANCE_NAME> --sr-resource-id <SCHEMA_REGISTRY_RESOURCE_ID> --ns-resource-id <NAMESPACE_RESOURCE_ID> --persist-max-size 10Gi
+    ```
+
+1. To deploy MQTT Broker with disk persistence, custom persistent volume claim, and custom persist mode settings, add the `--persist-pvc-sc` and `--persist-mode` flags to the `az iot ops create` command.
+
+    ```azurecli
+    az iot ops create --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP_NAME> --name <INSTANCE_NAME> --sr-resource-id <SCHEMA_REGISTRY_RESOURCE_ID> --ns-resource-id <NAMESPACE_RESOURCE_ID> --persist-max-size 10Gi --persist-pvc-sc <MYSTORAGECLASS> --persist-mode retain=All stateStore=None
+    ```
+
+
+1. If you want to use a custom broker configuration file, add the `--broker-config-file` flag and include the persistence settings in the JSON file.
+
+    ```azurecli
+    az iot ops create --broker-config-file <BROKER_CONFIG_FILE>.json --cluster <CLUSTER_NAME> --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP_NAME> --sr-resource-id <SCHEMA_REGISTRY_RESOURCE_ID>
+    ```
+
+    The following is an example JSON snippet to include in your custom broker configuration file to set up persistence with a maximum size of 10 GiB and a custom storage class.
+    
+    ```json
+    {
+      "persistence": {
+        "maxSize": "10GiB",
+        "persistentVolumeClaimSpec": {
+          "storageClassName": "example-storage-class",
+          "accessModes": [
+            "ReadWriteOncePod"
+          ]
+        }
+      }
     }
-  }
-}
-```
-
-Then run the [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command with the `--broker-config-file` flag to deploy IoT Operations:
-
-```azurecli
-az iot ops create --broker-config-file <BROKER_CONFIG_FILE>.json --cluster <CLUSTER_NAME> --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP_NAME> --sr-resource-id <SCHEMA_REGISTRY_RESOURCE_ID>
-```
+    ```
 
 ---
 
@@ -324,12 +337,14 @@ To configure dynamic persistence using Azure CLI, add the MQTT user property set
 az iot ops broker persist update --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <BrokerName> --persist-mode <PersistMode>
 ```
 
-Here's an example command Configure subscriber queue persistence for specific client IDs and apply user property key and value for dynamic persistence:
+Here's an example command to configure subscriber queue persistence for specific client IDs:
 
 ```azurecli
-az iot ops broker persist update --resource-group myResourceGroup --instance myAioInstance --name myBroker --persist-mode subscriberQueue=Custom --subscriber-client-ids "factory-client-*" "sensor-gateway-01"--user-key disk-persistence --user-value disk
+az iot ops broker persist update --resource-group myResourceGroup --instance myAioInstance --name myBroker --persist-mode subscriberQueue=Custom --subscriber-client-ids "factory-client-*" "sensor-gateway-01"
 ```
 
 ---
+
+## Related content
 
 To learn more about Azure CLI support for advanced MQTT broker configuration, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config).

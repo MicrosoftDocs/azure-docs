@@ -24,7 +24,7 @@ Depending on the indicator, you can use a different approach to identify the roo
 
 ## Prerequisites  
 
-- An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
+- An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.  
 - An Azure load testing resource that has a completed test run. If you need to create an Azure load testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md).  
 
 ## Determine the outcome of a load test
@@ -99,6 +99,11 @@ Use the following steps to help diagnose a test not finishing:
 1. Verify the error details on the load test dashboard.
 1. [Download and analyze the test logs](#download-apache-jmeter-or-locust-worker-logs-for-your-load-test) to identify issues in the JMeter test script.
 1. [Download the test results](./how-to-export-test-results.md) to identify issues with individual requests.
+
+You can also view AI-based error insights for your test run after a test run completes. The insights generated contain the cause of error and more actionable recommendations. This feature is turned on by default and can be turned off in the error blade settings. Refer to [Microsoft Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=521839).
+
+> [!NOTE]
+> By agreeing to use AI-based error insights, you agree that the log files for your test run will be used by AI to generate recommendations. 
 
 ### Load test completed
 

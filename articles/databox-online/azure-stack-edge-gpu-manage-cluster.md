@@ -8,6 +8,7 @@ ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 06/15/2022
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 ---
 
 # Manage your Azure Stack Edge cluster

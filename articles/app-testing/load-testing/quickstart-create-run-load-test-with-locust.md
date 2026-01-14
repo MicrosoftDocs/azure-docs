@@ -18,7 +18,7 @@ Learn how to create and run a load test with a Locust test script and Azure Load
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A Locust test script. If you don't have a test script, get started from the [Locust quickstart](https://docs.locust.io/en/stable/quickstart.html) in the Locust documentation.
 

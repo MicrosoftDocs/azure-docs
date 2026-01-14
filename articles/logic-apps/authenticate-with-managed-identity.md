@@ -6,7 +6,10 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 01/27/2025
-ms.custom: subject-rbac-steps, devx-track-arm-template
+ms.custom:
+  - subject-rbac-steps
+  - devx-track-arm-template
+  - sfi-image-nochange
 
 ##customerIntent: As a logic app developer, I want to authenticate connections for my logic app workflow using a managed identity so I don't have to use credentials or secrets.
 ---
@@ -43,7 +46,7 @@ This guide shows how to complete the following tasks:
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Both the managed identity and the target Azure resource where you need access must use the same Azure subscription.
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). Both the managed identity and the target Azure resource where you need access must use the same Azure subscription.
 
 - The target Azure resource that you want to access. On this resource, you must add the necessary role for the managed identity to access that resource on your logic app's or connection's behalf. To add a role to a managed identity, you need [Microsoft Entra administrator permissions](/entra/identity/role-based-access-control/permissions-reference) that can assign roles to the identities in the corresponding Microsoft Entra tenant.
 
@@ -562,7 +565,7 @@ To use a managed identity for authentication, some Azure resources, such as Azur
    | **System-assigned** | **Logic App** | <*Azure-subscription-name*> | <*your-logic-app-name*> |
    | **User-assigned** | Not applicable | <*Azure-subscription-name*> | <*your-user-assigned-identity-name*> |
 
-   For more information about assigning roles, see [Assign roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+   For more information about assigning roles, see [Assign roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 After you're done, you can use the identity to [authenticate access for triggers and actions that support managed identities](#authenticate-access-with-identity).
 

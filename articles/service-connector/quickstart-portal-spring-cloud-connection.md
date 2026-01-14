@@ -7,10 +7,11 @@ ms.service: service-connector
 ms.topic: quickstart
 zone_pivot_groups: interaction-type
 ms.date: 8/19/2025
+keywords: azure spring apps, service connector, database connection, managed identity, azure storage, authentication
 ms.custom:
   - kr2b-contr-experiment
   - build-2024
-keywords: azure spring apps, service connector, database connection, managed identity, azure storage, authentication
+  - sfi-image-nochange
 #Customer intent: As an app developer, I want to connect my Azure Spring Apps application to databases, storage accounts, and other Azure services using managed identities and connection strings.
 ---
 
@@ -25,14 +26,14 @@ This article provides step-by-step instructions for both the Azure portal and Az
 ## Prerequisites
 
 ::: zone pivot="azure-portal"
-- An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An app deployed to [Azure Spring Apps](../spring-apps/basic-standard/quickstart.md) in a [region supported by Service Connector](./concept-region-support.md).
 - A target resource to connect Azure Spring Apps to. For example, a [Azure Key Vault](/azure/key-vault/general/quick-create-portal).
 - The [necessary permissions](./concept-permission.md) to create and manage service connections.
 ::: zone-end
 
 ::: zone pivot="azure-cli"
-- An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An app deployed to [Azure Spring Apps](../spring-apps/basic-standard/quickstart.md) in a [region supported by Service Connector](./concept-region-support.md).
 - A target resource to connect Azure Spring Apps to. For example, a [Azure Key Vault](/azure/key-vault/general/quick-create-portal).
 - The [necessary permissions](./concept-permission.md) to create and manage service connections.
@@ -119,7 +120,7 @@ Run the `az spring connection create` command to connect an application deployed
 - Generate the new connection at once. Replace the placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<azure-spring-apps-resource>`, `<app>`, `<target-subscription>`, `<target_resource_group>`, and `<account>`.
 
   ```azurecli-interactive
-     az containerapp connection create storage-blob \                         
+     az spring connection create storage-blob \                         
      --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.AppPlatform/Spring/<azure-spring-apps-resource>/apps/<app> \
      --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Storage/storageAccounts/<account>/blobServices/default \
      --system-identity
@@ -144,7 +145,7 @@ Run the `az spring connection create` command to connect an application deployed
 - Generate the new connection at once. Replace the placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<azure-spring-apps-resource>`, `<app>`, `<target-subscription>`, `<target_resource_group>`, `<account>`, `<secret-name>`, and `<secret>`.
 
   ```azurecli-interactive
-  az containerapp connection create storage-blob \                         
+  az spring connection create storage-blob \                         
      --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.AppPlatform/Spring/<azure-spring-apps-resource>/apps/<app> \
      --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Storage/storageAccounts/<account>/blobServices/default \
       --secret name=<secret-name> secret=<secret>

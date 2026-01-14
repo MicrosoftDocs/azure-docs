@@ -1,11 +1,11 @@
 ---
-title: Azure Functions Durable Task Scheduler in Durable Functions (preview)
+title: Azure Functions Durable Task Scheduler in Durable Functions
 description: Learn how to develop with the Azure Functions Durable Task Scheduler for Durable Functions.
 ms.topic: how-to
-ms.date: 05/06/2025
+ms.date: 10/29/2025
 ---
 
-# Durable Task Scheduler in Durable Functions (preview)
+# Durable Task Scheduler in Durable Functions
 
 The Azure Functions Durable Task Scheduler is a highly performant, fully managed backend provider for Durable Functions with an [out-of-the-box monitoring dashboard](./durable-task-scheduler-dashboard.md). Azure Functions extensions built into Durable Functions makes building event-driven scenarios easy. In this article, you learn how to:
 
@@ -14,13 +14,12 @@ The Azure Functions Durable Task Scheduler is a highly performant, fully managed
 > * Configure identity-based authentication for your application to access Durable Task Scheduler.
 > * Monitor the status of your app and task hub on the Durable Task Scheduler dashboard. 
 
-Learn more about Durable Task Scheduler [features](./durable-task-scheduler.md#feature-highlights), [supported regions](./durable-task-scheduler.md#limitations-and-considerations), and [plans](./durable-task-scheduler.md#limitations-and-considerations).
+Learn more about Durable Task Scheduler [features](./durable-task-scheduler.md#feature-highlights), [supported regions](./durable-task-scheduler.md#limitations-and-considerations), and [plans](./durable-task-scheduler-dedicated-sku.md).
 
 ## Create a scheduler and task hub
 You can create a scheduler and a task hub as part of the Function app creation on Azure portal. This creation approach automatically configures identity-based authentication for the app to access the task hub. 
 
-> [!NOTE]
-> Durable Task Scheduler currently supports apps hosted in the **App Service** and **Functions Premium** plans, so this experience is available only when either of these plan types is picked. 
+While you can use any of the Functions hosting options, this example uses the **Flex Consumption** hosting option.
 
 [!INCLUDE [function-app-integrated-creation](./includes/function-app-integrated-creation.md)]
 
@@ -51,12 +50,6 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 ```
 
 ## Limitations
-
-- **Supported hosting plans:** 
-
-   The Durable Task Scheduler currently only supports Durable Functions running on *Functions Premium* and *App Service* plans. For apps running on the Functions Premium plan, you must [enable the *Runtime Scale Monitoring* setting](#auto-scaling-in-functions-premium-plan) to get auto scaling of the app.
-
-   The *Consumption*, *Flex Consumption*, and *Azure Container App* hosting plans aren't yet supported when using the Durable Task Scheduler.
 
 - **Migrating [task hub data](../durable-functions-task-hubs.md) across backend providers:** 
 

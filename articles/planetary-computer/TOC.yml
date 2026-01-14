@@ -10,6 +10,8 @@
     href: stac-overview.md
   - name: Supported data types
     href: supported-data-types.md
+  - name: Service usage meters
+    href: service-usage-meters.md
   expanded: true
 - name: Deploy & set up
   items:
@@ -71,8 +73,6 @@
     href: queryables-for-explorer-custom-search-filter.md
   - name: Supported color maps
     href: supported-colormaps.md
-  - name: Visualize assets
-    href: visualize-assets.md
 - name: Build and use applications
   items:
   - name: Build applications
@@ -83,6 +83,8 @@
     href: application-authentication.md
   - name: Connect to ArcGIS Pro
     href: create-connection-arc-gis-pro.md
+  - name: Connect to QGIS
+    href: configure-qgis.md
   - name: Azure Batch and Microsoft Planetary Computer Pro
     href: azure-batch.md
   - name: API Reference
@@ -93,7 +95,5 @@
     href: data-cube-overview.md
   - name: Get Started with data cubes
     href: data-cube-quickstart.md
-  - name: Visualize data cubes
-    href: visualize-assets.md
   - name: Get a collection SAS token
     href: get-collection-sas-token.md

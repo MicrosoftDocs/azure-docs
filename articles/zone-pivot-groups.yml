@@ -1,5 +1,25 @@
 ### YamlMime:ZonePivotGroups
 groups:
+# Owner: v-mallicka
+- id: backup-client-template-arm-bicep
+  title: Clients
+  prompt: Choose a client
+  pivots:
+  - id: client-template-arm
+    title: ARM template
+  - id: client-template-bicep
+    title: Bicep template
+# Owner: v-mallicka
+- id: backup-client-portal-powershell-cli
+  title: Clients
+  prompt: Choose a client
+  pivots:
+  - id: client-portal
+    title: Azure portal
+  - id: client-powershell
+    title: PowerShell
+  - id: client-cli
+    title: Azure CLI
 #Owner: kraigb
 - id: python-frameworks-01
   title: Web framework
@@ -138,7 +158,7 @@ groups:
   - id: programming-language-typescript
     title: TypeScript
   - id: programming-language-other
-    title: Other
+    title: Other (Go/Rust)
 - id: programming-languages-set-functions-nodejs
   title: Programming languages
   prompt: Choose a programming language
@@ -411,6 +431,33 @@ groups:
     title: Windows code
   - id: platform-windows-container
     title: Windows container
+# Owner: sonialopez
+- id: service-portal-azcli
+  title: App Service deployment method
+  prompt: Choose a deployment method
+  pivots:
+  - id: azure-portal
+    title: Azure portal
+  - id: azure-cli
+    title: Azure CLI
+- id: service-azcli-script
+  title: App Service deployment method
+  prompt: Choose a deployment method
+  pivots:
+  - id: azure-cli
+    title: Azure CLI
+  - id: script
+    title: PowerShell script
+- id: service-portal-azcli-powershell
+  title: App Service deployment method
+  prompt: Choose a deployment method
+  pivots:
+  - id: azure-portal
+    title: Azure portal
+  - id: azure-cli
+    title: Azure CLI
+  - id: powershell
+    title: Azure PowerShell
 # Owner: msangapu
 - id: app-service-portal-azd
   title: App Service deployment method
@@ -895,6 +942,15 @@ groups:
     title: Front end (Static Web App)
   - id: backend
     title: Back end (Azure Container App)
+# Owner: sipa
+- id: azure-maps-search
+  title: Azure Maps search
+  prompt: Choose the search version
+  pivots:
+  - id: search-previous
+    title: Previous
+  - id: search-latest
+    title: Latest
 # Owner: farazgis
 - id: azure-maps-coverage
   title: Azure Maps coverage
@@ -1085,6 +1141,15 @@ groups:
   - id: alphanumeric-senderid
     title: Alphanumeric Sender ID
 # Owner: cshoe
+- id: sre-agent-code-repo
+  title: Code repository
+  prompt: Select a code repository hosting platform
+  pivots:
+  - id: azure-devops
+    title: Azure DevOps
+  - id: github
+    title: GitHub
+# Owner: cshoe
 - id: container-apps
   title: Template language
   prompt: Select a template language
@@ -1272,6 +1337,14 @@ groups:
     title: Virtual network
   - id: network-security-group
     title: Network security group
+- id: web-application-firewall-types
+  title: Web Application Firewall types
+  prompt: "Select the Web Application Firewall type:"
+  pivots:
+  - id: application-gateway
+    title: Application Gateway
+  - id: front-door
+    title: Front Door
 # Owner: hmb
 - id: front-door-dev-exp-portal-ps-cli
   title: Front Door deployment method
@@ -1318,15 +1391,6 @@ groups:
   - id: sc-enterprise
     title: Enterprise
 # Owner: karler
-- id: spring-apps-enterprise-or-consumption-plan-selection
-  title: Azure Spring Apps plan
-  prompt: Select an Azure Spring Apps plan
-  pivots:
-    - id: sc-enterprise
-      title: Enterprise
-    - id: sc-consumption-plan
-      title: Standard consumption and dedicated (Preview)
-# Owner: karler
 - id: spring-apps-plan-selection
   title: Azure Spring Apps plan
   prompt: Select an Azure Spring Apps plan
@@ -1335,8 +1399,6 @@ groups:
     title: Basic/Standard
   - id: sc-enterprise
     title: Enterprise
-  - id: sc-consumption-plan
-    title: Standard consumption and dedicated (Preview)
  # Owner: rahulmehta
 - id: azure-red-hat-openshift
   title: ARM and Bicep-OpenShift
@@ -1554,10 +1616,10 @@ groups:
   title: Select your version of the Pipelines task
   prompt: Choose an option
   pivots:
-  - id: v1
-    title: AzureFunctionApp@1
   - id: v2
     title: AzureFunctionApp@2
+  - id: v1
+    title: AzureFunctionApp@1
 # Owner: juliakm, ggailey777
 - id: github-actions-deployment-options
   title: GitHub Actions deployment options
@@ -1852,9 +1914,9 @@ groups:
   prompt: Choose a connection type
   pivots:
   - id: connection-agentless
-    title: Agentless data connector (Limited preview)
+    title: Agentless data connector
   - id: connection-agent
-    title: Data connector agent
+    title: Data connector agent (deprecated)
 # Owner: jodowns
 - id: logic-app-hosting-types
   title: Azure Logic Apps hosting model
@@ -1936,6 +1998,14 @@ groups:
     title: Elastic Observability
   - id: elastic-security
     title: Elastic Security
+- id: datadog-create
+  title: Datadog Create
+  prompt: Select your creation experience for Datadog.
+  pivots:
+  - id: azure-portal
+    title: Azure Portal
+  - id: azure-cli
+    title: Azure CLI
 # Owner: jodowns
 - id: sql-managed-instance-tiers
   title: Tier
@@ -1945,3 +2015,27 @@ groups:
     title: General Purpose
   - id: business-critical
     title: Business Critical
+# Owner: jodowns
+- id: sql-database-tiers
+  title: Tier
+  prompt: Choose a service tier
+  pivots:
+  - id: basic-standard
+    title: Basic or Standard DTU
+  - id: premium
+    title: Premium DTU
+  - id: general-purpose
+    title: General Purpose
+  - id: business-critical
+    title: Business Critical
+  - id: hyperscale
+    title: Hyperscale
+# Owner: jodowns
+- id: virtual-network-gateway-types
+  title: Gateway type
+  prompt: Choose a virtual network gateway type
+  pivots:
+  - id: expressroute
+    title: Azure ExpressRoute gateway
+  - id: vpn
+    title: Azure VPN Gateway

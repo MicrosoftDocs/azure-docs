@@ -7,6 +7,7 @@ ms.subservice: dicom-service
 ms.topic: how-to
 ms.date: 07/17/2025
 ms.author: buchvarun
+ms.custom: sfi-image-nochange
 ---
 
 # Export DICOM files

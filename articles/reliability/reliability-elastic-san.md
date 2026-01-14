@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Elastic SAN
-description: Find out about reliability in Azure Elastic SAN.
+description: Learn how to ensure storage reliability with Azure Elastic SAN by using zone-redundant storage, availability zones, and snapshot-based disaster recovery.
 author: roygara
 ms.author: rogarana
 ms.topic: reliability-article

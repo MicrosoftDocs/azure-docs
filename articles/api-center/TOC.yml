@@ -28,11 +28,13 @@
   - name: Tutorials
     items:
     - name: 1 - Define custom metadata
-      href: add-metadata-properties.md
+      href: ./tutorials/add-metadata-properties.md
     - name: 2 - Add APIs to the inventory
-      href: register-apis.md
+      href: ./tutorials/register-apis.md
     - name: 3 - Add environments and deployments
-      href: configure-environments-deployments.md
+      href: ./tutorials/configure-environments-deployments.md
+    - name: 4 - Link an API Management instance
+      href: ../api-management/tutorials/link-api-center.md
   expanded: true
 - name: API inventory
   items:
@@ -56,6 +58,12 @@
     href: export-to-copilot-studio.yml
   - name: Track API dependencies
     href: track-resource-dependencies.md
+- name: Agent-to-Agent
+  items:
+  - name: Overview
+    href: agent-to-agent-overview.md
+  - name: Register and manage agents 
+    href: register-manage-agents.md
 - name: MCP servers
   items:
   - name: Register and discover MCP servers

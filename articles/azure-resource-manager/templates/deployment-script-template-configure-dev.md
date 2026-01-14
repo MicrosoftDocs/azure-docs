@@ -93,7 +93,7 @@ The following Azure Resource Manager template (ARM template) creates a container
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2023-01-01",
+      "apiVersion": "2025-06-01",
       "name": "[variables('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -106,7 +106,7 @@ The following Azure Resource Manager template (ARM template) creates a container
     },
     {
       "type": "Microsoft.Storage/storageAccounts/fileServices/shares",
-      "apiVersion": "2023-01-01",
+      "apiVersion": "2025-06-01",
       "name": "[format('{0}/default/{1}', variables('storageAccountName'), variables('fileShareName'))]",
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
@@ -114,7 +114,7 @@ The following Azure Resource Manager template (ARM template) creates a container
     },
     {
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2023-05-01",
+      "apiVersion": "2025-09-01",
       "name": "[variables('containerGroupName')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -280,7 +280,7 @@ The following ARM template creates a container instance and a file share, and th
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-06-01",
       "name": "[variables('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -293,7 +293,7 @@ The following ARM template creates a container instance and a file share, and th
     },
     {
       "type": "Microsoft.Storage/storageAccounts/fileServices/shares",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-06-01",
       "name": "[format('{0}/default/{1}', variables('storageAccountName'), variables('fileShareName'))]",
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
@@ -301,7 +301,7 @@ The following ARM template creates a container instance and a file share, and th
     },
     {
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2023-05-01",
+      "apiVersion": "2025-09-01",
       "name": "[variables('containerGroupName')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -350,7 +350,7 @@ The following ARM template creates a container instance and a file share, and th
         ]
       },
       "dependsOn": [
-        "storageAccount"
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
       ]
     }
   ]

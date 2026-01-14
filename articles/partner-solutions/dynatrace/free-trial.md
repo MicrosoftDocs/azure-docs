@@ -1,41 +1,41 @@
 ---
-title: 'Dynatrace: start a free trial'
-description: This article describes how to use the Azure portal to try Dynatrace for free.
+title: 'Dynatrace: Start a Free Trial'
+description: Learn how to use the Azure portal to try Dynatrace for free.
 ms.topic: quickstart
-ms.date: 11/07/2023
+ms.date: 09/15/2025
 ms.service: partner-services
 ms.subservice: dynatrace
 
 ---
 
-# QuickStart: Start a free trial
+# Quickstart: Start a free trial
 
-A 30-day free trial of Azure Native Dynatrace Service is available on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview). You can sign up using the trial plan published by Dynatrace. During the trial period, you can create a Dynatrace resource on Azure and use integrated services like log forwarding, metrics integration, and agent based monitoring. Before the free trial expires, you can seamlessly upgrade to a paid public plan or a private offer customized for your organization.
+A 30-day free trial of Azure Native Dynatrace Service is available on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview). You can sign up for the trial plan published by Dynatrace. During the trial period, you can create a Dynatrace resource on Azure and use integrated services like log forwarding, metrics integration, and agent-based monitoring. Before the free trial expires, you can seamlessly upgrade to a paid public plan or a private offer that's customized for your organization.
 
-Before you proceed, please make sure that your subscription is marketplace purchase enabled. For more information, go to [Purchase validation checks](/marketplace/purchase-validation-checks).
+Before you proceed, make sure that your subscription is enabled for Azure Marketplace purchases. For more information, see [Purchase validation checks](/marketplace/purchase-validation-checks).
 
 ## Subscribe to a free trial  
 
-You can access the trial plan by finding Azure Native Dynatrace Service on Azure portal or in the Azure Marketplace. Refer to the guide to [create a new resource](dynatrace-create.md#find-offer) and choose the free trial public plan while subscribing.
+You can access the trial plan by finding Azure Native Dynatrace Service on the Azure portal or in Azure Marketplace. For more information, see [Get started with Dynatrace](dynatrace-create.md#find-offer). Choose the free trial public plan when you subscribe.
 
-:::image type="content" source="media/dynatrace-free-trial/dynatrace-plans-free-trial.png" alt-text="Screenshot showing the free trial within the Dynatrace pricing plans in the Azure portal.":::
+:::image type="content" source="media/dynatrace-free-trial/dynatrace-plans-free-trial.png" alt-text="Screenshot showing the free trial Dynatrace pricing plan in Azure Marketplace.":::
 
-## Free trial upgrade and expiry
+## Free trial upgrade and expiration
 
-Azure Native Dynatrace Service gives an option to upgrade to a paid plan through the portal experience. Select **Upgrade to paid** to choose one of the paid plans published by Dynatrace or contact [sales@dynatrace.com](mailto:sales@dynatrace.com) for a custom offer for your organization.
+You can upgrade to an Azure Native Dynatrace Service paid plan in the portal. Select **Upgrade to paid** to choose one of the paid plans published by Dynatrace, or contact [sales@dynatrace.com](mailto:sales@dynatrace.com) for a custom offer for your organization.
 
-:::image type="content" source="media/dynatrace-free-trial/dynatrace-upgrade.png" alt-text="Screenshot showing the option to upgrade to a Dynatrace paid plan in the Azure portal.":::
+:::image type="content" source="media/dynatrace-free-trial/dynatrace-upgrade.png" alt-text="Screenshot showing the option to upgrade to a Dynatrace paid plan in the Azure portal." lightbox="media/dynatrace-free-trial/dynatrace-upgrade.png":::
 
-Upon expiration of the free trial, your services will be shut down and no logs or metrics will flow to your Dynatrace environment.
+When your free trial expires, your services will be shut down and no logs or metrics will flow to your Dynatrace environment.
 
-## Dynatrace links
+## More information
 
-For more help using Azure Native Dynatrace Service, go to the [Dynatrace](https://dt-url.net/azurenativedynatraceservice) documentation.
+For more information about using Azure Native Dynatrace Service, see the [Dynatrace](https://dt-url.net/azurenativedynatraceservice) documentation.
 
 ## Next steps
 
 - To create an instance of Dynatrace, see [QuickStart: Get started with Dynatrace](dynatrace-create.md).
-- Get started with Azure Native Dynatrace Service on
+- Get started with Azure Native Dynatrace Service on:
 
     > [!div class="nextstepaction"]
     > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Dynatrace.Observability%2Fmonitors)

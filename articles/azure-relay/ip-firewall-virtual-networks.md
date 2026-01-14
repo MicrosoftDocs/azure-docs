@@ -3,6 +3,7 @@ title: Configure IP firewall for Azure Relay namespace
 description: This article describes how to Use firewall rules to allow connections from specific IP addresses to Azure Relay namespaces. 
 ms.topic: how-to
 ms.date: 12/10/2024
+ms.custom: sfi-image-nochange
 # Customer intent: As an Azure Relay user, I want to know how to restrict access to an Azure Relay namespace to certain IP addresses or ranges. 
 ---
 

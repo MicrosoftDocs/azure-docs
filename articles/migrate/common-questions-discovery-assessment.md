@@ -4,6 +4,7 @@ description: Get answers to common questions about assessments in Azure Migrate.
 ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 05/08/2025
+ms.reviewer: v-uhabiba
 ms.custom: engagement-fy25
 # Customer intent: As a cloud migration planner, I want to find detailed answers to common questions regarding assessments in Azure Migrate, so that I can effectively evaluate and prepare my on-premises servers for migration to Azure environments.
 ---
@@ -69,9 +70,9 @@ If any of the performance counters are missing, Azure SQL assessment falls back 
 
 Performance data isn't captured for Azure App Service assessment and hence you don't see confidence rating for this assessment type. Azure App Service assessment takes configuration data of web apps in to account while performing assessment calculation.
 
-## Why is the confidence rating of my assessment low?
+## Why is the performance coverage of my assessment low?
 
-The confidence rating is calculated for **Performance-based** assessments based on the percentage of [available data points](./assessment-report.md#confidence-ratings-performance-based) needed to compute the assessment. Below are the reasons why an assessment could get a low confidence rating:
+The performance coverage is calculated for **Performance-based** assessments based on the percentage of [available data points](./assessment-report.md#coverage) needed to compute the assessment. Below are the reasons why an assessment could get a low confidence rating:
 
 - You didn't profile your environment for the duration for which you're creating the assessment. For example, if you're creating an assessment with performance duration set to one week, you need to wait for at least a week after you start the discovery for all the data points to get collected. If you can't wait for the duration, change the performance duration to a smaller period and **Recalculate** the assessment.
 - Assessment isn't able to collect the performance data for some or all the servers in the assessment period. For a high confidence rating, ensure that: 
@@ -83,8 +84,8 @@ The confidence rating is calculated for **Performance-based** assessments based 
 
     **Recalculate** the assessment to reflect the latest changes in confidence rating.
 
-- For Azure VM and AVS assessments, few servers were created after discovery had started. For example, if you're creating an assessment for the performance history of last one month, but few servers were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./assessment-report.md#confidence-ratings-performance-based).
-- For Azure SQL assessments, few SQL instances or databases were created after discovery had started. For example, if you're creating an assessment for the performance history of last one month, but few SQL instances or databases were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./assessment-report.md#confidence-ratings-performance-based).
+- For Azure VM and AVS assessments, few servers were created after discovery had started. For example, if you're creating an assessment for the performance history of last one month, but few servers were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the performance coverage would be low. [Learn more](./assessment-report.md#coverage).
+- For Azure SQL assessments, few SQL instances or databases were created after discovery had started. For example, if you're creating an assessment for the performance history of last one month, but few SQL instances or databases were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./assessment-report.md#coverage).
 
 ## Why is my RAM utilization greater than 100%?
 

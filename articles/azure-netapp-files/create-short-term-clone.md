@@ -1,14 +1,14 @@
 ---
-title: Create a short-term clone from an Azure NetApp Files snapshot
+title: Create a short-term clone volume in Azure NetApp Files
 description: Short-term clones are cloned volumes created from Azure NetApp Files snapshots intended for temporary use. 
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 08/21/2025
+ms.date: 10/09/2025
 ms.author: anfdocs
 ---
-# Create a short-term clone volume in Azure NetApp Files (preview)
+# Create a short-term clone volume in Azure NetApp Files 
 
 A short-term clone volume is a writable and space-efficient copy of a volume that is created for temporary use, such as development, testing, data analytics, or digital forensics of large data sets. A short-term clone can be an alternative to creating a full copy by [restoring a snapshot to a new volume](snapshots-restore-new-volume.md) which consumes more of the capacity pool's quota. 
 
@@ -38,7 +38,7 @@ By default, short-term clones convert to regular volumes after 32 days.
 
 ## Register the feature
 
-Short-term clones are currently in preview. To take advantage of the feature, you must first register it. 
+To take advantage of the feature, you must first register it. 
 
 1. Register the feature:
 
@@ -68,8 +68,10 @@ Short-term clones are currently in preview. To take advantage of the feature, yo
 
 	Provide a **Volume name**.
 	Select a **Capacity pool**.
-	Choose if you want to **Delete base snapshot** once the short-term clone is created. 
 	Provide a **Quota** value.
+
+    >[!NOTE]
+    >Deleting the base snapshot is not available for short-term clone volumes. The option is greyed out in the portal as the base snapshot is shared with the original source volume. The base snapshot can only be deleted if the short-term clone volume is converted to a regular volume.
     
     >[!NOTE]
     >The quota value is the space for anticipated writes to the short-term clone volume. For example, some database workloads may require a 10 percent change to the existing data files. The minimum quota value is 50 GiB.

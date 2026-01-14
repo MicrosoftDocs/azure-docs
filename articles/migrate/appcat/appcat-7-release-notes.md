@@ -18,12 +18,24 @@ This article provides the release notes for Azure Migrate application and code a
 
 ## Release history
 
+### 7.7.0.4
+
+This release contains the following new features and enhancements:
+
+- **Enhanced command parameters**: Added new parameters to the `appcat analyze` command:
+  - `--list-capabilities`: Display available migration capabilities.
+  - `--list-os`: Display available migration target operating systems.
+  - `--capability`: Specify capability technologies for analysis.
+  - `--os`: Specify operating systems for analysis.
+- **Improved target specification**: Refined the `--targets` parameter by removing OS and capability values, which are now handled by dedicated parameters.
+- **Unified output format**: Introduced a new consolidated **report.json** output file.
+
 ### 7.7.0.3
 
 This release contains the following fixes and enhancements:
 
 - Refine issue domain names and category names.
-- Move *.appcat-ignore* into user home path instead of the AppCAT installation folder.
+- Move **.appcat-ignore** into user home path instead of the AppCAT installation folder.
 - Remove unnecessary temporary files during analysis, such as Eclipse-specific configuration.
 - Return error message directly for non-Java projects.
 
@@ -135,6 +147,12 @@ This release is based on a different set of components of the Konveyor project.
 - A new engine based on the [Konveyor Analyzer LSP](https://github.com/konveyor/analyzer-lsp) project, with a CLI based on the [Konveyor Kantra](https://github.com/konveyor/kantra/) project.
 
 ## Known issues
+
+### 7.7.0.4
+
+- Rules issues:
+  - The `azure-system-config-01000` rules aren't being triggered.
+- An error in the **Watcher Error** channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 
 ### 7.7.0.3
 

@@ -2,7 +2,7 @@
 title: Manage Azure Recovery Services vaults and servers
 description: In this article, learn how to use the Recovery Services vault Overview dashboard to monitor and manage your Recovery Services vaults. 
 ms.topic: how-to
-ms.date: 07/22/2025
+ms.date: 11/10/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As an IT administrator, I want to use the Overview dashboard of the Recovery Services vault to monitor backup jobs and alerts, so that I can ensure the reliability and effectiveness of our backup and recovery processes."
@@ -195,8 +195,8 @@ Use **Export jobs** to create a spreadsheet containing all Jobs menu information
 
 To export the jobs information to a spreadsheet, select **Export jobs**. The service creates a spreadsheet using the name of the vault and date, but you can change the name.
 
->[!Note]
->Azure Backup currently doesn't support exporting jobs with a filter applied, triggerring this operation fails for SQL and SAP HANA workload types. Alternatively, enable a Log Analytics workspace and [export workload-specific jobs](backup-azure-monitoring-use-azuremonitor.md#queries-specific-to-recovery-services-vault-workloads).
+> [!NOTE]
+> Azure Backup currently doesn't support exporting jobs with a filter applied. Triggering this operation fails for SQL and SAP HANA workload types. Alternatively, enable a Log Analytics workspace and [export workload-specific jobs](backup-azure-monitoring-use-azuremonitor.md#queries-specific-to-recovery-services-vault-workloads).
 
 ## Monitor Backup usage
 
@@ -212,6 +212,7 @@ Azure Business Continuity Center Copilot introduces new capabilities in the Reco
 - [Increase security level](../business-continuity-center/tutorial-manage-data-using-copilot.md#increase-security-level-of-recovery-service-vault-and-backup-vault) to strengthen protection for backup data and disaster recovery operations.
 - [Analyze job failures](../business-continuity-center/tutorial-manage-data-using-copilot.md#analyze-job-failures-for-recovery-service-vault-and-backup-vault) to gain insights into failures for precise analysis and faster resolution.
 - [Configure protection for unprotected resources](..\business-continuity-center\tutorial-manage-data-using-copilot.md#configure-protection-for-resources-in-recovery-services-vault-and-backup-vault).
+- [Reconfigure backup for datasources in an alternate vault](../business-continuity-center/tutorial-reconfigure-backup-alternate-vault.md).
 - [Delete a vault](..\business-continuity-center\tutorial-manage-data-using-copilot.md#delete-recovery-services-vault-and-backup-vault-using-copilot).
 - [Troubleshoot common errors efficiently](../business-continuity-center/tutorial-manage-data-using-copilot.md#troubleshoot-error-codes-for-recovery-service-vaults-and-backup-vaults).
 

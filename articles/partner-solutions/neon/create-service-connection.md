@@ -17,7 +17,7 @@ This guide shows step-by-step instructions for connecting an app deployed in Azu
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing Neon Serverless Postgres resource. If you don't have one yet, refer to [Create a Neon Serverless Postgres resource](./create.md).
 - An app deployed to an [Azure compute service that Service Connector supports](../../service-connector/overview.md#what-services-are-supported-by-service-connector).
 

@@ -138,6 +138,27 @@ The `Selector` struct supports the following fields:
 > [!NOTE]
 > When multiple selectors include overlapping keys, later selectors take precedence over earlier ones.
 
+#### Tag filters
+
+The `TagFilters` parameter selects key-values with specific tags. A key-value is only loaded if it has all of the tags and corresponding values specified in the filters.
+
+```golang
+options := &azureappconfiguration.Options{
+	Selectors: []azureappconfiguration.Selector{
+		{
+			// Load configuration values with prefix "App:" and specific tags
+			KeyFilter:   "App:*",
+			TagFilters: []string{"env=prod"},
+		},
+	},
+}
+
+appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+```
+
+> [!NOTE]
+> The characters asterisk (`*`), comma (`,`), and backslash (`\`) are reserved and must be escaped with a backslash when used in a tag filter.
+
 ### Trim prefix from keys
 
 When loading configuration values with specific prefixes, you can use the `TrimKeyPrefixes` option to remove those prefixes from the keys in your configuration. This creates cleaner configuration keys in your application while maintaining organization in your App Configuration store.
@@ -525,9 +546,42 @@ options := &azureappconfiguration.Options{
 appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
 ```
 
+## Snapshot
+
+[Snapshot](./concept-snapshots.md) is a named, immutable subset of an App Configuration store's key-values. The key-values that make up a snapshot are chosen during creation time through the usage of key and label filters. Once a snapshot is created, the key-values within are guaranteed to remain unchanged.
+
+You can configure `SnapshotName` filed in the `Selector` struct to load key-values from a snapshot:
+
+```golang
+options := &azureappconfiguration.Options{
+	Selectors: []azureappconfiguration.Selector{
+		{KeyFilter: "app*", LabelFilter: "prod"},
+		{SnapshotName: "my-snapshot"},
+	},
+}
+
+appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+```
+
 ## Geo-replication
 
 For information about using geo-replication, go to [Enable geo-replication](./howto-geo-replication.md).
+
+## Startup retry
+
+Configuration loading is a critical path operation during application startup. To ensure reliability, the Azure App Configuration provider implements a robust retry mechanism during the initial configuration load. This helps protect your application from transient network issues that might otherwise prevent successful startup.
+
+You can customize this behavior via the `Options.StartupOptions`:
+
+```golang
+options := &azureappconfiguration.Options{
+	StartupOptions: azureappconfiguration.StartupOptions{
+		Timeout: 5 * time.Minute,
+	},
+}
+
+appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+```
 
 ## Next steps
 

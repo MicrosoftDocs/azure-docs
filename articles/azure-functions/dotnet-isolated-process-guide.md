@@ -3,15 +3,16 @@ title: Guide for running C# Azure Functions in an isolated worker process
 description: Learn how to use the .NET isolated worker model to run your C# functions in Azure, which lets you run your functions on currently supported versions of .NET and .NET Framework.
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 05/19/2025
+ms.date: 09/05/2025
+recommendations: false
 ms.custom:
   - template-concept
   - devx-track-dotnet
   - devx-track-azurecli
   - ignite-2023
   - build-2025
-recommendations: false
-#Customer intent: As a developer, I need to know how to create functions that run in an isolated worker process so that I can run my function code on current (not LTS) releases of .NET.
+  - sfi-ropc-nochange
+#customer intent: As a developer, I need to know how to create functions that run in an isolated worker process so that I can run my function code on current (not LTS) releases of .NET.
 ---
 
 # Guide for running C# Azure Functions in the isolated worker model
@@ -64,15 +65,22 @@ The following packages are required to run your .NET functions in an isolated wo
 + [Microsoft.Azure.Functions.Worker]
 + [Microsoft.Azure.Functions.Worker.Sdk]
 
+ Minimum versions of these packages are required based on your target .NET version:
+
+| .NET version   | `Microsoft.Azure.Functions.Worker` | `Microsoft.Azure.Functions.Worker.Sdk` |
+|----------------|------------------------------------|-----------------------------------------|
+| .NET 10        | 2.50.0 or later                    | 2.0.5 or later                         |
+| .NET 9         | 2.0.0 or later                     | 2.0.0 or later                         |
+| .NET 8         | 1.16.0 or later                    | 1.11.0 or later                        |
+| .NET Framework | 1.16.0 or later                    | 1.11.0 or later                        |
+
 #### Version 2.x
 
-The 2.x versions of the core packages change the supported frameworks and bring in support for new .NET APIs from these later versions. When you target .NET 9 or later, your app needs to reference version 2.0.0 or later of both packages.
-
-When updating to the 2.x versions, note the following changes:
+The 2.x versions of the core packages change the supported frameworks and bring in support for new .NET APIs from these later versions. When updating to the 2.x versions, note the following changes:
 
 - Starting with version 2.0.0 of [Microsoft.Azure.Functions.Worker.Sdk]:
     - The SDK includes default configurations for [SDK container builds](/dotnet/core/docker/publish-as-container).
-    - The SDK includes support for [`dotnet run`](/dotnet/core/tools/dotnet-run) when the [Azure Functions Core Tools](./functions-develop-local.md) is installed. On Windows, the Core Tools needs to be installed through a mechanism other than NPM.
+    - The SDK includes support for [`dotnet run`](/dotnet/core/tools/dotnet-run) when the [Azure Functions Core Tools](./functions-develop-local.md) is installed. On Windows, the Core Tools need to be installed through a mechanism other than NPM.
 - Starting with version 2.0.0 of [Microsoft.Azure.Functions.Worker]:
     - This version adds support for `IHostApplicationBuilder`. Some examples in this guide include tabs to show alternatives using `IHostApplicationBuilder`. These examples require the 2.x versions.
     - Service provider scope validation is included by default if run in a development environment. This behavior matches ASP.NET Core.
@@ -498,17 +506,17 @@ Here are some of the parameters that you can include as part of a function metho
 
 - [Bindings](#bindings), which are marked as such by decorating the parameters as attributes. The function must contain exactly one trigger parameter.
 - An [execution context object](#execution-context), which provides information about the current invocation.
-- A [cancelation token](#cancelation-tokens), used for graceful shutdown.
+- A [cancellation token](#cancellation-tokens), used for graceful shutdown.
 
 ### Execution context
 
 .NET isolated passes a [FunctionContext] object to your function methods. This object lets you get an [`ILogger`][ILogger] instance to write to the logs by calling the [GetLogger] method and supplying a `categoryName` string. You can use this context to obtain an [`ILogger`][ILogger] without having to use dependency injection. To learn more, see [Logging](#logging). 
 
-### Cancelation tokens
+### Cancellation tokens
 
-A function can accept a [cancelationToken](/dotnet/api/system.threading.cancellationtoken) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
+A function can accept a [cancellationToken](/dotnet/api/system.threading.cancellationtoken) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
 
-Cancelation tokens are supported in .NET functions when running in an isolated worker process. The following example raises an exception when a cancelation request is received:
+Cancellation tokens are supported in .NET functions when running in an isolated worker process. The following example raises an exception when a cancellation request is received:
 
 ```csharp
 [Function(nameof(ThrowOnCancellation))]
@@ -528,7 +536,7 @@ public async Task ThrowOnCancellation(
 }
 ```
  
-The following example performs clean-up actions when a cancelation request is received:
+The following example performs clean-up actions when a cancellation request is received:
 
 ```csharp
 [Function(nameof(HandleCancellationCleanup))]
@@ -555,9 +563,9 @@ public async Task HandleCancellationCleanup(
 }
 ```
 
-#### Scenarios that lead to cancelation
+#### Scenarios that lead to cancellation
 
-The cancelation token is signaled when the function invocation is canceled. Several reasons could lead to a cancelation,
+The cancellation token is signaled when the function invocation is canceled. Several reasons could lead to a cancellation,
 and those could vary depending on the trigger type being used. Some common reasons are:
 
 1. Client disconnect: the client that is invoking your function disconnected. This is most likely for HttpTrigger functions.
@@ -565,7 +573,7 @@ and those could vary depending on the trigger type being used. Some common reaso
    A restart can occur due to worker instance movements, worker instance updates, or scaling.
     - Invocations in-flight during a restart event may be retried depending on how they were triggered. Please refer to the [retry documentation](./functions-bindings-error-pages.md#retries) for further information.
 
-For the isolated worker model, the host we will send the invocation through to the worker _even_ if the cancelation token was canceled _before_ the host is able to send the invocation request to the worker.
+For the isolated worker model, the host we will send the invocation through to the worker _even_ if the cancellation token was canceled _before_ the host is able to send the invocation request to the worker.
 
 If you do not want pre-canceled invocations to be sent to the worker, you can add the `SendCanceledInvocationsToWorker` property to your `host.json` file to disable this behavior. The following example shows a `host.json` file that uses this property:
 
@@ -581,7 +589,7 @@ If you do not want pre-canceled invocations to be sent to the worker, you can ad
 > 
 > `Cancellation has been requested. The invocation request with id '{invocationId}' is canceled and will not be sent to the worker`
 > 
-> This occurs when the cancelation token is canceled (as a result of one of the events described above) _before_ the host has sent
+> This occurs when the cancellation token is canceled (as a result of one of the events described above) _before_ the host has sent
 > an incoming invocation request to the worker. This exception can be safely ignored and would be expected when `SendCanceledInvocationsToWorker`
 > is `false`.
 
@@ -920,11 +928,11 @@ host.Run();
 
 ### Application Insights
 
-You can configure your isolated process application to emit logs directly to [Application Insights](/azure/azure-monitor/app/app-insights-overview?tabs=net). This behavior replaces the default behavior of [relaying logs through the host](./configure-monitoring.md#custom-application-logs). Unless you are using .NET Aspire, configuring direct Application Insights integration is recommended because it gives you control over how those logs are emitted. 
+You can configure your isolated process application to emit logs directly to [Application Insights](/azure/azure-monitor/app/app-insights-overview?tabs=net). This behavior replaces the default behavior of [relaying logs through the host](./configure-monitoring.md#custom-application-logs). Unless you are using [Aspire](#aspire), configuring direct Application Insights integration is recommended because it gives you control over how those logs are emitted. 
 
 Application Insights integration is not enabled by default in all setup experiences. Some templates will create Functions projects with the necessary packages and startup code commented out. If you want to use Application Insights integration, you can uncomment these lines in `Program.cs` and the project's `.csproj` file. The instructions in the rest of this section also describe how to enable the integration.
 
-If your project is part of a [.NET Aspire orchestration](#net-aspire-preview), it uses OpenTelemetry for monitoring instead. You should not enable direct Application Insights integration within .NET Aspire projects. Instead, configure the Azure Monitor OpenTelemetry exporter as part of the [service defaults project](/dotnet/aspire/fundamentals/service-defaults#opentelemetry-configuration). If your Functions project uses Application Insights integration in a .NET Aspire context, the application will error on startup.
+If your project is part of an [Aspire orchestration](#aspire), it uses OpenTelemetry for monitoring instead. You should not enable direct Application Insights integration within Aspire projects. Instead, configure the Azure Monitor OpenTelemetry exporter as part of the [service defaults project](/dotnet/aspire/fundamentals/service-defaults#opentelemetry-configuration). If your Functions project uses Application Insights integration in an Aspire context, the application will error on startup.
 
 #### Install packages
 
@@ -1217,9 +1225,9 @@ There are a few requirements for running .NET functions in the isolated worker m
 
 When you create your function app in Azure using the methods in the previous section, these required settings are added for you. When you create these resources [by using ARM templates or Bicep files for automation](functions-infrastructure-as-code.md), you must make sure to set them in the template. 
 
-## .NET Aspire (Preview)
+## <a name = "net-aspire-preview"></a>Aspire
 
-[.NET Aspire](/dotnet/aspire/get-started/aspire-overview) is an opinionated stack that simplifies development of distributed applications in the cloud. You can enlist .NET 8 and .NET 9 isolated worker model projects in Aspire 9.0 orchestrations using preview support. See [Azure Functions with .NET Aspire (Preview)](./dotnet-aspire-integration.md) for more information.
+[Aspire](/dotnet/aspire/get-started/aspire-overview) is an opinionated stack that simplifies development of distributed applications in the cloud. You can enlist isolated worker model projects in Aspire 13 orchestrations. See [Azure Functions with Aspire](./dotnet-aspire-integration.md) for more information.
 
 ## Debugging
 
@@ -1315,22 +1323,16 @@ Before a generally available release, a .NET version might be released in a _Pre
 
 While it might be possible to target a given release from a local Functions project, function apps hosted in Azure might not have that release available. Azure Functions can only be used with Preview or Go-live releases noted in this section.
 
-<!-- Azure Functions doesn't currently work with any "Preview" or "Go-live" .NET releases. See [Supported versions][supported-versions] for a list of generally available releases that you can use. -->
+Azure Functions doesn't currently work with any "Preview" or "Go-live" .NET releases. See [Supported versions][supported-versions] for a list of generally available releases that you can use.
 
-Azure Functions currently can be used with the following "Preview" or "Go-live" .NET releases:
+<!-- Azure Functions currently can be used with the following "Preview" or "Go-live" .NET releases:
 
-| Operating system | .NET preview version          |
-|------------------|-------------------------------|
-| Linux            | .NET 10 Preview 5<sup>1,2,3</sup> |
-| Windows          | .NET 10 Preview 5<sup>1,2</sup> |
+| Operating system | .NET preview version |
+|------------------|----------------------|
+| Linux            |                      |
+| Windows          |                      |
 
-<sup>1</sup> Apps targeting .NET 10 must use [version 2.0.5 or later of `Microsoft.Azure.Functions.Worker.Sdk`][Microsoft.Azure.Functions.Worker.Sdk]. We also recommend that you update to [version 2.50.0-preview1 or later of `Microsoft.Azure.Functions.Worker`][Microsoft.Azure.Functions.Worker], which updates dependencies to align with .NET 10. If you use Visual Studio, you need to use [Visual Studio 2026 Insiders][vs-insiders], and you need to [update the Functions tools and templates](#considerations-for-using-net-preview-versions) to version 4.114.0 or later.
-
-<sup>2</sup> For the latest information about support for .NET 10 in public Azure, please see the [tracking thread on GitHub](https://github.com/Azure/azure-functions-dotnet-worker/issues/3152).
-
-<sup>3</sup> Linux Consumption apps do not yet support .NET 10.
-
-See [Supported versions][supported-versions] for a list of generally available releases that you can use.
+See [Supported versions][supported-versions] for a list of generally available releases that you can use. -->
 
 ### Using a preview .NET SDK
 
@@ -1367,7 +1369,7 @@ Keep these considerations in mind when using Functions with preview versions of 
 
 + Make sure you have the latest Functions tools and templates. To update your tools:
 
-    1. Navigate to **Tools** > **Options**, choose **Azure Functions** under **Projects and Solutions**.
+    1. Navigate to **Tools** > **Options**, choose **Azure Functions** under **Projects and Solutions** > **More Settings**.
     1. Select **Check for updates** and install updates as prompted.
 
 + During a preview period, your development environment might have a more recent version of the .NET preview than the hosted service. This can cause your function app to fail when deployed. To address this, you can specify the version of the SDK to use in [`global.json`](/dotnet/core/tools/global-json). 
@@ -1387,7 +1389,7 @@ Keep these considerations in mind when using Functions with preview versions of 
 > [Migrate .NET apps to the isolated worker model][migrate]
 
 > [!div class="nextstepaction"]
-> [Integrate with .NET Aspire](./dotnet-aspire-integration.md)
+> [Integrate with Aspire](./dotnet-aspire-integration.md)
 
 [migrate]: ./migrate-dotnet-to-isolated-model.md
 

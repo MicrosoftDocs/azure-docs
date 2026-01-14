@@ -6,6 +6,7 @@ ms.service: azure-network-function-manager
 ms.topic: article
 ms.date: 11/02/2021
 ms.author: tobiaw
+ms.custom: sfi-image-nochange
 ---
 
 # Network Function Manager prerequisites and requirements

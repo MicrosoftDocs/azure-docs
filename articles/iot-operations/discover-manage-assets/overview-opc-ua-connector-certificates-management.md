@@ -55,7 +55,7 @@ By default, the connector for OPC UA connects to an OPC UA server by using the e
 - Export the public key of the connector for OPC UA application instance certificate from the Kubernetes secret store and then add it to trusted certificates list for the OPC UA server.
 - Export the public key of the OPC UA server's application instance and then add it to trusted certificates list for the connector for OPC UA.
 
-Mutual trust validation between the OPC UA server and the connector for OPC UA is now possible. You can now configure an `AssetEndpointProfile` for the OPC UA server in the operations experience web UI and start working with it.
+Mutual trust validation between the OPC UA server and the connector for OPC UA is now possible. You can now configure a *device* for the OPC UA server in the operations experience web UI and start working with it.
 
 ## Use self-signed OPC UA server application instance certificates
 

@@ -3,7 +3,7 @@ title: Localization support in Microsoft Azure Maps
 description: Lists the regions Azure Maps supports with services such as maps, search, routing, weather, and traffic incidents, and shows how to set up the View parameter.
 author: faterceros
 ms.author: aterceros
-ms.date: 06/12/2025
+ms.date: 09/22/2025
 ms.topic: conceptual
 ms.service: azure-maps
 ms.subservice: general
@@ -107,122 +107,140 @@ Azure Maps offers localization in a wide range of languages across its various s
 <!------------------------REST API LATEST VERSIONS ------------------------------------------------->
 
 > [!NOTE]
-> The Weather service is not included in this section because it supports localization for cultures listed in the "Previous" tab of this article.
+> The Weather service isn't included in this section because it supports localization for cultures listed in the "Previous" tab of this article.
 
 Azure Maps offers localization in a wide range of languages across its various services. The following table lists the supported language codes for the latest services. The Route column includes routes for both driving and walking.
 
-| Culture        | Language                                   | Search | Route | Traffic | Truck Route |
-|----------------|--------------------------------------------|--------|-------|---------|-------------|
-| af             | Afrikaans                                  | ✓      | ✓     |         | ✓           |
-| sq             | Albanian                                   | ✓      |       |         |             |
-| am             | Amharic                                    | ✓      |       |         |             |
-| ar-sa          | Arabic (Saudi Arabia)                      | ✓      | ✓     | ✓       | ✓           |
-| hy             | Armenian                                   | ✓      |       |         |             |
-| as             | Assamese                                   | ✓      |       |         |             |
-| az-Latn        | Azerbaijani (Latin)                        | ✓      |       |         |             |
-| bn-BD          | Bangla (Bangladesh)                        | ✓      |       |         |             |
-| bn-IN          | Bangla (India)                             | ✓      |       |         |             |
-| eu             | Basque                                     | ✓      |       |         |             |
-| be             | Belarusian                                 | ✓      |       |         |             |
-| bs             | Bosnian (Latin)                            | ✓      |       |         |             |
-| bg             | Bulgarian                                  | ✓      | ✓     |         | ✓           |
-| ca             | Catalan Spanish                            | ✓      |       |         |             |
-| ku-Arab        | Central Kurdish                            | ✓      |       |         |             |
-| zh-Hant        | Chinese (Traditional)                      | ✓      |       |         |             |
-| zh-HanT-TW     | Chinese (Traditional, Taiwan)              | ✓      | ✓     |         | ✓           |
-| hr             | Croatian                                   | ✓      |       |         |             |
-| cs             | Czech                                      | ✓      | ✓     | ✓       | ✓           |
-| da             | Danish                                     | ✓      | ✓     | ✓       | ✓           |
-| prs-Arab       | Dari                                       | ✓      |       |         |             |
-| nl-BE          | Dutch (Belgium)                            | ✓      |       |         |             |
-| nl-NL          | Dutch (Netherlands)                        | ✓      | ✓     | ✓       | ✓           |
-| en-NZ          | English (New Zealand)                      |        |       | ✓       |             |
-| en-GB          | English (United Kingdom)                   | ✓      | ✓     | ✓       | ✓           |
-| en-US          | English (United States)                    | ✓      | ✓     | ✓       | ✓           |
-| et             | Estonian                                   | ✓      |       | ✓       |             |
-| fil-Latn       | Filipino                                   | ✓      |       |         |             |
-| fi             | Finnish                                    | ✓      | ✓     | ✓       | ✓           |
-| fr-CA          | French (Canada)                            | ✓      |       |         |             |
-| fr-FR          | French (France)                            | ✓      | ✓     | ✓       | ✓           |
-| gl             | Galician                                   | ✓      |       |         |             |
-| ka             | Georgian                                   | ✓      |       |         |             |
-| de-de          | German (Germany)                           | ✓      | ✓     | ✓       | ✓           |
-| el             | Greek                                      | ✓      | ✓     | ✓       | ✓           |
-| gu             | Gujarati                                   | ✓      |       |         |             |
-| ha-Latn        | Hausa (Latin)                              | ✓      |       |         |             |
-| he             | Hebrew                                     | ✓      |       | ✓       |             |
-| hi             | Hindi                                      | ✓      |       |         |             |
-| hu             | Hungarian                                  | ✓      | ✓     | ✓       | ✓           |
-| is             | Icelandic                                  | ✓      |       |         |             |
-| ig-Latn        | Igbo                                       | ✓      |       |         |             |
-| id             | Indonesian                                 | ✓      | ✓     | ✓       | ✓           |
-| ga             | Irish                                      | ✓      |       |         |             |
-| xh             | isiXhosa                                   | ✓      |       |         |             |
-| zu             | isiZulu                                    | ✓      |       |         |             |
-| it             | Italian (Italy)                            | ✓      | ✓     | ✓       | ✓           |
-| ja             | Japanese                                   | ✓      |       |         |             |
-| qut-Latn       | K’iche’                                    | ✓      |       |         |             |
-| kn             | Kannada                                    | ✓      |       |         |             |
-| kk             | Kazakh                                     | ✓      |       |         |             |
-| km             | Khmer                                      | ✓      |       |         |             |
-| rw             | Kinyarwanda                                | ✓      |       |         |             |
-| sw             | Kiswahili                                  | ✓      |       |         |             |
-| kok            | Konkani                                    | ✓      |       |         |             |
-| ko             | Korean                                     | ✓      | ✓     |         | ✓           |
-| ky-Cyrl        | Kyrgyz                                     | ✓      |       |         |             |
-| lv             | Latvian                                    | ✓      |       | ✓       |             |
-| lt             | Lithuanian                                 | ✓      | ✓     | ✓       | ✓           |
-| lb             | Luxembourgish                              | ✓      |       |         |             |
-| mk             | Macedonian                                 | ✓      |       |         |             |
-| ms             | Malay (Malaysia)                           | ✓      | ✓     |         | ✓           |
-| ml             | Malayalam                                  | ✓      |       |         |             |
-| mt             | Maltese                                    | ✓      |       |         |             |
-| mi-Latn        | Maori                                      | ✓      |       |         |             |
-| mr             | Marathi                                    | ✓      |       |         |             |
-| mn-Cyrl        | Mongolian (Cyrillic)                       | ✓      |       |         |             |
-| ne             | Nepali (Nepal)                             | ✓      |       |         |             |
-| nb             | Norwegian (Bokmål)                         | ✓      | ✓     | ✓       | ✓           |
-| nn             | Norwegian (Nynorsk)                        | ✓      |       |         |             |
-| or             | Odia                                       | ✓      |       |         |             |
-| fa             | Persian                                    | ✓      |       |         |             |
-| pl             | Polish                                     | ✓      | ✓     | ✓       | ✓           |
-| pt-BR          | Portuguese (Brazil)                        | ✓      | ✓     |         | ✓           |
-| pt-PT          | Portuguese (Portugal)                      | ✓      | ✓     | ✓       | ✓           |
-| pa-Arab        | Punjabi (Arabic)                           | ✓      |       |         |             |
-| pa             | Punjabi (Gurmukhi)                         | ✓      |       |         |             |
-| quz            | Quechua (Peru)                             | ✓      |       |         |             |
-| ro             | Romanian (Romania)                         | ✓      |       | ✓       |             |
-| ru             | Russian                                    | ✓      | ✓     | ✓       | ✓           |
-| gd-Latn        | Scottish Gaelic                            | ✓      |       |         |             |
-| sr-Cyrl-BA     | Serbian (Cyrillic, Bosnia and Herzegovina) | ✓      |       |         |             |
-| sr-Cyrl-RS     | Serbian (Cyrillic, Serbia)                 | ✓      |       |         |             |
-| sr-Latn-RS     | Serbian (Latin, Serbia)                    | ✓      |       |         |             |
-| nso            | Sesotho sa Leboa                           | ✓      |       |         |             |
-| tn             | Setswana                                   | ✓      |       |         |             |
-| sd-Arab        | Sindhi (Arabic)                            | ✓      |       |         |             |
-| si             | Sinhala                                    | ✓      |       |         |             |
-| sk             | Slovak                                     | ✓      | ✓     | ✓       | ✓           |
-| sl             | Slovenian                                  | ✓      | ✓     |         | ✓           |
-| es-MX          | Spanish (Mexico)                           | ✓      | ✓     |         | ✓           |
-| es-ES          | Spanish (Spain)                            | ✓      | ✓     | ✓       | ✓           |
-| sv             | Swedish (Sweden)                           | ✓      | ✓     | ✓       | ✓           |
-| tg-Cyrl        | Tajik (Cyrillic)                           | ✓      |       |         |             |
-| ta             | Tamil                                      | ✓      |       |         |             |
-| tt-Cyrl        | Tatar (Cyrillic)                           | ✓      |       |         |             |
-| te             | Telugu                                     | ✓      |       |         |             |
-| th             | Thai                                       | ✓      | ✓     | ✓       | ✓           |
-| ti             | Tigrinya                                   | ✓      |       |         |             |
-| tr             | Turkish                                    | ✓      | ✓     | ✓       | ✓           |
-| tk-Latn        | Turkmen (Latin)                            | ✓      |       |         |             |
-| uk             | Ukrainian                                  | ✓      |       |         |             |
-| ur             | Urdu                                       | ✓      |       |         |             |
-| ug-Arab        | Uyghur                                     | ✓      |       |         |             |
-| uz-Latn        | Uzbek (Latin)                              | ✓      |       |         |             |
-| ca-ES-valencia | Valencian                                  | ✓      |       |         |             |
-| vi             | Vietnamese                                 | ✓      |       |         |             |
-| cy             | Welsh                                      | ✓      |       |         |             |
-| wo             | Wolof                                      | ✓      |       |         |             |
-| yo-Latn        | Yoruba                                     | ✓      |
+| Culture        | Language                                   | Search | Autocomplete | Route | Traffic | Truck Route |
+|----------------|--------------------------------------------|:------:|:-----------:|:-----:|:-------:|:-----------:|
+| af             | Afrikaans                                  | ✓      | ✓           | ✓    |         | ✓           |
+| sq             | Albanian                                   | ✓      | ✓           |       |         |             |
+| am             | Amharic                                    | ✓      | ✓           |       |         |             |
+| ar-sa          | Arabic (Saudi Arabia)                      | ✓      | ✓           | ✓    | ✓       | ✓           |
+| hy             | Armenian                                   | ✓      | ✓           |       |         |             |
+| as             | Assamese                                   | ✓      | ✓           |       |         |             |
+| az-Latn        | Azerbaijani (Latin)                        | ✓      | ✓           |       |         |             |
+| bn-BD          | Bangla (Bangladesh)                        | ✓      | ✓           |       |         |             |
+| bn-IN          | Bangla (India)                             | ✓      |             |       |         |             |
+| eu             | Basque                                     | ✓      | ✓           |       |         |             |
+| be             | Belarusian                                 | ✓      | ✓           |       |         |             |
+| bs             | Bosnian (Latin)                            | ✓      | ✓           |       |         |             |
+| bg             | Bulgarian                                  | ✓      | ✓           | ✓    |         | ✓           |
+| my             | Burmese                                    |        | ✓           |       |         |             |
+| ca             | Catalan Spanish                            | ✓      | ✓           |       |         |             |
+| ku-Arab        | Central Kurdish                            | ✓      | ✓           |       |         |             |
+| chr            | Cherokee                                   |        | ✓           |       |         |             |
+| zh-Hans        | Chinese (Simplified)                       |        |             |       |         |             |
+| zh-Hant        | Chinese (Traditional)                      | ✓      |             |       |         |             |
+| zh-HanT-TW     | Chinese (Traditional, Taiwan)              | ✓      |             | ✓     |         | ✓           |
+| hr             | Croatian                                   | ✓      | ✓           |       |         |             |
+| cs             | Czech                                      | ✓      | ✓           | ✓     | ✓      | ✓           |
+| da             | Danish                                     | ✓      | ✓           | ✓     | ✓      | ✓           |
+| prs-Arab       | Dari                                       | ✓      | ✓           |       |         |             |
+| nl-BE          | Dutch (Belgium)                            | ✓      |             |       |         |             |
+| nl-NL          | Dutch (Netherlands)                        | ✓      | ✓           | ✓     | ✓      | ✓           |
+| en-NZ          | English (New Zealand)                      |        |             |       | ✓       |             |
+| en-GB          | English (United Kingdom)                   | ✓      | ✓           | ✓     | ✓      | ✓           |
+| en-US          | English (United States)                    | ✓      | ✓           | ✓     | ✓      | ✓           |
+| et             | Estonian                                   | ✓      | ✓           |       | ✓      |             |
+| fo             | Faroese                                    |        | ✓           |       |         |             |
+| fil-Latn       | Filipino                                   | ✓      | ✓           |       |         |             |
+| fi             | Finnish                                    | ✓      | ✓           | ✓     | ✓      | ✓           |
+| fr-CA          | French (Canada)                            | ✓      |             |       |         |             |
+| fr-FR          | French (France)                            | ✓      | ✓           | ✓     | ✓      | ✓           |
+| fy             | Frisian                                    |        | ✓           |       |         |             |
+| gl             | Galician                                   | ✓      | ✓           |       |         |             |
+| ka             | Georgian                                   | ✓      | ✓           |       |         |             |
+| de-de          | German (Germany)                           | ✓      | ✓           | ✓     | ✓      | ✓           |
+| el             | Greek                                      | ✓      | ✓           | ✓     | ✓      | ✓           |
+| kl             | Greenlandic                                |        | ✓           |       |         |             |
+| gu             | Gujarati                                   | ✓      | ✓           |       |         |             |
+| ha-Latn        | Hausa (Latin)                              | ✓      | ✓           |       |         |             |
+| haw            | Hawaiian                                   |        | ✓           |       |         |             |
+| he             | Hebrew                                     | ✓      | ✓           |       | ✓       |             |
+| hi             | Hindi                                      | ✓      | ✓           |       |         |             |
+| hu             | Hungarian                                  | ✓      | ✓           | ✓     | ✓      | ✓           |
+| is             | Icelandic                                  | ✓      | ✓           |       |         |             |
+| ig-Latn        | Igbo                                       | ✓      | ✓           |       |         |             |
+| id             | Indonesian                                 | ✓      | ✓           | ✓     | ✓      | ✓           |
+| iu             | Inuktitut                                  |        | ✓           |       |         |             |
+| ga             | Irish                                      | ✓      | ✓           |       |         |             |
+| xh             | isiXhosa                                   | ✓      | ✓           |       |         |             |
+| zu             | isiZulu                                    | ✓      | ✓           |       |         |             |
+| it             | Italian (Italy)                            | ✓      | ✓           | ✓     | ✓      | ✓           |
+| ja             | Japanese                                   | ✓      |             |       |         |             |
+| qut-Latn       | K'iche'                                    | ✓      |             |       |         |             |
+| kn             | Kannada                                    | ✓      | ✓           |       |         |             |
+| kk             | Kazakh                                     | ✓      | ✓           |       |         |             |
+| km             | Khmer                                      | ✓      | ✓           |       |         |             |
+| rw             | Kinyarwanda                                | ✓      | ✓           |       |         |             |
+| sw             | Kiswahili                                  | ✓      | ✓           |       |         |             |
+| kok            | Konkani                                    | ✓      | ✓           |       |         |             |
+| ko             | Korean                                     | ✓      |             | ✓     |        | ✓           |
+| ky-Cyrl        | Kyrgyz                                     | ✓      | ✓           |       |         |             |
+| lo             | Lao                                        |        | ✓           |       |         |             |
+| lv             | Latvian                                    | ✓      | ✓           |       | ✓      |             |
+| lt             | Lithuanian                                 | ✓      | ✓           | ✓     | ✓      | ✓           |
+| lb             | Luxembourgish                              | ✓      | ✓           |       |         |             |
+| mk             | Macedonian                                 | ✓      | ✓           |       |         |             |
+| ms             | Malay (Malaysia)                           | ✓      | ✓           | ✓     |        | ✓           |
+| ml             | Malayalam                                  | ✓      | ✓           |       |         |             |
+| mt             | Maltese                                    | ✓      | ✓           |       |         |             |
+| mi-Latn        | Maori                                      | ✓      | ✓           |       |         |             |
+| mr             | Marathi                                    | ✓      | ✓           |       |         |             |
+| mn-Cyrl        | Mongolian (Cyrillic)                       | ✓      | ✓           |       |         |             |
+| ne             | Nepali (Nepal)                             | ✓      | ✓           |       |         |             |
+| nb             | Norwegian (Bokmål)                         | ✓      | ✓           | ✓    | ✓       | ✓           |
+| nn             | Norwegian (Nynorsk)                        | ✓      | ✓           |       |         |             |
+| or             | Odia                                       | ✓      | ✓           |       |         |             |
+| ps             | Pashto                                     |        | ✓           |       |         |             |
+| fa             | Persian                                    | ✓      | ✓           |       |         |             |
+| pl             | Polish                                     | ✓      | ✓           | ✓    | ✓       | ✓           |
+| pt             | Portuguese                                 |        | ✓           |       |         |             |
+| pt-BR          | Portuguese (Brazil)                        | ✓      | ✓           | ✓    |         | ✓           |
+| pt-PT          | Portuguese (Portugal)                      | ✓      | ✓           | ✓    | ✓       | ✓           |
+| pa-Arab        | Punjabi (Arabic)                           | ✓      | ✓           |       |         |             |
+| pa             | Punjabi (Gurmukhi)                         | ✓      | ✓           |       |         |             |
+| quz            | Quechua (Peru)                             | ✓      | ✓           |       |         |             |
+| ro             | Romanian (Romania)                         | ✓      | ✓           |       | ✓       |             |
+| rm             | Romansh                                    |        | ✓           |       |         |             |
+| ru             | Russian                                    | ✓      | ✓           | ✓    | ✓       | ✓           |
+| se             | Sami (Northern)                            |        | ✓           |       |         |             |
+| sa             | Sanskrit                                   |        | ✓           |       |         |             |
+| gd-Latn        | Scottish Gaelic                            | ✓      | ✓           |       |         |             |
+| sr             | Serbian                                    |        | ✓           |       |         |             |
+| sr-Cyrl-BA     | Serbian (Cyrillic, Bosnia and Herzegovina) | ✓      | ✓           |       |         |             |
+| sr-Cyrl-RS     | Serbian (Cyrillic, Serbia)                 | ✓      |             |       |         |             |
+| sr-Latn-RS     | Serbian (Latin, Serbia)                    | ✓      | ✓           |       |         |             |
+| nso            | Sesotho sa Leboa                           | ✓      | ✓           |       |         |             |
+| tn             | Setswana                                   | ✓      | ✓           |       |         |             |
+| sd-Arab        | Sindhi (Arabic)                            | ✓      | ✓           |       |         |             |
+| si             | Sinhala                                    | ✓      | ✓           |       |         |             |
+| sk             | Slovak                                     | ✓      | ✓           | ✓    | ✓       | ✓           |
+| sl             | Slovenian                                  | ✓      | ✓           | ✓    |         | ✓           |
+| es-MX          | Spanish (Mexico)                           | ✓      |             | ✓     |         | ✓           |
+| es-ES          | Spanish (Spain)                            | ✓      | ✓           | ✓    | ✓       | ✓           |
+| sv             | Swedish (Sweden)                           | ✓      | ✓           | ✓    | ✓       | ✓           |
+| syr            | Syriac                                     |        | ✓           |       |         |             |
+| tg-Cyrl-TJ     | Tajik (Cyrillic)                           | ✓      | ✓           |       |         |             |
+| ta             | Tamil                                      | ✓      | ✓           |       |         |             |
+| tt-Cyrl        | Tatar (Cyrillic)                           | ✓      | ✓           |       |         |             |
+| te             | Telugu                                     | ✓      | ✓           |       |         |             |
+| th             | Thai                                       | ✓      | ✓           | ✓     | ✓       | ✓           |
+| bo             | Tibetan                                    |        | ✓           |       |         |             |
+| ti             | Tigrinya                                   | ✓      | ✓           |       |         |             |
+| to             | Tongan                                     |        | ✓           |       |         |             |
+| tr             | Turkish                                    | ✓      | ✓           | ✓     | ✓       | ✓           |
+| tk-Latn        | Turkmen (Latin)                            | ✓      | ✓           |       |         |             |
+| uk             | Ukrainian                                  | ✓      | ✓           |       |         |             |
+| ur             | Urdu                                       | ✓      | ✓           |       |         |             |
+| ug-Arab        | Uyghur                                     | ✓      | ✓           |       |         |             |
+| uz-Latn        | Uzbek (Latin)                              | ✓      | ✓           |       |         |             |
+| ca-ES-valencia | Valencian                                  | ✓      | ✓           |       |         |             |
+| vi             | Vietnamese                                 | ✓      | ✓           |       |         |             |
+| cy             | Welsh                                      | ✓      | ✓           |       |         |             |
+| wo             | Wolof                                      | ✓      | ✓           |       |         |             |
+| yo-Latn        | Yoruba                                     | ✓      | ✓           |
 
 ::: zone-end
 
@@ -234,7 +252,7 @@ Azure Maps **View** parameter (also referred to as "user region parameter") is a
 
 ### REST APIs
   
-Configuring the View parameter is required. This parameter determines which set of geopolitically disputed content is returned by Azure Maps services.
+You must configure the View parameter to determine which set of geopolitically disputed content Azure Maps services return.
 
 Affected Azure Maps REST services:
 
@@ -269,6 +287,7 @@ Render
 
 Search
 
+* Get Geocode Autocomplete
 * Get Geocoding
 * Get Geocoding Batch
 * Get Polygon
@@ -286,7 +305,7 @@ Render
 
 You need to have the latest version of Web SDK and configure the View parameter as required. This parameter determines which set of geopolitically disputed content the Azure Maps service returns.
 
-By default, the View parameter is set to **Unified**, even if not defined in the request. Determine the location of your users. Then, set the **View** parameter correctly for that location. Alternatively, you can set 'View=Auto', which returns the map data based on the IP address of the request.  The **View** parameter in Azure Maps must be used in compliance with applicable laws, including those laws about mapping of the country/region where maps, images, and other data and third-party content that you're authorized to access via Azure Maps is made available.
+By default, the View parameter is set to **Unified**, even if not defined in the request. Determine the location of your users. Then, set the **View** parameter correctly for that location. Alternatively, you can set 'View=Auto', which returns the map data based on the IP address of the request. The **View** parameter in Azure Maps must be used in compliance with applicable laws, including those laws about mapping of the country/region where maps, images, and other data and third-party content that you're authorized to access via Azure Maps is made available.
 
 The following table provides supported views.
 
@@ -319,26 +338,26 @@ The following table provides supported views.
 ::: zone pivot="service-latest"
 <!------------------------REST API LATEST VERSIONS ------------------------------------------------->
 
-| View    | Description                                                 | Maps | Search |
-|---------|-------------------------------------------------------------|:----:|:------:|
-| AE      | United Arab Emirates (Arabic View)                          |  ✓   |        |
-| AR      | Argentina (Argentinian View)                                |  ✓   |  ✓     |
-| BH      | Bahrain (Arabic View)                                       |  ✓   |        |
-| IN      | India (Indian View)                                         |  ✓   |  ✓     |
-| IQ      | Iraq (Arabic View)                                          |  ✓   |        |
-| JO      | Jordan (Arabic View)                                        |  ✓   |        |
-| KW      | Kuwait (Arabic View)                                        |  ✓   |        |
-| LB      | Lebanon (Arabic View)                                       |  ✓   |        |
-| MA      | Morocco (Moroccan View)                                     |  ✓   |  ✓     |
-| OM      | Oman (Arabic View)                                          |  ✓   |        |
-| PK      | Pakistan (Pakistani View)                                   |  ✓   |  ✓     |
-| PS      | Palestinian Authority (Arabic View)                         |  ✓   |        |
-| QA      | Qatar (Arabic View)                                         |  ✓   |        |
-| SA      | Saudi Arabia (Arabic View)                                  |  ✓   |        |
-| SY      | Syria (Arabic View)                                         |  ✓   |        |
-| US      | United States of America                                    |      |   ✓    |
-| YE      | Yemen (Arabic View)                                         |  ✓   |        |
-| Auto    | Automatically detect based on request                       |  ✓   |  ✓     |
-| Unified | Unified View (Others)                                       |  ✓   |  ✓     |
+| View    | Description                           | Maps | Search | Autocomplete|
+|---------|---------------------------------------|:----:|:------:|:-----------:|
+| AE      | United Arab Emirates (Arabic View)    | ✓    |        |             |
+| AR      | Argentina (Argentinian View)          | ✓    | ✓      | ✓          |
+| BH      | Bahrain (Arabic View)                 | ✓    |        |             |
+| IN      | India (Indian View)                   | ✓    | ✓      | ✓          |
+| IQ      | Iraq (Arabic View)                    | ✓    |        |             |
+| JO      | Jordan (Arabic View)                  | ✓    |        |             |
+| KW      | Kuwait (Arabic View)                  | ✓    |        |             |
+| LB      | Lebanon (Arabic View)                 | ✓    |        |             |
+| MA      | Morocco (Moroccan View)               | ✓    | ✓      | ✓          |
+| OM      | Oman (Arabic View)                    | ✓    |        |             |
+| PK      | Pakistan (Pakistani View)             | ✓    | ✓      | ✓          |
+| PS      | Palestinian Authority (Arabic View)   | ✓    |        |             |
+| QA      | Qatar (Arabic View)                   | ✓    |        |             |
+| SA      | Saudi Arabia (Arabic View)            | ✓    |        |             |
+| SY      | Syria (Arabic View)                   | ✓    |        |             |
+| US      | United States of America              |      | ✓      |             |
+| YE      | Yemen (Arabic View)                   | ✓    |        |             |
+| Auto    | Automatically detect based on request | ✓    | ✓      |             |
+| Unified | Unified View (Others)                 | ✓    | ✓      |
 
 ::: zone-end

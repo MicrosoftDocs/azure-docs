@@ -7,7 +7,9 @@ ms.topic: tutorial
 ms.service: azure-firewall-manager
 ms.date: 10/22/2020
 ms.author: duau
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 
 # Tutorial: Secure your virtual hub using Azure PowerShell
@@ -26,7 +28,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 - PowerShell 7 or higher
 

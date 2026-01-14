@@ -4,7 +4,7 @@ description: Learn about service limits in Azure API Management, including their
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 09/09/2025
+ms.date: 10/22/2025
 ms.author: danlep
 ai-usage: ai-assisted
 ---
@@ -27,7 +27,9 @@ Resource limits are interrelated and tuned to work together. They prevent any si
 
 ## Changes to service limits in Classic tiers
 
-Starting in November 2025, Azure API Management is updating the service limits in the Classic (Developer, Basic, Standard, and Premium) and Consumption tiers to better reflect the capabilities of the service and help customers make decisions when choosing an API Management tier for their needs. Limits for Classic tiers are published [here](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#limits---api-management-classic-tiers).
+Starting March 2026, Azure API Management will apply updated limits to instances in the Classic tiers (Developer, Basic, Standard, and Premium) and the Consumption tier. These updates align with each tier’s capabilities and help customers choose the right option for their needs.
+
+Current limits for Classic tiers are published [here](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#limits---api-management-classic-tiers). By March 2026, the scope of entities with limits could be reduced.
 
 ### What's changing
 
@@ -55,7 +57,7 @@ If you're approaching or have reached certain resource limits, consider these st
 
 ### Optimize API and operation organization
 
-When counting the number of APIs and API-related resource (such as API operations, backends, tags, and so on), API Management also includes API versions and revisions. Consider the following strategies when approaching limits for these resources:
+When counting the number of APIs and API-related resources (such as API operations, backends, tags, and so on), API Management also includes API versions and revisions. Consider the following strategies when approaching limits for these resources:
 
 * Remove unused API versions or revisions
 * Consolidate or remove operations where appropriate
@@ -73,10 +75,9 @@ If you're consistently hitting resource limits, it may be worth evaluating your 
 
 In some cases, you may want to request an increase to certain service limits. Before doing so, note the following guidelines:
 
+* Explore strategies to address the issue proactively before requesting a limit increase. See the preceding [Strategies to manage resources](#strategies-to-manage-resources) section for more information.
 
-* Explore strategies to address the issue proactively before requesting a limit increase. See the [Strategies to manage resources](#strategies-to-manage-resources) section for more information.
-
-* Consider potential impacts of the limit increase on overall service performance and stability. Increasing a limit might affect service capacity or cause increased latency in some service operations.
+* Consider potential impacts of the limit increase on overall service performance and stability. Increasing a limit might affect your service's capacity or cause increased latency in some service operations.
 
 ### Requesting a limit increase
 

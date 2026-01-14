@@ -47,9 +47,9 @@ These features include:
 
 - Configurable scale range rules: Proxy scale range rules are configurable so you can make sure you have as many instances as your application requires.
 
-- Advanced settings: You can configure advanced settings such as idle time-outs for ingress proxy instances.
+- Advanced settings: You can configure advanced settings such as idle timeouts for ingress proxy instances.
 
-To decide between default and premium ingress mode, you evaluate the resources consumed by the proxy instance considering the requests served. Start by looking at vCPU cores and memory resources consumed by the proxy instance. If your environment sustains the maximum ingress proxy count (default 10) for any extended period, consider switching to premium ingress mode. For more information, see [metrics](metrics.md).
+To decide between default and premium ingress mode, you evaluate the resources consumed by the proxy instance considering the requests served. Start by looking at vCPU cores and memory resources consumed by the proxy instance. If your environment sustains the maximum ingress proxy count (default 10) for any extended period, consider switching to premium ingress mode. For more information, see [metrics](metrics.md). To learn how to configure premium ingress mode, see the [Use premium ingress in Azure Container Apps](premium-ingress.md).
 
 ### Workload profile
 
@@ -86,7 +86,7 @@ With the premium ingress mode enabled, you can also configure the following sett
 | Setting | Description | Minimum | Maximum | Default |
 |---|---|---|---|---|
 | Termination grace period | The amount of time (in seconds) for the container app to finish processing requests before they're canceled during shutdown. | 0 | 3,600 | 500 |
-| Idle request timeout | Idle request time-out in minutes. | 4 | 30 | 4 |
+| Idle request timeout | Idle request timeouts in minutes. | 4 | 30 | 4 |
 | Request header count | Increase this setting if you have clients that send a large number of request headers. | 1 | N/A | 100 |
 
 You should only increase these settings as needed, because raising them could lead to your ingress proxy instances consuming more resources for longer periods of time, becoming more vulnerable to resource exhaustion and denial of service attacks.
@@ -107,12 +107,12 @@ You can configure the ingress for your environment after you create it.
     | Minimum node instances | Enter the [minimum workload profile node instances](#workload-profile). |
     | Maximum node instances | Enter the [maximum workload profile node instances](#workload-profile). |
     | Termination grace period |Enter the [termination grace period in minutes](#advanced-ingress-settings). |
-    | Idle request timeout| Enter the [idle request time-out in minutes](#advanced-ingress-settings). |
+    | Idle request timeout| Enter the [idle request timeout in minutes](#advanced-ingress-settings). |
     | Request header count | Enter the [request header count](#advanced-ingress-settings). |
 
 1. Select **Apply**.
 
-## Rule-based routing (preview)
+## Rule-based routing
 
 With rule-based routing, you create a fully qualified domain name (FQDN) on your container apps environment. You then use rules to route requests to this FQDN to different container apps, depending on the path of each request. This offers the following benefits.
 

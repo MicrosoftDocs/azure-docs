@@ -20,7 +20,7 @@ You need a copy of the SAP software before you can use [SAP Deployment Automatio
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An SAP user account (SAP-User or S-User account) with software download privileges.
 
 ## Configure a key vault

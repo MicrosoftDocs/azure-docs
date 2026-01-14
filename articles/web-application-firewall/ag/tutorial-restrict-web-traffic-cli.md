@@ -6,7 +6,9 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to 
 ms.date: 06/23/2022
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 # Customer intent: "As a cloud architect, I want to configure a Web Application Firewall on an application gateway using the command line, so that I can enhance the security of web applications by protecting against common vulnerabilities and attacks."
 ---
 

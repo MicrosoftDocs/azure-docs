@@ -6,6 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 03/20/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Quickstart: Connect Azure services and store configuration in an App Configuration store
@@ -23,7 +24,7 @@ ms.date: 03/20/2024
 To create a service connection and store configuration in Azure App Configuration with Service Connector, you need:
 
 * Basic knowledge of [using Service Connector](./quickstart-portal-app-service-connection.md)
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * An app hosted on App Service. If you don't have one yet, [create and deploy an app to App Service](../app-service/quickstart-dotnetcore.md)
 * An Azure App Configuration store. If you don't have one, [create an Azure App Configuration store](../azure-app-configuration/quickstart-azure-app-configuration-create.md)
 * An Azure Blob Storage. If you don't have one, [create an Azure Blob Storage](../storage/blobs/storage-quickstart-blobs-portal.md)

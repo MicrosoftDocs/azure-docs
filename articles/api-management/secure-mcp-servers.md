@@ -4,15 +4,16 @@ description: Learn how secure access to MCP servers managed in Azure API Managem
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 08/04/2025
+ms.date: 11/10/2025
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ms.custom:
 ---
 
 # Secure access to MCP servers in API Management
 
-[!INCLUDE [api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 With  [MCP server support in API Management](mcp-server-overview.md), you can expose and govern access to MCP servers and their tools. This article describes how to secure access to MCP servers managed in API Management, including both MCP servers exposed from managed REST APIs and existing MCP servers hosted outside of API Management.
 
@@ -57,7 +58,9 @@ For example, use the [validate-azure-ad-token](validate-azure-ad-token-policy.md
 
 ### Forward tokens to backend
 
-By default, API Management doesn't automatically forward incoming headers such as `Authorization` to an MCP server backend. To forward tokens securely today, you currently have these options: 
+Request headers are automatically forwarded (with certain exclusions) to MCP tool invocations, simplifying integration with downstream APIs that rely on headers for routing, context, or authentication. 
+
+If you require explicit forwarding of the `Authorization` header to validate incoming requests, you can use one of the following approaches:
 
 * Explicitly define `Authorization` as a required header in the API settings and forward the header in the `Outbound` policy. 
 

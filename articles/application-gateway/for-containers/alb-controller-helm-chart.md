@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: release-notes
-ms.date: 7/21/2025
+ms.date: 07/21/2025
 ms.author: mbender
 # Customer intent: As a Kubernetes operator, I want to install the ALB Controller using a Helm chart, so that I can manage Application Load Balancer resources effectively within my container environment.
 ---
@@ -25,13 +25,13 @@ The following parameters are supported for configuration during installation:
 - installGatewayApiCRDs
 - logLevel
 - namespace
-- seucrityPolicyFeatureFlag
+- securityPolicyFeatureFlag
 
 ## Values
 
 | Key | Type | Default | Description |
 | ----- | ------ | --------- | ------------- |
-| albController.controller | object | `{"replicaCount":2,"resource":{"limits":{"cpu":"400m","memory":"400Mi"},"requests":{"cpu":"100m","memory":"200Mi"}},"tolerations":[]}` | ALB Controller parameters |
+| albController.controller | object | `{"nodeSelector":{},"replicaCount":2,"resource":{"limits":{"cpu":"400m","memory":"400Mi"},"requests":{"cpu":"100m","memory":"200Mi"}},"tolerations":[]}` | ALB Controller parameters |
 | albController.controller.nodeSelector | object | {} | nodeselector for alb-cotnroller |
 | albController.controller.replicaCount | int | `2` | ALB Controller's replica count. |
 | albController.controller.resource | object | `{"limits":{"cpu":"400m","memory":"400Mi"},"requests":{"cpu":"100m","memory":"200Mi"}}` | ALB Controller's container resource parameters. |
@@ -45,10 +45,13 @@ The following parameters are supported for configuration during installation:
 | albController.image.pullPolicy | string | `"IfNotPresent"` | Container image pull policy for ALB Controller containers. |
 | albController.image.registry | string | `"mcr.microsoft.com"` | Container image registry for ALB Controller. |
 | albController.imagePullSecrets | list | `[]` |  |
+| albController.init | object | `{"resource":{"limits":{"cpu":"200m","memory":"128Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}}` | init parameters |
+| albController.init.resource | object | `{"limits":{"cpu":"200m","memory":"128Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}` | init container's resource parameters |
 | albController.installGatewayApiCRDs | bool | `true` | A flag to enable/disable installation of Gateway API CRDs. |
 | albController.logLevel | string | `"info"` | Log level of ALB Controller. |
 | albController.namespace | string | `"azure-alb-system"` | Namespace to deploy ALB Controller components in. |
-| albController.securityPolicyFeatureFlag | bool | `true` | Enable Application Load Balancer Security Policy Resource (WAF Preview). |
+| albController.podIdentity | object | `{"clientID":""}` | pod-identity parameters for alb-controller |
+| albController.securityPolicyFeatureFlag | bool | `true` | Enable Application Load Balancer Security Policy Resource. |
 
 ## nodeSelector
 

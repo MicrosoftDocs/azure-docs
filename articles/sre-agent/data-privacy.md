@@ -1,22 +1,16 @@
 ---
-title: Data residency and privacy in Azure SRE Agent (preview)
-description: Learn how Azure SRE Agent handles your data while in preview.
+title: Data residency and privacy in Azure SRE Agent Preview
+description: Learn how Azure SRE Agent handles your data.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: tutorial
-ms.date: 08/29/2025
+ms.date: 11/05/2025
 ms.service: azure
 ---
 
-# Data residency and privacy in Azure SRE Agent (preview)
+# Data residency and privacy in Azure SRE Agent Preview
 
-The following data residency and privacy policies are in effect for Azure SRE Agent while in preview.
-
-By using an SRE Agent, you consent to the product-specific [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## Agent location
-
-During preview, you can only choose to create Azure SRE Agent in the *Sweden Central*, *East US*, and *Australia* regions.
+This article explains how your data is handled by the SRE Agent, including where it is stored, how it is processed, and the privacy measures in place to protect your information.
 
 ## Data residency
 

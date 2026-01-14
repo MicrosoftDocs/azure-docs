@@ -10,7 +10,7 @@ ms.custom:
   - devx-track-azurecli
   - build-2025
 ms.topic: quickstart
-ms.date: 07/12/2023
+ms.date: 10/10/2025
 ms.author: chrupa
 ---
 

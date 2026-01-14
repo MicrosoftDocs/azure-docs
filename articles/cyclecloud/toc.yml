@@ -98,6 +98,8 @@
       href: ./how-to/ccws/connect-to-login-node-with-bastion.md
     - name: How to connect to the CycleCloud Portal through Bastion
       href: ./how-to/ccws/connect-to-portal-with-bastion.md
+    - name: Submit job on CycleCloud with Slurm
+      href: ./how-to/ccws/submit-job-with-slurm.md  
   - name: Cluster Operations
     items:
     - name: Create a Cluster

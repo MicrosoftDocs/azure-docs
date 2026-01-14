@@ -1,17 +1,17 @@
 ---
-title: Create and register MCP servers
-description: Learn how to create and register a Model Context Protocol (MCP) server driven by Azure Logic Apps through API Center. Build tools powered by connector actions for agents and models to use.
+title: Create MCP Servers Based on Workflows
+description: Learn to create and register a Model Context Protocol (MCP) server driven by Azure Logic Apps using API Center. Build tools powered by connector actions for agents and models to use.
 services: logic-apps, azure-api-center
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 09/08/2025
+ms.date: 11/18/2025
 ms.update-cycle: 180-days
-#Customer intent: As an AI developer, I want to create and register an MCP server that provides tools that I build from connector actions in Azure Logic Apps through API Center. AI agents and models can use these tools to complete tasks.
+#Customer intent: As an AI developer working in Azure API Center, I want to create and register an MCP server that provides tools. I can build these tools from connector actions in Azure Logic Apps. AI agents and models can use these tools to complete tasks.
 ---
 
-# Build MCP and register servers in API Center to provide tools driven by Azure Logic Apps (Preview)
+# Create and register MCP servers in API Center based on Azure Logic Apps (preview)
 
 > [!NOTE]
 >
@@ -59,18 +59,16 @@ The following table describes the prerequisites for this guide:
 
 | Prerequisite | Description or notes |
 |--------------|----------------------|
-| Azure account with an active subscription | If you don't have a subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). <br><br>**Important**: Make sure to use the same Azure subscription for the resources required in this scenario. |
+| Azure account with an active subscription | If you don't have a subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). <br><br>**Important**: Make sure to use the same Azure subscription for the resources required in this scenario. |
 | An API center resource | For more information, see [Quickstart: Create your API center - portal](../api-center/set-up-api-center.md). |
 | Access to the API Center portal | To find and view the MCP server that you create, you must set up the API Center portal so you have access. <br><br>This portal is an Azure-managed website that developers and other stakeholders in your organization use to discover the APIs in your API center. After you sign in, you can browse and filter APIs and view API details such as API definitions and documentation. User access to API information is based on Microsoft Entra ID and Azure role-based access control. <br><br>For more information, see the following article and sections: <br><br>- [Set up your API Center portal](../api-center/set-up-api-center-portal.md) <br>- [Enable sign-in to portal by Microsoft Entra users and groups](../api-center/set-up-api-center-portal.md#enable-sign-in-to-portal-by-microsoft-entra-users-and-groups) <br>- [Access the API Center portal](../api-center/set-up-api-center-portal.md#access-the-portal) |
-| Empty Standard logic app resource | This logic app doesn't contain any workflows. See [Limitations and known issues](#limitations-and-known-issues). <br><br>- The MCP capability applies to Standard logic app resources that use any hosting option, such as the Workflow Service Plan. <br><br>- Your logic app resource and API center resource must use the same subscription. <br><br>- Your logic app resource must be running. <br><br>For more information, see [Create an example Standard logic app using the Azure portal](create-single-tenant-workflows-azure-portal.md). |
+| A Standard logic app resource | You can use an existing logic app or create one when set up your MCP server. See [Limitations and known issues](#limitations-and-known-issues). <br><br>- The MCP capability applies to Standard logic app resources that use any hosting option, such as the Workflow Service Plan. <br><br>- Your logic app resource and API center resource must use the same subscription. <br><br>- Your logic app resource must be running. <br><br>For more information, see [Create an example Standard logic app using the Azure portal](create-single-tenant-workflows-azure-portal.md). |
 | MCP client to test access to your MCP server | This guide uses [Visual Studio Code](https://code.visualstudio.com/download). <br><br>**Important**: Make sure to use the latest version of Visual Studio Code for MCP server testing. Visual Studio Code includes generally available MCP support in versions after 1.102. For more information, see [MCP servers in Visual Studio Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers). <br><br>For the example in this guide, you also need the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot). For more information, see the following articles: <br><br>- [Use extensions in Visual Studio Code](https://code.visualstudio.com/docs/getstarted/extensions) <br>- [Set up Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/setup#_set-up-copilot-in-vs-code) <br>- [Get started with GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/getting-started) |
 | Access to the service, system, app, or data source from which to create your MCP server | You need any required credentials for the resource that you use to create the MCP server and tools. <br><br>The example in this guide uses the **Office 365 Outlook** connector. If you don't have a work or school account, you can use the **Outlook.com** connector or another supported email connector. The general steps are the same, but your UX might slightly differ. |
 
 ## Limitations and known issues
 
 For this release, the following list describes restrictions or issues that apply:
-
-- You must currently start with an empty Standard logic app resource to create your MCP server resource.
 
 - You can select only one connector for your MCP server.
 
@@ -90,13 +88,19 @@ For example, suppose you want to create an MCP server with tools that manage con
 
    :::image type="content" source="media/create-mcp-server-api-center/register-mcp-server.png" alt-text="Screenshot shows Azure portal, selected API Center, and selected Register button on Azure Logic Apps tile." lightbox="media/create-mcp-server-api-center/register-mcp-server.png":::
 
-1. On the **Model Context Protocol servers** page, follow these steps:
+1. On the **Register an MCP server with Azure Logic Apps** wizard home page, follow these steps:
 
-   1. Under **Resources**, from the **Logic app** list, select your empty Standard logic app resource.
+   1. In the **Project details** section, provide the following information about your MCP server:
 
-      :::image type="content" source="media/create-mcp-server-api-center/select-empty-logic-app.png" alt-text="Screenshot shows Model Context Protocol servers page with selected empty Standard logic app." lightbox="media/create-mcp-server-api-center/select-empty-logic-app.png":::
+      | Property | Required | Value | Description |
+      |----------|----------|-------|-------------|
+      | **MCP server name** | Yes | <*mcp-server-name*> | The name to use for the MCP server. |
+      | **Description** | Yes | <*mcp-server-description*> | The description about the MCP server's role, purpose, and tasks that the server can perform. This description helps agents and models more accurately identify and choose the appropriate server and tools to use. |
+      | **Logic app** | Yes | <*Standard-logic-app-resource*> | From the list, select an existing Standard logic app to use, or to create a new one, select **Create a logic app**. |
 
-   1. Under **Tools**, in the **Connectors** section, select **Add connector** or **Add**.
+      :::image type="content" source="media/create-mcp-server-api-center/mcp-information.png" alt-text="Screenshot shows MCP wizard and Project details section." lightbox="media/create-mcp-server-api-center/mcp-information.png":::
+
+   1. In the **Tools** section, under **Connectors*, select **Add connector** or **Add**.
 
       :::image type="content" source="media/create-mcp-server-api-center/add-connector.png" alt-text="Screenshot shows Connections section with selected options for Add and Add connector." lightbox="media/create-mcp-server-api-center/add-connector.png":::
 
@@ -114,7 +118,7 @@ For example, suppose you want to create an MCP server with tools that manage con
 
       If you must create a different connection, select **Add new**.
 
-   1. When you're done, select **Save**, which returns you to the **Model Context Protocol servers** page.
+   1. When you're done, select **Save**, which returns you to the **Register an MCP Server with Azure Logic Apps** page.
 
       The **Connectors** section now shows your selected connector. The **Actions** section shows the selected actions that power the tools that your MCP server provides. By default, any parameters for these actions use an LLM as the input source. You can change this input source to user-provided, based on your scenario's needs.
 
@@ -129,7 +133,7 @@ For example, suppose you want to create an MCP server with tools that manage con
         | Section | Description |
         |---------|-------------|
         | **Description** | Describes the purpose for the action-backed tool to help an agent or LLM determine when to use the tool. A default description exists, but you can customize the text for your needs. <br><br>The default text comes from the [connector's API Swagger description](/connectors/connector-reference/connector-reference-logicapps-connectors), for example, [Actions - Office 365 Outlook](/connectors/office365/). |
-        | **Default parameters** | Lists any parameters required to run the tool. For each parameter, the input source options are **Model** and **User**. By default, the model (LLM) provides the inputs. If you select **User**, the appropriate UX appears for you to provide the input source. |
+        | **Default parameters** | Lists any parameters required to run the tool. For each parameter, the input source options are **Model** and **User**. By default, the model (LLM) provides the inputs. If you select **User**, the appropriate UX appears for you to provide the input source. For more information, see [Learn how parameter values resolve at runtime](#runtime-value-resolution). |
         | **Optional parameters** | Select any other parameters that you want to include for the tool. |
 
         The following example shows the description and parameters for the **Send email (V2)** tool:
@@ -142,7 +146,7 @@ For example, suppose you want to create an MCP server with tools that manage con
 
 1. Wait for the notifications that Azure successfully registered your MCP server.
 
-   By default, your MCP server uses the name for the connector that you selected.
+[!INCLUDE [ai-action-parameter-values-runtime](includes/ai-action-parameter-values-runtime.md)]
 
 ## Find and view your MCP server
 

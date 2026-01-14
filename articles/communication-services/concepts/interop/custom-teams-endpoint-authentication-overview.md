@@ -28,7 +28,7 @@ The following sequence diagram details single-tenant authentication.
 
 Before we begin:
 - Alice or her Microsoft Entra administrator needs to give the custom Teams application consent, prior to the first attempt to sign in. Learn more about [consent](../../../active-directory/develop/consent-framework.md).
-- The Azure Communication Services resource admin needs to grant Alice permission to perform her role. Learn more about [Azure RBAC role assignment](../../../role-based-access-control/role-assignments-portal.yml).
+- The Azure Communication Services resource admin needs to grant Alice permission to perform her role. Learn more about [Azure RBAC role assignment](/azure/role-based-access-control/role-assignments-portal).
 
 Steps:
 1. Authenticate Alice using Microsoft Entra ID: Alice is authenticated using a standard OAuth flow with *Microsoft Authentication Library (MSAL)*. If authentication is successful, the client application receives a Microsoft Entra access token, with a value of `A1` and an Object ID of a Microsoft Entra user with a value of `A2`. Tokens are outlined later in this article. Authentication from the developer perspective is explored in this [quickstart](../../quickstarts/manage-teams-identity.md).

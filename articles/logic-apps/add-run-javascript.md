@@ -1,13 +1,15 @@
 ---
 title: Run JavaScript in Workflows
-description: Learn how to run JavaScript code snippets in workflows for custom integration tasks by using Inline Code operations in Azure Logic Apps.
+description: Learn to run JavaScript code snippets in workflows for custom integration tasks by using Inline Code operations in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/19/2025
-ms.custom: devx-track-js
-# Customer intent: As a logic app workflow developer, I want to write and run my own JavaScript code snippets so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
+ms.date: 10/09/2025
+ms.custom:
+  - devx-track-js
+  - sfi-image-nochange
+# Customer intent: As an integration developer working with Azure Logic Apps, I want to write and run my own JavaScript code snippets so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
 ---
 
 # Add and run JavaScript code inline with workflows for Azure Logic Apps
@@ -18,7 +20,7 @@ To perform custom integration tasks inline with your workflow in Azure Logic App
 
 | Action | Language | Language version | Run duration | Data size | Other notes |
 |--------|----------|------------------|--------------|-----------|-------------|
-| **Execute JavaScript Code** | JavaScript | **Standard**: <br>Node.js 16.x.x <br><br>**Consumption**: <br>Node.js 8.11.1 <br><br>For more information, see [Standard built-in objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). | Finishes in 5 seconds or fewer | Handles data up to 50 MB | - Doesn't require working with the [**Variables** actions](logic-apps-create-variables-store-values.md), which are unsupported by the action <br><br>- Doesn't support the `require()` function for running JavaScript |
+| **Execute JavaScript Code** | JavaScript | **Standard**: <br>Node.js 16.x.x <br><br>**Consumption**: <br>Node.js 20.9.0 <br><br>For more information, see [Standard built-in objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). | Finishes in 5 seconds or fewer | Handles data up to 50 MB | - Doesn't require working with the [**Variables** actions](logic-apps-create-variables-store-values.md), which are unsupported by the action <br><br>- Doesn't support the `require()` function for running JavaScript |
 
 To run code that doesn't fit these attributes, you can [create and call a function using Azure Functions](call-azure-functions-from-workflows.md).
 
@@ -38,7 +40,7 @@ The following diagram shows the highlights from an example workflow:
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * The logic app resource with the workflow where you want to add your code snippet. The workflow must already start with a trigger.
 

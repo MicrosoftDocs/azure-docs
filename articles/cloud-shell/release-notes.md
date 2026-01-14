@@ -1,7 +1,7 @@
 ---
 title: Azure Cloud Shell release notes
 description: This article lists the new features and changes released in Azure Cloud Shell.
-ms.date: 06/27/2025
+ms.date: 12/03/2025
 ms.topic: release-notes
 ---
 
@@ -19,6 +19,21 @@ and bug fixes.
 > vulnerability or other critical issue. As with any other tool, if there's a tool you need, you
 > can install them in your Cloud Shell session as long as it doesn't require root access. For
 > installation instructions, consult the documentation for the package you require.
+
+## November 2025
+
+User experience improvements
+
+- You can now use <kbd>Ctrl</kbd>+<kbd>V</kbd> to paste on Windows and Linux. Previously, you had to
+  use <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> to paste.
+- You can now drag and drop files in the new UI. Previously, this feature was only available in the
+  old UI. You can use this to upload individual files, but not folders.
+
+Tool changes
+
+- Az CLI is version 2.79.0
+- PostgreSQL is version 16.10
+- Azure PowerShell is version 14.6.0
 
 ## June 2025
 
@@ -109,21 +124,6 @@ require.
 - [Azure-functions-cli][08]
 
 <!-- link references -->
-[01]: ./get-started/ephemeral.md?tabs=powershell
-[02]: /azure/azure-functions/functions-core-tools-reference?tabs=v2
-[03]: /azure/service-fabric/service-fabric-cli
-[04]: /cli/azure/release-notes-azure-cli
-[05]: /powershell/azure/release-notes-azureps?view=azps-13.1.0&preserve-view=true
-[06]: https://azure.microsoft.com/blog/redis-license-update-what-you-need-to-know/
-[07]: https://developer.hashicorp.com/packer/docs/intro
-[08]: https://github.com/Azure/azure-functions-core-tools
-[09]: https://github.com/Azure/batch-shipyard
-[10]: https://github.com/Azure/blobxfer
-[11]: https://github.com/Azure/CloudShell/blob/master/docs/package-inclusion-guide.md
-[12]: https://github.com/Azure/generator-az-terra-module
-[13]: https://yeoman.io/
-[14]: new-ui-shell-window.md
-<!-- updated link references -->
 [01]: ./get-started/ephemeral.md?tabs=powershell
 [02]: /azure/azure-functions/functions-core-tools-reference?tabs=v2
 [03]: /azure/service-fabric/service-fabric-cli

@@ -47,6 +47,8 @@ If you haven't changed a blob or snapshot's tier, then you're billed for unique 
 
 If you have changed a blob or snapshot's tier, then you're billed for the entire object, regardless of whether the blob and snapshot are eventually in the same tier again. For more information, see [Billing when the blob tier has been explicitly set](#billing-when-the-blob-tier-hasnt-been-explicitly-set).
 
+For storage accounts that leverage the smart tier public preview, versions and snapshots are billed at full content length. For more information, see [Optimize costs with smart tier](access-tiers-smart.md).
+
 For more information about billing details for blob versions, see [Blob versioning](versioning-overview.md).
 
 ### Minimize costs with snapshot management

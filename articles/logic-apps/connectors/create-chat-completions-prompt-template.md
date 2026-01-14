@@ -7,12 +7,12 @@ ms.suite: integration
 ms.reviewers: estfan, shahparth, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 05/06/2025
+ms.date: 10/30/2025
 ms.update-cycle: 180-days
 # Customer intent: I want to create chat completions in Standard workflows by using a prompt template to make answering questions easier. I want to connect to an Azure OpenAI resource and use built-in chat completions operation with the prompt template in Azure Logic Apps.
 ---
 
-# Create chat completions with prompt templates in Standard workflows for Azure Logic Apps (Preview)
+# Create chat completions with prompt templates in Standard workflows for Azure Logic Apps (preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
@@ -82,7 +82,7 @@ To follow the example, download the [sample prompt template and inputs](https://
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A Standard logic app resource with a blank *stateful* workflow, which stores run history and the values for variables, inputs, and outputs that you can use for testing.
 

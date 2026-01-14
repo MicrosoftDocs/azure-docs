@@ -2,16 +2,14 @@
 metadata:
   title: Azure Cache for Redis planning FAQs
   description: Learn the answers to common questions to help you plan for Azure Cache for Redis.
-  
-  
-  
   ms.topic: faq
   ms.date: 05/05/2025
   appliesto:
     - ✅ Azure Cache for Redis
 title: Azure Cache for Redis planning FAQs
 summary: |
-          This article provides answers to common questions about how to plan for Azure Cache for Redis.
+         This article provides answers to common questions about how to plan for Azure Cache for Redis.
+         [!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 sections:
   - name: Ignored
@@ -33,9 +31,9 @@ sections:
           
           | Cloud   | Domain Name System (DNS) suffix for Redis            |
           |---------|---------------------------------|
-          | Public  | *.redis.cache.windows.net       |
+          | Public  | `*.redis.cache.windows.net`       |
           | US Government  | *.redis.cache.usgovcloudapi.net |
-          | 21Vianet Cloud (China)   | *.redis.cache.chinacloudapi.cn  |
+          | 21Vianet Cloud (China)   | `*.redis.cache.chinacloudapi.cn`  |
           
           The Azure Redis Enterprise and Enterprise Flash tiers are available only in the Public cloud.
           

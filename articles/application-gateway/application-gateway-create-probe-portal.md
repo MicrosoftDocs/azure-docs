@@ -8,6 +8,7 @@ ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 06/10/2022
 ms.author: mbender
+ms.custom: sfi-image-nochange
 # Customer intent: As an IT administrator, I want to create a custom health probe for the application gateway using the portal, so that I can monitor the health of backend resources effectively.
 ---
 
@@ -33,7 +34,7 @@ Probes are configured in a two-step process through the portal. The first step i
 
 ### <a name="createprobe"></a>Enter probe properties
 
-1. Sign in to the [Azure portal](https://portal.azure.com). If you don't already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/free)
+1. Sign in to the [Azure portal](https://portal.azure.com). If you don't already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 2. In the Azure portal Favorites pane, select All resources. Select the application gateway in the All resources blade. If the subscription you selected already has several resources in it, you can enter partners.contoso.net in the Filter by name… box to easily access the application gateway.
 
@@ -84,7 +85,7 @@ Probes are configured in a two-step process through the portal. The first step i
 
 ### <a name="createprobe"></a>Create the probe
 
-1. Sign in to the [Azure portal](https://portal.azure.com). If you don't already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/free)
+1. Sign in to the [Azure portal](https://portal.azure.com). If you don't already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 2. In the Azure portal Favorites pane, select **All resources**. Select the application gateway in the **All resources** page. If the subscription you selected already has several resources in it, you can enter partners.contoso.net in the Filter by name… box to easily access the application gateway.
 

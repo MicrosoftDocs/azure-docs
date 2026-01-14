@@ -7,7 +7,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 06/18/2025
+ms.date: 10/07/2025
 ms.custom: devx-track-java, devx-track-extended-java
 ms.author: mametcal
 #Customer intent: As a Java Spring developer, I want to dynamically update my app to use the latest configuration data in App Configuration.
@@ -126,11 +126,11 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `spr
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>5.22.0</version>
+    <version>6.0.0</version>
 </dependency>
 ```
 
-1. To enable refresh update `bootstrap.properties`:
+1. To enable refresh update `application.properties`:
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].monitoring.enabled=true

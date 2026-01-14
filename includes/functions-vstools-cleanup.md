@@ -4,6 +4,7 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/28/2021
 ms.author: glenga
+ms.custom: sfi-image-nochange
 ---
 
 Use the following steps to delete the function app and its related resources to avoid incurring any further costs.

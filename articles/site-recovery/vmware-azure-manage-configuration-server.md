@@ -1,11 +1,11 @@
 ---
 title: Manage the configuration server for disaster recovery with Azure Site Recovery
 description: Learn about the common tasks to manage an on-premises configuration server for disaster recovery of VMware VMs and physical servers to Azure with Azure Site Recovery.
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.author: jsuri
-ms.date: 03/25/2025
+ms.author: v-gajeronika
+ms.date: 12/01/2025
 ms.custom:
   - sfi-image-nochange
   - sfi-ropc-nochange
@@ -114,8 +114,8 @@ The expiry date appears under **Configuration Server health**. For configuration
 ### If certificates have already expired
 
 1. Post expiry, certificates **cannot be renewed from Azure portal**. Before proceeding, ensure all components scale-out process servers, master target servers and mobility agents on all protected machines are on latest versions and are in connected state.
-2. **Follow this procedure only if certificates have already expired.** Login to configuration server, navigate to *C:\ProgramData\ASR\home\svsystems\bin* and execute **RenewCerts** executor tool as administrator.
-3. A PowerShell execution window pops-up and triggers renewal of certificates. This can take up to 15 minutes. Do not close the window until completion of renewal.
+2. **Follow this procedure only if certificates have already expired.** Log in to configuration server, navigate to *C:\ProgramData\ASR\home\svsystems\bin* and execute **RenewCerts** executor tool as administrator.
+3. A PowerShell execution window pops up and triggers renewal of certificates. This can take up to 15 minutes. Do not close the window until completion of renewal.
 
 :::image type="content" source="media/vmware-azure-manage-configuration-server/renew-certificates.png" alt-text="RenewCertificates":::
 
@@ -170,7 +170,7 @@ You run update rollups to update the configuration server. Updates can be applie
 - If you run 9.6 or earlier and you want to upgrade to 9.11, you must first upgrade to version 9.7. before 9.11.
 
 For detailed guidance on Azure Site Recovery components support statement refer [here](./service-updates-how-to.md#support-statement-for-azure-site-recovery).
-Links to update rollups for upgrading to all versions of the configuration server are available [here](./service-updates-how-to.md#links-to-currently-supported-update-rollups).
+Links to update rollups for upgrading to all versions of the configuration server are available [here](/azure/site-recovery/service-updates-how-to#updates-support).
 
 > [!IMPORTANT]
 > With every new version 'N' of an Azure Site Recovery component that is released, all versions below 'N-4' is considered out of support. It is always advisable to upgrade to the latest versions available.</br>

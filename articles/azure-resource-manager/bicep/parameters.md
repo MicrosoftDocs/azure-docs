@@ -228,7 +228,7 @@ To reference the value for a parameter, use the parameter name. The following ex
 ```bicep
 param vaultName string = 'keyVault${uniqueString(resourceGroup().id)}'
 
-resource keyvault 'Microsoft.KeyVault/vaults@2024-11-01' = {
+resource keyvault 'Microsoft.KeyVault/vaults@2025-05-01' = {
   name: vaultName
   ...
 }
@@ -264,7 +264,7 @@ param vNetSettings object = {
   ]
 }
 
-resource vnet 'Microsoft.Network/virtualNetworks@2024-07-01' = {
+resource vnet 'Microsoft.Network/virtualNetworks@2025-01-01' = {
   name: vNetSettings.name
   location: vNetSettings.location
   properties: {

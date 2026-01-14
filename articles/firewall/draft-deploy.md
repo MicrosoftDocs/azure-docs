@@ -40,7 +40,7 @@ The Draft and Deployment feature is designed for specific use cases and has cert
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) to get started.
+- If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) to get started.
 - To use this feature with the Azure CLI, ensure that you have the Azure Firewall extension installed and updated to version [1.2.3 or later](https://github.com/Azure/azure-cli-extensions/releases/tag/azure-firewall-1.2.3).
 
 > [!NOTE]

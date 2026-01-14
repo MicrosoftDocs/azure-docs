@@ -310,6 +310,10 @@ items:
     href: /azure/reliability/reliability-data-factory?toc=/azure/data-factory/toc.json
 - name: How-to guides
   items:
+  - name: Migration
+    items:
+    - name: Pipeline assessment tool
+      href: how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration.md
   - name: Create a data factory in UI
     href: quickstart-create-data-factory.md
   - name: Create Data Factory Programmatically
@@ -379,6 +383,8 @@ items:
         href: connector-lifecycle-overview.md
       - name: Connector upgrade guidance
         href: connector-upgrade-guidance.md
+      - name: Automatic connector upgrade 
+        href: automatic-connector-upgrade.md
       - name: Connector upgrade advisor
         href: connector-upgrade-advisor.md
       - name: Connector release stages and timelines
@@ -952,8 +958,6 @@ items:
     - name: Monitor pipelines with email notifications
       href: how-to-send-email.md
       displayName: logic app
-    - name: Monitor pipelines with Microsoft Teams notifications
-      href: how-to-send-notifications-to-teams.md
     - name: Monitor integration runtime
       href: monitor-integration-runtime.md
     - name: Monitor managed virtual network integration runtime
@@ -1109,8 +1113,6 @@ items:
     items:
     - name: Send email from a pipeline
       href: how-to-send-email.md
-    - name: Send Microsoft Teams notifications from a pipeline
-      href: how-to-send-notifications-to-teams.md
     - name: Data migration for data lake & EDW
       items:
       - name: Why Azure Data Factory

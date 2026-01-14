@@ -3,7 +3,7 @@ title: Manage Azure Native Qumulo
 description: Learn how to manage your Azure Native Qumulo settings.
 
 ms.topic: how-to 
-ms.date: 02/09/2024
+ms.date: 08/17/2025
 ms.custom:
   - ignite-2023
 ---
@@ -38,7 +38,7 @@ Below the essentials, you can navigate to other details about your resource.
 
 ## Manage a resource
 
-To manage your Qumulo file system or to mount your file system for data access, select **Qumulo config** > **IP addresses** from the service menu. 
+To get IP addresses to manage your Qumulo file system or to mount your file system for data access, select **Qumulo config** > **IP addresses** from the service menu.
 
 ## Delete a resource
 

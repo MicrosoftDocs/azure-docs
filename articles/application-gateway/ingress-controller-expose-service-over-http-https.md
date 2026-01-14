@@ -32,7 +32,8 @@ By default, `guestbook` exposes its application through a service with the name 
 
 To deploy the `guestbook` application:
 
-1. Download `guestbook-all-in-one.yaml` from [this GitHub page](https://raw.githubusercontent.com/kubernetes/examples/master/guestbook/all-in-one/guestbook-all-in-one.yaml).
+1. Download `guestbook-all-in-one.yaml` from [this GitHub page](https://github.com/kubernetes/examples/blob/master/web/guestbook/all-in-one/guestbook-all-in-one.yaml).
+
 1. Deploy `guestbook-all-in-one.yaml` into your AKS cluster by running this command:
 
    ```bash

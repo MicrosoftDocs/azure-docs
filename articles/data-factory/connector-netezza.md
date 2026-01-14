@@ -21,7 +21,7 @@ This article outlines how to use Copy Activity in Azure Data Factory or Synapse 
 >For data migration scenario from Netezza to Azure, learn more from [Migrate data from on-premises Netezza server to Azure](data-migration-guidance-netezza-azure-sqldw.md).
 
 > [!IMPORTANT]
-> The Netezza connector version 2.0 provides improved native Netezza support. If you are using the Netezza connector version 1.0 in your solution, please [upgrade your Netezza connector](#upgrade-the-netezza-connector) before **September 30, 2025**. Refer to this [section](#differences-between-netezza-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
+> The Netezza connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Netezza connector](#differences-between-netezza-version-20-and-version-10) from version 1.0 to 2.0.
 
 ## Supported capabilities
 
@@ -54,7 +54,7 @@ For more information about the network security mechanisms and options supported
 
 ### For version 1.0
 
-If your data store is a managed cloud data service, you can use the Azure Integration Runtime. If the access is restricted to IPs that are approved in the firewall rules, you can add [Azure Integration Runtime IPs](azure-integration-runtime-ip-addresses.md) to the allow list. 
+If your data store is a managed cloud data service, you can use the Azure Integration Runtime. If the access is restricted to IPs that are approved in the firewall rules, you can add [Azure Integration Runtime IPs](azure-integration-runtime-ip-addresses.md) to the allowlist. 
 
 You can also use the [managed virtual network integration runtime](tutorial-managed-virtual-network-on-premise-sql-server.md) feature in Azure Data Factory to access the on-premises network without installing and configuring a self-hosted integration runtime.
 
@@ -111,7 +111,7 @@ The Netezza linked service supports the following properties when apply version 
 | server | The hostname or the IP address of the Netezza server. | Yes |
 | port | The port number of the server listener. | Yes |
 | database | Name of the Netezza database. | Yes |
-| uid | The user id used to connect to the database. | Yes |
+| uid | The user ID used to connect to the database. | Yes |
 | pwd | The password used to connect to the database. | Yes |
 | SecurityLevel | The level of security that the driver uses for the connection to the data store. <br>Example: `SecurityLevel=preferredUnSecured`. Supported values are:<br/>- **Only unsecured** (**onlyUnSecured**): The driver doesn't use SSL.<br/>- **Preferred unsecured (preferredUnSecured) (default)**: If the server provides a choice, the driver doesn't use SSL.  | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. You can only use the self-hosted integration runtime. |No |
@@ -367,7 +367,7 @@ The following table shows the release stage and change logs for different versio
 
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
-| Version 1.0 | End of support announced | / |  
+| Version 1.0 | Removed | Not applicable. |
 | Version 2.0 | GA version available | • Only support the self-hosted integration runtime. <br><br>• BYTEINT is read as Int16 data type. <br><br> • DATE is read as Date data type. <br><br>• TIME is read as Time data type. <br><br>• INTERVAL is not supported.|
 
 ### <a name="upgrade-the-netezza-connector"></a> Upgrade the Netezza connector from version 1.0 to version 2.0

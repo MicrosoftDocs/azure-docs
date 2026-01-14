@@ -1,13 +1,13 @@
 ---
 title: Review Azure subscription billing data with REST API
 description: Learn how to use the Cost Details API to review subscription billing details. You can use this asynchronous API to get detailed cost and usage data.
-author: maddieminn
-ms.reviewer: maminn
+author: vikramdesai01
+ms.reviewer: vikdesai
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: article
 ms.date: 07/28/2025
-ms.author: maminn
+ms.author: vikdesai
 # Customer intent: As an administrator or developer, I want to use REST APIs to review subscription billing data for a specified period.
 ---
 

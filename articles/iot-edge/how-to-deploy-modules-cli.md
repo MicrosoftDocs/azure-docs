@@ -6,12 +6,13 @@ ms.author: sethm
 ms.date: 05/08/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge
+services: iot-edge
 ms.custom:
   - devx-track-azurecli
   - ai-gen-docs-bap
   - ai-gen-title
   - ai-seo-date:05/08/2025
-services: iot-edge
+  - sfi-image-nochange
 ---
 
 # Deploy Azure IoT Edge modules using Azure CLI

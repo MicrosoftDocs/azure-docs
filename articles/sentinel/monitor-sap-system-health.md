@@ -1,12 +1,11 @@
 ---
 title: Monitor the health of the connection between Microsoft Sentinel and your SAP system
 description: Use the SAP connector page and a dedicated alert rule template to keep track of your SAP systems' connectivity and performance.
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.topic: how-to
-ms.date: 12/10/2024
+ms.date: 09/30/2025
 ms.service: microsoft-sentinel
-zone_pivot_groups: sentinel-sap-connection
 #customerIntent: As a security engineer, I want to learn how to monitor the health and connectivity of our SAP system connection to Microsoft Sentinel.
 
 ---
@@ -15,22 +14,12 @@ zone_pivot_groups: sentinel-sap-connection
 
 After you [deploy the SAP solution](sap/deployment-overview.md), you want to ensure proper functioning and performance of your SAP systems, and keep track of your system health, connectivity, and performance. This article describes how you can check the connectivity health manually on the data connector page and use a dedicated alert rule template to monitor the health of your SAP systems.
 
-:::zone pivot="connection-agent"
 > [!IMPORTANT]
-> Monitoring the health of your SAP systems is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Monitoring the health of your SAP systems and the agentless data connector for SAP are both currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 For a video demonstration of the procedures in this article, watch the following video:
 <br><br>
 > [!VIDEO https://www.youtube.com/embed/FasuyBSIaQM?si=apdesRR29Lvq6aQM]
-
-:::zone-end
-
-:::zone pivot="connection-agentless"
-
-> [!IMPORTANT]
-> The agentless data connector for SAP is currently in **LIMITED PREVIEW**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-:::zone-end
 
 ## Prerequisites
 
@@ -38,11 +27,9 @@ For a video demonstration of the procedures in this article, watch the following
 
 For more information, see [Connect your SAP system to Microsoft Sentinel](sap/deploy-data-connector-agent-container.md).
 
-:::zone pivot="connection-agent"
+## Check your data connector agent's health and connectivity
 
-## Check your data connector's health and connectivity
-
-This procedure describes how to check your data connector's connection status from the **Microsoft Sentinel for SAP** data connector page.
+This procedure describes how to check your data connector's connection status from the **Microsoft Sentinel for SAP** data connector page, and is relevant only for the data connector agent.
 
 1. In Microsoft Sentinel, select **Data connectors** and search for *Microsoft Sentinel for SAP*.
 
@@ -77,8 +64,6 @@ This procedure describes how to check your data connector's connection status fr
         | **Connected with errors** (yellow icon) | Connection was successful but Microsoft Sentinel detected errors when fetching the system role and doesn't have the details of whether the system is or isn't a production system. |
         | **System not connected** | Microsoft Sentinel was unable to connect to the SAP system, and cannot fetch the system role. In this case, Microsoft Sentinel doesn't have the details of whether the system is or isn't a production system.        |
         | Other statuses that reflect more details about connectivity issues | For example, **System unreachable for over 1 day**. |
-
-:::zone-end
 
 ## View SAP logs streaming into Microsoft Sentinel
 

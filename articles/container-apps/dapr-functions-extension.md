@@ -25,7 +25,7 @@ The [Dapr extension for Azure Functions](../azure-functions/functions-bindings-d
 
 ## Prerequisites
 
-- [An Azure account with an active subscription.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [An Azure account with an active subscription.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Install Azure CLI](/cli/azure/install-azure-cli)
 
 ## Set up the environment

@@ -3,9 +3,9 @@ title: Reference for functions in workflow expressions
 description: Learn about expression functions for workflows in Azure Logic Apps and Power Automate.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, niding, azla
+ms.reviewers: estfan, niding, azla
 ms.topic: reference
-ms.date: 07/08/2025
+ms.date: 10/06/2025
 ---
 
 # Reference guide to functions in expressions for workflows in Azure Logic Apps and Power Automate
@@ -145,6 +145,7 @@ To work with collections, generally arrays, strings, and sometimes, dictionaries
 To work with conditions, compare values and expression results, or evaluate various kinds of logic, you can use these logical comparison functions. For the full reference about each function, see the [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 > [!NOTE]
+>
 > If you use logical functions or conditions to compare values, null values are converted to empty string (`""`) values. The behavior of conditions differs when you compare with an empty string instead of a null value. For more information, see the [string() function](#string).
 
 | Logical comparison function | Task |
@@ -1955,6 +1956,19 @@ float('10.000,333', 'de-DE')
 ```
 
 And returns this result: `10000.333`
+
+*Example 3*
+
+Examples of unexpectedly valid inputs:
+
+```
+float('12,3,4,5678')  //Returns   12345678
+float('1234567,8+')   //Returns   12345678
+float('12345,6,78,-') //Returns  -12345678
+float('-12,345,678,') //Returns  -12345678
+float('12345678.-')   //Returns  -12345678
+float('.12345678')    //Returns 0.12345678
+```
 
 <a name="formatDateTime"></a>
 
@@ -3888,7 +3902,7 @@ slice('Hello World', 3, 3) // Returns ''.
 
 ### sort
 
-Sort items in a collection. You can sort the collection objects using any key that contains a simple type.
+Sort items in a collection. You can sort the collection objects using any key that contains a primitive data type supported by the Workflow Definition Language, such as **int**, **float**, **string**, or **bool**.
 
 ```
 sort([<collection>], <sortBy>?)
@@ -4808,27 +4822,20 @@ Optionally, you can specify a different format with the <*format*> parameter.
 | ------------ | ---- | ----------- |
 | <*current-timestamp*> | String | The current date and time |
 
-*Example 1*
-
-Suppose today is April 15, 2018 at 1:00:00 PM.
-This example gets the current timestamp:
+*Examples*
 
 ```
-utcNow()
+utcNow()                  // Returns 2025-09-25T05:18:31.3384797Z
+utcNow('u')               // Returns 2025-09-25 05:18:31Z
+utcNow('U')               // Returns Thursday, September 25, 2025 5:18:31 AM
+utcNow('d')               // Returns 9/25/2025
+utcNow('D')               // Returns Thursday, September 25, 2025
+utcNow('t')               // Returns 5:18 AM
+utcNow('T')               // Returns 5:18:31 AM
+utcNow('y')               // Returns September 2025
+utcNow('yyyy')            // Returns 2025
+utcNow('ddd, d MMM yyyy') // Returns Thu, 25 Sep 2025
 ```
-
-And returns this result: `"2018-04-15T13:00:00.0000000Z"`
-
-*Example 2*
-
-Suppose today is April 15, 2018 at 1:00:00 PM.
-This example gets the current timestamp using the optional "D" format:
-
-```
-utcNow('D')
-```
-
-And returns this result: `"Sunday, April 15, 2018"`
 
 ## V
 
@@ -4958,6 +4965,96 @@ And returns this result XML:
   <name>Sophia Owen</name>
   <city>Seattle</city>
 <person>
+```
+
+*Example 4*
+
+The `xml()` function expects either an object or a string containing valid XML. The function doesn't accept a raw array as input.
+
+If your data is a JSON string, you can use the `json()` function to convert the string to a JSON object before you pass the result to the `xml()` function, for example:
+
+```
+xml(
+  json('{"root":{"array":[
+    { "ID": 1, "Name": "James" },
+    { "ID": 2, "Name": "John" },
+    { "ID": 3, "Name": "Sam" }
+  ]}}')
+)
+```
+
+If you have a JSON array, like the following example, you have three options.
+
+```json
+[
+  { "ID": 1, "Name": "James" },
+  { "ID": 2, "Name": "John" },
+  { "ID": 3, "Name": "Sam" }
+]
+```
+
+Option 1: Store the JSON array in a **Compose** action named **Compose1**. Then use the `outputs()` function to return a JSON object from **Compose1**.
+
+```
+{
+  "root": { "array": @{outputs('Compose1')} }
+}
+```
+
+Store the returned JSON object in another action named **Compose2**. You can then use the `xml()` and `outputs()` functions to create XML from the JSON object output from **Compose2**, for example: 
+
+```
+xml(outputs('Compose2'))
+```
+
+Option 2: Store the JSON array in a **Compose** action named **Compose1**. Then use the `outputs()`, `concat()`, `json()`, and `xml()` functions to create XML from the JSON object output, for example: 
+
+```
+xml(
+  json(
+    concat(
+      '{"root":{"array":',
+      outputs('Compose1'),
+      '}}'
+    )
+  )
+)
+
+```
+
+Option 3: Store the JSON array in a **Compose** action named **Compose1**. You can then use the `outputs()`, `json()`, `addProperty()`, and `xml()` functions to create XML from the JSON object output, for example: 
+
+```
+xml(
+  addProperty(
+    json('{}'),
+    'root',
+    addProperty(
+      json('{}'),
+      'array',
+      outputs('Compose1')
+    )
+  )
+)
+```
+
+All examples, which include the JSON string data example and options 1 to 3, return the following XML result:
+
+```xml
+<root>
+  <array>
+    <ID>1</ID>
+    <Name>James</Name>
+  </array>
+  <array>
+    <ID>2</ID>
+    <Name>John</Name>
+  </array>
+  <array>
+    <ID>3</ID>
+    <Name>Sam</Name>
+  </array>
+</root>
 ```
 
 <a name="xpath"></a>

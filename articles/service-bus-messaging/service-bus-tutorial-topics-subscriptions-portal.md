@@ -5,7 +5,10 @@ author: spelluru
 ms.author: spelluru
 ms.date: 06/18/2025
 ms.topic: tutorial
-ms.custom: devx-track-csharp, devx-track-dotnet
+ms.custom:
+  - devx-track-csharp
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 #Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 ---
 
@@ -419,7 +422,7 @@ Advance to the next tutorial to learn more about using the publish/subscribe cap
 > [!div class="nextstepaction"]
 > [Respond to events via Event Grid](service-bus-to-event-grid-integration-example.md)
 
-[free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[free account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 

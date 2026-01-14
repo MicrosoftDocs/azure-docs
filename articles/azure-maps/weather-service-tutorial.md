@@ -217,7 +217,7 @@ For a complete list of Azure Maps REST APIs, see [Azure Maps REST APIs].
 [Azure Maps REST APIs]: /rest/api/maps
 [AzureMapsJupyterSamples]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook
 [Daily Forecast]: /rest/api/maps/weather/getdailyforecast
-[free account]: https://azure.microsoft.com/free/
+[free account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [Get Map Image service]: /rest/api/maps/render/get-map-static-image
 [IPython]: https://ipython.readthedocs.io/en/stable/index.html
 [Jupyter Notebook in VS Code]: https://code.visualstudio.com/docs/datascience/jupyter-notebooks

@@ -3,8 +3,8 @@ title: Create a Dev Center and Project for Deployment Environments by Using an A
 description: Learn how to create and configure a dev center and project for Azure Deployment Environments by using an ARM template.
 services: deployment-environments
 ms.service: azure-deployment-environments
-author: thophan-microsoft
-ms.author: thophan
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: quickstart-arm
 ms.custom: subject-armqs, devx-track-arm-template
 ms.date: 07/28/2025
@@ -24,7 +24,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-- An Azure subscription. Create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't have one.
+- An Azure subscription. Create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) if you don't have one.
 - Owner or Contributor role on an Azure subscription or resource group.
 - Microsoft Entra ID. Your organization must use Microsoft Entra ID for identity and access management.
 
@@ -96,7 +96,7 @@ Azure PowerShell is used to deploy the template. You can also use the Azure port
 - *Environment type name*: The name of the environment type for both the dev center and the project.
 - *User object ID*: The object ID of a user that's granted the *Deployment Environments User* role.
 
-Alternatively, you can provide access to the deployment environments project in the Azure portal. See [Provide user access to Azure Deployment Environments projects](./how-to-configure-deployment-environments-user.md).
+Alternatively, you can provide access to the deployment environments project in the Azure portal. See [Provide user access to Azure Deployment Environments projects](./how-to-manage-deployment-environments-access.md).
 
 ## Review deployed resources
 

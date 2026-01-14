@@ -16,6 +16,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-devguide-messaging.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-devguide-messages-construct",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-devguide.md",
+      "redirect_url": "/azure/iot-hub",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-translator.md",
       "redirect_url": "/azure/iot/tutorial-devkit-mxchip-az3166-iot-hub",
       "redirect_document_id": false
@@ -298,11 +308,31 @@
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-auto-device-config.md",
       "redirect_url": "/azure/iot-hub/iot-hub-automatic-device-management",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-auto-device-config-cli.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-automatic-device-management-cli",
+      "redirect_url": "/azure/iot-hub/iot-hub-automatic-device-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-auto-device-management-cli.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-automatic-device-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-automatic-device-management-cli.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-automatic-device-management",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-configure-file-upload-cli.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-configure-file-upload",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-configure-file-upload-powershell.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-configure-file-upload",
       "redirect_document_id": true
     },
     {
@@ -328,6 +358,11 @@
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-device-sdk-c-iothubclient.md",
       "redirect_url": "/azure/iot/tutorial-connect-device?pivots=programming-language-ansi-c",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-devguide-no-sdk.md",
+      "redirect_url": "/azure/iot-hub/",
       "redirect_document_id": false
     },
     {
@@ -358,6 +393,11 @@
     {
       "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-proxy-c.md",
       "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-preview-mode.md",
+      "redirect_url": "/azure/iot-hub/",
       "redirect_document_id": false
     },
     {

@@ -40,7 +40,7 @@ This model ensures that emergency services can reliably identify and reconnect w
 
 A **shared calling policy** allows multiple users or endpoints to share a pool of phone numbers through a central routing model. Instead of being tied to a specific user, the number is associated with a shared service such as a call queue or auto attendant.  
 
-For more details on shared calling plans, see [Shared Calling Plan](https://learn.microsoft.com/microsoftteams/shared-calling-plan).  
+For more details on shared calling plans, see [Shared Calling Plan](/microsoftteams/shared-calling-plan).  
 
 ### Emergency Call Behavior for Shared Calling Policy  
 - In a shared calling policy, a **temporary emergency callback number** must be configured.  

@@ -3,7 +3,7 @@ title: Create modular runbooks in Azure Automation
 description: This article explains how to create a runbook that another runbook calls.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/21/2022
+ms.date: 11/17/2025
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer, I want create modular runbooks so that I can be more efficient.

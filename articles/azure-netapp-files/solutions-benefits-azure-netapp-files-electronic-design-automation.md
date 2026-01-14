@@ -6,53 +6,65 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: concept-article
-ms.date: 10/18/2024
+ms.date: 10/13/2025
 ms.author: anfdocs
 # Customer intent: As an EDA engineer, I want to utilize Azure NetApp Files for scalable storage solutions, so that I can improve workload performance and reduce time to market for semiconductor designs.
 ---
 # Benefits of using Azure NetApp Files for Electronic Design Automation (EDA)
 
-Innovation is an identifying hallmark of the semiconductor industry. Such innovation allowed Gordon Moore's 1965 tenet known as Moore's Law to hold true for more than fifty years, namely that one can expect processing speeds to double approximately every year or two. For instance, innovation in the semiconductor industry has helped evolve Moore’s Law by stacking chips into smaller form factors to scale performance to once-unimaginable levels through parallelism. 
+Innovation is an identifying hallmark of the semiconductor industry. Such innovation allowed Gordon Moore's 1965 tenet known as Moore's Law to hold true for more than fifty years, namely that one can expect processing speeds to double approximately every year or two. For instance, innovation in the semiconductor industry has helped evolve Moore’s Law by stacking chips into smaller form factors to scale performance to once-unimaginable levels through parallelism.
 
-Semiconductor (or Electronic Design Automation [EDA]) firms are most interested in time to market (TTM). TTM is often predicated upon the time it takes for workloads, such as chip design validation and pre-foundry work like tape-out to complete. TTM concerns also help keeps EDA licensing costs down: less time spent on work means more time available for the licenses. That said, the more bandwidth and capacity available to the server farm, the better. 
+Semiconductor (or Electronic Design Automation [EDA]) firms are most interested in time to market (TTM). TTM is often predicated upon the time it takes for workloads, such as chip design validation and pre-foundry work like tape-out to complete. TTM concerns also help keep EDA licensing costs down: less time spent on work means more time available for the licenses. That said, the more bandwidth and capacity available to the server farm, the better.
 
-Azure NetApp Files helps reduce the time EDA jobs take with a highly performant, parallelized file system solution: [Azure NetApp Files large volumes](large-volumes-requirements-considerations.md). Recent EDA benchmark tests show that a single large volume is 20 times more performant than previously achievable with a single Azure NetApp Files regular volume.  
+Azure NetApp Files helps reduce the time EDA jobs take with a highly performant, parallelized file system solution: [Azure NetApp Files large volumes](large-volumes-requirements-considerations.md). Recent EDA benchmark tests show that a single large volume is 19 times more performant than previously achievable with a single Azure NetApp Files regular volume. Also, when multiple large volumes are added and sufficient compute and storage resources are available in co-located setup, the architecture can scale seamlessly.  
 
-The Azure NetApp Files large volumes feature is ideal for the storage needs of this most demanding industry, namely:  
+The Azure NetApp Files large volumes feature is ideal for the storage needs of this most demanding industry, namely:
 
 * **Large capacity single namespace:** Each volume offers up to 1 PiB of usable capacity under a single mount point. You can [request a 2 PiB large volume](large-volumes-requirements-considerations.md).
 
-* **High I/O rate, low latency:** In testing using an EDA simulation benchmark, a single large volume delivered over 650K storage IOPS with less than 2 milliseconds of application latency. In a typical EDA workload, IOPS consists of a mixture or file creates, reads, writes, and a significant amount of other metadata operation. This result is considered to be enterprise-grade performance for many customers. This performance improvement is made possible by the way large volumes are able to parallelize incoming write operations across storage resources in Azure NetApp Files. Though many firms require 2ms or better response time, chip design tools can tolerate higher latency than this without impact to business.  
+* **High I/O rate, low latency:** In testing using an EDA simulation benchmark, a single large volume delivered over 740K storage IOPS with less than 2 milliseconds of application latency. In a typical EDA workload, IOPS consists of a mixture of file creates, reads, writes, and a significant amount of other metadata operations. This result is considered to be enterprise-grade performance for many customers. This performance improvement is made possible by the way large volumes are able to parallelize incoming write operations across storage resources in Azure NetApp Files. Though many firms require 2ms or better response time, chip design tools can tolerate higher latency than this without impact on business. 
 
-* **At 826,000 operations per second:** the performance edge of a single large volume - the application layer peaked at 7ms of latency in our tests, which shows that more operations are possible in a single large volume at a slight cost of latency. 
+* **At 792,046 operations per second:** the performance edge of a single large volume - the application layer peaked at 2.4ms of latency in our tests, which shows that more operations are possible in a single large volume at a slight cost of latency. 
 
-Tests conducted using an EDA benchmark found that with a single regular Azure NetApp Files volume, workload as high as 40,000 IOPS could be achieved at the 2ms mark, and 50,000 at the edge. See the following table and chart for regular and large volumes side-by-side overview.
+Tests conducted using an EDA benchmark found that with a single regular Azure NetApp Files volume, workload as high as 40,000 IOPS could be achieved at the 2ms mark, and 50,000 at the edge. See the following table and chart for regular and one large volume configuration side-by-side overview.
 
 
-| Scenario | I/O Rate at 2ms latency | I/O Rate at performance edge (~7 ms) | MiB/s at 2ms latency | MiB/s performance edge (~7 ms) | 
+| Scenario | I/O Rate at 2ms latency | I/O Rate at performance edge (~3 ms) | MiB/s at 2ms latency | MiB/s performance edge (~7 ms) | 
 | - | - | - | - | - |
 | One regular volume | 39,601  | 49,502 | 692 | 866  |
-|  large volume  | 652,260 | 826,379  | 10,030 | 12,610  |
+| One large volume  | 742,541 | 742,541  | 11,699 | 12,480  |
 
 The following chart illustrates the test results. 
 
-:::image type="content" source="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/latency-throughput-graph.png" alt-text="Chart comparing latency and throughput between large and regular volumes." lightbox="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/latency-throughput-graph.png":::
+:::image type="content" source="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/latency-throughput-graph-single-volume.png" alt-text="Chart comparing latency and throughput between large and regular volumes." lightbox="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/latency-throughput-graph-single-volume.png":::
 
-The regular volume testing also explored single endpoint limits, the limits were reached with six volumes. Large Volume outperforms the scenario with six regular volumes by 260%. The following table illustrates these results.
+A single Large Volume outperforms the scenario with six regular volumes by 249%. With six large volumes, the performance scaling was linear when compared to a single large volume. The following table and chart illustrate the results for six regular volumes, one large volume, and six large volumes: 
+
 
 | Scenario	| I/O Rate at 2ms latency | I/O Rate at performance edge (~7ms) | MiB/s at 2ms latency | MiB/s performance edge (~7ms) |
 | - | - | - | - | - | 
 | Six regular volumes	| 255,613 | 317,000 | 4,577 | 5,688 |
-| One large volume | 652,260 | 826,379 | 10,030 | 12,610 | 
+| One large volume | 742,541 | 742,541 | 11,699 | 12,480 | 
+| Six large volume | 4,435,382 | 4,745,453 | 69,892 | 74,694 |
 
+:::image type="content" source="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/latency-throughput-graph-six-large-volumes.png" alt-text="Chart comparing latency and throughput between one large, one regular, and six large volumes." lightbox="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/latency-throughput-graph-six-large-volumes.png":::
 
 ## Simplicity at scale
 
-With a large volume, performance isn't the entire story. Simple performance is the end goal. Customers prefer a single namespace/mount point as opposed to managing multiple volumes for ease of use and application management. 
+With a large volume, performance isn't the entire story. Simple performance is the end goal. 
+
+## Seamless scaling
+
+The results demonstrate that Azure NetApp Files delivered horizontal scalability for both throughput and operations/second. Each large volume deploys a dedicated storage endpoint which enables performance to scale linearly without sacrificing latency.
+
+| Metric	| Large volume | Large volume scale | Factor | 
+| - | - | - | - |  
+| Throughput (MB/s)	| 12,780 | 76,487 | 5.98 | 
+| Operations/second | 792,046 | 4,745,453 | 5.99 |  
 
 ## Testing tool
 
-The EDA workload in this test was generated using a standard industry benchmark tool. It simulates a mixture of EDA applications used to design semiconductor chips.  The EDA workload distribution is as such:
+The EDA workload in this test was generated using a standard industry benchmark tool. It simulates a mixture of EDA applications used to design semiconductor chips. The EDA workload distribution is as such:
 
 :::image type="content" source="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/pie-chart-large-volume.png" alt-text="Pie chart depicting frontend OP type." lightbox="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/pie-chart-large-volume.png":::
 
@@ -83,19 +95,23 @@ The EDA workload in this test was generated using a standard industry benchmark 
 
 The results were produced using the following configuration details:
 
+:::image type="content" source="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/single-large-volume-setup.png" alt-text="Architecture diagram for single large volume." lightbox="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/single-large-volume-setup.png":::
+
 | Component | Configuration |
 | - | - | 
-| Operating System	| RHEL 9.3 / RHEL 8.7 |
-| Instance Type	| D16s_v5 |
+| Operating System	| Red Hat Enterprise Linux |
+| Instance Type	| D16s_v5/D32s_v5 |
 | Instance  Count | 10 |
-| Mount Options | nocto,actimeo=600,hard,rsize=262144,wsize=262144,vers=3,tcp,noatime,nconnect=8 |
-| Client tunables | <code># Network parameters. In unit of bytes <br> net.core.wmem_max = 16777216 <br> net.core.wmem_default = 1048576 <br> net.core.rmem_max = 16777216 <br> net.core.rmem_default = 1048576 <br> net.ipv4.tcp_rmem = 1048576 8388608 16777216 <br> net.ipv4.tcp_wmem = 1048576 8388608 16777216 <br> net.core.optmem_max = 2048000 <br> net.core.somaxconn = 65535 <br> <br> # Settings in 4 KiB size chunks, in bytes they are <br> net.ipv4.tcp_mem = 4096 89600 4194304 <br><br> # Misc network options and flags <br>net.ipv4.tcp_window_scaling = 1 <br> net.ipv4.tcp_timestamps = 0 <br> net.ipv4. <br> tcp_no_metrics_save = 1 <br> net.ipv4.route.flush = 1 <br> net.ipv4.tcp_low_latency = 1 <br> net.ipv4.ip_local_port_range = 1024 65000 <br> net.ipv4.tcp_slow_start_after_idle = 0 <br> net.core.netdev_max_backlog = 300000 <br> net.ipv4.tcp_sack = 0 <br> net.ipv4.tcp_dsack = 0 <br> net.ipv4.tcp_fack = 0 <br><br># Various filesystem / pagecache options <br> vm.dirty_expire_centisecs = 100 <br> vm.dirty_writeback_centisecs = 100 <br> vm.dirty_ratio = 20 <br> vm.dirty_background_ratio = 5 <br><br> # ONTAP network exec tuning for client <br> sunrpc.tcp_max_slot_table_entries = 128 <br> sunrpc.tcp_slot_table_entries = 128 </code> |
+| Mount Options | nocto,actimeo=600, hard, rsize=262144,  wsize=262144, vers=3, tcp, noatime, nconnect=8 |
+| Client tunables | <code># Network parameters. In unit of bytes <br> net.core.wmem_max = 16777216 <br> net.core.wmem_default = 1048576 <br> net.core.rmem_max = 16777216 <br> net.core.rmem_default = 1048576 <br> net.ipv4.tcp_rmem = 1048576 8388608 16777216 <br> net.ipv4.tcp_wmem = 1048576 8388608 16777216 <br> net.core.optmem_max = 4194304 <br> net.core.somaxconn = 65535 <br> <br> # Settings in 4 KiB size chunks, in bytes they are <br> net.ipv4.tcp_mem = 4096 89600 8388608 <br><br> # Misc network options and flags <br>net.ipv4.tcp_window_scaling = 1 <br> net.ipv4.tcp_timestamps = 0 <br> net.ipv4. <br> tcp_no_metrics_save = 1 <br> net.ipv4.route.flush = 1 <br> net.ipv4.tcp_low_latency = 1 <br> net.ipv4.ip_local_port_range = 1024 65000 <br> net.ipv4.tcp_slow_start_after_idle = 0 <br> net.core.netdev_max_backlog = 300000 <br> net.ipv4.tcp_sack = 0 <br> net.ipv4.tcp_dsack = 0 <br> net.ipv4.tcp_fack = 0 <br><br># Various filesystem / pagecache options <br> vm.dirty_expire_centisecs = 30000 <br> vm.dirty_writeback_centisecs = 30000 |
 
 Mount options `nocto`, `noatime`, and `actimeo=600` work together to alleviate the effect of some metadata operations for an EDA workload over the NFSv3 protocol. These mount options both reduce the number of metadata operations taking place and cache some metadata attributes on the client allowing EDA workloads to push further than it would otherwise. It's essential to consider individual workload requirements as these mount options aren't universally applicable. For more information, see [Linux NFS mount options best practices for Azure NetApp File](performance-linux-mount-options.md).
 
+For the six large volume tests, the same configuration was replicated in six Azure availability zones, spread across four Azure regions. Each zone was identically configured with ten virtual machines and one large volume each co-located in one availability zone. Azure’s Virtual Network peering connected the virtual networks across the regions/zones so we could execute a single benchmark run that spanned all the clients simultaneously.
+
 ## Summary
 
-EDA workloads require file storage that can handle high file counts, large capacity, and a large number of parallel operations across potentially thousands of client workstations. EDA workloads also need to perform at a level that reduces the time it takes for testing and validation to complete so to save money on licenses and to expedite time to market for the latest and greatest chipsets. Azure NetApp Files large volumes can handle the demands of an EDA workload with performance comparable to what would be seen in on-premises deployments.
+EDA workloads require file storage that can handle high file counts, large capacity, and a large number of parallel operations across potentially thousands of client workstations. EDA workloads also need to perform at a level that reduces the time it takes for testing and validation to complete, leading to saving money on licenses and expediting time to market the latest and greatest chipsets. Azure NetApp Files large volumes can handle the demands of an EDA workload with performance comparable to what would be seen in on-premises deployments.
 
 ## Next steps
 

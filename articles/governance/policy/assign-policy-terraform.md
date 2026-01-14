@@ -3,11 +3,13 @@ title: 'Quickstart: New policy assignment with Terraform'
 description: In this quickstart, you use Terraform and Hashicorp Configuration Language (HCL) syntax to create a policy assignment to identify noncompliant resources.
 ms.date: 03/26/2025
 ms.topic: quickstart
-ms.custom: devx-track-terraform
 ms.tool: terraform
 #customer intent: As a Terraform user, I want to see how to assign an Azure policy
 content_well_notification: 
   - AI-contribution
+ms.custom:
+  - devx-track-terraform
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create a policy assignment to identify noncompliant resources using Terraform
@@ -28,7 +30,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-- Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
 

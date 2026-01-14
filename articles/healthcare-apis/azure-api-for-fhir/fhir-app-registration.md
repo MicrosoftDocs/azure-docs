@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: overview
 ms.author: kesheth
 author: expekesheth
-ms.date: 09/27/2023
+ms.date: 11/20/2025
 ---
 
 # Register the Microsoft Entra apps for Azure API for FHIR

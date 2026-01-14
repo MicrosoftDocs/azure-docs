@@ -1,7 +1,6 @@
 ---
 description: Overview of how to use the Azure Cloud Shell window.
-ms.contributor: jahelmic
-ms.date: 01/23/2024
+ms.date: 12/03/2025
 ms.topic: how-to
 tags: azure-resource-manager
 title: Using the Azure Cloud Shell window
@@ -60,6 +59,10 @@ Select the upload/download files icon on the top left of the window, then select
 > File and path names are case sensitive in Cloud Shell. Double check your casing in your file
 > path.
 
+You can also drag files from your local computer into the Cloud Shell window to upload them. The
+files are uploaded into the `/home/user` directory. You can select multiple files to upload at once.
+This feature only supports uploading files, not folders.
+
 ## Open another Cloud Shell window
 
 Cloud Shell enables multiple concurrent sessions across browser tabs by allowing each session to
@@ -104,14 +107,15 @@ select restore.
 
 ## Copy and paste
 
-- Windows: <kbd>Ctrl</kbd>-<kbd>C</kbd> to copy is supported but use
-  <kbd>Shift</kbd>-<kbd>Insert</kbd> to paste.
+- Windows: Use <kbd>Ctrl</kbd>+<kbd>c</kbd> to copy and
+  <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>v</kbd> or <kbd>Shift</kbd>+<kbd>Insert</kbd> to paste.
   - Firefox and Internet Explorer may not support clipboard permissions properly.
-- macOS: <kbd>Cmd</kbd>-<kbd>C</kbd> to copy and <kbd>Cmd</kbd>-<kbd>V</kbd> to paste.
-- Linux: <kbd>CTRL</kbd>-<kbd>C</kbd> to copy and <kbd>CTRL</kbd>-<kbd>SHIFT</kbd>-<kbd>V</kbd> to paste.
+- macOS: <kbd>Cmd</kbd>+<kbd>C</kbd> to copy and <kbd>Cmd</kbd>+<kbd>V</kbd> to paste.
+- Linux: <kbd>Ctrl</kbd>+<kbd>C</kbd> to copy and <kbd>Ctrl</kbd>+<kbd>SHIFT</kbd>+<kbd>V</kbd> to
+  paste.
 
 > [!NOTE]
-> If no text is selected when you type <kbd>Ctrl</kbd>-<kbd>C</kbd>, Cloud Shell sends the `Ctrl C`
+> If no text is selected when you type <kbd>Ctrl</kbd>-<kbd>C</kbd>, Cloud Shell sends the `Ctrl-C`
 > character to the shell. This could terminate the currently running command.
 
 ## Resize Cloud Shell window

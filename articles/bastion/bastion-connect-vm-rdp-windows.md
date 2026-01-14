@@ -17,6 +17,9 @@ This article shows you how to securely and seamlessly create an RDP connection t
 
 Azure Bastion provides secure connectivity to all of the VMs in the virtual network in which it's provisioned. Using Azure Bastion protects your virtual machines from exposing RDP/SSH ports to the outside world, while still providing secure access using RDP/SSH. For more information, see [What is Azure Bastion?](bastion-overview.md)
 
+> [!NOTE]
+> Entra ID authentication for RDP connections is now available in public preview! See [Microsoft Entra ID](#microsoft-entra-id-authentication-preview) for details.
+
 ## Prerequisites
 
 Before you begin, verify that you've met the following criteria:
@@ -34,6 +37,40 @@ Before you begin, verify that you've met the following criteria:
 * Reader role on the NIC with private IP of the virtual machine.
 * Reader role on the Azure Bastion resource.
 * Reader role on the virtual network of the target virtual machine (if the Bastion deployment is in a peered virtual network).
+
+## Microsoft Entra ID authentication (Preview)
+
+> [!NOTE]
+> Microsoft Entra ID Authentication support for RDP connections within the portal is only supported for Windows VMs. For SSH connections to Linux VMs, see [Connect to a Linux VM using SSH](bastion-connect-vm-ssh-linux.md#microsoft-entra-id-authentication).
+
+If the following prerequisites are met, Microsoft Entra ID becomes the default option to connect to your VM. If any prerequisite is not met, Microsoft Entra ID will not be presented as a Connection Method. To learn more about Entra ID authentication for Azure machines, see [Enable Microsoft Entra sign in for a Windows virtual machine in Azure or Arc-enabled Windows Server](/entra/identity/devices/howto-vm-sign-in-azure-ad-windows#enable-microsoft-entra-sign-in-for-a-windows-virtual-machine-in-azure-or-arc-enabled-windows-server)
+
+Prerequisites:
+
+* **AADLoginForWindows** extension should be enabled on the VM. Microsoft Entra ID Login can be enabled during VM creation by checking the box for **Login with Microsoft Entra ID** or by adding the **AADLogin** extension to a pre-existing VM.
+
+* One of the following required roles should be configured on the VM for the user:
+
+  * **Virtual Machine Administrator Login**: This role is necessary if you want to sign in with administrator privileges.
+  * **Virtual Machine User Login**: This role is necessary if you want to sign in with regular user privileges.
+
+Use the following steps to authenticate using Microsoft Entra ID.
+
+1. To authenticate using Microsoft Entra ID, configure the following settings.
+
+    | Setting                | Description                                                                 |
+    |------------------------|-----------------------------------------------------------------------------|
+    | **Connection Settings**| Only available for SKUs higher than the Basic SKU.                          |
+    | **Protocol**           | Select RDP.                                                                 |
+    | **Port**               | Specify the port number.                                                    |
+    | **Authentication type**| Select **Microsoft Entra ID (Preview)** from the dropdown.                            |
+    
+1. To work with the VM in a new browser tab, select **Open in new browser tab**.
+
+1. Click **Connect** to connect to the VM.
+
+Limitations
+* RDP + Entra ID authentication support in the portal cannot be used concurrently with graphical session recording.
 
 ### Ports
 

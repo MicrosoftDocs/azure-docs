@@ -190,7 +190,7 @@ static function OnBeforeResponse(oSession: Session) {
 }
 ```
 
-You could extend this example to intercept a wider range of requests and only change the **responseCode** on some of them to better simulate a real-world scenario. For more information about customizing Fiddler scripts, see [Modifying a Request or Response](https://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) in the Fiddler documentation.
+You could extend this example to intercept a wider range of requests and only change the **responseCode** on some of them to better simulate a real-world scenario. For more information about customizing Fiddler scripts, see [Modifying a Request or Response](https://www.telerik.com/fiddler/fiddler-classic/documentation/knowledge-base/fiddlerscript/modifyrequestorresponse) in the Fiddler documentation.
 
 If you have set up configurable thresholds for switching your application to read-only, it will be easier to test the behavior with non-production transaction volumes.
 

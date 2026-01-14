@@ -1,8 +1,8 @@
 ---
-title: Run ONNX inference in WebAssembly data flow graphs (Preview)
+title: Run ONNX inference in WebAssembly data flow graphs
 description: Learn how to package and run ONNX models inside WebAssembly modules for real-time inference in Azure IoT Operations data flow graphs.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
@@ -11,16 +11,9 @@ ai-usage: ai-assisted
 
 ---
 
-# Run ONNX inference in WebAssembly (WASM) data flow graphs (preview)
-
-> [!IMPORTANT]
-> ONNX inference in WASM data flow graphs is in preview and isn't intended for production workloads.
->
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or not yet released into general availability.
+# Run ONNX inference in WebAssembly (WASM) data flow graphs
 
 This article shows how to embed and run small Open Neural Network Exchange (ONNX) models inside your WebAssembly modules to perform in-band inference as part of Azure IoT Operations data flow graphs. Use this approach for low-latency enrichment and classification directly on streaming data without calling external prediction services.
-
-ONNX is an open model format. In this preview, inference runs on CPU only through the WebAssembly System Interface (WASI) neural network API (`wasi-nn`).
 
 > [!IMPORTANT]
 > Data flow graphs currently only support MQTT (Message Queuing Telemetry Transport), Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage aren't supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
@@ -36,7 +29,7 @@ With Azure IoT Operations data flow graphs, you can embed small ONNX model infer
   - Aligned with event-time semantics so inference uses the same timestamps as other operators
   - Kept small enough to embed with the module without exceeding practical WASM size and memory constraints
 - **Simple updates**: Ship a new module with WASM and embedded model, then update the graph definition reference. No need to have a separate model registry or external endpoint change.
-- **Hardware constraints**: In this preview, ONNX backend runs on CPU through WebAssembly System Interface (WASI) `wasi-nn`. No GPU/TPU targets; only supported ONNX operators run.
+- **Hardware constraints**: ONNX backend runs on CPU through WebAssembly System Interface (WASI) `wasi-nn`. No GPU/TPU targets; only supported ONNX operators run.
 - **Horizontal scaling**: Inference scales as the data flow graph scales. When the runtime adds more workers for throughput, each worker loads the embedded model and participates in load balancing.
 
 ## When to use in-band ONNX inference
@@ -297,7 +290,7 @@ To deploy this example, pull the artifacts from the public registry, push them t
 
 ## Limitations
 
-This preview has the following limitations:
+Inference in WASM data flow graphs has the following limitations:
 
 - ONNX only. Data flow graphs don't support other formats like TFLite.
 - CPU only. No GPU/TPU acceleration.

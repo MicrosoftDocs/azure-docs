@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 07/14/2025
+ms.date: 11/25/2025
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -33,7 +33,7 @@ Azure [availability zones](../reliability/availability-zones-overview.md) ar
 To learn more about availability zones in Azure NetApp Files, see [Reliability in Azure NetApp Files](../reliability/reliability-netapp-files.md).
 
 > [!IMPORTANT]
-> We don't recommend that you use availability zones with Terraform-managed volumes. If you do, you must [add the zone property to your volume](manage-availability-zone-volume-placement.md#populate-availability-zone-for-terraform-managed-volumes).
+> If you manage volumes with Terraform, [add the zone property to your volume](manage-availability-zone-volume-placement.md#populate-availability-zone-for-terraform-managed-volumes).
 
 #### Azure regions with availability zones
 

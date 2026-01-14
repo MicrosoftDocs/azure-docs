@@ -30,7 +30,7 @@ Review the [network resource requirements for API Management injection into a vi
 
   * For best network performance, it's recommended to use the default **Routing preference**: **Microsoft network**.  
 
-  * When creating a public IP address in a region where you plan to enable [zone redundancy](../articles/reliability/migrate-api-mgt.md) for your API Management instance, configure the **Zone-redundant** setting.
+  * When creating a public IP address in a region where you plan to enable [zone redundancy](../articles/api-management/enable-availability-zone-support.md) for your API Management instance, configure the **Zone-redundant** setting.
 
   * The value of the IP address is assigned as the virtual public IPv4 address of the API Management instance in that region. 
 

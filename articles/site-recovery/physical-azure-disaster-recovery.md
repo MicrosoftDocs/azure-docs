@@ -1,11 +1,12 @@
 ---
 title: Set up disaster recovery of physical on-premises servers with Azure Site Recovery
+ms.reviewer: v-gajeronika
 description: Learn how to set up disaster recovery to Azure for on-premises Windows and Linux servers, with the Azure Site Recovery service.
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 07/08/2024
-ms.author: jsuri
-author: jyothisuri
+ms.date: 10/31/2025
+ms.author: v-gajeronika
+author: Jeronika-MS
 ms.custom:
   - engagement-fy23
   - linux-related-content
@@ -47,7 +48,7 @@ Before you begin, note that:
 Get a Microsoft [Azure account](https://azure.microsoft.com/).
 
 - You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-- Learn about [Site Recovery pricing](./site-recovery-faq.yml), and get [pricing details](https://azure.microsoft.com/pricing/details/site-recovery/).
+- Learn about [Site Recovery pricing](https://learn.microsoft.com/azure/site-recovery/site-recovery-faq), and get [pricing details](https://azure.microsoft.com/pricing/details/site-recovery/).
 - Find out which [regions are supported](https://azure.microsoft.com/pricing/details/site-recovery/) for Site Recovery.
 
 ### Verify Azure account permissions
@@ -55,9 +56,7 @@ Get a Microsoft [Azure account](https://azure.microsoft.com/).
 Make sure your Azure account has permissions for replication of VMs to Azure.
 
 - Review the [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) you need to replicate machines to Azure.
-- Verify and modify [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.yml) permissions.
-
-
+- Verify and modify [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/role-assignments-portal) permissions.
 
 ### Set up an Azure network
 
@@ -66,14 +65,12 @@ Set up an [Azure network](../virtual-network/quick-create-portal.md).
 - Azure VMs are placed in this network when they're created after failover.
 - The network should be in the same region as the Recovery Services vault
 
-
 ## Set up an Azure storage account
 
 Set up an [Azure storage account](../storage/common/storage-account-create.md).
 
 - Site Recovery replicates on-premises machines to Azure storage. Azure VMs are created from the storage after failover occurs.
 - The storage account must be in the same region as the Recovery Services vault.
-
 
 ### Prepare an account for Mobility service installation
 
@@ -85,14 +82,13 @@ The Mobility service must be installed on each server you want to replicate. Sit
   `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.`
 - For Linux, the account should be **root** on the source Linux server.
 
-
 ## Create a vault
 
 [!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
 
 ## Prepare infrastructure
 
-it's important to prepare the infrastructure before you set up disaster recovery of physical VMware machines to Azure.
+It's important to prepare the infrastructure before you set up disaster recovery of physical VMware machines to Azure.
 
 ## Deployment planning
 
@@ -175,7 +171,7 @@ Under **Replication policy** tab, do the following:
     1. **Name** - specify a policy name.
     1. **Source type** - select **VMware / Physical machines**.
     1. **Target type** - select the subscription and the resource group in which you want to create the Azure VMs after failover. 
-    1. **RPO threshold in mins** - specify the recovery point objective (RPO) limit. This value specifies how often data recovery points are created. An alert is generated if continuous replication exceeds this limit..
+    1. **RPO threshold in mins** - specify the recovery point objective (RPO) limit. This value specifies how often data recovery points are created. An alert is generated if continuous replication exceeds this limit.
     1. **Retention period (in days)** - specify how long (in days) the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window. Up to 15 days retention is supported.
     1. In **App-consistent snapshot frequency**, specify how often (in hours) recovery points containing application-consistent snapshots will be created. 
     4.	After the policy is created, select **OK**.

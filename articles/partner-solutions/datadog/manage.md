@@ -8,6 +8,7 @@ ms.custom:
   - ai-gen-desc
   - ai-seo-date:12/03/2024
   - ai-gen-title
+  - sfi-image-nochange
 ---
 
 # Manage Datadog resources
@@ -65,6 +66,15 @@ To view the list of resources emitting logs to Datadog, select **Datadog organiz
 The column **Logs to Datadog** indicates whether the resource is sending logs to Datadog. 
 
 ## Monitor multiple subscriptions
+
+When you add or remove subscriptions for Datadog monitoring, the system updates the Monitoring Reader role assignment on the System Managed Identity linked to the resource.
+
+**Prerequisites**
+
+To perform these actions, you must have both of the following Azure permissions:
+
+- `Microsoft.Authorization/roleAssignments/write`
+- `Microsoft.Authorization/roleAssignments/delete`
 
 To monitor multiple subscriptions:
 

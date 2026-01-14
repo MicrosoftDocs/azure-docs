@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: quickstart
 zone_pivot_groups: interaction-type
-ms.date: 7/22/2025
+ms.date: 9/19/2025
 keywords: azure container apps, service connector, database connection, managed identity, azure storage, authentication, preview
 #Customer intent: As an app developer, I want to connect my Azure Container Apps to databases, storage accounts, and other Azure services using managed identities and connection strings.
 ---
@@ -17,17 +17,20 @@ Get started with Service Connector to connect your Azure Container Apps to datab
 
 This article provides step-by-step instructions for both the Azure portal and Azure CLI. Choose your preferred method using the tabs above.
 
+> [!IMPORTANT]
+> Support for Service Connector (preview) on Azure Container Apps ends on March 30, 2026. After that date, new service connections using Service Connector (preview) aren't available through any interface. For more information, see [RETIREMENT: Service Connector (Preview) on Azure Container Apps](https://aka.ms/serviceconnectoraca).
+
 ## Prerequisites
 
 ::: zone pivot="azure-portal"
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An [application deployed to Container Apps](../container-apps/quickstart-portal.md) in a [region supported by Service Connector](./concept-region-support.md).
 - A target resource to connect your Container Apps to, such as a [Blob Storage account](../storage/common/storage-account-create.md).
 - The [necessary permissions](./concept-permission.md) to create and manage service connections.
 ::: zone-end
 
 ::: zone pivot="azure-cli"
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An [application deployed to Container Apps](../container-apps/quickstart-portal.md) in a [region supported by Service Connector](./concept-region-support.md).
 - A target resource to connect your Container Apps to, such as a [Blob Storage account](../storage/common/storage-account-create.md).
 - The [necessary permissions](./concept-permission.md) to create and manage service connections.

@@ -63,7 +63,7 @@ Critical - NoHealthyBackends: the frontend IP {FrontendIPAddress} is completely 
 ```
 
 ### Troubleshooting steps
-Refer to [Troubleshoot Azure Load Balancer health probe status](load-balancer-troubleshoot-health-probe-status.md) | for common reasons why your backend instances aren't responding to the configured health probes.
+- Refer to [Troubleshoot Azure Load Balancer health probe status](load-balancer-troubleshoot-health-probe-status.md) | for common reasons why your backend instances aren't responding to the configured health probes.
 
 ## HighSnatPortUsage event
 This event indicates you're approaching SNAT port exhaustion on specific backend instances. You want to review your outbound connectivity architecture.
@@ -100,6 +100,21 @@ Critical - SNATPortExhaustion: Backend IP {BackendIPAddress} has exhausted all S
 ### Alternative solutions
 1.	Ensure you configured outbound rules via manual port allocation and are allocating the maximum number of ports possible.
 2.	Add extra public IPs to your Load Balancer or NAT Gateway.
+
+## NetworkPlatformThrottlingActive event
+This event indicates platform throttling has been applied to your load balancer's frontend IP due to high throughput or bandwidth usage. You may want to scale out your applications with multiple frontend IPs.
+
+### Sample event
+
+```plaintext
+Critical - NetworkPlatformThrottlingActive: At {DateTime} UTC, we detected that the load balancer with frontend IP configuration {FrontendIPAddress} exceeded platform-defined network thresholds. As a result, you may experience packet drops due to active network throttling. For detailed event definitions and troubleshooting guidance, please refer to aka.ms/lbhealth.
+```
+
+### Troubleshooting steps
+- Investigate if your application is receiving an unexpected volume of traffic, and if there are any client-side issues resulting in a traffic increase
+- If this is expected traffic, consider scaling out your deployments by distributing traffic across multiple frontend IP configurations or load balancers.
+- Reach out to Azure support for further investigation if you're observing these events in your logs and you're experiencing ongoing connectivity issues.
+
 
 ## Next steps
 In this article, you learned how to troubleshoot each Azure Load Balancer health event type.

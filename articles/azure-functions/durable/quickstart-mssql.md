@@ -3,9 +3,12 @@ title: "Quickstart: Create a Durable Functions app that uses the MSSQL storage p
 description: Create a Durable Functions app to use the Microsoft SQL Server (MSSQL) storage provider in Azure Functions.
 author: lilyjma
 ms.topic: quickstart
-ms.custom: devx-track-dotnet
 ms.date: 05/06/2025
 ms.reviewer: azfuncdf
+ms.custom:
+  - devx-track-dotnet
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Create a Durable Functions app that uses the MSSQL storage provider
@@ -36,7 +39,7 @@ To complete this quickstart, you need:
 
 * [Docker](https://www.docker.com/products/docker-desktop/) installed.
 
-* An [Azure subscription](https://azure.microsoft.com/free/).
+* An [Azure subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * An HTTP test tool that keeps your data secure. For more information, see [HTTP test tools](../functions-develop-local.md#http-test-tools).
 

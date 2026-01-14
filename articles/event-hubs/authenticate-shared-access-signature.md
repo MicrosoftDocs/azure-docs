@@ -11,6 +11,7 @@ ms.custom:
   - ai-gen-title
   - ai-seo-date:07/25/2025
   - ai-gen-description
+  - sfi-image-nochange
 ---
 
 # Authenticate access to Event Hubs resources using shared access signatures (SAS)

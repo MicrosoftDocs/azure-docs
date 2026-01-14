@@ -12,6 +12,7 @@ ms.custom:
   - ai-gen-title
   - ai-seo-date:05/09/2025
   - ai-gen-description
+  - sfi-image-nochange
 ---
 
 # How to configure container create options for IoT Edge modules
@@ -20,7 +21,7 @@ ms.custom:
 
 The **createOptions** parameter in the deployment manifest lets you configure the module containers at runtime. This parameter expands your control over the modules and lets you perform tasks like restricting the module's access to the host device's resources or configuring networking.
 
-IoT Edge modules run as Docker-compatible containers on your IoT Edge device. Docker offers many options for creating containers, and those options also apply to IoT Edge modules. For more information, see [Docker container create options](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+IoT Edge modules run as Docker-compatible containers on your IoT Edge device. Docker offers many options for creating containers, and those options also apply to IoT Edge modules. For more information, see [Docker container create options](https://docs.docker.com/reference/cli/docker/container/create/).
 
 ## Format create options
 
@@ -83,7 +84,7 @@ If your module needs to communicate with a service outside of the IoT Edge solut
 
 First, ensure that a port inside the module is exposed to listen for connections. You can do this using an [EXPOSE](https://docs.docker.com/engine/reference/builder/#expose) instruction in the dockerfile. For example, `EXPOSE 8080`. The expose instruction defaults to TCP protocol if not specified, or you can specify UDP.
 
-Then, use the **PortBindings** setting in the **HostConfig** group of the [Docker container create options](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) to map the exposed port in the module to a port on the host device. For example, if you exposed port 8080 inside the module and want to map that to port 80 of the host device, the create options in the template.json file would look like the following example:
+Then, use the **PortBindings** setting in the **HostConfig** group of the [Docker container create options](https://docs.docker.com/reference/cli/docker/container/create/) to map the exposed port in the module to a port on the host device. For example, if you exposed port 8080 inside the module and want to map that to port 80 of the host device, the create options in the template.json file would look like the following example:
 
 ```json
 "createOptions": {
@@ -107,7 +108,7 @@ When stringified for the deployment manifest, the configuration looks like this:
 
 ### Restrict module memory and CPU usage
 
-Declare how much of the host resources a module can use. This control ensures that one module doesn't consume too much memory or CPU, preventing other processes from running on the device. You can manage these settings with [Docker container create options](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) in the **HostConfig** group, including:
+Declare how much of the host resources a module can use. This control ensures that one module doesn't consume too much memory or CPU, preventing other processes from running on the device. You can manage these settings with [Docker container create options](https://docs.docker.com/reference/cli/docker/container/create/) in the **HostConfig** group, including:
 
 * **Memory**: Memory limit in bytes. For example, 268435456 bytes = 256 MB.
 * **MemorySwap**: Total memory limit (memory + swap). For example, 536870912 bytes = 512 MB.

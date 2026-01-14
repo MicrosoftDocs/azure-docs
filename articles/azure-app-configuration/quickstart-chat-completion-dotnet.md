@@ -9,7 +9,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
-ms.date: 4/19/2025
+ms.date: 11/21/2025
 ms.update-cycle: 180-days
 ms.author: mgichohi
 ms.collection: ce-skilling-ai-copilot

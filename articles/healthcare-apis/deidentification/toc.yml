@@ -50,6 +50,8 @@ items:
   - name: Concepts
     expanded: true
     items:
+      - name: Languages supported
+        href: languages-supported.md
       - name: Monitor the de-identification service
         href: monitor-deidentification-service.md
       - name: Reliability

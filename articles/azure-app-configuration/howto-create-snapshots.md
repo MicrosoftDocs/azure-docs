@@ -5,7 +5,7 @@ author: Muksvso
 ms.author: mubatra
 ms.service: azure-app-configuration
 ms.topic: how-to 
-ms.date: 03/19/2025
+ms.date: 09/26/2025
 ---
 
 # Manage and use snapshots
@@ -113,10 +113,12 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 
 ### [Spring](#tab/spring)
 
-Update the `bootstrap.yml` file of your application with the following configurations.
+Update the `application.yml` file of your application with the following configurations.
 
 ```yml
 spring:
+  config:
+    import: azureAppConfiguration
   cloud:
     azure:
       appconfiguration:

@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/set-up-sql-db-storage-single-tenant-standard-workflows.md",
+            "redirect_url": "/azure/logic-apps/set-up-sql-database-storage-standard",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/create-agent-workflows.md",
+            "redirect_url": "/azure/logic-apps/create-autonomous-agent-workflows",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/azure-arc-enabled-logic-apps-create-deploy-workflows.md",
             "redirect_url": "/azure/logic-apps/create-standard-workflows-hybrid-deployment",
             "redirect_document_id": false

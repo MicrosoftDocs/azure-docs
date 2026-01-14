@@ -7,7 +7,7 @@ ms.author: malev
 ms.service: azure-managed-grafana
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 04/16/2025
+ms.date: 11/21/2025
 ---
 
 # Create a dashboard in Azure Managed Grafana
@@ -21,7 +21,7 @@ A Grafana dashboard contains panels and rows. You can import a Grafana dashboard
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Managed Grafana workspace. If you don't have one yet, [create an Azure Managed Grafana workspace](./quickstart-managed-grafana-portal.md).
 - Another existing Azure resource with monitoring data.
 
@@ -51,7 +51,7 @@ Import a dashboard template from the Grafana Labs website.
 
     ### [Azure CLI](#tab/azure-cli)
     
-    Run the [az grafana dashboard import](/cli/azure/grafana/dashboard#az-grafana-update) command and replace the placeholders `<AMG-name>`, `<AMG-resource-group>`, and `<dashboard-id>` with the name of the Azure Managed Grafana workspace, its resource group, and the dashboard ID you copied earlier.
+    Run the [az grafana dashboard import](/cli/azure/grafana/dashboard#az-grafana-dashboard-import) command and replace the placeholders `<AMG-name>`, `<AMG-resource-group>`, and `<dashboard-id>` with the name of the Azure Managed Grafana workspace, its resource group, and the dashboard ID you copied earlier.
 
    ```azurecli
    az grafana dashboard import --name <AMG-name> --resource-group <AMG-resource-group> --definition <dashboard-id>
@@ -74,7 +74,7 @@ Follow these steps to import a JSON dashboard to Grafana:
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run the [az grafana dashboard import](/cli/azure/grafana/dashboard#az-grafana-update) command and replace the placeholders `<AMG-name>`, `<AMG-resource-group>`, and `<local-path-to-file>` with the name of the Azure Managed Grafana workspace, its resource group, and the path to the JSON File on your local machine, ending with `.json`.
+Run the [az grafana dashboard import](/cli/azure/grafana/dashboard#az-grafana-dashboard-import) command and replace the placeholders `<AMG-name>`, `<AMG-resource-group>`, and `<local-path-to-file>` with the name of the Azure Managed Grafana workspace, its resource group, and the path to the JSON File on your local machine, ending with `.json`.
 
    ```azurecli
    az grafana dashboard import --name <AMG-name> --resource-group <AMG-resource-group> --definition @<local-path-to-file>

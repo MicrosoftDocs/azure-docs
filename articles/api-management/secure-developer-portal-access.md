@@ -1,12 +1,12 @@
 ---
 title: Secure access to developer portal
 titleSuffix: Azure API Management
-description: Learn about options to secure access to the API Management developer portal, including Microsoft Entra ID, Azure AD B2C, and basic authentication
+description: Learn about options to secure access to the API Management developer portal, including Microsoft Entra ID, Microsoft Entra External ID, and basic authentication
 author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 05/21/2025
+ms.date: 09/19/2025
 ms.author: danlep
 ms.custom: sfi-image-nochange
 ---
@@ -22,15 +22,16 @@ API Management has a fully customizable, standalone, managed [developer portal](
 
 ## Authentication options
 
-* **External users** - The preferred option when the developer portal is consumed externally is to enable business-to-consumer access control through Azure Active Directory B2C (Azure AD B2C) or [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam). 
-    * Both Azure AD B2C and Microsoft Entra External ID provides the option of using native accounts: users sign up and use that identity to access the developer portal. 
-    * Both services are also useful if you want users to access the developer portal using existing social media or federated organizational accounts.  
-    * Both services provide many features to improve the end user sign-up and sign-in experience, including conditional access and MFA. 
+* **External users** - The preferred option when the developer portal is consumed externally is to enable access through a [Microsoft Entra External ID](/entra/external-id/external-identities-overview). 
+    * Microsoft Entra External ID provides the option of using native accounts: users sign in using that identity to access the developer portal. 
+    * It's also useful if you want users to access the developer portal using existing social media or federated organizational accounts.  
+    * The service provides many features to improve the end user sign-up and sign-in experience, including conditional access and MFA. 
     
-    For steps to enable Azure AD B2C authentication in the developer portal, see [How to authorize developer accounts by using Azure Active Directory B2C in Azure API Management](api-management-howto-aad-b2c.md).
+    For steps to enable Microsoft Entra External ID authentication in the developer portal, see [How to authorize developer accounts by using Microsoft Entra External ID](api-management-howto-entra-external-id.md).
+
+    [!INCLUDE [api-management-active-directory-b2c-support](../../includes/api-management-active-directory-b2c-support.md)]
 
     [!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
-
 
 * **Internal users** - The preferred option when the developer portal is consumed internally is to leverage your corporate Microsoft Entra ID. Microsoft Entra ID provides a seamless single sign-on (SSO) experience for corporate users who need to access and discover APIs through the developer portal. 
 
@@ -50,7 +51,7 @@ If the API exposed through Azure API Management is secured with OAuth 2.0 - that
 
 To enable the test console to acquire a valid OAuth 2.0 token for API testing:
 
-1. Add an OAuth 2.0 user authorization server to your instance. You can use any OAuth 2.0 provider, including Microsoft Entra ID, Azure AD B2C, or a third-party identity provider. 
+1. Add an OAuth 2.0 user authorization server to your instance. You can use any OAuth 2.0 provider, including Microsoft Entra ID, Microsoft Entra External ID, or a third-party identity provider. 
 
 2. Then, configure the API with settings for that authorization server. In the portal, configure OAuth 2.0 authorization on the API's **Settings** page > **Security** > **User authorization**.
 
@@ -64,7 +65,7 @@ Different authentication and authorization options apply to different scenarios.
 
 ### Scenario 1 - Intranet API and applications
 
-* An API Management contributor and backend API developer wants to publish an API that is secured by OAuth 2.0. 
+* An API Management contributor and backend API developer want to publish an API that is secured by OAuth 2.0. 
 * The API will be consumed by desktop applications whose users sign in using SSO through Microsoft Entra ID. 
 * The desktop application developers also need to discover and test the APIs via the API Management developer portal.
 
@@ -81,7 +82,7 @@ Go a step further with this scenario by moving API Management into the network p
  
 ### Scenario 2 - External API, partner application
 
-* An API Management contributor and backend API developer wants to undertake a rapid proof-of-concept to expose a legacy API through Azure API Management. The API through API Management will be externally (internet) facing.
+* An API Management contributor and backend API developer want to undertake a rapid proof-of-concept to expose a legacy API through Azure API Management. The API through API Management will be externally (internet) facing.
 * The API uses client certificate authentication and will be consumed by a new public-facing single-page app (SPA) being developed offshore by a partner. 
 * The SPA uses OAuth 2.0 with OpenID Connect (OIDC). 
 * Application developers will access the API in a test environment through the developer portal, using a test backend endpoint to accelerate frontend development. 
@@ -98,7 +99,7 @@ Go a step further with this scenario by using the [developer portal with Microso
 
 ### Scenario 3 - External API, SaaS, open to the public
 
-* An API Management contributor and backend API developer is writing several new APIs that will be available to community developers.
+* An API Management contributor and backend API developer are writing several new APIs that will be available to community developers.
 * The APIs will be publicly available, with full functionality protected behind a paywall and secured using OAuth 2.0. After purchasing a license, the developer will be provided with their own client credentials and subscription key that is valid for production use. 
 * External community developers will discover the APIs using the developer portal. Developers will sign up and sign in to the developer portal using their social media accounts. 
 * Interested developer portal users with a test subscription key can explore the API functionality in a test context, without needing to purchase a license. The developer portal test console will represent the calling application and generate a default access token to the backend API. 
@@ -111,7 +112,7 @@ Key configurations:
 |Configuration  |Reference  |
 |---------|---------|
 | Set up products in Azure API Management to represent the combinations of APIs that are exposed to community developers.<br/><br/> Set up subscriptions to enable developers to consume the APIs.  | [Tutorial: Create and publish a product](api-management-howto-add-products.md)<br/><br/>[Subscriptions in Azure API Management](api-management-subscriptions.md)  |
-|  Configure community developer access to the developer portal using Azure AD B2C. Azure AD B2C can then be configured to work with one or more downstream social media identity providers. |  [How to authorize developer accounts by using Azure Active Directory B2C in Azure API Management](api-management-howto-aad-b2c.md) |
+|  Configure community developer access to the developer portal using Microsoft Entra External ID. Microsoft Entra External ID     can then be configured to work with one or more downstream social media identity providers. |  [How to authorize developer accounts by using Microsoft Entra External ID in Azure API Management](api-management-howto-entra-external-id.md) |
 | Set up the test console in the developer portal to obtain a valid OAuth 2.0 token to the backend API using the client credentials flow.  |  [How to authorize test console of developer portal by configuring OAuth 2.0 user authorization](api-management-howto-oauth2.md)<br/><br/>Adjust configuration steps shown in this article to use the [client credentials grant flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) instead of the authorization code grant flow. |
 
 Go a step further by delegating [user registration or product subscription](api-management-howto-setup-delegation.md) and extend the process with your own logic. 

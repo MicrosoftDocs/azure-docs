@@ -217,7 +217,7 @@ The following steps demonstrate how to receive and answer an incoming Teams call
 
 #### Prerequisites
 
-1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 1. A deployed Communication Services resource. [Create a Communication Services resource](/azure/communication-services/quickstarts/create-communication-resource).
 1. A configured Event Grid endpoint: [Incoming call concepts - An Azure Communication Services concept document | Microsoft Learn](../../concepts/call-automation/incoming-call-notification.md#receiving-an-incoming-call-notification-from-event-grid).
 1. A Teams Phone number assigned to the resource account.
@@ -229,7 +229,7 @@ The following steps demonstrate how to receive and answer an incoming Teams call
 1. Complete client and server consent as defined in [Access a user's Teams Phone separate from their Teams client](https://github.com/Azure/communication-preview/blob/master/Teams%20Phone%20Extensibility/teams-phone-extensibility-access-teams-phone.md).
 
 > [!NOTE]
-> For the Azure Communication Services resource, ensure the data location matches the Teams Tenant location to comply with data boundary regulations. You can retrieve programatically details about tenant organisation via [Get organization](/graph/api/organization-get)
+> For the Azure Communication Services resource, ensure the data location matches the Teams Tenant location to comply with data boundary regulations. You can retrieve programmatically details about tenant organisation via [Get organization](/graph/api/organization-get)
 >
 
 #### Setup and host your Azure dev tunnels

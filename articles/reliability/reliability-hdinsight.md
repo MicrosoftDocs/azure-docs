@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure HDInsight
-description: Find out about reliability in Azure HDInsight.
+description: Learn how to build resilient Hadoop and Spark clusters in Azure HDInsight by using availability zones, ARM templates, and disaster recovery strategies.
 author: apurbasroy
 ms.service: azure
 ms.topic: reliability-article
@@ -129,7 +129,7 @@ Improving business continuity using cross region high availability disaster reco
 |Data Storage|Duplicating primary data/tables in a secondary region|Replicate only curated data|
 |Data Egress|Outbound cross region data transfers come at a price. Review Bandwidth pricing guidelines|Replicate only curated data to reduce the region egress footprint|
 |Cluster Compute|Additional HDInsight cluster/s in secondary region|Use automated scripts to deploy secondary compute after primary failure. Use Autoscaling to keep secondary cluster size to a minimum. Use cheaper VM SKUs. Create secondaries in regions where VM SKUs may be discounted.|
-|Authentication |Multiuser scenarios in the secondary region incurs extra  Microsoft Entra Domain Services setups|Avoid multiuser setups in secondary region.|
+|Authentication |Multiuser scenarios in the secondary region incur extra Microsoft Entra Domain Services setups|Avoid multiuser setups in secondary region.|
 
 ### Complexity optimizations
 

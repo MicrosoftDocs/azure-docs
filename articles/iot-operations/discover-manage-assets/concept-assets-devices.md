@@ -5,19 +5,21 @@ author: dominicbetts
 ms.author: dobett
 #ms.subservice:
 ms.topic: concept-article
-ms.date: 06/24/2025
+ms.date: 09/04/2025
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to understand the types of Azure resources that are created by Azure Device Registry to manage assets.
 ---
 
-# Define assets and devices
+# Understand assets and devices
 
 > [!IMPORTANT]
-> Devices (preview) are new in version 1.2.x of Azure IoT Operations. To view the asset endpoint documentation, see [Asset management overview](/previous-versions/azure/iot-operations/discover-manage-assets/overview-manage-assets) on the previous versions site.
+> To view the asset endpoint (classic) documentation, go to [Asset management overview](/previous-versions/azure/iot-operations/discover-manage-assets/overview-manage-assets) on the previous versions site.
 
 [!INCLUDE [assets-devices-logical-entities](../includes/assets-devices-logical-entities.md)]
 
-:::image type="content" source="media/concept-assets-devices/assets-devices.svg" alt-text="Diagram that shows the relationships between the asset and device configuration resources." border="false":::
+This diagram shows the relationships between assets, devices, and connector templates. This article describes these resources in more detail.
+
+:::image type="content" source="media/concept-assets-devices/assets-devices.svg" alt-text="Diagram that shows the relationships between asset and device configuration resources." border="false":::
 
 <!--
 ```mermaid
@@ -38,78 +40,73 @@ graph LR
 ```
 --->
 
-Asset *data points*, *streams*, and *events* define the data that's collected from a physical asset or device.
-
-An IT user adds connector templates in the Azure portal. A connector template defines a type of connector, such as the media connector, that an OT user can configure in the operations experience.
-
-## Cloud and edge resources
-
-Azure Device Registry registers assets and devices as Azure resources. Azure Device Registry also syncs these cloud resources to the edge as [Kubernetes custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/).
-
-You can create, edit, and delete devices and assets by using the Azure IoT Operations CLI or the operations experience web UI. For more information, see [Manage asset configurations](./howto-configure-opc-ua.md).
-
 ## Devices
 
-Before you can create an asset, you need to define a device. A device is a profile that describes southbound edge connectivity information for one or more assets.
+Before you create an asset, define a device. A device is a configuration resource that describes southbound edge connectivity information for one or more assets. Each device has one or more inbound endpoints that define how the device connects securely to a physical asset or device. For example:
 
-Currently, the only southbound connectors available in Azure IoT Operations are the connector for OPC UA, the media connector (preview), the connector for ONVIF (preview), and the connector for REST/HTTP (preview). You can use the Azure IoT Operations SDKs to create custom connectors. Devices are configurations for a connector that enable it to connect to an asset. For example:
+- A device with an inbound endpoint definition for OPC UA stores the information you need to connect to an OPC UA server.
+- A device with an inbound endpoint definition for the media connector stores the information you need to connect to a media source.
 
-- A device for OPC UA stores the information you need to connect to an OPC UA server.
-- A device for the media connector stores the information you need to connect to a media source.
+> [!NOTE]
+> A device can have multiple inbound endpoints. For example, you might create a device with two inbound endpoints that connect to an OPC UA server and a media source.
 
-For more information, see [What is the connector for OPC UA?](./overview-opc-ua-connector.md)
+### Inbound endpoints
 
-The following table highlights some important properties that are included in A device definition.
+An inbound endpoint configuration defines how a device connects to a physical asset or device. Each inbound endpoint has properties like:
 
-| Property | Description |
-| -------- | ----------- |
-| **Cluster** or **Location** | The custom location or cluster name for the Azure IoT Operations instance where the device custom resource will be created. In the operations experience, this property is set by choosing the instance before you create the device. |
-| **Target address** | The local IP address of the OPC UA server or IP camera. |
-| **User authentication** | Can be anonymous authentication or username/password authentication. For username/password authentication, provide pointers to where both values are stored as secrets in Azure Key Vault. |
+- **Address**: The network address of the physical asset or device. For example, the URL of an OPC UA server or the IP address of a camera.
+- **Connector type**: The type of connector the device uses to connect to the physical asset or device. For example, `opcua`, `onvif`, or `media`.
+- **Authentication data**: The credentials the device uses to authenticate to the physical asset or device. For example, a username and password.
+
+### Connector templates
+
+*Connector templates* define the types of inbound endpoints available to OT users. For example, the ONVIF connector template defines the properties required to create an inbound endpoint that connects to an ONVIF-compliant camera.
+
+An IT user adds connector templates in the Azure portal. After the IT user adds a connector template, an OT user can create devices with inbound endpoints of that type in the operations experience web UI.
 
 ## Assets
 
-An *asset* is a configuration resource that represents a physical device or asset in the cloud as an Azure Resource Manager resource and at the edge as a Kubernetes custom resource. When you create an asset, you can define its metadata and the data points, events, and streams that it emits.
+An *asset* is a configuration resource that represents a physical device or asset as an Azure Resource Manager resource in the cloud and as a Kubernetes custom resource at the edge. When you define an asset using the operations experience or Azure IoT Operations CLI, set up schema information like *data points*, *tags*, *events*, and *streams* for each asset.
 
-When you define an asset using either the operations experience or Azure IoT Operations CLI, you can configure *data points*, *events*, and *streams* for each asset.
+The type of inbound endpoint that the asset connects to determines what schema elements you define for the asset. For example, if the asset connects to an OPC UA server, define tags and events. If the asset connects to a media resource, define streams.
 
-The following table highlights some important properties that are included in an asset definition.
+### Tags
 
-| Property | Description |
-| -------- | ----------- |
-| **Cluster** or **Location** | The custom location or cluster name for the Azure IoT Operations instance where the asset custom resource will be created. In the operations experience, this property is set by choosing the instance before you create the device. |
-| **Device** | The name of the device endpoint that this asset connects to. |
-| **Custom attributes** | Metadata about the asset that you can provide using any key=value pairs that make sense for your environment. |
-| **Data point**, **Event**, or **Stream** | A set of key=value pairs that define the data the asset emits. |
+A *tag* is a value that an OPC UA server emits. For example, OPC UA tags give real-time or historical data about a physical asset connected to the OPC UA server.
 
-### Data points
-
-A *data point* is a value that the asset collects. For example, OPC UA data points provide real-time or historical data about a physical asset connected to the OPC UA server. Data points include the following properties:
-
-| Property | Description |
-| -------- | ----------- |
-| **Node Id** | The [OPC UA node ID](https://opclabs.doc-that.com/files/onlinedocs/QuickOpc/Latest/User%27s%20Guide%20and%20Reference-QuickOPC/OPC%20UA%20Node%20IDs.html) that represents a location on the OPC UA server where the asset emits this data point. |
-| **Name** | A friendly name for the tag. |
-| **Queue size** | How much sampling data to collect before publishing it. Default: `1`. |
-| **Observability mode** | Accepted values: `none`, `gauge`, `counter`, `histogram`, `log`. |
-| **Sampling interval** | The rate in milliseconds that the OPC UA server should sample the data source for changes. Default: `500`. |
-
-### Events
-
-An *event* is a notification of a state changes to your asset. For example, a physical asset connected to an OPC UA server might generate an event when a temperature reaches a certain threshold. Events include the following properties:
-
-| Property | Description |
-| -------- | ----------- |
-| **Event notifier** | The [OPC UA node ID](https://opclabs.doc-that.com/files/onlinedocs/QuickOpc/Latest/User%27s%20Guide%20and%20Reference-QuickOPC/OPC%20UA%20Node%20IDs.html) that represents a location on the OPC UA server where the server emits this event. |
-| **Name** | A friendly name for the event. |
-| **Observability mode** | Accepted values: `none`, `log`. |
-| **Queue size** | How much event data to collect before publishing it. Default: `1`. |
+Tags are grouped into datasets. A *dataset* is a collection of tags that are logically related. The dataset specifies the MQTT topic where the asset publishes tag values.
 
 ### Streams
 
-A *stream* is streaming data from a physical device. For example, a camera connected to the media connector can stream video data. Streams include the following properties:
+A *stream* is streaming data, like video or image snapshots from a media source. For example, a camera connected to the media connector can stream video data.
 
-| Property | Description |
-| -------- | ----------- |
-| **Stream type** | The type of stream. For example, `video`, `audio`, or `data`. |
-| **Stream URL** | The URL of the stream. For example, the URL of a video stream from a camera. |
+Streams can be:
+
+- Published to an MQTT topic
+- Saved to storage and synced with the cloud
+- Routed to a media service
+
+### Events
+
+An *event* is a notification of a state change to your OPC UA and ONVIF assets. For example, a physical asset connected to an OPC UA server can generate an event when a temperature reaches a certain threshold.
+
+Events are grouped into event groups. An *event group* is a collection of events that are logically related. The event group specifies the MQTT topic where the asset publishes event data.
+
+### Actions
+
+An *action* is a command that you send to an ONVIF asset. For example, you can send an action to a camera to start recording video.
+
+Actions are grouped into management groups. A *management group* is a collection of actions that are logically related. The management group specifies the MQTT topic where the asset subscribes for action commands.
+
+### Data points
+
+A *data point* is a single piece of information that's fetched from an HTTP/REST endpoint. For example, a temperature reading from a sensor is a data point.
+
+Data points are grouped into datasets. A *dataset* is a collection of data points that are logically related. The dataset specifies the MQTT topic where the asset publishes tag values.
+
+## Destinations
+
+Assets don't provide northbound connectivity for physical assets and devices. They publish data to the MQTT broker or save data to local storage. Other Azure IoT Operations services provide northbound connectivity. For example:
+
+- *Data flows* route data from the MQTT broker to cloud services like Azure Event Grid or Azure Event Hubs.
+- The media connector proxies media streams to other media servers or uploads captured data to Azure blob storage.

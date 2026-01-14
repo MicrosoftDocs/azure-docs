@@ -6,7 +6,7 @@ services: container-apps
 author: hhunter-ms
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 08/02/2024
+ms.date: 11/07/2025
 ms.author: hannahhunter
 ms.custom:
   - ignite-fall-2023
@@ -18,12 +18,12 @@ ms.custom:
 
 # Service discovery resiliency (preview)
 
-With Azure Container Apps resiliency, you can proactively prevent, detect, and recover from service request failures using simple resiliency policies. In this article, you learn how to configure Azure Container Apps resiliency policies when initiating requests using Azure Container Apps service discovery.
+With Azure Container Apps resiliency, you can proactively prevent, detect, and recover from service request failures by using simple resiliency policies. In this article, you learn how to configure Azure Container Apps resiliency policies when initiating requests by using Azure Container Apps service discovery.
 
 > [!NOTE]
-> Currently, resiliency policies can't be applied to requests made using the Dapr Service Invocation API. 
+> Currently, you can't apply resiliency policies to requests made by using the Dapr Service Invocation API. 
 
-Policies are in effect for each request to a container app. You can tailor policies to the container app accepting requests with configurations like:
+Each request to a container app enforces policies. You can tailor policies to the container app that accepts requests with configurations like:
 - The number of retries
 - Retry and timeout duration
 - Retry matches
@@ -42,9 +42,9 @@ The following screenshot shows how an application uses a retry policy to attempt
 
 ## Configure resiliency policies
 
-Whether you configure resiliency policies using Bicep, the CLI, or the Azure portal, you can only apply one policy per container app. 
+Whether you configure resiliency policies by using Bicep, the CLI, or the Azure portal, you can only apply one policy per container app. 
 
-When you apply a policy to a container app, the rules are applied to all requests made to that container app, _not_ to requests made from that container app. For example, a retry policy is applied to a container app named `App B`. All inbound requests made to App B automatically retry on failure. However, outbound requests sent by App B aren't guaranteed to retry in failure. 
+When you apply a policy to a container app, the rules apply to all requests made to that container app, _not_ to requests made from that container app. For example, a retry policy is applied to a container app named `App B`. All inbound requests made to App B automatically retry on failure. However, outbound requests sent by App B aren't guaranteed to retry in failure. 
 
 # [Bicep](#tab/bicep)
 
@@ -110,7 +110,7 @@ resource myPolicyDoc 'Microsoft.App/containerApps/resiliencyPolicies@2023-11-02-
 
 ### Before you begin
 
-Log in to the Azure CLI:
+Sign in to Azure CLI:
 
 ```azurecli
 az login
@@ -156,7 +156,7 @@ circuitBreakerPolicy:
 ### Create specific policies
 
 > [!NOTE]
-> If all properties within a policy are not set during create or update, the CLI automatically applies the recommended default settings. [Set specific policies using flags.](#create-specific-policies)
+> If you don't set all properties within a policy during creation or update, the CLI automatically applies the recommended default settings. [Set specific policies using flags.](#create-specific-policies)
 
 Create resiliency policies by targeting an individual policy. For example, to create the `Timeout` policy, run the following command.
 
@@ -226,7 +226,7 @@ Use the `resiliency list` command to list all the resiliency policies attached t
 az containerapp resiliency list --group MyResourceGroup --container-app-name MyContainerApp​
 ```
 
-Use `resiliency show` command to show a single policy by name.
+Use the `resiliency show` command to show a single policy by name.
 
 ```azurecli
 az containerapp resiliency show --group MyResourceGroup --name MyResiliency --container-app-name ​MyContainerApp
@@ -242,7 +242,7 @@ az containerapp resiliency delete --group MyResourceGroup --name MyResiliency --
 
 # [Azure portal](#tab/portal)
 
-Navigate into your container app in the Azure portal. In the left side menu under **Settings**, select **Resiliency (preview)** to open the resiliency pane.
+Navigate to your container app in the Azure portal. In the left side menu under **Settings**, select **Resiliency (preview)** to open the resiliency pane.
 
 :::image type="content" source="media/service-discovery-resiliency/resiliency-pane.png" alt-text="Screenshot demonstrating how to access the service discovery resiliency pane.":::
 
@@ -263,7 +263,7 @@ Select **Apply** to apply all the selected policies to your container app. Selec
 
 ### Timeouts
 
-Timeouts are used to early-terminate long-running operations. The timeout policy includes the following properties.
+Timeouts early-terminate long-running operations. The timeout policy includes the following properties.
 
 ```bicep
 properties: {
@@ -317,7 +317,7 @@ properties: {
 
 | Metadata | Required | Description | Example |
 | -------- | --------- | ----------- | ------- |
-| `maxRetries` | Yes | Maximum retries to be executed for a failed http-request. | `5` |
+| `maxRetries` | Yes | Maximum retries to execute for a failed HTTP request. | `5` |
 | `retryBackOff` | Yes | Monitor the requests and shut off all traffic to the impacted service when timeout and retry criteria are met. | N/A |
 | `retryBackOff.initialDelayInMilliseconds` | Yes | Delay between first error and first retry. | `1000` |
 | `retryBackOff.maxIntervalInMilliseconds` | Yes | Maximum delay between retries. | `10000` |
@@ -328,7 +328,7 @@ properties: {
 
 ##### Header matches
 
-If you specified the `retriable-headers` error, you can use the following header match properties to retry when the response includes a specific header.
+If you specify the `retriable-headers` error, you can use the following header match properties to retry when the response includes a specific header.
 
 ```bicep
 matches: {
@@ -407,15 +407,15 @@ properties: {
 
 | Metadata | Required | Description | Example |
 | -------- | --------- | ----------- | ------- |
-| `consecutiveErrors` | Yes | Consecutive number of errors before a container app replica is temporarily removed from load balancing. | `5` |
+| `consecutiveErrors` | Yes | Number of consecutive errors before a container app replica is temporarily removed from load balancing. | `5` |
 | `intervalInSeconds` | Yes | The amount of time given to determine if a replica is removed or restored from the load balance pool. | `10` |
 | `maxEjectionPercent` | Yes | Maximum percent of failing container app replicas to eject from load balancing. Removes at least one host regardless of the value. | `50` |
 
 ### Connection pools
 
-Azure Container App's connection pooling maintains a pool of established and reusable connections to container apps. This connection pool reduces the overhead of creating and tearing down individual connections for each request.
+Azure Container Apps connection pooling maintains a pool of established and reusable connections to container apps. This connection pool reduces the overhead of creating and tearing down individual connections for each request.
 
-Connection pools allow you to specify the maximum number of requests or connections allowed for a service. These limits control the total number of concurrent connections for each service. When this limit is reached, new connections aren't established to that service until existing connections are released or closed. This process of managing connections prevents resources from being overwhelmed by requests and maintains efficient connection management.
+Connection pools let you specify the maximum number of requests or connections allowed for a service. These limits control the total number of concurrent connections for each service. When this limit is reached, new connections aren't established to that service until existing connections are released or closed. This process of managing connections prevents resources from being overwhelmed by requests and maintains efficient connection management.
 
 #### httpConnectionPool
 
@@ -449,7 +449,7 @@ properties: {
 
 ## Resiliency observability
 
-You can perform resiliency observability via your container app's metrics and system logs. 
+You can perform resiliency observability through your container app's metrics and system logs. 
 
 ### Resiliency logs
 
@@ -457,7 +457,7 @@ From the *Monitoring* section of your container app, select **Logs**.
 
 :::image type="content" source="media/service-discovery-resiliency/resiliency-logs-pane.png" alt-text="Screenshot demonstrating where to find the logs for your container app.":::
 
-In the Logs pane, write and run a query to find resiliency via your container app system logs. For example, run a query similar to the following to search for resiliency events and show their:
+In the Logs pane, write and run a query to find resiliency events in your container app system logs. For example, run a query similar to the following query to search for resiliency events and show their:
 - Time stamp
 - Environment name
 - Container app name
@@ -470,7 +470,7 @@ ContainerAppSystemLogs_CL
 | project TimeStamp_s, EnvironmentName_s, ContainerAppName_s, Type_s, EventSource_s, Reason_s, Log_s
 ```
 
-Click **Run** to run the query and view results.
+Select **Run** to run the query and view results.
 
 :::image type="content" source="media/service-discovery-resiliency/resiliency-query-results.png" alt-text="Screenshot showing resiliency query results based on provided query example.":::
 
@@ -481,8 +481,8 @@ From the *Monitoring* menu of your container app, select **Metrics**. In the Met
 - The scope to the name of your container app.
 - The **Standard metrics** metrics namespace.
 - The resiliency metrics from the drop-down menu.
-- How you'd like the data aggregated in the results (by average, by maximum, etc.).
-- The time duration (last 30 minutes, last 24 hours, etc.).
+- How you'd like the data aggregated in the results (by average, by maximum, and so on).
+- The time duration (for example, last 30 minutes, or last 24 hours).
 
 :::image type="content" source="media/service-discovery-resiliency/resiliency-metrics-pane.png" alt-text="Screenshot demonstrating how to access the resiliency metrics filters for your container app.":::
 

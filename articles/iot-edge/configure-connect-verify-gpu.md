@@ -22,7 +22,7 @@ Use the Azure portal, the Azure Cloud Shell, and your VM's command line to:
 
 ## Prerequisites
 
-* Azure account - [create a free account](https://azure.microsoft.com/free/search/)
+* Azure account - [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 * Azure IoT Hub - [create an IoT Hub](https://azure.microsoft.com/services/iot-hub/#overview)
 

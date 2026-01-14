@@ -5,21 +5,20 @@ author: beharris
 ms.author: brentharris
 ms.service: planetary-computer-pro
 ms.topic: concept-article
-ms.date: 04/09/2025
+ms.date: 12/01/2025
 #customer intent: As an Microsoft Planetary Computer Pro user, I want to understand the STAC Specification.
-ms.custom:
-  - build-2025
+ms.custom: references_regions
 ---
 
 # STAC overview for Microsoft Planetary Computer Pro
 
-This article provides an overview of the SpatioTemporal Asset Catalog (STAC) specification and how it's used by Microsoft Planetary Computer Pro.
+This article provides an overview of the SpatioTemporal Asset Catalog (STAC) specification and how Microsoft Planetary Computer Pro uses it.
 
 ## STAC specification
 
-The STAC specification is an open, community-driven standard that makes it easy to find, combine, and use geospatial data. STAC provides a common structure for describing and cataloging "spatiotemporal assets." This means you can use it to index and organize data across both space and time.
+The STAC specification is an open, community-driven standard that makes it easy to find, combine, and use geospatial data. STAC provides a common structure for describing and cataloging "spatiotemporal assets." This structure lets you index and organize data across both space and time.
 
-As a result, STAC enables organizations to make their geospatial assets accessible to a broad range of users. STAC catalogs can be used to organize many types of geospatial asset data, including:
+With STAC, organizations can make their geospatial assets accessible to a broad range of users. You can use STAC catalogs to organize many types of geospatial asset data, including:
 
 - Satellite, aerial, and drone imagery
 - LIDAR and SAR data
@@ -27,7 +26,7 @@ As a result, STAC enables organizations to make their geospatial assets accessib
 - Hyperspectral data
 - Other derived data formats
 
-Additionally, STAC can be used with existing and emerging cloud-native data formats such as Cloud Optimized GeoTIFFs (COGs) and GeoParquet.
+Additionally, you can use STAC with existing and emerging cloud-native data formats such as Cloud Optimized GeoTIFFs (COGs) and GeoParquet.
 
 Since its release in 2018, many organizations quickly adopted STAC to organize their spatial data. These organizations include satellite operators, government agencies, civil society groups, and commercial companies.
 
@@ -46,16 +45,16 @@ Planetary Computer Pro uses the STAC specification across all aspects of data ma
 
 ### Introduction to GeoCatalogs
 
-The Planetary Computer Pro service allows you to [create a GeoCatalog resource](./deploy-geocatalog-resource.md) in your Azure subscription, to [ingest](./ingestion-overview.md), manage, search, and distribute geospatial datasets. A GeoCatalog is an Azure resource that, from a STAC API perspective, is logically equivalent to a STAC Catalog. A STAC Catalog is the top-level object in the STAC hierarchy that logically groups STAC collections and STAC Items. You can see the STAC Catalog JSON for a specific GeoCatalog using the JSON web viewer by going to `https://<your geocatalog uri>/json-api?path=/`. Refer to [STAC Catalog Spec](https://github.com/radiantearth/stac-spec/tree/master/catalog-spec) to learn more about the STAC Catalog specification.
+The Planetary Computer Pro service enables you to [create a GeoCatalog resource](./deploy-geocatalog-resource.md) in your Azure subscription to [ingest](./ingestion-overview.md), manage, search, and distribute geospatial datasets. A GeoCatalog is an Azure resource that, from a STAC API perspective, is logically equivalent to a STAC Catalog. A STAC Catalog is the top-level object in the STAC hierarchy that logically groups STAC collections and STAC Items. You can see the STAC Catalog JSON for a specific GeoCatalog by using the JSON web viewer and going to `https://<your geocatalog uri>/json-api?path=/`. For more information about the STAC Catalog specification, see [STAC Catalog Spec](https://github.com/radiantearth/stac-spec/tree/master/catalog-spec).
 
 A GeoCatalog is defined using the following information:
 
 | Field | Description |
 | ---------- | ---------- |
-| Subscription | Azure subscription where a GeoCatalog instance is deployed |
-| Resource Group | Azure resource group where a GeoCatalog instance is deployed |
-| Name | Name of a GeoCatalog instance |
-| Region | Azure region where a GeoCatalog instance is deployed.|
+| Subscription | Azure subscription where you deploy the GeoCatalog instance |
+| Resource Group | Azure resource group where you deploy the GeoCatalog instance |
+| Name | Name of the GeoCatalog instance |
+| Region | Azure region where you deploy the GeoCatalog instance |
 
 Currently, Planetary Computer Pro can deploy GeoCatalogs in the following Azure regions:
 
@@ -63,34 +62,36 @@ Currently, Planetary Computer Pro can deploy GeoCatalogs in the following Azure 
 - North Central US
 - West Europe
 - Canada Central
+- UK South
+- US Government Virginia
 
-A GeoCatalog can be provisioned using the Azure portal or the Azure Rest API. To learn how to deploy a GeoCatalog into your Azure subscription, read [create a GeoCatalog resource](./deploy-geocatalog-resource.md).
+You can deploy a GeoCatalog by using the Azure portal or the Azure REST API. To learn how to deploy a GeoCatalog into your Azure subscription, see [create a GeoCatalog resource](./deploy-geocatalog-resource.md).
 
 ## STAC collections
 
 ### Introduction to collections
 
-A GeoCatalog allows you to create collections to store and organize geospatial datasets on Azure. A STAC collection is used to describe a group of STAC Items that share properties and metadata, such as a common geographic area or sensor. Refer to the [STAC collection Spec](https://github.com/radiantearth/stac-spec/tree/master/collection-spec) to learn more about the STAC collection concept.
+A GeoCatalog allows you to create collections to store and organize geospatial datasets on Azure. Use a STAC collection to describe a group of STAC Items that share properties and metadata, such as a common geographic area or sensor. For more information about the STAC collection concept, see [STAC collection Spec](https://github.com/radiantearth/stac-spec/tree/master/collection-spec).
 
 ### Collection definition
 
-Planetary Computer Pro adheres to the STAC collection specification which defines a set of common fields to describe the dataset and included Items.
+Planetary Computer Pro adheres to the STAC collection specification, which defines a set of common fields to describe the dataset and included Items.
 
 Within a collection, you can specify the type and structure of data stored in that collection. You can also add [render configuration settings](./render-configuration.md) to visualize data within the collection using Planetary Computer Pro's Explorer.
 
-Collections in GeoCatalog are defined in JSON format and include the following fields:
+You define collections in GeoCatalog in JSON format. The definition includes the following fields:
 
 | Field | Description |
 | ------------- | ------------- |
-| ID | Required - Identifier for the collection that is unique across the provider. |
+| ID | Required - Identifier for the collection that's unique across the provider. |
 | Type | Required - STAC element type; must be "collection." |
 | Title | Short descriptive one-line title for the collection. |
 | Description | Required - Detailed multi-line description to fully explain the collection. |
-| Licenses | Required - collection's licenses. |
+| Licenses | Required - Collection's licenses. |
 | Extent | Required - Describes the spatial (longitude/latitude) and temporal (date range) extents of the collection. |
-| Providers | Any of the organizations that captures or processes the content of the collection. |
+| Providers | Organizations that capture or process the content of the collection. |
 | Summaries | List of key-value pairs that provide an overview of the properties of the included Items. |
-| Collection Assets | Data files directly associated with the collection, for example, a thumbnail image. |
+| Collection Assets | Data files directly associated with the collection, such as a thumbnail image. |
 | [Item Assets](#item-assets) | Details information about the datafiles that are included in the collection's Items. For more information, see [Item Assets](#item-assets). |
 | Links | Required - List of link objects to resources and related URLs. |
 | Keywords | List of keywords describing the collection. |
@@ -98,9 +99,9 @@ Collections in GeoCatalog are defined in JSON format and include the following f
 
 ### Item assets
 
-The `item_assets` field, at the collection level, provides a way to determine what assets (data files) are available in any child Item. The listed assets in this field don't imply that all assets are available for all Items (it should be the union of the available assets, not the intersection of the available assets). This field is enabled in a GeoCatalog via the [item_assets extension](https://github.com/stac-extensions/item-assets) of the STAC specification. The items assets extension is required if you want to visualize Items in the GeoCatalog Explorer.
+The `item_assets` field at the collection level shows what assets (data files) are available in any child Item. The listed assets in this field don't imply that all assets are available for all Items. The field shows the union of the available assets, not the intersection. You enable this field in a GeoCatalog through the [item_assets extension](https://github.com/stac-extensions/item-assets) of the STAC specification. You need the items assets extension if you want to visualize Items in the GeoCatalog Explorer.
 
-The `item_assets` field is itself an object, with at least two of the following fields:
+The `item_assets` field is an object with at least two of the following fields:
 
 | Field | Type | Description |
 | ------------- | ------------- | ----------- |
@@ -111,7 +112,7 @@ The `item_assets` field is itself an object, with at least two of the following 
 
 ### Collection JSON examples
 
-The following example shows a minimal collection JSON. For more fields, refer to the [STAC collection specification](https://github.com/radiantearth/stac-spec/blob/master/collection-spec/collection-spec.md).
+The following example shows a minimal collection JSON. For more fields, see the [STAC collection specification](https://github.com/radiantearth/stac-spec/blob/master/collection-spec/collection-spec.md).
 
 ```json
 {
@@ -145,11 +146,11 @@ The following example shows a minimal collection JSON. For more fields, refer to
 }
 ```
 
-For a slightly more complex example JSON, check out [this example describing an open dataset from the National Agriculture Imagery Program (NAIP)](https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip).
+For a slightly more complex example JSON, see [this example describing an open dataset from the National Agriculture Imagery Program (NAIP)](https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip).
 
 ### Collection configuration
 
-In order to visualize collections in the GeoCatalog Explorer, there are several configurations that must be defined, including:
+To visualize collections in the GeoCatalog Explorer, you must define several configurations, including:
 
 - [Mosaic definition](./mosaic-configurations-for-collections.md)
 - [Render configuration](./render-configuration.md)
@@ -160,24 +161,24 @@ In order to visualize collections in the GeoCatalog Explorer, there are several 
 
 ### Introduction to STAC items
 
-A GeoCatalog allows you to store and organize geospatial datasets into collections. A STAC Item is the core object in a GeoCatalog's collection, containing metadata for a scene and links to assets from that scene (such as a satellite image). An Item's metadata allows GeoCatalog to search and query spatial assets. Refer to [STAC Item Spec](https://github.com/radiantearth/stac-spec/tree/master/item-spec) to learn more about the STAC Items.
+A GeoCatalog stores and organizes geospatial datasets into collections. A STAC Item is the core object in a GeoCatalog's collection. It contains metadata for a scene and links to assets from that scene, such as a satellite image. An Item's metadata allows GeoCatalog to search and query spatial assets. For more information about STAC Items, see [STAC Item Spec](https://github.com/radiantearth/stac-spec/tree/master/item-spec).
 
 ### Item definition
 
-The Planetary Computer Pro adheres to the STAC Item Specification which defines a set of common fields to describe an Item, such as time range and the assets related to the Item. Items are defined in JSON format and can be flexibly expanded to include more metadata.
+The Planetary Computer Pro adheres to the STAC Item Specification, which defines a set of common fields to describe an Item, such as time range and the assets related to the Item. You define Items in JSON format and can flexibly expand them to include more metadata.
 
 A valid STAC Item requires the following fields:
 
 | Field | Description |
 | ------------- | ------------- |
-| ID | Required - identifier for the Item that is unique across the Item's parent collection |
+| ID | Required - identifier for the Item that's unique across the Item's parent collection |
 | Type | Required - GeoJSON Object type; must be "Feature" |
 | Geometry | Required - defines the full footprint of the asset represented by this Item as a GeoJSON Geometry Object |
 | Bounding Box | Required - coordinates of the bounding box of the asset represented by this Item |
-| Properties | Required - Other metadata for the Item |
+| Properties | Required - other metadata for the Item |
 | Assets | Required - data assets associated with the Item, each with a unique key |
 | Collection | Required - ID of the Item's parent collection |
-| Links | Required - List of link objects to resources and related URLs |
+| Links | Required - list of link objects to resources and related URLs |
 | STAC Version | Required - STAC version used by the Item |
 
 [Common metadata](https://github.com/radiantearth/stac-spec/blob/master/commons/common-metadata.md) for Items beyond these required fields includes date and time, licenses, providers, instrument, and more.
@@ -277,13 +278,18 @@ Currently, a GeoCatalog automatically adds the following extensions to all inges
 - [item-assets](https://github.com/stac-extensions/item-assets)
 - [table](https://github.com/stac-extensions/table)
 
-STAC extensions may also be used at the STAC Item level. Users are free to add any other STAC extensions they want, but GeoCatalog doesn't currently validate the extensions.
+You can also use STAC extensions at the STAC Item level.
+
+> [!NOTE]
+> STAC Items, including extensions, are validated using the [PySTAC library](https://pystac.readthedocs.io/). If you encounter [STAC validation errors](./troubleshooting-ingestion.md#cause-2-stac-metadata-validation-failed), try removing the extension.
 
 For a full list of STAC extensions, including the maturity of each one, see [the STAC extensions page on GitHub](https://stac-extensions.github.io/).
 
+
+
 ## STAC API
 
-The Planetary Computer Pro's APIs conform to the [STAC API specification](https://github.com/radiantearth/stac-api-spec/), making it possible for you to quickly and easily search petabyte-scale datasets to find specific data assets that meet your needs. Once these assets are identified, you can view or download the assets using GeoCatalog's APIs.
+The Planetary Computer Pro's APIs conform to the [STAC API specification](https://github.com/radiantearth/stac-api-spec/), so you can quickly and easily search petabyte-scale datasets to find specific data assets that meet your needs. Once you identify these assets, you can view or download the assets by using GeoCatalog's APIs.
 
 ## Next steps
 

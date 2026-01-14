@@ -1,20 +1,21 @@
 ---
-title: How to set up authentication and permissions in Azure Managed Grafana
-description: Learn how to set up Azure Managed Grafana authentication permissions using a system-assigned Managed identity or a Service Principal
+title: How to configure authentication and permissions in Azure Managed Grafana
+description: Learn how to configure Azure Managed Grafana authentication permissions using a system-assigned managed identity or a service principal
 ms.service: azure-managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
-ms.date: 10/08/2024
+ms.date: 09/29/2025
+ms.custom: sfi-image-nochange
 --- 
 
-# Set up Azure Managed Grafana authentication and permissions
+# Configure Azure Managed Grafana authentication and permissions
 
 To process data, Azure Managed Grafana needs permission to access data sources. In this guide, learn how to set up authentication in an Azure Managed Grafana instance, so that Grafana can access data sources using a managed identity or a service principal. This guide also introduces the action of adding a Monitoring Reader role assignment on the target subscription to provide read-only access to monitoring data across all resources within the subscription.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Managed Grafana workspace. [Create an Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md).
 - Owner or User Access Administrator permissions on the Azure Managed Grafana resource
 
@@ -24,7 +25,7 @@ The system-assigned managed identity is the default authentication method provid
 
 To enable a system-assigned managed identity:
 
-1. Go to  **Settings** > **Identity**.
+1. Select  **Settings** > **Identity**.
 1. In the **System assigned** tab, set the status for **System assigned** to **On**.
 
     > [!NOTE]
@@ -47,7 +48,7 @@ To assign a user-assigned managed identity to a workspace, you must have the Own
 
 To assign a user-assigned managed identity:
 
-1. Go to  **Settings** > **Identity**.
+1. Select  **Settings** > **Identity**.
 1. In the **User assigned** tab, select **Add**.
 
     > [!NOTE]
@@ -57,7 +58,7 @@ To assign a user-assigned managed identity:
 
     :::image type="content" source="media/authentication/user-assigned-managed-identity.png" alt-text="Screenshot of the Azure portal. Enabling a user-assigned managed identity.":::
 
-1. Once the identity is successfully added, open it by selecting its name and go to **Azure role assignments** to assign it the **Monitoring Reader** role on the target subscription. 
+1. Once the identity is successfully added, open it by selecting its name and select **Azure role assignments** to assign it the **Monitoring Reader** role on the target subscription. 
 1. When done, select **Save**
 
     > [!NOTE]
@@ -70,7 +71,8 @@ Azure Managed Grafana can also access data sources using service principals for 
 Assign this service principal the **Monitoring Reader** role on the target subscription by opening your subscription in the Azure portal and going to **Access control (IAM)** > **Add** > **Add role assignment**.
 
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [Sync Grafana teams with Microsoft Entra groups](./how-to-sync-teams-with-azure-ad-groups.md)
+- [Troubleshoot common Azure Managed Grafana issues](./troubleshoot-managed-grafana.md)
+- [Manage access and permissions for users and identities](./how-to-manage-access-permissions-users-identities.md)
+- [Manage data sources in Azure Managed Grafana](./how-to-data-source-plugins-managed-identity.md)

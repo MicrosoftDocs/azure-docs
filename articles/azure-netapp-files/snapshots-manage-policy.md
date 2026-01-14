@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/18/2025
+ms.date: 11/17/2025
 ms.author: anfdocs
 # Customer intent: As a system administrator, I want to create and manage snapshot policies for Azure NetApp Files, so that I can ensure point-in-time recovery of volumes and streamline data management.
 ---
@@ -109,6 +109,21 @@ You can delete a snapshot policy that you no longer want to keep.
 3.	Select **Yes** to confirm that you want to delete the snapshot policy.   
 
     ![Screenshot that shows snapshot policy delete confirmation.](./media/snapshots-manage-policy/snapshot-policy-delete-confirm.png) 
+
+##  Edit the Hide snapshot path option
+
+The Hide snapshot path option controls whether the snapshot path of a volume is visible. During the creation of an [NFS](azure-netapp-files-create-volumes.md#create-an-nfs-volume) or [SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) volume, you can specify whether the snapshot path should be hidden. After creating the volume, you can edit the Hide snapshot path option as needed.  
+
+> [!NOTE]
+> For a [destination volume](cross-region-replication-create-peering.md#create-the-data-replication-volume-the-destination-volume) in cross-region replication, the Hide snapshot path option is disabled by default. The setting isn't modifiable. 
+
+### Steps
+
+1. To view the Hide snapshot path option setting of a volume, select the volume. The **Hide snapshot path** field shows whether the option is enabled.   
+    ![Screenshot that describes the Hide snapshot path field.](./media/snapshots-manage-policy/hide-snapshot-path-field.png) 
+2. To edit the Hide Snapshot Path option, select **Edit** on the volume page. Modify the **Hide snapshot path** option as needed.   
+    ![Screenshot that describes the Edit volume snapshot option.](./media/snapshots-manage-policy/volume-edit-snapshot-options.png) 
+
 
 ## Next steps
 

@@ -6,6 +6,36 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/iot-operations/manage-layered-network/howto-configure-aks-edge-essentials-layered-network.md",
+            "redirect_url": "/azure/iot-operations/manage-layered-network/concept-iot-operations-in-layered-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-layered-network/howto-configure-l3-cluster-layered-network.md",
+            "redirect_url": "/azure/iot-operations/manage-layered-network/concept-iot-operations-in-layered-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-layered-network/howto-configure-l4-cluster-layered-network.md",
+            "redirect_url": "/azure/iot-operations/manage-layered-network/concept-iot-operations-in-layered-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-layered-network/howto-configure-layered-network.md",
+            "redirect_url": "/azure/iot-operations/manage-layered-network/concept-iot-operations-in-layered-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-layered-network/howto-connect-arc-enabled-servers.md",
+            "redirect_url": "/azure/iot-operations/manage-layered-network/concept-iot-operations-in-layered-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-layered-network/howto-deploy-aks-layered-network.md",
+            "redirect_url": "/azure/iot-operations/manage-layered-network/concept-iot-operations-in-layered-network",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/iot-operations/discover-manage-assets/concept-opcua-message-format.md",
             "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-opc-ua-connector",
             "redirect_document_id": false
@@ -141,14 +171,19 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-configure-opcua-authentication-options.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-configure-opc-ua-authentication-options",
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/howto-configure-opcua-authentication-options.md",
+            "redirect_url": "/azure/iot-operations/secure-iot-ops/howto-manage-secrets",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/howto-configure-opcua-authentication-options.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-configure-opc-ua-authentication-options",
-            "redirect_document_id": true
+            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-configure-opcua-authentication-options.md",
+            "redirect_url": "/azure/iot-operations/secure-iot-ops/howto-manage-secrets",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/howto-configure-opc-ua-authentication-options.md",
+            "redirect_url": "/azure/iot-operations/secure-iot-ops/howto-manage-secrets",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-configure-opc-plc-simulator.md",
@@ -547,13 +582,18 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-autodetect-opcua-assets-using-akri.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-autodetect-opc-ua-assets-use-akri",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-detect-opc-ua-assets",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/discover-manage-assets/howto-autodetect-opcua-assets-using-akri.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-autodetect-opc-ua-assets-use-akri",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-detect-opc-ua-assets",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/howto-autodetect-opc-ua-assets-use-akri.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-detect-opc-ua-assets",
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/iot-operations/discover-manage-assets/concept-akri-architecture.md",
@@ -587,7 +627,12 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/discover-manage-assets/howto-manage-assets-remotely.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-manage-assets-devices",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-use-operations-experience",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/howto-manage-assets-devices.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-use-operations-experience",
             "redirect_document_id": true
         },
         {
@@ -628,6 +673,21 @@
         {
             "source_path_from_root": "/articles/iot-operations/develop-edge-apps/concept-about-state-store-protocol.md",
             "redirect_url": "/azure/iot-operations/develop-edge-apps/reference-state-store-protocol",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/overview-http-connector.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-use-http-connector",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/overview-media-connector.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-use-media-connector",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/overview-onvif-connector.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-use-onvif-connector",
             "redirect_document_id": false
         }
     ]

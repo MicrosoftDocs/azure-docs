@@ -3,7 +3,7 @@ title: Work with access keys in Azure Functions
 description: Learn about access keys in Azure Functions, including how to get and renew keys and how to use access keys when calling function endpoints.
 ms.service: azure-functions
 ms.topic: how-to 
-ms.date: 07/13/2025
+ms.date: 11/06/2025
 
 #CustomerIntent: As an Azure Functions developer, I want learn how to work with access keys so that I can properly harden both my function endpoints and my overall function app running in Azure.
 ---
@@ -63,7 +63,8 @@ Keys are stored as part of your function app in Azure and are encrypted at rest.
 | A second storage account | `blob` | Stores keys in Blob storage in a storage account that's different than the one used by the Functions runtime. The specific account and container used are defined by a shared access signature (SAS) URL set in the [`AzureWebJobsSecretStorageSas`](functions-app-settings.md#azurewebjobssecretstoragesas) setting. You must maintain the `AzureWebJobsSecretStorageSas` setting when the SAS URL changes. |
 | [Azure Key Vault](/azure/key-vault/general/overview) | `keyvault` | The key vault set in [`AzureWebJobsSecretStorageKeyVaultUri`](functions-app-settings.md#azurewebjobssecretstoragekeyvaulturi) is used to store keys. | 
 | File system  | `files` | Keys are persisted on the local file system, which is the default in Functions v1.x. File system storage isn't recommended. |
-| Kubernetes Secrets  |`kubernetes` | The resource set in [AzureWebJobsKubernetesSecretName](functions-app-settings.md#azurewebjobskubernetessecretname) is used to store keys. Supported only when your function app is deployed to Kubernetes. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when you use it to deploy your app to a Kubernetes cluster. [Immutable secrets](https://kubernetes.io/docs/concepts/configuration/secret/#secret-immutable) aren't supported. | 
+| Kubernetes Secrets  |`kubernetes` | The resource set in [AzureWebJobsKubernetesSecretName](functions-app-settings.md#azurewebjobskubernetessecretname) is used to store keys. Supported only when your function app is deployed to Kubernetes. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when you use it to deploy your app to a Kubernetes cluster. [Immutable secrets](https://kubernetes.io/docs/concepts/configuration/secret/#secret-immutable) aren't supported. |
+| Azure Container Apps secrets | `ContainerApps` | Keys are stored in the Azure Container Apps secrets store. Supported only when your function app is deployed to Azure Container Apps. |
 
 When you use Key Vault for key storage, the app settings you need depend on the managed identity type, either system-assigned or user-assigned. 
 
@@ -134,6 +135,9 @@ $path = "/subscriptions/$((Get-AzContext).Subscription.Id)/resourceGroups/$rGrou
 In this script, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with the resource group and your function app name.
 
 ---
+
+>[!TIP]
+>You can also obtain access keys for your functions by using the Azure Functions Core Tools command `func azure functionapp list-functions` with the `--show-keys` option. For more information, see the [Azure Functions Core Tools reference](functions-core-tools-reference.md#func-azure-functionapp-list-functions).
 
 ## Renew or create access keys
 

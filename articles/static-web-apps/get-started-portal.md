@@ -17,12 +17,12 @@ Azure Static Web Apps publishes a website to a production environment by buildin
 ## Prerequisites
 
 ::: zone pivot="github"
-- If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
+- If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [GitHub](https://github.com) account
 ::: zone-end
 
 ::: zone pivot="azure-devops"
-- If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
+- If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Azure DevOps](https://azure.microsoft.com/services/devops) organization
 ::: zone-end
 

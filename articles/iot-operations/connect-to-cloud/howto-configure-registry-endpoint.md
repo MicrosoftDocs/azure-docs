@@ -1,8 +1,8 @@
 ---
 title: Configure Registry Endpoints in Azure IoT Operations (Preview)
 description: Learn how to configure registry endpoints for container registries in Azure IoT Operations data flow graphs.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
@@ -28,7 +28,7 @@ Data flow graphs use registry endpoints to pull WebAssembly (WASM) modules and g
 A registry endpoint defines the connection details and authentication method for accessing a container registry. Registry endpoints are used by:
 
 - **Data flow graphs**: To pull WASM modules and graph definitions
-- **Akri connectors**: To pull custom discovery handlers and protocol adapters
+- **Akri connectors**: To pull custom connector templates
 
 Registry endpoints support authentication through:
 - System-assigned managed identity
@@ -39,6 +39,9 @@ Registry endpoints support authentication through:
 ## Create a registry endpoint
 
 You can create a registry endpoint using Bicep or Kubernetes.
+
+> [!IMPORTANT]
+> Currently, there's a known issue when using registry endpoint resources with Akri connectors. For more information, see [Akri connectors don't work with registry endpoint resources](../troubleshoot/known-issues.md#akri-connectors-dont-work-with-registry-endpoint-resources).
 
 <!-- 
 # [Operations experience](#tab/portal)
@@ -334,9 +337,6 @@ authentication:
 #### Anonymous authentication
 
 Anonymous authentication is used for public registries that don't require authentication.
-
-> [!IMPORTANT]
-> Anonymous authentication has a known issue when pulling data flow graph definitions (YAML files). The upload must use the specific media type `application/vnd.wasm.config.v1+json`. For more information, see [Known issues](../troubleshoot/known-issues.md#anonymous-authentication-fails-to-pull-data-flow-graph-definitions-with-incorrect-media-type).
 
 <!-- 
 # [Operations experience](#tab/portal)

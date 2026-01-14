@@ -1,53 +1,18 @@
 ---
-title: "Known issues: Azure IoT Operations"
-description: Known issues for the MQTT broker, Layered Network Management (preview), connector for OPC UA, OPC PLC simulator, data flows, and operations experience web UI.
+title: Known Issues 
+description: Known issues for the MQTT broker, connector for OPC UA, OPC PLC simulator, data flows, and operations experience web UI.
 author: dominicbetts
 ms.author: dobett
 ms.topic: troubleshooting-known-issue
-ms.date: 08/14/2025
+ms.custom: sfi-ropc-nochange
+ms.date: 11/21/2025
 ---
 
-# Known issues: Azure IoT Operations
+# Known issues for Azure IoT Operations
 
 This article lists the current known issues you might encounter when using Azure IoT Operations. The guidance helps you identify these issues and provides workarounds where available.
 
 For general troubleshooting guidance, see [Troubleshoot Azure IoT Operations](troubleshoot.md).
-
-## Deploy, update, and uninstall issues
-
-This section lists current known issues that might occur when you deploy, update, or uninstall Azure IoT Operations.
-
-### Error creating custom resources
-
----
-
-Issue ID: 9091
-
----
-
-Log signature: `"code": "ExtensionOperationFailed", "message": "The extension operation failed with the following error:  Error occurred while creating custom resources needed by system extensions"`
-
----
-
-The message `Error occurred while creating custom resources needed by system extensions` indicates that your deployment failed due to a known sporadic issue.
-
-To work around this issue, use the `az iot ops delete` command with the `--include-deps` flag to delete Azure IoT Operations from your cluster. When Azure IoT Operations and its dependencies are deleted from your cluster, retry the deployment.
-
-### Codespaces restart error
-
----
-
-Issue ID: 9941
-
----
-
-Log signature: `"This codespace is currently running in recovery mode due to a configuration error."`
-
----
-
-If you deploy Azure IoT Operations in GitHub Codespaces, shutting down and restarting the Codespace causes a `This codespace is currently running in recovery mode due to a configuration error` issue.
-
-There's no workaround for this issue. If you need a cluster that supports shutting down and restarting, select one of the options in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
 
 ## MQTT broker issues
 
@@ -69,15 +34,32 @@ MQTT broker resources created in your cluster using Kubernetes aren't visible in
 
 There's currently no workaround for this issue.
 
-## Azure IoT Layered Network Management (preview) issues
 
-This section lists current known issues for  Azure IoT Layered Network Management.
+## General connector issues
 
-### Layered Network Management service doesn't get an IP address
+This section lists current known issues that affect all connectors.
+
+### Connector doesn't detect updates to device credentials in Azure Key Vault
 
 ---
 
-Issue ID: 7864
+Issue ID: 6514
+
+---
+
+N/A
+
+---
+
+The connector doesn't receive a notification when device credentials stored in Azure Key Vault are updated. As a result, the connector continues to use the old credentials until it's restarted.
+
+Workaround: Restart the connector to force it to retrieve the updated credentials from Azure Key Vault.
+
+### For Akri connectors, the only supported authentication type for registry endpoints is `artifact pull secrets`
+
+---
+
+Issue ID: 4570
 
 ---
 
@@ -85,173 +67,49 @@ Log signature: N/A
 
 ---
 
-The Layered Network Management service doesn't get an IP address when it runs on K3S on an Ubuntu host.
+When you specify the registry endpoint reference in a connector template, there are multiple supported authentication methods. Akri connectors only support `artifact pull secrets` authentication.
 
-To work around this issue, you reinstall K3S without the _traefik ingress controller_:
+### Akri connectors don't work with registry endpoint resources
 
-```bash
-curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
+---
+
+Issue ID: 7710
+
+---
+
+Log signature:
+
+```output
+[aio_akri_logs@311 tid="7"] - failed to generate StatefulSet payload for instance rest-connector-template-...
+[aio_akri_logs@311 tid="7"] - reconciliation error for Connector resource... 
+[aio_akri_logs@311 tid="7"] - reconciliation of Connector resource failed...
 ```
 
-To learn more, see [Networking | K3s](https://docs.k3s.io/networking#traefik-ingress-controller).
+If you create a `RegistryEndpoint` resource using bicep and reference it in the `ConnectorTemplate` resource then when the Akri operator tries the reconcile the `ConnectorTemplate` it fails with the error shown previously.
 
-### CoreDNS service doesn't resolve DNS queries correctly
-
----
-
-Issue ID: 7955
-
----
-
-Log signature: N/A
-
----
-
-DNS queries don't resolve to the expected IP address while using the [CoreDNS](../manage-layered-network/howto-configure-layered-network.md#configure-coredns) service running on the child network level.
-
-To work around this issue, upgrade to Ubuntu 22.04 and reinstall K3S.
+Workaround: Don't use `RegistryEndpoint` resources with Akri connectors. Instead, specify the registry information in the `ContainerRegistry` settings in the `ConnectorTemplate` resource.
 
 ## Connector for OPC UA issues
 
 This section lists current known issues for the connector for OPC UA.
 
-### Connector pod doesn't restart after configuration change
+### Can't use special characters in event names
 
 ---
 
-Issue ID: 7518
+Issue ID: 1532
 
 ---
 
-Log signature: N/A
+Log signature: `2025-10-22T14:51:59.338Z aio-opc-opc.tcp-1-68ff6d4c59-nj2s4 - Updated schema information for Boiler#1Notifier skipped!`
 
 ---
 
-When you add a new asset with a new asset endpoint profile to the OPC UA broker and trigger a reconfiguration, the deployment of the `opc.tcp` pods changes to accommodate the new secret mounts for username and password. If the new mount fails for some reason, the pod doesn't restart and therefore the old flow for the correctly configured assets stops as well.
-
-### An OPC UA server modeled as a device can only have one inbound endpoint of type "Microsoft.OpcUa"
-
----
-
-Issue ID: 2411
-
----
-
-`2025-07-24T13:29:30.280Z aio-opc-supervisor-85b8c78df5-26tn5 - Maintaining the new asset test-opcua-asset | - | 1 is skipped because the endpoint profile test-opcua.opcplc-e2e-anon-000000 is not present`
-
----
-
-When you create an OPC UA device, you can only have one inbound endpoint of type `Microsoft.OpcUa`. Currently, any other endpoints aren't used.
-
-Workaround: Create multiple devices with a single endpoint each if you want to use namespace assets.
-
-An OPC UA namespaced asset can only have a single dataset. Currently, any other datasets aren't used.
-
-Workaround: Create multiple namespace assets each with a single dataset.
-
-
-
-### Data spike every 2.5 hours with some OPC UA simulators
-
----
-
-Issue ID: 6513
-
----
-
-Log signature: Increased message volume every 2.5 hours
-
----
-
-Data values spike every 2.5 hours when using particular OPC UA simulators causing CPU and memory spikes. This issue isn't seen with OPC PLC simulator used in the quickstarts. No data is lost, but you can see an increase in the volume of data published from the server to the MQTT broker.
+Schema generation fails if event names contain special characters such as `#`, `%`, or `&`. Avoid using these characters in event names to prevent schema generation issues.
 
 ## Connector for media and connector for ONVIF issues
 
 This section lists current known issues for the connector for media and the connector for ONVIF.
-
-### AssetType CRD removal process doesn't complete
-
----
-
-Issue ID: 6065
-
----
-
-Log signature: `"Error HelmUninstallUnknown: Helm encountered an error while attempting to uninstall the release aio-118117837-connectors in the namespace azure-iot-operations. (caused by: Unknown: 1 error occurred: * timed out waiting for the condition"`
-
----
-
-Sometimes, when you attempt to uninstall Azure IoT Operations from the cluster, the system reaches a state where CRD removal job is stuck in pending state, which blocks the cleanup of Azure IoT Operations.
-
-To work around this issue, complete the following steps to manually delete the CRD and finish the uninstall:
-
-1. Delete the AssetType CRD manually: `kubectl delete crd assettypes.opcuabroker.iotoperations.azure.com --ignore-not-found=true`
-
-1. Delete the job definition: `kubectl delete job aio-opc-delete-crds-job-<version> -n azure-iot-operations`
-
-1. Find the Helm release for the connectors, it's the one with `-connectors` suffix: `helm ls -a -n azure-iot-operations`
-
-1. Uninstall Helm release without running the hook: `helm uninstall aio-<id>-connectors -n azure-iot-operations --no-hooks`
-
-### Media and ONVIF devices with an underscore character in the endpoint name are ignored
-
----
-
-Issue ID: 5712
-
----
-
-Log signature: N/A
-
----
-
-If you create a media or ONVIF device with an endpoint name that contains an underscore ("_") character, the connector for media ignores the device.
-
-To work around this issue, use a hyphen ("-") instead of an underscore in the endpoint name.
-
-### Media connector doesn't use the path in destination configuration
-
----
-
-Issue ID: 6797
-
----
-
-Log signature: N/A
-
----
-
-Media assets with a task type of "snapshot-to-fs" or "clip-to-fs" don't honor the path in the destination configuration. Instead, they use the "Additional configuration" path field.
-
-### Media connector ignores MQTT topic setting in asset
-
----
-
-Issue ID: 6780
-
----
-
-Log signature: N/A
-
----
-
-The media connector ignores the MQTT destination topic setting in the asset. Instead, it uses the default topic: `/azure-iot-operations/data/<asset-name>/snapshot-to-mqtt`.
-
-### Media connector inbound endpoint addresses aren't fully validated
-
----
-
-Issue ID: 2679
-
----
-
-Log signature: N/A
-
----
-
-In the public preview release, the media connector accepts device inbound endpoint addresses with the following schemes: `async`, `cache`, `concat`, `concatf`, `crypto`, `data`, `fd`, `ffrtmpcrypt`, `ffrtmphttp`, `file`, `ftp`, `gopher`, `gophers`, `hls`, `http`, `httpproxy`, `https`, `mmsh`, `mmst`, `pipe`, `rtmp`, `rtmpe`, `rtmps`, `rtmpt`, `rtmpte`, `rtmpts`, `rtp`, `srtp`, `subfile`, `tcp`, `tls`, `udp`, `udplite`, `unix`, `ipfx`, `ipns`.
-
-This enables input data from multiple source types. However, because the output configuration is based on the `streamConfiguration`, the possibilities for using data from these sources are limited.
 
 ### Secret sync conflict
 
@@ -266,6 +124,47 @@ Log signature: N/A
 ---
 
 When using secret sync, ensure that secret names are globally unique. If a local secret with the same name exists, connectors might fail to retrieve the intended secret.
+
+### ONVIF asset event destination can only be configured on group or asset level
+
+---
+
+Issue ID: 9545
+
+---
+
+Log signature similar to:
+
+`No matching event subscription for topic: "tns1:RuleEngine/CellMotionDetector/Motion"`
+
+---
+
+Currently, ONVIF asset event destinations are only recognized at the event group or asset level. Configuring destinations at the individual event level results in log entries similar to the example, and no event data is published to the MQTT broker.
+
+As a workaround, configure the event destination at the event group or asset level instead of the individual event level. For example, using `defaultEventsDestinations` at the event group level:
+
+```yaml
+eventGroups:
+  - dataSource: ""
+    events:
+    - dataSource: tns1:RuleEngine/CellMotionDetector/Motion
+      destinations:
+      - configuration:
+          qos: Qos1
+          retain: Never
+          topic: azure-iot-operations/data/motion
+          ttl: 5
+        target: Mqtt
+      name: Motion
+    name: Default
+    defaultEventsDestinations:
+    - configuration:
+        qos: Qos1
+        retain: Never
+        topic: azure-iot-operations/data/motion
+        ttl: 5
+      target: Mqtt
+```
 
 ## Data flows issues
 
@@ -291,7 +190,7 @@ There's currently no workaround for this issue.
 
 ---
 
-Issue ID: 0313
+Issue ID: 1028
 
 ---
 
@@ -304,65 +203,6 @@ Log signature:
 If you create more than 70 data flows for a single data flow profile, deployments fail with the error `exec /bin/main: argument list too long`.
 
 To work around this issue, create multiple data flow profiles and distribute the data flows across them. Don't exceed 70 data flows per profile.
-
-### The request persistence flag is not set for MQTT sessions created for data flow graphs (WASM)
-
----
-
-Issue ID: 6415
-
----
-
-Log signature: N/A
-
----
-
-When you create a data flow graph using the WASM, the MQTT session doesn't have the request persistence flag set. 
-
-To work around this issue, set MQTT broker **Retained messages** mode to `All`. For more information, see [Configure MQTT broker persistence](../manage-mqtt-broker/howto-broker-persistence.md).
-
-### Anonymous authentication fails to pull data flow graph definitions with incorrect media type
-
----
-
-Issue ID: 0623
-
----
-
-Log signature: N/A
-
----
-
-When using anonymous authentication for registry endpoints, pulling data flow graph definitions (YAML files) fails unless the uploaded graph YAML media type is set specifically to `application/vnd.wasm.config.v1+json`.
-
-To work around this issue, ensure that when you upload data flow graph definitions to your container registry, you set the correct media type. For more information about graph definitions, see [Configure WebAssembly graph definitions](../connect-to-cloud/howto-configure-wasm-graph-definitions.md). For example, when using the `oras` CLI tool to push the graph YAML file, use the following command:
-
-```bash
-oras push --config config.json:application/vnd.wasm.config.v1+json <registry>/<repository>:<tag> graph.yaml:application/vnd.wasm.content.layer.v1+wasm
-```
-
-And the artifact manifest should look like this:
-
-```json
-{
-  "schemaVersion": 2,
-  "config": {
-    "mediaType": "application/vnd.wasm.config.v1+json",
-    "digest": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-    "size": 2
-  },
-  "layers": [
-    {
-      "mediaType": "application/vnd.wasm.content.layer.v1+wasm",
-      "digest": "sha256:cfa3ece7317a0c2598165bd67a9241bb6a2f48706023d0983078f0c2a8b5b8c0",
-      "size": 556,
-      "annotations": {
-        "org.opencontainers.image.title": "graph.yaml"
-      }
-    }
-  ]
-}
-```
 
 ### Data flow graphs only support specific endpoint types
 
@@ -385,43 +225,53 @@ To work around this issue, use one of the supported endpoint types:
 
 For more information about data flow graphs, see [Use WebAssembly (WASM) with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md).
 
-### Complex data might be flattened when enriching data in a data flow
+### Can't use the same graph definition multiple times in a chained graph scenario
 
 ---
 
-Issue ID: 7385
+Issue ID: 1352
 
 ---
 
-Log signature: N/A
+Failed to send config
 
 ---
 
-When enriching data using complex object DSS reference data, the output might be moved to the root level instead of preserving the original structure.
+You create a chained graph scenario by using the output of one data flow graph as the input to another data flow graph. However, if you try to use the same graph definition multiple times in this scenario, it currently doesn't work as expected. For example, the following code fails when using the same graph definition (`graph-passthrough:1.3.6`) for both `graph-1` and `graph-2`.
 
-For example, if you have a complex object with properties like:
-
-```json
-{
-  "complex_property_1": {
-      "field1": 12,
-      "field2": 13 
-  },
-  "complex_property_2": {
-     "field2": 24
-  }
-}
+```bicep
+      {
+          nodeType: 'Graph'
+          name: 'graph-1'
+          graphSettings: {
+            registryEndpointRef: dataflowRegistryEndpoint.name
+            artifact: 'graph-passthrough:1.3.6'
+            configuration: []
+            }
+      }
+      {
+          nodeType: 'Graph'
+          name: 'graph-2'
+          graphSettings: {
+            registryEndpointRef: dataflowRegistryEndpoint.name
+            artifact: 'graph-passthrough:1.3.6'
+            configuration: graphConfiguration
+            }
+      }
+  nodeConnections: [
+      {
+          from: {name: 'source'}
+          to: {name: 'graph-1'}
+      }
+      {
+          from: {name: 'graph-1'}
+          to: {name: 'graph-2'}
+      }
+      {
+          from: {name: 'graph-2'}
+          to: {name: 'destination'}
+      }
+  ]
 ```
 
-The output might look like:
-
-```json
-{
-  "property_1": 2,
-  "property_2": 3,
-  "field1": 12,
-  "field2": 24,
-}
-```
-
-The complex properties are flattened to the root, and the original structure is lost. If fields with the same name exist in the complex objects or the root, the values might overwrite the root values. In the example, `field2` from `complex_property_2` overwrites the `field2` from `complex_property_1`.
+To solve this error, push the graph definition to the ACR as many times as needed with the scenario with a different name or tag each time. For example, in the scenario described, the graph definition need to be pushed twice with either a different name or a different tag, such as `graph-passthrough-one:1.3.6` and `graph-passthrough-two:1.3.6`.

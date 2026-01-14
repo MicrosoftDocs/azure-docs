@@ -7,7 +7,7 @@ ms.service: azure-frontdoor
 ms.topic: overview
 ms.date: 11/12/2024
 ms.custom: portfolio-consolidation-2025
-# Customer intent: As an IT admin, I want to learn about Front Door and what I can use it for.
+#customer intent: As an IT admin, I want to learn about Front Door and what I can use it for.
 ---
 
 # What is Azure Front Door?

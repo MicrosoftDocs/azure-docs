@@ -18,7 +18,7 @@ ms.custom:
 When you accept Microsoft Azure credit under a Customer Agreement, the credit is assigned to a [subscription](../../cost-management-billing/manage/cloud-subscription.md) and resource group. The associated resource holds metadata such as status, credit amount, currency, start date, and end date. This information is accessible in the Azure portal.
 
 >[!NOTE] 
->This article applies to Azure Credit Offer, Azure Prepayment, Support credits accepted after ***August 2025***, credits accepted earlier are not listed as resources under a subscription.
+>This article applies to Azure Credit Offer, Azure Prepayment, End Customer Investment Funds (ECIF), and Support credits accepted after ***August 2025***, credits accepted earlier are not listed as resources under a subscription.
 
 
 

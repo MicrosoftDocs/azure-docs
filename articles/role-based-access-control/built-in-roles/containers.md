@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon    
 manager: pmwongera
 ms.author: rolyon
-ms.date: 09/03/2025
+ms.date: 09/19/2025
 ms.custom: generated
 ---
 
@@ -59,7 +59,7 @@ Delete repositories, tags, or manifests from a container registry.
 
 ## AcrImageSigner
 
-Push trusted images to or pull trusted images from a container registry enabled for content trust.
+Avoid using this role. Content Trust in Azure Container Registry and the AcrImageSigner role are being deprecated and will be completely removed on March 31, 2028. For details and transition guidance, see https://aka.ms/acr/dctdeprecation.
 
 [Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
@@ -1910,6 +1910,8 @@ Grants access to read and write Azure Kubernetes Service clusters
 
 Allows users to create and manage Azure Kubernetes Service namespace resources.
 
+[Learn more](/azure/aks/concepts-managed-namespaces)
+
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
@@ -1923,68 +1925,80 @@ Allows users to create and manage Azure Kubernetes Service namespace resources.
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
-> | *none* | Writes resourcequotas |
+> | *none* |  |
 
 ```json
 {
-  "Name": "Azure Kubernetes Service Namespace Contributor",
-  "Id": "289d8817-ee69-43f1-a0af-43a45505b488",
-  "IsCustom": false,
-  "Description": "Allows users to create and manage Azure Kubernetes Service namespace resources.",
-  "Actions": [
-    "Microsoft.Authorization/*/read",
-    "Microsoft.Insights/alertRules/*",
-    "Microsoft.Resources/subscriptions/resourceGroups/read",
-    "Microsoft.ContainerService/managedClusters/managedNamespaces/*",
-    "Microsoft.Resources/deployments/*"
-  ],
-  "NotActions": [],
-  "DataActions": [],
-  "NotDataActions": [],
-  "AssignableScopes": [
+  "assignableScopes": [
     "/"
   ],
-  "Condition": null,
-  "ConditionVersion": null
+  "description": "Allows users to create and manage Azure Kubernetes Service namespace resources.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/289d8817-ee69-43f1-a0af-43a45505b488",
+  "name": "289d8817-ee69-43f1-a0af-43a45505b488",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ContainerService/managedClusters/managedNamespaces/*",
+        "Microsoft.Resources/deployments/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Service Namespace Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
+
 
 ## Azure Kubernetes Service Namespace User
 
 Allows users to read Azure Kubernetes Service namespace resources. In-cluster namespace access further requires assignment of Azure Kubernetes Service RBAC roles to the namespace resource for an Entra ID enabled cluster.
 
+[Learn more](/azure/aks/concepts-managed-namespaces)
+
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/managedNamespaces/read | Reads namespaces |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/managedNamespaces/listCredential/action | List credentials for the given namespace |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/managedNamespaces/read | Get a managed namespace of a managed cluster |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/managedNamespaces/listCredential/action | List cluster credentials of a managed namespace |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
-> | *none* | Writes resourcequotas |
+> | *none* |  |
 
 ```json
 {
-  "Name": "Azure Kubernetes Service Namespace User",
-  "Id": "c9f76ca8-b262-4b10-8ed2-09cf0948aa35",
-  "IsCustom": false,
-  "Description": "Allows users to read Azure Kubernetes Service namespace resources. In-cluster namespace access further requires assignment of Azure Kubernetes Service RBAC roles to the namespace resource for an Entra ID enabled cluster.",
-  "Actions": [
-    "Microsoft.ContainerService/managedClusters/managedNamespaces/read",
-    "Microsoft.ContainerService/managedClusters/managedNamespaces/listCredential/action"
-  ],
-  "NotActions": [],
-  "DataActions": [],
-  "NotDataActions": [],
-  "AssignableScopes": [
+  "assignableScopes": [
     "/"
   ],
-  "Condition": null,
-  "ConditionVersion": null
+  "description": "Allows users to read Azure Kubernetes Service namespace resources. In-cluster namespace access further requires assignment of Azure Kubernetes Service RBAC roles to the namespace resource for an Entra ID enabled cluster.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/c9f76ca8-b262-4b10-8ed2-09cf0948aa35",
+  "name": "c9f76ca8-b262-4b10-8ed2-09cf0948aa35",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerService/managedClusters/managedNamespaces/read",
+        "Microsoft.ContainerService/managedClusters/managedNamespaces/listCredential/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Service Namespace User",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
+
 
 ## Azure Kubernetes Service RBAC Admin
 

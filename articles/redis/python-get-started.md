@@ -1,27 +1,26 @@
 ---
-title: "QuickStart: Use Azure Cache for Redis with Python"
-description: In this quickstart, you learn how to create a Python app that uses Azure Cache for Redis.
+title: "Quickstart: Create a Python app with Azure Managed Redis"
+description: In this quickstart, you learn how to create a Python app that uses Azure Managed Redis.
 ms.date: 07/29/2025
 ms.topic: quickstart
 ms.custom:
-  - mode-api
-  - devx-track-python
-  - ignite-2024
-  - build-2025
+- mode-api
+- devx-track-python
+- ignite-2024
+- build-2025
 appliesto:
-  - ✅ Azure Cache for Redis
-  - ✅ Azure Managed Redis
+- ✅ Azure Managed Redis
 ms.devlang: python
 ai-usage: ai-assisted
 ---
 
-# Quickstart: Use Azure Redis with Python
+# Quickstart: Create a Python app with Azure Managed Redis
 
-In this article, you learn how to use an Azure Redis cache with the Python language and connect using Microsoft Entra ID.
+In this article, you learn how to use an Azure Managed Redis cache with the Python language and connect using Microsoft Entra ID.
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Install [Python 3.7+](https://www.python.org/downloads/) language environment
 - Add these imports from  to your project and to your development environment
   - `redis` - The Redis Python client

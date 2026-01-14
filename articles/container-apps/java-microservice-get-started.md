@@ -44,7 +44,7 @@ By the end of this article, you deploy one web application and three back-end ap
 
 ## Prerequisites
 
-- Azure account: If you don't have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the **Contributor** or **Owner** permission on the Azure subscription to use this quickstart. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current).
+- Azure account: If you don't have an Azure account, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). You need the **Contributor** or **Owner** permission on the Azure subscription to use this quickstart. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=current).
 - Azure CLI: Install the [Azure CLI](/cli/azure/install-azure-cli).  
 - Azure Container Apps CLI extension. Use version 0.3.47 or higher. Use the `az extension add --name containerapp --upgrade --allow-preview` command to install the latest version.  
 

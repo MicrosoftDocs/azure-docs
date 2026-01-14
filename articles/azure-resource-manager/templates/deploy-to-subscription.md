@@ -205,7 +205,7 @@ To deploy resources to a subscription that's different than the subscription fro
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2025-04-01",
       "name": "nestedDeployment",
       "subscriptionId": "00000000-0000-0000-0000-000000000000",
       "location": "westus",
@@ -232,7 +232,7 @@ To deploy resources to a resource group within the subscription, add a nested de
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2025-04-01",
       "name": "nestedDeployment",
       "resourceGroup": "demoResourceGroup",
       "properties": {
@@ -262,7 +262,7 @@ To use a nested deployment, set `scope` and `location`:
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2025-04-01",
       "name": "nestedDeployment",
       "location": "centralus",
       "scope": "/",
@@ -293,7 +293,7 @@ Or, you can set the scope to `/` for some resource types like management groups:
   "resources": [
     {
       "type": "Microsoft.Management/managementGroups",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2024-02-01-preview",
       "name": "[parameters('mgName')]",
       "scope": "/",
       "location": "eastus",
@@ -335,7 +335,7 @@ The following template creates an empty resource group:
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-04-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
@@ -366,7 +366,7 @@ Use the [copy element](copy-resources.md) with resource groups to create more th
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-04-01",
       "location": "[parameters('rgLocation')]",
       "name": "[concat(parameters('rgNamePrefix'), copyIndex())]",
       "copy": {
@@ -410,14 +410,14 @@ The following example creates a resource group and deploys a storage account to 
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-04-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-04-01",
       "name": "storageDeployment",
       "resourceGroup": "[parameters('rgName')]",
       "properties": {
@@ -428,7 +428,7 @@ The following example creates a resource group and deploys a storage account to 
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
-              "apiVersion": "2022-09-01",
+              "apiVersion": "2025-06-01",
               "name": "[variables('storageName')]",
               "location": "[parameters('rgLocation')]",
               "sku": {
@@ -473,7 +473,7 @@ The following example assigns an existing policy definition to the subscription.
   "resources": [
     {
       "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2020-03-01",
+      "apiVersion": "2025-03-01",
       "name": "[parameters('policyName')]",
       "properties": {
         "scope": "[subscription().id]",
@@ -528,7 +528,7 @@ You can [define](../../governance/policy/concepts/definition-structure.md) and a
   "resources": [
     {
       "type": "Microsoft.Authorization/policyDefinitions",
-      "apiVersion": "2020-03-01",
+      "apiVersion": "2025-03-01",
       "name": "locationpolicy",
       "properties": {
         "policyType": "Custom",
@@ -546,7 +546,7 @@ You can [define](../../governance/policy/concepts/definition-structure.md) and a
     },
     {
       "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2020-03-01",
+      "apiVersion": "2025-03-01",
       "name": "location-lock",
       "dependsOn": [
         "locationpolicy"

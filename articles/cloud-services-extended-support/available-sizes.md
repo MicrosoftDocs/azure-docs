@@ -2,7 +2,7 @@
 title: Available sizes for Azure Cloud Services (extended support)
 description: Available sizes for Azure Cloud Services (extended support) deployments
 ms.topic: concept-article
-ms.service: azure-cloud-services-extended-support
+ms.service: azure-virtual-machines
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt

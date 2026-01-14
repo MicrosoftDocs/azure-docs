@@ -2,7 +2,7 @@
 title: Script Sample - Delete a Recovery Services vault for Azure Backup
 description: Learn about how to use a PowerShell script to delete a Recovery Services vault.
 ms.topic: sample
-ms.date: 12/03/2024
+ms.date: 12/05/2025
 ms.service: azure-backup
 ms.custom: devx-track-azurepowershell, engagement-fy24
 author: AbhishekMallick-MS
@@ -14,7 +14,9 @@ ms.author: v-mallicka
 
 This script helps you to delete a Recovery Services vault for Azure Backup.
 
-## How to execute the script?
+## Execute the script for vault deletion
+
+To execute the script for vault deletion, follow these steps:
 
 1. Save the script in the following section on your machine with a name of your choice and `.ps1` extension.
 1. In the script, change the parameters (vault name, resource group name, subscription name, and subscription ID).
@@ -37,7 +39,7 @@ This script helps you to delete a Recovery Services vault for Azure Backup.
 
 The script will continue to delete all the backup items and ultimately the entire vault recursively.
 
-## Script
+## Script for vault deletion
 
 ```azurepowershell-interactive
 Write-Host "WARNING: Please ensure that you have at least PowerShell 7 before running this script. Visit https://go.microsoft.com/fwlink/?linkid=2181071 for the procedure." -ForegroundColor Yellow

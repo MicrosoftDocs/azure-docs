@@ -51,6 +51,9 @@ To customize the current dashboard, select **Edit**.
 
 After you select **Edit**, the dashboard is in *edit* mode. You can use the tools in the **Add a tile** panel to add tiles to the dashboard. You can customize and remove tiles on the dashboard itself. For example, to add a line chart tile to track telemetry values reported by one or more devices over time:
 
+> [!TIP]
+> For accessibility support, use line charts in preference to other chart types on your dashboards.
+
 1. Select **Start with a Visual**, **Line chart**, and then **Add tile**, or just drag the tile onto the canvas.
 
 1. To edit the tile, select its **pencil** icon. Enter a **Title** and select a **Device Group**. In the **Devices** list, select the devices to show on the tile.

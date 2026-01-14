@@ -25,7 +25,7 @@ Verify that you've met the following criteria before beginning your configuratio
 
 * The following ExpressRoute circuit SKUs can be connected to the hub gateway: Local, Standard, and Premium.
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ### Azure PowerShell
 
@@ -91,7 +91,7 @@ Use one of the following examples to create an ExpressRoute gateway in a new or 
 $expressroutegatewayinhub = New-AzExpressRouteGateway -MaxScaleUnits <UInt32> -MinScaleUnits 2 -Name 'testExpressRoutegw' -ResourceGroupName 'testRG' -Tag @{"tag1"="value1"; "tag2"="value2"} -VirtualHubName "[hub Name]"
 ```
 
-## Create an Express Route circuit
+## Create an ExpressRoute circuit
 
 The next step is to get the private peering ID of the ExpressRoute circuit. You can either create a new circuit, or get the ID from an existing circuit. Use one of the following examples.
 

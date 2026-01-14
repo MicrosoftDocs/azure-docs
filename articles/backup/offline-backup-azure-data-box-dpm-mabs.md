@@ -2,7 +2,7 @@
 title: Offline Backup with Azure Data Box for DPM and MABS
 description: You can use Azure Data Box to seed initial Backup data offline from DPM and MABS.
 ms.topic: how-to
-ms.date: 12/03/2024
+ms.date: 11/26/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -23,7 +23,7 @@ Offline backup based on Azure Data Box provides two distinct advantages over [of
 
 - Azure Backup (MARS Agent) can directly write backup data onto the supported SKUs of Azure Data Box. This capability eliminates the need for you to provision a staging location for your initial backup data. You also don't need utilities to format and copy that data onto the disks.
 
-## Supported platforms
+## Supported platforms for DPM and MABS in offline backup
 
 The following platforms are supported:
 
@@ -70,7 +70,7 @@ Ensure that the required Data Box devices are in *Delivered* state before trigge
 
 ![Setup azure databox](./media/offline-backup-azure-data-box-dpm-mabs/setup-azure-databox.png)
 
-## Setup Azure Data Box devices
+## Setup Azure Data Box devices for DPM/MABS
 
 Once you receive the Azure Data Box device, depending on the Azure Data Box SKU you've ordered, perform the steps in the appropriate sections below to set up and prepare the Data Box devices for the DPM/MABS Server to identify and transfer the initial backup data.
 
@@ -81,7 +81,7 @@ If you ordered one or more Azure Data Box disks (up to 8 TB each), follow the st
 > [!NOTE]
 > It's possible that the DPM/MABS server doesn't have a USB port. In such a scenario, you can connect your Azure Data Box disk to another server/client and expose the root of the device as a network share.
 
-## Setup Azure Data Box
+## Setup Azure Data Box for backup using DPM/MABS
 
 If you ordered an Azure Data Box (up to 100 TB), follow the steps mentioned [here](../databox/data-box-deploy-set-up.md) to set up your Data Box.
 
@@ -185,7 +185,7 @@ Specify alternate source: *WIM:D:\Sources\Install.wim:4*
 
    ![Administrator console](./media/offline-backup-azure-data-box-dpm-mabs/administrator-console.png)
 
-## Post-backup steps
+## Move data from Azure Data Box to Azure
 
 Follow these steps once the data backup to the Azure Data Box Disk is successful.
 
@@ -197,7 +197,7 @@ Follow these steps once the data backup to the Azure Data Box Disk is successful
 
 - After the DPM/MABS Server successfully creates a recovery point corresponding to the initial backup, you may delete the Storage Account (or specific contents) associated with the Azure Data Box job.
 
-## Troubleshooting
+## Troubleshoot offline backup issues
 
 The Microsoft Azure Backup (MAB) agent on the DPM server creates a Microsoft Entra application for you, in your tenant. This application requires a certificate for authentication that's created and uploaded when configuring offline seeding policy.
 

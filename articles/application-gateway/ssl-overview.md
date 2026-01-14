@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 06/09/2023
+ms.date: 10/09/2025
 ms.author: mbender
 
 # Customer intent: "As a cloud architect, I want to configure end to end TLS on the application gateway, so that I can ensure secure communication and compliance for sensitive data transmitted between clients and backend servers."
@@ -140,20 +140,16 @@ The following tables outline the differences in SNI between the v1 and v2 SKU in
 
 |Scenario | v1 | v2 |
 | --- | --- | --- |
-| SNI (server_name) header during the TLS handshake as FQDN | Set as FQDN from the backend pool. As per [RFC 6066](https://tools.ietf.org/html/rfc6066), literal IPv4 and IPv6 addresses aren't permitted in SNI hostname. <br> **Note:** FQDN in the backend pool should DNS resolve to backend server’s IP address (public or private) | SNI header (server_name) is set as the hostname from the custom probe attached to the HTTP settings (if configured), otherwise from the hostname mentioned in the HTTP settings, otherwise from the FQDN mentioned in the backend pool. The order of precedence is custom probe > HTTP settings > backend pool. <br> **Note:** If the hostnames configured in HTTP settings and custom probe are different, then according to the precedence, SNI will be set as the hostname from the custom probe.
-| If the backend pool address is an IP address (v1) or if custom probe hostname is configured as IP address (v2) | SNI (server_name) won’t be set. <br> **Note:** In this case, the backend server should be able to return a default/fallback certificate and this should be allow-listed in HTTP settings under authentication certificate. If there’s no default/fallback certificate configured in the backend server and SNI is expected, the server might reset the connection and will lead to probe failures | In the order of precedence mentioned previously, if they have IP address as hostname, then SNI won't be set as per [RFC 6066](https://tools.ietf.org/html/rfc6066). <br> **Note:** SNI also won't be set in v2 probes if no custom probe is configured and no hostname is set on HTTP settings or backend pool |
-
-> [!NOTE] 
-> If a custom probe isn't configured, then Application Gateway sends a default probe in this format - \<protocol\>://127.0.0.1:\<port\>/. For example, for a default HTTPS probe, it will be sent as https://127.0.0.1:443/. Note that, the 127.0.0.1 mentioned here is only used as HTTP host header and as per RFC 6066, won't be used as SNI header. For more information on health probe errors, check the [backend health troubleshooting guide](application-gateway-backend-health-troubleshooting.md).
+| When an FQDN or SNI is configured | Set as FQDN from the backend pool. As per [RFC 6066](https://tools.ietf.org/html/rfc6066), literal IPv4 and IPv6 addresses aren't permitted in SNI hostname. | The SNI value is set based on the [TLS validation type](configuration-http-settings.md?tabs=backendhttpsettings#backend-https-validation-settings) in the Backend Settings.<br><br> 1. **Complete validation** – The probes uses the SNI in the following order of precedence:<br> a) Custom Health Probe's hostname <br> b) Backend Setting's hostname (as per Overridden value or Pick from backend server) <br><br> 2.	**Configurable** <br> Use specific SNI: The probes use this fixed hostname for validation.<br> Skip SNI: No Subject Name validation.
+| When an FQDN or SNI is NOT configured (only IP address is available)  | SNI (server_name) won’t be set. <br> **Note:** In this case, the backend server should be able to return a default/fallback certificate and this should be allow-listed in HTTP settings under authentication certificate. If there’s no default/fallback certificate configured in the backend server and SNI is expected, the server might reset the connection and will lead to probe failures | If the Custom Probe or Backend Settings use an IP address in the hostname field, the SNI is not set, in accordance with [RFC 6066](https://tools.ietf.org/html/rfc6066). This includes cases where the default probe uses 127.0.0.1. |
 
 #### For live traffic
 
 
 |Scenario | v1 | v2 |
 | --- | --- | --- |
-| SNI (server_name) header during the TLS handshake as FQDN | Set as FQDN from the backend pool. As per [RFC 6066](https://tools.ietf.org/html/rfc6066), literal IPv4 and IPv6 addresses aren't permitted in SNI hostname. <br> **Note:** FQDN in the backend pool should DNS resolve to backend server’s IP address (public or private) | SNI header (server_name) is set as the hostname from the HTTP settings, otherwise, if *PickHostnameFromBackendAddress* option is chosen or if no hostname is mentioned, then it will be set as the FQDN in the backend pool configuration
-| If the backend pool address is an IP address or hostname isn't set in HTTP settings | SNI won't be set as per [RFC 6066](https://tools.ietf.org/html/rfc6066) if the backend pool entry isn't an FQDN | SNI will be set as the hostname from the input FQDN from the client and the backend certificate's CN has to match with this hostname.
-| Hostname isn't provided in HTTP Settings, but an FQDN is specified as the Target for a backend pool member | SNI will be set as the hostname from the input FQDN from the client and the backend certificate's CN has to match with this hostname. | SNI will be set as the hostname from the input FQDN from the client and the backend certificate's CN has to match with this hostname.
+| When an FQDN or SNI is available | The SNI is set using the backend server's FQDN. | The SNI value is set based on the [TLS validation type](configuration-http-settings.md?tabs=backendhttpsettings#backend-https-validation-settings) in the Backend Settings.<br><br> 1. **Complete validation** – SNI is set according to the following order of precedence: <br> a) Backend Setting’s hostname (as per Overridden value or Pick from backend server) <br> b) Host header of the incoming client request <br><br> 2. **Configurable** <br> Use specific SNI: Uses this fixed hostname for validation. <br> Skip SNI: No Subject Name validation. | 
+| When an FQDN or SNI is NOT available (only IP address is available) | SNI won't be set as per [RFC 6066](https://tools.ietf.org/html/rfc6066) if the backend pool entry isn't an FQDN | SNI won't be set as per [RFC 6066](https://tools.ietf.org/html/rfc6066). |
 
 ## Next steps
 

@@ -25,7 +25,7 @@ If you meet the prerequisites and are familiar with ARM templates, select the **
 
 ## Prerequisites
 
-* An Azure subscription. Create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't have one.
+* An Azure subscription. Create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) if you don't have one.
 * The IP or FQDN of a website or web application.
 
 ## Review the template

@@ -48,7 +48,7 @@ Latency between Azure resources and Oracle Database@Azure is within the Azure re
 
 ### Does Oracle Database@Azure support deploying Oracle Base Database, or do I need to migrate to the Autonomous Database service?
 
-No, Base Database isn't currently supported with Oracle Database@Azure. You can deploy single-instance, self-managed databases on Azure VMs. If you need Oracle-managed databases with Oracle RAC, we recommend that you use Autonomous Database via Oracle Database@Azure. For more information, see [Autonomous Database](https://www.oracle.com/cloud/azure/oracle-database-at-azure/) and [Provision Oracle Autonomous Database](provision-autonomous-oracle-databases.md).
+Yes, Oracle Base Database service is now generally available on Azure. You can now run any Oracle Database service with version flexibility (19c or 23ai).
 
 ### For the Oracle Database@Azure service, does automated disaster recovery use the Azure backbone or the OCI backbone?
 
@@ -103,9 +103,9 @@ Ingress and egress for managed services occurs via the Azure/OCI backbone and do
 
 This section includes questions related to onboarding, provisioning, and migrating to Oracle Database@Azure.
 
-### Can a CSP or an outsourcer use Oracle Database@Azure?
+### Can a CSP, reseller, or an outsourcer use Oracle Database@Azure?
 
-No. Oracle Database@Azure doesn't support cloud service providers (CSPs), Outsourcer Channel Agreement (OCAs), or multi-party private offers (MPPOs).  
+Oracle Database@Azure doesn't support Outsourcer Channel Agreements (OCAs). However, Oracle Database@Azure supports multiparty private offers (MPO) and cloud service providers (CSPs). Multiparty private offers are supported in US, UK, and Canada. For more information on MPO, refer to the [Azure Marketplace documentation](/partner-center/marketplace-offers/multiparty-private-offers-for-channel-partners). For more details on CSP, refer to the [CSP documentation](/partner-center/marketplace-offers/isv-csp-reseller).
 
 ### To set up Oracle Database@Azure, what role assignments does the Azure user need?
 
@@ -185,7 +185,7 @@ Oracle Transparent Data Encryption (TDE) master encryption keys (MEK) can be man
 
 ### What type of storage redundancy options are available?
 
-Oracle Automatic Storage Management (Oracle ASM) is the default and only storage management system that's supported on Oracle Exadata systems. Only NORMAL (protection against single disk or an entire storage server failure) and HIGH redundancy (protection against two simultaneous partner disk failures from two distinct storage servers) levels are supported on Oracle Exadata systems. For more information, see [Oracle ASM considerations
+Oracle Automatic Storage Management (Oracle ASM) is the default and only storage management system that's supported on Oracle Exadata systems. Only HIGH redundancy (protection against two simultaneous partner disk failures from two distinct storage servers) levels are supported on Oracle Exadata systems. NORMAL (protection against single disk or an entire storage server failure) levels are not supported. For more information, see [Oracle ASM considerations
 for Oracle Exadata deployments, on-premises and cloud](https://www.oracle.com/docs/tech/database/maa-exadata-asm-cloud.pdf).
 
 ### Is tiering storage available for the database in Oracle Database@Azure?

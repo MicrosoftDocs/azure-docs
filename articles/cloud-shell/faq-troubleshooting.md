@@ -1,6 +1,6 @@
 ---
 description: This article answers common questions and explains how to troubleshoot Cloud Shell issues.
-ms.date: 11/04/2024
+ms.date: 12/03/2025
 ms.topic: troubleshooting
 tags: azure-resource-manager
 ms.custom: has-azure-ad-ps-ref
@@ -25,17 +25,25 @@ Cloud Shell supports the latest versions of following browsers:
 The keys used for copy and paste vary by operating system and browser. The following list contains
 the most common key combinations:
 
-- Windows: <kbd>Ctrl</kbd>+<kbd>c</kbd> to copy and <kbd>CTRL</kbd>+<kbd>Shift</kbd>+<kbd>v</kbd> or
+- Windows: <kbd>Ctrl</kbd>+<kbd>c</kbd> to copy and <kbd>CTRL</kbd>+<kbd>v</kbd> or
   <kbd>Shift</kbd>+<kbd>Insert</kbd> to paste.
   - Firefox might not support clipboard permissions properly.
 - macOS: <kbd>Cmd</kbd>+<kbd>c</kbd> to copy and <kbd>Cmd</kbd>+<kbd>v</kbd> to paste.
-- Linux: <kbd>CTRL</kbd>+<kbd>c</kbd> to copy and <kbd>CTRL</kbd>+<kbd>Shift</kbd>+<kbd>v</kbd> to
-  paste.
+- Linux: <kbd>CTRL</kbd>+<kbd>c</kbd> to copy and <kbd>CTRL</kbd>+<kbd>v</kbd> to paste.
 
 > [!NOTE]
 > If no text is selected when you type <kbd>Ctrl</kbd>+<kbd>C</kbd>, Cloud Shell sends the `Ctrl-c`
 > character to the shell. The shell can interpret `Ctrl-c` as a **Break** signal and terminate the
 > currently running command.
+
+When using the Bash shell, pasted text is automatically highlighted due to bracketed paste mode. To
+disable highlighting, run the following command:
+
+```bash
+bind 'set enable-bracketed-paste off'
+```
+
+This setting only persists if you have a mounted storage account.
 
 ## Frequently asked questions
 
@@ -191,7 +199,6 @@ command that requires elevated permissions.
 
 ### Terminal output - Sorry, your Cloud Shell failed to provision: {"code":"TenantDisabled" ...}
 
-
 - **Details**: In rare cases, Azure might flag out-of-the-ordinary resource consumption based in
   from Cloud Shell as fraudulent activity. When this occurs, Azure disables Cloud Shell at the
   tenant level and you see the following error message:
@@ -209,6 +216,14 @@ command that requires elevated permissions.
 
   1. Tenant ID
   2. The business justification and a description of how you use Cloud Shell.
+
+### Terminal Output - Audience `<service-audience-url>` is not a supported MSI token audience
+
+- **Details**: Cloud Shell was unable to fetch the necessary token for the Azure service that the
+  command required. This happens when Cloud Shell doesn't support the token audience requested by
+  the command.
+- **Resolution**: Run the following command in Cloud Shell to sign in interactively and acquire the
+  necessary credentials before retrying your original command: `az login --use-device-code`
 
 ## Managing Cloud Shell
 

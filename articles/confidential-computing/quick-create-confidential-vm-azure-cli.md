@@ -7,7 +7,9 @@ mms.subservice: confidential-computing
 ms.topic: quickstart
 ms.date: 12/01/2023
 ms.author: simranparkhe
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - sfi-ga-nochange
 # Customer intent: As a cloud administrator, I want to create a confidential virtual machine using the command-line interface, so that I can ensure enhanced security for sensitive data and applications running in the cloud.
 ---
 
@@ -19,7 +21,7 @@ This quickstart shows you how to use the Azure Command-Line Interface (Azure CLI
 
 ## Prerequisites
 
-If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ### Launch Azure Cloud Shell
 

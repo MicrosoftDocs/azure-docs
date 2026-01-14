@@ -29,7 +29,7 @@ There are two types of supported managed identities:
 
 - **System-assigned:** You can enable a managed identity directly on a service instance. When you allow a system-assigned managed identity during the creation of the service, an identity is created in Microsoft Entra tied to that service instance's lifecycle. By design, only that Azure resource can use this identity to request tokens from Microsoft Entra ID. So when the resource is deleted, Azure automatically deletes the identity for you.  
 - **User-assigned:** You may also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and assign it to one or more instances of a data factory. In user-assigned managed identities, the identity is managed separately from the resources that use it.
->[!NOTE]
+> [!NOTE]
 > [Trusted bypass](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993) cannot utilize user-assigned managed identities. It can only employ system-assigned managed identities for connecting to Azure Storage and Azure Key Vault. 
 
 Managed identity provides the below benefits:
@@ -51,9 +51,13 @@ To effectively use managed identities in Azure Data Factory, specific roles must
    - **Reader Role**: This role is necessary to read the metadata of the resources.
    - **Contributor Role**: This role is required to manage the resources that the managed identity needs to access.
 
+> [!NOTE]
+> - Users with the Data Factory Contributor role can create and run pipelines that use both the System‑assigned Managed Identity (SAMI) and any User‑assigned Managed Identities (UAMI) attached to the data factory. Those identities inherit all permissions already granted to them on external resources (for example, storage accounts, SQL databases, Key Vault, Fabric Lakehouse).
+> - Please assign the Contributor role only to trusted principals and on the narrowest scope possible. Review and limit the permissions granted to the data factory’s managed identities, use least‑privilege RBAC on downstream resources, and regularly audit role assignments and activity logs.
+
 ## System-assigned managed identity 
 
->[!NOTE]
+> [!NOTE]
 > System-assigned managed identity is also referred to as 'Managed identity' elsewhere in the documentation and in the Data Factory Studio for backward compatibility purpose. We will explicitly mention 'User-assigned managed identity' when referring to it. 
 
 ### <a name="generate-managed-identity"></a> Generate system-assigned managed identity
@@ -71,7 +75,7 @@ If you find your service instance doesn't have a managed identity associated fol
 - [Generate managed identity using an Azure Resource Manager template](#generate-system-assigned-managed-identity-using-an-azure-resource-manager-template)
 - [Generate managed identity using SDK](#generate-system-assigned-managed-identity-using-sdk)
 
->[!NOTE]
+> [!NOTE]
 >
 >- Managed identity cannot be modified. Updating a service instance which already has a managed identity won't have any impact, and the managed identity is kept unchanged.
 >- If you update a service instance which already has a managed identity without specifying the "identity" parameter in the factory objects or without specifying "identity" section in REST request body, you will get an error.
@@ -177,7 +181,7 @@ client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
 
 You can retrieve the managed identity from Azure portal or programmatically. The following sections show some samples.
 
->[!TIP]
+> [!TIP]
 > If you don't see the managed identity, [generate managed identity](#generate-managed-identity) by updating your service instance.
 
 #### Retrieve system-assigned managed identity using Azure portal
@@ -192,7 +196,7 @@ You can find the managed identity information from Azure portal -> your data fac
 
 The managed identity information will also show up when you create linked service, which supports managed identity authentication, like Azure Blob, Azure Data Lake Storage, Azure Key Vault, etc.
 
-To grant permissions for the Data Factory managed identity to your Azure data sources, follow these steps. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+To grant permissions for the Data Factory managed identity to your Azure data sources, follow these steps. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 1. Select **Access control (IAM)** on the Azure portal page for the data source.
 

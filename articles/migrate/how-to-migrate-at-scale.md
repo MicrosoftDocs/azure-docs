@@ -5,6 +5,7 @@ author: sunishvohra-ms
 ms.author: sunishvohra
 ms.service: azure-migrate
 ms.manager: vijain
+ms.reviewer: v-uhabiba
 ms.topic: how-to
 ms.date: 06/30/2023
 # Customer intent: As an IT administrator, I want to automate the migration of multiple virtual machines using scripts, so that I can efficiently transfer workloads to Azure without manual intervention.

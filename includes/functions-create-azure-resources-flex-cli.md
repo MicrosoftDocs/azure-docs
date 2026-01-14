@@ -147,6 +147,13 @@ Use the Azure CLI commands in these steps to create the required resources.
     --deployment-storage-auth-type UserAssignedIdentity --deployment-storage-auth-value "func-host-storage-user"
     ```
     ::: zone-end
+    ::: zone pivot="programming-language-other" 
+    ```azurecli
+    az functionapp create --resource-group "AzureFunctionsQuickstart-rg" --name <APP_NAME> --flexconsumption-location <REGION> \
+    --runtime other --storage-account <STORAGE_NAME> \
+    --deployment-storage-auth-type UserAssignedIdentity --deployment-storage-auth-value "func-host-storage-user"
+    ```
+    ::: zone-end
     <!---
     ### [Azure PowerShell](#tab/azure-powershell)
 
@@ -163,7 +170,7 @@ Use the Azure CLI commands in these steps to create the required resources.
     + `<APP_NAME>`: a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app.
     + `<STORAGE_NAME>`: the name of the account you used in the previous step.
     + `<REGION>`: your current region. 
-    + `<LANGUAGE_VERSION>`: use the same [supported language stack version](../articles/azure-functions/supported-languages.md) you verified locally.
+    + `<LANGUAGE_VERSION>`: use the same [supported language stack version](../articles/azure-functions/supported-languages.md) you verified locally, when applicable.
 
     This command creates a function app running in your specified language runtime on Linux in the [Flex Consumption Plan](../articles/azure-functions/flex-consumption-plan.md), which is free for the amount of usage you incur here. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can use to monitor your function app executions and view logs. For more information, see [Monitor Azure Functions](../articles/azure-functions/functions-monitoring.md). The instance incurs no costs until you activate it.
 

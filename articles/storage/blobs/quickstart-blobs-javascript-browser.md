@@ -34,7 +34,7 @@ Additional resources:
 
 ## Prerequisites
 
-- [An Azure account with an active subscription](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- [An Azure account with an active subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [An Azure Storage account](../common/storage-account-create.md)
 - [Node.js LTS](https://nodejs.org/en/download/package-manager/)
 - [Microsoft Visual Studio Code](https://code.visualstudio.com)

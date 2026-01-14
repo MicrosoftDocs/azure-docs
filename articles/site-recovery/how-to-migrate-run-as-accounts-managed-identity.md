@@ -1,9 +1,9 @@
 ---
 title: Migrate from a Run As account to a managed identity
 description: This article describes how to migrate from a Run As account to a managed identity in Azure Site Recovery.
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
-ms.author: jsuri
+ms.author: v-gajeronika
 ms.topic: how-to 
 ms.date: 04/29/2024
 ms.custom: sfi-image-nochange

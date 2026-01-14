@@ -1,6 +1,6 @@
 ---
-title: Collect data from Cisco FTD firewall devices running ASA and FXOS
-description: "Use Microsoft Sentinel connectors to collect logs from Cisco FTD firewall devices in Adaptive Security Appliance (ASA) and Common Event Format (CEF) formats."
+title: Collect data from Cisco firewall devices running ASA
+description: "Use Microsoft Sentinel connectors to collect logs from Cisco firewall devices in Adaptive Security Appliance (ASA) and Common Event Format (CEF) formats."
 author: guywi-ms
 ms.date: 03/24/2025
 ms.service: microsoft-sentinel
@@ -9,19 +9,23 @@ ms.topic: conceptual
 ms.collection: sentinel-data-connector
 ---
 
-# Collect data from Cisco FTD firewall devices
+# Collect data from Cisco firewall devices
 
-Microsoft Sentinel provides two connectors that collect logs from Cisco Firepower Threat Defense (FTD) firewall devices, depending on whether the devices run the Adaptive Security Appliance (ASA) operating system or Firepower eXtensible Operating System (FXOS). This article explains when to use each connector and provides links to installation instructions.
+Microsoft Sentinel provides two connectors that collect logs from Cisco Secure Firewall devices, depending on whether the devices run the Firewall Threat Defense (FTD) or Adaptive Security Appliance (ASA) software. This article explains when to use each connector and provides links to installation instructions.
 
-## Collect logs from a Cisco FTD ASA firewall device
+## Collect Syslog from a Cisco FTD or ASA device
 
-To collect logs from FTD ASA firewall devices, use the [Cisco ASA/FTD via AMA connector](../sentinel/data-connectors-reference.md#cisco-asaftd-via-ama). 
+To collect syslog from FTD or ASA devices, use the [Cisco ASA/FTD via AMA connector](../sentinel/data-connectors-reference.md#cisco-asaftd-via-ama). For information on syslog configuration guidance for Cisco FTD, see the Cisco documentation [External Logging Configuration](https://secure.cisco.com/secure-firewall/docs/external-logging-configuration).
 
-## Collect logs from a Cisco FTD FXOS firewall device
+## Collect CEF logs from a Cisco FTD device
 
-To collect logs from a Cisco FTD FXOS firewall device:
+To collect CEF logs from a Cisco FTD device:
 
-1. Install and configure the Firepower eNcore eStreamer client, which emits logs in Common Event Format (CEF) format. For more information, see the full install [guide](https://www.cisco.com/c/en/us/td/docs/security/firepower/670/api/eStreamer_enCore/eStreamereNcoreSentinelOperationsGuide_409.html).
+1.	Install and configure the eNcore eStreamer client, which collects logs from FTD devices (via the Firewall Management Center) and converts them to Common Event Format (CEF). For more information, see the full Cisco [install guide](https://www.cisco.com/c/en/us/td/docs/security/firepower/670/api/eStreamer_enCore/eStreamereNcoreSentinelOperationsGuide_409.html).
+
+    > [!NOTE]
+    > The eNcore client is no longer being updated, and Cisco recommends the syslog format for new deployments.
+
 1. Install [CEF via AMA connector](connect-cef-syslog-ama.md). 
 
 ## Next steps

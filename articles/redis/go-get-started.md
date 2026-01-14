@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Use Azure Cache for Redis with Go"
-description: In this quickstart, you learn how to create a Go app that uses Azure Cache for Redis.
+title: "Quickstart: Connect to Azure Managed Redis with Go"
+description: In this quickstart, you learn how to create a Go app that uses Azure Managed Redis.
 ms.date: 07/18/2025
 ms.topic: quickstart
 ms.custom:
@@ -9,19 +9,18 @@ ms.custom:
   - ignite-2024
   - build-2025
 appliesto:
-  - ✅ Azure Cache for Redis
   - ✅ Azure Managed Redis
 ms.devlang: golang
 ai-usage: ai-assisted
 ---
 
-# Quickstart: Use Azure Redis with Go
+# Quickstart: Connect to Azure Managed Redis with Go
 
 In this article, you learn how to use an Azure Redis cache with the Go language and connect using Microsoft Entra ID.
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Install [Go](https://go.dev/doc/install) language environment
 - Add [two imports from Redis](https://redis.io/docs/latest/develop/clients/go/) to your project and to your development environment
   - `entraid "github.com/redis/go-redis-entraid"`
@@ -129,7 +128,7 @@ You should also [add users or a System principal to your cache](entra-for-authen
 
 The result looks like this:
 
-```console
+```bash
 Ping returned:  PONG
 SET Message succeeded: OK
 GET Message returned: Hello, The cache is working with Go!

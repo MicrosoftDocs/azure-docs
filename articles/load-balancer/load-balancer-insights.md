@@ -27,6 +27,9 @@ You can access this view by visiting the Insights page of your Load Balancer res
 
 For Standard Load Balancers, your backend pool resources are color-coded with Health Probe status indicating the current availability of your backend pool to serve traffic. Alongside the above topology you're presented with a time-wise graph of health status, giving a snapshot view of the health of your application.
 
+> [!NOTE]
+> If you intentionally probe down a backend pool instance (such as in active/passive scenarios), Insights will show that instance as down with a red status indicator. This is expected behavior and reflects the actual health probe status rather than indicating a fault.
+
 [!INCLUDE [Resource Graph](~/reusable-content/ce-skilling/azure/includes/network-watcher-resource-graph-topology.md)]
 
 ## Metrics dashboard

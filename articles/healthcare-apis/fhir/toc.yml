@@ -31,10 +31,13 @@ items:
           href: fhir-service-bicep.md
         - name: Using ARM template
           href: fhir-service-resource-manager-template.md
-    - name: Use Azure AD B2C for an identity provider
-      href: azure-ad-b2c-setup.md
+    - name: Use Microsoft Entra External ID for an identity provider
       expanded: true
       items: 
+        - name: Use Microsoft Entra External ID for an identity provider
+          href: azure-entra-external-id-setup.md
+        - name: Use Azure AD B2C for an identity provider
+          href: azure-ad-b2c-setup.md
         - name: Configure multiple service identity providers
           href: configure-identity-providers.md
         - name: Troubleshoot identity provider configuration
@@ -55,9 +58,11 @@ items:
       href: fhir-service-diagnostic-logs.md
     - name: Use Custom HTTP headers to add data to audit logs
       href: use-custom-headers-diagnosticlog.md
-- name: Interoperability and patient access
+- name: Compliance with mandates
   expanded: true
   items: 
+    - name: US Core
+      href: us-core.md
     - name: CMS Interoperability and Patient Access rule introduction
       href: centers-for-medicare-tutorial-introduction.md
     - name: CARIN Implementation Guide for Blue Button
@@ -81,19 +86,25 @@ items:
     - name: Selectable search parameters
       href: selectable-search-parameters.md
 - name: FHIR operations
-  items: 
+  items:
+    - name: $bulk-delete
+      href: fhir-bulk-delete.md
+    - name: $bulk-update
+      href: fhir-bulk-update.md      
     - name: $convert-data
       items: 
+        - name: Configure settings for $convert-data
+          href: convert-data-configuration.md 
         - name: $convert-data overview
           href: convert-data-overview.md
-        - name: Configure settings for $convert-data
-          href: convert-data-configuration.md
         - name: Transform HL7v2 data to FHIR R4
           href: convert-data-azure-data-factory.md
         - name: Troubleshoot $convert-data
           href: convert-data-troubleshoot.md
         - name: $convert-data FAQ
           href: convert-data-faq.md
+    - name: Copy data to Synapse
+      href: copy-to-synapse.md
     - name: $export
       items: 
         - name: Configure settings for export
@@ -115,16 +126,16 @@ items:
       href: patient-everything.md
     - name: $purge-history
       href: purge-history.md
-    - name: $bulk-delete
-      href: fhir-bulk-delete.md
     - name: $validate
       items: 
         - name: Store profiles
           href: store-profiles-in-fhir.md
         - name: Use $validate
           href: validation-against-profiles.md
-    - name: Copy data to Synapse
-      href: copy-to-synapse.md
+    - name: $docref
+      href: fhir-docref.md
+    - name: $expand
+      href: fhir-expand.md
 - name: API reference
   items: 
     - name: Access the FHIR service

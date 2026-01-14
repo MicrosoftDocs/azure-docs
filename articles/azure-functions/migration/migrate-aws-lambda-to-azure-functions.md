@@ -1,13 +1,15 @@
 ---
-title: Migrate AWS Lambda Workloads to Azure Functions
+title: "Migrate AWS Lambda workloads to Azure Functions"
 description: Learn how to migrate workloads from AWS Lambda to Azure Functions. Compare functionality and optimize workloads on Azure.
 author: MadhuraBharadwaj-MSFT
 ms.author: mabhar
 ms.service: azure-functions
+ms.custom:	
+ - copilot-scenario-highlight
 ms.collection: 
  - migration
  - aws-to-azure
-ms.date: 03/18/2025
+ms.date: 10/29/2025
 ms.topic: conceptual
 #customer intent: As a developer, I want to learn how to migrate serverless applications from AWS Lambda to Azure Functions so that I can make the transition efficiently.
 ---
@@ -29,6 +31,24 @@ This article doesn't address:
 - Migration to your own container hosting solution, such as through Azure Container Apps.
 - Hosting AWS Lambda containers in Azure.
 - Fundamental Azure adoption approaches by your organization, such as [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/) or other topics addressed in the Cloud Adoption Framework [migrate methodology](/azure/cloud-adoption-framework/migrate/).
+
+## Migration custom chat mode
+
+To make it easier to migrate your AWS Lambda apps to Azure using Visual Studio Code, Azure Functions provides a [custom chat mode](https://code.visualstudio.com/docs/copilot/customization/custom-chat-modes) in GitHub Copilot. Use these steps to add the `LambdaToFunctionMigration` custom chat mode to your project in Visual Studio Code:
+
+1. If you don't already have the [GitHub Copilot for Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot) Visual Studio Code extension, install it now.
+
+1. Open your Lambda project as a workspace in Visual Studio Code.
+
+1. Run this prompt in **Agent** mode in GitHub Copilot:
+
+   ```copilot-prompt
+   Help me migrate my Lambda app to Azure
+   ```
+
+1. When prompted in the notification area, select **Install** to add the `LambdaToFunctionMigration` custom chat mode to your project.
+   
+You can now use guided prompts defined in this custom chat for each stage of your migration. Start typing `/LambdaMigration` in chat to see the complete list of available commands.
 
 ### Compare functionality
 
@@ -56,6 +76,13 @@ The first step is to conduct a detailed discovery process to evaluate your exist
 - Reliability objectives and current reliability status
 - Cost of ownership
 - Performance targets and current performance
+
+> [!TIP]
+> Use this custom chat mode prompt to generate an assessment report for your AWS Lambda setup:
+> 
+> ```copilot-prompt
+> /LambdaMigration-Phase1-AssessLambdaProject
+> ```
 
 ## Perform premigration planning
 
@@ -91,7 +118,7 @@ The following tables compare AWS Lambda concepts, resources, and properties with
 | Programming language  | [AWS Lambda supported versions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported)  | [Azure Functions supported versions](/azure/azure-functions/supported-languages) |
 |---|---|---|
 | Node.js | 20, 22 | 20, 22 |
-| Python | 3.9, 3.10, 3.11, 3.12, 3.13 | 3.9, 3.10, 3.11 |
+| Python | 3.9, 3.10, 3.11, 3.12, 3.13 | 3.9, 3.10, 3.11, 3.12, 3.13 |
 | Java | 8, 11, 17, 21 | 8, 11, 17, 21 |
 | PowerShell | Not supported | 7.4 |
 | .NET | .NET 8 | .NET 8, .NET 9, .NET Framework 4.8.1 |
@@ -235,6 +262,13 @@ The following tables compare AWS Lambda concepts, resources, and properties with
 
 1. Test iteratively and gather feedback.
 
+   > [!TIP]
+   > Use this custom chat mode prompt to check the current status of the migration process at any time:
+   > 
+   > ```copilot-prompt
+   > /LambdaMigration-GetStatus
+   > ```
+
    Use the proof of concept to gather feedback, identify gaps, and fine-tune the process before you scale to larger workloads. This iterative approach ensures that by the time you move to full-scale migration, you address potential challenges and refine the process.
 
 ## Build the migration assets
@@ -242,6 +276,12 @@ The following tables compare AWS Lambda concepts, resources, and properties with
 This step is a transitional development phase. During this phase, you build source code, infrastructure as code (IaC) templates, and deployment pipelines to represent the workload in Azure. You must adapt function code for compatibility and best practices before you can perform the migration.
 
 - [Adapt function code, configuration files, and infrastructure as code files](#adapt-function-code-configuration-files-and-infrastructure-as-code-files)
+   > [!TIP]
+   > Use this custom chat mode prompt to start the code migration process:
+   > 
+   > ```copilot-prompt
+   > /LambdaMigration-Phase2-MigrateLambdaCode
+   > ```
 - [Adjust configuration settings](#adjust-configuration-settings)
 - [Generate IaC files](#generate-iac-files)
 - [Use tools for refactoring](#use-tools-for-refactoring)
@@ -250,13 +290,13 @@ This step is a transitional development phase. During this phase, you build sour
 
 To update code for Azure Functions runtime requirements:
 
-   - Modify your code to adhere to the Azure Functions programming model. For instance, adapt your function signatures to match the format that Azure Functions requires. For more information about function definition and execution context, see [Azure Functions developer guides](/azure/azure-functions/functions-reference-node).
+- Modify your code to adhere to the Azure Functions programming model. For instance, adapt your function signatures to match the format that Azure Functions requires. For more information about function definition and execution context, see [Azure Functions developer guides](/azure/azure-functions/functions-reference-node).
 
-   - Use the [Azure Functions extensions bundle](/azure/azure-functions/functions-bindings-register) to handle various bindings and triggers that are similar to AWS services. For .NET applications, you should use the appropriate NuGet packages instead of the extensions bundle.
+- Use the [Azure Functions extensions bundle](/azure/azure-functions/functions-bindings-register) to handle various bindings and triggers that are similar to AWS services. For .NET applications, you should use the appropriate NuGet packages instead of the extensions bundle.
 
-   - Use the extensions bundle to integrate with other Azure services such as Azure Storage, Azure Service Bus, and Azure Cosmos DB without needing to manually configure each binding through SDKs. For more information, see [Connect functions to Azure services by using bindings](/azure/azure-functions/add-bindings-existing-function) and [Azure Functions binding expression patterns](/azure/azure-functions/functions-bindings-expressions-patterns).
+- Use the extensions bundle to integrate with other Azure services such as Azure Storage, Azure Service Bus, and Azure Cosmos DB without needing to manually configure each binding through SDKs. For more information, see [Connect functions to Azure services by using bindings](/azure/azure-functions/add-bindings-existing-function) and [Azure Functions binding expression patterns](/azure/azure-functions/functions-bindings-expressions-patterns).
 
-The following snippets are examples of common SDK code. The AWS Lambda code maps to the corresponding triggers, bindings, or SDK code snippets in Azure Functions.
+These snippets are examples of common SDK code. The AWS Lambda code maps to the corresponding triggers, bindings, or SDK code snippets in Azure Functions.
 
 **Reading from Amazon S3 versus Azure Blob Storage**
 
@@ -574,6 +614,13 @@ Deployments follow a single path. After you build your project code and zip it i
 
 - Use tools like Bicep, Azure Resource Manager templates, or Terraform to create IaC files to deploy Azure resources.
 
+   > [!TIP]
+   > Use this custom chat mode prompt to generate infrastructure as code (IaC) files for Azure Functions:
+   > 
+   > ```copilot-prompt
+   > /LambdaMigration-Phase3-GenerateFunctionsInfra
+   > ```
+
 - Define resources such as Azure Functions, storage accounts, and networking components in your IaC files.
 
 - Use this [IaC samples repository](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC) for samples that use Azure Functions recommendations and best practices.
@@ -600,6 +647,13 @@ Develop failover and failback strategies for your migration and thoroughly test 
 
    - Test each function thoroughly to ensure that it works as expected. These tests should include input/output, event triggers, and bindings verification.
 
+      > [!TIP]
+      > Use this custom chat mode prompt to validate the migrated Azure Functions code:
+      > 
+      > ```copilot-prompt
+      > /LambdaMigration-Phase4-ValidateCode
+      > ```
+
    - Use tools like curl or [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extensions on VS Code to send HTTP requests for HTTP-triggered functions.
 
    - For other triggers, such as timers or queues, ensure that the triggers fire correctly and the functions run as expected.
@@ -609,6 +663,13 @@ Develop failover and failback strategies for your migration and thoroughly test 
    - Conduct performance testing to compare the new Azure Functions deployment with the previous AWS Lambda deployment.
 
    - Monitor metrics like response time, run time, and resource consumption.
+ 
+      > [!TIP]
+      > Use this custom chat mode prompt to validate the infrastructure configuration:
+      > 
+      > ```copilot-prompt
+      > /LambdaMigration-Phase5-ValidateInfra
+      > ```
 
    - Use Application Insights for [monitoring, log analysis, and troubleshooting](/azure/azure-functions/functions-monitoring) during the testing phase.
 
@@ -624,13 +685,20 @@ Deploy and test functions to validate their performance and correctness.
 
 ### Deploy to Azure
 
+> [!TIP]
+> Use this custom chat mode prompt to deploy the validated project to Azure:
+> 
+> ```copilot-prompt
+> /LambdaMigration-Phase6-DeployToAzure
+> ```
+
 Deploy workloads by using the [VS Code](/azure/azure-functions/functions-develop-vs-code#publish-to-azure) publish feature. You can also deploy workloads from the command line by using [Azure Functions Core Tools](/azure/azure-functions/functions-run-local#project-file-deployment) or the [Azure CLI](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). [Azure DevOps](/azure/azure-functions/functions-how-to-azure-devops#deploy-your-app) and [GitHub Actions](/azure/azure-functions/functions-how-to-github-actions) also use One Deploy.
 
 - Azure Functions Core Tools: [Deploy your function app](/azure/azure-functions/flex-consumption-how-to#deploy-your-code-project) by using [Azure Functions Core Tools](/azure/azure-functions/functions-run-local) with the `func azure functionapp publish <FunctionAppName>` command.
 
 - Continuous integration and continuous deployment (CI/CD) pipelines: Set up a CI/CD pipeline by using services like GitHub Actions, Azure DevOps, or another CI/CD tool.
 
-   For more information, see [Continuous delivery by using GitHub Actions](/azure/azure-functions/functions-how-to-github-actions) or [Continuous delivery with Azure Pipelines](/azure/azure-functions/functions-how-to-azure-devops).
+For more information, see [Continuous delivery by using GitHub Actions](/azure/azure-functions/functions-how-to-github-actions) or [Continuous delivery with Azure Pipelines](/azure/azure-functions/functions-how-to-azure-devops).
 
 ## Explore sample migration scenarios
 

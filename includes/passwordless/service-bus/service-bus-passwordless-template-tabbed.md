@@ -7,7 +7,9 @@ ms.service: azure-storage
 ms.topic: include
 ms.date: 06/11/2025
 ms.author: alexwolf
-ms.custom: include file
+ms.custom:
+  - include file
+  - sfi-image-nochange
 ---
 
 ## Authenticate the app to Azure

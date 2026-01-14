@@ -5,6 +5,7 @@ author: ajetasi
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 07/20/2022
+ms.custom: sfi-image-nochange
 ---
 # Write to Azure SQL Database table from your Azure Stream Analytics jobs
 

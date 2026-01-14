@@ -1,8 +1,8 @@
 ---
 title: Common questions about move from classic to modernized VMware disaster recovery.
 description: This article answers common questions about transitioning from classic to modernized VMware disaster recovery using Azure Site Recovery.
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
 ms.topic: faq
 ms.date: 03/31/2025
 ms.service: azure-site-recovery

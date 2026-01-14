@@ -1,5 +1,5 @@
 ---
-title: How to set up and use deterministic outbound APIs
+title: How to set up and use deterministic outbound IPs
 titleSuffix: Azure Managed Grafana
 description: Learn how to activate deterministic outbound IP support used by Azure Managed Grafana to communicate with data sources.
 ms.service: azure-managed-grafana
@@ -7,6 +7,7 @@ ms.topic: how-to
 author: maud-lv
 ms.author: malev
 ms.date: 12/20/2024
+ms.custom: sfi-image-nochange
 --- 
 
 # Use deterministic outbound IPs
@@ -18,7 +19,7 @@ In this guide, learn how to activate deterministic outbound IP support used by A
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A data source. For example, an [Azure Data Explorer database](/azure/data-explorer/create-cluster-database-portal).
 
 ## Enable deterministic outbound IPs

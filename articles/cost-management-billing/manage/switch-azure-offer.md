@@ -8,6 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.date: 07/25/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Change your Azure subscription to a different offer
@@ -82,7 +83,7 @@ An Azure offer is the *type* of the Azure subscription you have. For example, [a
 You might not see the **Switch Offer** option if:
 
 * You don't have a [subscription with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/). Currently only subscriptions with pay-as-you-go rates can be converted to another offer.
-  * If you have a [Free Trial](https://azure.microsoft.com/free/), learn how to [upgrade to Pay-As-You-Go](upgrade-azure-subscription.md).
+  * If you have a [Free Trial](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn), learn how to [upgrade to Pay-As-You-Go](upgrade-azure-subscription.md).
   * To switch offer from a different subscription, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 * You're still in your first billing period; you must wait for your first billing period to end before you can switch offers.
 

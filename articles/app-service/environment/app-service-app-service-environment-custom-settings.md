@@ -5,7 +5,7 @@ author: seligj95
 
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 08/20/2025
+ms.date: 11/26/2025
 ms.author: jordanselig
 ms.custom: mvc, devx-track-arm-template
 ms.service: azure-app-service
@@ -89,6 +89,9 @@ You can also disable TLS 1.0 and TLS 1.1 using the Azure portal by going to the 
 
 App Service Environment supports changing the cipher suite from the default. The default set of ciphers is the same set that is used in the multitenant App Service. Changing the cipher suite is only possible with App Service Environment, the single-tenant offering, not the multitenant offering, because changing it affects the entire App Service deployment. There are two cipher suites that are required for an App Service Environment: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 and TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256. Additionally, you should include the following cipher suites, which are required for TLS 1.3: TLS_AES_256_GCM_SHA384 and TLS_AES_128_GCM_SHA256.
 
+> [!IMPORTANT]
+> The `FrontEndSSLCipherSuiteOrder` App Service Environment cluster setting isn't compatible with the app-level `minTlsCipherSuite` setting. If you configure the cipher suite order at the App Service Environment level using `FrontEndSSLCipherSuiteOrder`, don't also configure the minimum TLS cipher suite at the individual app level. You must use one or the other, not both. Configuring both settings can cause SSL errors and rejected requests.
+
 To configure your App Service Environment to use just the ciphers that it requires, modify the **clusterSettings** as shown in the following sample. **Ensure that the TLS 1.3 ciphers are included at the beginning of the list**.
 
 ```json
@@ -102,6 +105,23 @@ To configure your App Service Environment to use just the ciphers that it requir
 
 > [!WARNING]
 > If incorrect values are set for the cipher suite that SChannel can't understand, all TLS communication to your server might stop functioning. In such a case, you'll need to remove the *FrontEndSSLCipherSuiteOrder* entry from **clusterSettings** and submit the updated Resource Manager template to revert back to the default cipher suite settings. Use this functionality with caution.
+
+## Enable FIPS mode
+
+This setting applies to Linux-based workloads in your App Service Environment. You can configure your Linux-based workloads running on App Service Environment to operate in FIPS (Federal Information Processing Standards) mode. When enabled, FIPS mode ensures that cryptographic operations comply with FIPS 140-2 standards.
+
+To enable FIPS mode on your App Service Environment, you can set the following **clusterSettings** entry:
+
+```json
+"clusterSettings": [
+    {
+        "name": "LinuxFipsModeEnabled",
+        "value": "true"
+    }
+],
+```
+
+When LinuxFipsModeEnabled is set to true, your App Service Environment uses FIPS-compliant cryptographic modules for cryptographic operations.
 
 ## Get started
 

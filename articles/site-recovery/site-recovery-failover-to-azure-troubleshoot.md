@@ -1,12 +1,12 @@
 ---
 title: 'Troubleshoot failover to Azure failures | Microsoft Docs'
 description: This article describes ways to troubleshoot common errors in failing over to Azure
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
 services: site-recovery
 ms.topic: article
 ms.date: 09/10/2024
-ms.author: jsuri
+ms.author: v-gajeronika
 ms.custom:
   - linux-related-content
   - sfi-image-nochange

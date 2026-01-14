@@ -62,10 +62,13 @@ Do one of the following actions:
 
 Reinstall the ADE extension so the data disks are open and mounted.
 
->[!Note]
->If an Azure VM uses disks size >= 4097 GB, or includes > 16 disks, the restore job fails to restore ADE settings on the restored disk. The restored disk remains encrypted with ADE, as it was at the restoration point,but the ADE configuration doesn't apply to the restored disk.
->
->To re-enable ADE, create a new Azure VM from the restored disk and then re-encrypt it using ADE.
+> [!NOTE]
+> If an Azure VM uses disks size is more than 4097 GB, or includes more than 16 disks, the restore job fails to restore ADE settings on the restored disk. 
+
+> [!NOTE]
+> - The restored disk retains its encryption from the restore point.
+> - ADE VM configuration (Key Vault and extension) is not automatically reapplied.
+> - To enable ADE on the restored VM, create a VM from the restored disk and reconfigure ADE using the original Key Vault.
 
 ## Cross Region Restore for an encrypted Azure VM
 

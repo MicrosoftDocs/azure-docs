@@ -11,7 +11,7 @@ ms.author: danlep
 
 1. In the left menu, select **Access control (IAM)**.
 1. On the **Access control (IAM)** page, select **Add role assignment**.
-1. On the **Role** tab, select **Key Vault Secrets User**.
+1. On the **Role** tab, select **Key Vault Secrets User**, then select **Next**.
 1. On the **Members** tab, select **Managed identity** > **+ Select members**.
 1. On the **Select managed identity** page, select the system-assigned managed identity or a user-assigned managed identity associated with your API Management instance, and then select **Select**.
 1. Select **Review + assign**.

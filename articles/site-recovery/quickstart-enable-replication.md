@@ -3,8 +3,8 @@ title: Enable replication for VMware VM disaster recovery to Azure with Azure Si
 description: Quickly enable replication for on-premises VMware VMs with Azure Site Recovery - Modernized.
 ms.topic: quickstart
 ms.date: 10/03/2023
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
 ms.service: azure-site-recovery
 # Customer intent: "As an IT administrator managing on-premises VMware VMs, I want to enable replication to Azure for disaster recovery, so that I can ensure business continuity in case of a disaster."
 ---

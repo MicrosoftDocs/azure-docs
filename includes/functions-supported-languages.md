@@ -51,12 +51,14 @@ For more information, see [Develop C# class library functions using Azure Functi
 
 ### [v4.x](#tab/v4/isolated-process)
 
-| Supported version | Support level | Expected end-of-support date |
-| ---- | ---- |--- |
-| .NET 10 | Preview | See [.NET and .NET Core release lifecycle][dotnet-policy]. |
-| .NET 9 | GA | [May 12, 2026][dotnet-policy] |
-| .NET 8 | GA | [November 10, 2026][dotnet-policy] |
-| .NET Framework 4.8.1 | GA | See [.NET Framework Support Policy][dotnet-framework-policy]. |
+| Supported version    | Support level | Expected end-of-support date                                  |
+|----------------------|---------------|---------------------------------------------------------------|
+| .NET 10              | GA            | [November 14, 2028][dotnet-policy].                           |
+| .NET 9               | GA            | [November 10, 2026][dotnet-policy]<sup>1</sup>                |
+| .NET 8               | GA            | [November 10, 2026][dotnet-policy]                            |
+| .NET Framework 4.8.1 | GA            | See [.NET Framework Support Policy][dotnet-framework-policy]. |
+
+<sup>1</sup> .NET 9 previously had an expected end-of-support date of May 12, 2026. During the .NET 9 service window, the .NET team extended support for STS versions to 24 months, starting with .NET 9. For more information, see [the blog post](https://devblogs.microsoft.com/dotnet/dotnet-sts-releases-supported-for-24-months/).
 
 [dotnet-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle
 [dotnet-framework-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-framework
@@ -79,10 +81,13 @@ The following table shows the language versions supported for Java function apps
 
 | Supported version | Support level | Supported until |
 | ---- | ---- |--- |
+| **Java 25** | Preview | Pending<sup>*</sup> |
 | **Java 21** | GA | See [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
 | **Java 17** | GA | See [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
 | **Java 11** | GA |See [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
 | **Java 8** | GA | See the [Temurin support page](https://adoptium.net/support/). |
+
+<sup>*</sup>The end-of-support date for Java 25 is determined when general availability (GA) is declared.
 
 For more information on developing and running Java function apps, see [Azure Functions Java developer guide](../articles/azure-functions/functions-reference-java.md).
 
@@ -92,6 +97,7 @@ The following table shows the language versions supported for Node.js function a
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
+| [Node.js 24](https://endoflife.date/nodejs) | Preview | April 30, 2028 |
 | [Node.js 22](https://endoflife.date/nodejs) | GA | April 30, 2027 |
 | [Node.js 20](https://endoflife.date/nodejs) | GA | April 30, 2026 |
 
@@ -111,11 +117,10 @@ The following table shows the language versions supported for Python function ap
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
-| Python 3.13 | Preview | October 2029 |
+| Python 3.13 | GA | October 2029 |
 | Python 3.12 | GA | October 2028 |
 | Python 3.11 | GA | October 2027 |
 | Python 3.10 | GA | October 2026 |
-| Python 3.9 | GA | October 2025 |
 
 For more information, see [Azure Functions Python developer guide](../articles/azure-functions/functions-reference-python.md).
 ::: zone-end

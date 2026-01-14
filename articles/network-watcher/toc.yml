@@ -137,6 +137,10 @@
       href: vnet-flow-logs-tutorial.md
     - name: Manage VNet flow logs
       href: vnet-flow-logs-manage.md
+    - name: VNet flow logs managed identity
+      href: vnet-flow-logs-managed-identity.md
+    - name: VNet flow logs filtering
+      href: vnet-flow-logs-filtering.md
     - name: Audit and deploy using Azure Policy
       href: vnet-flow-logs-policy.md
   - name: NSG flow logs

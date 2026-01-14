@@ -5,7 +5,7 @@ author: karengu0
 ms.author: karenguo
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.date: 07/17/2025
+ms.date: 09/12/2025
 ms.service: azure
 ---
 
@@ -27,8 +27,9 @@ This quickstart assumes a basic understanding of firmware analysis. For more inf
 4. Ensure that your firmware image is stored in the same directory as the Python script.
 5. Install the packages needed to run this script:
     ```python
-    pip install azure-mgmt-iotfirmwaredefense
-    pip install azure-identity
+    pip install azure.storage.blob
+    pip install halo
+    pip install tabulate
     ```
 6. Log in to your Azure account by running the command [`az login`](/cli/azure/reference-index?#az-login).
 
@@ -68,8 +69,8 @@ def init_connections(firmware_id):
 def upload_firmware(fw_client, firmware_id):
     spinner = Halo(text="Uploading firmware to Azure...", spinner="dots")
     spinner.start()
-    token = fw_client.workspaces.generate_upload_url(resource_group_name, workspace_name, {"firmware_id": firmware_id})
-    fw_client.firmwares.create(resource_group_name, workspace_name, firmware_id, {"properties": {"file_name": firmware_file, "vendor": "Contoso Ltd.", "model": "Wifi Router", "version": "1.0.1", "status": "Pending"}})
+    token = fw_client.workspaces.generate_upload_url(resource_group_name, workspace_name, {"firmwareId": firmware_id})
+    fw_client.firmwares.create(resource_group_name, workspace_name, firmware_id, {"properties": {"fileName": firmware_file, "vendor": "Contoso Ltd.", "model": "Wifi Router", "version": "1.0.1", "status": "Pending"}})
     bl_client = BlobClient.from_blob_url(token.url)
     with open(file=firmware_file, mode="rb") as data:
         bl_client.upload_blob(data=data)
@@ -87,7 +88,7 @@ def get_results(fw_client, firmware_id):
 
     print("-"*107)
 
-    summary = fw_client.summaries.get(resource_group_name, workspace_name, firmware_id, summary_name=SummaryName.FIRMWARE)
+    summary = fw_client.summaries.get(resource_group_name, workspace_name, firmware_id, summary_type=SummaryType.FIRMWARE)
     print_summary(summary.properties)
     print()
 

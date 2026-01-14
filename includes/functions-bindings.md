@@ -21,6 +21,7 @@ This table shows the bindings that are supported in the major versions of the Az
 | [IoT Hub](../articles/azure-functions/functions-bindings-event-iot.md)             |✔|✔|✔| ||
 | [Kafka](../articles/azure-functions/functions-bindings-kafka.md)<sup>3</sup>             | |✔|✔| |✔|
 | [Mobile Apps](../articles/azure-functions/functions-bindings-mobile-apps.md)             |✔| | |✔|✔|
+| [Model Context Protocol](../articles/azure-functions/functions-bindings-mcp.md)          | |✔|✔| | |
 | [Notification Hubs](../articles/azure-functions/functions-bindings-notification-hubs.md) |✔|| | |✔|
 | [Queue Storage](../articles/azure-functions/functions-bindings-storage-queue.md)         |✔|✔|✔| |✔|
 | [Redis](../articles/azure-functions/functions-bindings-cache.md)                         | |✔|✔|✔|✔|

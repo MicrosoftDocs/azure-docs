@@ -3,10 +3,12 @@ title: "Tutorial: Express.js chatbot with SLM extension"
 description: "Learn how to deploy a Express.js application integrated with a Phi-4 sidecar extension on Azure App Service."
 author: cephalin
 ms.author: cephalin
-ms.date: 05/07/2025
+ms.date: 11/18/2025
 ms.topic: tutorial
 ms.custom:
   - build-2025
+ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ms.service: azure-app-service
 ---
 
@@ -18,13 +20,13 @@ This tutorial guides you through deploying a Express.js-based chatbot applicatio
 
 ## Prerequisites
 
-- An [Azure account](https://azure.microsoft.com/free/) with an active subscription.
+- An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) with an active subscription.
 - A [GitHub account](https://github.com/).
 
 ## Deploy the sample application
 
 1. In the browser, navigate to the [sample application repository](https://github.com/Azure-Samples/ai-slm-in-app-service-sidecar).
-2. Start a new Codespace from the repository.
+1. Start a new Codespace from the repository.
 1. Log in with your Azure account:
 
     ```azurecli

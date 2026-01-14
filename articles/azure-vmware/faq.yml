@@ -84,6 +84,9 @@ sections:
       - question: Can I use the folder name "AVS-vendor-folders" for vCenter Server VM folders in Azure VMware Solution?
         answer: No, "AVS-vendor-folders" is a reserved name within Azure VMware Solution and using it might lead to conflicts with the intended functionality or cause unexpected behavior within the vCenter management environment specific to Azure VMware Solution. Choose an alternative folder name that aligns with your organizational needs while avoiding conflicts with predefined naming conventions in Azure VMware Solution.
 
+      - question: Can I configure Mail Sender Settings on Azure VMware Solution?
+        answer: No, configuration of SMTP authtentication is not permitted within the Azure VMware Solution. 
+
   - name: VMware solution software
     questions:
 

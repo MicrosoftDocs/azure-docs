@@ -21,7 +21,7 @@ Microsoft Entra group sync helps you manage this configuration. With it, you can
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Managed Grafana workspace. If needed, [create a new workspace](quickstart-managed-grafana-portal.md).
 - A Microsoft Entra group. If needed, [create a basic group and add members](/entra/fundamentals/how-to-manage-groups#create-a-basic-group-and-add-members).
 - The Grafana Admin role is required to use Grafana Team Sync.

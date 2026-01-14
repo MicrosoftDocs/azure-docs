@@ -23,7 +23,7 @@ Enabling this feature provides a more streamlined experience for guaranteeing sy
 
 ## Prerequisites
 
-* An active Azure account with a subscription. [Create an account for free](https://azure.microsoft.com/free/).
+* An active Azure account with a subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * A configured private endpoint in your subscription. For more information on how to create a private endpoint, see [Create a private endpoint](./create-private-endpoint-portal.md).
 * A network virtual appliance (NVA) deployed in your subscription. For the example in this article, a virtual machine (VM) is used as the NVA. For more information on how to deploy a virtual machine, see [Quickstart: Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal).
 * Understanding of how to add tags to Azure resources. For more information, see [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md).

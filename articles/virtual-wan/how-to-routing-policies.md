@@ -5,7 +5,7 @@ description: Learn how to configure Virtual WAN routing policies.
 author: wtnlee
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 03/26/2025
+ms.date: 08/01/2025
 ms.author: wellee
 ms.custom:
   - devx-track-bicep
@@ -25,10 +25,15 @@ There are two types of Routing Policies: Internet Traffic and Private Traffic Ro
 * **Internet Traffic Routing Policy**: When an Internet Traffic Routing Policy is configured on a Virtual WAN hub, all branch (Remote User VPN (Point-to-site VPN), Site-to-site VPN, and ExpressRoute) and Virtual Network connections to that Virtual WAN Hub forwards Internet-bound traffic to the **Azure Firewall**, **Third-Party Security provider**, **Network Virtual Appliance**, or **SaaS solution** specified as part of the Routing Policy.
 
     In other words, when an Internet Traffic Routing Policy is configured on a Virtual WAN hub, Virtual WAN advertises a default (0.0.0.0/0) route to all spokes, Gateways, and Network Virtual Appliances (deployed in the hub or spoke).
+
+    When Internet routing policies are configured, the next hop security solution inspects and then forwards traffic directly to the Internet. This access pattern is called **direct access**. For more information on direct access and other internet access patterns, see [internet access patterns](about-internet-routing.md). 
  
 * **Private Traffic Routing Policy**: When a Private Traffic Routing Policy is configured on a Virtual WAN hub, **all** branch and Virtual Network traffic in and out of the Virtual WAN Hub including inter-hub traffic is forwarded to the Next Hop **Azure Firewall**, **Network Virtual Appliance**, or **SaaS solution** resource.
 
     In other words, when a Private Traffic Routing Policy is configured on the Virtual WAN Hub, all branch-to-branch, branch-to-virtual network, virtual network-to-branch, and inter-hub traffic is sent via Azure Firewall, Network Virtual Appliance, or SaaS solution deployed in the Virtual WAN Hub.
+
+    When Private routing policies are configured, you can configure Virtual WAN to route internet-bound traffic to the next hop private routing policy security solution in the hub. The next hop security solution then forwards traffic to an on-premises connection, NVA in the hub or NVA in Virtual WAN spoke that is advertising the default 0.0.0.0/0 route to Virtual WAN. This access pattern is called **forced tunneling**. For more information on forced tunneling and other internet access patterns, see [internet access patterns](about-internet-routing.md). 
+
 
 ## Use cases
 
@@ -112,23 +117,23 @@ Consider the following configuration where Hub 1 (Normal) and Hub 2 (Secured) ar
 ### <a name="address-limits"></a>Virtual Network address space limits
 
 > [!NOTE]
-> The maximum number of Virtual Network address spaces that you can connect to a single Virtual WAN hub is adjustable. Open an Azure support case to request a limit increase. The limits are applicable at the Virtual WAN hub level. If you have multiple Virtual WAN hubs that require a limit increase, request a limit increase for all Virtual WAN hubs in your Virtual WAN deployment.
+> The maximum number of Virtual Network address spaces that you can connect to a single Virtual WAN hub is 600. The address space limit was previously 400 and was adjustable via support case to 600. The 600 limit now applies automatically to all hubs and can't be increased further (**not** adjustable).
 
-For customers using routing intent, the maximum number of address spaces across all Virtual Networks **directly connected** to a single Virtual WAN hub is 400. This limit is applied individually to each Virtual WAN hub in a Virtual WAN deployment. Virtual Network address spaces connected to **remote** (other Virtual WAN hubs in the same Virtual WAN) hubs are **not** counted towards this limit.
+For customers using routing intent, the maximum number of address spaces across all Virtual Networks **directly connected** to a single Virtual WAN hub is 600. This limit is applied individually to each Virtual WAN hub in a Virtual WAN deployment. Virtual Network address spaces connected to **remote** (other Virtual WAN hubs in the same Virtual WAN) hubs are **not** counted towards this limit.
 
-If the number of directly connected Virtual Network address spaces connected to a hub exceeds the limit, enabling or updating routing intent on the Virtual Hub will fail. For hubs already configured with routing intent where Virtual Network address spaces exceeds the limit as a result of an operation such as a Virtual Network address space update, the newly connected address space might not be routable.
+If the number of directly connected Virtual Network address spaces connected is close (greater than 90%) to the 600 limit, enabling or updating routing intent on the Virtual Hub may fail. For hubs already configured with routing intent where Virtual Network address spaces exceeds the limit as a result of an operation such as a Virtual Network address space update, the newly connected address space might not be routable.
 
-Proactively request a limit increase if the total number of address spaces across all locally connected Virtual Networks exceeds 90% of the documented limit or if you have any planned network expansion or deployment operations that will increase the number of Virtual Network address spaces past the limit.
+As a result, proactively deploy a new Virtual WAN hub and connect new Virtual Networks to the new Virtual WAN hub if the total number of address spaces across all locally connected Virtual Networks **exceeds 90% (540) of the documented limit (600)** or if you have any planned network expansion or deployment operations that will increase the number of Virtual Network address spaces past the limit.
  
-The following table provides example Virtual Network address space calculations.
+The following table provides example Virtual Network address space calculations. Note that only Virtual Networks **directly connected** to the hub count towards the 600 limit. Virtual Networks connected to remote hubs don't contribute to the local hub's count.  
 
-|Virtual Hub| Virtual Network Count| Address spaces per Virtual Network | Total number of Virtual Network address spaces connected to Virtual Hub| Suggested Action|
+|Virtual Hub| Virtual Network Count| Address spaces per Virtual Network | Total number of Virtual Network address spaces connected to **this** Virtual Hub| Suggested Action|
 |--|--|--|--|--|
 | Hub #1| 200| 1 | 200| No action required, monitor address space count.| 
-| Hub #2| 150 | 3 | 450| Request limit increase to use routing intent.|
-| Hub #3 |370 | 1| 370| Request limit increase.|
+| Hub #2| 150 | 3 | 450| No action required, monitor address space count.|
+| Hub #3 | 180 | 3 | 540 | Deploy a new Virtual WAN hub and connect new Virtual Networks to the new hub.|
 
-You can use the following PowerShell script to approximate the number of address spaces in Virtual Networks connected to a single Virtual WAN hub. Run this script for all Virtual WAN hubs in your Virtual WAN. An Azure Monitor metric to allow you to track and configure alerts on connected Virtual Network address spaces is on the roadmap. 
+You can use the following PowerShell script to approximate the number of address spaces in Virtual Networks connected to a single Virtual WAN hub. Run this script for all Virtual WAN hubs in your Virtual WAN. An Azure Monitor metric to allow you to track and configure alerts on connected Virtual Network address spaces is on the roadmap.
 
 Make sure to modify the resource ID of the Virtual WAN Hub in the script to match your environment. If you have cross-tenant Virtual Network connections, make sure you have sufficient permissions to read the Virtual WAN Virtual Network connection object as well as the connected Virtual Network resource. 
 
@@ -421,7 +426,7 @@ The following steps describe how to configure routing intent and routing policie
 
     :::image type="content" source="./media/routing-policies/configure-intents.png"alt-text="Screenshot showing how to configure routing policies."lightbox="./media/routing-policies/configure-intents.png":::
 
-1. If you want to configure a Private Traffic Routing Policy and have branches or virtual networks advertising non-IANA RFC1918 Prefixes, select **Private Traffic Prefixes** and specify the non-IANA RFC1918 prefix ranges in the text box that comes up. Select **Done**. Additionally, add any address ranges corresponding to delegated subnets for bare-metal services (Azure NetApp Files, Oracle Database @ Azure or Nutanix NC2 cloud clusters )connected to Virtual WAN  
+1. If you want to configure a Private Traffic Routing Policy and have branches or virtual networks advertising non-IANA RFC1918 Prefixes, select **Private Traffic Prefixes** and specify the non-IANA RFC1918 prefix ranges in the text box that comes up. Select **Done**. Additionally, add any address ranges corresponding to delegated subnets for bare-metal services (Azure NetApp Files, Oracle Database @ Azure or Nutanix NC2 cloud clusters) connected to Virtual WAN.
 
     :::image type="content" source="./media/routing-policies/private-prefixes.png"alt-text="Screenshot showing how to edit private traffic prefixes."lightbox="./media/routing-policies/private-prefixes.png":::
 
@@ -491,6 +496,7 @@ If you're troubleshooting configuration issues consider the following:
   * If you're using CLI, PowerShell or REST, the routing intent creation operation fails. Delete the failed routing intent, remove the custom route tables and static routes and then try re-creating. 
   * If you're using Azure Firewall Manager, ensure existing routes in the defaultRouteTable are named private_traffic, internet_traffic or all_traffic. Option to configure routing intent (enable inter-hub) is greyed out if routes are named differently.
 * After configuring routing intent on a hub, ensure any updates to existing connections or new connections to the hub are created with the optional associated and propagated route table fields set to empty. Setting the optional associations and propagations as empty is done automatically for all operations performed through Azure portal.
+* Routing intent supports two different Internet access modes. Review the correct configuration to use [forced tunnel mode](about-internet-routing.md) if you want your security solution to forward internet traffic to on-premises for inspection. 
 
 ### Troubleshooting data path
 
@@ -506,7 +512,7 @@ Assuming you have already reviewed the [Known Limitations](#knownlimitations) se
   * **If you're using Private Endpoints deployed in Virtual Networks connected to the Virtual Hub**, traffic from on-premises destined for Private Endpoints deployed in Virtual Networks connected to the Virtual WAN hub by default **bypasses** the routing intent next hop Azure Firewall, NVA, or SaaS. However, this results in asymmetric routing (which can lead to loss of connectivity between on-premises and Private Endpoints) as Private Endpoints in Spoke Virtual Networks forward on-premises traffic to the Firewall. To ensure routing symmetry, enable [Route Table network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md) on the subnets where Private Endpoints are deployed. Configuring /32 routes corresponding to Private Endpoint private IP addresses in the Private Traffic text box **will not** ensure traffic symmetry when private routing policies are configured on the hub.
   * **If you're using Encrypted ExpressRoute with Private Routing Policies**, ensure that your Firewall device has a rule configured to allow traffic between the Virtual WAN Site-to-site VPN Gateway private IP tunnel endpoint and on-premises VPN device. ESP (encrypted outer) packets should log in Azure Firewall logs. For more information on Encrypted ExpressRoute with routing intent, see [Encrypted ExpressRoute documentation](#encryptedER).
   * **If you're using a user-defined route tables on your spoke virtual networks**, ensure that "Propagate gateway routes" is set to "Yes" on the route table. "Propagate gateway routes" must be enabled for Virtual WAN to advertise routes to workloads deployed in spoke Virtual Networks connected to Virtual WAN. For more information on user-defined route table settings, see [Virtual Network user-defined routing documentation](../virtual-network/virtual-networks-udr-overview.md#border-gateway-protocol).
-  * * **If you're using bare-metal services such as Azure NetApp Files, Nutanix Cloud Clusters (NC2) or Oracle Database@Azure**, ensure that the exact (or more specific) CIDR range corresponding to bare-metal delegated subnets are added as additional private traffic prefix text boxes. This configuration is required for on-premises traffic destined for bare-metal delegated subnets to be inspected by the next hop reosurce specified in routing intent private routing policy.
+  * **If you're using bare-metal services such as Azure NetApp Files, Nutanix Cloud Clusters (NC2) or Oracle Database@Azure**, ensure that the exact (or more specific) CIDR range corresponding to bare-metal delegated subnets are added as additional private traffic prefix text boxes. This configuration is required for on-premises traffic destined for bare-metal delegated subnets to be inspected by the next hop resource specified in routing intent private routing policy.
 
 ### Troubleshooting Azure Firewall routing issues
 

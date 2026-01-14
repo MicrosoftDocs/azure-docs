@@ -3,6 +3,7 @@ title: Neousys Nuvo-5006LP (SMB) - Microsoft Defender for IoT
 description: Learn about the Neousys Nuvo-5006LP appliance for OT monitoring with Microsoft Defender for IoT.
 ms.date: 04/24/2022
 ms.topic: reference
+ms.custom: sfi-image-nochange
 ---
 
 # Neousys Nuvo-5006LP

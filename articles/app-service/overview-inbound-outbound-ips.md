@@ -46,9 +46,9 @@ Run the following command in a local terminal:
 nslookup <app-name>.azurewebsites.net
 ```
 
-## Get a static inbound IP
+## Get a dedicated inbound IP
 
-Sometimes you might want a dedicated, static IP address for your app. To get a static inbound IP address, you need to [secure a custom DNS name with an IP-based certificate binding](./configure-ssl-bindings.md). If you don't actually need TLS functionality to secure your app, you can even upload a self-signed certificate for this binding. In an IP-based TLS binding, the certificate is bound to the IP address itself, so App Service creates a static IP address to make it happen.
+Sometimes you might want a dedicated, static IP address for your app. The default shared inbound IP address is static, but this configuration allows a dedicated inbound IP address unique to your site. To get a dedicated inbound IP address, you need to [secure a custom DNS name with an IP-based certificate binding](./configure-ssl-bindings.md). If you don't actually need TLS functionality to secure your app, you can even upload a self-signed certificate for this binding. In an IP-based TLS binding, the certificate is bound to the IP address itself, so App Service creates a static IP address to make it happen.
 
 ## When outbound IPs change
 

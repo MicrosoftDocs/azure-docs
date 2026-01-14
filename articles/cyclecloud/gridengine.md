@@ -2,15 +2,15 @@
 title: Grid Engine Scheduler Integration
 description: Grid Engine scheduler configuration in Azure CycleCloud.
 author: adriankjohnson
-ms.date: 06/10/2025
+ms.date: 09/05/2025
 ms.author: adjohnso
 ---
 
 # CycleCloud GridEngine Cluster
 
+[CycleCloud GridEngine Cluster Project README](https://github.com/Azure/cyclecloud-gridengine/?tab=readme-ov-file#cyclecloud-gridengine-project)
 ::: moniker range="=cyclecloud-7"
 
-[//]: # (Need to link to the scheduler README on Github)
 
 [Open Grid Scheduler (Grid Engine)](http://gridscheduler.sourceforge.net/) can easily be enabled on an Azure CycleCloud cluster by modifying the "run_list" in the cluster definition. A Grid Engine cluster consists of two primary components. The first is the 'master' node, which provides a shared filesystem where the Grid Engine software runs. The second is the set of 'execute' nodes, which are the hosts that mount the shared filesystem and run the jobs that are submitted. For example, a simple Grid Engine cluster template snippet may look like:
 
@@ -35,7 +35,7 @@ ms.author: adjohnso
 > [!NOTE]
 > The role names contain 'sge' for legacy reasons: Grid Engine was a product of Sun Microsystems.
 
-Importing and starting a cluster with a definition in CycleCloud results in a single 'master' node. Execute nodes can be added to the cluster via the `cyclecloud add_node` command. For example, to add 10 more execute nodes:
+Importing and starting a cluster with a definition in CycleCloud results in a single 'master' node. 'execute' nodes can be added to the cluster via the `cyclecloud add_node` command. For example, to add 10 more 'execute' nodes:
 
 ```azurecli-interactive
 cyclecloud add_node grid-engine -t execute -c 10
@@ -85,7 +85,7 @@ Autoscale = True
     gridengine.slots = 2
 ```
 
-In the example shown, there are now two node arrays: One is a 'standard' execute node array, the second is named 'gpu' providing a MachineType that has two NVIDIA GPUs (Standard_NV12 in Azure). Also note that there are now two new items in the configuration section besides the 'csge:sgeexec' recipe. Adding `gridengine.slot_type = gpu` tells the Grid Engine scheduler that these nodes should be named 'gpu' nodes and thus should only run 'gpu' jobs. The name 'gpu' is arbitrary, but a name that describes the node is most useful. Set `gridengine.slots = 2`, which tells the software to make sure that this type of node can only run two jobs at once (Standard_NV12 only has 2 GPUs). 
+In the example shown, there are now two node arrays: One is a 'standard' 'execute' node array, the second is named 'gpu' providing a MachineType that has two NVIDIA GPUs (Standard_NV12 in Azure). Also note that there are now two new items in the configuration section besides the 'csge:sgeexec' recipe. Adding `gridengine.slot_type = gpu` tells the Grid Engine scheduler that these nodes should be named 'gpu' nodes and thus should only run 'gpu' jobs. The name 'gpu' is arbitrary, but a name that describes the node is most useful. Set `gridengine.slots = 2`, which tells the software to make sure that this type of node can only run two jobs at once (Standard_NV12 only has 2 GPUs). 
 
 By default, Grid Engine assigns the number of slots per node based on the system's CPU count. In this case, that default behavior could result in too many jobs running concurrently on a single node. In the example shown, `CoreCount=2` is set on the nodearray to match the number of GPUs available on the MachineType, allowing CycleCloud to correctly scale that array on GPU vs CPU count.
 
@@ -104,11 +104,11 @@ You can verify the number of slots and slot_type your machines have by running t
     all.q@ip-0A000406              BIP   0/0/4          0.25     linux-x64
 ```
 
-Notice that there's one of each 'slot_type' specified 'execute' and 'gpu'. The slot_types are configured individually, and the number of slots for the 'execute' slot is 4, which is the number of CPUs on the machine. The number of slots for the 'gpu' slot type is 2, which we specified in our cluster configuration template. The third machine is the master node which doesn't run jobs.
+Notice that there's one of each 'slot_type' specified 'execute' and 'gpu'. The slot_types are configured individually, and the number of slots for the 'execute' slot is 4, which is the number of CPUs on the machine. The number of slots for the 'gpu' slot type is 2, which we specified in our cluster configuration template. The third machine is the master node that doesn't run jobs.
 
 ## Grid Engine Advanced Usage
 
-These configuration settings enable advanced customization of nodes and node arrays. For example, if jobs require a specific amount of memory, say 10 GB each, you can define an execute nodearray that starts machines with 60 GB of memory, then add in the configuration options `gridengine.slots = 6` to ensure that only 6 jobs can concurrently run on this type of node (ensuring that each job has at least 10 GB of memory to work with).
+These configuration settings enable advanced customization of nodes and node arrays. For example, if jobs require a specific amount of memory, say 10 GB each, you can define an 'execute' nodearray that starts machines with 60 GB of memory, then add in the configuration options `gridengine.slots = 6` to ensure that only 6 jobs can concurrently run on this type of node (ensuring that each job has at least 10 GB of memory to work with).
 
 ## Grouped Nodes in Grid Engine
 When a parallel job is submitted to grid engine, the default autoscale behavior that CycleCloud uses to treat each MPI job as a grouped node request. Grouped nodes are tightly coupled and ideally suited for MPI workflows.
@@ -228,11 +228,11 @@ The following are the Grid Engine specific configuration options you can toggle 
 This page concerns capabilities and configuration of using (Altair) GridEngine with CycleCloud.
 
 ## Configuring Resources
-The cyclecloud-gridengine application matches sge resources to azure cloud resources to provide rich autoscaling and cluster configuration tools. The application is deployed automatically for clusters created via the CycleCloud UI or it can be installed on any gridengine admin host on an existing cluster.
+The cyclecloud-gridengine application matches sge resources to Azure cloud resources to provide rich autoscaling and cluster configuration tools. The application is deployed automatically for clusters created via the CycleCloud UI or it can be installed on any GridEngine admin host on an existing cluster.
 
 ### Installing or Upgrading cyclecloud-gridengine
 
-The cyclecloud-gridengine bundle is available in [github](https://github.com/Azure/cyclecloud-gridengine/releases) as a release artifact. Installing and upgrading follow the same process. The application requires python3 with virtualenv.
+The cyclecloud-gridengine bundle is available in [GitHub](https://github.com/Azure/cyclecloud-gridengine/releases) as a release artifact. Installing and upgrading follow the same process. The application requires python3 with virtualenv.
 
 ```bash
 tar xzf cyclecloud-gridengine-pkg-*.tar.gz
@@ -242,7 +242,7 @@ cd cyclecloud-gridengine
 
 ### Important Files
 
-The application parses the sge configuration each time it runs - jobs, queues, complexes. Information is provided in the stderr and stdout of the command and to a log file, both at configurable levels. All gridengine management commands with arguments are logged to file as well.
+The application parses the sge configuration each time it runs - jobs, queues, complexes. Information is provided in the stderr and stdout of the command and to a log file, both at configurable levels. All GridEngine management commands with arguments are logged to file as well.
 
 | Description  |  Location |
 |---|---|
@@ -290,7 +290,7 @@ Here we opt out of placement groups for the _make_ pe:
 ```
 
 ### CycleCloud Placement Groups
-CycleCloud placement groups map one-to-one to Azure VMSS with SinglePlacementGroup - VMs in a placement group share an Infiniband Fabric and share only with VMs within the placement group. To intuitively preserve these silos, the placement groups map 1:1 with gridengine parallel environment as well.
+CycleCloud placement groups map one-to-one to Azure VMSS with SinglePlacementGroup - VMs in a placement group share an Infiniband Fabric and share only with VMs within the placement group. To intuitively preserve these silos, the placement groups map 1:1 with GridEngine parallel environment as well.
 
 Specifying a parallel environment for a job restricts the job to run in a placement group via smart hostgroup assignment logic. You can disable this behavior through the corresponding configuration in _autoscale.json_: `"required_placement_groups" : false`.
 
@@ -300,7 +300,7 @@ This plugin automatically scales the grid to meet the demands of the workload. T
 
 * Set the cyclecloud connection details
 * Set the termination timer for idle nodes
-* Multi-dimensional autoscaling is possible, set which attributes to use in the job packing, for example, slots, memory
+* Multi-dimensional autoscaling is supported. You can configure which attributes to use in the job packing, for example, slots or memory
 * Register the queues, parallel environments, and hostgroups to be managed
 
 
@@ -472,11 +472,11 @@ When a queue or xproject defines multiple hostgroups, any of those groups can po
 > Inspect all the available node properties by `azge buckets`.
 
 ## azge
-This package comes with a command-line, _azge_. This program is used to perform autoscaling and breaks all subprocesses under autoscale into separate components. These commands rely on the gridengine environment variables to be set - you must be able to call `qconf` and `qsub` from the same profile where `azge` is called.
+This package comes with a command-line, _azge_. This program is used to perform autoscaling and breaks all subprocesses under autoscale into separate components. These commands rely on the GridEngine environment variables to be set - you must be able to call `qconf` and `qsub` from the same profile where `azge` is called.
 
 | _azge_ commands  | Description  |
 |---|---|
-| validate | Checks for known configuration errors in the autoscaler or gridengine 
+| validate | Checks for known configuration errors in the autoscaler or GridEngine 
 | jobs | Shows all jobs in the queue 
 | buckets | Shows available resource pools for autoscaling 
 | nodes | Shows cluster hosts and properties 
@@ -489,9 +489,9 @@ When modifying scheduler configurations (_qconf_) or autoscale configurations (_
 1. Run `azge buckets` to check the resources offered by the CycleCloud cluster.
 1. Run `azge jobs` to inspect the queued job details.
 1. Run `azge demand` perform the job to bucket matching. Then examine which jobs are matched to which buckets and hostgroups.
-1. Run `azge autoscale` to kickoff the node allocation process, or add nodes which are ready to join.
+1. Run `azge autoscale` to kickoff the node allocation process, or add nodes that are ready to join.
 
-Once the commands are working as expected, enable ongoing autoscale by adding the `azge autoscale` command to the root crontab. Ensure to source the gridengine environment variables in advance.
+Once the commands are working as expected, enable ongoing autoscale by adding the `azge autoscale` command to the root crontab. Ensure to source the GridEngine environment variables in advance.
 
 ```cron
 * * * * * . $SGE_ROOT/common/settings.sh && /usr/local/bin/azge autoscale -c /opt/cycle/gridengine/autoscale.json
@@ -501,7 +501,7 @@ Once the commands are working as expected, enable ongoing autoscale by adding th
 
 CycleCloud supports cloud bursting scenario. The base configuration assumes that the `$SGE_ROOT` directory is available to the cloud nodes. This assumption can be relaxed by setting `gridengine.shared.spool = false`, `gridengine.shared.bin = false`, and installing GridEngine locally.
 
-For a simple case, you should provide a filesystem that the execute nodes can mount. This filesystem must include the … directory, and you configure the mount in the optional settings. When the dependencies of the sched and shared directories are released, you can shut down the scheduler node that is part of the cluster by-default and use the configurations from the external filesystem.
+For a simple case, you should provide a filesystem that the 'execute' nodes can mount. This filesystem must include the … directory, and you configure the mount in the optional settings. When the dependencies of the sched and shared directories are released, you can shut down the scheduler node that is part of the cluster by-default and use the configurations from the external filesystem.
 
 1. Create a new gridengine cluster.
 1. Disable return proxy.
@@ -517,7 +517,7 @@ CycleCloud project for GridEngine uses _sge-2011.11_ by default. You may use you
 
 ### Prerequisites
 
-This example, uses the 8.6.1-demo version, but all ge versions > 8.4.0 are supported.
+This example uses the 8.6.1-demo version, but all GE versions greater than 8.4.0 are supported.
 
 1. Users must provide UGE binaries
 
@@ -538,7 +538,7 @@ $ azcopy cp ge-8.6.12-common.tar.gz https://<storage-account-name>.blob.core.win
 
 ### Modifying configs to the cluster template
 
-Make a local copy of the gridengine template and modify it to use the UGE installers instead of the default.
+Make a local copy of the GridEngine template and modify it to use the UGE installers instead of the default.
 
 ```bash
 wget https://raw.githubusercontent.com/Azure/cyclecloud-gridengine/master/templates/gridengine.txt
@@ -581,5 +581,5 @@ In the _gridengine.txt_ file, locate the first occurrence of `[[[configuration]]
 
 ```
 
-These gridengine configs override the default gridengine version and installation location when the cluster starts. It's not safe to move off of the `/sched` as it's a shared nfs location in the cluster.
+These GridEngine configs override the default GridEngine version and installation location when the cluster starts. It's not safe to move off of the `/sched` as it's a shared NFS location in the cluster.
 ::: moniker-end

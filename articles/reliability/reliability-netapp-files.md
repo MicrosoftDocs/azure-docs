@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure NetApp Files
-description: Learn about reliability in Azure NetApp Files, including availability zones and multi-region deployments.
+description: Learn how to ensure reliability and disaster recovery in Azure NetApp Files by using availability zones, cross-zone replication, cross-region replication, and file storage solutions.
 author: b-ahibbard
 ms.author: anfdocs
 ms.topic: reliability-article
@@ -46,10 +46,10 @@ For more recommendations, see [Application resilience FAQs for Azure NetApp File
 
 Azure NetApp Files supports *zonal* deployments of volumes. Use the [availability zone volume placement feature](../azure-netapp-files/replication.md#availability-zones) in Azure NetApp Files to deploy each volume in a single availability zone of your choice. You can use this feature only if Azure NetApp Files is present in that availability zone and has sufficient capacity. If you have latency-sensitive applications, you can deploy a volume to the same availability zone as your Azure compute resources and other services.
 
-In the following diagram, blue arrows represent how all virtual machines (VMs) within the region in peered virtual networks can access all Azure NetApp Files resources. Green arrows represent how VMs that access Azure NetApp Files volumes in the same zone share the availability zone failure domain. There's no replication between the different volumes at the platform level.
+In the following diagram, orange arrows with solid arrowheads represent how all virtual machines (VMs) within the region in peered virtual networks can access all Azure NetApp Files resources. Green arrows represent how VMs that access Azure NetApp Files volumes in the same zone share the availability zone failure domain. There's no replication between the different volumes at the platform level.
 
-:::image type="complex" border="false" source="./media/reliability-netapp-files/availability-zone-diagram.png" alt-text="Diagram that shows Azure NetApp Files availability zone volume placement." lightbox="./media/reliability-netapp-files/availability-zone-diagram.png":::
-   The diagram shows three availability zones in an Azure region. Blue arrows connect icons that represent VMs and Azure NetApp Files resources across availability zones. Green arrows connect VMs and Azure NetApp Files volumes in the same availability zone.
+:::image type="complex" border="false" source="./media/reliability-netapp-files/availability-zone-diagram.svg" alt-text="Diagram that shows Azure NetApp Files availability zone volume placement.":::
+   The diagram shows three availability zones in an Azure region. Orange arrows with solid arrowheads connect icons that represent VMs and Azure NetApp Files resources across availability zones. Green arrows connect VMs and Azure NetApp Files volumes in the same availability zone.
 :::image-end:::
 
 A single-zone deployment isn't sufficient to meet high reliability requirements. To asynchronously replicate data between volumes in different availability zones, you can use [cross-zone replication](../azure-netapp-files/replication.md). You must configure cross-zone replication separately from availability zone volume placement.
@@ -221,7 +221,7 @@ You can test your cross-region replication configuration safely by using snapsho
 
 For further security, Azure NetApp Files [snapshots](../azure-netapp-files/data-protection-disaster-recovery-options.md#snapshots) add stability, scalability, and fast recoverability without affecting performance. They provide the foundation for other redundancy solutions, including backup, cross-region replication, and cross-zone replication.
 
-For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't. For more information, see [Redundancy, replication, and backup](concept-redundancy-replication-backup.md).
+[!INCLUDE [Backups include ](includes/reliability-backups-include.md)] 
 
 ## Service-level agreement
 

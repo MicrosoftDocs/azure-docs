@@ -24,7 +24,7 @@ Covered in this article:
 
 ## Azure Maps platform overview
 
-Azure Maps is a set of mapping and geospatial services that enable developers and organizations to build intelligent location-based experiences for applications across many different industries and use cases. Use Azure Maps to bring maps, geocoding, location search, routing, real-time traffic, geolocation, time zone info, weather, and custom indoor maps into your web, mobile and server-side solutions. Azure Maps is an Azure service, so it inherently includes many of the Azure security and compliance promises that are important to enterprise customers. Azure Maps includes many of the same features as Bing Maps for Enterprise, along with more functionality, like:
+Azure Maps is a set of mapping and geospatial services that enable developers and organizations to build intelligent location-based experiences for applications across many different industries and use cases. Use Azure Maps to bring maps, geocoding, location search, routing, real-time traffic, geolocation, time zone info, and weather into your web, mobile and server-side solutions. Azure Maps is an Azure service, so it inherently includes many of the Azure security and compliance promises that are important to enterprise customers. Azure Maps includes many of the same features as Bing Maps for Enterprise, along with more functionality, like:
 
 - Multiple service authentication method options. For more information on security and authentication in Azure Maps, See [Authentication with Azure Maps].
 - Data residency compliance support. For more information, see [Azure Maps service geographic scope].
@@ -33,7 +33,6 @@ Azure Maps is a set of mapping and geospatial services that enable developers an
 - Azure Maps Weather maps. For more information, see Weather infrared and radar tiles in [Get Map Tile].
 - Azure Maps Weather APIs. For more information, see [Weather].
 - Azure Maps Geolocation APIs. For more information, see [Geolocation - Get IP To Location].
-- Azure Maps Creator (custom indoor maps). For more information, see [Azure Maps Creator].
 
 ## High-level platform comparison
 
@@ -41,7 +40,7 @@ The following table provides a high-level summary of Bing Maps for Enterprise fe
 
 | Bing Maps for Enterprise                         | Azure Maps                         |
 |--------------------------------------------------|------------------------------------|
-| [Autosuggest]                                    | [Search: Fuzzy (typehead)]         |
+| [Autosuggest]                                    | [Search: Autocomplete]              |
 | [Imagery: Static Maps]                           | [Render: Map Static Image]         |
 | [Imagery: Map Tiles & Metadata]                  | [Render: Map Tile]                 |
 | [Locations: Forward Geocoding (unstructured)]    | [Search: Forward Geocoding]        |
@@ -73,7 +72,7 @@ When migrating to Azure Maps from Bing Maps for Enterprise, the following aspect
 
 - Azure Maps is a transactions-based usage offering for all use case types and doesn't require special licensing, such as known users or tracked assets-based licensing for certain use cases.
 - Unlike Bing Maps for Enterprise, Azure Maps is a pay-as-you-go offering – you only pay for the services that you use.
-- With Azure Maps, billing (invoicing) happens monthly and doesn’t require an annual commitment.
+- With Azure Maps, billing (invoicing) happens monthly and doesn't require an annual commitment.
 - Azure Maps has a free monthly allotment of transactions. For more information, see the [Azure Maps pricing].
 - Azure Maps charges for the usage of web control (SDK) based on the number of map tiles loaded, with one Azure Maps transaction being generated for every 15 map tiles loaded.
 - The Azure Maps web control (SDK) uses 512 x 512 pixels map tiles, and typically generates one or less transactions per map load.
@@ -166,11 +165,10 @@ Developers can get migration support through the [Azure Maps Q&A] or through one
 [Authentication with Azure Maps]: azure-maps-authentication.md
 [Authentication best practices]: authentication-best-practices.md
 [Autosuggest]: /bingmaps/rest-services/autosuggest
-[Azure Licensing]: https://azure.microsoft.com/pricing/purchase-options/azure-account
+[Azure Licensing]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [Azure Maps account]: how-to-manage-account-keys.md#create-a-new-account
 [Azure Maps blog]: https://aka.ms/AzureMapsTechBlog
 [Azure Maps code samples]: https://samples.azuremaps.com/
-[Azure Maps Creator]: /rest/api/maps-creator
 [Azure Maps data feedback]: https://aka.ms/azuremapsdatafeedback
 [Azure Maps pricing]: https://azure.microsoft.com/pricing/details/azure-maps
 [Azure Maps product documentation]: /azure/azure-maps
@@ -181,7 +179,7 @@ Developers can get migration support through the [Azure Maps Q&A] or through one
 [Azure Maps terms of use]: https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure
 [Azure Portal]: https://portal.azure.com
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator/?service=azure-maps
-[Azure subscription]: https://azure.microsoft.com/free/
+[Azure subscription]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [Azure support options]: https://azure.microsoft.com/support/options/
 [Bing Maps Account Center]: https://www.bingmapsportal.com
 [Calculate a Route]: migrate-calculate-route.md
@@ -220,9 +218,9 @@ Developers can get migration support through the [Azure Maps Q&A] or through one
 [SDS: Geocode Dataflow]: /bingmaps/spatial-data-services/geocode-dataflow-api
 [SDS: Geodata]: /bingmaps/spatial-data-services/geodata-api
 [SDS: Points of Interest Search]: /bingmaps/spatial-data-services/public-data-sources/pointsofinterest
+[Search: Autocomplete]: /rest/api/maps/search/get-geocode-autocomplete
 [Search: Forward Geocoding Batch]: /rest/api/maps/search/get-geocoding-batch
 [Search: Forward Geocoding]: /rest/api/maps/search/get-geocoding
-[Search: Fuzzy (typehead)]: /rest/api/maps/search/get-search-fuzzy
 [Search: Fuzzy Search (typeahead)]: /rest/api/maps/search/get-search-fuzzy
 [Search: Fuzzy]: /rest/api/maps/search/get-search-fuzzy
 [Search: POI]: /rest/api/maps/search/get-search-poi

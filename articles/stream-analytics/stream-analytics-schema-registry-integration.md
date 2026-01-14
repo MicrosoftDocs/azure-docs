@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 04/21/2025
 ms.custom:
   - build-2025
+  - sfi-image-nochange
 ---
 
 # Integrating with Schema Registry in Azure Stream Analytics

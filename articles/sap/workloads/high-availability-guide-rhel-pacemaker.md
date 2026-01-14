@@ -621,7 +621,7 @@ The fencing device uses either a managed identity for Azure resource or a servic
 
    #### [Service principal](#tab/spn)
 
-   Assign the custom role `Linux Fence Agent Role` that was created in the last section to the service principal. *Don't use the Owner role anymore.* For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+   Assign the custom role `Linux Fence Agent Role` that was created in the last section to the service principal. *Don't use the Owner role anymore.* For more information, see [Assign Azure roles by using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
    Make sure to assign the role for both cluster nodes.
 

@@ -54,16 +54,20 @@ Decide whether you want to run an assessment using sizing criteria based on serv
 
 Run an assessment as follows:
 
-1.  In **Servers, databases and web apps**, select **Azure Migrate: Discovery and assessment** > **Assess** > **Azure VMware Solution (AVS)**.
+1. In **Infrastructure**, select the list of all workloads you want to assess the cost for. Ensure you only select **VMware VMs** to create an assessment for AVS.
+    - You can filter the list of VMware VMs using the filter for **Hypervisor type** and choosing **VMware**
 
-1. In **Discovery source**:
+        :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/filter-vmware-virtual-machines.png" alt-text="Screenshot of page for selecting VMware VMs." lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/filter-vmware-virtual-machines.png" :::
 
-    - If you discovered servers using the appliance, select **Servers discovered from Azure Migrate appliance**.
-    - If you discovered servers using an imported RVTools XLSX or CSV file, select **Imported servers**. 
-    
-1. Select **Edit** to review the assessment properties.
+    - You can also choose to create the assessment only for powered-on VMs by using the filter for **Power status** and choosing **On**.
 
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png" alt-text="Page for selecting the assessment settings":::
+1. From the top menu, click on **Create assessment** drop-down, select **For Azure VMware Solution (AVS)**.
+
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/create-azure-vmware-solution-assessment-v2.png" alt-text="Screenshot of page for selecting the assessment settings." lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/create-azure-vmware-solution-assessment-v2.png" :::
+
+1. Provide **Assessment name** for the assessment. Click on **Add workloads** in case you need additional workloads for the assessment. Click on **Next** once the page is ready to proceed.
+
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/azure-vmware-solution-assessment-basics-tab-v2.png" alt-text="Screenshot of page for adding Basic details for the assessment." lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/azure-vmware-solution-assessment-basics-tab-v2.png" :::
 
 1. In **Assessment settings**, set the necessary values or retain the default values:
 
@@ -87,19 +91,17 @@ Run an assessment as follows:
 
 1. Select **Save** if you make changes.
 
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-view-all-inline.png" alt-text="Assessment properties" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/avs-view-all-expanded.png":::
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/azure-vmware-solution-assessment-settings-v2.png" alt-text="Screenshot of assessment properties." lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/azure-vmware-solution-assessment-settings-v2.png":::
 
 1. In **Assess Servers**, select **Next**.
 
 1. In **Select servers to assess** > **Assessment name** > specify a name for the assessment. 
  
-1. In **Select or create a group** > select **Create New** and specify a group name. 
-    
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-group.png" alt-text="Add servers to a group":::
- 
-1. Select the appliance and select the servers that you want to add to the group. Then select **Next**.
+1. Select **Save** if you made changes.
 
-1. In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
+1. Select **Save** if you made changes and select **Review + Create assessment**.
+
+1. In **Review + create assessment**, review the assessment details, and select **Create** to run the assessment.
 
     > [!NOTE]
     > For performance-based assessments, we recommend that you wait at least a day after starting discovery before you create an assessment. This provides time to collect performance data with higher confidence. Ideally, after you start discovery, wait for the performance duration you specify (day/week/month) for a high-confidence rating.
@@ -111,7 +113,7 @@ An AVS assessment describes:
 - **Azure VMware Solution (AVS) readiness**: Whether the on-premises servers are suitable for migration to Azure VMware Solution (AVS).
 - **Number of Azure VMware Solution nodes**: Estimated number of Azure VMware Solution nodes required to run the servers.
 - **Utilization across AVS nodes**: Projected CPU, memory, and storage utilization across all nodes.
-    - Utilization includes upfront factoring in the cluster management overheads such as the vCenter Server, NSX Manager (large), NSX Edge, if HCX is deployed also the HCX Manager and IX appliance consuming ~ 44vCPU (11 CPU), 75 GB of RAM and 722 GB of storage before compression and deduplication.
+    - Utilization includes upfront factoring in the cluster management overheads such as the vCenter Server, NSX Manager (large), NSX Edge, if HCX is deployed also the HCX Manager and HCX appliance consuming ~ 44vCPU (11 CPU), 75 GB of RAM and 722 GB of storage before compression and deduplication.
     - Limiting factor determines the number of hosts/nodes required to accommodate the resources.
 - **Monthly cost estimation**: The estimated monthly costs for all Azure VMware Solution (AVS) nodes running the on-premises VMs.
 
@@ -125,7 +127,7 @@ To view an assessment:
 
 1. In **Assessments**, select an assessment to open it. As an example (estimations and costs, for example,  only): 
 
-   :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-summary-inline.png" alt-text="Assessment Summary" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-summary-expanded.png":::
+   :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assessment-overview.png" alt-text="Screenshot showing the page with the assessment overview." lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/assessment-overview.png":::
 
 1. Review the assessment summary.
  
@@ -158,26 +160,18 @@ The assessment summary shows the estimated compute and storage cost of running s
 2. Review monthly storage estimates. The view shows the aggregated storage costs for the assessed group, split over different types of storage disks. 
 3. You can drill down to see cost details for specific servers.
 
-### Review confidence rating
+### Review performance coverage
 
-Server Assessment assigns a confidence rating to performance-based assessments. Rating is from one star (lowest) to five stars (highest).
+Server Assessment assigns a performance coverage to performance-based assessments. 
 
-The confidence rating helps you estimate the reliability of size recommendations in the assessment. The rating is based on the availability of data points needed to compute the assessment.
+The performance coverage helps you estimate the reliability of size recommendations in the assessment. The rating is based on the availability of data points needed to compute the assessment.
 
 > [!NOTE]
-> Confidence ratings aren't assigned if you create an assessment based on a CSV file or an RVTools XLSX file.
+> Performance coverage is not calculated if you create an assessment based on a CSV file or an RVTools XLSX file.
 
-Confidence ratings are as follows.
 
-**Data point availability** | **Confidence rating**
---- | ---
-0%-20% | 1 star
-21%-40% | 2 stars
-41%-60% | 3 stars
-61%-80% | 4 stars
-81%-100% | 5 stars
 
-[Learn more](assessment-report.md#confidence-ratings-performance-based) about confidence ratings.
+[Learn more](assessment-report.md#coverage) about performance coverage.
 
 ## Next steps
 

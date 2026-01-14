@@ -7,6 +7,7 @@ ms.service: service-connector
 ms.topic: how-to
 ms.date: 02/06/2025
 ms.author: honc
+ms.custom: sfi-image-nochange
 ---
 
 # Use Service Connector in Azure Kubernetes Service (AKS)

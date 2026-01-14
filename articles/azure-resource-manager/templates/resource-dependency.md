@@ -23,7 +23,7 @@ The following example shows a network interface that depends on a virtual networ
 ```json
 {
   "type": "Microsoft.Network/networkInterfaces",
-  "apiVersion": "2022-07-01",
+  "apiVersion": "2025-01-01",
   "name": "[variables('networkInterfaceName')]",
   "location": "[parameters('location')]",
   "dependsOn": [
@@ -51,7 +51,7 @@ With [languageVersion 2.0](./syntax.md#languageversion-20), use resource symboli
   "resources": {
     "myStorage": {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2023-01-01",
+      "apiVersion": "2025-06-01",
       "name": "[format('storage{0}', uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -61,7 +61,7 @@ With [languageVersion 2.0](./syntax.md#languageversion-20), use resource symboli
     },
     "myVm": {
       "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2023-03-01",
+      "apiVersion": "2025-04-01",
       "name": "[format('vm{0}', uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "dependsOn": [
@@ -166,7 +166,7 @@ The following example shows how to deploy multiple virtual machines. The templat
 ```json
 {
   "type": "Microsoft.Network/networkInterfaces",
-  "apiVersion": "2022-07-01",
+  "apiVersion": "2025-01-01",
   "name": "[format('{0}-{1}', variables('nicPrefix'), copyIndex())]",
   "location": "[parameters('location')]",
   "copy": {
@@ -177,7 +177,7 @@ The following example shows how to deploy multiple virtual machines. The templat
 },
 {
   "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2022-11-01",
+  "apiVersion": "2025-04-01",
   "name": "[format('{0}{1}', variables('vmPrefix'), copyIndex())]",
   "location": "[parameters('location')]",
   "dependsOn": [
@@ -218,7 +218,7 @@ The following example shows how to deploy three storage accounts before deployin
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-06-01",
       "name": "[format('{0}storage{1}, copyIndex(), uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -233,7 +233,7 @@ The following example shows how to deploy three storage accounts before deployin
     },
     {
       "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2022-11-01",
+      "apiVersion": "2025-04-01",
       "name": "[format('VM{0}', uniqueString(resourceGroup().id))]",
       "dependsOn": ["storagecopy"],
       ...
@@ -258,7 +258,7 @@ The following example shows how to deploy three storage accounts before deployin
   "resources": {
     "myStorages": {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-06-01",
       "name": "[format('{0}storage{1}, copyIndex(), uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -273,7 +273,7 @@ The following example shows how to deploy three storage accounts before deployin
     },
     "myVM": {
       "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2022-11-01",
+      "apiVersion": "2025-04-01",
       "name": "[format('VM{0}', uniqueString(resourceGroup().id))]",
       "dependsOn": ["myStorages"],
       ...

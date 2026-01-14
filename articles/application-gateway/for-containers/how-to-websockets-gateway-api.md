@@ -5,7 +5,7 @@ services: application gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: conceptual
-ms.date: 1/14/2025
+ms.date: 01/14/2025
 ms.author: mbender
 # Customer intent: As a cloud architect, I want to deploy and configure WebSocket support with Application Gateway for Containers, so that I can ensure reliable communication between my applications and backend services.
 ---

@@ -21,7 +21,7 @@ This quickstart guides you through generating, refining, and running realistic l
 - Azure Load Testing extension for VS Code. [Download and install it here](https://aka.ms/malt-vscode/get).  
 - GitHub Copilot. [Set up Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup) to generate and refine test scripts. If you don't have a subscription, you can activate a free trial.
 - Python & Locust. Required to run and validate your **Locust** test scripts locally from VS Code. [Install Locust here](https://docs.locust.io/en/stable/installation.html).
-- An Azure account with an active subscription. Needed to run load tests at scale in **Azure Load Testing**. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. Needed to run load tests at scale in **Azure Load Testing**. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 > [!TIP]
 > VS Code's GitHub Copilot Chat offers multiple AI models. You can switch models using the model picker in the chat input field. If you're unsure which one to use, we recommend GPT-4o.

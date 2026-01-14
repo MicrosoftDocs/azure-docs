@@ -1,13 +1,13 @@
 ---
 title: Jobs and tasks in Azure Batch
-description: Learn about jobs and tasks and how they are used in an Azure Batch workflow from a development standpoint.
+description: Learn about jobs and tasks and how they're used in an Azure Batch workflow from a development standpoint.
 ms.topic: concept-article
 ms.date: 03/21/2025
 # Customer intent: "As a developer working with cloud-based batch processing, I want to understand how jobs and tasks are structured in a batch workflow, so that I can efficiently manage computational workloads and optimize task execution."
 ---
 # Jobs and tasks in Azure Batch
 
-In Azure Batch, a *task* represents a unit of computation. A *job* is a collection of these tasks. More about jobs and tasks, and how they are used in an Azure Batch workflow, is described below.
+In Azure Batch, a *task* represents a unit of computation. A *job* is a collection of these tasks. More about jobs and tasks, and how they're used in an Azure Batch workflow, is described below.
 
 ## Jobs
 
@@ -21,7 +21,7 @@ You can assign an optional job priority to jobs that you create. The Batch servi
 
 To update the priority of a job, call the [Update the properties of a job](/rest/api/batchservice/job/update) operation (Batch REST), or modify the [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob.priority) (Batch .NET). Priority values range from -1000 (lowest priority) to +1000 (highest priority).
 
-Within the same pool, higher-priority jobs have scheduling precedence over lower-priority jobs. Tasks in lower-priority jobs that are already running won't be preempted by tasks in a higher-priority job. Jobs with the same priority level have an equal chance of being scheduled, and ordering of task execution is not defined.
+Within the same pool, higher-priority jobs have scheduling precedence over lower-priority jobs. Tasks in lower-priority jobs that are already running won't be preempted by tasks in a higher-priority job. Jobs with the same priority level have an equal chance of being scheduled, and ordering of task execution isn't defined.
 
 A job with a high-priority value running in one pool won't impact scheduling of jobs running in a separate pool or in a different Batch account. Job priority doesn't apply to [autopools](nodes-and-pools.md#autopools), which are created when the job is submitted.
 
@@ -30,7 +30,7 @@ A job with a high-priority value running in one pool won't impact scheduling of 
 You can use job constraints to specify certain limits for your jobs:
 
 - You can set a **maximum wallclock time**, so that if a job runs for longer than the maximum wallclock time that is specified, the job and all of its tasks are terminated.
-- You can specify the **maximum number of task retries** as a constraint, including whether a task is always retried or never retried. Retrying a task means that if the task fails, it will be requeued to run again.
+- You can specify the **maximum number of task retries** as a constraint, including whether a task is always retried or never retried. Retrying a task means that if the task fails, it's requeued to run again.
 
 ### Job manager tasks and automatic termination
 
@@ -52,21 +52,21 @@ When you create a task, you can specify:
 
 - The **command line** for the task. This is the command line that runs your application or script on the compute node.
 
-    It is important to note that the command line does not run under a shell. Therefore, it cannot natively take advantage of shell features like [environment variable](#environment-settings-for-tasks) expansion (this includes the `PATH`). To take advantage of such features, you must invoke the shell in the command line, such as by launching `cmd.exe` on Windows nodes or `/bin/sh` on Linux:
+    It's important to note that the command line doesn't run under a shell. Therefore, it can't natively take advantage of shell features like [environment variable](#environment-settings-for-tasks) expansion (this includes the `PATH`). To take advantage of such features, you must invoke the shell in the command line, such as by launching `cmd.exe` on Windows nodes or `/bin/sh` on Linux:
 
     `cmd /c MyTaskApplication.exe %MY_ENV_VAR%`
 
     `/bin/sh -c MyTaskApplication $MY_ENV_VAR`
 
-    If your tasks need to run an application or script that is not in the node's `PATH` or reference environment variables, invoke the shell explicitly in the task command line.
+    If your tasks need to run an application or script that isn't in the node's `PATH` or reference environment variables, invoke the shell explicitly in the task command line.
 - **Resource files** that contain the data to be processed. These files are automatically copied to the node from Blob storage in an Azure Storage account before the task's command line is executed. For more information, see [Start task](#start-task) and [Files and directories](files-and-directories.md).
 - The **environment variables** that are required by your application. For more information, see [Environment settings for tasks](#environment-settings-for-tasks).
 - The **constraints** under which the task should execute. For example, constraints include the maximum time that the task is allowed to run, the maximum number of times a failed task should be retried, and the maximum time that files in the task's working directory are retained.
-- **Application packages** to deploy to the compute node on which the task is scheduled to run. [Application packages](batch-application-packages.md) provide simplified deployment and versioning of the applications that your tasks run. Task-level application packages are especially useful in shared-pool environments, where different jobs are run on one pool, and the pool is not deleted when a job is completed. If your job has fewer tasks than nodes in the pool, task application packages can minimize data transfer since your application is deployed only to the nodes that run tasks.
+- **Application packages** to deploy to the compute node on which the task is scheduled to run. [Application packages](batch-application-packages.md) provide simplified deployment and versioning of the applications that your tasks run. Task-level application packages are especially useful in shared-pool environments, where different jobs are run on one pool, and the pool isn't deleted when a job is completed. If your job has fewer tasks than nodes in the pool, task application packages can minimize data transfer since your application is deployed only to the nodes that run tasks.
 - A **container image** reference in Docker Hub or a private registry and additional settings to create a Docker container in which the task runs on the node. You only specify this information if the pool is set up with a container configuration.
 
 > [!NOTE]
-> The maximum lifetime of a task, from when it is added to the job to when it completes, is 180 days. Completed tasks persist for 7 days; data for tasks not completed within the maximum lifetime is not accessible.
+> The maximum lifetime of a task, from when it is added to the job to when it completes, is 180 days. Completed tasks persist for 7 days; data for tasks not completed within the maximum lifetime isn't accessible.
 
 In addition to tasks you define to perform computation on a node, several special tasks are also provided by the Batch service:
 
@@ -88,7 +88,7 @@ However, the start task could also include reference data to be used by all task
 
 Usually, you'll want the Batch service to wait for the start task to complete before considering the node ready to be assigned tasks. However, you can configure this differently as needed.
 
-If a start task fails on a compute node, then the state of the node is updated to reflect the failure, and the node is not assigned any tasks. A start task can fail if there is an issue copying its resource files from storage, or if the process executed by its command line returns a nonzero exit code.
+If a start task fails on a compute node, then the state of the node is updated to reflect the failure, and the node isn't assigned any tasks. A start task can fail if there's an issue copying its resource files from storage, or if the process executed by its command line returns a nonzero exit code.
 
 If you add or update the start task for an existing pool, you must reboot its compute nodes for the start task to be applied to the nodes.
 
@@ -98,22 +98,22 @@ If you add or update the start task for an existing pool, you must reboot its co
 > 1. You can use application packages to distribute applications or data across each node in your Batch pool. For more information about application packages, see [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md).
 > 2. You can manually create a zipped archive containing your applications files. Upload your zipped archive to Azure Storage as a blob. Specify the zipped archive as a resource file for your start task. Before you run the command line for your start task, unzip the archive from the command line. 
 >
->    To unzip the archive, you can use the archiving tool of your choice. You will need to include the tool that you use to unzip the archive as a resource file for the start task.
+>    To unzip the archive, you can use the archiving tool of your choice. You need to include the tool that you use to unzip the archive as a resource file for the start task.
 
 ### Job manager task
 
 You typically use a job manager task to control and/or monitor job execution. For example, job manager tasks are often used to create and submit the tasks for a job, determine additional tasks to run, and determine when work is complete.
 
-However, a job manager task is not restricted to these activities. It is a full-fledged task that can perform any actions that are required for the job. For example, a job manager task might download a file that is specified as a parameter, analyze the contents of that file, and submit additional tasks based on those contents.
+However, a job manager task isn't restricted to these activities. It's a full-fledged task that can perform any actions that are required for the job. For example, a job manager task might download a file that is specified as a parameter, analyze the contents of that file, and submit additional tasks based on those contents.
 
 A job manager task is started before all other tasks. It provides the following features:
 
-- It is automatically submitted as a task by the Batch service when the job is created.
-- It is scheduled to execute before the other tasks in a job.
+- It's automatically submitted as a task by the Batch service when the job is created.
+- It's scheduled to execute before the other tasks in a job.
 - Its associated node is the last to be removed from a pool when the pool is being downsized.
 - Its termination can be tied to the termination of all tasks in the job.
-- A job manager task is given the highest priority when it needs to be restarted. If an idle node is not available, the Batch service might terminate one of the other running tasks in the pool to make room for the job manager task to run.
-- A job manager task in one job does not have priority over the tasks of other jobs. Across jobs, only job-level priorities are observed.
+- A job manager task is given as the highest priority when it needs to be restarted. If an idle node isn't available, the Batch service might terminate one of the other running tasks in the pool to make room for the job manager task to run.
+- A job manager task in one job doesn't have priority over the tasks of other jobs. Across jobs, only job-level priorities are observed.
 
 ### Job preparation and release tasks
 
@@ -156,6 +156,12 @@ You can set custom environment variables at the task or job level by populating 
 Your client application or service can obtain a task's environment variables, both service-defined and custom, by using the [Get information about a task](/rest/api/batchservice/task/get) operation (Batch REST) or by accessing the [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask.environmentsettings) property (Batch .NET). Processes executing on a compute node can access these and other environment variables on the node, for example, by using the familiar `%VARIABLE_NAME%` (Windows) or `$VARIABLE_NAME` (Linux) syntax.
 
 You can find a list of all service-defined environment variables in [Compute node environment variables](batch-compute-node-environment-variables.md).
+
+## Known limitations
+
+- Task stuck in running state: Batch service works together with compute nodes to manage task lifecycle. When a task is scheduled to a compute node for execution, the compute node is responsible to update the task's state from running the way to completed. If a compute node is preempted or lost connectivity to Batch service, its tasks stay in running state until Batch service can get chance to reschedule them to run with another compute node. If there's no other compute node, these tasks may stay in running state forever. To determine whether a task is stuck in running state, you can query the task to check if its associated node is unusable or deleted from the pool.
+- When a job is terminated, Batch service only terminates its running tasks with accessible compute nodes. All existing active tasks, and running tasks with unusable nodes remain current state.
+- When a task is requeued (for example due to preempted node, or pool resize operation with `Requeue` option), it's pushed back to the end of its job's queue. So it's possible the task is delayed to reschedule when there are other active tasks waiting in the same job.
 
 ## Next steps
 

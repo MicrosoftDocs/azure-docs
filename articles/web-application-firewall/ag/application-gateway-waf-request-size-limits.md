@@ -32,6 +32,9 @@ Only requests with Content-Type of *multipart/form-data* are considered for file
 >
 >**Example:** If you have a custom rule with priority 0 (the highest priority) set to allow a request with the header xyz, even if the request's size is larger than your maximum request size limit, it will get allowed before the max size limit is enforced
 
+>[!NOTE]
+>There is a 4 KB buffer on the file upload limit. The file size restriction won't be enforced until the file upload exceeds your set limit plus this buffer.
+
 ## Request body inspection
 
 Web Application Firewall offers a configuration setting to enable or disable the request body inspection. By default, the request body inspection is enabled. If the request body inspection is disabled, Web Application Firewall doesn't evaluate the contents of an HTTP message's body. In such cases, Web Application Firewall continues to enforce Web Application Firewall rules on headers, cookies, and URI. In Web Application Firewalls running Core Rule Set 3.1 (or lower), if the request body inspection is turned off, then maximum request body size field isn't applicable and can't be set. 

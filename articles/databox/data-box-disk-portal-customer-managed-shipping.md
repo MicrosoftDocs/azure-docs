@@ -8,7 +8,9 @@ ms.service: azure-data-box-disk
 ms.topic: how-to
 ms.date: 06/07/2022
 ms.author: shaas
-ms.custom: references_regions 
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
 # Customer intent: "As a data administrator using Azure Data Box Disk, I want to manage self-shipping for device pickup and drop-off, so that I can efficiently handle data transfers to and from the Azure datacenter while complying with required protocols."
 ---
 

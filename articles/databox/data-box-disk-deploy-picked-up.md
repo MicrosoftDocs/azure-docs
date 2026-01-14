@@ -6,7 +6,7 @@ author: stevenmatthew
 
 ms.service: azure-data-box-disk
 ms.topic: tutorial
-ms.date: 07/17/2024
+ms.date: 11/06/2025
 ms.author: shaas
 ms.custom: references_regions
 zone_pivot_groups: data-box-shipping
@@ -142,72 +142,73 @@ If using Microsoft managed shipping, follow these steps.
 
 ### [Japan](#tab/in-japan)
 
-1. Write your company name and address information on the consignment note as your sender information.
-2. Email Quantium solution using the following email template.
+1. Unplug disks and remove all connecting cables. Double-check that all accessories (cables, adapters) are present to avoid extra charges.
+2. Place each disk in an individual bubble-wrap bag. Package disks and all accessories in the original shipping box. Ensure a snug fit to minimize movement inside the box.
+3. Email adbops@microsoft.com using the following template to schedule return pickup
+    * If you have multiple orders, email to ensure individual pickup.
 
     ```
-    To: azure.qsjp@quantiumsolutions.com
-    Subject: Pickup request for Microsoft Azure Data Box Disk｜Job Name： 
-    Body: 
-    - Japan Post Yu-Pack tracking number (reference number)：
-    - Requested pickup date：mmdd (Select a requested time slot from below).
-        a. 08：00-13：00
-        b. 13：00-15：00
-        c. 15：00-17：00
-        d. 17：00-19：00
+    To: adbops@microsoft.com
+    Subject: Microsoft Azure Data Box Disk return shipment Pickup | [Order Name] 
+    Body:
+    -  Name:
+    -  Contact Number:
+    -  Collection Address:
+    -  Preferred Collection Date and Time:
     ```
-    - **If you are picking up in Osaka**, then modify the subject in the email template to: `Pickup request for Microsoft Azure OSA`.
-    - If Japan Post Chakubarai consignment note wasn't included or is missing, make a note of this in the email. Quantium Solutions Japan will request Japan Post to bring the consignment note upon pickup.
-    - If you have multiple orders, email to ensure individual pickup.
+4. Once the pickup collection is scheduled, the carrier brings the shipping label (if not already provided).
 
-3. Receive an email confirmation from Quantium solutions after you've booked a pickup. The email confirmation also includes information on the Chakubarai consignment note.
-
-If needed, you can contact Quantium Solution Support (Japanese language) at the following information: 
-
-- Email：[azure.qsjp@quantiumsolutions.com](mailto:azure.qsjp@quantiumsolutions.com)
-- Telephone：03-5755-0150 
+5. If you encounter pickup issues:
+   * Contact Azure Data Box Operations at adbops@microsoft.com for assistance.
+   * Include the Order Name and a description of the issue in the subject line.
+6. Once the device is picked up and scanned by the carrier, the order status in the Azure Portal will update to "Picked Up" and you can contact adbops@microsoft.com for the tracking status. 
 
 ### [Korea](#tab/in-korea)
 
-1. Make sure to include the return consignment note.
-2. To request pickup when consignment note is present:
-    1. Call *Quantium Solutions International* hotline at 070-8231-1418 during office hours (10 AM to 5 PM, Monday to Friday). Quote *Microsoft Azure pickup* and the service request number to arrange for a collection.  
-    2. If the hotline is busy, email [microsoft@rocketparcel.com](mailto:microsoft@rocketparcel.com), with the email subject *Microsoft Azure Pickup* and the service request number for reference.
-    3. If the courier doesn't arrive for collection, call *Quantium Solutions International* hotline for alternate arrangements.
-    4. You receive an email confirmation for the pickup schedule.
-3. Do this step only if the consignment note isn't present. To request pickup:
-    1. Call *Quantium Solutions International* hotline at 070-8231-1418 during office hours (10 AM to 5 PM, Monday to Friday). Quote *Microsoft Azure pickup* and the service request number to arrange for a collection. Specify that you need a new consignment note to arrange for a collection. Provide sender (customer), receiver information (Azure datacenter), and reference number (service request number).
-    2. If the hotline is busy, email [microsoft@rocketparcel.com](mailto:microsoft@rocketparcel.com), with the email subject *Microsoft Azure Pickup* and the service request number as reference.
-    3. If the courier doesn't arrive for collection, call *Quantium Solutions International* hotline for alternate arrangements.
-    4. You receive a verbal confirmation if the request is made via telephone.
+1. Unplug disks and remove all connecting cables. Double-check that all accessories (cables, adapters) are present to avoid extra charges.
+2. Place each disk in an individual bubble-wrap bag. Package disks and all accessories in the original shipping box. Ensure a snug fit to minimize movement inside the box.
+3. Email adbops@microsoft.com using the following template to schedule return pickup
+    * If you have multiple orders, email to ensure individual pickup.
+
+    ```
+    To: adbops@microsoft.com
+    Subject: Microsoft Azure Data Box Disk return shipment Pickup | [Order Name] 
+    Body:
+    -  Name:
+    -  Contact Number:
+    -  Collection Address:
+    -  Preferred Collection Date and Time:
+    ```
+4. Once the pickup collection is scheduled, the carrier brings the shipping label (if not already provided).
+
+5. If you encounter pickup issues:
+   * Contact Azure Data Box Operations at adbops@microsoft.com for assistance.
+   * Include the Order Name and a description of the issue in the subject line.
+6. Once the device is picked up and scanned by the carrier, the order status in the Azure Portal will update to "Picked Up" and you can contact adbops@microsoft.com for the tracking status. 
+
 
 ### [Singapore](#tab/in-singapore)
 
-1. Print the shipping label and attach it to the box. If the label is damaged or lost:
-    - Go to **Overview > Download shipping label** and get a return shipping label.
-    - Affix the label on the device. Make sure that the label is visible.
-
-2. To request pickup, email SingPost Customer Service by using the following template with the tracking number (the tracking number can be found on the return label provided in the delivered package).
+1. Unplug disks and remove all connecting cables. Double-check that all accessories (cables, adapters) are present to avoid extra charges.
+2. Place each disk in an individual bubble-wrap bag. Package disks and all accessories in the original shipping box. Ensure a snug fit to minimize movement inside the box.
+3. Email adbops@microsoft.com using the following template to schedule return pickup
+    * If you have multiple orders, email to ensure individual pickup.
 
     ```
-    To:  g-keyacct@singpost.com
-    Subject: Microsoft Azure Pickup - XZ00001234567
+    To: adbops@microsoft.com
+    Subject: Microsoft Azure Data Box Disk return shipment Pickup | [Order Name] 
     Body:
-     a.    Requester name
-     b.    Requester contact number
-     c.    Requester collection address
-     d.    Preferred collection date
+    -  Name:
+    -  Contact Number:
+    -  Collection Address:
+    -  Preferred Collection Date and Time:
     ```
+4. Once the pickup collection is scheduled, the carrier brings the shipping label (if not already provided).
 
-   > [!NOTE]
-   > For booking requests received on a business day:
-   >
-   > * Before 3 PM, pickup will be the next business day between 9 AM and 1 PM.
-   > * After 3 PM, pickup will be the next business day between 2 PM to 6 PM.
-
-   If you come across any issues, contact Data Box Operations Asia at [adbo@microsoft.com](mailto:adbo@microsoft.com). Provide the job name in the subject header and the issue encountered.
-
-3. Hand over to the courier.
+5. If you encounter pickup issues:
+   * Contact Azure Data Box Operations at adbops@microsoft.com for assistance.
+   * Include the Order Name and a description of the issue in the subject line.
+6. Once the device is picked up and scanned by the carrier, the order status in the Azure Portal will update to "Picked Up" and you can contact adbops@microsoft.com for the tracking status. 
 
 ### [China](#tab/in-china)
 

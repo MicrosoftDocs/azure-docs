@@ -1,17 +1,17 @@
 ---
 title: About networking in Azure VM disaster recovery with Azure Site Recovery
+ms.reviewer: v-gajeronika
 description: Provides an overview of networking for replication of Azure VMs using Azure Site Recovery.
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 09/11/2024
-ms.author: jsuri
+ms.date: 10/31/2025
+ms.author: v-gajeronika
 ms.custom: engagement-fy23
 # Customer intent: "As an IT administrator managing disaster recovery for Azure VMs, I want to configure networking settings using network security groups and service tags, so that I can ensure reliable replication and connectivity during failover scenarios."
 ---
+
 # About networking in Azure virtual machine disaster recovery
-
-
 
 This article provides networking guidance for platform connectivity when you're replicating Azure virtual machines from one region to another, using [Azure Site Recovery](site-recovery-overview.md).
 
@@ -23,11 +23,11 @@ Learn how Site Recovery provides disaster recovery for [this scenario](azure-to-
 
 The following diagram depicts a typical Azure environment, for applications running on Azure virtual machines:
 
-![Diagram that depicts a typical Azure environment for applications running on Azure virtual machines.](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
+:::image type="content" source="./media/site-recovery-azure-to-azure-architecture/source-environment.png" alt-text="Diagram that depicts a typical Azure environment for applications running on Azure virtual machines.":::
 
 If you're using Azure ExpressRoute or a VPN connection from your on-premises network to Azure, the environment is as follows:
 
-![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
+:::image type="content" source="./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png" alt-text="Screenshot of customer environment.":::
 
 Typically, networks are protected using firewalls and network security groups (NSGs). Service tags should be used to control network connectivity. NSGs should allow several service tags to control outbound connectivity.
 
@@ -63,7 +63,7 @@ While using NSG to control outbound connectivity, these service tags need to be 
     - Create a [Storage service tag](../virtual-network/network-security-groups-overview.md#service-tags) based NSG rule for the source region.
     - Allow these addresses so that data can be written to the cache storage account, from the virtual machine.
 - Create a [Microsoft Entra service tag](../virtual-network/network-security-groups-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to Microsoft Entra ID
-- Create an EventsHub service tag-based NSG rule for the target region, allowing access to Site Recovery monitoring.
+- Create an Events Hub service tag-based NSG rule for the target region, allowing access to Site Recovery monitoring.
 - Create an Azure Site Recovery service tag-based NSG rule for allowing access to Site Recovery service in any region.
 - Create an AzureKeyVault service tag-based NSG rule. This is required only for enabling replication of ADE-enabled virtual machines via portal.
 - Create a GuestAndHybridManagement service tag-based NSG rule. This is required only for enabling autoupgrade of mobility agent for a replicated item via portal.
@@ -80,11 +80,11 @@ This example shows how to configure NSG rules for a virtual machine to replicate
 
 1. Create an outbound HTTPS (443) security rule for "Storage.EastUS" on the NSG as shown in the following screenshot:
 
-      ![Screenshot shows Add outbound security rule for a network security group for Storage dot East U S.](./media/azure-to-azure-about-networking/storage-tag.png)
+      :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="Screenshot shows Add outbound security rule for a network security group for Storage dot East U S.":::
 
 2. Create an outbound HTTPS (443) security rule for "AzureActiveDirectory" on the NSG as shown in the following screenshot:
 
-      ![Screenshot shows Add outbound security rule for a network security group for Microsoft Entra ID.](./media/azure-to-azure-about-networking/aad-tag.png)
+      :::image type="content" source="./media/azure-to-azure-about-networking/azure-active-directory-tag.png" alt-text="Screenshot shows Add outbound security rule for a network security group for Microsoft Entra ID.":::
 
 3. Similar to the security rules, create outbound HTTPS (443) security rule for "EventHub.CentralUS" on the NSG that corresponds to the target location. This allows access to Site Recovery monitoring.
 
@@ -112,14 +112,13 @@ You can create a network service endpoint in your virtual network for "Storage" 
 
 - Select your Azure virtual network and select **Service endpoints**.
 
-    ![storage-endpoint](./media/azure-to-azure-about-networking/storage-service-endpoint.png)
+    :::image type="content" source="./media/azure-to-azure-about-networking/storage-service-endpoint.png" alt-text="Screenshot of storage endpoint.":::
 
 - Select **Add** and **Add service endpoints** tab opens.
 - Select *Microsoft.Storage* under **Service** and the required subnets under 'Subnets' field and select **Add**.
 
 >[!NOTE]
 >If you're using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](../storage/common/storage-network-security.md). Also, ensure that you allow access to at least one subnet of source Vnet.
-
 
 ### Forced tunneling
 

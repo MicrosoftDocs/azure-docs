@@ -39,16 +39,13 @@
         href: /azure/redis/dotnet-how-to-use-azure-redis-cache
       - name: Java app
         href: /azure/redis/java-get-started
-      - name: Java app with JCache
-        href: /azure/redis/java-redisson-get-started
       - name: Node.js app
         href: /azure/redis/nodejs-get-started
       - name: Python app
         href: /azure/redis/python-get-started
       - name: Go app
         href: /azure/redis/go-get-started
-      - name: Rust app
-        href: /azure/redis/rust-get-started
+
           
 - name: Migration 
   expanded: true
@@ -113,10 +110,7 @@
       href: /azure/redis/overview-vector-similarity
     - name: Connection resilience best practices
       href: cache-best-practices-connection.md
-    # - name: Use Azure Functions triggers and bindings
-    #   items:
-    #   - name: Create a simple Function app for Redis triggers 
-    #     href: /azure/redis/tutorial-functions-getting-started
+
 
   - name: Logs and monitoring
     items:
@@ -250,10 +244,7 @@
     items:
       - name: Vector search concepts
         href: /azure/redis/overview-vector-similarity
-      - name: Vector similarity search
-        href: /azure/redis/tutorial-vector-similarity
-      - name: Semantic caching
-        href: /azure/redis/tutorial-semantic-cache
+
   - name: ASP.NET
     items:
     - name: Use ASP.NET core output cache
@@ -297,8 +288,8 @@
   items:
   - name: Azure Redis FAQ
     href: /azure/redis/faq
-  - name: Retirements from Azure Cache for Redis
-    href: cache-retired-features.md
+  - name: Azure Cache for Redis retirement FAQ
+    href: retirement-faq.yml
   - name: Videos
     href: https://www.youtube.com/results?search_query=azure+cache+redis
   - name: Microsoft Q&A question page

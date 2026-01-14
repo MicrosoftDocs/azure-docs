@@ -1,16 +1,19 @@
 ---
 title: Advanced multistage attack detection in Microsoft Sentinel
 description: Use Fusion technology in Microsoft Sentinel to reduce alert fatigue and create actionable incidents that are based on advanced multistage attack detection.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: concept-article
 ms.date: 11/26/2024
-ms.author: yelevin
 appliesto:
     - Microsoft Sentinel in the Azure portal
 #Customer intent: As a security analyst, I want to leverage advanced multistage attack detection using machine learning so that I can identify and respond to sophisticated threats with high accuracy and minimal false positives.
 ---
 
 # Advanced multistage attack detection in Microsoft Sentinel
+
+>[!IMPORTANT]
+> [**Custom detections**](/defender-xdr/custom-detections-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) is now the best way to create new rules across Microsoft Sentinel SIEM Microsoft Defender XDR. With custom detections, you can reduce ingestion costs, get unlimited real-time detections, and benefit from seamless integration with Defender XDR data, functions, and remediation actions with automatic entity mapping. For more information, read [this blog](https://techcommunity.microsoft.com/blog/microsoftthreatprotectionblog/custom-detections-are-now-the-unified-experience-for-creating-detections-in-micr/4463875).
 
 Microsoft Sentinel uses Fusion, a correlation engine based on scalable machine learning algorithms, to automatically detect multistage attacks (also known as advanced persistent threats or APT) by identifying combinations of anomalous behaviors and suspicious activities that are observed at various stages of the kill chain. Based on these discoveries, Microsoft Sentinel generates incidents that would otherwise be difficult to catch. These incidents comprise two or more alerts or activities. By design, these incidents are low-volume, high-fidelity, and high-severity.
 

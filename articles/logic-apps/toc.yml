@@ -105,14 +105,12 @@ items:
       href: ../connectors/compare-built-in-azure-connectors.md
     - name: Estimate storage costs
       href: estimate-storage-costs.md
-    - name: Set up SQL storage
-      href: set-up-sql-db-storage-single-tenant-standard-workflows.md
+    - name: Set up SQL database storage
+      href: set-up-sql-database-storage-standard.md
     - name: Create Standard workflows - Portal
       href: create-single-tenant-workflows-azure-portal.md
     - name: Create Standard workflows from templates - Portal
       href: create-single-tenant-workflows-templates.md
-    - name: Get AI-powered help from the workflow assistant
-      href: workflow-assistant-standard.md
     - name: Create Standard workflows - Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
     - name: Export Standard from portal to Visual Studio Code
@@ -123,18 +121,6 @@ items:
       href: add-run-csharp-scripts.md
     - name: Add and run PowerShell scripts
       href: add-run-powershell-scripts.md
-    - name: Create and register MCP servers and tools
-      href: create-mcp-server-api-center.md
-    - name: Set up Standard logic apps as MCP servers
-      href: set-up-model-context-protocol-server-standard.md
-    - name: Create AI agent workflows
-      href: create-agent-workflows.md
-    - name: Parse or chunk content
-      href: parse-document-chunk-text.md
-    - name: Create chat completions with prompt templates
-      href: connectors/create-chat-completions-prompt-template.md
-    - name: Process files in AI agent workflows
-      href: connectors/code-interpreter-python-container-apps-session.md
     - name: Edit app and host settings
       href: edit-app-settings-host-settings.md
     - name: Enable stateful mode for stateless built-in connectors
@@ -145,6 +131,36 @@ items:
       href: create-publish-workflow-templates.md
     - name: Secure traffic between Standard workflows and virtual networks
       href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
+    - name: AI scenarios
+      items:
+      - name: Get AI-powered help from the workflow assistant
+        href: workflow-assistant-standard.md
+      - name: Create autonomous agent workflows
+        href: create-autonomous-agent-workflows.md
+      - name: Create conversational agent workflows
+        href: create-conversational-agent-workflows.md
+      - name: Add agent tools in Foundry backed by connectors
+        href: add-agent-tools-connector-actions.md
+      - name: Add agent actions in Foundry backed by workflows
+        href: add-agent-action-create-run-workflow.md
+      - name: Create MCP servers and tools from connectors
+        href: create-mcp-server-api-center.md
+      - name: Set up Standard logic apps as MCP servers
+        href: set-up-model-context-protocol-server-standard.md
+      - name: Run Python code in agent workflows
+        href: connectors/code-interpreter-python-container-apps-session.md
+      - name: Parse or chunk content
+        href: parse-document-chunk-text.md
+      - name: Create chat completions with prompt templates
+        href: connectors/create-chat-completions-prompt-template.md
+      - name: Multiagent scenarios
+        items:
+        - name: Single agent versus multiple agents
+          href: single-versus-multiple-agents.md
+        - name: Call AI agents sequentially
+          href: set-up-prompt-chain-agent-workflow.md
+        - name: Hand off AI agent tasks with chat continuity
+          href: set-up-handoff-agent-workflow.md
     - name: Develop for rules engine integration
       items:
       - name: Overview for rules engine integration
@@ -179,7 +195,9 @@ items:
       href: set-up-cd-deployment-center-standard.md
     - name: Deploy Standard logic apps to private storage accounts
       href: deploy-single-tenant-logic-apps-private-storage-account.md
-    - name: Export Consumption workflows to Standard logic app
+    - name: Clone Consumption to Standard - Portal
+      href: clone-consumption-logic-app-to-standard-workflow.md
+    - name: Export Consumption to Standard - Visual Studio Code
       href: export-from-consumption-to-standard-logic-app.md
   - name: Hybrid deployment for Azure Logic Apps
     items:
@@ -225,8 +243,6 @@ items:
       href: create-parameters-workflows.md
     - name: Call Azure Functions
       href: call-azure-functions-from-workflows.md
-    - name: Run workflows from actions in AI agents
-      href: add-agent-action-create-run-workflow.md
     - name: Call workflows from Power Apps
       href: call-from-power-apps.md
     - name: Call, trigger, or nest logic apps
@@ -381,6 +397,8 @@ items:
       href: ../connectors/connectors-create-api-ftp.md
     - name: Gmail - Google data security & privacy policies
       href: ../connectors/connectors-google-data-security-privacy-policy.md
+    - name: HL7
+      href: connectors/integrate-healthcare-systems.md
     - name: HTTP
       href: ../connectors/connectors-native-http.md
     - name: HTTP + Swagger
@@ -443,10 +461,14 @@ items:
       href: logic-apps-enterprise-integration-xml-validation.md
   - name: Secure
     items:
-    - name: Secure your logic apps
+    - name: Secure logic apps
       href: logic-apps-securing-a-logic-app.md
+    - name: Secure agent workflows with Easy Auth
+      href: set-up-authentication-agent-workflows.md
     - name: Authenticate with managed identities
       href: authenticate-with-managed-identity.md
+    - name: Authorize agent access to resources with OBO
+      href: set-up-on-behalf-of-user-flow.md
     - name: Block connector usage
       href: block-connections-connectors.md
     - name: Block connections across tenants
@@ -594,7 +616,9 @@ items:
       - name: TriggerMock class
         href: testing-framework/trigger-mock-class-definition.md
       - name: UnitTestExecutor class
-        href: testing-framework/unit-test-executor-class-definition.md    
+        href: testing-framework/unit-test-executor-class-definition.md
+      - name: DataMapTestExecutor class
+        href: testing-framework/data-map-test-executor-class-definition.md       
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md

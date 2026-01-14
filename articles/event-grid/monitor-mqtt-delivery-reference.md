@@ -9,7 +9,8 @@ ms.date: 11/15/2023
 ms.subservice: mqtt
 ---
 
-# Monitor data reference for Azure Event Grid’s MQTT broker feature (Preview)
+# Monitor data reference for Azure Event Grid’s MQTT broker feature
+
 This article provides a reference of log and metric data collected to analyze the performance and availability of MQTT broker.
 
 

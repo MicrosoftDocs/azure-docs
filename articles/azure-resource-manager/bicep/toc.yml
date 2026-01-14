@@ -152,6 +152,8 @@ items:
             href: ../../service-bus-messaging/service-bus-resource-manager-namespace-queue-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
       - name: Internet of Things
         items:
+          - name: Firmware analysis
+            href: ../../firmware-analysis/quickstart-firmware-analysis-bicep.md
           - name: IoT Edge
             href: ../../iot-edge/how-to-install-iot-edge-ubuntuvm-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
           - name: IoT Hub
@@ -257,7 +259,7 @@ items:
         displayName: parameters,variables,resources,outputs,condition,syntax
       - name: Data types
         href: data-types.md
-        displayName: supported types,arrays,booleans,integers,objects,strings,secure,interpolation
+        displayName: any,supported types,arrays,booleans,integers,objects,strings,secure,interpolation
       - name: Parameters (param)
         href: parameters.md
         displayName: decorators,secure,objects,constraints
@@ -265,6 +267,7 @@ items:
         href: variables.md
         displayName: configuration
       - name: Resources (resource)
+        displayName: batchsize,onlyifnotexists,description,decorators
         href: resource-declaration.md
       - name: Outputs (output)
         href: outputs.md
@@ -351,7 +354,7 @@ items:
             displayName: contains,empty,intersection,items,json,length,objectKeys,shallowMerge,union
           - name: Parameters file functions
             href: bicep-functions-parameters-file.md
-            displayName: getSecret,readEnvironmentVariable
+            displayName: externalInput,getSecret,readEnvironmentVariable
           - name: Resource functions
             href: bicep-functions-resource.md
             displayName: extensionResourceId,getSecret,listAccountSas,ListKeys,listSecrets,list,managementGroupResourceId,pickZones,providers,reference,resourceId,subscriptionResourceId,tenantResourceId,toLogicalZone,toLogicalZones,toPhysicalZone,toPhysicalZones
@@ -490,6 +493,8 @@ items:
                 displayName: linter
               - name: No deployments resources
                 href: linter-rule-no-deployments-resources.md
+              - name: No explicit Any
+                href: linter-rule-no-explicit-any.md
                 displayName: linter
               - name: No hardcoded environment URLs
                 href: linter-rule-no-hardcoded-environment-urls.md
@@ -619,7 +624,7 @@ items:
         href: /azure/templates/
       - name: Bicep CLI
         href: bicep-cli.md
-        displayName: build,decompile,install,list-versions,list versions,upgrade,version,module,registry
+        displayName: build,decompile,decompile-params, format,generate-params,install,jsonrpc,lint,list-versions,list versions,publish,restore,upgrade,version,module,registry
       - name: Azure CLI
         href: /cli/azure/resource
       - name: Azure PowerShell
@@ -634,8 +639,12 @@ items:
             href: diagnostics/bcp009.md
           - name: BCP018
             href: diagnostics/bcp018.md
+          - name: BCP029
+            href: diagnostics/bcp029.md
           - name: BCP033
             href: diagnostics/bcp033.md
+          - name: BCP034
+            href: diagnostics/bcp034.md
           - name: BCP035
             href: diagnostics/bcp035.md
           - name: BCP036
@@ -672,6 +681,8 @@ items:
             href: diagnostics/bcp077.md
           - name: BCP078
             href: diagnostics/bcp078.md
+          - name: BCP081
+            href: diagnostics/bcp081.md
           - name: BCP082
             href: diagnostics/bcp082.md
           - name: BCP083
@@ -680,6 +691,8 @@ items:
             href: diagnostics/bcp088.md
           - name: BCP089
             href: diagnostics/bcp089.md
+          - name: BCP091
+            href: diagnostics/bcp091.md
           - name: BCP124
             href: diagnostics/bcp124.md
           - name: BCP125
@@ -696,6 +709,8 @@ items:
             href: diagnostics/bcp132.md
           - name: BCP135
             href: diagnostics/bcp135.md
+          - name: BCP138
+            href: diagnostics/bcp138.md
           - name: BCP139
             href: diagnostics/bcp139.md
           - name: BCP144
@@ -740,11 +755,19 @@ items:
             href: diagnostics/bcp332.md
           - name: BCP333
             href: diagnostics/bcp333.md
+          - name: BCP335
+            href: diagnostics/bcp335.md
+          - name: BCP337
+            href: diagnostics/bcp337.md
           - name: BCP338
             href: diagnostics/bcp338.md
           - name: BCP401
             href: diagnostics/bcp401.md
           - name: BCP414
             href: diagnostics/bcp414.md
+          - name: BCP416
+            href: diagnostics/bcp416.md
           - name: BCP420
             href: diagnostics/bcp420.md
+          - name: BCP422
+            href: diagnostics/bcp422.md

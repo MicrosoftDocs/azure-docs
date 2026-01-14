@@ -1,10 +1,10 @@
 ---
 title: Deploy the Microsoft Sentinel for SAP data connector agent container using expert configuration options | Microsoft Docs
 description: Learn how to deploy the Microsoft Sentinel for SAP data connector environments using expert configuration options, such as and on-premises machine and custom, manual configurations.
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.topic: how-to
-ms.date: 09/15/2024
+ms.date: 09/30/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -23,7 +23,7 @@ This article provides procedures for deploying and configuring the Microsoft Sen
 Content in this article is intended for your **SAP BASIS** teams. For more information, see [Deploy an SAP data connector agent from the command line](deploy-command-line.md).
 
 > [!NOTE]
-> This article is relevant only for the data connector agent, and isn't relevant for the [SAP agentless data connector](deployment-overview.md#data-connector) (Limited preview).
+> This article is relevant only for the data connector agent, and isn't relevant for the [SAP agentless data connector](deployment-overview.md#data-connector).
 >
 
 ## Prerequisites

@@ -4,7 +4,9 @@ description: Describes how to use Service Bus to optimize performance when excha
 ms.topic: article
 ms.date: 04/29/2025
 ms.devlang: csharp
-ms.custom: devx-track-dotnet
+ms.custom:
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 ---
 
 # Best Practices for performance improvements using Service Bus Messaging

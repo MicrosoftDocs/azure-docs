@@ -1,9 +1,9 @@
 ---
 title: Highly available edge applications for Azure IoT Operations
 description: Learn how to develop highly available edge applications that work with Azure IoT Operations.
-author: asergaz
+author: dominicbetts
 ms.subservice: azure-mqtt-broker
-ms.author: sergaz
+ms.author: dobett
 ms.topic: concept-article
 ms.date: 4/17/2025
 
@@ -35,7 +35,7 @@ When a subscriber application sends an acknowledgment for a QoS-1 message, it ta
 
 ## Message retention and broker behavior
 
-The broker retains messages until it receives an acknowledgment from a subscriber, ensuring zero message loss. This behavior guarantees that even if a subscriber application crashes or loses connectivity temporarily, messages won't be lost and can be processed once the application reconnects. MQTT broker messages might expire if configured by the [Message-Expiry-Interval](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901112) and a subscriber didn't consume the message.
+The broker retains messages until it receives an acknowledgment from a subscriber, ensuring zero message loss. This behavior guarantees that even if a subscriber application crashes or loses connectivity temporarily, messages aren't lost and can be processed once the application reconnects. MQTT broker messages might expire if configured by the [Message-Expiry-Interval](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901112) and a subscriber didn't consume the message.
 
 ## Retained messages
 
@@ -55,34 +55,23 @@ MQTT subscriptions with QoS-1 ensure eventual consistency across identical appli
 
 ## State store
 
-State store is a replicated in-memory *HashMap* for managing application processing state. Unlike *etcd*, for example, state store prioritizes high-velocity throughput, horizontal scaling, and low latency through in-memory data structures, partitioning, and chain-replication. It allows applications to use the state stores distributed nature and fault tolerance while accessing a consistent state quickly across instances. To use the built-in key-value store provided by the distributed broker:
+State store is a replicated in-memory *HashMap* for managing application processing state. Unlike *etcd*, for example, state store prioritizes high-velocity throughput, horizontal scaling, and low latency through in-memory data structures, partitioning, and chain-replication. It allows applications to use the state stores distributed nature and fault tolerance while accessing a consistent state quickly across instances. To use the built-in key-value store, provided by the distributed broker:
 
-* Implement ephemeral storage and retrieval operations using the broker's key-value store API, ensuring proper error handling and data consistency. Ephemeral state is a short-lived data storage used in stateful processing for fast access to intermediate results or metadata during real-time computations. In the context of HA application, an ephemeral state helps recover application states between crashes. It can be written to disk but remains temporary, as opposed to cold storage that's designed for long-term storage of infrequently accessed data.
+* Implement ephemeral storage and retrieval operations using the broker's key-value store API, ensuring proper error handling and data consistency. Ephemeral state is a short-lived data storage used in stateful processing for fast access to intermediate results or metadata during real-time computations. In the context of HA application, an ephemeral state helps recover application states between crashes. It can be written to disk but remains temporary, as opposed to cold storage that is designed for long-term storage of infrequently accessed data.
 
 * Use the state store for sharing state, caching, configuration, or other essential data among multiple instances of the application, allowing them to keep a consistent view of the data.
-
-## Use MQTT broker's built-in Dapr integration
-
-For simpler use cases an application might utilize [Dapr](https://dapr.io) (Distributed Application Runtime). Dapr is an open-source, portable, event-driven runtime that simplifies building microservices and distributed applications. It offers a set of building blocks, such as service-to-service invocation, state management, and publish/subscribe messaging.
-
-[Dapr is offered as part of MQTT broker](howto-develop-dapr-apps.md), abstracting away details of MQTT session management, message QoS and acknowledgment, and built-in key-value stores, making it a practical choice for developing a highly available application for simple use cases by:
-
-* Design your application using Dapr's building blocks, such as state management for handling the key-value store, and publish/subscribe messaging for interacting with the MQTT broker. If the use case requires building blocks and abstractions that aren't supported by Dapr, consider using the before mentioned MQTT broker features.
-
-* Implement the application using your preferred programming language and framework, leveraging Dapr SDKs or APIs for seamless integration with the broker and the key-value store.
 
 ## Checklist to develop a highly available application
 
 * Choose an appropriate MQTT client library for your programming language. The client should support MQTT v5. Use a C or Rust based library if your application is sensitive to latency.
 * Configure the client library to connect to MQTT broker with *clean-session* flag set to `false` and the desired QoS level (QoS-1).
 * Decide a suitable value for session expiry, message expiry, and keep-alive intervals.
-* Implement the message processing logic for the subscriber application, including sending an acknowledgment when the message has been successfully delivered or processed.
+* Implement the message processing logic for the subscriber application, including sending an acknowledgment when the message is successfully delivered or processed.
 * For multithreaded applications, configure the *max-receive* parameter to enable parallel message processing.
 * Utilize retained messages for keeping temporary application state.
 * Utilize the distributed state store to manage ephemeral application state.
-* Evaluate Dapr to develop your application if your use case is simple and doesn't require detailed control over the MQTT connection or message handling.
 * Implement shared subscriptions to distribute messages evenly among multiple instances of the application, allowing for efficient scaling.
 
 ## Related content
 
-- [Use Dapr to develop distributed application workloads](howto-develop-dapr-apps.md)
+- [Data persistence in the MQTT broker state store](overview-state-store.md)

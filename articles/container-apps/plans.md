@@ -1,6 +1,6 @@
 ---
 title: Azure Container Apps plan types
-description: Compare different plains available in Azure Container Apps
+description: Compare different plans available in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps

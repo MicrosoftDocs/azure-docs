@@ -19,7 +19,7 @@ If you want to automate your load test with GitHub Actions, learn how to [manual
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Your Azure account needs to have the [Application Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) role. See [Check access for a user to Azure resources](/azure/role-based-access-control/check-access) to verify your permissions.
 

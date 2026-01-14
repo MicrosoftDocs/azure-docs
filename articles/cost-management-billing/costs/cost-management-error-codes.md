@@ -2,13 +2,13 @@
 title: Troubleshoot common Cost Management errors
 titleSuffix: Microsoft Cost Management
 description: This article describes common Cost Management errors and provides information about solutions.
-author: shasulin
-ms.reviewer: shasulin
+author: vikramdesai01
+ms.reviewer: vikdesai
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: troubleshooting
 ms.date: 07/03/2025
-ms.author: shasulin
+ms.author: vikdesai
 ---
 
 # Troubleshoot common Cost Management errors

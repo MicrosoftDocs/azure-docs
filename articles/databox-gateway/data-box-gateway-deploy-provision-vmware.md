@@ -8,6 +8,7 @@ ms.service: azure-data-box-gateway
 ms.topic: tutorial
 ms.date: 12/20/2023
 ms.author: shaas
+ms.custom: sfi-image-nochange
 #Customer intent: As an IT admin, I need to understand how to provision a virtual device for Data Box Gateway in VMware so I can use it to transfer data to Azure. 
 #Initial doc score: 72 
 # Customer intent: "As an IT admin, I want to provision a virtual device for Azure Data Box Gateway in VMware, so that I can facilitate efficient data transfer to Azure."
@@ -27,7 +28,7 @@ In this tutorial, you learn how to:
 > * Provision a virtual device using VMware
 > * Start your virtual device and get its IP address
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

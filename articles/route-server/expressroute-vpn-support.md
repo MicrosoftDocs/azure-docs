@@ -1,51 +1,98 @@
 ---
-title: Support for ExpressRoute and Azure VPN
+title: Azure Route Server support for ExpressRoute and Azure VPN
 titleSuffix: Azure Route Server
-description: Learn about how Azure Route Server exchanges routes between network virtual appliances (NVA), Azure ExpressRoute gateways, and Azure VPN gateways.
-author: halkazwini
-ms.author: halkazwini
+description: Learn how Azure Route Server enables route exchange between network virtual appliances, Azure ExpressRoute gateways, and Azure VPN gateways to create integrated hybrid network topologies.
+author: duongau
+ms.author: duau
 ms.service: azure-route-server
 ms.topic: concept-article
-ms.date: 09/17/2024
+ms.date: 09/17/2025
+ms.custom: sfi-image-nochange
 
-#CustomerIntent: As an Azure administrator, I want to deploy Azure Route Server with ExpressRoute and Azure VPN so that routes can be exchanged between the two on-premises networks.
+
+#CustomerIntent: As an Azure administrator, I want to understand how Azure Route Server integrates with ExpressRoute and Azure VPN so that I can enable route exchange between on-premises networks and network virtual appliances.
 ---
 
 # Azure Route Server support for ExpressRoute and Azure VPN
 
-Azure Route Server supports not only third-party network virtual appliances (NVA) in Azure but also seamlessly integrates with ExpressRoute and Azure VPN gateways. You don’t need to configure or manage the BGP peering between the gateway and Azure Route Server. You can enable route exchange between the gateways and Azure Route Server by enabling [branch-to-branch](configure-route-server.md?tabs=portal#configure-route-exchange) in Azure portal. If you prefer, you can use [Azure PowerShell](configure-route-server.md?tabs=powershell#configure-route-exchange) or [Azure CLI](configure-route-server.md?tabs=cli#configure-route-exchange) to enable the route exchange with the Route Server.
+Azure Route Server seamlessly integrates with Azure ExpressRoute and Azure VPN gateways, enabling dynamic route exchange between these gateways and network virtual appliances (NVAs). This integration allows you to create sophisticated hybrid network topologies where on-premises networks connected through different connectivity methods can communicate with each other and with NVAs in Azure.
+
+This article explains how Azure Route Server works with ExpressRoute and VPN gateways, the configuration requirements, and key considerations for implementing these integrated scenarios.
+
+## Integration overview
+
+Azure Route Server provides automated Border Gateway Protocol (BGP) peering with virtual network gateways, eliminating the need for manual BGP configuration. When you enable route exchange (also known as "branch-to-branch" connectivity), Azure Route Server facilitates route sharing between:
+
+- Network virtual appliances and ExpressRoute gateways
+- Network virtual appliances and VPN gateways  
+- ExpressRoute gateways and VPN gateways (when both are present)
+
+You can enable route exchange using the [Azure portal](configure-route-server.md?tabs=portal#configure-route-exchange-with-virtual-network-gateways), [Azure PowerShell](configure-route-server.md?tabs=powershell#configure-route-exchange-with-virtual-network-gateways), or [Azure CLI](configure-route-server.md?tabs=cli#configure-route-exchange-with-virtual-network-gateways).
 
 [!INCLUDE [downtime note](../../includes/route-server-note-vng-downtime.md)]
 
-## How does it work?
+## How route exchange works
 
-When you deploy an Azure Route Server along with a virtual network gateway and an NVA in a virtual network, by default Azure Route Server doesn’t propagate the routes it receives from the NVA and virtual network gateway between each other. Once you enable **branch-to-branch** in Route Server, the virtual network gateway and the NVA exchange their routes.
+When you deploy Azure Route Server in a virtual network alongside virtual network gateways and NVAs, route exchange enables these components to share routing information dynamically.
+
+### Default behavior
+
+By default, Azure Route Server doesn't propagate routes between different types of network components. Each component (NVA, ExpressRoute gateway, VPN gateway) only exchanges routes directly with the route server.
+
+### With route exchange enabled
+
+When you enable route exchange ("branch-to-branch" connectivity), Azure Route Server acts as a route reflector, allowing:
+
+- **Network virtual appliances** to learn routes from virtual network gateways
+- **Virtual network gateways** to learn routes from network virtual appliances
+- **Different gateway types** to exchange routes with each other
 
 > [!IMPORTANT] 
-> ExpressRoute branch-to-branch connectivity is not supported. If you have two (or more) ExpressRoute circuits connected to the same ExpressRoute virtual network gateway, routes from one circuit are not advertised to the other. If you want to enable on-premises to on-premises connectivity over ExpressRoute, consider configuring ExpressRoute Global Reach. For more information, see [About Azure ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md).
+> ExpressRoute circuit-to-circuit connectivity isn't supported through Azure Route Server. Routes from one ExpressRoute circuit aren't advertised to another ExpressRoute circuit connected to the same virtual network gateway. For ExpressRoute-to-ExpressRoute connectivity, consider using [ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md).
 
-The following diagram shows an example of using Route Server to exchange routes between an ExpressRoute and SDWAN appliance:
+### Route exchange scenarios
 
-- The SDWAN appliance receives from Azure Route Server the route of *On-premises 2*, which is connected to ExpressRoute circuit, along with the route of the virtual network.
+#### ExpressRoute and network virtual appliance integration
 
-- The ExpressRoute gateway receives from Azure Route Server the route of *On-premises 1*, which is connected to the SDWAN appliance, along with the route of the virtual network.
+The following diagram shows how an SD-WAN appliance and ExpressRoute gateway exchange routes through Azure Route Server:
 
-:::image type="content" source="./media/expressroute-vpn-support/expressroute-with-route-server.png" alt-text="Diagram showing ExpressRoute gateway and SDWAN NVA exchanging routes through Azure Route Server.":::
+:::image type="content" source="./media/expressroute-vpn-support/expressroute-with-route-server.png" alt-text="Diagram showing ExpressRoute gateway and SD-WAN network virtual appliance exchanging routes through Azure Route Server for hybrid connectivity.":::
 
-You can also replace the SDWAN appliance with Azure VPN gateway. Since Azure VPN and ExpressRoute gateways are fully managed, you only need to enable the route exchange for the two on-premises networks to talk to each other. The Azure VPN and ExpressRoute gateway must be deployed in the same virtual network as Route Server in order for BGP peering to be successfully established. 
+In this scenario:
+- The **SD-WAN appliance** receives routes to *On-premises 2* (connected through ExpressRoute) and virtual network routes from Azure Route Server
+- The **ExpressRoute gateway** receives routes to *On-premises 1* (connected through SD-WAN) and virtual network routes from Azure Route Server
+- This enables connectivity between the two on-premises locations through Azure
 
-If you enable BGP on the VPN gateway, the gateway learns *On-premises 1* routes dynamically over BGP. For more information, see [How to configure BGP for Azure VPN Gateway](../vpn-gateway/bgp-howto.md). If you don’t enable BGP on the VPN gateway, the gateway learns *On-premises 1* routes that are defined in the local network gateway of *On-premises 1*. For more information, see [Create a local network gateway](../vpn-gateway/tutorial-site-to-site-portal.md#LocalNetworkGateway). Whether you enable BGP on the VPN gateway or not, the gateway advertises the routes it learns to the Route Server if route exchange is enabled. For more information, see [Configure route exchange](configure-route-server.md?tabs=portal#configure-route-exchange).
+#### ExpressRoute and VPN gateway integration
+
+You can replace the SD-WAN appliance with an Azure VPN gateway to create a fully managed solution. Both Azure VPN and ExpressRoute gateways are fully managed services, so you only need to enable route exchange to establish connectivity between the on-premises networks.
+
+:::image type="content" source="./media/expressroute-vpn-support/expressroute-and-vpn-with-route-server.png" alt-text="Diagram showing ExpressRoute and VPN gateways exchanging routes through Azure Route Server for hybrid connectivity between different on-premises locations.":::
+
+### VPN gateway configuration considerations
+
+For Azure VPN gateways, route learning behavior depends on your BGP configuration:
+For Azure VPN gateways, route learning behavior depends on your BGP configuration. BGP-enabled VPN gateways learn on-premises routes dynamically through BGP, provide automatic route updates when network topology changes, and offer enhanced failover and redundancy capabilities. For configuration guidance on BGP-enabled gateways, see [Configure BGP for Azure VPN Gateway](../vpn-gateway/bgp-howto.md). In contrast, VPN gateways without BGP learn routes from local network gateway definitions, require static route configuration for on-premises networks, and need manual updates when topology changes occur. For configuration guidance on non-BGP gateways, see [Create a local network gateway](../vpn-gateway/tutorial-site-to-site-portal.md#LocalNetworkGateway).
+
+Regardless of BGP configuration, VPN gateways advertise learned routes to Azure Route Server when route exchange is enabled.
 
 [!INCLUDE [active-active vpn gateway](../../includes/route-server-note-vpn-gateway.md)]
 
-:::image type="content" source="./media/expressroute-vpn-support/expressroute-and-vpn-with-route-server.png" alt-text="Diagram showing ExpressRoute and VPN gateways exchanging routes through Azure Route Server.":::
+## Configuration requirements
 
-## Considerations
-* When the same route is learned over ExpressRoute, Azure VPN or an SDWAN appliance, the ExpressRoute network will be preferred by default. You can configure routing preference to influence Route Server route selection. For more information, see [Routing preference](hub-routing-preference.md).
-* If **branch-to-branch** is enabled and your on-premises advertises a route with Azure BGP community 65517:65517, then the ExpressRoute gateway will drop this route. 
+To configure route exchange, you must have Azure Route Server deployed in the target virtual network. The virtual network should also contain virtual network gateways such as ExpressRoute, VPN, or both types. If you plan to use network virtual appliances, ensure they're configured for BGP peering.
 
-## Related content
+### Key considerations
 
-- [Azure Route Server frequently asked questions (FAQ)](route-server-faq.md).
-- [Configure Azure Route Server](quickstart-configure-route-server-powershell.md).
-- [Azure ExpressRoute and Azure VPN coexistence](../expressroute/how-to-configure-coexisting-gateway-portal.md?toc=/azure/route-server/toc.json).
+All gateways must be deployed in the same virtual network as Azure Route Server. The route exchange configuration applies to all gateways within the virtual network. ExpressRoute routes take precedence over VPN routes by default, but you can configure routing preference to influence route selection when multiple paths exist to the same destination. When advertising routes from on-premises networks, avoid using the Azure reserved BGP community `65517:65517`.
+
+## Troubleshooting
+
+When troubleshooting route exchange issues, first verify that route exchange is enabled and BGP sessions are properly established. Use Azure Route Server diagnostics to check routing tables and monitor BGP session states and route advertisements for any anomalies.
+
+## Next steps
+
+- [Azure Route Server frequently asked questions](route-server-faq.md)
+- [Configure Azure Route Server](configure-route-server.md)
+- [Configure ExpressRoute and VPN coexistence](../expressroute/how-to-configure-coexisting-gateway-portal.md?toc=/azure/route-server/toc.json)
+- [Learn about routing preference with Azure Route Server](hub-routing-preference.md)

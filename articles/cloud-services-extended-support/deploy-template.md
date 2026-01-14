@@ -2,7 +2,7 @@
 title: Deploy Azure Cloud Services (extended support) - ARM template
 description: Deploy Azure Cloud Services (extended support) by using an ARM template.
 ms.topic: quickstart
-ms.service: azure-cloud-services-extended-support
+ms.service: azure-virtual-machines
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt

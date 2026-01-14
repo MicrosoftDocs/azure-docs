@@ -118,7 +118,13 @@
         - name: From HDFS store
           href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json 
         - name: To Azure backup
-          href: ../backup/offline-backup-azure-data-box.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json 
+          href: ../backup/offline-backup-azure-data-box.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+        - name: Using Commvault
+          href: migrate-commvault-data-box.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+        - name: Using Veeam
+          href: migrate-veeam-data-box.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+        - name: Using OpenText Migrate
+          href: migrate-opentext-data-box.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
       - name: Troubleshoot
         items:
         - name: Data Box share access

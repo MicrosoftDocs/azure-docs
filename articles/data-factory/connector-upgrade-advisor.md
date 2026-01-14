@@ -9,7 +9,7 @@ ms.topic: concept-article
 ms.custom:
   - references_regions
   - build-2025
-ms.date: 07/11/2025
+ms.date: 10/28/2025
 ---
 
 # Connector upgrade advisor in Azure Data Factory and Azure Synapse Analytics
@@ -28,20 +28,28 @@ The Connector upgrade advisor is a comprehensive tool that helps upgrade pipelin
 
 ## Supported data sources
 
-- Salesforce
-- Salesforce Service Cloud
-- ServiceNow
-- Snowflake
-- PostgreSQL
-- Google BigQuery
 - Amazon Redshift
 - Amazon RDS for Oracle
 - Cassandra
+- Google BigQuery
 - Greenplum
+- Hive
+- HubSpot
+- Impala
 - MariaDB
 - MySQL
+- Netezza
 - Oracle
+- PostgreSQL
 - Presto
+- QuickBooks Online
+- Salesforce
+- Salesforce Service Cloud
+- ServiceNow
+- Shopify
+- Snowflake
+- Spark
+- Square
 - Teradata
 - Vertica
 

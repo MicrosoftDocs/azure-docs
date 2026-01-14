@@ -2,6 +2,7 @@
 title: Assess large numbers of servers in Hyper-V environment for migration to Azure with Azure Migrate | Microsoft Docs
 description: Describes how to assess large numbers of servers in Hyper-V environment for migration to Azure using the Azure Migrate service.
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.topic: how-to
 ms.date: 02/06/2025
 

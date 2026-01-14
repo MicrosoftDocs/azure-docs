@@ -26,16 +26,16 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 # [Portal](#tab/azure-portal)
 
-An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 # [PowerShell](#tab/PowerShell)
 
-* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * If you want to run the code locally, [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 # [CLI](#tab/CLI)
 
-* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * If you want to run the code locally:
     * A Bash shell (such as Git Bash, which is included in [Git for Windows](https://gitforwindows.org)).
     * [Azure CLI](/cli/azure/install-azure-cli).

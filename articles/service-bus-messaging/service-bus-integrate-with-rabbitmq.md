@@ -5,6 +5,7 @@ author: videlalvaro
 ms.topic: how-to
 ms.date: 01/10/2024
 ms.author: alvidela
+ms.custom: sfi-image-nochange
 ---
 
 # How to integrate Service Bus with RabbitMQ
@@ -19,7 +20,7 @@ Here's a few scenarios in which we can make use of these capabilities:
 
 The list goes on, but we can solve most of these use cases by [bridging](/azure/architecture/patterns/messaging-bridge) RabbitMQ to Azure.
 
-First you need to create a free Azure account by signing up [here](https://azure.microsoft.com/free/)
+First you need to create a free Azure account by signing up [here](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 Once you're signed in to your account, go to the [Azure portal](https://portal.azure.com/) and create a new Azure Service Bus [namespace](./service-bus-create-namespace-portal.md). Namespaces are the scoping containers where our messaging components will live, like queues and topics.
 

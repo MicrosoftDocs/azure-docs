@@ -5,7 +5,8 @@ author: maud-lv
 ms.author: malev 
 ms.service: azure-managed-grafana
 ms.topic: how-to
-ms.date: 12/18/2024
+ms.date: 11/21/2025
+ms.custom: sfi-image-nochange
 ---
 
 # How to manage data sources in Azure Managed Grafana

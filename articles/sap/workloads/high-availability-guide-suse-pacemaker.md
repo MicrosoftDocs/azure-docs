@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.custom: devx-track-azurepowershell, linux-related-content
-ms.date: 08/01/2025
+ms.date: 11/19/2025
 ms.author: radeltch
 # Customer intent: "As a system administrator, I want to set up Pacemaker with fencing on SUSE Linux Enterprise Server in Azure, so that I can ensure high availability and reliability for my applications running in the cloud."
 ---
@@ -646,7 +646,7 @@ Assign the custom role "Linux Fence Agent Role" that was created in the last cha
 
 #### [Service principal](#tab/spn)
 
-Assign the custom role *Linux fence agent Role* that you already created to the service principal. Don't use the *Owner* role anymore. For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+Assign the custom role *Linux fence agent Role* that you already created to the service principal. Don't use the *Owner* role anymore. For more information, see [Assign Azure roles by using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 Make sure to assign the custom role to the service principal at all VM (cluster node) scopes.
 
@@ -993,14 +993,15 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 #### [Managed identity](#tab/msi)
 
    ```bash
-# Adjust the command with your subscription ID and resource group of the VM
-
-sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
-params msi=true subscriptionId="subscription ID" resourceGroup="resource group" \
-pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 pcmk_delay_max=15 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
-op monitor interval=3600 timeout=120
-   
-sudo crm configure property stonith-timeout=900
+   # Adjust the command with your subscription ID and resource group of the VM
+    
+   sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
+   params msi=true subscriptionId="subscription ID" resourceGroup="resource group" \
+   pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 pcmk_delay_max=15 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
+   meta failure-timeout=120s \
+   op monitor interval=3600 timeout=120
+       
+   sudo crm configure property stonith-timeout=900
    ```
 
 #### [Service principal](#tab/spn)
@@ -1011,6 +1012,7 @@ sudo crm configure property stonith-timeout=900
    sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
    params subscriptionId="subscription ID" resourceGroup="resource group" tenantId="tenant ID" login="application ID" passwd="password" \
    pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 pcmk_delay_max=15 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
+   meta failure-timeout=120s \
    op monitor interval=3600 timeout=120
    
    sudo crm configure property stonith-timeout=900

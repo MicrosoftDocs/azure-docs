@@ -5,7 +5,8 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
-ms.date: 06/13/2025
+ms.date: 12/08/2025
+ms.custom: sfi-image-nochange
 # Customer intent: As an IT administrator using Azure NetApp Files, I want to understand the SMB protocol and its configurations, so that I can ensure optimal connectivity and performance for my organization's file sharing and storage needs.
 ---
 # SMB FAQs for Azure NetApp Files
@@ -18,7 +19,7 @@ Azure NetApp Files supports SMB 2.1 and SMB 3.1 (which includes support for SMB 
 
 ## Can I use Windows Server 2025? 
 
-Windows Server 2025 currently doesn't work with the Azure NetApp Files SMB protocol. 
+Yes, Windows Server 2025 domain controllers are supported as of September 9, 2025. Windows Server 2025 domain controllers must have all cumulative security updates installed, including [KB5065426](https://support.microsoft.com/en-us/topic/september-9-2025-kb5065426-update-for-windows-server-2025-os-build-26100-6584-6a59dc6a-1ff2-48f4-b375-81e93deee5dd), released on September 9, 2025. You must also enable AES encryption (AES-256) on the Active Directory connection if you plan to introduce any Windows Server 2025 domain controllers into your Active Directory environment. For more information, see [Create and Manage Active Directory connections for Azure NetApp Files](create-active-directory-connections.md).
 
 ## Does Azure NetApp Files support access to ‘offline files’ on SMB volumes?
 
@@ -162,6 +163,9 @@ Yes, Azure NetApp Files supports [Alternate Data Streams (ADS)](/openspecs/windo
 
 SMB/CIFS oplocks (opportunistic locks) enable the redirector on a SMB/CIFS client in certain file-sharing scenarios to perform client-side caching of read-ahead, write-behind, and lock information. A client can then work with a file (read or write it) without regularly reminding the server that it needs access to the file. This improves performance by reducing network traffic. SMB/CIFS oplocks are enabled on Azure NetApp Files SMB and dual-protocol volumes.
 
+## Will the access time automatically update when reading files?
+
+No, access time will not be updated when reading files. This behavior ensures low-latency and high-performance access to your data.
 
 ## Next steps  
 

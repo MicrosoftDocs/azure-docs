@@ -18,7 +18,7 @@ ms.custom:
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Vertica. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
-> The Vertica connector version 2.0 provides improved native Vertica support. If you are using Vertica connector version 1.0 in your solution, please [upgrade your Vertica connector](#upgrade-the-vertica-version)  as version 1.0 is at [End of Support stage](connector-release-stages-and-timelines.md). Your pipeline will fail after **September 30, 2025** if not upgraded. Refer to this [section](#differences-between-vertica-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
+> The Vertica connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Vertica connector](#upgrade-the-vertica-version) from version 1.0 to 2.0.
 
 ## Supported capabilities
 

@@ -3,7 +3,7 @@ title: Linter rule - Use the safe access (.?) operator
 description: Use the safe access (.?) operator instead of checking object contents with the 'contains' function.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 02/12/2025
+ms.date: 10/30/2025
 ---
 
 # Linter rule - use the safe access operator

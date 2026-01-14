@@ -28,7 +28,7 @@ In this tutorial, use the Azure CLI to complete the following tasks:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. Your access role in the subscription must be *Contributor* or *Owner*. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. Your access role in the subscription must be *Contributor* or *Owner*. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - The Azure CLI. You can use it in [Azure Cloud Shell](https://shell.azure.com/) or [install it locally](/cli/azure/install-azure-cli).
 - [Git](/devops/develop/git/install-and-set-up-git)
 

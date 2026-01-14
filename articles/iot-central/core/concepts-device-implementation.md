@@ -13,9 +13,9 @@ ms.custom:  [amqp, mqtt, device-developer]
 # This article applies to device developers.
 ---
 
-# Device implementation and best practices for IoT central
+# Device implementation and best practices for IoT Central
 
-This article provides information about how to implement devices that connect to your IoT central application. It also includes some best practices. To learn more about the overall connection process, see [Connect a device](overview-iot-central-developer.md#how-devices-connect).
+This article provides information about how to implement devices that connect to your IoT Central application. It also includes some best practices. To learn more about the overall connection process, see [Connect a device](overview-iot-central-developer.md#how-devices-connect).
 
 For sample device implementation code, see [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
 
@@ -45,7 +45,7 @@ For IoT Central, a device model is defined by using the [DTDL v2](https://github
 
 A DTDL model can be a _no-component_ or a _multi-component_ model:
 
-- No-component model: A simple model doesn't use embedded or cascaded components. All the telemetry, properties, and commands are defined a single _root component_. For an example, see the [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) model.
+- No-component model: A simple model doesn't use embedded or cascaded components. All the telemetry, properties, and commands are defined as a single _root component_. For an example, see the [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) model.
 - Multi-component model. A more complex model that includes two or more components. These components include a single root component, and one or more nested components. For an example, see the [Temperature Controller](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) model.
 
 > [!TIP]

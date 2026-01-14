@@ -2,7 +2,7 @@
 title: View reports for Azure Backup
 description: Learn how to view backup reports.
 ms.topic: how-to
-ms.date: 11/30/2024
+ms.date: 11/21/2025
 ms.custom: references_regions, devx-track-azurepowershell
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -15,7 +15,7 @@ This article describes how to view reports for all backup operations.
 
 ## Out-of-box reports
 
-Out-of-box reports are targeted reports available in Business Continuity Center to help you audit requirements primarily. These reports are simplified and fully customizable right from the columns to the filters and the data format. These out of box reports are curated for Backup Configuration Status, Backup Job History, Backup Schedule and Retention and User Triggered Operations.
+Out-of-box reports are targeted reports available in Resiliency to help you audit requirements primarily. These reports are simplified and fully customizable right from the columns to the filters and the data format. These out of box reports are curated for Backup Configuration Status, Backup Job History, Backup Schedule and Retention and User Triggered Operations.
 
 :::image type="content" source="./media/view-reports/report-dashboard.png" alt-text="Screenshot shows the dashboard to view reports. " lightbox="./media/view-reports/report-dashboard.png":::
 
@@ -25,9 +25,9 @@ After you've configured your vaults to send data to Log Analytics, view your Bac
 
 To view the reports, follow these steps:
 
-1. Go to **Business Continuity Center** > **Reports**.
-1. Select **Backup Reports**.
-1. Select the relevant workspace(s) on the **Get started** tab.
+1. Go to **Resiliency** > **Monitoring + Reporting** > **Reports**.
+1. On the **Reports** pane, select **Backup Reports**.
+1. On the **Get started** tab, select the relevant workspace(s).
 
 The following sections detail the tabs available for report.
 

@@ -144,7 +144,7 @@ This section provides guidance on how to secure your IoT devices, which are the 
 
 - **Deploy hardware securely**: IoT deployments might require you to deploy hardware in unsecured locations, such as in public spaces or unsupervised locales. In these situations, make hardware deployment as tamper proof as possible, and enable only the necessary features to minimize the physical attack footprint.
 
-- **Store credentials in hardware security modules (HSMs)**: Use HSMs to securely store device secrets, such as private keys and certificates, to protect against extraction and tampering. To learn more, see [IoT Hub X.509 authentication](../iot-hub/authenticate-authorize-x509.md#authenticate-identities-with-x509-certificates), [DPS HSM guidance](../iot-dps/concepts-service.md#hardware-security-module), and [IoT Edge security manager](../iot-edge/iot-edge-security-manager.md).
+- **Store credentials in hardware security modules (HSMs)**: Use HSMs to securely store device secrets, such as private keys and certificates, to protect against extraction and tampering. To learn more, see [IoT Hub X.509 authentication](../iot-hub/authenticate-authorize-x509.md), [DPS HSM guidance](../iot-dps/concepts-service.md#hardware-security-module), and [IoT Edge security manager](../iot-edge/iot-edge-security-manager.md).
 
 - **Rotate device keys and certificates regularly**: Regularly rotate credentials, especially after a breach or expiration, to minimize the risk of unauthorized access. To learn more, see [How to roll certificates in DPS](../iot-dps/how-to-roll-certificates.md), and [IoT Central X.509 certificate management](../iot-central/core/how-to-connect-devices-x509.md#roll-your-x509-device-certificates).
 

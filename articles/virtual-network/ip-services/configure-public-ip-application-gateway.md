@@ -22,7 +22,7 @@ In this article, you learn how to create an Application Gateway using an existin
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Two standard SKU public IP addresses in your subscription. The IP addresses can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](./create-public-ip-portal.md).
     - For the purposes of the examples in this article, name the new public IP addresses **myStandardPublicIP-1** and **myStandardPublicIP-2**.
 
@@ -32,13 +32,13 @@ In this section, you create an Application Gateway resource. You select the IP a
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal, enter **Application gateway**.
+1. In the search box at the top of the portal, enter **Application gateway**.
 
-3. In the search results, select **Application gateways**.
+1. In the search results, select **Application gateways**.
 
-4. Select **+ Create**.
+1. Select **+ Create**.
 
-5. In **Create application gateway**, enter or select the following information.
+1. In **Create application gateway**, enter or select the following information.
 
     | **Setting** | **Value** |
     | ------- | ----- |
@@ -58,19 +58,19 @@ In this section, you create an Application Gateway resource. You select the IP a
     | **Configure virtual network** |   |
     | Virtual network | Select **Create new**.</br>In **Create virtual network**, enter **myVNet** for name.</br>Leave the default address space in **ADDRESS SPACE**.</br>In **SUBNETS**, change **default** to **myAGSubnet**.</br>Select **OK**.|
 
-6. Select **Next: Frontends**.
+1. Select **Next: Frontends**.
 
-7. Select **myStandardPublicIP-1** for **Public IP address** in the **Frontends** tab, or your public IP address.
+1. Select **myStandardPublicIP-1** for **Public IP address** in the **Frontends** tab, or your public IP address.
 
-8. Select **Next: Backends**. 
+1. Select **Next: Backends**. 
 
-9. Select **Add a backend pool**.
+1. Select **Add a backend pool**.
 
-10. Enter **myBackendPool** for name in **Add a backend pool** and select **Add**.
+1. Enter **myBackendPool** for name in **Add a backend pool** and select **Add**.
 
-11. Select **Next: Configuration**.
+1. Select **Next: Configuration**.
 
-12. Select **+ Add a routing rule**. Enter or select the following information.
+1. Select **+ Add a routing rule**. Enter or select the following information.
 
     | **Setting** | **Value** |
     | ------- | ----- |
@@ -90,11 +90,11 @@ In this section, you create an Application Gateway resource. You select the IP a
     | Backend target | Select **myBackendPool**. |
     | HTTP settings | Select **Add new**.</br>Enter **myHTTPsetting** in **Name**.</br>Leave the other settings at the defaults.</br>Select **Add**.|
 
-13. Select **Add**.
+1. Select **Add**.
 
-14. Select **Next: Tags**, then **Next: Review + create**.
+1. Select **Next: Tags**, then **Next: Review + create**.
 
-15. Select **Create**.
+1. Select **Create**.
 
 > [!NOTE]
 > This is a simple deployment of an Application Gateway. For advanced configuration and setup, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](../../application-gateway/quick-create-portal.md)

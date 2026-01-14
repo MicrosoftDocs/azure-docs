@@ -19,7 +19,7 @@ The following table shows the highest level of .NET or .NET Framework that can b
 
 | Functions runtime version | [Isolated worker model](../articles/azure-functions/dotnet-isolated-process-guide.md) | [In-process model](../articles/azure-functions/functions-dotnet-class-library.md)<sup>4</sup> |
 | ---- | --- | ---- |
-| Functions 4.x<sup>1</sup> | .NET 10 (preview)<br/>.NET 9.0<br/>.NET 8.0<br/>.NET Framework 4.8<sup>2</sup> | .NET 8.0 |
+| Functions 4.x<sup>1</sup> | .NET 10<sup>5</sup><br/>.NET 9.0<br/>.NET 8.0<br/>.NET Framework 4.8<sup>2</sup> | .NET 8.0 |
 | Functions 1.x<sup>3</sup> | n/a | .NET Framework 4.8 |
 
 <sup>1</sup> .NET 6 was previously supported on both models but reached the [end of official support] on November 12, 2024. .NET 7 was previously supported on the isolated worker model but reached the [end of official support] on May 14, 2024. 
@@ -28,7 +28,9 @@ The following table shows the highest level of .NET or .NET Framework that can b
 
 <sup>3</sup> Support ends for version 1.x of the Azure Functions runtime on September 14, 2026. For more information, see [this support announcement](https://aka.ms/azure-functions-retirements/hostv1). For continued full support, you should [migrate your apps to version 4.x](../articles/azure-functions/migrate-version-1-version-4.md).
 
-<sup>4</sup> Support ends for the in-process model on November 10, 2026. For more information, see [this support announcement](https://aka.ms/azure-functions-retirements/in-process-model). For continued full support, you should  [migrate your apps to the isolated worker model](../articles/azure-functions/migrate-dotnet-to-isolated-model.md).  
+<sup>4</sup> Support ends for the in-process model on November 10, 2026. For more information, see [this support announcement](https://aka.ms/azure-functions-retirements/in-process-model). For continued full support, you should  [migrate your apps to the isolated worker model](../articles/azure-functions/migrate-dotnet-to-isolated-model.md).
+
+<sup>5</sup> You can't run .NET 10 apps on Linux in the Consumption plan. To run on Linux, you should instead use the [Flex Consumption plan](../articles/azure-functions/flex-consumption-plan.md).
 
 For the latest news about Azure Functions releases, including the removal of specific older minor versions, monitor [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues).
 

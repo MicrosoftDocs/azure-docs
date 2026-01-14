@@ -7,6 +7,7 @@ ms.service: azure-dns
 ms.topic: tutorial
 ms.date: 11/30/2023
 ms.author: allensu
+ms.custom: sfi-image-nochange
 #Customer intent: As an administrator, I want to avoid having a single point of failure for DNS resolution.
 # Customer intent: As a network administrator, I want to configure DNS failover using Azure DNS private resolvers, so that I can ensure continuous DNS resolution and eliminate single points of failure in our network.
 ---
@@ -39,7 +40,7 @@ Outbound endpoints and DNS forwarding rulesets aren't needed for the failover sc
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Two [Azure virtual networks](../virtual-network/quick-create-portal.md) in two regions
 - A [VPN](../vpn-gateway/tutorial-site-to-site-portal.md) or [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) link from on-premises to each virtual network
 - An [Azure DNS Private Resolver](dns-private-resolver-get-started-portal.md) in each virtual network

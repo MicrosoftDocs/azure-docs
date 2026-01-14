@@ -22,7 +22,7 @@ This article explains how to create, change, or delete Azure virtual network pee
 
 ## Prerequisites
 
-If you don't have an Azure account with an active subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Complete one of these tasks before starting the remainder of this article:
+If you don't have an Azure account with an active subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). Complete one of these tasks before starting the remainder of this article:
 
 # [**Portal**](#tab/peering-portal)
 

@@ -1,14 +1,16 @@
 ---
 title: Deploy VMs on your Azure Stack Edge Pro GPU device via Azure PowerShell script
-description: Describes how to create and manage virtual machines (VMs) on a Azure Stack Edge Pro device using an Azure PowerShell script.
+description: Describes how to create and manage virtual machines (VMs) on an Azure Stack Edge Pro device using an Azure PowerShell script.
 services: databox
 author: alkohli
 
 ms.service: azure-stack-edge
-ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 05/24/2022
 ms.author: alkohli
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using an Azure PowerShell script so that I can efficiently manage my VMs.
 ---
 
@@ -47,7 +49,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
         <device IP> management.<appliance name>.<DNS domain>
         <device IP> <storage name>.blob.<appliance name>.<DNS domain>
         ```
-        For the storage account, you can provide a name that you want the script to use later to create a new storage account. The script does not check if that storage account is existing.
+        For the storage account, you can provide a name that you want the script to use later to create a new storage account. The script doesn't check if that storage account is existing.
 
     3. Use the following image for reference. Save the **hosts** file.
 
@@ -69,7 +71,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
     `Uninstall-Module -Name Azure.Storage`
 
-5. [Download AzCopy 10](../storage/common/storage-use-azcopy-v10.md#download-azcopy) to your Windows client. Make a note of this location as you will pass it as a parameter while running the script.
+5. [Download AzCopy 10](../storage/common/storage-use-azcopy-v10.md#download-azcopy) to your Windows client. Make a note of this location as you'll pass it as a parameter while running the script.
 
 6. Make sure that your Windows client is running TLS 1.2 or later.
 
@@ -78,7 +80,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
 1. Run PowerShell as an administrator.
 1. Go to the folder where you downloaded the script on your client.
-1. Before you run the script, make sure you are still connected to the local Azure Resource Manager of the device and the connection has not expired.
+1. Before you run the script, make sure you're still connected to the local Azure Resource Manager of the device and the connection hasn't expired.
 
     ```powershell
     PS C:\windows\system32> login-AzureRMAccount -EnvironmentName aztest1 -TenantId aaaabbbb-0000-cccc-1111-dddd2222eeee
@@ -100,7 +102,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
     **For a Windows VM:**
 
-    Here is a sample output for a Windows VM that was created.
+    Here's a sample output for a Windows VM that was created.
 
     ```powershell
     PS C:\Users\v2> .\ArmPowershellClient.ps1 -VHDPath \\asefs\Logs\vmvhd -VHDFile WindowsServer2016Datacenter.vhd -StorageAccountName myasesatest -OS Windows -VMSize Standard_D1_v2 -VMUserName Administrator -VMPassword Password1 -AzCopy10Path C:\Users\AzCopy10\AzCopy.exe
@@ -296,7 +298,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
     **For a Linux VM:**
 
-    Here is the sample of the command that was used to create a Linux VM.
+    Here's the sample of the command that was used to create a Linux VM.
 
     ```powershell
     .\ArmPowershellClient.ps1 -VHDPath \\asefs\Logs\vmvhd -VHDFile ubuntu13.vhd -StorageAccountName myasesatest -OS Linux -VMSize Standard_D1_v2 -VMUserName Administrator -VMPassword Password1 -AzCopy10Path C:\Users\AzCopy10\AzCopy.exe

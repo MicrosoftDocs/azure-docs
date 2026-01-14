@@ -1,10 +1,10 @@
 ---
 title: Microsoft Sentinel data connectors
 description: Learn about supported data connectors, like Microsoft Defender XDR (formerly Microsoft 365 Defender), Microsoft 365 and Office 365, Microsoft Entra ID, ATP, and Defender for Cloud Apps to Microsoft Sentinel.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: conceptual
 ms.date: 11/06/2024
-ms.author: yelevin
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -18,7 +18,22 @@ After you onboard Microsoft Sentinel into your workspace, use data connectors to
 
 Built-in connectors enable connection to the broader security ecosystem for non-Microsoft products. For example, use Syslog, Common Event Format (CEF), or REST APIs to connect your data sources with Microsoft Sentinel.
 
-[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+> [!NOTE]
+> For information about feature availability in US Government clouds, see the Microsoft Sentinel tables in [Cloud feature availability for US Government customers](/azure/security/fundamentals/feature-availability).
+
+## Data management considerations for Microsoft Sentinel data lake
+
+The following considerations must be factored into your compliance and data management planning:
+
++ **GDPR and Data Retention**
+    + Tenant admins can exercise GDPR rights using the Purge feature for the analytics tier. This doesn't affect the data lake tier. 
+    + Specific records can't be purged from the Sentinel data lake. The data lake retains ingested data for the defined retention period, even if the data is deleted at the source or in the analytics tier.
+
++	**Purview Integration**. Changes to Purview settings don't have any effect on data stored in the Sentinel data lake.
+
++   **Storage Location** Sentinel data lake storage locations are selected by the tenant admin and may differ from the primary storage location of the source services.
+
+
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 

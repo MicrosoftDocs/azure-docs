@@ -2,7 +2,7 @@
 title: Overview of Azure Blobs backup
 description: Learn about Azure Blobs backup.
 ms.topic: overview
-ms.date: 09/02/2025
+ms.date: 11/25/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -22,7 +22,7 @@ This article gives you an understanding about configuring the following types of
 
 Vaulted backup for Azure Blob Storage is now generally available, offering secure, offsite protection with granular restore options, automation support, and enhanced compliance and security features.For more information, see the [Microsoft Community Hub blog](https://azure.microsoft.com/updates?id=ga-vaulted-backup-azure-blob-storage).
 
-You can choose to configure vaulted backups, operational backups, or both on your storage accounts using a single backup policy. The integration with [Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md) enables you to govern, monitor, operate, and analyze backups at scale.
+You can choose to configure vaulted backups, operational backups, or both on your storage accounts using a single backup policy. The integration with [Resiliency](../resiliency/resiliency-overview.md) enables you to govern, monitor, operate, and analyze backups at scale.
 
 ## How the Azure Blobs backup works?
 
@@ -87,7 +87,7 @@ You can enable operational backup and vaulted backup (or both) of blobs on a sto
 
 Once you have enabled backup on a storage account, a Backup Instance is created corresponding to the storage account in the Backup vault. You can perform any Backup-related operations for a storage account like initiating restores, monitoring, stopping protection, and so on, through its corresponding Backup Instance.
 
-Both operational and vaulted backups integrate directly with Azure Business Continuity Center to help you manage the protection of all your storage accounts centrally, along with all other Backup supported workloads. Azure Business Continuity Center is your single pane of glass for all your Backup requirements like monitoring jobs and state of backups and restores, ensuring compliance and governance, analyzing backup usage, and performing operations pertaining to back up and restore of data.
+Both operational and vaulted backups integrate directly with Resiliency to help you manage the protection of all your storage accounts centrally, along with all other Backup supported workloads. Resiliency is an unified platform for all your Backup requirements like monitoring jobs and state of backups and restores, ensuring compliance and governance, analyzing backup usage, and performing operations pertaining to back up and restore of data.
 
 ---
 
@@ -128,6 +128,7 @@ For generating the estimate for your scenario see the [Azure Backup pricing calc
 
 ## Related content
 
+- [Create a Backup vault](../resiliency/backup-vaults.md).
 - [Create a backup policy for  Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-create-update-blob-policy.md).
 - [Back up Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-backup-blobs.md).
 - Restore Azure Blobs by Azure Backup using [Azure portal](blob-restore.md), [Azure PowerShell](restore-blobs-storage-account-ps.md), [Azure CLI](restore-blobs-storage-account-cli.md), [REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).

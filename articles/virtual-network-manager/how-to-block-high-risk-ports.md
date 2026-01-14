@@ -6,7 +6,9 @@ ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to 
 ms.date: 03/15/2024
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
 ---
 # Protect high-risk network ports with Security Admin Rules in Azure Virtual Network Manager
 
@@ -18,7 +20,7 @@ While this article focuses on a single port, SSH, you can protect any high-risk 
 
 - You understand how to create an [Azure Virtual Network Manager](./create-virtual-network-manager-portal.md)
 - You understand each element in a [Security admin rule](concept-security-admins.md).
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A group of virtual networks that can be split into network groups for applying granular security admin rules.
 - To modify dynamic network groups, you must be [granted access via Azure RBAC role](concept-network-groups.md#network-groups-and-azure-policy) assignment only. Classic Admin/legacy authorization is not supported
 

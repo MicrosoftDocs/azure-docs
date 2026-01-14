@@ -86,7 +86,7 @@ You can learn more about the technical details of the MSSQL storage provider, in
 
 ## Configuring the Azure storage provider
 
-The Azure Storage provider is the default storage provider and doesn't require any explicit configuration, NuGet package references, or extension bundle references. You can find the full set of **host.json** configuration options [here](durable-functions-bindings.md#hostjson-settings), under the `extensions/durableTask/storageProvider` path.
+The Azure Storage provider is the default storage provider and doesn't require any explicit configuration, NuGet package references, or extension bundle references. You can find the full set of **host.json** configuration options [here](durable-functions-bindings.md#durable-functions-settings-in-hostjson), under the `extensions/durableTask/storageProvider` path.
 
 ### Connections
 

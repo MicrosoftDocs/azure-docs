@@ -6,35 +6,118 @@ ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: concept-article
-ms.date: 08/07/2025
+ms.date: 10/24/2025
+ms.update-cycle: 180-days
 ms.custom: template-concept
 
 #Customer intent: As a platform engineer, I want to understand the architecture and key components of Microsoft Dev Box to effectively configure and manage cloud-based development environments for my team.
 ---
 
-# Microsoft Dev Box architecture overview
+# Microsoft Dev Box architecture and key concepts
 
-In this article, you learn about the architecture and key concepts for Microsoft Dev Box. Microsoft Dev Box gives developers self-service access to preconfigured, ready-to-code cloud-based workstations. You can configure the service to meet your development team and project structure, and manage security and network settings to access resources securely.
+This article describes the architecture and key concepts for Microsoft Dev Box to help you set up the service successfully. Microsoft Dev Box gives developers self-service access to preconfigured, ready-to-code cloud-based workstations. You can configure the service to meet your development team and project structure, manage security, and network settings to access resources securely.
 
-## How does Microsoft Dev Box work?
+Watch this video to learn more about Microsoft Dev Box:
+>[!VIDEO https://learn-video.azurefd.net/vod/player?id=c0df17f8-bafe-494d-9a64-6743de3e5555]
 
-Before developers can create dev boxes in the developer portal, you set up a dev center and project in Microsoft Dev Box. The following diagram gives an overview of the relationship between the different components in Microsoft Dev Box.
+## Key components and relationships
 
-:::image type="content" source="media/concept-dev-box-architecture/dev-box-concepts-overview.png" alt-text="Diagram that gives an overview of the relationship between the different components in Microsoft Dev Box." lightbox="media/concept-dev-box-architecture/dev-box-concepts-overview.png":::
+Before developers can create dev boxes in the developer portal, you set up a dev center and project in Microsoft Dev Box. 
 
-A *dev center* is the top-level resource for Microsoft Dev Box. A dev center contains the collection of projects and the shared resources for these projects, such as dev box definitions and network connections. There's no limit on the number of dev centers that you can create, but most organizations need only one.
+The core workflow involves:
+1. Setting up a **dev center** with shared resources
+2. Creating **projects** for teams or business functions
+3. Configuring **dev box pools** with specific settings
+4. Developers creating **dev boxes** from pools through the portal
 
-A *project* is the point of access for development teams. You assign the Dev Box User role to a developer for a project, which grants the developer permissions to create dev boxes. You can create one or more projects in a dev center.
+Once a dev box is running, developers can [remotely connect](#user-connectivity) to it from the developer portal. Dev box users have full control over the dev boxes they create, and can manage them from the developer portal.
 
-A *dev box definition* specifies the configuration of the dev boxes, such as the virtual machine image and compute resources for the dev box. You can either choose a virtual machine image from Azure Marketplace, or use an Azure compute gallery to use custom virtual machine images.
+## Dev center
 
-A project contains the collection of dev box pools. A *dev box pool* specifies the configuration for dev boxes, such as the dev box definition, the network connection, and other settings. All dev boxes that are created from a dev box pool share the same configuration.
+A dev center is the top-level resource and collection of [projects](#project) that require similar settings. There's no limit on the number of dev centers that you can create, but most organizations need only one.
+
+Dev centers enable platform engineers to configure the networks that the development teams consume by using network connections.
+
+[Azure Deployment Environments](../deployment-environments/concept-environments-key-concepts.md#dev-centers) also uses dev centers to organize resources. An organization can use the same dev center for both services.
+
+## Catalogs
+
+Catalogs in Dev Box are collections of tasks and scripts that automate the configuration of dev boxes during provisioning. By attaching a catalog to a dev center, you make its tasks available to all projects within that dev center. Alternatively, you can attach a catalog directly to a project to limit task availability to that specific project. You can customize the provided sample tasks or create your own catalogs to meet your team's requirements.
+
+Catalogs also contain image definition files for team-specific customizations.
+
+To learn how to create Dev Box customizations, see [Microsoft Dev Box customizations](concept-what-are-dev-box-customizations.md).
+
+## Project
+
+In Dev Box, a project represents a team or business function within the organization and is the point of access for development teams. Each project is a collection of [dev box pools](#dev-box-pool), and each pool represents a region or workload. When you associate a project with a dev center, all the settings at the dev center level are applied to the project automatically.
+
+Each project can be associated with only one dev center. Dev managers configure the dev boxes available for a project by creating dev box pools that specify image definitions, custom images, marketplace images, or legacy dev box definitions.
+
+To enable developers to create their own dev boxes, you must [provide access to projects for developers](how-to-dev-box-user.md) by assigning the Dev Box User role.
+
+You can configure projects for [Deployment Environments](../deployment-environments/concept-environments-key-concepts.md#projects) and projects for Dev Box resources in the same dev center.
+
+### Project policies
+
+A project policy in Microsoft Dev Box defines which resources—such as images, networks, and SKUs—are available to a project, enforcing governance and compliance. It ensures that development teams can only use approved resources, helping organizations control and streamline resource usage.
+
+## Dev box pool
+
+A dev box pool is a collection of dev boxes that you manage together and to which you apply similar settings. You can create multiple dev box pools to support the needs of hybrid teams that work in different regions or on different workloads.
+
+Dev box pools specify the configuration for dev boxes, including the image source (image definition, custom image, marketplace image, or legacy dev box definition), compute size, storage, network connection, and other settings. All dev boxes that are created from a dev box pool share the same configuration.
+
+## Image definitions
+
+Image definitions are YAML-based customization files that define a base image and apply team-specific customizations. They can be built into reusable images to optimize dev box creation time. Image definitions offer greater flexibility by allowing you to independently select compute size and storage when creating dev box pools.
+
+To learn more about creating and using image definitions, see [Configure team customizations](how-to-configure-team-customizations.md).
+
+## Dev box definition
+
+> [!NOTE]
+> Dev box definitions are a legacy option. We recommend using image definitions, custom images, or marketplace images for greater flexibility in selecting compute size and storage.
+
+A dev box definition specifies a source image and size, including compute size and storage size bundled together. Select a source image from Azure Marketplace or a custom image from your own [Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md) instance. Dev Box supports client editions of Windows 10 and Windows 11. You can use dev box definitions across multiple projects in a dev center.
+
+For new deployments, consider using marketplace images or custom images directly in your dev box pools, which allow independent selection of compute and storage configurations.
+
+## Network connection
+
+IT administrators and platform engineers configure the network they use for dev box creation in accordance with their organizational policies. Network connections store configuration information, like Active Directory join type and virtual network, that dev boxes use to connect to network resources.
 
 The network connection that's associated with a dev box pool determines where the dev box is hosted. You can use a Microsoft-hosted network connection, or bring your own Azure network connection. You might use an Azure network connection if you need control over the virtual network, if you require access to corporate resources, or to authenticate to a dev box with an Active Directory account.
 
-Developers can create a dev box from a dev box pool by using the developer portal. They might choose from a specific pool based on the virtual machine image, compute resources, or the location where the dev box is hosted.
+Dev Box supports two types of network connections:
+ - **Microsoft-hosted network connection** - Microsoft manages the network infrastructure and related services for your dev boxes. 
+ - **Azure network connection** - You manage the network infrastructure and related services for your dev boxes.
+    - If your dev boxes need to connect exclusively to cloud-based resources, use native Microsoft Entra ID join.
+    - If your dev boxes need to connect to on-premises resources and cloud-based resources, use hybrid Microsoft Entra ID join.
 
-Once the dev box is running, dev box users can [remotely connect](#user-connectivity) to it from the developer portal. Dev box users have full control over the dev boxes they create, and can manage them from the developer portal.
+To learn more about native Microsoft Entra join and Microsoft Entra hybrid join, see [Plan your Microsoft Entra device deployment](../active-directory/devices/plan-device-deployment.md).
+
+## Azure regions for Dev Box
+
+Before setting up Dev Box, you need to choose the best regions for your organization. 
+- Dev centers and projects typically exist in the same region as your main office or IT management center. 
+- Dev box pools can be in different regions, depending on the network connection they use. Developers should create dev boxes from a pool close to them for the least latency.
+
+The region of the virtual network specified in a network connection determines the region for a dev box. You can create multiple network connections based on the regions where you support developers. You can then use those connections when you're creating dev box pools to ensure that dev box users create dev boxes in a region close to them. Using a region close to the dev box user provides the best experience.
+
+To help you decide on the regions to use, check:
+- [Dev Box availability by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=dev-box) 
+- [Azure geographies](https://azure.microsoft.com/explore/global-infrastructure/geographies/#choose-your-region). 
+
+If the region you prefer isn't available for Dev Box, choose a region within 500 miles.
+
+## Dev box
+
+A dev box is a preconfigured workstation that you create through the self-service developer portal. A new dev box has all the tools, binaries, and configuration required for a dev box user to be productive immediately. You can create and manage multiple dev boxes to work on multiple workstreams.
+
+As a dev box user, you have control over your own dev boxes. You can create more as you need them and delete them when you finish using them.
+
+Developers can create a dev box from a dev box pool by using the developer portal. They might choose from a specific pool based on the virtual machine image, compute resources, or the location where the dev box is hosted.
 
 ## Microsoft Dev Box architecture
 
@@ -121,3 +204,5 @@ Microsoft Dev Box doesn't support non-Microsoft connection brokers.
 
 - [What is Microsoft Dev Box?](overview-what-is-microsoft-dev-box.md)
 - [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md)
+- [Microsoft Dev Box deployment guide](concept-dev-box-deployment-guide.md)
+- [What is Azure Deployment Environments?](../deployment-environments/overview-what-is-azure-deployment-environments.md)

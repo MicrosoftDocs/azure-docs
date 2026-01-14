@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: evach
 author: evachen96
-ms.date: 9/27/2023
+ms.date: 10/10/2025
 ---
 
 # FAQ about migration from Azure API for FHIR

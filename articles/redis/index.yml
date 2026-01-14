@@ -1,13 +1,14 @@
 ### YamlMime:Landing
-title: Azure Redis Documentation
-summary: There are two fully managed Redis services on Azure - Azure Managed Redis and Azure Cache for Redis. Either service can be used as a data cache, session store, or messaging broker that provides high throughput and low-latency access to data for applications. Azure Managed Redis is the latest offering and provides higher performance and more advanced features. It can be used for more applications, such as storing embeddings vectors and as a semantic cache. These tutorials, API references, and other documentation show you how to use Azure Managed Redis from any application on Azure. For information about Azure Cache for Redis, see the links on this page.
+title: Azure Managed Redis Documentation
+summary: Azure Managed Redis is a managed service that can be used as a data cache, session store, or messaging broker that provides high throughput and low-latency. It provides secure and reliable caching for use with your cloud architecture. Use Azure Managed Redis for applications such as storing embeddings vectors and as a semantic cache. These tutorials, API references, and other documentation show you how to use Azure Managed Redis. For information about Azure Cache for Redis, see the links on this page.
 
 
 metadata:
-  title: Azure Redis Documentation
-  description: Learn how to use Azure Redis for secure data caches and messaging brokers that give applications fast access to data. Tutorials, API references, and more.
-  ms.date: 05/18/2025
+  title: Azure Managed Redis Documentation
+  description: Learn how to use Azure Managed Redis for secure data caches, storing embeddings vectors and as a semantic cache through Tutorials, API references, and more.
+  ms.date: 11/24/2025
   ms.topic: landing-page
+  ai-usage: ai-assisted
   ms.custom:
     - ignite-2024
     - build-2025
@@ -114,18 +115,10 @@ landingContent:
           - text: Azure CLI
             url: /cli/azure/redisenterprise
 
-  - title: About Azure Cache for Redis
+  - title: Azure Cache for Redis
     linkLists:
       - linkListType: overview
         links:
           - text: What is Azure Cache for Redis?
             url: /azure/azure-cache-for-redis/cache-overview
-      - linkListType: video
-        links:
-          - text: Azure Cache for Redis Community Standup 
-            url: https://www.youtube.com/watch?v=hA3117yQnHg&list=PLI7iePan8aH4V7A_BMwvlBY3xW2FAGITp
-      - linkListType: whats-new
-        links:
-          - text: What's new with Azure Cache for Redis?
-            url: /azure/azure-cache-for-redis/cache-whats-new
-  
+

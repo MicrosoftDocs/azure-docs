@@ -30,6 +30,9 @@ Before you create a connection, be aware of the following:
 >
 > * To delete a virtual network connected to the virtual hub, you must delete both the virtual network connection and virtual network resource. 
 
+## <a name="bypassexplained"> </a> Understanding Bypass Next Hop IP for workloads within this VNet
+[!INCLUDE [Bypass Next Hop IP](../../includes/virtual-wan-bypass-next-hop-ip-include.md)]
+
 ## Next steps
 
 For more information about Virtual WAN, see the [Virtual WAN FAQ](virtual-wan-faq.md).

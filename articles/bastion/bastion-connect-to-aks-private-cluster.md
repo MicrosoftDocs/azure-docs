@@ -41,10 +41,6 @@ Before you begin, verify that you've met the following criteria:
 
 * If you're using Bastion to connect to a public cluster with API server authorized IP ranges, you need to add the public IP address of the Bastion to the list of authorized IP ranges of your cluster.
 
-## Limitations
-
-This integration with AKS is currently in preview and doesn't support AKS clusters with public FQDN disabled.
-
 ## Connect
 
 To connect to your AKS private cluster:

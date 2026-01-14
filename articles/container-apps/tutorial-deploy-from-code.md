@@ -30,7 +30,7 @@ To complete this project, you need the following items:
 
 | Requirement | Instructions |
 |--|--|
-| [Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. <br><br>Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current) for details. |
+| [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) | If you don't have one, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. <br><br>Refer to [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=current) for details. |
 | [Azure CLI](/cli/azure/install-azure-cli) | Install the [Azure CLI](/cli/azure/install-azure-cli) or upgrade to the latest version. The Azure Developer CLI (`azd` commands) is available through the Azure CLI. |
 
 Depending on your choice of language, you also might need to install the appropriate runtime, SDK, and other dependencies.

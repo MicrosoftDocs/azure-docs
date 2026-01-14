@@ -3,7 +3,7 @@ title: Export template in Azure CLI
 description: Use Azure CLI to export an Azure Resource Manager template from resources in your subscription.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-arm-template
-ms.date: 04/28/2025
+ms.date: 10/29/2025
 ---
 
 # Use Azure CLI to export a template
@@ -70,7 +70,7 @@ If you use the `--skip-resource-name-params` parameter when exporting the templa
 "resources": [
   {
     "type": "Microsoft.Web/serverfarms",
-    "apiVersion": "2022-09-01",
+    "apiVersion": "2025-03-01",
     "name": "demoHostPlan",
     ...
   }

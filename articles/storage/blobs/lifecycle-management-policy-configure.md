@@ -23,7 +23,7 @@ You can use lifecycle management policies to transition blobs to cost-efficient 
 > A lifecycle management policy must be read or written in full. Partial updates are not supported.
 
 > [!TIP]
-> You can use Microsoft Copilot in Azure to help author lifecycle management policies. For more information, see [Manage and troubleshoot storage accounts using Microsoft Copilot in Azure](/azure/copilot/improve-storage-accounts#reduce-storage-costs).
+> You can use Azure Copilot to help author lifecycle management policies. For more information, see [Manage and migrate storage accounts using Azure Copilot](/azure/copilot/improve-storage-accounts#reduce-storage-costs).
 
 ## Create or manage a policy
 

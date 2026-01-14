@@ -95,9 +95,9 @@ Here are additional dimensions you can view to further analyze your call behavio
 
 With our newest dimension **Operation Type**, you can filter or split your requests by reads, writes, or deletes to analyze your request behavior for a specific operation.
 
-:::image type="content" source="./media/monitor-resource-manager/filter-operation-type.png" alt-text="Screenshot of the Operation Type metrics visualization in the Azure portal, showing options to filter and split by dimensions.":::
+:::image type="content" source="./media/monitor-resource-manager/filter-operation-type.png" alt-text="Screenshot of the Operation Type metrics visualization in the Azure portal, showing the option to filter dimensions.":::
 
-:::image type="content" source="./media/monitor-resource-manager/split-operation-type.png" alt-text="Screenshot of the Operation Type metrics visualization in the Azure portal, showing options to filter and split by dimensions.":::
+:::image type="content" source="./media/monitor-resource-manager/split-operation-type.png" alt-text="Screenshot of the Operation Type metrics visualization in the Azure portal, showing the option to split by dimensions.":::
 
 #### Query traffic and latency control plane metrics with REST API
 

@@ -636,6 +636,32 @@ The following functions are only available in policy rules:
 - `requestContext().apiVersion`
   - Returns the API version of the request that triggered policy evaluation (example: `2021-09-01`). This value is the API version that was used in the PUT/PATCH request for evaluations on resource creation/update. The latest API version is always used during compliance evaluation on existing resources.
 
+- `requestContext().identity` 
+  - `idtyp`: returns the request caller's identity that triggered policy evaluation (example: `user`). Accepted values include: `app`, `user`, `null`.
+ 
+      ```json
+      {
+      "value": "[tryGet(requestContext().identity, 'idtyp')]",
+      "equals": "user"
+      }
+    ```
+  - `appid`: returns the client application ID that the request was executed from (example: Portal's application ID)
+     ```json
+     {
+      "value": "[tryGet(requestContext().identity, 'appid')]",
+      "notIn": "[parameters('allowedClientAppIds')]"
+     }
+    ```
+  
+  - `acrs`: returns whether a request was authenticated with multi-factor authentication (MFA)
+ 
+    ```json
+      {
+       "value": "p1",
+       "notIn": "[split(requestContext().identity.acrs, ',')]"
+      }
+    ```
+
 - `policy()`
   - Returns the following information about the policy that is being evaluated. Properties can be accessed from the returned object (example: `[policy().assignmentId]`).
 

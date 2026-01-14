@@ -7,6 +7,7 @@ ms.service: azure-firewall
 ms.topic: tutorial
 ms.date: 08/05/2024
 ms.author: duau
+ms.custom: sfi-image-nochange
 #Customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 # Customer intent: "As a network administrator, I want to deploy and configure Azure Firewall in a hybrid network environment, so that I can secure and control network access between on-premises resources and Azure virtual networks effectively."
 ---
@@ -57,7 +58,7 @@ See the [Create Routes](#create-the-routes) section in this tutorial to see how 
 >[!NOTE]
 >Traffic between directly peered VNets is routed directly even if a UDR points to Azure Firewall as the default gateway. To send subnet to subnet traffic to the firewall in this scenario, a UDR must contain the target subnet network prefix explicitly on both subnets.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create the firewall hub virtual network
 

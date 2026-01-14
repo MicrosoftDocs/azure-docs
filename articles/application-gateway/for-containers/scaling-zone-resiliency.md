@@ -6,7 +6,7 @@ author: mbender-ms
 ms.custom: references_regions
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 5/9/2024
+ms.date: 05/09/2024
 ms.author: mbender
 # Customer intent: As an application architect, I want to configure autoscaling for the Application Gateway for Containers, so that I can ensure high availability and performance while optimizing costs based on traffic demands.
 ---

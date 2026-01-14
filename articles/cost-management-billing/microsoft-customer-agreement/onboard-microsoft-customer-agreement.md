@@ -5,9 +5,10 @@ author: KennyDay
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
-ms.date: 09/09/2025
+ms.date: 10/08/2025
 ms.author: kenday
 ms.reviewer: clionabolger
+ms.custom: sfi-ga-nochange
 ---
 
 # Onboard to the Microsoft Customer Agreement (MCA)
@@ -211,7 +212,7 @@ This section of the onboarding guide describes the steps you follow to migrate f
 ### Changes after migration
 
 - **MCA remit-to information differs** - The MCA remit-to information differs from the EA remit-to information. Your accounts payable need to create two records: one for EA invoices and another for MCA invoices. For more information about MCA payment details, see [Bank details used to send wire transfer payments](../understand/pay-bill.md#wire-bank-details)
-- **Custom or shared views under Cost Management** - Custom views and shared views aren't migrated to the MCA. You need to recreate them in the new scope.
+- **Cost Management views** - Custom views and shared views aren't migrated to the MCA. You need to recreate them in the new scope.
 - **Budgets** - You need to recreate them.
 - **Azure usage file enhancement** - The MCA Azure usage file has more columns and slight changes in naming conventions compared to the EA file. For more information, see:
     - [Changes from Azure EA usage and charges](../understand/mca-understand-your-usage.md#changes-from-azure-ea-usage-and-charges)
@@ -234,12 +235,16 @@ This section of the onboarding guide describes the steps you follow to migrate f
     - [Azure Billing REST API](/rest/api/billing/)
 - **EA API keys** - Azure Enterprise Reporting APIs are retired aren't available on MCA. Instead, you use Microsoft Cost Management APIs. For more information, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview](../automate/migrate-ea-reporting-arm-apis-overview.md).
 - Automatic purchases - If used under your old EA enrollment, you need to set them up under your new Microsoft Customer Agreement.
-- **Management groups** – Subscriptions in management groups under a Microsoft Customer Agreement aren’t supported in Cost Management yet. Cost Management + Billing is managed with APIs and Azure portal functionality. For more information, see [Azure RBAC scopes](../costs/understand-work-scopes.md#azure-rbac-scopes).
+- **Management groups** – Subscriptions in management groups under a Microsoft Customer Agreement aren’t supported in Cost Management yet. Cost Management + Billing is managed with APIs, automation scripts and Azure portal functionality. For more information, see [Azure RBAC scopes](../costs/understand-work-scopes.md#azure-rbac-scopes).
+    - **Cost Views**: Rebuild dashboards and reports using the Billing Profile ID or Invoice Sections ID instead of Management Group scope.
+    - **APIs**: Update endpoints to align with MCA's billing structure.
+    - **Automation**: Modify scripts that rely on Management Group-level scoping.
 - **Export jobs** from Enterprise Agreement (EA) do not automatically migrate to Microsoft Customer Agreement (MCA). You must manually recreate export jobs under the MCA billing scope.
     - Reconfigure the Export API using Azure Commerce Toolbox or PowerShell scripts to recreate export jobs with MCA-compatible APIs.
     - Confirm that your MCA billing scope aligns with the MCA framework. For more details, refer to [Understand and work with scopes](../costs/understand-work-scopes.md).
     - To learn more about Exports data types and supported scopes, refer to the Understand export data types section in [this article](../costs/tutorial-improved-exports.md).
 - **Tax exemption certificates** - If your EA account has a tax exemption certificate, you need to create an Azure support request to have a support representative associate your existing tax exempt certificate to your new Microsoft Customer Agreement account. Create a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+- **Emissions Impact Dashboard** - You must update Billing Account ID as a Billing Account Administrator with a role as Billing Account Reader/Contributor/Owner. Learn more about it here: [Connect to the Emissions Impact Dashboard for Azure - Power BI](/power-bi/connect-data/service-connect-to-emissions-impact-dashboard)
 
 Here are some points to consider after migration.
 

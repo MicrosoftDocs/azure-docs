@@ -40,6 +40,7 @@ The [AZNFS](https://github.com/Azure/AZNFS-mount) utility package simplifies enc
 > - SUSE (SLES 15)
 > - Oracle Linux
 > - Alma Linux
+> - Azure Linux
 
 ## Supported regions
 
@@ -127,8 +128,31 @@ rm packages-microsoft-prod.rpm
 sudo yum update
 sudo yum install -y aznfs
 ```
+ 
+### [Azure Linux](#tab/AzureLinux) 
+```bash
+curl -sSL -O https://packages.microsoft.com/config/rhel/9/packages-microsoft-prod.rpm
+sudo rpm -i packages-microsoft-prod.rpm
+rm packages-microsoft-prod.rpm
+sudo dnf -y check-update --refresh
+sudo dnf install aznfs
+```
 ---
 
+
+If your setup requires a **noninteractive install**, set the following environment variables before installing AZNFS:
+
+For all distros, you can use:
+```bash
+export AZNFS_NONINTERACTIVE_INSTALL=1
+```
+For DEBIAN based distros, you can additionally use:
+```bash
+export DEBIAN_FRONTEND=noninteractive
+```
+
+> [!NOTE]
+> Installing noninteractively will set AUTO_UPDATE_AZNFS=true by default.
 
 ### Step 2: Mount the NFS file share
 
@@ -203,5 +227,8 @@ If mounting issues continue, check the log files for more troubleshooting detail
 ## See also
  
 - [Azure Storage encryption for data at rest](/azure/storage/common/storage-service-encryption)
+
+
+
 
 

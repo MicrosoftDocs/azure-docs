@@ -27,7 +27,7 @@ Before deploying the Microsoft Sentinel solution for Microsoft Business Apps, en
     
 - Your organization must use Dynamics 365 Customer Engagement and/or one or more of the Power Platform workloads.
 
-- Audit logging must also be enabled in Microsoft Purview. For more information, see [Turn auditing on or off for Microsoft Purview](/microsoft-365/compliance/audit-log-enable-disable)
+- Audit logging must also be enabled in [Microsoft Purview](/purview/purview). For more information, see [Turn auditing on or off for Microsoft Purview](/microsoft-365/compliance/audit-log-enable-disable)
 
 - If you're working with Microsoft Dataverse, audit logging is supported only for production environments. For more information, see [Microsoft Dataverse and model-driven apps activity logging requirements](/power-platform/admin/enable-use-comprehensive-auditing#requirements).
 

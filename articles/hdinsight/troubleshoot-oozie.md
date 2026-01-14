@@ -122,3 +122,50 @@ Admin users are determined from the list of admin groups, specified in oozie.ser
 ## Next steps
 
 [!INCLUDE [troubleshooting next steps](includes/hdinsight-troubleshooting-next-steps.md)]
+
+### Oozie WebUI disablement and command line options as alternative
+
+### Issue
+
+Apache Oozie has been retired since February 2025, refer to the [link](https://attic.apache.org/projects/oozie.html). There are known vulnerabilities related to Oozie WebUI.
+
+### Cause
+
+To disable the Oozie WebUI, please follow the below steps:
+
+1. Stop Oozie services from Ambari portal.
+
+2. Edit /var/lib/ambari-server/resources/stacks/HDInsight/\<version\>/services/OOZIE/quicklinks/quicklinks.json and remove the value for **`<url>`** parameter and replace with "".
+
+Before:
+```xml
+  "name": "default",
+  "description": "default quick links configuration",
+  "configuration": {
+    "links": [
+  .....
+        "url":"%@://%@:%@/oozie?user.name=%@",
+  .....
+```
+
+After:
+```xml
+  "name": "default",
+  "description": "default quick links configuration",
+  "configuration": {
+    "links": [
+  .....
+        "url":"",
+  .....
+```
+
+3. Restart Ambari services
+```bash
+sudo ambari-services restart
+```
+
+4. Start Oozie services from Ambari
+
+### Workaround
+
+Use Oozie command line options, refer to the [link](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html#Common_CLI_Options).

@@ -4,8 +4,8 @@ description: Learn how to relocate an Azure Recovery Vault and Site Recovery to 
 services: site-recovery
 author: ankitaduttaMSFT
 ms.topic: how-to
-ms.date: 06/25/2024
-ms.author: ankitadutta
+ms.date: 09/15/2025
+ms.author: sogangul
 ms.custom: subject-relocation
 ---
 

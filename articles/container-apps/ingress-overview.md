@@ -64,10 +64,9 @@ HTTP ingress adds headers to pass metadata about the client request to your cont
 
 | Header | Description | Values |
 |---|---|---|
-| `X-Forwarded-Proto` | Protocol used by the client to connect with the Container Apps service. | `http` or `https` |
-| `X-Forwarded-For` | The IP address of the client that sent the request. | IP address of the sender. If specified in initial request, it is overwritten. |
-| `X-Forwarded-Host` | The host name the client used to connect with the Container Apps service. |  |
-| `X-Forwarded-Client-Cert` | The client certificate if `clientCertificateMode` is set. | Semicolon separated list of Hash, Cert, and Chain. For example: `Hash=....;Cert="...";Chain="...";` |
+| `X-Forwarded-Proto` | Protocol used by the client to connect with the Container Apps service. | `http` or `https`. This value is overwritten if sent by the client. |
+| `X-Forwarded-For` | The IP addresses of the client and/or intermediate proxies that sent the request. | IP addresses of the senders. If specified in initial request, it is appended to. Only the rightmost IP is provided by Azure Container Apps. Any other values must be validated by the user to prevent IP spoofing. |
+| `X-Forwarded-Client-Cert` | The client certificate if `clientCertificateMode` is set. | Semicolon separated list of Hash, Cert, and Chain. For example: `Hash=....;Cert="...";Chain="...";`. This value is overwritten if sent by the client. |
 
 ### <a name="tcp"></a>TCP
 

@@ -2,7 +2,6 @@
 title: Design secure applications on Microsoft Azure
 description: This article discusses best practices to consider during the requirement and design phases of your web application project.
 author: msmbaldwin
-manager: rkarlin
 ms.author: mbaldwin
 ms.date: 05/28/2025
 ms.topic: article

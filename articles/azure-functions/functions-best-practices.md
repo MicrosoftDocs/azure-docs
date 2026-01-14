@@ -112,7 +112,7 @@ Consider these options for a successful deployment:
 
 - For [Premium plan hosting](functions-premium-plan.md), consider adding a warmup trigger to reduce latency when new instances are added. For more information, see [Azure Functions warm-up trigger](functions-bindings-warmup.md).
 
-- To minimize deployment downtime and to be able to roll back deployments, consider using deployment slots. For more information, see [Azure Functions deployment slots](functions-deployment-slots.md).
+- To minimize deployment downtime, use deployment slots for Consumption, Premium, and Dedicated plans, or configure rolling updates for zero-downtime deployments in the Flex Consumption plan. For more information, see [Azure Functions deployment slots](functions-deployment-slots.md) and [site update strategies in Flex Consumption](flex-consumption-site-updates.md).
 
 ## Write robust functions
 

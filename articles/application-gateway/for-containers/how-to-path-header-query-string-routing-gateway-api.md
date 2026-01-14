@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 11/5/2024
+ms.date: 11/05/2024
 ms.author: mbender
 # Customer intent: "As a cloud operator, I want to configure path, header, and query string routing for my application using Gateway API, so that I can manage traffic and direct requests to the appropriate backend services efficiently."
 ---
@@ -210,6 +210,9 @@ spec:
       port: 8080
 EOF
 ```
+
+>[!Tip]
+>Application Gateway for Containers supports regular expression matching for `headers`, `queryParams`, and `path` rules using Regular Expression 2 (RE2) syntax. More information can be found in the [Gateway API specification](https://gateway-api.sigs.k8s.io/reference/spec/?h=RegularExpression#headermatchtype).
 
 Once the HTTPRoute resource has been created, ensure the route has been _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
 

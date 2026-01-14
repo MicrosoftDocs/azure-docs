@@ -8,8 +8,11 @@ ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 10/02/2024
-ms.custom: devx-track-python, devguide-python
 ai-usage: ai-assisted
+ms.custom:
+  - devx-track-python
+  - devguide-python
+  - sfi-ropc-nochange
 # Customer intent: As a Python developer, I want to integrate my application with Azure Blob Storage, so that I can efficiently manage and interact with data resources using the client library.
 ---
 
@@ -25,7 +28,7 @@ If you're looking to start with a complete example, see [Quickstart: Azure Blob 
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
 - [Python](https://www.python.org/downloads/) 3.8+
 

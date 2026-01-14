@@ -4,7 +4,7 @@ description: Learn how to migrate AWS compute services to Azure, including maint
 author: robbyatmicrosoft
 ms.author: robbymillsap
 ms.date: 03/25/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure
 ms.collection:
  - migration

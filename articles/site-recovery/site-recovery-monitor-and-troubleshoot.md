@@ -1,11 +1,12 @@
 ---
 title: Azure Site Recovery dashboard and built-in alerts
+ms.reviewer: v-gajeronika
 description: Monitor and troubleshoot Azure Site Recovery replication issues and operations, and enable built-in alerts, by using the portal.
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 07/10/2024
-ms.author: jsuri
-author: jyothisuri
+ms.date: 10/31/2025
+ms.author: v-gajeronika
+author: Jeronika-MS
 # Customer intent: As an IT administrator, I want to monitor and receive alerts for replication issues in Azure Site Recovery, so that I can ensure business continuity and quickly respond to any potential failures or configuration problems.
 ---
 
@@ -18,7 +19,6 @@ In this article, learn how to monitor Azure [Site Recovery](site-recovery-overvi
 - Issues and errors affecting configuration and replication.
 - Infrastructure components such as on-premises servers.
 
-
 ## Before you start
 
 You might want to review [common monitoring questions](monitoring-common-questions.md) before you start.
@@ -27,7 +27,7 @@ You might want to review [common monitoring questions](monitoring-common-questio
 
 1. In the vault, select **Overview**. The Recovery Services dashboard consolidates all monitoring information for the vault in a single location. There are pages for both Site Recovery and the Azure Backup service, and you can switch between them.
 
-    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/dashboard.png" alt-text="Screenshot displays Site Recovery dashboard." lightbox="./media/site-recovery-monitor-and-troubleshoot/dashboard.png":::
+    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/recovery-services-dashboard.png" alt-text="Screenshot displays Site Recovery dashboard." lightbox="./media/site-recovery-monitor-and-troubleshoot/recovery-services-dashboard.png":::
 
 2. From the dashboard, drill down into different areas. 
 
@@ -85,7 +85,7 @@ In **Error summary**, monitor currently active error symptoms that might impact 
 - The impacted server count is a useful way to understand whether a single underlying issue might impact multiple machines. For example, a network glitch could potentially impact all machines that replicate to Azure. 
 - Multiple replication errors can occur on a single server. In this case, each error symptom counts that server in the list of its impacted servers. After the issue is fixed, replication parameters improve, and the error is cleared from the machine.
 
-## Monitor the infrastructure.
+## Monitor the infrastructure
 
 In **Infrastructure view**, monitor the infrastructure components involved in replication, and connectivity health between servers and the Azure services.
 
@@ -164,7 +164,7 @@ You can subscribe to receive email notifications for these critical events:
 - Failover failures.
 
 > [!NOTE]
-> Enabling email notification for ASR does not incur any additional costs.
+> Enabling email notification for Azure Site Recovery does not incur any additional costs.
 
 Subscribe as follows:
 
@@ -172,7 +172,7 @@ In the vault > **Monitoring** section, select **Site Recovery Events**.
 1. Select **Email notifications**.
 1. In **Email notification**, turn on notifications and specify who to send to. You can send to all subscription admins be sent notifications, and optionally specific email addresses.
 
-    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/email.png" alt-text="Screenshot displays Email notifications view." lightbox="./media/site-recovery-monitor-and-troubleshoot/email.png":::
+    :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/email-notification.png" alt-text="Screenshot displays Email notifications view." lightbox="./media/site-recovery-monitor-and-troubleshoot/email-notification.png":::
 
 ## Built-in Azure Monitor alerts for Azure Site Recovery
 
@@ -227,7 +227,6 @@ To manage your alerts settings, do the following:
 1. Select the options to only get Azure Monitor alerts and disable classic alerts. You can also choose to disable certain categories of built-in alerts that are enabled by default. Security alerts can't be disabled. Update settings and select **Update** to save. 
     :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/backup-center-opt.png" alt-text="Screenshot displays opt-in properties for alerting feature in Backup center." lightbox="./media/site-recovery-monitor-and-troubleshoot/backup-center-opt.png":::
 
-
 ### View the generated Azure Site Recovery alerts in Recovery Services vault
 
 Follow these steps to view the alerts generated for a particular vault via the vault experience:
@@ -251,7 +250,6 @@ Once alerts are generated, you can view and manage them from the Azure Monitor p
 
 :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal.png" alt-text="Screenshot displays alert details via Azure Monitor in portal." lightbox="./media/site-recovery-monitor-and-troubleshoot/azure-monitor-site-recovery-alert-portal.png":::
 
-
 ### View the generated Azure Site Recovery alerts in Business Continuity Center
 
 You can manage your alerts settings under **Business Continuity Center** > **Monitoring + Reporting** > **Alerts** blade. This shows you the alerts in order of **Severity** and **Category**. Select the hyperlink or **View affected resources** to get a detailed view of the alerts. 
@@ -264,12 +262,11 @@ Select **View alert** to get alert details and take action.
 
 Like Azure Monitor, Business Continuity Center, and Recovery Services Vault you can view alerts from Backup Center as well. 
 
-
 ### Configure email notifications for alerts
 
 To configure email notifications for built-in Azure Monitor alerts for Azure Site Recovery, you must create an alert processing rule in Azure Monitor. The alert processing rule will specify which alerts should be sent to a particular notification channel (action group).
  
-**Follow these steps to create an alert processing rule:**
+Follow these steps to create an alert processing rule:
  
 1.	Go to **Azure Monitor** > **Alerts** and select **Alert processing rules** on the top pane.
 
@@ -303,7 +300,6 @@ To configure email notifications for built-in Azure Monitor alerts for Azure Sit
 
 With Azure Monitor action groups, you can route alerts to other notification channels like webhooks, logic apps, functions, etc. [Learn more about supported action groups in Azure Monitor](/azure/azure-monitor/alerts/action-groups).
 
-
 ### Configure notifications through programmatic interfaces
 
 You can use the following interfaces supported by Azure Monitor to manage action groups and alert processing rules:
@@ -329,7 +325,6 @@ To create a suppression alert processing rule, use the same process followed for
 ### Pricing
 
 With built-in Azure Monitor alerts, alerts for critical operations or failures are generated by default. You can view these alerts in the portal or via non-portal interfaces at no extra cost. However, to route these alerts to a notification channel (such as email), you incur a minor cost for notifications beyond the free tier (of 1000 emails per month). [Learn more about Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
-
 
 ## Next steps
 

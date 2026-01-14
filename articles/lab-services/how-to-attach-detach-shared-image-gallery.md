@@ -8,6 +8,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 03/01/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Attach or detach an Azure compute gallery to a lab plan in Azure Lab Services

@@ -4,7 +4,7 @@ description: Learn about best practices for disaster recovery with Azure File Sy
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/04/2024
+ms.date: 10/06/2025
 ms.author: kendownie
 # Customer intent: "As an IT manager responsible for data integrity, I want to implement best practices for disaster recovery with Azure File Sync, so that I can ensure high availability, data protection, and redundancy for my organization's critical files."
 ---
@@ -73,14 +73,14 @@ For a robust disaster recovery solution, most customers should consider ZRS. ZRS
 
 ### Geo-redundancy
 
-If your storage account is configured with either GRS or GZRS replication, Microsoft will initiate the failover of the Storage Sync Service if the primary region is judged to be permanently unrecoverable or unavailable for a long time. No action is required from you in the event of a disaster.
+If your storage account is configured with either GRS or GZRS replication, Microsoft will initiate the failover of the Storage Sync Service if the primary region is judged to be permanently unrecoverable or unavailable for an extended period. No action is required from you in the event of a Microsoft initiated disaster recovery.
 
-Although you can manually request a failover of your Storage Sync Service to your GRS or GZRS paired region, we don't recommend doing this outside of large-scale regional outages because the process isn't seamless and might incur extra cost. To initiate the process, open a support ticket and request that both your Azure storage accounts that contain your Azure file share and your Storage Sync Service be failed over.
+Customers can also perform a customer initiated failover of their storage account when using GRS or GZRS. This is a supported scenario, but it should only be used in the event of large scale regional outages. This is because the process isn't seamless and might incur additional cost. After the storage account failover completes, you must also request failover of your Storage Sync Service. To initiate the process, open a support ticket and request that both your Azure storage accounts that contain your Azure file share and your Storage Sync Service be failed over.
 
 > [!WARNING]
-> You must contact support to request your Storage Sync Service be failed over if you're initiating this process manually. Attempting to create a new Storage Sync Service using the same server endpoints in the secondary region might result in extra data staying in your storage account because the previous installation of Azure File Sync won't be cleaned up.
+> You must contact support to request your Storage Sync Service be failed over if you initiate a storage account failover. Attempting to create a new Storage Sync Service using the same server endpoints in the secondary region might result in extra data remaining in your storage account because the previous installation of Azure File Sync won't be cleaned up.
 
-Once a failover occurs, server endpoints will switch over to sync with the cloud endpoint in the secondary region automatically. However, the server endpoints must reconcile with the cloud endpoints. This might result in file conflicts, as the data in the secondary region might not be caught up to the primary.
+Once a failover occurs, server endpoints automatically switch to sync with the cloud endpoint in the secondary region. However, the server endpoints must reconcile with the cloud endpoints, which might result in file conflicts if the data in the secondary region isn't fully caught up.
 
 ## Next step
 

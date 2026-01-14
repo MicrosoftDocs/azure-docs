@@ -6,7 +6,7 @@ ms.date: 06/24/2025
 ms.custom: references_regions
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-mallickalicka
+ms.author: mattmcinnes
 # Customer intent: As a compliance officer, I want to understand the Archive tier support in Azure Backup, so that I can effectively manage long-term retention of backup data while adhering to organizational compliance requirements.
 ---
 
@@ -29,8 +29,11 @@ Archive tier supports the following workloads:
 
 A recovery point becomes archivable only if all the above conditions are met.
 
->[!Note]
->Archive tier support for Azure Virtual Machines, SQL Servers in Azure VMs and SAP HANA in Azure VM is now generally available in multiple regions. For the detailed list of supported regions, see the [support matrix](#support-matrix).
+> [!NOTE]
+> Archive tier support for Azure Virtual Machines, SQL Servers in Azure VMs and SAP HANA in Azure VM is now generally available in multiple regions. For the detailed list of supported regions, see the [supported regions](#supported-regions).
+
+> [!CAUTION]
+> Archive tier is not supported on vaults configured with ZRS storage.
 
 ### Supported clients
 

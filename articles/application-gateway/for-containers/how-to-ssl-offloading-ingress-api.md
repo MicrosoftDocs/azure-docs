@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 11/5/2024
+ms.date: 11/05/2024
 ms.author: mbender
 # Customer intent: As a cloud architect, I want to configure SSL offloading using the Ingress API with Application Gateway for Containers, so that I can enhance the performance of backend services by efficiently managing TLS/SSL termination.
 ---

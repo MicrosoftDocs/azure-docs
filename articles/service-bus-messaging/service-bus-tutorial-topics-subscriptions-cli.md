@@ -5,8 +5,11 @@ ms.date: 09/28/2021
 ms.topic: quickstart
 author: spelluru
 ms.author: spelluru
-ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
+ms.custom:
+  - mode-api
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # Use Azure CLI to create a Service Bus topic and subscriptions to the topic
@@ -98,7 +101,7 @@ To learn how to send messages to a topic and receive those messages via a subscr
 > [Publish and subscribe for messages](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 
-[free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[free account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create

@@ -1,19 +1,19 @@
 ---
 title: Azure Storage Discovery Overview
-description: Storage Discovery provides insights on storage capacity, transactions, and configurations - providing visibility into their storage estate at entire organization level and aiding business decisions.
+description: Storage Discovery provides insights on storage capacity, transactions, and configurations - providing visibility into the storage estate of entire organizations.
 author: fauhse
 
 ms.service: azure-storage-discovery
 ms.topic: overview
-ms.date: 08/01/2025
+ms.date: 10/09/2025
 ms.author: fauhse
 ---
 
-# What is Azure Storage Discovery (preview)?
+# What is Azure Storage Discovery?
 
-**Azure Storage Discovery** (preview) is a fully managed service that provides enterprise-wide visibility into your Azure Blob Storage data estate. In a single pane of glass you can understand and analyze how your data estate evolved over time, optimize costs, enhance security, and drive operational efficiency.
+**Azure Storage Discovery** is a fully managed service that provides enterprise-wide visibility into your Azure Blob Storage and Azure Data Lake Storage estate. In a single pane of glass you can understand and analyze how your data estate evolved over time, optimize costs, enhance security, and drive operational efficiency.
 
-Azure Storage Discovery integrates with Copilot in Azure, enabling you to unlock insights and accelerate decision-making without utilizing any query language.
+Azure Storage Discovery integrates with Azure Copilot, enabling you to unlock insights and accelerate decision-making without utilizing any query language.
 
 Whether you're shaping cloud strategy or safeguarding data, Azure Storage Discovery gives you instant clarity on your Blob Storage estate.
 From architecture to governance, it delivers fast answers that help you take control of your Azure data landscape.
@@ -23,28 +23,17 @@ From architecture to governance, it delivers fast answers that help you take con
 - Find opportunities to reduce costs by locating infrequently used data.
 - Assess whether storage configurations align with security and compliance best practices.
 
-<!-- Whether you're a cloud architect, storage administrator, or data governance lead, Azure Storage Discovery helps you quickly answer key questions about your enterprise data estate in Azure Blob Storage:
-
-- How much data do we store across all our storage accounts?
-- What are the regions with the highest growth?
-- Can I reduce our costs by finding data that isn't being frequently used?
-- Are our storage configurations aligned with security and compliance best practices? -->
-
 :::image type="content" source="media/overview/overview-copilot-small.png" alt-text="Azure portal sowing a Discovery report and copilot chat window." lightbox="media/overview/overview-copilot-big.png":::
 
 ## Gain advanced storage insights
 
-Track how your Azure Blob Storage estate is evolving and uncover hidden opportunities to reduce costs, boost performance, and tighten security. Azure Storage Discovery reveals underused data, throttling risks, and ways to optimize spending.
+Track how your Azure Storage estate is evolving and uncover hidden opportunities to reduce costs, boost performance, and tighten security. Azure Storage Discovery reveals underused data, throttling risks, and ways to optimize spending.
 These insights are powered by metrics related to storage capacity (object size and object count), activity on the data estate (transactions, ingress, egress), aggregation of transaction errors and detailed configurations for data protection, cost optimization, and security.
-
-<!-- Analyze how the data estate in Azure Blob Storage is growing, identify opportunities for cost optimization, discover data that is under-utilized, pinpoint workloads that could be getting throttled and find ways to strengthen the security of your storage accounts. These insights are powered by metrics related to storage capacity (object size and object count), activity on the data estate (transactions, ingress, egress), aggregation of transaction errors and detailed configurations for data protection, cost optimization and security. -->
 
 ### Interactive reports
 
 Your Discovery resource in the Azure portal offers intuitive reports that reveal trends, highlight top storage accounts, and link directly to the resources behind each chart. Quickly spot patterns, surface key accounts, and jump straight to the data—all from your Discovery dashboard in Azure.
 Filter reports by region, redundancy, performance, encryption, and more to focus on the most relevant parts of your data estate.
-
-<!-- Your Discovery resource in the Azure portal features several reports that make it simple to analyze trends over time, drill into top storage accounts, and instantly navigate to the specific resources represented in each chart. The reports can be filtered to focus on specific parts of the data estate based on Storage account configurations like Regions, Redundancy, Performance type, Encryption type, and others. -->
 
 ### Organization-wide visibility
 
@@ -58,25 +47,11 @@ The Discovery service computes and hosts your insights. No other infrastructure 
 **No impact on storage resources**
 Your Azure Storage resources (like storage accounts) experience no transactions or performance impact when analyzing them with Azure Storage Discovery.
 
-**History provided right from the start**
-Up to 30 days of historical data is added automatically, once you deploy a Discovery workspace. All insights are retained for up to 18 months. History and retention depend on the [pricing plan](pricing.md) you choose.
+**History provided, right from the start.**
+Historical data is added automatically, once you deploy a Discovery workspace. All insights are retained for up to 18 months. History and retention depend on the [pricing plan](pricing.md) you choose.
 
 **Free and paid pricing plans**
 Azure Storage Discovery offers free and paid pricing plans for each workspace. The [pricing article](pricing.md) describes the differences and explains what influences the bill when choosing a paid option.
-
-
-
-
-
-<!--
-is a fully managed Azure service that provides deep, actionable insights into your object storage estate across subscriptions, regions, and resource groups. Its design simplifies data management at scale by offering a unified, no-code experience for analyzing storage usage, activity, configuration, and security posture—all from a single pane of glass in the Azure portal.
-
-With just a few clicks, users can answer critical questions such as:
-- How much data do I have across all my storage accounts?
-- Which regions or workloads are growing fastest?
-- Where can I reduce costs by adjusting access tiers or deleting stale data?
-- Are my storage configurations aligned with security and compliance best practices?
-!-->
 
 ## From insight to action with Azure Storage Discovery
 

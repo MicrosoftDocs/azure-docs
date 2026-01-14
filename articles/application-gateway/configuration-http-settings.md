@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 09/11/2025
+ms.date: 10/09/2025
 ms.author: mbender
 ms.custom:
   - build-2025
@@ -97,7 +97,8 @@ The default validation settings ensure secure TLS communication between the gate
 > [!NOTE]
 > - We recommend keeping all validations enabled for production environments. Disabling some or all validations is suggested only for testing and development purposes, such as when self-signed certificates are used.
 > - These settings don't apply to test probe functionality when adding a custom Health Probe. As a result, you may see differences in the results when comparing to periodic health probes.
-> - Currently, unsupported for TLS/TCP proxy.
+> - Currently, unsupported for TLS proxy.
+> - PowerShell and CLI to be supported soon.
 
 
 ### Request timeout
@@ -171,10 +172,14 @@ For example, if *www.contoso.com* is specified in the **Host name** setting, the
 ### Dedicated Backend Connection
 
 Azure Application Gateway, by default, reuses idle backend connections to optimize the resource utilization of TCP connections for both the Application Gateway and the backend server.
-To support security functions in customer data paths that necessitate unique backend connections per client, Azure Application Gateway V2 provides dedicated connections to backend servers. This capability establishes direct, one-to-one mapping between frontend and backend connections, ensuring persistent connectivity for each individual client.
+To support security functions in customer data paths that necessitate unique backend connections per client, Azure Application Gateway V2 provides dedicated connections to backend servers.
 
+:::image type="content" source="media/configuration-http-settings/dedicated-backend.png" alt-text="Screenshot of network flows through Application Gateway layer 7 proxy."::: 
 
-<img width="644" height="641" alt="image" src="https://github.com/user-attachments/assets/1eaa735c-04fb-4451-b048-2267884be4be" />
+This capability establishes direct, one-to-one mapping between frontend and backend connections, ensuring persistent connectivity for each individual client.
+
+>[!NOTE]
+>To enable NTLM or Kerberos passthrough authentication, ensure that the Dedicated Backend Connection setting is turned on. This configuration maintains a one-to-one mapping between frontend and backend connections, which is essential for preserving session integrity required by these authentication protocols.
 
 >[!IMPORTANT]
 >Dedicated backend connection leads to an increase in the number of backend connections and hence could require more resources to support the increased concurrent connections on Application Gateway and the backend servers. On Application Gateway, you must consider increasing the number of instances or enabling auto scale.

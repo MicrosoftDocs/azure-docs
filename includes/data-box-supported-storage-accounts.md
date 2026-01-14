@@ -15,13 +15,13 @@ For import orders, following table shows the supported storage accounts.
 | **Storage account / Supported storage types** | **Block blob** |**Page blob**<sup>1</sup> |**Azure files** |**Supported access tiers**|
 | --- | --- | -- | -- | -- |
 | Classic Standard | Y | Y | Y |
-| General-purpose v1 Standard  | Y | Y | Y | Hot, Cool |
+| General-purpose v1 Standard  | Y | Y | Y | Hot, Cool, Cold, Archive |
 | General-purpose v1 Premium  |  | Y| | |
-| General-purpose v2 Standard<sup>2</sup>  | Y | Y | Y | Hot, Cool|
+| General-purpose v2 Standard<sup>2</sup>  | Y | Y | Y | Hot, Cool, Cold, Archive|
 | General-purpose v2 Premium  |  |Y | |  |
 | Azure Premium FileStorage |  |  | Y |  |  
-| Blob storage Standard | Y | | | Hot, Cool |
-| Block Blob storage Premium |Y | | | Hot, Cool |
+| Blob storage Standard | Y | | | Hot, Cool, Cold, Archive |
+| Block Blob storage Premium |Y | | | Hot, Cool, Cold, Archive |
 
 
 <sup>1</sup> *Data uploaded to page blobs must be 512 bytes aligned such as VHDs.*

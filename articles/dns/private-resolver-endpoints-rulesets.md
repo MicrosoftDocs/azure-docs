@@ -7,6 +7,7 @@ ms.service: azure-dns
 ms.topic: concept-article
 ms.date: 03/21/2025
 ms.author: allensu
+ms.custom: sfi-image-nochange
 #Customer intent: As an administrator, I want to understand components of the Azure DNS Private Resolver.
 # Customer intent: "As a network administrator, I want to understand the components and configuration of Azure DNS Private Resolver, so that I can effectively implement and manage DNS resolution across my virtual networks."
 ---

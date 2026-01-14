@@ -8,6 +8,7 @@ ms.service: azure-application-gateway
 ms.topic: troubleshooting
 ms.date: 01/24/2022
 ms.author: mbender
+ms.custom: sfi-image-nochange
 # Customer intent: As a DevOps engineer, I want to diagnose and resolve session affinity issues with application traffic, so that I can ensure consistent user sessions and optimal application performance.
 ---
 
@@ -127,7 +128,7 @@ Enable logging using the Azure portal.
 
 ### Use web debugger to capture and analyze the HTTP or HTTPS traffics
 
-Web debugging tools like Fiddler can help you debug web applications by capturing network traffic between the Internet and test computers. These tools enable you to inspect incoming and outgoing data as the browser receives/sends them. Fiddler, in this example, has the HTTP replay option that can help you troubleshoot client-side issues with web applications, especially for authenticaton issues.
+Web debugging tools like Fiddler can help you debug web applications by capturing network traffic between the Internet and test computers. These tools enable you to inspect incoming and outgoing data as the browser receives/sends them. Fiddler, in this example, has the HTTP replay option that can help you troubleshoot client-side issues with web applications, especially for authentication issues.
 
 Use the web debugger of your choice. In this sample we'll use Fiddler to capture and analyze http or https traffics, follow the instructions:
 

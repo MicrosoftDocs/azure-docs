@@ -19,7 +19,7 @@ In this quickstart, you enable DDoS IP protection and link it to a public IP add
 
 ## Prerequisites
 
-- Create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- Create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Sign in to the [Azure portal](https://portal.azure.com). 
 
 ## Enable DDoS IP Protection on a public IP address

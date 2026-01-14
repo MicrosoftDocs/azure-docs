@@ -68,7 +68,7 @@ param allowedLocations array = [
   'australiacentral'
 ]
 
-resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2023-04-01' = {
+resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2025-03-01' = {
   name: 'locationRestriction'
   properties: {
     policyType: 'Custom'
@@ -88,7 +88,7 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2023-04-01'
   }
 }
 
-resource policyAssignment 'Microsoft.Authorization/policyAssignments@2024-04-01' = {
+resource policyAssignment 'Microsoft.Authorization/policyAssignments@2025-03-01' = {
   name: 'locationAssignment'
   properties: {
     policyDefinitionId: policyDefinition.id
@@ -149,7 +149,7 @@ param adminLogin string
 @secure()
 param adminPassword string
 
-resource sqlServer 'Microsoft.Sql/servers@2023-08-01-preview' = {
+resource sqlServer 'Microsoft.Sql/servers@2024-11-01-preview' = {
   ...
 }
 ```
@@ -164,7 +164,7 @@ param subscriptionId string
 param kvResourceGroup string
 param kvName string
 
-resource keyVault 'Microsoft.KeyVault/vaults@2023-07-01' existing = {
+resource keyVault 'Microsoft.KeyVault/vaults@2025-05-01' existing = {
   name: kvName
   scope: resourceGroup(subscriptionId, kvResourceGroup )
 }
@@ -237,7 +237,7 @@ Other `list` functions have different return formats. To see the format of a fun
 The following example deploys a storage account and then calls `listKeys` on that storage account. The key is used when setting a value for [deployment scripts](../templates/deployment-script-template.md).
 
 ```bicep
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: 'dscript${uniqueString(resourceGroup().id)}'
   location: location
   kind: 'StorageV2'
@@ -454,7 +454,7 @@ param allowedLocations array = [
 var mgScope = tenantResourceId('Microsoft.Management/managementGroups', targetMG)
 var policyDefinitionName = 'LocationRestriction'
 
-resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2023-04-01' = {
+resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2025-03-01' = {
   name: policyDefinitionName
   properties: {
     policyType: 'Custom'
@@ -474,7 +474,7 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2023-04-01'
   }
 }
 
-resource location_lock 'Microsoft.Authorization/policyAssignments@2024-04-01' = {
+resource location_lock 'Microsoft.Authorization/policyAssignments@2025-03-01' = {
   name: 'location-lock'
   properties: {
     scope: mgScope
@@ -581,7 +581,7 @@ The following example deploys a storage account. The first two outputs give you 
 param storageAccountName string = uniqueString(resourceGroup().id)
 param location string = resourceGroup().location
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   kind: 'Storage'
@@ -601,7 +601,7 @@ To get a property from an existing resource that isn't deployed in the template,
 ```bicep
 param storageAccountName string
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' existing = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' existing = {
   name: storageAccountName
 }
 
@@ -635,7 +635,7 @@ For example:
 param storageAccountName string
 param location string = resourceGroup().location
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   kind: 'Storage'
@@ -652,7 +652,7 @@ To get the resource ID for a resource that isn't deployed in the Bicep file, use
 ```bicep
 param storageAccountName string
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' existing = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' existing = {
   name: storageAccountName
 }
 
@@ -743,7 +743,7 @@ param policyDefinitionID string = '0a914e76-4921-4c19-b460-a2d36003525a'
 @description('Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides.')
 param policyAssignmentName string = guid(policyDefinitionID, resourceGroup().name)
 
-resource policyAssignment 'Microsoft.Authorization/policyAssignments@2024-04-01' = {
+resource policyAssignment 'Microsoft.Authorization/policyAssignments@2025-03-01' = {
   name: policyAssignmentName
   properties: {
     scope: subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)
@@ -807,7 +807,7 @@ param location string = 'westus2'
 
 var logicalZone = toLogicalZone(subscriptionId, location, physicalZone)
 
-resource vm 'Microsoft.Compute/virtualMachines@2024-03-01' = {
+resource vm 'Microsoft.Compute/virtualMachines@2025-04-01' = {
   name: 'myVM'
   location: location
   zones: logicalZone != '' ? [logicalZone] : []
@@ -921,7 +921,7 @@ param location string = 'westus2'
 
 var physicalZone = toPhysicalZone(subscriptionId, location, logicalZone)
 
-resource vm 'Microsoft.Compute/virtualMachines@2024-03-01' = {
+resource vm 'Microsoft.Compute/virtualMachines@2025-04-01' = {
   name: 'myVM'
   location: location
   zones: [logicalZone]

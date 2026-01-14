@@ -4,6 +4,7 @@ description: Learn how to assess VMware servers for migration to Azure VMs with 
 ms.topic: tutorial
 ms.date: 05/09/2025
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.custom: vmware-scenario-422, MVC, engagement-fy24
 # Customer intent: As a VMware VM administrator, I want to assess my on-premises VMware servers using a cloud migration tool so that I can evaluate their readiness for migration to Azure VMs, estimate costs, and identify any potential risks.
 ---
@@ -165,29 +166,6 @@ The assessment summary shows the estimated compute and storage cost of running V
 
 2. Review monthly storage costs. The view shows the aggregated storage costs for the assessed group, split over different types of storage disks. 
 3. You can drill down to see cost details for specific VMs.
-
-### Review confidence rating
-
-Azure Migrate assigns a confidence rating to performance-based assessments. Rating is from one star (lowest) to five stars (highest).
-
-![Screenshot of Confidence rating.](./media/tutorial-assess-vmware-azure-vm/confidence-rating.png)
-
-The confidence rating helps you estimate the reliability of  size recommendations in the assessment. The rating is based on the availability of data points needed to compute the assessment.
-
-> [!NOTE]
-> Confidence ratings aren't assigned if you create an assessment based on a CSV file.
-
-Confidence ratings are as follows.
-
-**Data point availability** | **Confidence rating**
---- | ---
-0%-20% | 1 star
-21%-40% | 2 stars
-41%-60% | 3 stars
-61%-80% | 4 stars
-81%-100% | 5 stars
-
-[Learn more](assessment-report.md#confidence-ratings-performance-based) about confidence ratings.
 
 ### Review issues
 

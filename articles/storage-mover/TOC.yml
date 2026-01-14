@@ -7,25 +7,31 @@ items:
     href: service-overview.md
   - name: Cloud migration basics
     href: migration-basics.md
-  - name: Get started with cloud-to-cloud migration
-    href: cloud-to-cloud-migration.md
   expanded: true
 - name: Concepts
   items: 
-  - name: Planning for a deployment
-    href: deployment-planning.md
   - name: Resource hierarchy
     href: resource-hierarchy.md
   - name: Migration costs
     href: billing.md
-  - name: Performance targets
-    href: performance-targets.md
 - name: How-To
   items: 
-  - name: Deploy
+  - name: Plan
+    items:
+    - name: Planning for a deployment
+      href: deployment-planning.md
+    - name: Service prerequisites
+      href: service-prerequisites.md
+    - name: Network prerequisites
+      href: network-prerequisites.md
+    - name: Performance targets
+      href: performance-targets.md
+  - name: Deploy and execute
     items:
     - name: Create a storage mover resource
       href: storage-mover-create.md
+    - name: Migrate from Amazon S3 to Azure
+      href: cloud-to-cloud-migration.md
     - name: Deploy a storage mover agent
       href: agent-deploy.md
     - name: Register an agent
@@ -46,6 +52,8 @@ items:
       href: agent-deploy.md#decommissioning-an-agent 
   - name: Troubleshoot
     items: 
+    - name: Troubleshoot network issues
+      href: network-troubleshooting.md
     - name: Job run error codes
       href: status-code.md
     - name: Collect a support bundle

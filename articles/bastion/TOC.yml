@@ -6,6 +6,8 @@
     href: bastion-overview.md
   - name: What's new in Bastion?
     href: whats-new.md
+  - name: Cost optimization principles
+    href: cost-optimization.md
 - name: Quickstarts & Tutorials
   expanded: true
   items:

@@ -7,7 +7,9 @@ ms.subservice: workspace
 ms.topic: quickstart
 ms.date: 06/02/2025
 ms.author: kesheth
-ms.custom: mode-api
+ms.custom:
+  - mode-api
+  - sfi-image-nochange
 ---
 
 # Quickstart: Azure Health Data Services
@@ -16,7 +18,7 @@ Follow the steps in this article to create a workspace before you deploy instanc
 
 ## Prerequisites
 
-Before you create a workspace in the Azure portal, you need an Azure account subscription. For more information, see [Create your free Azure account today](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc).
+Before you create a workspace in the Azure portal, you need an Azure account subscription. For more information, see [Create your free Azure account today](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Create a resource
 

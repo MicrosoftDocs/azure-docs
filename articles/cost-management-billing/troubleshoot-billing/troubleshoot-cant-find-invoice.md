@@ -7,8 +7,9 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 04/30/2025
+ms.date: 11/03/2025
 ms.author: jkinma
+ms.custom: sfi-image-nochange
 ---
 
 # Troubleshoot issues while trying to view invoice in the Azure portal

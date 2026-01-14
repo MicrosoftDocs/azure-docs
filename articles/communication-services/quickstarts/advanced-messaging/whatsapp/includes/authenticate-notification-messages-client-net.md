@@ -7,8 +7,10 @@ ms.service: azure-communication-services
 ms.subservice: advanced-messaging
 ms.date: 05/01/2025
 ms.topic: include
-ms.custom: include file
 ms.author: memontic
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---   
 
 #### [Connection String](#tab/connection-string)

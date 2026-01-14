@@ -8,7 +8,9 @@ ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 03/28/2023
 ms.author: mbender
-ms.custom: mvc
+ms.custom:
+  - mvc
+  - sfi-image-nochange
 # Customer intent: As a network engineer, I want to configure end-to-end TLS encryption for an application gateway, so that I can ensure secure communication between clients and backend servers.
 ---
 
@@ -19,7 +21,7 @@ This article describes how to use the Azure portal to configure end-to-end Trans
 > [!NOTE]
 > Application Gateway v2 SKU requires trusted root certificates for enabling end-to-end configuration.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Before you begin
 

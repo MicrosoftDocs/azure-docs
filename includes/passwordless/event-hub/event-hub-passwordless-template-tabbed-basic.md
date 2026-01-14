@@ -7,7 +7,9 @@ ms.service: azure-storage
 ms.topic: include
 ms.date: 06/16/2025
 ms.author: diberry
-ms.custom: include file
+ms.custom:
+  - include file
+  - sfi-image-nochange
 ---
 
 This quickstart shows you two ways of connecting to Azure Event Hubs:

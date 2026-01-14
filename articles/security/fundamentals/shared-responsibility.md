@@ -3,13 +3,12 @@ title: Shared responsibility in the cloud - Microsoft Azure
 description: "Understand the shared responsibility model and which security tasks are handled by the cloud provider and which tasks are handled by you."
 services: security
 author: msmbaldwin
-manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 09/29/2024
+ms.date: 12/03/2025
 ms.author: mbaldwin
-
+#customer intent: As a cloud security administrator, I want to understand the shared responsibility model in Azure so that I can clearly identify which security tasks are mine and which are handled by Microsoft.
 ---
 # Shared responsibility in the cloud
 
@@ -28,6 +27,12 @@ Regardless of the type of deployment, you always retain the following responsibi
 - Endpoints
 - Account
 - Access management
+
+## AI Shared Responsibility
+
+When using AI services, the shared responsibility model introduces unique considerations beyond traditional IaaS, PaaS, and SaaS. Microsoft is responsible for securing the AI infrastructure, model hosting, and platform-level safeguards. Customers, however, remain accountable for how AI is applied within their environment—this includes protecting sensitive data, managing prompt security, mitigating prompt injection risks, and ensuring compliance with organizational and regulatory requirements.
+
+Because responsibilities differ significantly for AI workloads, you should review the [AI Shared Responsibility Model](/azure/security/fundamentals/shared-responsibility-ai) for detailed guidance on roles, best practices, and risk management.
 
 ## Cloud security advantages
 The cloud offers significant advantages for solving long standing information security challenges. In an on-premises environment, organizations likely have unmet responsibilities and limited resources available to invest in security, which creates an environment where attackers are able to exploit vulnerabilities at all layers.

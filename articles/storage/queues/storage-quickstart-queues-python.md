@@ -9,7 +9,12 @@ ms.date: 06/29/2023
 ms.topic: quickstart
 ms.service: azure-queue-storage
 ms.devlang: python
-ms.custom: devx-track-python, mode-api, py-fresh-zinc, passwordless-python
+ms.custom:
+  - devx-track-python
+  - mode-api
+  - py-fresh-zinc
+  - passwordless-python
+  - sfi-ropc-nochange
 # Customer intent: As a Python developer, I want to utilize the Azure Queue Storage client library to manage message queues, so that I can implement asynchronous message processing in my applications efficiently.
 ---
 
@@ -32,7 +37,7 @@ Use the Azure Queue Storage client library for Python to:
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure Storage account - [create a storage account](../common/storage-account-create.md)
 - [Python](https://www.python.org/downloads/) 3.8+
 

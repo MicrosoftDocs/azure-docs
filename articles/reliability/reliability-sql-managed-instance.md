@@ -285,7 +285,7 @@ Failover groups don't automatically fail back to the primary region when it's re
 
 You can [test the failover of a failover group](/azure/azure-sql/managed-instance/failover-group-configure-sql-mi#test-failover).
 
-For more information, see [Perform DR drills](/azure/azure-sql/managed-instance/disaster-recovery-drills).
+Testing a failover group is only one part of performing a DR drill. For more information, see [Perform DR drills](/azure/azure-sql/managed-instance/disaster-recovery-drills).
 
 ## Backups
 
@@ -327,7 +327,9 @@ For more information, see [Maintenance window in SQL Managed Instance](/azure/az
 
 ## Service-level agreement
 
-The service-level agreement (SLA) for SQL Managed Instance describes the expected availability of the service. It also describes the conditions that must be met to achieve that availability expectation, including the networking configuration that you must use. To understand these conditions, it's important that you review the [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+[!INCLUDE [SLA description](includes/reliability-service-level-agreement-include.md)]
+
+For SQL Managed Instance, the availability SLA only applies when your Azure virtual network is correctly configured so that it doesn't impede management traffic. This configuration includes subnet size, network security groups (NSGs), user-defined routes (UDRs), DNS configuration, and other resources that affect the management and use of network resources. For more information about the required networking configuration for SQL Managed Instance, see [Network requirements](/azure/azure-sql/managed-instance/connectivity-architecture-overview#network-requirements).
 
 ## Related content
 

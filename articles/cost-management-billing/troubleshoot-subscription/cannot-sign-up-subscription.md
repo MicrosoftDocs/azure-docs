@@ -8,6 +8,7 @@ ms.author: nicholak
 ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
+ms.custom: sfi-ga-nochange
 ---
 
 # Can't sign up for a Microsoft Azure subscription

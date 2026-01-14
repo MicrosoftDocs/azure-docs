@@ -1,6 +1,11 @@
 {
     "redirections": [
          {
+           "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-third-party-settings.md",
+           "redirect_url": "/azure/vpn-gateway/vpn-gateway-about-vpn-devices",
+           "redirect_document_id": false
+        },
+         {
            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-delete-vnet-gateway-classic-powershell.md",
            "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-delete-vnet-gateway-classic-powershell",
            "redirect_document_id": false

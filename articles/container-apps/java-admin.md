@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 07/15/2024
+ms.date: 11/07/2025
 ms.author: cshoe
 ms.custom:
   - devx-track-extended-java
@@ -33,7 +33,7 @@ If you want to integrate Admin for Spring with Eureka Server for Spring, see [In
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't already have one, you can [can create one for free](https://azure.microsoft.com/free/).
+* An Azure account with an active subscription. If you don't already have one, you can [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Considerations
@@ -44,7 +44,7 @@ When you run the Admin for Spring component in Container Apps, be aware of the f
 
 ## Setup
 
-Before you begin to work with the Admin for Spring component, you first need to create the required resources.
+Before you begin working with the Admin for Spring component, you need to create the required resources.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -119,7 +119,7 @@ To create each of the resources necessary to create a container app, follow thes
    | Environment name | Enter **my-environment**. |
    | Zone redundancy  | Select **Disabled**.      |
 
-1. Select **Create**, and then select the **Container** tab.
+1. Select **Create**, then select the **Container** tab.
 
 1. On the **Container** tab, enter the following values:
 
@@ -236,7 +236,7 @@ Now that you have an existing environment and admin client container app, you ca
 
 ---
 
-The bind operation binds the container app to the Admin for Spring Java component. The container app can now read the configuration values from environment variables, primarily the `SPRING_BOOT_ADMIN_CLIENT_URL` property, and connect to the Admin for Spring component.
+The bind operation connects the container app to the Admin for Spring Java component. The container app can now read the configuration values from environment variables, primarily the `SPRING_BOOT_ADMIN_CLIENT_URL` property, and connect to the Admin for Spring component.
 
 The binding also injects the following property:
 
@@ -244,7 +244,7 @@ The binding also injects the following property:
 "SPRING_BOOT_ADMIN_CLIENT_INSTANCE_PREFER-IP": "true",
 ```
 
-This property indicates that the Admin for Spring component client should prefer the IP address of the container app instance when you connect to the Admin for Spring server.
+This property indicates that the Admin for Spring component client should use the IP address of the container app instance when you connect to the Admin for Spring server.
 
 ## Optional: Unbind your container app from the Admin for Spring Java component
 
@@ -267,7 +267,7 @@ az containerapp update \
 
 1. From the list, select **admin**.
 
-1. Under **Bindings**, find the line for **sample-admin-client**, select it, and then select **Delete**.
+1. Under **Bindings**, find the line for **sample-admin-client**, select it, then select **Delete**.
 
 1. Select **Next**.
 
@@ -280,10 +280,10 @@ az containerapp update \
 ## View the dashboard
 
 > [!IMPORTANT]
-> To view the dashboard, you need to have at least the `Microsoft.App/managedEnvironments/write` role assigned to your account on the managed environment resource. You can explicitly assign the `Owner` or `Contributor` role on the resource. You can also follow the steps to create a custom role definition and assign it to your account.
+> To view the dashboard, your account needs at least the `Microsoft.App/managedEnvironments/write` role on the managed environment resource. You can explicitly assign the `Owner` or `Contributor` role on the resource. You can also follow the steps to create a custom role definition and assign it to your account.
 
 > [!NOTE]
-> The dashboard isn't available in Azure China 21Vianet.
+> The dashboard isn't available in Azure operated by 21Vianet.
 
 1. Create the custom role definition.
 
@@ -343,7 +343,7 @@ az containerapp update \
 
 ## Clean up resources
 
-The resources created in this tutorial have an effect on your Azure bill. If you aren't going to use these services long term, run the following command to remove everything you created in this tutorial.
+The resources you create in this tutorial affect your Azure bill. If you don't plan to use these services long term, run the following command to remove everything you created in this tutorial.
 
 ```azurecli
 az group delete --resource-group $RESOURCE_GROUP
@@ -351,7 +351,7 @@ az group delete --resource-group $RESOURCE_GROUP
 
 ## Dependency
 
-When you use the admin component in your own container app, you need to add the following dependency in your **pom.xml** file. Replace the version number with the latest version available on the [Maven Repository](https://search.maven.org/artifact/de.codecentric/spring-boot-admin-starter-client).
+When you use the admin component in your own container app, add the following dependency in your **pom.xml** file. Replace the version number with the latest version available on the [Maven Repository](https://search.maven.org/artifact/de.codecentric/spring-boot-admin-starter-client).
 
 ```xml
 <dependency>
@@ -362,7 +362,7 @@ When you use the admin component in your own container app, you need to add the 
 ```
 
 > [!NOTE]
-> You don't have to add the admin starter client dependency for Spring Boot Admin if you enable Java agent in your container app by running the following command in Azure CLI:
+> You don't need to add the admin starter client dependency for Spring Boot Admin if you enable Java agent in your container app by running the following command in Azure CLI:
 > ```azurecli
 > az containerapp update --enable-java-agent \
 > --resource-group $RESOURCE_GROUP \
@@ -385,18 +385,18 @@ The following list details the admin component properties you can configure for 
 | Property name                                                   | Description                                                                                                                                                                                                                                                                                                                                                                                         | Default value                                                                                                                                                            |
 |-----------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `spring.boot.admin.server.enabled`                              | Enables the Spring Boot Admin Server.                                                                                                                                                                                                                                                                                                                                                               | `true`                                                                                                                                                                   |
-| `spring.boot.admin.context-path`                                | The path prefix where the Admin Server's statics assets and API are served. Relative to the Dispatcher-Servlet.                                                                                                                                                                                                                                                                                     |                                                                                                                                                                          |
+| `spring.boot.admin.context-path`                                | The path prefix where the Admin Server's static assets and API are served. Relative to the Dispatcher-Servlet.                                                                                                                                                                                                                                                                                     |                                                                                                                                                                          |
 | `spring.boot.admin.monitor.status-interval`                     | Time interval in milliseconds to check the status of instances.                                                                                                                                                                                                                                                                                                                                     | `10,000ms`                                                                                                                                                               |
 | `spring.boot.admin.monitor.status-lifetime`                     | Lifetime of status in milliseconds. The status isn't updated as long as the last status isn't expired.                                                                                                                                                                                                                                                                                              | 10,000 ms                                                                                                                                                                |
 | `spring.boot.admin.monitor.info-interval`                       | Time interval in milliseconds to check the info of instances.                                                                                                                                                                                                                                                                                                                                       | `1m`                                                                                                                                                                     |
 | `spring.boot.admin.monitor.info-lifetime`                       | Lifetime of info in minutes. The info isn't updated as long as the last info isn't expired.                                                                                                                                                                                                                                                                                                         | `1m`                                                                                                                                                                     |
 | `spring.boot.admin.monitor.default-timeout`                     | Default timeout when making requests. Individual values for specific endpoints can be overridden using `spring.boot.admin.monitor.timeout.*`.                                                                                                                                                                                                                                                       | `10,000`                                                                                                                                                                 |
 | `spring.boot.admin.monitor.timeout.*`                           | Key-value pairs with the timeout per `endpointId`.                                                                                                                                                                                                                                                                                                                                                  | Defaults to `default-timeout` value.                                                                                                                                     |
-| `spring.boot.admin.monitor.default-retries`                     | Default number of retries for failed requests. Requests that modify data (`PUT`, `POST`, `PATCH`, `DELETE`) are never retried. Individual values for specific endpoints can be overridden using `spring.boot.admin.monitor.retries.*`.                                                                                                                                                              | `0`                                                                                                                                                                      |
-| `spring.boot.admin.monitor.retries.*`                           | Key-value pairs with the number of retries per `endpointId`. Requests that modify data (`PUT`, `POST`, `PATCH`, `DELETE`) are never retried.                                                                                                                                                                                                                                                        | Defaults to `default-retries` value.                                                                                                                                     |
+| `spring.boot.admin.monitor.default-retries`                     | Default number of retries for failed requests. Requests that modify data (`PUT`, `POST`, `PATCH`, `DELETE`) aren't retried. Individual values for specific endpoints can be overridden using `spring.boot.admin.monitor.retries.*`.                                                                                                                                                              | `0`                                                                                                                                                                      |
+| `spring.boot.admin.monitor.retries.*`                           | Key-value pairs with the number of retries per `endpointId`. Requests that modify data (`PUT`, `POST`, `PATCH`, `DELETE`) aren't retried.                                                                                                                                                                                                                                                        | Defaults to `default-retries` value.                                                                                                                                     |
 | `spring.boot.admin.metadata-keys-to-sanitize`                   | Metadata values for the keys matching these regex patterns used to sanitize in all JSON output. Starting from Spring Boot 3, all actuator values are masked by default. For more information about how to configure the unsanitization process, see [Sanitize Sensitive Values](https://docs.spring.io/spring-boot/reference/actuator/endpoints.html#actuator.endpoints.sanitization).    | `".*password$", ".*secret$", ".*key$", ".*token$", ".*credentials.*", ".*vcap_services$"`                                                                                          |
-| `spring.boot.admin.probed-endpoints`                            | For Spring Boot 1.x client applications, Spring Boot Admin probes for the specified endpoints using an `OPTIONS` request. If the path differs from the ID, you can specify this value as `id:path` - for example, `health:ping`.                                                                                                                                                                    | `"health", "env", "metrics", "httptrace:trace", "threaddump:dump", "jolokia", "info", "logfile", "refresh", "flyway", "liquibase", "heapdump", "loggers", "auditevents"` |
-| `spring.boot.admin.instance-proxy.ignored-headers`              | Headers not to forwarded when making requests to clients.                                                                                                                                                                                                                                                                                                                                           | `"Cookie", "Set-Cookie", "Authorization"`                                                                                                                                |
+| `spring.boot.admin.probed-endpoints`                            | For Spring Boot 1.x client applications, Spring Boot Admin probes for the specified endpoints by using an `OPTIONS` request. If the path differs from the ID, you can specify this value as `id:path` - for example, `health:ping`.                                                                                                                                                                    | `"health", "env", "metrics", "httptrace:trace", "threaddump:dump", "jolokia", "info", "logfile", "refresh", "flyway", "liquibase", "heapdump", "loggers", "auditevents"` |
+| `spring.boot.admin.instance-proxy.ignored-headers`              | Headers not to forward when making requests to clients.                                                                                                                                                                                                                                                                                                                                             | `"Cookie", "Set-Cookie", "Authorization"`                                                                                                                                |
 | `spring.boot.admin.ui.title`                                    | The displayed page title.                                                                                                                                                                                                                                                                                                                                                                           | `"Spring Boot Admin"`                                                                                                                                                    |
 | `spring.boot.admin.ui.poll-timer.cache`                         | Polling duration in milliseconds to fetch new cache data.                                                                                                                                                                                                                                                                                                                                           | `2500`                                                                                                                                                                   |
 | `spring.boot.admin.ui.poll-timer.datasource`                    | Polling duration in milliseconds to fetch new data source data.                                                                                                                                                                                                                                                                                                                                     | `2500`                                                                                                                                                                   |
@@ -426,11 +426,11 @@ The following list details the admin component properties you can configure for 
 - Logging related configurations:
   - [**logging.level.***](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-levels)
   - [**logging.group.***](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-groups)
-  - Any other configurations under `logging.*` namespace should be forbidden. For example, writing log files by using `logging.file` should be forbidden.
+  - Any other configurations under the `logging.*` namespace. For example, don't use `logging.file` to write log files.
 
 ## Limitations
 
-- The Spring Boot Admin Dashboard isn't available in Azure China 21Vianet.
+- The Spring Boot Admin Dashboard isn't available in Azure operated by 21Vianet.
 
 ## Related content
 

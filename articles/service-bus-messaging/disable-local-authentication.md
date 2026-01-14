@@ -3,6 +3,7 @@ title: Disable local authentication with Azure Service Bus
 description: This article explains how to disable local or Shared Access Signature key authentication for a Service Bus namespace. 
 ms.topic: how-to
 ms.date: 07/25/2024 
+ms.custom: sfi-image-nochange
 #customer intent: As a developer or IT administrator, I want to know how to disable shared access key authentication and use only the Microsoft Entra ID authentication for higher security.
 ---
 

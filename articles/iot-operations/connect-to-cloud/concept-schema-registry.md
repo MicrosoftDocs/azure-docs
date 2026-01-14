@@ -1,10 +1,10 @@
 ---
 title: Understand message schemas
 description: Learn how schema registry handles message schemas to work with Azure IoT Operations components including data flows.
-author: SoniaLopezBravo
-ms.author: sonialopez
-ms.topic: conceptual
-ms.date: 11/14/2024
+author: sethmanheim
+ms.author: sethm
+ms.topic: concept-article
+ms.date: 10/30/2025
 
 #CustomerIntent: As an operator, I want to understand how I can use message schemas to filter and transform messages.
 ms.custom:
@@ -274,7 +274,7 @@ Then, in the same file, just underneath the schema, define the schema resource a
 param schemaRegistryName string = '<SCHEMA_REGISTRY_NAME>'
 
 // Pointers to existing resources from AIO deployment
-resource schemaRegistry 'Microsoft.DeviceRegistry/schemaRegistries@2024-09-01-preview' existing = {
+resource schemaRegistry 'Microsoft.DeviceRegistry/schemaRegistries@2025-10-01' existing = {
   name: schemaRegistryName
 }
 
@@ -283,7 +283,7 @@ param opcuaSchemaName string = 'opcua-output-delta'
 param opcuaSchemaVer string = '1'
 
 // Define the schema resource to be created and instantiate a version
-resource opcSchema 'Microsoft.DeviceRegistry/schemaRegistries/schemas@2024-09-01-preview' = {
+resource opcSchema 'Microsoft.DeviceRegistry/schemaRegistries/schemas@2025-10-01' = {
   parent: schemaRegistry
   name: opcuaSchemaName
   properties: {
@@ -293,7 +293,7 @@ resource opcSchema 'Microsoft.DeviceRegistry/schemaRegistries/schemas@2024-09-01
     schemaType: 'MessageSchema'
   }
 }
-resource opcuaSchemaVersion 'Microsoft.DeviceRegistry/schemaRegistries/schemas/schemaVersions@2024-09-01-preview' = {
+resource opcuaSchemaVersion 'Microsoft.DeviceRegistry/schemaRegistries/schemas/schemaVersions@2025-10-01' = {
   parent: opcSchema
   name: opcuaSchemaVer
   properties: {

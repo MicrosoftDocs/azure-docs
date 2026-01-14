@@ -25,6 +25,8 @@ landingContent:
             url: documentation-government-welcome.md
           - text: Compare Azure Government and global Azure
             url: compare-azure-government-global-azure.md
+          - text: Azure Government product General Availability
+            url: documentation-government-product-roadmap.md
 
   # Card
   - title: Get started

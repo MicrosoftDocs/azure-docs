@@ -1,17 +1,19 @@
 ---
 title: Use customizable anomalies to detect threats in Microsoft Sentinel | Microsoft Docs
 description: This article explains how to use the new customizable anomaly detection capabilities in Microsoft Sentinel.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: conceptual
 ms.date: 03/17/2024
-ms.author: yelevin
-
 
 #Customer intent: As a security analyst, I want to use customizable anomalies in threat detection so that I can improve detection accuracy, streamline investigations, and enhance proactive threat hunting.
 
 ---
 
 # Use customizable anomalies to detect threats in Microsoft Sentinel
+
+>[!IMPORTANT]
+> [**Custom detections**](/defender-xdr/custom-detections-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) is now the best way to create new rules across Microsoft Sentinel SIEM Microsoft Defender XDR. With custom detections, you can reduce ingestion costs, get unlimited real-time detections, and benefit from seamless integration with Defender XDR data, functions, and remediation actions with automatic entity mapping. For more information, read [this blog](https://techcommunity.microsoft.com/blog/microsoftthreatprotectionblog/custom-detections-are-now-the-unified-experience-for-creating-detections-in-micr/4463875).
 
 ## What are customizable anomalies?
 

@@ -21,7 +21,7 @@ Terraform allows you to define and create complete infrastructure deployments in
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * A Terraform configuration. Use one of the following options:
 
@@ -85,7 +85,7 @@ resource "azurerm_linux_web_app" "webapp" {
   site_config { 
     minimum_tls_version = "1.2"
     application_stack {
-      node_version = "16-lts"
+      node_version = "24-lts"
     }
   }
 }

@@ -23,7 +23,7 @@ In Azure Spring Apps, applications are deployed within a service instance, which
 
 ## Prerequisites
 
-- An active Azure subscription. If you don't have one, you can [create a free Azure account](https://azure.microsoft.com/free).
+- An active Azure subscription. If you don't have one, you can [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Azure CLI](/cli/azure/install-azure-cli).
 - The `Microsoft.App` resource provider is registered in your Azure subscription. For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 

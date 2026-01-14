@@ -1,8 +1,8 @@
 ---
 title: Built-in RBAC Roles 
 description: Learn about the built-in RBAC roles for Azure IoT Operations and how to use them to control access to resources.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: dominicbetts
+ms.author: dobett
 ms.topic: reference
 ms.date: 07/29/2025
 

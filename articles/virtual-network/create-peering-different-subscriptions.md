@@ -38,7 +38,7 @@ This tutorial peers virtual networks in the same region. You can also peer virtu
 
 # [**Portal**](#tab/create-peering-portal)
 
-- An Azure account or accounts with two active subscriptions. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account or accounts with two active subscriptions. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An Azure account with permissions in both subscriptions or an account in each subscription with the proper permissions to create a virtual network peering. For a list of permissions, see [Virtual network peering permissions](virtual-network-manage-peering.md#permissions).
 
@@ -54,7 +54,7 @@ This tutorial peers virtual networks in the same region. You can also peer virtu
 
 # [**PowerShell**](#tab/create-peering-powershell)
 
-- An Azure account or accounts with two active subscriptions. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account or accounts with two active subscriptions. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An Azure account with permissions in both subscriptions or an account in each subscription with the proper permissions to create a virtual network peering. For a list of permissions, see [Virtual network peering permissions](virtual-network-manage-peering.md#permissions).
 
@@ -76,7 +76,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
-- An Azure account or accounts with two active subscriptions. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account or accounts with two active subscriptions. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An Azure account with permissions in both subscriptions or an account in each subscription with the proper permissions to create a virtual network peering. For a list of permissions, see [Virtual network peering permissions](virtual-network-manage-peering.md#permissions).
 
@@ -673,7 +673,7 @@ You need the **Resource ID** for **vnet-2** from the previous steps to set up th
     | Virtual network deployment model | **Resource Manager** |
     | I know my resource ID | **Select the box** |
     | Resource ID | **Enter the Resource ID for vnet-2** |
-    | Directory | Select the Microsoft Entra ID directory that corresponds with **vnet-2** and **user-2** |
+    | Directory | Select the Microsoft Entra ID directory that corresponds with **vnet-2** and **user-2**, but authenticate using **user-1** |
     | **Remote virtual network peering settings** |   |
     | Allow 'the peered virtual network' to access 'vnet-1' | Leave the default of **Enabled** |
     | Allow 'the peered virtual network' to receive forwarded traffic from 'vnet-1' | **Select the box** |
@@ -849,7 +849,7 @@ You need the **Resource IDs** for **vnet-1** from the previous steps to set up t
     | Virtual network deployment model | **Resource Manager** |
     | I know my resource ID | **Select the box** |
     | Resource ID | **Enter the Resource ID for vnet-1** |
-    | Directory | Select the Microsoft Entra ID directory that corresponds with **vnet-1** and **user-1** |
+    | Directory | Select the Microsoft Entra ID directory that corresponds with **vnet-1** and **user-1**, but authenticate using **user-2** |
     | **Remote virtual network peering settings** |   |
     | Allow 'the peered virtual network' to access 'vnet-1' | Leave the default of **Enabled** |
     | Allow 'the peered virtual network' to receive forwarded traffic from 'vnet-1' | **Select the box** |

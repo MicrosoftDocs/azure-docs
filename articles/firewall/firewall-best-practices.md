@@ -72,6 +72,9 @@ Use the following best practices for testing and monitoring:
    - Look for spikes in network performance or latency. Correlate rule hit timestamps, such as application rules hit count and network rules hit count, to determine if rule processing is a significant factor contributing to performance or latency issues. By analyzing these patterns, you can identify specific rules or configurations that you might need to optimize.
 - **Add alerts to key metrics**
    - In addition to regular monitoring, it's crucial to set up alerts for key firewall metrics. This ensures that you're promptly notified when specific metrics surpass predefined thresholds. To configure alerts, see [Azure Firewall logs and metrics](metrics.md#alert-on-azure-firewall-metrics) for detailed instructions about setting up effective alerting mechanisms. Proactive alerting enhances your ability to respond swiftly to potential issues and maintain optimal firewall performance.
+- **Implement governance and compliance**
+   - Use [Azure Policy](firewall-azure-policy.md) to enforce consistent configuration standards across your Azure Firewall deployments, including explicit proxy settings and other security configurations.
+   - Track configuration changes using [Azure Resource Graph](rule-set-change-tracking.md) to maintain compliance and operational visibility.
 
 ## Next steps
 

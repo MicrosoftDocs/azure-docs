@@ -1,8 +1,8 @@
 ---
 title: Configure render settings for data visualization in Microsoft Planetary Computer Pro
 description: Learn the step-by-step process to configure render settings for visualizing geospatial data using the Microsoft Planetary Computer Pro data explorer and Tiler API.
-author: 777arc
-ms.author: marclichtman
+author: prasadko
+ms.author: prasadkomma
 ms.service: planetary-computer-pro
 ms.topic: how-to
 ms.date: 05/08/2025
@@ -396,7 +396,6 @@ The `options` string accepts the following key-value pairs (refer to [TiTiler do
 - [Mosaic configurations for collections](./mosaic-configurations-for-collections.md)
 - [Tile settings for collections](./tile-settings.md)
 - [Queryables for custom search filters](./queryables-for-explorer-custom-search-filter.md)
-- [Visualize data cube assets (GRIB/NetCDF)](./visualize-assets.md)
 - [STAC Overview](./stac-overview.md)
 - [TiTiler Documentation](https://developmentseed.org/titiler/)
 

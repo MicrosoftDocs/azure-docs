@@ -8,7 +8,13 @@ ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 01/10/2023
 ms.devlang: java
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, devx-track-javaee-quarkus-functions, devx-track-extended-java
+ms.custom:
+  - devx-track-java
+  - devx-track-javaee
+  - devx-track-javaee-quarkus
+  - devx-track-javaee-quarkus-functions
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Deploy serverless Java apps with Quarkus on Azure Functions

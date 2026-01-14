@@ -156,8 +156,8 @@
           href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub
     - name: Reliability
       items:
-        - name: Best practices for business continuity and disaster recovery
-          href: event-hubs-business-continuity-outages-disasters.md
+        - name: Reliability in Event Hubs
+          href: ../reliability/reliability-event-hubs.md?toc=/azure/event-hubs/TOC.json&maintainContext=true
         - name: Geo-replication
           href: geo-replication.md
         - name: Metadata only geo-disaster recovery

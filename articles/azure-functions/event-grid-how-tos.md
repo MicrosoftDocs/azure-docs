@@ -4,6 +4,7 @@ description: Contains various procedures for integrating Azure Event Grid and Az
 ms.date: 08/07/2024
 ms.topic: how-to
 ms.service: azure-functions
+ms.custom: sfi-image-nochange
 
 ---
 

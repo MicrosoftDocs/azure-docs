@@ -51,7 +51,7 @@ For existing custom container apps, see [Enable sidecar support for Linux custom
 Use Azure Monitor, Log Analytics, and the Diagnose & Solve blade in the Azure portal. Logs from all containers are available in the App Service log stream.
 
 ### Are there any limitations?
-Persistent Azure storage is not supported for sidecars. App Service Environment (ASE) and national clouds may not be supported yet. Check the latest Azure documentation for updates.
+App Service Environment (ASE) and national clouds may not be supported yet. Check the latest Azure documentation for updates.
 
 ## More resources
 

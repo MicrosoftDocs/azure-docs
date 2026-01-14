@@ -2,6 +2,7 @@
 title: Assess large numbers of servers in VMware environment for migration to Azure with Azure Migrate 
 description: Describes how to assess large numbers of servers in VMware environment for migration to Azure using the Azure Migrate service.
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.topic: how-to
 ms.date: 05/12/2025
 ms.custom: engagement-fy23

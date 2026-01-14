@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 2/28/2025
+ms.date: 02/28/2025
 ms.author: mbender
 # Customer intent: "As a cloud architect, I want to expose a WebSocket server through an application gateway using Kubernetes, so that I can ensure real-time communication capabilities are accessible and properly managed within my AKS cluster."
 ---

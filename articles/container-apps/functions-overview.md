@@ -64,7 +64,7 @@ az containerapp create \
   --resource-group $RESOURCE_GROUP_NAME \
   --name $CONTAINER_APP_NAME \
   --environment $ENVIRONMENT_NAME \
-  --image mcr.microsoft.com/azure-functions/dotnet8-quickstart-demo:1.0 \
+  --image mcr.microsoft.com/k8se/quickstart-functions:latest \
   --ingress external \
   --target-port 80 \
   --kind functionapp \
@@ -157,6 +157,7 @@ Keep these other considerations in mind when using Azure Functions on Azure Cont
 - **Ingress Requirement for Auto-Scaling**: To enable automatic scaling based on events, [ingress must be enabled](../container-apps/ingress-how-to.md)—either publicly or within the Container Apps internal environment.
 - **Mandatory Storage Account**: Every Functions app deployed on Container Apps must be linked to a storage account. This is required for managing triggers, logs, and state. Review the [storage account guidance](../azure-functions/storage-considerations.md) for best practices.
 - **Multi-revision storage**: When deploying with multiple active revisions, assign a dedicated storage account to each revision. Using a dedicated storage account helps prevent conflicts and ensures proper isolation. Alternatively, if you do not require concurrent revisions, consider using the default single revision mode for simplified management.
+- **Multi-revision triggers**: If you are using multi-revision mode with a pull-based trigger, use a different event source for each revision to avoid conflicts related to competing consumers. Functions that use Azure Queue Storage, Azure Event Hub, Azure Service Bus, or Durable Functions triggers are examples of pull-based triggers.
 - **Cold start latency**: When your container app scales in to zero during idle periods, the first request after inactivity experiences a cold start. Learn more about [reducing cold start times](../container-apps/cold-start.md).
 - **Application insights integration**: For robust monitoring and diagnostics, link your Functions app to Application Insights. For more information, see [App Insights integration with Functions](../azure-functions/configure-monitoring.md?tabs=v2#enable-application-insights-integration).
 - **Functions proxies**: Not supported. For API gateway scenarios, integrate with Azure API Management instead.

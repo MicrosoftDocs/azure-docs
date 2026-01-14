@@ -25,8 +25,13 @@ This table lists the versions of HDInsight that are available in the Azure porta
 
 **Support expiration** means that Microsoft no longer provides support for the specific HDInsight version. You might not be able to create clusters from the Azure portal.
 
-**Retirement** means that existing clusters of a HDInsight version continue to run as is. You can't create new clusters of this version through any means, which includes the CLI and SDKs. Other control plane features, such as manual scaling and autoscaling, aren't guaranteed to work after retirement date. Support isn't available for retired versions.
-
+**Retirement** means that existing clusters of the particular HDInsight version has reached its retirement date and is no longer supported. Customers who continue to use this version after the retirement date should be aware of the following:
+- No support or maintenance (including security updates, bug fixes,scaling clusters or performance improvements) will be provided for the retired version.
+- New clusters cannot be created through any means inclusing portal, CLI and SDKs.
+- Microsoft reserves the right to remove, disable, or delete all instances of retired versions of this service at any time after the retirement date.
+- Customers who continue using the retired version may experience service degradation, feature disruptions, or functionality issues without notice.
+- Microsoft strongly recommends upgrading to the latest supported Azure HDInsight version to maintain security, reliability, and full access to all capabilities.
+  
 ### Spark versions supported in Azure HDInsight
 
 Azure HDInsight supports the following Apache Spark versions.
@@ -47,7 +52,7 @@ Support is defined as a time period that a HDInsight version supported by Micros
 
 | Action | Standard Support| Basic support | Retirement |
 | -- | -- |--|--|
-| Use existing cluster without support | Yes | Yes | Yes |
+| Use existing cluster without support | Yes | Yes | No |
 | Create Cluster | Yes | Yes | No |
 | Scale up/down cluster | Yes | Yes | No |
 | Troubleshoot runtime issues | Yes | No | No |

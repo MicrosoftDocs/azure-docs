@@ -6,7 +6,7 @@ ms.author: dobett
 ms.topic: tutorial
 ms.custom:
   - ignite-2023
-ms.date: 04/30/2025
+ms.date: 11/03/2025
 
 #CustomerIntent: As an OT user, I want to send my OPC UA data to the cloud so that I can derive insights from it by using a tool such as Real-Time Dashboards.
 ms.service: azure-iot-operations
@@ -133,9 +133,9 @@ To create the data flow:
 
     :::image type="content" source="media/tutorial-upload-messages-to-cloud/new-dataflow.png" alt-text="Screenshot of the data flows page.":::
 
-1. In the data flow editor, select **Select source**. Then select the thermostat asset you created previously and select **Apply**.
+1. In the data flow editor, select **Select source**. Then select the thermostat asset you created previously and select **Proceed**.
 
-1. In the data flow editor, select **Select data flow endpoint**. Then select the **event-hubs-target** endpoint you created previously and select **Proceed**.
+1. In the data flow editor, select **Select destination**. Then select the **event-hubs-target** endpoint you created previously and select **Proceed**.
 
 1. On the next page, enter *destinationeh* as the topic. The topic refers to the hub you created in the Event Hubs namespace. Select **Apply**. Your data flow now has the thermostat asset as its source and a hub in your Event Hubs namespace as its destination.
 

@@ -1,11 +1,12 @@
 ---
-title: 'Domains in Azure Front Door'
-description: Learn about custom domains when using Azure Front Door.
+title: Domains
+titleSuffix: Azure Front Door
+description: Learn about custom domains in Azure Front Door, including subdomains, apex domains, and wildcard domains.
 author: johndowns
+ms.author: jodowns
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 10/31/2023
-ms.author: jodowns
+ms.date: 09/25/2025
 ---
 
 # Domains in Azure Front Door
@@ -77,7 +78,7 @@ The following table lists the validation states that a domain might show.
 | Internal error | An unknown error occurred. <br /><br /> Retry validation by selecting the **Refresh** or **Regenerate** button. If you're still experiencing issues, submit a support request to Azure support. |
 
 > [!NOTE]
-> - The default TTL for TXT records is 1 hour. When you need to regenerate the TXT record for re-validation, please pay attention to the TTL for the previous TXT record. If it doesn't expire, the validation will fail until the previous TXT record expires. 
+> - The default TTL for TXT records is 1 hour. When you need to regenerate the TXT record for re-validation, pay attention to the TTL for the previous TXT record. If it doesn't expire, the validation will fail until the previous TXT record expires. 
 > - If the **Regenerate** button doesn't work, delete and recreate the domain.
 > - If the domain state doesn't reflect as expected, select the **Refresh** button.
 
@@ -96,7 +97,7 @@ Azure Front Door can automatically manage TLS certificates for subdomains and ap
 The process of generating, issuing, and installing a managed TLS certificate can take from several minutes to an hour to complete, and occasionally it can take longer.
 
 > [!NOTE]
-> Azure Front Door (Standard and Premium) managed certificates are automatically rotated if the domain CNAME record points directly to a Front Door endpoint or points indirectly to a Traffic Manager endpoint. Otherwise, you need to re-validate the domain ownership to rotate the certificates.
+> Azure Front Door (Standard and Premium) managed certificates are automatically rotated if the domain CNAME record points directly to a Front Door endpoint. Otherwise, you need to re-validate the domain ownership to rotate the certificates.
 
 #### Domain types
 
@@ -127,13 +128,13 @@ Sometimes, you might need to provide your own TLS certificates. Common scenarios
 
 > [!NOTE]
 > * As of September 2023, Azure Front Door supports Bring Your Own Certificates (BYOC) for domain ownership validation. Front Door approves the domain ownership if the Certificate Name (CN) or Subject Alternative Name (SAN) of the certificate matches the custom domain. If you select Azure managed certificate, the domain validation uses the DNS TXT record.
-> * For custom domains created before BYOC based validation, and the domain validation status is not **Approved**, you need to trigger the auto approval of the domain ownership validation by selecting the **Validation State** and clicking on the **Revalidate** button in the portal. If you use the command line tool, you can trigger domain validation by sending an empty PATCH request to the domain API.
+> * For custom domains created before BYOC based validation, and the domain validation status isn't **Approved**, you need to trigger the auto approval of the domain ownership validation by selecting the **Validation State** and clicking on the **Revalidate** button in the portal. If you use the command line tool, you can trigger domain validation by sending an empty PATCH request to the domain API.
 
 #### Certificate requirements
 
 To use your certificate with Azure Front Door, it must meet the following requirements:
 
-- **Complete certificate chain:** When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT). If you use a nonallowed CA, your request is rejected.  The root CA must be part of the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT). If a certificate without complete chain is presented, the requests that involve that certificate aren't guaranteed to work as expected.
+- **Complete certificate chain:** When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT). If you use a nonallowed CA, your request is rejected. The root CA must be part of the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT). If a certificate without complete chain is presented, the requests that involve that certificate aren't guaranteed to work as expected.
 - **Common name:** The common name (CN) of the certificate must match the domain configured in Azure Front Door.
 - **Algorithm:** Azure Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms.
 - **File (content) type:** Your certificate must be uploaded to your key vault from a PFX file, which uses the `application/x-pkcs12` content type.
@@ -193,7 +194,6 @@ However, Azure Front Door won't automatically rotate certificates in the followi
 If one of the scenarios above applies to your custom domain, then 45 days before the managed certificate expire, the domain validation state becomes *Pending Revalidation*. The *Pending Revalidation* state indicates that you need to create a new DNS TXT record to revalidate your domain ownership.
 
 > [!NOTE]
-> An exception to the above is that Azure Front Door (Standard and Premium) managed certificates are automatically rotated even if the domain CNAME record points indirectly to a Traffic Manager endpoint.
 > DNS TXT records expire after seven days. If you previously added a domain validation TXT record to your DNS server, you need to replace it with a new TXT record. Ensure you use the new value, otherwise the domain validation process will fail.
 
 If your domain can't be validated, the domain validation state becomes *Rejected*. This state indicates that the certificate authority has rejected the request for reissuing a managed certificate.
@@ -220,7 +220,7 @@ You can use Azure Front Door's web application firewall (WAF) to scan requests t
 
 To use the WAF with a custom domain, use an Azure Front Door security policy resource. A security policy associates a domain with a WAF policy. You can optionally create multiple security policies so that you can use different WAF policies with different domains.
 
-## Next steps
+## Related content
 
 * To learn how to add a custom domain to your Azure Front Door profile, see [Configure a custom domain on Azure Front Door using the Azure portal](standard-premium/how-to-add-custom-domain.md).
 * Learn more about how [End-to-end TLS with Azure Front Door](end-to-end-tls.md).

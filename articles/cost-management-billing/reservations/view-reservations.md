@@ -5,10 +5,12 @@ author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 08/21/2025
+ms.date: 10/28/2025
 ms.author: primittal
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-ga-nochange
 ---
 
 # Permissions to view and manage Azure reservations
@@ -85,7 +87,7 @@ Add a user as billing administrator to an Enterprise Agreement or a Microsoft Cu
 
 Azure provides four reservation-specific RBAC roles with different permission levels:
 
-- **Reservation administrator**: Allows management of one or more reservations in their Microsoft Entra Tenant (directory) and [delegation of RBAC roles](../../role-based-access-control/role-assignments-portal.yml) to other users.
+- **Reservation administrator**: Allows management of one or more reservations in their Microsoft Entra Tenant (directory) and [delegation of RBAC roles](/azure/role-based-access-control/role-assignments-portal) to other users.
 - **Reservation purchaser**: Allows purchase of reservations with a specified subscription even for non-subscription owners. 
 - **Reservation contributor**: Allows management of one or more reservations in their Microsoft Entra tenant (directory) but not delegation of RBAC roles to other users.
 - **Reservation reader**: Allows read-only access to one or more reservations in their Microsoft Entra tenant (directory).
@@ -161,7 +163,7 @@ Users who have owner access on the reservations and billing administrators can d
 To allow other people to manage reservations, you have two options:
 
 - **Delegate access management for an individual reservation order** by assigning the Owner role to a user at the resource scope of the reservation order. If you want to give limited access, select a different role.
-  For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+  For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 - **Add a user as billing administrator** to an Enterprise Agreement or a Microsoft Customer Agreement:
   - For an Enterprise Agreement, add users with the Enterprise Administrator role to view and manage all reservation orders that apply to the Enterprise Agreement. Users with the _Enterprise Administrator (read-only)_ role can only view the reservation. Department admins and account owners can't view reservations unless they're explicitly added to them using Access control (IAM). For more information, see [Managing Azure Enterprise roles](../manage/understand-ea-roles.md).

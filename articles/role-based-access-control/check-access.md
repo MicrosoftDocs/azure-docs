@@ -8,7 +8,9 @@ ms.service: role-based-access-control
 ms.topic: quickstart
 ms.date: 12/12/2024
 ms.author: rolyon
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-image-nochange
 #Customer intent: As a new user, I want to quickly see access for myself, user, group, or application, to make sure they have the appropriate permissions.
 ---
 
@@ -99,4 +101,4 @@ Follow these steps to check the access for a single user, group, service princip
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [List Azure role assignments using the Azure portal](role-assignments-list-portal.yml)
+> [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal)

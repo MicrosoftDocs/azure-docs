@@ -7,6 +7,7 @@ ms.date: 06/06/2025
 ms.topic: how-to
 ms.service: azure-iot-edge
 services: iot-edge
+ms.custom: sfi-image-nochange
 ---
 
 # How to implement IoT Edge observability using monitoring and troubleshooting
@@ -206,7 +207,7 @@ To deploy this solution, you need:
 
 - [PowerShell](/powershell/scripting/install/installing-powershell)
 - [Azure CLI](/cli/azure/install-azure-cli)
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 1. Clone the [IoT Elms](https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution) repository.
 

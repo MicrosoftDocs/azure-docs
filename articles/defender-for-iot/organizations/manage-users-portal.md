@@ -59,7 +59,7 @@ For more information, see:
 
 - [Azure user roles and permissions for Defender for IoT](roles-azure.md)
 - [Grant a user access to Azure resources using the Azure portal](../../role-based-access-control/quickstart-assign-role-user-portal.md)
-- [List Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-list-portal.yml)
+- [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal)
 - [Check access for a user to Azure resources](../../role-based-access-control/check-access.md)
 
 ## Next steps

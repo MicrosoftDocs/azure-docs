@@ -16,7 +16,7 @@ In this quickstart, you learn how to use Azure PowerShell to create a storage ta
 
 ## Prerequisites
 
-- An Azure subscription. See [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. See [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An Azure storage account. See [create a storage account](../../storage/common/storage-account-create.md). As you create the account, make sure to enable version-level immutability support and that you don't enable the hierarchical namespace feature.
   
@@ -133,8 +133,7 @@ A storage task _assignment_ specifies a storage account. After you enable the st
    -StartOn $startTime.ToUniversalTime() `
    -Description "task assignment" `
    -Enabled:$true `
-   -TargetPrefix "mycontainer/" `
-   -TargetExcludePrefix ""
+   -TargetPrefix "mycontainer/"
    ```
 
 2. Give the storage task permission to perform operations on the target storage account. Assign the role of `Storage Blob Data Owner` to the system-assigned managed identity of the storage task by using the `New-AzRoleAssignment` command.

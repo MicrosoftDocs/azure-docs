@@ -2,7 +2,7 @@
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
 ms.date: 03/20/2024
-ms.topic: conceptual
+ms.topic: reference
 ---
 
 # Understanding the Azure Resource Graph query language

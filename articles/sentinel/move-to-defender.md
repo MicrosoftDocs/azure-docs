@@ -16,6 +16,9 @@ Microsoft Sentinel is available in the Microsoft Defender portal with [Microsoft
 
 This article explains how to transition your Microsoft Sentinel experience from the Azure portal to the Defender portal. If you use Microsoft Sentinel in the Azure portal, transition to Microsoft Defender for unified security operations and the latest features. For more information, see [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md) or watch our [YouTube playlist](https://www.youtube.com/playlist?list=PL3ZTgFEc7Lyska6WLWBzc8sob-kYA2jPj).
 
+> [!NOTE]
+> Transitioning to the Defender portal, even for non-E5 customers, has no extra cost for the customer. The customer continues to be billed as usual for their consumption on Sentinel only.
+
 ## Prerequisites
 
 Before you start, note:
@@ -66,9 +69,15 @@ For more information, see:
 
 ### Onboarding to the Defender portal with customer-managed keys (CMK)
 
-If you onboard your Microsoft Sentinel-enabled workspace to the Defender portal, ingested workspace data/logs remain encrypted with CMK. Other data isn't encrypted with CMK and uses a Microsoft-managed key.
+If you enabled CMK before onboarding, when you onboard your Microsoft Sentinel-enabled workspace to the Defender portal, all log data in your workspace continues to be encrypted with CMK - including both previously and newly ingested data.
 
-For more information, see [Set up Microsoft Sentinel customer-managed key](customer-managed-keys.md).
+Analytic rules and other Sentinel content, such as automation rules, also continue to be CMK-encrypted. However, alerts and incidents will no longer be CMK-encrypted after onboarding.
+
+For more information about CMK, see [Set up Microsoft Sentinel customer-managed key](customer-managed-keys.md).
+
+> [!IMPORTANT]
+> CMK encryption is not fully supported for data stored in the Microsoft Sentinel data lake. All data ingested into the data lake - such as custom tables or transformed data - is encrypted using Microsoft-managed keys. 
+
 
 ### Configure multi-workspace and multitenant management
 

@@ -19,7 +19,7 @@ Azure Traffic Manager resource logs can provide insight into the behavior of the
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * This guide requires a Traffic Manager profile. To learn more, see [Create a Traffic Manager profile](./quickstart-create-traffic-manager-profile.md).
 
 * This guide requires an Azure Storage account. To learn more, see [Create a storage account](../storage/common/storage-account-create.md).

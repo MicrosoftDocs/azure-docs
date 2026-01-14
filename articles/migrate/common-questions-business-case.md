@@ -3,7 +3,9 @@ title: Questions about Business case in Azure Migrate
 description: Get answers to common questions about Business case in Azure Migrate.
 ms.topic: concept-article
 ms.service: azure-migrate
-ms.date: 11/08/2024
+ms.reviewer: v-uhabiba
+ms.date: 09/19/2025
+
 ms.custom: references_regions, engagement-fy23
 # Customer intent: As a cloud architect, I want to understand how to create and export a business case in Azure Migrate, so that I can effectively analyze on-premises costs and determine potential savings for my organization's cloud migration strategy.
 ---

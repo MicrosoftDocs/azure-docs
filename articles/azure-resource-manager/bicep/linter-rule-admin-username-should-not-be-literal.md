@@ -3,7 +3,7 @@ title: Linter rule - admin user name shouldn't be literal
 description: Linter rule - admin user name shouldn't be a literal
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 02/12/2025
+ms.date: 10/30/2025
 ---
 
 # Linter rule - admin user name shouldn't be literal
@@ -25,7 +25,7 @@ The following example fails this test because the user name is a literal value.
 ```bicep
 param location string = resourceGroup().location
 
-resource vm 'Microsoft.Compute/virtualMachines@2023-03-01' = {
+resource vm 'Microsoft.Compute/virtualMachines@2025-04-01' = {
   name: 'name'
   location: location
   properties: {
@@ -42,7 +42,7 @@ The next example fails this test because the expression evaluates to a literal v
 param location string = resourceGroup().location
 
 var defaultAdmin = 'administrator'
-resource vm 'Microsoft.Compute/virtualMachines@2023-03-01' = {
+resource vm 'Microsoft.Compute/virtualMachines@2025-04-01' = {
   name: 'name'
   location: location
   properties: {
@@ -60,7 +60,7 @@ This example passes this test.
 param adminUsername string
 param location string = resourceGroup().location
 
-resource vm 'Microsoft.Compute/virtualMachines@2023-03-01' = {
+resource vm 'Microsoft.Compute/virtualMachines@2025-04-01' = {
   name: 'name'
   location: location
   properties: {

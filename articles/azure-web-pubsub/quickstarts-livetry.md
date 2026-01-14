@@ -1,6 +1,6 @@
 ---
-title: Use LiveTry to try out the capabilities of Azure Web PubSub
-description: How to use LiveTry to explore service capabilities without setting up a code project
+title: Use playground to try out the capabilities of Azure Web PubSub
+description: How to use playground to explore service capabilities without setting up a code project
 author: kevinguo-ed
 ms.author: kevinguo
 ms.service: azure-web-pubsub
@@ -8,11 +8,11 @@ ms.topic: overview
 ms.date: 05/27/2025
 ---
 
-# Use LiveTry to explore Azure Web PubSub capabilities
+# Use playground to explore Azure Web PubSub capabilities
 
-**LiveTry** is a browser-based tool that helps you use Azure Web PubSub’s real-time messaging features—no code or local setup required. With just a few clicks, you can create clients, join groups, and send messages using both client-side and server-side APIs.
+**Playground** is a browser-based tool that helps you use Azure Web PubSub’s real-time messaging features—no code or local setup required. With just a few clicks, you can create clients, join groups, and send messages using both client-side and server-side APIs.
 
-This guide walks you through two common messaging scenarios in LiveTry, while helping you understand important concepts like **connections**, **groups**, and **messages**.
+This guide walks you through two common messaging scenarios in playground, while helping you understand important concepts like **connections**, **groups**, and **messages**.
 
 ## What you learn
 
@@ -23,9 +23,9 @@ You explore two messaging patterns often used in real-time applications:
 
 ## Key concepts
 
-Before we get started, here’s a quick refresher on core Azure Web PubSub concepts that you interact with in LiveTry:
+Before we get started, here’s a quick refresher on core Azure Web PubSub concepts that you interact with in playground:
 
-- **Hub**: A logical unit used to isolate and organize messaging logic. Clients always connect to a hub. With LiveTry, real traffic goes through the resource. For this tutorial, we recommend specifying a test hub name that doesn’t overlap with your production traffic.
+- **Hub**: A logical unit used to isolate and organize messaging logic. Clients always connect to a hub. With playground, real traffic goes through the resource. For this tutorial, we recommend specifying a test hub name that doesn’t overlap with your production traffic.
 - **Connection**: A persistent WebSocket connection between a client and the Azure Web PubSub service.
 - **Group**: A server-managed subset of connections. Messages sent to a group are delivered only to the connections within that group.
 - **Messages**: The payloads exchanged between clients and the service. Messages can be broadcast to all, targeted to groups, or directed to individual connections.
@@ -36,7 +36,7 @@ In this scenario, you simulate server-side broadcasting using the `sendToGroup` 
 
 ### Steps
 1. In the Azure portal, navigate to your Azure Web PubSub resource.  
-2. Open the **LiveTry** blade.  
+2. Open the **Playground** blade.  
 3. Click **+ Add Client** to create multiple connections.  
 4. Assign each client to a group (for example, `group1`).  
 5. Under the **Server** tab in the "Publish messages" section, select **Send to group**.  
@@ -44,16 +44,16 @@ In this scenario, you simulate server-side broadcasting using the `sendToGroup` 
 7. Switch to the **Client** tab and observe the message appear in each client's message log.
 
 ### What you’re learning
-You send messages to a group of clients using RESTful APIs. LiveTry demonstrates how server-to-group communication works without needing to deploy a backend. Azure Web PubSub also provides server SDKs for C#, JavaScript, Java, and Python.
+You send messages to a group of clients using RESTful APIs. Playground demonstrates how server-to-group communication works without needing to deploy a backend. Azure Web PubSub also provides server SDKs for C#, JavaScript, Java, and Python.
 
-To visualize message broadcasting in action, try repeating the steps with multiple clients. LiveTry supports up to five concurrent simulated clients.
+To visualize message broadcasting in action, try repeating the steps with multiple clients. Playground supports up to five concurrent simulated clients.
 
 ## Scenario 2: Send a message to a group from a client
 
 In this scenario, you create a client sending a message to other clients in the same group—similar to a user posting a message in a chat room.
 
 ### Steps
-1. In **LiveTry**, add two or more clients and specify the same value for the `Initial Groups` field.  
+1. In **playground**, add two or more clients and specify the same value for the `Initial Groups` field.  
 2. For the client that sends the message, select **Allow client to send to all groups**.  
 3. Switch to that client’s panel, specify the group name, enter a message, and click **Invoke**.  
 4. The other clients in the group receive the message in real time.

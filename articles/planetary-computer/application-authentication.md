@@ -21,7 +21,7 @@ This article provides step-by-step guidance for developers and administrators to
 
 ## Prerequisites
 
-- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An existing [GeoCatalog resource](./deploy-geocatalog-resource.md).
 
 
@@ -65,6 +65,8 @@ In this access scenario, a user signed into a client application. The client app
 1. Select on **Delegated permissions** box. Check the box next to **user_impersonation**.
 1. Select **Add permissions**
 1. Select the "Grant admin consent" link (assuming your intent is to grant admin consent in the tenant for this permission)
+
+The delegated authentication pattern is also used when connecting from [QGIS](./configure-qgis.md).
 
 ## Microsoft Planetary Computer Pro RBAC configuration for applications
 

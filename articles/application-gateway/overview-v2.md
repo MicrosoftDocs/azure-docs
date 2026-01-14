@@ -22,7 +22,7 @@ Application Gateway v2 is the latest version of Application Gateway. It provides
 
 The v2 SKU includes the following enhancements:
 
-- **TCP/TLS proxy (Preview)**: Azure Application Gateway now also supports Layer 4 (TCP protocol) and TLS (Transport Layer Security) proxying. This feature is currently in public preview. For more information, see [Application Gateway TCP/TLS proxy overview](tcp-tls-proxy-overview.md).
+- **TCP/TLS proxy**: Azure Application Gateway now also supports Layer 4 (TCP protocol) and TLS (Transport Layer Security) proxying. This feature is currently in public preview. For more information, see [Application Gateway TCP/TLS proxy overview](tcp-tls-proxy-overview.md).
 - **Autoscaling**: Application Gateway or WAF deployments under the autoscaling SKU can scale out or in based on changing traffic load patterns. Autoscaling also removes the requirement to choose a deployment size or instance count during provisioning. This SKU offers true elasticity. In the Standard_v2 and WAF_v2 SKU, Application Gateway can operate both in fixed capacity (autoscaling disabled) and in autoscaling enabled mode. Fixed capacity mode is useful for scenarios with consistent and predictable workloads. Autoscaling mode is beneficial in applications that see variance in application traffic.
 - **Zone redundancy**: Application Gateway or WAF deployments span multiple Availability Zones by default, removing the need to provision separate Application Gateway instances in each zone with a Traffic Manager. Application Gateway instances are deployed (by default) in a minimum of two availability zones, which makes it more resilient to zone failure. The backend pool for applications can be similarly distributed across availability zones.
 
@@ -104,7 +104,7 @@ The following table compares the features available with each SKU.
 | WebSocket support                                 | &#x2713; | &#x2713; |
 | HTTP/2 support                                    | &#x2713; | &#x2713; |
 | Connection draining                               | &#x2713; | &#x2713; |
-| Proxy NTLM authentication                         | &#x2713; |          |
+| Proxy NTLM authentication                         | &#x2713; | &#x2713; |
 | Path based rule encoding                          | &#x2713; |          |
 | DHE Ciphers                                       | &#x2713; |          |
 > [!NOTE]

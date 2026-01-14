@@ -1,17 +1,29 @@
 ---
-title: Azure Functions Durable Task Scheduler (preview)
+title: Azure Functions Durable Task Scheduler
 description: Learn about the characteristics of the Azure Functions Durable Task Scheduler.
 ms.topic: conceptual
-ms.date: 04/28/2025
+ms.date: 10/29/2025
 ---
 
-# Azure Functions Durable Task Scheduler (preview)
+# Azure Functions Durable Task Scheduler
 
 The Durable Task Scheduler provides durable execution in Azure. Durable execution is a fault-tolerant approach to running code that handles failures and interruptions through automatic retries and state persistence. Durable execution helps with scenarios such as:
 - Distributed transactions
 - Multi-agent orchestration
 - Data processing
 - Infrastructure management, and others. 
+
+You can use the Durable Task Scheduler with [any of the Functions SKUs](../../functions-scale.md), the [Dedicated SKU](./durable-task-scheduler-dedicated-sku.md#dedicated-sku), or the [Consumption SKU (preview)](./durable-task-scheduler-dedicated-sku.md#consumption-sku-preview).
+
+## Supported regions
+
+You can run the following command to get a list of available regions for Durable Task Scheduler. 
+
+```bash
+az provider show --namespace Microsoft.DurableTask --query "resourceTypes[?resourceType=='schedulers'].locations | [0]" --out table
+```
+
+Consider using the same region for your Durable Functions app and the Durable Task Scheduler resources to optimize performance and certain network-related functionality.
 
 ## Orchestration frameworks
 
@@ -106,7 +118,7 @@ The [Durable Task Scheduler emulator](./quickstart-durable-task-scheduler.md#set
 By default, the emulator exposes a single task hub named `default`. To expose multiple task hubs, start the emulator and specify the `DTS_TASK_HUB_NAMES` environment variable with a comma-separated list of task hub names. For example, to enable two task hubs named `taskhub1` and `taskhub2`, you can run the following command:
 
 ```bash
-docker run -d -p 8080:8080 -e DTS_TASK_HUB_NAMES=taskhub1,taskhub2 mcr.microsoft.com/dts/dts-emulator:latest
+docker run -d -p 8080:8080 -p 8082:8082 -e DTS_TASK_HUB_NAMES=taskhub1,taskhub2 mcr.microsoft.com/dts/dts-emulator:latest
 ```
 
 > [!NOTE]
@@ -123,16 +135,6 @@ curl -s https://mcr.microsoft.com/v2/dts/dts-emulator/tags/list
 Stale orchestration data should be purged periodically to ensure efficient storage usage. The autopurge feature for Durable Task Scheduler provides a streamlined, configurable solution to manage orchestration instance clean-up automatically. [Learn more about setting autopurge retention policies for Durable Task Scheduler.](./durable-task-scheduler-auto-purge.md)
 
 ## Limitations and considerations
-
-- **Available regions:** 
-
-    Durable Task Scheduler resources can be created in a subset of Azure regions today. You can run the following command to get a list of the supported regions:  
-
-    ```bash
-    az provider show --namespace Microsoft.DurableTask --query "resourceTypes[?resourceType=='schedulers'].locations | [0]" --out table
-    ```
-
-    Consider using the same region for your Durable Functions app and the Durable Task Scheduler resources to optimize performance and certain network-related functionality.
 
 - **Scheduler quota:** 
 
@@ -152,13 +154,7 @@ Stale orchestration data should be purged periodically to ensure efficient stora
 
 - **Feature parity:** 
 
-    Some features might not be available in the Durable Task Scheduler backend yet, such as:
-
-    - [Orchestration rewind](../durable-functions-instance-management.md#rewind-instances-preview)
-    - [Extended sessions](../durable-functions-azure-storage-provider.md#extended-sessions)
-
-    > [!NOTE]
-    > Feature availability is subject to change as the Durable Task Scheduler backend approaches general availability. To report problems or request new features, submit an issue in the [Durable Task Scheduler GitHub repository](https://github.com/azure/Durable-Task-Scheduler).
+    [Extended sessions](../durable-functions-azure-storage-provider.md#extended-sessions) are not available in the Durable Task Scheduler backend yet.
 
 ## Next steps
 

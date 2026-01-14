@@ -29,9 +29,13 @@ This article provides an overview of the current limitations when you're using [
 
 * In Azure China regions, using tags on resource groups and subscriptions in Azure Policy definitions for network group membership isn't currently supported.
 
+* An Azure Virtual Network Manager instance cannot be moved from the existing subscription to another.
+
 ## Limitations for connected groups 
 
 * A virtual network can be peered with up to 1,000 virtual networks using Azure Virtual Network Manager's hub-and-spoke connectivity configuration, meaning you can peer up to 1,000 spoke virtual networks to a hub virtual network.
+
+* By default, the maximum number of private endpoints per connected group is 2,000. You can increase this limit to 20,000 using the this feature [enabling high-scale private endpoints in connected groups](./concept-connectivity-configuration.md#enable-high-scale-private-endpoints-in-azure-virtual-network-manager-connected-groups).
 
 * By default, a [connected group](concept-connectivity-configuration.md#behind-the-scenes-connected-group) can have up to 250 virtual networks. This default is a soft limit and can be increased up to 1,000 virtual networks by submitting a request using [this form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbRzeHatNxLHpJshECDnD5QidURTM2OERMQlYxWkE1UTNBMlRNUkJUNkhDTy4u&route=shorturl).
 
@@ -48,8 +52,6 @@ This article provides an overview of the current limitations when you're using [
   * [Oracle Database@Azure](../oracle/oracle-db/oracle-database-what-is-new.md)
   * [Azure Payment HSM](/azure/payment-hsm/solution-design)
 
-* By default, the maximum number of private endpoints per connected group is 1,000. You can increase this limit in select regions through a preview feature [enabling high-scale private endpoints in connected groups](./concept-connectivity-configuration.md#enable-high-scale-private-endpoints-in-azure-virtual-network-manager-connected-groups).
-
 * You can have virtual networks with overlapping IP spaces in the same connected group. However, communication to an overlapped IP address is dropped.
 
 * When a connected group’s virtual network is peered with an external virtual network that has overlapping IP address space with any member of the connected group, these overlapping address spaces become inaccessible within the connected group. Traffic from the peered virtual network in the connected group to the overlapping address space is routed to the external virtual network, while traffic from other virtual networks in the connected group to the overlapping address space is dropped.
@@ -61,6 +63,10 @@ This article provides an overview of the current limitations when you're using [
 * The maximum number of security admin rules in one level of Azure Virtual Network Manager is 100.
 
 * The service tags AzurePlatformDNS, AzurePlatformIMDS, and AzurePlatformLKM aren't currently supported in security admin rules.
+
+## Limitations for IP address management (IPAM)
+
+* Currently, removing address spaces managed by IPAM from virtual networks or subnets is not supported. This restriction applies only to IPAM-managed address spaces, not to other address spaces (for example, if IPv4 is managed by IPAM but IPv6 is not, IPv6 address spaces can still be removed). In addition, removing IP address spaces from an IPAM pool is not supported.
 
 ## Related content
 

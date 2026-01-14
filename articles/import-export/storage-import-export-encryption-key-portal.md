@@ -7,6 +7,7 @@ ms.service: azure-import-export
 ms.topic: how-to
 ms.date: 03/14/2022
 ms.author: shaas
+ms.custom: sfi-image-nochange
 
 # Customer intent: As a cloud administrator, I want to configure customer-managed keys for the Import/Export service using Azure Key Vault, so that I can maintain control over encryption keys for enhanced security and compliance purposes.
 ---

@@ -6,14 +6,13 @@ ms.author: mesharm
 ms.service: trusted-signing 
 ms.topic: how-to 
 ms.date: 04/12/2024 
+ms.custom: sfi-image-nochange
 ---
 
 # Renew or delete Trusted Signing Identity Validations
-You can renew or delete your Trusted Signing Identity Validations with the right role.
+You can renew or delete your Trusted Signing Identity Validations with a Trusted Signing Identity Verifier role.
 
-## Renew Identity Validation 
-> [!NOTE]
-> At this time Trusted Signing is only available to organizations based in the USA and Canada that have a verifiable history of three years or more. Renewal of Identity Validation is not available if you do not meet the current onboarding requirements.
+## Renew Identity Validation
 
 You can check the expiration date of your Identity Validation on the Identity Validation page. You can renew your Trusted Signing Identity Validation **60 days** before the expiration. A notification is to the primary and secondary email addresses with the reminder to renew your Identity Validation.
 **Identity Validation can only be completed in the Azure portal – it can not be completed with Azure CLI.**
@@ -44,7 +43,7 @@ You can check the expiration date of your Identity Validation on the Identity Va
 You can delete an Identity Validation that is not in "In Progress" state from the Identity Validation page.
 
 >[!Note]
->Deleting an Identity Validation before stops the renewal of linked certificate profiles across all the accounts within a subscription where Identtiy Validation was done. This impacts signing. 
+>Deleting an Identity Validation before stops the renewal of linked certificate profiles across all the accounts within a subscription where Identity Validation was done. This impacts signing. 
 >Deleted identity validation requests cannot be recovered.
 
 1. Navigate to your Trusted Signing account in the [Azure portal](https://portal.azure.com/).

@@ -26,7 +26,7 @@ This article walks you through enabling bundled Prometheus, configuring recordin
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Managed Grafana workspace in the Standard tier. [Create a new workspace](./quickstart-managed-grafana-portal.md) if you don't have one.
 - Grafana version 11.0 or higher.
 - An [Azure Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-overview) that supports Prometheus metrics collection.

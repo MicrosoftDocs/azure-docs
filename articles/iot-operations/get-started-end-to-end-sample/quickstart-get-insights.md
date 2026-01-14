@@ -4,9 +4,10 @@ description: "Quickstart: Use a real-time dashboard to capture insights from the
 author: baanders
 ms.author: baanders
 ms.topic: quickstart
+ms.date: 01/28/2025
 ms.custom:
   - ignite-2023
-ms.date: 01/28/2025
+  - sfi-image-nochange
 
 #CustomerIntent: As an OT user, I want to create a visual report for my processed OPC UA data that I can use to analyze and derive insights from it.
 ---

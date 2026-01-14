@@ -6,7 +6,7 @@ Services: storage
 author: gtrossell
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 07/22/2025
+ms.date: 10/15/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
@@ -44,13 +44,13 @@ By retiring legacy blob storage accounts, Azure simplifies the platform and ensu
 ## Retirement timeline and key milestones
 
 >[!Warning]
->If you do not migrate your legacy blob storage account to GPv2 by August 31, 2026, all existing legacy blob storage accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. Your decision not to migrate an existing legacy blob storage account will be construed as consent for Microsoft to migrate the account on your behalf.
+>If you do not migrate your legacy blob storage account to GPv2 by October, 2026, all existing legacy blob storage accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. Your decision not to migrate an existing legacy blob storage account will be construed as consent for Microsoft to migrate the account on your behalf.
 
 | Date           | Milestone                                      |
 |----------------|------------------------------------------------|
 | **September 2025** | Retirement announced                          |
-| **August 2026**    | Creation of new legacy blob storage accounts disabled                         |
-| **September 2026** | Full retirement; Any remaining legacy blob storage accounts automigrated to GPv2. Your decision not to migrate an existing legacy blob storage account will be construed as consent for Microsoft to migrate the account on your behalf. |
+| **March 3 2026**    | Creation of new legacy blob storage accounts disabled                         |
+| **October 2026** | Full retirement; Any remaining legacy blob storage accounts automigrated to GPv2. Your decision not to migrate an existing legacy blob storage account will be construed as consent for Microsoft to migrate the account on your behalf. |
 
 After the retirement date, **data access will be blocked** for all legacy blob storage accounts. This change takes effect globally across all Azure regions.
 
@@ -84,10 +84,34 @@ Resources
 | project name, type, tenantId, kind, location, resourceGroup, subscriptionId, managedBy, sku, plan, properties, tags, identity, zones, extendedLocation, Version
 
 ```
-[!NOTE] This query identifies both legacy blob storage accounts (kind `BlobStorage`) and GPv1 accounts (kind `Storage`) regardless of redundancy, which are also being retired. Review both account types to ensure all impacted accounts are included in your migration plan.
+>[!NOTE] 
+>This query identifies both legacy blob storage accounts (kind `BlobStorage`) and GPv1 accounts (kind `Storage`) regardless of redundancy, which are also being retired. Review both account types to ensure all impacted accounts are included in your migration plan.
+
+## Special Cases: Databricks DBFS Accounts
+
+If you see a storage account that is part of a **Databricks-managed resource group** in your subscription, **no action is required**. These accounts are read-only for you and are used by Databricks for workspace operations. Microsoft will migrate these DBFS accounts to **GPv2 automatically** ahead of the October 13, 2026 retirement.
+
+### How to identify DBFS accounts
+- Most DBFS accounts start with the prefix `dbstorage`.  
+Examples:  
+   - `dbstoragezeoppf6waviqm`
+   -`dbstorageb3qvu2dqsbsrg`
+   - `dbstorageolaatsgryngy6`
+
+- These accounts are typically found under resource groups named like:
+   - `databricks-rg---`
+
+> [!IMPORTANT]
+> Although dbstorage* is a common naming pattern, it’s not a reserved name, so exceptions may exist.
+To confirm reliably:
+> - The account is in a **Databricks Managed Resource Group**.
+> - You have **read-only permissions** (cannot modify or delete the account).
+
+### What about other accounts?
+All other storage accounts including any **general-purpose v1 (GPv1)** or **legacy blob storage accounts** that you manage for your workloads must be migrated to general-purpose v2 (GPv2) by following the instructions provided earlier in this article.
 
 ## What happens if you don’t migrate by the deadline
-After **August 31, 2026**, you'll no longer be able to manage legacy blob storage accounts. After **September 2026**, if you don't migrate your legacy blob storage account to general-purpose v2, all existing legacy blob storage accounts are auto migrated over to a general-purpose v2 account, which may result in higher billing costs. Your decision not to migrate an existing legacy blob storage account will be construed as consent for Microsoft to migrate the account on your behalf.
+After **October 13 2026**, if you don't migrate your legacy blob storage account to general-purpose v2, all existing legacy blob storage accounts are auto migrated over to a general-purpose v2 account, which may result in higher billing costs. Your decision not to migrate an existing legacy blob storage account will be construed as consent for Microsoft to migrate the account on your behalf.
 
 ## Where to get help and support
 If you have questions, get answers from community experts in Microsoft Q&A.

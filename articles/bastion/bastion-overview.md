@@ -20,7 +20,9 @@ Bastion provides secure RDP and SSH connectivity to all of the VMs in the virtua
 
 |Benefit    |Description|
 |-----------|-----------|
+|Session recording on VM sessions| Azure Bastion Premium allows for [graphical session recording](session-recording.md) of all sessions connected through the Bastion, stored in a customer-designated storage container, and viewed within the Bastion resource|
 |RDP and SSH through the Azure portal|You can get to the RDP and SSH session directly in the Azure portal using a single-click seamless experience.|
+|Entra ID authentication support| Azure Bastion supports Entra ID authentication for the portal and through native client. This allows for identity-based authentication to the VM, eliminating the need for local authentication methods.
 |Remote Session over TLS and firewall traversal for RDP/SSH|Azure Bastion uses an HTML5 based web client that is automatically streamed to your local device. Your RDP/SSH session is over TLS on port 443. This enables the traffic to traverse firewalls more securely. Bastion supports TLS 1.2. Older TLS versions aren't supported.|
 |No Public IP address required on the Azure VM| Azure Bastion opens the RDP/SSH connection to your Azure VM by using the private IP address on your VM. You don't need a public IP address on your virtual machine.|
 |No hassle of managing Network Security Groups (NSGs)| You don't need to apply any NSGs to the Azure Bastion subnet. Because Azure Bastion connects to your virtual machines over private IP, you can configure your NSGs to allow RDP/SSH from Azure Bastion only. This removes the hassle of managing NSGs each time you need to securely connect to your virtual machines. For more information about NSGs, see [Network Security Groups](../virtual-network/network-security-groups-overview.md#security-rules).|
@@ -30,6 +32,8 @@ Bastion provides secure RDP and SSH connectivity to all of the VMs in the virtua
 |Protection against zero-day exploits |The Azure platform protects against zero-day exploits by keeping the Azure Bastion hardened and always up to date for you.|
 
 ## <a name="sku"></a>SKUs
+> [!NOTE]
+> Bastion Premium SKU is now generally available, providing graphical session recording and private only deployment capabilities. 
 
 Azure Bastion offers multiple SKU tiers. The following table shows features and corresponding SKUs. For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
 
@@ -70,10 +74,6 @@ For more information, see the [Configuration settings](configuration-settings.md
 ## <a name="pricing"></a>Pricing
 
 Azure Bastion pricing is a combination of hourly pricing based on SKU and instances (scale units), plus data transfer rates. Hourly pricing starts from the moment Bastion is deployed, regardless of outbound data usage. For the latest pricing information, see the [Azure Bastion pricing](https://azure.microsoft.com/pricing/details/azure-bastion) page.
-
-## <a name="new"></a>What's new?
-
-Subscribe to the RSS feed and view the latest Azure Bastion feature updates on the [Azure Updates](https://azure.microsoft.com/updates?filters=%5B%22Azure+Bastion%22%5D) page.
 
 ## Bastion FAQ
 

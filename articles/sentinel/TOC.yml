@@ -1,957 +1,1044 @@
 - name: Microsoft Sentinel Documentation
   href: index.yml
 - name: Overview
-  expanded: true
   items:
-  - name: What is Microsoft Sentinel?
-    href: overview.md
-  - name: Microsoft Sentinel data lake overview
-    href: datalake/sentinel-lake-overview.md
-    displayName: data lake
-  - name: What's new
-    href: whats-new.md
-  - name: Best practices
-    href: best-practices.md
-  - name: Experience in Defender portal
-    href: microsoft-sentinel-defender-portal.md
-- name: Data lake exploration
-  items:  
-  - name: Compare KQL jobs, summary rules, and search jobs
-    href: datalake/kql-jobs-summary-rules-search-jobs.md
-    displayName: data lake
-  - name: KQL for data lake exploration
-    items:
-    - name: Overview 
-      href: datalake/kql-overview.md
-      displayName: data lake
-    - name: Run KQL queries
-      href: datalake/kql-queries.md
-      displayName: data lake
-    - name: Sample KQL queries
-      href: datalake/kql-sample-queries.md
-      displayName: data lake KQL 
-    - name: Create KQL jobs
-      href: datalake/kql-jobs.md
-      displayName: data lake 
-    - name: Manage KQL jobs
-      href: datalake/kql-manage-jobs.md
-      displayName: data lake
-    - name: Troubleshoot KQL for the lake
-      href: datalake/kql-troubleshoot.md
-      displayName: data lake  
-  - name: Notebooks for data lake exploration
-    items:
-    - name: Overview
-      href: datalake/notebooks-overview.md
-      displayName: data lake
-    - name: Run notebooks
-      href: datalake/notebooks.md
-      displayName: data lake
-    - name: Microsoft Sentinel provider class reference
-      href: datalake/sentinel-provider-class-reference.md
-      displayName: data lake
-    - name: Create and manage notebook jobs
-      href: datalake/notebook-jobs.md
-      displayName: data lake
-    - name: Notebook examples for data lake exploration
-      href: datalake/notebook-examples.md
+    - name: What is Microsoft Sentinel?
+      href: sentinel-overview.md
+    - name: What's new
+      href: whats-new.md
 - name: Plan
   items:
-  - name: Deployment planning guide  
-    href: deploy-overview.md
-  - name: Prerequisites      
-    href: prerequisites.md
-  - name: Workspace architecture
-    items:       
-    - name: Review sample workspace designs
-      href: sample-workspace-designs.md
-    - name: Prepare for multiple workspaces
-      href: prepare-multiple-workspaces.md
-  - name: Prioritize data connectors
-    href: prioritize-data-connectors.md 
-  - name: Plan roles and permissions
-    href: roles.md
-    displayName: data lake
-  - name: Plan interactive and long-term data retention
-    href: log-plans.md
-  - name: Plan costs
-    href: billing.md
-  - name: Availability and support
-    items:     
-    - name: Geographical availability and data residency
-      href: geographical-availability-data-residency.md          
-    - name: Support for data types in different clouds
-      href: data-type-cloud-support.md
-    - name: Feature support in different clouds
-      href: feature-availability.md
-    - name: Regional availability
-      href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
-    - name: Business continuity and disaster recovery
-      href: business-continuity-disaster-recovery.md
-    - name: Security baseline
-      href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json        
+    - name: Deployment planning guide
+      href: deploy-overview.md
+    - name: Prerequisites
+      href: prerequisites.md
+    - name: Workspace architecture
+      items:
+        - name: Review sample workspace designs
+          href: sample-workspace-designs.md
+        - name: Prepare for multiple workspaces
+          href: prepare-multiple-workspaces.md
+        - name: Sample workspace architecture
+          href: sample-workspace-designs.md
+    - name: Prioritize data connectors
+      href: prioritize-data-connectors.md
+    - name: Plan roles and permissions
+      href: roles.md
+      displayName: data lake
+    - name: Plan data retention
+      href: log-plans.md
+    - name: Plan costs
+      href: billing.md
+    - name: Availability and support
+      items:
+        - name: Geographical availability and data residency
+          href: geographical-availability-data-residency.md
+        - name: Support for data types in different clouds
+          href: data-type-cloud-support.md
+        - name: Feature support in different clouds
+          href: feature-availability.md
+        - name: Regional availability
+          href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
+        - name: Business continuity and disaster recovery
+          href: business-continuity-disaster-recovery.md
+        - name: Security baseline
+          href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
 - name: Deploy
   items:
-  - name: Enable Microsoft Sentinel and initial features and content
-    href: enable-sentinel-features-content.md
-  - name: Onboard to Microsoft Sentinel
-    href: quickstart-onboard.md
-  - name: Connect Microsoft Sentinel to the Defender portal
-    href: /unified-secops-platform/microsoft-sentinel-onboard?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-  - name: Onboard to Microsoft Sentinel data lake
-    href: datalake/sentinel-lake-onboarding.md
-    displayName: data lake
-  - name: Set up connectors for the Microsoft Sentinel data lake
-    href: datalake/sentinel-lake-connectors.md
-    displayName: data lake    
-  - name: Unified connectors overview
-    href: unified-connector.md
-  - name: Integrate with unified connectors
-    href: unified-connector-integration.md
-  - name: Configure content
-    href: configure-content.md
-  - name: Set up multiple workspaces
-    href: use-multiple-workspaces.md
-  - name: Enable User and Entity Behavior Analytics (UEBA)
-    href: enable-entity-behavior-analytics.md
-  - name: Configure interactive and long-term data retention 
-    href: configure-data-retention-archive.md
-  - name: Deploy side-by-side
-    href: deploy-side-by-side.md
-- name: Migrate
+    - name: Deploy Microsoft Sentinel SIEM
+      items:
+        - name: Enable Microsoft Sentinel and initial features and content
+          href: enable-sentinel-features-content.md
+        - name: Onboard to Microsoft Sentinel
+          href: quickstart-onboard.md
+        - name: Connect Microsoft Sentinel to the Defender portal
+          href: /unified-secops-platform/microsoft-sentinel-onboard?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+        - name: Configure content
+          href: configure-content.md
+        - name: Set up multiple workspaces
+          href: use-multiple-workspaces.md
+        - name: Enable User and Entity Behavior Analytics (UEBA)
+          href: enable-entity-behavior-analytics.md
+        - name: Configure interactive and long-term data retention
+          href: configure-data-retention-archive.md
+        - name: Deploy side-by-side
+          href: deploy-side-by-side.md
+    - name: Deploy Microsoft Sentinel platform
+      items:
+        - name: Microsoft Sentinel platform deployment overview
+          href: datalake/sentinel-lake-onboarding.md
+        - name: Onboard to data lake and graph from Defender portal
+          href: datalake/sentinel-lake-onboard-defender.md
+        - name: Onboard to data lake and graph from Microsoft Purview Insider Risk Management
+          href: /purview/insider-risk-management-data-risk-graph?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+        - name: Onboard to data lake and graph from Microsoft Purview Data Security Investigations
+          href: /purview/data-security-investigations-data-risk-graph?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+- name: Microsoft Sentinel SIEM
   items:
-  - name: Transition your environment to the Defender portal
-    href: move-to-defender.md
-  - name: Migrate to Microsoft Sentinel
-    items:
-    - name: Plan and design your migration
+    - name: Microsoft Sentinel SIEM overview
+      href: overview.md
+    - name: Microsoft Sentinel SIEM experience in Defender portal
+      href: microsoft-sentinel-defender-portal.md
+    - name: SIEM best practices in Microsoft Sentinel
+      href: best-practices.md
       items:
-      - name: Plan your migration
-        href: migration.md
-      - name: Use the SIEM migration experience
-        href: siem-migration.md
-      - name: Track migration with a workbook
-        href: migration-track.md                
-    - name: Migrate from ArcSight      
-      items: 
-      - name: Migrate detection rules
-        href: migration-arcsight-detection-rules.md
-      - name: Migrate SOAR automation
-        href: migration-arcsight-automation.md
-      - name: Export historical data
-        href: migration-arcsight-historical-data.md           
-    - name: Migrate from Splunk
-      items:
-      - name: Migrate detection rules
-        href: migration-splunk-detection-rules.md
-      - name: Migrate SOAR automation
-        href: migration-splunk-automation.md
-      - name: Export historical data
-        href: migration-splunk-historical-data.md
-    - name: Migrate from QRadar      
-      items:
-      - name: Migrate detection rules
-        href: migration-qradar-detection-rules.md
-      - name: Migrate SOAR automation
-        href: migration-qradar-automation.md
-      - name: Export historical data
-        href: migration-qradar-historical-data.md
-    - name: Ingest historical data
-      items:      
-      - name: Select target platform
-        href: migration-ingestion-target-platform.md
-      - name: Select data ingestion tool
-        href: migration-ingestion-tool.md
-      - name: Ingest data
-        href: migration-export-ingest.md
-    - name: Convert dashboards to workbooks
-      href: migration-convert-dashboards.md
-    - name: Update SOC processes      
-      href: migration-security-operations-center-processes.md
-- name: Manage solutions and content
-  items:  
-  - name: Overview
-    href: sentinel-solutions.md
-  - name: Deploy out-of-the-box content
-    href: sentinel-solutions-deploy.md
-  - name: Delete out-of-the-box content
-    href: sentinel-solutions-delete.md
-  - name: Manage solution deprecation lifecycle
-    href: sentinel-solution-deprecation.md
-  - name: Solution catalog
-    items: 
-    - name: All solutions
-      href: sentinel-solutions-catalog.md
-    - name: ASIM-based domain solutions
-      href: domain-based-essential-solutions.md
-    - name: Monitor Zero Trust 
-      href: sentinel-solution.md   
-  - name: Manage content as code using repositories
-    items:
-    - name: Overview
-      href: ci-cd-custom-content.md
-    - name: Deploy content as code from your repository
-      href: ci-cd.md   
-    - name: Customize repository deployments
-      href: ci-cd-custom-deploy.md
-  - name: Protect business applications
-    items: 
-    - name: Integrate SAP systems
-      items: 
-      - name: SAP applications
-        items:
         - name: Overview
-          href: sap/solution-overview.md
-        - name: Deploy the SAP integration
-          items: 
-          - name: Deployment overview
-            href: sap/deployment-overview.md
-          - name: Deployment prerequisites
-            href: sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md
-          - name: Install the solution for SAP applications
-            href: sap/deploy-sap-security-content.md
-          - name: Prepare your SAP environment
-            href: sap/preparing-sap.md
-          - name: Connect your SAP system
-            displayName: disable, stop ingestion, stop 
-            href: sap/deploy-data-connector-agent-container.md
-          - name: Troubleshoot SAP data connector
-            href: sap/sap-deploy-troubleshoot.md    
-          - name: Extra deployment steps
-            items:
-            - name: Collect SAP HANA audit logs
-              href: sap/collect-sap-hana-audit-logs.md
-            - name: Update the data connector agent
-              href: sap/update-sap-data-connector.md      
-            - name: Deploy the agent from the command line
-              href: sap/deploy-command-line.md
-            - name: Deploy the agent with expert options
-              href: sap/sap-solution-deploy-alternate.md
-          - name: SAP deployment reference (advanced)
-            items:
-            - name: Required ABAP permissions
-              href: sap/required-abap-authorizations.md
-            - name: Data connector agent kickstart script reference
-              href: sap/reference-kickstart.md
-            - name: Data connector agent update script reference 
-              href: sap/reference-update.md
-            - name: Data connector agent systemconfig.json file reference
-              href: sap/reference-systemconfig-json.md
-            - name: Data connector agent systemconfig.ini file reference (legacy)
-              href: sap/reference-systemconfig.md
-        - name: Enable SAP detections and threat protection
-          href: sap/deployment-solution-configuration.md
-        - name: Integrate SAP across multiple workspaces
-          href: sap/cross-workspace.md
-        - name: Monitor SAP systems
+          href: sentinel-solutions.md
+          displayName: SIEM solutions, content hub
+        - name: Deploy out-of-the-box content
+          href: sentinel-solutions-deploy.md
+          displayName: content hub
+        - name: Delete out-of-the-box content
+          href: sentinel-solutions-delete.md
+        - name: Manage solution deprecation lifecycle
+          href: sentinel-solution-deprecation.md
+        - name: SIEM solution catalog
           items:
-          - name: Monitor SAP system health and role
-            href: monitor-sap-system-health.md
-          - name: Monitor SAP audit logs
-            href: sap/sap-audit-log-workbook.md
-          - name: Monitor SAP audit controls
-            href: sap/sap-audit-controls-workbook.md
-        - name: SAP solution content reference
+            - name: All Microsoft Sentinel SIEM solutions
+              href: sentinel-solutions-catalog.md
+            - name: ASIM-based domain solutions
+              href: domain-based-essential-solutions.md
+            - name: Monitor Zero Trust
+              href: sentinel-solution.md
+        - name: Manage content as code using repositories
           items:
-          - name: SAP security content reference
-            href: sap/sap-solution-security-content.md
-          - name: Monitored SAP security parameters
-            href: sap/sap-suspicious-configuration-security-parameters.md
-          - name: SAP solution function reference
-            href: sap/sap-solution-function-reference.md
-          - name: SAP solution log and table reference
-            href: sap/sap-solution-log-reference.md
-        - name: Stop SAP data collection
-          href: sap/stop-collection.md
-      - name: SAP BTP
-        items:
+            - name: Overview
+              href: ci-cd-custom-content.md
+            - name: Deploy content as code from your repository
+              href: ci-cd.md
+            - name: Customize repository deployments
+              href: ci-cd-custom-deploy.md
+        - name: Protect business applications
+          items:
+            - name: Integrate SAP systems
+              items:
+                - name: SAP applications
+                  items:
+                    - name: Overview
+                      href: sap/solution-overview.md
+                    - name: Deploy the SAP integration
+                      items:
+                        - name: Deployment overview
+                          href: sap/deployment-overview.md
+                        - name: Deployment prerequisites
+                          href: sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md
+                        - name: Install the solution for SAP applications
+                          href: sap/deploy-sap-security-content.md
+                        - name: Prepare your SAP environment
+                          href: sap/preparing-sap.md
+                        - name: Connect your SAP system
+                          href: sap/deploy-data-connector-agent-container.md
+                          displayName: disable, stop ingestion, stop
+                        - name: Troubleshoot SAP data connector
+                          href: sap/sap-deploy-troubleshoot.md
+                        - name: Extra deployment steps
+                          items:
+                            - name: Migrate agent to agentless connector
+                              href: sap/sap-agent-migrate.md
+                            - name: Collect SAP HANA audit logs
+                              href: sap/collect-sap-hana-audit-logs.md
+                            - name: Update the data connector agent
+                              href: sap/update-sap-data-connector.md
+                            - name: Deploy the agent from the command line
+                              href: sap/deploy-command-line.md
+                            - name: Deploy the agent with expert options
+                              href: sap/sap-solution-deploy-alternate.md
+                        - name: SAP deployment reference (advanced)
+                          items:
+                            - name: Required ABAP permissions
+                              href: sap/required-abap-authorizations.md
+                            - name: Data connector agent kickstart script reference
+                              href: sap/reference-kickstart.md
+                            - name: Data connector agent update script reference
+                              href: sap/reference-update.md
+                            - name: Data connector agent systemconfig.json file reference
+                              href: sap/reference-systemconfig-json.md
+                            - name: Data connector agent systemconfig.ini file reference (legacy)
+                              href: sap/reference-systemconfig.md
+                    - name: Enable SAP detections and threat protection
+                      href: sap/deployment-solution-configuration.md
+                    - name: Integrate SAP across multiple workspaces
+                      href: sap/cross-workspace.md
+                    - name: Monitor SAP systems
+                      items:
+                        - name: Monitor SAP system health and role
+                          href: monitor-sap-system-health.md
+                        - name: Monitor SAP audit logs
+                          href: sap/sap-audit-log-workbook.md
+                        - name: Monitor SAP audit controls
+                          href: sap/sap-audit-controls-workbook.md
+                    - name: SAP solution content reference
+                      items:
+                        - name: SAP security content reference
+                          href: sap/sap-solution-security-content.md
+                        - name: Monitored SAP security parameters
+                          href: sap/sap-suspicious-configuration-security-parameters.md
+                        - name: SAP solution function reference
+                          href: sap/sap-solution-function-reference.md
+                        - name: SAP solution log and table reference
+                          href: sap/sap-solution-log-reference.md
+                    - name: Stop SAP data collection
+                      href: sap/stop-collection.md
+                - name: SAP BTP
+                  items:
+                    - name: Overview
+                      href: sap/sap-btp-solution-overview.md
+                      displayName: BTP
+                    - name: Security content reference
+                      href: sap/sap-btp-security-content.md
+                    - name: Deploy SAP BTP
+                      href: sap/deploy-sap-btp-solution.md
+                - name: Partner solutions
+                  href: sap/solution-partner-overview.md
+            - name: Integrate Microsoft business applications
+              items:
+                - name: Overview
+                  href: business-applications/solution-overview.md
+                  displayName: business applications
+                - name: Deploy for Power Platform and Microsoft Dynamics 365 Customer Engagement
+                  href: business-applications/deploy-power-platform-solution.md
+                  displayName: business applications
+                - name: Power Platform and Microsoft Dynamics 365 Customer Engagement security content reference
+                  href: business-applications/power-platform-solution-security-content.md
+                - name: Deploy for Dynamics 365 Finance and Operations
+                  href: dynamics-365/deploy-dynamics-365-finance-operations-solution.md
+                  displayName: business applications
+                - name: Dynamics 365 Finance and Operations security content reference
+                  href: dynamics-365/dynamics-365-finance-operations-security-content.md
+        - name: Integrate Microsoft Defender for IoT
+          items:
+            - name: Connect Defender for IoT data with Microsoft Sentinel
+              href: ../defender-for-iot/organizations/iot-solution.md?bc=%2fazure%2fsentinel%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsentinel%2fTOC.json
+            - name: Investigate Defender for IoT incidents with Microsoft Sentinel
+              href: ../defender-for-iot/organizations/iot-advanced-threat-monitoring.md?bc=%2fazure%2fsentinel%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsentinel%2fTOC.json
+        - name: Integrate Microsoft Defender XDR
+          href: microsoft-365-defender-sentinel-integration.md
+        - name: Integrate Microsoft Defender for Cloud
+          href: ingest-defender-for-cloud-incidents.md
+
+    - name: Integrate threat intelligence
+      items:
         - name: Overview
-          href: sap/sap-btp-solution-overview.md
-          displayName: BTP
-        - name: Security content reference
-          href: sap/sap-btp-security-content.md
-        - name: Deploy SAP BTP
-          href: sap/deploy-sap-btp-solution.md
-      - name: Partner solutions
-        href: sap/solution-partner-overview.md
-    - name: Integrate Microsoft business applications
+          href: understand-threat-intelligence.md
+        - name: Threat intelligence integrations
+          href: threat-intelligence-integration.md
+        - name: Enable MDTI data connector
+          href: connect-mdti-data-connector.md
+        - name: Connect threat intelligence with upload API
+          href: connect-threat-intelligence-upload-api.md
+        - name: Connect threat intelligence platforms
+          href: connect-threat-intelligence-tip.md
+        - name: Connect to STIX/TAXII feeds
+          href: connect-threat-intelligence-taxii.md
+        - name: Add threat intelligence in bulk by file
+          href: indicators-bulk-file-import.md
+        - name: Work with threat intelligence
+          href: work-with-threat-indicators.md
+        - name: Add entity to threat indicators
+          href: add-entity-to-threat-intelligence.md
+        - name: Use threat indicators in analytics rules
+          href: use-threat-indicators-in-analytics-rules.md
+        - name: Use matching analytics to detect threats
+          href: use-matching-analytics-to-detect-threats.md
+        - name: Work with STIX objects and indicators
+          href: work-with-stix-objects-indicators.md
+    - name: Detect threats and analyze data
       items:
-      - name: Overview
-        href: business-applications/solution-overview.md
-        displayName: business applications
-      - name: Deploy for Power Platform and Microsoft Dynamics 365 Customer Engagement
-        href: business-applications/deploy-power-platform-solution.md
-        displayName: business applications
-      - name: Power Platform and Microsoft Dynamics 365 Customer Engagement security content reference
-        href: business-applications/power-platform-solution-security-content.md
-      - name: Deploy for Dynamics 365 Finance and Operations
-        href: dynamics-365/deploy-dynamics-365-finance-operations-solution.md
-        displayName: business applications
-      - name: Dynamics 365 Finance and Operations security content reference
-        href: dynamics-365/dynamics-365-finance-operations-security-content.md
-  - name: Integrate Microsoft Defender for IoT
-    items:
-    - name: Connect Defender for IoT data with Microsoft Sentinel
-      href: ../defender-for-iot/organizations/iot-solution.md?bc=%2fazure%2fsentinel%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsentinel%2fTOC.json
-    - name: Investigate Defender for IoT incidents with Microsoft Sentinel
-      href: ../defender-for-iot/organizations/iot-advanced-threat-monitoring.md?bc=%2fazure%2fsentinel%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsentinel%2fTOC.json
-  - name: Integrate Microsoft Defender XDR
-    href: microsoft-365-defender-sentinel-integration.md
-  - name: Integrate Microsoft Defender for Cloud
-    href: ingest-defender-for-cloud-incidents.md
-- name: Collect data
+        - name: Monitor and visualize data
+          items:
+            - name: View collected data on the Overview dashboard
+              href: get-visibility.md
+            - name: View customized views with workbooks
+              href: monitor-your-data.md
+            - name: Create a Power BI report
+              href: powerbi.md
+        - name: Threat detection (analytics) rules
+          items:
+            - name: Overview
+              href: threat-detection.md
+            - name: Scheduled analytics rules
+              items:
+                - name: Overview
+                  href: scheduled-rules-overview.md
+                - name: Create a scheduled rule from a template
+                  href: create-analytics-rule-from-template.md
+                - name: Create a scheduled rule from scratch
+                  href: create-analytics-rules.md
+                - name: Enhance detections
+                  items:
+                    - name: Map data fields to entities
+                      href: map-data-fields-to-entities.md
+                    - name: Surface custom details in alerts
+                      href: surface-custom-details-in-alerts.md
+                    - name: Customize alert details
+                      href: customize-alert-details.md
+            - name: Near-real-time (NRT) analytics rules
+              items:
+                - name: Overview
+                  href: near-real-time-rules.md
+                - name: Create NRT analytics rules
+                  href: create-nrt-rules.md
+            - name: Anomaly detection rules
+              items:
+                - name: Overview
+                  href: soc-ml-anomalies.md
+                - name: Work with out-of-the-box anomaly rules
+                  href: work-with-anomaly-rules.md
+            - name: Multistage attacks (Fusion)
+              items:
+                - name: Overview
+                  href: fusion.md
+                - name: Configure multistage attack (Fusion) rules
+                  href: configure-fusion-rules.md
+            - name: Create incidents from Microsoft Security alerts
+              href: create-incidents-from-alerts.md
+            - name: Export and import analytics rules
+              href: import-export-analytics-rules.md
+            - name: Manage template versions for analytics rules
+              href: manage-analytics-rule-templates.md
+            - name: Handle ingestion delay in analytics rules
+              href: ingestion-delay.md
+            - name: Get fine-tuning recommendations
+              href: detection-tuning.md
+            - name: Troubleshoot analytics rules
+              href: troubleshoot-analytics-rules.md
+            - name: Tutorial - Detect threats using analytics rules
+              href: tutorial-log4j-detection.md
+            - name: MITRE ATT&CK coverage
+              href: mitre-coverage.md
+            - name: Compare analytics rules and custom detections
+              href: compare-analytics-rules-custom-detections.md
+        - name: Custom detections in the Defender portal
+          items:
+            - name: Overview
+              href: /defender-xdr/custom-detections-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+            - name: Create detection rules
+              href: /defender-xdr/custom-detection-rules?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+            - name: Manage detection rules
+              href: /defender-xdr/custom-detection-manage?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+        - name: Data classification with entities
+          items:
+            - name: Overview
+              href: entities.md
+              displayName: data classification, entities
+            - name: Entity pages
+              href: entity-pages.md
+            - name: User and entity behavior analytics (UEBA)
+              href: identify-threats-with-entity-behavior-analytics.md
+            - name: Create custom entity activities
+              href: customize-entity-activities.md
+        - name: Watchlists
+          items:
+            - name: Overview
+              href: watchlists.md
+            - name: Create watchlists
+              href: watchlists-create.md
+            - name: Build queries or rules
+              href: watchlists-queries.md
+            - name: Manage watchlists
+              href: watchlists-manage.md
+        - name: Deploy and monitor decoy honeytokens
+          href: monitor-key-vault-honeytokens.md
+        - name: Handle false positives
+          href: false-positives.md
+    - name: Hunt for threats
+      items:
+        - name: Overview
+          href: hunting.md
+        - name: Conduct end-to-end hunts
+          href: hunts.md
+        - name: Advanced hunting in the Defender portal
+          items:
+            - name: Overview
+              href: /defender-xdr/advanced-hunting-microsoft-defender?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+            - name: Generate queries with Security Copilot
+              href: /defender-xdr/advanced-hunting-security-copilot?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+            - name: Use functions, saved queries, custom rules
+              href: /defender-xdr/advanced-hunting-defender-use-custom-rules?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+            - name: Use shared queries
+              href: /defender-xdr/advanced-hunting-shared-queries?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+            - name: Work with query results
+              href: /defender-xdr/advanced-hunting-query-results?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+            - name: Explore results containing Microsoft Sentinel data
+              href: /defender-xdr/advanced-hunting-defender-results?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+            - name: Hunt using hunting graph
+              href: /defender-xdr/advanced-hunting-graph?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+        - name: Kusto Query Language
+          items:
+            - name: Overview
+              href: /kusto/query/?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+            - name: Query best practices
+              href: /kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+            - name: SQL to KQL cheat sheet
+              href: /kusto/query/sql-cheat-sheet?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+            - name: Splunk to KQL cheat sheet
+              href: /kusto/query/splunk-cheat-sheet?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+            - name: KQL quick reference
+              href: /kusto/query/kql-quick-reference?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+            - name: Common tasks with KQL for Microsoft Sentinel
+              href: /kusto/query/tutorials/common-tasks-microsoft-sentinel?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+            - name: Other KQL resources
+              href: /kusto/query/kql-learning-resources?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+        - name: Create custom query
+          href: hunts-custom-queries.md
+        - name: Bookmarks
+          href: bookmarks.md
+        - name: Livestream
+          href: livestream.md
+        - name: Notebooks
+          items:
+            - name: Overview
+              href: notebooks.md
+            - name: Get started with notebooks and MSTICPy
+              href: notebook-get-started.md
+            - name: Launch Jupyter notebook
+              href: notebooks-hunt.md
+            - name: Configure advanced MSTICPy settings
+              href: notebooks-msticpy-advanced.md
+        - name: Bring your own machine learning
+          href: bring-your-own-ml.md
+    - name: Track and respond to threats with threat analytics
+      href: threat-analytics-sentinel.md
+    - name: Investigate incidents
+      items:
+        - name: Azure portal
+          items:
+            - name: Overview
+              href: incident-investigation.md
+            - name: Triage and manage your incidents
+              href: incident-navigate-triage.md
+              displayName: close incidents, search incidents, comment on incidents
+            - name: Investigate incidents in depth
+              href: investigate-incidents.md
+            - name: Tutorial - Investigate with UEBA
+              href: investigate-with-ueba.md
+            - name: Relate alerts to incidents
+              href: relate-alerts-to-incidents.md
+            - name: Create incidents manually
+              href: create-incident-manually.md
+            - name: Delete incidents
+              href: delete-incident.md
+            - name: Remediate threats while investigating
+              href: respond-threats-during-investigation.md
+            - name: Manage incident workflow with tasks
+              items:
+                - name: Overview
+                  href: incident-tasks.md
+                - name: Use tasks to handle incident workflow
+                  href: work-with-tasks.md
+                - name: Audit and track changes to incident tasks
+                  href: audit-track-tasks.md
+            - name: Collaborate in Microsoft Teams
+              href: collaborate-in-microsoft-teams.md
+        - name: Defender portal
+          items:
+            - name: Overview
+              href: /defender-xdr/incidents-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+            - name: Plan incident response
+              href: /unified-secops-platform/plan-incident-response
+            - name: Alerts, incidents, and correlation
+              href: /defender-xdr/alerts-incidents-correlation?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+            - name: Manage incidents
+              href: /defender-xdr/manage-incidents?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+        - name: Entities
+          items:
+            - name: Overview
+              href: entity-pages.md
+            - name: Create custom entity activities
+              href: customize-entity-activities.md
+            - name: Entity pages in the Defender portal
+              items:
+                - name: User
+                  href: /defender-xdr/investigate-users?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+                - name: Device
+                  href: /defender-xdr/entity-page-device?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+                - name: IP
+                  href: /defender-xdr/entity-page-ip?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+        - name: Security Copilot
+          items:
+            - name: Overview
+              href: sentinel-security-copilot.md
+            - name: Summarize incidents in Azure portal
+              href: sentinel-security-copilot-incident-summary.md
+            - name: Microsoft Copilot in Microsoft Defender
+              items:
+                - name: Overview
+                  href: /defender-xdr/security-copilot-in-microsoft-365-defender?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+                - name: Summarize incidents
+                  href: /defender-xdr/security-copilot-m365d-incident-summary?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+                - name: Run script analysis
+                  href: /defender-xdr/security-copilot-m365d-script-analysis?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+                - name: Analyze files
+                  href: /defender-xdr/copilot-in-defender-file-analysis?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+                - name: Create incident reports
+                  href: /defender-xdr/security-copilot-m365d-create-incident-report?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+        - name: Large datasets
+          items:
+            - name: Overview
+              href: investigate-large-datasets.md
+            - name: Search large datasets
+              href: search-jobs.md
+            - name: Restore historical data
+              href: restore.md
+    - name: Automate responses
+      items:
+        - name: Overview
+          href: automation/automation.md
+        - name: Respond to threats using automation
+          href: automation/tutorial-respond-threats-playbook.md
+        - name: Automatically enrich incident information
+          href: tutorial-enrich-ip-information.md
+        - name: Extract incident entities with non-native actions
+          href: tutorial-extract-incident-entities.md
+        - name: Automation rules
+          items:
+            - name: Automation rules
+              href: automate-incident-handling-with-automation-rules.md
+            - name: Create automation rules
+              href: create-manage-use-automation-rules.md
+            - name: Add advanced conditions to automation rules
+              href: add-advanced-conditions-to-automation-rules.md
+            - name: Create incident tasks using automation rules
+              href: create-tasks-automation-rule.md
+            - name: Export and import automation rules
+              href: import-export-automation-rules.md
+        - name: Playbooks
+          items:
+            - name: Overview
+              href: automation/automate-responses-with-playbooks.md
+              displayName: playbook
+            - name: Recommended and sample playbooks
+              href: automation/playbook-recommendations.md
+            - name: Customize playbooks from templates
+              href: automation/use-playbook-templates.md
+            - name: Create and manage playbooks
+              href: automation/create-playbooks.md
+            - name: Supported triggers and actions in playbooks
+              href: automation/playbook-triggers-actions.md
+            - name: Azure Logic Apps for Microsoft Sentinel playbooks
+              href: automation/logic-apps-playbooks.md
+            - name: Authenticate playbooks to Microsoft Sentinel
+              href: automation/authenticate-playbooks-to-sentinel.md
+            - name: Automate and run playbooks
+              href: automation/run-playbooks.md
+            - name: Advanced playbook scenarios
+              items:
+                - name: Migrate alert playbooks to automation rules
+                  href: automation/migrate-playbooks-to-automation-rules.md
+                - name: Define an access restriction for Standard-plan playbooks
+                  href: automation/define-playbook-access-restrictions.md
+                - name: Create and perform advanced incident tasks using playbooks
+                  href: automation/create-tasks-playbook.md
+    - name: SIEM operations guide
+      href: ops-guide.md
+    - name: Migrate your SIEM functionality
+      items:
+        - name: Transition to the Defender portal
+          href: move-to-defender.md
+        - name: Migrate to Microsoft Sentinel
+          items:
+            - name: Plan and design your migration
+              items:
+                - name: Plan your migration
+                  href: migration.md
+                - name: Use the SIEM migration experience
+                  href: siem-migration.md
+                - name: Track migration with a workbook
+                  href: migration-track.md
+            - name: Migrate from ArcSight
+              items:
+                - name: Migrate detection rules
+                  href: migration-arcsight-detection-rules.md
+                - name: Migrate SOAR automation
+                  href: migration-arcsight-automation.md
+                - name: Export historical data
+                  href: migration-arcsight-historical-data.md
+            - name: Migrate from Splunk
+              items:
+                - name: Migrate detection rules
+                  href: migration-splunk-detection-rules.md
+                - name: Migrate SOAR automation
+                  href: migration-splunk-automation.md
+                - name: Export historical data
+                  href: migration-splunk-historical-data.md
+            - name: Migrate from QRadar
+              items:
+                - name: Migrate detection rules
+                  href: migration-qradar-detection-rules.md
+                - name: Migrate SOAR automation
+                  href: migration-qradar-automation.md
+                - name: Export historical data
+                  href: migration-qradar-historical-data.md
+            - name: Ingest historical data
+              items:
+                - name: Select target platform
+                  href: migration-ingestion-target-platform.md
+                - name: Select data ingestion tool
+                  href: migration-ingestion-tool.md
+                - name: Ingest data
+                  href: migration-export-ingest.md
+            - name: Convert dashboards to workbooks
+              href: migration-convert-dashboards.md
+            - name: Update SOC processes
+              href: migration-security-operations-center-processes.md
+    - name: Microsoft Sentinel SIEM service limits
+      href: sentinel-service-limits.md
+
+- name: Microsoft Sentinel platform
   items:
-  - name: Overview
-    href: connect-data-sources.md
-  - name: Best practices
-    href: best-practices-data.md
-  - name: Tutorial - Forward syslog data to workspace
-    href: forward-syslog-monitor-agent.md
-  - name: Connect data sources
-    href: configure-data-connector.md
-  - name: Ingestion-time data transformation
-    href: data-transformation.md
-  - name: AMA migration for Microsoft Sentinel
-    href: ama-migrate.md
-  - name: Ingest data to an auxiliary logs table
-    href: /azure/azure-monitor/logs/create-custom-table-auxiliary?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-  - name: Find data connector
-    href: data-connectors-reference.md
-  - name: Connection instructions by type
-    items:
-    - name: Connect Microsoft Sentinel to Microsoft connectors
-      items: 
-      - name: Overview
-        href: connect-azure-windows-microsoft-services.md
-      - name: API-based connectors
-        href: connect-services-api-based.md
-      - name: Diagnostic settings-based connectors
-        href: connect-services-diagnostic-setting-based.md
-      - name: Windows agent-based connectors
-        href: connect-services-windows-based.md
-    - name: Azure Functions API connection
-      href: connect-azure-functions-template.md    
-    - name: CEF/Syslog        
+    - name: Microsoft Sentinel data lake overview
+      href: datalake/sentinel-lake-overview.md
+      displayName: data lake
+    - name: Microsoft Sentinel graph overview
+      href: datalake/sentinel-graph-overview.md
+    - name: Compare KQL jobs, summary rules, and search jobs
+      href: datalake/kql-jobs-summary-rules-search-jobs.md
+      displayName: data lake
+    - name: Microsoft Sentinel MCP server
       items:
-      - name: Overview
-        href: cef-syslog-ama-overview.md  
-      - name: CEF and Syslog via AMA
-        href: connect-cef-syslog-ama.md
-      - name: CEF - configure security device       
-        href: unified-connector-cef-device.md 
-      - name: Syslog - configure security device       
-        href: unified-connector-syslog-device.md    
-    - name: Custom log sources (text files)
+        - name: Microsoft Sentinel MCP server overview
+          href: datalake/sentinel-mcp-overview.md
+        - name: Get started with Microsoft Sentinel MCP
+          items:
+          - name: Overview      
+            href: datalake/sentinel-mcp-get-started.md
+          - name: Use Sentinel MCP tools in Security Copilot   
+            href: datalake/sentinel-mcp-use-tool-security-copilot.md
+          - name: Use Sentinel MCP tools in Copilot Studio
+            href: datalake/sentinel-mcp-use-tool-copilot-studio.md
+          - name: Use Sentinel MCP tools in Microsoft Foundry
+            href: datalake/sentinel-mcp-use-tool-azure-ai-foundry.md
+          - name: Use Sentinel MCP tools in Visual Studio Code
+            href: datalake/sentinel-mcp-use-tool-visual-studio-code.md
+          - name: Use Sentinel MCP connector in ChatGPT
+            href: datalake/sentinel-mcp-chatgpt-connector.md
+        - name: Tool collection in Microsoft Sentinel MCP
+          items:
+          - name: Overview
+            href: datalake/sentinel-mcp-tools-overview.md
+          - name: Data exploration
+            href: datalake/sentinel-mcp-data-exploration-tool.md
+          - name: Agent creation
+            href: datalake/sentinel-mcp-agent-creation-tool.md
+          - name: Triage
+            href: datalake/sentinel-mcp-triage-tool.md
+          - name: Create your own custom tool
+            href: datalake/sentinel-mcp-create-custom-tool.md
+        - name: Troubleshooting
+          href: datalake/troubleshoot-sentinel-mcp.md
+        - name: Billing, limits, and availability
+          href: datalake/sentinel-mcp-billing.md
+        - name: Responsible AI FAQs
+          href: datalake/sentinel-mcp-responsible-ai-faq.md
+    - name: KQL for data lake exploration
       items:
-      - name: Collect logs from text files via AMA
-        href: connect-custom-logs-ama.md
-      - name: Custom logs - configure security device
-        href: unified-connector-custom-device.md
-    - name: DNS via AMA
-      href: connect-dns-ama.md
-    - name: Logstash plugin with Data Collection Rules
-      href: connect-logstash-data-connection-rules.md
-  - name: Connection instructions for service
-    items:
-    - name: Amazon Web Services
+        - name: Overview
+          href: datalake/kql-overview.md
+          displayName: data lake
+        - name: Run KQL queries
+          href: datalake/kql-queries.md
+          displayName: data lake
+        - name: Sample KQL queries
+          href: datalake/kql-sample-queries.md
+          displayName: data lake KQL
+        - name: Create KQL jobs
+          href: datalake/kql-jobs.md
+          displayName: data lake
+        - name: Manage KQL jobs
+          href: datalake/kql-manage-jobs.md
+          displayName: data lake
+        - name: Troubleshoot KQL for the lake
+          href: datalake/kql-troubleshoot.md
+          displayName: data lake
+    - name: Notebooks for data lake exploration
       items:
-      - name: Connect Microsoft Sentinel to AWS 
-        href: connect-aws-configure-environment.md
-      - name: AWS service logs
-        href: connect-aws.md
-      - name: AWS S3 WAF logs
-        href: connect-aws-s3-waf.md 
-    - name: Cisco FTD firewall
-      href: cisco-ftd-firewall.md
-    - name: Google Cloud Platform connectors 
-      href: connect-google-cloud-platform.md
-    - name: Microsoft Entra
-      href: connect-azure-active-directory.md
-    - name: Azure Stack VMs
-      href: connect-azure-stack.md
-    - name: Azure Virtual Desktop
-      href: connect-azure-virtual-desktop.md
-    - name: Microsoft Defender for Cloud
-      href: connect-defender-for-cloud.md
-    - name: Microsoft Defender XDR
-      href: connect-microsoft-365-defender.md
-    - name: Integrate Microsoft Purview
-      href: purview-solution.md  
-    - name: Purview Information Protection data
-      href: connect-microsoft-purview.md
-    - name: Windows security events
-      href: data-connectors-reference.md#windows-security-events-via-ama
-  - name: Configure ingestion-time transformation
-    href: configure-data-transformation.md
-  - name: Configure RDP login detection
-    href: configure-connector-login-detection.md        
-  - name: Create a custom connector
-    href: create-custom-connector.md
-  - name: Normalize data
-    items:
-    - name: ASIM overview
-      href: normalization.md
-    - name: ASIM schemas
-      href: normalization-about-schemas.md
-    - name: ASIM parsers
-      href: normalization-parsers-overview.md
-    - name: Ingest-time normalization
-      href: normalization-ingest-time.md
-    - name: Use ASIM
-      href: normalization-about-parsers.md
-    - name: Manage ASIM parsers
-      href: normalization-manage-parsers.md
-    - name: Modify content to use ASIM
-      href: normalization-modify-content.md
-  - name: Aggregate data
-    items:
-    - name: Aggregate data with summary rules
-      href: summary-rules.md
-    - name: Aggregate insights from raw data into an Auxiliary table
-      href: summary-rules-tutorial.md
-- name: Manage data
-  items:      
-  - name: Data management overview
-    href: manage-data-overview.md
-    displayName: table management, tiers, retention, manage data, tables
-  - name: Manage tables, tiers, and retention
-    href: manage-table-tiers-retention.md
-    displayName: table management, tiers, retention, tables  
-- name: Integrate threat intelligence
+        - name: Overview
+          href: datalake/notebooks-overview.md
+          displayName: data lake
+        - name: Run notebooks
+          href: datalake/notebooks.md
+          displayName: data lake
+        - name: Microsoft Sentinel provider class reference
+          href: datalake/sentinel-provider-class-reference.md
+          displayName: data lake
+        - name: Create and manage notebook jobs
+          href: datalake/notebook-jobs.md
+          displayName: data lake
+        - name: Notebook examples for data lake exploration
+          href: datalake/notebook-examples.md
+    - name: Microsoft Sentinel data lake service limits
+      href: datalake/sentinel-lake-service-limits.md
+
+- name: Collect and manage data
   items:
-  - name: Overview
-    href: understand-threat-intelligence.md
-  - name: Threat intelligence integrations
-    href: threat-intelligence-integration.md
-  - name: Enable MDTI data connector
-    href: connect-mdti-data-connector.md
-  - name: Connect threat intelligence with upload API
-    href: connect-threat-intelligence-upload-api.md
-  - name: Connect threat intelligence platforms
-    href: connect-threat-intelligence-tip.md
-  - name: Connect to STIX/TAXII feeds
-    href: connect-threat-intelligence-taxii.md
-  - name: Add threat intelligence in bulk by file
-    href: indicators-bulk-file-import.md
-  - name: Work with threat intelligence
-    href: work-with-threat-indicators.md
-  - name: Add entity to threat indicators
-    href: add-entity-to-threat-intelligence.md
-  - name: Use threat indicators in analytics rules
-    href: use-threat-indicators-in-analytics-rules.md
-  - name: Use matching analytics to detect threats
-    href: use-matching-analytics-to-detect-threats.md
-  - name: Work with STIX objects and indicators
-    href: work-with-stix-objects-indicators.md
-- name: Detect threats and analyze data
-  items:
-  - name: Monitor and visualize data
-    items:
-    - name: View collected data on the Overview dashboard
-      href: get-visibility.md
-    - name: View customized views with workbooks
-      href: monitor-your-data.md
-    - name: Create a Power BI report
-      href: powerbi.md
-  - name: Threat detection (analytics) rules
-    items:
     - name: Overview
-      href: threat-detection.md
-    - name: Scheduled analytics rules
+      href: connect-data-sources.md
+    - name: Best practices
+      href: best-practices-data.md
+    - name: Tutorial - Forward syslog data to workspace
+      href: forward-syslog-monitor-agent.md
+    - name: Connect data sources
+      href: configure-data-connector.md
+    - name: Set up connectors for the Microsoft Sentinel data lake
+      href: datalake/sentinel-lake-connectors.md
+    - name: Asset data in the Sentinel data lake
+      href: datalake/enable-data-connectors.md
+      displayName: data lake
+    - name: Unified connectors overview
+      href: unified-connector.md
+    - name: Integrate with unified connectors
+      href: unified-connector-integration.md
+    - name: Ingestion-time data transformation
+      href: data-transformation.md
+    - name: AMA migration for Microsoft Sentinel
+      href: ama-migrate.md
+    - name: Find data connector
+      href: data-connectors-reference.md
+    - name: Connection instructions by type
       items:
-      - name: Overview
-        href: scheduled-rules-overview.md
-      - name: Create a scheduled rule from a template
-        href: create-analytics-rule-from-template.md
-      - name: Create a scheduled rule from scratch
-        href: create-analytics-rules.md
-      - name: Enhance detections
-        items:
-        - name: Map data fields to entities
-          href: map-data-fields-to-entities.md
-        - name: Surface custom details in alerts
-          href: surface-custom-details-in-alerts.md
-        - name: Customize alert details
-          href: customize-alert-details.md
-    - name: Near-real-time (NRT) analytics rules
+        - name: General instructions for Microsoft connectors
+          items:
+            - name: Connect Microsoft Sentinel to Microsoft connectors
+              href: connect-azure-windows-microsoft-services.md
+            - name: Connect via API-based connectors
+              href: connect-services-api-based.md
+            - name: Connect via diagnostic settings-based connectors
+              href: connect-services-diagnostic-setting-based.md
+            - name: Connect via Windows agent-based connectors
+              href: connect-services-windows-based.md
+        - name: Azure Functions API connection
+          href: connect-azure-functions-template.md
+        - name: CEF/Syslog
+          items:
+            - name: Overview
+              href: cef-syslog-ama-overview.md
+            - name: CEF and Syslog via AMA
+              href: connect-cef-syslog-ama.md
+            - name: CEF - configure security device
+              href: unified-connector-cef-device.md
+            - name: Syslog - configure security device
+              href: unified-connector-syslog-device.md
+        - name: Custom log sources (text files)
+          items:
+            - name: Collect logs from text files via AMA
+              href: connect-custom-logs-ama.md
+            - name: Custom logs - configure security device
+              href: unified-connector-custom-device.md
+        - name: DNS via AMA
+          href: connect-dns-ama.md
+        - name: Logstash plugin with Data Collection Rules
+          href: connect-logstash-data-connection-rules.md
+    - name: Connection instructions for service
       items:
-      - name: Overview
-        href: near-real-time-rules.md
-      - name: Create NRT analytics rules
-        href: create-nrt-rules.md
-    - name: Anomaly detection rules
+        - name: Amazon Web Services
+          items:
+            - name: Connect Microsoft Sentinel to AWS
+              href: connect-aws-configure-environment.md
+            - name: AWS service logs
+              href: connect-aws.md
+            - name: AWS S3 WAF logs
+              href: connect-aws-s3-waf.md
+        - name: Troubleshoot AWS S3 connector issues
+          href: aws-s3-troubleshoot.md
+        - name: Cisco firewalls
+          href: cisco-ftd-firewall.md
+        - name: Google Cloud Platform connectors
+          href: connect-google-cloud-platform.md
+        - name: Microsoft Entra
+          href: connect-azure-active-directory.md
+        - name: Azure Stack VMs
+          href: connect-azure-stack.md
+        - name: Azure Virtual Desktop
+          href: connect-azure-virtual-desktop.md
+        - name: Microsoft Defender for Cloud
+          href: connect-defender-for-cloud.md
+        - name: Microsoft Defender XDR
+          href: connect-microsoft-365-defender.md
+        - name: Integrate Microsoft Purview
+          href: purview-solution.md
+        - name: Microsoft Purview Information Protection data
+          href: connect-microsoft-purview.md
+        - name: Windows security events
+          href: data-connectors-reference.md#windows-security-events-via-ama
+    - name: Configure ingestion-time transformation
+      href: configure-data-transformation.md
+    - name: Configure RDP login detection
+      href: configure-connector-login-detection.md
+    - name: Create a custom connector
+      href: create-custom-connector.md
+    - name: Normalize data
       items:
-      - name: Overview
-        href: soc-ml-anomalies.md
-      - name: Work with out-of-the-box anomaly rules
-        href: work-with-anomaly-rules.md
-    - name: Multistage attacks (Fusion)
+        - name: ASIM overview
+          href: normalization.md
+        - name: ASIM schemas
+          href: normalization-about-schemas.md
+        - name: ASIM parsers
+          href: normalization-parsers-overview.md
+        - name: Ingest-time normalization
+          href: normalization-ingest-time.md
+        - name: Use ASIM
+          href: normalization-about-parsers.md
+        - name: Manage ASIM parsers
+          href: normalization-manage-parsers.md
+        - name: Modify content to use ASIM
+          href: normalization-modify-content.md
+    - name: Aggregate data
       items:
-      - name: Overview
-        href: fusion.md
-      - name: Configure multistage attack (Fusion) rules
-        href: configure-fusion-rules.md
-    - name: Create incidents from Microsoft Security alerts
-      href: create-incidents-from-alerts.md
-    - name: Export and import analytics rules
-      href: import-export-analytics-rules.md
-    - name: Manage template versions for analytics rules
-      href: manage-analytics-rule-templates.md
-    - name: Handle ingestion delay in analytics rules
-      href: ingestion-delay.md
-    - name: Get fine-tuning recommendations
-      href: detection-tuning.md
-    - name: Troubleshoot analytics rules
-      href: troubleshoot-analytics-rules.md
-  - name: Tutorial - Detect threats using analytics rules
-    href: tutorial-log4j-detection.md
-  - name: MITRE ATT&CK coverage
-    href: mitre-coverage.md
-  - name: Data classification with entities
-    items:
-    - name: Overview
-      displayName: data classification, entities
-      href: entities.md
-    - name: Entity pages
-      href: entity-pages.md
-    - name: User and entity behavior analytics (UEBA)
-      href: identify-threats-with-entity-behavior-analytics.md
-    - name: Create custom entity activities
-      href: customize-entity-activities.md
-  - name: Watchlists
-    items:
-    - name: Overview
-      href: watchlists.md
-    - name: Create watchlists
-      href: watchlists-create.md
-    - name: Build queries or rules
-      href: watchlists-queries.md
-    - name: Manage watchlists
-      href: watchlists-manage.md
-  - name: Deploy and monitor decoy honeytokens
-    href: monitor-key-vault-honeytokens.md
-  - name: Handle false positives
-    href: false-positives.md
-- name: Hunt for threats
-  items:
-  - name: Overview
-    href: hunting.md
-  - name: Conduct end-to-end hunts
-    href: hunts.md
-  - name: Advanced hunting in the Defender portal
-    items:
-    - name: Overview
-      href: /defender-xdr/advanced-hunting-microsoft-defender?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-    - name: Generate queries with Security Copilot
-      href: /defender-xdr/advanced-hunting-security-copilot?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-    - name: Use functions, saved queries, custom rules
-      href: /defender-xdr/advanced-hunting-defender-use-custom-rules?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-    - name: Use shared queries
-      href: /defender-xdr/advanced-hunting-shared-queries?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-    - name: Work with query results
-      href: /defender-xdr/advanced-hunting-query-results?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-    - name: Explore results containing Microsoft Sentinel data
-      href: /defender-xdr/advanced-hunting-defender-results?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-  - name: Kusto Query Language
-    items:
-    - name: Overview
-      href: /kusto/query/?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-    - name: Query best practices
-      href: /kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-    - name: SQL to KQL cheat sheet
-      href: /kusto/query/sql-cheat-sheet?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-    - name: Splunk to KQL cheat sheet
-      href: /kusto/query/splunk-cheat-sheet?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-    - name: KQL quick reference
-      href: /kusto/query/kql-quick-reference?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-    - name: Common tasks with KQL for Microsoft Sentinel
-      href: /kusto/query/tutorials/common-tasks-microsoft-sentinel?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-    - name: Other KQL resources
-      href: /kusto/query/kql-learning-resources?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json 
-  - name: Create custom query
-    href: hunts-custom-queries.md
-  - name: Bookmarks
-    href: bookmarks.md
-  - name: Livestream
-    href: livestream.md
-  - name: Notebooks
-    items:
-    - name: Overview
-      href: notebooks.md
-    - name: Get started with notebooks and MSTICPy
-      href: notebook-get-started.md
-    - name: Launch Jupyter notebook
-      href: notebooks-hunt.md      
-    - name: Configure advanced MSTICPy settings
-      href: notebooks-msticpy-advanced.md
-  - name: Bring your own machine learning
-    href: bring-your-own-ml.md
-- name: Investigate incidents
-  items:
-  - name: Azure portal
-    items: 
-    - name: Overview
-      href: incident-investigation.md
-    - name: Triage and manage your incidents
-      href: incident-navigate-triage.md
-      displayName: close incidents, search incidents, comment on incidents
-    - name: Investigate incidents in depth
-      href: investigate-incidents.md
-    - name: Tutorial - Investigate with UEBA
-      href: investigate-with-ueba.md
-    - name: Relate alerts to incidents
-      href: relate-alerts-to-incidents.md
-    - name: Create incidents manually
-      href: create-incident-manually.md
-    - name: Delete incidents
-      href: delete-incident.md
-    - name: Remediate threats while investigating
-      href: respond-threats-during-investigation.md 
-    - name: Manage incident workflow with tasks
+        - name: Aggregate data with summary rules
+          href: summary-rules.md
+        - name: Aggregate insights from raw data into an Auxiliary table
+          href: summary-rules-tutorial.md
+    - name: Manage data
       items:
-      - name: Overview
-        href: incident-tasks.md
-      - name: Use tasks to handle incident workflow
-        href: work-with-tasks.md
-      - name: Audit and track changes to incident tasks
-        href: audit-track-tasks.md
-    - name: Collaborate in Microsoft Teams
-      href: collaborate-in-microsoft-teams.md
-  - name: Defender portal
-    items:
-    - name: Overview 
-      href: /defender-xdr/incidents-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-    - name: Plan incident response
-      href: /unified-secops-platform/plan-incident-response
-    - name: Alerts, incidents, and correlation
-      href: /defender-xdr/alerts-incidents-correlation?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-    - name: Manage incidents
-      href: /defender-xdr/manage-incidents?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-  - name: Entities
-    items:
-    - name: Overview
-      href: entity-pages.md
-    - name: Create custom entity activities
-      href: customize-entity-activities.md
-    - name: Entity pages in the Defender portal
-      items: 
-      - name: User
-        href: /defender-xdr/investigate-users?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-      - name: Device
-        href: /defender-xdr/entity-page-device?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-      - name: IP
-        href: /defender-xdr/entity-page-ip?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-  - name: Security Copilot
-    items: 
-    - name: Overview
-      href: sentinel-security-copilot.md
-    - name: Summarize incidents in Azure portal
-      href: sentinel-security-copilot-incident-summary.md
-    - name: Microsoft Copilot in Microsoft Defender
-      items:
-      - name: Overview
-        href: /defender-xdr/security-copilot-in-microsoft-365-defender?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-      - name: Summarize incidents
-        href: /defender-xdr/security-copilot-m365d-incident-summary?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-      - name: Run script analysis
-        href: /defender-xdr/security-copilot-m365d-script-analysis?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-      - name: Analyze files
-        href: /defender-xdr/copilot-in-defender-file-analysis?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-      - name: Create incident reports
-        href: /defender-xdr/security-copilot-m365d-create-incident-report?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-  - name: Large datasets
-    items:
-    - name: Overview
-      href: investigate-large-datasets.md
-    - name: Search large datasets
-      href: search-jobs.md
-    - name: Restore historical data
-      href: restore.md
-- name: Automate responses
-  items:
-  - name: Overview
-    href: automation/automation.md
-  - name: Respond to threats using automation 
-    href: automation/tutorial-respond-threats-playbook.md
-  - name: Automatically enrich incident information
-    href: tutorial-enrich-ip-information.md
-  - name: Extract incident entities with non-native actions
-    href: tutorial-extract-incident-entities.md  
-  - name: Automation rules
-    items: 
-    - name: Automation rules
-      href: automate-incident-handling-with-automation-rules.md
-    - name: Create automation rules
-      href: create-manage-use-automation-rules.md
-    - name: Add advanced conditions to automation rules
-      href: add-advanced-conditions-to-automation-rules.md
-    - name: Create incident tasks using automation rules
-      href: create-tasks-automation-rule.md
-    - name: Export and import automation rules
-      href: import-export-automation-rules.md
-  - name: Playbooks
-    items:
-    - name: Overview
-      href: automation/automate-responses-with-playbooks.md
-      displayName: playbook
-    - name: Recommended and sample playbooks
-      href: automation/playbook-recommendations.md
-    - name: Customize playbooks from templates
-      href: automation/use-playbook-templates.md
-    - name: Create and manage playbooks
-      href: automation/create-playbooks.md
-    - name: Supported triggers and actions in playbooks
-      href: automation/playbook-triggers-actions.md
-    - name: Azure Logic Apps for Microsoft Sentinel playbooks
-      href: automation/logic-apps-playbooks.md
-    - name: Authenticate playbooks to Microsoft Sentinel
-      href: automation/authenticate-playbooks-to-sentinel.md
-    - name: Automate and run playbooks
-      href: automation/run-playbooks.md
-    - name: Advanced playbook scenarios
-      items:
-      - name: Migrate alert playbooks to automation rules
-        href: automation/migrate-playbooks-to-automation-rules.md
-      - name: Define an access restriction for Standard-plan playbooks
-        href: automation/define-playbook-access-restrictions.md
-      - name: Create and perform advanced incident tasks using playbooks
-        href: automation/create-tasks-playbook.md
+        - name: Data management overview
+          href: manage-data-overview.md
+          displayName: table management, tiers, retention, manage data, tables
+        - name: Manage tables, tiers, and retention
+          href: manage-table-tiers-retention.md
+          displayName: table management, tiers, retention, tables
+
 - name: SOC optimizations
   items:
-  - name: Optimize your security operations
-    href: soc-optimization/soc-optimization-access.md
-  - name: Use SOC optimizations programmatically
-    href: soc-optimization/soc-optimization-api.md
-  - name: SOC optimization reference
-    href: soc-optimization/soc-optimization-reference.md
+    - name: Optimize your security operations
+      href: soc-optimization/soc-optimization-access.md
+    - name: Use SOC optimizations programmatically
+      href: soc-optimization/soc-optimization-api.md
+    - name: SOC optimization reference
+      href: soc-optimization/soc-optimization-reference.md
 - name: Manage Microsoft Sentinel
   items:
-
-  - name: Manage costs and billing
-    items:      
-    - name: Monitor costs
-      href: billing-monitor-costs.md
-    - name: Reduce costs
-      href: billing-reduce-costs.md
-    - name: Switch to simplified pricing tiers
-      href: enroll-simplified-pricing-tier.md
-    - name: Optimize costs with pre-purchase plan
-      href: billing-pre-purchase-plan.md
-    - name: Data lake use cases
-      href: basic-logs-use-cases.md
-  - name: Manage multiple workspaces 
-    items:
-    - name: Workspaces in the Defender portal 
-      href: workspaces-defender-portal.md
-    - name: Workspace manager in the Azure portal
-      href: workspace-manager.md
-    - name: Extend across multiple workspaces
-      href: extend-sentinel-across-workspaces-tenants.md  
-  - name: Microsoft Sentinel for MSSPs
-    items:
-    - name: Manage multiple tenants (MSSP)
-      href: multiple-tenants-service-providers.md
-    - name: Work with incidents in multiple workspaces
-      href: multiple-workspace-view.md
-    - name: Manage your intellectual property in Microsoft Sentinel
-      href: mssp-protect-intellectual-property.md
-  - name: Manage workspace access with resource-context RBAC
-    href: resource-context-rbac.md
-  - name: Set up customer-managed keys
-    href: customer-managed-keys.md
-  - name: Manage your SOC with incident metrics
-    href: manage-soc-with-incident-metrics.md
-  - name: Monitor Microsoft Sentinel health
-    items:
-    - name: Overview 
-      href: health-audit.md  
-    - name: Enable auditing and health monitoring
-      href: enable-monitoring.md
-    - name: Monitor data connector health
-      href: monitor-data-connector-health.md
-    - name: Monitor automation rules and playbooks health
-      href: monitor-automation-health.md
-    - name: Monitor and optimize execution of analytics rules
-      href: monitor-optimize-analytics-rule-execution.md
-    - name: Audit and monitor the health of analytics rules
-      href: monitor-analytics-rule-integrity.md
-  - name: Auditing Microsoft Sentinel with Azure Activity Logs
-    href: audit-sentinel-data.md
-  - name: Audit log for Microsoft Sentinel data lake
-    href: datalake/auditing-lake-activities.md
-    displayName: data lake
-  - name: Remove Microsoft Sentinel from your workspaces
-    href: offboard.md
+    - name: Manage costs and billing
+      items:
+        - name: Monitor costs
+          href: billing-monitor-costs.md
+        - name: Reduce costs
+          href: billing-reduce-costs.md
+        - name: Switch to simplified pricing tiers
+          href: enroll-simplified-pricing-tier.md
+        - name: Optimize costs with pre-purchase plan
+          href: billing-pre-purchase-plan.md
+        - name: Data lake use cases
+          href: basic-logs-use-cases.md
+    - name: Manage multiple workspaces
+      items:
+        - name: Workspaces in the Defender portal
+          href: workspaces-defender-portal.md
+        - name: Workspace manager in the Azure portal
+          href: workspace-manager.md
+        - name: Extend across multiple workspaces
+          href: extend-sentinel-across-workspaces-tenants.md
+    - name: Microsoft Sentinel for MSSPs
+      items:
+        - name: Manage multiple tenants (MSSP)
+          href: multiple-tenants-service-providers.md
+        - name: Work with incidents in multiple workspaces
+          href: multiple-workspace-view.md
+        - name: Manage your intellectual property in Microsoft Sentinel
+          href: mssp-protect-intellectual-property.md
+    - name: Manage workspace access with resource-context RBAC
+      href: resource-context-rbac.md
+    - name: Set up customer-managed keys
+      href: customer-managed-keys.md
+    - name: Manage your SOC with incident metrics
+      href: manage-soc-with-incident-metrics.md
+    - name: Monitor Microsoft Sentinel health
+      items:
+        - name: Overview
+          href: health-audit.md
+        - name: Enable auditing and health monitoring
+          href: enable-monitoring.md
+        - name: Monitor data connector health
+          href: monitor-data-connector-health.md
+        - name: Monitor automation rules and playbooks health
+          href: monitor-automation-health.md
+        - name: Monitor and optimize execution of analytics rules
+          href: monitor-optimize-analytics-rule-execution.md
+        - name: Audit and monitor the health of analytics rules
+          href: monitor-analytics-rule-integrity.md
+    - name: Audit Microsoft Sentinel with Azure Activity Logs
+      href: audit-sentinel-data.md
+    - name: Audit Microsoft Sentinel data lake and graph in Microsoft Purview portal
+      href: datalake/auditing-lake-activities.md
+      displayName: data lake
+    - name: Remove Microsoft Sentinel from your workspaces
+      href: offboard.md
 - name: Build and publish Microsoft Sentinel solutions
   items:
-  - name: Overview
-    href: sentinel-integration-guide.md
-  - name: Sentinel solution quality guidelines
-    href: sentinel-solution-quality-guidance.md
-  - name: Partner integrations best practices
-    href: partner-integrations.md
-  - name: Creating codeless data connectors (CCF)
-    href: create-codeless-connector.md
-  - name: Creating analytics rules
-    href: sentinel-analytic-rules-creation.md
-  - name: Creating hunting queries
-    href: sentinel-hunting-rules-creation.md
-  - name: Creating summary rules
-    href: sentinel-summary-rules-creation.md
-  - name: Creating workbooks
-    href: sentinel-workbook-creation.md
-  - name: Creating playbooks
-    href: sentinel-playbook-creation.md
-  - name: Creating ASIM parsers
-    href: normalization-develop-parsers.md
-  - name: Publish solutions
-    href: publish-sentinel-solutions.md
-  - name: Solution lifecycle post publish
-    href: sentinel-solutions-post-publish-tracking.md
-  - name: Remove Microsoft Sentinel from your workspace
-    items:
     - name: Overview
-      href: offboard-implications.md
-    - name: Remove Microsoft Sentinel
-      href: offboard.md
-- name: Troubleshoot
-  items:
-  - name: Troubleshoot AWS S3 connector issues
-    href: aws-s3-troubleshoot.md
+      href: sentinel-integration-guide.md
+    - name: Partner integrations best practices
+      href: partner-integrations.md
+    - name: Sentinel solution quality guidelines
+      href: sentinel-solution-quality-guidance.md
+    - name: Microsoft Sentinel solution setup essentials
+      href: solution-setup-essentials.md      
+    - name: Sentinel SIEM content 
+      items:
+      - name: Creating codeless data connectors (CCF)
+        href: create-codeless-connector.md
+      - name: Creating analytics rules
+        href: sentinel-analytic-rules-creation.md
+      - name: Creating hunting queries
+        href: sentinel-hunting-rules-creation.md
+      - name: Creating summary rules
+        href: sentinel-summary-rules-creation.md
+      - name: Creating workbooks
+        href: sentinel-workbook-creation.md
+      - name: Creating playbooks
+        href: sentinel-playbook-creation.md
+      - name: Creating ASIM parsers
+        href: normalization-develop-parsers.md
+    - name: Publish solutions
+      href: publish-sentinel-solutions.md
+    - name: Sentinel SIEM solution lifecycle post publish
+      href: sentinel-solutions-post-publish-tracking.md
+    - name: Packaging and publishing a Sentinel platform solution
+      href: package-platform-solution.md
+    - name: Sentinel SIEM solution lifecycle post publish
+      href: publish-sentinel-solutions.md
+    - name: Solution lifecycle post publish
+      href: sentinel-solutions-post-publish-tracking.md
+    - name: Managing Platform Solutions
+      href: manage-platform-solutions.md
+    - name: Troubleshoot solutions in Microsoft Sentinel
+      href: troubleshoot-sentinel-solutions.md
+    - name: Remove Microsoft Sentinel from your workspace
+      items:
+        - name: Overview
+          href: offboard-implications.md
+        - name: Remove Microsoft Sentinel
+          href: offboard.md
 - name: Reference
   items:
-  - name: Microsoft Sentinel service limits
-    href: sentinel-service-limits.md
-  - name: Microsoft Sentinel data lake service limits
-    href: datalake/sentinel-lake-service-limits.md  
-    displayName: data lake
-  - name: Microsoft Sentinel REST-API
-    href: /rest/api/securityinsights/
-  - name: OOTB content centralization changes
-    href: sentinel-content-centralize.md
-  - name: Management references
-    items:
-    - name: Microsoft Sentinel Logic Apps connector
-      href: /connectors/azuresentinel/
-    - name: Azure CLI
-      href: /cli/azure/sentinel
-    - name: Microsoft Sentinel PowerShell
-      href: /powershell/module/az.securityinsights/
-    - name: SentinelHealth table reference 
-      href: health-table-reference.md
-    - name: SentinelAudit table reference 
-      href: audit-table-reference.md
-    - name: Azure RBAC roles
+    - name: Microsoft Sentinel REST-API
+      href: /rest/api/securityinsights/
+    - name: OOTB content centralization changes
+      href: sentinel-content-centralize.md
+    - name: Asset data tables in Microsoft Sentinel data lake
+      href: datalake/asset-data-tables.md
+    - name: Management references
       items:
-      - name: All Azure roles
-        href: ../role-based-access-control/built-in-roles.md
-      - name: Microsoft Sentinel roles
-        href: ../role-based-access-control/built-in-roles.md#security
-  - name: Advanced Security Information Model (ASIM)
-    items:
-      - name: ASIM content
-        href: normalization-content.md
-      - name: ASIM parsers
-        href: normalization-parsers-list.md
-      - name: ASIM common fields
-        href: normalization-common-fields.md 
-      - name: ASIM helper functions
-        href: normalization-functions.md
-      - name: ASIM known issues
-        href: normalization-known-issues.md
-      - name: ASIM schemas
-        items:
-        - name: ASIM alert event schema
-          href: normalization-schema-alert.md
-        - name: ASIM audit event schema
-          href: normalization-schema-audit.md
-        - name: ASIM authentication schema
-          href: normalization-schema-authentication.md
-        - name: ASIM DNS schema
-          href: normalization-schema-dns.md
-        - name: ASIM DHCP schema
-          href: normalization-schema-dhcp.md
-        - name: ASIM file event schema
-          href: normalization-schema-file-event.md
-        - name: ASIM network session schema
-          href: normalization-schema-network.md
-        - name: ASIM process event schema
-          href: normalization-schema-process-event.md
-        - name: ASIM registry event schema
-          href: normalization-schema-registry-event.md
-        - name: ASIM user management schema
-          href: normalization-schema-user-management.md
-        - name: ASIM web session schema
-          href: normalization-schema-web.md
-        - name: Legacy network normalization schema
-          href: normalization-schema-v1.md
-  - name: Automation and response references
-    items:
-    - name: SOAR content catalog
-      href: sentinel-soar-content.md
-    - name: Automation rules reference
-      href: automation-rule-reference.md
-  - name: Data collection references
-    items:
-    - name: Data source schema reference
-      href: data-source-schema-reference.md
-    - name: Security alert schema reference
-      href: security-alert-schema.md
-    - name: CEF log field mapping
-      href: cef-name-mapping.md
-    - name: Windows security event sets
-      href: windows-security-event-id-reference.md
-    - name: DNS over AMA reference
-      href: dns-ama-fields.md
-    - name: Data connector definitions API reference
-      href: data-connector-ui-definitions-reference.md
-    - name: RestApiPoller data connectors API reference
-      href: data-connector-connection-rules-reference.md
-    - name: GCP data connectors API reference
-      href: data-connection-rules-reference-gcp.md
-    - name: Sample API requests for creating Data Collection Rules (DCRs)
-      href: api-dcr-reference.md
-    - name: Microsoft Purview Information Protection reference
-      href: microsoft-purview-record-types-activities.md
-    - name: Microsoft 365 Defender connector data type support
-      href: microsoft-365-defender-cloud-support.md
-  - name: Detection and analysis references
-    items:
-    - name: Top Microsoft Sentinel workbooks
-      href: top-workbooks.md
-    - name: Entities reference
-      href: entities-reference.md
-    - name: UEBA reference
-      href: ueba-reference.md
-    - name: Anomalies reference
-      href: anomalies-reference.md
-    - name: Multistage attack detection scenarios
-      href: fusion-scenario-reference.md
-    - name: Watchlist template schemas
-      href: watchlist-schemas.md
-    - name: Manage hunting queries with REST-API
-      href: hunting-with-rest-api.md
-    - name: Enrich entities with geolocation data with REST-API
-      href: geolocation-data-api.md
-    - name: Threat intelligence upload API reference
-      href: stix-objects-api.md
-    - name: Legacy upload indicator API reference
-      href: upload-indicators-api.md
-  - name: Operations guide
-    href: ops-guide.md
-- name: Resources
+        - name: Microsoft Sentinel Logic Apps connector
+          href: /connectors/azuresentinel/
+        - name: Azure CLI
+          href: /cli/azure/sentinel
+        - name: Microsoft Sentinel PowerShell
+          href: /powershell/module/az.securityinsights/
+        - name: SentinelHealth table reference
+          href: health-table-reference.md
+        - name: SentinelAudit table reference
+          href: audit-table-reference.md
+        - name: Azure RBAC roles
+          items:
+            - name: All Azure roles
+              href: ../role-based-access-control/built-in-roles.md
+            - name: Microsoft Sentinel roles
+              href: ../role-based-access-control/built-in-roles.md#security
+    - name: Advanced Security Information Model (ASIM)
+      items:
+        - name: ASIM content
+          href: normalization-content.md
+        - name: ASIM parsers
+          href: normalization-parsers-list.md
+        - name: ASIM common fields
+          href: normalization-common-fields.md
+        - name: ASIM helper functions
+          href: normalization-functions.md
+        - name: ASIM known issues
+          href: normalization-known-issues.md
+        - name: ASIM entities
+          items:
+            - name: ASIM user entity
+              href: normalization-entity-user.md
+            - name: ASIM device entity
+              href: normalization-entity-device.md
+        - name: ASIM schemas
+          items:
+            - name: ASIM alert event schema
+              href: normalization-schema-alert.md
+            - name: ASIM audit event schema
+              href: normalization-schema-audit.md
+            - name: ASIM authentication schema
+              href: normalization-schema-authentication.md
+            - name: ASIM DNS schema
+              href: normalization-schema-dns.md
+            - name: ASIM DHCP schema
+              href: normalization-schema-dhcp.md
+            - name: ASIM file event schema
+              href: normalization-schema-file-event.md
+            - name: ASIM network session schema
+              href: normalization-schema-network.md
+            - name: ASIM process event schema
+              href: normalization-schema-process-event.md
+            - name: ASIM registry event schema
+              href: normalization-schema-registry-event.md
+            - name: ASIM user management schema
+              href: normalization-schema-user-management.md
+            - name: ASIM web session schema
+              href: normalization-schema-web.md
+            - name: Legacy network normalization schema
+              href: normalization-schema-v1.md
+    - name: Automation and response references
+      items:
+        - name: SOAR content catalog
+          href: sentinel-soar-content.md
+        - name: Automation rules reference
+          href: automation-rule-reference.md
+    - name: Data collection references
+      items:
+        - name: Data source schema reference
+          href: data-source-schema-reference.md
+        - name: Security alert schema reference
+          href: security-alert-schema.md
+        - name: CEF log field mapping
+          href: cef-name-mapping.md
+        - name: Windows security event sets
+          href: windows-security-event-id-reference.md
+        - name: DNS over AMA reference
+          href: dns-ama-fields.md
+        - name: Data connector definitions API reference
+          href: data-connector-ui-definitions-reference.md
+        - name: RestApiPoller data connectors API reference
+          href: data-connector-connection-rules-reference.md
+        - name: GCP data connectors API reference
+          href: data-connection-rules-reference-gcp.md
+        - name: Sample API requests for creating Data Collection Rules (DCRs)
+          href: api-dcr-reference.md
+        - name: Microsoft Purview Information Protection reference
+          href: microsoft-purview-record-types-activities.md
+        - name: Microsoft Defender XDR connector data type support
+          href: microsoft-365-defender-cloud-support.md
+    - name: Detection and analysis references
+      items:
+        - name: Top Microsoft Sentinel workbooks
+          href: top-workbooks.md
+        - name: Entities reference
+          href: entities-reference.md
+        - name: UEBA reference
+          href: ueba-reference.md
+        - name: Anomalies reference
+          href: anomalies-reference.md
+        - name: Multistage attack detection scenarios
+          href: fusion-scenario-reference.md
+        - name: Watchlist template schemas
+          href: watchlist-schemas.md
+        - name: Manage hunting queries with REST-API
+          href: hunting-with-rest-api.md
+        - name: Enrich entities with geolocation data with REST-API
+          href: geolocation-data-api.md
+        - name: Threat intelligence upload API reference
+          href: stix-objects-api.md
+        - name: Legacy upload indicator API reference
+          href: upload-indicators-api.md
+- name: Microsoft Sentinel blog
+  href: https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/bg-p/MicrosoftSentinelBlog
+- name: Pricing
+  href: https://azure.microsoft.com/pricing/details/azure-sentinel/
+- name: Build your skills for Microsoft Sentinel
   items:
-  - name: Sample workspace architecture
-    href: sample-workspace-designs.md
-  - name: Microsoft Sentinel blog
-    href: https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/bg-p/MicrosoftSentinelBlog
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/azure-sentinel/
-  - name: Build your skills for Microsoft Sentinel
-    items: 
     - name: Microsoft Applied Skill - Configure SIEM security operations using Microsoft Sentinel
       href: /credentials/applied-skills/configure-siem-security-operations-using-microsoft-sentinel/
-    - name: Microsoft Sentinel skill-up training  
+    - name: Microsoft Sentinel skill-up training
       href: skill-up-resources.md
     - name: Learn modules for Microsoft Sentinel
       href: /training/browse/?expanded=azure&products=microsoft-sentinel

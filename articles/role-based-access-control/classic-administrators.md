@@ -6,9 +6,10 @@ manager: pmwongera
 
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 03/12/2025
+ms.date: 12/05/2025
 ms.author: rolyon
 ms.reviewer: bagovind
+ms.custom: sfi-image-nochange
 ---
 
 # Azure classic subscription administrators
@@ -57,10 +58,6 @@ What should I do if I lose access to a subscription?
     - Follow steps to [elevate access to manage all subscriptions in a tenant](elevate-access-global-admin.md).
     - Assign the Owner role at subscription scope for a user.
     - Remove elevated access.
-
-What should I do if I have a strong dependency on Co-Administrators or Service Administrator?
-
-- Email ACARDeprecation@microsoft.com and describe your scenario.
 
 ## List classic administrators
 
@@ -146,7 +143,7 @@ Most users don't need the same permissions as a Co-Administrator. Consider a job
 
 1. Determine the [scope](scope-overview.md) user needs.
 
-1. Follow steps to [assign a job function role to user](role-assignments-portal.yml).
+1. Follow steps to [assign a job function role to user](/azure/role-based-access-control/role-assignments-portal).
 
 1. [Remove Co-Administrator](#how-to-remove-a-co-administrator).
 
@@ -156,7 +153,7 @@ Some users might need more access than what a job function role can provide. If 
 
 1. Assign the Owner role with conditions.
 
-    For example, assign the [Owner role at subscription scope with conditions](role-assignments-portal-subscription-admin.yml). If you have PIM, make the user [eligible for Owner role assignment](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles).
+    For example, assign the [Owner role at subscription scope with conditions](/azure/role-based-access-control/role-assignments-portal-subscription-admin). If you have PIM, make the user [eligible for Owner role assignment](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles).
 
 1. [Remove Co-Administrator](#how-to-remove-a-co-administrator).
 
@@ -234,7 +231,7 @@ Your Service Administrator might be a Microsoft account or a Microsoft Entra acc
 
 1. If Service Administrator user is a Microsoft Entra account and you want this user to keep the same permissions, [convert the Service Administrator to Owner role](#how-to-convert-the-service-administrator-to-owner-role).
 
-1. If you want to change the Service Administrator user to a different user, [assign the Owner role](role-assignments-portal.yml) to this new user at subscription scope without conditions. Then, [remove the Service Administrator](#how-to-remove-the-service-administrator).
+1. If you want to change the Service Administrator user to a different user, [assign the Owner role](/azure/role-based-access-control/role-assignments-portal) to this new user at subscription scope without conditions. Then, [remove the Service Administrator](#how-to-remove-the-service-administrator).
 
 ### How to convert the Service Administrator to Owner role
 
@@ -280,5 +277,5 @@ The easiest way to convert the Service Administrator role assignment to the [Own
 ## Next steps
 
 - [Understand the different roles](../role-based-access-control/rbac-and-directory-admin-roles.md)
-- [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml)
+- [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
 - [Understand Microsoft Customer Agreement administrative roles in Azure](../cost-management-billing/manage/understand-mca-roles.md)

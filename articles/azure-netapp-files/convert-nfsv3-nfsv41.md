@@ -34,7 +34,7 @@ Converting a volume between NFSv3 and NFSv4.1 does not require that you create a
 * You cannot convert a destination volume in a cross-region replication relationship. 
 * Converting an NFSv4.1 volume to NFSv3 will cause all advanced NFSv4.1 features such as ACLs and file locking to become unavailable. 
 * Converting a volume from NFSv3 to NFSv4.1 causes the `.snapshot` directory to be hidden from NFSv4.1 clients. The directory remains accessible.
-* Converting a volume from NFSv4.1 to NFSv3 causes the `.snapshot` directory to be visible. You can modify the properties of the volume to [hide the snapshot path](snapshots-edit-hide-path.md).
+* Converting a volume from NFSv4.1 to NFSv3 causes the `.snapshot` directory to be visible. You can modify the properties of the volume to [hide the snapshot path](snapshots-manage-policy.md#edit-the-hide-snapshot-path-option).
 
 ## Register the option 
 

@@ -63,7 +63,7 @@ which map to the corresponding actions in the connector:
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have an Azure subscription, 
-[sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * An IBM DB2 database, either cloud-based or on-premises
 

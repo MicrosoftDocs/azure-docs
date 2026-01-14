@@ -47,12 +47,12 @@ While the Basic SKU Public IPs are scheduled for retirement by September 2025, t
 
 If you have an Application Gateway V1, [Migration from v1 to v2](./migrate-v1-v2.md) can be currently done in two stages:
 - Stage 1: Migrate the configuration - Detailed instruction for Migrating the configuration can be found [here](./migrate-v1-v2.md#configuration-migration).
-- Stage 2: Migrate the client traffic -Client traffic migration varies depending on your specific environment. High level guidelines on traffic migration are provided [here](./migrate-v1-v2.md#traffic-migration).
+- Stage 2: Migrate the client traffic -Client traffic migration varies depending on your specific environment. We now have a [powershell script to retain the Public IP from V1 in V2](./migrate-v1-v2.md#public-ip-retention-script).High level guidelines on traffic migration are provided [here](./migrate-v1-v2.md#traffic-migration-recommendations).
 
 ### Can Microsoft migrate this data for me?
 
 No, Microsoft can't migrate a user's data on their behalf. Users must do the migration themselves by using the self-serve options provided.
-Application Gateway v1 is built on legacy components and the gateways are deployed in many different ways in their architecture. Therefore, customer involvement is required for migration. This also allows users to plan the migration during a maintenance window. This can help to ensure that the migration is successful with minimal downtime for the user's applications.
+Application Gateway V1 is built on legacy components and the gateways are deployed in many different ways in their architecture. Therefore, customer involvement is required for migration. This also allows users to plan the migration during a maintenance window. This can help to ensure that the migration is successful with minimal downtime for the user's applications.
 
 ### What is the time required for migration?
 
@@ -68,13 +68,29 @@ Post your issues and questions about migration to our [Microsoft Q&A](https://ak
 
 Yes, see [Caveats/Limitations](./migrate-v1-v2.md#caveatslimitations).
 
+### Does Application Gateway V2 support NTLM or Kerberos authentication?
+
+Yes. Application Gateway v2 now supports proxying requests with NTLM or Kerberos authentication.For more information, see [Dedicated backend connection](configuration-http-settings.md#dedicated-backend-connection).
+
+### How are backend certificate behaviours different between Application Gateway V1 and V2 SKUs? How should I manage the migration with the differences in behavior of backend certificate validations between V1 and V2 SKUs?
+
+Certificate Validation Behavior in Application Gateway
+
+V1 SKU - Application Gateway V1 uses authentication certificates. This mechanism performs an exact match between the certificate configured on Application Gateway and the certificate presented by the backend server. Further, V1 supports the use of default or fallback certificates if no Server Name Indication (SNI) is available during the TLS handshake.
+
+V2 SKU - By default, Application Gateway V2 performs a more comprehensive validation. It verifies the complete certificate chain as well as the Subject Name of the backend server certificate.[Learn more](ssl-overview.md#backend-tls-connection-application-gateway-to-the-backend-server)
+
+Migration Considerations
+
+When migrating from V1 to V2, these differences in certificate validation behavior may require adjustments. Use the [Backend HTTPS validation controls](configuration-http-settings.md#backend-https-validation-settings) available with the V2 SKU to temporarily disable validation if needed during migration. Disabling validation should only be used as a temporary measure to facilitate migration. For production environments, it is strongly recommended to re-enable full validation to maintain security.
+        
 ### Is this article and the Azure PowerShell script applicable for Application Gateway WAF product as well?
 
 Yes.
 
 ### Does the Azure PowerShell script also switch over the traffic from my v1 gateway to the newly created v2 gateway?
 
-No, the Azure PowerShell script only migrates the configuration. Actual traffic migration is your responsibility and under your control.
+No, the Azure PowerShell script only migrates the configuration. Actual traffic migration is your responsibility and under your control.You can use the [public IP retention script](./migrate-v1-v2.md#public-ip-retention-script) to retain the Public IP from V1 in V2.This operation has a downtime of 1-5 minutes. 
 
 ### Is the new v2 gateway created by the Azure PowerShell script sized appropriately to handle all of the traffic that is served by my v1 gateway?
 
@@ -86,7 +102,7 @@ No, the script doesn't replicate this configuration for v2. You must add the log
 
 ### Does this script support certificate uploaded to Azure Key Vault?
 
-Yes, you can download the certificate from Keyvault and provide it as input to the migration script.
+Yes, you can download the certificate from Keyvault and provide it as input to the migration script.The [enchanced cloning script](./migrate-v1-v2.md#1-enhanced-cloning-script) automatically copies all the SSL certs from V1 to the newly created V2.
 
 ### I ran into some issues with using this script. How can I get help?
 

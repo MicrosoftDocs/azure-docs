@@ -9,6 +9,8 @@ items:
     href: environment/overview.md
   - name: Compare web hosting options
     href: /azure/architecture/guide/technology-choices/compute-decision-tree?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
+  - name: Managed Instance overview
+    href: overview-managed-instance.md
 - name: Integrate AI with App Service
   href: overview-ai-integration.md
 - name: Get started
@@ -51,6 +53,9 @@ items:
         href: app-service-asp-net-migration.md
       - name: Migrate containerized .NET
         href: ../migrate/tutorial-app-containerization-aspnet-app-service.md?bc=/azure/bread/toc.json&toc=/azure/app-service/toc.json
+      - displayName: Migrate legacy apps with Managed Instance
+        name: Migrate to Managed Instance
+        href: quickstart-managed-instance.md
     - name: AI
       items:
         - name: Chatbot with OpenAI
@@ -61,7 +66,7 @@ items:
           href: deploy-intelligent-apps-dotnet-to-azure-sql.md
         - name: Add MCP server to app
           href: tutorial-ai-model-context-protocol-server-dotnet.md
-        - name: AI Foundry Agent calling web app
+        - name: Foundry agent calling web app
           href: tutorial-ai-integrate-azure-ai-agent-dotnet.md
         - name: Agentic web app (.NET)
           href: tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet.md
@@ -120,7 +125,7 @@ items:
           href: tutorial-ai-slm-spring-boot.md
         - name: Add MCP server to app
           href: tutorial-ai-model-context-protocol-server-java.md
-        - name: AI Foundry Agent calling web app
+        - name: Foundry agent calling web app
           href: tutorial-ai-integrate-azure-ai-agent-java.md
         - name: Agentic web app
           href: tutorial-ai-agent-web-app-semantic-kernel-java.md
@@ -150,7 +155,7 @@ items:
           href: tutorial-ai-slm-expressjs.md
         - name: Add MCP server to app
           href: tutorial-ai-model-context-protocol-server-node.md
-        - name: AI Foundry Agent calling web app
+        - name: Foundry agent calling web app
           href: tutorial-ai-integrate-azure-ai-agent-node.md
         - name: Agentic web app
           href: tutorial-ai-agent-web-app-langgraph-foundry-node.md
@@ -180,11 +185,11 @@ items:
           href: tutorial-ai-slm-fastapi.md
         - name: Add MCP server to app
           href: tutorial-ai-model-context-protocol-server-python.md
-        - name: AI Foundry Agent calling web app
+        - name: Foundry agent calling web app
           href: tutorial-ai-integrate-azure-ai-agent-python.md
         - name: Agentic web app
           href: tutorial-ai-agent-web-app-langgraph-foundry-python.md
-        - name: Web app from Azure AI Foundry
+        - name: Web app from Microsoft Foundry
           href: /azure/ai-foundry/tutorials/deploy-chat-web-app?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
   - name: PHP
     items:
@@ -218,6 +223,10 @@ items:
         href: wordpress-faq.md
 - name: Deployment and configuration
   items:
+    - name: Deploy Managed Instance
+      href: quickstart-managed-instance.md
+    - name: Configure a Managed Instance
+      href: configure-managed-instance.md
     - name: Deployment best practices
       href: deploy-best-practices.md
     - name: Deploy using ARM template
@@ -365,6 +374,8 @@ items:
           href: tutorial-auth-aad.md
         - name: App to app to another Azure service as user
           href: tutorial-connect-app-app-graph-javascript.md
+    - name: Connect by using agent identity
+      href: overview-agent-identity.md
 - name: Scaling and performance
   items:
     - name: Scale up server capacity
@@ -416,6 +427,14 @@ items:
       href: configure-authentication-api-version.md
     - name: Use file-based configuration
       href: configure-authentication-file-based.md
+    - name: Authenticate Microsoft Foundry tool calls
+      href: configure-authentication-ai-foundry-openapi-tool.md
+    - name: Authentication for MCP servers
+      items:
+        - name: Overview
+          href: configure-authentication-mcp.md
+        - name: Secure calls from Visual Studio Code
+          href: configure-authentication-mcp-server-vscode.md
 - name: Security and networking
   items:
     - name: Security overview

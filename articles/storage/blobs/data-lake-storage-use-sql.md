@@ -7,7 +7,9 @@ ms.service: azure-data-lake-storage
 ms.topic: tutorial
 ms.date: 11/18/2024
 ms.author: normesta
-ms.custom: devx-track-sql
+ms.custom:
+  - devx-track-sql
+  - sfi-image-nochange
 # Customer intent: "As a data analyst, I want to query data stored in Azure Data Lake using SQL in Synapse Analytics, so that I can perform analytics on my data efficiently and derive insights from it."
 ---
 
@@ -23,7 +25,7 @@ In this tutorial, you will:
 > - Create a Synapse Analytics workspace (if you don't have one).
 > - Run analytics on your data in Blob storage
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

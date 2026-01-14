@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 03/19/2025
 ---
 
-1. Navigate to the Function app creation blade and select **Functions Premium** or **App Service** as a hosting option.
+1. Navigate to the Function app creation blade. 
 
-   :::image type="content" source="../media/create-durable-task-scheduler/function-app-hosted-app-service.png" alt-text="Screenshot of hosting options for Function apps and selecting App Service.":::
+   :::image type="content" source="../media/create-durable-task-scheduler/function-app-hosted-app-service.png" alt-text="Screenshot of hosting options for Function apps.":::
 
-1. In the **Create Function App (App Service)** blade, fill in the information in the **Basics** tab. 
+1. In the **Create Function App (Flex Consumption)** blade, fill in the information in the **Basics** tab. 
 
-   :::image type="content" source="../media/create-durable-task-scheduler/function-app-basic-tab.png" alt-text="Screenshot of the Basic tab for creating an App Service plan Function app.":::
+   :::image type="content" source="../media/create-durable-task-scheduler/function-app-basic-tab.png" alt-text="Screenshot of the Basic tab for creating a Flex Consumption plan Function app.":::
 
    | Field | Description | 
    | ----- | ----------- | 
@@ -19,26 +19,27 @@ ms.date: 03/19/2025
    | Resource Group | Select an existing resource group or click **Create new** to create a new one. | 
    | Function App name | Create a unique name for your function app. | 
    | Do you want to deploy code or container image? | Keep the **Code** option selected. | 
+   | Region | Select [one of the supported regions](../durable-task-scheduler.md#limitations-and-considerations). | 
    | Runtime stack | Select the runtime you're using for this quickstart. | 
    | Version | Select your runtime stack version. | 
-   | Region | Select [one of the supported regions](../durable-task-scheduler.md#limitations-and-considerations). | 
-   | Operating System | Select your operating system. | 
+   | Instance size | Select an instance size, or use the default selection. [Learn more about instance sizes.](../../../flex-consumption-plan.md#instance-sizes) | 
+   | Zone Redundancy | Leave as the default **Disabled** setting. | 
 
 1. Select the **Durable Functions** tab. 
 
-1. Choose **Durable Task Scheduler** as the backend provider for your durable functions. 
+1. Choose **Azure managed: Durable Task Scheduler** as the backend provider for your Durable Functions. 
 
 1. Create a scheduler resource. This action automatically creates a task hub.
 
-   :::image type="content" source="../media/create-durable-task-scheduler/durable-functions-tab.png" alt-text="Screenshot of creating an App Service plan Function app.":::
+   :::image type="content" source="../media/create-durable-task-scheduler/durable-functions-tab.png" alt-text="Screenshot of creating a Flex Consumption Function app.":::
 
    | Field | Description | 
    | ----- | ----------- | 
-   | Storage backend | Select **Durable Task Scheduler**. | 
-   | Region | It's recommended that the scheduler and function app regions should be the same. | 
-   | Durable task scheduler | Use the scheduler name offered, or click **Create new** to create a custom name. | 
-   | Plan | Only **Dedicated** is available at the moment. | 
-   | Capacity units | Currently, you can only choose one Capacity Unit as an option. | 
+   | Storage backend | Select **Azure managed: Durable Task Scheduler**. | 
+   | Region | Make sure the scheduler and function app regions are the same. | 
+   | Durable Task Scheduler | Use the scheduler name offered, or click **Create new** to create a custom name. | 
+   | Plan | Select the [pricing plan](../durable-task-scheduler-dedicated-sku.md) that fits your project best. Check the [Choosing an orchestration framework](../choose-orchestration-framework.md) guide to determine which plan is best for production use. | 
+   | Capacity units | Only applicable when "Dedicated" pricing plan is selected. You can select up to 3 Capacity Units. | 
 
 1. Click **Review + create** to review the resource creation. 
 

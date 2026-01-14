@@ -7,7 +7,8 @@ ms.subservice: reservations
 ms.author: primittal
 ms.reviewer: primittal
 ms.topic: troubleshooting
-ms.date: 07/08/2025
+ms.date: 10/28/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Troubleshoot Azure reservation recommendations

@@ -6,7 +6,7 @@ author: zhiyuanliang-ms
 ms.service: azure-app-configuration
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 09/26/2024
+ms.date: 09/30/2025
 ms.author: zhiyuanliang
 ms.custom: quickstart, mode-other, devx-track-js
 #Customer intent: As a JavaScript developer, I want to use feature flags to control feature availability quickly and confidently.
@@ -20,7 +20,7 @@ The JavaScript Feature Management libraries extend the framework with feature fl
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule). For information about installing Node.js either directly on Windows or using the Windows Subsystem for Linux (WSL), see [Get started with Node.js](/windows/dev-environment/javascript/nodejs-overview)
 

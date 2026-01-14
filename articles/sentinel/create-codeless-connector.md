@@ -26,6 +26,8 @@ Connectors created using the CCF are fully SaaS, with no requirements for servic
 
 This article will show you how to complete each step and provide an [example codeless connector](#example) to build along the way.
 
+If you're a software development partner and need support to build a CCF data connector, contact Microsoft Sentinel Partners at [AzureSentinelPartner@microsoft.com](mailto:AzureSentinelPartner@microsoft.com) for assistance.
+
 ## How is this CCF different from the previous version?
 
 The initial version of the CCF was [announced](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/the-codeless-connector-platform/ba-p/3095455) in January of 2022. Since then, we've improved upon the platform and the [legacy release](create-codeless-connector-legacy.md) is no longer recommended. This new version of the CCF has the following key improvements:
@@ -74,6 +76,9 @@ We recommend testing your components with an API testing tool like one of the fo
    > the risk around exposing sensitive data to the public.
 
 ## Build the data connector
+
+>[!TIP]
+>If you're an Independent Software Vendor (ISV) and need support when building a Microsoft Sentinel integration using the Microsoft Sentinel Codeless Connector Framework, the Microsoft App Assure team may be able to assist. To engage the App Assure team, send an email to azuresentinelpartner@microsoft.com.
 
 There are four components required to build the CCF data connector.
 

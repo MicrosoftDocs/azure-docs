@@ -16,7 +16,7 @@ This quickstart shows you how to package an Azure Resource Manager template (ARM
 
 ## Prerequisites
 
-An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 > [!NOTE]
 > To use template spec with Azure PowerShell, you must install [version 5.0.0 or later](/powershell/azure/install-azure-powershell). To use it with the Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
@@ -42,7 +42,7 @@ You create a template spec from an ARM template. Copy the following template, an
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2025-01-01",
+      "apiVersion": "2025-06-01",
       "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -168,7 +168,7 @@ The template spec is a resource type named `Microsoft.Resources/templateSpecs`. 
               "resources": [
                 {
                   "type": "Microsoft.Storage/storageAccounts",
-                  "apiVersion": "2025-01-01",
+                  "apiVersion": "2025-06-01",
                   "name": "[[parameters('storageAccountName')]",
                   "location": "[[parameters('location')]",
                   "sku": {
@@ -419,7 +419,7 @@ To make a change to the template in your template spec, revise the template. The
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2025-01-01",
+      "apiVersion": "2025-06-01",
       "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -556,7 +556,7 @@ Instead of creating a new template spec for the revised template, add a new vers
               "resources": [
                 {
                   "type": "Microsoft.Storage/storageAccounts",
-                  "apiVersion": "2025-01-01",
+                  "apiVersion": "2025-06-01",
                   "name": "[[parameters('storageAccountName')]",
                   "location": "[[parameters('location')]",
                   "sku": {

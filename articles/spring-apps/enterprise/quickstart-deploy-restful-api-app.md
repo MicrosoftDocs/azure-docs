@@ -8,8 +8,14 @@ ms.date: 08/19/2025
 ms.update-cycle: 1095-days
 ms.author: karler
 ms.reviewer: v-shilichen
-ms.custom: devx-track-java, devx-track-extended-java, mode-other, engagement-fy23, devx-track-extended-azdevcli, devx-track-azurecli
-zone_pivot_groups: spring-apps-enterprise-or-consumption-plan-selection
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - mode-other
+  - engagement-fy23
+  - devx-track-extended-azdevcli
+  - devx-track-azurecli
+  - sfi-ga-nochange
 ---
 
 # Quickstart: Deploy RESTful API application to Azure Spring Apps
@@ -36,32 +42,28 @@ The following diagram shows the architecture of the system:
 
 ## 1. Prerequisites
 
-::: zone pivot="sc-enterprise"
-
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
-- An Azure subscription. If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - One of the following roles:
   - Global Administrator or Privileged Role Administrator, for granting consent for apps requesting any permission, for any API.
   - Cloud Application Administrator or Application Administrator, for granting consent for apps requesting any permission for any API, except Microsoft Graph app roles (application permissions).
   - A custom directory role that includes the [permission to grant permissions to applications](/entra/identity/role-based-access-control/custom-consent-permissions), for the permissions required by the application.
 
   For more information, see [Grant tenant-wide admin consent to an application](/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal).
-- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant).
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-- An Azure subscription, If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription, If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - One of the following roles:
   - Global Administrator or Privileged Role Administrator, for granting consent for apps requesting any permission, for any API.
   - Cloud Application Administrator or Application Administrator, for granting consent for apps requesting any permission for any API, except Microsoft Graph app roles (application permissions).
   - A custom directory role that includes the [permission to grant permissions to applications](/entra/identity/role-based-access-control/custom-consent-permissions), for the permissions required by the application.
 
   For more information, see [Grant tenant-wide admin consent to an application](/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal).
-- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant).
@@ -69,56 +71,7 @@ The following diagram shows the architecture of the system:
 
 ---
 
-::: zone-end
-
-::: zone pivot="sc-consumption-plan"
-
-### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
-
-- An Azure subscription, If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/) before you begin.
-- One of the following roles:
-  - Global Administrator or Privileged Role Administrator, for granting consent for apps requesting any permission, for any API.
-  - Cloud Application Administrator or Application Administrator, for granting consent for apps requesting any permission for any API, except Microsoft Graph app roles (application permissions).
-  - A custom directory role that includes the [permission to grant permissions to applications](/entra/identity/role-based-access-control/custom-consent-permissions), for the permissions required by the application.
-
-  For more information, see [Grant tenant-wide admin consent to an application](/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal).
-- [Git](https://git-scm.com/downloads).
-- [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant).
-
-### [Azure Developer CLI](#tab/Azure-Developer-CLI)
-
-- An Azure subscription, If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/) before you begin.
-- One of the following roles:
-  - Global Administrator or Privileged Role Administrator, for granting consent for apps requesting any permission, for any API.
-  - Cloud Application Administrator or Application Administrator, for granting consent for apps requesting any permission for any API, except Microsoft Graph app roles (application permissions).
-  - A custom directory role that includes the [permission to grant permissions to applications](/entra/identity/role-based-access-control/custom-consent-permissions), for the permissions required by the application.
-
-  For more information, see [grant admin consent](/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal#prerequisites).
-- [Git](https://git-scm.com/downloads).
-- [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-- A Microsoft Entra tenant. For instructions on creating one, see [Quickstart: Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant).
-- [Azure Developer CLI (AZD)](https://aka.ms/azd-install), version 1.0.2 or higher.
-
----
-
-::: zone-end
-
-::: zone pivot="sc-enterprise"
-
 [!INCLUDE [deploy-restful-api-app-with-enterprise-plan](includes/quickstart-deploy-restful-api-app/deploy-restful-api-app-with-enterprise-plan.md)]
-
-::: zone-end
-
-::: zone pivot="sc-consumption-plan"
-
-[!INCLUDE [deploy-restful-api-app-with-consumption-plan](includes/quickstart-deploy-restful-api-app/deploy-restful-api-app-with-consumption-plan.md)]
-
-## 5. Validate the app
-
-[!INCLUDE [validate-the-app-portal](includes/quickstart-deploy-restful-api-app/validate-the-app-portal.md)]
-
-::: zone-end
 
 #### Obtain the access token
 

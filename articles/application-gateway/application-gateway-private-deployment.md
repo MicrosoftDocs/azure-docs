@@ -6,8 +6,9 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 8/19/2025
+ms.date: 08/19/2025
 ms.author: mbender
+ms.custom: sfi-image-nochange
 #Customer intent: As an administrator, I want to evaluate Azure Private Application Gateway
 # Customer intent: "As a cloud administrator, I want to configure a Private Application Gateway with enhanced network controls, so that I can improve security and restrict data egress while managing inbound and outbound traffic effectively."
 ---
@@ -167,17 +168,6 @@ A list of all Azure CLI references for Private Link Configuration on Application
 ## Configuration of network controls
 
 After registering the feature, configuration of NSG, Route Table, and private IP address frontend configuration can be performed using any methods. For example: REST API, ARM Template, Bicep deployment, Terraform, PowerShell, CLI, or Portal.
-
-## Resource Changes
-
-After your gateway is provisioned, a resource tag is automatically assigned with the name of **EnhancedNetworkControl** and value of **True**. See the following example:
-
- ![Screenshot of the EnhancedNetworkControl tag.](./media/application-gateway-private-deployment/tags.png)
-
-The resource tag is cosmetic, and serves to confirm that the gateway has been provisioned with the capabilities to configure any combination of the private only gateway features. Modification or deletion of the tag or value doesn't change any functional workings of the gateway. 
-
-> [!TIP]
-> The **EnhancedNetworkControl** tag can be helpful when existing Application Gateways were deployed in the subscription prior to feature enablement and you would like to differentiate which gateway can utilize the new functionality.	
 
 ## Application Gateway Subnet 
 

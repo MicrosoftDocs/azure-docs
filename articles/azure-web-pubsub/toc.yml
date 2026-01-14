@@ -60,6 +60,8 @@
           href: howto-develop-eventhandler.md
         - name: Develop with local tunnel tool
           href: howto-web-pubsub-tunnel-tool.md
+        - name: Write an upstream server
+          href: howto-web-pubsub-write-upstream-server.md
         - name: Send client events to Event Hubs
           href: howto-develop-event-listener.md
         - name: Use server SDK with Azure Identity
@@ -92,8 +94,10 @@
           href: howto-secure-private-endpoints.md
         - name: Manage network access control
           href: howto-secure-network-access-control.md
-        - name: Secure outbound traffic through shared private endpoints
+        - name: Secure outbound traffic to Functions through shared private endpoints
           href: howto-secure-shared-private-endpoints.md
+        - name: Secure outbound traffic to Private Link service through shared private endpoints
+          href: howto-secure-shared-private-endpoints-private-link-service.md
         - name: Access a key vault through shared private endpoints
           href: howto-secure-shared-private-endpoints-key-vault.md
         - name: Use a managed identity

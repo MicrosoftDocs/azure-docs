@@ -10,6 +10,7 @@ ms.custom:
   - ignite-2024
   - build-2025
 zone_pivot_groups: python-mode-functions
+#customer intent: As a Python developer, I want to reference the supported features, syntax, and limitations for developing Azure Functions so that I can build and deploy Python serverless apps effectively.
 ---
 
 # Azure Functions Python developer guide
@@ -49,6 +50,8 @@ As a Python developer, you might also be interested in these articles:
 ::: zone-end
 
 ## [Hosting options](#tab/hosting)
+
+[!INCLUDE [functions-linux-consumption-retirement](../../includes/functions-linux-consumption-retirement.md)]
 
 + [Flex Consumption plan](./flex-consumption-plan.md): Linux-based serverless hosting option that features full support for managed identities, virtual networks, and flexible deployments. 
 + [Container hosting options](container-concepts.md): Run and deploy your Python functions on Linux in a Docker container, including integrated [Azure Container Apps hosting](../container-apps/functions-overview.md).
@@ -1079,13 +1082,13 @@ Azure Functions supports the following Python versions:
 
 | Python<sup>1</sup> versions | Support level |
 | ----- | ----- |
-| 3.13 | Preview<sup>2</sup> |
-| 3.12 | Generally available (GA) |
+| 3.13 | Generally available (GA)<sup>2</sup> |
+| 3.12 | GA |
 | 3.11 | GA | 
 | 3.10 | GA |
 
 1. Official Python distributions
-2. Python 3.13 support is in preview and currently isn't supported by the [Consumption plan](./consumption-plan.md). 
+2. Python 3.13 isn't supported when your app runs in the [Consumption plan](./consumption-plan.md). 
 
 > [!IMPORTANT]  
 > Python 3.13 support introduces some improvements and a few breaking changes. For more information, see [Python 3.13+ in Azure Functions](./python-313-changes.md).

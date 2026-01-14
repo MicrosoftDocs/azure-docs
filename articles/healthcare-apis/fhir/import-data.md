@@ -5,13 +5,13 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/06/2024
+ms.date: 10/09/2025
 ms.author: kesheth
 ---
 
 # Import FHIR data
 
-You can use the `import` operation to ingest FHIR&reg; data into the FHIR server with high throughput.
+You can use the `import` operation to ingest FHIR&reg; data into the FHIR server with high throughput. The import operation enables importing FHIR data in the NDJSON format to the FHIR server. 
 
 ## Import operation modes
 
@@ -41,7 +41,7 @@ The following table shows the difference between import modes.
 |------------- |-------------|-----|
 |Capability|Initial load of data into FHIR service|Continuous ingestion of data into FHIR service (Incremental or Near Real Time).|
 |Concurrent API calls|Blocks concurrent write operations|Data can be ingested concurrently while executing API CRUD operations on the FHIR server.|
-|Ingestion of versioned resources|Not supported|Enables ingestion of  multiple versions of FHIR resources in single batch while maintaining resource history.|
+|Ingestion of versioned resources|Not supported, only the latest version is retained, and lastUpdated is set to the time of import|Supported. Enables ingestion of multiple versions of FHIR resources in single batch while maintaining resource history and original lastUpdated values. <br>**Note**: Use incremental import mode if you need to retain historical versions or preserve original lastUpdated timestamps|
 |Retain lastUpdated field value|Not supported|Retain the lastUpdated field value in FHIR resources during the ingestion process.|
 |Billing| Doesn't incur any charge|Incurs charges based on successfully ingested resources. Charges are incurred per API pricing.|
 
@@ -54,6 +54,8 @@ To achieve the best performance with the `import` operation, consider the follow
 - **Import FHIR resource files as a single batch**. For optimal performance, import all the FHIR resource files that you want to ingest in the FHIR server in one `import` operation. Importing all the files in one operation reduces the overhead of creating and managing multiple import jobs. Optimally, the total size of files in a single import should be large (>=100 GB or >=100M resources, no upper limit).
 
 - **Limit the number of parallel import jobs**. You can run multiple `import` jobs at the same time, but might affect the overall throughput of the `import` operation. 
+
+To achieve high throughput,`import` operation runs on distributed computing infrastructure. It splits input files in data units and processes these units in parallel and independent of each other.
 
 ## Perform the import operation
 
@@ -248,7 +250,7 @@ The `import` operation fails and returns `403 Forbidden`. The response body cont
 
 **import operation failed for reason: Server failed to authenticate the request. Make sure the value of Authorization header is formed correctly including the signature.**
 Cause: The FHIR service uses a managed identity for source storage authentication. This error indicates a missing or incorrect role assignment.
-Solution: Assign the **Storage Blob Data Contributor** role to the FHIR server. For more information, see [Assign Azure roles](../../role-based-access-control/role-assignments-portal.yml?tabs=current).
+Solution: Assign the **Storage Blob Data Contributor** role to the FHIR server. For more information, see [Assign Azure roles](/azure/role-based-access-control/role-assignments-portal?tabs=current).
 
 ### 500 Internal Server Error
 

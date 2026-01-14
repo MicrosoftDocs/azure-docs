@@ -4,6 +4,7 @@ description: Manage settings, view resources, reconfigure metrics/logs, and more
 ms.topic: how-to
 zone_pivot_groups: elastic-resource-type
 ms.date: 07/30/2025
+ms.custom: sfi-image-nochange
 #customer intent: As an Azure developer, I want to use the Azure portal manage my Elastic resources that use search, log analytics, and security monitoring functions for Azure environments.
 
 ---
@@ -461,7 +462,7 @@ You can easily manage the corresponding Elastic deployments or Azure resources u
 
 ## Get support
 
-Contact [Elastic](https://cloud.elastic.co/help) for customer support.
+Contact [Elastic](https://cloud.elastic.co/help) for customer support. If your Elastic Cloud resource is not fully set up and you’re not able to access the Support page, send an email to support@elastic.co.
 
 You can also request support in the Azure portal from the [resource overview](#resource-overview). From the left menu, select **Support + Troubleshooting** > **New support request**.
 

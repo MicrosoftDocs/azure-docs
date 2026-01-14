@@ -16,7 +16,7 @@ In this guide you learn to create a Rewrite set for your Application Gateway and
 
 
 ## Prerequisites
-* You must have an Azure subscription. You can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* You must have an Azure subscription. You can create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * An existing Application Gateway resource configured with at least one Listener, Rule, Backend Setting and Backend Pool configuration. If you don't have one, you can create one by following the [QuickStart guide](quick-create-portal.md).
 
 ## Creating a Rewrite set

@@ -5,8 +5,10 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, kewear, azla
 ms.topic: how-to
-ms.custom: devx-track-dotnet
 ms.date: 09/06/2024
+ms.custom:
+  - devx-track-dotnet
+  - sfi-image-nochange
 # Customer intent: As a logic app workflow developer, I want to write and run my own .NET code to perform custom integration tasks.
 ---
 
@@ -40,7 +42,7 @@ For more information about limitations in Azure Logic Apps, see [Limits and conf
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - The most recent Visual Studio Code with the Azure Logic Apps (Standard) extension. To meet these requirements, see the prerequisites for [Create Standard workflows in single-tenant Azure Logic Apps with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 

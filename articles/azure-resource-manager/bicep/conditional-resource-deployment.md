@@ -60,7 +60,7 @@ param location string = resourceGroup().location
 ])
 param newOrExisting string = 'new'
 
-resource saNew 'Microsoft.Storage/storageAccounts@2023-04-01' = if (newOrExisting == 'new') {
+resource saNew 'Microsoft.Storage/storageAccounts@2025-06-01' = if (newOrExisting == 'new') {
   name: storageAccountName
   location: location
   sku: {
@@ -69,7 +69,7 @@ resource saNew 'Microsoft.Storage/storageAccounts@2023-04-01' = if (newOrExistin
   kind: 'StorageV2'
 }
 
-resource saExisting 'Microsoft.Storage/storageAccounts@2023-04-01' existing = if (newOrExisting == 'existing') {
+resource saExisting 'Microsoft.Storage/storageAccounts@2025-06-01' existing = if (newOrExisting == 'existing') {
   name: storageAccountName
 }
 
@@ -92,7 +92,7 @@ param vmName string
 param location string
 param logAnalytics string = ''
 
-resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2024-03-01' = if (!empty(logAnalytics)) {
+resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2025-04-01' = if (!empty(logAnalytics)) {
   name: '${vmName}/omsOnboarding'
   location: location
   properties: {

@@ -5,7 +5,7 @@ author: dominicbetts
 ms.service: azure-iot
 services: iot
 ms.topic: overview
-ms.date: 06/17/2025
+ms.date: 10/07/2025
 ms.author: dobett
 #Customer intent: As a newcomer to IoT, I want to understand what IoT is, what services are available, and examples of business cases so I can figure out where to start.
 ---
@@ -54,14 +54,14 @@ Both cloud-based and edge-based solutions have *devices* that collect data from 
 
 It's helpful to categorize IoT devices as follows:
 
-- **Device category 1**: Devices that connect directly to the cloud. This category includes devices that connect to cloud services such as [IoT Hub](../iot-hub/index.yml) using standard protocols such as HTTP, MQTT, or AMQP. These devices aren't relevant in edge-based solutions such as Azure IoT Operations.
+- **Cloud-connected device (category 1)**: Devices that connect directly to the cloud. This category includes devices that connect to cloud services such as [IoT Hub](../iot-hub/index.yml) using standard protocols such as HTTP, MQTT, or AMQP. These devices aren't relevant in edge-based solutions such as Azure IoT Operations.
 
-- **Device category 2**: Devices that connect to the cloud through an edge-based proxy or gateway. Examples in this category include devices that:
+- **Edge-connected device (category 2)**: Devices that connect to the cloud through an edge-based proxy or gateway. Examples in this category include devices that:
 
   - Connect indirectly to the cloud through the MQTT broker in Azure IoT Operations.
   - Connect indirectly to IoT Hub through an IoT Edge gateway.
 
-- **Device category 3**: These devices connect to an edge-based runtime through a connector that enables the devices to use a specific protocol. For example, an OPC UA server and its attached devices connect through a connector for OPC UA. These devices aren't relevant in cloud-based solutions such as Azure IoT Hub.
+- **Protocol-specific device (category 3)**: These devices connect to an edge-based runtime through a connector that enables the devices to use a specific protocol. For example, an OPC UA server and its attached devices connect through a connector for OPC UA. These devices aren't relevant in cloud-based solutions such as Azure IoT Hub.
 
 The following diagram shows the relationships between the device categories and the cloud services in a cloud-based solution:
 
@@ -187,7 +187,7 @@ The following table summarizes current options for devices and connectivity:
 | Connected object types          | Category 1 and 2 IoT devices | Category 2 and 3 IoT devices |
 | Device connectivity protocols   | HTTP, AMQP, MQTT v3.1.1      | Azure IoT Edge enables HTTP, AMQP, MQTT v3.1.1, and MQTT v5. <br><br> Azure IoT Operations enables MQTT v3.1.1, and MQTT v5 for category 2 devices, connectors enable other protocols such as OPC UA, ONVIF, SQL, and REST for category 3 devices. Custom connectors are possible. |
 | Device implementation           | Microsoft Azure IoT [device SDKs](iot-sdks.md#device-sdks) and [embedded device SDKs](iot-sdks.md#embedded-device-sdks)   | Category 2 devices can use any MQTT library to connect to the MQTT broker. <br><br> Category 3 devices typically come with standard firmware. |
-| Device management               | [IoT DPS](../iot-dps/index.yml), [Device Update](../iot-hub-device-update/index.yml), [IoT Central](../iot-central/index.yml)  | In Azure IoT Operations, use [Azure Device Registry](../iot-operations/discover-manage-assets/overview-manage-assets.md). Use Akri to enable automated device discovery with native protocols. <br><br> In IoT Edge, use [IoT DPS](../iot-dps/index.yml) for large-scale device management.|
+| Device management               | [IoT DPS](../iot-dps/index.yml), [Device Update](../iot-hub-device-update/index.yml), [IoT Central](../iot-central/index.yml), Azure Device Registry (preview)  | In Azure IoT Operations, use [Azure Device Registry](../iot-operations/discover-manage-assets/overview-manage-assets.md). Use Akri to enable automated device discovery with native protocols. <br><br> In IoT Edge, use [IoT DPS](../iot-dps/index.yml) for large-scale device management.|
 
 ## Services and applications
 
@@ -239,7 +239,7 @@ The following table summarizes current service and edge application options:
 
 | Current offerings (GA)    | Cloud-based solution | Edge-based solution |
 |---------------------------|----------------------|---------------------|
-| Services                  | [IoT Hub](../iot-hub/index.yml), [IoT DPS](../iot-dps/index.yml), [IoT Hub Device Update](../iot-hub-device-update/index.yml), [Azure Digital Twins](../digital-twins/index.yml) | [Azure IoT Operations](../iot-operations/overview-iot-operations.md), with [Azure Device Registry](../iot-operations/discover-manage-assets/overview-manage-assets.md). <br><br> You can also use [IoT Edge](../iot-edge/index.yml).  |
+| Services                  | [IoT Hub](../iot-hub/index.yml), [IoT DPS](../iot-dps/index.yml), [IoT Hub Device Update](../iot-hub-device-update/index.yml), [Azure Digital Twins](../digital-twins/index.yml), Azure Device Registry (preview)    | [Azure IoT Operations](../iot-operations/overview-iot-operations.md), with [Azure Device Registry](../iot-operations/discover-manage-assets/overview-manage-assets.md). <br><br> You can also use [IoT Edge](../iot-edge/index.yml).  |
 | Edge applications options | None                                                  | With [Azure IoT Operations](../iot-operations/overview-iot-operations.md), you can use [DAPR](../iot-operations/create-edge-apps/howto-deploy-dapr.md) (distributed application runtime apps). <br><br> With [IoT Edge](../iot-edge/index.yml), you can use IoT Edge modules.           |
 
 ### Deployment comparisons
@@ -261,7 +261,7 @@ Any IoT solution must address the following solution-wide concerns:
 
 ### Solution management
 
-The [adaptive cloud](/azure/adaptive-cloud/) approach unifies siloed teams, distributed sites, and disparate systems into a single operations, security, application, and data model. This approach enables you to use the same cloud and AI technologies to manage and monitor edge-based, cloud-based, and hybrid IoT solutions.
+The [adaptive cloud](https://azure.microsoft.com/solutions/adaptive-cloud) approach unifies siloed teams, distributed sites, and disparate systems into a single operations, security, application, and data model. This approach enables you to use the same cloud and AI technologies to manage and monitor edge-based, cloud-based, and hybrid IoT solutions.
 
 Solutions based on IoT Hub, IoT Central, and IoT Edge offer limited support for an adaptive cloud approach. Although IoT Hub, IoT Central, and IoT Edge instances are themselves Azure resources, they don't natively expose capabilities, such as device management and data transformation, as resources you can manage as standard Azure resources.
 

@@ -24,7 +24,7 @@ ACL inheritance is already available for new child items that are created under 
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/).
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Azure storage account that has hierarchical namespace (HNS) enabled. Follow [these instructions](create-data-lake-storage-account.md) to create one.
 - Azure CLI version `2.6.0` or higher.
 - One of the following security permissions:

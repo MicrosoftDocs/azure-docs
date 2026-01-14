@@ -19,7 +19,7 @@ If you don't have a Standard logic app, you can still follow this guide using th
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - [Visual Studio Code, which is free, the Azure Logic Apps (Standard) extension for Visual Studio Code, and other related prerequisites](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 

@@ -12,6 +12,8 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-t
 
 # Client libraries
 
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+
 Azure Cache for Redis is based on the Redis open-source, in-memory data store. Redis clients for many programming languages can access Azure Redis. Your application can use any client library that's compatible with open-source Redis to connect to your Azure Redis cache.
 
 Each client library has its own API that calls Redis servers using Redis commands. The client libraries are built to communicate with any Redis server.
@@ -55,8 +57,6 @@ Besides the reference documentation, you can use the following tutorials to get 
 - [Code an ASP.NET web app](../redis/web-app-cache-howto.md)
 - [Code an ASP.NET Core web app](../redis/web-app-aspnet-core-howto.md)
 - [Code a Java app](../redis/java-get-started.md)
-- [Code a Node.js app](../redis/nodejs-get-started.md)
-- [Code a Python app](../redis/python-get-started.md)
 
 ## Best practices for Redisson (Java)
 

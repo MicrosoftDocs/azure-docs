@@ -54,6 +54,17 @@ When using Azure SDKs to perform these operations, the beforeEnqueueTime paramet
 >[!NOTE]
 > The purge operation could lead to increased CPU usage as it involves multiple API calls. During purge, locked messages are not eligible for removal and will remain in the entity.
 
+## Quotas
+
+To ensure predictable performance across tiers, Azure Service Bus offers tier-based limits for the maximum number of messages that can be deleted in a single batch delete request:
+
+| Tier | Maximum batch size per request |
+| --- | --- |
+| Standard | 500 messages |
+| Premium  | 4,000 messages |
+
+These limits apply to all batch delete operations initiated via SDKs, REST APIs, and Service Bus Explorer.
+
 
 ## Next steps
 

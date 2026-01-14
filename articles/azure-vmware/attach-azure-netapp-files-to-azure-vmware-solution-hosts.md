@@ -3,7 +3,7 @@ title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
 description: Learn how to create Azure NetApp Files-based NFS datastores for Azure VMware Solution hosts.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 09/04/2025
+ms.date: 10/14/2025
 ms.custom: "references_regions, engagement-fy23"
 # Customer intent: "As an IT administrator, I want to attach Azure NetApp Files NFS datastores to Azure VMware Solution hosts, so that I can optimize storage performance and manage virtual machine workloads effectively in a cloud environment."
 ---
@@ -34,7 +34,7 @@ This diagram shows the typical architecture of Azure NetApp Files backed NFS dat
 Before you begin, review the [Performance best practices](#performance-best-practices) section to learn about optimal performance of NFS datastores on Azure NetApp Files volumes.
 
 >[!IMPORTANT]
->As of September 2025, creating and deleting a datastore in Azure VMware Solution and changing the service level of an Azure NetApp Files datastore requires appropriate permissions. If you're using built-in roles such as Owner and Contributor across the these two services, no changes are necessary. If you're using custom roles, ensure you have the correct permissions configured.
+>As of October 2025, creating and deleting a datastore in Azure VMware Solution and changing the service level of an Azure NetApp Files datastore requires appropriate permissions. If you're using built-in roles such as Owner and Contributor across the these two services, no changes are necessary. If you're using custom roles, ensure you have the correct permissions configured.
 ><details><summary>For a complete list of required permissions, expand this section.</summary>
 >
 >To create an Azure NetApp Files datastore, you must have the following permissions: 
@@ -127,7 +127,8 @@ There are some important best practices to follow for optimal performance of NFS
     >[!IMPORTANT]
     > If you've changed the Azure NetApp Files volumes performance tier or the volume size after creating the volume and datastore, see [Service level change for Azure NetApp files datastore](#service-level-change-for-azure-netapp-files-datastore) to ensure that volume/datastore metadata is in sync to avoid unexpected behavior in the portal or the API due to metadata mismatch. To do any kind of change to the volume you can use Azure Portal or any other supported solution (CLI\Powershell\API).
     
-- Create one or more volumes based on the required throughput and capacity. See [Performance considerations](../azure-netapp-files/azure-netapp-files-performance-considerations.md) for Azure NetApp Files to understand how volume size, service level, and capacity pool QoS type determines volume throughput. For assistance calculating workload capacity and performance requirements, contact your Azure VMware Solution or Azure NetApp Files field expert. The default maximum number of Azure NetApp Files datastores is 8, but it can be increased to 256 by submitting a support ticket. To submit a support ticket, see [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+- Create one or more volumes based on the required throughput and capacity. See [Performance considerations](../azure-netapp-files/azure-netapp-files-performance-considerations.md) for Azure NetApp Files to understand how volume size, service level, and capacity pool QoS type determines volume throughput. For assistance calculating workload capacity and performance requirements, contact your Azure VMware Solution or Azure NetApp Files field expert. The default maximum number of Azure NetApp Files datastores is 64.
+
 -  Ensure that the Azure VMware Solution private cloud and the Azure NetApp Files volumes are deployed within the same [availability zone](../reliability/availability-zones-overview.md) using the [availability zone volume placement](../azure-netapp-files/manage-availability-zone-volume-placement.md) in the same subscription. Information regarding your AVS private cloud's availability zone can be viewed from the overview pane within the AVS private cloud.
  
 For performance benchmarks that Azure NetApp Files datastores deliver for VMs on Azure VMware Solution, see [Azure NetApp Files datastore performance benchmarks for Azure VMware Solution](../azure-netapp-files/performance-benchmarks-azure-vmware-solution.md).  
@@ -268,8 +269,8 @@ Now that you attached a datastore on Azure NetApp Files-based NFS volume to your
 
 - **How many datastores are we supporting with Azure VMware Solution?**
 
-    The default maximum is 8 but it can be increased to 256 by submitting a support ticket. To submit a support ticket, go to [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
-
+    The default maximum is 64.
+  
 - **What latencies and bandwidth can be expected from the datastores backed by Azure NetApp Files?** 
 
     We're currently validating and working on benchmarking. For now, follow the [Performance best practices](#performance-best-practices) outlined in this article.
