@@ -1,5 +1,5 @@
 ---
-title: Configure root squash settings for NFS Azure file shares
+title: Configure Root Squash Settings for NFS Azure File Shares
 description: Root squash is a security feature that prevents unauthorized root-level access to the NFS server by client machines. Learn how to configure root squash for NFS Azure file shares.
 author: khdownie
 ms.service: azure-file-storage
@@ -12,7 +12,7 @@ ms.author: kendownie
 
 # Configure root squash for Azure Files
 
-Permissions for NFS file shares are enforced by the client OS rather than the Azure Files service. Root squash is an administrative security feature in NFS that prevents unauthorized root-level access to the NFS server by client machines. This functionality is an important part of protecting user data and system settings from manipulation by untrusted or compromised clients.
+Permissions for NFS file shares are enforced by the client operating system rather than the Azure Files service. Root squash is an administrative security feature in NFS that prevents unauthorized root-level access to the NFS server by client machines. This functionality is an important part of protecting user data and system settings from manipulation by untrusted or compromised clients.
 
 Administrators should enable root squash in environments where multiple users or systems access the NFS share, especially in scenarios where client machines aren't fully trusted. By converting root users to anonymous users, root squash ensures that even if a client machine is compromised, the attacker can't exploit root privileges to access or modify critical files on the NFS server.
 
@@ -61,7 +61,7 @@ The following table highlights the UID behavior observed from the server when sp
 
 ## Configure root squash on an existing NFS file share (Microsoft.Storage)
 
-You can configure root squash settings via the Azure portal, Azure PowerShell, or Azure CLI.
+For Azure classic file shares that use the Microsoft.Storage resource provider, you can configure root squash settings via the Azure portal, Azure PowerShell, or Azure CLI.
 
 # [Portal](#tab/azure-portal)
 
@@ -177,15 +177,17 @@ You can configure root squash settings via the Azure portal, Azure PowerShell, o
 
 ## Configure root squash on an existing NFS file share (Microsoft.FileShares)
 
-You can configure root squash settings on an existing NFS file share (Microsoft.FileShares) via the Azure portal.
+For Azure file shares that use the Microsoft.FileShares resource provider (preview), you can configure root squash settings via the Azure portal.
 
 1. Sign in to the Azure portal and navigate to the file share.
-2. In the service menu, under **Settings**, select **Configuration**.
-3. Toggle the Root squash setting as desired.
+
+1. In the service menu, under **Settings**, select **Configuration**.
+
+1. Toggle the Root squash setting as desired.
 
    ![image for microsoft.fileshares root squash](./media/nfs-root-squash/file-share-root-squash-configuration.png)
    
-4. Select **Save** to update the root squash value.
+1. Select **Save** to update the root squash value.
 
 ## See also
 

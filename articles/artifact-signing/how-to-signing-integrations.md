@@ -146,21 +146,29 @@ To sign by using Artifact Signing, you need to provide the details of your Artif
      "CorrelationId": "<Optional CorrelationId value>"
    }
    ```
+  <sup>1</sup> The optional `"CorrelationId"` field is an opaque string value that you can provide to correlate sign requests with your own workflows, such as build identifiers or machine names.
 
   > [!IMPORTANT]
   > The `"Endpoint"` URI value must match the region where you created your Artifact Signing account **and** the certificate profile. Use one of the region-specific URIs in the table below. A region/endpoint mismatch commonly causes a 403 Forbidden error and an internal `SignerSign()` failure during signing.
 
    | Region       | Region class fields  | Endpoint URI value  |
    |--------------|-----------|------------|
+   | Brazil South | BrazilSouth | `https://brs.codesigning.azure.net` |
+   | Central US  | CentralUS  | `https://cus.codesigning.azure.net` |
    | East US  | EastUS  | `https://eus.codesigning.azure.net` |
-   | West US3 <sup>[1]</sup>   | WestUS3  | `https://wus3.codesigning.azure.net` |
-   | West Central US  | WestCentralUS  | `https://wcus.codesigning.azure.net` |
-   | West US 2   | WestUS2   | `https://wus2.codesigning.azure.net` |
+   | Japan East | JapanEast | `https://jpe.codesigning.azure.net` |
+   | Korea Central | KoreaCentral | `https://krc.codesigning.azure.net` |
+   | North Central US  | NorthCentralUS  | `https://ncus.codesigning.azure.net` |
    | North Europe   | NorthEurope   | `https://neu.codesigning.azure.net`   |
-   | West Europe   | WestEurope   | `https://weu.codesigning.azure.net`  |
-
-   <sup>1</sup> The optional `"CorrelationId"` field is an opaque string value that you can provide to correlate sign requests with your own workflows, such as build identifiers or machine names.
-
+   | Poland Central | PolandCentral  | `https://plc.codesigning.azure.net` |
+   | South Central US  | SouthCentralUS  | `https://scus.codesigning.azure.net` |
+   | Switzerland North  | SwitzerlandNorth  | `https://swn.codesigning.azure.net` |
+   | West Central US  | WestCentralUS  | `https://wcus.codesigning.azure.net` |
+   | West Europe  | WestEurope   | `https://weu.codesigning.azure.net`   |
+   | West US  | WestUS  | `https://wus.codesigning.azure.net` |
+   | West US 2   | WestUS2   | `https://wus2.codesigning.azure.net` |
+   | West US 3   | WestUS3   | `https://wus3.codesigning.azure.net` |
+   
 ### Authentication
 
 This Task performs authentication using [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), which attempts a series of authentication methods in order. If one method fails, it attempts the next one until authentication is successful.

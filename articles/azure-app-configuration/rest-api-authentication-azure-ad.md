@@ -39,17 +39,7 @@ Before acquiring a Microsoft Entra token, you must identify what user you want t
 
 Request the Microsoft Entra token with a proper audience. The audience can also be referred to as the *resource* that the token is being requested for.
 
-For Azure App Configuration in the global Azure cloud, use the following audience: 
-
-`https://appconfig.azure.com`
-
-For Azure App Configuration in the national clouds, use the applicable audience specified in the table below:
-
-| **National cloud**                   | **Audience**                        |
-| ------------------------------------ | ----------------------------------- |
-| Azure Government                     | `https://appconfig.azure.us`        |
-| Microsoft Azure operated by 21Vianet | `https://appconfig.azure.cn`        |
-| Bleu                                 | `https://appconfig.sovcloud-api.fr` |
+For details on which audience to use for which cloud, refer to the [audience section of the  Entra ID access overview](./concept-enable-rbac.md#audience).
 
 <a name='azure-ad-authority'></a>
 

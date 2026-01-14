@@ -60,5 +60,66 @@ Follow these steps to assign App Configuration Data roles to your credential.
 3. On the **Members** tab, follow the wizard to select the credential you're granting access to and then select **Next**.
 4. Finally, on the **Review + assign** tab, select **Review + assign** to assign the role.
 
+## Configuring cloud-specific audience for Entra ID authentication
+
+When using Entra ID and the following Azure App Configuration libraries in clouds other than Azure cloud, Azure Government, and Microsoft Azure operated by 21Vianet, an appropriate Entra ID audience must be configured to enable authentication.
+
+### [.NET](#tab/dotnet)
+
+The Audience for the target cloud must be configured for the following packages.
+
+- Azure SDK for .NET: Azure.Data.AppConfiguration >= 1.6.0
+- .NET configuration provider: Microsoft.Extensions.Configuration.AzureAppConfiguration >= 8.2.0
+
+In the **Azure SDK for .NET**, audience is configured by utilizing the following API calls:
+
+* The ConfigurationClient constructor [accepts ConfigurationClientOptions](/dotnet/api/azure.data.appconfiguration.configurationclient.-ctor#azure-data-appconfiguration-configurationclient-ctor(system-uri-azure-core-tokencredential-azure-data-appconfiguration-configurationclientoptions))
+* ConfigurationClientOptions allows [Audience](/dotnet/api/azure.data.appconfiguration.configurationclientoptions.audience#azure-data-appconfiguration-configurationclientoptions-audience) to be set
+
+The following code snippet demonstrates how to instantiate a configuration client with a cloud-specific audience.
+
+```
+var configurationClient = new ConfigurationClient(
+    myStoreEndpoint,
+    new DefaultAzureCredential(),
+    new ConfigurationClientOptions
+    {
+        Audience = "{Cloud specific audience here}"
+    });
+```
+
+In the **.NET configuration provider**, audience is configured by utilizing the following API calls:
+
+* AzureAppConfigurationOptions exposes a [ConfigureClientOptions](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationoptions.configureclientoptions#microsoft-extensions-configuration-azureappconfiguration-azureappconfigurationoptions-configureclientoptions(system-action((azure-data-appconfiguration-configurationclientoptions)))) method
+
+The following code snippet demonstrates how to add the Azure App Configuration provider into a .NET application with a cloud-specific audience.
+
+```
+builder.AddAzureAppConfiguration(o =>
+    {
+        o.Connect(
+            myStoreEndpoint,
+            new DefaultAzureCredential());
+
+        o.ConfigureClientOptions(clientOptions => clientOptions.Audience = "{Cloud specific audience here}");
+    });
+```
+
+---
+
+### Audience
+
+For Azure App Configuration in the global Azure cloud, use the following audience: 
+
+`https://appconfig.azure.com`
+
+For Azure App Configuration in the national clouds, use the applicable audience specified in the table below:
+
+| **National cloud**                   | **Audience**                        |
+| ------------------------------------ | ----------------------------------- |
+| Azure Government                     | `https://appconfig.azure.us`        |
+| Microsoft Azure operated by 21Vianet | `https://appconfig.azure.cn`        |
+| Bleu                                 | `https://appconfig.sovcloud-api.fr` |
+
 ## Next steps
 Learn how to [use managed identities to access your App Configuration store](howto-integrate-azure-managed-service-identity.md).

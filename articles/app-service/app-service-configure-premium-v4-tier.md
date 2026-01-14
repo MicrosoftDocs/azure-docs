@@ -141,7 +141,7 @@ If your app runs where Premium v4 isn't available (either the deployment or the 
 
   When creating the plan, select the desired Premium v4 tier. This ensures the plan is in a deployment unit supporting Premium V4. Then, redeploy your application code to the new app. Even if you scale the new plan down to save costs, you can always scale back up to Premium v4 because the deployment unit supports it.
 
-- Use the **Development tools** > **Clone app** page to create an App Service plan with Premium v4 in your desired region, specifying the app settings and configuration to clone.
+- Use the **Development tools** > **Clone app** page to create an App Service plan with Premium v4 in your desired region, specifying the app settings and configuration to clone. Refer to the [current restrictions](app-service-web-app-cloning.md#current-restrictions) for app cloning.
 
   :::image type="content" source="media/app-service-configure-premium-tier/clone-app.png" alt-text="Screenshot showing how to clone your app.":::
 

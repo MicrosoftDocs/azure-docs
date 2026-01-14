@@ -117,14 +117,23 @@ An Artifact Signing account is a logical container that holds identity validatio
 
 You can create Artifact Signing resources only in Azure regions where the service is currently available. The following table lists the Azure regions that currently support Artifact Signing resources:
 
-| Region                               | Region class fields  | Endpoint URI value                   |
-| :----------------------------------- | :------------------- |:-------------------------------------|
-| East US                              | EastUS               | `https://eus.codesigning.azure.net`  |
-| West US                              | WestUS               | `https://wus.codesigning.azure.net`  |
-| West Central US                      | WestCentralUS        | `https://wcus.codesigning.azure.net` |
-| West US 2                            | WestUS2              | `https://wus2.codesigning.azure.net` |
-| North Europe                         | NorthEurope          | `https://neu.codesigning.azure.net`  |
-| West Europe                          | WestEurope           | `https://weu.codesigning.azure.net`  |
+ | Region            | Region class fields  | Endpoint URI value                   |
+ | :---------------- | :------------------- | :----------------------------------- |
+ | Brazil South      | BrazilSouth          | `https://brs.codesigning.azure.net`  |
+ | Central US        | CentralUS            | `https://cus.codesigning.azure.net`  |
+ | East US           | EastUS               | `https://eus.codesigning.azure.net`  |
+ | Japan East        | JapanEast            | `https://jpe.codesigning.azure.net`  |
+ | Korea Central     | KoreaCentral         | `https://krc.codesigning.azure.net`  |
+ | North Central US  | NorthCentralUS       | `https://ncus.codesigning.azure.net` |
+ | North Europe      | NorthEurope          | `https://neu.codesigning.azure.net`  |
+ | Poland Central    | PolandCentral        | `https://plc.codesigning.azure.net`  |
+ | South Central US  | SouthCentralUS       | `https://scus.codesigning.azure.net` |
+ | Switzerland North | SwitzerlandNorth     | `https://swn.codesigning.azure.net`  |
+ | West Central US   | WestCentralUS        | `https://wcus.codesigning.azure.net` |
+ | West Europe       | WestEurope           | `https://weu.codesigning.azure.net`  |
+ | West US           | WestUS               | `https://wus.codesigning.azure.net`  |
+ | West US 2         | WestUS2              | `https://wus2.codesigning.azure.net` |
+ | West US 3         | WestUS3              | `https://wus3.codesigning.azure.net` |
 
 ### Naming constraints for Artifact Signing accounts
 

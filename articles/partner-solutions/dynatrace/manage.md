@@ -92,6 +92,22 @@ To monitor resources for Azure Arc Machines, select **Dynatrace environment conf
 
 ## Monitor multiple subscriptions
 
+When you add or remove subscriptions for Dynatrace monitoring, the system updates the Monitoring Reader role assignment on the system-managed identity that's linked to the resource. 
+
+### Prerequisites
+
+- To perform these actions, you must have both of the following Azure permissions:
+
+   - `Microsoft.Authorization/roleAssignments/write`
+   - `Microsoft.Authorization/roleAssignments/delete`
+
+- The resource provider for Dynatrace (Dynatrace.Observability) must be registered in the target subscription.
+
+### Add subscriptions 
+
+> [!IMPORTANT]
+> When you link a subscription to a Dynatrace resource, ensure that the subscription isn't scope locked (read-only or delete locks). Scope locks can prevent the addition and removal of diagnostic settings. For more information, see [Lock your Azure resources](../../azure-resource-manager/management/lock-resources.md).
+
 To monitor multiple subscriptions: 
 
 1. In the left pane, select **Dynatrace environment config** > **Monitored Subscriptions**. 
@@ -117,6 +133,9 @@ Select **Refresh** to view the subscriptions and their monitoring status.
 After a subscription is added, the status changes to **Active**. 
 
 ## Remove subscriptions 
+
+> [!IMPORTANT]
+> When you unlink a subscription from a Dynatrace resource, ensure that the subscription isn't scope locked (read-only or delete locks). Scope locks can prevent the addition and removal of diagnostic settings. For more information, see [Lock your Azure resources](../../azure-resource-manager/management/lock-resources.md). 
 
 To unlink subscriptions from a Dynatrace resource: 
 

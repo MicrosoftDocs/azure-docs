@@ -744,8 +744,10 @@
               href: connect-aws.md
             - name: AWS S3 WAF logs
               href: connect-aws-s3-waf.md
-        - name: Troubleshoot AWS S3 connector issues
-          href: aws-s3-troubleshoot.md
+            - name: Enable attack disruption actions on AWS
+              href: aws-disruption.md
+            - name: Troubleshoot AWS S3 connector issues
+              href: aws-s3-troubleshoot.md
         - name: Cisco firewalls
           href: cisco-ftd-firewall.md
         - name: Google Cloud Platform connectors

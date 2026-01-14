@@ -159,7 +159,7 @@ This section defines fields related to the identification and classification of 
 | **OriginalUserType** | Optional | string | The user type as reported by the reporting device. |
 | **UserSessionId** | Optional | string | The unique ID of the user's session associated with the alert.<br><br>e.g. `a1bc2de3-fh4i-j5kl-6mn7-op8qr9st0u` |
 | **UserScopeId** | Optional | string | The scope ID, such as Microsoft Entra Directory ID, in which UserId and Username are defined.<br><br>e.g. `a1bc2de3-fh4i-j5kl-6mn7-op8qrs` |
-| **UserScope** | Optional | string | The scope, such as Microsoft Entra tenant, in which UserId and Username are defined. or more information and list of allowed values, see [UserScope](normalization-entity-user.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).<br><br>e.g. `Contoso Directory` |
+| **UserScope** | Optional | string | The scope, such as Microsoft Entra tenant, in which UserId and Username are defined. For more information and list of allowed values, see [UserScope](normalization-entity-user.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).<br><br>e.g. `Contoso Directory` |
 
 ### Process Fields
 
@@ -179,7 +179,7 @@ This section enables you to capture details related to a file entity involved in
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
 | **FileName** | Optional | string | Name of the file associated with the alert, without path or a location.<br><br>e.g. `Notepad.exe` |
-| **FilePath** | Optional | string | he full, normalized path of the target file, including the folder or location, the file name, and the extension.<br><br>e.g. `C:\Windows\System32\notepad.exe` |
+| **FilePath** | Optional | string | The full, normalized path of the target file, including the folder or location, the file name, and the extension.<br><br>e.g. `C:\Windows\System32\notepad.exe` |
 | **FileSHA1** | Optional | string | SHA1 hash of the file.<br><br>e.g. `j5kl6mn7op8qr9st0uv1` |
 | **FileSHA256** | Optional | string | SHA256 hash of the file.<br><br>e.g. `a1bc2de3fh4ij5kl6mn7op8qrs2de3` |
 | **FileMD5** | Optional | string | MD5 hash of the file.<br><br>e.g. `j5kl6mn7op8qr9st0uv1wx2yz3ab4c` |

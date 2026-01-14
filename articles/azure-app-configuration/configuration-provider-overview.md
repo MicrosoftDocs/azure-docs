@@ -72,7 +72,7 @@ Snapshots | [GA](./reference-dotnet-provider.md#snapshot) | GA | GA | WIP | [GA]
 Distributed Tracing | [GA](./reference-dotnet-provider.md#distributed-tracing) | WIP | WIP | WIP | WIP | N/A
 Health Check | [GA](./reference-dotnet-provider.md#health-check) | GA | WIP | WIP | WIP | N/A 
 Select by Tag Filters | [GA](./reference-dotnet-provider.md#load-specific-key-values-using-selectors) | WIP | GA | GA | [GA](./reference-javascript-provider.md#tag-filters) | [GA](./reference-go-provider.md#tag-filters)
-Snapshot Reference | [GA](./reference-dotnet-provider.md#snapshot-reference) | WIP | WIP | WIP | WIP | WIP
+Snapshot Reference | [GA](./reference-dotnet-provider.md#snapshot-reference) | WIP | WIP | WIP | [GA](./reference-javascript-provider.md#snapshot-reference) | WIP
 Load from Azure Front Door | [Preview](./reference-dotnet-provider.md#connect-to-azure-front-door) | WIP | WIP | WIP | [Preview](./reference-javascript-provider.md#connect-to-azure-front-door)  | WIP
 
 
