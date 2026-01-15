@@ -1,6 +1,6 @@
 ---
 title: Create Azure Virtual Enclave environment for workloads
-description: Set up the Azure Virtual Enclaves environment for AVD and AKS workloads.
+description: Set up the Azure Virtual Enclaves environment for complex workloads.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: tutorial
