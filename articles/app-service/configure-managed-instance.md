@@ -3,7 +3,7 @@ title: "Configure Managed Instance on Azure App Service (Preview)"
 description: Learn how to configure and deploy a Managed Instance on Azure App Service using Azure CLI and ARM templates. This guide covers general settings, storage mounts, registry keys, and Bastion/RDP access.
 author: msangapu-msft
 ms.author: msangapu
-ms.date: 11/18/2025
+ms.date: 01/15/2026
 ms.service: azure-app-service
 ms.topic: how-to
 keywords:
@@ -220,6 +220,7 @@ To configure Bastion:
 - [My Managed Instance on App Service plan has multiple web applications can I restart a single web application?](#my-managed-instance-on-app-service-plan-has-multiple-web-applications-can-i-restart-a-single-web-application)
 - [Can I assign Managed Identity to my web application within the Managed Instance on App Service plan?](#can-i-assign-managed-identity-to-my-web-application-within-the-managed-instance-on-app-service-plan)
 - [Is there a limitation on number of adapters that I can create for Managed Instance on App Service plan?](#is-there-a-limitation-on-number-of-adapters-that-i-can-create-for-managed-instance-on-app-service-plan)
+- [Which regions have support for Managed Instance on App Service?](#which-regions-have-support-for-managed-instance-on-app-service)
 
 ### What operating system (os) is running on Managed Instance on Azure App Service?
 
@@ -302,6 +303,14 @@ Yes, you can assign a _different_ Managed identity to a web application within t
 ### Is there a limitation on number of adapters that I can create for Managed Instance on App Service plan?
 
 No, there's no limit on the number of storage or registry adapters. You can only create a single configuration (install) script adapter for Managed Instance on App Service plan. The increasing the number of adapters could affect provisioning time for Managed Instance.
+
+### Which regions have support for Managed Instance on App Service?
+
+Currently support for Managed Instance on App Service is limited to East US, West Central US, East Asia, North Europe, and Australia East. More regions will be added to the preview over time. To get an updated list of regions, you can use the following CLI command (You must be using Azure CLI version 2.82.0 or higher).
+
+```azurecli
+az appservice list-locations --managed-instance-enabled --sku <Pv4 or PmV4 sku your require, for example P1v4>
+```
 
 ## Related content
 

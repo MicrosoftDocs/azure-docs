@@ -71,13 +71,13 @@ Changing the versioning policy, either at a system level or resource level, won'
 > The query parameter _summary=count and _count=0 can be added to _history endpoint to get a count of all versioned resources. This count includes soft deleted resources.
 
 ## Metadata-only updates and versioning
-If the versioning policy is set to either `versioned` or `version-update`, metadata-only updates (changes to FHIR resources that only affect the metadata) increment the resource version, create a new version, and save the old version as a historical record. If you are making metadata-only changes using PUT updates, you can use the query parameter _meta-history for PUT updates to configure whether or not the old version is saved as a historical record.
+If the versioning policy is set to either `versioned` or `version-update`, metadata-only updates (changes to FHIR resources that only affect the metadata) increment the resource version, create a new version, and save the old version as a historical record. If you are making metadata-only changes using PUT or PATCH updates, you can use the query parameter _meta-history for PUT and PATCH updates to configure whether or not the old version is saved as a historical record.
 - `_meta-history=true` is set by default. By default, the resource version is incremented, a new version is created, and the old version is saved as a historical record. The lastUpdated timestamp is updated to reflect the change.
 - `_meta-history=false` The `_meta-history` parameter can be configured to `false`. This means that the resource version is incremented, a new version is created, but the old version is not saved as a historical record. The lastUpdated timestamp is also still updated to reflect the change. This configuration can be used to help reduce data storage when making metadata-only updates.  
 
 
-### Example with `_meta-history=false` 
-To demonstrate the use of the `_meta-history` parameter, follow this example:
+### Example of `_meta-history=false` with PUT
+To demonstrate the use of the `_meta-history` parameter with PUT, follow this example:
 1. Create a resource:  
 `PUT <fhir server>/Patient/test-patient`
 ```
@@ -127,10 +127,85 @@ To demonstrate the use of the `_meta-history` parameter, follow this example:
     ]
 }
 ```
-5. This will increment resource version and create a new version 3, but the old version 2 will not be saved as a historical record. To see this, run: `GET <fhir server>/Patient/test-patient/_history`. Two versions should be returned, versions 1 and 3. Please note that `_meta-history=false` query parameter only affects metadata-only changes made using PUT. Using the query parameter to make metadata updates along with other non-metadata field value changes will increment the resource version and save the old version as a historical record.
+5. This will increment resource version and create a new version 3, but the old version 2 will not be saved as a historical record. To see this, run: `GET <fhir server>/Patient/test-patient/_history`. Two versions should be returned, versions 1 and 3. Please note that `_meta-history=false` query parameter only affects metadata-only changes made using PUT or PATCH. Using the query parameter to make metadata updates along with other non-metadata field value changes will increment the resource version and save the old version as a historical record.
 
 
+### Example of `_meta-history=false` with PATCH
+To demonstrate the use of the `_meta-history` parameter with PATCH, follow this example:
 
+1. Create a resource:  
+`PUT <fhir server>/Patient/test-patient`
+```
+{
+    "id": "test-patient",
+    "resourceType": "Patient",
+    "name": [
+        {
+            "family": "Doe",
+            "given": [ "John" ]
+        }
+    ]
+}
+```
+2. Create a new version of the resource with `PUT <fhir server>/Patient/test-patient`. This will have version 2.
+```
+{
+    "id": "test-patient",
+    "resourceType": "Patient",
+    "meta": {
+        "tag": [
+            {
+                "system": "test",
+                "code": "test"
+            }
+        ]
+    },
+    "name": [
+        {
+            "family": "Doe",
+            "given": [ "Jane" ]
+        }
+    ]
+}
+```
+3. Run: `GET <fhir server>/Patient/test-patient/_history`. Two versions should be returned, versions 1 and 2.
+4. Use PATCH to make a metadata-only update with `_meta-history=false` query parameter. The example uses PATCH to update only the Patient.meta.tag.system value. More information about PATCH [here](rest-api-capabilities.md#patch-and-conditional-patch).
+
+Using PATCH with FHIRPath patch:  
+`PATCH <fhir server>/Patient/test-patient?_meta-history=false`  
+`Content-type: application/fhir+json`
+
+
+``` 
+
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "operation",
+      "part": [
+        { "name": "type",  "valueCode": "replace" },
+        { "name": "path",  "valueString": "Patient.meta.tag[0].system" },
+        { "name": "value", "valueUri": "test2" }
+      ]
+    }
+  ]
+}
+```
+
+Using PATCH with JSON Patch:
+`PATCH <fhir server>/Patient/test-patient?_meta-history=false`  
+`Content-type: application/json-patch+json`  
+```
+[
+  {
+    "op": "replace",
+    "path": "/meta/tag/0/system",
+    "value": "test2"
+  }
+]
+```
+5. This will increment resource version and create a new version 3, but the old version 2 will not be saved as a historical record. To see this, run: `GET <fhir server>/Patient/test-patient/_history`. Two versions should be returned, versions 1 and 3. Please note that `_meta-history=false` query parameter only affects metadata-only changes made using PUT or PATCH. Using the query parameter to make metadata updates along with other non-metadata field value changes will increment the resource version and save the old version as a historical record.
 
 ## Next steps
 

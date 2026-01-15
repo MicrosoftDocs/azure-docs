@@ -38,7 +38,6 @@ The required Azure resources for this deployment are:
 - **Connection between the ExpressRoute circuit and the virtual network gateway with FastPath enabled**
 - **VPN Gateway (SKU: VpnGw5AZ) with Advanced Connectivity enabled**
 - **VPN Local Network Gateway**
-- (optional) **User Defined Route (UDR) to direct ExpressRoute traffic to the VPN Gateway**
 
 ## <a name="VNetGateway"></a>Create an ExpressRoute Gateway
 

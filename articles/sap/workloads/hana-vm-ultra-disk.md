@@ -76,7 +76,7 @@ The recommendations are often exceeding the SAP minimum requirements as stated e
 **The values listed are intended to be a starting point and need to be evaluated against the real demands.** The advantage with Azure Ultra disk is that the values for IOPS and throughput can be adapted without the need to shut down the VM or halting the workload applied to the system.   
 
 > [!NOTE]
-> Snapshot functionality with Ultra disk works distinctively different compared to Premium SSD (v1). For more information, see [Instant access snapshots for Azure managed disks](https://learn.microsoft.com/azure/virtual-machines/disks-instant-access-snapshots?tabs=azure-cli%2Cazure-cli-snapshot-state#snapshots-of-ultra-disks-and-premium-ssd-v2)
+> Snapshot functionality with Ultra disk works distinctively different compared to Premium SSD (v1). For more information, see [Instant access snapshots for Azure managed disks](/azure/virtual-machines/disks-instant-access-snapshots?tabs=azure-cli%2Cazure-cli-snapshot-state#snapshots-of-ultra-disks-and-premium-ssd-v2)
 
 
 ## Next steps

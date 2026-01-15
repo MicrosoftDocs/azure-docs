@@ -85,8 +85,6 @@ Visual authoring with Azure Repos Git integration supports source control and co
 
 ### Azure Repos settings
 
-:::image type="content" source="media/author-visually/repo-settings.png" alt-text="Screenshot showing the Configure a repository settings.":::
-
 The configuration pane walks you step-by-step through configuring each of the following code repository settings:
 
 | Setting | Description | Value |

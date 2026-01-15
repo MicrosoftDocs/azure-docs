@@ -102,6 +102,9 @@ To configure active geo-replication properly, the ID of the cache instance being
 
 `/subscriptions/<your-subscription-ID>/resourceGroups/<your-resource-group-name>/providers/Microsoft.Cache/redisEnterprise/<your-cache-name>/databases/default`
 
+> [!NOTE]
+> The linked database IDs are case sensitive.
+
 #### Create new Enterprise instance in an existing geo-replication group using Azure CLI
 
 This example creates a new Enterprise E10 cache instance called _Cache2_ in the West US region. Then, the script adds the cache to the `replicationGroup` active geo-replication group create in a previous procedure. This way, it's linked in an active-active configuration with _Cache1_.

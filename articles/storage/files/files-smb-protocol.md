@@ -1,10 +1,10 @@
 ---
-title: SMB file shares in Azure Files
+title: SMB File Shares in Azure Files
 description: Learn about file shares hosted in Azure Files using the Server Message Block (SMB) protocol, including features, security, and SMB Multichannel.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 03/19/2025
+ms.date: 01/15/2026
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
 # Customer intent: As an IT admin, I want to implement SMB file shares in Azure Files, so that I can provide scalable and secure file storage solutions for my organization's applications and end-user needs.
@@ -12,44 +12,32 @@ ms.custom: devx-track-azurepowershell
 
 # SMB Azure file shares
 
+**Applies to:** :heavy_check_mark: SMB Azure file shares
+
 Azure Files offers two industry-standard protocols for mounting Azure file share: the [Server Message Block (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) protocol and the [Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) protocol. Azure Files enables you to pick the file system protocol that is the best fit for your workload. Azure file shares don't support accessing an individual Azure file share with both the SMB and NFS protocols, although you can create SMB and NFS file shares within the same storage account. For all file shares, Azure Files offers enterprise-grade file shares that can scale up to meet your storage needs and can be accessed concurrently by thousands of clients.
 
 This article covers SMB Azure file shares. For information about NFS Azure file shares, see [NFS Azure file shares](files-nfs-protocol.md).
-
-## Applies to
-| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
-|-|-|-|-|:-:|:-:|
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Common scenarios
 
 SMB file shares are used for many applications including end-user file shares and file shares that back databases and applications. SMB file shares are often used in the following scenarios:
 
-- End-user file shares such as team shares, home directories, etc.
-- Backing storage for Windows-based applications, such as SQL Server databases or line-of-business applications written for Win32 or .NET local file system APIs. 
-- New application and service development, particularly if that application or service has a requirement for random IO and hierarchical storage.
+- End-user file shares such as team shares and home directories
+- Backing storage for Windows-based applications, such as SQL Server databases or line-of-business applications written for Win32 or .NET local file system APIs
+- New application and service development, particularly if that application or service has a requirement for random IO and hierarchical storage
 
 ## Features
 
 Azure Files supports the major features of SMB and Azure needed for production deployments of SMB file shares:
 
-- AD domain join and discretionary access control lists (DACLs).
-- Integrated serverless backup with Azure Backup.
-- Network isolation with Azure private endpoints.
-- High network throughput using SMB Multichannel (SSD file shares only).
-- SMB channel encryption including AES-256-GCM, AES-128-GCM, and AES-128-CCM.
-- Previous version support through VSS integrated share snapshots.
-- Automatic soft delete on Azure file shares to prevent accidental deletes.
-- Optionally internet-accessible file shares with internet-safe SMB 3.0+.
+- AD domain join and discretionary access control lists (DACLs)
+- Integrated serverless backup with Azure Backup
+- Network isolation with Azure private endpoints
+- High network throughput using SMB Multichannel (SSD file shares only)
+- SMB channel encryption including AES-256-GCM, AES-128-GCM, and AES-128-CCM
+- Previous version support through VSS integrated share snapshots
+- Automatic soft delete on Azure file shares to prevent accidental deletes
+- Optionally internet-accessible file shares with internet-safe SMB 3.0+
 
 SMB file shares can be mounted directly on-premises or can also be [cached on-premises with Azure File Sync](../file-sync/file-sync-introduction.md).  
 
@@ -57,7 +45,7 @@ SMB file shares can be mounted directly on-premises or can also be [cached on-pr
 
 All data stored in Azure Files is encrypted at rest using Azure storage service encryption (SSE). Storage service encryption works similarly to BitLocker on Windows: data is encrypted beneath the file system level. Because data is encrypted beneath the Azure file share's file system, as it's encoded to disk, you don't have to have access to the underlying key on the client to read or write to the Azure file share. Encryption at rest applies to both the SMB and NFS protocols.
 
-By default, all Azure file shares have encryption in transit enabled, so only SMB mounts using SMB 3.x with encryption are allowed. Mounts from clients that do not support SMB 3.x with SMB channel encryption are rejected if encryption in transit is enabled. 
+By default, all Azure file shares have encryption in transit enabled, so only SMB mounts using SMB 3.x with encryption are allowed. Mounts from clients that don't support SMB 3.x with SMB channel encryption are rejected if encryption in transit is enabled. 
 
 Azure Files supports AES-256-GCM with SMB 3.1.1 when used with Windows Server 2022 or Windows 11. SMB 3.1.1 also supports AES-128-GCM and SMB 3.0 supports AES-128-CCM. AES-128-GCM is negotiated by default on Windows 10, version 21H1 for performance reasons.
 
@@ -69,7 +57,7 @@ Azure Files offers multiple settings that affect the behavior, performance, and 
 
 ### SMB Multichannel
 
-SMB Multichannel enables an SMB 3.x client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on SSD file shares. SMB Multichannel is now enabled by default in all Azure regions.
+SMB Multichannel enables an SMB 3.x client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on SSD file shares. For Windows clients, SMB Multichannel is now enabled by default in all Azure regions.
 
 # [Portal](#tab/azure-portal)
 To view the status of SMB Multichannel, navigate to the storage account containing your SSD file shares and select **File shares** under the **Data storage** heading in the storage account table of contents. You should see the status of SMB Multichannel under the **File share settings** section. If you don't see it, make sure your storage account is of the FileStorage account kind.
@@ -81,7 +69,7 @@ To enable or disable SMB Multichannel, select the current status (**Enabled** or
 :::image type="content" source="media/files-smb-protocol/2-smb-multichannel-enable.png" alt-text="A screenshot of the dialog to enable/disable the SMB Multichannel feature.":::
 
 # [PowerShell](#tab/azure-powershell)
-To get the status of SMB Multichannel, use the `Get-AzStorageFileServiceProperty` cmdlet. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment before running these PowerShell commands.
+To get the status of SMB Multichannel, use the `Get-AzStorageFileServiceProperty` cmdlet. Replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment before running these PowerShell commands.
 
 ```PowerShell
 $resourceGroupName = "<resource-group>"
@@ -92,11 +80,12 @@ $storageAccount = Get-AzStorageAccount `
     -ResourceGroupName $resourceGroupName `
     -StorageAccountName $storageAccountName
 
-# If you've never enabled or disabled SMB Multichannel, the value for the SMB Multichannel 
-# property returned by Azure Files will be null. Null returned values should be interpreted 
-# as "default settings are in effect". To make this more user-friendly, the following 
-# PowerShell commands replace null values with the human-readable default values. 
-$defaultSmbMultichannelEnabled = $false
+# If you've never enabled or disabled SMB Multichannel and your file share was created before
+# October 24, 2025, the value for the SMB Multichannel property returned by Azure Files will be 
+# null. Null returned values should be interpreted as "default settings are in effect". 
+# To make this more user-friendly, the following PowerShell commands replace null values with 
+# the human-readable default values. 
+$nullSmbMultichannelEnabled = $false
 
 # Get the current value for SMB Multichannel
 Get-AzStorageFileServiceProperty -StorageAccount $storageAccount | `
@@ -107,7 +96,7 @@ Get-AzStorageFileServiceProperty -StorageAccount $storageAccount | `
             Name = "SmbMultichannelEnabled"; 
             Expression = { 
                 if ($null -eq $_.ProtocolSettings.Smb.Multichannel.Enabled) { 
-                    $defaultSmbMultichannelEnabled 
+                    $nullSmbMultichannelEnabled 
                 } else { 
                     $_.ProtocolSettings.Smb.Multichannel.Enabled 
                 } 
@@ -124,22 +113,23 @@ Update-AzStorageFileServiceProperty `
 ```
 
 # [Azure CLI](#tab/azure-cli)
-To get the status of SMB Multichannel, use the `az storage account file-service-properties show` command. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment before running these Bash commands.
+To get the status of SMB Multichannel, use the `az storage account file-service-properties show` command. Replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment before running these commands.
 
 ```bash
 RESOURCE_GROUP_NAME="<resource-group>"
 STORAGE_ACCOUNT_NAME="<storage-account>"
 
-# If you've never enabled or disabled SMB Multichannel, the value for the SMB Multichannel 
-# property returned by Azure Files will be null. Null returned values should be interpreted 
-# as "default settings are in effect". To make this more user-friendly, the following 
-# PowerShell commands replace null values with the human-readable default values. 
+# If you've never enabled or disabled SMB Multichannel and your file share was created before
+# October 24, 2025, the value for the SMB Multichannel property returned by Azure Files will be 
+# null. Null returned values should be interpreted as "default settings are in effect". 
+# To make this more user-friendly, the following commands replace null values with 
+# the human-readable default values. 
 
 ## Search strings
 REPLACESMBMULTICHANNEL="\"smbMultichannelEnabled\": null"
 
 # Replacement values for null parameters. 
-DEFAULTSMBMULTICHANNELENABLED="\"smbMultichannelEnabled\": false"
+NULLSMBMULTICHANNELENABLED="\"smbMultichannelEnabled\": false"
 
 # Build JMESPath query string
 QUERY="{" 
@@ -153,7 +143,7 @@ protocolSettings=$(az storage account file-service-properties show \
     --query "${QUERY}")
 
 # Replace returned values if null with default values 
-PROTOCOL_SETTINGS="${protocolSettings/$REPLACESMBMULTICHANNEL/$DEFAULTSMBMULTICHANNELENABLED}"
+PROTOCOL_SETTINGS="${protocolSettings/$REPLACESMBMULTICHANNEL/$NULLSMBMULTICHANNELENABLED}"
 
 # Print returned settings
 echo $PROTOCOL_SETTINGS
@@ -179,7 +169,7 @@ To enable all SMB Multichannel fixes for Windows Server 2016 and Windows 10 vers
 
 ```PowerShell
 Set-ItemProperty `
-    -Path "HKLM:SYSTEM\CurrentControlSet\Policies\Microsoft\FeatureManagement\Overrides" `
+    -Path "HKLM:\SYSTEM\CurrentControlSet\Policies\Microsoft\FeatureManagement\Overrides" `
     -Name "2291605642" `
     -Value 1 `
     -Force

@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 12/17/2025
+ms.date: 01/15/2026
 ai-usage: ai-assisted
 
 ---
@@ -963,9 +963,7 @@ For storage destinations like Azure Data Lake or Fabric OneLake, you can specify
 
 ### Node connections
 
-Node connections define the data flow path between nodes. Each connection specifies a source node and destination node, creating the processing pipeline. Connections can optionally include schema validation to ensure data integrity between processing stages.
-
-When you specify schema validation, the system validates data format and structure as it flows between nodes. The validation helps catch data inconsistencies early and ensures WASM modules receive data in the expected format.
+Node connections define the data flow path between nodes. Each connection specifies a source node and destination node, creating the processing pipeline. Connections can optionally include schema to have the schema be provided to the module at initialization, allowing for schema validation like in [this example](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/schema-registry-scenario/operators/filter/src/lib.rs).
 
 # [Operations experience](#tab/portal)
 

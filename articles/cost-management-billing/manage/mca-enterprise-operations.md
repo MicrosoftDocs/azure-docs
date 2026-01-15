@@ -6,7 +6,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 07/29/2025
+ms.date: 01/14/2026
 ms.author: jkinma
 ms.custom:
 - build-2025
