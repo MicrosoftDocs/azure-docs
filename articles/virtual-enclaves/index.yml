@@ -182,8 +182,8 @@ landingContent:
             url: deploy-azure-cosmos-db-service-catalog.md
           - text: Deploy Function App from the service catalog
             url: deploy-app-service-function-app-service-catalog.md
-          # - text: Deploy Key Vault from the service catalog
-          #   url: deploy-key-vault-service-catalog.md
+          - text: Deploy Key Vault from the service catalog
+            url: deploy-key-vault-service-catalog.md
           - text: Deploy Azure SQL from the service catalog
             url: deploy-azure-sql-service-catalog.md
           - text: Deploy Azure Service Bus from the service catalog
