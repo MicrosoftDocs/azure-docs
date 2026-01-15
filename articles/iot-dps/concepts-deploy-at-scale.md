@@ -41,14 +41,20 @@ With this logic, devices delay reconnecting for a random amount of time, between
 
 For more information on the timing of retry operations, see [Retry timing](https://github.com/Azure/azure-sdk-for-c/blob/main/sdk/docs/iot/mqtt_state_machine.md#retry-timing).
 
-## Reprovision devices
+## Reconnect vs reprovision a device
 
-Reprovisioning is the process where a device needs to be provisioned to an IoT hub after having been successfully connected previously. There can be many reasons that result in a need for a device to reconnect to an IoT hub, such as:
+Reconnect is the process where a device needs to reconnect to an IoT hub after having been successfully connected previously through DPS and having being disconnected for some reason. 
+Reprovisioning is the process where a device needs to be provisioned to a new IoT hub, given it's for example moving to a Hub on a different region, moving from development to test Hub, or having to be reinitialized in the previosuly allocated hub.
+
+There can be many reasons that result in a need for a device to reconnect to an IoT hub, such as:
 
 * A device could reboot due to power outage, loss in network connectivity, geo-relocation, firmware updates, factory reset, or certificate key rotation.
-* The IoT Hub instance could be unavailable due to an unplanned IoT Hub outage.
+* The IoT Hub instance could be temporarily unavailable due to an unplanned IoT Hub outage.
 
 You shouldn't need to go through the provisioning process every time a device reboots. Most devices that are reprovisioned end up connected to the same IoT hub. Instead, a device should attempt to connect to its IoT hub directly using the information that was cached from a previous successful connection.
+
+When you should consider reprovisioning a device:
+* Change of IoT Hub: Assigning devices to a different IoT hub should be done by using a [custom allocation policy](tutorial-custom-allocation-policies.md).
 
 ### Devices that can store a connection string
 
@@ -180,14 +186,9 @@ When devices connect to IoT Hub via DPS, they should use the following logic in 
 
 At any time, devices should be capable of responding to a user-initiated reprovisioning command.
 
-If devices get disconnected from IoT Hub, devices should try to reconnect directly to the same IoT hub for 15-30 minutes before attempting to go back to DPS.  
+If devices get disconnected from IoT Hub, devices should try to reconnect directly to the same IoT hub for 15-30 minutes before attempting to go back to DPS to reallocate to a new IoT Hub (Notice that in this scenario if the Hub is down and the IoT Hub has not been removed from the DPS enrollment, devices would attempt to reconnect to the same hub that is out, and this will cause a succesful provisoning to fail to connect to hub and will cause an exponential effect of failures. You should first ensure that teh IoT Hubs have not been removed from your enviorment and are available).  
 
-Other IoT Hub scenarios when using DPS:
 
-* IoT Hub failover: Devices should continue to work as connection information shouldn't change and logic is in place to retry the connection once the hub is available again.
-* Change of IoT Hub: Assigning devices to a different IoT hub should be done by using a [custom allocation policy](tutorial-custom-allocation-policies.md).
-* Retry IoT Hub connection: You shouldn't use an aggressive retry strategy. Instead, allow a gap of at least a minute before a retry.
-* IoT Hub partitions: If your device strategy leans heavily on telemetry, the number of device-to-cloud partitions should be increased.
 
 ## Monitor devices
 
