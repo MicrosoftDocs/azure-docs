@@ -10,7 +10,7 @@ ms.date: 9/30/2025
 
 # Application installation using RemoteApp Virtual Machine
 
-Install an application via RemoteAppVM Template
+Install an application via Virtual Machine service catalog template.
 
 The application installation scripting supports the following scenarios:
 
@@ -24,8 +24,8 @@ The application installation scripting supports the following scenarios:
 
 
 ## Prerequisites
-The RemoteApp template supports scripting to automate the process of installing applications and configuring the VM. Before you can start using the RemoteAppVM app installation, you need to make sure you have the following:
-- You need a [community](./what-community.md), [enclave](./what-enclave.md), [workload](./what-workload.md), and at least one [workload resource group](./what-workload.md#workload-resource-group) and permissions to create resources inside the workload resource group.
+The RemoteApp template supports scripting to automate the process of installing applications and configuring the Virtual Machine. Before you can start using the RemoteAppVM app installation, you need to make sure you have:
+- A [community](./what-community.md), [enclave](./what-enclave.md), [workload](./what-workload.md), and at least one [workload resource group](./what-workload.md#workload-resource-group) and permissions to create resources inside the workload resource group.
 - Enable `Advanced` [maintenance mode](./maintenance-mode.md) for your enclave so you can add the Private Link resources to your enclave managed resource group.
 - A [container](/azure/storage/blobs/blob-containers-portal) (artifacts) within the [storage account](./deploy-storage-account-service-catalog.md).
 - A [community endpoint](./create-community-endpoint-portal.md) to the storage account and AzToolBox.
@@ -54,10 +54,10 @@ The RemoteApp template supports scripting to automate the process of installing 
 
 ### Azure Resources Deployed
 
-- RemoteApp example VM
-  - NIC
-  - WindowsVM 
-  - Windows VM Extension
+- RemoteApp example Virtual Machine
+  - Disk
+  - Windows Virtual Machine 
+  - Windows Virtual Machine Extension
 
 
 ### Software Deployed
@@ -81,7 +81,7 @@ The RemoteApp template supports scripting to automate the process of installing 
                     - (optional) azcopy.exe
         ```
 2. Download [Vscode.exe file](https://code.visualstudio.com/sha/download?build=stable&os=win32-x64) and upload the installer (.exe file) into the app folder
-3. Upload `main.ps1` script, using whichever version of VS Code you installed into the app folder:
+3. Upload `main.ps1` script, using whichever version of Visual Studio Code you installed into the app folder:
     ```
         # Main powershell script that installs the application
 
@@ -93,17 +93,17 @@ The RemoteApp template supports scripting to automate the process of installing 
 
 ![Screenshot showing workload overview page.](./media/workload-overview.png)
 
-2. For `Service`, select `RemoteApp VM`.
+2. For `Service`, select `Virtual Machine`.
 3. For `Version`, if not selected by default, select the most recent version (for example: 1.0.0(latest)).
 
-![Screenshot showing RemoteApp VM selected from the service catalog list.](./media/service-catalog-list-virtual-machine.png)
+![Screenshot showing Virtual Machine selected from the service catalog list.](./media/service-catalog-list-virtual-machine.png)
 
 4. Select `Next`
 5. Basics Tab:
-    - For `Virtual Machine name`, input the name of the VM.
-    - For  `Admin username` and `Admin password`, input the username and password you use to log into your VM.
+    - For `Virtual Machine name`, input the name of the Virtual Machine.
+    - For  `Admin username` and `Admin password`, input the username and password you use to log into your Virtual Machine.
 6. App Tab:
-    - For `App folder URI`, input the URI to the container. Select on an artifact within the container, copy its URI, **remove everything** after the folder name in the URI.
+    - For `App folder URI`, input the URI to the container. Select an artifact within the container, copy its URI, **remove everything** after the folder name in the URI.
         ![Screenshot showing the application folder URI for use in this deployment.](./media/remoteapp-vm-app-folder-uri.png)
 
         | Original URI | Fixed URI |
@@ -114,7 +114,7 @@ The RemoteApp template supports scripting to automate the process of installing 
         - storageaccountexample.blob.core.windows.net/artifacts/vscode
     - For `Main Script` input the name (ex: main.ps1) of the script that installs the application.
 
-    ![Screenshow showing the App tab during a RemoteApp VM deployment.](./media/remoteapp-app-tab.png)
+    ![Screenshow showing the App tab during a Virtual Machine deployment.](./media/remoteapp-app-tab.png)
 
 ### Private Container:
 
@@ -127,7 +127,7 @@ The RemoteApp template supports scripting to automate the process of installing 
     - For the container name, copy the name of the private container that holds the artifacts.
     - Example storage container resource ID: `subscriptions/000000a0-a0a0-000a-00a0-0000aaa0a000/resourceGroups/providers/Microsoft.Storage/storageAccounts/storage-account-example/blobServices/default/containers/container-name`
 3. If the parameter `AzCopy File URI` is displayed, add the URI to the azcopy.exe from the container
-    - Select on the file, and copy its URL:
+    - Select the file, and copy its URL:
 
     ![Screenshot showing storage container organization structure with azcopy.exe file.](./media/remoteapp-container-artifacts.png)
     
@@ -138,7 +138,7 @@ Example Private Container Parameters:
 ![Screenshot showing the App tab parameters completed.](./media/remoteapp-tab-parameters.png)
 
 4. Select `Review and Create`, if validations pass, select `Create`.
-5. Once resources are deployed, check to see if app is installed on application VM by connecting to the Application VM. [Connect to the Application VM](./deploy-remoteapp-vm-service-catalog.md#connect-to-the-application-vm)
+5. Once resources are deployed, check to see if app is installed on application Virtual Machine by connecting to the Application Virtual Machine. [Connect to the Application Virtual Machine](./deploy-virtual-machine-service-catalog.md#connect-to-the-application-virtual-machine)
 
 ## WinGet Installation
 
@@ -155,7 +155,7 @@ Folder Structure:
 [ ![Screenshot showing the artifacts needed to install winget onto the RemoteApp to then install and manage other applications using winget.](./media/remoteapp-winget-folder.png) ](./media/remoteapp-winget-folder.png#lightbox)
 
 1. Download installers and upload them to the winget folder in storage container
-    1. WinGet MSIX bundle ([Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle](https://github.com/microsoft/winget-cli/releases/tag/v1.8.1911))
+    1. WinGet `MSIX` bundle ([Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle](https://github.com/microsoft/winget-cli/releases/tag/v1.8.1911))
     2. Windows UI Library ([Microsoft.UI.Xaml.2.8.x64.appx](https://github.com/microsoft/microsoft-ui-xaml/releases/tag/v2.8.6))
 2. Create and upload scripts
     1. main.ps1

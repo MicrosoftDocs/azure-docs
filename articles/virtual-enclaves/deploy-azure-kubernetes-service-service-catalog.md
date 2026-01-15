@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure Kubernetes Service (AKS) from the service catalog into a workload
-description: Deploy Azure Kubernetes Service (AKS) from the service catalog into a workload.
+description: Deploy Azure Kubernetes Service from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.date: 9/30/2025
 
 Azure Virtual Enclaves (AVE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this quickstart, you:
 
-- Deploy a service catalog template for a RemoteApplication into an existing workload from the Portal.
+- Deploy a service catalog template for Azure Kubernetes Service (AKS) into an existing workload from the Portal.
 
 > [!NOTE]
 > 
@@ -31,7 +31,7 @@ There are guardrail policies on the enclaves to ensure enclave resources are usi
 
 1. Subnet for Private Endpoints: You can create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation. The private endpoint subnet should have no [subnet delegation](/azure/virtual-network/subnet-delegation-overview) for the private endpoints to work properly.
   - Create new subnet `AzureVirtualEnclaveSubnet /26 [example: 10.0.2.0 - 10.0.2.63]`
-    - Add NSG rule set
+    - Add Network Security Group (NSG) rule set
     - Don't delegate this subnet
     - Use this subnet for private endpoint resources
   - Create new subnet `aksSubnet /26 [example: 10.0.2.64 - 10.0.2.127]`
@@ -47,10 +47,10 @@ There are guardrail policies on the enclaves to ensure enclave resources are usi
 2. Quickly create these [Private DNS Zones](./deploy-private-dns-zones-service-catalog.md) based on what you create next:
     - `Key Vault` required when creating a Key Vault from this template or the more customizable [Key Vault template](./deploy-key-vault-service-catalog.md).
     - `Storage File`, `Storage Queue`, `Storage Blob`, and `Storage Table` are required when making a Storage Account from this template or the more customizable [Storage Account template](./deploy-storage-account-service-catalog.md).
-    - `privatelink.{regionName}.azmk8s.io` under `Additional Private DNS Zone names` which is required to access AKS privately.
-3. Create an RSA key for SSH named **aks-ssh-public-key** and store it as a secret in your key vault. To create the public key type use ssh-keygen from PowerShell: `ssh-keygen -t RSA -f test`
+    - `privatelink.{regionName}.azmk8s.io` under `Additional Private DNS Zone names`, which is required to access AKS privately.
+3. Create an RSA key for SSH named **aks-ssh-public-key** and store it as a secret in your key vault. Create the public key type use ssh-keygen from PowerShell: `ssh-keygen -t RSA -f test`
     - Two files are created and you use the public key. (located in test.pub)
-    - Save this as a secret named 'aks-ssh-public-key' in your keyvault
+    - Save the key as a secret named 'aks-ssh-public-key' in your keyvault
 
     > [!NOTE]
     >
@@ -59,24 +59,24 @@ There are guardrail policies on the enclaves to ensure enclave resources are usi
 4. A Key Vault, Customer Managed Key (CMK), Managed Identity, and Disk Encryption Set are required for this template. Create a Key Vault, CMK, Managed Identity, and Disk Encryption Set in the [Common Dependencies service catalog quickstart](./deploy-common-dependencies-service-catalog.md) or create your own.
     - These resources should be created inside a [workload resource group](./create-workload-portal.md#create-workload-resource-groups)
     - After creating the User Managed Identity, ensure it has access to the CMK key
-        - Assign the `Key Vault Crypto Service Encryption User` RBAC role to the managed identity scoped to the key vault with [these instructions](./create-user-managed-identity.md#assign-role-to-managed-identity). This allows you to then assign the managed identity to another resource, like a Virtual Machine, and that Virtual Machine can encrypt the operating system disk with the CMK in the key vault without having permissions to do other operations on the key vault following least privilege.
+        - Assign the `Key Vault Crypto Service Encryption User` RBAC role to the managed identity scoped to the key vault with [these instructions](./create-user-managed-identity.md#assign-role-to-managed-identity). This assignment allows you to then assign the managed identity to another resource, like a Virtual Machine. That Virtual Machine can encrypt the operating system disk with the CMK in the key vault without having permissions to do other operations on the key vault (a least privilege best practice).
         - Assign `Virtual Machine Contributor` access on the enclave managed resource group containing the Virtual Network 
         - Assign `Key Vault Contributor` access to the resource group containing the ssh-key.
         - (Optional) Azure Container Registry: Typical configuration requires granting the `Acr Pull` role to the AKS managed identity for the container registry resource. In addition if the container registry is configured to use a public storage account, that URL must be added as a community endpoint to create the firewall policy.
-    - External services using the enclave Virtual Network: If using the enclave Virtual Network as the dedicated subnet for the cluster service, you'll also need to grant the managed identity `Contributor` on the Virtual Network resource group. (This seems like it should be `Network Contributor` but in testing that wasn't enough).
-5. In order to deploy AKS, you must deploy to a subscription that allows `EncryptionAtHost`. To do this setting, first set your azContext to ensure you're using the correct subscription, and then run the following:
+    - External services using the enclave Virtual Network: If using the enclave Virtual Network as the dedicated subnet for the cluster service, you also need to grant the managed identity `Contributor` on the Virtual Network resource group.
+5. In order to deploy AKS, you must deploy to a subscription that allows `EncryptionAtHost`. To do this setting, first set your azContext to ensure you're using the correct subscription, and then execute:
 `Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"`.
 
 > [!NOTE]
 > 
-> This might take several minutes, to check on the status of this registration run:
+> This command might take several minutes, to check on the status of this registration run:
 `Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"`
 
-6. In order to deploy AKS within a virtual enclave, you must deploy to a subscription that allows `EnableAPIServerVnetIntegrationPreview`. To do this, first set your azContext to ensure you're using the correct subscription, and then run the following: `Register-AzProviderFeature -FeatureName EnableAPIServerVnetIntegrationPreview -ProviderNamespace Microsoft.ContainerService`.
+6. In order to deploy AKS within a virtual enclave, you must deploy to a subscription that allows `EnableAPIServerVnetIntegrationPreview`. First set your azContext to ensure you're using the correct subscription, and then execute: `Register-AzProviderFeature -FeatureName EnableAPIServerVnetIntegrationPreview -ProviderNamespace Microsoft.ContainerService`.
 
 > [!NOTE]
 > 
-> This might take several minutes, to check on the status of this registration run: `Get-AzProviderFeature -FeatureName EnableAPIServerVnetIntegrationPreview -ProviderNamespace Microsoft.ContainerService`
+> This command might take several minutes, to check on the status of this registration run: `Get-AzProviderFeature -FeatureName EnableAPIServerVnetIntegrationPreview -ProviderNamespace Microsoft.ContainerService`
 
 7. Add the following Firewall rule to your community firewall policy as an Application rule:
     - Source: 10.0.2.0/23
@@ -104,7 +104,7 @@ More information about these rules can be found in this [documentation](/azure/a
 
 1. Navigate to the workload for the intended deployment.
 2. Select `+Add an Azure Service` button.
-3. Select the `Private AKS Cluster` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
+3. Select the `Private AKS Cluster` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown. Confirm the version you need (default: `latest`) and select `Next`.
 
 ![Screenshot showing the Azure Kubernetes Service template selected from the service catalog list.](./media/service-catalog-list-azure-kubernetes-service.png)
 
@@ -117,13 +117,13 @@ It can take up to 30 minutes to finish all resource creation. Wait for the deplo
 
 > [!IMPORTANT]
 >
-> If you're deploying an AKS cluster within a virtual enclave, you need to make sure that the user assigned managed identity has sufficient permissions to perform operations within an enclave. To ensure that the user assigned managed identity doesn't get blocked by any enclave deny assignments, added the managed identity to the enclave's [Maintenance Mode](./maintenance-mode.md) principals configuration or that the managed identity is part of a Microsoft Entra ID group that is a principal on the enclave's maintenance mode.
+> If you're deploying an AKS cluster within a virtual enclave, you need to make sure that the user assigned managed identity has sufficient permissions to perform operations within an enclave. Add the managed identity to the enclave's [Maintenance Mode](./maintenance-mode.md) principals configuration. This permission ensures that the user assigned managed identity doesn't get blocked by any enclave deny assignments.
 
 ### (Optional) Associating AKS resource groups to workload
 
-The AVE workload resource, as of API version `2024-06-01-preview`, now supports multiple resource groups. This means that an AVE workload can now apply AVE policies to multiple resource groups.
+The AVE workload resource, as of API version `2024-06-01-preview`, now supports multiple resource groups. This feature means that an AVE workload can now apply AVE policies to multiple resource groups.
 
-Once the AKS deployment succeeds, the AKS deployment's User RG and MRG can be brought to a workload by running an API PUT request for the workload resource. An example of a request body for an API PUT request for a workload resource is provided below:
+Once the AKS deployment succeeds, the AKS deployment's User RG and MRG can be brought to a workload by running an API PUT request for the workload resource. An example of a request body for an API PUT request for a workload resource:
 
 ```json
 {
@@ -154,14 +154,14 @@ Once the AKS deployment succeeds, the AKS deployment's User RG and MRG can be br
 ## Validate the deployment
 Go to the specified resource group to confirm the intended resources were created.
 
-### Connect to the Application VM
+### Connect
 Via the Admin VM:
-The Admin VM is used for administrator access the resources within the enclave boundary from outside the boundary. The Admin VM is also called a "jumpbox".
-1. Sign-in to a desktop session on the Admin VM.
+The Admin VM is used for administrator access the resources within the enclave boundary from outside the boundary. The Admin VM is also called a "jumpbox."
+1. Sign-in to the Admin VM you deployed for your enclave or [create a new Admin VM](./deploy-admin-vm-service-catalog.md)
 2. From the start menu, type `RDP`, and open the RDP window
-3. Enter the RemoteApp VM IP address as the destination IP address for the RDP connection.
-4. Enter RemoteApp VM credentials and select `Accept/Yes` to warnings about a new connection.
-5. From the RemoteApp VM desktop, validate any VM settings set during the deployment. Otherwise, start using the RemoteApp VM (for example, install or configure an application for RemoteApp publishing).
+3. Enter the Virtual Machine IP address as the destination IP address for the RDP connection.
+4. Enter Virtual Machine credentials and select `Accept/Yes` to warnings about a new connection.
+5. From the Virtual Machine desktop, validate any VM settings set during the deployment. Otherwise, start using your new resources.
 
 ## Delete the deployment
 If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the resource group, the whole resource group can be deleted.
@@ -170,7 +170,7 @@ If you don't plan on keeping these resources, clean up unnecessary resources to 
 - [Add tags](/azure/azure-resource-manager/management/tag-resources) to service catalog deployments to track important information for that resource such as:
   - Owner: `<main POC>`
   - Deployer: `<yourName>`
-  - Purpose: `<publish abc app to users>`
-  - Service Catalog Name: `<RemoteApp>`
+  - Purpose: `<devsecops containers>`
+  - Service Catalog Name: `<AKS>`
   - Service Catalog Version: `<version you deployed>`
 - Consider adding an [Azure Policy to enforce and inherit tags](/azure/azure-resource-manager/management/tag-policies)

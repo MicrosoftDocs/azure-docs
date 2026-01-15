@@ -7,18 +7,18 @@ ms.topic: overview
 ms.date: 9/30/2025
 ---
 
-# Tutorial 3: Create workloads in an enclave on Azure Virtual Enclaves
+# Tutorial 1-3: Create workloads in an enclave on Azure Virtual Enclaves
 
 Workloads are logical groups of Azure resources that you define to create and audit connections in Azure Virtual Enclaves (AVE). They also automatically inherit security posture and policies of their enclave.
 
 In this tutorial, part three of eight, you deploy workloads into an enclave. You learn how to:
 
-- ✅ Create several workloads in an enclave
-- ✅ Create Azure resources into workloads within enclaves
-- ✅ View workloads in Azure portal
+✅ Create several workloads in an enclave
+✅ Create Azure resources into workloads within enclaves
+✅ View workloads in Azure portal
 
 ## Before you begin
-In the previous [tutorial](./2-create-enclaves-inside-community.md), you used Azure portal to create an enclave. If you didn't create the enclave yet, return to [Tutorial 2 - Create enclaves within a community](./2-create-enclaves-inside-community.md).
+In the previous [tutorial](./1-2-create-enclaves-inside-community.md), you used Azure portal to create an enclave. If you didn't create the enclave yet, return to [Tutorial 1-2 - Create enclaves within a community](./1-2-create-enclaves-inside-community.md).
 
 ## Create a workload using Azure Virtual Enclaves
 Before creating your resources, you need to create the AVE workload resource. Workloads are logical groups of Azure resources, similar to an Azure resource group, that you define to create and audit connections in Azure Virtual Enclaves.
@@ -30,7 +30,7 @@ Before creating your resources, you need to create the AVE workload resource. Wo
 
 1. In the `Azure Virtual Enclaves` page, select `Enclaves` in the left menu.
 
-2. On the fabrikam `Enclaves` page, select the `Enclave-WebApp` enclave that we created in [2 - Create enclaves within a community](./2-create-enclaves-inside-community.md).
+2. On the fabrikam `Enclaves` page, select the `Enclave-WebApp` enclave that we created in [2 - Create enclaves within a community](./1-2-create-enclaves-inside-community.md).
 
 [ ![Screenshot showing the WebApp enclave overview.](./media/tutorial-step-two-webapp-enclave-overview-page.png) ](./media/tutorial-step-two-webapp-enclave-overview-page.png#lightbox)
 
@@ -72,4 +72,4 @@ If you need to delete your enclaves created after completing this tutorial, this
 
 
 ## Next steps
-In this tutorial, you created sample workloads using Azure portal. In the [next tutorial](./4-use-service-catalog-create-azure-resources-workloads.md), you'll learn how to use the service catalog to deploy Azure resources and apps into your enclave workloads.
+In this tutorial, you created sample workloads using Azure portal. In the [next tutorial](./1-4-use-service-catalog-create-azure-resources-workloads.md), you'll learn how to use the service catalog to deploy Azure resources and apps into your enclave workloads.

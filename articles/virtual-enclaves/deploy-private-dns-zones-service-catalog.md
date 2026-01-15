@@ -68,7 +68,7 @@ This template has multiple options you can select based on the resources you wan
 - [Add tags](/azure/azure-resource-manager/management/tag-resources) to service catalog deployments to track important information for that resource such as:
   - Owner: `<main POC>`
   - Deployer: `<yourName>`
-  - Purpose: `<publish abc app to users>`
-  - Service Catalog Name: `<RemoteApp>`
+  - Purpose: `<prod private DNS zones>`
+  - Service Catalog Name: `<Private DNS Zones>`
   - Service Catalog Version: `<version you deployed>`
 - Consider adding an [Azure Policy to enforce and inherit tags](/azure/azure-resource-manager/management/tag-policies)

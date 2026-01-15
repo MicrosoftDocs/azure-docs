@@ -35,13 +35,13 @@ Yes, communities and enclaves can exist in one subscription or in separate subsc
 The current regions Azure Virtual Enclaves is available in can be viewed [here](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
 
 ### What roles are used to manage permissions for Azure Virtual Enclaves resources?
-Azure Virtual Enclaves includes news roles to help you manage your environments with least privileges. These roles include: owner, contributor, reader, and approver scoped at the community or enclave (for example `community owner`). [Learn more](https://aka.ms/ave/concept/rbac)
+Azure Virtual Enclaves includes new roles to help you manage your environments with least privileges. These roles include: owner, contributor, reader, and approver scoped at the community or enclave (for example `community owner`). [Learn more](https://aka.ms/ave/concept/rbac)
 
 ## Using Azure Virtual Enclaves
 Guides for using Azure Virtual Enclaves.
 
-### How do I create a resource not in the Azure service allowlist?
-When you're deploying an Azure service into a workload resource group and you see the error `Do not allow creation of resource types outside of the allowlist`, the error means the service isn't in the policy allowlist. You can create an exemption from the policy by
+### How do I create a resource not in the Azure service allow list?
+When you're deploying an Azure service into a workload resource group and you see the error `Do not allow creation of resource types outside of the allowlist`, the error means the service isn't in the policy allow list. You can create an exemption from the policy by
 1. Navigating to the workload resource
 2. Select `Governance` and `Policy Compliance` on the left side
 3. Search for "Allow" and select the policy for your workload resource group
@@ -99,3 +99,15 @@ A default firewall rule is created to allow access to the Key Management Service
 ### How can I make deployments faster?
 
 When you create templates to create Azure Virtual Enclaves, you can make use of the enclaves connection batching by sending connections at the same time. Batching allows a larger batch of enclave connections to be created at the same time, which is faster than creating the connections one at a time. In your templates, you can configure a batch of enclave connections to deploy only once all enclave endpoints and community endpoints are created. Enclave connections to a transit hub can be batched separately once the transit hub is created.
+
+In Bicep, you can batch enclave connections intentionally by adding a `dependsOn` section to each enclave connection resource. The `dependsOn` array should include all community and enclave endpoints for which you want to create connections in the same batch.
+
+`dependsOn: [
+  myCommunityEndpoint1
+  myEnclaveEndpoint1
+  myEnclaveEndpoint2
+]`
+
+> [!NOTE]
+>
+> Bicep linter might show a warning like "Warning no-unnecessary-dependson: Remove unnecessary dependsOn entry" for one or more of the resources in the dependsOn. This warning can be suppressed by putting adding `#disable-next-line no-unnecessary-dependson` to the line before.

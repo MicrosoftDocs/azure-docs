@@ -17,7 +17,7 @@ This is the current list of Azure services and workload templates in the service
 | Admin VM | [link](#admin-vm) | Available |
 | Common Dependencies | [link](#common-dependencies) | Available |
 | Private DNS Zones | [link](#private-dns-zones) | Available |
-| RemoteApp | [link](#remoteapp-vm) | Available |
+| Virtual Machine | [link](#virtual-machine) | Available |
 | Storage Account | [link](#storage-account) | Available |
 | Key Vault | [link](#key-vault) | Available |
 | App Service: Web App | [link](#app-service-web-app) | Available |
@@ -55,15 +55,15 @@ Documentation:
 
 Description: This template makes it easier to create the [Private DNS Zones](/azure/dns/private-dns-privatednszone) needed for customers to access their Azure resources or create custom Private DNS Zones to access their custom zones. The records contained in a private DNS zone aren't resolvable from the Internet. DNS resolution against a private DNS zone works only from virtual networks that are linked to it. Private DNS zones linked to a virtual network are queried first when using the default DNS settings of a virtual network.
 
-## RemoteApp VM
-[How to create a RemoteApp VM](./deploy-remoteapp-vm-service-catalog.md)
+## Virtual Machine
+[How to create a Virtual Machine](./deploy-virtual-machine-service-catalog.md)
 
 Description:
 This template and deploy a virtual machine that is domain joined and optionally published as a [RemoteApp](/azure/virtual-desktop/publish-applications-stream-remoteapp) by joining and deploying a host pool, app location group, and workspace. The default application published as a RemoteApp is the edge browser.
 
 Documentation:
 [RemoteApp Streaming Overview](/azure/virtual-desktop/remote-app-streaming/overview)
-[How-to deploy a Streaming App (RemoteApp)](./deploy-remoteapp-vm-service-catalog.md)
+[How-to deploy a Streaming App (RemoteApp)](./deploy-virtual-machine-service-catalog.md)
 
 ## Storage Account
 [How to create an AVE compliant Storage Account](./deploy-storage-account-service-catalog.md)

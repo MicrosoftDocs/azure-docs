@@ -1,25 +1,25 @@
 ---
-title: Deploy RemoteApp VM from the service catalog into a workload
-description: Deploy RemoteApp VM from the service catalog into a workload.
+title: Deploy Virtual Machine from the service catalog into a workload
+description: Deploy Virtual Machine from the service catalog into a workload with optional domain joining and optional RemoteApp publishing via Azure Virtual Desktops.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: how-to
 ms.date: 9/30/2025
 ---
 
-# Deploy RemoteApp virtual machine (VM) from the service catalog into a workload
-The RemoteApp template allows customers to install an application they want to publish to one or more users without installing that application on each users' desktop.
+# Deploy Virtual Machine from the service catalog into a workload
+The Virtual Machine template allows customers to install an application they want to publish to one or more users without installing that application on each users' desktop.
 
 In this article, you:
 
-- Deploy a service catalog template for a Remote Application (RemoteApp) into an existing workload from the Portal.
+- Deploy a service catalog template for a Virtual Machine into an existing workload from the Azure portal.
 
 > [!NOTE]
 > 
 > This sample deployment is just for demonstration purposes and doesn't represent all the best practices for network, systems, or applications administration.
 
 ## Deploy Options
-The RemoteApp template can be deployed in multiple configurations:
+The Virtual Machine template can be deployed in multiple configurations:
 1. Virtual Machine (~10 min)
 2. Virtual Machine domain-joined (~12 min)
 3. Virtual Machine domain-joined and published as a RemoteApp (~20 min)
@@ -44,15 +44,15 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
     - These resources should be created inside a [workload resource group](./create-workload-portal.md#create-workload-resource-groups)
     - After creating the User Managed Identity, ensure it has access to the CMK key
         - Assign the `Key Vault Crypto Service Encryption User` role to the managed identity scoped to the key vault with [these instructions](./create-user-managed-identity.md#assign-role-to-managed-identity). This role allows you to then assign the managed identity to another resource, like a Virtual Machine. Then that Virtual Machine can encrypt the operating system disk with the CMK in the key vault without having permissions to do other operations on the key vault. Assigning a managed identity in this way is a least privilege best practice.
-4. (optional) An existing domain to join if the Admin VM is domain joined.
+4. (optional) An existing domain to join if the `Admin VM` is domain joined.
 
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
 2. Select `+Add an Azure Service` button.
-3. Select the `RemoteApp VM` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown
+3. Select the `Virtual Machine` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown
 4. Confirm the version you need (default: `latest`) and select `Next`.
 
-![Screenshot showing the RemoteApp VM (aka Virtual Machine) template selected from the service catalog list.](./media/service-catalog-list-virtual-machine.png)
+![Screenshot showing the Virtual Machine template selected from the service catalog list.](./media/service-catalog-list-virtual-machine.png)
 
 4. Enter all the required parameters on each of the tabs.
 5. For `OS Disk Encryption Name` and `OS Disk Encryption Resource Group Name`, enter the names used in the prerequisites section.
@@ -63,7 +63,7 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
 10. Select `Review + Create`, if all validations passed, select `Create`.
 
 ## Join a domain (optional)
-1. Should you choose to Domain Join your RemoteApp, you need to select which domain join option you want (Active Directory or Microsoft Entra ID) on the Basic tab and enter the domain joining information.
+1. Should you choose to Domain Join your Virtual Machine, you need to select which method you want (Active Directory or Microsoft Entra ID) on the Basic tab and enter the domain joining information.
 2. For the `Active Directory` Domain join options, see the following examples
 
    > [!NOTE]
@@ -91,24 +91,24 @@ If you publish your application, all of the following fields on this tab must be
 It can take 20+ minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
 ## Validate the deployment
-1. Go to the specified resource group, the workload resource group by default, to confirm the intended resources were created. Including: VM, OS Disk, NIC.
+1. Go to the specified resource group, the workload resource group by default, to confirm the intended resources were created. Including: Virtual Machine and OS Disk.
 2. If the RemoteApp was published: host pool, app group, and workspace.
 
-## Connect to the Application VM
+## Connect to the Application Virtual Machine
 Via the [Admin VM](./understand-admin-vm.md):
-The Admin VM is used for administrator access the resources within the enclave boundary from outside the boundary. The Admin VM might also be called a "jumpbox".
+The Admin VM is used for administrator access the resources within the enclave boundary from outside the boundary. The Admin VM might also be called a "jumpbox."
 1. Sign in to a desktop session on the [Admin VM](./understand-admin-vm.md) page for the enclave.
-2. From the start menu, type `RDP`, and open the RDP window
-3. Enter the RemoteApp VM IP address as the destination IP address for the RDP connection.
-4. Enter RemoteApp VM credentials and select `Accept/Yes` to warnings about a new connection.
-5. From the RemoteApp VM desktop, validate any VM settings set during the deployment or complete any custom configuration.
+2. From the start menu, type `RDP`, and open the RDP app
+3. Enter the Virtual Machine IP address as the destination IP address for the RDP connection.
+4. Enter Virtual Machine credentials and select `Accept/Yes` to warnings about a new connection.
+5. From the Virtual Machine desktop, validate any Virtual Machine settings set during the deployment or complete any custom configuration.
 6. Next, [install application](#install-remoteapp-optional)
 7. Assign a security group assignment to give users access to your RemoteApp(s).
 
 ## Install RemoteApp (Optional)
-Install an application on your RemoteApp VM using one of these methods or a method you're familiar with.
+Install an application on your Virtual Machine using one of these methods or a method you're familiar with.
 
-- [Install via RemoteApp VM](./application-deployment-using-remote-app-vm.md) (install or configure an application for RemoteApp publishing)
+- [Install via Virtual Machine](./application-deployment-using-remote-app-vm.md) (install or configure an application for RemoteApp publishing)
 - Prerequisites:
     1. A [container](/azure/storage/blobs/blob-containers-portal) (artifacts) within the [storage account](./deploy-storage-account-service-catalog.md).
         - **Private or Public Container**
@@ -129,38 +129,36 @@ Install an application on your RemoteApp VM using one of these methods or a meth
 
 - Install Application:
     1. On the workload overview page, select `Add an Azure Service`.
-    2. For `Service`, select `RemoteApp VM`.
+    2. For `Service`, select `Virtual Machine`.
     3. For `Version`, if not selected by default, select the most recent version (for example, 1.0.1(latest)).
     4. Select `Next`
     5. Basics Tab:
-        - For `Virtual Machine name`, input the name of the VM.
-        - For  `Admin username` and `Admin password`, input the username and password you use to log into your VM. 
+        - For `Virtual Machine name`, input the name of the Virtual Machine.
+        - For  `Admin username` and `Admin password`, input the username and password you use to log into your Virtual Machine. 
     6. App Tab: 
         - For `App Folder URI` add the URI to the app folder from the container.
         - For `Main Script` add the name of the main script (ex: main.ps1) in the app folder that installs the application.
         - Private Container: 
             - For `Storage Container Resource ID` add the [resource ID ](./application-deployment-using-remote-app-vm.md) of the container.
-            - For `App folder in private container` select "true". If it is a private container, this enables reader role access to the storage account via the VM.
+            - For `App folder in private container` select "true." If it's a private container, this enables reader role access to the storage account via the Virtual Machine.
 
         > [!NOTE] 
         > 
         > If in Microsoft Azure for U.S. Government, do the following steps: 
-        > For the `AzCopy File URI` add the URI to the azcopy.exe from the container.
+        > For the `AzCopy File URI`, add the URI to the azcopy.exe from the container.
 
-    7. Select `Review + Create`, if all validations passed, select `Create`.
-
-Otherwise, start using the RemoteApp VM 
+    7. Select `Review + Create`, if all validations passed, select `Create`. Otherwise, start using the Virtual Machine. 
 
 ## Delete the deployment
 If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the resource group, the whole resource group can be deleted.
 
 ## Recommendations
-- Session host or VM [Sizing](/windows-server/remote/remote-desktop-services/virtual-machine-recs)
+- Session host or Virtual Machine [Sizing](/windows-server/remote/remote-desktop-services/virtual-machine-recs)
 - [Add tags](/azure/azure-resource-manager/management/tag-resources) to service catalog deployments to track important information for that resource such as:
   - Owner: `<main POC>`
   - Deployer: `<yourName>`
-  - Purpose: `<publish abc app to users>`
-  - Service Catalog Name: `<RemoteApp>`
+  - Purpose: `<user desktop>`
+  - Service Catalog Name: `<Virtual Machine>`
   - Service Catalog Version: `<version you deployed>`
 - Consider adding an [Azure Policy to enforce and inherit tags](/azure/azure-resource-manager/management/tag-policies)
 - [Collect Custom Logs](/azure/azure-monitor/agents/data-sources-custom-logs) from applications

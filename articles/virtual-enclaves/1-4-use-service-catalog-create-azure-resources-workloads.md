@@ -7,13 +7,13 @@ ms.topic: overview
 ms.date: 9/30/2025
 ---
 
-# Tutorial 4: Create Azure resources from the service catalog in an AVE workload
+# Tutorial 1-4: Create Azure resources from the service catalog in an AVE workload
 
 The service catalog enables you to deploy Azure services and streaming applications into AVE quickly while being compliant with Policy Guardrails and enclave isolation requirements.
 
 In this tutorial, part four of eight, you create Azure resources using service catalog in workloads. You learn how to:
 
-- ✅ Deploy a service catalog template for an Azure resource into an existing workload from the Portal
+✅ Deploy a service catalog template for an Azure resource into an existing workload from the Portal
 
 > [!NOTE] 
 > 
@@ -84,7 +84,7 @@ If you don't plan on keeping these resources, clean up unnecessary resources to 
 
 In this tutorial, you created Azure resources with service catalog using Azure portal.
 
-In the [next tutorial](./5-create-enclave-endpoint-connections.md), you'll learn how to create Azure resources in your enclave.
+In the [next tutorial](./1-5-create-enclave-endpoint-connections.md), you'll learn how to create Azure resources in your enclave.
 
 ## Recommendations
 
@@ -93,6 +93,6 @@ In the [next tutorial](./5-create-enclave-endpoint-connections.md), you'll learn
   - Owner: `main POC`
   - Deployer: `yourName`
   - Purpose: `publish abc app to users`
-  - Service Catalog Name: `RemoteApp`
+  - Service Catalog Name: `Virtual Machine`
   - Service Catalog Version: `version you deployed`
 - Consider adding an [Azure Policy to enforce and inherit tags](/azure/azure-resource-manager/management/tag-policies)

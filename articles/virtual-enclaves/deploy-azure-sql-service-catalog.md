@@ -59,3 +59,15 @@ It can take up to 30 minutes to finish all resource creation. Wait for the deplo
 
 ## Validate the deployment
 Go to the specified resource group to confirm the intended resources were created.
+
+## Delete the deployment
+If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the resource group, the whole resource group can be deleted.
+
+## Recommendations
+- [Add tags](/azure/azure-resource-manager/management/tag-resources) to service catalog deployments to track important information for that resource such as:
+  - Owner: `<main POC>`
+  - Deployer: `<yourName>`
+  - Purpose: `<prod SQL data>`
+  - Service Catalog Name: `<Azure SQL>`
+  - Service Catalog Version: `<version you deployed>`
+- Consider adding an [Azure Policy to enforce and inherit tags](/azure/azure-resource-manager/management/tag-policies)

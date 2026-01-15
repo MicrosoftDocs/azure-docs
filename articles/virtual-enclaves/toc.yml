@@ -66,26 +66,36 @@
       href: understand-admin-vm.md
     - name: Understand Domain Name Service
       href: understand-domain-name-service.md
-- name: Tutorials
+- name: Tutorials - Deploy Azure Virtual Enclaves
   items:
   - name: Learn Virtual Enclaves
     href: virtual-enclaves-learn.md
   - name: Create a community
-    href: 1-create-community.md
+    href: 1-1-create-community.md
   - name: Create enclaves inside a community
-    href: 2-create-enclaves-inside-community.md
+    href: 1-2-create-enclaves-inside-community.md
   - name: Create workloads inside an enclave
-    href: 3-create-workloads-inside-enclave.md
+    href: 1-3-create-workloads-inside-enclave.md
   - name: Use the service catalog to create Azure resources inside a workload
-    href: 4-use-service-catalog-create-azure-resources-workloads.md
+    href: 1-4-use-service-catalog-create-azure-resources-workloads.md
   - name: Create an enclave endpoint and connection
-    href: 5-create-enclave-endpoint-connections.md
+    href: 1-5-create-enclave-endpoint-connections.md
   - name: Monitor your enclaves
-    href: 6-monitor-your-enclaves.md
+    href: 1-6-monitor-your-enclaves.md
   - name: Host a publicly accessible application in a virtual enclave
-    href: 7-host-publicly-accessible-application-virtual-enclave.md
+    href: 1-7-host-publicly-accessible-application-virtual-enclave.md
   - name: Migrate workload resources
-    href: 8-migrate-workload-resources.md
+    href: 1-8-migrate-workload-resources.md
+- name: Tutorials - Create a complex workload architecture
+  items:
+  - name: Plan your architecture for AVD and AKS workloads
+    href: 2-1-plan-architecture-workloads.md
+  - name: Create Azure Virtual Enclave environment for workloads
+    href: 2-2-create-virtual-enclaves-environment.md
+  - name: Deploy Azure Virtual Desktop (AVD) workload
+    href: 2-3-deploy-virtual-desktop-workload.md
+  - name: Deploy Azure Kubernetes Service (AKS) workload
+    href: 2-4-deploy-kubernetes-workload.md
 - name: Governance, Security, and Compliance
   items:
   - name: Observability
@@ -136,8 +146,8 @@
     href: deploy-azure-sql-service-catalog.md
   - name: Deploy Azure Kubernetes Service from the service catalog
     href: deploy-azure-kubernetes-service-service-catalog.md
-  - name: Deploy RemoteApp Virtual Machine from the service catalog
-    href: deploy-remoteapp-vm-service-catalog.md
+  - name: Deploy Virtual Machine from the service catalog
+    href: deploy-virtual-machine-service-catalog.md
   - name: Deploy Private DNS Zones from the service catalog
     href: deploy-private-dns-zones-service-catalog.md
   - name: Deploy Azure Service Bus from the service catalog

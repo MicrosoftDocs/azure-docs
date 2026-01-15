@@ -48,4 +48,4 @@ The following resources types are deployed into the enclave managed resource gro
 - [What is a community?](./what-community.md)
 - [Best practices](./best-practices.md)
 - [Maintenance mode](./maintenance-mode.md)
-- [Tutorial: Create an Enclave](./2-create-enclaves-inside-community.md)
+- [Tutorial: Create an Enclave](./1-2-create-enclaves-inside-community.md)

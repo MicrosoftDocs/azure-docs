@@ -73,6 +73,6 @@ If you don't plan on keeping these resources, clean up unnecessary resources to 
   - Owner: `<main POC>`
   - Deployer: `<yourName>`
   - Purpose: `<cosmos db account purpose>`
-  - Service Catalog Name: `<AzureCosmosDB>`
+  - Service Catalog Name: `<Cosmos DB>`
   - Service Catalog Version: `<version you deployed>`
 - Consider adding an [Azure Policy to enforce and inherit tags](/azure/azure-resource-manager/management/tag-policies)

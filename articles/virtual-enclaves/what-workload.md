@@ -9,20 +9,22 @@ ms.date: 9/30/2025
 
 # What is a workload?
 
-Workloads are logical groups of Azure resources that you define to create and audit connections in Azure Virtual Enclaves. Only community and enclave owners can view the workloads and networks that have network access to their data. Workloads aren't discoverable to external networks. Enclave owners can deploy Azure resources or services into workloads. Workloads are created within an enclave. Maintenance of customer workloads belongs to the customer, following the standard [Shared responsibility model in the cloud](/azure/security/fundamentals/shared-responsibility). 
+Workloads are logical groups of Azure resources that you define inside an Azure Virtual Enclave. You can link an Azure resource group to a workload resource to bring that resource group into the security and control boundary of the enclave (see the [diagram](#architecture-of-a-workload)). Community and enclave owners can create isolated, [mission-critical](/azure/well-architected/mission-critical/mission-critical-overview) workloads then allow specific access as needed. When enclave owners deploy Azure resources and services into workloads, and each workload automatically inherits the enclave’s security posture and policies. Customers create their own Azure services in their workload resource groups and maintain those resources under the [shared responsibility model](/azure/security/fundamentals/shared-responsibility) in the cloud. By default, workloads can also use community services that are reachable from their enclave.
 
 Workloads also automatically inherit security posture and policies of their enclave. Workloads can also, by default, utilize community services reachable from their Enclave.
 
 ## Why use a workload?
-Workloads are a logical way to organize your Azure resource groups and create a link to your Azure Virtual Enclaves environment. Workloads are another level where you can separate groups of policies and exceptions scoped and applied to a workload and the resources in the Workload Resource Groups. When using the managed resource group that comes with a workload, there are minor restrictions described [here](./best-practices.md).
+Workloads are a logical way to organize your Azure resource groups and create a link to your Azure Virtual Enclaves environment. Workloads are another level where you can separate groups of policies and exceptions scoped and applied to a workload and the resources in the linked Workload Resource Groups. When using the managed resource group that comes with a workload, there are minor restrictions described in the [Best Practices](./best-practices.md#workload-resource-group).
 
-The alternative is to deploy an Azure resource group through the portal that isn't managed. The workload managed resource group is equivalent to a normal Azure resource group aside from these minor restrictions, which help to keep the resource group secured within the enclave boundary. Deploying a normal Azure resource group through the portal is still an option, but a normal Azure resource group wouldn't be secured within the enclave boundary.
+The alternative is to deploy an Azure resource group through the portal that isn't managed. The workload managed resource group is equivalent to a normal Azure resource group with the added benefit of keeping the resources secured within the enclave boundary. Deploying a normal Azure resource group through the portal is still an option, but a normal Azure resource group wouldn't be secured within the enclave boundary.
 
 ## Architecture of a workload
 Workloads are linked as a child resource to [enclaves](./what-enclave.md) and are linked as the parent resource to [Workload Resource Groups](#workload-resource-group).
 
 - [Azure Virtual Enclaves governance](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring)
 - [Enclave services and properties](./what-enclave.md)
+- [Well-Architected Framework Workload guidance](/azure/well-architected/workloads)
+- [Well-Architected Framework Service Guides](/azure/well-architected/service-guides/?product=popular)
 
 This diagram shows two example Workloads. The `Shared Workload` is linked to three Workload Resource Groups and the `AKS Workload` is linked to one Workload Resource Group. Resource Groups are highlighted in green and Azure resources are highlighted in dark blue.
 
@@ -114,10 +116,11 @@ For more details regarding the workload managed resource group, learn more about
 The workload resource groups function like an Azure resource group and you can deploy Azure resources that are compliant with the workload policies. You can create new resources using the methods you're familiar with for your Azure resources. Additionally, you can create resources from the Portal through the service catalog: [What is the service catalog](./what-service-catalog.md)
 
 ## Next Steps
+- [Tutorial: Workloads in Virtual Enclaves](./2-1-plan-architecture-workloads.md)
 - [What is the service catalog?](./what-service-catalog.md)
 - [What is Azure Virtual Enclaves?](./what-azure-virtual-enclaves.md)
 - [What is a community?](./what-community.md)
 - [What is an Enclave?](./what-enclave.md)
 - [Shared responsibility model in the cloud](/azure/security/fundamentals/shared-responsibility)
 - [Best practices](./best-practices.md)
-- [Tutorial: Create a workload](./3-create-workloads-inside-enclave.md)
+- [Tutorial: Create a workload](./1-3-create-workloads-inside-enclave.md)
