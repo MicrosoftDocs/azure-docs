@@ -13,12 +13,12 @@ ms.custom: references_region
 This tutorial guides you through deploying Azure Virtual Desktop (AVD) in Azure Virtual Enclaves. You create AVD infrastructure including host pools, session hosts, application groups, and FSLogix storage, all secured within your enclave boundary.
 
 In this tutorial, you learn how to:
-- ✅ Deploy AVD community endpoint for external connectivity
-- ✅ Deploy AVD enclave infrastructure
-- ✅ Deploy AVD workload with session hosts and control plane
-- ✅ Configure identity and encryption
-- ✅ Access AVD via encrypted connections
-- ✅ Validate the deployment
+✅ Deploy AVD community endpoint for external connectivity
+✅ Deploy AVD enclave infrastructure
+✅ Deploy AVD workload with session hosts and control plane
+✅ Configure identity and encryption
+✅ Access AVD via encrypted connections
+✅ Validate the deployment
 
 ## Prerequisites
 
@@ -110,84 +110,23 @@ Now deploy the AVD workload with host pool, session hosts, and supporting infras
 
 1. In your **AVD workload**, select **+ Add an Azure Service**.
 2. Search for and select **Azure Virtual Desktop Workload**.
+3. Configure the deployment using the following parameters:
 
-#### Basics tab
+| Configuration Section | Parameters |
+|----------------------|------------|
+| **Basics tab** | - **Resource group**: `rg-avd-workload`<br>- **Location**: Same as enclave region<br>- **Workload Name**: `avd-prod` |
+| **Host Pool Configuration** | - **Host Pool Name**: `hp-prod-01`<br>- **Host Pool Type**: `Pooled`<br>- **Load Balancer Type**: `BreadthFirst`<br>- **Max Session Limit**: `10` (for pooled, sessions per host)<br>- **Validation Environment**: `No` (unless testing) |
+| **Session Host Configuration** | - **Session Host Name Prefix**: `avd-sh-`<br>- **Virtual Machine Size**: `Standard_D4s_v5` (4 vCPU, 16 GB of RAM minimum)<br>- **Number of Session Hosts**: `2` (start small, scale later)<br>- **OS Disk Type**: `Premium_LRS`<br>- **Image Reference**:<br>&nbsp;&nbsp;- **Publisher**: `MicrosoftWindowsDesktop`<br>&nbsp;&nbsp;- **Offer**: `Windows-11`<br>&nbsp;&nbsp;- **SKU**: `win11-23h2-avd`<br>&nbsp;&nbsp;- **Version**: `latest` |
+| **Network Configuration** | - **Virtual Network Resource Group**: `avd-enclave-HostedResources-<guid>` (enclave MRG)<br>- **Virtual Network Name**: Enclave virtual network name<br>- **Subnet Name**: `AzureVirtualDesktopSessionHostsSubnet` |
+| **Identity and Domain** | **For Microsoft Entra ID:**<br>- **Identity Type**: `AzureADJoin`<br>- **Entra Tenant ID**: Your Microsoft Entra tenant ID<br>- **Intune Enrollment**: `Yes` (recommended)<br><br>**For Active Directory Domain Services:**<br>- **Identity Type**: `DomainJoin`<br>- **Domain FQDN**: `contoso.com`<br>- **OU Path**: `OU=AVD,DC=contoso,DC=com` (optional)<br>- **Domain Join Account UPN**: `avd-join@contoso.com`<br>- **Domain Join Password**: (secure password) |
+| **Workspace Configuration** | - **Workspace Name**: `ws-avd-prod`<br>- **Workspace Friendly Name**: `Production AVD Workspace`<br>- **Application Group Name**: `ag-desktop-prod`<br>- **Application Group Type**: `Desktop` (or `RemoteApp`) |
+| **Storage Configuration (FSLogix)** | - **Storage Account Name**: `stavdfslogix<uniqueid>`<br>- **Storage Account Type**: `Premium_LRS` (for best performance)<br>- **File Share Name**: `profiles`<br>- **File Share Quota (GB)**: `1024` (1 TB)<br>- **Enable Azure Files Private Endpoint**: `Yes`<br>- **Private Endpoint Subnet**: `AzureVirtualDesktopManagementSubnet` |
+| **Encryption Configuration** | - **Enable CMK Encryption**: `Yes`<br>- **Disk Encryption Set Resource ID**: Resource ID from Tutorial 2-2 [common dependencies](./2-2-create-virtual-enclaves-environment.md#set-up-common-dependencies)<br>- **User Assigned Identity Resource ID**: Resource ID from Tutorial 2-2 [common dependencies](./2-2-create-virtual-enclaves-environment.md#set-up-common-dependencies) |
+| **Monitoring** | - **Enable Diagnostic Settings**: `Yes`<br>- **Log Analytics Workspace**: Select workspace from shared services or create new<br>- **Enable AVD Insights**: `Yes` (recommended) |
 
-- **Resource group**: `rg-avd-workload`
-- **Location**: Same as enclave region
-- **Workload Name**: `avd-prod`
-
-#### Host Pool Configuration
-
-- **Host Pool Name**: `hp-prod-01`
-- **Host Pool Type**: `Pooled`
-- **Load Balancer Type**: **BreadthFirst** (distributes evenly) or **DepthFirst**
-- **Max Session Limit**: `10` (for pooled, sessions per host)
-- **Validation Environment**: **No** (unless testing)
-
-#### Session Host Configuration
-
-- **Session Host Name Prefix**: `avd-sh-`
-- **Virtual Machine Size**: `Standard_D4s_v5` (4 vCPU, 16 GB of RAM minimum)
-- **Number of Session Hosts**: `2` (start small, scale later)
-- **OS Disk Type**: `Premium_LRS`
-- **Image Reference**: 
-  - **Publisher**: `MicrosoftWindowsDesktop`
-  - **Offer**: `Windows-11`
-  - **SKU**: `win11-23h2-avd`
-  - **Version**: `latest`
-
-#### Network Configuration
-
-- **Virtual Network Resource Group**: `avd-enclave-HostedResources-<guid>` (enclave MRG)
-- **Virtual Network Name**: Enclave virtual network name
-- **Subnet Name**: `AzureVirtualDesktopSessionHostsSubnet`
-
-#### Identity and Domain
-
-**For Microsoft Entra ID:**
-- **Identity Type**: `AzureADJoin`
-- **Entra Tenant ID**: Your Microsoft Entra tenant ID
-- **Intune Enrollment**: **Yes** (recommended)
-
-**For Active Directory Domain Services:**
-- **Identity Type**: `DomainJoin`
-- **Domain FQDN**: `contoso.com`
-- **OU Path**: `OU=AVD,DC=contoso,DC=com` (optional)
-- **Domain Join Account UPN**: `avd-join@contoso.com`
-- **Domain Join Password**: (secure password)
-
-#### Workspace Configuration
-
-- **Workspace Name**: `ws-avd-prod`
-- **Workspace Friendly Name**: `Production AVD Workspace`
-- **Application Group Name**: `ag-desktop-prod`
-- **Application Group Type**: **Desktop** (or **RemoteApp**)
-
-#### Storage Configuration (FSLogix)
-
-- **Storage Account Name**: `stavdfslogix<uniqueid>`
-- **Storage Account Type**: `Premium_LRS` (for best performance)
-- **File Share Name**: `profiles`
-- **File Share Quota (GB)**: `1024` (1 TB)
-- **Enable Azure Files Private Endpoint**: **Yes**
-- **Private Endpoint Subnet**: `AzureVirtualDesktopManagementSubnet`
-
-#### Encryption Configuration
-
-- **Enable CMK Encryption**: **Yes**
-- **Disk Encryption Set Resource ID**: Resource ID from Tutorial 2-2 [common dependencies](./2-2-create-virtual-enclaves-environment.md#set-up-common-dependencies)
-- **User Assigned Identity Resource ID**: Resource ID from Tutorial 2-2 [common dependencies](./2-2-create-virtual-enclaves-environment.md#set-up-common-dependencies)
-
-#### Monitoring
-
-- **Enable Diagnostic Settings**: **Yes**
-- **Log Analytics Workspace**: Select workspace from shared services or create new
-- **Enable AVD Insights**: **Yes** (recommended)
-
-4. Select **Review + Add**.
+4. Select `Review + Add`.
 5. Review all settings carefully.
-6. Select **Create**.
+6. Select `Create`.
 
 > [!NOTE]
 > Deployment takes 30-60 minutes depending on the number of session hosts.

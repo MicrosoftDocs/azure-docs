@@ -13,12 +13,12 @@ ms.custom: references_region
 This tutorial guides you through creating the Azure Virtual Enclaves environment for AVD and AKS workloads. You set up common dependencies, create separate enclaves with properly sized subnets, deploy private DNS zones, and configure community and enclave endpoints for network connectivity.
 
 In this tutorial, you learn how to:
-- ✅ Set up common dependencies (managed identity, Key Vault, encryption)
-- ✅ Create AVD enclave with management and session host subnets
-- ✅ Create AKS enclave with node, API server, and private endpoint subnets
-- ✅ Deploy and link private DNS zones
-- ✅ Create community endpoints for external connectivity
-- ✅ Create enclave endpoints and connections for inter-enclave communication
+✅ Set up common dependencies (managed identity, Key Vault, encryption)
+✅ Create AVD enclave with management and session host subnets
+✅ Create AKS enclave with node, API server, and private endpoint subnets
+✅ Deploy and link private DNS zones
+✅ Create community endpoints for external connectivity
+✅ Create enclave endpoints and connections for inter-enclave communication
 
 ## Prerequisites
 
@@ -112,12 +112,12 @@ For AVE-managed resources, the identity needs contributor access.
 
 Verify all resources are created and configured correctly:
 
-- ✅ User Assigned Managed Identity `id-ave-encryption` created
-- ✅ Key Vault `kv-ave-shared-<uniqueid>` created
-- ✅ Customer Managed Key `cmk-ave-encryption` created in Key Vault
-- ✅ Managed identity has `Key Vault Crypto Service Encryption User` role on the key
-- ✅ Disk Encryption Set `des-ave-encryption` created and linked to key and identity
-- ✅ Managed identity has `Contributor` role on enclave managed resource group
+✅ User Assigned Managed Identity `id-ave-encryption` created
+✅ Key Vault `kv-ave-shared-<uniqueid>` created
+✅ Customer Managed Key `cmk-ave-encryption` created in Key Vault
+✅ Managed identity has `Key Vault Crypto Service Encryption User` role on the key
+✅ Disk Encryption Set `des-ave-encryption` created and linked to key and identity
+✅ Managed identity has `Contributor` role on enclave managed resource group
 
 ## Create AVD enclave
 
@@ -364,13 +364,13 @@ Create enclave connections to link the enclaves together.
 
 Verify that your environment is correctly configured:
 
-- ✅ Common dependencies deployed in shared services workload
-- ✅ AVD enclave created with management and session hosts subnets
-- ✅ AKS enclave created with node, API server, and private endpoint subnets
-- ✅ Private DNS zones deployed and linked to enclaves
-- ✅ Community endpoints created for AVD and AKS external connectivity
-- ✅ Enclave endpoints created for shared services
-- ✅ Enclave connections created from AVD and AKS to shared services
+✅ Common dependencies deployed in shared services workload
+✅ AVD enclave created with management and session hosts subnets
+✅ AKS enclave created with node, API server, and private endpoint subnets
+✅ Private DNS zones deployed and linked to enclaves
+✅ Community endpoints created for AVD and AKS external connectivity
+✅ Enclave endpoints created for shared services
+✅ Enclave connections created from AVD and AKS to shared services
 
 ## Next steps
 

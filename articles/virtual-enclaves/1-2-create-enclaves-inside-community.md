@@ -14,8 +14,8 @@ An enclave is an isolated Azure Virtual Network that is part of a community in w
 
 In this tutorial, part two of eight, you deploy enclaves into a community. You learn how to:
 
-- ✅ Create several isolated enclaves as spokes in the hub-and-spoke network
-- ✅ View enclaves in Azure portal
+✅ Create several isolated enclaves as spokes in the hub-and-spoke network
+✅ View enclaves in Azure portal
 
 ## Before you begin
 In the previous [tutorial](./1-1-create-community.md), you used Azure portal to create a simple community. If you haven't created the community yet, return to [Tutorial 1-1 - Deploy a community](./1-1-create-community.md).
