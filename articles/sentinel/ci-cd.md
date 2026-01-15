@@ -46,7 +46,7 @@ Microsoft Sentinel currently supports connections to GitHub and Azure DevOps rep
 
 ---
 
-For more information on deployable content types, see [Validate your content](ci-cd-custom-content.md#validate-your-content).
+For more information on deployable content types, see [Plan your repository content](ci-cd-custom-content.md#plan-your-repository-content).
 
 ## Connect a repository
 

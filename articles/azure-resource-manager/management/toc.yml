@@ -317,3 +317,6 @@
     href: https://stackoverflow.com/questions/tagged/azure-resource-manager
   - name: Manage personal data
     href: resource-manager-personal-data.md
+  - name: Azure Service Manager retirement
+    href: ./asm-retirement.md
+  

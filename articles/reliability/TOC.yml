@@ -406,5 +406,3 @@ items:
     href: /azure/well-architected/resiliency/chaos-engineering
   - name: Reliability in Microsoft Azure Well-Architected Framework
     href: /azure/well-architected/reliability
-  - name: Azure Service Manager retirement
-    href: asm-retirement.md 

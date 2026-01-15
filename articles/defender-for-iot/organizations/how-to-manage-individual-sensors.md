@@ -251,7 +251,7 @@ For more information, see [ERSPAN ports](best-practices/traffic-mirroring-method
 > [!NOTE]
 > This procedure restarts your sensor software to implement any changes made.
 >
-> Defender for IoT ERSPAN monitoring is tested, certified, and supported **only when the ERSPAN tunnel originates from Cisco devices.**
+> Defender for IoT ERSPAN monitoring is tested, certified, and supported **only when the ERSPAN tunnel originates from Cisco equipment.**
 >
 > ERSPAN tunnels from non-Cisco vendors are **not supported** and might fail due to differences in ERSPAN implementations.
 

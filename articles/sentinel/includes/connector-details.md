@@ -2,7 +2,7 @@
 author: EdB-MSFT
 ms.author: edbayansh
 ms.topic: include
-ms.date: 01/14/2026
+ms.date: 01/15/2026
 
 # This file is auto-generated . Do not edit manually. Changes will be overwritten.
 ---
@@ -1892,6 +1892,23 @@ Dataminr Pulse Alerts Data Connector brings our AI-powered real-time intelligenc
 a. Users must have a valid Dataminr Pulse API **client ID** and **secret** to use this data connector.
 
  b. One or more Dataminr Pulse Watchlists must be configured in the Dataminr Pulse website.<br><br>
+</details> 
+
+ ---
+   
+<a name="datawiza-dap"></a><details><summary>**Datawiza DAP**</summary>
+
+**Supported by:** [Datawiza Technology Inc.](https://www.datawiza.com/contact-us/)
+
+Connects the Datawiza DAP logs to Azure Log Analytics via the REST API interface
+
+**Log Analytics table(s):**  
+
+|Table|DCR support|Lake-only ingestion|
+|---|---|---|
+|`datawizaserveraccess_CL`|No|No|
+
+**Data collection rule support:** Not currently supported<br><br>
 </details> 
 
  ---

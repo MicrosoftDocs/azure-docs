@@ -87,7 +87,26 @@ When using IPsec tunnels that transit ExpressRoute private peering, you must adv
 
 To ensure all traffic between Azure and your on-premises network is encrypted, configure routing so that only the VPN device tunnel IPs are advertised over ExpressRoute. The actual on-premises network prefixes should be routed through the VPN Gateway, either using static routes or BGP. This approach ensures that on-premises to Azure traffic is always encrypted inside the VPN tunnel before it enters the ExpressRoute data path.
 
-If you advertise on-premises network prefixes to ExpressRoute through BGP, those routes can bypass the VPN Gateway, resulting in unencrypted traffic. To prevent this issue, use a user-defined route (UDR) on your Azure virtual network to direct traffic to the VPN Gateway as the next hop. This configuration guarantees that all traffic is encrypted before transiting ExpressRoute.
+## <a name="Selective traffic encryption"></a>Selective traffic encryption between on-premises networks and Azure VNets
+
+In scenarios where only a portion of the traffic between your on-premises networks and an Azure Virtual Network (VNet) requires encryption, you can choose from the following configuration options.
+
+**Option 1 – Steering encrypted traffic via IPsec tunnels only**
+
+To ensure predictable routing, advertise different on-premises IP network prefixes over ExpressRoute and over the IPsec tunnels. Advertise only the on-premises prefixes that do not require encryption through the ExpressRoute circuit, and configure the IPsec tunnels to advertise only the prefixes that do require encryption.
+
+**Option 2 – Route precedence using more specific network prefixes**
+
+Advertise more specific (longer subnet masks) on‑premises IP network prefixes over the IPsec tunnels than the on-premises prefixes you advertise over the ExpressRoute circuit. Because Azure and on‑premises devices both select routes based on longest prefix match (LPM), these more specific prefixes learned through the IPsec tunnel will take precedence over the less specific prefixes learned through ExpressRoute. This ensures that traffic destined for those networks follows the encrypted IPsec path rather than the unencrypted ExpressRoute path.
+
+These considerations apply regardless of whether static or dynamic routing is used for the IPsec tunnels.
+
+Avoid advertising the same on-premises IP network prefixes simultaneously over both ExpressRoute circuit and IPsec tunnels. If the on-premises routing policies give to the IPsec tunnels higher priority, outbound traffic from on-premises to Azure will prefer the IPsec path. However, Azure typically prefers routes learned from ExpressRoute Gateway when identical prefixes are received from both connections. 
+This mismatch results in asymmetric routing, where traffic flows outbound through one path (IPsec) but returns through another (ExpressRoute). Flows with asymmetric transit can lead to packet drops, especially on stateful on-premises devices.
+
+> [!NOTE]
+> Do not use User Defined Routes (UDRs) with a next-hop type **Virtual Network Gateway** to force traffic through the VPN Gateway. This approach is not supported and does not work.
+
 
 ## <a name="VNetGateway"></a>Create a VPN gateway High Bandwidth tunnel
 

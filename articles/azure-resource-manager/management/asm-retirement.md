@@ -1,12 +1,8 @@
 ---
 title: Azure Service Manager retirement
 description: Azure Service Manager retirement documentation for all classic compute, networking and storage resources
-author: surbhijain
 ms.topic: overview
-ms.date: 04/18/2024
-ms.author: surbhijain
-ms.service: azure-asm
-
+ms.date: 01/15/2026
 ---
 
 # Azure Service Manager retirement

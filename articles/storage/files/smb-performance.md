@@ -4,7 +4,7 @@ description: Learn about ways to improve performance and throughput for SSD (pre
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 01/06/2026
+ms.date: 01/15/2026
 ms.author: kendownie
 ms.custom:
   - build-2025
@@ -26,7 +26,7 @@ The following tips might help you optimize performance:
 - Use multi-threaded applications and spread the load across multiple files.
 - Performance benefits of SMB Multichannel increase with the number of files distributing the load.
 - SSD share performance is bound by provisioned share size, including IOPS and throughput, and single file limits. For details, see [understanding the provisioning v1 model](understanding-billing.md#provisioned-v1-model).
-- Maximum performance of a single virtual machine (VM) client is still bound to VM limits. For example, [Standard_D32s_v3](/azure/virtual-machines/dv3-dsv3-series) supports a maximum bandwidth of approximately 1.86 GiB/sec. Egress from the VM (writes to storage) is metered, but ingress (reads from storage) isn't. File share performance is subject to machine network limits, CPUs, internal storage available network bandwidth, IO sizes, parallelism, and other factors.
+- Maximum performance of a single virtual machine (VM) client is still bound to VM limits. For example, [Standard_D32s_v3](/azure/virtual-machines/dv3-dsv3-series) supports a maximum bandwidth of approximately 1.86 GiB/sec. Ingress (writes to storage) is metered, but egress (reads from storage) isn't. File share performance is subject to machine network limits, CPUs, internal storage available network bandwidth, IO sizes, parallelism, and other factors.
 - The initial test is usually a warm-up. Discard the results and repeat the test.
 - If performance is limited by a single client and workload is still below provisioned share limits, you can achieve higher performance by spreading the load over multiple clients.
 
@@ -57,7 +57,7 @@ These clients must be running the appropriate kernel stack and CIFS utilities th
 
 The following are prerequisites to use SMB Multichannel with Linux.
 
-- Kernel with SMB multichannel support enabled (typically 6.8+ and up with *max_channels=4* mount flags)
+- Kernel with SMB multichannel support enabled (see [Linux SMB Multichannel support](#linux-smb-multichannel-support))
 - SMB 3.1.1
 - Port 445/TCP open between client and Azure Files endpoint
 - Ensure client side receive-side scaling (RSS) is enabled for multi-queue support
@@ -83,7 +83,7 @@ SMB Multichannel enables clients to use multiple network connections that provid
 - **Network fault tolerance**:
     Multiple connections mitigate the risk of disruption since clients no longer rely on an individual connection.
 - **Automatic configuration**:
-    When SMB Multichannel is enabled on clients and storage accounts, it allows for dynamic discovery of existing connections, and can create addition connection paths as necessary.
+    When SMB Multichannel is enabled on clients and storage accounts, it allows for dynamic discovery of existing connections, and can create additional connection paths as necessary.
 - **Cost optimization**:
     Workloads can achieve higher scale from a single VM, or a small set of VMs, while connecting to SSD file shares. This could reduce the total cost of ownership by reducing the number of VMs necessary to run and manage a workload.
 - **Linux client performance scaling**:
@@ -101,7 +101,7 @@ This feature provides greater performance benefits to multi-threaded application
 
 SMB Multichannel for Azure file shares currently has the following restrictions:
 
-- Only available for SSD file shares. Not available for HDD Azure file shares.
+- Only available for SSD file shares. Not available for HDD file shares.
 - Only supported on clients that are using SMB 3.1.1. Ensure SMB client operating systems are patched to recommended levels.
 - Maximum number of channels is four. For details, see [here](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json#cause-4-number-of-smb-channels-exceeds-four).
 
@@ -157,7 +157,7 @@ Load was generated against 10 files with various IO sizes. The scale up test res
 
 - On a single NIC, for reads, performance increase of 2x-3x was observed and for writes, gains of 3x-4x in terms of both IOPS and throughput.
 - SMB Multichannel allowed IOPS and throughput to reach VM limits even with a single NIC and the four channel limit.
-- Because egress (or reads to storage) isn't metered, read throughput was able to exceed the VM published limit of approximately 1.86 GiB / sec. The test achieved greater than 2.7 GiB / sec. Ingress (or writes to storage) are still subject to VM limits.
+- Because egress (reads from storage) isn't metered, read throughput was able to exceed the VM's published limit of approximately 1.86 GiB/sec, achieving greater than 2.7 GiB/sec. Ingress (writes to storage) remains subject to VM throughput limits.
 - Spreading load over multiple files allowed for substantial improvements.
 
 An example command used in this testing is: 
@@ -178,13 +178,9 @@ The load was generated against a single 128 GiB file. With SMB Multichannel enab
 
 ## Metadata caching for SSD file shares
 
-Metadata caching is an enhancement for SSD Azure file shares that reduces metadata latency and raises metadata scale limits. The feature increases latency consistency and available IOPS, and it boosts network throughput.
+Metadata caching is an enhancement for SSD Azure file shares that reduces metadata latency and raises metadata scale limits. The feature increases latency consistency and available IOPS, and it boosts network throughput. Both Windows and Linux clients can use it.
 
-This feature improves the performance of the following metadata APIs. Both Windows and Linux clients can use it:
-- Raised metadata scale limits
-- Increase latency consistency, available IOPS, and boost network throughput
-
-This feature improves the following metadata APIs and can be used from both Windows and Linux clients:
+This feature improves the performance of the following metadata APIs:
 
 - Create
 - Open
@@ -215,8 +211,8 @@ Register-AzProviderFeature -FeatureName AzurePremiumFilesMetadataCacheFeature -P
 ---
 
 > [!IMPORTANT]
-> - Although listed under Preview Features, we honor GA SLAs and will soon make this the default for all accounts, removing the need for registration.
-> - Once AFEC is registered , please contact azfilespreview@microsoft.com for further instructions.
+> - Although listed under Preview Features, we honor GA SLAs.
+> - After registering the feature, contact azfilespreview@microsoft.com for further instructions.
 
 ### Performance improvements with metadata caching
 

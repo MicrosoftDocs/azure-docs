@@ -6431,6 +6431,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/reliability/asm-retirement.md",
+      "redirect_url": "/azure/azure-resource-manager/management/asm-retirement",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/reliability/reliability-azure-container-apps.md",
       "redirect_url": "/azure/reliability/reliability-container-apps",
       "redirect_document_id": false

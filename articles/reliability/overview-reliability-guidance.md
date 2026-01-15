@@ -4,17 +4,15 @@ description: See a list of reliability guides for Azure products and services. L
 author: anaharris-ms
 ms.service: azure
 ms.topic: reliability-article
-ms.date: 12/01/2025
+ms.date: 01/15/2026
 ms.author: anaharris
 ms.custom: subject-reliability
 ms.subservice: azure-reliability
 ---
 
-
 # Reliability guides by service
 
 This article provides links to reliability guidance for many Azure services. Most reliability guides contain the following information:
-
 
 - *Production deployment recommendations* provide guidance on how to deploy the service to meet your reliability requirements in production environments.
 
@@ -32,10 +30,9 @@ This article provides links to reliability guidance for many Azure services. Mos
 
 - *Backup and recovery* for supported services, including who controls and manages backups, where they're stored and replicated to, how they can be recovered, and whether they're accessible only within a region or across regions.
 
-
 ## Reliability guides by service
 
-The following table provides links to reliability guidance for Azure services. Each guide contains information about how the service supports reliability features. 
+The following table provides links to reliability guidance for Azure services. Each guide contains information about how the service supports reliability features.
 
 > [!NOTE]
 > Some documents don't follow a single reliability guide format. These services might list more than one article that references reliability guidance.
@@ -100,7 +97,7 @@ The following table provides links to reliability guidance for Azure services. E
 |Azure Managed Redis|[Reliability in Azure Managed Redis](./reliability-managed-redis.md) ||
 |Azure Media Services|| [High availability by using Media Services and video on demand (VOD)](/azure/media-services/latest/architecture-high-availability-encoding-concept)|
 |Azure Migrate | | [Azure Migrate and backup and disaster recovery](../migrate/resources-faq.md#does-azure-migrate-offer-backup-and-disaster-recovery)|
-|Azure Monitor Logs | | [Enhance data and service resilience in Azure Monitor Logs by using availability zones](/azure/azure-monitor/logs/availability-zones) </p> [Azure Monitor Logs workspace replication](/azure/azure-monitor/logs/workspace-replication) | 
+|Azure Monitor Logs | | [Enhance data and service resilience in Azure Monitor Logs by using availability zones](/azure/azure-monitor/logs/availability-zones) </p> [Azure Monitor Logs workspace replication](/azure/azure-monitor/logs/workspace-replication) |
 |Azure NAT Gateway | [Reliability in Azure NAT Gateway](./reliability-nat-gateway.md) ||
 |Azure NetApp Files| [Reliability in Azure NetApp Files](reliability-netapp-files.md)||
 |Azure Network Watcher|| [Network Watcher service availability and redundancy](../network-watcher/frequently-asked-questions.yml#service-availability-and-redundancy)|
@@ -128,8 +125,8 @@ The following table provides links to reliability guidance for Azure services. E
 |Azure VMware Solution|| [Deploy disaster recovery by using VMware HCX](../azure-vmware/deploy-disaster-recovery-using-vmware-hcx.md)|
 |Azure VPN Gateway| [Reliability in VPN Gateway](reliability-virtual-network-gateway.md?pivot=vpn) ||
 |Azure Web Application Firewall| | [Deploy Azure Firewall with availability zones by using Azure PowerShell](../firewall/deploy-availability-zone-powershell.md) </p> [Achieve a disaster recovery scenario across datacenters by using Application Gateway](../application-gateway/application-gateway-faq.yml#how-do-i-achieve-a-disaster-recovery-scenario-across-datacenters-by-using-application-gateway)|
-|Community Training| [Reliability in Community Training](reliability-community-training.md) ||
-|Microsoft Fabric| [Reliability in Fabric](reliability-fabric.md)||
+|Microsoft Community Training| [Reliability in Microsoft Community Training](reliability-community-training.md) ||
+|Microsoft Fabric| [Reliability in Microsoft Fabric](reliability-fabric.md)||
 |Microsoft Purview| [Reliability in Microsoft Purview](reliability-microsoft-purview.md)||
 
 ## Related content
