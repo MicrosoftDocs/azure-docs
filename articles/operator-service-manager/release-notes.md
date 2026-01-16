@@ -12,7 +12,7 @@ ms.service: azure-operator-service-manager
 This article hosts release information for Azure Operator Service Manager (AOSM). Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This article is updated frequently and serves as the primary announcement method for new releases. Make sure to check back often and stay up-to-date.
 
 ## Release email notifications
-To receive email notications upon the general availability of new AOSM releases, join the AOSM notification distribution list by submitting contact information in the following sign-up form: https://forms.office.com/r/GPkgkNi2tx
+To receive email notifications upon the general availability of new AOSM releases, join the AOSM notification distribution list by submitting contact information in the following sign-up form: https://forms.office.com/r/GPkgkNi2tx
 
 ## Regional availability of releases
 Releases described herewithin are generally available and supported across the following Azure regions:
@@ -405,12 +405,12 @@ This 2505.01 Azure Operator Service Manager release includes updating the NFO ve
 
 ### Release Highlights
 #### Support for artifact-manifest publisher template
-**[FEATURE 1041747 / ART-399]** adds support for the new artifact-manifest publisher template first introduced in RP API version 2025-03-30. This template improves effeciency of publisher resource cleanup, enabling the safe bulk deleteion of unused resources to automate publisher artifact-store space management. The extension remains backward compatible with earlier API versions and existing workflows. Note: When upgrading a site network service (SNS) deployed using an older API version, to this new version, a pod restart is required, following the upgrade, to ensure the local registry remains in-sync with the publisher artifact-store. If the local registry is not brought in-sync, the SNS may not function in a disconnected scenario.
+**[FEATURE 1041747 / ART-399]** adds support for the new artifact-manifest publisher template first introduced in RP API version 2025-03-30. This template improves efficiency of publisher resource cleanup, enabling the safe bulk deletion of unused resources to automate publisher artifact-store space management. The extension remains backward compatible with earlier API versions and existing workflows. Note: When upgrading a site network service (SNS) deployed using an older API version, to this new version, a pod restart is required, following the upgrade, to ensure the local registry remains in-sync with the publisher artifact-store. If the local registry is not brought in-sync, the SNS may not function in a disconnected scenario.
 
 #### Release Updates
 The following bug fixes, defect resolutions, or usability improvements are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
 
-* NFO - [2117907] The TLS daemonset was updateed to pre-load required packages during build time. This reduces startup latency and avoids unnecessary network traffic.
+* NFO - [2117907] The TLS daemonset was updated to pre-load required packages during build time. This reduces startup latency and avoids unnecessary network traffic.
 * NFO - [SFI] Helm version upgrade from 3.15.2 to 3.17.2.
 * NFO - [SFI] Go version upgrade from 1.22.4 to 1.24.3.
 * NFO - [SFI] Base image migrated from CBL-Mariner to AzureLinux.
@@ -433,7 +433,7 @@ The following bug fixes, defect resolutions, or usability improvements are deliv
 
 * NFO - [1041747] Improves support for publisher cleanup feature, fixing stability issues and addressing corner-cases such as disconnected mode.
 * NFO - [2217456] Migrates AOSM extension images to MCR source, including cluster registry and geneva images.
-* NFO - [2209250] Fixes cluster registry file corruption in broken manifest link, NFO now handles such failures and auto-recovers so that deletes can succeed.
+* NFO - [2209250] Fixes cluster registry file corruption in broken manifest link, NFO now handles such failures and auto-recovers so the deletes can succeed.
 * NFO - [2278364] Fixes behavior where upgrade fails due to a pre-upgrade hook stuck on bad node, removing the hook which is no longer needed.
 * NFO - [2196085] Remediates file system security vulnerability with TLS-Daemonset by allowing only ReadOnlyRootFilesystem access.
 * RP - [2236853] 1ES Operation Vulnerabilities.
@@ -468,7 +468,7 @@ This 2509.01 Azure Operator Service Manager release includes updating the NFO ve
 **[FEATURE 2069409 / ART-465]** introduces a method to interrupt a broken service deployment operation while in a nonterminal state. Supporting only container network functions, the interruption is triggered by applying a static tag to the network function managed resource group. This tag must later be removed to restore proper service operations. This feature provides a mechanism for customer operation teams to terminate a deployment which maybe negatively impacting service performance and otherwise could take multiple hours to reach a terminal state. For more information, see our [learn documentation](how-to-cancel-service-deployments.md).
 
 #### Support for publisher artifact store resiliency
-**[FEATURE 2129209 / ART-535]** introduces artifact store geo-resiliency between the backing ACR resources in two Azure regional location pairs. Once enabled, the artifact-store resource now  survives a single region failure, continuing to operate in read-only mode from the hot standby instance. Seemless integration with Azure Operator Service Manager's cluster registry, combined with centralized management of registry pairs, make artifact store resiliency to get and keep running. For more information, see our [learn documentation](publisher-artifact-store-resiliency.md).
+**[FEATURE 2129209 / ART-535]** introduces artifact store geo-resiliency between the backing ACR resources in two Azure regional location pairs. Once enabled, the artifact-store resource now  survives a single region failure, continuing to operate in read-only mode from the hot standby instance. Seamless integration with Azure Operator Service Manager's cluster registry, combined with centralized management of registry pairs, make artifact store resiliency to get and keep running. For more information, see our [learn documentation](publisher-artifact-store-resiliency.md).
 
 ### Release updates to improve quality
 The following bug fixes, defect resolutions, or usability improvements are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
@@ -478,7 +478,7 @@ The following bug fixes, defect resolutions, or usability improvements are deliv
 * NFO - [2275729] Fix to prevent instability when encountering untagged container images.
 * RP  - [2326576] Support for artifact-store geo-replication.
 * RP  - [2327070] Support for interruption of service deployments.
-* RP  - [2388664] Fix for West Central US region test opreations.
+* RP  - [2388664] Fix for West Central US region test operations.
 * RP  - [2309471] For to create ACR Names in lower case only.
 
 ### Release updates to improve security

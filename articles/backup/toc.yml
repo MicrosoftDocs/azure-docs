@@ -230,6 +230,8 @@
       href: backup-azure-file-folder-backup-faq.yml
     - name: FAQ-Back up Azure Files
       href: backup-azure-files-faq.yml
+    - name: FAQ-Back up Azure Blob
+      href: blob-backup-faq.yml
     - name: FAQ-Azure Disk Backup
       href: disk-backup-faq.yml
     - name: FAQ-Azure Backup for AKS

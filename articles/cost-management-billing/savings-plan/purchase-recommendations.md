@@ -1,14 +1,14 @@
 ---
 title: Azure savings plan recommendations
 titleSuffix: Microsoft Cost Management
-description: Learn about how Azure makes saving plan purchase recommendations.
+description: Learn about how Azure makes savings plan purchase recommendations.
 author: nwokolo
 ms.author: onwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: conceptual
-ms.date: 07/09/2025
+ms.date: 01/08/2026
 ---
 
 # Azure savings plan recommendations
@@ -17,7 +17,7 @@ Azure savings plan purchase recommendations are provided through [Azure Advisor]
 
 ## How savings plan recommendations are generated
 
-The goal of our savings plan recommendation is to help you make the most cost-effective commitment. Saving plan recommendations are generated using your actual on-demand usage and costs (including any negotiated on-demand discounts).
+The goal of our savings plan recommendation is to help you make the most cost-effective commitment. Savings plan recommendations are generated using your actual on-demand usage and costs (including any negotiated on-demand discounts).
 
 We start by looking at your hourly and total on-demand usage costs incurred from savings plan-eligible resources in the last 7, 30, and 60 days. We determine what the optimal savings plan commitment would be for each of these hours - we apply the appropriate savings plan discounts to all your savings plan-eligible usage in each hour. We consider each one of these commitments a candidate for a savings plan recommendation. We then run hundreds of simulations using each of these candidates to determine what your total cost would be if you purchased a savings plan equal to the candidate.
 
@@ -29,7 +29,7 @@ Here's a video that explains how savings plan recommendations are generated.
 >[!VIDEO https://www.youtube.com/embed/4HV9GT9kX6A]
 
 
-To account for scenarios where there were significant reductions in your usage, including recently decommissioned services, we run more simulations using only the last three days of usage. The lower recommendation (between the 3- and 30-day recommendations) is provided to you - even in situations where the 30-day recommendation might appear to provide greater savings. We do this ensure that stale date doesn't cause us to  inadvertently recommend overcommitment.
+To account for scenarios where there were significant reductions in your usage, including recently decommissioned services, we run more simulations using only the last three days of usage. The lower recommendation (between the 3- and 30-day recommendations) is provided to you - even in situations where the 30-day recommendation might appear to provide greater savings. We do this to ensure that stale data doesn't cause us to inadvertently recommend overcommitment.
 
 Some compute products can benefit from both savings plans and reservations. If you buy either a savings plan or a reservation, allow at least 7 days for recommendation systems to update and reflect your purchase before considering the other option. Avoid purchasing both products at the same time to ensure recommendations are accurate and to maximize your savings.
 
@@ -43,9 +43,9 @@ Keep the following points in mind:
 
 Azure Advisor surfaces 1- and 3-year savings plan recommendations for each billing subscription. Keep the following points in mind:
 
-- If you want to see recommendations for shared and resource group scopes, navigate to the savings plan purchase experience in Azure portal.
+- If you want to see recommendations for shared and resource group scopes, navigate to the savings plan purchase experience in the Azure portal.
 - Recommendations in Advisor currently only consider your last 30 days of usage.
-- If you recently purchased a savings plan or reserved instance, it may take up to five days for the purchases to affect your recommendations in Advisor and Azure portal.
+- If you recently purchased a savings plan or reserved instance, it may take up to five days for the purchases to affect your recommendations in Advisor and the Azure portal.
 
 ## Recommendations in Azure portal
 
@@ -53,7 +53,7 @@ Azure portal presents up to 10 savings plan commitment recommendations for each 
 
 By default, the recommendations are for the entire billing scope (billing profile for MCA and enrollment account for EA). You can also view separate subscription and resource group-level recommendations by changing benefit application to one of those levels. We don't currently support management group-level recommendations.
 
-Currently, all savings plan recommendations in Azure portal are based on a 30-day look back period.
+Currently, all savings plan recommendations in the Azure portal are based on a 30-day look back period.
 
 Recommendations are term-specific, so you see the one-year or three-year recommendations at each level by toggling the term options.
 
@@ -61,7 +61,7 @@ The highlighted recommendation is projected to result in the greatest savings. T
 
 ## Recommendations API
 
-For more information about retrieving savings plan commitment recommendations, see the saving plan [Benefit Recommendations API](/rest/api/cost-management/benefit-recommendations).
+For more information about retrieving savings plan commitment recommendations, see the savings plan [Benefit Recommendations API](/rest/api/cost-management/benefit-recommendations).
 
 ## Reservation trade in recommendations
 

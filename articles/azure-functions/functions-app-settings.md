@@ -2,7 +2,7 @@
 title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables used to configure functions apps.
 ms.topic: conceptual
-ms.date: 07/11/2025
+ms.date: 12/22/2025
 ms.custom:
   - devx-track-extended-java
   - devx-track-python
@@ -368,7 +368,7 @@ Indicates the account used to access a private container registry. This setting 
 
 ## DOCKER_SHM_SIZE
 
-Sets the shared memory size (in bytes) when the Python worker is using shared memory. To learn more, see [Shared memory](functions-reference-python.md#shared-memory).
+Sets the shared memory size (in bytes) when the Python worker is using shared memory. To learn more, see [Shared memory](https://github.com/Azure/azure-functions-python-worker/wiki/Shared-Memory).
 
 |Key|Sample value|
 |---|------------|
@@ -490,7 +490,7 @@ This setting enables the Python worker to use shared memory to improve throughpu
 |---|------------|
 |FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED|`1`|
 
-With this setting enabled, you can use the [DOCKER_SHM_SIZE](#docker_shm_size) setting to set the shared memory size. To learn more, see [Shared memory](functions-reference-python.md#shared-memory).
+With this setting enabled, you can use the [DOCKER_SHM_SIZE](#docker_shm_size) setting to set the shared memory size. To learn more, see [Shared memory](https://github.com/Azure/azure-functions-python-worker/wiki/Shared-Memory).
 
 ## JAVA_APPLICATIONINSIGHTS_ENABLE_TELEMETRY
 
@@ -565,23 +565,23 @@ Sets an optional list of headers that are applied to all outgoing data exported 
 
 ## PIP\_INDEX\_URL
 
-This setting lets you override the base URL of the Python Package Index, which by default is `https://pypi.org/simple`. Use this setting when you need to run a remote build using custom dependencies. These custom dependencies can be in a package index repository compliant with PEP 503 (the simple repository API) or in a local directory that follows the same format.
+Overrides the default base URL of the Python Package Index (`https://pypi.org/simple`) when running a remote build. Because this setting replaces the package index, you might see unexpected behaviour on restore. Only use this setting when you need to use a complete set of custom dependencies. When possible, you should instead use `PIP_EXTRA_URL`, which lets you reference an additional package index. For more information, see [Custom dependencies](python-build-options.md#custom-dependencies) in the Python build article.
 
 |Key|Sample value|
 |---|------------|
 |PIP\_INDEX\_URL|`http://my.custom.package.repo/simple` |
 
-To learn more, see [`pip` documentation for `--index-url`](https://pip.pypa.io/en/stable/cli/pip_wheel/?highlight=index%20url#cmdoption-i) and using [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
+These custom dependencies can be in a package index repository compliant with PEP 503 (the simple repository API) or in a local directory that follows the same format. For more information, see [`pip` documentation for `--index-url`](https://pip.pypa.io/en/stable/cli/pip_wheel/?highlight=index%20url#cmdoption-i).
 
 ## PIP\_EXTRA\_INDEX\_URL
 
-The value for this setting indicates an extra index URL for custom packages for Python apps, to use in addition to the `--index-url`. Use this setting when you need to run a remote build using custom dependencies that are found in an extra package index. Should follow the same rules as `--index-url`.
+The value for this setting indicates an extra index URL for custom packages for Python apps, to use in addition to the `--index-url`. Use this setting when you need to run a remote build using custom dependencies that are found in an extra package index. For more information, see [Custom dependencies](python-build-options.md#custom-dependencies) in the Python build article.
 
 |Key|Sample value|
 |---|------------|
 |PIP\_EXTRA\_INDEX\_URL|`http://my.custom.package.repo/simple` |
 
-To learn more, see [`pip` documentation for `--extra-index-url`](https://pip.pypa.io/en/stable/cli/pip_wheel/?highlight=index%20url#cmdoption-extra-index-url) and [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
+Should follow the same rules as `--index-url`. For more information, see [`pip` documentation for `--extra-index-url`](https://pip.pypa.io/en/stable/cli/pip_wheel/?highlight=index%20url#cmdoption-extra-index-url).
 
 ## PROJECT
 
@@ -616,7 +616,7 @@ Indicates whether the Python worker process should export telemetry to an Open T
 
 ## PYTHON\_ENABLE\_WORKER\_EXTENSIONS
 
-The configuration is specific to Python function apps. Setting this value to `1` allows the worker to load in [Python worker extensions](functions-reference-python.md#python-worker-extensions) defined in requirements.txt. It enables your function app to access new features provided by partner packages. It can also change the behavior of function load and invocation in your app. Ensure the extension you choose is trustworthy as you bear the risk of using it. Azure Functions gives no express warranties to any extensions. For how to use an extension, visit the extension's manual page or readme doc. By default, this value sets to `0`.
+The configuration is specific to Python function apps. Setting this value to `1` allows the worker to load in [Python worker extensions](./develop-python-worker-extensions.md) defined in requirements.txt. It enables your function app to access new features provided by partner packages. It can also change the behavior of function load and invocation in your app. Ensure the extension you choose is trustworthy as you bear the risk of using it. Azure Functions gives no express warranties to any extensions. For how to use an extension, visit the extension's manual page or readme doc. By default, this value sets to `0`.
 
 |Key|Value|Description|
 |---|-----|-----------|
@@ -677,7 +677,9 @@ This setting is required for both Consumption and Elastic Premium plan apps. It'
 
 Changing or removing this setting can cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
-Azure Files doesn't support using managed identity when accessing the file share. For more information, see [Azure Files supported authentication scenarios](../storage/files/storage-files-active-directory-overview.md#supported-authentication-scenarios). 
+Azure Files doesn't currently support using managed identity when accessing the file share. For more information, see [Azure Files supported authentication scenarios](../storage/files/storage-files-active-directory-overview.md#supported-authentication-scenarios). 
+
+You might use a [KeyVault reference](../app-service/app-service-key-vault-references.md) for this connection setting. However, additional configuration is required to create and dynamically scale a function app in a Premium or Consumption plan when the storage connection string is maintained in a KeyVault. For more information, see [Considerations for Azure Files mounting](../app-service/app-service-key-vault-references.md#considerations-for-azure-files-mounting).
 
 ## WEBSITE\_CONTENTOVERVNET
 

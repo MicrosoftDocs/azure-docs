@@ -37,7 +37,7 @@ Before you can view the MITRE coverage for your organization in Microsoft Sentin
 
 ## MITRE ATT&CK framework version
 
-Microsoft Sentinel is currently aligned to The MITRE ATT&CK framework, version 16.
+Microsoft Sentinel is currently aligned to The MITRE ATT&CK framework, version 18.
 
 ##  View current MITRE coverage
 

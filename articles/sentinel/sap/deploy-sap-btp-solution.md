@@ -16,6 +16,9 @@ ms.date: 07/17/2024
 
 This article describes how to deploy the Microsoft Sentinel solution for SAP Business Technology Platform (BTP) system. The Microsoft Sentinel solution for SAP BTP monitors and protects your SAP BTP system. It collects audit logs and activity logs from the BTP infrastructure and BTP-based apps, and then detects threats, suspicious activities, illegitimate activities, and more. [Read more about the solution](sap-btp-solution-overview.md).
 
+> [!IMPORTANT]
+> An architectural shift in the data connector v3.0.11 to cater for delayed SAP BTP logs requires re-onboarding of SAP subaccounts added prior to that change. See the [release notes](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/SAP%20BTP/ReleaseNotes.md) for more details. Consider the [mass onboarding tools](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP%20BTP/Tools) for convenience.
+
 ## Prerequisites
 
 Before you begin, verify that:
@@ -23,15 +26,15 @@ Before you begin, verify that:
 - The Microsoft Sentinel solution is enabled.
 - You have a defined Microsoft Sentinel workspace, and you have read and write permissions to the workspace.
 - Your organization uses SAP BTP (in a Cloud Foundry environment) to streamline interactions with SAP applications and other business applications.
-- You have an SAP BTP account (which supports BTP accounts in the Cloud Foundry environment). You can also use a [SAP BTP trial account](https://cockpit.hanatrial.ondemand.com/).
-- You have the SAP BTP auditlog-management service and service key (see [Set up the BTP account and solution](#set-up-the-btp-account-and-solution)).
+- You have an SAP BTP Subaccount (which supports BTP Subaccounts in the Cloud Foundry environment). You can also use a [SAP BTP trial account](https://cockpit.hanatrial.ondemand.com/).
+- You have the SAP BTP auditlog-management service and service key (see [Set up the BTP Subaccount and solution](#set-up-the-btp-subaccount-and-solution)).
 - You have the Microsoft Sentinel Contributor role on the target Microsoft Sentinel workspace.
 
-## Set up the BTP account and solution
+## Set up the BTP subaccount and solution
 
-To set up the BTP account and the solution:
+To set up the BTP subaccount and the solution manually from the SAP BTP cockpit and Azure portal, follow these steps:
 
-1. After you can sign in to your BTP account (see the [prerequisites](#prerequisites)), follow the [audit log retrieval steps](https://help.sap.com/docs/btp/sap-business-technology-platform/audit-log-retrieval-api-usage-for-subaccounts-in-cloud-foundry-environment) on the SAP BTP system.
+1. After you can sign in to your BTP Subaccount (see the [prerequisites](#prerequisites)), follow the [audit log retrieval steps](https://help.sap.com/docs/btp/sap-business-technology-platform/audit-log-retrieval-api-usage-for-subaccounts-in-cloud-foundry-environment) on the SAP BTP system.
 
 1. In the SAP BTP cockpit, select the **Audit Log Management Service**.
 
@@ -70,6 +73,11 @@ To set up the BTP account and the solution:
 1. On the connector page, make sure that you meet the required prerequisites listed and complete the configuration steps. When you're ready, select **Add account**.
 1. Specify the parameters that you defined earlier during the configuration. The subaccount name specified is projected as a column in the `SAPBTPAuditLog_CL` table and can be used to filter the logs when you have multiple subaccounts.
 
+    Consider the advanced options, if needed:
+
+    - **Polling Frequency**: The frequency at which the connector polls for new data. The default is 1 minute.
+    - **Log Ingest Delay**: The estimated delay between the time the event is generated in SAP BTP and the time it's available on the SAP BTP audit log service for ingestion in Microsoft Sentinel. The default is 20 minutes.
+
     > [!NOTE]
     > Retrieving audits for the global account doesn't automatically retrieve audits for the subaccount. Follow the connector configuration steps for each of the subaccounts you want to monitor, and also follow these steps for the global account. Review these [account auditing configuration considerations](#consider-your-account-auditing-configurations).
 
@@ -80,6 +88,9 @@ To set up the BTP account and the solution:
     1. On the **SAP BTP** connector page, confirm that Microsoft Sentinel receives the BTP data, or query the **SAPBTPAuditLog_CL** table directly.
 
 1. Enable the [workbook](sap-btp-security-content.md#sap-btp-workbook) and the [analytics rules](sap-btp-security-content.md#built-in-analytics-rules) that are provided as part of the solution by following [these guidelines](../sentinel-solutions-deploy.md#analytics-rule).
+
+> [!NOTE]
+> To onboard SAP BTP subaccounts at scale, API and CLI based approaches are recommended. Get started with [this script library](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/SAP%20BTP/Tools/).
 
 ## Consider your account auditing configurations
 
@@ -101,7 +112,7 @@ You also can retrieve the logs via the UI:
 1. In the new instance, create a service key.
 1. View the service key and retrieve the required parameters from step 4 of the configuration instructions in the data connector UI (**url**, **uaa.url**, **uaa.clientid**, and **uaa.clientsecret**).
 
-## Use tools for mass-onboarding of SAP BTP subaccounts to Microsoft Sentinel
+## Mass-Onboard SAP BTP subaccounts at scale
 
 To onboard SAP BTP subaccounts at scale, API and CLI based approaches are recommended. Get started with [this script library](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/SAP%20BTP/Tools/).
 
@@ -116,7 +127,6 @@ Before you start, collect the values you need for the scripts parameters, includ
 - The subscription ID, resource group, and workspace name for your Microsoft Sentinel workspace.
 - The key vault and the name of the key vault secret.
 - The name of the data connector you want to update with a new secret.  To identify the data connector name, open the SAP BPT data connector in the Microsoft Sentinel data connectors page. The data connector name has the following syntax: *BTP_{connector name}*
-
 
 ```powershell
 param(

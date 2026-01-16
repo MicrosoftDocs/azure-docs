@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2025
+ms.date: 12/31/2025
 ms.custom: generated
 ---
 
@@ -118,6 +118,10 @@ Azure service: Data Protection
 > | Microsoft.DataProtection/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
 > | Microsoft.DataProtection/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
 > | Microsoft.DataProtection/operations/read | Operation returns the list of Operations for a Resource Provider |
+> | Microsoft.DataProtection/subscriptions/providers/locations/deletedVaults/read | Get soft-deleted Backup Vault by name |
+> | Microsoft.DataProtection/subscriptions/providers/locations/deletedVaults/read | List soft-deleted Backup Vaults. |
+> | Microsoft.DataProtection/subscriptions/providers/locations/deletedVaults/deletedBackupInstances/read | Get the deleted backup instance under the deleted vault |
+> | Microsoft.DataProtection/subscriptions/providers/locations/deletedVaults/deletedBackupInstances/read | List the deleted backup instances under the deleted vault |
 > | Microsoft.DataProtection/subscriptions/providers/resourceGuards/read | Gets list of ResourceGuards in a Subscription |
 > | Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action | Returns recovery points from secondary region for cross region restore enabled Backup Vaults. |
 > | Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/crossRegionRestore/action | Triggers cross region restore operation on given backup instance. |
@@ -307,8 +311,6 @@ Azure service: [Security Center](/azure/security-center/)
 > | Microsoft.Security/automations/write | Creates or updates the automation for the scope |
 > | Microsoft.Security/automations/delete | Deletes the automation for the scope |
 > | Microsoft.Security/automations/validate/action | Validates the automation model for the scope |
-> | Microsoft.Security/autoProvisioningSettings/read | Get security auto provisioning setting for the subscription |
-> | Microsoft.Security/autoProvisioningSettings/write | Create or update security auto provisioning setting for the subscription |
 > | Microsoft.Security/complianceResults/read | Gets the compliance results for the resource |
 > | Microsoft.Security/customRecommendations/read | Get the custom recommendations |
 > | Microsoft.Security/customRecommendations/write | Create or update the custom recommendation |
@@ -368,6 +370,8 @@ Azure service: [Security Center](/azure/security-center/)
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/write | Creates a new just-in-time network access policy or updates an existing one |
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/delete | Deletes the just-in-time network access policy |
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action | Initiates a just-in-time network access policy request |
+> | Microsoft.Security/locations/operationResults/read | Read result of the asynchronous operation. |
+> | Microsoft.Security/locations/operationStatuses/read | Read status of the asynchronous operation. |
 > | Microsoft.Security/locations/securitySolutions/read | Gets the security solutions |
 > | Microsoft.Security/locations/securitySolutions/write | Creates a new security solution or updates an existing one |
 > | Microsoft.Security/locations/securitySolutions/delete | Deletes a security solution |
@@ -385,6 +389,18 @@ Azure service: [Security Center](/azure/security-center/)
 > | Microsoft.Security/pricings/securityoperators/read | Gets the security operators for the scope |
 > | Microsoft.Security/pricings/securityoperators/write | Updates the security operators for the scope |
 > | Microsoft.Security/pricings/securityoperators/delete | Deletes the security operators for the scope |
+> | Microsoft.Security/privateLinks/read | Gets the Microsoft Security Private Link. |
+> | Microsoft.Security/privateLinks/write | Creates or updates a Microsoft Security Private Link. |
+> | Microsoft.Security/privateLinks/delete | Deletes a Microsoft Security Private Link. |
+> | Microsoft.Security/privateLinks/privateEndpointConnectionProxies/read | Gets the Microsoft Security Private Endpoint Connection Proxy (NRP only). |
+> | Microsoft.Security/privateLinks/privateEndpointConnectionProxies/write | Creates or updates a Microsoft Security Private Endpoint Connection Proxy (NRP only). |
+> | Microsoft.Security/privateLinks/privateEndpointConnectionProxies/delete | Deletes a Microsoft Security Private Endpoint Connection Proxy (NRP only). |
+> | Microsoft.Security/privateLinks/privateEndpointConnectionProxies/validate/action | Validates a Microsoft Security Private Endpoint Connection Proxy object before creation (NRP only). |
+> | Microsoft.Security/privateLinks/privateEndpointConnectionProxies/updatePrivateEndpointProperties/action | Updates the properties of the Microsoft Security Private Endpoint Connection Proxy (NRP only). |
+> | Microsoft.Security/privateLinks/privateEndpointConnections/read | Gets the Microsoft Security Private Endpoint Connection. |
+> | Microsoft.Security/privateLinks/privateEndpointConnections/write | Approves or rejects a Microsoft Security Private Endpoint Connection. |
+> | Microsoft.Security/privateLinks/privateEndpointConnections/delete | Deletes a Microsoft Security Private Endpoint Connection. |
+> | Microsoft.Security/privateLinks/privateLinkResources/read | Gets the Microsoft Security Private Link Resource. |
 > | Microsoft.Security/secureScoreControlDefinitions/read | Get secure score control definition |
 > | Microsoft.Security/secureScoreControls/read | Get calculated secure score control for your subscription |
 > | Microsoft.Security/secureScores/read | Get calculated secure score for your subscription |
@@ -445,6 +461,9 @@ Azure service: [Security Center](/azure/security-center/)
 > | Microsoft.Security/securityContacts/read | Gets the security contact |
 > | Microsoft.Security/securityContacts/write | Updates the security contact |
 > | Microsoft.Security/securityContacts/delete | Deletes the security contact |
+> | Microsoft.Security/securityoperators/read | Gets the securityoperators for the scope |
+> | Microsoft.Security/securityoperators/write | Creates or updates the securityoperators for the scope |
+> | Microsoft.Security/securityoperators/delete | Deletes the securityoperators for the scope |
 > | Microsoft.Security/securitySolutions/read | Gets the security solutions |
 > | Microsoft.Security/securitySolutions/write | Creates a new security solution or updates an existing one |
 > | Microsoft.Security/securitySolutions/delete | Deletes a security solution |
@@ -484,18 +503,6 @@ Azure service: [Security Center](/azure/security-center/)
 > | Microsoft.Security/workspaceSettings/write | Updates the workspace settings |
 > | Microsoft.Security/workspaceSettings/delete | Deletes the workspace settings |
 > | Microsoft.Security/workspaceSettings/connect/action | Change workspace settings reconnection settings |
-
-## Microsoft.SecurityGraph
-
-Azure service: Microsoft Monitoring Insights
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | Microsoft.SecurityGraph/diagnosticsettings/write | Writing a diagnostic setting |
-> | Microsoft.SecurityGraph/diagnosticsettings/read | Reading a diagnostic setting |
-> | Microsoft.SecurityGraph/diagnosticsettings/delete | Deleting a diagnostic setting |
-> | Microsoft.SecurityGraph/diagnosticsettingscategories/read | Reading a diagnostic setting categories |
 
 ## Microsoft.SecurityInsights
 

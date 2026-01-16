@@ -6,7 +6,7 @@ ms.service: azure-backup
 ms.custom:
   - ignite-2023
   - ignite-2024
-ms.date: 01/30/2025
+ms.date: 01/06/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As a cloud operations engineer, I want to restore a backed-up Azure Kubernetes Service cluster using Azure Backup, so that I can recover cluster resources and ensure continuity of services during disruptions."
@@ -126,7 +126,7 @@ Azure Backup for AKS currently supports the following two options when doing a r
 >[!Note]
 >AKS backup currently doesn't delete and recreate resources in the target cluster if they already exist. If you attempt to restore Persistent Volumes in the original location, delete the existing Persistent Volumes, and then do the restore operation.
 
-## Restore in secondary region
+## Restore the AKS clusters in secondary region
 
 To restore the AKS cluster in the secondary region, [configure Geo redundancy and Cross Region Restore in the Backup vault](azure-kubernetes-service-cluster-backup.md#create-a-backup-vault), and then [trigger restore](tutorial-restore-aks-backups-across-regions.md#restore-in-secondary-region).
 

@@ -3,7 +3,7 @@ title: Use Bicep to deploy resources to subscription
 description: Describes how to create a Bicep file that deploys resources to the Azure subscription scope.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 10/30/2025
+ms.date: 12/10/2025
 ---
 
 # Subscription deployments with Bicep files
@@ -14,10 +14,6 @@ This article describes how to set the deployment scope to a subscription in a Bi
 
 > [!NOTE]
 > You can deploy to 800 different resource groups in a subscription level deployment.
-
-### Training resources
-
-If you would rather learn about deployment scopes through step-by-step guidance, see [Deploy resources to subscriptions, management groups, and tenants by using Bicep](/training/modules/deploy-resources-scopes-bicep/).
 
 ## Supported resources
 

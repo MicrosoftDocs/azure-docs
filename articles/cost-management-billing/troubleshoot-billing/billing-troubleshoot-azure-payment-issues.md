@@ -8,6 +8,7 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 10/13/2025
 ms.author: drjones
+service.tree.id: 3b35c9b8-bf14-4e4a-bc0d-21055e56b28c
 ---
 
 # Troubleshoot Azure payment issues

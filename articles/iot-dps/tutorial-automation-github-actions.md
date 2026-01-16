@@ -1,8 +1,8 @@
 ---
 title: GitOps for Azure Device Provisioning Service
 description: Tutorial - Use GitHub Actions to automate the steps for creating and managing Azure Device Provisioning Service (DPS) resources
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 manager: lizross
 ms.date: 08/12/2025
 ms.topic: tutorial

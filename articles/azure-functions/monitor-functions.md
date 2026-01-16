@@ -1,9 +1,9 @@
 ---
 title: Monitor Azure Functions
 description: Start here to learn how to monitor Azure Functions.
-ms.date: 03/08/2024
+ms.date: 12/08/2025
 ms.custom: horz-monitor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-functions
 ---
 
@@ -41,6 +41,13 @@ Azure Functions integrates with Azure Monitor Logs to monitor functions. For det
 :::image type="content" source="media/monitor-functions/choose-table.png" alt-text="Screenshot of adding a diagnostic setting for Azure Functions.":::
 
 For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure Functions, see [Azure Functions monitoring data reference](monitor-functions-reference.md#resource-logs).
+
+>[!IMPORTANT]
+>Application Insights processes telemetry in batches. When a batch payload is too large or contains unescaped special characters, log entries might be dropped. To help prevent data loss:
+>
+>+ Limit individual log messages to 10,000 characters, especially when you log large XML or JSON payloads.
+>+ Escape special characters in log data.
+>+ Summarize or truncate large payloads before you log them.
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 

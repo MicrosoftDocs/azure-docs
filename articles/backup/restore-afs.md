@@ -34,7 +34,7 @@ You can use this restore option to restore the complete File Share in the origin
 
 To restore the complete File Share, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com/), go to **Business Continuity Center** > **Protection inventory** > **Protected items**, and then select **Recover**.
+1. In the [Azure portal](https://portal.azure.com/), go to **Resiliency** > **Protection inventory** > **Protected items**, and then select **Recover**.
 1. On the **Recover** pane, select the **Azure Files (Azure Storage)** as the **Datasource type**, and then click **Select** under **Protected item**.
 
    The **Select restore point** context pane opens that lists the restore points available for the selected File Share. 
@@ -78,7 +78,7 @@ You can use this restore option to restore individual files or folders in the or
 
 To restore individual files or folders, follow these steps:
 
-1. Go to **Business Continuity Center**, and then select **Protected inventory** > **Protected items** from the menu, with the datasource type selected as **Azure Storage (Azure Files)**.
+1. Go to **Resiliency**, and then select **Protected inventory** > **Protected items** from the menu, with the datasource type selected as **Azure Storage (Azure Files)**.
 1. Select the File Share for which you want to do an item-level recovery.
 
    The *backup item* menu appears with a **File Recovery** option.
@@ -152,7 +152,7 @@ After you trigger the restore operation, the backup service creates a job for tr
 
 You can also monitor restore progress from the Recovery Services vault:
 
-1. Go to **Business Continuity Center** and select **Monitoring + Reporting** > **Jobs** from the menu.
+1. Go to **Resiliency**. and select **Monitoring + Reporting** > **Jobs** from the menu.
 1. On the **Jobs** pane, filter the jobs for the required solution and datasource type.
 
  >[!NOTE]

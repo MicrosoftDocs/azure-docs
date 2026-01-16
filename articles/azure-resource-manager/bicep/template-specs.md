@@ -2,7 +2,7 @@
 title: Create and deploy template specs in Bicep
 description: Learn how to create template specs in Bicep and share them with other users in your organization.
 ms.topic: how-to
-ms.date: 10/30/2025
+ms.date: 12/10/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-bicep
 ---
 
@@ -438,4 +438,4 @@ Both the template and its versions can have tags. The tags are either applied or
 
 ## Next steps
 
-See the [Publish libraries of reusable infrastructure code by using template specs](/training/modules/arm-template-specs) Learn module for more information and hands-on guidance about template specs.
+See the [Create template specs](./quickstart-create-template-specs.md) for hands-on guidance about template specs.

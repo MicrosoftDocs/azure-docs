@@ -17,7 +17,11 @@ This article explains how to use a Python script to upload firmware images to fi
 
 ## Prerequisites
 
-This quickstart assumes a basic understanding of firmware analysis. For more information, see [Firmware analysis for device builders](./overview-firmware-analysis.md). For a list of the file systems that are supported, see [Frequently asked Questions about firmware analysis](./firmware-analysis-faq.md#what-types-of-firmware-images-does-firmware-analysis-support).
+This quickstart assumes a basic understanding of firmware analysis. For more information, see [Overview of firmware analysis](./overview-firmware-analysis.md). For a list of the file systems that are supported, see [Frequently asked Questions about firmware analysis](./firmware-analysis-faq.md#what-types-of-firmware-images-does-firmware-analysis-support).
+
+You must have a resource group and workspace to upload and analyze firmware images. To create a resource group and workspace, see [Firmware analysis tutorial](./quickstart-firmware-analysis-portal.md).
+
+You must have a resource group and workspace to upload and analyze firmware images. To create a resource group and workspace, see [Firmware analysis tutorial](./quickstart-firmware-analysis-portal.md).
 
 ### Prepare your environment
 
@@ -30,6 +34,8 @@ This quickstart assumes a basic understanding of firmware analysis. For more inf
     pip install azure.storage.blob
     pip install halo
     pip install tabulate
+    pip install azure-identity
+    pip install azure-mgmt-iotfirmwaredefense
     ```
 6. Log in to your Azure account by running the command [`az login`](/cli/azure/reference-index?#az-login).
 

@@ -4,7 +4,7 @@ description: This quickstart shows you how to use Microsoft Planetary Computer P
 author: meaghanlewis
 ms.topic: quickstart
 ms.service: planetary-computer-pro
-ms.date: 04/24/2025
+ms.date: 01/09/2026
 ms.author: emiliod
 #customer intent: I want to use Microsoft Planetary Computer Pro GeoCatalog in Azure Batch to process geospatial data.
 ms.custom:
@@ -13,7 +13,19 @@ ms.custom:
 
 # Quickstart: Use Microsoft Planetary Computer Pro GeoCatalog in Azure Batch
 
-In this quickstart, you learn how to use Microsoft Planetary Computer Pro GeoCatalog resource in Azure Batch to process geospatial data. Planetary Computer Pro GeoCatalog is a geospatial data catalog that provides a unified view of your geospatial data assets across your organization. You can use Planetary Computer Pro GeoCatalog to discover, manage, and analyze your geospatial data.
+In this quickstart, you learn how to use a Microsoft Planetary Computer Pro GeoCatalog resource in Azure Batch to process geospatial data at scale.
+
+Azure Batch is a cloud-based job scheduling service that enables you to run large-scale parallel and high-performance computing (HPC) workloads. By combining Azure Batch with Microsoft Planetary Computer Pro, you can:
+
+- Process large volumes of geospatial data in parallel across multiple compute nodes
+- Authenticate securely to GeoCatalog APIs using managed identities
+- Scale processing power up or down based on workload demands
+- Automate geospatial data pipelines without managing infrastructure
+
+This quickstart demonstrates how to set up a Batch pool with a user-assigned managed identity, configure permissions to access your GeoCatalog, and run jobs that query the STAC API.
+
+> [!TIP]
+> For an overview of application development options with Microsoft Planetary Computer Pro, see [Connect and build applications with your data](./build-applications-with-planetary-computer-pro.md).
 
 ## Prerequisites
 
@@ -25,7 +37,7 @@ Before you begin, ensure you meet the following requirements to complete this qu
     - [Azure CLI](/cli/azure/install-azure-cli)
     - `perl` package.
 
-## Create a batch account
+## Create a Batch account
 
 Create a resource group:
 
@@ -86,7 +98,7 @@ az identity create \
     --resource-group spatiobatchdemo
 ```
 
-Create a pool of compute nodes using the Azure Portal:
+Create a pool of compute nodes using the Azure portal:
 
 1. In the Azure portal, navigate to your Batch account and select **Pools**:
     [ ![Screenshot of the Azure portal showing the Pools section of a Batch account, with options to add and manage pools.](media/batch-pools-overview.png) ](media/batch-pools-overview.png#lightbox)
@@ -100,7 +112,7 @@ Create a pool of compute nodes using the Azure Portal:
     [ ![Screenshot of the Start Task configuration page for a Batch pool. The page includes fields to specify a command line script, elevation level, and other settings for initializing compute nodes.](media/start-task-configuration-page.png) ](media/start-task-configuration-page.png#lightbox)
 1. Select **OK** to create the pool.
 
-## Assign Permissions to the Managed Identity
+## Assign permissions to the managed identity
 
 You need to provide the managed identity access to the GeoCatalog. Go to your GeoCatalog, select on **Access control (IAM)** and select **Add role assignment**:
 
@@ -114,7 +126,7 @@ Select the managed identity you created and then select **Review + assign**.
 
 [ ![Screenshot of the Azure portal showing the Select identity page. The page includes a list of available managed identities, allowing users to choose the identity they want to assign to the Batch pool.](media/select-review-assign.png) ](media/select-review-assign.png#lightbox)
 
-## Prepare the Batch Job
+## Prepare the Batch job
 
 Create a container in the storage account:
 
@@ -134,11 +146,11 @@ az storage blob upload \
     --account-name spatiobatchstorage
 ```
 
-## Run the Batch Jobs
+## Run the Batch jobs
 
 There are two examples in this quickstart: a **Python script**, and a **Bash script**. You can use either of them to create a job.
 
-### Python Script Job
+### Python script job
 
 To execute the Python script job, execute the following commands:
 
@@ -182,7 +194,7 @@ az batch task file download \
     --destination /dev/stdout
 ```
 
-### Bash Job
+### Bash job
 
 To execute the Bash script job, run the following commands:
 
@@ -212,6 +224,12 @@ az batch task file download \
 
 ## Related content
 
-- For more information about managed identities in batch pools, see [Configure managed identities in Batch pools](/azure/batch/managed-identity-pools) documentation.
-
-- For more information about how to deploy files to your Batch account, see [Copy applications and data to pool nodes](/azure/batch/batch-applications-to-pool-nodes), [Deploy applications to compute nodes with Batch application packages](/azure/batch/batch-application-packages), and [Creating and using resource files](/azure/batch/resource-files).
+- [Connect and build applications with your data](./build-applications-with-planetary-computer-pro.md)
+- [Configure application authentication for Microsoft Planetary Computer Pro](./application-authentication.md)
+- [Build a web application with Microsoft Planetary Computer Pro](./build-web-application.md)
+- [Use the Microsoft Planetary Computer Pro Explorer](./use-explorer.md)
+- [Manage access to Microsoft Planetary Computer Pro](./manage-access.md)
+- [Configure managed identities in Batch pools](/azure/batch/managed-identity-pools)
+- [Copy applications and data to pool nodes](/azure/batch/batch-applications-to-pool-nodes)
+- [Deploy applications to compute nodes with Batch application packages](/azure/batch/batch-application-packages)
+- [Creating and using resource files](/azure/batch/resource-files)

@@ -2,7 +2,7 @@
 title: Create Bicep files with Visual Studio Code
 description: Learn how to use Visual Studio Code to create Bicep files.
 ms.topic: how-to
-ms.date: 10/30/2025
+ms.date: 01/07/2026
 ms.custom: devx-track-bicep
 ---
 
@@ -197,7 +197,11 @@ When your Bicep file uses modules that are published to a registry, the `restore
 
 ### Show Deployment Pane command
 
-See [Deployment pane](#deployment-pane).
+The deployment pane provides an interactive UI in VS Code that can access your Azure account to perform validate, deploy, and what-if operations, providing instant feedback without leaving the editor.
+
+:::image type="content" source="./media/visual-studio-code/visual-studio-code-deployment-pane.png" alt-text="Screenshot of deployment pane in Visual Studio Code.":::
+
+See [Deployment Pane](./deploy-vscode.md#deployment-pane) for more information.
 
 ## Use quick fix suggestions
 
@@ -244,74 +248,6 @@ From Visual Studio Code, you can open the template reference for the resource ty
 ## Go to file
 
 When defining a [module](./modules.md) and regardless of the type of file that's being referenced - a local file, module registry file, or a template spec - you can open the file by selecting or highlighting the module path and pressing **[F12]**. If the referenced file is an [Azure Verified Module, an AVM](https://aka.ms/avm), then you can toggle between the compiled JSON or Bicep file. To open the Bicep file of a private registry module, ensure that the module is published to the registry with the `WithSource` switch enabled. For more information, see [Publish files to registry](./private-module-registry.md#publish-files-to-registry). Visual Studio Code Bicep extension version 0.27.1 or newer is required for opening Bicep files from a private module registry.
-
-## Deployment pane
-
-The Deployment Pane is a UI panel that lets you connect to your Azure subscription and perform validate, deploy, and what-if operations, providing instant feedback without leaving the editor.
-
-To use deployment pane:
-
-1. Open a `.bicep` or `.bicepparam` file in VS Code.
-1. There are two ways to open the deployment pane:
-
-    - Select the show deployment pane button on the upper right corner as shown in the following screenshot:  
-
-        :::image type="content" source="./media/visual-studio-code/visual-studio-code-open-deployment-pane.png" alt-text="Screenshot of the open deployment pane button.":::
-  
-        By default, VS Code opens the deployment pane on the side. To open it in a new tab, hold <kbd>Alt</kbd> while selecting the button.
-  
-    - Another way to open the deployment pane is through the command palette. Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>, then select either **Show Deployment Pane** or **Show Deployment Pane to the Side**.
-  
-        :::image type="content" source="./media/visual-studio-code/visual-studio-code-show-deployment-pane.png" alt-text="Screenshot of show deployment pane in command palette.":::
-  
-    The following screenshot shows a successful deployment with the Bicep file validation results.
-  
-    :::image type="content" source="./media/visual-studio-code/visual-studio-code-deployment-pane.png" alt-text="Screenshot of deployment pane in Visual Studio Code.":::
-  
-1. Select **Change Scope** to define the deployment scope. After authentication, you're able to select the subscription and the resource group of your desired deployment.
-1. Select **Pick JSON Parameters File** to select a JSON parameter file.  
-1. Select your desired action - **Deploy**, **Validate**, or **What-if**.  
-
-    - **Deploy**: deploys to Azure, and the result including the defined output are shown in the deployment pane.
-    - **Validate**: performs a runtime validation of the Bicep file against Azure, ensuring that the resources, parameters, and policies are correct in the actual deployment environment. Unlike a [linter](./linter.md), which only checks for syntax errors, this validation interacts with Azure to detect potential deployment issues. It's equivalent to the validate command in Azure CLI and the Test command in Azure PowerShell. For example:
-  
-        # [Azure CLI](#tab/azure-cli)
-        
-        ```azurecli
-        az deployment group validate --resource-group <resource-group-name> --template-file <template-file-path>        
-        ```
-        
-        # [Azure PowerShell](#tab/azure-powershell)
-        
-        ```azurepowershell
-        Test-AzResourceGroupDeployment -ResourceGroupName <ResourceGroupName> -TemplateFile <TemplateFilePath>
-        ```
-        
-        ---
-      
-    - **What-if**: executes a **What-If** analysis directly from the deployment pane. The pane displays the results, showing any planned changes. This performs the same function as the what-if command in Azure PowerShell and Azure CLI. For example:
-
-        # [Azure CLI](#tab/azure-cli)
-        
-        ```azurecli
-        az deployment group what-if --resource-group <resource-group-name> --template-file <template-file-path>        
-        ```
-        
-        # [Azure PowerShell](#tab/azure-powershell)
-        
-        ```azurepowershell
-        New-AzResourceGroupDeployment -Whatif -ResourceGroupName <ResourceGroupName> -TemplateFile <TemplateFilePath>
-        ```
-        
-        ---
-  
-    For more information, see one of the following articles:
-  
-    - [Bicep deployment what-if operation](./deploy-what-if.md)
-    - [Deploy Bicep files with Visual Studio Code](./deploy-vscode.md)
-    - [Deploy Bicep files with Azure CLI](./deploy-cli.md)
-    - [Deploy Bicep files with Azure PowerShell](./deploy-powershell.md)
-    - [Deploy Bicep files with Azure cloud shell](./deploy-cloud-shell.md)
 
 ## Troubleshoot
 

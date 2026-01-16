@@ -47,7 +47,7 @@ To configure devices and assets, you need a running instance of Azure IoT Operat
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
-Your IT administrator must have configured the connector for SSE template for your Azure IoT Operations instance in the Azure portal.
+Your IT administrator must configure the connector for SSE template for your Azure IoT Operations instance in the Azure portal.
 
 You need any credentials required to access the SSE source. If the SSE source requires authentication, you need to create a Kubernetes secret that contains the username and password for the SSE source.
 
@@ -73,7 +73,7 @@ To configure the connector for SSE, first create a device that defines the conne
 
 1. On the **Device details** page, select **Next** to continue.
 
-1. On the **Add custom property** page, you can add any other properties you want to associate with the device. For example, you might add a property to indicate the manufacturer of the camera. Then select **Next** to continue
+1. On the **Add custom property** page, add any other properties you want to associate with the device. For example, you might add a property to indicate the manufacturer of the camera. Then select **Next** to continue.
 
 1. On the **Summary** page, review the details of the device and select **Create** to create the asset.
 
@@ -93,6 +93,46 @@ az iot ops ns device endpoint inbound add sse --device sse-connector-cli -g {you
 
 To learn more, see [az iot ops ns device](/cli/azure/iot/ops/ns/device).
 
+# [Bicep](#tab/bicep)
+
+Deploy the following Bicep template to create a device with an inbound endpoint for the SSE connector. Replace the placeholders `<AIO_NAMESPACE_NAME>` and `<CUSTOM_LOCATION_NAME>` with your Azure IoT Operations namespace name and custom location name respectively:
+
+```bicep
+param aioNamespaceName string = '<AIO_NAMESPACE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+
+resource namespace 'Microsoft.DeviceRegistry/namespaces@2025-10-01' existing = {
+  name: aioNamespaceName
+}
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+resource device 'Microsoft.DeviceRegistry/namespaces/devices@2025-10-01' = {
+  name: 'sse-connector'
+  parent: namespace
+  location: resourceGroup().location
+  extendedLocation: {
+    type: 'CustomLocation'
+    name: customLocation.id
+  }
+  properties: {
+    endpoints: {
+      outbound: {
+        assigned: {}
+      }
+      inbound: {
+        'sse-connector-0': {
+          endpointType: 'Microsoft.SSEHttp'
+          address: 'https://sse-connector-0:443/base-path'
+        }
+      }
+    }
+  }
+}
+```
+
 ---
 
 ### Configure a device to use a username and password
@@ -108,6 +148,10 @@ To use the `Username password` authentication mode, complete the following steps
 # [Azure CLI](#tab/cli)
 
 [!INCLUDE [connector-username-password-cli](../includes/connector-username-password-cli.md)]
+
+# [Bicep](#tab/bicep)
+
+[!INCLUDE [connector-username-password-bicep](../includes/connector-username-password-bicep.md)]
 
 ---
 
@@ -154,9 +198,69 @@ To define an asset that publishes events from the SSE endpoint, follow these ste
 Run the following command:
 
 ```azurecli
-az iot ops ns asset sse create --name mysseasset --instance {your instance name} -g {your resource group name} --device sse-connector-cli --endpoint sse-connector-0 --dataset-dest topic="azure-iot-operations/data/erp" retain=Never qos=Qos1 ttl=3600
+az iot ops ns asset sse create --name mysseasset --instance {your instance name} -g {your resource group name} --device sse-connector-cli --endpoint sse-connector-0
+
+az iot ops ns asset sse dataset add --asset mysseasset --instance {your instance name} -g {your resource group name} --name weatherdata --data-source "/api/weather" --dest topic="azure-iot-operations/data/erp" retain=Never qos=Qos1 ttl=3600
 ```
 
-To learn more, see [az iot ops ns asset rest](/cli/azure/iot/ops/ns/asset/rest).
+To learn more, see [az iot ops ns asset sse](/cli/azure/iot/ops/ns/asset/sse).
+
+# [Bicep](#tab/bicep)
+
+Deploy the following Bicep template to create an asset that publishes messages from the device shown previously to an MQTT topic. The data source of the dataset defines the path on the REST endpoint to query. Replace the placeholders `<AIO_NAMESPACE_NAME>` and `<CUSTOM_LOCATION_NAME>` with your Azure IoT Operations namespace name and custom location name respectively:
+
+```bicep
+param aioNamespaceName string = '<AIO_NAMESPACE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+
+resource namespace 'Microsoft.DeviceRegistry/namespaces@2025-10-01' existing = {
+  name: aioNamespaceName
+}
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2025-10-01' = {
+  name: 'mysseasset'
+  parent: namespace
+  location: resourceGroup().location
+  extendedLocation: {
+    type: 'CustomLocation'
+    name: customLocation.id
+  }
+  properties: {
+    displayName: 'mysseasset'
+    description: 'An example SSE asset'
+    enabled: true
+
+    deviceRef: {
+      deviceName: 'sse-connector'
+      endpointName: 'sse-connector-0'
+    }
+
+    defaultDatasetsConfiguration: '{}'
+    defaultEventsConfiguration: '{}'
+
+    datasets: [
+      {
+        name: 'weatherdata'
+        dataSource: '/api/weather'
+        destinations: [
+          {
+            target: 'Mqtt'
+            configuration: {
+              topic: 'azure-iot-operations/data/erp'
+              qos: 'Qos1'
+              retain: 'Never'
+              ttl: 3600
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+```
 
 ---

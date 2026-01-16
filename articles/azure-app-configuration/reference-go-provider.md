@@ -183,6 +183,9 @@ For example, if your App Configuration store contains a key named `TestApp:Setti
 
 You can create JSON key-values in App Configuration. When a key-value with the content type `"application/json"` is read, the configuration provider will parse it into nested structures. For more information, go to [Use content type to store JSON key-values in App Configuration](./howto-leverage-json-content-type.md).
 
+> [!NOTE]
+> Starting with version *1.2.0*, the configuration provider allows comments, as defined in ([JSONC](https://jsonc.org/)), in key-values with an `application/json` content type.
+
 ## Consume configuration
 
 The `AzureAppConfiguration` type returned by the `Load` function provides several methods to access your configuration data:

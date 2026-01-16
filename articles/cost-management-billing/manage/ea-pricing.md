@@ -8,6 +8,7 @@ ms.subservice: cost-management
 ms.topic: conceptual
 ms.date: 07/31/2025
 ms.author: megankairiss
+service.tree.id: f1bb13fb-3d35-4f13-93af-d6137ba7f2e3
 ---
 
 # View and download your organization's Azure pricing

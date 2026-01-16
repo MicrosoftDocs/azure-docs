@@ -42,10 +42,15 @@ resources
     | where type == 'microsoft.compute/virtualmachines/extensions'
     | extend 
         VMId = toupper(substring(id, 0, indexof(id, '/extensions'))),
-        ExtensionName = tolower(name)
-    | where ExtensionName == 'microsoft.powershell.dsc'
+        ExtensionName = tolower(name),
+        ExtensionType = tolower(tostring(properties.type)),
+        ExtensionPublisher = tolower(tostring(properties.publisher)),
+        ExtensionVersion = tostring(properties.typeHandlerVersion),
+        ExtensionState = tolower(tostring(properties.provisioningState))
+    | where ExtensionPublisher == 'microsoft.powershell'
+    | where ExtensionType == 'dsc'
 ) on $left.JoinID == $right.VMId
-| project OSName, OSType, ExtensionName, ['id']
+| project OSName, OSType, ExtensionName, ExtensionType, ExtensionPublisher, ExtensionVersion, ExtensionState, ['id']
 | order by tolower(OSName) asc
 ```
 

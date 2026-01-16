@@ -7,7 +7,7 @@ manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ms.date: 09/01/2025
-ms.topic: conceptual
+ms.topic: article
 ms.author: henikaraa
 ms.custom: general_availability
 services: azure-communication-services
@@ -59,6 +59,67 @@ Then execute the following command to add a service principal to your tenant. Do
 New-MgServicePrincipal -AppId "1fd5118e-2576-4263-8130-9503064c837a"
 ```
 
+---
+### Error 404 subcode 5804xx: Blocked Outbound Calls
+
+These errors typically occur when the resource account does not have an active funding source for outbound calls. The funding source depends on the customer’s agreement type:
+
+- **If the customer has an MCA agreement:**
+  - Ensure a **postpaid payment method** is in place.
+  - Ensure the tenant has a **Microsoft Teams Calling Plan (Pay-As-You-Go)** license.
+  - Ensure the **Pay-As-You-Go Calling Plan license is assigned to the resource account**.
+
+- **If the customer has an older agreement:**
+  - Ensure the tenant has a **Communications Credits** license.
+  - Ensure the **Communications Credits balance is positive** (funds are loaded).
+
+Outbound calling in Teams Phone Extensibility requires one of these funding sources to be correctly configured. If not set properly, you may see one of the below error subcodes:
+
+| Error Code | Meaning                                      | Fix                                                                 |
+|------------|---------------------------------------------|--------------------------------------------------------------------|
+| 580406     | Balance not found                          | Check funding source setup (MCA or Communications Credits)        |
+| 580462     | No enabled tenant capabilities             | Assign Communications Credits license to tenant                   |
+| 580464     | No enabled user capabilities               | Assign Communications Credits license to user                    
+
+You can follow the below steps to solve this:
+
+#### 1. Sign in to Microsoft 365 Admin Center
+Log in with your **admin credentials**: [https://admin.microsoft.com](https://admin.microsoft.com)
+
+#### 2. Verify agreement type and funding source
+- For **MCA agreements**:
+  - Confirm **postpaid payment method** is active.
+  - Navigate to **Marketplace → All Products**.
+  - Search for **Microsoft Teams Calling Plan (Pay-As-You-Go)**.
+  - Select the appropriate **Pay-As-You-Go Calling Plan Zone (Zone 1 or Zone 2)** based on your location.
+  - Add the plan under **Add-ons**.  
+  More details: [Learn more about Calling Plans pay-as-you-go](/microsoftteams/calling-plans-for-office-365#pay-as-you-go-calling-plan)
+
+- For **older agreements**:
+  - Navigate to **Marketplace → All Products** and purchase **Communications Credits**.
+  - Add funds to ensure a positive balance.
+  - Enable **Auto-Recharge** under **Billing → Your Products → Communications Credits**.  
+  More details: [Set up Communications Credits](/microsoftteams/set-up-communications-credits-for-your-organization)
+
+#### 3. Assign Licenses to Resource Account
+- Go to **Users → Active Users**.
+- Assign:
+  - **Microsoft Teams Calling Plan (Pay-As-You-Go)**
+  - **Microsoft Teams Phone Resource Account**
+- **Important:** Remove any other conflicting calling plans.  
+More details: [Assign licenses to users](/microsoft-365/admin/manage/assign-licenses-to-users)
+
+
+---
+### Error 403 subcode 510586: Blocked Outbound Calls from Operator Connect Carrier
+
+This error indicates that outbound PSTN calls are being blocked by your Operator Connect carrier. This typically occurs when there are restrictions or issues with your carrier’s configuration or account status. This can be caused by:
+- Carrier-imposed restrictions on outbound calling.
+- Account suspension or insufficient balance with the carrier.
+- Incorrect configuration of Operator Connect settings.
+
+
+---
 ### Error 400 code 8523 Invalid request: SourceCallerIdNumber and SourceDisplayName aren't supported
 
 Trying to set caller display name caller ID via CallInvite options return an error:
@@ -71,7 +132,7 @@ These parameters aren't currently supported in Teams Phone extensibility. You ne
 ```csharp
 await answerCallContext.CallConnection.AddParticipantAsync(new CallInvite(new PhoneNumberIdentifier("+133333333"),null));
 ```
-
+---
 ### Error 422 Invalid CommunicationUser identifier specified
 
 When your app places an OBO call, the client gets this error if you try to place a call with a phone number. 
@@ -93,6 +154,7 @@ Calling OBO feature doesn't support calling from a phone number. In `onBehalfOfO
 
 ```
 
+---
 ### Error 408 subcode 10057 `addParticipants` failed for participant `8:acs`
 
 The issue appears when adding dual persona agent and getting an `AddParticipantFailed` event error with the following message:
@@ -107,6 +169,7 @@ The issue appears when adding dual persona agent and getting an `AddParticipantF
 
 The most common cause is that you're minting a Custom Teams Endpoint (CTE) token and the client is registering with that token with an `8:orgid` MRI as opposed to a dual persona token. This problem is causing the client to not receive the calls since the MRI was `8:orgid` and the server adding a dual persona MRI with `8:acs`.
 
+---
 ### Error 403 code `UserLicenseNotPresentForbidden` when agent logs in to client application
 
 The issue appears when agent attempts to sign in to the agent application.
@@ -117,18 +180,22 @@ The issue appears when agent attempts to sign in to the agent application.
 
 This issue appears if the agent doesn't have a Teams license assigned or is disabled in Teams. Add the appropriate license and validate if user isn't disabled for Teams access and has all the required [Prerequisites](../../../quickstarts/tpe/teams-phone-extensibility-access-teams-phone.md#prerequisites).
 
+---
 ### Error 403 subcode 10105 Connecting Call end reason=NoPermission
 
 The most common root cause of this error is a misconfiguration of the 3P Azure Bot. Follow the steps as defined in this [Teams Phone extensibility](../../../quickstarts/tpe/teams-phone-extensibility-quickstart.md#ccaas-developer-provision-the-appid-application-id), specifically enable the Teams channel.
 
+---
 ### Error 400 Bad Requests when adding a Teams Channel in Azure Bot
 
 This issue generally arises if the bot was created with a reserved Microsoft Entra App ID. Delete your bot and recreate it with your Microsoft Entra App ID created or used in [Create Bot](../../../quickstarts/tpe/teams-phone-extensibility-quickstart.md#ccaas-developer-create-the-bot).
 
+---
 ### No Incoming Call notification in Call Automation application and a busy signal is heard instead of custom greeting when calling a Teams Service Number
 
 This issue arises when the provisioning of the Resource Account is incomplete or incorrect. Check your [Provisioning Resource Account](../../../quickstarts/tpe/teams-phone-extensibility-quickstart.md#teams-admin-provision-resource-account) and change as needed.
 
+---
 ### No Incoming Call notification in Call Automation application and no audio is heard and call disconnects when calling a Teams Service Number
 
 This issue arises when the provisioning of the Resource Account is incomplete or incorrect or failure to grant consent. Check [Provisioning Resource Account](../../../quickstarts/tpe/teams-phone-extensibility-quickstart.md#teams-admin-provision-resource-account) and [Server Consent](../../../quickstarts/tpe/teams-phone-extensibility-access-teams-phone.md#provide-server-consent), making changes as needed.

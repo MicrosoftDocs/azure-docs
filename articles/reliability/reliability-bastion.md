@@ -22,7 +22,7 @@ This article describes how to make Azure Bastion resilient to a variety of poten
 > Availability zone support for Azure Bastion is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability.
 
-## Production deployment recommendations
+## Production deployment recommendations for reliability
 
 For production workloads, we recommend that you:
 
@@ -114,7 +114,7 @@ This section describes what to expect when bastion hosts are configured for avai
 
 - **Active requests:** When an availability zone is unavailable, any RDP or SSH connections in progress that use an Azure Bastion instance in the faulty availability zone are terminated and need to be retried.
 
-    If the VM you're connecting to isn't in the affected availability zone, it continues to run.  For more information on the VM zone-down experience, see [Reliability in VMs - Zone down experience](./reliability-virtual-machines.md#zone-down-experience).
+    If the VM you're connecting to isn't in the affected availability zone, it continues to run.  For more information on the VM zone-down experience, see [Reliability in VMs - Behavior during a zone failure](./reliability-virtual-machines.md#behavior-during-a-zone-failure).
 
 - **Expected downtime:** The expected downtime depends on the availability zone configuration that your bastion host uses.
 

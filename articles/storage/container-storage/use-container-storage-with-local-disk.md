@@ -64,39 +64,71 @@ nodepool1   standard_l8s_v3
 > [!NOTE]
 > In Azure Container Storage (version 2.x.x), you can now use clusters with fewer than three nodes.
 
-## Create and attach generic ephemeral volumes
+## Create a storage class for local NVMe
 
 If you haven't already done so, [install Azure Container Storage.](install-container-storage-aks.md) 
 
-Follow these steps to create and attach a generic ephemeral volume using Azure Container Storage. 
-### 1. Create a storage class
+Azure Container Storage (version 2.x.x) presents local NVMe as a standard Kubernetes storage class. Create the `local` storage class once per cluster and reuse it for both generic ephemeral volumes and persistent volume claims.
 
-Unlike previous versions that required creating a custom storage pool resource, Azure Container Storage (version 2.x.x) uses standard Kubernetes storage classes.
+1. Use your favorite text editor to create a YAML manifest file such as `storageclass.yaml`, then paste in the following specification.
 
-Follow these steps to create a storage class using local NVMe.
+    ```yaml
+    apiVersion: storage.k8s.io/v1
+    kind: StorageClass
+    metadata:
+      name: local
+    provisioner: localdisk.csi.acstor.io
+    reclaimPolicy: Delete
+    volumeBindingMode: WaitForFirstConsumer
+    allowVolumeExpansion: true
+    ```
 
-1. Use your favorite text editor to create a YAML manifest file such as `code storageclass.yaml`.
+1. Apply the manifest to create the storage class.
 
-1. Paste in the following code and save the file.
+    ```azurecli
+    kubectl apply -f storageclass.yaml
+    ```
 
-   ```yaml
-   apiVersion: storage.k8s.io/v1
-   kind: StorageClass
-   metadata:
-     name: local
-   provisioner: localdisk.csi.acstor.io
-   reclaimPolicy: Delete
-   volumeBindingMode: WaitForFirstConsumer
-   allowVolumeExpansion: true
-   ```
+Alternatively, you can create the storage class using Terraform.
 
-1. Apply the YAML manifest file to create the storage pool.
+1. Use Terraform to manage the storage class by creating a configuration like the following `main.tf`. Update the provider version or kubeconfig path as needed for your environment.
 
-   ```azurecli
-   kubectl apply -f storageclass.yaml
-   ```
+    ```tf
+    terraform {
+      required_version = ">= 1.5.0"
+      required_providers {
+        kubernetes = {
+          source  = "hashicorp/kubernetes"
+          version = "~> 3.x"
+        }
+      }
+    }
 
-### 2. Verify the storage class
+    provider "kubernetes" {
+      config_path = "~/.kube/config"
+    }
+
+    resource "kubernetes_storage_class_v1" "local" {
+      metadata {
+        name = "local"
+      }
+
+      storage_provisioner    = "localdisk.csi.acstor.io"
+      reclaim_policy         = "Delete"
+      volume_binding_mode    = "WaitForFirstConsumer"
+      allow_volume_expansion = true
+    }
+    ```
+
+1. Initialize, review, and apply the configuration to create the storage class.
+
+    ```bash
+    terraform init
+    terraform plan
+    terraform apply
+    ```
+
+## Verify the storage class
 
 Run the following command to verify that the storage class is created:
 
@@ -111,7 +143,11 @@ NAME    PROVISIONER                RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWV
 local   localdisk.csi.acstor.io    Delete          WaitForFirstConsumer   true                   10s
 ```
 
-### 3. Deploy a pod with generic ephemeral volume
+## Create and attach generic ephemeral volumes
+
+Follow these steps to create and attach a generic ephemeral volume using Azure Container Storage. Make sure Azure Container Storage is [installed](install-container-storage-aks.md) and the `local` storage class exists before you continue.
+
+### Deploy a pod with generic ephemeral volume
 
 Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for benchmarking and workload simulation that uses a generic ephemeral volume.
 
@@ -153,7 +189,7 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
    kubectl apply -f fiopod.yaml
    ```
 
-### 4. Verify the deployment and run benchmarks
+### Verify the deployment and run benchmarks
 
 Check that the pod is running:
 
@@ -174,34 +210,9 @@ While generic ephemeral volumes are recommended for ephemeral storage, Azure Con
 > [!NOTE]
 > Azure Container Storage (version 2.x.x) uses the new annotation `localdisk.csi.acstor.io/accept-ephemeral-storage: "true"` instead of the previous `acstor.azure.com/accept-ephemeral-storage: "true"`.
 
-### 1. Create a storage class (if not already created)
+Make sure Azure Container Storage is [installed](install-container-storage-aks.md) and the `local` storage class you created earlier is available before deploying workloads that use it.
 
-If you haven't already done so, [install Azure Container Storage.](install-container-storage-aks.md) 
-
-If you did not create a storage class that uses local NVMe in the previous section, create one now:
-
-1. Use your favorite text editor to create a YAML manifest file such as `code storageclass.yaml`.
-
-1. Paste in the following code and save the file.
-
-   ```yaml
-   apiVersion: storage.k8s.io/v1
-   kind: StorageClass
-   metadata:
-     name: local
-   provisioner: localdisk.csi.acstor.io
-   reclaimPolicy: Delete
-   volumeBindingMode: WaitForFirstConsumer
-   allowVolumeExpansion: true
-   ```
-
-1. Apply the YAML manifest file to create the storage pool.
-
-   ```azurecli
-   kubectl apply -f storageclass.yaml
-   ```
-
-### 2. Deploy a stateful set with persistent volumes
+### Deploy a stateful set with persistent volumes
 
 If you need to use persistent volume claims that aren't tied to the pod lifecycle, you must add the `localdisk.csi.acstor.io/accept-ephemeral-storage: "true"` annotation. The data on the volume is local to the node and is lost if the node is deleted or the pod is moved to another node.
 
@@ -267,7 +278,7 @@ In this section, you learn how to check node ephemeral disk capacity, expand sto
 
 An ephemeral volume is allocated on a single node. When you configure the size of your ephemeral volumes, the size should be less than the available capacity of the single node's ephemeral disk.
 
-Make sure a StorageClass for **localdisk.csi.acstor.io** exists. Run the following command to check the available capacity of ephemeral disk for each node.
+Make sure a StorageClass for `localdisk.csi.acstor.io` exists. Run the following command to check the available capacity of ephemeral disk for each node.
 
 ```azurecli
 kubectl get csistoragecapacities.storage.k8s.io -n kube-system -o custom-columns=NAME:.metadata.name,STORAGE_CLASS:.storageClassName,CAPACITY:.capacity,NODE:.nodeTopology.matchLabels."topology\.localdisk\.csi\.acstor\.io/node"
@@ -281,7 +292,7 @@ csisc-2pkx4   local           1373172Mi   aks-storagepool-31410930-vmss000001
 csisc-gnmm9   local           1373172Mi   aks-storagepool-31410930-vmss000000
 ```
 
-If you encounter empty capacity output, confirm that a StorageClass for **localdisk.csi.acstor.io** exists. The **csistoragecapacities.storage.k8s.io** resource is only generated after a StorageClass for **localdisk.csi.acstor.io** exists.
+If you encounter empty capacity output, confirm that a StorageClass for `localdisk.csi.acstor.io` exists. The `csistoragecapacities.storage.k8s.io` resource is only generated after a StorageClass for `localdisk.csi.acstor.io` exists.
 
 ### Expand storage capacity
 
@@ -297,7 +308,7 @@ az aks nodepool scale --cluster-name <cluster-name> --name <nodepool-name> --res
 
 To clean up storage resources, you must first delete all PersistentVolumeClaims and/or PersistentVolumes. Deleting the Azure Container Storage StorageClass doesn't automatically remove your existing PersistentVolumes/PersistentVolumeClaims.
 
-To delete a storage class named **local**, run the following command:
+To delete a storage class named `local`, run the following command:
 
 ```azurecli
 kubectl delete storageclass local

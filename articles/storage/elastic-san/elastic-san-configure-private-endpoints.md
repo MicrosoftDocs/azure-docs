@@ -1,19 +1,19 @@
 ---
 title: Configure private endpoints for Azure Elastic SAN
-description: Learn how to configure private endpoint connections to Azure Elastic SAN volumes.
+description: Learn how to configure private endpoint connections to Azure Elastic SAN volumes for secure network isolation by using Azure portal, PowerShell, or CLI
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 06/18/2025
+ms.date: 01/09/2026
 ms.author: rogarana
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Configure private endpoints for Azure Elastic SAN
 
-A private endpoint allows you to connect to your Elastic SAN volume group over a private IP address within your virtual network. When you use a private endpoint, traffic between your virtual network and the Elastic SAN remains entirely on Azure’s private backbone, without traversing the public internet. Once a private endpoint is configured and approved, access is granted automatically to the subnet where it resides. This configuration provides strong network isolation and is ideal for production or security-sensitive workloads. 
+A private endpoint enables you to connect to your Elastic SAN volume group over a private IP address within your virtual network. When you use a private endpoint, traffic between your virtual network and the Elastic SAN stays entirely on Azure's private backbone, without traversing the public internet. Once you configure and approve a private endpoint, it automatically grants access to the subnet where it resides. This configuration provides strong network isolation and is ideal for production or security-sensitive workloads. 
 
-This article covers configuring your Elastic SAN volume group to use private endpoints.
+This article describes how to configure your Elastic SAN volume group to use private endpoints.
 
 ## Prerequisites
 
@@ -21,37 +21,37 @@ This article covers configuring your Elastic SAN volume group to use private end
 - Read through [Learn about networking configurations for Elastic SAN](elastic-san-networking.md) to understand whether private endpoints or service endpoints work better for your environment.
 - If you're using Azure PowerShell, install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell).
 - If you're using Azure CLI, install the [latest version](/cli/azure/install-azure-cli).
-- Once you've installed the latest version, run `az extension add -n elastic-san` to install the extension for Elastic SAN.
+- Once you install the latest version, run `az extension add -n elastic-san` to install the extension for Elastic SAN.
 
 ## Configure a private endpoint
 
-There are two steps involved in configuring a private endpoint connection:
+Configuring a private endpoint connection involves two steps:
 
 > [!div class="checklist"]
 > - Creating the endpoint and the associated connection.
 > - Approving the connection.
 
-You must have the [Elastic SAN Volume Group Owner](../../role-based-access-control/built-in-roles.md#elastic-san-volume-group-owner) role to create a private endpoint for an Elastic SAN volume group. To approve a new private endpoint connection, you must have permission to the [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftelasticsan) `Microsoft.ElasticSan/elasticSans/PrivateEndpointConnectionsApproval/action`. Permission for this operation is included in the [Elastic SAN Network Admin](../../role-based-access-control/built-in-roles.md#elastic-san-owner) role, but it can also be granted via a custom Azure role.
+You must have the [Elastic SAN Volume Group Owner](../../role-based-access-control/built-in-roles.md#elastic-san-volume-group-owner) role to create a private endpoint for an Elastic SAN volume group. To approve a new private endpoint connection, you must have permission to the [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftelasticsan) `Microsoft.ElasticSan/elasticSans/PrivateEndpointConnectionsApproval/action`. The [Elastic SAN Network Admin](../../role-based-access-control/built-in-roles.md#elastic-san-owner) role includes permission for this operation, but you can also grant it through a custom Azure role.
 
-If you create the endpoint from a user account that has all of the necessary roles and permissions required for creation and approval, then you can do this in one step. Otherwise, it'll require two separate steps by two different users.
+If you create the endpoint from a user account that has all the necessary roles and permissions for creation and approval, you can complete both steps in one step. Otherwise, two different users must perform two separate steps.
 
-When setting up Private Links, your Elastic SAN and the virtual network could be in different resource groups, regions, and subscriptions, including subscriptions that belong to different Microsoft Entra tenants. In these examples, we're creating the private endpoint in the same resource group as the virtual network.
+When setting up Private Links, your Elastic SAN and the virtual network can be in different resource groups, regions, and subscriptions. The subscriptions can belong to different Microsoft Entra tenants. In these examples, you create the private endpoint in the same resource group as the virtual network.
 
 ### [Portal](#tab/azure-portal)
 
 You can create a private endpoint connection to your volume group in the Azure portal either when you create a volume group or when modifying an existing volume group. You need an existing virtual network to create a private endpoint.
 
-When creating or modifying a volume group, select **Networking**, then select **+ Create a private endpoint** under **Private endpoint connections**.
+When creating or modifying a volume group, select **Networking**, and then select **+ Create a private endpoint** under **Private endpoint connections**.
 
-Fill out the values in the menu that pops up, select the virtual network and the subnet that your applications will use to connect. When you're done, select **Add**, and **Save**. 
+Fill out the values in the form that pops up. Select the virtual network and the subnet that your applications will use to connect. When you're done, select **Add**, and **Save**.  
 
 :::image type="content" source="media/elastic-san-create/elastic-san-private-endpoint.png" alt-text="Screenshot of the volume group private endpoint creation experience." lightbox="media/elastic-san-create/elastic-san-private-endpoint.png":::
 
 ### [PowerShell](#tab/azure-powershell)
 
-The following script creates a private endpoint for your Elastic SAN volume group. Replace the values of `RgName`, `VnetName`, `SubnetName`, `EsanName`, `EsanVgName`, `PLSvcConnectionName`, `EndpointName`, and `Location`(Region) with your own values, and uncomment `-ByManualRequest` if you're following the two step process, then run the script.
+The following script creates a private endpoint for your Elastic SAN volume group. Replace the values of `RgName`, `VnetName`, `SubnetName`, `EsanName`, `EsanVgName`, `PLSvcConnectionName`, `EndpointName`, and `Location` (region) with your own values. Uncomment `-ByManualRequest` if you're following the two step process, and then run the script.
 
-Afterwards, if you don't have all necessary permissions and need the network admin to approve the connection, make sure to also run the script in [Approve connection](#approve-connection).
+If you don't have all necessary permissions and need the network admin to approve the connection, make sure to also run the script in [Approve connection](#approve-connection).
 
 ```powershell
 # Set the resource group name.
@@ -116,7 +116,7 @@ $EndpointConnection.PrivateLinkServiceConnectionState
 
 The following script creates a private endpoint for your Elastic SAN volume group. Uncomment the `--manual-request` parameter if you're using the two-step process. Replace all example variable values with your own, then run the script.
 
-Afterwards, if you don't have all necessary permissions and need the network admin to approve the connection, make sure to also run the script in [Approve connection](#approve-connection-1).
+If you don't have all necessary permissions and need the network admin to approve the connection, make sure to also run the script in [Approve connection](#approve-connection-1).
 
 ```azurecli
 # Define some variables.
@@ -193,13 +193,13 @@ az network private-endpoint-connection approve \
 
 ## Optional - network policies
 
-Virtual network rules don't apply to private endpoints. So, if you need to refine access rules and control traffic over a private endpoint, use network policies. By default, network policies are disabled for a subnet in a virtual network. To use network policies like user-defined routes and network security group support, enable network policy support for the subnet. This setting only applies to private endpoints in the subnet and affects all private endpoints in the subnet. For other resources in the subnet, access is controlled based on security rules in the network security group. For details, see [Network Policies](../../private-link/disable-private-endpoint-network-policy.md).
+Virtual network rules don't apply to private endpoints. To refine access rules and control traffic over a private endpoint, use network policies. By default, network policies are disabled for a subnet in a virtual network. To use network policies like user-defined routes and network security group support, enable network policy support for the subnet. This setting only applies to private endpoints in the subnet and affects all private endpoints in the subnet. For other resources in the subnet, access is controlled based on security rules in the network security group. For details, see [Network Policies](../../private-link/disable-private-endpoint-network-policy.md).
 
 ## Configure client connections
 
-After you have enabled the desired endpoints, you're ready to configure your clients to connect to the appropriate Elastic SAN volumes.
+After you enable the desired endpoints, you're ready to configure your clients to connect to the appropriate Elastic SAN volumes.
 
-If a connection between a virtual machine (VM) and an Elastic SAN volume is lost, the connection will retry for 90 seconds until terminating. Losing a connection to an Elastic SAN volume won't cause the VM to restart.
+If a connection between a virtual machine (VM) and an Elastic SAN volume is lost, the connection retries for 90 seconds until terminating. Losing a connection to an Elastic SAN volume doesn't cause the VM to restart.
 
 ## Next steps
 

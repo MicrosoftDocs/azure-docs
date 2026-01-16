@@ -5,10 +5,13 @@ services: load-balancer
 ms.service: sap-on-azure
 ms.custom: devx-track-azurecli
 ms.topic: include
-ms.date: 01/17/2024
+ms.date: 12/23/2025
 author: dennispadia
 ms.author: depadia
 ---
+
+> [!NOTE]
+> Use azure-cli v2.63.0 or later. You can check the version using `az version`.
 
 To create Azure standard load balancer for high availability setup of SAP system using Azure CLI, follow below steps.
 

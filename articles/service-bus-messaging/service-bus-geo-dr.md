@@ -14,9 +14,13 @@ The Service Bus Geo-Disaster Recovery feature is one of the options to [insulate
 
 The Geo-Disaster Recovery feature ensures that the entire configuration of a namespace (entities, configuration, properties) is continuously replicated from a primary namespace to a secondary namespace with which it is paired, and it allows you to initiate a once-only failover move from the primary to the secondary at any time. The failover move re-points the chosen alias name for the namespace to the secondary namespace and then breaks the pairing. The failover is nearly instantaneous once initiated. 
 
+## Comparison with Geo-Replication
+
+Azure Service Bus offers two features for geographic resilience: Geo-Replication and [Geo-Disaster Recovery](service-bus-geo-dr.md). The key difference is that Geo-Replication replicates both metadata and data (messages, message states, property changes), while Geo-Disaster Recovery replicates metadata only. For most disaster recovery scenarios, Geo-Replication is the recommended choice. For a detailed comparison, see [High-level feature differences](service-bus-outages-disasters.md#high-level-feature-differences).
+
 ## Important points to consider
 
-- The feature enables instant continuity of operations with the same configuration, but **doesn't replicate the messages held in queues or topic subscriptions or dead-letter queues**. To preserve queue semantics, such a replication requires not only the replication of message data, but of every state change in the broker, which is offered in the [Geo-Replication feature (Public Preview)](service-bus-geo-replication.md).
+- The feature enables instant continuity of operations with the same configuration, but **doesn't replicate the messages held in queues or topic subscriptions or dead-letter queues**. To preserve queue semantics, such a replication requires not only the replication of message data, but of every state change in the broker, which is offered in the [Geo-Replication feature](service-bus-geo-replication.md).
 - Microsoft Entra role-based access control (RBAC) assignments to Service Bus entities in the primary namespace aren't replicated to the secondary namespace. Create role assignments manually in the secondary namespace to secure access to them. 
 - The following configurations aren't replicated. 
     - Virtual network configurations

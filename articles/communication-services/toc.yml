@@ -399,16 +399,10 @@ items:
     href: concepts/advanced-messaging/whatsapp/whatsapp-channel-prerequisites.md
   - name: WhatsApp business account FAQ
     href: quickstarts/advanced-messaging/whatsapp/whatsapp-business-account-faq.md
-  - name: Logging and analytics
-    items:
-    - name: Enable logging with Azure Monitor
-      href: concepts/analytics/enable-logging.md
-    - name: Advanced Messaging logs
-      href: concepts/advanced-messaging/logs.md
-    - name: Message analysis
-      href: concepts/advanced-messaging/message-analysis/message-analysis.md
-    - name: Message analysis transparency FAQ
-      href: concepts/advanced-messaging/message-analysis/message-analysis-transparency-faq.md
+  - name: Enable logging with Azure Monitor
+    href: concepts/analytics/enable-logging.md
+  - name: Advanced Messaging logs
+    href: concepts/advanced-messaging/logs.md
   - name: Samples and tutorials
     items:
     - name: Try Advanced Messaging Sandbox
@@ -433,8 +427,6 @@ items:
       href: quickstarts/advanced-messaging/whatsapp/download-media.md
     - name: WhatsApp business account FAQ
       href: quickstarts/advanced-messaging/whatsapp/whatsapp-business-account-faq.md
-    - name: Enable Message Analysis With Azure OpenAI
-      href: quickstarts/advanced-messaging/message-analysis/message-analysis-with-azure-openai-quickstart.md
   - name: References
     items:
     - name: Messages (Java)
@@ -1232,6 +1224,8 @@ items:
       href: quickstarts/tpe/teams-phone-extensibility-emergency-call.md
     - name: Teams Extension User Authentication Sample
       href: https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/tpe-token-and-access-management
+    - name: Place a server outbound call
+      href: quickstarts/tpe/teams-phone-extensibility-server-outbound-call.md     
     - name: REST API for Teams Phone extensibility
       href: quickstarts/tpe/teams-phone-extensiblity-rest-api.md
 - name: Job Router

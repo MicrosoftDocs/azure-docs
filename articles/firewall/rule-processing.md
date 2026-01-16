@@ -127,7 +127,21 @@ In both HTTP and TLS inspected HTTPS cases, the firewall ignores the packet's de
 
 When an application rule contains TLS inspection, the firewall rules engine process SNI, Host Header, and also the URL to match the rule. 
 
-If still no match is found within application rules, then the packet is evaluated against the infrastructure rule collection. If there's still no match, then the packet is denied by default. 
+If still no match is found within application rules, then the packet is evaluated against the infrastructure rule collection. If there's still no match, then the packet is denied by default.
+
+### Infrastructure rule collection
+
+Azure Firewall includes a built-in rule collection for infrastructure FQDNs that are allowed by default. These FQDNs are specific for the platform and can't be used for other purposes. The infrastructure rule collection is processed after application rules and before the final deny-all rule.
+
+The following services are included in the built-in infrastructure rule collection:
+
+- Compute access to storage Platform Image Repository (PIR)
+- Managed disks status storage access
+- Azure Diagnostics and Logging (MDS)
+
+#### Overriding the infrastructure rule collection
+
+You can override this built-in infrastructure rule collection by creating a deny all application rule collection that is processed last. It will always be processed before the infrastructure rule collection. Anything not in the infrastructure rule collection is denied by default.
 
 > [!NOTE]
 > Network rules can be configured for *TCP*, *UDP*, *ICMP*, or *Any* IP protocol. Any IP protocol includes all the IP protocols as defined in the Internet Assigned Numbers Authority (IANA) Protocol Numbers document. If a destination port is explicitly configured, then the rule is translated to a TCP+UDP rule. Before November 9, 2020, *Any* meant TCP, or UDP, or ICMP. So, you might have configured a rule before that date with **Protocol = Any**, and **destination ports = '*'**. If you don't intend to allow any IP protocol as currently defined, then modify the rule to explicitly configure the protocol(s) you want (TCP, UDP, or ICMP). 

@@ -173,8 +173,10 @@ To help automate these steps with the [Visual Studio Code REST Client](https://m
 @apiEndPoint = // API URL
 @requestBody = // Data to send
 @tenantId = // Tenant ID
- 
-POST https://login.microsoftonline.com/{tenantId}/oauth2/token
+@apiId = // Api Id for which trace log is to be generated.
+
+# @name login 
+POST https://login.microsoftonline.com/{{tenantId}}/oauth2/token
 content-type: application/x-www-form-urlencoded
  
 grant_type=client_credentials&client_id={{clientId}}&client_secret={{clientSecret}}&resource=https%3A%2F%2Fmanagement.azure.com%2F
@@ -185,6 +187,7 @@ grant_type=client_credentials&client_id={{clientId}}&client_secret={{clientSecre
 # @name listDebugCredentials
 POST https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.ApiManagement/service/{{apimName}}/gateways/managed/listDebugCredentials?api-version=2023-05-01-preview
 Authorization: Bearer {{authToken}}
+
 Content-Type: application/json
 {
     "credentialsExpireAfter": "PT1H",
@@ -197,7 +200,13 @@ Content-Type: application/json
  
 ###
 # @name callApi
-curl -k -H "Apim-Debug-Authorization: {{debugToken}}" -H 'Host: {{externalHost}}' -H 'Ocp-Apim-Subscription-Key: {{subscriptionKey}}' -H 'Content-Type: application/json' '{{apiEndPoint}}' -d '{{requestBody}}'
+POST {{apiEndPoint}} HTTP/1.1
+Host: {{externalHost}}
+Apim-Debug-Authorization: {{debugToken}}
+Ocp-Apim-Subscription-Key: {{subscriptionKey}}
+Content-Type: application/json
+
+{{requestBody}}
  
 ###
 @traceId = {{callApi.response.headers.Apim-Trace-Id}}

@@ -47,32 +47,33 @@ To connect to your AKS private cluster:
 
 1. Sign in to your Azure account using `az login` via CLI. If you have more than one subscription, you can view them using `az account list` and select the subscription containing your Bastion resource using:
 
-   ```pwsh
+   ```bash
    az account set --subscription <subscription ID>
    ```
 
 1. Retrieve credentials to your AKS private cluster:
 
-   ```pwsh
+   ```bash
    az aks get-credentials --admin --name <AKSClusterName> --resource-group <ResourceGroupName>
    ```
 
 1. Open the tunnel to your target AKS Cluster with either of the following commands:
 
-   ```pwsh
+   ```bash
    az aks bastion --name <aksClusterName> --resource-group <aksClusterResourceGroup> --admin --bastion <bastionResourceId>
    ```
 
-   Or:
+1. Change the new temporary KUBECONFIG to point to the new Bastion tunnel:
 
-   ```pwsh
-   az network bastion tunnel --name <BastionName> --resource-group <ResourceGroupName> --target-resource-id <AKSClusterID> --resource-port 443 --port <LocalMachinePort>
-   ```
+    ```bash
+    export BASTION_PORT=$(ps aux | sed -n 's/.*--port \([0-9]*\).*/\1/p' | head -1)
+    sed -i "s|server: https://.*|server: https://localhost:${BASTION_PORT}|" $KUBECONFIG
+    ```
 
-1. If you're using the az network command, open a new command line to connect to the AKS cluster via the Bastion tunnel. Otherwise, you should be all set to interact with your AKS cluster.
+1. You are now you should be all set to interact with your AKS cluster:
 
-   ```pwsh
-   kubectl get pods --server=https://localhost:<LocalMachinePort>
+   ```bash
+    kubectl get nodes
    ```
 
 ## Next steps

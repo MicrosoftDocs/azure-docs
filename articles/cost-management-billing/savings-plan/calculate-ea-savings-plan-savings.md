@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 07/09/2025
+ms.date: 01/08/2026
 ms.author: onwokolo
 ---
 
@@ -54,8 +54,8 @@ Because Azure usage files are in CSV format, you need to prepare the data for us
 6. Find the **ChargeType** column and then to the right of the column name, select the sort and filter symbol (the down arrow).
 7. For the **ChargeType** column, set a filter on it to select only **Usage**. Clear any other selections.  
     :::image type="content" source="./media/calculate-ea-savings-plan-savings/charge-type-selection-small.png" alt-text="Screenshot showing ChargeType selection." lightbox="./media/calculate-ea-savings-plan-savings/charge-type-selection.png" :::
-8. To the right of **UnitPrice** , insert add a column and label it with a title like **TotalUsedSavings**.
-9. In the first cell under **TotalUsedSavings**, create a formula that calculates (_UnitPrice – EffectivePrice) \* Quantity_.  
+8. To the right of **UnitPrice**, insert a column and label it with a title like **TotalUsedSavings**.
+9. In the first cell under **TotalUsedSavings**, create a formula that calculates _(UnitPrice – EffectivePrice) \* Quantity_.  
     :::image type="content" source="./media/calculate-ea-savings-plan-savings/total-used-savings-formula.png" alt-text="Screenshot showing the TotalUsedSavings formula." lightbox="./media/calculate-ea-savings-plan-savings/total-used-savings-formula.png" :::
 10. Copy the formula to all the other empty **TotalUsedSavings** cells.
 11. At the bottom of the **TotalUsedSavings** column, sum the column's values.  
@@ -66,12 +66,12 @@ Because Azure usage files are in CSV format, you need to prepare the data for us
 14. To the right of the **TotalUsedSavings** column, insert a column and label it with a title like **TotalUnused**.
 15. In the first cell under **TotalUnused**, create a formula that calculates _EffectivePrice \* Quantity_.  
     :::image type="content" source="./media/calculate-ea-savings-plan-savings/total-unused-formula.png" alt-text="Screenshot showing the TotalUnused formula." lightbox="./media/calculate-ea-savings-plan-savings/total-unused-formula.png" :::
-16. At the bottom of the TotalUnused column, sum the column's values.
-17. Somewhere under your data, create a cell named _TotalUnusedValue_. Next to it, copy the TotalUnused cell and paste it as **Values**.
-18. Under the TotalUsedSavingsValue and TotalUnusedValue cells, create a cell named _SavingsPlanSavings_. Next to it, subtract TotalUnusedValue from TotalUsedSavingsValue. The calculation result is your savings plan savings.  
+16. At the bottom of the **TotalUnused** column, sum the column's values.
+17. Somewhere under your data, create a cell named _TotalUnusedValue_. Next to it, copy the **TotalUnused** cell and paste it as **Values**.
+18. Under the **TotalUsedSavingsValue** and **TotalUnusedValue** cells, create a cell named _SavingsPlanSavings_. Next to it, subtract **TotalUnusedValue** from **TotalUsedSavingsValue**. The calculation result is your savings plan savings.  
     :::image type="content" source="./media/calculate-ea-savings-plan-savings/savings-plan-savings.png" alt-text="Screenshot showing the SavingsPlanSavings calculation and final savings." lightbox="./media/calculate-ea-savings-plan-savings/savings-plan-savings.png" :::
 
-If you see a negative savings value, then you're likely to have  unused savings plans. You should review your savings plan usage. For more information, see [View savings plan utilization after purchase](view-utilization.md).
+If you see a negative savings value, then you're likely to have unused savings plans. You should review your savings plan usage. For more information, see [View savings plan utilization after purchase](view-utilization.md).
 
 ## Other ways to get data and see savings
 

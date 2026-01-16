@@ -3,10 +3,10 @@ title: GPv1 storage account retirement overview
 titleSuffix: Azure Storage
 description: Learn what the retirement of Azure GPv1 storage accounts means and how to prepare for a smooth migration to GPv2.
 Services: storage
-author: gtrossell
+author: gtrossell-eng
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 07/22/2025
+ms.date: 12/15/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
@@ -54,6 +54,8 @@ The retirement takes effect globally across all Azure regions.
 >
 > Be aware that **transaction pricing differs** in GPv2. Workloads with frequent operations may incur **higher charges** unless cost-optimization strategies are applied.
 
+>[!NOTE]
+> Converting a storage account from GPv1 to GPv2 changes how Blob Storage is billed, but it does not impact pricing for Azure Files or Azure Disks. These services use their own pricing models, which aren’t tied to the storage account type.
 
 ### Estimate costs before upgrading
 >[!TIP]

@@ -214,7 +214,10 @@ sections:
           Can I use a storage account in a different subscription than the network security group or virtual network that the flow log is enabled for?
         answer: |
           Yes, you can use a storage account from a different subscription as long as this subscription is in the same region of the network security group and associated with the same Microsoft Entra tenant of the network security group or virtual network's subscription.
-
+      - question: |
+          How can I ensure that Traffic Analytics has visibility into resources within a subscription?
+        answer: |
+          You must enable at least one Virtual Network Flow Log in the subscription. Traffic Analytics processes data only from enabled flow logs, so configuring a flow log ensures that Traffic Analytics can access and analyze network activity for the resources in that subscription.
       - question: |
           How do I use flow logs with a storage account behind a firewall?
         answer: |

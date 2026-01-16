@@ -129,7 +129,7 @@ When you restore a snapshot to a new volume, the Volume overview page displays t
 
 ### Creating a short-term clone 
 
-Short-term clones are volumes clones created from snapshots that are designed explicity for temporary use such as development, testing, data analytics, or data forensics. Short-term clones inherit the data in the base snapshot used to create them. In contrast to regular clones, short-term clones are more space efficient, sharing the same data blocks with its parent volume for common data. Writes specifically to the short-term clone consume their own data blocks.
+Short-term clones are volumes clones created from snapshots that are designed explicitly for temporary use such as development, testing, data analytics, or data forensics. Short-term clones inherit the data in the base snapshot used to create them. In contrast to regular clones, short-term clones are more space efficient, sharing the same data blocks with its parent volume for common data. Writes specifically to the short-term clone consume their own data blocks.
 
 A short-term clone is designed to be used for a fixed period of time. After 32 days, the short-term clone is automatically converted into a regular volume. For more information about creating a short-term clone and its related quota consumption, see [Create a short-term clone volume](create-short-term-clone.md).
 

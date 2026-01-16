@@ -22,7 +22,7 @@ This article describes how to make Queue Storage resilient to a variety of poten
 > [!NOTE]
 > Queue Storage is part of the Azure Storage platform. Some of the capabilities of Queue Storage are common across many Azure Storage services.
 
-## Production deployment recommendations
+## Production deployment recommendations for reliability
 
 For production environments:
 
@@ -115,8 +115,6 @@ When an availability zone becomes unavailable, Queue Storage automatically handl
 ## Resilience to region-wide failures
 
 [!INCLUDE [Storage - Resilience to region-wide failures](includes/storage/reliability-storage-multi-region-support-include.md)]
-
-### Geo-redundant storage
 
 [!INCLUDE [Storage - Resilience to region-wide failures - RA-GRS addendum](includes/storage/reliability-storage-multi-region-support-read-access-include.md)]
 

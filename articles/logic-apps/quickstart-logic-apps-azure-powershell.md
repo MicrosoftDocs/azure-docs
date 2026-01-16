@@ -57,7 +57,7 @@ ResourceGroupName : testResourceGroup
 Location          : westus
 ProvisioningState : Succeeded
 Tags              :
-ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testResourceGroup
+ResourceId        : /subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/testResourceGroup
 ```
 
 ## Workflow definition

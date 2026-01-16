@@ -116,7 +116,7 @@ You can create a NAT gateway resource and add it to an existing subnet by using 
     | **Instance details** |  |
     | NAT gateway name | Enter *nat-gateway*. |
     | Region | Select your region. This example uses **East US 2**. |
-    | Availability zone | Select **No Zone**. For more information about NAT gateway availability, see [NAT gateway and availability zones](nat-availability-zones.md). |
+    | Availability zone | Select **No Zone**. For more information about NAT gateway and availability zones, see [Reliability in Azure NAT Gateway](/azure/reliability/reliability-nat-gateway). |
     | TCP idle timeout (minutes) | Select the default of **4**. |
 
 1. Select the **Outbound IP** tab, or select **Next: Outbound IP**.
@@ -887,5 +887,5 @@ Use the Azure portal, Azure PowerShell, or Azure CLI to add or remove a public I
 To learn more about Azure Virtual Network NAT and its capabilities, see the following articles:
 
 - [What is Azure NAT Gateway?](nat-overview.md)
-- [NAT gateway and availability zones](nat-availability-zones.md)
+- [Reliability in Azure NAT Gateway](/azure/reliability/reliability-nat-gateway)
 - [Design virtual networks with NAT gateway](nat-gateway-resource.md)

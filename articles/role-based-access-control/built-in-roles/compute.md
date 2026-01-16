@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 09/03/2025
+ms.date: 12/31/2025
 ms.custom: generated
 ---
 
@@ -166,6 +166,7 @@ Arc VMware VM Contributor has permissions to perform all VM actions.
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
+
 ## Azure Batch Account Contributor
 
 Grants full access to manage all Batch resources, including Batch accounts, pools and jobs.
@@ -1709,6 +1710,8 @@ Provides permission to backup vault to perform disk restore.
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/write | Creates a new Disk or updates an existing one |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/read | Get the properties of a Disk |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/beginGetAccess/action | Get the SAS URI of the Disk for blob access |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/endGetAccess/action | Revoke the SAS URI of the Disk |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1730,7 +1733,9 @@ Provides permission to backup vault to perform disk restore.
         "Microsoft.Authorization/*/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Compute/disks/write",
-        "Microsoft.Compute/disks/read"
+        "Microsoft.Compute/disks/read",
+        "Microsoft.Compute/disks/beginGetAccess/action",
+        "Microsoft.Compute/disks/endGetAccess/action"
       ],
       "notActions": [],
       "dataActions": [],

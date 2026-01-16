@@ -33,6 +33,12 @@ items:
             - name: Command line
               href: deploy-artifact.md
               displayName: java
+        - name: Deploy Functions
+          items:
+            - name: Azure portal
+              href: functions-usage.md?pivots=azure-portal
+            - name: Command line
+              href: functions-usage.md?pivots=azure-cli
         - name: Run a job
           items:
             - name: Azure portal
@@ -131,10 +137,12 @@ items:
       items:
         - name: Overview
           href: functions-overview.md
-        - name: Manage a Functions app through the portal and CLI
-          href: functions-usage.md
-        - name: Create your Azure functions on Azure Container Apps
+        - name: Create your Functions app through custom containers
           href: functions-container-apps.md
+        - name: Create your Functions app through the portal and CLI
+          href: functions-usage.md
+        - name: Manage your Functions app
+          href: functions-manage.md       
         - name: Migrate from Functions v1 to v2
           href: migrate-functions.md
         - name: Run event-driven and batch workloads
@@ -309,6 +317,8 @@ items:
           href: managed-identity.md
         - name: Azure Container Registry image pull with managed identity
           href: managed-identity-image-pull.md
+    - name: Secure deployments
+      href: secure-deployment.md
 - name: Resiliency (preview)
   items:
     - name: Service discovery resiliency

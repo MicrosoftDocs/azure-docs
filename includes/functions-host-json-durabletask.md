@@ -50,6 +50,10 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
       "traceInputsAndOutputs": false,
       "traceReplayEvents": false,
     },
+    "httpSettings":{
+      "defaultAsyncRequestSleepTimeMilliseconds": 30000,
+      "useForwardedHost": false,
+    },
     "notifications": {
       "eventGrid": {
         "topicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
@@ -150,5 +154,7 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
 |maxGrpcMessageSizeInBytes|4,194,304|An integer value that sets the maximum size, in bytes, of messages that the generic Remote Procedure Call (gRPC) client can receive. The implementation of `DurableTaskClient` uses the gRPC client to manage orchestration instances. This setting applies to Durable Functions .NET isolated worker and Java apps.|
 |grpcHttpClientTimeout|00:01:40|The timeout in *hh:mm:ss* format for the HTTP client used by the gRPC client in Durable Functions. The client is currently supported for .NET isolated worker apps (.NET 6 and later versions) and for Java apps. |
 |QueueClientMessageEncoding|UTF8|The encoding strategy for Azure Queue Storage messages. Valid strategies are Unicode Transformation Format–8-bit (UTF8) and Base64. This setting applies when you use Microsoft.Azure.WebJobs.Extensions.DurableTask 3.4.0 or later, or Microsoft.Azure.Functions.Worker.Extensions.DurableTask 1.7.0 or later. |
+|defaultAsyncRequestSleepTimeMilliseconds|30000| The default polling interval, in milliseconds, for async HTTP APIs. When a client polls the status of a long-running orchestration using the HTTP status query endpoint, this value determines how long the client should wait before polling again. |
+|useForwardedHost| false | When set to true, the extension uses the X-Forwarded-Host and X-Forwarded-Proto headers to construct URLs in HTTP responses. |
 
 Many of these settings are for optimizing performance. For more information, see [Performance and scale](../articles/azure-functions/durable/durable-functions-perf-and-scale.md).

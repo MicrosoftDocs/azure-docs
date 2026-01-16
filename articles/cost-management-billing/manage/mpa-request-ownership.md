@@ -11,6 +11,7 @@ ms.author: jkinma
 ms.custom:
 - sfi-image-nochange
 - build-2025
+service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
 # Transfer Azure product billing ownership to your Microsoft Partner Agreement (MPA)

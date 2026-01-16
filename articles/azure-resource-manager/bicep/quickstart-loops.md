@@ -1,7 +1,7 @@
 ---
 title: Create multiple resource instances in Bicep
 description: Use different methods to create multiple resource instances in Bicep
-ms.date: 04/28/2025
+ms.date: 12/22/2025
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-bicep
 #Customer intent: As a developer new to Azure deployment, I want to learn how to create multiple resources in Bicep.
@@ -278,4 +278,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn modules for Bicep](learn-bicep.md)
+> [Create Bicep files by using Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).

@@ -260,8 +260,8 @@
       href: amazon-bedrock-passthrough-llm-api.md
     - name: Semantic caching for LLM API requests
       href: azure-openai-enable-semantic-caching.md
-    - name: Authenticate and authorize to Azure OpenAI
-      href: api-management-authenticate-authorize-azure-openai.md
+    - name: Authenticate and authorize to LLM APIs
+      href: api-management-authenticate-authorize-ai-apis.md
     - name: Log LLM tokens, requests, and responses
       href: api-management-howto-llm-logs.md
   - name: Manage AI tools and agents
@@ -364,6 +364,7 @@
     href: api-management-howto-ca-certificates.md
   - name: Manage protocols and ciphers
     href: api-management-howto-manage-protocols-ciphers.md
+    displayName: TLS, TLS 1.3
   - name: Protect with Defender for APIs
     href: protect-with-defender-for-apis.md
   - name: Mitigate OWASP API threats

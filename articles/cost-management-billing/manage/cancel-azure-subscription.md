@@ -6,10 +6,11 @@ ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 10/21/2025
+ms.date: 12/29/2025
 ms.author: nicholak
 ms.custom: sfi-image-nochange
 #customer intent: As an Azure subscription owner, I want clear steps to cancel and delete a subscription so that I can properly deprovision resources and avoid unexpected charges.
+service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
 
 # Cancel and delete your Azure subscription

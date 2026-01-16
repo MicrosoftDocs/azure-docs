@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2025
+ms.date: 12/31/2025
 ms.custom: generated
 ---
 
@@ -47,13 +47,6 @@ Azure service: [Container Instances](/azure/container-instances/)
 > | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the container group. |
 > | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the container group. |
 > | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for container group. |
-> | Microsoft.ContainerInstance/containerScaleSets/read | Get details of a container scale set. |
-> | Microsoft.ContainerInstance/containerScaleSets/write | Create or update a specific container scale set. |
-> | Microsoft.ContainerInstance/containerScaleSets/delete | Deletes a specific container scale set. |
-> | Microsoft.ContainerInstance/containerScaleSets/containerGroups/restart/action | Restart specific container groups in a container scale set. |
-> | Microsoft.ContainerInstance/containerScaleSets/containerGroups/start/action | Start specific container groups in a container scale set. |
-> | Microsoft.ContainerInstance/containerScaleSets/containerGroups/stop/action | Stop specific container groups in a container scale set. |
-> | Microsoft.ContainerInstance/containerScaleSets/containerGroups/delete/action | Delete specific container groups in a container scale set. |
 > | Microsoft.ContainerInstance/locations/validateDeleteVirtualNetworkOrSubnets/action | Notifies Microsoft.ContainerInstance that virtual network or subnet is being deleted. |
 > | Microsoft.ContainerInstance/locations/deleteVirtualNetworkOrSubnets/action | Notifies Microsoft.ContainerInstance that virtual network or subnet is being deleted. |
 > | Microsoft.ContainerInstance/locations/cachedImages/read | Gets the cached images for the subscription in a region. |
@@ -61,6 +54,13 @@ Azure service: [Container Instances](/azure/container-instances/)
 > | Microsoft.ContainerInstance/locations/operationResults/read | Get async operation result |
 > | Microsoft.ContainerInstance/locations/operations/read | List the operations for Azure Container Instance service. |
 > | Microsoft.ContainerInstance/locations/usages/read | Get the usage for a specific region. |
+> | Microsoft.ContainerInstance/nGroups/read | Get details of a container scale set. |
+> | Microsoft.ContainerInstance/nGroups/write | Create or update a specific container scale set. |
+> | Microsoft.ContainerInstance/nGroups/delete | Deletes a specific container scale set. |
+> | Microsoft.ContainerInstance/nGroups/containerGroups/restart/action | Restart specific container groups in a container scale set. |
+> | Microsoft.ContainerInstance/nGroups/containerGroups/start/action | Start specific container groups in a container scale set. |
+> | Microsoft.ContainerInstance/nGroups/containerGroups/stop/action | Stop specific container groups in a container scale set. |
+> | Microsoft.ContainerInstance/nGroups/containerGroups/delete/action | Delete specific container groups in a container scale set. |
 > | Microsoft.ContainerInstance/operations/read | List the operations for Azure Container Instance service. |
 > | Microsoft.ContainerInstance/serviceassociationlinks/delete | Delete the service association link created by azure container instance resource provider on a subnet. |
 
@@ -104,6 +104,7 @@ Azure service: [Container Registry](/azure/container-registry/)
 > | Microsoft.ContainerRegistry/registries/connectedRegistries/write | Creates or updates a connected registry for a container registry with the specified parameters. |
 > | Microsoft.ContainerRegistry/registries/connectedRegistries/delete | Deletes a connected registry from a container registry. |
 > | Microsoft.ContainerRegistry/registries/connectedRegistries/deactivate/action | Deactivates a connected registry for a container registry |
+> | Microsoft.ContainerRegistry/registries/connectedRegistries/resync/action | Resync a connected registry for a container registry |
 > | Microsoft.ContainerRegistry/registries/credentialSets/read | Gets the properties of the specified credential set or lists all the credential sets for the specified container registry |
 > | Microsoft.ContainerRegistry/registries/credentialSets/write | Creates or updates a credential set for a container registry with the specified parameters |
 > | Microsoft.ContainerRegistry/registries/credentialSets/delete | Deletes a credential set from a container registry |
@@ -212,6 +213,9 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/containerServices/read | Get a container service |
 > | Microsoft.ContainerService/containerServices/write | Creates a new container service or updates an existing one |
 > | Microsoft.ContainerService/containerServices/delete | Deletes a container service |
+> | Microsoft.ContainerService/deploymentSafeguards/read | Get Deployment Safeguards |
+> | Microsoft.ContainerService/deploymentSafeguards/write | Create or Update Deployment Safeguards |
+> | Microsoft.ContainerService/deploymentSafeguards/delete | Delete Deployment Safeguards |
 > | Microsoft.ContainerService/fleetMemberships/read | Get a fleet membership extension |
 > | Microsoft.ContainerService/fleetMemberships/write | Create or Update a fleet membership extension |
 > | Microsoft.ContainerService/fleetMemberships/delete | Delete a fleet membership extension |
@@ -224,6 +228,12 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/fleets/autoUpgradeProfiles/write | Create or Update a fleet auto upgrade profile |
 > | Microsoft.ContainerService/fleets/autoUpgradeProfiles/delete | Delete a fleet auto upgrade profile |
 > | Microsoft.ContainerService/fleets/autoUpgradeProfiles/generateUpdateRun/action | Generate a fleet update run based off the auto upgrade profile |
+> | Microsoft.ContainerService/fleets/gates/read | Get a fleet gate |
+> | Microsoft.ContainerService/fleets/gates/write | Create or Update a fleet gate |
+> | Microsoft.ContainerService/fleets/gates/delete | Delete a fleet gate |
+> | Microsoft.ContainerService/fleets/managedNamespaces/read | Get a fleet managed namespace |
+> | Microsoft.ContainerService/fleets/managedNamespaces/write | Create or Update a fleet managed namespace |
+> | Microsoft.ContainerService/fleets/managedNamespaces/delete | Delete a fleet managed namespace |
 > | Microsoft.ContainerService/fleets/members/read | Get a fleet member |
 > | Microsoft.ContainerService/fleets/members/write | Create or Update a fleet member |
 > | Microsoft.ContainerService/fleets/members/delete | Delete a fleet member |
@@ -245,6 +255,7 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/locations/osOptions/read | Gets OS options |
 > | Microsoft.ContainerService/locations/safeguardsVersions/read | Get Safeguards Versions |
 > | Microsoft.ContainerService/locations/usages/read | List resource usage on Microsoft.ContainerService resource provider. |
+> | Microsoft.ContainerService/locations/vmskus/read | List VM SKUs accepted by AKS when creating node pools in the region. |
 > | Microsoft.ContainerService/managedClusters/read | Get a managed cluster |
 > | Microsoft.ContainerService/managedClusters/write | Creates a new managed cluster or updates an existing one |
 > | Microsoft.ContainerService/managedClusters/delete | Deletes a managed cluster |
@@ -283,16 +294,22 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/managedClusters/extensionaddons/read | Gets an extension addon |
 > | Microsoft.ContainerService/managedClusters/extensionaddons/write | Creates a new extension addon or updates an existing one |
 > | Microsoft.ContainerService/managedClusters/extensionaddons/delete | Deletes an extension addon |
+> | Microsoft.ContainerService/managedClusters/jwtAuthenticators/read | Read JWT authenticator of a managed cluster |
+> | Microsoft.ContainerService/managedClusters/jwtAuthenticators/write | Create or update a JWT authenticator of a managed cluster |
+> | Microsoft.ContainerService/managedClusters/jwtAuthenticators/delete | Delete a JWT authenticator from a managed cluster |
 > | Microsoft.ContainerService/managedClusters/loadBalancers/read | Gets a load balancer configuration |
 > | Microsoft.ContainerService/managedClusters/loadBalancers/write | Creates a new LoadBalancerConfiguration or updates an existing one |
 > | Microsoft.ContainerService/managedClusters/loadBalancers/delete | Deletes a load balancer configuration |
 > | Microsoft.ContainerService/managedClusters/maintenanceConfigurations/read | Gets a maintenance configuration |
 > | Microsoft.ContainerService/managedClusters/maintenanceConfigurations/write | Creates a new MaintenanceConfiguration or updates an existing one |
 > | Microsoft.ContainerService/managedClusters/maintenanceConfigurations/delete | Deletes a maintenance configuration |
-> | Microsoft.ContainerService/managedClusters/managedNamespaces/read | Get a namespace of a managed cluster |
-> | Microsoft.ContainerService/managedClusters/managedNamespaces/write | Create a namespace of a managed cluster |
-> | Microsoft.ContainerService/managedClusters/managedNamespaces/delete | Delete a namespace of a managed cluster |
+> | Microsoft.ContainerService/managedClusters/managedNamespaces/read | Get a managed namespace of a managed cluster |
+> | Microsoft.ContainerService/managedClusters/managedNamespaces/write | Create a managed namespace of a managed cluster |
+> | Microsoft.ContainerService/managedClusters/managedNamespaces/delete | Delete a managed namespace of a managed cluster |
 > | Microsoft.ContainerService/managedClusters/managedNamespaces/listCredential/action | List cluster credentials of a managed namespace |
+> | Microsoft.ContainerService/managedClusters/meshMemberships/read | Read a mesh membership of a managed cluster |
+> | Microsoft.ContainerService/managedClusters/meshMemberships/write | Create a mesh membership of a managed cluster |
+> | Microsoft.ContainerService/managedClusters/meshMemberships/delete | Delete a mesh membership from a managed cluster |
 > | Microsoft.ContainerService/managedClusters/meshUpgradeProfiles/read | Read service mesh upgrade profiles for a managed cluster |
 > | Microsoft.ContainerService/managedClusters/networkSecurityPerimeterAssociationProxies/read | Get ManagedCluster NetworkSecurityPerimeter Association |
 > | Microsoft.ContainerService/managedClusters/networkSecurityPerimeterAssociationProxies/write | Create or update ManagedCluster NetworkSecurityPerimeter Association |
@@ -507,12 +524,347 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/fleets/livez/poststarthook/start-kube-aggregator-informers/read | Reads start-kube-aggregator-informers |
 > | Microsoft.ContainerService/fleets/livez/poststarthook/start-kube-apiserver-admission-initializer/read | Reads start-kube-apiserver-admission-initializer |
 > | Microsoft.ContainerService/fleets/logs/read | Reads logs |
+> | Microsoft.ContainerService/fleets/members/admissionregistration.k8s.io/initializerconfigurations/read | Reads initializerconfigurations |
+> | Microsoft.ContainerService/fleets/members/admissionregistration.k8s.io/initializerconfigurations/write | Writes initializerconfigurations |
+> | Microsoft.ContainerService/fleets/members/admissionregistration.k8s.io/initializerconfigurations/delete | Deletes initializerconfigurations |
+> | Microsoft.ContainerService/fleets/members/admissionregistration.k8s.io/mutatingwebhookconfigurations/read | Reads mutatingwebhookconfigurations |
+> | Microsoft.ContainerService/fleets/members/admissionregistration.k8s.io/mutatingwebhookconfigurations/write | Writes mutatingwebhookconfigurations |
+> | Microsoft.ContainerService/fleets/members/admissionregistration.k8s.io/mutatingwebhookconfigurations/delete | Deletes mutatingwebhookconfigurations |
+> | Microsoft.ContainerService/fleets/members/admissionregistration.k8s.io/validatingwebhookconfigurations/read | Reads validatingwebhookconfigurations |
+> | Microsoft.ContainerService/fleets/members/admissionregistration.k8s.io/validatingwebhookconfigurations/write | Writes validatingwebhookconfigurations |
+> | Microsoft.ContainerService/fleets/members/admissionregistration.k8s.io/validatingwebhookconfigurations/delete | Deletes validatingwebhookconfigurations |
+> | Microsoft.ContainerService/fleets/members/api/read | Reads api |
+> | Microsoft.ContainerService/fleets/members/api/v1/read | Reads api/v1 |
+> | Microsoft.ContainerService/fleets/members/apiextensions.k8s.io/customresourcedefinitions/read | Reads customresourcedefinitions |
+> | Microsoft.ContainerService/fleets/members/apiextensions.k8s.io/customresourcedefinitions/write | Writes customresourcedefinitions |
+> | Microsoft.ContainerService/fleets/members/apiextensions.k8s.io/customresourcedefinitions/delete | Deletes customresourcedefinitions |
+> | Microsoft.ContainerService/fleets/members/apiregistration.k8s.io/apiservices/read | Reads apiservices |
+> | Microsoft.ContainerService/fleets/members/apiregistration.k8s.io/apiservices/write | Writes apiservices |
+> | Microsoft.ContainerService/fleets/members/apiregistration.k8s.io/apiservices/delete | Deletes apiservices |
+> | Microsoft.ContainerService/fleets/members/apis/read | Reads apis |
+> | Microsoft.ContainerService/fleets/members/apis/admissionregistration.k8s.io/read | Reads admissionregistration.k8s.io |
+> | Microsoft.ContainerService/fleets/members/apis/admissionregistration.k8s.io/v1/read | Reads admissionregistration.k8s.io/v1 |
+> | Microsoft.ContainerService/fleets/members/apis/admissionregistration.k8s.io/v1beta1/read | Reads admissionregistration.k8s.io/v1beta1 |
+> | Microsoft.ContainerService/fleets/members/apis/apiextensions.k8s.io/read | Reads apiextensions.k8s.io |
+> | Microsoft.ContainerService/fleets/members/apis/apiextensions.k8s.io/v1/read | Reads apiextensions.k8s.io/v1 |
+> | Microsoft.ContainerService/fleets/members/apis/apiextensions.k8s.io/v1beta1/read | Reads apiextensions.k8s.io/v1beta1 |
+> | Microsoft.ContainerService/fleets/members/apis/apiregistration.k8s.io/read | Reads apiregistration.k8s.io |
+> | Microsoft.ContainerService/fleets/members/apis/apiregistration.k8s.io/v1/read | Reads apiregistration.k8s.io/v1 |
+> | Microsoft.ContainerService/fleets/members/apis/apiregistration.k8s.io/v1beta1/read | Reads apiregistration.k8s.io/v1beta1 |
+> | Microsoft.ContainerService/fleets/members/apis/apps/read | Reads apps |
+> | Microsoft.ContainerService/fleets/members/apis/apps/v1/read | Reads apps/v1 |
+> | Microsoft.ContainerService/fleets/members/apis/apps/v1beta1/read | Reads apps/v1beta1 |
+> | Microsoft.ContainerService/fleets/members/apis/apps/v1beta2/read | Reads apps/v1beta2 |
+> | Microsoft.ContainerService/fleets/members/apis/authentication.k8s.io/read | Reads authentication.k8s.io |
+> | Microsoft.ContainerService/fleets/members/apis/authentication.k8s.io/v1/read | Reads authentication.k8s.io/v1 |
+> | Microsoft.ContainerService/fleets/members/apis/authentication.k8s.io/v1beta1/read | Reads authentication.k8s.io/v1beta1 |
+> | Microsoft.ContainerService/fleets/members/apis/authorization.k8s.io/read | Reads authorization.k8s.io |
+> | Microsoft.ContainerService/fleets/members/apis/authorization.k8s.io/v1/read | Reads authorization.k8s.io/v1 |
+> | Microsoft.ContainerService/fleets/members/apis/authorization.k8s.io/v1beta1/read | Reads authorization.k8s.io/v1beta1 |
+> | Microsoft.ContainerService/fleets/members/apis/autoscaling/read | Reads autoscaling |
+> | Microsoft.ContainerService/fleets/members/apis/autoscaling/v1/read | Reads autoscaling/v1 |
+> | Microsoft.ContainerService/fleets/members/apis/autoscaling/v2beta1/read | Reads autoscaling/v2beta1 |
+> | Microsoft.ContainerService/fleets/members/apis/autoscaling/v2beta2/read | Reads autoscaling/v2beta2 |
+> | Microsoft.ContainerService/fleets/members/apis/batch/read | Reads batch |
+> | Microsoft.ContainerService/fleets/members/apis/batch/v1/read | Reads batch/v1 |
+> | Microsoft.ContainerService/fleets/members/apis/batch/v1beta1/read | Reads batch/v1beta1 |
+> | Microsoft.ContainerService/fleets/members/apis/certificates.k8s.io/read | Reads certificates.k8s.io |
+> | Microsoft.ContainerService/fleets/members/apis/certificates.k8s.io/v1beta1/read | Reads certificates.k8s.io/v1beta1 |
+> | Microsoft.ContainerService/fleets/members/apis/coordination.k8s.io/read | Reads coordination.k8s.io |
+> | Microsoft.ContainerService/fleets/members/apis/coordination.k8s.io/v1/read | Reads coordination/v1 |
+> | Microsoft.ContainerService/fleets/members/apis/coordination.k8s.io/v1beta1/read | Reads coordination.k8s.io/v1beta1 |
+> | Microsoft.ContainerService/fleets/members/apis/events.k8s.io/read | Reads events.k8s.io |
+> | Microsoft.ContainerService/fleets/members/apis/events.k8s.io/v1beta1/read | Reads events.k8s.io/v1beta1 |
+> | Microsoft.ContainerService/fleets/members/apis/extensions/read | Reads extensions |
+> | Microsoft.ContainerService/fleets/members/apis/extensions/v1beta1/read | Reads extensions/v1beta1 |
+> | Microsoft.ContainerService/fleets/members/apis/metrics.k8s.io/read | Reads metrics.k8s.io |
+> | Microsoft.ContainerService/fleets/members/apis/metrics.k8s.io/v1beta1/read | Reads metrics.k8s.io/v1beta1 |
+> | Microsoft.ContainerService/fleets/members/apis/networking.k8s.io/read | Reads networking.k8s.io |
+> | Microsoft.ContainerService/fleets/members/apis/networking.k8s.io/v1/read | Reads networking/v1 |
+> | Microsoft.ContainerService/fleets/members/apis/networking.k8s.io/v1beta1/read | Reads networking.k8s.io/v1beta1 |
+> | Microsoft.ContainerService/fleets/members/apis/node.k8s.io/read | Reads node.k8s.io |
+> | Microsoft.ContainerService/fleets/members/apis/node.k8s.io/v1beta1/read | Reads node.k8s.io/v1beta1 |
+> | Microsoft.ContainerService/fleets/members/apis/policy/read | Reads policy |
+> | Microsoft.ContainerService/fleets/members/apis/policy/v1beta1/read | Reads policy/v1beta1 |
+> | Microsoft.ContainerService/fleets/members/apis/rbac.authorization.k8s.io/read | Reads rbac.authorization.k8s.io |
+> | Microsoft.ContainerService/fleets/members/apis/rbac.authorization.k8s.io/v1/read | Reads rbac.authorization/v1 |
+> | Microsoft.ContainerService/fleets/members/apis/rbac.authorization.k8s.io/v1beta1/read | Reads rbac.authorization.k8s.io/v1beta1 |
+> | Microsoft.ContainerService/fleets/members/apis/scheduling.k8s.io/read | Reads scheduling.k8s.io |
+> | Microsoft.ContainerService/fleets/members/apis/scheduling.k8s.io/v1/read | Reads scheduling/v1 |
+> | Microsoft.ContainerService/fleets/members/apis/scheduling.k8s.io/v1beta1/read | Reads scheduling.k8s.io/v1beta1 |
+> | Microsoft.ContainerService/fleets/members/apis/storage.k8s.io/read | Reads storage.k8s.io |
+> | Microsoft.ContainerService/fleets/members/apis/storage.k8s.io/v1/read | Reads storage/v1 |
+> | Microsoft.ContainerService/fleets/members/apis/storage.k8s.io/v1beta1/read | Reads storage.k8s.io/v1beta1 |
+> | Microsoft.ContainerService/fleets/members/apps/controllerrevisions/read | Reads controllerrevisions |
+> | Microsoft.ContainerService/fleets/members/apps/controllerrevisions/write | Writes controllerrevisions |
+> | Microsoft.ContainerService/fleets/members/apps/controllerrevisions/delete | Deletes controllerrevisions |
+> | Microsoft.ContainerService/fleets/members/apps/daemonsets/read | Reads daemonsets |
+> | Microsoft.ContainerService/fleets/members/apps/daemonsets/write | Writes daemonsets |
+> | Microsoft.ContainerService/fleets/members/apps/daemonsets/delete | Deletes daemonsets |
+> | Microsoft.ContainerService/fleets/members/apps/deployments/read | Reads deployments |
+> | Microsoft.ContainerService/fleets/members/apps/deployments/write | Writes deployments |
+> | Microsoft.ContainerService/fleets/members/apps/deployments/delete | Deletes deployments |
+> | Microsoft.ContainerService/fleets/members/apps/replicasets/read | Reads replicasets |
+> | Microsoft.ContainerService/fleets/members/apps/replicasets/write | Writes replicasets |
+> | Microsoft.ContainerService/fleets/members/apps/replicasets/delete | Deletes replicasets |
+> | Microsoft.ContainerService/fleets/members/apps/statefulsets/read | Reads statefulsets |
+> | Microsoft.ContainerService/fleets/members/apps/statefulsets/write | Writes statefulsets |
+> | Microsoft.ContainerService/fleets/members/apps/statefulsets/delete | Deletes statefulsets |
+> | Microsoft.ContainerService/fleets/members/authentication.k8s.io/tokenreviews/write | Writes tokenreviews |
+> | Microsoft.ContainerService/fleets/members/authentication.k8s.io/userextras/impersonate/action | Impersonate userextras |
+> | Microsoft.ContainerService/fleets/members/authorization.k8s.io/localsubjectaccessreviews/write | Writes localsubjectaccessreviews |
+> | Microsoft.ContainerService/fleets/members/authorization.k8s.io/selfsubjectaccessreviews/write | Writes selfsubjectaccessreviews |
+> | Microsoft.ContainerService/fleets/members/authorization.k8s.io/selfsubjectrulesreviews/write | Writes selfsubjectrulesreviews |
+> | Microsoft.ContainerService/fleets/members/authorization.k8s.io/subjectaccessreviews/write | Writes subjectaccessreviews |
+> | Microsoft.ContainerService/fleets/members/autoscaling/horizontalpodautoscalers/read | Reads horizontalpodautoscalers |
+> | Microsoft.ContainerService/fleets/members/autoscaling/horizontalpodautoscalers/write | Writes horizontalpodautoscalers |
+> | Microsoft.ContainerService/fleets/members/autoscaling/horizontalpodautoscalers/delete | Deletes horizontalpodautoscalers |
+> | Microsoft.ContainerService/fleets/members/batch/cronjobs/read | Reads cronjobs |
+> | Microsoft.ContainerService/fleets/members/batch/cronjobs/write | Writes cronjobs |
+> | Microsoft.ContainerService/fleets/members/batch/cronjobs/delete | Deletes cronjobs |
+> | Microsoft.ContainerService/fleets/members/batch/jobs/read | Reads jobs |
+> | Microsoft.ContainerService/fleets/members/batch/jobs/write | Writes jobs |
+> | Microsoft.ContainerService/fleets/members/batch/jobs/delete | Deletes jobs |
+> | Microsoft.ContainerService/fleets/members/bindings/write | Writes bindings |
+> | Microsoft.ContainerService/fleets/members/certificates.k8s.io/certificatesigningrequests/read | Reads certificatesigningrequests |
+> | Microsoft.ContainerService/fleets/members/certificates.k8s.io/certificatesigningrequests/write | Writes certificatesigningrequests |
+> | Microsoft.ContainerService/fleets/members/certificates.k8s.io/certificatesigningrequests/delete | Deletes certificatesigningrequests |
+> | Microsoft.ContainerService/fleets/members/componentstatuses/read | Reads componentstatuses |
+> | Microsoft.ContainerService/fleets/members/componentstatuses/write | Writes componentstatuses |
+> | Microsoft.ContainerService/fleets/members/componentstatuses/delete | Deletes componentstatuses |
+> | Microsoft.ContainerService/fleets/members/configmaps/read | Reads configmaps |
+> | Microsoft.ContainerService/fleets/members/configmaps/write | Writes configmaps |
+> | Microsoft.ContainerService/fleets/members/configmaps/delete | Deletes configmaps |
+> | Microsoft.ContainerService/fleets/members/coordination.k8s.io/leases/read | Reads leases |
+> | Microsoft.ContainerService/fleets/members/coordination.k8s.io/leases/write | Writes leases |
+> | Microsoft.ContainerService/fleets/members/coordination.k8s.io/leases/delete | Deletes leases |
+> | Microsoft.ContainerService/fleets/members/customresources/read | Reads custom resources |
+> | Microsoft.ContainerService/fleets/members/customresources/write | Writes custom resources |
+> | Microsoft.ContainerService/fleets/members/customresources/delete | Deletes custom resources |
+> | Microsoft.ContainerService/fleets/members/discovery.k8s.io/endpointslices/read | Reads endpointslices |
+> | Microsoft.ContainerService/fleets/members/discovery.k8s.io/endpointslices/write | Writes endpointslices |
+> | Microsoft.ContainerService/fleets/members/discovery.k8s.io/endpointslices/delete | Deletes endpointslices |
+> | Microsoft.ContainerService/fleets/members/endpoints/read | Reads endpoints |
+> | Microsoft.ContainerService/fleets/members/endpoints/write | Writes endpoints |
+> | Microsoft.ContainerService/fleets/members/endpoints/delete | Deletes endpoints |
+> | Microsoft.ContainerService/fleets/members/events/read | Reads events |
+> | Microsoft.ContainerService/fleets/members/events/write | Writes events |
+> | Microsoft.ContainerService/fleets/members/events/delete | Deletes events |
+> | Microsoft.ContainerService/fleets/members/events.k8s.io/events/read | Reads events |
+> | Microsoft.ContainerService/fleets/members/events.k8s.io/events/write | Writes events |
+> | Microsoft.ContainerService/fleets/members/events.k8s.io/events/delete | Deletes events |
+> | Microsoft.ContainerService/fleets/members/extensions/daemonsets/read | Reads daemonsets |
+> | Microsoft.ContainerService/fleets/members/extensions/daemonsets/write | Writes daemonsets |
+> | Microsoft.ContainerService/fleets/members/extensions/daemonsets/delete | Deletes daemonsets |
+> | Microsoft.ContainerService/fleets/members/extensions/deployments/read | Reads deployments |
+> | Microsoft.ContainerService/fleets/members/extensions/deployments/write | Writes deployments |
+> | Microsoft.ContainerService/fleets/members/extensions/deployments/delete | Deletes deployments |
+> | Microsoft.ContainerService/fleets/members/extensions/ingresses/read | Reads ingresses |
+> | Microsoft.ContainerService/fleets/members/extensions/ingresses/write | Writes ingresses |
+> | Microsoft.ContainerService/fleets/members/extensions/ingresses/delete | Deletes ingresses |
+> | Microsoft.ContainerService/fleets/members/extensions/networkpolicies/read | Reads networkpolicies |
+> | Microsoft.ContainerService/fleets/members/extensions/networkpolicies/write | Writes networkpolicies |
+> | Microsoft.ContainerService/fleets/members/extensions/networkpolicies/delete | Deletes networkpolicies |
+> | Microsoft.ContainerService/fleets/members/extensions/podsecuritypolicies/read | Reads podsecuritypolicies |
+> | Microsoft.ContainerService/fleets/members/extensions/podsecuritypolicies/write | Writes podsecuritypolicies |
+> | Microsoft.ContainerService/fleets/members/extensions/podsecuritypolicies/delete | Deletes podsecuritypolicies |
+> | Microsoft.ContainerService/fleets/members/extensions/replicasets/read | Reads replicasets |
+> | Microsoft.ContainerService/fleets/members/extensions/replicasets/write | Writes replicasets |
+> | Microsoft.ContainerService/fleets/members/extensions/replicasets/delete | Deletes replicasets |
+> | Microsoft.ContainerService/fleets/members/flowcontrol.apiserver.k8s.io/flowschemas/read | Reads flowschemas |
+> | Microsoft.ContainerService/fleets/members/flowcontrol.apiserver.k8s.io/flowschemas/write | Writes flowschemas |
+> | Microsoft.ContainerService/fleets/members/flowcontrol.apiserver.k8s.io/flowschemas/delete | Deletes flowschemas |
+> | Microsoft.ContainerService/fleets/members/flowcontrol.apiserver.k8s.io/prioritylevelconfigurations/read | Reads prioritylevelconfigurations |
+> | Microsoft.ContainerService/fleets/members/flowcontrol.apiserver.k8s.io/prioritylevelconfigurations/write | Writes prioritylevelconfigurations |
+> | Microsoft.ContainerService/fleets/members/flowcontrol.apiserver.k8s.io/prioritylevelconfigurations/delete | Deletes prioritylevelconfigurations |
+> | Microsoft.ContainerService/fleets/members/groups/impersonate/action | Impersonate groups |
+> | Microsoft.ContainerService/fleets/members/healthz/read | Reads healthz |
+> | Microsoft.ContainerService/fleets/members/healthz/autoregister-completion/read | Reads autoregister-completion |
+> | Microsoft.ContainerService/fleets/members/healthz/etcd/read | Reads etcd |
+> | Microsoft.ContainerService/fleets/members/healthz/log/read | Reads log |
+> | Microsoft.ContainerService/fleets/members/healthz/ping/read | Reads ping |
+> | Microsoft.ContainerService/fleets/members/healthz/poststarthook/apiservice-openapi-controller/read | Reads apiservice-openapi-controller |
+> | Microsoft.ContainerService/fleets/members/healthz/poststarthook/apiservice-registration-controller/read | Reads apiservice-registration-controller |
+> | Microsoft.ContainerService/fleets/members/healthz/poststarthook/apiservice-status-available-controller/read | Reads apiservice-status-available-controller |
+> | Microsoft.ContainerService/fleets/members/healthz/poststarthook/bootstrap-controller/read | Reads bootstrap-controller |
+> | Microsoft.ContainerService/fleets/members/healthz/poststarthook/ca-registration/read | Reads ca-registration |
+> | Microsoft.ContainerService/fleets/members/healthz/poststarthook/crd-informer-synced/read | Reads crd-informer-synced |
+> | Microsoft.ContainerService/fleets/members/healthz/poststarthook/generic-apiserver-start-informers/read | Reads generic-apiserver-start-informers |
+> | Microsoft.ContainerService/fleets/members/healthz/poststarthook/kube-apiserver-autoregistration/read | Reads kube-apiserver-autoregistration |
+> | Microsoft.ContainerService/fleets/members/healthz/poststarthook/rbac/bootstrap-roles/read | Reads bootstrap-roles |
+> | Microsoft.ContainerService/fleets/members/healthz/poststarthook/scheduling/bootstrap-system-priority-classes/read | Reads bootstrap-system-priority-classes |
+> | Microsoft.ContainerService/fleets/members/healthz/poststarthook/start-apiextensions-controllers/read | Reads start-apiextensions-controllers |
+> | Microsoft.ContainerService/fleets/members/healthz/poststarthook/start-apiextensions-informers/read | Reads start-apiextensions-informers |
+> | Microsoft.ContainerService/fleets/members/healthz/poststarthook/start-kube-aggregator-informers/read | Reads start-kube-aggregator-informers |
+> | Microsoft.ContainerService/fleets/members/healthz/poststarthook/start-kube-apiserver-admission-initializer/read | Reads start-kube-apiserver-admission-initializer |
+> | Microsoft.ContainerService/fleets/members/limitranges/read | Reads limitranges |
+> | Microsoft.ContainerService/fleets/members/limitranges/write | Writes limitranges |
+> | Microsoft.ContainerService/fleets/members/limitranges/delete | Deletes limitranges |
+> | Microsoft.ContainerService/fleets/members/livez/read | Reads livez |
+> | Microsoft.ContainerService/fleets/members/livez/autoregister-completion/read | Reads autoregister-completion |
+> | Microsoft.ContainerService/fleets/members/livez/etcd/read | Reads etcd |
+> | Microsoft.ContainerService/fleets/members/livez/log/read | Reads log |
+> | Microsoft.ContainerService/fleets/members/livez/ping/read | Reads ping |
+> | Microsoft.ContainerService/fleets/members/livez/poststarthook/apiservice-openapi-controller/read | Reads apiservice-openapi-controller |
+> | Microsoft.ContainerService/fleets/members/livez/poststarthook/apiservice-registration-controller/read | Reads apiservice-registration-controller |
+> | Microsoft.ContainerService/fleets/members/livez/poststarthook/apiservice-status-available-controller/read | Reads apiservice-status-available-controller |
+> | Microsoft.ContainerService/fleets/members/livez/poststarthook/bootstrap-controller/read | Reads bootstrap-controller |
+> | Microsoft.ContainerService/fleets/members/livez/poststarthook/ca-registration/read | Reads ca-registration |
+> | Microsoft.ContainerService/fleets/members/livez/poststarthook/crd-informer-synced/read | Reads crd-informer-synced |
+> | Microsoft.ContainerService/fleets/members/livez/poststarthook/generic-apiserver-start-informers/read | Reads generic-apiserver-start-informers |
+> | Microsoft.ContainerService/fleets/members/livez/poststarthook/kube-apiserver-autoregistration/read | Reads kube-apiserver-autoregistration |
+> | Microsoft.ContainerService/fleets/members/livez/poststarthook/rbac/bootstrap-roles/read | Reads bootstrap-roles |
+> | Microsoft.ContainerService/fleets/members/livez/poststarthook/scheduling/bootstrap-system-priority-classes/read | Reads bootstrap-system-priority-classes |
+> | Microsoft.ContainerService/fleets/members/livez/poststarthook/start-apiextensions-controllers/read | Reads start-apiextensions-controllers |
+> | Microsoft.ContainerService/fleets/members/livez/poststarthook/start-apiextensions-informers/read | Reads start-apiextensions-informers |
+> | Microsoft.ContainerService/fleets/members/livez/poststarthook/start-kube-aggregator-informers/read | Reads start-kube-aggregator-informers |
+> | Microsoft.ContainerService/fleets/members/livez/poststarthook/start-kube-apiserver-admission-initializer/read | Reads start-kube-apiserver-admission-initializer |
+> | Microsoft.ContainerService/fleets/members/logs/read | Reads logs |
+> | Microsoft.ContainerService/fleets/members/metrics/read | Reads metrics |
+> | Microsoft.ContainerService/fleets/members/metrics.k8s.io/nodes/read | Reads nodes |
+> | Microsoft.ContainerService/fleets/members/metrics.k8s.io/pods/read | Reads pods |
+> | Microsoft.ContainerService/fleets/members/namespaces/read | Reads namespaces |
+> | Microsoft.ContainerService/fleets/members/namespaces/write | Writes namespaces |
+> | Microsoft.ContainerService/fleets/members/namespaces/delete | Deletes namespaces |
+> | Microsoft.ContainerService/fleets/members/networking.k8s.io/ingressclasses/read | Reads ingressclasses |
+> | Microsoft.ContainerService/fleets/members/networking.k8s.io/ingressclasses/write | Writes ingressclasses |
+> | Microsoft.ContainerService/fleets/members/networking.k8s.io/ingressclasses/delete | Deletes ingressclasses |
+> | Microsoft.ContainerService/fleets/members/networking.k8s.io/ingresses/read | Reads ingresses |
+> | Microsoft.ContainerService/fleets/members/networking.k8s.io/ingresses/write | Writes ingresses |
+> | Microsoft.ContainerService/fleets/members/networking.k8s.io/ingresses/delete | Deletes ingresses |
+> | Microsoft.ContainerService/fleets/members/networking.k8s.io/networkpolicies/read | Reads networkpolicies |
+> | Microsoft.ContainerService/fleets/members/networking.k8s.io/networkpolicies/write | Writes networkpolicies |
+> | Microsoft.ContainerService/fleets/members/networking.k8s.io/networkpolicies/delete | Deletes networkpolicies |
+> | Microsoft.ContainerService/fleets/members/node.k8s.io/runtimeclasses/read | Reads runtimeclasses |
+> | Microsoft.ContainerService/fleets/members/node.k8s.io/runtimeclasses/write | Writes runtimeclasses |
+> | Microsoft.ContainerService/fleets/members/node.k8s.io/runtimeclasses/delete | Deletes runtimeclasses |
+> | Microsoft.ContainerService/fleets/members/nodes/read | Reads nodes |
+> | Microsoft.ContainerService/fleets/members/nodes/write | Writes nodes |
+> | Microsoft.ContainerService/fleets/members/nodes/delete | Deletes nodes |
+> | Microsoft.ContainerService/fleets/members/openapi/v2/read | Reads v2 |
+> | Microsoft.ContainerService/fleets/members/persistentvolumeclaims/read | Reads persistentvolumeclaims |
+> | Microsoft.ContainerService/fleets/members/persistentvolumeclaims/write | Writes persistentvolumeclaims |
+> | Microsoft.ContainerService/fleets/members/persistentvolumeclaims/delete | Deletes persistentvolumeclaims |
+> | Microsoft.ContainerService/fleets/members/persistentvolumes/read | Reads persistentvolumes |
+> | Microsoft.ContainerService/fleets/members/persistentvolumes/write | Writes persistentvolumes |
+> | Microsoft.ContainerService/fleets/members/persistentvolumes/delete | Deletes persistentvolumes |
+> | Microsoft.ContainerService/fleets/members/pods/read | Reads pods |
+> | Microsoft.ContainerService/fleets/members/pods/write | Writes pods |
+> | Microsoft.ContainerService/fleets/members/pods/delete | Deletes pods |
+> | Microsoft.ContainerService/fleets/members/pods/exec/action | Exec into pods resource |
+> | Microsoft.ContainerService/fleets/members/podtemplates/read | Reads podtemplates |
+> | Microsoft.ContainerService/fleets/members/podtemplates/write | Writes podtemplates |
+> | Microsoft.ContainerService/fleets/members/podtemplates/delete | Deletes podtemplates |
+> | Microsoft.ContainerService/fleets/members/policy/poddisruptionbudgets/read | Reads poddisruptionbudgets |
+> | Microsoft.ContainerService/fleets/members/policy/poddisruptionbudgets/write | Writes poddisruptionbudgets |
+> | Microsoft.ContainerService/fleets/members/policy/poddisruptionbudgets/delete | Deletes poddisruptionbudgets |
+> | Microsoft.ContainerService/fleets/members/policy/podsecuritypolicies/read | Reads podsecuritypolicies |
+> | Microsoft.ContainerService/fleets/members/policy/podsecuritypolicies/write | Writes podsecuritypolicies |
+> | Microsoft.ContainerService/fleets/members/policy/podsecuritypolicies/delete | Deletes podsecuritypolicies |
+> | Microsoft.ContainerService/fleets/members/policy/podsecuritypolicies/use/action | Use action on podsecuritypolicies |
+> | Microsoft.ContainerService/fleets/members/rbac.authorization.k8s.io/clusterrolebindings/read | Reads clusterrolebindings |
+> | Microsoft.ContainerService/fleets/members/rbac.authorization.k8s.io/clusterrolebindings/write | Writes clusterrolebindings |
+> | Microsoft.ContainerService/fleets/members/rbac.authorization.k8s.io/clusterrolebindings/delete | Deletes clusterrolebindings |
+> | Microsoft.ContainerService/fleets/members/rbac.authorization.k8s.io/clusterroles/read | Reads clusterroles |
+> | Microsoft.ContainerService/fleets/members/rbac.authorization.k8s.io/clusterroles/write | Writes clusterroles |
+> | Microsoft.ContainerService/fleets/members/rbac.authorization.k8s.io/clusterroles/delete | Deletes clusterroles |
+> | Microsoft.ContainerService/fleets/members/rbac.authorization.k8s.io/clusterroles/bind/action | Binds clusterroles |
+> | Microsoft.ContainerService/fleets/members/rbac.authorization.k8s.io/clusterroles/escalate/action | Escalates |
+> | Microsoft.ContainerService/fleets/members/rbac.authorization.k8s.io/rolebindings/read | Reads rolebindings |
+> | Microsoft.ContainerService/fleets/members/rbac.authorization.k8s.io/rolebindings/write | Writes rolebindings |
+> | Microsoft.ContainerService/fleets/members/rbac.authorization.k8s.io/rolebindings/delete | Deletes rolebindings |
+> | Microsoft.ContainerService/fleets/members/rbac.authorization.k8s.io/roles/read | Reads roles |
+> | Microsoft.ContainerService/fleets/members/rbac.authorization.k8s.io/roles/write | Writes roles |
+> | Microsoft.ContainerService/fleets/members/rbac.authorization.k8s.io/roles/delete | Deletes roles |
+> | Microsoft.ContainerService/fleets/members/rbac.authorization.k8s.io/roles/bind/action | Binds roles |
+> | Microsoft.ContainerService/fleets/members/rbac.authorization.k8s.io/roles/escalate/action | Escalates roles |
+> | Microsoft.ContainerService/fleets/members/readyz/read | Reads readyz |
+> | Microsoft.ContainerService/fleets/members/readyz/autoregister-completion/read | Reads autoregister-completion |
+> | Microsoft.ContainerService/fleets/members/readyz/etcd/read | Reads etcd |
+> | Microsoft.ContainerService/fleets/members/readyz/log/read | Reads log |
+> | Microsoft.ContainerService/fleets/members/readyz/ping/read | Reads ping |
+> | Microsoft.ContainerService/fleets/members/readyz/poststarthook/apiservice-openapi-controller/read | Reads apiservice-openapi-controller |
+> | Microsoft.ContainerService/fleets/members/readyz/poststarthook/apiservice-registration-controller/read | Reads apiservice-registration-controller |
+> | Microsoft.ContainerService/fleets/members/readyz/poststarthook/apiservice-status-available-controller/read | Reads apiservice-status-available-controller |
+> | Microsoft.ContainerService/fleets/members/readyz/poststarthook/bootstrap-controller/read | Reads bootstrap-controller |
+> | Microsoft.ContainerService/fleets/members/readyz/poststarthook/ca-registration/read | Reads ca-registration |
+> | Microsoft.ContainerService/fleets/members/readyz/poststarthook/crd-informer-synced/read | Reads crd-informer-synced |
+> | Microsoft.ContainerService/fleets/members/readyz/poststarthook/generic-apiserver-start-informers/read | Reads generic-apiserver-start-informers |
+> | Microsoft.ContainerService/fleets/members/readyz/poststarthook/kube-apiserver-autoregistration/read | Reads kube-apiserver-autoregistration |
+> | Microsoft.ContainerService/fleets/members/readyz/poststarthook/rbac/bootstrap-roles/read | Reads bootstrap-roles |
+> | Microsoft.ContainerService/fleets/members/readyz/poststarthook/scheduling/bootstrap-system-priority-classes/read | Reads bootstrap-system-priority-classes |
+> | Microsoft.ContainerService/fleets/members/readyz/poststarthook/start-apiextensions-controllers/read | Reads start-apiextensions-controllers |
+> | Microsoft.ContainerService/fleets/members/readyz/poststarthook/start-apiextensions-informers/read | Reads start-apiextensions-informers |
+> | Microsoft.ContainerService/fleets/members/readyz/poststarthook/start-kube-aggregator-informers/read | Reads start-kube-aggregator-informers |
+> | Microsoft.ContainerService/fleets/members/readyz/poststarthook/start-kube-apiserver-admission-initializer/read | Reads start-kube-apiserver-admission-initializer |
+> | Microsoft.ContainerService/fleets/members/readyz/shutdown/read | Reads shutdown |
+> | Microsoft.ContainerService/fleets/members/replicationcontrollers/read | Reads replicationcontrollers |
+> | Microsoft.ContainerService/fleets/members/replicationcontrollers/write | Writes replicationcontrollers |
+> | Microsoft.ContainerService/fleets/members/replicationcontrollers/delete | Deletes replicationcontrollers |
+> | Microsoft.ContainerService/fleets/members/resetMetrics/read | Reads resetMetrics |
+> | Microsoft.ContainerService/fleets/members/resourcequotas/read | Reads resourcequotas |
+> | Microsoft.ContainerService/fleets/members/resourcequotas/write | Writes resourcequotas |
+> | Microsoft.ContainerService/fleets/members/resourcequotas/delete | Deletes resourcequotas |
+> | Microsoft.ContainerService/fleets/members/scheduling.k8s.io/priorityclasses/read | Reads priorityclasses |
+> | Microsoft.ContainerService/fleets/members/scheduling.k8s.io/priorityclasses/write | Writes priorityclasses |
+> | Microsoft.ContainerService/fleets/members/scheduling.k8s.io/priorityclasses/delete | Deletes priorityclasses |
+> | Microsoft.ContainerService/fleets/members/secrets/read | Reads secrets |
+> | Microsoft.ContainerService/fleets/members/secrets/write | Writes secrets |
+> | Microsoft.ContainerService/fleets/members/secrets/delete | Deletes secrets |
+> | Microsoft.ContainerService/fleets/members/serviceaccounts/read | Reads serviceaccounts |
+> | Microsoft.ContainerService/fleets/members/serviceaccounts/write | Writes serviceaccounts |
+> | Microsoft.ContainerService/fleets/members/serviceaccounts/delete | Deletes serviceaccounts |
+> | Microsoft.ContainerService/fleets/members/serviceaccounts/impersonate/action | Impersonate serviceaccounts |
+> | Microsoft.ContainerService/fleets/members/services/read | Reads services |
+> | Microsoft.ContainerService/fleets/members/services/write | Writes services |
+> | Microsoft.ContainerService/fleets/members/services/delete | Deletes services |
+> | Microsoft.ContainerService/fleets/members/storage.k8s.io/csidrivers/read | Reads csidrivers |
+> | Microsoft.ContainerService/fleets/members/storage.k8s.io/csidrivers/write | Writes csidrivers |
+> | Microsoft.ContainerService/fleets/members/storage.k8s.io/csidrivers/delete | Deletes csidrivers |
+> | Microsoft.ContainerService/fleets/members/storage.k8s.io/csinodes/read | Reads csinodes |
+> | Microsoft.ContainerService/fleets/members/storage.k8s.io/csinodes/write | Writes csinodes |
+> | Microsoft.ContainerService/fleets/members/storage.k8s.io/csinodes/delete | Deletes csinodes |
+> | Microsoft.ContainerService/fleets/members/storage.k8s.io/csistoragecapacities/read | Reads csistoragecapacities |
+> | Microsoft.ContainerService/fleets/members/storage.k8s.io/csistoragecapacities/write | Writes csistoragecapacities |
+> | Microsoft.ContainerService/fleets/members/storage.k8s.io/csistoragecapacities/delete | Deletes csistoragecapacities |
+> | Microsoft.ContainerService/fleets/members/storage.k8s.io/storageclasses/read | Reads storageclasses |
+> | Microsoft.ContainerService/fleets/members/storage.k8s.io/storageclasses/write | Writes storageclasses |
+> | Microsoft.ContainerService/fleets/members/storage.k8s.io/storageclasses/delete | Deletes storageclasses |
+> | Microsoft.ContainerService/fleets/members/storage.k8s.io/volumeattachments/read | Reads volumeattachments |
+> | Microsoft.ContainerService/fleets/members/storage.k8s.io/volumeattachments/write | Writes volumeattachments |
+> | Microsoft.ContainerService/fleets/members/storage.k8s.io/volumeattachments/delete | Deletes volumeattachments |
+> | Microsoft.ContainerService/fleets/members/swagger-api/read | Reads swagger-api |
+> | Microsoft.ContainerService/fleets/members/swagger-ui/read | Reads swagger-ui |
+> | Microsoft.ContainerService/fleets/members/ui/read | Reads ui |
+> | Microsoft.ContainerService/fleets/members/users/impersonate/action | Impersonate users |
+> | Microsoft.ContainerService/fleets/members/version/read | Reads version |
 > | Microsoft.ContainerService/fleets/metrics/read | Reads metrics |
 > | Microsoft.ContainerService/fleets/metrics.k8s.io/nodes/read | Reads nodes |
 > | Microsoft.ContainerService/fleets/metrics.k8s.io/pods/read | Reads pods |
 > | Microsoft.ContainerService/fleets/namespaces/read | Reads namespaces |
 > | Microsoft.ContainerService/fleets/namespaces/write | Writes namespaces |
 > | Microsoft.ContainerService/fleets/namespaces/delete | Deletes namespaces |
+> | Microsoft.ContainerService/fleets/networking.fleet.azure.com/internalserviceexports/read | Read fleet internalServiceExport resource |
+> | Microsoft.ContainerService/fleets/networking.fleet.azure.com/internalserviceexports/write | Write fleet internalServiceExport resource |
+> | Microsoft.ContainerService/fleets/networking.fleet.azure.com/internalserviceexports/delete | Delete fleet internalServiceExport resource |
+> | Microsoft.ContainerService/fleets/networking.fleet.azure.com/internalserviceimports/read | Read fleet internalServiceImport resource |
+> | Microsoft.ContainerService/fleets/networking.fleet.azure.com/internalserviceimports/write | Write fleet internalServiceImport resource |
+> | Microsoft.ContainerService/fleets/networking.fleet.azure.com/internalserviceimports/delete | Delete fleet internalServiceImport resource |
+> | Microsoft.ContainerService/fleets/networking.fleet.azure.com/multiclusterservices/read | Read fleet multiClusterService resource |
+> | Microsoft.ContainerService/fleets/networking.fleet.azure.com/multiclusterservices/write | Write fleet multiClusterService resource |
+> | Microsoft.ContainerService/fleets/networking.fleet.azure.com/multiclusterservices/delete | Delete fleet multiClusterService resource |
+> | Microsoft.ContainerService/fleets/networking.fleet.azure.com/serviceexports/read | Read fleet serviceExport resource |
+> | Microsoft.ContainerService/fleets/networking.fleet.azure.com/serviceexports/write | Write fleet serviceExport resource |
+> | Microsoft.ContainerService/fleets/networking.fleet.azure.com/serviceexports/delete | Delete fleet serviceExport resource |
+> | Microsoft.ContainerService/fleets/networking.fleet.azure.com/serviceimports/read | Read fleet serviceImport resource |
+> | Microsoft.ContainerService/fleets/networking.fleet.azure.com/serviceimports/write | Write fleet serviceImport resource |
+> | Microsoft.ContainerService/fleets/networking.fleet.azure.com/serviceimports/delete | Delete fleet serviceImport resource |
+> | Microsoft.ContainerService/fleets/networking.fleet.azure.com/trafficmanagerbackends/read | Read fleet trafficManagerBackend resource |
+> | Microsoft.ContainerService/fleets/networking.fleet.azure.com/trafficmanagerbackends/write | Write fleet trafficManagerBackend resource |
+> | Microsoft.ContainerService/fleets/networking.fleet.azure.com/trafficmanagerbackends/delete | Delete fleet trafficManagerBackend resource |
+> | Microsoft.ContainerService/fleets/networking.fleet.azure.com/trafficmanagerprofiles/read | Read fleet trafficManagerProfile resource |
+> | Microsoft.ContainerService/fleets/networking.fleet.azure.com/trafficmanagerprofiles/write | Write fleet trafficManagerProfile resource |
+> | Microsoft.ContainerService/fleets/networking.fleet.azure.com/trafficmanagerprofiles/delete | Delete fleet trafficManagerProfile resource |
 > | Microsoft.ContainerService/fleets/networking.k8s.io/ingresses/read | Reads ingresses |
 > | Microsoft.ContainerService/fleets/networking.k8s.io/ingresses/write | Writes ingresses |
 > | Microsoft.ContainerService/fleets/networking.k8s.io/ingresses/delete | Deletes ingresses |
@@ -532,6 +884,9 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/fleets/persistentvolumes/read | Reads persistentvolumes |
 > | Microsoft.ContainerService/fleets/persistentvolumes/write | Writes persistentvolumes |
 > | Microsoft.ContainerService/fleets/persistentvolumes/delete | Deletes persistentvolumes |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterapprovalrequests/read | Read fleet clusterApprovalRequest resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterapprovalrequests/write | Write fleet clusterApprovalRequest resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterapprovalrequests/delete | Delete fleet clusterApprovalRequest resource |
 > | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourcebindings/read | Read fleet clusterresourcebinding resource |
 > | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourcebindings/write | Create/Update fleet clusterresourcebinding resource |
 > | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourcebindings/delete | Delete fleet clusterresourcebinding resource |
@@ -541,6 +896,12 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourceoverridesnapshots/read | Read fleet clusterresourceoverridesnapshot resource |
 > | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourceoverridesnapshots/write | Write fleet clusterresourceoverridesnapshot resource |
 > | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourceoverridesnapshots/delete | Delete fleet clusterresourceoverridesnapshot resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourceplacementdisruptionbudgets/read | Read fleet clusterResourcePlacementDisruptionBudget resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourceplacementdisruptionbudgets/write | Write fleet clusterResourcePlacementDisruptionBudget resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourceplacementdisruptionbudgets/delete | Delete fleet clusterResourcePlacementDisruptionBudget resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourceplacementevictions/read | Read fleet clusterResourcePlacementEviction resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourceplacementevictions/write | Write fleet clusterResourcePlacementEviction resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourceplacementevictions/delete | Delete fleet clusterResourcePlacementEviction resource |
 > | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourceplacements/read | Read fleet clusterresourceplacement resource |
 > | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourceplacements/write | Write fleet clusterresourceplacement resource |
 > | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourceplacements/delete | Delete fleet clusterresourceplacement resource |
@@ -550,6 +911,12 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterschedulingpolicysnapshots/read | Read fleet clusterschedulingpolicysnapshot resource |
 > | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterschedulingpolicysnapshots/write | Write fleet clusterschedulingpolicysnapshot resource |
 > | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterschedulingpolicysnapshots/delete | Delete fleet clusterschedulingpolicysnapshot resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterstagedupdateruns/read | Read fleet clusterStagedUpdateRun resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterstagedupdateruns/write | Write fleet clusterStagedUpdateRun resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterstagedupdateruns/delete | Delete fleet clusterStagedUpdateRun resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterstagedupdatestrategies/read | Read fleet clusterStagedUpdateStrategy resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterstagedupdatestrategies/write | Write fleet clusterStagedUpdateStrategy resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterstagedupdatestrategies/delete | Delete fleet clusterStagedUpdateStrategy resource |
 > | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/resourceoverrides/read | Read fleet resourceoverride resource |
 > | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/resourceoverrides/write | Write fleet resourceoverride resource |
 > | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/resourceoverrides/delete | Delete fleet resourceoverride resource |
@@ -850,6 +1217,27 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/managedClusters/namespaces/read | Reads namespaces |
 > | Microsoft.ContainerService/managedClusters/namespaces/write | Writes namespaces |
 > | Microsoft.ContainerService/managedClusters/namespaces/delete | Deletes namespaces |
+> | Microsoft.ContainerService/managedClusters/networking.fleet.azure.com/internalserviceexports/read | Read fleet internalServiceExport resource |
+> | Microsoft.ContainerService/managedClusters/networking.fleet.azure.com/internalserviceexports/write | Write fleet internalServiceExport resource |
+> | Microsoft.ContainerService/managedClusters/networking.fleet.azure.com/internalserviceexports/delete | Delete fleet internalServiceExport resource |
+> | Microsoft.ContainerService/managedClusters/networking.fleet.azure.com/internalserviceimports/read | Read fleet internalServiceImport resource |
+> | Microsoft.ContainerService/managedClusters/networking.fleet.azure.com/internalserviceimports/write | Write fleet internalServiceImport resource |
+> | Microsoft.ContainerService/managedClusters/networking.fleet.azure.com/internalserviceimports/delete | Delete fleet internalServiceImport resource |
+> | Microsoft.ContainerService/managedClusters/networking.fleet.azure.com/multiclusterservices/read | Read fleet multiClusterService resource |
+> | Microsoft.ContainerService/managedClusters/networking.fleet.azure.com/multiclusterservices/write | Write fleet multiClusterService resource |
+> | Microsoft.ContainerService/managedClusters/networking.fleet.azure.com/multiclusterservices/delete | Delete fleet multiClusterService resource |
+> | Microsoft.ContainerService/managedClusters/networking.fleet.azure.com/serviceexports/read | Read fleet serviceExport resource |
+> | Microsoft.ContainerService/managedClusters/networking.fleet.azure.com/serviceexports/write | Write fleet serviceExport resource |
+> | Microsoft.ContainerService/managedClusters/networking.fleet.azure.com/serviceexports/delete | Delete fleet serviceExport resource |
+> | Microsoft.ContainerService/managedClusters/networking.fleet.azure.com/serviceimports/read | Read fleet serviceImport resource |
+> | Microsoft.ContainerService/managedClusters/networking.fleet.azure.com/serviceimports/write | Write fleet serviceImport resource |
+> | Microsoft.ContainerService/managedClusters/networking.fleet.azure.com/serviceimports/delete | Delete fleet serviceImport resource |
+> | Microsoft.ContainerService/managedClusters/networking.fleet.azure.com/trafficmanagerbackends/read | Read fleet trafficManagerBackend resource |
+> | Microsoft.ContainerService/managedClusters/networking.fleet.azure.com/trafficmanagerbackends/write | Write fleet trafficManagerBackend resource |
+> | Microsoft.ContainerService/managedClusters/networking.fleet.azure.com/trafficmanagerbackends/delete | Delete fleet trafficManagerBackend resource |
+> | Microsoft.ContainerService/managedClusters/networking.fleet.azure.com/trafficmanagerprofiles/read | Read fleet trafficManagerProfile resource |
+> | Microsoft.ContainerService/managedClusters/networking.fleet.azure.com/trafficmanagerprofiles/write | Write fleet trafficManagerProfile resource |
+> | Microsoft.ContainerService/managedClusters/networking.fleet.azure.com/trafficmanagerprofiles/delete | Delete fleet trafficManagerProfile resource |
 > | Microsoft.ContainerService/managedClusters/networking.k8s.io/ingressclasses/read | Reads ingressclasses |
 > | Microsoft.ContainerService/managedClusters/networking.k8s.io/ingressclasses/write | Writes ingressclasses |
 > | Microsoft.ContainerService/managedClusters/networking.k8s.io/ingressclasses/delete | Deletes ingressclasses |
@@ -872,6 +1260,9 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/managedClusters/persistentvolumes/read | Reads persistentvolumes |
 > | Microsoft.ContainerService/managedClusters/persistentvolumes/write | Writes persistentvolumes |
 > | Microsoft.ContainerService/managedClusters/persistentvolumes/delete | Deletes persistentvolumes |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterapprovalrequests/read | Read fleet clusterApprovalRequest resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterapprovalrequests/write | Write fleet clusterApprovalRequest resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterapprovalrequests/delete | Delete fleet clusterApprovalRequest resource |
 > | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourcebindings/read | Read fleet clusterresourcebinding resource |
 > | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourcebindings/write | Create/Update fleet clusterresourcebinding resource |
 > | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourcebindings/delete | Delete fleet clusterresourcebinding resource |
@@ -881,6 +1272,12 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourceoverridesnapshots/read | Read fleet clusterresourceoverridesnapshot resource |
 > | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourceoverridesnapshots/write | Write fleet clusterresourceoverridesnapshot resource |
 > | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourceoverridesnapshots/delete | Delete fleet clusterresourceoverridesnapshot resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourceplacementdisruptionbudgets/read | Read fleet clusterResourcePlacementDisruptionBudget resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourceplacementdisruptionbudgets/write | Write fleet clusterResourcePlacementDisruptionBudget resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourceplacementdisruptionbudgets/delete | Delete fleet clusterResourcePlacementDisruptionBudget resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourceplacementevictions/read | Read fleet clusterResourcePlacementEviction resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourceplacementevictions/write | Write fleet clusterResourcePlacementEviction resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourceplacementevictions/delete | Delete fleet clusterResourcePlacementEviction resource |
 > | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourceplacements/read | Read fleet clusterresourceplacement resource |
 > | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourceplacements/write | Write fleet clusterresourceplacement resource |
 > | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourceplacements/delete | Delete fleet clusterresourceplacement resource |
@@ -890,6 +1287,12 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterschedulingpolicysnapshots/read | Read fleet clusterschedulingpolicysnapshot resource |
 > | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterschedulingpolicysnapshots/write | Write fleet clusterschedulingpolicysnapshot resource |
 > | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterschedulingpolicysnapshots/delete | Delete fleet clusterschedulingpolicysnapshot resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterstagedupdateruns/read | Read fleet clusterStagedUpdateRun resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterstagedupdateruns/write | Write fleet clusterStagedUpdateRun resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterstagedupdateruns/delete | Delete fleet clusterStagedUpdateRun resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterstagedupdatestrategies/read | Read fleet clusterStagedUpdateStrategy resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterstagedupdatestrategies/write | Write fleet clusterStagedUpdateStrategy resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterstagedupdatestrategies/delete | Delete fleet clusterStagedUpdateStrategy resource |
 > | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/resourceoverrides/read | Read fleet resourceoverride resource |
 > | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/resourceoverrides/write | Write fleet resourceoverride resource |
 > | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/resourceoverrides/delete | Delete fleet resourceoverride resource |
@@ -997,8 +1400,8 @@ Azure service: [Azure Red Hat OpenShift](/azure/openshift/)
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
-> | Microsoft.RedHatOpenShift/locations/listInstallVersions/read |  |
 > | Microsoft.RedHatOpenShift/locations/listPlatformWorkloadIdentityRoleSets/read |  |
+> | Microsoft.RedHatOpenShift/locations/openshiftVersions/read |  |
 > | Microsoft.RedHatOpenShift/locations/operationresults/read |  |
 > | Microsoft.RedHatOpenShift/locations/operationsstatus/read |  |
 > | Microsoft.RedHatOpenShift/openShiftClusters/read |  |

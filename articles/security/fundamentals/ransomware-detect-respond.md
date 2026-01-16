@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 04/16/2025
+ms.date: 01/06/2026
 
 ---
 
@@ -81,8 +81,6 @@ Our Rapid Ransomware Recovery services are treated as "Confidential" for the dur
 ## What's next
 
 For comprehensive ransomware protection guidance across all Microsoft platforms and services, see [Protect your organization against ransomware and extortion](/security/ransomware/protect-against-ransomware).
-
-See the white paper: [Azure defenses for ransomware attack whitepaper](https://azure.microsoft.com/resources/azure-defenses-for-ransomware-attack).
 
 Other Azure ransomware articles:
 

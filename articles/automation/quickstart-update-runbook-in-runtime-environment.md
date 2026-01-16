@@ -6,8 +6,8 @@ services: automation
 ms.date: 06/27/2025
 ms.topic: quickstart
 ms.custom: references_regions
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Update runbook from PowerShell 7.1 to PowerShell 7.4

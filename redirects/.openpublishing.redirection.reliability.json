@@ -149,6 +149,11 @@
             "source_path_from_root": "/articles/reliability/migrate-vm.md",
             "redirect_url": "/azure/reliability/reliability-virtual-machines",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/reliability/reliability-deployment-environments.md",
+            "redirect_url": "/azure/deployment-environments/concept-reliability-deployment-environments",
+            "redirect_document_id": false
         }
     ]
 }

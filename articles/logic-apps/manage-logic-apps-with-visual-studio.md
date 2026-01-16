@@ -6,7 +6,8 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 12/10/2024
+ms.date: 01/13/2026
+ms.update-cycle: 1095-days
 ms.custom:
   - mvc
   - sfi-image-nochange

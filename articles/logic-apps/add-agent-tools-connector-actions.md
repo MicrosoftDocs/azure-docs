@@ -7,7 +7,7 @@ ms.suite: integration
 ms.reviewers: estfan, divswa, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 11/18/2025
+ms.date: 12/12/2025
 ms.update-cycle: 180-days
 # Customer intent: As an AI integration developer working in Microsoft Foundry, I want to add agent tools powered connector actions in Azure Logic Apps by creating MCP servers.
 ---
@@ -44,6 +44,8 @@ For more information, see:
   - An [agent in your project](/azure/ai-foundry/agents/quickstart?context=%2Fazure%2Fai-foundry%2Fcontext%2Fcontext&pivots=ai-foundry-portal)
   
   - A [Foundry model deployed for your agent](/azure/ai-foundry/foundry-models/how-to/create-model-deployments?pivots=ai-foundry-portal)
+
+- To avoid potential problems returning to the Foundry portal from the Azure portal where you create an MCP server, allow pop-ups for the Azure portal by adding the URL `https://portal.azure.com:443` to your browser's or pop-up blocker's allow list.
 
 ## Limitations and known issues
 
@@ -179,7 +181,7 @@ You can continue with these steps only after you finish the steps from the prece
 
 1. Wait for the notifications that Azure successfully registered your MCP server.
 
-1. After registration completes, return to your agent in the Foundry portal. Try testing your agent tool using the chat window in your agent's playground.
+   After registration completes, the Azure portal returns to your agent in the Foundry portal. Try testing your agent tool using the chat window in your agent's playground.
 
 [!INCLUDE [ai-action-parameter-values-runtime](includes/ai-action-parameter-values-runtime.md)]
 

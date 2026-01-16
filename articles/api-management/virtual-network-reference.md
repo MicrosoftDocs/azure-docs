@@ -63,7 +63,7 @@ NSG rules allowing outbound connectivity to Storage, SQL, and Azure Event Hubs s
 
 ## TLS functionality  
 
-To enable TLS/SSL certificate chain building and validation, the API Management service needs outbound network connectivity on ports `80` and `443` to `ocsp.msocsp.com`, `oneocsp.msocsp.com`, `mscrl.microsoft.com`, `crl.microsoft.com`, `cacerts.digicert.com`, `crl3.digicert.com` and `csp.digicert.com`. 
+To enable TLS/SSL certificate chain building and validation, the API Management service needs outbound network connectivity on ports `80` and `443` to `mscrl.microsoft.com`, `crl.microsoft.com`, `oneocsp.microsoft.com`, `cacerts.digicert.com`, `crl3.digicert.com` and `csp.digicert.com`. 
 
 
 ## DNS access

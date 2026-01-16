@@ -1,12 +1,12 @@
 ---
 title: Order device connection events from Azure IoT Hub w/Azure Cosmos DB
 description: This article describes how to order and record device connection events from Azure IoT Hub using Azure Cosmos DB to maintain the latest connection state.
-author: SoniaLopezBravo
+author: cwatson-cat
 
-ms.author: sonialopez
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 04/11/2019
+ms.date: 08/13/2025
 ms.custom:
   - devx-track-azurecli
   - sfi-image-nochange
@@ -23,7 +23,7 @@ From the moment your device runs, an order of operations activates:
 1. The Logic App processes the HTTP request based on a condition you set 
 1. The Logic App logs connection or disconnection events into a new document in Cosmos DB
 
-   :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/event-grid-setup.png" alt-text="Screenshot of the setup we'll create for this article. This setup shows how all services and devices are connected." lightbox="media/iot-hub-how-to-order-connection-state-events/event-grid-setup.png":::
+   :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/event-grid-setup.png" alt-text="Screenshot of the setup we create for this article. This setup shows how all services and devices are connected." lightbox="media/iot-hub-how-to-order-connection-state-events/event-grid-setup.png":::
 
 <!--
 A sequence number is used in the *Device Connected* and *Device Disconnected* to track and order events. 
@@ -33,7 +33,7 @@ The sequence number is a string representation of a hexadecimal number. You can 
 
 ## Prerequisites
 
-* An active Azure Cosmos DB for NoSQL account. If you haven't created one yet, see [Create a database account](/azure/cosmos-db/create-sql-api-java#create-a-database-account) for a walkthrough.
+* An active Azure Cosmos DB for NoSQL account. If you didn't create one yet, see [Create a database account](/azure/cosmos-db/create-sql-api-java#create-a-database-account) for a walkthrough.
 
 * A collection in your database. See [Add a collection](/azure/cosmos-db/create-sql-api-java#add-a-container) for a walkthrough. When you create your collection, use `/id` for the partition key.
 
@@ -121,19 +121,19 @@ Conditions help run specific actions after passing that specific condition. For 
 
 1. In your condition, change **And** to **Or**, since we want to capture either connection events or disconnection events in a single parse.
 
-1. Select inside the **Choose a value** box and a pop up appears, showing the **Dynamic content** — the fields that can be selected. 
+1. Select inside the **Choose a value** box and a pop-up appears, showing the **Dynamic content**—the fields that can be selected. 
 
    * Choose **eventType**. The popup closes and you see **Body** is placed in **Select an output from previous steps**, automatically. Select **Condition** to reopen your conditional statement.
    * Keep the **is equal to** value.
    * Type in **Microsoft.Devices.DeviceConnected** as the last value of that row. 
    * Select **+ Add** to add another row.
-   * This second row is similar to the first row, except we look for disconnection events.
+   * This second row is similar to the first row, except that we look for disconnection events.
 
      Use **eventType**, **is equal to**, and **Microsoft.Devices.DeviceDisconnected** for the row values.
 
      :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/condition-detail.jpg" alt-text="Screenshot of the full For Each condition." lightbox="media/iot-hub-how-to-order-connection-state-events/condition-detail.jpg":::
 
-1. In the **if true** dialog, click on **Add an action**.
+1. In the **if true** dialog, select **Add an action**.
   
    :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/action-if-true.png" alt-text="Screenshot of the 'If true' box in Azure." lightbox="media/iot-hub-how-to-order-connection-state-events/action-if-true.png":::
 
@@ -185,7 +185,7 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
 1. Create a **System Topic Name** for your IoT hub resource.
 
-1. Fill in the **Event Types** fields. In the dropdown list, select only **Device Connected** and **Device Disconnected** from the menu. Click anywhere else on the screen to close the list and save your selections.
+1. Fill in the **Event Types** fields. In the dropdown list, select only **Device Connected** and **Device Disconnected** from the menu. Select anywhere else on the screen to close the list and save your selections.
 
    ![Set event types to look for](./media/iot-hub-how-to-order-connection-state-events/set-event-types.png)
 
@@ -200,7 +200,7 @@ In this section, you configure your IoT Hub to publish events as they occur.
    Select **Create** to save the event subscription. 
 
    >[!IMPORTANT]
-   > Wait a few minutes for your event to process before running your device. Anytime Azure services are created or changed, initiating the next step in your pipeline too soon could result in unnecessary errors. For example, if your IoT hub is not in an active state, it won't be ready to receive events. Check your IoT hub **Overview** page to see if your IoT hub is in an active state or not. If it's not, you'll see a warning at the top of the page.
+   > Wait a few minutes for your event to process before running your device. Anytime Azure services are created or changed, initiating the next step in your pipeline too soon could result in unnecessary errors. For example, if your IoT hub isn't in an active state, it isn't ready to receive events. Check your IoT hub **Overview** page to see if your IoT hub is in an active state or not. If it's not, you see a warning at the top of the page.
    >
    > :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/iot-hub-not-active.jpg" alt-text="Screenshot of an IoT Hub error that says it's not in an active state." lightbox="media/iot-hub-how-to-order-connection-state-events/iot-hub-not-active.jpg":::
 
@@ -220,7 +220,7 @@ Now that your event subscription is set up, let's test by connecting a device.
 
    :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/add-iot-device.jpg" alt-text="Screenshot of location of the Add Device button." lightbox="media/iot-hub-how-to-order-connection-state-events/add-iot-device.jpg":::
 
-1. Click on the device again; now the connection strings and keys will be filled in. Copy and save the **Primary Connection String** for later use.
+1. Select the device again; now the connection strings and keys are filled in. Copy and save the **Primary Connection String** for later use.
 
    :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/device-conn-string.jpg" alt-text="Screenshot of location of the Primary Connection String for your device." lightbox="media/iot-hub-how-to-order-connection-state-events/device-conn-string.jpg":::
 
@@ -232,7 +232,7 @@ Let's use the Raspberry Pi web simulator to simulate device connection.
 
 ### Run a sample application on the Raspberry Pi web simulator
 
-This sample app will trigger a device connected event.
+This sample app triggers a device connected event.
 
 1. In the coding area, replace the placeholder in Line 15 with your Azure IoT Hub device connection string that you saved at the end of the previous section.
 
@@ -244,11 +244,11 @@ This sample app will trigger a device connected event.
 
    :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/raspmsg.png" alt-text="Screenshot of what to expect in your output console when you run the Raspberry Pi." lightbox="media/iot-hub-how-to-order-connection-state-events/raspmsg.png":::
 
-1. You can check your Logic App **Overview** page to check if your logic is being triggered. It'll say **Succeeded** or **Failed**. Checking here let's you know your logic app state if troubleshooting is needed. Expect a 15-30 second delay from when your trigger runs. If you need to troubleshoot your logic app, view this [Troubleshoot errors](../logic-apps/logic-apps-diagnosing-failures.md?tabs=consumption) article.
+1. You can check your Logic App **Overview** page to check if your logic is being triggered. It says **Succeeded** or **Failed**. Checking here let's you know your logic app state if troubleshooting is needed. Expect a 15-30 second delay from when your trigger runs. If you need to troubleshoot your logic app, view this [Troubleshoot errors](../logic-apps/logic-apps-diagnosing-failures.md?tabs=consumption) article.
 
    :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/logic-app-log.jpg" alt-text="Screenshot of the status updates on your logic app Overview page." lightbox="media/iot-hub-how-to-order-connection-state-events/logic-app-log.jpg":::
 
-1. Select **Stop** to stop the simulator, which triggers a **Device Disconnected** event. This event will log on the Logic App **Overview** page, just as the connection event logged there.
+1. Select **Stop** to stop the simulator, which triggers a **Device Disconnected** event. This event is logged on the Logic App **Overview** page, just as the connection event logged there.
 
 You have now run a sample application to collect connection and disconnection events of your device, which go to your IoT hub.
 
@@ -272,7 +272,7 @@ If you don't want to lose the work on your logic app, disable it instead of dele
 
 1. Navigate to your logic app.
 
-1. On the **Overview** blade, select **Delete** or **Disable**.
+1. On the **Overview** page, select **Delete** or **Disable**.
 
    Each subscription can have one free IoT hub. If you created a free hub for this tutorial, then you don't need to delete it to prevent charges.
 
@@ -280,9 +280,9 @@ If you don't want to lose the work on your logic app, disable it instead of dele
 
 1. Navigate to your IoT hub.
 
-1. On the **Overview** blade, select **Delete**.
+1. On the **Overview** page, select **Delete**.
 
-1. Even if you keep your IoT hub, you may want to delete the event subscription that you created. In your IoT hub, select **Event Grid**.
+1. Even if you keep your IoT hub, you might want to delete the event subscription that you created. In your IoT hub, select **Event Grid**.
 
 1. Select the event subscription that you want to remove, then select **Delete**.
 

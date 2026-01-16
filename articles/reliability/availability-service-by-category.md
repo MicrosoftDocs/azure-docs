@@ -47,6 +47,7 @@ Azure services are presented in the following lists by category. Note that some 
 - Azure Storage Data Lake Storage
 - Azure Storage: Blob Storage
 - Azure Storage: Disk Storage
+- Azure Stream Analytics
 - Azure Virtual Machine Scale Sets
 - Azure Virtual Machines
 - Azure Virtual Network

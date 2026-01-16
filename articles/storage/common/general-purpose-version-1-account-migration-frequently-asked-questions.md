@@ -3,10 +3,10 @@ title: GPv1 storage account retirement FAQ
 titleSuffix: Azure Storage
 description: Commonly asked questions regarding the retirement of Azure General-purpose v1 (GPv1) storage accounts and upgrading to GPv2.
 Services: storage
-author: gtrossell
+author: gtrossell-eng
 ms.service: azure-storage
 ms.topic: faq
-ms.date: 07/22/2025
+ms.date: 12/15/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
@@ -46,6 +46,9 @@ No.
 ### How does pricing differ from GPv2?
 
 General-purpose v1 has **lower transaction prices** but **slightly higher capacity prices** than GPv2. For most workloads, **GPv2 is cheaper overall** once per-blob tiering and optimized capacity pricing are factored in.
+
+### Does converting a storage account from GPv1 to GPv2 change pricing for files or disks?
+**No.** Converting a storage account from GPv1 to GPv2 only affects Blob Storage pricing. Azure files and Azure disks each have their own independent pricing models, so their costs do not change when the underlying storage account is upgraded.
 
 ### Can I upgrade from GPv1 to GPv2 later? Will anything break?
 

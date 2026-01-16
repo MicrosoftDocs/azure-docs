@@ -2,7 +2,7 @@
 title: Data types in Bicep
 description: This article describes the data types that are available in Bicep.
 ms.topic: reference
-ms.date: 10/23/2025
+ms.date: 01/02/2026
 ms.custom: devx-track-bicep
 ---
 
@@ -30,6 +30,24 @@ Using `any` makes Bicep less predictable and can lead to runtime errors. When po
 A **array** in Bicep is an ordered collection of values—such as strings, integers, objects, or even other arrays—commonly used to group related items like resource names, configuration settings, or parameters. Arrays are helpful for organizing deployment data, passing lists to resources, and iterating over multiple values.
 
 Arrays in Bicep are immutable. Once declared, their contents can't be changed. To "modify" an array, create a new array using functions like [`concat`](./bicep-functions-array.md#concat), [`map`](./bicep-functions-lambda.md#map), or [`filter`](./bicep-functions-lambda.md#filter).
+
+```bicep
+param usLocations array = [
+  'eastus'
+  'westus2'
+]
+
+param euroLocations string[] = [
+  'northeurope'
+  'westeurope'
+]
+
+param numbers int[] = [
+  1
+  2
+  3
+]
+```
 
 You can declare arrays in Bicep using either single-line or multi-line syntax. Multi-line array declarations require [Bicep CLI version 0.7.X or later](https://github.com/Azure/bicep/releases/tag/v0.7.4).
 
@@ -466,7 +484,7 @@ output optionalValue int? = null
 
 Secure strings use the same format as string, and secure objects use the same format as object. With Bicep, you add the `@secure()` [decorator](./parameters.md#use-decorators) to a string or object.
 
-When you set a parameter (or an output) to a secure string or secure object, the value of the parameter (or the output) isn't saved to the deployment history or logged. If you set that secure value to a property that isn't expecting a secure value, the value isn't protected. For example, if you set a secure string to a tag, that value is stored as plain text. Use secure strings for passwords and secrets.
+When you set a parameter (or an output) to a secure string or secure object, the value of the parameter (or the output) isn't saved to the deployment history or logged. However, when using the `--debug` flag during deployment, secure values are logged in clear text. If you set that secure value to a property that isn't expecting a secure value, the value isn't protected. For example, if you set a secure string to a tag, that value is stored as plain text. Use secure strings for passwords and secrets.
 
 The following example shows two secure parameters:
 

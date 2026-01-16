@@ -2,11 +2,13 @@
 title: Manage Dev Box Pools Effectively
 titleSuffix: Microsoft Dev Box
 description: Manage dev box pools in Microsoft Dev Box with step-by-step guidance on creating, configuring, and deleting pools for optimal developer productivity.
+#customer intent: As an IT admin, I want to configure dev box pools so that developers can access resources securely.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 10/16/2025
+ms.reviewer: rosemalcolm
+ms.date: 12/29/2025
 ms.topic: how-to
 ms.custom:
   - ai-gen-docs-bap
@@ -33,7 +35,7 @@ To manage a dev box pool, you need the following permissions:
 
 | Action | Permissions required |
 |---|---|
-| _Create, delete, or update a dev box pool_ | - Owner or Contributor permissions on an Azure subscription or a specific resource group. </br> - DevCenter Project Admin permissions for the project. |
+| _Create, delete, or update a dev box pool_ | - Owner or Contributor permissions on an Azure subscription or a specific resource group. </br> - DevCenter Owner permissions on the dev center. </br> - DevCenter Project Admin permissions for the project. |
 
 ## Create a dev box pool
 

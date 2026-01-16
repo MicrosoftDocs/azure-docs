@@ -121,7 +121,7 @@ The resource providers for database services are:
 | Microsoft.DBforMariaDB | [AzureÂ DatabaseÂ forÂ MariaDB](/azure/mariadb/) |
 | Microsoft.DBforMySQL | [AzureÂ DatabaseÂ forÂ MySQL](/azure/mysql/) |
 | Microsoft.DBforPostgreSQL | [AzureÂ DatabaseÂ forÂ PostgreSQL](/azure/postgresql/) |
-| Microsoft.DocumentDB | [Azure Cosmos DB](/azure/cosmos-db/) |
+| Microsoft.DocumentDB | [Azure Cosmos DB](/azure/cosmos-db/)<br /> [Azure DocumentDB](/azure/documentdb/) |
 | Microsoft.Sql | [Azure SQL Database](/azure/azure-sql/database/index)<br /> [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/index) <br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
 | Microsoft.SqlVirtualMachine | [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) |
 | Microsoft.AzureData | [SQL Server enabled by Azure Arc](/sql/sql-server/azure-arc/overview) |

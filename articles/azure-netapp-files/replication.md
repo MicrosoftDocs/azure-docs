@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 11/25/2025
+ms.date: 12/09/2025
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -47,7 +47,7 @@ Similarly to Azure NetApp Files [cross-region replication](#cross-region-replica
 
 Cross-zone replication is available in all [availability zone-enabled regions](../reliability/regions-list.md) that support [Azure NetApp Files](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
 
-For more information about service-level objectives (SLOs), see [Azure NetApp Files reliability](../reliability/reliability-netapp-files.md#region-down-experience).
+For more information about service-level objectives (SLOs), see [Azure NetApp Files reliability](../reliability/reliability-netapp-files.md#behavior-during-a-region-failure).
 
 ### Cost model for cross-zone replication 
 
@@ -59,7 +59,7 @@ Azure NetApp Files replication is available across regions. You can asynchronous
 
 Azure NetApp Files cross-region replication must use [supported regional pairs](#supported-region-pairs). 
 
-For more information about SLOs, see [Azure NetApp Files reliability](../reliability/reliability-netapp-files.md#region-down-experience).
+For more information about SLOs, see [Azure NetApp Files reliability](../reliability/reliability-netapp-files.md#behavior-during-a-region-failure).
 
 ### Cost model for cross-region replication
 
@@ -114,7 +114,12 @@ Regular Azure NetApp Files storage capacity charges for Month 2 apply to the des
 
 ## Cross-zone-region replication
 
-Azure NetApp Files supports using cross-zone and cross-region replication on the same source volume. With this extra layer of protection, you can protect your volumes by using a second protection volume in the following combinations:
+Azure NetApp Files supports using cross-zone and cross-region replication on the same source volume, enabling asynchronous replication of volumes across availability zones and regions, 
+
+>[!NOTE]
+>Cross zone-region replication uses the same pricing model as cross-region and cross-zone replication. 
+
+With cross-zone-region replication, you can protect your volumes by using a second protection volume in the following combinations:
 
 * Cross-region and​ cross-zone replication target volumes
 

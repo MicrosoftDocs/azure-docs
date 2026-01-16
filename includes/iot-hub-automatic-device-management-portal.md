@@ -5,7 +5,7 @@ description: Use Azure IoT Hub automatic configurations to manage multiple IoT d
 author: SoniaLopezBravo
 ms.service: azure-iot-hub
 ms.topic: include
-ms.date: 09/22/2022
+ms.date: 12/01/2025
 ms.author: sonialopez
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---
@@ -14,11 +14,11 @@ ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 
 * An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](../articles/iot-hub/create-hub.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in the **Create an IoT hub** section of [Create and manage Azure IoT hubs](../articles/iot-hub/create-hub.md).
 
 ## Implement twins
 
-Automatic device configurations require the use of device twins to synchronize state between the cloud and devices.  For more information, see [Understand and use device twins in IoT Hub](../articles/iot-hub/iot-hub-devguide-device-twins.md).
+Automatic device configurations require the use of device twins to synchronize state between the cloud and devices. For more information, see [Understand and use device twins in IoT Hub](../articles/iot-hub/iot-hub-devguide-device-twins.md).
 
 Automatic module configurations require the use of module twins to synchronize state between the cloud and modules. For more information, see [Understand and use module twins in IoT Hub](../articles/iot-hub/iot-hub-devguide-module-twins.md).
 
@@ -37,11 +37,11 @@ Before you create a configuration, you must specify which devices or modules you
 
 ## Create a configuration
 
-You can create a maximum of 100 automatic configurations on standard tier IoT hubs; ten on free tier IoT hubs. To learn more, see [Quotas and Throttling](../articles/iot-hub/iot-hub-devguide-quotas-throttling.md).
+You can create a maximum of 100 automatic configurations on standard tier IoT hubs; 10 on free tier IoT hubs. To learn more, see [IoT Hub quotas and throttling](../articles/iot-hub/iot-hub-devguide-quotas-throttling.md).
 
 1. In the [Azure portal](https://portal.azure.com), go to your IoT hub.
-1. Select **Configurations + Deployments** in the left navigation pane.
-1. Select **Add** and choose **Device twin configuration** or **Module twin configuration** from the drop-down list.
+1. In the service menu, under **Device management**, select **Configurations + Deployments**.
+1. Select **Add** and choose **Device twin configuration** or **Module twin configuration** from the dropdown list.
 
    :::image type="content" source="../articles/iot-hub/media/iot-hub-automatic-device-management/create-automatic-configuration.png" alt-text="Screenshot showing how to add a configuration." border="true":::
 
@@ -49,7 +49,7 @@ There are five steps to create a configuration. The following sections walk thro
 
 ### Name and label
 
-1. Enter a unique name for your configuration. The name can be up to 128 characters and may include lowercase letters and the following special characters: `-+%_*!'`. Spaces aren't allowed.
+1. Enter a unique name for your configuration. The name can be up to 128 characters and can include lowercase letters and the following special characters: `-+%_*!'`. Spaces aren't allowed.
 1. Add labels to organize and describe your configuration. Labels are key-value pairs, such as `HostPlatform, Linux` or `Version, 3.0.1`.
 1. Select **Next** to continue.
 
@@ -75,7 +75,7 @@ If two or more configurations target the same twin path, the content from the hi
 
 If you wish to remove an existing property, specify the property value to `null`.
 
-You can add additional settings by selecting **Add Device Twin Setting** or **Add Module Twin Setting**.
+You can add more settings by selecting **Add Device Twin Setting** or **Add Module Twin Setting**.
 
 ### Target devices or modules
 
@@ -83,9 +83,9 @@ Use the tags property from your twins to target the specific devices or modules 
 
 Automatic device configurations can only target device twin tags, and automatic module configurations can only target module twin tags. 
 
-Since multiple configurations may target the same device or module, each configuration needs a priority number. If there's ever a conflict, the configuration with the highest priority wins. 
+Since multiple configurations might target the same device or module, each configuration needs a priority number. If there's ever a conflict, the configuration with the highest priority wins. 
 
-1. Enter a positive integer for the configuration **Priority**. The highest numerical value is considered the highest priority. If two configurations have the same priority number, the one created most recently wins. 
+1. Enter a positive integer for the configuration **Priority**. The highest numerical value is considered as the highest priority. If two configurations have the same priority number, the one created most recently wins. 
 1. Enter a **Target condition** to determine which devices or modules are targeted with this configuration. The condition is based on twin tags or twin reported properties and should match the expression format. 
 
    - For automatic device configuration, you can specify just the tag or reported property to target. For example, `tags.environment='test'` or `properties.reported.chillerProperties.model='4000x'`. You can specify `*` to target all devices. 
@@ -94,7 +94,7 @@ Since multiple configurations may target the same device or module, each configu
 
 ### Metrics
 
-Metrics provide summary counts of the various states that a device or module may report back after applying configuration content. For example, you may create a metric for pending settings changes, a metric for errors, and a metric for successful settings changes.
+Metrics provide summary counts of the various states that a device or module might report back after applying configuration content. For example, you might create a metric for pending settings changes, a metric for errors, and a metric for successful settings changes.
 
 Each configuration can have up to five custom metrics. 
 
@@ -132,7 +132,7 @@ Review your configuration information, then select **Submit**.
 To view the details of a configuration and monitor the devices running it, use the following steps:
 
 1. In the [Azure portal](https://portal.azure.com), go to your IoT hub. 
-1. Select **Configurations** in Device management.
+1. In the service menu, under **Device management**, select **Configurations + Deployments**.
 1. Inspect the configuration list. For each configuration, you can view the following details:
 
    * **ID** - the name of the configuration.
@@ -143,18 +143,18 @@ To view the details of a configuration and monitor the devices running it, use t
 
    * **Creation time** - the timestamp from when the configuration was created. This timestamp is used to break ties when two configurations have the same priority. 
 
-   * **System metrics** - metrics that are calculated by IoT Hub and cannot be customized by developers. Targeted specifies the number of device twins that match the target condition. Applies specified the number of device twins that have been modified by the configuration, which can include partial modifications in the event that a separate, higher priority configuration also made changes. 
+   * **System metrics** - metrics that are calculated by IoT Hub and can't be customized by developers. *Targeted* specifies the number of device twins that match the target condition. *Applies* specifies the number of device twins that are modified by the configuration, which can include partial modifications if a separate, higher priority configuration also made changes. 
 
-   * **Custom metrics** - metrics that have been specified by the developer as queries against twin reported properties.  Up to five custom metrics can be defined per configuration. 
+   * **Custom metrics** - metrics that are specified by the developer as queries against twin reported properties. Up to five custom metrics can be defined per configuration. 
    
-1. Select the configuration that you want to monitor.  
+1. Select the configuration that you want to monitor. 
 1. Inspect the configuration details. You can use tabs to view specific details about the devices that received the configuration.
 
    * **Target Devices** or **Target Modules** - the devices or modules that match the target condition.
 
-   * **Metrics** - a list of system metrics and custom metrics.  You can view a list of devices or modules that are counted for each metric by selecting the metric in the drop-down and then selecting **View Devices** or **View Modules**.
+   * **Metrics** - a list of system metrics and custom metrics. You can view a list of devices or modules that are counted for each metric by selecting the metric in the drop-down and then selecting **View Devices** or **View Modules**.
 
-   * **Labels** - key-value pairs used to describe a configuration.  Labels have no impact on functionality.
+   * **Labels** - key-value pairs used to describe a configuration. Labels have no impact on functionality.
 
    * **Device Twin Settings** or **Module Twin Settings** - the twin settings that are set by the configuration, if any.
 
@@ -166,14 +166,14 @@ If you update the target condition, the following updates occur:
 
 * If a twin didn't meet the old target condition, but meets the new target condition and this configuration is the highest priority for that twin, then this configuration is applied. 
 
-* If a twin currently running this configuration no longer meets the target condition, the settings from the configuration will be removed and the twin will be modified by the next highest priority configuration. 
+* If a twin currently running this configuration no longer meets the target condition, the settings from the configuration are removed and the twin is modified by the next highest priority configuration. 
 
-* If a twin currently running this configuration no longer meets the target condition and doesn't meet the target condition of any other configurations, then the settings from the configuration will be removed and no other changes will be made on the twin. 
+* If a twin currently running this configuration no longer meets the target condition and doesn't meet the target condition of any other configurations, then the settings from the configuration are removed and no other changes are made on the twin. 
 
 To modify a configuration, use the following steps: 
 
 1. In the [Azure portal](https://portal.azure.com), go to your IoT hub. 
-1. Select **Configurations + Deployments** in Device management. 
+1. In the service menu, under **Device management**, select **Configurations + Deployments**.
 1. Select the configuration that you want to modify. 
 1. You can make updates to the following fields: priority, metrics, target condition, and labels.
 1. Select **Save**.
@@ -184,7 +184,7 @@ To modify a configuration, use the following steps:
 When you delete a configuration, any device twins take on their next highest priority configuration. If device twins don't meet the target condition of any other configuration, then no other settings are applied. 
 
 1. In the [Azure portal](https://portal.azure.com), go to your IoT hub. 
-1. Select **Configurations + Deployments** in Device management.
+1. In the service menu, under **Device management**, select **Configurations + Deployments**.
 1. Use the checkbox to select the configuration that you want to delete. 
 1. Select **Delete**.
-1. A prompt will ask you to confirm.
+1. A prompt asks you to confirm the deletion.

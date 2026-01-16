@@ -51,12 +51,12 @@ Use zonal resources only when there's a clear need. Typical reasons for a single
 
 A few Azure services only support zonal deployments and don't provide zone-redundant deployments.
 
-[VMs](./reliability-virtual-machines.md#availability-zone-support) are a zonal resource. You can use virtual machine scale sets to create sets of VMs. Virtual Machine Scale Sets can be made zone-spanning, which means that the VMs in the set are spread across multiple zones. Scale sets are a good way to achieve zone resiliency for many VM-based workloads.
+[VMs](./reliability-virtual-machines.md#resilience-to-availability-zone-failures) are a zonal resource. You can use virtual machine scale sets to create sets of VMs. Virtual Machine Scale Sets can be made zone-spanning, which means that the VMs in the set are spread across multiple zones. Scale sets are a good way to achieve zone resiliency for many VM-based workloads.
     
 > [!TIP]
 > If you deploy multiple VMs that do similar functions, we recommend that you use zone-spanning scale sets instead of single-instance VMs that you deploy individually.
 
-Another example is [Azure NetApp Files](./reliability-netapp-files.md#availability-zone-support), which supports the deployment of volumes into a single zone. The service also provides a way for you to replicate between multiple zonal volumes.
+Another example is [Azure NetApp Files](./reliability-netapp-files.md#resilience-to-availability-zone-failures), which supports the deployment of volumes into a single zone. The service also provides a way for you to replicate between multiple zonal volumes.
 
 Some services provide options that are available only in specific zones. For example, specific VM types that use advanced graphics processing units (GPUs) might be available only in specific zones within a region, which means that they can't be deployed across multiple zones. To check which regions and zones support the VM types that you need, use the following resources:
 

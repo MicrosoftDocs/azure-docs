@@ -78,6 +78,10 @@ You can bring your own inbound address to your App Service Environment. If you c
 - For App Service Environment with external VIP, the Azure Public IP address resource must be in the same subscription as the App Service Environment. 
 - The inbound address can't be changed after the App Service Environment is created.
 
+### ILB App Service Environment inbound traffic limitation
+
+For App Service Environments with an internal VIP, inbound traffic to the front ends can be dropped if the source IP address falls within the infrastructure address range used for the App Service Environment's front ends. **Don't use source IP addresses in the `172.31.192.0/25` address space when connecting to an ILB App Service Environment**.
+
 ## Ports and network restrictions
 
 For your app to receive traffic, ensure that inbound network security group (NSG) rules allow the App Service Environment subnet to receive traffic from the required ports. In addition to any ports you'd like to receive traffic on, you should ensure that Azure Load Balancer is able to connect to the subnet on port 80. This port is used for health checks of the internal virtual machine. You can still control port 80 traffic from the virtual network to your subnet.

@@ -1,11 +1,9 @@
 ﻿---
 title: Name generation pattern
 description: Describes the name generation pattern.
-author: johndowns
-ms.author: jodowns
 ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 04/28/2025
+ms.date: 12/22/2025
 ---
 
 # Name generation pattern

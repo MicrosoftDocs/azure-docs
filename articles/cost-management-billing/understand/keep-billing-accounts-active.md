@@ -8,6 +8,7 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 10/01/2025
 ms.author: mijeffer
+service.tree.id: 84a24b9c-ce0c-4b4b-b837-45bc5ee4bef0
 ---
 
 # Keep your Microsoft business billing account active

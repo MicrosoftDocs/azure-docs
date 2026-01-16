@@ -10,8 +10,6 @@ items:
     href: overview-reliability-guidance.md
   - name: AI and machine learning
     items:
-    - name: Azure AI Health Insights
-      href: reliability-health-insights.md
     - name: Azure AI Search
       href: reliability-ai-search.md
     - name: Azure Bot Service 
@@ -39,7 +37,7 @@ items:
     - name: Azure Machine Learning
       href: /azure/machine-learning/how-to-high-availability-machine-learning?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Stream Analytics
-      href: ../stream-analytics/geo-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json 
+      href: reliability-stream-analytics.md
     - name: Microsoft Fabric
       href: reliability-fabric.md
     - name: Microsoft Purview
@@ -75,7 +73,7 @@ items:
     - name: Azure Virtual Machine Scale Sets
       href: reliability-virtual-machine-scale-sets.md
     - name: Azure VMware Solution
-      href: ../azure-vmware/deploy-disaster-recovery-using-vmware-hcx.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: /azure/azure-vmware/deploy-disaster-recovery-using-vmware-hcx?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
   - name: Containers
     items:
     - name: Azure App Configuration
@@ -126,6 +124,8 @@ items:
       href: reliability-azure-database-postgresql.md
     - name: Azure DocumentDB
       href: reliability-documentdb.md
+    - name: Azure Managed Redis
+      href: reliability-managed-redis.md
     - name: Azure SQL Database
       href: reliability-sql-database.md
     - name: Azure SQL Managed Instance
@@ -136,8 +136,6 @@ items:
       href: reliability-api-center.md
   - name: DevOps
     items:
-    - name: Azure Deployment Environments
-      href: reliability-deployment-environments.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure DevOps
       href: /azure/devops/organizations/security/data-protection?view=azure-devops.md&preserve-view=true#data-availability&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Monitor - Log Analytics
@@ -187,7 +185,7 @@ items:
     - name: Azure Backup
       href: reliability-backup.md
     - name: Azure Guest Configuration
-      href: ../governance/machine-configuration/overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability
+      href: /azure/governance/machine-configuration/overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability
     - name: Azure Monitor - Log Analytics
       items:
       - name: Availability zones
@@ -230,6 +228,8 @@ items:
       href: reliability-firewall.md
     - name: Azure Load Balancer
       href: reliability-load-balancer.md 
+    - name: Azure NAT Gateway
+      href: reliability-nat-gateway.md
     - name: Azure Network Watcher
       href: ../network-watcher/frequently-asked-questions.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#service-availability-and-redundancy
     - name: Azure Private Link
@@ -255,7 +255,7 @@ items:
     - name: Azure Disk Encryption 
       href: /azure/virtual-machines/disks-redundancy?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Firewall
-      href: ../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-firewall.md
     - name: Azure Key Vault
       href: reliability-key-vault.md
     - name: Microsoft Defender for Cloud DevOps security
@@ -327,13 +327,13 @@ items:
       - name: Azure AI Search
         href: reliability-ai-search.md#configure-availability-zone-support
       - name: Azure API Management
-        href: migrate-api-mgt.md
+        href: reliability-api-management.md#configure-availability-zone-support
       - name: Azure App Configuration
         href: migrate-app-configuration.md
       - name: Azure App Service
         href: reliability-app-service.md#configure-availability-zone-support
       - name: Azure Application Gateway
-        href: migrate-app-gateway-v2.md
+        href: reliability-application-gateway-v2.md#configure-availability-zone-support
       - name: Azure Blob Storage
         href: reliability-storage-blob.md#configure-availability-zone-support
       - name: Azure Functions
@@ -349,7 +349,7 @@ items:
       - name: Azure Container Instances
         href: migrate-container-instances.md#configure-availability-zone-support
       - name: Azure Container Registry
-        href: /azure/container-registry/zone-redundancy?toc=/azure/reliability
+        href: reliability-container-registry.md#configure-availability-zone-support
       - name: Azure Cosmos DB for NoSQL
         href: migrate-cosmos-nosql.md
       - name: Azure Database for MySQL - Flexible Server
@@ -363,7 +363,7 @@ items:
       - name: Azure Kubernetes Service
         href: reliability-aks.md
       - name: Azure Load Balancer 
-        href: migrate-load-balancer.md
+        href: reliability-load-balancer.md#configure-availability-zone-support
       - name: Log Analytics Dedicated Cluster workspaces
         href: migrate-monitor-log-analytics.md
       - name: Azure Recovery Services vault
@@ -406,5 +406,3 @@ items:
     href: /azure/well-architected/resiliency/chaos-engineering
   - name: Reliability in Microsoft Azure Well-Architected Framework
     href: /azure/well-architected/reliability
-  - name: Azure Service Manager retirement
-    href: asm-retirement.md 

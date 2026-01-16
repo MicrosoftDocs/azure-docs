@@ -1,189 +1,206 @@
 ---
-title: Manage Azure Recovery Services vaults and servers
+title: Manage Azure Recovery Services Vaults and Servers
 description: In this article, learn how to use the Recovery Services vault Overview dashboard to monitor and manage your Recovery Services vaults. 
 ms.topic: how-to
-ms.date: 11/10/2025
+ms.date: 12/19/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
-# Customer intent: "As an IT administrator, I want to use the Overview dashboard of the Recovery Services vault to monitor backup jobs and alerts, so that I can ensure the reliability and effectiveness of our backup and recovery processes."
+# Customer intent: "As an IT administrator, I want to use the Overview dashboard of the Recovery Services vault to monitor Azure Backup jobs and alerts so that I can ensure the reliability and effectiveness of our backup and recovery processes."
 ---
 # Monitor and manage Recovery Services vaults
 
-This article explains how to use the Recovery Services vault **Overview** dashboard to monitor and manage your Recovery Services vaults. When you open a Recovery Services vault from the list, the **Overview** dashboard for the selected vault, opens. The dashboard provides various details about the vault. There are *tiles* that show: the status of critical and warning alerts, in-progress and failed backup jobs, and the amount of locally redundant storage (LRS) and geo-redundant storage (GRS) used. If you back up Azure VMs to the vault, the [**Backup Pre-Check Status** tile displays any critical or warning items](#backup-pre-check-status). The following image is the **Overview** dashboard for **Contoso-vault**. The **Backup Items** tile shows there are nine items registered to the vault.
+This article explains how to use the Recovery Services vault **Overview** dashboard to monitor and manage your Recovery Services vaults. When you open a Recovery Services vault from the list, the **Overview** dashboard for the selected vault opens. The dashboard provides details about the vault. The tiles show:
 
-![Recovery Services vault dashboard](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
+- The status of Critical and Warning alerts.
+- In-progress and failed backup jobs.
+- The amount of locally redundant storage (LRS) and geo-redundant storage (GRS) used.
 
-The prerequisites for this article are: an Azure subscription, a Recovery Services vault, and that there's at least one backup item configured for the vault.
+If you back up Azure virtual machines (VMs) to the vault, the [Backup Pre-Check Status tile displays any Critical or Warning alerts](#backup-pre-check-status). The following image shows the **Overview** dashboard for **Contoso-vault**. The **Backup items** tile shows nine items registered to the vault.
+
+![Screenshot that shows the Recovery Services vault dashboard.](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
+
+## Prerequisites
+
+- An Azure subscription
+- A Recovery Services vault
+- At least one Azure Backup item configured for the vault
 
 [!INCLUDE [learn-about-deployment-models](~/reusable-content/ce-skilling/azure/includes/learn-about-deployment-models-rm-include.md)]
 
-Learn how to  create a Recovery Services vault using [Azure portal](backup-create-recovery-services-vault.md#create-a-recovery-services-vault), [REST API](backup-azure-arm-userestapi-createorupdatevault.md).
+Learn how to create a Recovery Services vault by using the [Azure portal](backup-create-recovery-services-vault.md#create-a-recovery-services-vault) and a [REST API](backup-azure-arm-userestapi-createorupdatevault.md).
 
 ## Open a Recovery Services vault
 
-To monitor alerts, or view management data about a Recovery Services vault, open the vault.
+To monitor alerts or view management data about a Recovery Services vault, open the vault.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using your Azure subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure subscription.
 
-2. In the portal, select **All services**.
+1. In the portal, select **All services**.
 
-   ![Open list of Recovery Services vaults step 1](./media/backup-azure-manage-windows-server/open-rs-vault-list.png)
+   ![Screenshot that shows the Recovery Services vaults option.](./media/backup-azure-manage-windows-server/open-rs-vault-list.png)
 
-3. In the **All services** dialog box, type **Recovery Services**. As you begin typing, the list filters based on your input. When the **Recovery Services vaults** option appears, select it to open the list of Recovery Services vaults in your subscription.
+1. In the **All services** dialog, enter **Recovery Services**. As you begin typing, the list filters based on your input. When the **Recovery Services vaults** option appears, select it to open the list of Recovery Services vaults in your subscription.
 
-    ![Create Recovery Services vault step 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
+    ![Screenshot that shows the list of Recovery Services vaults.](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
-4. From the list of vaults, select a vault to open its **Overview** dashboard.
+1. From the list of vaults, select a vault to open its **Overview** dashboard.
 
-    ![Recovery Services vault dashboard](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
+    ![Screenshot that shows the Recovery Services vault dashboard.](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
-    The Overview dashboard uses tiles to provide alerts and backup job data.
+    The **Overview** dashboard uses tiles to provide alerts and backup job data.
 
 ## Monitor backup jobs and alerts
 
-The Recovery Services vault **Overview** dashboard provides tiles for Monitoring and Usage information. The tiles in the Monitoring section display Critical and Warning alerts, and In progress and Failed jobs. Select a particular alert or job to open the Backup Alerts or Backup Jobs menu, filtered for that job or alert.
+The Recovery Services vault **Overview** dashboard provides tiles for monitoring and use information. The tiles in the **Monitoring** section show **Critical** and **Warning** alerts and **In progress** and **Failed** jobs. Select a particular alert or job to open the **Backup Alerts** or **Backup Jobs** menu filtered for that job or alert.
 
-![Backup dashboard tasks](./media/backup-azure-manage-windows-server/monitor-dashboard-tiles-warning.png)
+![Screenshot that shows the Backup dashboard tasks.](./media/backup-azure-manage-windows-server/monitor-dashboard-tiles-warning.png)
 
 [!INCLUDE [Classic alerts deprecation for Azure Backup.](../../includes/backup-azure-classic-alerts-deprecation.md)]
 
-The Monitoring section shows the results of predefined **Backup Alerts** and **Backup Jobs** queries. The Monitoring tiles provide up-to-date information about:
+The **Monitoring** section shows the results of predefined Backup alerts and backup jobs queries. The **Monitoring** tiles provide up-to-date information about:
 
-* Critical and Warning alerts for Backup jobs (in the last 24 hours)
-* Pre-check status for Azure VMs. For complete information on the pre-check status, see [Backup Pre-Check Status](#backup-pre-check-status).
-* The Backup jobs in progress, and jobs that have failed (in the last 24 hours).
+* **Critical** and **Warning** alerts for backup jobs in the last 24 hours.
+* Precheck status for Azure VMs. For complete information on the precheck status, see [Backup Pre-Check Status](#backup-pre-check-status).
+* The backup jobs in progress, and the jobs that failed in the last 24 hours.
 
-The Usage tiles provide:
+The **Usage** tiles provide information about:
 
-* The number of Backup items configured for the vault.
+* The number of backup items configured for the vault.
 * The Azure storage (separated by LRS and GRS) consumed by the vault.
 
-Select the tiles (except Backup Storage) to open the associated menu. In the image above, the Backup Alerts tile shows three Critical alerts. Select the Critical alerts row in the Backup Alerts tile to open the Backup Alerts filtered for Critical alerts.
+Select the tiles (except **Backup Storage**) to open the associated menu. In the preceding image, the **Backup Alerts** tile shows three **Critical** alerts. Select the **Critical** alerts row on the **Backup Alerts** tile to open the Backup alerts filtered for **Critical** alerts.
 
-![Backup alerts menu filtered for critical alerts](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
+![Screenshot that shows the Backup alerts menu filtered for Critical alerts.](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
-You can see the details of classic alerts by selecting the **Backup Alerts** tile.
+To see the details of classic alerts, select the **Backup Alerts** tile.
 
->[!Important]
->Classic alerts for Azure Backup will be deprecated on 31 March 2026. We recommend you to [migrate to Azure Monitor Alerts](backup-azure-monitoring-alerts.md#migrate-from-classic-alerts-to-built-in-azure-monitor-alerts) for a seamless experience. View **Azure Monitor alerts** on the **Alerts** blade in the Recovery Services Vault.
+> [!IMPORTANT]
+> Classic alerts for Azure Backup will be deprecated on March 31, 2026. We recommend that you [migrate to Azure Monitor alerts](backup-azure-monitoring-alerts.md#migrate-from-classic-alerts-to-built-in-azure-monitor-alerts) for a seamless experience. View **Azure Monitor alerts** on the **Alerts** pane in the Recovery Services vault.
 
 ### Backup Pre-Check Status
 
-Backup Pre-Checks check your VMs' configuration for issues that can adversely affect backups. They aggregate this information so you can view it directly from the Recovery Services vault dashboard and provide recommendations for corrective measures to ensure successful file-consistent or application-consistent backups. They require no infrastructure and have no additional cost.  
+Backup prechecks assess your VM configuration for issues that can adversely affect backups. They aggregate this information so that you can view it directly from the Recovery Services vault dashboard and provide recommendations for corrective measures to ensure successful file-consistent or application-consistent backups. They require no infrastructure and have no other cost.  
 
-Backup Pre-Checks run as part of the scheduled backup operations for your Azure VMs. They conclude with one of the following states:
+Backup prechecks run as part of the scheduled backup operations for your Azure VMs. They conclude with one of the following states:
 
 * **Passed**: This state indicates that your VM's configuration should lead to successful backups and no corrective action needs to be taken.
-* **Warning**: This state indicates one or more issues in the VM's configuration that *might* lead to backup failures. It provides *recommended* steps to ensure successful backups. For example, not having the latest VM Agent installed can cause backups to fail intermittently. This situation will provide a warning state.
-* **Critical**: This state indicates one or more critical issues in the VM's configuration that *will* lead to backup failures and provides *required* steps to ensure successful backups. For example, a network issue caused by an update to the NSG rules of a VM, will cause backups to fail, as it prevents the VM from communicating with the Azure Backup service. This situation will provide a critical state.
+* **Warning**: This state indicates one or more issues in the VM's configuration that *might* lead to backup failures. It provides *recommended* steps to ensure successful backups. For example, not having the latest VM Agent installed can cause backups to fail intermittently. This situation provides a Warning state.
+* **Critical**: This state indicates one or more critical issues in the VM's configuration that *will* lead to backup failures and provides *required* steps to ensure successful backups. For example, a network issue caused by an update to the network security group rules of a VM causes backups to fail. It prevents the VM from communicating with Azure Backup. This situation provides a Critical state.
 
-Follow the steps below to start resolving any issues reported by Backup Pre-Checks for VM backups on your Recovery Services vault.
+Follow these steps to start resolving any issues reported by backup prechecks for VM backups on your Recovery Services vault:
 
 * Select the **Backup Pre-Check Status (Azure VMs)** tile on the Recovery Services vault dashboard.
-* Select any VM with a Backup Pre-Check status of either **Critical** or **Warning**. This action will open the **VM details** pane.
-* Select the pane notification on the top of the pane to reveal the configuration issue description and remedial steps.
+* Select any VM with a backup precheck status of either **Critical** or **Warning** to open the **VM details** pane.
+* Select the pane notification at the top of the pane to reveal the configuration issue description and remedial steps.
 
 ## Manage Backup alerts
 
-To access the Backup Alerts menu, in the Recovery Services vault menu, select **Backup Alerts**.
+To access the **Backup Alerts** menu, on the Recovery Services vault menu, select **Backup Alerts**.
 
-![Backup alerts](./media/backup-azure-manage-windows-server/backup-alerts-menu.png)
+![Screenshot that shows the Backup alerts.](./media/backup-azure-manage-windows-server/backup-alerts-menu.png)
 
-The Backup Alerts report lists the alerts for the vault.
+The Backup alerts report lists the alerts for the vault.
 
-![Backup alerts report](./media/backup-azure-manage-windows-server/backup-alerts.png)
+![Screenshot that shows the Backup alerts report.](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
->[!Important]
->Backup Alerts (Classic) will be deprecated by 31st March, 2026. Migrate to Azure Monitor alerts for a seamless experience. View **Azure Monitor Alerts** on the **Alerts** tab.
+> [!IMPORTANT]
+> Backup alerts (classic) will be deprecated by March 31, 2026. Migrate to Azure Monitor alerts for a seamless experience. See **Azure Monitor Alerts** on the **Alerts** tab.
 
-## Manage Backup items
+## Manage backup items
 
-A Recovery Services vault holds many types of backup data. [Learn more](backup-overview.md#what-can-i-back-up) about what you can back up. To manage the various servers, computers, databases, and workloads, select the **Backup Items** tile to view the contents of the vault.
+A Recovery Services vault holds many types of backup data. To learn about what you can back up, see [What is the Azure Backup service?](backup-overview.md#what-can-i-back-up). To manage your various servers, computers, databases, and workloads, select the **Backup items** tile to view the contents of the vault.
 
-![Backup items tile](./media/backup-azure-manage-windows-server/backup-items.png)
+![Screenshot that shows the Backup items tile.](./media/backup-azure-manage-windows-server/backup-items.png)
 
-The list of Backup Items, organized by Backup Management Type, opens.
+The list of backup items is organized by backup management type.
 
-![List of Backup items](./media/backup-azure-manage-windows-server/list-backup-items.png)
+![Screenshot that shows the list of backup items.](./media/backup-azure-manage-windows-server/list-backup-items.png)
 
-To explore a specific type of protected instance, select the item in the Backup Management Type column. For example, in the above image, there are two Azure virtual machines protected in this vault. Select **Azure Virtual Machine** to open the list of protected virtual machines in this vault.
+To explore a specific type of protected instance, select the item in the **Backup Management Type** column. For example, in the preceding image, two Azure VMs are protected in this vault. To open the list of protected VMs in this vault, select **Azure Virtual Machine**.
 
-![List of protected virtual machines](./media/backup-azure-manage-windows-server/list-of-protected-virtual-machines.png)
+![Screenshot that shows the list of protected VMs.](./media/backup-azure-manage-windows-server/list-of-protected-virtual-machines.png)
 
-The list of virtual machines has helpful data: the associated Resource Group, previous [Backup Pre-Check](#backup-pre-check-status), Last Backup Status, and date of the most recent Restore Point. The ellipsis, in the last column, opens the menu to trigger common tasks. The helpful data provided in columns is different for each backup type.
+The list of VMs has data like:
 
-![Open ellipsis menu for common tasks](./media/backup-azure-manage-windows-server/ellipsis-menu.png)
+- The associated resource group.
+- Previous [backup precheck](#backup-pre-check-status).
+- Last backup status.
+- Date of the most recent restore point.
 
-## Manage Backup jobs
+In the last column, the ellipsis opens the menu to trigger common tasks. The data provided in columns is different for each backup type.
 
-The **Backup Jobs** tile in the vault dashboard shows the number of jobs that are In Progress, or Failed in the last 24 hours. The tile provides a glimpse into the Backup Jobs menu.
+![Screenshot that shows the open ellipsis menu for common tasks.](./media/backup-azure-manage-windows-server/ellipsis-menu.png)
 
-![Back jobs tile](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
+## Manage backup jobs
 
-To see additional details about the jobs, select **In Progress** or **Failed** to open the Backup Jobs menu filtered for that state.
+The **Backup Jobs** tile in the vault dashboard shows the number of jobs that are in progress or that failed in the last 24 hours. The tile provides a glimpse into the **Backup Jobs** menu.
 
-### Backup jobs menu
+![Screenshot that shows the Backup Jobs tile.](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
 
-The **Backup Jobs** menu displays information about the Item type, Operation, Status, Start Time, and Duration.  
+To see more information about the jobs, select **In Progress** or **Failed** to open the **Backup Jobs** menu filtered for that state.
 
-To open the Backup Jobs menu, in the vault's main menu, select **Backup Jobs**.
+### Backup Jobs menu
 
-![Select backup jobs](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
+The **Backup Jobs** menu shows information about the item type, operation, status, start time, and duration.
 
-The list of Backup jobs opens.
+To open the **Backup Jobs** menu, on the vault's main menu, select **Backup Jobs**.
 
-![List of backup jobs](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
+![Screenshot that shows selecting Backup Jobs.](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
-The Backup Jobs menu shows the status for all operations, on all backup types, for the last 24 hours. Use **Filter** to change the filters. The filters are explained in the following sections.
+The list of backup jobs opens.
+
+![Screenshot that shows the list of backup jobs.](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
+
+The **Backup Jobs** menu shows the status for all operations, on all backup types, for the last 24 hours. Use **Filter** to change the filters. The filters are explained in the following sections.
 
 To change the filters:
 
-1. In the vault Backup Jobs menu, select **Filter**.
+1. On the vault **Backup Jobs** menu, select **Filter**.
 
-   ![Select filter for backup jobs](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
+   ![Screenshot that shows the filter for backup jobs.](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
 
-    The Filter menu opens.
+    The **Filter** menu opens.
 
-   ![Filter menu opens for backup jobs](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
+   ![Screenshot that shows the Filter menu open for backup jobs.](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
 
-2. Choose the filter settings and select **Done**. The filtered list refreshes based on the new settings.
+1. Choose the filter settings and select **Done**. The filtered list refreshes based on the new settings.
 
 #### Item type
 
-The Item type is the backup management type of the protected instance. There are four types; see the following list. You can view all item types, or one item type. You can't select two or three item types. The available Item types are:
+The item type is the backup management type of the protected instance. You can view all item types or one item type. You can't select two or three item types. The available item types in the dropdown list are:
 
-* All item types
-* Azure virtual machine
-* Files and folders
-* Azure Storage
-* Azure workload
+* **All item types**
+* **Azure virtual machine**
+* **Files and folders**
+* **Azure Storage**
+* **Azure workload**
 
 #### Operation
 
-You can view one operation, or all operations. You can't select two or three operations. The available Operations are:
+You can view one operation or all operations. You can't select two or three operations. The available operations in the dropdown list are:
 
-* All Operations
-* Register
-* Configure backup
-* Backup
-* Restore
-* Disable backup
-* Delete backup data
+* **All Operations**
+* **Register**
+* **Configure backup**
+* **Backup**
+* **Restore**
+* **Disable backup**
+* **Delete backup data**
 
 #### Status
 
-You can view All Status or one. You can't select two or three statuses. The available statuses are:
+You can view all statuses or one. You can't select two or three statuses. The available statuses in the dropdown list are:
 
-* All Status
-* Completed
-* In progress
-* Failed
-* Canceled
-* Completed with warnings
+* **All Status**
+* **Completed**
+* **In progress**
+* **Failed**
+* **Canceled**
+* **Completed with warnings**
 
 #### Start time
 
-The day and time that the query begins. The default is a 24-hour period.
+The day and time when the query begins. The default is a 24-hour period.
 
 #### End time
 
@@ -191,37 +208,35 @@ The day and time when the query ends.
 
 ### Export jobs
 
-Use **Export jobs** to create a spreadsheet containing all Jobs menu information. The spreadsheet has one sheet that holds a summary of all jobs, and individual sheets for each job.
+Use **Export jobs** to create a spreadsheet that contains all the menu information for jobs. The spreadsheet has one sheet that holds a summary of all jobs and individual sheets for each job.
 
-To export the jobs information to a spreadsheet, select **Export jobs**. The service creates a spreadsheet using the name of the vault and date, but you can change the name.
+To export the jobs information to a spreadsheet, select **Export jobs**. The service creates a spreadsheet by using the name of the vault and date, but you can change the name.
 
 > [!NOTE]
 > Azure Backup currently doesn't support exporting jobs with a filter applied. Triggering this operation fails for SQL and SAP HANA workload types. Alternatively, enable a Log Analytics workspace and [export workload-specific jobs](backup-azure-monitoring-use-azuremonitor.md#queries-specific-to-recovery-services-vault-workloads).
 
-## Monitor Backup usage
+## Monitor Backup use
 
-The Backup Storage tile in the dashboard shows the storage consumed in Azure. Storage usage is provided for:
+The **Backup Storage** tile on the dashboard shows the storage consumed in Azure. Storage use information is provided for:
 
-* Cloud LRS storage usage associated with the vault
-* Cloud GRS storage usage associated with the vault
+* Cloud LRS storage use associated with the vault.
+* Cloud GRS storage use associated with the vault.
 
-## Optimize backup and recovery with Azure Business Continuity Center Copilot
+## Optimize backup and recovery with Resiliency Copilot
 
-Azure Business Continuity Center Copilot introduces new capabilities in the Recovery Services vaults pane, enabling you to configure/manage a secure, resilient backup and recovery environment:
+Resiliency Copilot introduces new capabilities in the pane for Recovery Services vaults. You can use it to configure or manage a secure, resilient backup and recovery environment. You can:
 
-- [Increase security level](../business-continuity-center/tutorial-manage-data-using-copilot.md#increase-security-level-of-recovery-service-vault-and-backup-vault) to strengthen protection for backup data and disaster recovery operations.
+- [Increase security levels](../business-continuity-center/tutorial-manage-data-using-copilot.md#increase-security-level-of-recovery-service-vault-and-backup-vault) to strengthen protection for backup data and disaster recovery operations.
 - [Analyze job failures](../business-continuity-center/tutorial-manage-data-using-copilot.md#analyze-job-failures-for-recovery-service-vault-and-backup-vault) to gain insights into failures for precise analysis and faster resolution.
 - [Configure protection for unprotected resources](..\business-continuity-center\tutorial-manage-data-using-copilot.md#configure-protection-for-resources-in-recovery-services-vault-and-backup-vault).
-- [Reconfigure backup for datasources in an alternate vault](../business-continuity-center/tutorial-reconfigure-backup-alternate-vault.md).
+- [Reconfigure backup for data sources in an alternate vault](../business-continuity-center/tutorial-reconfigure-backup-alternate-vault.md).
 - [Delete a vault](..\business-continuity-center\tutorial-manage-data-using-copilot.md#delete-recovery-services-vault-and-backup-vault-using-copilot).
 - [Troubleshoot common errors efficiently](../business-continuity-center/tutorial-manage-data-using-copilot.md#troubleshoot-error-codes-for-recovery-service-vaults-and-backup-vaults).
+- [Manage the business continuity and disaster recovery estate by using Copilot (preview)](../business-continuity-center/tutorial-manage-data-using-copilot.md).
 
-Learn more about [managing the Business Continuity and Disaster Recovery estate using Copilot (preview)](../business-continuity-center/tutorial-manage-data-using-copilot.md).
+## Related content
 
-
-## Next steps
-
-- [Restore Windows Server or Windows Client from Azure](backup-azure-restore-windows-server.md).
-- [Update the soft delete state for Recovery Services vault using REST API](use-restapi-update-vault-properties.md).
-- [Troubleshoot monitoring issues](backup-azure-monitor-troubleshoot.md).
-- To learn more about Azure Backup, see [Azure Backup Overview](./backup-overview.md).
+- [Restore Windows Server or Windows Client from Azure](backup-azure-restore-windows-server.md)
+- [Update the soft delete state for a Recovery Services vault by using a REST API](use-restapi-update-vault-properties.md)
+- [Troubleshoot monitoring issues](backup-azure-monitor-troubleshoot.md)
+- [What is Azure Backup?](./backup-overview.md)

@@ -135,6 +135,8 @@ The [Bicep linter](linter.md) checks Bicep files for syntax errors and best prac
 
 You can enable experimental features by adding the following section to your _bicepconfig.json_ file. Using experimental features automatically enables [language version 2.0](../templates/syntax.md#languageversion-20) code generation.
 
+[!INCLUDE [Bicep-experimental-features-not-supported](../../../includes/resource-manager-experimental-features.md)]
+
 Here's an example of enabling features 'assertions' and 'testFramework`. 
 
 ```json

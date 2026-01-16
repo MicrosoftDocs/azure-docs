@@ -17,7 +17,7 @@ Use Advanced Security Information Model (ASIM) parsers instead of table names in
 
 ## Unifying parsers
 
-When using ASIM in your queries, use **unifying parsers** to combine all sources, normalized to the same schema, and query them using normalized fields. The unifying parser name is `_Im_<schema>` for built-in parsers and `im<schema>` for workspace deployed parsers, where `<schema>` stands for the specific schema it serves.
+When using ASIM in your queries, use **unifying parsers** to combine all sources, normalized to the same schema, and query them using normalized fields. The unifying parser name is `_Im_<schema>`, where `<schema>` stands for the specific schema it serves.
 
 For example, the following query uses the built-in unifying DNS parser to query DNS events using the `ResponseCodeName`, `SrcIpAddr`, and `TimeGenerated` normalized fields:
 
@@ -35,21 +35,20 @@ _Im_Dns
   | summarize count() by SrcIpAddr, bin(TimeGenerated,15m)
 ```
 
-> [!NOTE]
-> When using the ASIM parsers in the **Logs** page, the time range selector is set to `custom`. You can still set the time range yourself. Alternatively, specify the time range using parser parameters.
->
-
 The following table lists the available unifying parsers:
 
 | Schema | Unifying parser | 
 | ------ | ------------------------- |
+| Alert Event | _Im_AlertEvent |
 | Audit Event | _Im_AuditEvent |
 | Authentication | _Im_Authentication | 
+| DHCP Event | _Im_DhcpEvent |
 | Dns | _Im_Dns |
 | File Event | _Im_FileEvent |
 | Network Session | _Im_NetworkSession | 
 | Process Event | _Im_ProcessCreate<br> _Im_ProcessTerminate |
-| Registry Event |  _Im_Registry |
+| Registry Event | _Im_RegistryEvent |
+| User Management | _Im_UserManagement |
 | Web Session | _Im_WebSession |  
 
 
@@ -59,15 +58,7 @@ Using parsers might affect your query performance, primarily from filtering the 
 
 When invoking the parser, always use available filtering parameters by adding one or more named parameters to ensure optimal performance of the ASIM parsers.
 
-Each schema has a standard set of filtering parameters documented in the relevant schema documentation. Filtering parameters are entirely optional. The following schemas support filtering parameters:
-
-- [Audit Event](normalization-schema-audit.md)
-- [Authentication](normalization-schema-authentication.md)
-- [DNS](normalization-schema-dns.md#filtering-parser-parameters)
-- [Network Session](normalization-schema-network.md#filtering-parser-parameters)
-- [Web Session](normalization-schema-web.md#filtering-parser-parameters)
-
-Every schema that supports filtering parameters supports at least the `starttime` and `endtime` parameters and using them is often critical for optimizing performance.
+Each schema has a standard set of filtering parameters documented in the relevant schema documentation. Filtering parameters are entirely optional.
 
 For an example of using filtering parsers, see [Unifying parsers](#unifying-parsers). 
 

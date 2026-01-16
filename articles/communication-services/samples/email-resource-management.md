@@ -2,11 +2,11 @@
 title: Automate email resource management
 titleSuffix: An Azure Communication Services Automation Sample
 description: This article describes how to automate the creation of Communication Services and Email Communication Services. This article also describes how to manage custom domains, configure DNS records, and verify domains.
-author: Deepika0530
+author: ddouglas-msft
 manager: komivi.agbakpem
 services: azure-communication-services
 
-ms.author: v-deepikal
+ms.author: ddouglas
 ms.date: 01/16/2025
 ms.topic: tutorial
 ms.service: azure-communication-services

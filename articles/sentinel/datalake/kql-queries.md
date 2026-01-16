@@ -6,7 +6,7 @@ author: EdB-MSFT
 ms.service: microsoft-sentinel  
 ms.topic: how-to
 ms.subservice: sentinel-graph
-ms.date: 11/12/2025
+ms.date: 12/10/2025
 ms.author: edbaynash  
 
 ms.collection: ms-security  
@@ -82,9 +82,11 @@ You can search the results using the search box in the upper right corner of the
 
 ## Out-of-the-box queries
 
-The **Queries** tab provides a collection of out-of-the-box KQL queries. These queries cover common scenarios and use cases, such as security incident investigation, threat hunting, and compliance reporting. You can use these queries as-is or modify them to suit your specific needs.
+The **Queries** tab provides a collection of out-of-the-box KQL queries. These queries cover common scenarios and use cases, such as security incident investigation and threat hunting. You can use these queries as-is or modify them to suit your specific needs.
 
 Select a query from the list using the **...** icon. You can open it in a new query tab for editing or run it immediately. 
+
+For more information on sample queries, see [Sample KQL queries for Microsoft Sentinel data lake](kql-sample-queries.md#out-of-the-box-queries).
 
 :::image type="content" source="media/kql-queries/out-of-the-box-queries.png" alt-text="Screenshot of the Sample queries tab in the KQL query editor." lightbox="media/kql-queries/out-of-the-box-queries.png":::
 

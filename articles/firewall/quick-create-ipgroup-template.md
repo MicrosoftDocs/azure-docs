@@ -5,7 +5,7 @@ services: firewall
 author: duau
 ms.service: azure-firewall
 ms.topic: quickstart
-ms.date: 05/10/2021
+ms.date: 12/31/2025
 ms.author: duau
 ms.custom:
   - subject-armqs
@@ -18,6 +18,9 @@ ms.custom:
 # Quickstart: Create an Azure Firewall and IP Groups - ARM template
 
 In this quickstart, you use an Azure Resource Manager template (ARM template) to deploy an Azure Firewall with sample IP Groups used in a network rule and application rule. An IP Group is a top-level resource that allows you to define and group IP addresses, ranges, and subnets into a single object. This is useful for managing IP addresses in Azure Firewall rules. You can either manually enter IP addresses or import them from a file.
+
+> [!NOTE]
+> The template used in this quickstart deploys Ubuntu 18.04 LTS virtual machines, which reached end of standard support on May 31, 2023. For production deployments, consider using [Ubuntu 20.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-focal) or [Ubuntu 22.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-jammy) images, or enable [Ubuntu Pro](https://ubuntu.com/azure/pro) for extended security maintenance.
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 

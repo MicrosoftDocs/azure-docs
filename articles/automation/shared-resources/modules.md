@@ -10,8 +10,8 @@ ms.custom:
   - devx-track-python
   - build-2025
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Manage modules in Azure Automation

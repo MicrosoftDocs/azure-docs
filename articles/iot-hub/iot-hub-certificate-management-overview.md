@@ -2,8 +2,8 @@
 title: What is Microsoft-backed X.509 Certificate Management (Preview)?
 titleSuffix: Azure IoT Hub
 description: This article discusses the basic concepts of how certificate management in Azure IoT Hub helps users manage device certificates.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: overview

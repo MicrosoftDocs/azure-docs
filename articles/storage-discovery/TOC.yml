@@ -15,7 +15,7 @@ items:
   - name: Pricing
     href: pricing.md
   - name: Reliability
-    href: ../reliability/reliability-storage-discovery.md?toc=/azure/storage-discovery/toc.json
+    href: /azure/reliability/reliability-storage-discovery?toc=/azure/storage-discovery/toc.json
 - name: Tutorials
   items:
   - name: Deploy Storage Discovery and access insights

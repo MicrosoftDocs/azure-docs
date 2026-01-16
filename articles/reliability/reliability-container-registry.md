@@ -1,8 +1,8 @@
 ---
 title: Reliability in Azure Container Registry
-description: Learn how to improve reliability in Azure Container Registry by using availability zones and geo-replication. Plan disaster recovery for resilient container storage.
-ms.author: doveychase
-author: chasedmicrosoft
+description: Learn about resiliency in Azure Container Registry, including resilience to transient faults, availability zone failures, and region-wide failures. Understand backup and restore options and SLA details.
+ms.author: anaharris
+author: anaharris-ms
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-container-registry
@@ -12,13 +12,13 @@ ms.date: 08/22/2025
 
 # Reliability in Azure Container Registry
 
-This article describes reliability support in Azure Container Registry. It covers how to plan resilient deployments by using [availability zones](#availability-zone-support). It also describes how to improve cross-region resiliency by using [geo-replication](#multi-region-support).
-
-Container Registry is a managed container registry service used to store and manage your private Docker container images and related artifacts for your container deployments. For more information, see [Introduction to Container Registry](/azure/container-registry/container-registry-intro).
+[Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed container registry service used to store and manage your private Docker container images and related artifacts for your container deployments.
 
 [!INCLUDE [Shared responsibility](includes/reliability-shared-responsibility-include.md)]
 
-## Production deployment recommendations
+This article describes how to make Container Registry resilient to a variety of potential outages and problems, including transient faults, availability zone outages, and region outages. It also describes how you can use backups to recover from other types of problems, and highlights some key information about the Container Registry service level agreement (SLA).
+
+## Production deployment recommendations for reliability
 
 For production workloads, we recommend that you take the following actions:
 
@@ -59,17 +59,17 @@ Container Registry also supports *tasks*, which can help you automate your conta
 > [!NOTE]
 > Container Registry supports [connected registries](/azure/container-registry/intro-connected-registry), which are on-premises or remote replicas that synchronize with your cloud-based Container Registry. When you use connected registries, you're responsible for configuring them to meet your reliability requirements. Connected registries are out of scope for this article.
 
-## Transient faults
+## Resilience to transient faults
 
-[!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
+[!INCLUDE [Resilience to transient faults](includes/reliability-transient-fault-description-include.md)]
 
 Container Registry handles transient faults internally through several mechanisms. The service implements automatic retry logic for registry operations and maintains connection pooling for efficient resource usage. Container Registry operations are designed to be idempotent, which allows safe retries of push and pull operations. Tasks automatically handle transient faults when they perform many types of operations.
 
 For client applications that use Container Registry, implement appropriate retry policies with exponential backoff when performing registry operations. Use the official Docker client or Container Registry SDKs, which include built-in retry mechanisms for common transient failures.
 
-## Availability zone support
+## Resilience to availability zone failures
 
-[!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
+[!INCLUDE [Resilience to availability zone failures](includes/reliability-availability-zone-description-include.md)]
 
 Zone redundancy protects your container registry against single zone failures by distributing registry data and operations across multiple availability zones within the region. Container image pull and push operations continue to function during zone outages, with automatic failover to healthy zones.
 
@@ -82,17 +82,15 @@ Zone redundancy is enabled by default for all registries in regions that support
 >
 > We're actively updating the portal and API surfaces to reflect this default behavior more transparently. All previously enabled features continue to function as expected.
 
-### Region support
+### Considerations
 
-Zone-redundant registries can be deployed into [any region that supports availability zones](./regions-list.md).
-
-If your registry is in a region that doesn't support availability zones, then to make it zone-redundant you must create a new registry in a region that supports availability zones. Then, you need to migrate your container images by [creating a transfer pipeline](/azure/container-registry/container-registry-transfer-prerequisites) or by [importing container images](/azure/container-registry/container-registry-import-images).
+- **Region support:** Zone-redundant registries can be deployed into [any region that supports availability zones](./regions-list.md). If your registry is in a region that doesn't support availability zones, then to make it zone-redundant you must create a new registry in a region that supports availability zones. Then, you need to migrate your container images by [creating a transfer pipeline](/azure/container-registry/container-registry-transfer-prerequisites) or by [importing container images](/azure/container-registry/container-registry-import-images).
 
 ### Considerations
 
 - **Tasks:** Container Registry tasks don't currently support availability zones. Zone redundancy applies to the registry service itself, but not to tasks or their operations.
 
-- **Geo-replication:** If your registry uses [geo-replication](#multi-region-support), any replicas created in regions with availability zones are made zone-redundant automatically.
+- **Geo-replication:** If your registry uses [geo-replication](#resilience-to-region-wide-failures), any replicas created in regions with availability zones are made zone-redundant automatically.
 
 ### Cost
 
@@ -106,7 +104,7 @@ Zone redundancy is included with container registries at no extra cost.
 
 - **Disable zone redundancy.** Zone redundancy can't be disabled. 
 
-### Normal operations
+### Behavior when all zones are healthy
 
 This section describes what to expect when Container Registry resources are configured for zone redundancy and all availability zones are operational.
 
@@ -116,7 +114,7 @@ This section describes what to expect when Container Registry resources are conf
 
 - **Data replication between zones:** Registry data, including container images, manifests, and metadata, are asynchronously replicated across multiple availability zones. Changes are replicated quickly across zones to maintain high availability and data durability. Replication is asynchronous, but it typically completes within minutes, and all zones remain available for read and write operations during replication.
 
-### Zone-down experience
+### Behavior during a zone failure
 
 This section describes what to expect when Container Registry resources are configured for zone redundancy and there's an availability zone outage.
 
@@ -126,9 +124,7 @@ When a zone becomes unavailable, Container Registry automatically handles the fa
 
 - **Detection and response:** The Container Registry platform automatically detects failures in an availability zone and initiates a response. The service automatically routes traffic to the remaining healthy zones. No manual intervention is required to initiate a zone failover.
 
-- **Notification**: Azure Container Registry doesn't notify you when a zone is down. However, you can use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Azure Container Registry service, including any zone failures.
-    
-    Set up alerts to receive notifications of zone-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal).
+- **Notifications:** [!INCLUDE [Availability zone down notification partial bullet (Service Health only)](./includes/reliability-availability-zone-down-notification-service-partial-include.md)]
 
     You can also monitor registry availability metrics in Azure Monitor.
 
@@ -136,7 +132,7 @@ When a zone becomes unavailable, Container Registry automatically handles the fa
 
 - **Expected data loss:** Any recent writes made in the faulty zone might not be replicated to other regions, which means that they might be lost until the zone recovers. The data loss is typically expected to be less than 15 minutes, but that's not guaranteed.
 
-- **Expected downtime:** A small amount of downtime might occur during automatic failover as traffic is redirected to healthy zones. This downtime is typically a few seconds for most registry operations. We recommend that you follow [transient fault handling best practices](#transient-faults) to minimize the effect of zone failover on your applications.
+- **Expected downtime:** A small amount of downtime might occur during automatic failover as traffic is redirected to healthy zones. This downtime is typically a few seconds for most registry operations. We recommend that you follow [transient fault handling best practices](#resilience-to-transient-faults) to minimize the effect of zone failover on your applications.
 
 - **Traffic rerouting:** The platform automatically reroutes traffic to healthy zones without requiring you to make any configuration changes.
 
@@ -148,7 +144,7 @@ When the affected availability zone recovers, Container Registry automatically d
 
 The Container Registry platform manages traffic routing, failover, and failback for zone-redundant registries. Because this feature is fully managed, you don't need to initiate or validate availability zone failure processes.
 
-## Multi-region support
+## Resilience to region-wide failures
 
 Container Registry provides native multi-region support through geo-replication when your registry uses the Premium tier. Geo-replication creates registry replicas in multiple regions of your choice. The region that you deploy the registry resource is known as the *home region*.
 
@@ -192,7 +188,7 @@ Geo-replication can be configured during registry creation or added to existing 
 
 - **Disable geo-replication.** Remove individual regional replicas through the Azure portal or command-line tools. The home region registry can't be removed.
 
-### Normal operations
+### Behavior when all regions are healthy
 
 This section describes what to expect when a registry is configured for geo-replication and all regions are operational.
 
@@ -204,7 +200,7 @@ This section describes what to expect when a registry is configured for geo-repl
 
     Replication typically completes within minutes of changes. However, there's no guarantee on data replication timing. Large container images or high-frequency updates might take longer to replicate across all regions.
 
-### Region-down experience
+### Behavior during a region failure
 
 This section describes what to expect when a registry is configured for geo-replication and there's an outage in the primary region.
 
@@ -214,9 +210,7 @@ When a region becomes unavailable, container operations can continue to use alte
 
 - **Detection and response:** Container Registry monitors the health of each regional replica and is responsible for redirecting traffic to another region.
 
-- **Notification**: Azure Container Registry doesn't notify you when a region is down. However, you can use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Azure Container Registry service, including any region failures.
-    
-    Set up alerts to receive notifications of region-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal).
+- **Notifications:** [!INCLUDE [Region down notification partial bullet (Service Health only)](./includes/reliability-region-down-notification-service-partial-include.md)]
 
     You can also monitor registry availability metrics for each regional endpoint in Azure Monitor.
 
@@ -240,7 +234,7 @@ You can't simulate the failure of one of the regions associated with your regist
 
 When you re-enable the replica, Traffic Manager resumes routing traffic to the re-enabled replica. Also, metadata and images are synchronized with eventual consistency to the re-enabled replica to ensure data consistency across all regions.
 
-## Backups
+## Backup and restore
 
 Container Registry supports exporting container images and artifacts from your registry to external storage or alternative registries. Use Container Registry import and export capabilities or standard Docker commands to create copies of critical container images for disaster recovery scenarios.
 
@@ -248,7 +242,7 @@ Container Registry supports exporting container images and artifacts from your r
 
 ## Service-level agreement
 
-The service-level agreement (SLA) for Container Registry describes the expected availability of the service, and the conditions that must be met to achieve that availability expectation. For more information, see [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+[!INCLUDE [SLA description](includes/reliability-service-level-agreement-include.md)]
 
 ### Related content
 

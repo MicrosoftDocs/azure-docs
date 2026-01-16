@@ -65,7 +65,7 @@ The following table summarizes the supported operating systems when you're backi
 
 **Scenario** | **OS support**
 --- | ---
-Back up with the Azure VM agent extension for application-consistent backup | - Windows 11 client (64 bit only) <br/><br/> - Windows 10 client (64 bit only) <br/><br/>- Windows Server 2025 (Datacenter, Datacenter Core, and Standard)  <br/><br/>- Windows Server 2022 (Datacenter, Datacenter Core, and Standard)   <br/><br/>- Windows Server 2019 (Datacenter, Datacenter Core, and Standard) <br/><br/> - Windows Server 2016 (Datacenter, Datacenter Core, and Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter and Standard) <br/><br/> - Windows Server 2012 (Datacenter and Standard) <br/><br/> - Windows Server 2008 R2 (RTM and SP1 Standard)  <br/><br/> - Windows Server 2008 (64 bit only) <br><br> Note that *32 bit Operating Systems* aren't supported.
+Back up with the Azure VM agent extension for application-consistent backup | - Windows 11 client (64 bit only) <br/><br/> - Windows 10 client (64 bit only) <br/><br/>- Windows Server 2025 (Datacenter, Datacenter Core, and Standard)  <br/><br/>- Windows Server 2022 (Datacenter, Datacenter Core, and Standard)   <br/><br/>- Windows Server 2019 (Datacenter, Datacenter Core, and Standard) <br/><br/> - Windows Server 2016 (Datacenter, Datacenter Core, and Standard) <br><br> Note that *32 bit Operating Systems* aren't supported.
 [Back up Azure VM directly using agentless crash-consistent backup](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md) | Agentless crash-consistent backups are operating system agnostic. 
 Back up with the MARS agent | [Supported](backup-support-matrix-mars-agent.md#supported-operating-systems) operating systems
 Back up with DPM or MABS | Supported operating systems for backup with [MABS](backup-mabs-protection-matrix.md) and [DPM](/system-center/dpm/dpm-protection-matrix)
@@ -76,7 +76,7 @@ Here's what's supported if you want to back up Linux machines.
 
 **Action** | **Support**
 --- | ---
-Back up Linux Azure VMs with the Linux Azure VM agent | Supported for file-consistent backup.<br/><br/> Also supported for app-consistent backup that uses [custom scripts](backup-azure-linux-app-consistent.md).<br/><br/> During restore, you can create a new VM, restore a disk and use it to create a VM, or restore a disk and use it to replace a disk on an existing VM. You can also restore individual files and folders.
+Back up Linux Azure VMs with the Linux Azure VM agent | Supported for file-consistent backup.<br/><br/> Also supported for app-consistent backup that uses [custom scripts](backup-azure-linux-app-consistent.md).<br/><br/> During restore, you can create a new VM, restore a disk and use it to create a VM, or restore a disk and use it to replace a disk on an existing VM. You can also restore individual files and folders.<br/><br/> *Note: Azure Backup requires the /var and /var/lib directories on Linux machines not to be mounted with the noexec flag. Certain backup operations rely on executing helper scripts from /var/lib, and enforcing noexec prevents these components from running.*
 [Back up Azure VM directly by using agentless crash-consistent backup](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md) | Agentless crash-consistent backups are operating system agnostic.
 Back up Linux Azure VMs with the MARS agent | Not supported.<br/><br/> The MARS agent can be installed only on Windows machines.
 Back up Linux Azure VMs with DPM or MABS | Not supported.

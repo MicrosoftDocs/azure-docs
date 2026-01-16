@@ -121,6 +121,10 @@ Java functions can also be triggered when a message is added to a Service Bus to
 
 # [Model v4](#tab/nodejs-v4)
 
+[!INCLUDE [functions-service-bus-sdk-types-node-ts](../../includes/functions-service-bus-sdk-types-node-ts.md)]
+
+For more information, see [SDK types](functions-reference-node.md#sdk-types) in the Node.js reference article. 
+
 The following example shows a Service Bus trigger [TypeScript function](functions-reference-node.md?tabs=typescript). The function reads [message metadata](#message-metadata) and logs a Service Bus queue message.
 
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/serviceBusTrigger1.ts" :::
@@ -206,48 +210,30 @@ Write-Host "PowerShell ServiceBus queue trigger function processed message: $myS
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-
 This example uses SDK types to directly access the underlying [`ServiceBusReceivedMessage`](/python/api/azure-servicebus/azure.servicebus.servicebusreceivedmessage) object provided by the Service Bus trigger:
 
+#### [Queue](#tab/queue)
+
+:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-servicebus/samples/servicebus_samples_single/function_app.py" range="9-15,34-50" :::
+
+#### [Topic](#tab/topic)
+
+:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-servicebus/samples/servicebus_samples_single/function_app.py" range="9-15,53-70" :::
+
+---
+
 The function reads various properties of the `ServiceBusReceivedMessage` type and logs them.
-```python
-import logging
-import azure.functions as func
-import azurefunctions.extensions.bindings.servicebus as servicebus
 
-app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
-
-@app.service_bus_queue_trigger(arg_name="receivedmessage",
-                               queue_name="QUEUE_NAME",
-                               connection="SERVICEBUS_CONNECTION")
-def servicebus_queue_trigger(receivedmessage: servicebus.ServiceBusReceivedMessage):
-    logging.info("Python ServiceBus queue trigger processed message.")
-    logging.info("Receiving: %s\n"
-                 "Body: %s\n"
-                 "Enqueued time: %s\n"
-                 "Lock Token: %s\n"
-                 "Message ID: %s\n"
-                 "Sequence number: %s\n",
-                 receivedmessage,
-                 receivedmessage.body,
-                 receivedmessage.enqueued_time_utc,
-                 receivedmessage.lock_token,
-                 receivedmessage.message_id,
-                 receivedmessage.sequence_number)
-```
 For more examples using Service Bus SDK types, see the [`ServiceBusReceivedMessage`](https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-bindings-servicebus/samples/servicebus_samples_single) samples. For a step-by-step tutorial on how to include SDK-type bindings in your function app, follow the [Python SDK Bindings for Service Bus Sample](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-servicebus/samples/README.md).
 
 > [!NOTE]  
 > Known limitations include:
 > - The `message` property is not supported.
-> - Batch message support is supported with runtime version 4.1039 or greater.
-> - Message settlement is not yet supported.
-
+> - Batch message support requires version 4.1039 or later of the Functions runtime.
 
 To learn more, including what other SDK type bindings are supported, see [SDK type bindings](functions-reference-python.md#sdk-type-bindings).
 
-
-The following example demonstrates how to read a Service Bus queue message via a trigger. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
+This example demonstrates how to read a Service Bus queue message via a trigger. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
 
 # [v2](#tab/python-v2)
 
@@ -401,14 +387,14 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated worker proces
 
 The following table explains the properties you can set using this trigger attribute:
 
-| Property | Description                                                                                                                                                                                                                                                                                                                     |
-| --- |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|**QueueName**| Name of the queue to monitor. Set only if monitoring a queue, not for a topic.                                                                                                                                                                                                                                                  |
-|**TopicName**| Name of the topic to monitor. Set only if monitoring a topic, not for a queue.                                                                                                                                                                                                                                                  |
-|**SubscriptionName**| Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.                                                                                                                                                                                                                                           |
-|**Connection**| The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).                                                                                                                                                                                                 |
-|**IsBatched**| Messages are delivered in batches. Requires an array or collection type.                                                                                                                                                                                                                                                        |
-|**IsSessionsEnabled**| `true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.                                                                                                                                                                   |
+| Property |Description  |
+| --- |----|
+|**QueueName**| Name of the queue to monitor. Set only if monitoring a queue, not for a topic.  |
+|**TopicName**| Name of the topic to monitor. Set only if monitoring a topic, not for a queue.  |
+|**SubscriptionName**| Name of the subscription to monitor. Set only if monitoring a topic, not for a queue. |
+|**Connection**| The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).  |
+|**IsBatched**| Messages are delivered in batches. Requires an array or collection type.  |
+|**IsSessionsEnabled**| `true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.   |
 |**AutoCompleteMessages**| `true` if the trigger should automatically complete the message after a successful invocation. `false` if it should not, such as when you are [handling message settlement in code](#usage). If not explicitly set, the behavior is based on the [`autoCompleteMessages` configuration in `host.json`][host-json-autoComplete]. |
 
 # [In-process model](#tab/in-process)

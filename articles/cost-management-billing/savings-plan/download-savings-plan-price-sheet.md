@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 07/09/2025
+ms.date: 01/08/2026
 ms.author: onwokolo
 ---
 
@@ -17,7 +17,7 @@ This article explains how you can download the price sheet for an Enterprise Agr
 
 ## Download EA price sheet
 
-To download your EA price sheet via Azure portal, do the following tasks.
+To download your EA price sheet via the Azure portal, do the following tasks.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Search for **Cost Management + Billing**.
@@ -30,14 +30,14 @@ To download your EA price sheet via Azure portal, do the following tasks.
 
 ## Download MCA price sheet
 
-To download your MCA price sheet via Azure portal, do the following tasks.
+To download your MCA price sheet via the Azure portal, do the following tasks.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Search for **Cost Management + Billing**.
 3. Select your billing account.
 4. At the bottom of the page in the **Shortcuts** section, select **Download usage and prices**.
 5. Select **Download Azure price sheet for** _current month and year_. File generation may take a few moments.
-6. Open the file and filter on `priceType` to see `SavingsPlan` plan price records.
+6. Open the file and filter on `priceType` to see `SavingsPlan` price records.
 
 ## Download price sheet using APIs
 To learn more about downloading your price sheet using price sheet APIs, see the following articles:
@@ -52,7 +52,7 @@ If you have questions about Azure savings plan for compute, contact your account
 
 ## Next steps
 
-- To learn more about Azure Savings plans, see the following articles:
+- To learn more about Azure savings plans, see the following articles:
   - [What are Azure Savings plans?](savings-plan-compute-overview.md)
   - [Manage Azure savings plans](manage-savings-plan.md)
   - [How saving plan discount is applied](discount-application.md)

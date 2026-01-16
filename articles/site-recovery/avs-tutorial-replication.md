@@ -1,10 +1,11 @@
 ---
 title: Set up Azure Site Recovery for Azure VMware Solution VMs
+ms.reviewer: v-gajeronika
 description: Learn how to set up disaster recovery to Azure for Azure VMware Solution VMs, by using Azure Site Recovery.
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 08/29/2023
+ms.date: 12/08/2025
 ms.author: v-gajeronika
 ms.custom: MVC, engagement-fy23
 
@@ -84,7 +85,7 @@ The license provided with the OVA template is an evaluation license that's valid
 2. On the **File** menu, select **Deploy OVF Template** to start the **Deploy OVF Template** wizard.
 3. On the **Select an OVF template** page, enter the location of the downloaded OVF file.
 
-   ![Screenshot of the first page of the wizard for deploying an OVF template in the VMware vSphere client.](./media/vmware-azure-tutorial/vcenter-wizard.png)
+   :::image type="content" source="./media/vmware-azure-tutorial/vcenter-wizard.png" alt-text="Screenshot of the first page of the wizard for deploying an OVF template in the VMware vSphere client.":::
 4. On the **Select name and folder** and **Select a compute resource** pages, accept the default settings.
 5. On the **Review details** page, select **Next**.
 6. On the **Select storage** page, for best performance, select **Thick Provision Eager Zeroed** in **Select virtual disk format**.
@@ -159,7 +160,7 @@ Select and verify target resources:
 
    Azure Site Recovery checks that you have one or more virtual networks. You should have these networks from setting up the Azure components in the [first tutorial](tutorial-prepare-azure.md) in this tutorial series.
 
-   ![Screenshot of the pane for selecting and verifying a target virtual network.](./media/vmware-azure-tutorial/storage-network.png)
+   :::image type="content" source="./media/vmware-azure-tutorial/storage-network.png" alt-text="Screenshot of the pane for selecting and verifying a target virtual network.":::
 
 ## Create a replication policy
 
@@ -171,7 +172,7 @@ Select and verify target resources:
 6. In **Recovery point retention in hours**, specify how long each recovery point is retained (24 hours in this tutorial). Replicated VMs can be recovered to any point in a retention window.
 7. In **App-consistent snapshot frequency in mins**, specify how often app-consistent snapshots are created. This tutorial uses the default of 60 minutes. Select **OK** to create the policy.
 
-   ![Screenshot of the options for creating a replication policy.](./media/vmware-azure-tutorial/replication-policy.png)
+   :::image type="content" source="./media/vmware-azure-tutorial/replication-policy.png" alt-text="Screenshot of the options for creating a replication policy.":::
 
 The policy is automatically associated with the configuration server. A matching policy is automatically created for failback by default. For example, if the replication policy is **rep-policy**, the failback policy is **rep-policy-failback**. This policy isn't used until you start a failback from Azure.
 

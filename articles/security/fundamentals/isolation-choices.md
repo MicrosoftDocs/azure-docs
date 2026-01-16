@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 12/03/2025
+ms.date: 01/06/2026
 ms.author: mbaldwin
 
 ---
@@ -73,7 +73,7 @@ The rest of the Azure roles in Azure allow management of specific Azure resource
 
 Some other capabilities for Microsoft Entra ID include:
 
-- Microsoft Entra ID enables SSO to SaaS applications, regardless of where they're hosted. Some applications are federated with Microsoft Entra ID, and others use password SSO. Federated applications can also support user provisioning and [password vaulting](https://www.techopedia.com/definition/31415/password-vault).
+- Microsoft Entra ID enables SSO to SaaS applications, regardless of where they're hosted. Some applications are federated with Microsoft Entra ID, and others use password SSO. Federated applications can also support user provisioning and [password vaulting](/entra/identity/enterprise-apps/configure-password-single-sign-on-non-gallery-applications).
 
 - Access to data in [Azure Storage](https://azure.microsoft.com/services/storage/) is controlled via authentication. Each storage account has a primary key ([storage account key](../../storage/common/storage-account-create.md), or SAK) and a secondary secret key (the shared access signature, or SAS).
 
@@ -104,7 +104,51 @@ Microsoft Azure provides various cloud-based computing services that include a w
 
 ### Isolated Virtual Machine Sizes
 
-[!INCLUDE [virtual-machines-common-isolation](~/reusable-content/ce-skilling/azure/includes/virtual-machines-common-isolation.md)]
+Azure Compute offers virtual machine sizes that are Isolated to a specific hardware type and dedicated to a single customer. The Isolated sizes live and operate on specific hardware generation and will be deprecated when the hardware generation is retired or new hardware generation is available.
+
+Isolated virtual machine sizes are best suited for workloads that require a high degree of isolation from other customers' workloads. This is sometimes required to meet compliance and regulatory requirements.  Utilizing an isolated size guarantees that your virtual machine is the only one running on that specific server instance. 
+
+
+Additionally, as the Isolated size VMs are large, customers may choose to subdivide the resources of these VMs by using [Azure support for nested virtual machines](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
+
+The current Isolated virtual machine offerings include:
+* Standard_E80ids_v4
+* Standard_E80is_v4
+* Standard_E104i_v5
+* Standard_E104is_v5
+* Standard_E104id_v5
+* Standard_E104ids_v5
+* Standard_M192is_v2
+* Standard_M192ims_v2
+* Standard_M192ids_v2
+* Standard_M192idms_v2
+* Standard_F72s_v2
+* Standard_M832ids_16_v3
+* Standard_M832is_16_v3
+* Standard_M896ixds_24_v3
+* Standard_M896ixds_32_v3
+* Standard_M1792ixds_32_v3
+
+
+> [!NOTE]
+> Isolated VM Sizes have a limited lifespan due to hardware deprecation.
+
+#### Deprecation of Isolated VM Sizes
+
+Isolated VM sizes have a hardware limited lifespan. Azure issues reminders 12 months in advance of the official deprecation date of the sizes and provides an updated isolated offering for your consideration. The following sizes have retirement announced.
+
+| Size | Isolation Retirement Date | 
+| --- | --- |
+| Standard_DS15_v2  | May 15, 2021      |
+| Standard_D15_v2   | May 15, 2021      |
+| Standard_G5       | February 15, 2022 |
+| Standard_GS5      | February 15, 2022 |
+| Standard_E64i_v3  | February 15, 2022 |
+| Standard_E64is_v3 | February 15, 2022 |
+| Standard_M192is_v2| March 31, 2027    |
+| Standard_M192ims_v2| March 31, 2027   |
+| Standard_M192ids_v2| March 31, 2027   |
+| Standard_M192idms_v2| March 31, 2027  |
 
 ### Dedicated hosts
 
@@ -305,10 +349,10 @@ Azure deployment has multiple layers of network isolation. The following diagram
 
 **Traffic isolation:** A [virtual network](../../virtual-network/virtual-networks-overview.md) is the traffic isolation boundary on the Azure platform. Virtual machines (VMs) in one virtual network cannot communicate directly to VMs in a different virtual network, even if both virtual networks are created by the same customer. Isolation is a critical property that ensures customer VMs and communication remains private within a virtual network.
 
-[Subnet](../../virtual-network/virtual-networks-overview.md) offers an additional layer of isolation with in virtual network based on IP range. IP addresses in the virtual network, you can divide a virtual network into multiple subnets for organization and security. VMs and PaaS role instances deployed to subnets (same or different) within a VNet can communicate with each other without any extra configuration. You can also configure [network security group (NSGs)](../../virtual-network/virtual-networks-overview.md) to allow or deny network traffic to a VM instance based on rules configured in access control list (ACL) of NSG. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet.
+[Subnet](../../virtual-network/virtual-networks-overview.md) offers an additional layer of isolation with in virtual network based on IP range. IP addresses in the virtual network, you can divide a virtual network into multiple subnets for organization and security. VMs and PaaS role instances deployed to subnets (same or different) within a VNet can communicate with each other without any extra configuration. You can also configure [network security groups (NSGs)](../../virtual-network/network-security-groups-overview.md) to allow or deny network traffic to a VM instance based on security rules. NSGs can be associated with either subnets or individual network interfaces attached to VMs. When an NSG is associated with a subnet, the security rules apply to all the VM instances in that subnet.
 
 ## Next Steps
 
-- Learn about [Network Isolation Options for Machines in Windows Azure Virtual Networks](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). This includes the classic front-end and back-end scenario where machines in a particular back-end network or subnetwork may only allow certain clients or other computers to connect to a particular endpoint based on an allowlist of IP addresses.
+- Learn about [network security groups](/azure/virtual-network/network-security-groups-overview). Network security groups filter network traffic between Azure resources in a virtual network, allowing you to restrict traffic to subnets or virtual machines based on source, destination, port, and protocol using security rules.
 
 - Learn about [virtual machine isolation in Azure](/azure/virtual-machines/isolation). Azure Compute offers virtual machine sizes that are isolated to a specific hardware type and dedicated to a single customer.

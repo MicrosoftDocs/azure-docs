@@ -88,6 +88,7 @@ The following are currently unavailable in the v2 tiers.
 * Direct Management API access
 * Back up and restore of API Management instance
 * Upgrade to v2 tiers from classic tiers
+* Resource move operation
 
 **Developer portal**
 * Reports 

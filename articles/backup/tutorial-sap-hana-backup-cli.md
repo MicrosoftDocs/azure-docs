@@ -2,7 +2,7 @@
 title: Tutorial - SAP HANA DB backup on Azure using Azure CLI 
 description: In this tutorial, learn how to back up SAP HANA databases running on an Azure VM to an Azure Backup Recovery Services vault using Azure CLI.
 ms.topic: tutorial
-ms.date: 10/14/2025
+ms.date: 01/09/2026
 ms.custom: devx-track-azurecli, engagement-fy24
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -77,7 +77,7 @@ az backup vault create --resource-group hanarghsr2     --name hanavault10     --
 
 ## Register and protect the SAP HANA instance
 
-For the SAP HANA instance (the VM with SAP HANA installed on it) to be discovered by the Azure services, a [pre-registration script](https://aka.ms/scriptforpermsonhana) must be run on the SAP HANA machine. Make sure that all the [prerequisites](./tutorial-backup-sap-hana-db.md#prerequisites) are met before running the script. To learn more about what the script does, refer to the [What the pre-registration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) section.
+For the SAP HANA instance (the VM with SAP HANA installed on it) to be discovered by the Azure services, a [pre-registration script](https://aka.ms/scriptforpermsonhana) must be run on the SAP HANA machine. Make sure that all the [prerequisites](./tutorial-backup-sap-hana-db.md#prerequisites) are met before running the script. To learn more about what the script does, refer to the [What the pre-registration script does](tutorial-backup-sap-hana-db.md#preregistration-script-functionality-for-sap-hana-database-backup) section.
 
 Once the script is run, the SAP HANA instance can be registered with the Recovery Services vault we created earlier. 
 

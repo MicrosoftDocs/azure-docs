@@ -12,8 +12,13 @@ ms.date: 09/12/2025
 
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-private-cloud-maintenance-best-practices.md#host-maintenance-and-lifecycle-management).
 
-## November 2025
+## December 2025
 
+**Resource Health for Azure VMware Solution**
+
+Resource Health for Azure VMware Solution is now Generally Available! Resource Health, an Azure native feature, monitors the health of an Azure VMware Solution private cloud and suggests actions for existing issues. Setup Azure Monitor notifications on top of these alerts to notify stakeholders to remediate and ensure the private cloud is in a healthy and maintainable state. [Learn more](resource-health-for-azure-vmware-solution-overview.md)
+
+## November 2025
 
 **Disaster Recovery**
 
@@ -78,7 +83,7 @@ Azure Elastic SAN for AV64 SKU is now generally available. [Learn more](/azure/a
 
 ## December 2024
 
-Resource Health for Azure VMware Solution is now available in Public Preview. Resource Health, an Azure native feature, now monitors the health of Azure VMware Solution private cloud resources, provides recommended actions for current issues, and allows reporting on past and present resource health. [Learn more](ecosystem-app-monitoring-solutions.md#azure-resource-health-for-azure-vmware-solution-private-cloud-public-preview) 
+Resource Health for Azure VMware Solution is now available in Public Preview. Resource Health, an Azure native feature, now monitors the health of Azure VMware Solution private cloud resources, provides recommended actions for current issues, and allows reporting on past and present resource health. [Learn more](resource-health-for-azure-vmware-solution-overview.md)
 
 ## November 2024
 

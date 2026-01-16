@@ -53,13 +53,12 @@ Currently, Flex Consumption offers these instance size options:
 
 | Instance Memory (MB) | CPU Cores |
 |-----------------|-----------|
-| 512           | 0.25      |
-| 2048         | 1         |
-| 4096        | 2         |
-
+| 512             | 0.25      |
+| 2048            | 1         |
+| 4096            | 2         |
 
 > [!NOTE]
-> The CPU core values shown are typical allocations for instances with the specified memory size. However, initial instances might be granted slightly different core allocations to improve performance.
+> The CPU core values shown are typical allocations for instances with the specified memory size. However, initial instances might be granted slightly different core allocations to improve performance. Each Flex Consumption instance also includes an extra 272 MB of memory allocated by the platform as a buffer for system and host processes. This extra memory doesn't affect billing, and instances are billed based on the configured instance memory size shown in the preceding table.
 
 When deciding on which instance memory size to use with your apps, here are some things to consider:
 
@@ -90,7 +89,7 @@ All other functions in the app are scaled individually in their own set of insta
 
 Flex Consumption includes an _always ready_ feature that lets you choose instances that are always running and assigned to each of your per-function scale groups or functions. Always ready is a great option for scenarios where you need to have a minimum number of instances always ready to handle requests. For example, to reduce your application's cold start latency. The default is 0 (zero).
 
-For example, if you set always ready to 2 for your HTTP group of functions, the platform keeps two instances always running and assigned to your app for your HTTP functions in the app. Those instances are processing your function executions, but depending on concurrency settings, the platform scales beyond those two instances with on-demand instances.
+For example, if you set always ready to 2 for your HTTP group of functions, the platform keeps two instances always running for those functions. Those instances process your function executions first. Depending on concurrency settings, the platform scales beyond those two instances with on-demand instances.
 
 No less than two always-ready instances can be configured per function or function group while [zone redundancy is enabled](../reliability/reliability-functions.md?pivots=flex-consumption-plan#availability-zone-support). 
 
@@ -104,7 +103,7 @@ To learn how to set concurrency limits for HTTP trigger functions, see [Set HTTP
 
 ## Deployment
 
-Deployments in the Flex Consumption plan follow a single path, and there's no longer the need for app settings to influence deployment behavior. After your project code is built and zipped into an application package, it's deployed to a blob storage container. On startup, your app gets the package and runs your function code from this package. By default, the same storage account used to store internal host metadata (AzureWebJobsStorage) is also used as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by [configuring your app's deployment settings](flex-consumption-how-to.md#configure-deployment-settings).
+Deployments in the Flex Consumption plan follow a single path, and there's no longer the need for app settings to influence deployment behavior. Your project code is built and zipped into an application package, then deployed to a blob storage container. On startup, your app gets the package and runs your function code from this package. By default, the same storage account used to store internal host metadata (AzureWebJobsStorage) is also used as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by [configuring your app's deployment settings](flex-consumption-how-to.md#configure-deployment-settings).
 
 ### Zero-downtime deployments
 
@@ -137,22 +136,44 @@ This table shows the language stack versions that are currently supported for Fl
 
 ## Regional subscription memory quotas
 
-The Flex Consumption plan has a memory-based quota that limits how much compute all your Flex Consumption apps can use at the same time in a specific region and subscription. Imagine you have a bucket of memory measured in GB or CPU cores for your entire subscription in a region. All your Flex Consumption apps in that region share this bucket. If your Flex Consumption apps try to use more than the quota allows, some executions may be delayed or throttled from scaling, but you won’t be blocked from creating or deploying apps.
+All Flex Consumption apps in a subscription and region share a compute quota, like a shared bucket of resources. This quota applies only to Flex Consumption apps — other hosting plans like Consumption, Premium, and Dedicated don't count against it. The quota limits how much total compute your Flex Consumption apps can use at the same time. If your apps try to exceed the quota, some executions and deployments might be delayed or fail, and scaling is throttled. However, you can still create new apps.
 
-Currently, each region in a given subscription has a default quota of the lesser of either `512,000 MB` or 250 cores for all instances of apps running on Flex Consumption plans. These quotas mean that, in a given subscription and region, you could have any combination of instance memory sizes and counts, as long as they stay under the quota limits. For example, in each of these scenarios the quota is reached, and apps in the region stops scaling:
+### Default quota
 
-+ You have one 512-MB app scaled to 250 instances and a second 512-MB app scaled to 750 instances. 
-+ You have one 512-MB app scaled to 1,000 instances.
-+ You have one 2,048-MB app scaled to 100 and a second 2,048-MB app scaled to 150 instances
-+ You have one 2,048-MB app that scaled out to 250 instances
-+ You have one 4,096-MB app that scaled out to 125 instances
-+ You have one 4,096-MB app scaled to 100 and one 2,048-MB app scaled to 50 instances
+Each region in a subscription has a default quota of **250 cores** (equivalent to **512,000 MB**) for all Flex Consumption app instances combined. You can use any combination of instance sizes and counts, as long as the total cores stay under the quota.
 
-Flex Consumption apps scaled to zero, or instances marked to be scaled in and deleted, don't count against the quota. This quota can be increased to allow your Flex Consumption apps to scale further, depending on your requirements. If your apps require a larger quota, create a support ticket.
+To calculate the cores used, multiply the cores per instance by the number of instances:
+
+| Instance size | Cores per instance | Formula          |
+|---------------|--------------------|------------------|
+| 512 MB        | 0.25               | instances × 0.25 |
+| 2,048 MB      | 1                  | instances × 1    |
+| 4,096 MB      | 2                  | instances × 2    |
+
+### Quota examples
+
+Each of these scenarios reaches the 250 core quota limit. When the quota is reached, apps in the region stop scaling:
+
+| Scenario                                                                | Calculation           | Total cores |
+| ----------------------------------------------------------------------- | --------------------- | ----------- |
+| One 512-MB app at 1,000 instances                                       | 1,000 × 0.25          | 250         |
+| Two 512-MB apps at 250 and 750 instances                                | (250 + 750) × 0.25    | 250         |
+| One 2,048-MB app at 250 instances                                       | 250 × 1               | 250         |
+| Two 2,048-MB apps at 100 and 150 instances                              | (100 + 150) × 1       | 250         |
+| One 4,096-MB app at 125 instances                                       | 125 × 2               | 250         |
+| One 4,096-MB app at 100 instances + one 2,048-MB app at 50 instances    | (100 × 2) + (50 × 1)  | 250         |
+
+### Important notes
+
++ Flex Consumption scales rapidly based on [concurrency](#concurrency) settings, so apps frequently acquire and release cores from the quota as demand changes.
++ Flex Consumption apps that scale to zero, or instances marked to be scaled in and deleted, don't count against the quota.
++ Always ready instances count against quota.
++ A **Flex Consumption Quota tool** is available in the Azure portal. Open any Flex Consumption app in your subscription, select **Diagnose and solve problems**, search for `Flex Consumption Quota`, then choose a region. The tool displays recommendations, current quota information, and historical usage views.
++ This quota can be increased pending capacity review. For example, from 250 cores to 1,000 cores or more. To request a larger quota, create a support ticket or contact your Microsoft account team.
 
 ## Deprecated properties and settings
 
-In the Flex Consumption plan, many of the standard application settings and site configuration properties are deprecated or have moved and shouldn't be used when automating function app resource creation. For more information, see [Flex Consumption plan deprecations](functions-app-settings.md#flex-consumption-plan-deprecations).
+In the Flex Consumption plan, many standard application settings and site configuration properties are deprecated or moved. Don't use these settings when you automate function app resource creation. For more information, see [Flex Consumption plan deprecations](functions-app-settings.md#flex-consumption-plan-deprecations).
 
 ## Considerations
 
@@ -165,9 +186,9 @@ Keep these other considerations in mind when using Flex Consumption plan:
 + **Triggers**: While all triggers are fully supported in a Flex Consumption plan, the Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). Non-C# function apps must use version `[4.0.0, 5.0.0)` of the [extension bundle](./extension-bundles.md), or a later version. 
 + **Regions**: Not all regions are currently supported. To learn more, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).
 + **Deployments**: Deployment slots aren't currently supported. For zero downtime deployments with Flex Consumption, see [Site update strategies in Flex Consumption](flex-consumption-site-updates.md).
-+ **Azure Storage as a local share**: NFS file shares are not available for Flex Consumption. Only SMB and Azure Blobs (read-only) are supported.
++ **Azure Storage as a local share**: Network File System (NFS) file shares aren't available for Flex Consumption. Only Server Message Block (SMB) and Azure Blobs (read-only) are supported.
 + **Scale**: The lowest maximum scale is currently `40`. The highest currently supported value is `1000`. 
-+ **Managed dependencies**: [Managed dependencies in PowerShell](functions-reference-powershell.md#managed-dependencies-feature) aren't supported by Flex Consumption. You must instead [upload modules with app content](functions-reference-powershell.md#including-modules-in-app-content).
++ **Managed dependencies**: Flex Consumption doesn't support [managed dependencies in PowerShell](functions-reference-powershell.md#managed-dependencies-feature). You must instead [upload modules with app content](functions-reference-powershell.md#including-modules-in-app-content).
 + **Certificates**: Loading certificates with the WEBSITE_LOAD_CERTIFICATES app setting, managed certificates, app service certificates, and other platform certificate-based features like endToEndEncryptionEnabled are currently not supported.
 + **Timezones**: `WEBSITE_TIME_ZONE` and `TZ` app settings aren't currently supported when running on Flex Consumption plan.
 

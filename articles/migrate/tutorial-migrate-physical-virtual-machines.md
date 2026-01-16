@@ -160,13 +160,13 @@ This section introduces a new process, which is simplified experience. Users fol
 
 It introduces an upgraded agent-based migration stack for physical and VMware environments. Customers benefit from the ability to migrate newer Linux distributions to Azure, use WS2022 for the replication appliance, and utilize a unified OS support matrix. 
 
-## Navigate to Azure Migrate project
+## Access the Azure Migrate project
 
 Follow the steps to navigate to the Azure Migrate project:
 
-**Step 1**: Navigate to Azure Migrate project
+**Step 1**: Go to Azure Migrate project
 
-1. Open [Azure portal](https://portal.azure.com). 
+1. Go to [Azure portal](https://portal.azure.com). 
 1. Search for the **Azure Migrate** service.
 1. Create a new project or select an existing one. [Learn more](/azure/migrate/).
 

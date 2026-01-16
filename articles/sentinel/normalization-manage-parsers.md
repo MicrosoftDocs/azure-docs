@@ -31,7 +31,7 @@ You may need to manage the source-specific parsers used by each unifying parser 
 
 - **Configure a source-specific parser**, for example to define the sources that send information relevant to the parser.
 
-This article guides you through managing your parsers, whether using built-in, unifying ASIM parsers or workspace-deployed unifying parsers. 
+This article guides you through managing your parsers. 
 
 ## Prerequisites
 
@@ -61,12 +61,19 @@ Make sure to add both a filtering custom parser and a parameter-less custom pars
 
 The syntax of the line to add is different for each schema:
 
-| Schema | Parser |  Line to add
+| Schema | Parser |  Line to add |
 | ------ | ---------------------- | ---------------------------------------- |
-| DNS    | `Im_DnsCustom` | `_parser_name_ (starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype)` | 
-| NetworkSession    | `Im_NetworkSessionCustom` | `_parser_name_  (starttime, endtime, srcipaddr_has_any_prefix, dstipaddr_has_any_prefix, dstportnumber, hostname_has_any, dvcaction, eventresult)` | 
-| WebSession  | `Im_WebSessionCustom`| `_parser_name_ (starttime, endtime, srcipaddr_has_any_prefix, url_has_any, httpuseragent_has_any, eventresultdetails_in, eventresult)` | 
-
+| AlertEvent | `Im_AlertEventCustom` | `_parser_name_ (starttime, endtime, ipaddr_has_any_prefix, hostname_has_any, username_has_any, attacktactics_has_any, attacktechniques_has_any, threatcategory_has_any, alertverdict_has_any, eventseverity_has_any)` |
+| AuditEvent | `Im_AuditEventCustom` | `_parser_name_ (starttime, endtime, srcipaddr_has_any_prefix, eventtype_in, eventresult, actorusername_has_any, operation_has_any, object_has_any, newvalue_has_any)` |
+| Authentication | `Im_AuthenticationCustom` | `_parser_name_ (starttime, endtime, targetusername_has_any, actorusername_has_any, srcipaddr_has_any_prefix, srchostname_has_any, targetipaddr_has_any_prefix, dvcipaddr_has_any_prefix, dvchostname_has_any, eventtype_in, eventresultdetails_in, eventresult)` |
+| DhcpEvent | `Im_DhcpEventCustom` | `_parser_name_ (starttime, endtime, srcipaddr_has_any_prefix, srchostname_has_any, srcusername_has_any, eventresult)` |
+| Dns | `Im_DnsCustom` | `_parser_name_ (starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype)` |
+| FileEvent | `Im_FileEventCustom` | `_parser_name_ (starttime, endtime, eventtype_in, srcipaddr_has_any_prefix, actorusername_has_any, targetfilepath_has_any, srcfilepath_has_any, hashes_has_any, dvchostname_has_any)` |
+| NetworkSession | `Im_NetworkSessionCustom` | `_parser_name_ (starttime, endtime, srcipaddr_has_any_prefix, dstipaddr_has_any_prefix, ipaddr_has_any_prefix, dstportnumber, hostname_has_any, dvcaction, eventresult)` |
+| ProcessEvent | `Im_ProcessEventCustom` | `_parser_name_ (starttime, endtime, commandline_has_any, commandline_has_all, commandline_has_any_ip_prefix, actingprocess_has_any, targetprocess_has_any, parentprocess_has_any, targetusername_has, actorusername_has, dvcipaddr_has_any_prefix, dvchostname_has_any, eventtype)` |
+| RegistryEvent | `Im_RegistryEventCustom` | `_parser_name_ (starttime, endtime, eventtype_in, actorusername_has_any, registrykey_has_any, registryvalue_has_any, registryvaluedata_has_any, dvchostname_has_any)` |
+| UserManagement | `Im_UserManagementCustom` | `_parser_name_ (starttime, endtime, srcipaddr_has_any_prefix, targetusername_has_any, actorusername_has_any, eventtype_in)` |
+| WebSession | `Im_WebSessionCustom` | `_parser_name_ (starttime, endtime, srcipaddr_has_any_prefix, ipaddr_has_any_prefix, url_has_any, httpuseragent_has_any, eventresultdetails_in, eventresult)` |
 
 When adding an additional parser to a unifying custom parser that already references parsers, make sure you add a comma at the end of the previous line. 
 
@@ -82,7 +89,7 @@ added_parser(starttime, endtime, srcipaddr, domain_has_any, responsecodename, re
 
 To modify an existing, built-in source-specific parser:
 
-1. Create a custom parser based on the original parser and [add it](#add-a-custom-parser-to-a-built-in-unifying-parser) to the built-in parser. 
+1. Create a custom parser based on the original parser and [add it](#add-a-custom-parser-to-a-built-in-unifying-parser) to the built-in parser. You can use the [workspace deployed version](normalization-about-workspace-parsers.md) of the parser as a starting point.
 
 1. Add a record to the `ASim Disabled Parsers` watchlist.
 
@@ -110,74 +117,13 @@ Use the following process to prevent automatic updates for built-in, source-spec
  
   For more information, see [Use a modified version of a built-in parser](#use-a-modified-version-of-a-built-in-parser).
 
-## Manage workspace-deployed unifying parsers
-
-### Add a custom parser to a workspace-deployed unifying parser
-
-To add a custom parser, insert a line to the `union` statement in the workspace-deployed unifying parser that references the new custom parser. 
-
-Make sure to add both a filtering custom parser and a parameter-less custom parser. The syntax of the line to add is different for each schema:
-
-| Schema |   Parser | Line to add |
-| ------ | -------------- | ------------- |
-| **Authentication**  | `ImAuthentication` | `_parser_name_ (starttime, endtime, targetusername_has)` | 
-| **DNS**   |  `ImDns` | `_parser_name_ (starttime, endtime, srcipaddr, domain_has_any,`<br>` responsecodename, response_has_ipv4, response_has_any_prefix,`<br>` eventtype)` |
-| **File Event** | `imFileEvent` | `_parser_name_` |
-| **Network Session** | `imNetworkSession` | `_parser_name_ (starttime, endtime, srcipaddr_has_any_prefix, dstipaddr_has_any_prefix, dstportnumber, url_has_any,`<br>` httpuseragent_has_any, hostname_has_any, dvcaction, eventresult)` | 
-| **Process Event** | - `imProcess`<br> - `imProcessCreate`<br> - `imProcessTerminate` |  `_parser_name_` |
-| **Registry Event** | `imRegistry`<br><br> | `_parser_name_` |
-| **Web Session** | `imWebSession`<br><br> | `_parser_name_ parser (starttime, endtime, srcipaddr_has_any, url_has_any, httpuseragent_has_any, eventresultdetails_in, eventresult)` |
-
-
-When adding an additional parser to a unifying parser, make sure you add a comma at the end of the previous line.
-
-For example, the following example shows the DNS filtering unifying parser, after having added the custom `added_parser`:
-
-```kusto
-  let Generic=(starttime:datetime=datetime(null), endtime:datetime=datetime(null) , srcipaddr:string='*' , domain_has_any:dynamic=dynamic([]) , responsecodename:string='*', response_has_ipv4:string='*' , response_has_any_prefix:dynamic=dynamic([]) , eventtype:string='lookup' ){
-  let DisabledParsers=materialize(_GetWatchlist('ASimDisabledParsers') | where SearchKey in ('Any', 'imDns') | extend SourceSpecificParser=column_ifexists('SourceSpecificParser','') | distinct SourceSpecificParser);
-  let imDnsBuiltInDisabled=toscalar('imDnsBuiltIn' in (DisabledParsers) or 'Any' in (DisabledParsers)); 
-  union isfuzzy=true
-      vimDnsEmpty
-    , vimDnsCiscoUmbrella  ( starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype, (imDnsBuiltInDisabled or('vimDnsCiscoUmbrella'   in (DisabledParsers) )))
-    , vimDnsInfobloxNIOS   ( starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype, (imDnsBuiltInDisabled or('vimDnsInfobloxNIOS'    in (DisabledParsers) )))
-    ...
-    , vimDnsAzureFirewall  ( starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype, (imDnsBuiltInDisabled or('vimDnsAzureFirewall'   in (DisabledParsers) )))
-    , vimDnsMicrosoftNXlog ( starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype, (imDnsBuiltInDisabled or('vimDnsMicrosoftNXlog'  in (DisabledParsers) ))),
-    added_parser ( starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype)
-     };
-  Generic( starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype)
-```
-
-### Use a modified version of a workspace-deployed parser
-
-Microsoft Sentinel users can directly modify workspace-deployed parsers. Create a parser based on the original, comment out the original, and then add your modified version to the workspace-deployed unifying parser.
-
-For example, the following code shows a DNS filtering unifying parser, having replaced the `vimDnsAzureFirewall` parser with a modified version:
-
-```kusto
-  let Generic=(starttime:datetime=datetime(null), endtime:datetime=datetime(null) , srcipaddr:string='*' , domain_has_any:dynamic=dynamic([]) , responsecodename:string='*', response_has_ipv4:string='*' , response_has_any_prefix:dynamic=dynamic([]) , eventtype:string='lookup' ){
-  let DisabledParsers=materialize(_GetWatchlist('ASimDisabledParsers') | where SearchKey in ('Any', 'imDns') | extend SourceSpecificParser=column_ifexists('SourceSpecificParser','') | distinct SourceSpecificParser);
-  let imDnsBuiltInDisabled=toscalar('imDnsBuiltIn' in (DisabledParsers) or 'Any' in (DisabledParsers)); 
-  union isfuzzy=true
-      vimDnsEmpty
-    , vimDnsCiscoUmbrella  ( starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype, (imDnsBuiltInDisabled or('vimDnsCiscoUmbrella'   in (DisabledParsers) )))
-    , vimDnsInfobloxNIOS   ( starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype, (imDnsBuiltInDisabled or('vimDnsInfobloxNIOS'    in (DisabledParsers) )))
-    ...
-    // , vimDnsAzureFirewall  ( starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype, (imDnsBuiltInDisabled or('vimDnsAzureFirewall'   in (DisabledParsers) )))
-    , vimDnsMicrosoftNXlog ( starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype, (imDnsBuiltInDisabled or('vimDnsMicrosoftNXlog'  in (DisabledParsers) ))),
-    modified_vimDnsAzureFirewall ( starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype)
-     };
-  Generic( starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype)
-```
-
 ## Configure the sources relevant to a source-specific parser
 
-Some parsers requires you to update the list of sources that are relevant to the parser. For example, a parser that uses Syslog data, may not be able to determine what Syslog events are relevant to the parser. Such a parser may use the `Sources_by_SourceType` watchlist to determine which sources send information relevant to the parser. For such parses add a record for each relevant source to the watchlist:
+Some parsers require you to update the list of sources that are relevant to the parser. For example, a parser that uses Syslog data, may not be able to determine what Syslog events are relevant to the parser. Such a parser may use the `Sources_by_SourceType` watchlist to determine which sources send information relevant to the parser. For such parses add a record for each relevant source to the watchlist:
 - Set the `SourceType` field to the parser specific value specified in the parser documentation. 
 - Set the `Source` field to the identifier of the source used in the events. You may need to query the original table, such as Syslog, to determine the correct value.
 
-If you system does not have the `Sources_by_SourceType` watchlist deployed, deploy the watchlist to your Microsoft Sentinel workspace from the Microsoft Sentinel [GitHub](https://aka.ms/DeployASimWatchlists) repository.
+If your system does not have the `Sources_by_SourceType` watchlist deployed, deploy the watchlist to your Microsoft Sentinel workspace from the Microsoft Sentinel [GitHub](https://aka.ms/DeployASimWatchlists) repository.
 
 ## <a name="next-steps"></a>Next steps
 

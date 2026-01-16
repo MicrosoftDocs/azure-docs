@@ -2,7 +2,7 @@
 title: Overview - Retention of Azure Database for MySQL - Flexible Server for the Long Term by Using Azure Backup
 description: This article provides an overview of Azure Database for MySQL - Flexible Server retention for the long term.
 ms.topic: overview
-ms.date: 01/27/2025
+ms.date: 12/18/2025
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
@@ -51,9 +51,9 @@ The following table lists permissions that the vault MSI requires for successful
 | **Backup** | Azure Database for MySQL - Flexible Server Long-Term Retention Backup role <br><br> Reader role on the server's resource group |
 | **Restore** | Storage Blob Data Contributor role on the target storage account |
 
-## Pricing
+## Pricing for Azure Database for MySQL - Flexible Server backup
 
-You incur charges for:
+ Azure Backup for Azure Database for MySQL - Flexible Server is billed based on the following components:
 
 - **Protected instance fee**: When you configure a backup for an Azure Database for MySQL flexible server, a protected instance is created. Azure Backup charges a protected instance fee according to the size of the database (in gigabytes) on a per-unit (250-GB) basis.
 

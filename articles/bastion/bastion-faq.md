@@ -38,6 +38,10 @@ For information on availability zone support in Azure Bastion, see [Reliability 
 
 Yes, you can use Azure Bastion for Virtual WAN deployments. However, deploying Azure Bastion within a Virtual WAN hub isn't supported. You can deploy Azure Bastion in a spoke virtual network and use the [IP-based connection](connect-ip-address.md) feature to connect to virtual machines deployed across a different virtual network via the Virtual WAN hub. If the Azure Virtual WAN hub will be integrated with Azure Firewall as a [Secured Virtual Hub](../firewall-manager/secured-virtual-hub.md), the AzureBastionSubnet must reside within a Virtual Network where the default 0.0.0.0/0 route propagation is disabled at the virtual network connection level.
 
+### <a name="routeserver"></a>Does Azure Bastion support Azure Route Server?
+
+Yes, you can use Azure Bastion with Azure Route Server deployments with a caveat. Bastion is supported in scenarios where Route Server does not advertise a 0.0.0.0/0 to the virtual network that the Bastion is deployed in. Route Server can advertise a 0.0.0.0/0, creating a force-tunneling scenario, which will break connectivity for the Bastion Service. 
+
 ### <a name="forcedtunnel"></a>Can I use Azure Bastion if I'm force-tunneling Internet traffic back to my on-premises location?
 
 No, if you're advertising a default route (0.0.0.0/0) over ExpressRoute or VPN, and this route is being injected in to your Virtual Networks, this will break the Azure Bastion service.
@@ -87,15 +91,15 @@ For scenarios that include both Azure Bastion and Azure Firewall/Network Virtual
 
 ### <a name="all-skus"></a> What SKU should I use?
 
-Azure Bastion has multiple SKUs. You should select a SKU based on your connection and feature requirements. For a full list of SKU tiers and supported connections and features, see the [Configuration settings](configuration-settings.md#skus) article.
+Azure Bastion has multiple SKUs. You should select a SKU based on your connection and feature requirements. For a full list of SKU tiers and supported connections and features, see the [SKU Comparison](bastion-sku-comparison.md) article and the [Configuration settings](configuration-settings.md) article.
 
 ### <a name="upgradesku"></a> Can I upgrade a SKU?
 
-Yes. For steps, see [Upgrade a SKU](upgrade-sku.md). For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
+Yes. For steps, see [Upgrade a SKU](upgrade-sku.md). For more information about SKUs, see the [SKU Comparison](bastion-sku-comparison.md) article.
 
 ### <a name="downgradesku"></a> Can I downgrade a SKU?
 
-No. Downgrading a SKU isn't supported. For more information about SKUs, see the [Configuration settings](configuration-settings.md#skus) article.
+No. Downgrading a SKU isn't supported. For more information about SKUs, see the [SKU Comparison](bastion-sku-comparison.md) article.
 
 ### <a name="virtual-desktop"></a>Does Bastion support connectivity to Azure Virtual Desktop?
 

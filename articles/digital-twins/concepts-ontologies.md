@@ -4,15 +4,18 @@ titleSuffix: Azure Digital Twins
 description: Learn about digital twin ontologies, how they're used in Azure Digital Twins, and how these DTDL ontologies can be used for modeling in the context of certain industries.
 author: baanders
 ms.author: baanders
-ms.date: 01/27/2025
+ms.date: 12/12/2025
 ms.topic: concept-article
 ms.service: azure-digital-twins
 ms.custom: engagement-fy23
 ---
 
-# What is an ontology? 
+# What is an ontology in Azure Digital Twins? 
 
 This article describes the concept of industry ontologies and how they can be used within the context of Azure Digital Twins.
+
+>[!NOTE]
+>The concept of ontologies as it's used in this article is different from [Fabric ontology](https://learn.microsoft.com/fabric/iq/ontology/overview), a Fabric item for defining an enterprise vocabulary.
 
 The vocabulary of an Azure Digital Twins solution is defined using [models](concepts-models.md), which describe the types of entities that exist in your environment. An *ontology* is a set of models that comprehensively describe a given domain, like manufacturing, building structures, IoT systems, smart cities, energy grids, web content, and more.
 

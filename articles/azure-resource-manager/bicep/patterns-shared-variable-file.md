@@ -1,11 +1,9 @@
 ﻿---
 title: Shared variable file pattern
 description: Describes the shared variable file pattern.
-author: johndowns
-ms.author: jodowns
 ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 04/28/2025
+ms.date: 12/22/2025
 ---
 
 # Shared variable file pattern

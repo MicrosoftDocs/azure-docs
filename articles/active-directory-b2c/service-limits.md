@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 08/19/2025
+ms.date: 01/08/2026
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
@@ -186,7 +186,7 @@ The following table lists the administrative configuration limits in the Azure A
 
 ## Region specific service limits 
 
-As a protection for our customers, Microsoft places some restrictions on telephony verification for certain region codes. The following table lists the region codes and their corresponding limits.
+As a protection for our customers, Microsoft places some restrictions on telephony verification for certain region codes. The following table lists the region codes and their corresponding limits. These limits apply to both SMS and Voice verification.
 
 | Region Code | Region Name                                    | Limit per tenant per 60 minutes | Limit per tenant per 24 hours            |                         
 |:----------- |:---------------------------------------------- |:------------------------------- | :----------------------------------------|

@@ -17,7 +17,7 @@ ms.custom:
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from HubSpot. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
-> The HubSpot connector version 2.0 provides improved native HubSpot support. If you are using HubSpot connector version 1.0 in your solution, please [upgrade the HubSpot connector](#upgrade-the-hubspot-connector-from-version-10-to-version-20) as version 1.0 is at [End of Support stage](connector-release-stages-and-timelines.md). Your pipeline will fail after **November 22, 2025** if not upgraded. Refer to this [section](#hubspot-connector-lifecycle-and-upgrade) for details on the difference between version 2.0 and version 1.0.
+> The HubSpot connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the HubSpot connector](#hubspot-connector-lifecycle-and-upgrade) from version 1.0 to 2.0.
 
 ## Supported capabilities
 
@@ -305,7 +305,7 @@ The following table shows the release stage and change logs for different versio
 
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
-| Version 1.0 | End of support | / |  
+| Version 1.0 | Removed | Not applicable. |
 | Version 2.0 | General availability |• The `tableName` value is `<HubSpot Category>.<Sub Category>.<Object Name>`, for example: `CRM.Commerce.Discounts`. <br><br>• date is read as DateTime data type. <br><br>• object is read as String data type.<br><br>•`useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported. <br><br>• Support specific HubSpot tables. For the supported table list, go to [Dataset properties](#dataset-properties).|
 
 ### <a name="upgrade-the-hubspot-connector-from-version-10-to-version-20"></a> Upgrade the HubSpot connector from version 1.0 to version 2.0

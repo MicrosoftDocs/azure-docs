@@ -249,7 +249,7 @@ As an example, if `durableTask/extendedSessionIdleTimeoutInSeconds` is set to 30
 The specific effects of extended sessions on orchestrator and entity functions are described in the next sections.
 
 > [!NOTE]
-> In the .NET isolated model, the extended sessions feature is currently only supported in orchestrations (not entities). Additionally, this feature is available only for .NET languages such as C# and F#. Setting `extendedSessionsEnabled` to `true` for other platforms can lead to runtime issues, such as silently failing to execute activity and orchestration-triggered functions.
+> This feature is available only for .NET languages such as C# (isolated and in-process models) and F#. Setting `extendedSessionsEnabled` to `true` for other platforms can lead to runtime issues, such as silently failing to execute activity and orchestration-triggered functions.
 
 ### Orchestrator function replay
 

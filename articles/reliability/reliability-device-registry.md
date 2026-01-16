@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Device Registry
-description: Learn how to ensure reliable IoT device management with Azure Device Registry by using availability zones, multi-region support, and automatic failover.
+description: Learn about resiliency in Azure Device Registry, including resilience to transient faults, availability zone failures, and region-wide failures.
 author: isabellaecr
 ms.author: anaharris
 ms.topic: reliability-article
@@ -11,44 +11,44 @@ ms.date: 07/30/2025
 
 # Reliability in Azure Device Registry
 
-Azure Device Registry stores information about assets and devices in the cloud. Azure Device Registry projects assets as Azure resources in the cloud within a single registry. The single registry is a source of truth for device and asset metadata, and asset management capabilities. Device Registry can be used in conjunction with [Azure IoT Operations](/azure/iot-operations/overview-iot-operations).
+[Azure Device Registry](/azure/iot-operations/discover-manage-assets/overview-manage-assets) stores information about assets and devices in the cloud. Device Registry projects assets as Azure resources in the cloud within a single registry. The single registry is a source of truth for device and asset metadata, and asset management capabilities. Device Registry can be used in conjunction with [Azure IoT Operations](/azure/iot-operations/overview-iot-operations).
 
-This article describes reliability support in Azure Device Registry. It covers both intra-regional resiliency with [availability zones](#availability-zone-support) and information on [multi-region deployments](#multi-region-support).
+[!INCLUDE [Shared responsibility](includes/reliability-shared-responsibility-include.md)]
 
-[!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
+This article describes how to make Device Registry resilient to a variety of potential outages and problems, including transient faults, availability zone outages, and region outages.
 
 > [!NOTE]
 > Azure IoT Operations includes various other components beyond Device Registry. For detailed information on the high availability and zero data loss features of Azure IoT Operations components, refer to [Azure IoT Operations frequently asked questions](/azure/iot-operations/troubleshoot/iot-operations-faq).
 
-## Transient faults
+## Resilience to transient faults
 
-[!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
+[!INCLUDE [Resilience to transient faults](includes/reliability-transient-fault-description-include.md)]
 
 Clients interact with Device Registry by using Azure Resource Manager. Commonly, you use the Azure portal, Azure CLI, or Azure SDKs to interact with Device Registry resources, and these tools provide automatic handling of transient faults. If you use the Resource Manager APIs directly, make sure to handle transient faults.
 
-## Availability zone support
+## Resilience to availability zone failures
 
-[!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
+[!INCLUDE [Resilience to availability zone failures](includes/reliability-availability-zone-description-include.md)]
 
 Azure Device Registry is zone redundant by default, which means that it automatically replicates your data across multiple [availability zones](../reliability/availability-zones-overview.md). This setup enhances the resiliency of the service by providing high availability. If there's a failure in one zone, the service can continue to operate seamlessly from another zone.
 
 Microsoft manages setup and configuration for zone redundancy in Azure Device Registry. You don't need to perform any more configuration to enable this zone redundancy. Microsoft ensures that the service is configured to provide the highest level of availability and reliability.
 
-### Regions supported
+### Region support
 
-The following list of regions support availability zones in Azure Device Registry:
+The following list of regions support availability zones in Device Registry:
 
 [!INCLUDE [Azure Device Registry availability zone region support](../iot-operations/includes/device-registry-availability-zone-regions-include.md)]
 
 ### Cost
 
-There's no extra cost to use zone redundancy for Azure Device Registry.
+There's no extra cost to use zone redundancy for Device Registry.
 
 ### Configure availability zone support
 
-**New resources:** When you create an Azure Device Registry resource in Azure IoT Operations, it automatically includes zone-redundancy by default. There's no need for you to perform any more configuration.
+**New resources:** When you create a Device Registry resource in Azure IoT Operations, it automatically includes zone-redundancy by default. There's no need for you to perform any more configuration.
 
-### Normal operations
+### Behavior when all zones are healthy
 
 The following information describes what happens when you have a zone-redundant device registry and all availability zones are operational:
 
@@ -56,15 +56,15 @@ The following information describes what happens when you have a zone-redundant 
 
 - **Data replication between zones:** Device data is replicated synchronously across availability zones.
 
-### Zone-down experience
+### Behavior during a zone failure
 
 The following information describes what happens when you have a zone-redundant device registry and an availability zone experiences an outage.
 
-- **Detection and response:** Because Azure Device Registry detects and responds automatically to failures in an availability zone, you don't need to do anything to initiate an availability zone failover.
+- **Detection and response:** Because Device Registry detects and responds automatically to failures in an availability zone, you don't need to do anything to initiate an availability zone failover.
 
 [!INCLUDE [Availability zone down notification (Service Health only)](./includes/reliability-availability-zone-down-notification-service-include.md)]
 
-- **Active requests:** Some active requests may be dropped and so may need to be retried in the same way as other transient faults. To make sure that your application is resilient to any transient faults, see [transient fault handling guidance](#transient-faults).
+- **Active requests:** Some active requests may be dropped and so may need to be retried in the same way as other transient faults. To make sure that your application is resilient to any transient faults, see [Resilience to transient faults](#resilience-to-transient-faults).
 
 - **Expected data loss:** A zone failure isn't expected to cause any data loss.
 
@@ -72,13 +72,13 @@ The following information describes what happens when you have a zone-redundant 
 
 ### Zone recovery
 
-When the availability zone recovers, Azure Device Registry automatically restores operations in the availability zone.
+When the availability zone recovers, Device Registry automatically restores operations in the availability zone.
 
-### Testing for zone failures
+### Test for zone failures
 
-The Azure Device Registry platform manages traffic routing, failover, and failback across availability zones. You don't need to initiate anything. Because this feature is fully managed, you don't need to validate availability zone failure processes.
+The Device Registry platform manages traffic routing, failover, and failback across availability zones. You don't need to initiate anything. Because this feature is fully managed, you don't need to validate availability zone failure processes.
 
-## Multi-region support
+## Resilience to region-wide failures
 
 Device Registry is a single-region service. If the region becomes unavailable, your Device Registry resources are also unavailable.
 
@@ -96,7 +96,7 @@ There's no extra cost for cross-region data replication or failover.
 
 By default, cross-region data replication is automatically configured when you create Device Registry resources in a region with a pair. This process is a default option and requires no intervention from you.
 
-### Normal operations
+### Behavior when all regions are healthy
 
 This section describes what to expect when a device registry is configured for cross-region replication and failover, and the primary region is operational.
 
@@ -104,7 +104,7 @@ This section describes what to expect when a device registry is configured for c
 
 - **Traffic routing between regions:** In normal operations, traffic only flows to the primary region.
 
-### Region-down experience
+### Behavior during a region failure
 
 This section describes what to expect when a device registry is configured for cross-region replication and failover and there's an outage in the primary region.
 
@@ -124,11 +124,11 @@ This section describes what to expect when a device registry is configured for c
 
 ### Region recovery
 
-When the primary region recovers, Azure Device Registry automatically restores operations in the region.
+When the primary region recovers, Device Registry automatically restores operations in the region.
 
-### Testing for region failures
+### Test for region failures
 
-The Azure Device Registry platform manages traffic routing, failover, and failback across paired regions. You don't need to initiate anything. Because this feature is fully managed, you don't need to validate paired region failure processes.
+The Device Registry platform manages traffic routing, failover, and failback across paired regions. You don't need to initiate anything. Because this feature is fully managed, you don't need to validate paired region failure processes.
 
 ## Related content
 

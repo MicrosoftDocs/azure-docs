@@ -231,7 +231,7 @@ When NAT gateway is configured with a public IP address, traffic is routed via t
 
 ### Can't mismatch zones of public IP addresses and Standard NAT gateway 
 
-Standard NAT gateway is a [zonal resource](./nat-availability-zones.md) and can either be designated to a specific zone or to "no zone." When NAT gateway is placed in "no zone," Azure places the NAT gateway into a zone for you, but you don't have visibility into which zone the NAT gateway is located. 
+Standard NAT gateway can either be designated to a specific zone (a [zonal resource](/azure/reliability/reliability-nat-gateway)) or to "no zone." When NAT gateway is placed in "no zone," Azure places the NAT gateway into a zone for you, but you don't have visibility into which zone the NAT gateway is located. 
 
 Standard NAT gateway can be used with Standard public IP addresses designated to a specific zone, no zone, all zones (zone-redundant) depending on its own availability zone configuration.
 

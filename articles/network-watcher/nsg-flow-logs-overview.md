@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 05/19/2025
+ms.date: 12/18/2025
 ms.custom:
   - build-2025
   - sfi-image-nochange
@@ -555,7 +555,9 @@ NSG flow logs are charged per gigabyte of ***Network flow logs collected*** and 
 
 If traffic analytics is enabled with NSG flow logs, traffic analytics pricing applies at per gigabyte processing rates. Traffic analytics isn't offered with a free tier of pricing. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
 
-Storage of logs is charged separately. For more information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Storage of logs is charged separately. For more information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) and the following considerations:
+1. NSG flow log workflow makes [Create container](/rest/api/storageservices/Create-Container) calls periodically and is directly proportional to associated number of MACs and are charged as per storage write operations.
+2. Any configuration change or subscription policy leading to failed upload attempts remains chargeable in accordance with storage billing policy.
 
 ## Availability
 

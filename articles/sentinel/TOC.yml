@@ -325,12 +325,14 @@
               href: entity-pages.md
             - name: User and entity behavior analytics (UEBA)
               href: identify-threats-with-entity-behavior-analytics.md
+            - name: Aggregate behavioral insights from raw logs 
+              href: entity-behaviors-layer.md 
             - name: Create custom entity activities
               href: customize-entity-activities.md
         - name: Watchlists
           items:
             - name: Overview
-              href: watchlists.md
+              href: watchlists.md 
             - name: Create watchlists
               href: watchlists-create.md
             - name: Build queries or rules
@@ -624,6 +626,8 @@
             href: datalake/sentinel-mcp-triage-tool.md
           - name: Create your own custom tool
             href: datalake/sentinel-mcp-create-custom-tool.md
+        - name: Build logic apps with Microsoft Sentinel MCP
+          href: datalake/sentinel-mcp-logic-apps.md
         - name: Troubleshooting
           href: datalake/troubleshoot-sentinel-mcp.md
         - name: Billing, limits, and availability
@@ -714,10 +718,12 @@
               href: cef-syslog-ama-overview.md
             - name: CEF and Syslog via AMA
               href: connect-cef-syslog-ama.md
-            - name: CEF - configure security device
+            - name: Device configuration for CEF via AMA
               href: unified-connector-cef-device.md
             - name: Syslog - configure security device
               href: unified-connector-syslog-device.md
+            - name: Troubleshoot CEF and Syslog via AMA
+              href: cef-syslog-ama-troubleshooting.md  
         - name: Custom log sources (text files)
           items:
             - name: Collect logs from text files via AMA
@@ -738,8 +744,10 @@
               href: connect-aws.md
             - name: AWS S3 WAF logs
               href: connect-aws-s3-waf.md
-        - name: Troubleshoot AWS S3 connector issues
-          href: aws-s3-troubleshoot.md
+            - name: Enable attack disruption actions on AWS
+              href: aws-disruption.md
+            - name: Troubleshoot AWS S3 connector issues
+              href: aws-s3-troubleshoot.md
         - name: Cisco firewalls
           href: cisco-ftd-firewall.md
         - name: Google Cloud Platform connectors
@@ -778,8 +786,12 @@
           href: normalization-ingest-time.md
         - name: Use ASIM
           href: normalization-about-parsers.md
+        - name: Workspace deployed parsers
+          href: normalization-about-workspace-parsers.md
         - name: Manage ASIM parsers
           href: normalization-manage-parsers.md
+        - name: Develop ASIM parsers
+          href: normalization-develop-parsers.md
         - name: Modify content to use ASIM
           href: normalization-modify-content.md
     - name: Aggregate data
@@ -888,6 +900,7 @@
         href: sentinel-playbook-creation.md
       - name: Creating ASIM parsers
         href: normalization-develop-parsers.md
+        displayName: Build solutions
     - name: Publish solutions
       href: publish-sentinel-solutions.md
     - name: Sentinel SIEM solution lifecycle post publish
@@ -952,6 +965,8 @@
               href: normalization-entity-user.md
             - name: ASIM device entity
               href: normalization-entity-device.md
+            - name: ASIM application entity
+              href: normalization-entity-application.md
         - name: ASIM schemas
           items:
             - name: ASIM alert event schema
@@ -1030,6 +1045,12 @@
           href: stix-objects-api.md
         - name: Legacy upload indicator API reference
           href: upload-indicators-api.md
+- name: Responsible AI
+  items:
+    - name: Responsible AI FAQ for UEBA behaviors layer
+      href: entity-behaviors-layer-rai-faqs.md
+    - name: Responsible AI FAQ for Microsoft Sentinel MCP
+      href: datalake/sentinel-mcp-responsible-ai-faq.md
 - name: Microsoft Sentinel blog
   href: https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/bg-p/MicrosoftSentinelBlog
 - name: Pricing

@@ -6,7 +6,7 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 08/11/2025
+ms.date: 12/18/2025
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -157,7 +157,7 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 | operators | The operator value. For more information about operators, see *Operators available for choice fields containing strings* section in this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/reference/r_OpAvailableFiltersQueries.html).| Yes when the expression type is Unary or Binary |
 | operands | List of expressions on which operator is applied.| Yes when the expression type is Unary or Binary |
 | | | |
-| pageSize | The number of documents per page of the query result. | No<br/>(the default is **300**) |
+| pageSize | The number of documents per page of the query result. It is recommended to set the page size between 5,000 and 10,000 to enable multi-threaded reads. | No<br/>(the default is **300**) |
 
 **Example:**
 
@@ -267,7 +267,7 @@ Here is an example of the source JSON using the expression parameter:
 
 > [!NOTE]
 > The column `sys_tags` and its derived columns cannot be obtained due to ServiceNow API limitations.
-    
+
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).

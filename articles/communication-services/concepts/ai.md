@@ -33,7 +33,6 @@ This section summarizes features for integrating AI into Azure Communication mes
 
 ### Direct Integrations 
 
-- **[Advanced message analysis](../concepts/advanced-messaging/message-analysis/message-analysis.md)**: The Azure Communication Services messaging APIs for WhatsApp provide a built-in integration with Azure OpenAI that analyzes and annotates messages. This integration can detect the user's language, recognize their intent, and extract key phrases. 
 - **[Azure Bot Service: Chat channel integration](../quickstarts/chat/quickstart-botframework-integration.md)**: The Azure Communication Services chat system is directly integrated with Azure Bot Service. This integration simplifies creating chat bots that engage with human users.
 
 ### Accessors

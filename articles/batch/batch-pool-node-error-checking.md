@@ -1,7 +1,7 @@
 ---
 title: Pool and node errors
 description: Learn about background operations, errors to check for, and how to avoid errors when you create Azure Batch pools and nodes.
-ms.date: 01/22/2025
+ms.date: 01/05/2026
 ms.topic: how-to
 # Customer intent: As a cloud developer managing Batch pools, I want to understand common pool and node errors, so that I can troubleshoot issues efficiently and ensure optimal performance and cost management of my cloud resources.
 ---
@@ -65,9 +65,7 @@ Relay provider errors offer deeper insights into pool operation failures, making
 
 ### Resize timeout or failure
 
-When you create a new pool or resize an existing pool, you specify the target number of nodes. The create or resize operation completes immediately, but the actual allocation of new nodes or removal of existing nodes might take several minutes. You can specify the resize timeout in the [Pool - Add](/rest/api/batchservice/pool/add) or [Pool - Resize](/rest/api/batchservice/pool/resize) APIs. If Batch can't allocate the target number of nodes during the resize timeout period, the pool goes into a steady state, and reports resize errors.
-
-The [resizeError](/rest/api/batchservice/pool/get#resizeerror) property lists the errors that occurred for the most recent evaluation.
+When you create a new pool or resize an existing pool, you specify the target number of nodes. The create or resize operation completes immediately, but the actual allocation of new nodes or removal of existing nodes might take several minutes. You can specify the resize timeout in the [Create Pool](/rest/api/batchservice/pools/create-pool) or [Resize Pool](/rest/api/batchservice/pools/resize-pool) APIs. If Batch can't allocate the target number of nodes during the resize timeout period, the pool goes into a steady state, and reports resize errors.
 
 Common causes for resize errors include:
 
@@ -91,7 +89,7 @@ The following issues can occur when you use automatic scaling:
 - The resulting resize operation fails and times out.
 - A problem with the automatic scaling formula leads to incorrect node target values. The resize might either work or time out.
 
-To get information about the last automatic scaling evaluation, use the [autoScaleRun](/rest/api/batchservice/pool/get#autoscalerun) property. This property reports the evaluation time, the values and result, and any performance errors.
+To get information about the last automatic scaling evaluation, use the [Evaluate Pool Auto Scale](/rest/api/batchservice/pools/evaluate-pool-auto-scale) property. This property reports the evaluation time, the values and result, and any performance errors.
 
 The [pool resize complete event](./batch-pool-resize-complete-event.md) captures information about all evaluations.
 
@@ -99,7 +97,7 @@ The [pool resize complete event](./batch-pool-resize-complete-event.md) captures
 
 To delete a pool that contains nodes, Batch first deletes the nodes, which can take several minutes to complete. Batch then deletes the pool object itself.
 
-Batch sets the [poolState](/rest/api/batchservice/pool/get#poolstate) to `deleting` during the deletion process. The calling application can detect if the pool deletion is taking too long by using the `state` and `stateTransitionTime` properties.
+Batch sets the [poolState](/rest/api/batchservice/pools/delete-pool) to `deleting` during the deletion process. The calling application can detect if the pool deletion is taking too long by using the `state` and `stateTransitionTime` properties.
 
 If the pool deletion is taking longer than expected, Batch retries periodically until the pool is successfully deleted. In some cases, the delay is due to an Azure service outage or other temporary issues. Other factors that prevent successful pool deletion might require you to take action to correct the issue. These factors can include the following issues:
 
@@ -113,11 +111,11 @@ If the pool deletion is taking longer than expected, Batch retries periodically 
 
 ## Node errors
 
-Even when Batch successfully allocates nodes in a pool, various issues can cause some nodes to be unhealthy and unable to run tasks. These nodes still incur charges, so it's important to detect problems to avoid paying for nodes you can't use. Knowing about common node errors and knowing the current [jobState](/rest/api/batchservice/job/get#jobstate) is useful for troubleshooting.
+Even when Batch successfully allocates nodes in a pool, various issues can cause some nodes to be unhealthy and unable to run tasks. These nodes still incur charges, so it's important to detect problems to avoid paying for nodes you can't use. Knowing about common node errors and knowing the current [job state](/rest/api/batchservice/jobs/get-job) is useful for troubleshooting.
 
 ### Start task failures
 
-You can specify an optional [startTask](/rest/api/batchservice/pool/add#starttask) for a pool. As with any task, the start task uses a command line and can download resource files from storage. The start task runs for each node when the node starts. The `waitForSuccess` property specifies whether Batch waits until the start task completes successfully before it schedules any tasks to a node. If you configure the node to wait for successful start task completion, but the start task fails, the node isn't usable but still incurs charges.
+You can specify an optional [start task](/rest/api/batchservice/tasks/create-task) for a pool. As with any task, the start task uses a command line and can download resource files from storage. The start task runs for each node when the node starts. The `waitForSuccess` property specifies whether Batch waits until the start task completes successfully before it schedules any tasks to a node. If you configure the node to wait for successful start task completion, but the start task fails, the node isn't usable but still incurs charges.
 
 You can detect start task failures by using the [taskExecutionResult](/rest/api/batchservice/computenode/get#taskexecutionresult) and  [taskFailureInformation](/rest/api/batchservice/computenode/get#taskfailureinformation) properties of the top-level [startTaskInformation](/rest/api/batchservice/computenode/get#starttaskinformation) node property.
 
@@ -190,10 +188,10 @@ After you make sure to retrieve any data you need from the node or upload it to 
 
 You can delete old completed jobs or tasks whose task data is still on the nodes. Look in the `recentTasks` collection in the [taskInformation](/rest/api/batchservice/computenode/get#taskinformation) on the node, or use the [File - List From Compute Node](/rest/api/batchservice/file/listfromcomputenode) API. Deleting a job deletes all the tasks in the job. Deleting the tasks in the job triggers deletion of data in the task directories on the nodes, and frees up space. Once you've freed up enough space, reboot the node. The node should move out of `unusable` state and into `idle` again.
 
-To recover an unusable node in [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration) pools, you can remove the node from the pool by using the [Pool - Remove Nodes](/rest/api/batchservice/pool/removenodes) API. Then you can grow the pool again to replace the bad node with a fresh one. 
+To recover an unusable node in [VirtualMachineConfiguration](/rest/api/batchservice/pools/get-pool#add-a-virtualmachineconfiguration-pool-with-os-disk) pools, you can remove the node from the pool by using the [Pool - Remove Nodes](/rest/api/batchservice/pools/remove-nodes) API. Then you can grow the pool again to replace the bad node with a fresh one. 
 
 > [!Important]
-> Reimage isn't currently supported for [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration) pools.
+> Reimage isn't currently supported for [VirtualMachineConfiguration](/rest/api/batchservice/pools/get-pool#add-a-virtualmachineconfiguration-pool-with-os-disk) pools.
 
 ## Next steps
 

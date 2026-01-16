@@ -91,6 +91,8 @@ For more information on history and version management visit [FHIR versioning po
 Patch is a valuable RESTful operation when you need to update only a portion of the FHIR resource. Using patch allows you to specify the element that you want to update in the resource without having to update the entire record. FHIR defines three ways to patch resources: JSON Patch, XML Patch, and FHIRPath Patch. The FHIR service supports JSON Patch and FHIRPath Patch, along with Conditional JSON Patch and Conditional FHIRPath Patch (which allows you to patch a resource based on a search criteria instead of a resource ID).
 For examples, refer to the [FHIRPath Patch REST file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/FhirPatchRequests.http) and the [JSON Patch REST file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/JsonPatchRequests.http). For more information, see [HL7 documentation for patch operations with FHIR](https://www.hl7.org/fhir/http.html#patch).
 
+
+
 > [!NOTE]
 > When using `PATCH` against STU3, and if you are requesting a History bundle, the patched resource's `Bundle.entry.request.method` is mapped to `PUT`. This is because STU3 doesn't contain a definition for the `PATCH` verb in the [HTTPVerb value set](http://hl7.org/fhir/STU3/valueset-http-verb.html).
 
@@ -178,6 +180,13 @@ Content-Type: `application/json`
 	]
 }
 ```
+
+#### Patch with `_meta-history` parameter
+The FHIR service supports the `_meta-history` query parameter with both `PUT` and `PATCH` operations. This parameter allows you to control whether metadata-only changes to a resource create a new historical version of the resource or not. By default, any change to a resource, including metadata-only changes, creates a new version and saves the previous version as a historical record. When you set the `_meta-history` parameter to `false`, metadata-only changes do not create a new version, and the previous version is not saved as a historical record. This feature is useful for scenarios where frequent metadata updates are made, and you want to avoid cluttering the resource history with numerous versions that only differ in metadata. For more information and examples, see [FHIR versioning policy and history management](fhir-versioning-policy-and-history-management.md#metadata-only-updates-and-versioning).
+
+`PATCH <fhir server>/Patient/test-patient?_meta-history=false`  
+
+
 
 ## Troubleshooting 
 

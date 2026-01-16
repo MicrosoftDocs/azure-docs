@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 08/10/2025
+ms.date: 01/08/2026
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -69,12 +69,6 @@ If you use [cross-zone-region replication](replication.md#cross-zone-region-repl
     > A volume that has an active backup policy enabled can't be the destination volume in a reverse resync operation. You must suspend the backup policy on the volume before you start the reverse resync. You can resume the backup policy when the reverse resync completes.
 
 * You can revert a source or destination volume of a cross-region replication to a snapshot if the snapshot is newer than the most recent SnapMirror snapshot. You can't use snapshots that are older than the SnapMirror snapshot for a volume revert operation. For more information, see [Revert a volume by using snapshot revert](snapshots-revert-volume.md).
-
-* If you copy large datasets into a volume that has cross-region replication enabled and you have spare capacity in the capacity pool, you should take the following actions:
-   
-   - Set the replication interval to 10 minutes.
-   - Increase the volume size so that the changes can be stored.
-   - Temporarily disable replication.
 
 * You can revert a source or destination volume of a cross-region replication to a snapshot if the snapshot is newer than the most recent SnapMirror snapshot. You can't use snapshots that are older than the SnapMirror snapshot for a volume revert operation. For more information, see [Revert a volume by using snapshot revert](snapshots-revert-volume.md).
 

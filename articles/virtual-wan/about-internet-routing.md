@@ -35,22 +35,21 @@ The following table shows the availability status of securing Internet access wi
 | Security solution |Status|
 |--|--|
 |Azure Firewall |Generally Available in Azure Public and Azure Government Clouds.|
-|Firewall NVA in the Virtual WAN hub| Generally Available in Azure Public Cloud |
-| Software-as-a-service in the Virtual WAN Hub| Generally Available in Azure Public Cloud|
+|Firewall NVA in the Virtual WAN hub| Generally Available in regions where [Network Virtual Appliances](about-nva-hub.md#regions) are available. |
+| Software-as-a-service in the Virtual WAN Hub|  Generally Avaialble in regions where [Palo Alto Cloud NGFW is available](https://docs.paloaltonetworks.com/cloud-ngfw-azure/reference/cloud-ngfw-for-azure-supported-regions-and-zones).|
 
 ### Forced tunnel
 
 The following table shows the availability status of securing Internet access with **forced tunneling** by configuring private routing policy.
 
-
 >[!IMPORTANT]
-> Configuring Virtual WAN hubs in forced tunnel mode is being progressively deployed to all Azure regions. The current list of available regions are: Australia Central, Brazil South, Central India, East Asia, East US, India West, Korea Central, Malaysia South, Malaysia West, Qatar Central, UK South, and West Central US. If you have any questions regarding region availability, contact virtual-wan-forced-tunnel@microsoft.com or your Microsoft account team. 
+> Configuring Virtual WAN hubs in forced tunnel mode is deployed to Azure Public. Deployment is underway for Azure Government. If you have any questions regarding region availability, contact virtual-wan-forced-tunnel@microsoft.com or your Microsoft account team.
 
  Security solution |Status|
 |--|--|
-|Azure Firewall |Generally Available in select Azure regions (see note above).|
-|Firewall NVA in the Virtual WAN hub| Public Preview in select Azure regions (see note above). |
-| Software-as-a-service in the Virtual WAN Hub| Public Preview in select Azure regions (see note above).|
+|Azure Firewall |Generally Available in Azure Public.|
+|Firewall NVA in the Virtual WAN hub| Public Preview in regions where [Network Virtual Appliances](about-nva-hub.md#regions) are available.|
+| Software-as-a-service in the Virtual WAN Hub| Public Preview in regions where [Palo Alto Cloud NGFW is available](https://docs.paloaltonetworks.com/cloud-ngfw-azure/reference/cloud-ngfw-for-azure-supported-regions-and-zones).|
 
 ### Known Limitations
 
@@ -59,7 +58,7 @@ The following table shows the availability status of securing Internet access wi
     * Destination-NAT (DNAT) for security solutions deployed in the Virtual WAN hub is **not supported** for Virtual WAN hubs that are configured with Forced Tunnel internet routing mode. The incoming connection for DNAT traffic originates from the Internet. However, forced tunnel mode forces return traffic via on-premises or an NVA. This routing pattern results in asymmetric routing. 
     * Traffic from on-premises destined for the public IP address of an Azure storage account deployed in the same Azure region as the Virtual WAN hub bypasses security solution in the hub. For more details on issue, see [Virtual WAN known issues](whats-new.md#knownissues).
     * On-premises **can't** advertise forced tunnel routes more specific that 0.0.0.0/0. Advertising more specific routes like 0.0.0.0/1 and 128.0.0.0/1 from on-premises may blackhole in management traffic for Azure Firewall or NVAs integrated in the Virtual Hub.
-    * When a 0.0.0.0/0 route is configured as a static route on a Virtual Network connection, the **bypass next hop setting** that is configured on the Virtual Network connection is ignored and is will be considered by Virtual WAN as **bypass/equals**. This means that that traffic destined for IP addresses within  Virtual Network connection with the configured 0.0.0.0/0 static route will be inspected by the security appliance in the Virtual Hub and routed directly to the destination IP in the spoke Virtual Network. Traffic will **bypass** the next hop IP configured in the static route. For a detaield example of this routing behavior, see **traffic behavior With Bypass Next Hop IP Enabled** in the [bypass next hop IP](howto-connect-vnet-hub.md#bypassexplained) document.
+    * When a 0.0.0.0/0 route is configured as a static route on a Virtual Network connection, the **bypass next hop setting** that is configured on the Virtual Network connection is ignored and considered to be set to **bypass/equals**. This means that that traffic destined for IP addresses within  Virtual Network connection with the configured 0.0.0.0/0 static route will be inspected by the security appliance in the Virtual Hub and routed directly to the destination IP in the spoke Virtual Network. Traffic will **bypass** the next hop IP configured in the static route. For a detailed example of this routing behavior, see **traffic behavior with Bypass Next Hop IP enabled** in the [bypass next hop IP](howto-connect-vnet-hub.md#bypassexplained) document.
   * The default route learned from ExpressRoute can't be advertised to another ExpressRoute circuit. This means you can't configure Virtual WAN to route Internet traffic from one ExpressRoute circuit to another ExpressRoute circuit for egress. 
   * If there is no 0.0.0.0/0 route learnt from on-premises or a static route configured to point to a NVA in a spoke Network, the effective routes on the security solution incorrectly displays 0.0.0.0/0 with next hop Internet. As Internet-traffic is not forwarded to the security solution in the hub when forced tunnel mode is configured without an explicit 0.0.0.0/0 learnt from on-premises or configured as a static route, effective routes should **not** contain a  0.0.0.0/0 route.
   

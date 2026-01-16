@@ -126,16 +126,18 @@ landingContent:
             url: supported-colormaps.md
 
   # Card
-  - title: Build and use applications
+  - title: Connect and build applications
     linkLists:
       - linkListType: concept
         links:
-          - text: Build applications
+          - text: Connect and build applications with your data
             url: build-applications-with-planetary-computer-pro.md
       - linkListType: quickstart
         links:
           - text: Use the explorer
             url: use-explorer.md
+          - text: Build a web application
+            url: build-web-application.md
       - linkListType: how-to-guide
         links:
           - text: Application authentication

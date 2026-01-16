@@ -1,5 +1,5 @@
 ---
-title: Deploy custom content from your repository
+title: Deploy custom content from your repository (Preview)
 titleSuffix: Microsoft Sentinel
 description: This article describes how to create connections with a GitHub or Azure DevOps repository where you can manage your custom content and deploy it to Microsoft Sentinel.
 author: mberdugo 
@@ -17,7 +17,7 @@ ms.custom:
   - build-2025
 ---
 
-# Deploy content as code from your repository (Public preview)
+# Deploy content as code from your repository (Preview)
 
 When creating custom content, you can manage it from your own Microsoft Sentinel workspaces, or an external source control repository. This article describes how to create and manage connections between Microsoft Sentinel and GitHub or Azure DevOps repositories. Managing your content in an external repository allows you to make updates to that content outside of Microsoft Sentinel, and have it automatically deployed to your workspaces. For more information, see [Update custom content with repository connections](ci-cd-custom-content.md).
 
@@ -27,10 +27,11 @@ When creating custom content, you can manage it from your own Microsoft Sentinel
 
 ## Prerequisites
 
-Microsoft Sentinel currently supports connections to GitHub and Azure DevOps repositories. Before connecting your Microsoft Sentinel workspace to your source control repository, make sure that you have:
+Microsoft Sentinel currently supports connections to GitHub and Azure DevOps repositories. Before connecting your Microsoft Sentinel workspace to your source control repository, make sure that:
 
-- An **Owner** role in the resource group that contains your Microsoft Sentinel workspace *or* a combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection
-- Ensure custom content files you want to deploy to your workspaces are in a supported format. For supported formats, see [Plan your repository content](ci-cd-custom-content.md#plan-your-repository-content).
+- You have an **Owner** role in the resource group that contains your Microsoft Sentinel workspace *or* a combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection
+- Custom content files you want to deploy to your workspaces are in a supported format. For supported formats, see [Plan your repository content](ci-cd-custom-content.md#plan-your-repository-content).
+- The account you use to create the connection is in your home tenant. External identities, such as B2B guest accounts, and delegated access aren’t supported.
 
 ### [GitHub prerequisites](#tab/github)
 
@@ -45,7 +46,7 @@ Microsoft Sentinel currently supports connections to GitHub and Azure DevOps rep
 
 ---
 
-For more information on deployable content types, see [Validate your content](ci-cd-custom-content.md#validate-your-content).
+For more information on deployable content types, see [Plan your repository content](ci-cd-custom-content.md#plan-your-repository-content).
 
 ## Connect a repository
 
@@ -94,9 +95,7 @@ You can't create duplicate connections, with the same repository and branch, in 
     # [Azure DevOps](#tab/azure-devops)
 
     You're automatically authorized to Azure DevOps using your current Azure credentials. [Verify that you're authorized to the same Azure DevOps tenant](https://aex.dev.azure.com/) that you're connecting to from Microsoft Sentinel or use an InPrivate browser window to create your connection.
-
-    Due to cross-tenant limitations, if you're creating a connection as a [guest user](../active-directory/external-identities/what-is-b2b.md) on the workspace, your Azure DevOps URL doesn't appear in the dropdown. Enter it manually instead.
-    
+   
     1.  In Microsoft Sentinel, from the dropdown lists that appear, select your **Organization**, **Project**, **Repository**, **Branch**, and **Content Types**.
 
         - Both parsers and hunting queries use the **Saved Searches** API to deploy content to Microsoft Sentinel. If you select one of these content types, and also have content of the other type in your branch, both content types are deployed.

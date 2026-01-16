@@ -3,7 +3,7 @@ title: Configure active geo-replication for Enterprise Azure Cache for Redis ins
 description: Learn how to replicate your Azure Cache for Redis Enterprise instances across Azure regions.
 ms.custom: devx-track-azurecli, ignite-2024
 ms.topic: conceptual
-ms.date: 01/15/2025
+ms.date: 01/15/2026
 appliesto:
   - ✅ Azure Cache for Redis
 ---
@@ -101,6 +101,9 @@ az redisenterprise create --location "East US" --cluster-name "Cache1" --sku "En
 To configure active geo-replication properly, the ID of the cache instance being created must be added with the `--linked-databases` parameter. The ID is in the format:
 
 `/subscriptions/<your-subscription-ID>/resourceGroups/<your-resource-group-name>/providers/Microsoft.Cache/redisEnterprise/<your-cache-name>/databases/default`
+
+> [!NOTE]
+> The linked database IDs are case sensitive.
 
 #### Create new Enterprise instance in an existing geo-replication group using Azure CLI
 
@@ -208,7 +211,9 @@ To monitor the _Geo Replication Healthy_ metric in the Azure portal:
 
 - Use of custom Hash tags – Using custom hashtags in Redis can lead to uneven distribution of data across shards, which might cause performance issues and synchronization problems in geo-replicas therefore avoid using custom hashtags unless the database needs to perform multiple key operations.
 
-- Large Key Size - Large keys can create synchronization issues among geo-replicas. To maintain smooth performance and reliable replication, we recommend keeping key sizes under 500MB when using geo-replication. If individual key size gets close to 2GB the cache faces geo-replication health issues.  
+- Large Key Size - Large keys can create synchronization issues among geo-replicas. To maintain smooth performance and reliable replication, we recommend keeping key sizes under 500MB when using geo-replication. If individual key size gets close to 2GB the cache faces geo-replication health issues.
+
+- Out of Memory - When the nodes are close to their memory limit, they become unable to sync data across caches, leading to stale data. Stale data affects the health of all caches in the replication group. Set an appropriate Time to Live (TTL) or eviction policy.
 
 ### Flush caches using Azure CLI or PowerShell
 

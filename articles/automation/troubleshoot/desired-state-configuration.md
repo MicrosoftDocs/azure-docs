@@ -6,8 +6,8 @@ ms.subservice:
 ms.date: 10/22/2024
 ms.topic: troubleshooting
 ms.custom: linux-related-content
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Troubleshoot Azure Automation State Configuration issues

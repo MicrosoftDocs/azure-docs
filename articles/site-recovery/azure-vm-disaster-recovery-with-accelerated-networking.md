@@ -30,6 +30,8 @@ Azure Site Recovery supports enabling Accelerated Networking for replicated virt
 
 ### Supported operating systems
 The following distributions are supported out of the box from the Azure Gallery:
+* **Windows Server 2022 Datacenter**
+* **Windows Server 2019 Datacenter**
 * **Windows Server 2016 Datacenter**
 * **Windows Server 2012 R2 Datacenter**
 

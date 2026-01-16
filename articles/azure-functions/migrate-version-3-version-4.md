@@ -453,7 +453,7 @@ To update your project to Azure Functions 4.x:
 
 ::: zone pivot="programming-language-python"
 
-1. If you're using Python 3.6, move to one of the [supported versions](functions-reference-python.md#python-version).
+1. If you're using Python 3.6, move to one of the [supported versions](functions-reference-python.md#supported-python-versions).
 
 ::: zone-end
 

@@ -309,6 +309,8 @@ az network vnet peering delete \
 
 - <a name="cross-region"></a>You can peer virtual networks in the same region, or different regions. Peering virtual networks in different regions is also referred to as **Global Virtual Network Peering**.
 
+- If the 2 Virtual Networks are in different subscriptions or different resource groups within same subscription, please note that you have to introduce the full resource URI of the remote Virtual Network when using Powershell or CLI.
+
 - When you create a global peering, the peered virtual networks can exist in any Azure public cloud region, China cloud region, or Government cloud region. However, you can't peer virtual networks across different clouds. For example, a virtual network in Azure public cloud can't connect to a virtual network in Microsoft Azure operated by 21Vianet cloud.
   
 - You can't move a virtual network while it's part of a peering. To move a virtual network to a different resource group or subscription, first delete the peering, then move the virtual network, and finally recreate the peering.

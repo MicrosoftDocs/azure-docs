@@ -141,9 +141,9 @@ This section includes questions related to networking for Oracle Database@Azure.
 
 We support a comprehensive list of connectivity patterns and network features for Oracle Database@Azure. The list evolves as we continuously release new features and capabilities. For more information, see [Network planning for Oracle Database@Azure](oracle-database-network-plan.md).
 
-### How does Data Guard route traffic between availability zones in the same Azure region work?
+### How does Data Guard route traffic between availability zones in the same Azure region or in cross region work?
 
-You can configure an Oracle Data Guard network path when you set up your deployment. You can configure *cross-zone* Data Guard traffic to traverse only the Azure backbone. However, *cross-region* traffic must traverse the Azure and OCI network backbones.
+While configuring Oracle Data Guard, you can route network traffic through either the Azure or OCI backbone including cross-zone and cross-region connectivity. For cross-region configurations, enable advanced networking features and utilize cross-region VNet peering to ensure that Data Guard traffic exclusively traverses the Azure backbone.
 
 ### What is the latency impact of using OCI connections?
 

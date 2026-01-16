@@ -1,7 +1,7 @@
 ---
 title: Reliability in Azure Event Hubs
-description: Learn how to improve reliability in Azure Event Hubs by using availability zones, geo-disaster recovery, and geo-replication for mission-critical streaming applications.
-author: anaharris-ms 
+description: Find out about resiliency in Azure Event Hubs, including transient faults, availability zones, geo-disaster recovery, geo-replication, and backups.
+author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
@@ -13,11 +13,11 @@ ms.date: 10/17/2025
 
 # Reliability in Azure Event Hubs
 
-This article describes reliability support in [Azure Event Hubs](../event-hubs/event-hubs-about.md), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
+[Azure Event Hubs](../event-hubs/event-hubs-about.md) is a native cloud service that can stream millions of events per second with low latency, from any source to any destination. Use Event Hubs to ingest and store streaming data, and integrate with client applications built for Apache Kafka or applications that use the Event Hubs client SDKs.
 
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
-Event Hubs is a native cloud service that can stream millions of events per second with low latency, from any source to any destination. Use Event Hubs to ingest and store streaming data, and integrate with client applications built for Apache Kafka or applications that use the Event Hubs client SDKs.
+This article describes how Event Hubs is resilient to a variety of potential outages and problems, and how you can configure it to be resilient to others, including transient faults, availability zone outages, and region outages. It also describes backup and recovery options, and highlights some key information about the Azure Event Hubs service level agreement (SLA).
 
 ## Production deployment recommendations
 
@@ -45,11 +45,11 @@ In the physical architecture, an Event Hubs namespace runs within a *cluster*. A
 
 To achieve redundancy, each cluster has multiple replicas that process read and write requests. For high availability and performance optimization, all data is stored on three storage replicas. To scale your namespace's compute resources, deploy throughput units (TUs), processing units (PUs), or capacity units (CUs), depending on the tier. For more information, see [Scaling with Event Hubs](../event-hubs/event-hubs-scalability.md).
 
-Clusters span multiple physical machines and racks, which reduces the risk of catastrophic failures affecting your namespace. In regions that have availability zones, clusters extend across separate physical datacenters. For more information, see [Availability zone support](#availability-zone-support).
+Clusters span multiple physical machines and racks, which reduces the risk of catastrophic failures affecting your namespace. In regions that have availability zones, clusters extend across separate physical datacenters. For more information, see [Resilience to availability zone failures](#resilience-to-availability-zone-failures).
 
-## Transient faults
+## Resilience to transient faults
 
-[!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
+[!INCLUDE [Transient fault description - resilience](includes/reliability-transient-fault-description-include.md)]
 
 Event Hubs implements transparent failure detection and failover mechanisms so that the service continues to operate within the assured service levels, typically without noticeable interruptions when failures occur.
 
@@ -62,9 +62,9 @@ When you design client applications to work with Event Hubs, follow this guidanc
 - **Use batching for send operations** to improve throughput and reduce the impact of transient network problems on individual messages.
 - **Use Apache Kafka SDKs** if you work with the Kafka protocol. The Kafka SDKs also implement retry policies and other best practices that help handle transient faults.
 
-## Availability zone support
+## Resilience to availability zone failures
 
-[!INCLUDE [Availability zone support description](includes/reliability-availability-zone-description-include.md)]
+[!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
 Event Hubs supports zone-redundant deployments in all service tiers. When you create an Event Hubs namespace in a supported region, zone redundancy is automatically enabled at no extra cost. But with the Dedicated tier, availability zones are supported only with a minimum of three CUs. The zone-redundant deployment model applies to all Event Hubs features, including Capture, Schema Registry, and Kafka protocol support.
 
@@ -92,7 +92,7 @@ Zone redundancy in Event Hubs doesn't add extra cost.
 
 Event Hubs namespaces automatically support zone redundancy when deployed in [supported regions](#region-support). No further configuration is required.
 
-### Normal operations
+### Behavior when all zones are healthy
 
 When Event Hubs namespaces use zone redundancy and all availability zones operate normally, expect the following behavior:
 
@@ -100,35 +100,33 @@ When Event Hubs namespaces use zone redundancy and all availability zones operat
 
 - **Data replication between zones:** Event Hubs uses synchronous replication across availability zones. When an event producer sends an event, Event Hubs writes it to replicas in multiple zones before acknowledging the write operation is complete to the client. This approach ensures zero data loss, even if an entire zone becomes unavailable. The synchronous replication approach provides strong consistency guarantees while maintaining low latency through optimized replication protocols.
 
-### Zone-down experience
+### Behavior during a zone failure
 
 When Event Hubs namespaces use zone redundancy and an availability zone outage occurs, expect the following behavior:
 
 - **Detection and response:** Event Hubs is responsible for automatically detecting a failure in an availability zone. You don't need to initiate a zone failover.
 
-- **Notification:** Event Hubs doesn't notify you when a zone is down. But you can use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Event Hubs service, including zone failures.
+[!INCLUDE [Availability zone down notification (Service Health only)](./includes/reliability-availability-zone-down-notification-service-include.md)]
 
-  Set up alerts to receive notifications of zone-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal).
-
-- **Active requests:** During a zone failure, Event Hubs might drop active requests. If your clients handle [transient faults](#transient-faults) appropriately by retrying after a short period of time, they typically avoid significant impact.
+- **Active requests:** During a zone failure, Event Hubs might drop active requests. If your clients handle [transient faults](#resilience-to-transient-faults) appropriately by retrying after a short period of time, they typically avoid significant impact.
 
 - **Expected data loss:** No data loss occurs during a zone failure because Event Hubs synchronously replicates events across zones before acknowledgment.
 
-- **Expected downtime:** A zone failure might cause a few seconds of downtime. If your clients handle [transient faults](#transient-faults) appropriately by retrying after a short period of time, they typically avoid significant impact.
+- **Expected downtime:** A zone failure might cause a few seconds of downtime. If your clients handle [transient faults](#resilience-to-transient-faults) appropriately by retrying after a short period of time, they typically avoid significant impact.
 
 - **Traffic rerouting:** Event Hubs detects the loss of the zone and automatically redirects new requests to another replica in one of the healthy availability zones.
-    
+
     Event Hubs client SDKs typically handle connection management and retry logic transparently.
 
 ### Zone recovery
 
 When an availability zone recovers, Event Hubs automatically reintegrates the zone into the active service topology. The recovered zone begins accepting new connections and processing events alongside the other zones. Data that had been replicated to surviving zones during the outage remains intact, and normal synchronous replication resumes across all zones. You don't need to take action for zone recovery and reintegration.
 
-### Testing for zone failures
+### Test for zone failures
 
 Event Hubs manages traffic routing, failover, and zone recovery for zone failures, so you don't need to validate availability zone failure processes or provide further input.
 
-## Multi-region support
+## Resilience to region-wide failures
 
 Event Hubs provides two types of multi-region support:
 
@@ -147,7 +145,7 @@ Use geo-replication for scenarios that require resiliency to region outages and 
 The namespace essentially extends across regions. One region serves as the primary, and the other regions serve as secondaries. Your Azure subscription shows a single namespace, no matter how many secondary regions you configure for geo-replication.
 
 :::image type="content" source="./media/reliability-event-hubs/geo-replication.svg" alt-text="Diagram that shows an Event Hubs namespace configured for geo-replication." border="false":::
-    
+
 At any time, you can *promote* a secondary region to a primary region. When you promote a secondary region, Event Hubs repoints the namespace's fully qualified domain name (FQDN) to the selected secondary region and demotes the previous primary region to a secondary region. You decide whether to perform a *planned promotion*, which means that you wait for data replication to complete, or a *forced promotion*, which might result in data loss.
 
 > [!NOTE]
@@ -183,7 +181,7 @@ To understand how pricing works for geo-replication, see [Pricing](../event-hubs
 
 - **Disable geo-replication.** To disable geo-replication to a secondary region, see [Remove a secondary region](../event-hubs/use-geo-replication.md#remove-a-secondary).
 
-#### Normal operations
+#### Behavior when all regions are healthy
 
 This section describes what to expect when an Event Hubs namespace is configured for geo-replication, and the primary region is operational.
 
@@ -194,32 +192,32 @@ This section describes what to expect when an Event Hubs namespace is configured
 - **Data replication between regions:** Data replication behavior between the primary and secondary regions depends on whether you configure your replication pairing to use synchronous or asynchronous replication.
 
   - *Synchronous:* Events are replicated to the secondary region before the write operation completes.
-    
+
     This mode provides the greatest assurance that your event data is safe because it must be committed in the primary and secondary region. However, synchronous replication substantially increases the write latency for incoming events. It also requires that the secondary region be available to accept the write operation, so an outage in any secondary region causes the write operation to fail.
 
     - *Asynchronous:* Events are written to the primary region and then the write operation completes.  A short time later, it replicates the events to the secondary region.
-    
+
     This mode provides a higher write throughput than synchronous replication because there's no inter-region replication latency during write operations. Also, the asynchronous replication mode can tolerate the loss of a secondary region while still allowing write operations in the primary region. However, if the primary region has an outage, any data that hasn't yet been replicated to the secondary region might be unavailable or lost.
 
     When you configure asynchronous replication, you configure the maximum acceptable lag time for replication to take. At any time, you can verify the current replication lag [by using Azure Monitor metrics](../event-hubs/geo-replication.md#monitoring-data-replication).
-        
+
     If the asynchronous replication lag increases beyond the maximum you specify, the primary region starts to throttle incoming requests so that the replication can catch up. To avoid this situation, it's important to select secondary regions that aren't too geographically distant, and to ensure that your capacity is sufficient for the throughput.
 
     For more information, see [Replication modes](../event-hubs/geo-replication.md#replication-modes).
 
-#### Region-down experience
+#### Behavior during a region failure
 
 This section describes what to expect when an Event Hubs namespace is configured for geo-replication and there's an outage in the primary or a secondary region.
 
-You're responsible for deciding when to promote your namespace's secondary region to become the new primary region. Microsoft doesn't make this decision or initiate the process for you, even if there's a region outage. For more information about how to promote a secondary region to the new primary, see [Promote secondary](../event-hubs/use-geo-replication.md#promote-secondary).
-    
-When you promote a secondary region, choose whether to perform a *planned promotion* or a *forced promotion*. A planned promotion waits for the secondary region to catch up before accepting new traffic. This approach eliminates data loss but introduces downtime.
-    
-During an outage in the primary region, you typically need to perform a forced promotion. If the primary region is available and you trigger a promotion for another reason, you might choose a planned promotion.
+- **Detection and response:** You're responsible for deciding when to promote your namespace's secondary region to become the new primary region. Microsoft doesn't make this decision or initiate the process for you, even if there's a region outage. For more information about how to promote a secondary region to the new primary, see [Promote secondary](../event-hubs/use-geo-replication.md#promote-secondary).
 
-- **Notification:** Event Hubs doesn't notify you when a region is down. But you can use [Service Health](/azure/service-health/overview) to understand the overall health of Event Hubs, including region failures. Use that information and other metrics to decide when to promote a secondary region to a primary region.
+    When you promote a secondary region, choose whether to perform a *planned promotion* or a *forced promotion*. A planned promotion waits for the secondary region to catch up before accepting new traffic. This approach eliminates data loss but introduces downtime.
 
-    Set up alerts to receive notifications about region-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal).
+    During an outage in the primary region, you typically need to perform a forced promotion. If the primary region is available and you trigger a promotion for another reason, you might choose a planned promotion.
+
+- **Notification:** [!INCLUDE [Region down notification partial bullet (Azure Service Health only)](./includes/reliability-region-down-notification-service-partial-include.md)]
+
+    Use that information and other metrics to decide when to promote a secondary region to a primary region.
 
 - **Active requests:** The behavior depends on whether the region outage occurs in the primary region or a secondary region:
 
@@ -236,19 +234,17 @@ During an outage in the primary region, you typically need to perform a forced p
 - **Expected data loss:** The amount of data loss depends on the type of promotion that you perform (planned or forced) and the replication mode (synchronous or asynchronous):
 
     - *Planned promotion:* No data loss is expected. However, during a region outage, a planned promotion might not be possible because it requires all of the primary and secondary regions to be available.
-    
-     
 
     - *Forced promotion, synchronous replication:* No data loss is expected.
 
     - *Forced promotion, asynchronous replication:* You might experience some data loss for recent events that aren't replicated to the secondary region. The amount depends on the replication lag. To verify the current replication lag, use [Azure Monitor metrics](../event-hubs/geo-replication.md#monitoring-data-replication).
-    
+
     If you perform a forced promotion, you can't recover lost data, even after the primary region becomes available.
 
 - **Expected downtime:** The amount of expected downtime depends on whether you perform a planned or forced promotion:
 
     - *Planned promotion:* The first step in a planned promotion replicates data to the secondary region. That process usually completes quickly, but in some situations, it might take up to the length of the replication lag. After the replication completes, the promotion process typically takes about 5 to 10 minutes. It can sometimes take longer for Domain Name System (DNS) servers to update entries and fully replicate their records to clients.
-    
+
         The primary region doesn't accept write operations during the entire promotion process.
 
         This option might not be possible during a region outage because it requires all primary and secondary regions to be available.
@@ -267,7 +263,7 @@ After the original primary region recovers, if you want to return the namespace 
 
 If you performed a forced promotion during the region outage, you can't recover lost data, even after the primary region becomes available.
 
-#### Testing for region failures
+#### Test for region failures
 
 To test geo-replication, temporarily promote the secondary region to primary and validate that your client applications can switch between regions with minimal disruption.
 
@@ -326,7 +322,7 @@ When you enable metadata geo-disaster recovery, you pay for both the primary and
 
 When you plan for multi-region deployments, ensure that both regions have sufficient capacity to handle the full load if one region fails. The secondary region remains passive during normal operations, but it must immediately handle traffic after failover. Plan how to scale the secondary namespace capacity so that it can receive production traffic without delay. If you can tolerate extra downtime during the failover process, you might choose to scale the secondary namespace capacity during or after failover. To reduce downtime, provision capacity in the secondary namespace in advance so that it remains ready to receive production load.
 
-#### Normal operations
+#### Behavior when all regions are healthy
 
 This section describes what to expect when an Event Hubs namespace is configured for geo-disaster recovery, and the primary region is operational.
 
@@ -338,7 +334,7 @@ This section describes what to expect when an Event Hubs namespace is configured
 
     All event data remains in the primary namespace only and doesn't replicate to the secondary namespace.
 
-#### Region-down experience
+#### Behavior during a region failure
 
 This section describes what to expect when an Event Hubs namespace is configured for geo-disaster recovery and there's an outage in the primary region.
 
@@ -348,18 +344,18 @@ This section describes what to expect when an Event Hubs namespace is configured
 
     Failover is a one-way operation, so you need to reestablish the geo-disaster recovery pairing later. For more information, see [Region recovery](#region-recovery-1).
 
-- **Notification:** Event Hubs doesn't notify you when a region is down. But you can use [Service Health](/azure/service-health/overview) to understand the overall health of Event Hubs, including region failures. Use that information and other metrics to decide when to initiate a failover.
+- **Notification:** [!INCLUDE [Region down notification partial bullet (Azure Service Health only)](./includes/reliability-region-down-notification-service-partial-include.md)]
 
-    Set up alerts to receive notifications about region-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal).
+    Use that information and other metrics to decide when to fail over to the secondary region.
 
 - **Active requests:** Active requests in progress terminate when the failover starts. Client applications should retry operations after the failover completes.
 
-- **Expected data loss:** 
+- **Expected data loss:**
 
     - *Metadata:* Configuration and metadata typically replicate to the secondary namespace. But metadata replication occurs asynchronously, so recent changes might not replicate, especially complex changes. Verify the configuration of your secondary namespace before clients access it.
 
     - *Event data:* Event data doesn't replicate between regions. If the primary region goes down, events in your primary namespace become unavailable.
-    
+
         The events aren't permanently lost unless a catastrophic disaster causes total loss of the primary region. If the region recovers, you can retrieve events from the primary namespace later.
 
 - **Expected downtime:** Failover typically occurs within 5 to 10 minutes. It can take longer for clients to fully replicate and update DNS entries.
@@ -372,7 +368,7 @@ After the original primary region recovers, you must manually re-establish the p
 
 If the disaster causes the loss of all zones in the primary region, your data might be unrecoverable. In other scenarios, your event data remains in the primary namespace from before the failover is recoverable. You can obtain historic events from the old primary namespace after you restore access. You're responsible for configuring your applications to receive and process those events. Microsoft doesn't automatically restore them into your secondary region.
 
-#### Testing for region failures
+#### Test for region failures
 
 To test your response and disaster recovery processes, perform a planned failover during a maintenance window. Initiate failover from your primary namespace to your secondary namespace and verify that your applications can connect and process events from the new primary.
 
@@ -380,13 +376,13 @@ Monitor the failover duration and validate that your runbooks and automation wor
 
 Understand the potential downtime and data loss that you might experience during and after the failover process. Test geo-replication in a nonproduction environment that mirrors the configuration of your production namespace.
 
-### Alternative multi-region approaches
+### Custom multi-region solutions for resiliency
 
 Geo-replication and metadata geo-disaster recovery provide resiliency to region outages and other problems, and they support most workloads. Some Event Hubs tiers don't support these features, or you might require custom replication or need to maintain multiple active regions simultaneously.
 
 Various design patterns can achieve different types of multi-region support in Event Hubs. Many of the patterns require deploying multiple namespaces and using services like Azure Functions to replicate events between them. For more information, see [Multi-site and multi-region federation](../event-hubs/event-hubs-federation-overview.md).
 
-## Backups
+## Backup and restore
 
 Event Hubs isn't designed as a long-term storage location for your data. Typically, you store data in an event hub for a short period of time and then either process it or persist it in another data storage system. You can configure the data retention period for your event hub based on your requirements and the tier that your namespace uses. For more information, see [Event retention](../event-hubs/event-hubs-features.md#event-retention).
 

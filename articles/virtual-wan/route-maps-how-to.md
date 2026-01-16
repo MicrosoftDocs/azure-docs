@@ -36,8 +36,8 @@ Verify that you've met the following criteria before beginning your configuratio
 
    * The upgrade process takes around 30 minutes.
    * The upgrade process only happens the first time a route-map is created on a hub.
-   * Once the virtual hub router and gateways are upgraded to this new software version, please note the following:
-      * Your virtual hub will support ExpressRoute ECMP for outbound traffic flows. For more details, see [About ExpressRoute ECMP](virtual-wan-faq.md#does-expressroute-support-equal-cost-multi-path-ecmp-routing-in-virtual-wan).
+   * Once the virtual hub router and gateways are upgraded to this new software version, the following applies:
+      * Your virtual hub will support ExpressRoute ECMP for outbound traffic flows. For more information, see [About ExpressRoute ECMP](virtual-wan-faq.md#does-expressroute-support-equal-cost-multi-path-ecmp-routing-in-virtual-wan).
       * Your spoke virtual network prefixes need to be in the Default route table to be advertised to on-premises. You can achieve this by ensuring your virtual network connections are propagating to the Default route table.
    * If the route-map is deleted, the virtual hub router remains on the new version of software.
    * Using Route-maps incurs an additional charge. For more information, see the [Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page.
@@ -117,13 +117,19 @@ Once the route-map is saved, you can apply the route-map to the desired connecti
 
 To modify or remove an existing Route-map rule, use the following steps.
 
-1. On the **Route-maps page**, on the line for the route-map that you want to edit, select **… > Edit**.
+1. On the **Route-maps page**, at the top, select **Apply Route-maps to connections**.
 
-1. On **Edit Route-map** page, select **… > Edit** to edit the route-map rule.
+2. On **Apply Route-maps to connections** page, select the connection you want to modify via the checkbox on the left.
 
-1. Modify the rule as required. On the **Edit Route-map rule** page, select **Add**, and on Reminder dialog box, select **Okay** to store the rule changes temporarily and proceed to next step.
+3. Change the **Inbound Route-map** and **Outbound Route-map** dropdowns to the appropriate Route-maps or set to **None** for the connections you want to remove the Route-map for. In this example, we're removing the inbound Route-map from a branch VPN connection.
 
-1. On the **Edit Route-map** page, select **Save**.
+   :::image type="content" source="./media/route-maps-how-to/remove-route-map-final.png" alt-text="Screenshot shows removing a route-map from a connection in the Azure portal." lightbox="./media/route-maps-how-to/remove-route-map-final.png":::
+
+4. Once completed, select **Save**.
+
+5. Verify the changes by opening **Apply Route-maps to connections** and using the [Route-maps dashboard](route-maps-dashboard.md). 
+
+   :::image type="content" source="./media/route-maps-how-to/remove-route-map-results-final.png" alt-text="Screenshot shows that the route-map is removed from the connection in the Azure portal." lightbox="./media/route-maps-how-to/remove-route-map-results-final.png":::
 
 ## Troubleshooting
 

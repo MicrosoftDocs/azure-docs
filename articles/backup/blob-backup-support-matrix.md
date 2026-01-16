@@ -58,7 +58,7 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 
 - You can back up only block blobs in a *standard general-purpose v2 storage account* using the vaulted backup solution for blobs.
 - Blob vaulted backup is also supported when the storage account has private endpoints.
-- HNS-enabled storage accounts are currently not supported. This includes *ADLS Gen2 accounts*, *accounts using NFS 3.0*, and *SFTP protocols* for blobs.
+- Storage accounts using NFS 3.0*, and *SFTP protocols* for blobs are currently not supported. 
 - You can take up to five backups per storage account in a day.
 - You can back up storage accounts with *up to 100 containers*, there is no limit on the number of blobs within those containers. You can also select a subset of containers to back up (up to 100 containers).
   - If your storage account contains more than 100 containers, you need to select *up to 100 containers* to back up.
@@ -78,6 +78,7 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 - Enabling backups isn't supported for the blob container that are configured with native replication using data factory.
 - The protection of  a container that is part of any object replication isn't supported, either as a source or destination. Attempting to back up such a container will result in backup failure.
 - Containers with **legal hold** enabled aren't supported.
+- If your storage account is large or contains huge number of versions, the first backup can take multiple days to complete. 
  
 
 ---

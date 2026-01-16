@@ -32,6 +32,8 @@ items:
       href: storage-mover-create.md
     - name: Migrate from Amazon S3 to Azure
       href: cloud-to-cloud-migration.md
+    - name: Transfer from Azure Blob to Blob
+      href: azure-to-azure-migration.md
     - name: Deploy a storage mover agent
       href: agent-deploy.md
     - name: Register an agent

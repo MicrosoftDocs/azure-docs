@@ -24,6 +24,8 @@
     href: ./concepts/clusters.md
   - name: Scheduling
     href: ./concepts/scheduling.md
+  - name: Multi-region Cluster Deployment
+    href: ./concepts/multi-region-cluster-deployment.md    
   - name: Clusters Operations
     items:
     - name: User Management
@@ -170,6 +172,10 @@
       href: ./how-to/configure-autoscaling.md
     - name: Use the REST API
       href: ./how-to/use-rest-api.md
+  - name: Monitoring custom metrics
+    items:
+    - name: Collect custom metrics
+      href: ./how-to/collect-custom-metrics-gpu-infiniband-telegraf.md       
   - name: Troubleshoot
     items:
     - name: Report an Issue
@@ -258,10 +264,16 @@
         href: /previous-versions/azure/cyclecloud/release-notes-previous
       - name: Older Releases
         href: /previous-versions/azure/cyclecloud/release-notes-archive
+      - name: 8.8.1 Release Notes
+        href: ./release-notes/8-8-1.md
+      - name: 8.8.0 Release Notes
+        href: ./release-notes/8-8-0.md
   - name: Release Notes - CycleCloud Workspace for Slurm
     items:
-    - name: Current Release - 2025.04.24
-      href: ./release-notes/ccws/release-notes.md       
+      - name: Current Release - 2025.12.01
+        href: ./release-notes/ccws/2025-12-01.md
+      - name: All Releases
+        href: ./release-notes/ccws/release-notes.md
   - name: Service Policy
     href: service-policy.md
   - name: Data Usage Policy

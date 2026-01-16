@@ -1,7 +1,7 @@
 ---
 title: Generate load from multiple regions
 titleSuffix: Azure Load Testing
-description: Learn how to create a geo-distributed load test in Azure Load Testing. Generate load from multiple Azure regions simultaneously.
+description: Simulate realistic user load by running multi-region load tests using JMeter and Locust in Azure App Testing.
 services: load-testing
 ms.service: azure-load-testing
 ms.author: nicktrog
@@ -16,6 +16,8 @@ ms.topic: how-to
 In this article, you learn how to configure a load test with Azure Load Testing to generate load from multiple regions simultaneously. You can specify the Azure regions from which to generate the load, and the percentage of load for each region. By default, Azure Load Testing creates load only from the Azure region associated with the load testing resource.
 
 To generate load simultaneously from different regions and simulate users accessing your application from multiple geographical areas, select from any of the [Azure regions where Azure Load Testing](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=load-testing) is available.
+
+> [!VIDEO b48eb64c-a78e-41b0-b5ff-7a4d88d90295]
 
 ## Prerequisites  
 

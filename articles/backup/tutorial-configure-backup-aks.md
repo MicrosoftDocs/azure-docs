@@ -23,10 +23,14 @@ The Backup vault communicates with the cluster via the Backup extension to compl
 
 ## Prerequisites
 
+Before you configure item-level backup for an AKS cluster, complete the following prerequisites:
+
 - Identify or [create a Backup vault](create-manage-backup-vault.md) in the same region where you want to back up an AKS cluster.
 - [Install the Backup extension](quick-install-backup-extension.md) in the AKS cluster that you want to back up.
 
-## Configure backup for an AKS cluster
+## Configure item-level backup for an AKS cluster
+
+To configure item-level backup for an AKS cluster, follow these steps:
 
 1. In the Azure portal, go to the AKS cluster that you want to back up.
 

@@ -52,7 +52,7 @@ The columns in the table denote valuable information for your resource:
 
 ## Reconfigure rules for metrics and logs
 
-To change the configuration rules for metrics and [logs](overview.md#logs), select **New Relic account config** > **Metrics and logs** from the *Service menu*. 
+To change the configuration rules for metrics and logs, select **New Relic account config** > **Metrics and logs** from the *Service menu*. 
 
 :::image type="content" source="media/manage/resource-overview-monitoring.png" alt-text="A screenshot of a New Relic resource's Metrics and logs displayed in the working pane of the Azure portal.":::
 
@@ -66,7 +66,23 @@ The column **Logs to New Relic** indicates whether the resource is sending logs 
 
 ## Monitor multiple subscriptions
 
-You can now monitor all your subscriptions through a single New Relic resource using **Monitored Subscriptions**. You don't have to set up a New Relic resource in every subscription that you intend to monitor. Instead, monitor multiple subscriptions by linking them to a single New Relic resource tied to a New Relic organization to view all resources across multiple subscriptions from a single pane.
+You can monitor all your subscriptions through a single New Relic resource by using **Monitored Subscriptions**. You don't have to set up a New Relic resource in every subscription that you intend to monitor. Instead, monitor multiple subscriptions by linking them to a single New Relic resource tied to a New Relic organization to view all resources across multiple subscriptions from a single pane.
+
+When you add or remove subscriptions for New Relic monitoring, the system updates the Monitoring Reader role assignment on the system-managed identity that's linked to the resource.
+
+### Prerequisites
+
+- To perform these actions, you must have both of the following Azure permissions:
+
+   - `Microsoft.Authorization/roleAssignments/write`
+   - `Microsoft.Authorization/roleAssignments/delete`
+
+- The resource provider for New Relic (NewRelic.Observability) must be registered in the target subscription.
+
+### Add subscriptions 
+
+> [!IMPORTANT]
+> When you link a subscription to a New Relic resource, ensure that the subscription isn't scope locked (read-only or delete locks). Scope locks can prevent the addition and removal of diagnostic settings. For more information, see [Lock your Azure resources](../../azure-resource-manager/management/lock-resources.md).
 
 To monitor multiple subscriptions:
 
@@ -88,6 +104,19 @@ The set of tag rules for metrics and logs defined for the New Relic resource app
 If you have existing New Relic resources that are linked to the account for monitoring, duplication of logs can result in added charges. To prevent duplicate charges, delete redundant New Relic resources that are already linked to the account. We recommended consolidating subscriptions into the same New Relic resource where possible.
 
 The tag rules and logs that you defined for the New Relic resource apply to all the subscriptions that you select to be monitored.
+
+### Remove subscriptions
+
+> [!IMPORTANT]
+> When you unlink a subscription from a New Relic resource, ensure that the subscription isn't scope locked (read-only or delete locks). Scope locks can prevent the addition and removal of diagnostic settings. For more information, see [Lock your Azure resources](../../azure-resource-manager/management/lock-resources.md). 
+
+To unlink subscriptions from a New Relic resource:
+
+1. Select **New Relic account config** > **Monitored Subscriptions** from the service menu. 
+1. Select the subscription you want to remove.
+1. Select **Remove subscriptions**. 
+
+To view the updated list of monitored subscriptions, select **Refresh** from the Command bar.
 
 ## Connected New Relic resources
 
@@ -180,4 +209,7 @@ Contact [New Relic](https://support.newrelic.com/) for customer support.
 You can also request support in the Azure portal from the [resource overview](#resource-overview).  
 
 Select **Support + Troubleshooting** from the service menu, then choose the link to [log a support request in the New Relic portal](https://support.newrelic.com/).
+
+## Related content
+- [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md)
 

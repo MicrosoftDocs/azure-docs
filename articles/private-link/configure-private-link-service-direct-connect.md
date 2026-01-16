@@ -64,6 +64,7 @@ Private Link service (PLS) Direct Connect allows you to:
 
 Note these limitations when using Private Link service Direct Connect:
 
+- **Private Endpoint as a destination is not supported**: The destination IP address cannot be a Private Endpoint.
 - **Minimum 2 IP configurations required**: At least 2 IP configurations, or multiples of 2 ([limit](/azure/azure-resource-manager/management/azure-subscription-service-limits) of 8 max) are required to deploy a PLS Direct Connect.
 - **Maximum of 10 PLS per subscription**: There is a hardware limitation of 10 PLS per region per subscription.
 - **Bandwidth limitation**: Each PLS Direct Connect can support a bandwidth of up to 10 Gbps.

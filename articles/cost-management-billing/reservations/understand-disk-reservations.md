@@ -6,7 +6,7 @@ ms.author: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 10/28/2025
+ms.date: 01/15/2026
 ---
 
 # Understand how your reservation discount is applied to Azure disk storage
