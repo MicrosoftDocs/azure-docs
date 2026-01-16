@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 11/03/2025
 ms.subservice: billing
 ms.author: jkinma
+service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
 # View and download tax documents for your Azure invoice

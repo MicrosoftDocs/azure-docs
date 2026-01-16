@@ -2,12 +2,12 @@
 title: Tutorial - Monitor devices, notify with Azure Logic Apps
 titleSuffix: Azure IoT Hub
 description: Tutorial - Use Azure Logic Apps to monitor IoT temperature data in IoT hub and send email notifications to your mailbox for any anomalies detected.
-author: SoniaLopezBravo
+author: cwatson-cat
 
-ms.author: sonialopez
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: tutorial
-ms.date: 02/07/2024
+ms.date: 08/13/2025
 ms.custom: sfi-image-nochange
 ---
 
@@ -15,7 +15,7 @@ ms.custom: sfi-image-nochange
 
 Use Azure Logic Apps to monitor incoming device telemetry from IoT Hub and send notifications when alerts are triggered.
 
-![End-to-end diagram](media/iot-hub-monitoring-notifications-with-azure-logic-apps/iot-hub-e2e-logic-apps.png)
+:::image type="content" source="media/iot-hub-monitoring-notifications-with-azure-logic-apps/iot-hub-e2e-logic-apps.png" alt-text="Diagram that shows the end-to-end flow of monitoring and notification, from device to email service, using Azure IoT Hub and Azure Logic Apps." lightbox="media/iot-hub-monitoring-notifications-with-azure-logic-apps/iot-hub-e2e-logic-apps.png":::
 
 [Azure Logic Apps](../logic-apps/index.yml) can help you orchestrate workflows across on-premises and cloud services, multiple enterprises, and various protocols. A logic app begins with a trigger, which is then followed by one or more actions that can be sequenced using built-in controls, such as conditions and iterators. This flexibility makes Logic Apps an ideal IoT solution for IoT monitoring scenarios. For example, the arrival of data from a device at an IoT Hub endpoint can initiate logic app workflows to warehouse the data in an Azure Storage blob, send email alerts to warn of data anomalies, schedule a technician visit if a device reports a failure, and so on.
 
@@ -213,7 +213,7 @@ In the preceding section, you set up your IoT hub to route messages containing a
       * [Yahoo Mail](https://help.yahoo.com/kb/SLN4075.html).
 
       > [!NOTE]
-      > You may need to disable TLS/SSL to establish the connection. If this is the case and you want to re-enable TLS after the connection has been established, see the optional step at the end of this section.
+      > You might need to disable TLS/SSL to establish the connection. If so, and you want to re-enable TLS after the connection has been established, see the optional step at the end of this section.
 
       :::image type="content" source="media/iot-hub-monitoring-notifications-with-azure-logic-apps/designer-smtp-settings.png" alt-text="Screenshot that shows configuring the SMTP connection settings in the logic app designer.":::
 
@@ -270,7 +270,7 @@ Start sending temperature messages from your IoT device to test the monitoring a
 1. You should begin receiving email notifications sent by the logic app.
 
    > [!NOTE]
-   > Your email service provider may need to verify the sender identity to make sure it is you who sends the email.
+   > Your email service provider might need to verify the sender identity to make sure it's you who sends the email.
 
 ## Clean up resources
 

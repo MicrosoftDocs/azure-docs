@@ -5,7 +5,7 @@ author: b-hchen
 ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.topic: quickstart
-ms.date: 11/17/2025
+ms.date: 01/07/2026
 ms.custom:
   - devx-track-azurecli
   - subject-armqs
@@ -40,9 +40,17 @@ To see all features that you can enable for an NFS volume and relevant considera
 
 # [Portal](#tab/azure-portal)
 
-For registration steps using Portal, open a Cloud Shell session as indicated above and follow these Azure CLI steps:
+For registration steps using Portal,
 
-[!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
+1. Sign in to the [Azure Portal](https://portal.azure.com/#home). 
+
+2. In the Azure portal's search box, enter **Subscriptions** and then select your subscription.
+
+3. On the left menu under **Settings**, select **Resource providers**.
+
+4. Find the provider *Microsoft.NetApp.*
+
+5. Select **Microsoft.NetApp** and select **Register**.
 
 # [PowerShell](#tab/azure-powershell)
 

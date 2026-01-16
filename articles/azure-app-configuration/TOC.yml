@@ -25,6 +25,14 @@
       href: enable-dynamic-configuration-aspnet-core.md
     - name: Feature management
       href: quickstart-feature-flag-aspnet-core.md
+  - name: Aspire
+    items:
+    - name: Configuration
+      href: quickstart-aspire.md
+    - name: Dynamic configuration
+      href: enable-dynamic-configuration-aspire.md
+    - name: Feature management
+      href: quickstart-feature-flag-aspire.md
   - name: .NET
     items:
     - name: Configuration
@@ -111,8 +119,6 @@
     items:
     - name: App Service & Azure Functions
       href: /azure/app-service/app-service-configuration-references
-    - name: Azure Front Door
-      href: how-to-connect-azure-front-door.md
   - name: Deployment
     items:
     - name: Overview
@@ -188,6 +194,12 @@
       href: quickstart-chat-completion-dotnet.md
     - name: Go
       href: quickstart-chat-completion-go.md
+  - name: Agent framework
+    items:
+    - name: Get started
+      href: howto-ai-agent-config.md
+    - name: Python
+      href: howto-ai-agent-config-python.md
 - name: Feature management
   items:
   - name: Overview
@@ -252,6 +264,15 @@
       href: howto-telemetry-python.md
     - name: JavaScript
       href: howto-telemetry-javascript.md
+
+- name: Hyperscale configuration
+  items:
+  - name: Overview
+    href: concept-hyperscale-client-configuration.md
+  - name: Connect to Azure Front Door
+    href: how-to-connect-azure-front-door.md
+  - name: Load Configuration from Azure Front Door
+    href: how-to-load-azure-front-door-configuration-provider.md
 - name: CI/CD integration
   items:
   - name: Use configuration files
@@ -300,6 +321,8 @@
       href: howto-set-up-private-access.md
     - name: Disable public network access
       href: howto-disable-public-access.md
+    - name: Network access errors
+      href: network-access-errors.md
   - name: Data encryption
     items:
     - name: Add Managed Identities

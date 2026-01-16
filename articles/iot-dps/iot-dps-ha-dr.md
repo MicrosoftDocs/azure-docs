@@ -2,8 +2,8 @@
 title: High availability and disaster recovery with DPS
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Describes the Azure and Device Provisioning Service features that help you to build highly available Azure IoT solutions with disaster recovery capabilities.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 08/11/2025

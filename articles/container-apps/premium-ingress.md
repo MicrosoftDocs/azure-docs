@@ -142,7 +142,7 @@ az containerapp env premium-ingress remove \
 To remove the workload profile from the environment, run the following command:
 
 ````azurecli
-az containerapp env workload-profile remove \
+az containerapp env workload-profile delete \
   --resource-group my-resource-group \
   --name my-container-apps-env \
   --workload-profile-name Ingress-D4

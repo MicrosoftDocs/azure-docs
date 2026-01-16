@@ -2,7 +2,7 @@
 title: Azure Kubernetes Service (AKS) backup support matrix
 description: This article provides a summary of support settings and limitations of Azure Kubernetes Service (AKS) backup.
 ms.topic: reference
-ms.date: 06/10/2025
+ms.date: 01/06/2026
 ms.custom:
   - references_regions
   - ignite-2023
@@ -118,11 +118,11 @@ China East 2, China East 3, China North 2, China North 3, US GOV Arizona, US GOV
 
 - Currently, backup instances with <= 100 disks attached as persistent volume are supported. Backup and restore operations might fail if number of disks are higher than the limit. 
 
-- Only Azure Disks with public access enabled from all networks are eligible to be moved to the Vault Tier; if there are disks with network access apart from public access, tiering operation fails. 
-
+- Only Azure Disks that have public network access enabled, AAD (Data Access) authentication disabled, and Disk Encryption Set (DES) disabled are eligible to be moved to the Vault tier. If a disk has restricted network access, AAD authentication enabled, or DES enabled, the tiering operation will fail.
+  
 - *Disaster Recovery* feature is only available between Azure Paired Regions (if backup is configured in a Geo Redundant Backup vault with Cross Region Restore enabled on them). The backup data is only available in an Azure paired region. For example, if you have an AKS cluster in East US that is backed up in a Geo Redundant Backup vault with Cross Region Restore enabled on them, the backup data is also available in West US for restore.
 
-- In the Vault Tier, only one scheduled recovery point is created per day, providing a Recovery Point Objective (RPO) of 24 hours in the primary region. In the secondary region, replication of this recovery point can take up to 12 additional hours, resulting in an effective RPO of up to 36 hours.
+- In the Vault Tier, only one scheduled recovery point is created per day, providing a Recovery Point Objective (RPO) of upto 24 hours in the primary region. In the secondary region, replication of this recovery point can take up to 12 additional hours, resulting in an effective RPO of up to 36 hours.
 
 - When a backup is created in the Operational Tier and becomes eligible for Vault Tier, it may take up to four hours for the tiering process to begin.
 

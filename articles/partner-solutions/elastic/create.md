@@ -3,7 +3,7 @@ title: Create Elastic application
 description: This article describes how to use the Azure portal to create an instance of Elastic, including Elastic Search, Elastic Observability, and Elastic Security.
 ms.topic: quickstart
 zone_pivot_groups: elastic-resource-type
-ms.date: 07/15/2025
+ms.date: 12/01/2025
 ms.custom: sfi-image-nochange
 #customer intent: As an Azure developer, I want to create Elastic resources to use search, log analytics, and security monitoring functions for Azure environments.
 
@@ -106,7 +106,7 @@ Select **Elastic Observability**.
 
 ### Logs & metrics tab (optional)
 
-You can configure resources to send metrics and logs to Elastic.
+You can configure resources to send metrics and logs to Elastic. For more information, see [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md).
 
 - Select **Send subscription activity logs**.
 - Select **Send Azure resource logs for all defined sources** (default).

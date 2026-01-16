@@ -1,8 +1,8 @@
 ---
 title: Related files for Device Update for Azure IoT Hub
 description: Create import manifests that reference multiple update files using the Device Update for IoT Hub related files feature.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 01/24/2023
 ms.topic: how-to
 ms.service: azure-iot-hub

@@ -1,13 +1,13 @@
 ---
 title: Create and delete routes and endpoints by using Azure Resource Manager
 description: Learn how to create and delete routes and endpoints in Azure IoT Hub by using an Azure Resource Manager template in the Azure portal.
-author: SoniaLopezBravo
+author: cwatson-cat
 ms.service: azure-iot-hub
 ms.custom: devx-track-arm-template
 services: iot-hub
 ms.topic: how-to
 ms.date: 12/05/2024
-ms.author: sonialopez
+ms.author: cwatson
 ---
 
 # Create and delete routes and endpoints by using Azure Resource Manager

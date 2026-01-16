@@ -1,11 +1,11 @@
 ---
 title: Create an IoT Hub with Certificate Management in Azure Device Registry using Azure CLI
 description: This article explains how to create an IoT Hub with Azure Device Registry (ADR) integration and certificate management using the Azure CLI.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: include
-ms.date: 11/05/2025
+ms.date: 12/19/2025
 ---
 
 ## Overview
@@ -21,7 +21,7 @@ The setup process in this article includes the following steps:
 1. Create a credential (root CA) and policy (issuing CA) scoped to that namespace
 1. Create an IoT Hub (preview) with linked namespace and managed identity
 1. Create a DPS with linked IoT Hub and namespace
-1. Sync your credential and policies (CA certificates) to ADR namespace
+1. Sync your credential and policies (CA certificates) to IoT Hub
 1. Create an enrollment group and link to your policy to enable certificate provisioning
 
 > [!IMPORTANT]

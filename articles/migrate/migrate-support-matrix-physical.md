@@ -44,6 +44,7 @@ Assessment | You can add up to 35,000 servers in a single group.<br/><br/> You c
 > - Windows Server 2008 (including SP2 and R2 SP1)
 > - Windows Server 2012
 > - Windows Server 2012 R2
+
 As a result, Azure Migrate doesn’t guarantee consistent or reliable outcomes for these OS versions. Customers may face problems and are strongly advised to upgrade to a supported Windows Server version before starting migration.
 
 ## Azure Migrate appliance requirements
@@ -75,7 +76,7 @@ Operating systems | Servers running all Windows and Linux versions that meet the
 Server requirements | Windows servers must have PowerShell remoting enabled and PowerShell version 2.0 or later installed. <br/><br/> WMI must be enabled and available on Windows servers to gather the details of the roles and features installed on the servers.<br/><br/> Linux servers must have SSH connectivity enabled and ensure that the following commands can be executed on the Linux servers to pull the application data: list, tail, awk, grep, locate, head, sed, ps, print, sort, uniq. Based on the OS type and the type of package manager used, here are some more commands: rpm/snap/dpkg, yum/apt-cache, mssql-server.
 Windows server access | A guest user account for Windows servers.
 Linux server access | A standard user account (non-sudo access) for all Linux servers.
-Port access | Windows servers need access on port 5985 (HTTP). Linux servers need access on port 22 (TCP).
+Port access | Windows servers need access on port 5986 (HTTPS) or 5985 (HTTP). Linux servers need access on port 22 (TCP).
 Discovery | Software inventory is performed by directly connecting to the servers by using the server credentials added on the appliance. <br/><br/> The appliance gathers the information about the software inventory from Windows servers by using PowerShell remoting and from Linux servers by using the SSH connection. <br/><br/> Software inventory is agentless. No agent is installed on the servers.
 
 ## SQL Server instance and database discovery requirements
@@ -293,11 +294,11 @@ After the appliance is connected, it gathers configuration data for ASP.NET web 
 
 Support | ASP.NET web apps | Java web apps
 --- | --- | ---
-Stack | VMware, Hyper-V, and physical servers. | VMware, Hyper-V, and physical servers.
-Windows servers | Windows Server 2008 R2 and later are supported. | Not supported.
-Linux servers | Not supported. | Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, and Red Hat Enterprise Linux 5/6/7.
-Web server versions | IIS 7.5 and later. | Tomcat 8 or later.
-Required privileges | Local admin. | **Read (r)** and **Execute (x)** permissions recursively on all CATALINA_HOME directories.
+Stack | VMware, Hyper-V, and physical servers | VMware, Hyper-V, and physical servers
+Windows servers | Windows Server 2008 R2 and later are supported | Not supported
+Linux servers | Not supported | Servers that meet the [requirements](migrate-support-matrix-physical.md#physical-server-requirements)
+Web server versions | IIS 7.5 and later | Tomcat 8 and later
+Required privileges | The least privileged user should be a part of the two user groups 1. Remote Management Users 2. IIS_IUSRS. The users must have read permissions to the following locations: C:\Windows\system32\inetsrv\config, C:\Windows\system32\inetsrv\config\applicationHost.config and C:\Windows\system32\inetsrv\config\redirection.config. | **Read (r)** and **Execute (x)** permissions recursively on all CATALINA_HOME directories.
 
 > [!NOTE]
 > Data is always encrypted at rest and during transit.
@@ -313,7 +314,7 @@ Operating systems | Servers running all Windows and Linux versions that meet the
 Server requirements | Windows servers must have PowerShell remoting enabled and PowerShell version 2.0 or later installed. <br/><br/> Linux servers must have SSH connectivity enabled and ensure that the following commands can be executed on the Linux servers: touch, chmod, cat, ps, grep, echo, sha256sum, awk, netstat, ls, sudo, dpkg, rpm, sed, getcap, which, date.
 Windows server access | A user account (local or domain) with administrator permissions on servers.
 Linux server access | Refer this [link](tutorial-discover-physical.md#prepare-linux-server) for Linux server access. 
-Port access | Windows servers need access on port 5985 (HTTP). Linux servers need access on port 22 (TCP).
+Port access | Windows servers need access on port 5986 (HTTPS) or 5985 (HTTP). Linux servers need access on port 22 (TCP).
 Discovery method |  Agentless dependency analysis is performed by directly connecting to the servers by using the server credentials added on the appliance. <br/><br/> The appliance gathers the dependency information from Windows servers by using PowerShell remoting and from Linux servers by using the SSH connection. <br/><br/> No agent is installed on the servers to pull dependency data.
 
 ## Agent-based dependency analysis requirements

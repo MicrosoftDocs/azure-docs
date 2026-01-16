@@ -68,7 +68,7 @@ Check that the zipped file is secure, before you deploy it.
 Import the downloaded file, and create an appliance.
 
 1. Extract the zipped VHD file to a folder on the Hyper-V host that will host the appliance. Three folders are extracted.
-2. Open Hyper-V Manager. In **Actions**, select **Import Virtual Machine**.
+2. Go to Hyper-V Manager. In **Actions**, select **Import Virtual Machine**.
 
     ![Screenshot of procedure to Deploy VHD.](./media/how-to-set-up-appliance-hyper-v/deploy-vhd.png)
 
@@ -119,7 +119,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 
     1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key, and then copy the key that's shown.
 	2. The appliance will verify the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
-    3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and open an Azure Login prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
+    3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and go to an Azure Login prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
     
         :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and log in.":::
     4. In a new tab in your browser, paste the device code and sign in by using your Azure username and password. Signing in with a PIN isn't supported.
@@ -219,7 +219,7 @@ Select **Start discovery**, to kick off server discovery from the successfully v
 
 After discovery finishes, you can verify that the servers appear in the portal.
 
-1. Open the Azure Migrate dashboard.
+1. Go to the Azure Migrate dashboard.
 2. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** page, select the icon that displays the count for **Discovered servers**.
 
 ## Next steps

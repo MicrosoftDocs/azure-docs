@@ -20,6 +20,7 @@ You can restore an entire File Share or specific files on the share. You can res
 
 >[!NOTE]
 >- Azure Files restore is only supported within the same subscription when using PowerShell or CLI.
+>- Cross Region Restore is not supported using PowerShell or CLI.
 >- Azure Backup now supports restoring multiple files or folders to the original or alternate Location using PowerShell. Refer to [this section](#restore-multiple-files-or-folders-to-original-or-alternate-location) of the document to learn how.
 
 ## Fetch recovery points

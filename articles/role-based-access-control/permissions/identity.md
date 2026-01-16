@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2025
+ms.date: 12/31/2025
 ms.custom: generated
 ---
 
@@ -168,6 +168,9 @@ Azure service: [Azure Active Directory B2C](/azure/active-directory-b2c/)
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.AzureActiveDirectory/register/action | Register subscription for Microsoft.AzureActiveDirectory resource provider |
+> | Microsoft.AzureActiveDirectory/associatedBillingAccounts/write | Create or update Associated Billing Account resource |
+> | Microsoft.AzureActiveDirectory/associatedBillingAccounts/read | View Associated Billing Account resource |
+> | Microsoft.AzureActiveDirectory/associatedBillingAccounts/delete | Delete Associated Billing Account resource |
 > | Microsoft.AzureActiveDirectory/b2cDirectories/write | Create or update B2C Directory resource |
 > | Microsoft.AzureActiveDirectory/b2cDirectories/read | View B2C Directory resource |
 > | Microsoft.AzureActiveDirectory/b2cDirectories/delete | Delete B2C Directory resource |
@@ -175,6 +178,9 @@ Azure service: [Azure Active Directory B2C](/azure/active-directory-b2c/)
 > | Microsoft.AzureActiveDirectory/ciamDirectories/write | Create or update CIAM Directory resource |
 > | Microsoft.AzureActiveDirectory/ciamDirectories/read | View CIAM Directory resource |
 > | Microsoft.AzureActiveDirectory/ciamDirectories/delete | Delete CIAM Directory resource |
+> | Microsoft.AzureActiveDirectory/directories/write | Create or update Directory resource |
+> | Microsoft.AzureActiveDirectory/directories/read | View Directory resource |
+> | Microsoft.AzureActiveDirectory/directories/delete | Delete Directory resource |
 > | Microsoft.AzureActiveDirectory/guestUsages/write | Create or update Guest Usages resource |
 > | Microsoft.AzureActiveDirectory/guestUsages/read | View Guest Usages resource |
 > | Microsoft.AzureActiveDirectory/guestUsages/delete | Delete Guest Usages resource |

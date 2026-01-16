@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 07/16/2025
+ms.date: 12/10/2025
 ms.author: duau
 ms.custom:
   - references_regions
@@ -44,17 +44,18 @@ The following diagram allows for a comparison between the standard ExpressRoute 
 
 | Metro location | Location address | Zone | Local Azure Region | ER Direct | Service Provider |
 |--|--|--|--|--|--|
-| Amsterdam Metro | Equinix AM5<br>Digital Realty AMS8 | 1 | West Europe | &check; | Colt<br>Digital Realty<br>Equinix<br>euNetworks<br>Megaport<br> |
+| Amsterdam Metro | Equinix AM5<br>Digital Realty AMS8 | 1 | West Europe | &check; | Colt<br>DE-CIX<br>Digital Realty<br>Equinix<br>euNetworks<br>Megaport<br>NL-IX |
 | Atlanta Metro | Equinix AT1<br>Digital Realty ATL14 | 1 | &cross; | &check; |  Equinix<br>Megaport<br>|
-| Chicago Metro | Equinix CH1<br>CoreSite CH1 | 1 | North Central US | &check; |  Equinix<br>Megaport<sup>1</sup> |
-| Dallas Metro | Equinix DA6 <br>Digital Realty DFW10 | 1 | &cross; | &check; | Megaport<sup>1</sup>  |
-| Jakarta Metro | NeutraDC HDC<br>NTT GDC | 2 | Indonesia Central | &check; | DCI Indonesia<sup>1</sup><br>Telin<sup>1</sup><br>XL Axiata<sup>1</sup> |
-| Madrid Metro | Equinix MD2<br>Digital Realty MAD1 | 1 | Spain Central | &check; | Colt<br>Equinix<br>Megaport<sup>1</sup> |
-| Milan Metro | Irideos Milan<br>Data4Italy Milan | 1 | Italy North | &check; | Equinix<br>Megaport<sup>1</sup> |
-| Singapore Metro | Global Switch Tai Seng<br>Equinix SG1 | 2 | Southeast Asia | &check; | Colt<br>Equinix<br>Megaport |
+| Chicago Metro | Equinix CH1<br>CoreSite CH1 | 1 | North Central US | &check; |  Equinix<br>Megaport |
+| Dallas Metro | Equinix DA6 <br>Digital Realty DFW10 | 1 | &cross; | &check; | Megaport |
+| Jakarta Metro | NeutraDC HDC<br>NTT GDC | 2 | Indonesia Central | &check; | DCI Indonesia<br>Telin<sup>1</sup><br>XL Axiata<sup>1</sup> |
+| Madrid Metro | Equinix MD2<br>Digital Realty MAD1 | 1 | Spain Central | &check; | Colt<br>Equinix<br>Megaport |
+| Milan Metro | Irideos Milan<br>Data4Italy Milan | 1 | Italy North | &check; | Equinix<br>Megaport |
+| New York Metro | Equinix NY5<br>165 Halsey Street | 1 | &cross; | &check; |  Megaport<br>DE-CIX<sup>1</sup> |
+| Singapore Metro | Global Switch Tai Seng<br>Equinix SG1 | 2 | Southeast Asia | &check; | Colt<br>Equinix<br>IX Reach<br>Megaport<br>MegaPOP (Singtel) |
 | Taipei Metro | Chief Telecom<br>Chunghwa Telecom Co. Ltd | 2 | Taiwan North | &check; | Chunghwa Telecom |
 | Zurich Metro |  Digital Realty ZUR2<br>Equinix ZH5 | 1 | Switzerland North | &check; | Colt<br>Digital Realty |
-| Washington DC Metro | Equinix DC6<br>CoreSite VA3 | 1 | East US<br/>East US 2 | &check; |  Equinix<sup>1</sup><br>Megaport<sup>1</sup> |
+| Washington DC Metro | Equinix DC6<br>CoreSite VA3 | 1 | East US<br/>East US 2 | &check; |  Equinix<br>Megaport |
 
 <sup>1<sup> These service providers will be available in the future.
 

@@ -21,7 +21,7 @@ Before you restore from Azure Database for PostgreSQL Flexible server backups, r
 
 - Ensure that you have the required [permissions for the restore operation](backup-azure-database-postgresql-flex-overview.md#permissions-for-backup).
 
-- Backup data is stored in the Backup vault as a blob within the Microsoft tenant. During a restore operation, the backup data is copied from one storage account to another across tenants. Ensure that the target storage account for the restore has the **AllowCrossTenantReplication** property set to **true**.
+- Backup data is stored in the Backup vault as a blob within the Microsoft tenant. During a restore operation, the backup data is copied from one storage account to another across tenants. Ensure that the target storage account for the restore has the **AllowCrossTenantReplication** property set to **true** and the **Permitted scope for copy operations** property set to **From any storage account**.
 
 - Ensure the target storage account for restoring backup as a file is accessible via a public network. If the storage account uses a private endpoint, [update its public network access settings](backup-azure-database-postgresql-flex-manage.md#enable-public-network-access-for-the-database-storage-account) before executing a restore operation.
 

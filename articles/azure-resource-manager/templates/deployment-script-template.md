@@ -5,7 +5,7 @@ ms.custom:
   - devx-track-arm-template
   - build-2025
 ms.topic: article
-ms.date: 10/27/2025
+ms.date: 01/02/2026
 ---
 
 # Use deployment scripts in Azure Resource Manager templates
@@ -33,8 +33,13 @@ The benefits of deployment script:
 
 The deployment script resource is only available in the regions where Azure Container Instance is available.  See [Resource availability for Azure Container Instances in Azure regions](/azure/container-instances/container-instances-region-availability). Currently, deployment script only uses public networking.
 
-> [!IMPORTANT]
-> The deployment script service requires two supporting resources for script execution and troubleshooting: a storage account and a container instance. You can specify an existing storage account, otherwise the script service creates one for you. The two automatically created supporting resources are usually deleted by the script service when the deployment script execution gets in a terminal state. You are billed for the supporting resources until they are deleted. For the price information, see [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). To learn more, see [Clean-up deployment script resources](#clean-up-deployment-script-resources).
+
+The deployment script service creates two supporting resources - a storage account and a container instance - to run and troubleshoot scripts. The names of these resources are generated using a deterministic hash of the deployment script's resource ID, with the suffix azscripts appended (for example, *jgczqtxom5oreazscripts*). As a result, repeated executions of the same deployment script may reuse the same storage account.
+
+In rare cases, you may encounter the error "The storage account named \<storage-account-name> is already taken." This typically occurs when a storage account created by a previous execution of the same deployment script was not cleaned up successfully.
+
+> [!WARNING]
+> Generally, the service cleans up these supporting resources after the deployment script finishes. You incur charges for these resources until they're removed. For pricing information, see [Azure Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/). To learn more, see [Clean up deployment script resources](#clean-up-deployment-script-resources).
 
 > [!NOTE]
 > Retry logic for Azure sign in is now built in to the wrapper script. If you grant permissions in the same template as your deployment scripts, the deployment script service retries sign in for 10 minutes with 10-second interval until the managed identity role assignment is replicated.

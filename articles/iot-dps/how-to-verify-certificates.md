@@ -2,8 +2,8 @@
 title: Verify X.509 CA certificates with DPS
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: How to do proof-of-possession for X.509 CA certificates with Azure IoT Hub Device Provisioning Service (DPS)
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 08/11/2025
 ms.topic: how-to
 ms.service: azure-iot-hub
@@ -82,7 +82,7 @@ Now, you need to sign the verification code from DPS with the private key associ
 Microsoft provides tools and samples that can help you create a signed verification certificate:
 
 * The **Azure IoT Hub C SDK** provides PowerShell (Windows) and Bash (Linux) scripts to help you create CA and leaf certificates for development and to perform proof-of-possession using a verification code. You can download the [files](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) relevant to your system to a working folder and follow the instructions in the [Managing test CA certificates for samples and tutorials readme](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) to perform proof-of-possession on a CA certificate.
-* The **Azure IoT Hub C# SDK** contains the [Group certificate verification sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/provisioning/service/samples/how%20to%20guides/GroupCertificateVerificationSample), which you can use to do proof-of-possession.
+* The **Azure IoT Hub C# SDK** contains the [Group certificate verification sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/provisioning/service/samples/how%20to%20guides/BulkOperationSample), which you can use to do proof-of-possession.
 
 The PowerShell and Bash scripts provided in the documentation and SDKs rely on [OpenSSL](https://www.openssl.org/). You can also use OpenSSL or other non-Microsoft tools to help you do proof-of-possession. For an example using tooling provided with the SDKs, see [Create an X.509 certificate chain](tutorial-custom-hsm-enrollment-group-x509.md#create-an-x509-certificate-chain).
 

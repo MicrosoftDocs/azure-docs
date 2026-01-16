@@ -1,5 +1,5 @@
 ---
-title: Software costs not included in Azure saving plans
+title: Software costs not included in Azure savings plans
 titleSuffix: Microsoft Cost Management
 description: Learn how savings plan discounts apply only to Azure compute infrastructure costs and not to the software costs.
 author: nwokolo
@@ -8,10 +8,10 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: conceptual
-ms.date: 07/09/2025
+ms.date: 01/08/2026
 ---
 
-# Software costs not included in saving plans
+# Software costs not included in savings plans
 
 Savings plan discounts apply only to the infrastructure costs and not to the software costs. If you use Windows VMs, and you have a savings plan, and you don't have an Azure Hybrid Benefit for your VMs, then you're charged for the software meters listed in the following sections.
 
@@ -60,7 +60,7 @@ For information on how to get the pay-as-you-go rates for each Azure meter, see 
 
 ## Need help? Contact us.
 
-If you have Azure savings plan for compute questions, contact your  account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides Azure savings plan for compute expert support requests in English.
+If you have Azure savings plan for compute questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides Azure savings plan for compute expert support requests in English.
 
 ## Related content
 
@@ -68,5 +68,5 @@ To learn more about Azure savings plans, see the following articles:
 
 - [What are Azure savings plans?](buy-savings-plan.md)
 - [Manage an Azure savings plan](manage-savings-plan.md)
-- [How saving plan discount is applied](discount-application.md)
+- [How savings plan discount is applied](discount-application.md)
 - [View Azure savings plan cost and usage details](utilization-cost-reports.md)

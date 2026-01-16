@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 05/01/2025
+ms.date: 01/06/2026
 
 ---
 
@@ -73,7 +73,6 @@ Azure-specific ransomware protection articles:
 - [Improve your security defenses for ransomware attacks with Azure Firewall Premium](ransomware-protection-with-azure-firewall.md)
 
 Additional resources:
-- [Azure defenses for ransomware attack whitepaper](https://azure.microsoft.com/resources/azure-defenses-for-ransomware-attack)
 - [What is ransomware?](/security/ransomware/human-operated-ransomware)
 
 

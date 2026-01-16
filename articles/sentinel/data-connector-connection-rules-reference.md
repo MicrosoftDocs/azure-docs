@@ -354,6 +354,7 @@ The request section defines how the CCF data connector sends requests to your da
 | ---- | ---- | ---- | ---- |
 | **ApiEndpoint** | True | String | URL for remote server. Defines the endpoint to pull data from. |
 | **RateLimitQPS** |  | Integer | Defines the number of calls or queries allowed in a second. |
+| **RateLimitConfig** |  | Object | Defines the rate limit configuration for the RESTful API. See [example](#ratelimitconfig-example). |
 | **QueryWindowInMin** |  | Integer | Defines the available query window in minutes. Minimum is 1 minute. Default is 5 minutes.|
 | **HttpMethod** |  | String | Defines the API method: `GET`(default) or `POST` |
 | **QueryTimeFormat** |  | String | Defines the date and time format the endpoint (remote server) expects. The CCF uses the current date and time wherever this variable is used. Possible values are the constants: `UnixTimestamp`, `UnixTimestampInMills` or any other valid representation of date time, for example: `yyyy-MM-dd`, `MM/dd/yyyy HH:mm:ss`<br>default is ISO 8601 UTC |
@@ -395,7 +396,40 @@ Consider this example:
 - `QueryTimeIntervalDelimiter` = `..`
 - `ApiEndpoint` = `https://www.example.com`
 
-The query sent to the remote server is: `https://www.example.com?interval=time:{QueryTimeFormat}..{QueryTimeFormat + QueryWindowInMin}`	
+The query sent to the remote server is: `https://www.example.com?interval=time:{QueryTimeFormat}..{QueryTimeFormat + QueryWindowInMin}`
+
+### RateLimitConfig example
+
+Consider this example:
+- `ApiEndpoint` = `https://www.example.com`
+```json
+"rateLimitConfig": {
+  "evaluation": {
+    "checkMode": "OnlyWhen429"
+  },
+  "extraction": {
+    "source": "CustomHeaders",
+    "headers": {
+      "limit": {
+        "name": "X-RateLimit-Limit",
+        "format": "Integer"
+      },
+      "remaining": {
+        "name": "X-RateLimit-Remaining",
+        "format": "Integer"
+      },
+      "reset": {
+        "name": "X-RateLimit-RetryAfter",
+        "format": "UnixTimeSeconds"
+      }
+    }
+  },
+  "retryStrategy": {
+    "useResetOrRetryAfterHeaders": true
+  }
+}
+```
+When the response includes rate limit headers, the connector can use this information to adjust its request rate.
 
 ### Request examples using Microsoft Graph as data source API
 
@@ -466,7 +500,7 @@ For complex queries, use `QueryParametersTemplate`. This next example sends a `P
 Example:
 
 ```json
-request: {
+"request": {
   "apiEndpoint": "https://graph.microsoft.com/v1.0/me/messages",
   "httpMethod": "POST",
   "queryTimeFormat": "yyyy-MM-ddTHH:mm:ssZ",
@@ -512,7 +546,7 @@ A server response with JSON format is expected, with the requested data in the p
   "format": "json",
   "SuccessStatusJsonPath": "$.status",
   "SuccessStatusValue": "success",
-  "IsGzipCompressed: true
+  "IsGzipCompressed": true
  }
 ```
 
@@ -555,18 +589,20 @@ The most common paging type is when a server data source API provides URLs to th
 | **LinkHeaderTokenJsonPath** | False | String | Use this property to indicate where to get the value in the response body.<br><br>For example, if the data source returns the following JSON: `{ nextPage: "foo", value: [{data}]}` then `LinkHeaderTokenJsonPath` will be `$.nextPage` |
 | **PageSize** | False | Integer | How many events per page |
 | **PageSizeParameterName** | False | String | Query parameter name for the page size |
+| **PagingInfoPlacement** | False | String | How paging info is populated. Accepts either "QueryString" or "RequestBody" |
+| **PagingQueryParamOnly** | False | Boolean | If set to true, will omit all other query parameters except paging query parameters. |
 
 Here are some examples:
 
 ```json
-Paging: {
+"paging": {
   "pagingType": "LinkHeader",
   "linkHeaderTokenJsonPath" : "$.metadata.links.next"
 }
 ```
 
 ```json
-Paging: {
+"paging": {
  "pagingType" : "PersistentLinkHeader", 
  "pageSizeParameterName" : "limit", 
  "pageSize" : 500 
@@ -587,11 +623,13 @@ Paging: {
 | **HasNextFlagJsonPath** | False | String | Defines the path to the HasNextPage flag attribute |
 | **NextPageRequestHeader** | False | String | Determines the next page header name in the request. |
 | **NextPageUrlQueryParametersTemplate** | False | String | Only if the connector is for Coralogix API |
+| **PagingInfoPlacement** | False | String | How paging info is populated. Accepts either "QueryString" or "RequestBody" |
+| **PagingQueryParamOnly** | False | Boolean | If set to true, will omit all other query parameters except paging query parameters. |
 
 Example:
 
 ```json
-Paging: {
+"paging": {
  "pagingType" : "NextPageUrl", 
   "nextPageTokenJsonPath" : "$.data.repository.pageInfo.endCursor", 
   "hasNextFlagJsonPath" : "$.data.repository.pageInfo.hasNextPage", 
@@ -615,11 +653,13 @@ Paging: {
 | **NextPageParaName** | False | string | Determines the next page name in the request. |
 | **HasNextFlagJsonPath** | False | string | Defines the path to a **HasNextPage** flag attribute when determining if more pages are left in the response.	|
 | **NextPageRequestHeader** | False | string | Determines the next page header name in the request. |
+| **PagingInfoPlacement** | False | String | How paging info is populated. Accepts either "QueryString" or "RequestBody" |
+| **PagingQueryParamOnly** | False | Boolean | If set to true, will omit all other query parameters except paging query parameters. |
 
 Examples:
 
 ```json
-Paging: {
+"paging": {
  "pagingType" : "NextPageToken", 
  "nextPageRequestHeader" : "ETag", 
  "nextPageTokenResponseHeader" : "ETag" 
@@ -627,7 +667,7 @@ Paging: {
 ```
 
 ```json
-Paging: {
+"paging": {
  "pagingType" : "PersistentToken", 
     "nextPageParaName" : "gta", 
     "nextPageTokenJsonPath" : "$.alerts[-1:]._id" 
@@ -643,14 +683,18 @@ Paging: {
 | **PageSize** | False | Integer | How many events per page |
 | **PageSizeParameterName** | False | String | Query parameter name for the page size |
 | **OffsetParaName** | False | String | The next request query parameter name. The CCF calculates the offset value for each request, (all events ingested + 1) |
+| **PagingInfoPlacement** | False | String | How paging info is populated. Accepts either "QueryString" or "RequestBody" |
+| **PagingQueryParamOnly** | False | Boolean | If set to true, will omit all other query parameters except paging query parameters. |
 
 Example:
 ```json
-Paging: {
-   
-       "pagingType": "Offset", 
-        "offsetParaName": "offset" 
- }
+"paging": {
+  "pagingType": "Offset", 
+  "offsetParaName": "offset",
+  "pageSize": 50,
+  "pagingQueryParamOnly": true,
+  "pagingInfoPlacement": "QueryString"
+}
 ```
 
 #### Configure CountBasedPaging
@@ -666,11 +710,13 @@ Paging: {
 | **TotalResultsJsonPath** | False | String | JSON path of total number of results in HTTP response payload |
 | **PageNumberJsonPath** | False | String | Required if totalResultsJsonPath is provided. JSON path of page number in HTTP response payload |
 | **PageCountJsonPath** | False | String | Required if totalResultsJsonPath is provided. JSON path of page count in HTTP response payload |
+| **PagingInfoPlacement** | False | String | How paging info is populated. Accepts either "QueryString" or "RequestBody" |
+| **PagingQueryParamOnly** | False | Boolean | If set to true, will omit all other query parameters except paging query parameters. |
 
 Example:
 
 ```json
-Paging: {
+"paging": {
  "pagingType" : "CountBasedPaging", 
  "pageNumberParaName" : "page", 
  "pageSize" : 10, 
@@ -713,8 +759,33 @@ Here's an example of all the components of the CCF data connector JSON together.
       "request": {
          "apiEndpoint": "https://rest.contoso.com/example",
          "rateLimitQPS": 10,
+         "rateLimitConfig": {
+            "evaluation": {
+              "checkMode": "OnlyWhen429"
+            },
+            "extraction": {
+              "source": "CustomHeaders",
+              "headers": {
+                "limit": {
+                  "name": "X-RateLimit-Limit",
+                  "format": "Integer"
+                },
+                "remaining": {
+                  "name": "X-RateLimit-Remaining",
+                  "format": "Integer"
+                },
+                "reset": {
+                  "name": "X-RateLimit-RetryAfter",
+                  "format": "UnixTimeSeconds"
+                }
+              }
+            },
+            "retryStrategy": {
+              "useResetOrRetryAfterHeaders": true
+            }
+         },
          "queryWindowInMin": 5,
-         "httpMethod": "GET",
+         "httpMethod": "POST",
          "queryTimeFormat": "UnixTimestamp",
          "startTimeAttributeName": "t0",
          "endTimeAttributeName": "t1",
@@ -726,7 +797,9 @@ Here's an example of all the components of the CCF data connector JSON together.
          } 
       },
       "paging": {
-         "pagingType": "LinkHeader"
+         "pagingType": "LinkHeader",
+         "pagingInfoPlacement": "RequestBody",
+         "pagingQueryParamOnly": true
       },
       "response": {
          "eventsJsonPaths": ["$"]

@@ -1,8 +1,8 @@
 ---
 title: Customer data requests for Azure IoT Hub devices
 description: Most of the devices managed in Azure IoT Hub aren't personal, but some are. This article talks about admins being able to export or delete personal data from a device.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 08/06/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub

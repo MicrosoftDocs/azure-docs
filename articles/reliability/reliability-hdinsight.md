@@ -78,7 +78,7 @@ In the resources section, you need to add a section of ‘zones’ and provide w
 
 When the HDInsight cluster is ready, you can check the location to see which availability zone they're deployed in.
 
-:::image type="content" source="../hdinsight/media/hdinsight-use-availability-zones/cluster-availability-zone-info.png" alt-text="Screenshot that shows availability zone info in cluster overview." border="true":::
+:::image type="content" source="/azure/hdinsight/media/hdinsight-use-availability-zones/cluster-availability-zone-info.png" alt-text="Screenshot that shows availability zone info in cluster overview." border="true":::
 
 **Get API response**: 
 
@@ -145,7 +145,7 @@ When you create your multi region disaster recovery plan, consider the following
 
 * Determine the minimal business functionality you need if there is a disaster and why. For example, evaluate if you need failover capabilities for the data transformation layer (shown in yellow) *and* the data serving layer (shown in blue), or if you only need failover for the data service layer.
 
-   :::image type="content" source="../hdinsight/media/hdinsight-business-continuity/data-layers.png" alt-text="data transformation and data serving layers":::
+   :::image type="content" source="/azure/hdinsight/media/hdinsight-business-continuity/data-layers.png" alt-text="Diagram that shows data transformation and data serving layers.":::
 
 * Segment your clusters based on workload, development lifecycle, and departments. Having more clusters reduces the chances of a single large failure affecting multiple different business processes.
 
@@ -205,7 +205,7 @@ functionality. Service incidents in one or more of the following services in a s
 
  - **Optional services**, such as Azure Key Vault and Azure Data Factory.
 
-:::image type="content" source="../hdinsight/media/hdinsight-business-continuity/hdinsight-components.png" alt-text="HDInsight components":::
+:::image type="content" source="/azure/hdinsight/media/hdinsight-business-continuity/hdinsight-components.png" alt-text="Diagram that shows HDInsight components.":::
 
 
 ## Related content

@@ -2,9 +2,9 @@
 title: Control access with shared access signatures
 titleSuffix: Azure IoT Hub
 description: Understand how Azure IoT Hub uses shared access signatures (SAS) to authenticate identities and authorize access to IoT hubs and devices. 
-author: SoniaLopezBravo
+author: cwatson-cat
 ms.service: azure-iot-hub
-ms.author: sonialopez
+ms.author: cwatson
 ms.topic: conceptual
 ms.date: 03/20/2025
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device', 'Role: System Architecture']

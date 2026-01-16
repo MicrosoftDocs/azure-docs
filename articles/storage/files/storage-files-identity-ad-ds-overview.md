@@ -4,7 +4,7 @@ description: Learn about Active Directory Domain Services (AD DS) authentication
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/16/2025
+ms.date: 12/18/2025
 ms.author: kendownie
 # Customer intent: "As a system administrator, I want to enable on-premises Active Directory Domain Services authentication for Azure file shares, so that I can manage access permissions seamlessly while leveraging existing AD credentials for secure file access."
 ---
@@ -21,12 +21,11 @@ If you're new to Azure Files, we recommend reading the [planning guide](storage-
 
 ## Supported scenarios and restrictions
 
-- To use identity-based authentication with Azure Files, share-level RBAC permissions must be assigned. You can do this in two ways:
+- To use identity-based authentication with Azure Files, you must assign share-level RBAC permissions. You can do this in two ways:
   - **[Default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities):** This option applies RBAC at the share level for all authenticated users. With this configuration, you don't need to sync your on-premises AD DS identities to Microsoft Entra ID.
   - **[Granular share-level permissions](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-specific-microsoft-entra-users-or-groups):** If you want to assign RBAC at the share level to specific users or groups, the corresponding identities must be synchronized from your on-premises AD DS to Microsoft Entra ID using [Microsoft Entra Connect](/entra/identity/hybrid/connect/whatis-azure-ad-connect) or [Microsoft Entra Cloud Sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync). Groups created only in Microsoft Entra ID won't work unless they contain synced user accounts. Password hash synchronization isn't required.
 - Client OS requirements: Windows 8 / Windows Server 2012 or later, or Linux VMs such as Ubuntu 18.04+ and equivalent RHEL/SLES distributions.
-- You can manage Azure file shares with Azure File Sync.
-- Kerberos authentication is available with Active Directory using [AES 256 encryption](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption) (recommended) and RC4-HMAC. AES 128 Kerberos encryption isn't yet supported.
+- Kerberos authentication is available with Active Directory using [AES 256 encryption](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption) (recommended). AES 128 Kerberos encryption isn't yet supported.
 - Single sign-on (SSO) is supported.
 - By default, access is limited to the Active Directory forest where the storage account is registered. Users from any domain in that forest can access the file share contents, provided they have the appropriate permissions. To enable access from additional forests, you must configure a forest trust. For details, see [Use Azure Files with multiple Active Directory forests](storage-files-identity-multiple-forests.md).
 - Identity-based authentication isn't currently supported for NFS file shares.
@@ -49,17 +48,17 @@ Before you enable AD DS authentication for Azure file shares, make sure you comp
 
     You can enable the feature on a new or existing on-premises AD DS environment. Identities used for access must be synced to Microsoft Entra ID or use a default share-level permission. The Microsoft Entra tenant and the file share that you're accessing must be associated with the same subscription.
 
-- Domain-join an on-premises machine or an Azure VM to on-premises AD DS. For information about how to domain-join, see [Join a Computer to a Domain](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain).
+- Domain-join an on-premises machine or an Azure VM to on-premises AD DS. See [Join a Computer to a Domain](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain).
 
     If a machine isn't domain joined, you can still use AD DS for authentication if the machine has unimpeded network connectivity to the on-premises AD domain controller and the user provides explicit credentials. For more information, see [Mount the file share from a non-domain-joined VM or a VM joined to a different AD domain](storage-files-identity-mount-file-share.md#mount-the-file-share-from-a-non-domain-joined-vm-or-a-vm-joined-to-a-different-ad-domain).
 
 - Select or create an Azure storage account. For optimal performance, we recommend that you deploy the storage account in the same region as the client from which you plan to access the share.
 
-    Make sure that the storage account containing your file shares isn't already configured for identity-based authentication. If an AD source is already enabled on the storage account, you must disable it before enabling on-premises AD DS.
+    Make sure that the storage account containing your file shares isn't already configured for identity-based authentication. If an identity source is already enabled on the storage account, you must disable it before enabling on-premises AD DS.
 
     If you experience issues in connecting to Azure Files, see [troubleshoot Azure Files mounting errors on Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/).
 
-- If you plan to enable any networking configurations on your file share, we recommend you read the [networking considerations](./storage-files-networking-overview.md) article and complete the related configuration before enabling AD DS authentication.
+- If you plan to enable any networking configurations on your file share, read the [networking considerations](./storage-files-networking-overview.md) article and complete the related configuration before enabling AD DS authentication.
 
 ## Regional availability
 

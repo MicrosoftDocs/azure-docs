@@ -4,7 +4,7 @@ metadata:
   description: 'Answers to common questions about'
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 10/27/2025
+  ms.date: 01/07/2025
   author: AbhishekMallick-MS
   ms.author: v-mallicka
   ms.custom: engagement-fy24
@@ -113,6 +113,33 @@ sections:
           Why is Cross Region Restore not supported when Public Network access is set to Deny?
         answer: |
           Cross Region Restore (CRR) replicates data from the primary to the secondary region using Geo-redundant storage (GRS) with CRR enabled. When you deny public access and use a private endpoint, the system expects data sync to occur over a private network. However, the secondary region currently doesn’t support private endpoint configuration, which is essential for replication. Without a private connection in the secondary region, CRR can't perform the required replication.
+      - question: |
+          When GRS is enabled can we restore the VM on to the dedicated zone?
+        answer: |
+          No, we cannot restore on to the dedicated zone.
+      - question: |
+          Can I permanently delete the default Backup Policies in an Azure Recovery Services Vault?
+        answer: |
+          No, the default backup policies cannot be permanently deleted. Azure automatically recreates them to ensure baseline backup functionality. These policies are:
+          
+          - System-managed
+          - Non-deletable
+          - Non-deletable
+          - Used as fallback policies
+
+          So even if you delete them through the portal, PowerShell, CLI, or REST API, they will always reappear.
+         
+          **Recommended approach:**
+          - Simply ignore the default policies.
+          - Create and use your own custom policies with your preferred naming standards.
+          - Ensure no backup items are associated with the default ones.
+          
+  - name: Backup Vault
+    questions:
+      - question: |
+          Can I move a subscription that contains a Backup vault to a different tenant?
+        answer: |
+          No, Backup vaults aren't supported.
 
   - name: Azure Backup agent
     questions:

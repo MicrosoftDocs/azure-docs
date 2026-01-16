@@ -46,7 +46,7 @@ When you have complex architectures and multiple sets of resources capable of pe
 
 In the following example, both the primary region and the secondary region have a full deployment. This deployment includes the cloud services and a synchronized database. 
 
-![Diagram of automatic failover using Azure Traffic Manager.](../networking/media/disaster-recovery-dns-traffic-manager/automatic-failover-using-traffic-manager.png)
+![Diagram of automatic failover using Azure Traffic Manager.](/azure/networking/media/disaster-recovery-dns-traffic-manager/automatic-failover-using-traffic-manager.png)
 
 *Figure - Automatic failover using Azure Traffic Manager*
 
@@ -64,9 +64,9 @@ This scenario is ideal for the use of Azure Traffic Manager that has inbuilt pro
 
 1. Create a new Azure Traffic Manager profile
     Create a new Azure Traffic manager profile with the name contoso123 and select the Routing method as Priority. 
-    If you have a pre-existing resource group that you want to associate with, then you can select an existing resource group, otherwise, create a new resource group.
+    If you have a preexisting resource group that you want to associate with, then you can select an existing resource group, otherwise, create a new resource group.
     
-    ![Screenshot of creating Traffic Manager profile.](../networking/media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
+    ![Screenshot of creating Traffic Manager profile.](/azure/networking/media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
     
     *Figure - Create a Traffic Manager profile*
     
@@ -75,7 +75,7 @@ This scenario is ideal for the use of Azure Traffic Manager that has inbuilt pro
     In this step, you create endpoints that point to the production and disaster recovery sites. Here, choose the **Type** as an external endpoint, but if the resource is hosted in Azure, then you can choose **Azure endpoint** as well. If you choose **Azure endpoint**, then select a **Target resource** that is either an **App Service** or a **Public IP** that is allocated by Azure. The priority is set as **1** since it's the primary service for Region 1.
     Similarly, create the disaster recovery endpoint within Traffic Manager as well.
     
-    ![Screenshot of creating disaster recovery endpoints.](../networking/media/disaster-recovery-dns-traffic-manager/create-disaster-recovery-endpoint.png)
+    ![Screenshot of creating disaster recovery endpoints.](/azure/networking/media/disaster-recovery-dns-traffic-manager/create-disaster-recovery-endpoint.png)
     
     *Figure - Create disaster recovery endpoints*
 
@@ -98,7 +98,7 @@ This scenario is ideal for the use of Azure Traffic Manager that has inbuilt pro
     Set the Retry to a value greater than **1** to eliminate chances of failovers due to false positives or any minor network blips. 
     
 
-    ![Screenshot of setting up health check.](../networking/media/disaster-recovery-dns-traffic-manager/set-up-health-check.png)
+    ![Screenshot of setting up health check.](/azure/networking/media/disaster-recovery-dns-traffic-manager/set-up-health-check.png)
     
     *Figure - Set up health check and failover configuration*
 

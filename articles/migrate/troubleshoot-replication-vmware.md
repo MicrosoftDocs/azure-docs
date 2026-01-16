@@ -70,7 +70,7 @@ You can increase the NFC buffer size beyond 32 MB to increase concurrency. The s
    ```
 4. Change the value of `HostBufferSizeInMB` to the value that you set in the ESXi host. 
 5. Save and exit. 
-6. Restart the Azure Migrate gateway service that is running on the appliance. Open PowerShell and execute the following:
+6. Restart the Azure Migrate gateway service that is running on the appliance. Go to PowerShell and execute the following:
    - net stop asrgwy (wait for the service to stop) 
    - net start asrgwy  
 

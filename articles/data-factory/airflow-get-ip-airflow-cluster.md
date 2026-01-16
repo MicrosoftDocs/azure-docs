@@ -13,13 +13,7 @@ ms.custom: sfi-image-nochange
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-> [!NOTE]
-> This feature is in public preview. Workflow Orchestration Manager is powered by Apache Airflow.
-
-This article demonstrates how to retrieve and add the IP address associated with your Workflow Orchestration Manager cluster to your storage firewall's allowlist. This enhances the security of data stores and resources by restricting access solely to the Workflow Orchestration Manager cluster within Azure Data Factory, preventing access from all other IP addresses via the public endpoint.
-
-> [!NOTE]
-> Importing DAGs is currently not supported by using blob storage with IP allow listing or by using private endpoints. We suggest using Git sync instead.
+[!INCLUDE[apache-airflow-notification](includes/apache-airflow-notification.md)]
 
 ## Prerequisites
 

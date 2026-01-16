@@ -16,7 +16,9 @@ items:
           displayName: ALT, load, MALT
           href: load-testing/overview-what-is-azure-load-testing.md
     - name: Quickstarts
-      items: 
+      items:
+        - name: Create a test from a recording
+          href: load-testing/quickstart-create-run-load-tests-from-recording.md
         - name: Create a URL-based load test
           href: load-testing/quickstart-create-and-run-load-test.md
         - name: Create a load test with a JMeter script
@@ -84,6 +86,8 @@ items:
               href: load-testing/how-to-configure-load-test-cicd.md
         - name: Analyze test results
           items:
+            - name: Analyze tests using the results dashboard
+              href: load-testing/how-to-understand-test-run-results-dashboard.md          
             - name: Compare test runs
               displayName: comparison, regression, baseline, compare metrics, compare results
               href: load-testing/how-to-compare-multiple-test-runs.md
@@ -180,6 +184,8 @@ items:
           href: load-testing/resource-limits-quotas-capacity.md
         - name: JMeter property overrides
           href: load-testing/resource-jmeter-property-overrides.md
+        - name: Responsible AI FAQs
+          href: load-testing/responsible-ai-faq.md
 
 - name: Playwright Workspaces
   expanded: true
@@ -200,6 +206,9 @@ items:
         - name: Set up continuous end-to-end testing
           displayName: getting started, quickstart, github actions, azure pipelines, azure devops, ci/cd, CICD, continuous integration, continuous delivery
           href: playwright-workspaces/quickstart-automate-end-to-end-testing.md
+        - name: Perform advanced diagnostics with Playwright Workspaces reporting
+          displayName: getting started, quickstart, cli, command-line, playwright
+          href: playwright-workspaces/quickstart-advanced-diagnostic-with-playwright-workspaces-reporting.md
     - name: Concepts
       items:
         - name: Determine optimal test suite configuration
@@ -242,6 +251,8 @@ items:
       items:
         - name: Troubleshoot test run failures
           href: playwright-workspaces/troubleshoot-test-run-failures.md
+        - name: Troubleshoot Playwright Workspaces reporting
+          href: playwright-workspaces/troubleshoot-playwright-workspaces-reporting.md
     - name: Resources
       items: 
         - name: Azure roadmap

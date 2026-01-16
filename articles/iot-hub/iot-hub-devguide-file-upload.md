@@ -1,8 +1,8 @@
 ---
 title: Understand Azure IoT Hub file upload
 description: This article shows how to use the file upload feature of IoT Hub to upload files from a device to an Azure storage blob container.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 10/20/2025

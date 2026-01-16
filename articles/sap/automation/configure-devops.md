@@ -32,110 +32,71 @@ You can use the following script to do a basic installation of Azure DevOps Serv
 Open PowerShell ISE and copy the following script and update the parameters to match your environment.
 
 ```powershell
-    $Env:SDAF_ADO_ORGANIZATION = "https://dev.azure.com/ORGANIZATIONNAME"
-    $Env:SDAF_ADO_PROJECT = "SAP Deployment Automation Framework"
-    $Env:SDAF_CONTROL_PLANE_CODE = "MGMT"
-    $Env:SDAF_ControlPlaneSubscriptionID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    $Env:ARM_TENANT_ID="zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz"
+    # Azure DevOps Configuration
+    $AzureDevOpsOrganizationUrl = "https://dev.azure.com/ORGANIZATIONNAME"
 
-    $Env:MSI_OBJECT_ID = $null
+    # Azure Infrastructure Configuration
+    $ControlPlaneCode = "MGMT"
+    $ControlPlaneRegionCode = "SECE"
+    $Location = "swedencentral"
+    
+    $ControlPlaneName = "$ControlPlaneCode-$ControlPlaneRegionCode-DEP01"
+    
+    $AzureDevOpsProjectName = "SDAF-" + $ControlPlaneCode + "-" + $ControlPlaneRegionCode
+    
+    $ControlPlaneSubscriptionId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    $TenantId = "yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy"
+    
+    # SAP Support Credentials
+    $Env:SUserName = "SXXXXXXXX"
+    $Env:Password = Read-Host "Please enter your SUserName password" -AsSecureString
+        
+    $MSIResourceGroupName = "SDAF-MSIs"
+    # Azure DevOps Agent Configuration
+    $AgentPoolName = "SDAF-$ControlPlaneCode-$ControlPlaneRegionCode-POOL"
+    
+    #Repository information
+    $repo = "Azure/sap-automation"
+    $branch = "main"
 
-    $branchName = "main"
-        
-    $UniqueIdentifier = "SDAF" + $ShortCode
-    
-    if ($Env:ARM_TENANT_ID.Length -eq 0) {
-      az login --output none --only-show-errors --scope https://graph.microsoft.com//.default
-    }
-    else {
-      az login --output none --tenant $Env:ARM_TENANT_ID --only-show-errors --scope https://graph.microsoft.com//.default
-    }
+    Remove-Module SDAFUtilities -ErrorAction SilentlyContinue
+    # Import required modules
+    $url="https://raw.githubusercontent.com/$repo/refs/heads/$branch/deploy/scripts/pwsh/Output/SDAFUtilities/SDAFUtilities.psm1"
 
-    az config set extension.use_dynamic_install=yes_without_prompt --only-show-errors
+    Write-Host "Downloading SDAFUtilities module from $url" -ForegroundColor Green 
 
-    az extension add --name azure-devops --only-show-errors
+    Invoke-WebRequest -Uri $url -OutFile "SDAFUtilities.psm1"
+    Unblock-File -Path ".\SDAFUtilities.psm1"
 
-    $differentTenant = Read-Host "Is your Azure DevOps organization hosted in a different tenant than the one you are currently logged in to? y/n"
-    if ($differentTenant -eq 'y') {
-        $env:AZURE_DEVOPS_EXT_PAT = Read-Host "Please enter your Personal Access Token (PAT) with permissions to add new projects, manage agent pools to the Azure DevOps organization $Env:ADO_Organization"
-        try {
-            az devops project list
-        }
-        catch {
-            $_
-        }
-    }
+    Import-Module ".\SDAFUtilities.psm1"
     
-    $confirmationWebAppDeployment = Read-Host "Do you want to use the Web Application for editing the configuration files (recommended) y/n?"
-    if ($confirmationWebAppDeployment -eq 'y') {
-        $Env:SDAF_WEBAPP = "true"
-        $confirmation = Read-Host "Do you want to create a new Application registration (needed for the Web Application) y/n?"
-        if ($confirmation -eq 'y') {
-            $Env:SDAF_APP_NAME = "SDAF " + $UniqueIdentifier + " SDAF Control Plane"
-        }
-        else {
-            $Env:SDAF_APP_NAME = Read-Host "Please provide the Application registration name"
-        }
-    }
-    else {
-        $Env:SDAF_WEBAPP = "false"
-    }
+    # Create Managed Identity
+    $ManagedServiceIdentity = New-SDAFUserAssignedIdentity `
+        -ManagedIdentityName "$ControlPlaneName" `
+        -ResourceGroupName $MSIResourceGroupName `
+        -SubscriptionId $ControlPlaneSubscriptionId `
+        -Location $Location `
+        -Verbose
     
-    $Env:SDAF_AuthenticationMethod = 'Managed Identity'
-    
-    $confirmationDeployment = Read-Host "Do you want to use Managed Identities for the deployment (recommended) y/n?"
-    
-    if ($confirmationDeployment -eq 'n') {
-        $Env:SDAF_AuthenticationMethod = 'Service Principal'
-         
-        $confirmation = Read-Host "Do you want to create a new Service Principal for the Control plane y/n?"
-        if ($confirmation -eq 'y') {
-            $Env:SDAF_MGMT_SPN_NAME = "SDAF " + $UniqueIdentifier + $Env:SDAF_CONTROL_PLANE_CODE + " SPN"
-        }
-        else {
-            $Env:SDAF_MGMT_SPN_NAME = Read-Host "Please provide the Control Plane Service Principal Name"
-        }
-        
-    }
-        
-    if ( $PSVersionTable.Platform -eq "Unix") {
-        if ( Test-Path "SDAF") {
-        }
-        else {
-            $sdaf_path = New-Item -Path "SDAF" -Type Directory
-        }
-    }
-    else {
-        $sdaf_path = Join-Path -Path $Env:HOMEDRIVE -ChildPath "SDAF"
-        if ( Test-Path $sdaf_path) {
-        }
-        else {
-            New-Item -Path $sdaf_path -Type Directory
-        }
-    }
-        
-    Set-Location -Path $sdaf_path
-        
-    if ( Test-Path "New-SDAFDevopsProject.ps1") {
-        if ( $PSVersionTable.Platform -eq "Unix") {
-            Remove-Item "New-SDAFDevopsProject.ps1"
-        }
-        else {
-            Remove-Item ".\New-SDAFDevopsProject.ps1"
-        }
-    }
-        
-    Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/sap-automation/$branchName/deploy/scripts/New-SDAFDevopsProject.ps1 -OutFile New-SDAFDevopsProject.ps1 
-    
-    
-    if ( $PSVersionTable.Platform -eq "Unix") {
-        Unblock-File ./New-SDAFDevopsProject.ps1
-        ./New-SDAFDevopsProject.ps1
-    }
-    else {
-        Unblock-File .\New-SDAFDevopsProject.ps1
-        .\New-SDAFDevopsProject.ps1
-    }
+    # Create Azure DevOps Project with Managed Identity
+    New-SDAFADOProject `
+        -AdoOrganization $AzureDevOpsOrganizationUrl `
+        -AdoProject $AzureDevOpsProjectName `
+        -TenantId $TenantId `
+        -ControlPlaneCode $ControlPlaneCode `
+        -ControlPlaneSubscriptionId $ControlPlaneSubscriptionId `
+        -ControlPlaneName $ControlPlaneName `
+        -AuthenticationMethod 'Managed Identity' `
+        -AgentPoolName $AgentPoolName `
+        -ManagedIdentityObjectId $ManagedServiceIdentity.PrincipalId `
+        -CreateConnections `
+        -EnableWebApp `    
+        -GitHubRepoName $repo `
+        -BranchName $branch -Verbose
+
+    Write-Output "Azure DevOps Project '$AzureDevOpsProjectName' created successfully."
+    Write-Output "Managed Identity Id: $($ManagedServiceIdentity.Id)"
+    Write-Output "Agent Pool Name: $AgentPoolName"
     
 ```
 
@@ -155,42 +116,73 @@ Use the following script to deploy the artifacts that are needed to support a ne
 Open PowerShell ISE and copy the following script and update the parameters to match your environment.
 
 ```powershell
-    $Env:SDAF_ADO_ORGANIZATION = "https://dev.azure.com/ORGANIZATIONNAME"
-    $Env:SDAF_ADO_PROJECT = "SAP Deployment Automation Framework"
-    $Env:SDAF_WorkloadZoneSubscriptionID = "yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy"
-    $Env:ARM_TENANT_ID="zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz"
-    
-    if ( $PSVersionTable.Platform -eq "Unix") {
-        if ( Test-Path "SDAF") {
-        }
-        else {
-            $sdaf_path = New-Item -Path "SDAF" -Type Directory
-        }
-    }
-    else {
-        $sdaf_path = Join-Path -Path $Env:HOMEDRIVE -ChildPath "SDAF"
-        if ( Test-Path $sdaf_path) {
-        }
-        else {
-            New-Item -Path $sdaf_path -Type Directory
-        }
-    }
+    # Azure DevOps Configuration
+    $AzureDevOpsOrganizationUrl = "https://dev.azure.com/ORGANIZATIONNAME"
 
-    $branchName = "main"
+    # Azure Infrastructure Configuration
+    $ControlPlaneCode = "MGMT"
+    $ControlPlaneRegionCode = "SECE"
+    $Location = "swedencentral"
     
-    Set-Location -Path $sdaf_path
+    $ControlPlaneName = "$ControlPlaneCode-$ControlPlaneRegionCode-DEP01"
+
+    $ManagedIdentityName = "$ControlPlaneName"
+    $MSIResourceGroupName = "SDAF-MSIs"
     
-    if ( Test-Path "New-SDAFDevopsWorkloadZone.ps1") {
-        remove-item .\New-SDAFDevopsWorkloadZone.ps1
-    }
+    $AzureDevOpsProjectName = "SDAF-" + $ControlPlaneCode + "-" + $ControlPlaneRegionCode
     
-    Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/sap-automation/$branchName/deploy/scripts/New-SDAFDevopsWorkloadZone.ps1 -OutFile .\New-SDAFDevopsWorkloadZone.ps1 ; .\New-SDAFDevopsWorkloadZone.ps1
+    $ControlPlaneSubscriptionId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    $WorkloadSubscriptionId = "zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz"
+    $TenantId = "yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy"
+
+    $WorkloadCode = "TEST"
+    $WorkloadRegionCode = "SECE"
+    $WorkloadZoneCode = $WorkloadCode + "-" + $WorkloadRegionCode + "-SAP01"
+
+    Remove-Module SDAFUtilities -ErrorAction SilentlyContinue
+    # Import required modules
+    #Repository information
+    $repo = "Azure/sap-automation"
+    $branch = "main"
+
+    Remove-Module SDAFUtilities -ErrorAction SilentlyContinue
+    # Import required modules
+    $url="https://raw.githubusercontent.com/$repo/refs/heads/$branch/deploy/scripts/pwsh/Output/SDAFUtilities/SDAFUtilities.psm1"
+
+    Write-Host "Downloading SDAFUtilities module from $url" -ForegroundColor Green 
+
+    Invoke-WebRequest -Uri $url -OutFile "SDAFUtilities.psm1"
+    Unblock-File -Path ".\SDAFUtilities.psm1"
+
+    Import-Module ".\SDAFUtilities.psm1"
+
+    # Get Managed Identity
+    $ManagedServiceIdentity = Get-SDAFUserAssignedIdentity `
+        -ManagedIdentityName $ManagedIdentityName `
+        -ResourceGroupName $MSIResourceGroupName `
+        -SubscriptionId $ControlPlaneSubscriptionId `
+        -Verbose
+    Write-Output "Managed Identity Id: $($ManagedServiceIdentity.Id)"
+
+    New-SDAFADOWorkloadZone `
+        -AdoOrganization $AzureDevOpsOrganizationUrl `
+        -AdoProject $AzureDevOpsProjectName `
+        -TenantId $TenantId `
+        -ControlPlaneCode $ControlPlaneCode `
+        -WorkloadZoneCode $WorkloadZoneCode `
+        -WorkloadZoneSubscriptionId $WorkloadSubscriptionId `
+        -AuthenticationMethod 'Managed Identity' `
+        -ManagedIdentityObjectId $ManagedServiceIdentity.PrincipalId `
+        -ManagedIdentityId $ManagedServiceIdentity.IdentityId `
+        -ControlPlaneSubscriptionId $ControlPlaneSubscriptionId `
+        -CreateConnections `
+        -Verbose
     
 ```
 
 ### Create a sample control plane configuration
 
-You can run the `Create Sample Deployer Configuration` pipeline to create a sample configuration for the control plane. When it's running, choose the appropriate Azure region. You can also control if you want to deploy Azure Firewall and Azure Bastion.
+You can run the `Create Sample Deployer Configuration` pipeline to create a sample configuration for the control plane. When it's running, choose the appropriate Azure region. You can also control if you want to deploy Azure Firewall, Azure Bastion, the Configuration App Service, and other components.
 
 ## Manual configuration of Azure DevOps Services for SAP Deployment Automation Framework
 
@@ -274,7 +266,7 @@ Select **Authorize** to sign in to GitHub.
 
 Enter a service connection name, for instance, **SDAF Connection to GitHub**. Ensure that the **Grant access permission to all pipelines** checkbox is selected. Select **Save** to save the service connection.
 
-## Set up the web app
+## Set up the app service registration (optional)
 
 The automation framework optionally provisions a web app as a part of the control plane to assist with the SAP workload zone and system configuration files. If you want to use the web app, you must first create an app registration for authentication purposes. Open Azure Cloud Shell and run the following commands.
 

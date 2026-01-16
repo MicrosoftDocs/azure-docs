@@ -107,7 +107,7 @@ Creating multiple task hubs isolates different workloads that can be managed ind
 - Create task hubs for different teams within your organization. 
 - Share the same scheduler instance across multiple apps. 
 
-Scheduler sharing is a great way to optimize cost when multiple teams have scenarios requiring orchestrations. Although you can create unlimited task hubs in one scheduler instance, they share the same resources; if one task hub is heavily loaded, it might affect the performance of the other task hubs.
+Scheduler sharing is a great way to optimize cost when multiple teams have scenarios requiring orchestrations. Although you can create multiple task hubs in one scheduler instance, they share the same resources; if one task hub is heavily loaded, it might affect the performance of the other task hubs.
 
 ### Emulator for local development
 
@@ -155,6 +155,15 @@ Stale orchestration data should be purged periodically to ensure efficient stora
 - **Feature parity:** 
 
     [Extended sessions](../durable-functions-azure-storage-provider.md#extended-sessions) are not available in the Durable Task Scheduler backend yet.
+
+- **Task hub limits:**
+
+    You're limited in how many task hubs you can use depending on your billing SKU. 
+
+     - [When using the Dedicated SKU,](./durable-task-scheduler-dedicated-sku.md#dedicated-sku) task hubs are limited to 25. 
+     - [When using the Consumption SKU,](./durable-task-scheduler-dedicated-sku.md#consumption-sku-preview) task hubs are limited to 5. 
+
+    For more quota, [contact support](https://github.com/Azure/azure-functions-durable-extension/issues).
 
 ## Next steps
 

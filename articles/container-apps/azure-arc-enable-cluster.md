@@ -67,6 +67,7 @@ Register the required namespaces.
 az provider register --namespace Microsoft.ExtendedLocation --wait
 az provider register --namespace Microsoft.KubernetesConfiguration --wait
 az provider register --namespace Microsoft.App --wait
+az provider register --namespace Microsoft.Web --wait
 az provider register --namespace Microsoft.OperationalInsights --wait
 ```
 
@@ -76,6 +77,7 @@ az provider register --namespace Microsoft.OperationalInsights --wait
 az provider register --namespace Microsoft.ExtendedLocation --wait
 az provider register --namespace Microsoft.KubernetesConfiguration --wait
 az provider register --namespace Microsoft.App --wait
+az provider register --namespace Microsoft.Web --wait
 az provider register --namespace Microsoft.OperationalInsights --wait
 ```
 

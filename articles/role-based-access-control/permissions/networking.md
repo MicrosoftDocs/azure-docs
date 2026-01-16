@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2025
+ms.date: 12/31/2025
 ms.custom: generated
 ---
 
@@ -75,10 +75,18 @@ Azure service: [Content Delivery Network](/azure/cdn/)
 > | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/routeresults/read |  |
 > | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/routeresults/write |  |
 > | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/routeresults/delete |  |
+> | Microsoft.Cdn/operationresults/profileresults/authpolicyresults/read |  |
+> | Microsoft.Cdn/operationresults/profileresults/authpolicyresults/write |  |
+> | Microsoft.Cdn/operationresults/profileresults/authpolicyresults/delete |  |
 > | Microsoft.Cdn/operationresults/profileresults/customdomainresults/read |  |
 > | Microsoft.Cdn/operationresults/profileresults/customdomainresults/write |  |
 > | Microsoft.Cdn/operationresults/profileresults/customdomainresults/delete |  |
 > | Microsoft.Cdn/operationresults/profileresults/customdomainresults/RefreshValidationToken/action |  |
+> | Microsoft.Cdn/operationresults/profileresults/deploymentversionresults/read |  |
+> | Microsoft.Cdn/operationresults/profileresults/deploymentversionresults/write |  |
+> | Microsoft.Cdn/operationresults/profileresults/deploymentversionresults/delete |  |
+> | Microsoft.Cdn/operationresults/profileresults/deploymentversionresults/Approve/action |  |
+> | Microsoft.Cdn/operationresults/profileresults/deploymentversionresults/Compare/action |  |
 > | Microsoft.Cdn/operationresults/profileresults/endpointresults/read |  |
 > | Microsoft.Cdn/operationresults/profileresults/endpointresults/write |  |
 > | Microsoft.Cdn/operationresults/profileresults/endpointresults/delete |  |
@@ -119,6 +127,12 @@ Azure service: [Content Delivery Network](/azure/cdn/)
 > | Microsoft.Cdn/operationresults/profileresults/securitypolicyresults/read |  |
 > | Microsoft.Cdn/operationresults/profileresults/securitypolicyresults/write |  |
 > | Microsoft.Cdn/operationresults/profileresults/securitypolicyresults/delete |  |
+> | Microsoft.Cdn/operationresults/profileresults/targetgroupresults/read |  |
+> | Microsoft.Cdn/operationresults/profileresults/targetgroupresults/write |  |
+> | Microsoft.Cdn/operationresults/profileresults/targetgroupresults/delete |  |
+> | Microsoft.Cdn/operationresults/profileresults/tunnelpolicyresults/read |  |
+> | Microsoft.Cdn/operationresults/profileresults/tunnelpolicyresults/write |  |
+> | Microsoft.Cdn/operationresults/profileresults/tunnelpolicyresults/delete |  |
 > | Microsoft.Cdn/operations/read |  |
 > | Microsoft.Cdn/profiles/read |  |
 > | Microsoft.Cdn/profiles/write |  |
@@ -148,10 +162,18 @@ Azure service: [Content Delivery Network](/azure/cdn/)
 > | Microsoft.Cdn/profiles/afdendpoints/routes/read |  |
 > | Microsoft.Cdn/profiles/afdendpoints/routes/write |  |
 > | Microsoft.Cdn/profiles/afdendpoints/routes/delete |  |
+> | Microsoft.Cdn/profiles/authpolicies/read |  |
+> | Microsoft.Cdn/profiles/authpolicies/write |  |
+> | Microsoft.Cdn/profiles/authpolicies/delete |  |
 > | Microsoft.Cdn/profiles/customdomains/read |  |
 > | Microsoft.Cdn/profiles/customdomains/write |  |
 > | Microsoft.Cdn/profiles/customdomains/delete |  |
 > | Microsoft.Cdn/profiles/customdomains/RefreshValidationToken/action |  |
+> | Microsoft.Cdn/profiles/deploymentversions/read |  |
+> | Microsoft.Cdn/profiles/deploymentversions/write |  |
+> | Microsoft.Cdn/profiles/deploymentversions/delete |  |
+> | Microsoft.Cdn/profiles/deploymentversions/Approve/action |  |
+> | Microsoft.Cdn/profiles/deploymentversions/Compare/action |  |
 > | Microsoft.Cdn/profiles/endpoints/read |  |
 > | Microsoft.Cdn/profiles/endpoints/write |  |
 > | Microsoft.Cdn/profiles/endpoints/delete |  |
@@ -205,6 +227,12 @@ Azure service: [Content Delivery Network](/azure/cdn/)
 > | Microsoft.Cdn/profiles/securitypolicies/read |  |
 > | Microsoft.Cdn/profiles/securitypolicies/write |  |
 > | Microsoft.Cdn/profiles/securitypolicies/delete |  |
+> | Microsoft.Cdn/profiles/targetgroups/read |  |
+> | Microsoft.Cdn/profiles/targetgroups/write |  |
+> | Microsoft.Cdn/profiles/targetgroups/delete |  |
+> | Microsoft.Cdn/profiles/tunnelpolicies/read |  |
+> | Microsoft.Cdn/profiles/tunnelpolicies/write |  |
+> | Microsoft.Cdn/profiles/tunnelpolicies/delete |  |
 
 ## Microsoft.ClassicNetwork
 
@@ -285,132 +313,6 @@ Azure service: Classic deployment model virtual network
 > | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/operationStatuses/read | Reads the operation status for the virtual network subnet associated network security group. |
 > | Microsoft.ClassicNetwork/virtualNetworks/virtualNetworkPeerings/read | Gets the virtual network peering. |
 
-## Microsoft.MobileNetwork
-
-Azure service: [Azure Private 5G Core](/azure/private-5g-core/)
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | Microsoft.MobileNetwork/register/action | Register the subscription for Microsoft.MobileNetwork |
-> | Microsoft.MobileNetwork/unregister/action | Unregister the subscription for Microsoft.MobileNetwork |
-> | Microsoft.MobileNetwork/Locations/OperationStatuses/read | read OperationStatuses |
-> | Microsoft.MobileNetwork/Locations/OperationStatuses/write | write OperationStatuses |
-> | Microsoft.MobileNetwork/mobileNetworks/read | Gets information about the specified mobile network. |
-> | Microsoft.MobileNetwork/mobileNetworks/write | Creates or updates a mobile network. |
-> | Microsoft.MobileNetwork/mobileNetworks/delete | Deletes the specified mobile network. |
-> | Microsoft.MobileNetwork/mobileNetworks/write | Updates mobile network tags and managed identity. |
-> | Microsoft.MobileNetwork/mobileNetworks/read | Lists all the mobile networks in a subscription. |
-> | Microsoft.MobileNetwork/mobileNetworks/read | Lists all the mobile networks in a resource group. |
-> | Microsoft.MobileNetwork/mobileNetworks/listSimGroups/action | Gets all the SIM groups assigned to a mobile network. |
-> | Microsoft.MobileNetwork/mobileNetworks/dataNetworks/read | Gets information about the specified data network. |
-> | Microsoft.MobileNetwork/mobileNetworks/dataNetworks/write | Creates or updates a data network. Must be created in the same location as its parent mobile network. |
-> | Microsoft.MobileNetwork/mobileNetworks/dataNetworks/delete | Deletes the specified data network. |
-> | Microsoft.MobileNetwork/mobileNetworks/dataNetworks/write | Updates data network tags. |
-> | Microsoft.MobileNetwork/mobileNetworks/dataNetworks/read | Lists all data networks in the mobile network. |
-> | Microsoft.MobileNetwork/mobileNetworks/edgeNetworkSecurityGroups/read | Gets information about the specified Edge Network Security Group. |
-> | Microsoft.MobileNetwork/mobileNetworks/edgeNetworkSecurityGroups/write | Creates or updates a Edge Network Security Group. Must be created in the same location as its parent mobile network. |
-> | Microsoft.MobileNetwork/mobileNetworks/edgeNetworkSecurityGroups/delete | Deletes the specified Edge Network Security Group. |
-> | Microsoft.MobileNetwork/mobileNetworks/edgeNetworkSecurityGroups/write | Updates Edge Network Security Group. |
-> | Microsoft.MobileNetwork/mobileNetworks/edgeNetworkSecurityGroups/read | Lists all Edge Network Security Groups in the mobile network. |
-> | Microsoft.MobileNetwork/mobileNetworks/services/read | Gets information about the specified service. |
-> | Microsoft.MobileNetwork/mobileNetworks/services/write | Creates or updates a service. Must be created in the same location as its parent mobile network. |
-> | Microsoft.MobileNetwork/mobileNetworks/services/delete | Deletes the specified service. |
-> | Microsoft.MobileNetwork/mobileNetworks/services/write | Updates service tags. |
-> | Microsoft.MobileNetwork/mobileNetworks/services/read | Gets all the services in a mobile network. |
-> | Microsoft.MobileNetwork/mobileNetworks/simPolicies/read | Gets information about the specified SIM policy. |
-> | Microsoft.MobileNetwork/mobileNetworks/simPolicies/write | Creates or updates a SIM policy. Must be created in the same location as its parent mobile network. |
-> | Microsoft.MobileNetwork/mobileNetworks/simPolicies/delete | Deletes the specified SIM policy. |
-> | Microsoft.MobileNetwork/mobileNetworks/simPolicies/write | Updates SIM policy tags. |
-> | Microsoft.MobileNetwork/mobileNetworks/simPolicies/read | Gets all the SIM policies in a mobile network. |
-> | Microsoft.MobileNetwork/mobileNetworks/sites/deletePacketCore/action | Deletes a packet core under the specified mobile network site. |
-> | Microsoft.MobileNetwork/mobileNetworks/sites/read | Gets information about the specified mobile network site. |
-> | Microsoft.MobileNetwork/mobileNetworks/sites/write | Creates or updates a mobile network site. Must be created in the same location as its parent mobile network. |
-> | Microsoft.MobileNetwork/mobileNetworks/sites/delete | Deletes the specified mobile network site. This will also delete any network functions that are a part of this site. |
-> | Microsoft.MobileNetwork/mobileNetworks/sites/write | Updates site tags. |
-> | Microsoft.MobileNetwork/mobileNetworks/sites/read | Lists all sites in the mobile network. |
-> | Microsoft.MobileNetwork/mobileNetworks/slices/read | Gets information about the specified network slice. |
-> | Microsoft.MobileNetwork/mobileNetworks/slices/write | Creates or updates a network slice. Must be created in the same location as its parent mobile network. |
-> | Microsoft.MobileNetwork/mobileNetworks/slices/delete | Deletes the specified network slice. |
-> | Microsoft.MobileNetwork/mobileNetworks/slices/write | Updates slice tags. |
-> | Microsoft.MobileNetwork/mobileNetworks/slices/read | Lists all slices in the mobile network. |
-> | Microsoft.MobileNetwork/mobileNetworks/wifiSsids/read | Gets information about the specified Wi-Fi SSID. |
-> | Microsoft.MobileNetwork/mobileNetworks/wifiSsids/write | Creates or updates a Wi-Fi SSID. Must be created in the same location as its parent mobile network. |
-> | Microsoft.MobileNetwork/mobileNetworks/wifiSsids/delete | Deletes the specified Wi-Fi SSID. |
-> | Microsoft.MobileNetwork/mobileNetworks/wifiSsids/write | Updates Wi-Fi SSID. |
-> | Microsoft.MobileNetwork/mobileNetworks/wifiSsids/read | Lists all Wi-Fi SSIDs in the mobile network. |
-> | Microsoft.MobileNetwork/Operations/read | read Operations |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/rollback/action | Roll back the specified packet core control plane to the previous version, "rollbackVersion". Multiple consecutive rollbacks are not possible. This action may cause a service outage. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/reinstall/action | Reinstall the specified packet core control plane. This action will remove any transaction state from the packet core to return it to a known state. This action will cause a service outage. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/collectDiagnosticsPackage/action | Collect a diagnostics package for the specified packet core control plane. This action will upload the diagnostics to a storage account. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/reinstall/action | Reinstall the specified packet core control plane. This action will try to restore the packet core to the installed state that was disrupted by a transient failure. This action will cause a service outage. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/read | Gets information about the specified packet core control plane. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/write | Creates or updates a packet core control plane. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/delete | Deletes the specified packet core control plane. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/write | Patch packet core control plane resource. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/read | Lists all the packet core control planes in a subscription. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/read | Lists all the packet core control planes in a resource group. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCaptures/stop/action | Stop a packet capture session. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCaptures/read | Gets information about the specified packet capture session. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCaptures/write | Creates or updates a packet capture. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCaptures/delete | Deletes the specified packet capture. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCaptures/read | Lists all the packet capture sessions under a packet core control plane. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/read | Gets information about the specified packet core data plane. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/write | Creates or updates a packet core data plane. Must be created in the same location as its parent packet core control plane. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/delete | Deletes the specified packet core data plane. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/write | Updates packet core data planes tags. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/read | Lists all the packet core data planes associated with a packet core control plane. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedDataNetworks/read | Gets information about the specified attached data network. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedDataNetworks/write | Creates or updates an attached data network. Must be created in the same location as its parent packet core data plane. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedDataNetworks/delete | Deletes the specified attached data network. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedDataNetworks/write | Updates an attached data network tags. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedDataNetworks/read | Gets all the attached data networks associated with a packet core data plane. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedWifiSsids/read | Gets all the Wi-Fi Attached SSIDs associated with a packet core data plane. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedWifiSsids/read | Gets information about the specified Wi-Fi Attached SSID. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedWifiSsids/write | Creates or updates an Wi-Fi Attached SSID. Must be created in the same location as its parent packet core data plane. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedWifiSsids/delete | Deletes the specified Wi-Fi Attached SSID. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedWifiSsids/write | Updates an Wi-Fi Attached SSID. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/edgeVirtualNetworks/read | Gets information about the specified Edge Virtual Network. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/edgeVirtualNetworks/write | Creates or updates an Edge Virtual Network . |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/edgeVirtualNetworks/delete | Deletes the specified Edge Virtual Network. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/edgeVirtualNetworks/write | Update Edge Virtual Network resource. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/edgeVirtualNetworks/read | Lists all the Edge Virtual Networks in a resource group. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/routingInfo/read | List all of the routing information for the packet core. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/routingInfo/read | Get the routing information for the packet core. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/ues/read | List all UEs and their state in a packet core. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/ues/extendedInformation/read | Gets extended information about the specified UE from the packet core. |
-> | Microsoft.MobileNetwork/packetCoreControlPlaneVersions/read | Gets information about the specified packet core control plane version. |
-> | Microsoft.MobileNetwork/packetCoreControlPlaneVersions/read | Lists all supported packet core control planes versions. |
-> | Microsoft.MobileNetwork/packetCoreControlPlaneVersions/read | Gets information about the specified packet core control plane version. |
-> | Microsoft.MobileNetwork/packetCoreControlPlaneVersions/read | Lists all supported packet core control planes versions. |
-> | Microsoft.MobileNetwork/radioAccessNetworks/read | Gets information about the specified radio access network. |
-> | Microsoft.MobileNetwork/radioAccessNetworks/write | Creates or updates a radio access network. |
-> | Microsoft.MobileNetwork/radioAccessNetworks/delete | Deletes the specified radio access network. |
-> | Microsoft.MobileNetwork/radioAccessNetworks/write | Updates a radio access network. |
-> | Microsoft.MobileNetwork/radioAccessNetworks/read | Gets all the radio access networks in a subscription. |
-> | Microsoft.MobileNetwork/radioAccessNetworks/read | Gets all the radio access networks in a resource group. |
-> | Microsoft.MobileNetwork/simGroups/uploadSims/action | Bulk upload SIMs to a SIM group. |
-> | Microsoft.MobileNetwork/simGroups/deleteSims/action | Bulk delete SIMs from a SIM group. |
-> | Microsoft.MobileNetwork/simGroups/uploadEncryptedSims/action | Bulk upload SIMs in encrypted form to a SIM group. The SIM credentials must be encrypted. |
-> | Microsoft.MobileNetwork/simGroups/moveSims/action | Move SIMs to another SIM Group |
-> | Microsoft.MobileNetwork/simGroups/cloneSims/action | Clone SIMs to another SIM Group |
-> | Microsoft.MobileNetwork/simGroups/read | Gets information about the specified SIM group. |
-> | Microsoft.MobileNetwork/simGroups/write | Creates or updates a SIM group. |
-> | Microsoft.MobileNetwork/simGroups/delete | Deletes the specified SIM group. |
-> | Microsoft.MobileNetwork/simGroups/write | Patch SIM group resource. |
-> | Microsoft.MobileNetwork/simGroups/read | Gets all the SIM groups in a subscription. |
-> | Microsoft.MobileNetwork/simGroups/read | Gets all the SIM groups in a resource group. |
-> | Microsoft.MobileNetwork/simGroups/sims/read | Gets information about the specified SIM. |
-> | Microsoft.MobileNetwork/simGroups/sims/write | Creates or updates a SIM. |
-> | Microsoft.MobileNetwork/simGroups/sims/delete | Deletes the specified SIM. |
-> | Microsoft.MobileNetwork/simGroups/sims/read | Gets all the SIMs in a SIM group. |
-> | Microsoft.MobileNetwork/sims/read | Gets information about the specified SIM. |
-> | Microsoft.MobileNetwork/sims/write | Creates or updates a SIM. |
-> | Microsoft.MobileNetwork/sims/delete | Deletes the specified SIM. |
-> | Microsoft.MobileNetwork/sims/write | Updates SIM tags. |
-> | Microsoft.MobileNetwork/sims/read | Gets all the SIMs in a subscription. |
-> | Microsoft.MobileNetwork/sims/read | Gets all the SIMs in a resource group. |
-
 ## Microsoft.Network
 
 Connect cloud and on-premises infrastructure and services to provide your customers and users the best possible experience.
@@ -453,7 +355,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/applicationGateways/migrateV1ToV2/action | Migrate Application Gateway from v1 sku to v2 sku |
 > | Microsoft.Network/applicationGateways/getMigrationStatus/action | Get Status Of Migrate Application Gateway From V1 sku To V2 sku |
 > | Microsoft.Network/applicationGateways/setSecurityCenterConfiguration/action | Sets Application Gateway Security Center Configuration |
-> | Microsoft.Network/applicationGateways/effectiveNetworkSecurityGroups/action | Get Network Security Group configured On Application Gateway |
+> | Microsoft.Network/applicationGateways/effectiveNetworkSecurityGroups/action | Get Route Table configured On Application Gateway |
 > | Microsoft.Network/applicationGateways/effectiveRouteTable/action | Get Route Table configured On Application Gateway |
 > | Microsoft.Network/applicationGateways/appProtectPolicy/getAppProtectPolicy/action | Get AppProtect policy attached to application gateway resource |
 > | Microsoft.Network/applicationGateways/appProtectPolicy/attachAppProtectPolicy/action | Attaches AppProtect policy to application gateway at global, path and/or listener level |
@@ -484,6 +386,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/azurefirewalls/delete | Delete Azure Firewall |
 > | Microsoft.Network/azurefirewalls/learnedIPPrefixes/action | Gets IP prefixes learned by Azure Firewall to not perform SNAT |
 > | Microsoft.Network/azurefirewalls/packetCapture/action | AzureFirewallPacketCaptureOperation |
+> | Microsoft.Network/azurefirewalls/packetCaptureOperation/action | AzureFirewallPacketCaptureOperation |
 > | Microsoft.Network/azureFirewalls/applicationRuleCollections/read | Gets Azure Firewall ApplicationRuleCollection |
 > | Microsoft.Network/azureFirewalls/applicationRuleCollections/write | CreatesOrUpdates Azure Firewall ApplicationRuleCollection |
 > | Microsoft.Network/azureFirewalls/applicationRuleCollections/delete | Deletes Azure Firewall ApplicationRuleCollection |
@@ -560,6 +463,22 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/dnsForwardingRulesets/virtualNetworkLinks/delete | Deletes DNS Forwarding Ruleset Link to Virtual Network |
 > | Microsoft.Network/dnsoperationresults/read | Gets results of a DNS operation |
 > | Microsoft.Network/dnsoperationstatuses/read | Gets status of a DNS operation  |
+> | Microsoft.Network/dnsResolverDomainLists/read | Gets a DNS Resolver Domain List, in JSON format. |
+> | Microsoft.Network/dnsResolverDomainLists/write | Create or update a DNS Resolver Domain List. |
+> | Microsoft.Network/dnsResolverDomainLists/join/action | Join a DNS Resolver Domain List from another resource. |
+> | Microsoft.Network/dnsResolverDomainLists/delete | Delete a DNS Resolver Domain List. |
+> | Microsoft.Network/dnsResolverDomainLists/bulk/action | Bulk operations on the contents of the DNS Resolver Domain List. |
+> | Microsoft.Network/dnsResolverPolicies/read | Gets a DNS Resolver Policy, in JSON format. |
+> | Microsoft.Network/dnsResolverPolicies/write | Create or update a DNS Resolver Policy. |
+> | Microsoft.Network/dnsResolverPolicies/delete | Delete a DNS Resolver Policy. |
+> | Microsoft.Network/dnsResolverPolicies/dnsSecurityRules/read | Gets a DNS Security Rule for a DNS Resolver Policy, in JSON format. |
+> | Microsoft.Network/dnsResolverPolicies/dnsSecurityRules/write | Create or update a DNS Security Rule for a DNS Resolver Policy. |
+> | Microsoft.Network/dnsResolverPolicies/dnsSecurityRules/delete | Delete a DNS Security Rule for a DNS Resolver Policy. |
+> | Microsoft.Network/dnsResolverPolicies/providers/Microsoft.Insights/diagnosticSettings/read | Gets diagnostic settings for a DNS Resolver Policy, in JSON format. |
+> | Microsoft.Network/dnsResolverPolicies/providers/Microsoft.Insights/diagnosticSettings/write | Create or update diagnostic settings for a DNS Resolver Policy. |
+> | Microsoft.Network/dnsResolverPolicies/virtualNetworkLinks/read | Gets a Virtual Network Link for a DNS Resolver Policy, in JSON format. |
+> | Microsoft.Network/dnsResolverPolicies/virtualNetworkLinks/write | Create or update a Virtual Network Link for a DNS Resolver Policy. |
+> | Microsoft.Network/dnsResolverPolicies/virtualNetworkLinks/delete | Delete a Virtual Network Link for a DNS Resolver Policy. |
 > | Microsoft.Network/dnsResolvers/read | Gets the DNS Resolver Properties, in JSON format |
 > | Microsoft.Network/dnsResolvers/write | Creates Or Updates a DNS Resolver, in JSON format |
 > | Microsoft.Network/dnsResolvers/join/action | Join DNS Resolver |
@@ -626,10 +545,14 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/expressRouteCircuits/write | Creates or updates an existing ExpressRouteCircuit |
 > | Microsoft.Network/expressRouteCircuits/join/action | Joins an Express Route Circuit. Not alertable. |
 > | Microsoft.Network/expressRouteCircuits/delete | Deletes an ExpressRouteCircuit |
+> | Microsoft.Network/expressRouteCircuits/listAuthorizations/action | List All ExpressRouteCircuit Authorization with Authorization Key |
 > | Microsoft.Network/expressRouteCircuits/nrpinternalupdate/action | Create or Update ExpressRouteCircuit |
-> | Microsoft.Network/expressRouteCircuits/authorizations/read | Gets an ExpressRouteCircuit Authorization |
+> | Microsoft.Network/expressRouteCircuits/authorizations/read | Get an ExpressRouteCircuit Authorization |
 > | Microsoft.Network/expressRouteCircuits/authorizations/write | Creates or updates an existing ExpressRouteCircuit Authorization |
+> | Microsoft.Network/expressRouteCircuits/authorizations/authorizationKey/action | Get an Authorization Key for ExpressRouteCircuit Authorization |
 > | Microsoft.Network/expressRouteCircuits/authorizations/delete | Deletes an ExpressRouteCircuit Authorization |
+> | Microsoft.Network/expressRouteCircuits/authorizations/getAuthorization/action | Gets an ExpressRouteCircuit Authorization with Authorization Key |
+> | Microsoft.Network/expressRouteCircuits/authorizations/addAuthorization/action | Create an ExpressRouteCircuit Authorization |
 > | Microsoft.Network/expressRouteCircuits/peerings/read | Gets an ExpressRouteCircuit Peering |
 > | Microsoft.Network/expressRouteCircuits/peerings/write | Creates or updates an existing ExpressRouteCircuit Peering |
 > | Microsoft.Network/expressRouteCircuits/peerings/delete | Deletes an ExpressRouteCircuit Peering |
@@ -673,9 +596,13 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/expressRoutePorts/join/action | Joins Express Route ports. Not alertable. |
 > | Microsoft.Network/expressRoutePorts/delete | Deletes ExpressRoutePorts |
 > | Microsoft.Network/expressRoutePorts/generateloa/action | Generates LOA for ExpressRoutePorts |
-> | Microsoft.Network/expressRoutePorts/authorizations/read | Gets an ExpressRoutePorts Authorization |
+> | Microsoft.Network/expressRoutePorts/listAuthorizations/action | List All Express Route Ports Authorizations with Authorization Key |
+> | Microsoft.Network/expressRoutePorts/authorizations/read | Get Express Route Ports Authorization |
 > | Microsoft.Network/expressRoutePorts/authorizations/write | Creates or updates an existing ExpressRoutePorts Authorization |
+> | Microsoft.Network/expressRoutePorts/authorizations/authorizationKey/action | Get an Authorization Key for Express Route Ports Authorization |
 > | Microsoft.Network/expressRoutePorts/authorizations/delete | Deletes an ExpressRoutePorts Authorization |
+> | Microsoft.Network/expressRoutePorts/authorizations/getAuthorization/action | Get Express Route Ports Authorization with Authorization Key |
+> | Microsoft.Network/expressRoutePorts/authorizations/addAuthorization/action | Create ExpressRoutePorts Authorization |
 > | Microsoft.Network/expressRoutePorts/links/read | Gets ExpressRouteLink |
 > | Microsoft.Network/expressRoutePorts/providers/Microsoft.Insights/metricDefinitions/read | Gets the metric definitions for ExpressRoute Ports |
 > | Microsoft.Network/expressRoutePortsLocations/read | Get Express Route Ports Locations |
@@ -815,7 +742,12 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/locations/dataTasks/run/action | Runs Data Task |
 > | Microsoft.Network/locations/dnsResolverOperationResults/read | Gets results of a DNS Resolver operation, in JSON format |
 > | Microsoft.Network/locations/dnsResolverOperationStatuses/read | Gets status of a DNS Resolver operation |
+> | Microsoft.Network/locations/dnsResolverPolicyOperationResults/read | Retrieve the result of a DNS Resolver Policy operation, in JSON format. |
+> | Microsoft.Network/locations/dnsResolverPolicyOperationStatuses/read | Retrieve the status of a DNS Resolver Policy operation, in JSON format. |
 > | Microsoft.Network/locations/getPacketTagging/read | Gets Packet Tagging |
+> | Microsoft.Network/locations/ipamPoolOperationResults/read | Gets the operation results for Ipam Pool |
+> | Microsoft.Network/locations/networkSecurityPerimeterOperationStatuses/read | Gets Network Security Perimeter Operation Status |
+> | Microsoft.Network/locations/nspServiceTags/read | Gets Network Security Perimeter Service Tags |
 > | Microsoft.Network/locations/operationResults/read | Gets operation result of an async POST or DELETE operation |
 > | Microsoft.Network/locations/operations/read | Gets operation resource that represents status of an asynchronous operation |
 > | Microsoft.Network/locations/perimeterAssociableResourceTypes/read | Gets Network Security Perimeter Associable Resources |
@@ -889,6 +821,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/networkManagers/ipamPools/disassociateResourcesFromPool/action | Disassociate Azure resources (i.e. VNet) from Ipam Pool |
 > | Microsoft.Network/networkManagers/ipamPools/allocateAzureResource/action | Allocate CIDR range for Azure resource from Ipam Pool |
 > | Microsoft.Network/networkManagers/ipamPools/allocateNonAzureResource/action | Allocate CIDR range for non Azure resource from Ipam Pool |
+> | Microsoft.Network/networkManagers/ipamPools/allocateResourcePrefixes/action | Allocate CIDR Range for Resource from Ipam Pool |
 > | Microsoft.Network/networkManagers/ipamPools/getPoolUsage/action | Get pool usage for a Ipam Pool |
 > | Microsoft.Network/networkManagers/listActiveConnectivityConfigurations/read | Permission for calling List Active Connectivity Configurations operation. This read permission, not listActiveConnectivityConfigurations/action, is required to call List Active Connectivity Configurations. |
 > | Microsoft.Network/networkManagers/listActiveSecurityAdminRules/read | Permission for calling List Active Security Admin Rules operation. This read permission, not listActiveSecurityAdminRules/action, is required to call List Active Security Admin Rules. |
@@ -978,6 +911,8 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/networkSecurityPerimeters/backingResourceAssociations/read | Gets a Network Security Perimeter Backing Resource Association |
 > | Microsoft.Network/networkSecurityPerimeters/backingResourceAssociations/write | Creates or Updates a Network Security Perimeter Backing Resource Association |
 > | Microsoft.Network/networkSecurityPerimeters/backingResourceAssociations/delete | Deletes a Network Security Perimeter Backing Resource Association |
+> | Microsoft.Network/networkSecurityPerimeters/linkProxies/write | Updates a Network Security Perimeter Link Proxy |
+> | Microsoft.Network/networkSecurityPerimeters/linkReferenceProxies/write | Creates or Updates a Network Security Perimeter LinkReference Proxy |
 > | Microsoft.Network/networkSecurityPerimeters/linkReferences/read | Gets a Network Security Perimeter LinkReference |
 > | Microsoft.Network/networkSecurityPerimeters/linkReferences/write | Creates or Updates a Network Security Perimeter LinkReference |
 > | Microsoft.Network/networkSecurityPerimeters/linkReferences/delete | Deletes a Network Security Perimeter LinkReference |
@@ -985,6 +920,9 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/networkSecurityPerimeters/links/read | Gets a Network Security Perimeter Link |
 > | Microsoft.Network/networkSecurityPerimeters/links/write | Creates or Updates a Network Security Perimeter Link |
 > | Microsoft.Network/networkSecurityPerimeters/links/delete | Deletes a Network Security Perimeter Link |
+> | Microsoft.Network/networkSecurityPerimeters/loggingConfigurations/read | Gets a Network Security Perimeter Logging Configuration |
+> | Microsoft.Network/networkSecurityPerimeters/loggingConfigurations/write | Creates or Updates a Network Security Perimeter Logging Configuration |
+> | Microsoft.Network/networkSecurityPerimeters/loggingConfigurations/delete | Deletes a Network Security Perimeter Logging Configuration |
 > | Microsoft.Network/networkSecurityPerimeters/profiles/read | Gets a Network Security Perimeter Profile |
 > | Microsoft.Network/networkSecurityPerimeters/profiles/write | Creates or Updates a Network Security Perimeter Profile |
 > | Microsoft.Network/networkSecurityPerimeters/profiles/delete | Deletes a Network Security Perimeter Profile |
@@ -1042,6 +980,12 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/networkWatchers/connectivityCheck/action | Verifies the possibility of establishing a direct TCP connection from a virtual machine to a given endpoint including another VM or an arbitrary remote server. |
 > | Microsoft.Network/networkWatchers/azureReachabilityReport/action | Returns the relative latency score for internet service providers from a specified location to Azure regions. |
 > | Microsoft.Network/networkWatchers/availableProvidersList/action | Returns all available internet service providers for a specified Azure region. |
+> | Microsoft.Network/networkWatchers/agents/read | Get Network Watcher Agent Detail |
+> | Microsoft.Network/networkWatchers/agents/write | Creates a Network Watcher Agent |
+> | Microsoft.Network/networkWatchers/agents/delete | Deletes a Network Watcher Agent |
+> | Microsoft.Network/networkWatchers/agents/register/action | Registers a network watcher agent |
+> | Microsoft.Network/networkWatchers/agents/fetchRegistrationInfo/action | Fetch Network Watcher Agent Registration detail |
+> | Microsoft.Network/networkWatchers/agents/deregister/action | Deregisters a Network Watcher Agent |
 > | Microsoft.Network/networkWatchers/connectionAnalyzers/read | Get Connection Analyzer details |
 > | Microsoft.Network/networkWatchers/connectionAnalyzers/write | Creates a Connection Analyzer |
 > | Microsoft.Network/networkWatchers/connectionAnalyzers/delete | Deletes a Connection Analyzer |
@@ -1254,6 +1198,9 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/virtualHubs/routingIntent/read | Gets a Routing Intent child resource of Virtual Hub |
 > | Microsoft.Network/virtualHubs/routingIntent/write | Creates or Updates a Routing Intent child resource of Virtual Hub |
 > | Microsoft.Network/virtualHubs/routingIntent/delete | Deletes a Routing Intent child resource of Virtual Hub |
+> | Microsoft.Network/virtualNetworkAppliances/read | Get Virtual Network Appliance |
+> | Microsoft.Network/virtualNetworkAppliances/write | Create or update Virtual Network Appliance |
+> | Microsoft.Network/virtualNetworkAppliances/delete | Delete Virtual Network Appliance |
 > | Microsoft.Network/virtualnetworkgateways/supportedvpndevices/action | Lists Supported Vpn Devices |
 > | Microsoft.Network/virtualNetworkGateways/read | Gets a VirtualNetworkGateway |
 > | Microsoft.Network/virtualNetworkGateways/write | Creates or updates a VirtualNetworkGateway |
@@ -1265,6 +1212,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | microsoft.network/virtualnetworkgateways/getvpnprofilepackageurl/action | Gets the URL of a pre-generated vpn client profile package |
 > | microsoft.network/virtualnetworkgateways/setvpnclientipsecparameters/action | Set Vpnclient Ipsec parameters for VirtualNetworkGateway P2S client. |
 > | microsoft.network/virtualnetworkgateways/getvpnclientipsecparameters/action | Get Vpnclient Ipsec parameters for VirtualNetworkGateway P2S client. |
+> | microsoft.network/virtualnetworkgateways/listAllRadiusServersSecrets/action | List all VirtualNetworkGateway RadiusServer secrets |
 > | microsoft.network/virtualnetworkgateways/resetvpnclientsharedkey/action | Reset Vpnclient shared key for VirtualNetworkGateway P2S client. |
 > | microsoft.network/virtualnetworkgateways/reset/action | Resets a virtualNetworkGateway |
 > | microsoft.network/virtualnetworkgateways/prepareMigration/action | Prepare Migrate Virtual Network Gateway Operation |
@@ -1294,6 +1242,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/virtualNetworks/ddosProtectionStatus/action | Gets the effective Ddos protection status for a Virtual Network resource. |
 > | Microsoft.Network/virtualNetworks/setAdminNetworkSecurityGroup/action | Sets Admin Network Security Group Reference On Virtual Network |
 > | Microsoft.Network/virtualNetworks/removeAdminNetworkSecurityGroup/action | Removes Admin Network Security Group Reference From Virtual Network |
+> | Microsoft.Network/virtualNetworks/moveIpConfigurations/action | Moves secondary IP configurations between resources |
 > | Microsoft.Network/virtualNetworks/rnmEffectiveRouteTable/action | Gets RouteTables Configured On CA Of The Vnet In Rnm Format |
 > | Microsoft.Network/virtualNetworks/rnmEffectiveNetworkSecurityGroups/action | Gets Security Groups Configured On CA Of The Vnet In Rnm Format |
 > | Microsoft.Network/virtualNetworks/listNetworkManagerEffectiveConnectivityConfigurations/action | Lists Network Manager Effective Connectivity Configurations |
@@ -1301,6 +1250,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/virtualNetworks/manageIpFromPool/action | Manage Private Ip Inventory Pool Operation Description |
 > | Microsoft.Network/virtualNetworks/listDnsResolvers/action | Gets the DNS Resolver for Virtual Network, in JSON format |
 > | Microsoft.Network/virtualNetworks/listDnsForwardingRulesets/action | Gets the DNS Forwarding Ruleset for Virtual Network, in JSON format |
+> | Microsoft.Network/virtualNetworks/listDnsResolverPolicies/action | Gets the DNS Resolver Policy associated with a Virtual Network, in JSON format. |
 > | Microsoft.Network/virtualNetworks/bastionHosts/default/action | Gets Bastion Host references in a Virtual Network. |
 > | Microsoft.Network/virtualNetworks/checkIpAddressAvailability/read | Check if IP Address is available at the specified virtual network |
 > | Microsoft.Network/virtualNetworks/customViews/read | Get definition of a custom view of Virtual Network |
@@ -1414,6 +1364,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/vpnServerConfigurations/read | Get VpnServerConfiguration |
 > | Microsoft.Network/vpnServerConfigurations/write | Create or Update VpnServerConfiguration |
 > | Microsoft.Network/vpnServerConfigurations/delete | Delete VpnServerConfiguration |
+> | microsoft.network/vpnServerConfigurations/listAllRadiusServersSecrets/action | List all VpnServerConfiguration RadiusServer secrets |
 > | microsoft.network/vpnServerConfigurations/configurationPolicyGroups/read | Gets a Configuration Policy Group  |
 > | microsoft.network/vpnServerConfigurations/configurationPolicyGroups/write | Puts a Configuration Policy Group |
 > | microsoft.network/vpnServerConfigurations/configurationPolicyGroups/delete | Deletes a Configuration Policy Group |

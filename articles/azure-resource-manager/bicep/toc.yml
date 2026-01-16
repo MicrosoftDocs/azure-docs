@@ -48,8 +48,6 @@ items:
             displayName: continuous, ci, cd, CI/CD
   - name: Tutorials
     items:
-      - name: Learn modules for Bicep
-        href: learn-bicep.md
       - name: Learn Live - Bicep
         href: /events/learntv/learnlive-iac-and-bicep/
       - name: Learn Live - Bicep and GitHub Actions
@@ -731,6 +729,8 @@ items:
             href: diagnostics/bcp192.md
           - name: BCP201
             href: diagnostics/bcp201.md
+          - name: BCP226
+            href: diagnostics/bcp226.md
           - name: BCP238
             href: diagnostics/bcp238.md
           - name: BCP266

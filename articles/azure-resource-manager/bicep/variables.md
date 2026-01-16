@@ -3,7 +3,7 @@ title: Variables in Bicep
 description: Describes how to define variables in Bicep
 ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 05/30/2025
+ms.date: 12/22/2025
 ---
 
 # Variables in Bicep

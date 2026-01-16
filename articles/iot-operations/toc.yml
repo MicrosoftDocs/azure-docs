@@ -189,10 +189,7 @@ items:
                 displayName: data flow, endpoint, observability, metrics, logs, OpenTelemetry, OTLP, northbound
               - name: Local storage or ACSA
                 href: connect-to-cloud/howto-configure-local-storage-endpoint.md
-                displayName: data flow, endpoint, northbound
-              - name: Registry endpoint
-                href: connect-to-cloud/howto-configure-registry-endpoint.md
-                displayName: data flow, endpoint, northbound, registry
+                displayName: data flow, endpoint, northbound, Azure Container Storage enabled by Azure Arc
           - name: Create a data flow
             href: connect-to-cloud/howto-create-dataflow.md
             displayName: endpoint, transformation, source, destination, profile, data flow profile, enrich , map, serialize, schema
@@ -207,20 +204,9 @@ items:
               - name: Enrich data
                 href: connect-to-cloud/concept-dataflow-enrich.md
                 displayName: data flow, transform, context, contextualization
-          - name: Use WASM data flow graphs
-            items:
-              - name: Deploy data flow graphs
+              - name: Use WASM data flow graphs
                 href: connect-to-cloud/howto-dataflow-graph-wasm.md
                 displayName: data flow, WASM, WebAssembly, graph, transform, enrich, deploy, registry, test
-              - name: Develop WASM modules
-                href: connect-to-cloud/howto-develop-wasm-modules.md
-                displayName: data flow, WASM, WebAssembly, development, Rust, Python, modules, operators
-              - name: Configure graph definitions
-                href: connect-to-cloud/howto-configure-wasm-graph-definitions.md
-                displayName: data flow, WASM, WebAssembly, graph definitions, YAML, configuration, workflow
-              - name: AI inference with ONNX
-                href: connect-to-cloud/howto-wasm-onnx-inference.md
-                displayName: data flow, WASM, WebAssembly, ONNX, inference, AI, wasi-nn
           - name: Use message schemas
             href: connect-to-cloud/concept-schema-registry.md
             displayName: data flow, serialize, deserialize, schema registry
@@ -243,12 +229,35 @@ items:
             displayName: container insights, prometheus, opentelemetry, otel, metrics, Azure Monitor, Grafana, Log Analytics
       - name: Develop edge applications
         items:
-          - name: Azure IoT Operations SDKs
-            href: develop-edge-apps/overview-iot-operations-sdks.md
-            displayName: MQTT, client app, developer, C#, .Net, Go, Rust
+          - name: Developer guide
+            href: develop-edge-apps/overview-iot-operations-development.md
+            displayName: MQTT, client app, developer, C#, .Net, Go, Rust, Python, SDKs, VS Code, extension
           - name: Start developing with the SDKs
             href: develop-edge-apps/quickstart-get-started-sdks.md
             displayName: MQTT, client app, developer, C#, .Net, Go, Rust, quickstart, get started
+          - name: Define custom processing with WASM
+            items:
+              - name: Build WASM modules with VS Code extension
+                href: develop-edge-apps/howto-build-wasm-modules-vscode.md
+                displayName: VS Code, extension, develop, dataflow, graph, connector
+              - name: Build WASM modules
+                href: connect-to-cloud/howto-develop-wasm-modules.md
+                displayName: data flow, WASM, WebAssembly, development, Rust, Python, modules, operators
+              - name: Configure graph definitions
+                href: develop-edge-apps/howto-configure-wasm-graph-definitions.md
+                displayName: data flow, WASM, WebAssembly, graph definitions, YAML, configuration, workflow
+              - name: Configure registry endpoints
+                href: develop-edge-apps/howto-configure-registry-endpoint.md
+                displayName: data flow, endpoint, northbound, registry, connectors
+              - name: Deploy graph definitions
+                href: develop-edge-apps/howto-deploy-wasm-graph-definitions.md
+                displayName: data flow, WASM, WebAssembly, graph definitions, deploy, container, registry
+              - name: AI inference with ONNX
+                href: connect-to-cloud/howto-wasm-onnx-inference.md
+                displayName: data flow, WASM, WebAssembly, ONNX, inference, AI, wasi-nn
+          - name: Build Akri connectors with VS Code extension
+            href: develop-edge-apps/howto-build-akri-connectors-vscode.md
+            displayName: VS Code, extension, develop
           - name: Concepts
             items:
               - name: Highly available edge apps

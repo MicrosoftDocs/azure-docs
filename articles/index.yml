@@ -1193,7 +1193,7 @@ productDirectory:
       summary: Provide highly reliable, secure, and scalable outbound connectivity to the internet
       imageSrc: ./media/index/nat-gateway.svg
       azureCategories:
-        - security
+        - networking
       url: nat-gateway/index.yml
     # Card
     - title: All networking services

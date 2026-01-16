@@ -2,7 +2,7 @@
 title: 'Bicep What-If: Preview Changes Before Deployment'
 description: Determine what changes will happen to your resources before deploying a Bicep file.
 ms.topic: article
-ms.date: 08/19/2025
+ms.date: 01/07/2026
 ms.custom:
   - devx-track-bicep, devx-track-azurecli, devx-track-azurepowershell
   - ai-gen-docs-bap
@@ -13,9 +13,9 @@ ms.custom:
 
 # Bicep What-If: Preview Changes Before Deployment
 
-Before deploying a Bicep file, you can preview the changes that will happen. Azure Resource Manager (ARM) provides the what-if operation to let you see how resources will change if you deploy the Bicep file. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified Bicep file is deployed.
+Before deploying a Bicep file, you can preview the changes that will happen. Azure Resource Manager provides the what-if operation to let you see how resources will change if you deploy the Bicep file. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified Bicep file is deployed.
 
-You can use the what-if operation with [Visual Studio Code](./visual-studio-code.md#deployment-pane), Azure PowerShell, Azure CLI, or REST API operations. What-if is supported for resource group, subscription, management group, and tenant level deployments.
+You can use the what-if operation with [Visual Studio Code](./deploy-vscode.md#deployment-pane), Azure PowerShell, Azure CLI, or REST API operations. What-if is supported for resource group, subscription, management group, and tenant level deployments.
 
 During What-If operations, the evaluation and expansion of `templateLink` aren't supported. As a result, any resources deployed using template links within nested deployments, including template spec references, won't be visible in the What-If operation results.
 
@@ -55,11 +55,11 @@ When one of the limits is reached, the remaining resources' [change type](#chang
 
 ### Short-circuiting
 
-The what-if operation in Bicep deployments may encounter "short-circuiting," a scenario where the service cannot fully analyze a module or resource due to the deployment's structure or dependencies on external state. Short-circuiting of an individual resource occurs when its resource ID or API version cannot be calculated outside the deployment context, often due to unresolved expressions or external dependencies. For more information, see [Unevaluated expressions](#unevaluated-expressions). While rare, short-circuiting of modules or nested deployment resources can also happen, resulting in all resources within the module being excluded from the what-if analysis results. In such cases, the API response includes a diagnostic message to indicate the issue.
+The what-if operation in Bicep deployments may encounter "short-circuiting," a scenario where the service can't fully analyze a module or resource due to the deployment's structure or dependencies on external state. Short-circuiting of an individual resource occurs when its resource ID or API version can't be calculated outside the deployment context, often due to unresolved expressions or external dependencies. For more information, see [Unevaluated expressions](#unevaluated-expressions). While rare, short-circuiting of modules or nested deployment resources can also happen, resulting in all resources within the module being excluded from the what-if analysis results. In such cases, the API response includes a diagnostic message to indicate the issue.
 
 ## Running the what-if operation
 
-Using a recent version of the Az PowerShell module (13.1.0 or later) or the Azure CLI (2.75.0 or later) will provide diagnostics when what-if cannot analyze part of the deployment. Earlier versions of these tools behave the same way, but they do not display the diagnostics. For example, if you use CLI version 2.74.0, the issue still occurs-it just happens silently.
+Using a recent version of the Az PowerShell module (13.1.0 or later) or the Azure CLI (2.75.0 or later) will provide diagnostics when what-if can't analyze part of the deployment. Earlier versions of these tools behave the same way, but they don't display the diagnostics. For example, if you use CLI version 2.74.0, the issue still occurs-it just happens silently.
 
 ### What-if commands
 
@@ -72,11 +72,11 @@ To preview changes before deploying a Bicep file, use:
 - [az deployment mg what-if](/cli/azure/deployment/mg#az-deployment-mg-what-if) for management group deployments
 - [az deployment tenant what-if](/cli/azure/deployment/tenant#az-deployment-tenant-what-if) for tenant deployments
 
-Azure CLI version **2.76.0 or later** introduces the `--validation-level` switch to determine how thoroughly ARM validates the Bicep template during this process. It accepts the following values:
+Azure CLI version **2.76.0 or later** introduces the `--validation-level` switch to determine how thoroughly Azure Resource Manager validates the Bicep template during this process. It accepts the following values:
 
 - **Provider** (default): Performs full validation, including template syntax, resource definitions, dependencies, and permission checks to ensure you have sufficient permissions to deploy all resources in the template. 
 - **ProviderNoRbac**: Performs full validation of the template and resources, similar to Provider, but only checks for read permissions on each resource instead of full deployment permissions. This is useful when you want to validate resource configurations without requiring full access.
-- **Template**: Performs static validation only, checking template syntax and structure while skipping preflight checks (e.g., resource availability) and permission checks. This is less thorough, potentially missing issues that could cause deployment failures.
+- **Template**: Performs static validation only, checking template syntax and structure while skipping preflight checks (for example, resource availability) and permission checks. This is less thorough, potentially missing issues that could cause deployment failures.
 
 You can use the `--confirm-with-what-if` switch (or its short form `-c`) to preview the changes and get prompted to continue with the deployment. Add this switch to:
 
@@ -98,11 +98,11 @@ To preview changes before deploying a Bicep file, use [New-AzResourceGroupDeploy
 - `New-AzResourceGroupDeployment -Whatif` for resource group deployments
 - `New-AzSubscriptionDeployment -Whatif` and `New-AzDeployment -Whatif` for subscription level deployments
 
-Azure PowerShell version **13.4.0 or later** introduces the `-ValidationLevel` switch to determine how thoroughly ARM validates the Bicep template during this process. It accepts the following values:
+Azure PowerShell version **13.4.0 or later** introduces the `-ValidationLevel` switch to determine how thoroughly Azure Resource Manager validates the Bicep template during this process. It accepts the following values:
 
 - **Provider** (default): Performs full validation, including template syntax, resource definitions, dependencies, and permission checks to ensure you have sufficient permissions to deploy all resources in the template.
 - **ProviderNoRbac**: Performs full validation of the template and resources, similar to Provider, but only checks for read permissions on each resource instead of full deployment permissions. This is useful when you want to validate resource configurations without requiring full access.
-- **Template**: Performs static validation only, checking template syntax and structure while skipping preflight checks (e.g., resource availability) and permission checks. This is less thorough, potentially missing issues that could cause deployment failures.
+- **Template**: Performs static validation only, checking template syntax and structure while skipping preflight checks (for example, resource availability) and permission checks. This is less thorough, potentially missing issues that could cause deployment failures.
 
 You can use the `-Confirm` switch parameter to preview the changes and get prompted to continue with the deployment.
 
@@ -414,7 +414,7 @@ Resource changes: 1 to modify.
 ```
 
 > [!NOTE]
-> The what-if operation can't resolve the [reference function](./bicep-functions-resource.md#reference). Every time you set a property to a template expression that includes the reference function, what-if reports the property will change. This behavior happens because what-if compares the current value of the property (such as `true` or `false` for a boolean value) with the unresolved template expression. Obviously, these values will not match. When you deploy the Bicep file, the property will only change when the template expression resolves to a different value.
+> The what-if operation can't resolve the [reference function](./bicep-functions-resource.md#reference). Every time you set a property to a template expression that includes the reference function, what-if reports the property will change. This behavior happens because what-if compares the current value of the property (such as `true` or `false` for a boolean value) with the unresolved template expression. Obviously, these values won't match. When you deploy the Bicep file, the property will only change when the template expression resolves to a different value.
 
 ### Change types
 
@@ -489,7 +489,7 @@ The following results show the two different output formats:
 
 ### Unevaluated expressions
 
-If an unevaluated expression appears in the output, it means what-if cannot evaluate it outside the context of a deployment. The expression is shown as-is to indicate the information that will be filled in when the deployment is executed.
+If an unevaluated expression appears in the output, it means what-if can't evaluate it outside the context of a deployment. The expression is shown as-is to indicate the information that will be filled in when the deployment is executed.
 
 ```bicep
 param now string = utcNow()
@@ -527,12 +527,12 @@ Scope: /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/jgaote
 Resource changes: 1 to modify.
 ```
 
-The following expressions are not evaluated during what-if:
+The following expressions aren't evaluated during what-if:
 
-- Non-deterministic functions, such as [newGuid()](./bicep-functions-string.md#newguid) and [utcNow()](./bicep-functions-date.md#utcnow)
+- Nondeterministic functions, such as [newGuid()](./bicep-functions-string.md#newguid) and [utcNow()](./bicep-functions-date.md#utcnow)
 - Any reference to a [secure parameter value](./parameters.md#secure-parameters).
-- References to resources that are not deployed in the same template.
-- References to resource properties that are not defined in the same template.
+- References to resources that aren't deployed in the same template.
+- References to resource properties that aren't defined in the same template.
 - Any resource function, such as [listKeys()](./bicep-functions-resource.md#listkeys).
 
 ## Clean up resources
@@ -557,5 +557,3 @@ Remove-AzResourceGroup -Name ExampleGroup
 
 - To use the what-if operation in a pipeline, see [Test ARM templates with What-If in a pipeline](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
 - If you notice incorrect results from the what-if operation, report the issues at [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
-- For a Learn module that demonstrates using what-if, see [Preview changes and validate Azure resources by using what-if and the ARM template test toolkit](/training/modules/arm-template-test/).
-

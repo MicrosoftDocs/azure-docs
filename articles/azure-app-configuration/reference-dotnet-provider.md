@@ -138,10 +138,10 @@ public class WeatherService
 }
 ```
 
-#### 3. Options pattern for strongly-typed configuration
+#### 3. Options pattern for strongly typed configuration
 
 ```csharp
-// Define a strongly-typed settings class
+// Define a strongly typed settings class
 public class Settings
 {
     public string BackgroundColor { get; set; }
@@ -488,6 +488,16 @@ public class WeatherForecastController : ControllerBase
 
 For more information about how to use the feature management library, go to the [feature flag quickstart](./quickstart-feature-flag-aspnet-core.md).
 
+### Feature flag telemetry
+
+When feature flag telemetry is enabled, the Azure App Configuration provider injects additional properties to feature flag telemetry data. These properties provide more context about the feature flag and its evaluation:
+
+- **AllocationID**: A unique identifier representing the state of the feature flag's allocation.
+- **ETag**: The current ETag for the feature flag.
+- **FeatureFlagReference**: A reference to the feature flag in the format of `<your_store_endpoint>kv/<feature_flag_key>`. When a label is present, the reference includes it as a query parameter: `<your_store_endpoint>kv/<feature_flag_key>?label=<feature_flag_label>`.
+
+The full schema can be found in the [App Configuration Feature Evaluation Event schema definition](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureEvaluationEvent/AppConfigurationFeatureEvaluationEvent.v1.0.0.schema.json). For more information about how to use the feature flag telemetry, go to the [enable telemetry for feature flags](./howto-telemetry.md) walkthrough.
+
 ## Key Vault reference
 
 Azure App Configuration supports referencing secrets stored in Azure Key Vault. In App Configuration, you can create keys that map to secrets stored in Key Vault. The secrets are securely stored in Key Vault, but can be accessed like any other configuration once loaded.
@@ -641,6 +651,8 @@ For information about using snapshots, go to [Create and use snapshots](./howto-
 
 A snapshot reference is a configuration setting that references a snapshot in the same App Configuration store. When loaded, the provider resolves it and adds all key-values from that snapshot. Using snapshot references enables switching between snapshots at runtime, unlike `SelectSnapshot("...")`, which requires code changes and/or restarts to switch to a new snapshot.
 
+For more information about creating a snapshot reference, go to [snapshot reference concept](./concept-snapshot-references.md).
+
 > [!NOTE] 
 > To use snapshot references, use the version *8.4.0* or later of `Microsoft.Extensions.Configuration.AzureAppConfiguration`.
 
@@ -698,6 +710,10 @@ builder.Services.AddHealthChecks()
 The .NET provider will be considered as unhealthy when the last load or refresh attempt failed.
 
 For more information about health checks in .NET, see the [.NET health monitoring documentation](/dotnet/architecture/microservices/implement-resilient-applications/monitor-app-health).
+
+## Connect to Azure Front Door
+
+The Azure Front Door integration allows client applications to fetch configuration from edge-cached endpoints rather than directly from App Configuration. This architecture delivers secure, scalable configuration access with the performance benefits of global CDN distribution. For setup instructions, see [Load Configuration from Azure Front Door in Client Applications](./how-to-load-azure-front-door-configuration-provider.md).
 
 ## Next steps
 

@@ -222,7 +222,7 @@ items:
     href: vmware-hcx-mon-guidance.md	
   - name: Configure VMware HCX network extension high availability
     href: configure-hcx-network-extension-high-availability.md
-  - name: NSX Scale and Performance Recommendations for VMware HCX
+  - name: NSX Scale and Performance Recommendations
     href: azure-vmware-solution-nsx-scale-and-performance-recommendations-for-vmware-hcx.md
   - name: Enable VMware HCX access over the internet
     href: enable-hcx-access-over-internet.md

@@ -57,7 +57,7 @@ Azure offers several load-balancing  and content delivery services, each caterin
 - **High availability**: Enhances the availability of your applications by distributing traffic within and across zones.
 - **Internal or public load balancing**: Supports both internal (within a virtual network) and public (internet-facing) load balancing scenarios.
 - **Low latency and high throughput**: Ideal for applications requiring low latency and high throughput, such as gaming or real-time communication apps.
-- 
+
 > [!NOTE]
 > Clustering technologies, such as Azure Container Apps or Azure Kubernetes Service, contain load balancing constructs that operate mostly within the scope of their own cluster boundary, routing traffic to available application instances based on readiness and health probes. Those load balancing options aren't covered in this article.
 

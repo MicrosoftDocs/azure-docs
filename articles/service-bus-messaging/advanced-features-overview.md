@@ -45,11 +45,8 @@ Azure Service Bus supports deletion of messages in batches. It's useful in scena
 ## Support ordering
 The **Support ordering** feature allows you to specify whether messages that are sent to a topic are forwarded to the subscription in the same order in which they were sent. This feature doesn't support partitioned topics. For more information, see [TopicProperties.SupportOrdering](/dotnet/api/azure.messaging.servicebus.administration.topicproperties.supportordering) in .NET or [TopicProperties.setOrderingSupported](/java/api/com.azure.messaging.servicebus.administration.models.topicproperties.setorderingsupported) in Java.
 
-## Geo-disaster recovery
-When an Azure region experiences downtime, the disaster recovery feature enables message processing to continue operating in a different region or data center. The feature keeps a structural mirror of a namespace available in the secondary region and allows the namespace identity to switch to the secondary namespace. Already posted messages remain in the former primary namespace for recovery once the availability episode subsides. For more information, see [Azure Service Bus Geo-disaster recovery](service-bus-geo-dr.md). This feature replicates only metadata (entities, configuration, properties) of Service Bus entities, not the data in them. 
-
-## Geo replication
-The Service Bus Geo-Replication feature is one of the options to [insulate Azure Service Bus applications against outages and disasters](service-bus-outages-disasters.md), providing replication of both metadata (entities, configuration, properties) and data (message data and message property / state changes).
+## Geo-Replication
+When an Azure region experiences downtime, the Geo-Replication feature enables message processing to continue operating in a different region. The feature keeps a structural mirror of a namespace and its data available in secondary regions and allows the namespace to switch to any of these regions. For more information, see [Azure Service Bus Geo-Replication](service-bus-geo-replication.md). This feature is one of the options to [insulate Azure Service Bus applications against outages and disasters](service-bus-outages-disasters.md).
 
 ## Security
 Service Bus supports standard [Advanced Message Queuing Protocol (AMQP) 1.0](service-bus-amqp-overview.md) and [HTTP or REST](/rest/api/servicebus/) protocols and their respective security facilities, including transport-level security (TLS). Clients can be authorized for access using [Shared Access Signature](service-bus-sas.md) or [Microsoft Entra ID](service-bus-authentication-and-authorization.md) role-based security. 

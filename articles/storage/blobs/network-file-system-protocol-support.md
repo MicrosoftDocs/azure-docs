@@ -16,17 +16,56 @@ ms.author: normesta
 
 Blob storage now supports the Network File System (NFS) 3.0 protocol. This support provides Linux file system compatibility at object storage scale and prices and enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises.
 
-It's always been a challenge to run large-scale legacy workloads, such as High Performance Computing (HPC) in the cloud. One reason is that applications often use traditional file protocols such as NFS or Server Message Block (SMB) to access data. Also, native cloud storage services focused on object storage that have a flat namespace and extensive metadata instead of file systems that provide a hierarchical namespace and efficient metadata operations.
+It's always been a challenge to run large-scale legacy workloads, such as High Performance Computing (HPC) in the cloud. One reason is that applications often use traditional file protocols such as Network file system (NFS) to access data. Also, native cloud storage services focused on object storage that have a flat namespace and extensive metadata instead of file systems that provide a hierarchical namespace and efficient metadata operations.
 
 Blob Storage now supports a hierarchical namespace, and when combined with NFS 3.0 protocol support, Azure makes it much easier to run legacy applications on top of large-scale cloud object storage.
 
-## Applications and workloads suited for this feature
+## Applications and workloads suited for using NFS 3.0 with Blob Storage
 
-The NFS 3.0 protocol feature is best suited for processing high throughput, high scale, read heavy workloads such as media processing, risk simulations, and genomics sequencing. You should consider using this feature for any other type of workload that uses multiple readers and many threads, which require high bandwidth.
+The NFS 3.0 protocol feature is optimized for high-throughput, large-scale, read-heavy workloads with sequential I/O. It’s ideal for scenarios involving multiple readers and numerous threads where throughput is more critical than low latency. Common examples include:
+
+- **High-Performance Computing (HPC)** - HPC jobs often involve thousands of cores reading the same large datasets concurrently. The NFS 3.0 protocol feature uses object storage throughput to eliminate traditional file server bottlenecks. Examples:
+
+- Genomics sequencing: Processing massive DNA datasets.
+
+- Financial risk modeling: Monte Carlo simulations on historical data.
+
+- Seismic analysis: Geological data for oil and gas exploration.
+
+- Weather forecasting: Modeling atmospheric data for climate and storm prediction.
+
+- **Big Data & Analytics (Data Lakes)** - Many analytics tools require hierarchical directories. BlobNFS (via Azure Data Lake Storage Gen2) delivers this structure while supporting standard file protocols. Examples:
+
+  - Machine learning: Feeding training data to GPU clusters using standard file I/O.
+  
+  - Log analytics: Aggregating logs from thousands of sources.
+  
+- **Advanced Driver Assistance Systems (ADAS)** - ADAS workflows produce petabytes of sequential sensor data—such as LiDAR point clouds and high-resolution camera feeds—that must be ingested efficiently and analyzed at scale for simulation and model training. Example:
+
+  - Storing raw LiDAR scans and multi-camera video streams from autonomous test vehicles using NFS 3.0, then running large-scale replay simulations across thousands of compute nodes to validate perception algorithms.
+    
+- **Media & Entertainment** - Rendering farms need efficient access to large asset libraries. NFS 3.0 over blob provides a file interface for legacy rendering tools that expect file paths. Examples:
+
+- Video rendering: Distributed nodes reading source assets.
+
+- Transcoding: Converting large raw video files into streaming formats.
+
+- **Database Backup** - This feature offers a cost-effective, high-throughput NFS 3.0 target without complex connectors or expensive snapshots. Examples: 
+
+  - Oracle RMAN can write large backup pieces directly for long-term archival and enable direct restore from any NFS-mounted Linux VM.
+    
+### When not to use NFS 3.0 with Blob Storage
+
+Avoid for general-purpose file shares or transactional workloads due to object storage characteristics:
+
+|**Workload Type**|**Reason**|**Better Alternative**|
+|-----|-------|------|
+|Transactional Databases|Requires granular locking, sub-millisecond latency, and frequent random writes.|Managed Disks or Azure NetApp Files or Azure Files|
+|In-Place File Editing|Editing files forces full blob rewrites, making operations inefficient.|Azure Files|
 
 ## NFS 3.0 and the hierarchical namespace
 
-NFS 3.0 protocol support requires blobs to be organized into a hierarchical namespace. You can enable a hierarchical namespace when you create a storage account. The ability to use a hierarchical namespace was introduced by Azure Data Lake Storage. It organizes objects (files) into a hierarchy of directories and subdirectories in the same way that the file system on your computer is organized. The hierarchical namespace scales linearly and doesn't degrade data capacity or performance. Different protocols extend from the hierarchical namespace. The NFS 3.0 protocol is one of the these available protocols.
+NFS 3.0 protocol support requires blobs to be organized into a hierarchical namespace. You can enable a hierarchical namespace when you create a storage account. The ability to use a hierarchical namespace was introduced by Azure Data Lake Storage. It organizes objects (files) into a hierarchy of directories and subdirectories in the same way that the file system on your computer is organized. The hierarchical namespace scales linearly and doesn't degrade data capacity or performance. Different protocols extend from the hierarchical namespace. The NFS 3.0 protocol is one of the available protocols.
 
 > [!div class="mx-imgBorder"]
 > ![hierarchical namespace](./media/network-protocol-support/hierarchical-namespace-and-nfs-support.png)
@@ -39,7 +78,7 @@ Block blobs are optimized to efficiently process large amounts of read-heavy dat
 
 ## General workflow: Mounting a storage account container
 
-Your Linux clients can mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. To mount a storage account container, you'll have to do these things.
+Your Linux clients can mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. To mount a storage account container, you have to do these things.
 
 1. Create an Azure Virtual Network (VNet).
 

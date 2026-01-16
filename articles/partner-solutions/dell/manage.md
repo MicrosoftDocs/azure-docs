@@ -1,8 +1,8 @@
 ---
-title: Manage Settings for Your Dell PowerScale Preview Resource
-description: Manage settings, view resources, reconfigure metrics/logs, and more for your Dell PowerScale resource in Azure portal.
+title: Manage Settings for Dell PowerScale Preview Resource
+description: Manage settings, view resources, reconfigure metrics and logs, and more for your Dell PowerScale resource in Azure portal.
 ms.topic: how-to
-ms.date: 10/31/2025
+ms.date: 12/09/2025
 
 ---
 

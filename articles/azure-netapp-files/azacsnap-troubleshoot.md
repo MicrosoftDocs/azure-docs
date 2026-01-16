@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: troubleshooting
-ms.date: 11/18/2025
+ms.date: 12/18/2025
 ms.author: phjensen
 ms.custom: kr2b-contr-experiment
 # Customer intent: "As a system administrator using Azure Application Consistent Snapshot tool, I want to troubleshoot command execution issues, so that I can ensure successful operations and maintain reliable backups of my applications."
@@ -181,6 +181,10 @@ You can test the AzAcSnap configuration by using Cloud Shell through the Azure p
 
    > [!NOTE]
    > The test command can take about 90 seconds to complete.
+
+### 'SubscriptionNotFound'
+
+When using AzAcSnap in a non-Public Cloud environment, such as US Government Cloud, connectivity to Azure Resource Manager might be targeting the wrong Azure management endpoint.  In this case AzAcSnap could return an error code `SubscriptionNotFound` with an error message `The subscription '99z999zz-99z9-99zz-99zz-9z9zz999zz99' could not be found.`  In this case you will need to configure [AzAcSnap to use the correct environment](azacsnap-tips.md#global-override-settings-to-control-azacsnap-behavior).
 
 ### Failed test with Azure NetApp Files
 

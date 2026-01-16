@@ -45,7 +45,7 @@ The following list mentions fields that have specific guidelines for DHCP events
 | **Field** | **Class** | **Type**  | **Description** |
 | --- | --- | --- | --- |
 | **EventType** | Mandatory | Enumerated | Indicate the operation reported by the record. <br><Br> Possible values are `Assign`, `Renew`, `Release`, and `DNS Update`. <br><br>Example: `Assign`| 
-| **EventSchemaVersion** | Mandatory | String | The version of the schema documented here's **0.1.1**. |
+| **EventSchemaVersion** | Mandatory | SchemaVersion (String) | The version of the schema documented here's **0.1.1**. |
 | **EventSchema** | Mandatory | String | The name of the schema documented here's **DhcpEvent**. |
 | **Dvc** fields| -      | -    | For DHCP events, device fields refer to the system that reports the DHCP event. |
 
@@ -90,11 +90,11 @@ The source system is the system that requests a DHCP lease
 | <a name="src"></a>**Src** | Alias       | String     |    A unique identifier of the source device. <br><br>This field might alias the [SrcDvcId](#srcdvcid), [SrcHostname](#srchostname), or [SrcIpAddr](#srcipaddr) fields. <br><br>Example: `192.168.12.1`       |
 | <a name="srcipaddr"></a>**SrcIpAddr** | Mandatory | IP Address | The IP address assigned to the client by the DHCP server.<br><br>Example: `192.168.12.1` |
 | <a name="ipaddr"></a>**IpAddr** | Alias | | Alias for [SrcIpAddr](#srcipaddr) |
-| <a name="srchostname"></a>**SrcHostname** | Mandatory | String | The hostname of the device requesting the DHCP lease. If no device name is available, store the relevant IP address in this field.<br><br>Example: `DESKTOP-1282V4D` |
+| <a name="srchostname"></a>**SrcHostname** | Mandatory | Hostname (String) | The hostname of the device requesting the DHCP lease. If no device name is available, store the relevant IP address in this field.<br><br>Example: `DESKTOP-1282V4D` |
 | <a name="hostname"></a>**Hostname** | Alias | | Alias for [SrcHostname](#srchostname) |
-| <a name="srcdomain"></a> **SrcDomain** | Recommended | String | The domain of the source device.<br><br>Example: `Contoso` |
+| <a name="srcdomain"></a> **SrcDomain** | Recommended | Domain (String) | The domain of the source device.<br><br>Example: `Contoso` |
 | <a name="srcdomaintype"></a>**SrcDomainType** | Conditional | Enumerated | The type of  [SrcDomain](#srcdomain), if known. Possible values include:<br>- `Windows` (such as: `contoso`)<br>- `FQDN` (such as: `microsoft.com`)<br><br>Required if [SrcDomain](#srcdomain) is used. |
-| **SrcFQDN** | Optional | String | The source device hostname, including domain information when available. <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The [SrcDomainType](#srcdomaintype) field reflects the format used. <br><br>Example: `Contoso\DESKTOP-1282V4D` |
+| **SrcFQDN** | Optional | FQDN (String) | The source device hostname, including domain information when available. <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The [SrcDomainType](#srcdomaintype) field reflects the format used. <br><br>Example: `Contoso\DESKTOP-1282V4D` |
 | <a name="srcdvcid"></a>**SrcDvcId** | Optional | String | The ID of the source device as reported in the record.<br><br>For example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
 | <a name="srcdvcscopeid"></a>**SrcDvcScopeId** | Optional | String | The cloud platform scope ID the device belongs to. **SrcDvcScopeId** map to a subscription ID on Azure and to an account ID on AWS. | 
 | <a name="srcdvcscope"></a>**SrcDvcScope** | Optional | String | The cloud platform scope the device belongs to. **SrcDvcScope** map to a subscription ID on Azure and to an account ID on AWS. | 
@@ -107,7 +107,7 @@ The source system is the system that requests a DHCP lease
 | **SrcGeoLatitude** | Optional | Latitude | The latitude of the geographical coordinate associated with the source IP address.<br><br>Example: `44.475833` |
 | **SrcGeoLongitude** | Optional | Longitude | The longitude of the geographical coordinate associated with the source IP address.<br><br>Example: `73.211944` |
 | **SrcRiskLevel** | Optional | Integer | The risk level associated with the source. The value should be adjusted to a range of `0` to `100`, with `0` for benign and `100` for a high risk.<br><br>Example: `90` |
-| **SrcOriginalRiskLevel** | Optional | Integer | The risk level associated with the source, as reported by the reporting device. <br><br>Example: `Suspicious` |
+| **SrcOriginalRiskLevel** | Optional | String | The risk level associated with the source, as reported by the reporting device. <br><br>Example: `Suspicious` |
 | **SrcPortNumber** | Optional | Integer | The IP port from which the connection originated. Might not be relevant for a session comprising multiple connections.<br><br>Example: `2335` |
 
 ### Source user fields
@@ -116,11 +116,11 @@ The source system is the system that requests a DHCP lease
 | --- | --- | --- | --- |
 | <a name="srcuserid"></a>**SrcUserId**   | Optional  | String     |   A machine-readable, alphanumeric, unique representation of the source user. For more information, and for alternative fields for additional IDs, see [The User entity](normalization-entity-user.md).  <br><br>Example: `S-1-12-1-4141952679-1282074057-627758481-2916039507`    |
 | <a name="srcuseridtype"></a>**SrcUserIdType** | Conditional  | UserIdType |  The type of the ID stored in the [SrcUserId](#srcuserid) field. For more information and list of allowed values, see [UserIdType](normalization-entity-user.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md).|
-| <a name="srcusername"></a>**SrcUsername** | Optional    | Username     | The source username, including domain information when available. For more information, see [The User entity](normalization-entity-user.md).<br><br>Example: `AlbertE`     |
+| <a name="srcusername"></a>**SrcUsername** | Optional    | Username (String)     | The source username, including domain information when available. For more information, see [The User entity](normalization-entity-user.md).<br><br>Example: `AlbertE`     |
 | **User** | Alias | | Alias for [SrcUsername](#srcusername) |
 | <a name="srcusernametype"></a>**SrcUsernameType**  | Conditional    | UsernameType |   Specifies the type of the user name stored in the [SrcUsername](#srcusername) field. For more information, and list of allowed values, see [UsernameType](normalization-entity-user.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>Example: `Windows`       |
 | **SrcUserType**  | Optional | UserType | The type of the source user. For more information, and  list of allowed values, see [UserType](normalization-entity-user.md#usertype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>For example: `Guest` |
-| <a name="srcoriginalusertype"></a>**SrcOriginalUserType** | | | The original source user type, if provided by the source. |
+| <a name="srcoriginalusertype"></a>**SrcOriginalUserType** | Optional | String | The original source user type, if provided by the source. |
 | <a name="srcmacaddr"></a>**SrcMacAddr** | Mandatory | Mac Address | The MAC address of the client requesting a DHCP lease. <br><br>**Note**: The Windows DHCP server logs MAC address in a nonstandard way, omitting the colons, which should be inserted by the parser.<br><br>Example: `06:10:9f:eb:8f:14` |
 | **SrcUserScope** | Optional | String | The scope, such as Microsoft Entra tenant, in which [SrcUserId](#srcuserid) and [SrcUsername](#srcusername) are defined. or more information and list of allowed values, see [UserScope](normalization-entity-user.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).|
 | **SrcUserScopeId** | Optional | String | The scope ID, such as Microsoft Entra Directory ID, in which [SrcUserId](#srcuserid) and [SrcUsername](#srcusername) are defined. for more information and list of allowed values, see [UserScopeId](normalization-entity-user.md#userscopeid) in the [Schema Overview article](normalization-about-schemas.md).|
@@ -135,15 +135,15 @@ The source system is the system that requests a DHCP lease
 | **RuleNumber** | Optional | int | The number of the rule associated with the alert.<br><br>e.g. `123456` |
 | **RuleName** | Optional | string | The name or ID of the rule associated with the alert.<br><br>e.g. `Server PSEXEC Execution via Remote Access` |
 | **ThreatId** | Optional | string | The ID of the threat or malware identified in the alert.<br><br> e.g. `1234567891011121314` |
+| **ThreatCategory** | Optional | String | 	The category of the threat or malware identified in the alert.<br><br>Supported values are: `Malware`, `Ransomware`, `Trojan`, `Virus`, `Worm`, `Adware`, `Spyware`, `Rootkit`, `Cryptominor`, `Phishing`, `Spam`, `MaliciousUrl`, `Spoofing`, `Security Policy Violation`, `Unknown` |
 | **ThreatName** | Optional | string | The name of the threat or malware identified in the alert.<br><br> e.g. `Init.exe` |
+| **ThreatConfidence** | Optional | ConfidenceLevel (Integer) | The confidence level of the threat identified, normalized to a value between 0 and a 100. |
+| **ThreatOriginalConfidence** | Optional | string | The confidence level as reported by the originating system. |
+| **ThreatRiskLevel** | Optional | RiskLevel (Integer) | The risk level associated with the threat. The level should be a number between 0 and 100.<br><br>Note: The value might be provided in the source record by using a different scale, which should be normalized to this scale. The original value should be stored in ThreatRiskLevelOriginal. |
+| **ThreatOriginalRiskLevel** | Optional | string | The risk level as reported by the originating system. |
+| **ThreatIsActive** | Optional | bool | Indicates whether the threat is currently active.<br><br>Supported values are: `True`, `False` |
 | **ThreatFirstReportedTime** | Optional | Date/Time | Date and time when the threat was first reported.<br><br> e.g. `2024-09-19T10:12:10.0000000Z` |
 | **ThreatLastReportedTime** | Optional | Date/Time | Date and time when the threat was last reported.<br><br> e.g. `2024-09-19T10:12:10.0000000Z` |
-| **ThreatCategory** | Recommended | String | 	The category of the threat or malware identified in the alert.<br><br>Supported values are: `Malware`, `Ransomware`, `Trojan`, `Virus`, `Worm`, `Adware`, `Spyware`, `Rootkit`, `Cryptominor`, `Phishing`, `Spam`, `MaliciousUrl`, `Spoofing`, `Security Policy Violation`, `Unknown` |
-| **ThreatIsActive** | Optional | bool | Indicates whether the threat is currently active.<br><br>Supported values are: `True`, `False` |
-| **ThreatRiskLevel** | Optional | int | The risk level associated with the threat. The level should be a number between 0 and 100.<br><br>Note: The value might be provided in the source record by using a different scale, which should be normalized to this scale. The original value should be stored in ThreatRiskLevelOriginal. |
-| **ThreatOriginalRiskLevel** | Optional | string | The risk level as reported by the originating system. |
-| **ThreatConfidence** | Optional | int | The confidence level of the threat identified, normalized to a value between 0 and a 100. |
-| **ThreatOriginalConfidence** | Optional | string | The confidence level as reported by the originating system. |
 
 
 ### Schema updates

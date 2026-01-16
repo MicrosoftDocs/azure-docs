@@ -4,7 +4,7 @@ ms.service: azure-functions
 description: Learn how to configure zero downtime deployments and choose the right site update strategy for your Flex Consumption app.
 ms.custom: vs-azure
 ms.topic: concept-article
-ms.date: 10/30/2025
+ms.date: 12/04/2025
 ---
 
 # Site update strategies in Flex Consumption
@@ -16,8 +16,7 @@ The Flex Consumption plan currently supports these update strategies:
 - **Recreate**: Functions restarts all running instances after replacing your code with the latest version. This approach might cause brief downtime while instances are recycled and preserves the default behavior from other Azure Functions hosting plans.
 - **Rolling update** (preview): Provides zero-downtime deployments by draining and replacing instances in batches. In-progress executions complete naturally without forced termination.
 
-> [!IMPORTANT]
-> The rolling update strategy is currently in preview and isn't recommended for production apps. Review the current [limitations and considerations](#rolling-update-strategy-considerations) before enabling this strategy in any production app.
+[!INCLUDE [functions-flex-rolling-updates-preview-note](../../includes/functions-flex-rolling-updates-preview-note.md)]
 
 ## Strategy comparison
 

@@ -1,8 +1,8 @@
 ---
 title: What is Azure Resource Mover?
 description: Learn about Azure Resource Mover.
-author: jasminemehndir
-ms.author: v-jasmineme
+author: RochakSingh-blr
+ms.author: v-rochak2
 ms.date: 07/31/2025
 ms.service: azure-resource-mover
 ms.topic: overview
@@ -49,7 +49,7 @@ After all dependencies are resolved, Resource Mover walks you through a simple m
 2. After the initial move, you can decide whether to commit and complete the move or discard the move.
 3. After the move is done you can decide whether you want to delete the resources in the source location.
 
-You can move resources across regions in the Resource Mover hub or from within a resource group. [Learn more](select-move-tool.md)
+You can move resources across regions in the Resource Mover hub or from within a resource group. [Learn more](select-options-to-move-resources.md)
 
 ## What resources can I move across regions?
 

@@ -158,7 +158,7 @@ Add the following properties to the binding configuration:
 ::: zone-end
 
 ::: zone pivot="programming-language-python"  
-Binding attributes are defined directly in the *function_app.py* file. You use the `generic_output_binding` decorator to add an [Azure SQL output binding](./functions-reference-python.md#outputs):
+Binding attributes are defined directly in the *function_app.py* file. You use the `generic_output_binding` decorator to add an [Azure SQL output binding](./functions-bindings-azure-sql-output.md?programming-language=python):
 
 ```python
 @app.generic_output_binding(arg_name="toDoItems", type="sql", CommandText="dbo.ToDo", ConnectionStringSetting="SqlConnectionString"

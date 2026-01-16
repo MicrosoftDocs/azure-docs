@@ -23,7 +23,7 @@ Use the below tables to find all the relevant information on number availability
 | Toll-Free                 | -                    | -                    | -                    | General Availability\* |
 | Local                     | -                    | -                    | General Availability | General Availability\* |
 | Mobile                    | General Availability\** | General Availability\**       | -                    | -                      |
-| Alphanumeric Sender ID\** | General Availability | -                    | -                    | -                      |
+| Alphanumeric Sender ID\** | -                    | -                    | -                    | -                      |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
@@ -65,26 +65,6 @@ More details on eligible subscription types are as follows:
 | United Kingdom  |
 | United States  |
 
-## Azure subscription billing locations where Australia alphanumeric sender IDs are available
-| Country/Region |
-| :---------- |
-| Australia |
-| Austria |
-| Denmark |
-| France |
-| Germany |
-| India |
-| Ireland |
-| Italy |
-| Netherlands |
-| Poland |
-| Portugal |
-| Puerto Rico |
-| Spain |
-| Sweden |
-| Switzerland |
-| United Kingdom |
-| United States |
 
 [!INCLUDE [Azure Prepayment](../../includes/azure-prepayment.md)]
 
@@ -98,3 +78,4 @@ For more information about Azure Communication Services' telephony options, see 
 
 - [Learn more about Telephony](../telephony/telephony-concept.md)
 - Get a Telephony capable [phone number](../../quickstarts/telephony/get-phone-number.md)
+

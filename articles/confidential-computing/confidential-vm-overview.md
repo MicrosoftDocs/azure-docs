@@ -41,8 +41,14 @@ If the compute platform is missing critical settings for your VM's isolation, [A
 
 Confidential OS disk encryption is optional, as this process can lengthen the initial VM creation time. You can choose between:
 
-- A confidential VM with Confidential OS disk encryption before VM deployment that uses platform-managed keys (PMK) or a customer-managed key (CMK).
-- A confidential VM without Confidential OS disk encryption before VM deployment.
+- A confidential VM with Confidential OS disk encryption that uses platform-managed keys (PMK) or a customer-managed key (CMK).
+
+- A confidential VM without Confidential OS disk encryption.
+
+
+
+> [!NOTE]
+> Confidential OS disk encryption setting can't be changed after VM deployment
 
 For further integrity and protection, confidential VMs offer [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot) by default when confidential OS disk encryption is selected.
 

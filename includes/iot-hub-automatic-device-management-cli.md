@@ -6,7 +6,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: include
-ms.date: 07/08/2021
+ms.date: 08/13/2025
 ms.custom: devx-track-azurecli
 ---
 
@@ -14,17 +14,17 @@ ms.custom: devx-track-azurecli
 
 * An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](../articles/iot-hub/create-hub.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in the **Create an IoT hub** section of [Create and manage Azure IoT hubs](../articles/iot-hub/create-hub.md).
 
 * [Azure CLI](/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.70 or later. Use `az –-version` to validate. This version supports az extension commands and introduces the Knack command framework. 
 
-* The [IoT extension for Azure CLI](https://github.com/Azure/azure-cli).
+* The [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 [!INCLUDE [iot-hub-cli-version-info](iot-hub-cli-version-info.md)]
 
 ## Implement twins
 
-Automatic device configurations require the use of device twins to synchronize state between the cloud and devices.  For more information, see [Understand and use device twins in IoT Hub](../articles/iot-hub/iot-hub-devguide-device-twins.md).
+Automatic device configurations require the use of device twins to synchronize state between the cloud and devices. For more information, see [Understand and use device twins in IoT Hub](../articles/iot-hub/iot-hub-devguide-device-twins.md).
 
 Automatic module configurations require the use of module twins to synchronize state between the cloud and modules. For more information, see [Understand and use module twins in IoT Hub](../articles/iot-hub/iot-hub-devguide-module-twins.md).
 
@@ -99,7 +99,7 @@ Metric queries for modules are also similar to queries for devices, but you sele
 
 ## Create a configuration
 
-You can create a maximum of 100 automatic configurations on standard tier IoT hubs; ten on free tier IoT hubs. To learn more, see [Quotas and Throttling](../articles/iot-hub/iot-hub-devguide-quotas-throttling.md).
+You can create a maximum of 100 automatic configurations on standard tier IoT hubs; 10 on free tier IoT hubs. To learn more, see [IoT Hub quotas and throttling](../articles/iot-hub/iot-hub-devguide-quotas-throttling.md).
 
 You configure target devices by creating a configuration that consists of the target content and metrics. Use the following command to create a configuration:
 
@@ -118,11 +118,11 @@ You configure target devices by creating a configuration that consists of the ta
 
 * --**hub-name** - Name of the IoT hub in which the configuration is created. The hub must be in the current subscription. Switch to the desired subscription with the command `az account set -s [subscription name]`
 
-* --**target-condition** - Enter a target condition to determine which devices or modules will be targeted with this configuration. For automatic device configuration, the condition is based on device twin tags or device twin desired properties and should match the expression format. For example, `tags.environment='test'` or `properties.desired.devicemodel='4000x'`. For automatic module configuration, the condition is based on module twin tags or module twin desired properties. For example, `from devices.modules where tags.environment='test'` or `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
+* --**target-condition** - Enter a target condition to determine which devices or modules are targeted with this configuration. For automatic device configuration, the condition is based on device twin tags or device twin desired properties and should match the expression format. For example, `tags.environment='test'` or `properties.desired.devicemodel='4000x'`. For automatic module configuration, the condition is based on module twin tags or module twin desired properties. For example, `from devices.modules where tags.environment='test'` or `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
 
-* --**priority** - A positive integer. In the event that two or more configurations are targeted at the same device or module, the configuration with the highest numerical value for Priority applies.
+* --**priority** - A positive integer. If two or more configurations are targeted at the same device or module, the configuration with the highest numerical value for Priority applies.
 
-* --**metrics** - Filepath to the metric queries. Metrics provide summary counts of the various states that a device or module may report back after applying configuration content. For example, you may create a metric for pending settings changes, a metric for errors, and a metric for successful settings changes. 
+* --**metrics** - Filepath to the metric queries. Metrics provide summary counts of the various states that a device or module can report back after applying configuration content. For example, you can create a metric for pending settings changes, a metric for errors, and a metric for successful settings changes. 
 
 ## Monitor a configuration
 
@@ -141,7 +141,7 @@ Inspect the configuration in the command window. The **metrics** property lists
 
 * **targetedCount** - A system metric that specifies the number of device twins or module twins in IoT Hub that match the targeting condition.
 
-* **appliedCount** - A system metric specifies the number of devices or modules that have had the target content applied.
+* **appliedCount** - A system metric specifies the number of devices or modules that have the target content applied.
 
 * **Your custom metric** - Any metrics you defined are user metrics.
 
@@ -158,7 +158,7 @@ az iot hub configuration show-metric --config-id [configuration id] \
 
 * --**hub-name** - Name of the IoT hub in which the deployment exists. The hub must be in the current subscription. Switch to the desired subscription with the command `az account set -s [subscription name]`.
 
-* --**metric-type** - Metric type can be `system` or `user`.  System metrics are `targetedCount` and `appliedCount`. All other metrics are user metrics.
+* --**metric-type** - Metric type can be `system` or `user`. System metrics are `targetedCount` and `appliedCount`. All other metrics are user metrics.
 
 ## Modify a configuration
 
@@ -168,9 +168,9 @@ If you update the target condition, the following updates occur:
 
 * If a twin didn't meet the old target condition, but meets the new target condition and this configuration is the highest priority for that twin, then this configuration is applied. 
 
-* If a twin currently running this configuration no longer meets the target condition, the settings from the configuration will be removed and the twin will be modified by the next highest priority configuration. 
+* If a twin currently running this configuration no longer meets the target condition, the settings from the configuration are removed and the twin is modified by the next highest priority configuration. 
 
-* If a twin currently running this configuration no longer meets the target condition and doesn't meet the target condition of any other configurations, then the settings from the configuration will be removed and no other changes will be made on the twin. 
+* If a twin currently running this configuration no longer meets the target condition and doesn't meet the target condition of any other configurations, then the settings from the configuration are removed and no other changes are made on the twin. 
 
 Use the following command to update a configuration:
 

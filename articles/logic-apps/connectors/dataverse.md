@@ -1,12 +1,13 @@
 ---
-title: Connect workflows to Microsoft Dataverse
-description: Learn to access Dataverse databases from workflows in Azure Logic Apps.
+title: Connect Workflows to Microsoft Dataverse
+description: Learn how to access Dataverse databases from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/20/2025
+ms.date: 01/13/2026
 ms.custom: engagement-fy23
+#Customer intent: As a developer who works with Azure Logic Apps, I want to learn how to connect my workflow to Microsoft Dataverse.
 ---
 
 # Connect to Microsoft Dataverse from workflows in Azure Logic Apps
@@ -19,7 +20,7 @@ For example, you can build workflows that create rows, update rows, and perform 
 
 The Dataverse connector was previously known as the Common Data Service 2.0 connector and originally known as the Dynamics 365 connector. You can use the Dataverse connector to access Microsoft Dataverse for Microsoft Dynamics 365 Sales, Microsoft Dynamics 365 Customer Service, Microsoft Dynamics 365 Field Service, Microsoft Dynamics 365 Customer Insights - Journeys, and Microsoft Dynamics 365 Project Service Automation.
 
-This article shows how to add a Dataverse trigger or action to your workflow and how parameter options work.
+This guide shows how to add a Dataverse trigger or action to your workflow and how the parameter options work.
 
 > [!IMPORTANT]
 >
@@ -38,39 +39,39 @@ For technical information based on the connector's Swagger description, such as 
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-* A [Dataverse Data Service environment and database](/power-platform/admin/environments-overview), which is where your organization stores, manages, and shares business data in a Dataverse database. For more information, see the following resources:
+- A [Dataverse Data Service environment and database](/power-platform/admin/environments-overview), which is where your organization stores, manages, and shares business data in a Dataverse database.
 
-  * [Learn: Create and manage Dataverse environments](/training/modules/create-manage-environments/)
+  For more information, see:
 
-  * [Power Platform - Environments overview](/power-platform/admin/environments-overview)
+  - [Learn: Create and manage Dataverse environments](/training/modules/create-manage-environments/)
+  - [Power Platform - Environments overview](/power-platform/admin/environments-overview)
 
-* Basic knowledge about Azure Logic Apps along with the Consumption or Standard logic app resource and workflow from where you want to access your Dataverse database. To use a Dataverse trigger, you need a blank workflow. To use a Dataverse action, you need a workflow that starts with any trigger appropriate for your scenario.
+  > [!NOTE]
+  >
+  > Some scenarios might require that you enable access restrictions on your logic app resource to control inbound access from public networks. If you allow inbound communication from Power Platform to trigger your workflow by using the **PowerPlatformInfra** service tag, make sure that you use the non-region version.
 
-  For more information, see the following resources:
+- Basic knowledge about Azure Logic Apps along with the Consumption or Standard logic app resource and workflow from where you want to access your Dataverse database. To use a Dataverse trigger, you need a blank workflow. To use a Dataverse action, you need a workflow that starts with any trigger appropriate for your scenario.
 
-  * [Create an example Consumption logic app workflow](../quickstart-create-example-consumption-workflow.md)
+  For more information, see:
 
-  * [Create an example Standard logic app workflow](../create-single-tenant-workflows-azure-portal.md)
+  - [Create an example Consumption logic app workflow](../quickstart-create-example-consumption-workflow.md)
+  - [Create an example Standard logic app workflow](../create-single-tenant-workflows-azure-portal.md)
 
 ## Add a Dataverse trigger
 
 Based on whether you have a Consumption or Standard logic app workflow, follow the corresponding steps:
 
-### [Consumption](#tab/consumption)
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource.
-
-1. On the resource sidebar, under **Development Tools**, select the designer to open the workflow.
-
-1. On the designer, follow the [general steps to add the **Microsoft Dataverse** trigger for your scenario](../add-trigger-action-workflow.md?tabs=consumption#add-trigger) to your workflow.
+1. Follow the [general steps](../add-trigger-action-workflow.md#add-trigger) to add the appropriate **Microsoft Dataverse** trigger for your scenario.
 
    This example continues with the trigger named [**When a row is added, modified or deleted**](/connectors/commondataserviceforapps/#when-a-row-is-added,-modified-or-deleted).
 
 1. At the prompt, sign in to your Dataverse environment or database.
 
-1. In the trigger information box, provide the necessary trigger values.
+1. In the trigger information box, provide the necessary parameter values.
 
    The following example shows the sample trigger:
 
@@ -82,49 +83,17 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
    For example, you can add a Dataverse action or an action that sends email based on the outputs from the trigger.
 
-### [Standard](#tab/standard)
-
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
-
-1. On the resource sidebar, under **Workflows**, select **Workflows**, and then select your workflow.
-
-1. On the workflow sidebar, under **Tools**, select the designer to open the workflow.
-
-1. On the designer, follow the [general steps to add the **Microsoft Dataverse** trigger for your scenario](../add-trigger-action-workflow.md?tabs=standard#add-trigger) to your workflow.
-
-   This example continues with the trigger named [**When a row is added, modified or deleted**](/connectors/commondataserviceforapps/#when-a-row-is-added,-modified-or-deleted).
-
-1. At the prompt, sign in to your Dataverse environment or database.
-
-1. In the trigger information box, provide the necessary trigger values.
-
-   The following example shows the sample trigger:
-
-   :::image type="content" source="media/dataverse/dataverse-trigger-example.png" alt-text="Screenshot shows Standard workflow designer and example trigger." lightbox="media/dataverse/dataverse-trigger-example.png":::
-
-1. When you're done, save your workflow. On the designer toolbar, select **Save**.
-
-1. Now add at least one action for your workflow to perform when the trigger fires. For example, you can add a Dataverse action or an action that sends email based on the outputs from the trigger.
-
----
-
 ## Add a Dataverse action
 
-Based on whether you have a Consumption or Standard logic app workflow, follow the corresponding steps:
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-### [Consumption](#tab/consumption)
-
-1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource.
-
-1. On the resource sidebar, under **Development Tools**, select the designer to open the workflow.
-
-1. On the designer, follow these [general steps to add the **Microsoft Dataverse** action for your scenario](../add-trigger-action-workflow.md?tabs=consumption#add-action) to your workflow.
+1. Follow the [general steps](../add-trigger-action-workflow.md#add-action) to add the appropriate **Microsoft Dataverse** action for your scenario.
 
    This example continues with the action named [**Add a new row**](/connectors/commondataserviceforapps/#add-a-new-row).
 
 1. At the prompt, sign in to your Dataverse environment or database.
 
-1. In the action information box, provide the necessary action values.
+1. In the action information box, provide the necessary parameter values.
 
    The following example shows the sample action:
 
@@ -132,27 +101,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
-1. Continue adding more actions, if you want.
-
-### [Standard](#tab/standard)
-
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
-
-1. On the resource sidebar, under **Workflows**, select **Workflows**, and then select your workflow.
-
-1. On the workflow sidebar, under **Tools**, select the designer to open the workflow.
-
-1. On the designer, follow these [general steps to add the **Microsoft Dataverse** action for your scenario](../create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to your workflow.
-
-   This example continues with the action named [**Add a new row**](/connectors/commondataserviceforapps/#add-a-new-row).
-
-   :::image type="content" source="media/dataverse/dataverse-action-example.png" alt-text="Screenshot shows Standard workflow designer and example action." lightbox="media/dataverse/dataverse-action-example.png":::
-
-1. When you're done, save your workflow. On the designer toolbar, select **Save**.
-
-1. Continue adding more actions, if you want.
-
----
+1. Add more actions if you want.
 
 ## Test your workflow
 
@@ -164,7 +113,7 @@ To run your workflow, follow these steps:
 
 ## Return rows based on a filter
 
-For actions that return rows, such as the **List rows** action, you can use an ODATA query that returns rows based on the specified filter. For example, you can set up the action to return only rows for active accounts.
+For actions that return rows, such as the **List rows** action, use an ODATA query to return rows based on the specified filter. For example, set up the action to return only rows for active accounts.
 
 1. On the designer, in the action, open the **Advanced parameters** list, and select the **Filter rows** parameter.
 
@@ -183,13 +132,13 @@ For more information, see the following documentation:
 
 ## Return rows based on a sort order
 
-For actions that return rows, such as the **List rows** action, you can use an ODATA query that returns rows in a specific sequence, which varies based on the rows that the action returns. For example, you can set up the action to return rows organized by the account name.
+For actions that return rows, such as the **List rows** action, use an ODATA query to return rows in a specific sequence. The sequence varies based on the rows that the action returns. For example, you can set up the action to return rows organized by the account name.
 
 1. On the designer, in the action, open the **Advanced parameters** list, and select the **Sort By** parameter.
 
    :::image type="content" source="media/dataverse/dataverse-action-sort-by.png" alt-text="Screenshot shows workflow, a Dataverse action, and Sort By parameter." lightbox="media/dataverse/dataverse-action-sort-by.png":::
 
-1. In the **Sort By** parameter that now appears in the action, enter the column name to use for sorting, for example, **name**:
+1. In the **Sort By** parameter that now appears in the action, enter the column name to use for sorting, such as **name**:
 
    :::image type="content" source="media/dataverse/dataverse-action-sort-by-column.png" alt-text="Screenshot shows workflow, a Dataverse action, and Sort By parameter with column name." lightbox="media/dataverse/dataverse-action-sort-by-column.png":::
 
@@ -208,7 +157,7 @@ For example, suppose that you have a table named **Tasks**. This table has field
 |-------|-----------|-------------|
 | Text field | Single line of text | Requires either a single line of text or dynamic content that has the text data type, for example, these properties: <br><br>- **Description** <br>- **Category** |
 | Integer field | Whole number | Requires either an integer or dynamic content that has the integer data type, for example, these properties: <br><br>- **Percent Complete** <br>- **Duration** |
-| Date field | Date and Time | Requires either a date in MM/DD/YYY format or dynamic content that has the date data type, for example, these properties: <br><br>- **Created On** <br>- **Start Date** <br>- **Actual Start** <br>- **Actual End** <br>- **Due Date** |
+| Date field | Date and Time | Requires either a date in MM/DD/YYYY format or dynamic content that has the date data type, for example, these properties: <br><br>- **Created On** <br>- **Start Date** <br>- **Actual Start** <br>- **Actual End** <br>- **Due Date** |
 | Field that references another entity row | Primary key | Requires both a row ID, such as a GUID, and a lookup type, which means that values from the dynamic content list won't work, for example, these properties: <br><br>- **Owner**: Must be a valid user ID or a team row ID. <br>- **Owner Type**: Must be a lookup type such as `systemusers` or `teams`, respectively. <br><br>- **Regarding**: Must be a valid row ID such as an account ID or a contact row ID. <br>- **Regarding Type**: Must be a lookup type such as `accounts` or `contacts`, respectively. <br><br>- **Customer**: Must be a valid row ID such as an account ID or contact row ID. <br>- **Customer Type**: Must be the lookup type, such as `accounts` or `contacts`, respectively. |
 
 For the example **Tasks** table, suppose you use the **Add a new row** action to create a new row that's associated with other entity rows, specifically a user row and an account row. So, in this action, you must specify the IDs and lookup types for those entity rows by using values that match the expected data types for the relevant properties.
@@ -225,7 +174,7 @@ The resulting action looks like the following example:
 
 ### Calls from multiple environments
 
-The Dataverse connector stores information about the logic app workflows that get and require notifications about database entity changes by using the `callbackregistrations` entity in your Dataverse database. If you copy a Dataverse organization, any webhooks are copied too. If you copy your organization before you disable workflows that are mapped to your organization, any copied webhooks also point at the same logic app workflows, which then get notifications from multiple organizations.
+The Dataverse connector stores information about the logic app workflows that get and require notifications about database entity changes by using the `callbackregistrations` entity in your Dataverse database. If you copy a Dataverse organization, any webhooks are automatically copied. If you copy your organization before you disable workflows that are mapped to your organization, any copied webhooks point at the same logic app workflows. These workflows then get notifications from multiple organizations.
 
 To stop unwanted notifications, delete the `callbackregistrations` entity from the organization that sends those notifications by following these steps:
 
@@ -284,7 +233,7 @@ To stop unwanted notifications, delete the `callbackregistrations` entity from t
 
 ### Duplicate 'callbackregistrations' entity
 
-In Standard workflows, under specific conditions such as instance reallocation or application restart, the Microsoft Dataverse trigger starts a duplicate run, which creates a duplicate `callbackregistrations` entity in your Dataverse database. If you edit a Standard workflow that starts with a Dataverse trigger, check whether this `callbackregistrations` entity is duplicated. If the duplicate exists, manually delete the duplicate `callbackregistrations` entity.
+In Standard workflows, under specific conditions such as instance reallocation or application restart, the Microsoft Dataverse trigger starts a duplicate run. This duplicate run creates a duplicate `callbackregistrations` entity in your Dataverse database. If you edit a Standard workflow that starts with a Dataverse trigger, check whether this `callbackregistrations` entity is duplicated. If the duplicate exists, manually delete the duplicate `callbackregistrations` entity.
 
 ## Related content
 

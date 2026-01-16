@@ -19,8 +19,6 @@ ms.custom: template-how-to
 
 During an active call, you may want to transfer the call to device that you are signed in on. Let's learn how. 
 
-
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). 

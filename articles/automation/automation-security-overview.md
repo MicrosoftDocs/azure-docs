@@ -8,8 +8,8 @@ ms.date: 11/17/2025
 ms.topic: overview 
 ms.custom:
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Azure Automation account authentication overview

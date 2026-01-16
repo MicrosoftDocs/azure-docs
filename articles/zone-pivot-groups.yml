@@ -1473,6 +1473,15 @@ groups:
     title: .NET
   - id: framework-spring
     title: Spring Framework
+# Owner: zhiyuanliang
+- id: appconfig-aspire
+  title: Aspire resource pivots
+  prompt: Choose an Aspire hosting option
+  pivots:
+  - id: azure
+    title: Azure Resource
+  - id: emulator
+    title: Local Emulator
 # Owner: avanigupta
 - id: appconfig-data-plane-api-version
   title: API version pivots
@@ -2039,3 +2048,34 @@ groups:
     title: Azure ExpressRoute gateway
   - id: vpn
     title: Azure VPN gateway
+# Owner: danlep
+- id: api-management-tiers
+  title: API Management service tier
+  prompt: "Select the API Management service tier"
+  pivots:
+  - id: premium-classic
+    title: Premium (classic)
+  - id: premium-v2
+    title: Premium v2
+  - id: other-tiers
+    title: Other tiers
+# Owner: ericcheng
+- id: azure-cli-or-terraform
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
+  - id: azurecli
+    title: Azure CLI
+  - id: terraform
+    title: Terraform
+# Owner: cwatson
+- id: iot-hub-deployment-methods
+  title: IoT Hub deployment methods
+  prompt: Choose a deployment method
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: azure-cli
+    title: Azure CLI
+  - id: script
+    title: PowerShell script

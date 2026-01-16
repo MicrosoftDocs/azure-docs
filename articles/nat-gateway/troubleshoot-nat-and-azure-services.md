@@ -36,7 +36,8 @@ This article provides guidance on how to troubleshoot connectivity issues when u
     * Azure Database for MySQL  
     * Azure Data Factory - Data Movement 
     * Microsoft Power Platform services 
-    * Azure Stream Analytics 
+    * Azure Stream Analytics
+    * Azure Container Apps
     * Azure Web Apps 
     * Azure DNS Private Resolver 
 

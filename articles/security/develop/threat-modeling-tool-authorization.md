@@ -3,8 +3,8 @@ title: Authorization - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
 description: Learn about authorization mitigation in the Threat Modeling Tool. See a list of potential threats and mitigation instructions.
 services: security
 author: jegeib
-ms.service: information-protection
-ms.subservice: aiplabels
+ms.service: azure-information-protection
+ms.subservice: azure-information-protection-policy
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib

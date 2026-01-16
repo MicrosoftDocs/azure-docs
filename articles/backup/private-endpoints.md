@@ -2,7 +2,7 @@
 title: Create and use private endpoints for Azure Backup
 description: Understand the process to creating private endpoints for Azure Backup where using private endpoints helps maintain the security of your resources.
 ms.topic: how-to
-ms.date: 06/26/2025
+ms.date: 12/30/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -53,7 +53,6 @@ Follow these steps:
    >[!Note]
    >- After you deny access, you can still access the vault, but you can't move data to/from networks that don't contain private endpoints. For more information, see [Create private endpoints for Azure Backup](#create-private-endpoints-for-azure-backup).
    >- If public access is denied and a private endpoint isn’t enabled, backups succeed, but restore operations fail for all workloads except Virtual Machines. However, Virtual Machine item-level recovery also fails. Ensure that you configure network restrictions carefully.
-   >- Denying public access is currently not supported for [vaults that have cross-regions restore](backup-create-rs-vault.md#set-cross-region-restore) enabled.
 
 3. Select **Apply** to save the changes.
 
@@ -98,6 +97,9 @@ To manage permissions at a more granular level, see [Create roles and permission
 This section explains how to create a private endpoint for your vault.
 
 1. Navigate to your vault created above and go to **Private endpoint connections** on the left navigation bar. Select **+Private endpoint** on the top to start creating a new private endpoint for this vault.
+
+   >[!NOTE]
+   >Private endpoint must have a unique name. 
 
     ![Create new private endpoint](./media/private-endpoints/new-private-endpoint.png)
 

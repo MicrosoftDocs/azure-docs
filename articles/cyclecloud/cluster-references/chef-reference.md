@@ -4,6 +4,7 @@ description: Learn about Chef orchestration in Azure CycleCloud. Chef is a confi
 author: dougclayton
 ms.author: doclayto
 ms.date: 09/23/2025
+ms.update-cycle: 1095-days
 ms.custom: compute-evergreen
 ---
 

@@ -131,7 +131,7 @@ Describes the aggregated compliance state of a policy assignment.
 
 ## Policy versioning
 
-Built-in policy definitions can host multiple versions with the same `definitionID`. For more information, see [Version](./concepts/definition-structure-basics.md#version-preview).
+Built-in policy definitions can host multiple versions with the same `definitionID`. For more information, see [Version](./concepts/definition-structure-basics.md#version).
 
 ## Regulatory Compliance
 

@@ -3,7 +3,7 @@ title: Use Bicep linter
 description: Learn how to use Bicep linter.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 06/19/2025
+ms.date: 12/22/2025
 ---
 
 # Use Bicep linter
@@ -99,6 +99,8 @@ In this case you can disable the warning for one line only, not the entire docum
 #disable-next-line no-hardcoded-env-urls //Direct download link to my toolset
 scriptDownloadUrl: 'https://mytools.blob.core.windows.net/...'
 ```
+
+Multiple codes may be listed, separated by spaces.
 
 It's good practice to add a comment explaining why the rule doesn't apply to this line.
 

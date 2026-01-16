@@ -160,6 +160,9 @@ The only supported serialization format is Parquet.
 
 You can use the local storage data flow endpoint together with [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/howto-configure-cloud-ingest-subvolumes) to store data locally or send data to a cloud destination.
 
+> [!IMPORTANT]
+> You must install [Azure Container Storage enabled by Azure Arc (ACSA)](/azure/azure-arc/container-storage/howto-install-edge-volumes) before using it with a local storage data flow endpoint.
+
 ### Local shared volume
 
 To write to a local shared volume, first create a PersistentVolumeClaim (PVC) according to the instructions from [Local Shared Edge Volumes](/azure/azure-arc/container-storage/tutorial-create-local-shared-volume).

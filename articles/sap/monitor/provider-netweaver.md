@@ -6,7 +6,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.topic: article
 ms.date: 08/22/2024
-ms.author: sujaj
+ms.author: jacobjaygbay
 #Customer intent: As a developer, I want to configure a SAP NetWeaver provider so that I can use Azure Monitor for SAP solutions.
 # Customer intent: As a system administrator, I want to configure the SAP NetWeaver provider for Azure Monitor, so that I can effectively collect and analyze performance metrics from my SAP systems.
 ---

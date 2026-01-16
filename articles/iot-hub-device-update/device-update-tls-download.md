@@ -6,7 +6,7 @@
 title: Understand Device Update for Azure IoT Hub TLS download capabilities
 description: Key concepts to understand for TLS download of update content from Device Update for IoT Hub.
 author:      andrewbrownmsft # GitHub alias
-ms.author: sonialopez
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date:     06/07/2024

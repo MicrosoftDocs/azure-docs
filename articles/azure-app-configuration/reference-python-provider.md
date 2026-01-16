@@ -9,7 +9,7 @@ ms.service: azure-app-configuration
 ms.devlang: python
 ms.custom: devx-track-python
 ms.topic: tutorial
-ms.date: 10/13/2025
+ms.date: 12/11/2025
 #Customer intent: I want to learn how to use Azure App Configuration Python client library.
 ---
 
@@ -112,6 +112,22 @@ config = load(endpoint=endpoint, credential=DefaultAzureCredential(), selects=se
 
 > [!NOTE]
 > Key-values are loaded in the order in which the selectors are listed. If multiple selectors retrieve key-values with the same key, the value from the last one overrides any previously loaded value.
+
+### Load configuration from snapshots
+
+You can load configuration settings from [snapshots](./concept-snapshots.md) by using the `snapshot_name` parameter in `SettingSelector`. When you specify a snapshot name, all configuration settings from that snapshot are loaded. The `snapshot_name` parameter can't be used with `key_filter`, `label_filter`, or `tag_filters`.
+
+```python
+from azure.appconfiguration.provider import load, SettingSelector
+from azure.identity import DefaultAzureCredential
+
+snapshot_selects = [SettingSelector(snapshot_name="SnapshotName")]
+config = load(endpoint=endpoint, credential=DefaultAzureCredential(), selects=snapshot_selects)
+```
+
+> [!NOTE]
+> Snapshot support is available if you use version **2.3.0** or later of the `azure-appconfiguration-provider` package.
+> Only snapshots created with composition type `Key` can be loaded using the configuration provider.
 
 ### Trimming keys
 

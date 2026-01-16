@@ -11,13 +11,7 @@ ms.date: 08/09/2023
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-> [!NOTE]
-> Workflow Orchestration Manager is powered by Apache Airflow.
-
-This article documents the REST APIs for the Azure Data Factory Workflow Orchestration Manager integration runtime.
-
-> [!NOTE]
-> Workflow Orchestration Manager for Azure Data Factory relies on the open-source Apache Airflow application. You can find documentation and more tutorials for Airflow on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) webpages.
+[!INCLUDE[apache-airflow-notification](includes/apache-airflow-notification.md)]
 
 ## Create a new environment
 

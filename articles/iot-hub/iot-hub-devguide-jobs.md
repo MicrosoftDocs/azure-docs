@@ -1,17 +1,17 @@
 ---
 title: Schedule Azure IoT Hub Jobs on Multiple Devices
 description: Learn to schedule Azure IoT Hub jobs on multiple devices to update properties, tags, and invoke direct methods. Automate device management tasks efficiently with step-by-step examples and code samples.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 05/06/2019
+ms.date: 08/13/2025
 ms.custom: mqtt
 ---
 
 # Schedule Azure IoT Hub jobs on multiple devices
 
-Azure IoT Hub enables a number of building blocks like [device twin properties and tags](iot-hub-devguide-device-twins.md) and [direct methods](iot-hub-devguide-direct-methods.md). Typically, back-end apps enable device administrators and operators to update and interact with IoT devices in bulk and at a scheduled time. Jobs execute device twin updates and direct methods against a set of devices at a scheduled time. For example, an operator would use a back-end app that initiates and tracks a job to reboot a set of devices in building 43 and floor 3 at a time that would not be disruptive to the operations of the building.
+Azure IoT Hub enables many building blocks like [device twin properties and tags](iot-hub-devguide-device-twins.md) and [direct methods](iot-hub-devguide-direct-methods.md). Typically, back-end apps enable device administrators and operators to update and interact with IoT devices in bulk and at a scheduled time. Jobs execute device twin updates and direct methods against a set of devices at a scheduled time. For example, an operator would use a back-end app that initiates and tracks a job to reboot a set of devices in building 43 and floor 3 at a time that wouldn't be disruptive to the operations of the building.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -23,7 +23,7 @@ Consider using jobs when you need to schedule and track progress any of the foll
 
 ## Job lifecycle
 
-Jobs are initiated by the solution back end and maintained by IoT Hub. You can initiate a job through a service-facing URI (`PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2021-04-12`) and query for progress on an executing job through a service-facing URI (`GET https://<iot hub>/jobs/v2/<jobID?api-version=2021-04-12`). To refresh the status of running jobs once a job is initiated, run a job query. There is no explicit purge of job history, but they have a TTL of 30 days. 
+Jobs are initiated by the solution back end and maintained by IoT Hub. You can initiate a job through a service-facing URI (`PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2021-04-12`) and query for progress on an executing job through a service-facing URI (`GET https://<iot hub>/jobs/v2/<jobID?api-version=2021-04-12`). To refresh the status of running jobs once a job is initiated, run a job query. There's no explicit purge of job history, but they have a TTL of 30 days. 
 
 > [!NOTE]
 > When you initiate a job, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
@@ -63,7 +63,7 @@ The query condition can also be on a single device ID or on a list of device IDs
 "queryCondition" = "deviceId IN ['MyDevice1']"
 ```
 
-[IoT Hub Query Language](iot-hub-devguide-query-language.md) covers IoT Hub query language in additional detail.
+For more information about the IoT Hub query language, see [IoT Hub query language for device and module twins, jobs, and message routing](iot-hub-devguide-query-language.md).
 
 The following snippet shows the request and response for a job scheduled to call a direct method named testMethod on all devices on contoso-hub-1:
 
@@ -168,7 +168,7 @@ Content-Type: application/json; charset=utf-8
 
 The continuationToken is provided from the response.
 
-You can query for the job execution status on each device using the [IoT Hub query language for device twins, jobs, and message routing](iot-hub-devguide-query-language.md).
+You can query for the job execution status on each device using the [IoT Hub query language for device and module twins, jobs, and message routing](iot-hub-devguide-query-language.md).
 
 ## Jobs properties
 
@@ -198,24 +198,24 @@ The following list shows the properties and corresponding descriptions, which ca
 | | **deviceJobStatistics.runningCount**: Number of devices that are currently running the job. |
 | | **deviceJobStatistics.pendingCount**: Number of devices that are pending to run the job. |
 
-### Additional reference material
+### Other reference material
 
-Other reference topics in the IoT Hub developer guide include:
+Other reference articles in the IoT Hub developer guide include:
 
 * [IoT Hub endpoints](iot-hub-devguide-endpoints.md) describes the various endpoints that each IoT hub exposes for run-time and management operations.
 
-* [Throttling and quotas](iot-hub-devguide-quotas-throttling.md) describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
+* [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md) describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
 
-* [Azure IoT device and service SDKs](iot-hub-devguide-sdks.md) lists the various language SDKs you can use when you develop both device and service apps that interact with IoT Hub.
+* [Azure IoT Hub SDKs](iot-hub-devguide-sdks.md) lists the various language SDKs you can use when you develop both device and service apps that interact with IoT Hub.
 
-* [IoT Hub query language for device twins, jobs, and message routing](iot-hub-devguide-query-language.md) describes the IoT Hub query language. Use this query language to retrieve information from IoT Hub about your device twins and jobs.
+* [IoT Hub query language for device and module twins, jobs, and message routing](iot-hub-devguide-query-language.md) describes the IoT Hub query language. Use this query language to retrieve information from IoT Hub about your device twins and jobs.
 
-* [IoT Hub MQTT support](../iot/iot-mqtt-connect-to-iot-hub.md) provides more information about IoT Hub support for the MQTT protocol.
+* [Communicate with an IoT hub using the MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md) provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
 
-To try out some of the concepts described in this article, see the following IoT Hub tutorial:
+To explore some of the concepts described in this article, see the following IoT Hub article:
 
-* [Schedule and broadcast jobs](schedule-jobs-node.md)
+* [Reliability in Azure IoT Hub](schedule-jobs-node.md)
 
 

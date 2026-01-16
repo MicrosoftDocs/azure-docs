@@ -2,9 +2,9 @@
 title: Quickstart - route messages to storage (Bicep)
 titleSuffix: Azure IoT Hub
 description: Learn how to use Bicep to publish Azure IoT Hub, storage account, and route messages in this quickstart
-author: SoniaLopezBravo
+author: cwatson-cat
 
-ms.author: sonialopez
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: quickstart-bicep
 ms.date: 01/04/2024

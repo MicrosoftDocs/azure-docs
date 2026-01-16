@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/azure-resource-manager/bicep/learn-bicep.md",
+      "redirect_url": "overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/aks/learn/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider.md",
       "redirect_url": "/azure/aks/learn/quick-kubernetes-deploy-bicep-kubernetes-extension",
       "redirect_document_id": false

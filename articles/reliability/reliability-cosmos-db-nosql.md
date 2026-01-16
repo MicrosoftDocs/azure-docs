@@ -93,7 +93,7 @@ To enable availability zone support you can use:
 
 * [Azure portal](/azure/cosmos-db/how-to-manage-database-account#add-remove-regions-from-your-database-account)
 
-* [Azure CLI](/azure/cosmos-db/sql/manage-with-cli#add-or-remove-regions)
+* [Azure CLI](/azure/cosmos-db/manage-with-cli#add-or-remove-regions)
 
 * [Azure Resource Manager templates](/azure/cosmos-db/manage-with-templates)
 

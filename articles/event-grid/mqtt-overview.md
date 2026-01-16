@@ -101,7 +101,7 @@ With Event Grid, you can route your MQTT messages to Azure services or webhooks 
 
 :::image type="content" source="media/mqtt-overview/routing-high-res.png" alt-text="Diagram that shows MQTT message routing in Event Grid." border="false":::
 
-### MQTT events to Microsoft Fabric eventstreams (preview)
+### MQTT events to Microsoft Fabric eventstreams
 
 Route MQTT messages and cloud events from an Event Grid namespace to Microsoft Fabric eventstreams for real-time analytics, storage, and visualization of IoT data.
 
@@ -119,11 +119,11 @@ Client life-cycle events allow applications to react to events about the client 
 
 Custom domain names support allows users to assign their own domain names to Event Grid namespace's MQTT and HTTP endpoints, which enhances security and simplifies client configuration. This feature helps enterprises meet their security and compliance requirements and eliminates the need to modify clients already linked to the domain. Assigning a custom domain name to multiple namespaces can also help enhance availability, manage capacity, and handle cross-region client mobility. Learn more about [custom domain names](custom-domains-namespaces.md).
 
-### MQTT Retain (preview)
+### MQTT Retain 
 
 An MQTT retained message is used to store the last known good value of a topic on the broker, ensuring that new subscribers immediately receive the most recent message without waiting for the next publish. This capability is especially useful in scenarios like device state reporting, control signals, or configuration data where the latest message must always be available to clients on connect. For more information, see [MQTT Retain support in Azure Event Grid](mqtt-retain.md).
 
-### HTTP Publish (preview)
+### HTTP Publish
 
 HTTP Publish enables applications to publish MQTT messages to the Event Grid MQTT broker over a simple HTTPS `POST` request, without maintaining an active MQTT session. It's best suited for scenarios where MQTT clients aren't feasible or necessary, such as serverless functions, cloud services, or back-end applications. HTTP Publish allows event-driven architectures to inject MQTT messages reliably and securely. Common use cases include publishing device commands, alerts, or control signals from Azure Functions, Azure Logic Apps, or API integrations. For more information, see [HTTP Publish of MQTT messages in Azure Event Grid](mqtt-http-publish.md).
 

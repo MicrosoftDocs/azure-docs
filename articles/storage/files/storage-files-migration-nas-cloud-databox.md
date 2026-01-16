@@ -1,10 +1,10 @@
 ---
-title: On-premises NAS migration to Azure file shares
+title: On-premises NAS migration to Azure Files
 description: Learn how to migrate files from an on-premises Network Attached Storage (NAS) location to Azure file shares with Azure DataBox.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/16/2024
+ms.date: 12/19/2025
 ms.author: kendownie
 recommendations: false
 # Customer intent: "As an IT administrator managing on-premises NAS solutions, I want to migrate our file storage to Azure file shares using DataBox, so that I can ensure data integrity, maintain accessibility during the transition, and eliminate reliance on local storage infrastructure."
@@ -83,7 +83,7 @@ To determine how many devices of which type you need, consider these important l
 * Any Azure DataBox can move data into up to 10 storage accounts. 
 * Each DataBox option comes at their own usable capacity. See [DataBox options](#databox-options).
 
-Consult your migration plan for the number of storage accounts you have decided to create and the shares in each one. Then look at the size of each of the shares on your NAS. Combining this information will allow you to optimize and decide which appliance should be sending data to which storage accounts. You can have two DataBox devices move files into the same storage account, but don't split content of a single file share across 2 DataBoxes.
+Consult your migration plan for the number of storage accounts you have decided to create and the shares in each one. Then look at the size of each of the shares on your NAS. Combining this information will allow you to optimize and decide which appliance should be sending data to which storage accounts. You can have two DataBox devices move files into the same storage account, but don't split content of a single file share across two DataBoxes.
 
 ### DataBox options
 
@@ -95,7 +95,7 @@ For a standard migration, one or a combination of these two DataBox options shou
   This option features a ruggedized DataBox appliance on wheels, that works similar to a NAS, with a capacity of 1 PiB. The usable capacity is about 20% less, due to encryption and file system overhead. For more information, see [DataBox Heavy documentation](../../databox/data-box-heavy-overview.md).
 
 > [!WARNING]
-> Data Box Disks is not recommended for migrations into Azure file shares. Data Box Disks does not preserve file metadata, such as access permissions (ACLs) and other attributes.
+> Data Box Disks isn't recommended for migrations into Azure file shares. Data Box Disks doesn't preserve file metadata, such as access permissions (ACLs) and other attributes.
 
 ## Phase 4: Provision a temporary Windows Server
 
@@ -107,20 +107,20 @@ While you wait for your Azure DataBox(es) to arrive, you can already deploy one 
 The speed in which your RoboCopy jobs work depend on mainly these factors:
 
 * IOPS on the source and target storage
-* the available network bandwidth between them </br> Find more details in the Troubleshooting section: [IOPS and Bandwidth considerations](#iops-and-bandwidth-considerations)
-* the ability to quickly process files and folders in a namespace </br> Find more details in the Troubleshooting section: [Processing speed](#processing-speed)
-* the number of changes between RoboCopy runs </br> Find more details in the Troubleshooting section: [Avoid unnecessary work](#avoid-unnecessary-work)
+* the available network bandwidth between them </br> Find more details: [IOPS and Bandwidth considerations](#iops-and-bandwidth-considerations)
+* the ability to quickly process files and folders in a namespace </br> Find more details: [Processing speed](#processing-speed)
+* the number of changes between RoboCopy runs </br> Find more details: [Avoid unnecessary work](#avoid-unnecessary-work)
 
-It is important to keep the referenced details in mind when deciding on the RAM and thread count you will provide to your temporary Windows Server(s).
+It's important to keep the referenced details in mind when deciding on the RAM and thread count you will provide to your temporary Windows Server(s).
 
 ## Phase 5: Preparing to use Azure file shares
 
-To save time, you should proceed with this phase while you wait for your DataBox to arrive. With the information in this phase, you will be able to decide how your servers and users in Azure and outside of Azure will be enabled to utilize your Azure file shares. The most critical decisions are:
+To save time, you should proceed with this phase while you wait for your DataBox to arrive. With the information in this phase, you will be able to decide how your servers and users will be enabled to utilize your Azure file shares. The most critical decisions are:
 
 - **Networking:** Enable your networks to route SMB traffic.
-- **Authentication:** Configure Azure storage accounts for Kerberos authentication. AdConnect and Domain joining your storage account will allow your apps and users to use their AD identity to for authentication
+- **Authentication:** Configure Azure storage accounts for Kerberos authentication. AdConnect and domain-joining your storage account will allow your apps and users to use their AD identity to for authentication
 - **Authorization:** Share-level ACLs for each Azure file share will allow AD users and groups to access a given share and within an Azure file share, native NTFS ACLs will take over. Authorization based on file and folder ACLs then works like it does for on-premises SMB shares.
-- **Business continuity:** Integration of Azure file shares into an existing environment often entails to preserve existing share addresses. If you are not already using DFS-Namespaces, consider establishing that in your environment. You'd be able to keep share addresses your users and scripts use, unchanged. You would use DFS-N as a namespace routing service for SMB, by redirecting DFS-Namespace targets to Azure file shares after their migration.
+- **Business continuity:** Integration of Azure file shares into an existing environment often entails to preserve existing share addresses. If you aren't already using DFS-Namespaces, consider establishing that in your environment. You'd be able to keep share addresses your users and scripts use, unchanged. You would use DFS-N as a namespace routing service for SMB, by redirecting DFS-Namespace targets to Azure file shares after their migration.
 
 :::row:::
     :::column:::
@@ -149,7 +149,7 @@ When your DataBox arrives, you need to set up your DataBox with unimpeded networ
 * [Set up Data Box Disk](../../databox/data-box-disk-quickstart-portal.md)
 * [Set up Data Box Heavy](../../databox/data-box-heavy-quickstart-portal.md)
 
-Depending on the DataBox type, there maybe DataBox copy tools available to you. At this point, they are not recommended for migrations to Azure file shares as they do not copy your files with full fidelity to the DataBox. Use RoboCopy instead.
+Depending on the DataBox type, there maybe DataBox copy tools available to you. At this point, they aren't recommended for migrations to Azure file shares as they don't copy your files with full fidelity to the DataBox. Use RoboCopy instead.
 
 When your DataBox arrives, it will have pre-provisioned SMB shares available for each storage account you specified at the time of ordering it.
 
@@ -187,17 +187,17 @@ Run the first local copy to your Windows Server target folder:
 
 1. Identify the first location on your NAS appliance.
 1. Identify the matching Azure file share.
-1. Mount the Azure file share as a local network drive on your temporary Windows Server
-1. Start the copy using RoboCopy as described
+1. Mount the Azure file share as a local network drive on your temporary Windows Server.
+1. Start the copy using RoboCopy as described.
 
 ### Mounting an Azure file share
 
 Before you can use RoboCopy, you need to make the Azure file share accessible over SMB. The easiest way is to mount the share as a local network drive to the Windows Server you are planning on using for RoboCopy. 
 
 > [!IMPORTANT]
-> Before you can successfully mount an Azure file share to a local Windows Server, you need to have completed Phase : Preparing to use Azure file shares!
+> Before you can successfully mount an Azure file share to a local Windows Server, you must complete [Phase 5: Preparing to use Azure file shares](#phase-5-preparing-to-use-azure-file-shares).
 
-Once you are ready, review the [Use an Azure file share with Windows how-to article](storage-how-to-use-files-windows.md) and mount the Azure file share you want to start the NAS catch-up RoboCopy for.
+Once you're ready, review the [Use an Azure file share with Windows how-to article](storage-how-to-use-files-windows.md) and mount the Azure file share you want to start the NAS catch-up RoboCopy for.
 
 ### RoboCopy
 
@@ -234,7 +234,7 @@ robocopy <SourcePath> <Dest.Path> /MT:20 /R:2 /W:1 /B /MIR /IT /COPY:DATSO /DCOP
 
 ### User cut-over
 
-When you run the RoboCopy command for the first time, your users and applications are still accessing files on the NAS and potentially change them. It is possible, that RoboCopy has processed a directory, moves on to the next and then a user on the source location (NAS) adds, changes, or deletes a file that will now not be processed in this current RoboCopy run. This behavior is expected.
+When you run the RoboCopy command for the first time, your users and applications are still accessing files on the NAS and potentially change them. It's possible that RoboCopy has processed a directory, moves on to the next, and then a user on the source location (NAS) adds, changes, or deletes a file that will now not be processed in this current RoboCopy run. This behavior is expected.
 
 The first run is about moving the bulk of the churned data to your Azure file share. This first copy can take a while. Check out the [Troubleshooting section](#troubleshoot) for more insight into what can affect RoboCopy speeds.
 
@@ -244,8 +244,8 @@ A second time you run RoboCopy for the same share, it will finish faster, becaus
 
 When you consider the downtime acceptable, then you need to remove user access to your NAS-based shares. You can do that by any steps that prevent users from changing the file and folder structure and content. An example is to point your DFS-Namespace to a non-existing location or change the root ACLs on the share.
 
-Run one last RoboCopy round. It will pick up any changes, that might have been missed.
-How long this final step takes, is dependent on the speed of the RoboCopy scan. You can estimate the time (which is equal to your downtime) by measuring how long the previous run took.
+Run one last RoboCopy round. It will pick up any changes that might have been missed.
+How long this final step takes depends on the speed of the RoboCopy scan. You can estimate the time (which is equal to your downtime) by measuring how long the previous run took.
 
 Create a share on the Windows Server folder and possibly adjust your DFS-N deployment to point to it. Be sure to set the same share-level permissions as on your NAS SMB share. If you had an enterprise-class domain-joined NAS, then the user SIDs will automatically match as the users exist in Active Directory and RoboCopy copies files and metadata at full fidelity. If you have used local users on your NAS, you need to re-create these users as Windows Server local users and map the existing SIDs RoboCopy moved over to your Windows Server to the SIDs of your new, Windows Server local users.
 
@@ -286,16 +286,16 @@ A similar line of thought applies to the IOPS observed on the NAS. The cluster s
 
 RoboCopy will traverse the namespace it's pointed to and evaluate each file and folder for copy. Every file will be evaluated during an initial copy and during catch-up copies. For example, repeated runs of RoboCopy /MIR against the same source and target storage locations. These repeated runs are useful to minimize downtime for users and apps, and to improve the overall success rate of files migrated.
 
-We often default to considering bandwidth as the most limiting factor in a migration - and that can be true. But the ability to enumerate a namespace can influence the total time to copy even more for larger namespaces with smaller files. Consider that copying 1 TiB of small files will take considerably longer than copying 1 TiB of fewer but larger files, assuming that all other variables remain the same. Therefore, you may experience slow transfer if you're migrating a large number of small files. This is an expected behavior.
+We often default to considering bandwidth as the most limiting factor in a migration, and that can be true. But the ability to enumerate a namespace can influence the total time to copy even more for larger namespaces with smaller files. Consider that copying 1 TiB of small files will take considerably longer than copying 1 TiB of fewer but larger files, assuming that all other variables remain the same. Therefore, you might experience slow transfer if you're migrating a large number of small files. This is expected behavior.
 
 The cause for this difference is the processing power needed to walk through a namespace. RoboCopy supports multi-threaded copies through the `/MT:n` parameter where **n** stands for the number of threads to be used. So when provisioning a machine specifically for RoboCopy, consider the number of processor cores and their relationship to the thread count they provide. Most common are two threads per core. The core and thread count of a machine is an important data point to decide what multi-thread values `/MT:n` you should specify. Also consider how many RoboCopy jobs you plan to run in parallel on a given machine.
 
-More threads will copy our 1-TiB example of small files considerably faster than fewer threads. At the same time, the extra resource investment on our 1 TiB of larger files may not yield proportional benefits. A high thread count will attempt to copy more of the large files over the network simultaneously. This extra network activity increases the probability of getting constrained by throughput or storage IOPS.
+More threads will copy our 1 TiB example of small files considerably faster than fewer threads. At the same time, the extra resource investment on our 1 TiB of larger files might not yield proportional benefits. A high thread count will attempt to copy more of the large files over the network simultaneously. This extra network activity increases the probability of getting constrained by throughput or storage IOPS.
 
-During a first RoboCopy into an empty target or a differential run with lots of changed files, you are likely constrained by your network throughput. Start with a high thread count for an initial run. A high thread count, even beyond your currently available threads on the machine, helps saturate the available network bandwidth. Subsequent /MIR runs are progressively impacted by processing items. Fewer changes in a differential run mean less transport of data over the network. Your speed is now more dependent on your ability to process namespace items than to move them over the network link. For subsequent runs, match your thread count value to your processor core count and thread count per core. Consider if cores need to be reserved for other tasks a production server may have.
+During a first RoboCopy into an empty target or a differential run with lots of changed files, you're likely constrained by your network throughput. Start with a high thread count for an initial run. A high thread count, even beyond your currently available threads on the machine, helps saturate the available network bandwidth. Subsequent /MIR runs are progressively impacted by processing items. Fewer changes in a differential run mean less transport of data over the network. Your speed is now more dependent on your ability to process namespace items than to move them over the network link. For subsequent runs, match your thread count value to your processor core count and thread count per core. Consider if cores need to be reserved for other tasks a production server may have.
 
 > [!TIP]
-> Rule of thumb: The first RoboCopy run, that will move a lot of data of a higher-latency network, benefits from over-provisioning the thread count (`/MT:n`). Subsequent runs will copy fewer differences and you are more likely to shift from network throughput constrained to compute constrained. Under these circumstances, it is often better to match the RoboCopy thread count to the actually available threads on the machine. Over-provisioning in that scenario can lead to more context shifts in the processor, possibly slowing down your copy.
+> Rule of thumb: The first RoboCopy run, that will move a lot of data of a higher-latency network, benefits from over-provisioning the thread count (`/MT:n`). Subsequent runs will copy fewer differences and you are more likely to shift from network throughput constrained to compute constrained. Under these circumstances, it's often better to match the RoboCopy thread count to the actually available threads on the machine. Over-provisioning in that scenario can lead to more context shifts in the processor, possibly slowing down your copy.
 
 ### Avoid unnecessary work
 
@@ -304,20 +304,17 @@ Avoid large-scale changes in your namespace. For example, moving files between d
 * extended RoboCopy job run time because each file and folder affected by an ACL change needing to be updated
 * reusing data moved earlier may need to be recopied. For instance, more data will need to be copied when folder structures change after files had already been copied earlier. A RoboCopy job can't "play back" a namespace change. The next job must purge the files previously transported to the old folder structure and upload the files in the new folder structure again.
 
-Another important aspect is to use the RoboCopy tool effectively. With the recommended RoboCopy script, you'll create and save a log file for errors. Copy errors can occur - that is normal. These errors often make it necessary to run multiple rounds of a copy tool like RoboCopy. An initial run, say from a NAS to DataBox or a server to an Azure file share. And one or more extra runs with the /MIR switch to catch and retry files that didn't get copied.
+Another important aspect is to use the RoboCopy tool effectively. With the recommended RoboCopy script, you'll create and save a log file for errors. Copy errors can occur, and that's normal. These errors often make it necessary to run multiple rounds of a copy tool like RoboCopy. For example, an initial run, say from a NAS to DataBox or a server to an Azure file share, and one or more extra runs with the /MIR switch to catch and retry files that didn't get copied.
 
 You should be prepared to run multiple rounds of RoboCopy against a given namespace scope. Successive runs will finish faster as they have less to copy but are constrained increasingly by the speed of processing the namespace. When you run multiple rounds, you can speed up each round by not having RoboCopy try unreasonably hard to copy everything in a given run. These RoboCopy switches can make a significant difference:
 
 * `/R:n` n = how often you retry to copy a failed file and 
 * `/W:n` n = how many seconds to wait between retries
 
-`/R:5 /W:5` is a reasonable setting that you can adjust to your liking. In this example, a failed file will be retried five times, with five-second wait time between retries. If the file still fails to copy, the next RoboCopy job will try again. Often files that failed because they are in use or because of timeout issues might eventually be copied successfully this way.
+`/R:5 /W:5` is a reasonable setting that you can adjust to your liking. In this example, a failed file will be retried five times, with five-second wait time between retries. If the file still fails to copy, the next RoboCopy job will try again. Often, files that failed because they are in use or because of timeout issues can eventually be copied successfully this way.
 
-## Next steps
-
-There is more to discover about Azure file shares. The following articles help understand advanced options, best practices, and also contain troubleshooting help. These articles link to [Azure file share documentation](storage-files-introduction.md) as appropriate.
+## See also
 
 * [Migration overview](storage-files-migration-overview.md)
-* [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../common/storage-monitoring-diagnosing-troubleshooting.md)
 * [Networking considerations for direct access](storage-files-networking-overview.md)
-* [Backup: Azure file share snapshots](storage-snapshots-files.md)
+* [Azure file share snapshots](storage-snapshots-files.md)

@@ -2,8 +2,8 @@
 title: Roll X.509 certificates in DPS
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: How to update or replace X.509 certificates with your Azure IoT Hub Device Provisioning Service (DPS) instance
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 08/11/2025
 ms.topic: how-to
 ms.service: azure-iot-hub

@@ -74,6 +74,14 @@
     href: feature-comparison.md
   - name: Develop locally
     href: develop-locally.md
+  - name: Reliability
+    items:
+    - name: Reliability in Stream Analytics
+      href: ../reliability/reliability-stream-analytics.md?toc=/azure/stream-analytics/TOC.json
+    - name: Pair jobs for reliability
+      href: stream-analytics-job-reliability.md
+    - name: Geo-redundancy
+      href: geo-redundancy.md
   - name: Security
     items:
     - name: Connect jobs to Azure Virtual Network (VNet)

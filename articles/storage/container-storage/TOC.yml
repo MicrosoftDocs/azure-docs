@@ -15,10 +15,12 @@
     href: use-container-storage-with-local-disk.md
 - name: How-to guides
   items:
-  - name: Enable monitoring with managed Prometheus
-    href: enable-monitoring.md
   - name: Remove Azure Container Storage
     href: remove-container-storage.md
+  - name: Enable monitoring with managed Prometheus
+    href: enable-monitoring.md
+  - name: Use Grafana dashboards
+    href: use-grafana-dashboard.md
 - name: Concepts
   items:
   - name: Understand billing

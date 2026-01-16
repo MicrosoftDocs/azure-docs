@@ -91,6 +91,9 @@ The following service limits are applicable:
 - Requests can't exceed 50 KB.
 - Jobs can process no more than 10,000 documents.
 - Each document processed by a job can't exceed 2 MB.
+- Requests are throttled if you exceed 1 MB per 5 seconds or 100 requests per 5 seconds.<sup>1</sup>
+
+<sup>1</sup> If your use case requires higher throughput, please submit a support request for consideration.
 
 ## Pricing
 

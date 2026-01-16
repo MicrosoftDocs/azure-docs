@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli, devx-track-python, linux-related-content
 This Azure Functions sample script creates a function app using the [Consumption plan](../consumption-plan.md) and creates a share in Azure Files. It then mounts the share so that the data can be accessed by your functions.  
 
 >[!NOTE]
->The function app created runs on Python version 3.9. Azure Functions also [supports Python versions 3.7 and 3.8](../functions-reference-python.md#python-version).
+>The function app created runs on Python version 3.9. Azure Functions also [supports Python versions 3.7 and 3.8](../functions-reference-python.md#supported-python-versions).
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 

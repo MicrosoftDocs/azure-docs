@@ -6,10 +6,11 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 07/29/2025
+ms.date: 01/14/2026
 ms.author: jkinma
 ms.custom:
 - build-2025
+service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
 # Complete Enterprise Agreement tasks in your billing account for a Microsoft Customer Agreement

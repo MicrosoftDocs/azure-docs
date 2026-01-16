@@ -7,7 +7,7 @@ ms.subservice: sap-monitor
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 08/22/2024
-ms.author: sujaj
+ms.author: jacobjaygbay
 #Customer intent: As a developer, I want to configure a Linux provider so that I can use Azure Monitor for SAP solutions for monitoring.
 # Customer intent: "As a system administrator, I want to configure a Linux OS provider for Azure Monitor for SAP solutions, so that I can effectively monitor the performance and health of my SAP environment on Azure."
 ---

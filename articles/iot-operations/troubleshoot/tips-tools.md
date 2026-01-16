@@ -325,3 +325,17 @@ Make sure that MQTT Explorer has at least the `#` topic configured:
 After you connect, you can see messages in the topics you subscribed to and publish messages:
 
 :::image type="content" source="media/tips-tools/mqtt-explorer-subscription.png" alt-text="Screenshot that shows the MQTT Explorer subscribed to Azure IoT Operations topics.":::
+
+## Tips
+
+Here are some additional tips to help you work with your Azure IoT Operations instance:
+
+### Find the custom location of your Azure IoT Operations instance
+
+To find the custom location associated with your Azure IoT Operations instance, use the following command:
+
+```azurecli
+az iot ops show --name <YOUR_INSTANCE_NAME> --resource-group <YOUR_RESOURCE_GROUP> --query "extendedLocation.name" --output tsv
+```
+
+You can also find the custom location in the Azure portal on the instance overview page in the **Extended location** field.

@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: conceptual
-ms.date: 07/09/2025
+ms.date: 01/08/2026
 ms.author: onwokolo
 ---
 
@@ -19,7 +19,7 @@ Savings plan discounts only apply to resources associated with subscriptions pur
 > The Azure savings plan isn't supported for the China legacy Online Service Premium Agreement (OSPA) platform.
 
 ### Enterprise Agreement customers
-Saving plan purchasing for Enterprise Agreement customers is limited to:
+Savings plan purchasing for Enterprise Agreement customers is limited to:
 
 - Enterprise Agreement admins with write permissions can purchase savings plans from **Cost Management + Billing** > **Savings plan**. No subscription-specific permissions are needed.
 - Users with subscription owner or savings plan purchaser roles in at least one subscription in the enrollment account can purchase savings plans from **Home** > **Savings plan**.
@@ -49,7 +49,7 @@ If you have Azure savings plan for compute questions, contact your account team 
 
 ## Related content
 
-- To buy a savings plan, see [Buy a savings plan](buy-savings-plan.md)
+- To buy a savings plan, see [Buy a savings plan](buy-savings-plan.md).
 - To learn how to manage a savings plan, see [Manage Azure savings plans](manage-savings-plan.md).
 - To learn more about Azure savings plans, see:
 

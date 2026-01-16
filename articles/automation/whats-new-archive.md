@@ -5,8 +5,8 @@ services: automation
 ms.topic: overview
 ms.date: 08/01/2023
 ms.custom: references_regions
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Archive for What's new in Azure Automation?

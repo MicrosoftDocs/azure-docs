@@ -5,7 +5,7 @@ services: application gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 07/23/2025
+ms.date: 01/12/2026
 ms.author: mbender
 #customer intent: As an IT administrator, I want to configure a TLS policy for the Application Gateway, so that I can centralize certificate management and ensure compliance with security standards while optimizing backend performance.
 ---
@@ -42,8 +42,8 @@ The following table shows the list of cipher suites and minimum protocol version
 | **Minimum Protocol Version** | 1.0 | 1.1 | 1.2 | 1.2 | 1.2 |
 | **Enabled protocol versions** | 1.0<br/>1.1<br/>1.2 | 1.1<br/>1.2 | 1.2 | 1.2<br/>1.3 | 1.2<br/>1.3 |
 | **Default** | True<br/>(for API version < 2023-02-01) | False | False | True<br/>(for API version >= 2023-02-01) | False |
-| TLS_AES_128_GCM_SHA256 | &cross; | &cross; | &cross; | &check; | &check; |
 | TLS_AES_256_GCM_SHA384 | &cross; | &cross; | &cross; | &check; | &check; |
+| TLS_AES_128_GCM_SHA256 | &cross; | &cross; | &cross; | &check; | &check; |
 | TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 | &check; | &check; | &check; | &check; | &check; |
 | TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 | &check; | &check; | &check; | &check; | &check; |
 | TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 | &check; | &cross; | &cross; | &check; | &cross; |

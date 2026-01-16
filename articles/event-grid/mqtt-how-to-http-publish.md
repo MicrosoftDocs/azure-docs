@@ -15,12 +15,9 @@ ms.custom:
   - ai-gen-description
 ---
 
-# Publish MQTT messages via HTTP with Azure Event Grid (preview)
+# Publish MQTT messages via HTTP with Azure Event Grid
 
 Azure Event Grid now supports publishing Message Queuing Telemetry Transport (MQTT) messages via HTTP. Event Grid enables back-end systems to send messages to devices without maintaining persistent MQTT connections. This approach simplifies integration for applications that prefer stateless communication. It uses secure authentication with Microsoft Entra ID and provides scalable, reliable delivery to MQTT clients. In this article, you learn how to use the HTTP Publish API. You also learn how to obtain the necessary credentials and verify message delivery by using popular tools like Bruno and MQTTX.
-
-> [!NOTE]
-> This feature is currently in preview.
 
 This article explains how to publish MQTT messages via HTTP with Event Grid.
 

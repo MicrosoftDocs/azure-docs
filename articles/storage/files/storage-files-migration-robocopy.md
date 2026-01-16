@@ -1,15 +1,17 @@
 ---
-title: Migrate to Azure Files using RoboCopy
+title: Migrate to Azure Files Using RoboCopy
 description: Learn how to move or migrate files to an SMB Azure file share using RoboCopy.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 07/14/2025
+ms.date: 12/19/2025
 ms.author: kendownie
 # Customer intent: As an IT administrator, I want to migrate files to Azure file shares using RoboCopy, so that I can ensure data integrity and minimize downtime during the transition to cloud storage.
 ---
 
 # Use RoboCopy to migrate to Azure file shares
+
+**Applies to:** :heavy_check_mark: SMB Azure file shares
 
 This migration article describes the use of RoboCopy to move or migrate files to an SMB Azure file share. RoboCopy is a trusted and well-known file copy utility with a feature set that makes it well suited for migrations. It uses the SMB protocol, which makes it broadly applicable to any source and target combination that supports SMB.
 
@@ -21,19 +23,11 @@ This migration article describes the use of RoboCopy to move or migrate files to
 > [!IMPORTANT]
 > There are many different migration routes for different source and deployment combinations. Before completing the steps in this article, make sure you've read the [migration overview](storage-files-migration-overview.md), determined that RoboCopy is the tool that best suits your needs, and deployed the necessary Azure storage resources for the migration.
 
-## Applies to
-
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-
 ## AzCopy vs. RoboCopy
 
-AzCopy and RoboCopy are two fundamentally different file copy tools. RoboCopy uses any version of the SMB protocol. AzCopy is a "born-in-the-cloud" tool that can be used to move data as long as the target is in Azure storage. AzCopy depends on a REST protocol.
+AzCopy and RoboCopy are two fundamentally different file copy tools. RoboCopy uses any version of the SMB protocol. AzCopy is a cloud-native tool that can be used to move data as long as the target is in Azure storage. AzCopy depends on a REST protocol.
 
-RoboCopy, as a trusted, Windows-based copy tool, has the home-turf advantage when it comes to copying files at full fidelity. RoboCopy supports many migration scenarios due to its rich set of features and the ability to copy files and folders in full fidelity. Check out the [file fidelity section in the migration overview article](storage-files-migration-overview.md#migration-basics) to learn more about the importance of copying files at maximum possible fidelity.
+RoboCopy, as a trusted, Windows-based copy tool, supports many migration scenarios due to its rich set of features and the ability to copy files and folders in full fidelity. See the [file fidelity section in the migration overview article](storage-files-migration-overview.md#migration-basics) to learn more about the importance of copying files at maximum possible fidelity.
 
 AzCopy, on the other hand, has only recently expanded to support file copy with some fidelity and added the first features needed to be considered as a migration tool. However, there are still gaps, and there can easily be misunderstandings of functionality when comparing AzCopy flags to RoboCopy flags.
 
@@ -44,9 +38,9 @@ An example: *RoboCopy /MIR* will mirror source to target - that means added, cha
 Before you can use RoboCopy, you need to make the Azure file share accessible over SMB. The easiest way is to mount the share as a local network drive to the Windows Server you're planning on using for RoboCopy.
 
 > [!IMPORTANT]
-> Mount the Azure file share using the storage account access key. Don't use a domain identity.
+> Mount the Azure file share with [admin-level access](storage-files-identity-configure-file-level-permissions.md#mount-the-file-share-with-admin-level-access): either with identity-based access with admin-level Azure RBAC roles (recommended) or with storage account key (less secure).
 
-Once you're ready, review [Use an Azure file share with Windows](storage-how-to-use-files-windows.md). Then mount the Azure file share you want to start the RoboCopy for.
+Review [Use an Azure file share with Windows](storage-how-to-use-files-windows.md), then mount the SMB Azure file share you want to start the RoboCopy for.
 
 ## Use RoboCopy to copy files to Azure file share
 
@@ -157,6 +151,10 @@ You should be prepared to run multiple rounds of RoboCopy against a given namesp
 * `/W:n` n = how many seconds to wait between retries
 
 `/R:5 /W:5` is a reasonable setting that you can adjust to your liking. In this example, a failed file will be retried five times, with five-second wait time between retries. If the file still fails to copy, the next RoboCopy job will try again. Often files that failed because they are in use or because of timeout issues might eventually be copied successfully this way.
+
+### Use Robocopy to copy files from an Azure Files snapshot to a local drive
+
+You can use Robocopy to copy files and folders from a snapshot view of an SMB Azure file share back to a local drive. For more information, see [Copying data back to a local drive from share snapshot](storage-snapshots-files.md#copying-data-back-to-a-local-drive-from-share-snapshot).
 
 ### Estimating storage transaction charges
 

@@ -7,7 +7,7 @@ ms.subservice: reservations
 ms.author: primittal
 ms.reviewer: primittal
 ms.topic: troubleshooting
-ms.date: 10/28/2025
+ms.date: 01/15/2026
 ---
 
 # Troubleshoot reservation type not available

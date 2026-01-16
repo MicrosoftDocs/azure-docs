@@ -1,7 +1,7 @@
 ---
 ms.author: cherylmc
 author: cherylmc
-ms.date: 10/08/2025
+ms.date: 01/12/2025
 ms.service: azure-vpn-gateway
 ms.topic: include
 ---
@@ -22,7 +22,6 @@ No, the IP address won't change when you migrate Basic IP using Azure portal exp
   
 No, you're required to migrate the Basic IP address on your gateway using the portal experience if you want to retain the IP address. As part of this migration, your gateways are automatically migrated to AZ SKUs.
 
-
 ### Will there be any pricing difference for my gateways after migration?
 
 Your SKUs are automatically migrated and upgraded to AZ SKUs as part of Basic IP migration. See [VPN Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) for more details.
@@ -33,12 +32,14 @@ Yes. You get better performance with VpnGw1AZ and VpnGw2AZ. For more information
 
 ### What happens if I don't migrate by February 28, 2026?
 
-All gateways that still use the Standard or High Performance SKU will be migrated automatically and upgraded to the following AZ SKUs:
+To ensure a smooth transition, we strongly recommend that customers use the Basic IP Migration tool to migrate their Basic IPs and associated gateways. All gateways that still use the Standard or High Performance SKU after March will be attempted to migrate automatically and after migration:
 
-* Standard to VpnGw1AZ
-* High Performance to VpnGw2AZ
+* Gateways on the Standard SKU will be automatically upgraded to VpnGw1AZ
+* Gateways on the High Performance SKU will be automatically upgraded to VpnGw2AZ
 
-We'll send communication before initiating migration on any gateways.
+**Note: If we encounter **limitations - such as insufficient subnet size, we won’t be able to complete the gateway migration automatically, and customer action will be required.**
+
+To avoid delays, please migrate your gateways using the Basic IP Migration tool in advance. This helps ensure your environment is ready for the AZ SKU upgrades and prevents last-minute issues.
 
 ### Is the VPN Gateway Basic SKU also retiring?
 

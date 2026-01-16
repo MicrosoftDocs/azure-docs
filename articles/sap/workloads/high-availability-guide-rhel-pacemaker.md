@@ -7,7 +7,7 @@ manager: juergent
 ms.service: sap-on-azure
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.date: 08/01/2025
+ms.date: 01/07/2026
 ms.author: radeltch
 ms.custom:
   - linux-related-content
@@ -563,7 +563,7 @@ The fencing device uses either a managed identity for Azure resource or a servic
 
    #### [Managed identity](#tab/msi)
 
-   To create a managed identity (MSI), [create a system-assigned](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) managed identity for each VM in the cluster. If a system-assigned managed identity already exists, then it would be used. Don't use user-assigned managed identities with Pacemaker at this time. A fence device, based on managed identity, is supported on RHEL 7.9 and RHEL 8.x/RHEL 9.x.
+   To create a managed identity (MSI), [create a system-assigned](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities?pivots=qs-configure-portal-windows-vm#system-assigned-managed-identity) managed identity for each VM in the cluster. If a system-assigned managed identity already exists, then it would be used. Don't use user-assigned managed identities with Pacemaker at this time. A fence device, based on managed identity, is supported on RHEL 7.9 and RHEL 8.x/RHEL 9.x.
 
    #### [Service principal](#tab/spn)
 
@@ -614,10 +614,10 @@ The fencing device uses either a managed identity for Azure resource or a servic
 
    #### [Managed identity](#tab/msi)
 
-   Assign the custom role `Linux Fence Agent Role` that was created in the last section to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For more information, see [Assign a managed identity access to a resource by using the Azure portal](../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Verify that each VM's managed identity role assignment contains all the cluster VMs.
+   Assign the custom role `Linux Fence Agent Role` that was created in the last section to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For more information, see [Assign a managed identity access to a resource by using the Azure portal](/entra/identity/managed-identities-azure-resources/grant-managed-identity-resource-access-azure-portal). Verify that each VM's managed identity role assignment contains all the cluster VMs.
 
    > [!IMPORTANT]
-   > Be aware that assignment and removal of authorization with managed identities [can be delayed](../../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization) until effective.
+   > Be aware that assignment and removal of authorization with managed identities [can be delayed](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations#limitation-of-using-managed-identities-for-authorization) until effective.
 
    #### [Service principal](#tab/spn)
 

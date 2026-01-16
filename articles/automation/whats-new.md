@@ -6,8 +6,8 @@ ms.subservice:
 ms.topic: overview
 ms.date: 08/12/2025
 ms.custom: references_regions
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # What's new in Azure Automation?

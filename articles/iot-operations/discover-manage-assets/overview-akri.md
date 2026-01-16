@@ -73,7 +73,7 @@ For example, the Akri Azure Device Registry service helps an OT user to onboard 
 
 Akri SDKs (preview) let you build custom connectors that integrate with Akri services. The SDKs provide a framework that simplifies connector development, so you can focus on the specific logic for your southbound connector. The SDKs manage all interactions with other Azure IoT Operations services for you.
 
-To learn about the languages the SDKs support and the available libraries, see [Overview of the Azure IoT Operations SDKs (preview)](../develop-edge-apps/overview-iot-operations-sdks.md).
+To learn about the languages the SDKs support and the available libraries, see [Overview of the Azure IoT Operations SDKs (preview)](../develop-edge-apps/overview-iot-operations-development.md).
 
 ## Open-source Akri
 

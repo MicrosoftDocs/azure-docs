@@ -2,14 +2,14 @@
 title: Manage a Microsoft Azure discount resource under a subscription
 description: Learn how to manage your Azure discount resource, including moving it across resource groups or subscriptions.
 author: benshy
-ms.reviewer: 
+ms.reviewer: benshy
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2025
 ms.author: benshy
 #customer intent: As a Microsoft Customer Agreement billing owner, I want learn about managing a Azure discount so that I move the discount when needed.
-ms.custom:
+service.tree.id: cf90d1aa-e8ca-47a9-a6d0-bc69c7db1d52
 ---
 
 # Manage a Microsoft Azure discount resource under a subscription

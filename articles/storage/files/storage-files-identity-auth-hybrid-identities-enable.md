@@ -228,6 +228,8 @@ Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configu
 
 Configure this group policy on the client(s) to "Enabled": `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
 
+On older versions of Windows, this setting will be called: `Administrative Templates\System\Kerberos\Allow retrieving the cloud Kerberos ticket during the logon`
+ 
 This setting allows the client to retrieve a cloud-based Kerberos Ticket Granting Ticket (TGT) during user logon.
 
 # [Registry Key](#tab/regkey)

@@ -829,5 +829,5 @@ Set-AzNatGateway @nt
 To learn more about Azure NAT Gateway and its capabilities, see the following articles:
 
 - [What is Azure NAT Gateway?](nat-overview.md)
-- [NAT gateway and availability zones](nat-availability-zones.md)
+- [Reliability in Azure NAT Gateway](/azure/reliability/reliability-nat-gateway)
 - [Design virtual networks with NAT gateway](nat-gateway-resource.md)

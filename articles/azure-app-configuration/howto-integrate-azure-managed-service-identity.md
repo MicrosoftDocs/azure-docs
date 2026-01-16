@@ -23,13 +23,13 @@ Azure App Configuration and its .NET, .NET Framework, and Java Spring client lib
 
 :::zone target="docs" pivot="framework-dotnet"
 
-This article shows how you can take advantage of the managed identity to access App Configuration. It builds on the web app introduced in the quickstarts. Before you continue, [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
+This article shows how you can take advantage of the managed identity to access App Configuration. It builds on the web app introduced in the quickstart. Before you continue, [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
 
 :::zone-end
 
 :::zone target="docs" pivot="framework-spring"
 
-This article shows how you can take advantage of the managed identity to access App Configuration. It builds on the web app introduced in the quickstarts. Before you continue, [Create a Java Spring app with Azure App Configuration](./quickstart-java-spring-app.md) first.
+This article shows how you can take advantage of the managed identity to access App Configuration. It builds on the web app introduced in the quickstart. Before you continue, [Create a Java Spring app with Azure App Configuration](./quickstart-java-spring-app.md) first.
 
 :::zone-end
 

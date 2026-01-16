@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Firewall
-description: Find out about reliability in Azure Firewall, including availability zones and multi-region deployments.
+description: Learn about resiliency in Azure Firewall, including resilience to transient faults, availability zone failures, region-wide failures, and service maintenance. Understand SLA details.
 author: duongau
 ms.author: duau
 ms.topic: reliability-article
@@ -13,11 +13,11 @@ ms.date: 08/27/2025
 
 # Reliability in Azure Firewall
 
-Azure Firewall is a managed, cloud-based network security service that protects Azure Virtual Network resources. It's a fully stateful firewall service that includes built-in high availability and unrestricted cloud scalability.
+[Azure Firewall](../firewall/overview.md) is a managed, cloud-based network security service that protects Azure Virtual Network resources. It's a fully stateful firewall service that includes built-in high availability and unrestricted cloud scalability.
 
-This article describes reliability support in Azure Firewall, covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
+[!INCLUDE [Shared responsibility](includes/reliability-shared-responsibility-include.md)]
 
-[!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
+This article describes how to make Azure Firewall resilient to a variety of potential outages and problems, including transient faults, availability zone outages, and region outages. It also describes resilience during service maintenance, and highlights some key information about the Firewall service level agreement (SLA).
 
 ## Production deployment recommendations
 
@@ -37,17 +37,17 @@ The following diagram shows a firewall with two instances:
 
 To increase redundancy and availability during datacenter failures, you can enable zone redundancy to distribute instances across multiple availability zones.
 
-## Transient faults
+## Resilience to transient faults
 
-[!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
+[!INCLUDE [Resilience to transient faults](includes/reliability-transient-fault-description-include.md)]
 
 For applications that connect through Azure Firewall, implement retry logic with exponential backoff to handle potential transient connection problems. Azure Firewall's stateful nature ensures that legitimate connections are maintained during brief network interruptions.
 
 During scaling operations, which take 5 to 7 minutes to complete, existing connections are preserved while new firewall instances are added to handle increased load.
 
-## Availability zone support
+## Resilience to availability zone failures
 
-[!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
+[!INCLUDE [Resilience to availability zone failures](includes/reliability-availability-zone-description-include.md)]
 
 Azure Firewall is automatically deployed across availability zones in supported regions when created through the Azure portal. For advanced zone configuration options, you must use Azure PowerShell, the Azure CLI, Bicep, or Azure Resource Manager templates (ARM templates).
 
@@ -102,9 +102,8 @@ This section explains how to configure availability zone support for your firewa
 
     When you use the Azure CLI, Azure PowerShell, Bicep, ARM templates, or Terraform, you can optionally specify the availability zones for deployment. To deploy a zone-redundant firewall, specify two or more zones. We recommend that you select all zones so that your firewall can use every availability zone, unless you have a specific reason to exclude a zone.
     
-    For more information about Azure PowerShell, see [Deploy an Azure Firewall with availability zones by using Azure PowerShell](../firewall/deploy-availability-zone-powershell.md).
+    For more information about deploying a ZR Firewall, see [Deploy an Azure Firewall with availability zones](../firewall/deploy-availability-zone-powershell.md).
 
-  - *Zonal:* You can deploy a zonal firewall by using the Azure CLI, Azure PowerShell, Bicep, ARM templates, or Terraform. Select a single specific availability zone.
 
     > [!NOTE]
     > [!INCLUDE [Availability zone numbering](./includes/reliability-availability-zone-numbering-include.md)]
@@ -115,7 +114,7 @@ This section explains how to configure availability zone support for your firewa
 
 - **Disable availability zone support:** You can change the availability zones that a firewall uses, but you can't convert a zone-redundant or zonal firewall to a nonzonal configuration.
 
-### Normal operations
+### Behavior when all zones are healthy
 
 This section describes what to expect when Azure Firewall is configured with availability zone support and all availability zones are operational.
 
@@ -129,7 +128,7 @@ This section describes what to expect when Azure Firewall is configured with ava
 
 - **Data replication between zones:** Azure Firewall doesn't need to synchronize connection state across availability zones. The instance that processes the request maintains each connection's state.
 
-### Zone-down experience
+### Behavior during a zone failure
 
 This section describes what to expect when Azure Firewall is configured with availability zone support and one or more availability zones are unavailable.
 
@@ -139,9 +138,7 @@ This section describes what to expect when Azure Firewall is configured with ava
 
     - *Zonal:* For firewalls configured to be zonal, you need to detect the loss of an availability zone and initiate a failover to a secondary firewall that you create in another availability zone.
 
-- **Notification**: Azure Firewall doesn't notify you when a zone is down. However, you can use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Azure Firewall service, including any zone failures.
-
-    Set up alerts to receive notifications of zone-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal).
+[!INCLUDE [Availability zone down notification (Service Health only)](./includes/reliability-availability-zone-down-notification-service-include.md)]
 
 - **Active connections:** When an availability zone is unavailable, requests in progress connected to a firewall instance in the faulty availability zone might terminate and require retries.
 
@@ -149,7 +146,7 @@ This section describes what to expect when Azure Firewall is configured with ava
 
 - **Expected downtime:** Downtime depends on the availability zone configuration that your firewall uses.
 
-    - *Zone-redundant:* Expect minimal downtime (typically a few seconds) during an availability zone outage. Client applications should follow practices for [transient fault handling](#transient-faults), including implementing retry policies with exponential backoff.
+    - *Zone-redundant:* Expect minimal downtime (typically a few seconds) during an availability zone outage. Client applications should follow practices for [transient fault handling](#resilience-to-transient-faults), including implementing retry policies with exponential backoff.
 
     - *Zonal:* When a zone is unavailable, your firewall remains unavailable until the availability zone recovers.
 
@@ -167,7 +164,7 @@ The failback behavior depends on the availability zone configuration that your f
 
 - *Zonal:* After the availability zone recovers, you're responsible for rerouting traffic to the firewall in the original availability zone.
 
-### Testing
+### Test for zone failures
 
 The options for zone failure testing depend on your firewall's availability zone configuration.
 
@@ -175,13 +172,13 @@ The options for zone failure testing depend on your firewall's availability zone
 
 - *Zonal:* You can simulate aspects of the failure of an availability zone by stopping a firewall. Use this approach to test how other systems and load balancers handle an outage in the firewall. For more information, see [Stop and start Azure Firewall](/azure/firewall/firewall-faq#how-can-i-stop-and-start-azure-firewall).
 
-## Multi-region support
+## Resilience to region-wide failures
 
-Azure Firewall is a single-region service. If the region is unavailable, your Azure Firewall resource is also unavailable.
+Azure Firewall is a single-region service. If the region is unavailable, your Firewall resource is also unavailable.
 
-### Alternative multi-region approaches
+### Custom multi-region solutions for resiliency
 
-To implement a multi-region architecture, use separate firewalls. This approach requires you to deploy an independent Azure Firewall into each region, route traffic to the appropriate regional firewall, and implement custom failover logic. Consider the following points:
+To implement a multi-region architecture, use separate firewalls. This approach requires you to deploy an independent firewall into each region, route traffic to the appropriate regional firewall, and implement custom failover logic. Consider the following points:
 
 - **Use Azure Firewall Manager** for centralized policy management across multiple firewalls. Use the [Firewall Policy](/azure/firewall-manager/policy-overview) method for centralized rule management across multiple firewall instances.
 
@@ -189,7 +186,7 @@ To implement a multi-region architecture, use separate firewalls. This approach 
 
 For an example architecture that illustrates multi-region network security architectures, see [Multi-region load balancing by using Traffic Manager, Azure Firewall, and Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway).
 
-## Reliability during service maintenance
+## Resilience to service maintenance
 
 Azure Firewall performs regular service upgrades and other forms of maintenance.
 

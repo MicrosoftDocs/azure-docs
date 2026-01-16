@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2025
+ms.date: 12/31/2025
 ms.custom: generated
 ---
 
@@ -60,6 +60,7 @@ Azure service: [App Service](/azure/app-service/)
 > | Microsoft.DomainRegistration/domains/Write | Add a new Domain or update an existing one |
 > | Microsoft.DomainRegistration/domains/Delete | Delete an existing domain. |
 > | Microsoft.DomainRegistration/domains/renew/Action | Renew an existing domain. |
+> | Microsoft.DomainRegistration/domains/redeem/Action | Redeem an existing domain. |
 > | Microsoft.DomainRegistration/domains/verifyRegistrantEmail/Action | Resends verification emails to the email address of registrant contact. |
 > | Microsoft.DomainRegistration/domains/retrieveContactInfo/Action | Retrieve contact info for existing domain |
 > | Microsoft.DomainRegistration/domains/Read | Transfer out a domain to another registrar. |
@@ -100,6 +101,10 @@ Azure service: [Azure Maps](/azure/azure-maps/)
 > | Microsoft.Maps/accounts/privateEndpointConnectionProxies/read | Read a Private Endpoint Connection Proxy. |
 > | Microsoft.Maps/accounts/privateEndpointConnectionProxies/write | Create or update a Private Endpoint Connection Proxy. |
 > | Microsoft.Maps/accounts/privateEndpointConnectionProxies/delete | Delete a Private Endpoint Connection Proxy. |
+> | Microsoft.Maps/accounts/privateEndpointConnections/validate/action | Validate a Private Endpoint Connection. |
+> | Microsoft.Maps/accounts/privateEndpointConnections/read | Read a Private Endpoint Connection. |
+> | Microsoft.Maps/accounts/privateEndpointConnections/write | Update a Private Endpoint Connection. |
+> | Microsoft.Maps/accounts/privateEndpointConnections/delete | Delete a Private Endpoint Connection. |
 > | Microsoft.Maps/accounts/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource |
 > | Microsoft.Maps/accounts/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
 > | Microsoft.Maps/accounts/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for Maps Accounts |
@@ -342,6 +347,9 @@ Azure service: [App Service](/azure/app-service/), [Azure Functions](/azure/azur
 > | microsoft.web/connections/listConnectionKeys/action | Lists API Connections Keys. |
 > | microsoft.web/connections/revokeConnectionKeys/action | Revokes API Connections Keys. |
 > | microsoft.web/connections/dynamicInvoke/action | Dynamic Invoke a Connection. |
+> | Microsoft.Web/connections/accessPolicies/Read | Get the list of Connection Access Policies. |
+> | Microsoft.Web/connections/accessPolicies/Write | Add or Update Connection Access Policies. |
+> | Microsoft.Web/connections/accessPolicies/Delete | Deletes Connection Access Policies. |
 > | Microsoft.Web/connections/providers/Microsoft.Insights/metricDefinitions/Read | Gets the available metrics for API Connections |
 > | Microsoft.Web/containerApps/read | Get the properties for a Container App |
 > | Microsoft.Web/containerApps/write | Create a Container App or update an existing one |
@@ -461,6 +469,8 @@ Azure service: [App Service](/azure/app-service/), [Azure Functions](/azure/azur
 > | Microsoft.Web/serverfarms/Write | Create a new App Service Plan or update an existing one |
 > | Microsoft.Web/serverfarms/Delete | Delete an existing App Service Plan |
 > | Microsoft.Web/serverfarms/Join/Action | Joins an App Service Plan |
+> | Microsoft.Web/serverfarms/startSites/Action | Start all Apps in an App Service Plan |
+> | Microsoft.Web/serverfarms/stopSites/Action | Stop all Apps in an App Service Plan |
 > | Microsoft.Web/serverfarms/restartSites/Action | Restart all Web Apps in an App Service Plan |
 > | microsoft.web/serverfarms/capabilities/read | Get App Service Plans Capabilities. |
 > | Microsoft.Web/serverfarms/eventGridFilters/delete | Delete Event Grid Filter on server farm. |
@@ -680,6 +690,9 @@ Azure service: [App Service](/azure/app-service/), [Azure Functions](/azure/azur
 > | microsoft.web/sites/resourcehealthmetadata/read | Get Web Apps Resource Health Metadata. |
 > | microsoft.web/sites/restore/read | Get Web Apps Restore. |
 > | microsoft.web/sites/restore/write | Restore Web Apps. |
+> | Microsoft.Web/sites/sitecontainers/Read | Get the properties of a Web App's Sitecontainers |
+> | Microsoft.Web/sites/sitecontainers/Write | Create new Sitecontainers or update existing ones for a Web App |
+> | Microsoft.Web/sites/sitecontainers/Delete | Delete Sitecontainers of an existing Web App |
 > | microsoft.web/sites/siteextensions/delete | Delete Web Apps Site Extensions. |
 > | microsoft.web/sites/siteextensions/read | Get Web Apps Site Extensions. |
 > | microsoft.web/sites/siteextensions/write | Update Web Apps Site Extensions. |
@@ -827,6 +840,9 @@ Azure service: [App Service](/azure/app-service/), [Azure Functions](/azure/azur
 > | microsoft.web/sites/slots/resourcehealthmetadata/read | Get Web Apps Slots Resource Health Metadata. |
 > | microsoft.web/sites/slots/restore/read | Get Web Apps Slots Restore. |
 > | microsoft.web/sites/slots/restore/write | Restore Web Apps Slots. |
+> | Microsoft.Web/sites/slots/sitecontainers/Read | Get the properties of Sitecontainers of Web App's Slot |
+> | Microsoft.Web/sites/slots/sitecontainers/Write | Create new or update existing Sitecontainers of a Web App's Slot |
+> | Microsoft.Web/sites/slots/sitecontainers/Delete | Delete Sitecontainers of an existing Web App's Slot |
 > | microsoft.web/sites/slots/siteextensions/delete | Delete Web Apps Slots Site Extensions. |
 > | microsoft.web/sites/slots/siteextensions/read | Get Web Apps Slots Site Extensions. |
 > | microsoft.web/sites/slots/siteextensions/write | Update Web Apps Slots Site Extensions. |
@@ -917,6 +933,9 @@ Azure service: [App Service](/azure/app-service/), [Azure Functions](/azure/azur
 > | Microsoft.Web/staticSites/linkedBackends/Delete | Unlink a Backend from a Static Site |
 > | Microsoft.Web/staticSites/linkedBackends/Read | Get Static Site Linked Backends |
 > | Microsoft.Web/staticSites/linkedBackends/Write | Register a Linked Backend with a Static Site |
+> | Microsoft.Web/staticSites/networkConfigs/Delete | Disconnects a network configuration from a Static Site |
+> | Microsoft.Web/staticSites/networkConfigs/Read | Get Static Site Network Configs |
+> | Microsoft.Web/staticSites/networkConfigs/Write | Updates network configuration for a Static Site |
 > | Microsoft.Web/staticSites/privateEndpointConnectionProxies/validate/action | Validate Private Endpoint Connection Proxies for a Static Site |
 > | Microsoft.Web/staticSites/privateEndpointConnectionProxies/Write | Create or Update Private Endpoint Connection Proxies for a Static Site |
 > | Microsoft.Web/staticSites/privateEndpointConnectionProxies/Delete | Delete Private Endpoint Connection Proxies for a Static Site |

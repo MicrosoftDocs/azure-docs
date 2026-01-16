@@ -64,6 +64,9 @@ Application Gateway integration with Key Vault is a three-step configuration pro
 Application Gateway uses a managed identity to retrieve certificates from Key Vault on your behalf. 
 
 You can either create a new user-assigned managed identity or reuse an existing with the integration. To create a new user-assigned managed identity, see [Create a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity). 
+> [!NOTE]
+> Only one managed identity can be used on an Application Gateway.
+
 
 ### Delegate user-assigned managed identity to Key Vault
 

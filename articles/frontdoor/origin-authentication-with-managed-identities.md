@@ -74,6 +74,11 @@ Managed identities are specific to the Microsoft Entra tenant where your Azure s
 > * the forwarding protocol is set to 'HTTPS Only' under route settings.
 > * the forwarding protocol is set to 'HTTPS Only' in case you are using a 'Route configuration override' action in rulesets.
 
+> [!Warning]
+> From here onwards, if you are using origin authentication between Front Door and Storage, the sequence of steps for enabling origin authentication are very important and cause issues if the appropriate sequence is not followed.
+> * If you are using a storage account with public anonymous access enabled, follow the below steps in the exact sequence - 'Associating the identity to an origin group' followed by 'Providing access at the origin resource'. Once all steps are complete, you can disable public anonymous access to only allow access to your storage account from Front Door.
+> * If you are using a storage account with public anonymous access disabled, you have to follow a different sequence. First do the steps for 'Providing access at the origin resource' followed by 'Associating the identity to an origin group'. Start sending traffic via Front Door to the storage account only after completing all the steps in the aforementioned sequence.
+
 1.	Navigate to your existing Azure Front Door profile and open origin groups.
 2.	Select an existing origin group which has origins already configured.
 3.	Scroll down to the **Authentication** section.

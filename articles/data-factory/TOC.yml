@@ -13,6 +13,48 @@ items:
   - name: What's new (archived months)
     href: whats-new-archive.md
     displayName: timeout
+- name: Migrate to Fabric
+  items:
+  - name: Compare Azure Data Factory to Data Factory in Fabric
+    href: /fabric/data-factory/compare-fabric-data-factory-and-azure-data-factory?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+  - name: Pipeline assessment tool
+    href: how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration.md
+  - name: Connector capability comparison
+    href: /fabric/data-factory/connector-parity?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+  - name: Migration planning
+    href: /fabric/data-factory/migrate-planning-azure-data-factory?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+  - name: Migrate global parameters to variable libraries
+    href: /fabric/data-factory/convert-global-parameters-to-variable-libraries?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+  - name: Migration best practices
+    href: /fabric/data-factory/migration-best-practices?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+  - name: Bring your Azure Data Factory to Fabric
+    href: /fabric/data-factory/migrate-pipelines-azure-data-factory-item?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json 
+  - name: Migrate pipelines with PowerShell
+    items:
+    - name: Pipeline migration with PowerShell overview
+      href: /fabric/data-factory/migrate-pipelines-powershell-upgrade-module-for-azure-data-factory-to-fabric?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+    - name: Tutorial PowerShell pipeline migration
+      href: /fabric/data-factory/migrate-pipelines-powershell-upgrade-module-tutorial?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+    - name: Build your resolutions file
+      href: /fabric/data-factory/migrate-pipelines-how-to-add-connections-to-resolutions-file?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+    - name: Find your Fabric workspace ID
+      href: /fabric/data-factory/migrate-pipelines-how-to-find-your-fabric-workspace-id?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+  - name: How to ingest data from Azure Data Factory to Fabric
+    href: how-to-ingest-data-into-fabric-from-azure-data-factory.md
+  - name: Dataflows
+    items:
+    - name: Fabric dataflows for mapping data flow users
+      href: /fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json    
+    - name: Migrate from Dataflow Gen1 to Dataflow Gen2
+      href: /fabric/data-factory/dataflow-gen2-migrate-from-dataflow-gen1?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+    - name: Migrate to Dataflow Gen2 scenarios
+      href: /fabric/data-factory/dataflow-gen2-migrate-from-dataflow-gen1-scenarios?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+    - name: Move queries from Dataflow Gen1 to Gen2
+      href: /fabric/data-factory/move-dataflow-gen1-to-dataflow-gen2?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+    - name: Migrate to Dataflow Gen2 using Save As
+      href: /fabric/data-factory/migrate-to-dataflow-gen2-using-save-as?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+    - name: How to ingest data from ADF to Fabric
+      href: /fabric/data-factory/how-to-ingest-data-into-fabric-from-azure-data-factory?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
 - name: Quickstarts
   expanded: true
   items:
@@ -310,10 +352,6 @@ items:
     href: /azure/reliability/reliability-data-factory?toc=/azure/data-factory/toc.json
 - name: How-to guides
   items:
-  - name: Migration
-    items:
-    - name: Pipeline assessment tool
-      href: how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration.md
   - name: Create a data factory in UI
     href: quickstart-create-data-factory.md
   - name: Create Data Factory Programmatically
@@ -1275,6 +1313,12 @@ items:
       - name: Hive
         href: connector-troubleshoot-hive.md
         displayName: troubleshooting
+      - name: Microsoft Fabric Lakehouse
+        href: connector-troubleshoot-microsoft-fabric-lakehouse.md
+        displayName: troubleshooting
+      - name: Microsoft Fabric Warehouse
+        href: connector-troubleshoot-microsoft-fabric-warehouse.md
+        displayName: troubleshooting
       - name: MongoDB
         href: connector-troubleshoot-mongodb.md
         displayName: troubleshooting
@@ -1373,6 +1417,8 @@ items:
   items:
   - name: Secure your Azure Data Factory
     href: secure-your-azure-data-factory.md
+  - name: Business continuity and disaster recovery
+    href: pipelines-disaster-recovery.md
 - name: Workflow Orchestration Manager
   items:
   - name: Tutorials

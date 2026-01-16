@@ -25,7 +25,7 @@ A *disaster* is defined as the permanent, or longer-term loss of a Service Bus c
 
 ## Protection against outages and disasters
 
-There are two features that provide Geo-Disaster Recovery in Azure Service Bus for the Premium tier. First, there is Geo-Disaster Recovery (Metadata DR) providing replication of metadata (entities, configuration, properties). Second, there is Geo-Replication, which is currently in public preview, providing replication of both metadata and data (message data and message property / state changes) itself. Neither Geo-Disaster Recovery feature should be confused with Availability Zones. Regardless of if it is Metadata DR or Geo replication, both geo-graphic recovery features provide resilience between Azure regions such as East US and West US.
+There are two features that provide Geo-Disaster Recovery in Azure Service Bus for the Premium tier. First, there's Geo-Disaster Recovery (Metadata DR) providing replication of metadata (entities, configuration, properties). Second, there's Geo-Replication, providing replication of both metadata and data (message data and message property / state changes) itself. Neither Geo-Disaster Recovery feature should be confused with Availability Zones. Regardless of whether it's Metadata DR or Geo replication, both geo-graphic recovery features provide resilience between Azure regions such as East US and West US.
 
 Availability Zones are available on all Service Bus tiers, and support provides resilience within a specific geographic region, such as East US. For a detailed discussion of disaster recovery in Microsoft Azure, see [this article](/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
@@ -39,13 +39,25 @@ Service Bus **premium** tier supports Geo-Disaster Recovery, at the namespace le
 
 ### Geo-Replication
 
-Service Bus **premium** tier also supports Geo-Replication, at the namespace level. For more information, see [Azure Service Bus Geo-Replication (Public Preview)](service-bus-geo-replication.md). The Geo-Replication feature, available for the [Premium tier](service-bus-premium-messaging.md) only and currently in public preview, implements metadata and data disaster recovery, and relies on primary and secondary regions. With Geo-Replication, **both metadata and data** for entities are replicated between primary and secondary **regions**.
+Service Bus **premium** tier also supports Geo-Replication, at the namespace level. For more information, see [Azure Service Bus Geo-Replication](service-bus-geo-replication.md). The Geo-Replication feature, available for the [Premium tier](service-bus-premium-messaging.md) only, implements metadata and data disaster recovery, and relies on primary and secondary regions. With Geo-Replication, **both metadata and data** for entities are replicated between primary and secondary **regions**.
 
 ### High-level feature differences
 
-The **Geo-Disaster Recovery (Metadata DR)** feature replicates metadata for a namespace from a primary namespace to a secondary namespace. It supports a one time only failover to the secondary region. During customer initiated failover, the alias name for the namespace is repointed to the secondary namespace and then the pairing is broken.  No data is replicated other than metadata nor are RBAC assignments replicated.
+The **Geo-Disaster Recovery (Metadata DR)** feature replicates metadata for a namespace from a primary namespace to a secondary namespace. It supports a one time only failover to the secondary region. During customer initiated failover, the alias name for the namespace is repointed to the secondary namespace and then the pairing is broken. No data is replicated other than metadata nor are Role-based Access Control (RBAC) assignments replicated.
 
 The **Geo-Replication** feature replicates metadata and all of the data from a primary region to one or more secondary regions. When a failover is performed by the customer, the selected secondary becomes the primary and the previous primary becomes a secondary. Users can perform a failover back to the original primary when desired.
+
+The following table summarizes the key differences:
+
+| Capability | Geo-Replication | Geo-Disaster Recovery |
+|------------|-----------------|----------------------|
+| What's replicated | Metadata and data (messages, message states, property changes) | Metadata only (entities, configuration, properties) |
+| Data loss on failover | No data loss with planned promotion; possible data loss with forced promotion | Messages aren't replicated; must be manually recovered from the old primary namespace |
+| Failover behavior | Promotes secondary to primary; old primary becomes secondary | One-time failover; pairing is broken after failover |
+| Failback capability | Yes, can promote back to original primary | No, must set up new pairing |
+| Replication modes | Synchronous or asynchronous | Not applicable (metadata only) |
+
+For most disaster recovery scenarios, Geo-Replication is the recommended choice as it provides complete data protection. Consider Geo-Disaster Recovery only when you specifically need metadata-only replication.
 
 ### Availability zones
 
@@ -75,7 +87,7 @@ If the application doesn't require permanent sender-to-receiver communication, t
 
 Active replication uses entities in both namespaces for every operation. Any client that sends a message sends two copies of the same message. The first copy is sent to the primary entity (for example, **contosoPrimary.servicebus.windows.net/sales**), and the second copy of the message is sent to the secondary entity (for example, **contosoSecondary.servicebus.windows.net/sales**).
 
-A client receives messages from both queues. The receiver processes the first copy of a message, and the second copy is suppressed. To suppress duplicate messages, the sender must tag each message with a unique identifier. Both copies of the message must be tagged with the same identifier. You can use the [ServiceBusMessage.MessageId](/dotnet/api/azure.messaging.servicebus.servicebusmessage.messageid) or [ServiceBusMessage.Subject](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.subject) properties, or a custom property to tag the message. The receiver must maintain a list of messages that it has already received.
+A client receives messages from both queues. The receiver processes the first copy of a message, and the second copy is suppressed. To suppress duplicate messages, the sender must tag each message with a unique identifier. Both copies of the message must be tagged with the same identifier. You can use the [ServiceBusMessage.MessageId](/dotnet/api/azure.messaging.servicebus.servicebusmessage.messageid) or [ServiceBusMessage.Subject](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.subject) properties, or a custom property to tag the message. The receiver must maintain a list of messages that it already received.
 
 > [!NOTE]
 > The active replication approach doubles the number of operations, therefore this approach can lead to higher cost. 
@@ -98,6 +110,6 @@ The [Azure Messaging Replication Tasks with .NET Core](https://github.com/Azure-
 To learn more about disaster recovery, see these articles:
 
 * [Azure Service Bus Geo-Disaster Recovery](service-bus-geo-dr.md)
-* [Azure Service Bus Geo-Replication (Public Preview)](service-bus-geo-replication.md)
+* [Azure Service Bus Geo-Replication](service-bus-geo-replication.md)
 * [Azure SQL Database Business Continuity](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview)
 * [Designing resilient applications for Azure](/azure/architecture/framework/resiliency/app-design)

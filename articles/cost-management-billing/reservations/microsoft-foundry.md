@@ -6,9 +6,10 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/28/2025
+ms.date: 01/15/2026
 ms.author: primittal
 # customer intent: As a billing administrator, I want to learn about saving costs with Microsoft Foundry Provisioned Throughput Reservations and buy one.
+service.tree.id: cf90d1aa-e8ca-47a9-a6d0-bc69c7db1d52
 ---
 
 # Save costs with Microsoft Foundry Provisioned Throughput Reservations

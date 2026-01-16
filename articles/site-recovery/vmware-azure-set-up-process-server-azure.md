@@ -1,11 +1,12 @@
 ---
-title: Set up a process server VMware/physical failback in Azure Site Recovery 
+title: Set up a process server VMware/physical failback in Azure Site Recovery
+ms.reviewer: v-gajeronika
 description: This article describes how to set up a process server in Azure, to failback Azure VMs to VMware.
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: v-gajeronika
-ms.date: 09/06/2024
+ms.date: 12/08/2025
 # Customer intent: "As a system administrator managing VMware environments, I want to set up a temporary process server in Azure for failback, so that I can efficiently return my virtual machines to on-premises after a disaster recovery event."
 ---
 
@@ -19,7 +20,6 @@ Learn more about the [reprotection](vmware-azure-reprotect.md) and [failback](vm
 
 [!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
 
-
 ## Deploy a process server in Azure
 
 1. In the vault > **Site Recovery Infrastructure**> **Manage** > **Configuration Servers**, select the configuration server.
@@ -27,18 +27,14 @@ Learn more about the [reprotection](vmware-azure-reprotect.md) and [failback](vm
 3. In **Add process server** page, and select to deploy the process server in Azure.
 4. Specify the Azure settings, including the subscription used for failover, a resource group, the Azure region used for failover, and the virtual network in which the Azure VMs are located. If you used multiple Azure networks, you need a process server in each one.
 
-   ![Add process server gallery item](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
+   :::image type="content" source="./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png" alt-text="Screenshot to Add process server gallery item.":::
 
 4. In **Server name**, **User name**, and **Password**, specify a name for the process server, and credentials that will be assigned Admin permissions on the server.
 5. Specify a storage account to be used for the server VM disks, the subnet in which the process server VM will be located, and the server IP address that will be assigned when the VM starts.
 6. Click **OK** button to start deploying the process server VM. The process server will be deployed on Standard_A8_v2 SKU. Ensure that this VM SKU is available for your subscription.
-
->
 
 ## Registering the process server (running in Azure) to a Configuration Server (running on-premises)
 
 After the process server VM is up and running, you need to register it with the on-premises configuration server, as follows:
 
 [!INCLUDE [site-recovery-vmware-register-process-server](../../includes/site-recovery-vmware-register-process-server.md)]
-
-

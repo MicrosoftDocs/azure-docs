@@ -130,7 +130,7 @@ A backend pool routes request to backend servers, which serve the request. Backe
 - Virtual machine scale sets
 - Public IP addresses
 - Internal IP addresses
-- FQDN
+- FQDN (fully qualified domain names) or short names (single-label domain names), provided your DNS server can resolve them
 - Multitenant backends (such as App Service)
 
 Application Gateway backend pool members aren't tied to an availability set. An application gateway can communicate with instances outside of the virtual network that it's in. As a result, the members of the backend pools can be across clusters, across datacenters, or outside Azure, as long as there's IP connectivity.

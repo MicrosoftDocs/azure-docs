@@ -19,6 +19,18 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 
 ### 2025 quarter 4 (October, November, December)
 
+#### Azure File Sync is now available in new Azure regions 
+
+[Azure File Sync](../file-sync/file-sync-introduction.md) is now available in Italy North, Poland Central, Spain Central, and New Zealand North. This expansion brings the service closer to organizations in these regions, offering lower latency, better performance, and support for local data residency requirements.
+
+If Azure File Sync isn't available in your preferred region, fill out this [survey](https://forms.office.com/r/WPBWniQXNa) to express interest.
+
+#### Managed identity support for SMB Azure file shares is now in public preview
+
+Azure Files customers can now use managed identities to allow Windows and Linux virtual machines (VMs) to access SMB Azure file shares using identity-based authentication with Microsoft Entra ID. This capability provides a secure, identity-driven approach that eliminates credentials-based access and integrates seamlessly with Microsoft Entra ID. This preview feature unlocks secure file share access for both Azure services and customer applications, helping organizations meet industry standard security requirements for file shares.
+
+To learn more, read the [blog post](https://techcommunity.microsoft.com/blog/azurestorageblog/secure-seamless-access-using-managed-identities-with-azure-files-smb/4477565).
+
 #### Entra-only identity support for SMB Azure file shares is now in public preview
 
 Microsoft Entra Kerberos authentication now supports cloud-only identities. With native Microsoft Entra ID authentication, customers can move beyond the limitations of on-premises Active Directory and hybrid sync tools, enabling cloud-created identities to access file shares securely, from anywhere. 

@@ -30,7 +30,7 @@ You can create exclusions at the following scopes:
 
 Exclusion selectors identify the parts of requests to which the exclusion applies. The WAF ignores any detections that it finds in the specified parts of the request. You can specify multiple exclusion selectors in a single exclusion.
 
-Each exclusion selector specified a match variable, an operator, and a selector.
+Each exclusion selector specified a match variable, an operator, and a selector. Multiple matches in a single exclusion are treated as "OR" statements. 
 
 ### Match variables
 

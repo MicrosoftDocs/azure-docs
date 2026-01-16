@@ -11,7 +11,7 @@ metadata:
   ms.service: azure-resource-manager
   ms.author: jgao
   ms.topic: hub-page
-  ms.date: 06/20/2024
+  ms.date: 12/22/2025
 
 # highlightedContent section (optional)
 # Maximum of 8 items
@@ -69,9 +69,9 @@ conceptualContent:
         - url: bicep/overview.md
           itemType: overview
           text: Overview
-        - url: /training/paths/bicep-deploy
-          itemType: learn
-          text: Learn path
+        - url: bicep/quickstart-create-bicep-use-visual-studio-code.md
+          itemType: quickstart
+          text: Create first Bicep file
         - url: bicep/file.md
           itemType: reference
           text: Bicep file structure

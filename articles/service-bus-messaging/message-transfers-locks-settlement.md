@@ -117,6 +117,8 @@ If `Complete` fails, which occurs typically at the very end of message handling 
 
 The typical mechanism for identifying duplicate message deliveries is by checking the `message-id`, which can and should be set by the sender to a unique value, possibly aligned with an identifier from the originating process. A job scheduler would likely set the `message-id` to the identifier of the job it's trying to assign to a worker with the given worker, and the worker would ignore the second occurrence of the job assignment if that job is already done.
 
+This is where designing for idempotent message handling becomes critical. For practical techniques and examples of how to achieve idempotency in distributed systems, see this guide: [What Does Idempotent Mean?](https://particular.net/blog/what-does-idempotent-mean).
+
 > [!IMPORTANT]
 > It's important to note that the lock that PeekLock or SessionLock acquires on the message is volatile and can be lost in the following conditions
 >   * Service Update

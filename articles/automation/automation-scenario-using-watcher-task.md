@@ -6,8 +6,8 @@ ms.subservice: process-automation
 ms.topic: how-to
 ms.date: 11/17/2025
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Track updated files with a watcher task

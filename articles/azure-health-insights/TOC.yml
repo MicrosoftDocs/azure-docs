@@ -23,7 +23,7 @@ items:
      - name: How to configure the containers
        href: configure-containers.md
      - name: Reliability in Azure Health Insights
-       href: ../reliability/reliability-health-insights.md?toc=/azure/health-insights/toc.json   
+       href: reliability-health-insights.md
 - name: Responsible use of AI
   expanded: true
   items:

@@ -22,7 +22,7 @@ There are two types of restrictions:
 * *Allow*: Allow inbound traffic only from address ranges you specify in allow rules.
 * *Deny*: Deny all inbound traffic only from address ranges you specify in deny rules.
 
-when no IP restriction rules are defined, all inbound traffic is allowed.
+When no IP restriction rules are defined, all inbound traffic is allowed.
 
 IP restrictions rules contain the following properties:
 
@@ -185,6 +185,16 @@ az containerapp ingress access-restriction list
 ```
 
 ::: zone-end
+
+## Troubleshooting
+
+Use the following information to help you troubleshoot IP-related issues in your container app.
+
+### Access denied
+
+An *RBAC: Access Denied* message returned to the client indicates the client is blocked by IP restrictions from the container app. To fix this, make sure the client IP address requesting access is allowed based on either the "allow" or "deny" rules.
+
+If using an address range, make sure the blocked IP falls within an allowed range.
 
 ## Next steps
 

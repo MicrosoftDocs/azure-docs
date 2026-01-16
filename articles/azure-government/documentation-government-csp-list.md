@@ -99,7 +99,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[cFocus Software Incorporated](https://cfocussoftware.com)|
 |[CGI Federal, Inc.](https://www.cgi.com/en/us-federal)|
 |[CGI Technologies and Solutions Inc.](https://www.cgi.com)|
-|[Cherokee Nation System Solutions LLC](https://cherokee-federal.com/companies/cherokee-nation-system-solutions)|
+|[Cherokee Nation System Solutions LLC](https://www.cherokee-federal.com/)|
 |[Ciellos Inc.](https://www.ciellos.com/)|
 |[Ciracom Inc.](https://www.ciracomcloud.com)|
 |[ciyis](https://ciyis.net)|
@@ -413,7 +413,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Sundance Systems Inc.](https://www.sundance-sys.com)|
 |[SWC Technology Partners (BDO USA)](https://www.bdo.com/)|
 |[Sybatech, Inc. (Codepal Toolkit)](https://www.codepaltoolkit.com)|
-|[SyCom Technologies](https://www.sycomtech.com)|
+|[SyCom Technologies](https://intervision.com/)|
 |[Syndo LLC](https://www.syndo.llc/)|
 |[Synergy Technical, LLC](https://www.synergy-technical.com/)|
 |[Synoptek LLC](https://synoptek.com/)|

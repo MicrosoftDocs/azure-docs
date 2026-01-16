@@ -33,7 +33,7 @@ The Elastic integration with Azure includes the following technical capabilities
 - **Integrated onboarding** – Deploy Elastic resources directly from Azure portal using the Microsoft.Elastic resource provider.
 - **Azure billing integration** – Track Elastic resource consumption and charges through the Azure billing system.
 - **Azure Active Directory authentication** – Access Elastic services using Azure AD credentials for single sign-on.
-- **Log forwarding** – Route Azure subscription activity and resource logs to Elastic for indexing and analysis.
+- **Log forwarding** – Route Azure subscription activity and resource logs to Elastic for indexing and analysis. For more information, see [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md).
 - **Centralized management** – Configure and monitor log shipping from Azure services to Elastic through a unified interface.
 - **Flexible deployment options** – Choose between serverless projects for usage-based scaling and cloud-hosted projects for dedicated, managed clusters.
 - **Elastic Agent deployment** – Deploy and manage Elastic Agents on Azure virtual machines using integrated workflows.

@@ -5,7 +5,7 @@ ms.topic: reference
 ms.custom:
   - devx-track-bicep
   - build-2025
-ms.date: 06/18/2025
+ms.date: 12/22/2025
 ---
 
 # Resource functions for Bicep
@@ -198,8 +198,8 @@ A [namespace qualifier](bicep-functions.md#namespaces-for-functions) isn't neede
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| apiVersion |No |string |If you don't provide this parameter, the API version for the resource is used. Only provide a custom API version when you need the function to be run with a specific version. Use the format, **yyyy-mm-dd**. |
-| functionValues |No |object | An object that has values for the function. Only provide this object for functions that support receiving an object with parameter values, such as `listAccountSas` on a storage account. An example of passing function values is shown in this article. |
+| apiVersion | No | string | If you don't provide this parameter, the API version for the resource is used. Only provide a custom API version when you need the function to be run with a specific version. Use the format, **yyyy-mm-dd**. |
+| functionValues | No | object | An object that has values for the function. Only provide this object for functions that support receiving an object with parameter values, such as `listAccountSas` on a storage account. An example of passing function values is shown in this article. |
 
 ### Valid uses
 

@@ -273,6 +273,7 @@
         "articles/azure-cache-for-redis/**/*.yml": "flang-msft",
         "articles/azure-fluid-relay/**/*.md": "GrantMeStrength",
         "articles/azure-functions/**/*.md": "ggailey777",
+        "articles/azure-functions/durable/**/*.md": "lilyjma",
         "articles/azure-functions/durable/durable-task-scheduler/**/*.md": "hhunter-ms",
         "articles/azure-government/**/*.md": "EliotSeattle",
         "articles/azure-monitor/*.md": "bwren",
@@ -881,6 +882,7 @@
         "articles/azure-cache-for-redis/**/*.yml": "franlanglois",
         "articles/azure-fluid-relay/**/*.md": "jken",
         "articles/azure-functions/**/*.md": "glenga",
+        "articles/azure-functions/durable/**/*.md": "jiayma",
         "articles/azure-functions/durable/durable-task-scheduler/**/*.md": "hannahhunter",
         "articles/azure-government/**/*.md": "eliotgra",
         "articles/azure-monitor/*.*": "bwren",
@@ -1040,7 +1042,7 @@
       "ms.update-cycle": {
         "articles/azure-cache-for-redis/**/*.md": "1095-days",
         "articles/azure-cache-for-redis/**/*.yml": "1095-days",
-        "articles/azure-resource-manager/bicep/*.md": "180-days",
+        "articles/azure-resource-manager/bicep/*.md": "365-days",
         "articles/azure-resource-manager/management/*.md": "365-days",
         "articles/azure-resource-manager/templates/*.md": "365-days",
         "articles/azure-resource-manager/troubleshooting/*.md": "1095-days",
@@ -1883,7 +1885,9 @@
           "articles/site-recovery/**/*.md",
           "articles/storsimple/storsimple-configure-mpio-on-linux.md",
           "articles/web-application-firewall/afds/waf-front-door-drs.md",
-          "articles/web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md"
+          "articles/web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md",
+          "articles/sentinel/includes/connector-details.md",
+          "articles/sentinel/includes/deprecated-connectors.md"
         ]
       },
       "sensitive-language-wl": {
@@ -1901,7 +1905,9 @@
           "articles/role-based-access-control/resource-provider-operations.md",
           "articles/site-recovery/**/*.md",
           "articles/storsimple/storsimple-configure-mpio-on-linux.md",
-          "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md"
+          "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md",
+          "articles/sentinel/includes/connector-details.md",
+          "articles/sentinel/includes/deprecated-connectors.md"
         ]
       }
     }

@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Automate load tests with CI/CD'
 titleSuffix: Azure Load Testing
-description: 'Learn how to automate an existing load test by adding it to Azure Pipelines directly from the Azure portal. Run load tests in your CI/CD pipeline to automate performance regression testing.'
+description: 'Automate performance testing by adding it to your CI/CD workflows in Azure Pipelines directly from the Azure portal. Run existing load tests in your CI/CD pipelines to catch performance regressions early.'
 services: load-testing
 ms.service: azure-load-testing
 ms.topic: quickstart
@@ -14,6 +14,8 @@ adobe-target: true
 # Quickstart: Automate an existing load test with CI/CD
 
 In this article, you learn how to automate an existing load test by creating a CI/CD pipeline in Azure Pipelines. Select your test in Azure Load Testing, and directly configure a pipeline in Azure DevOps that triggers your load test with every source code commit. Automate load tests with CI/CD to continuously validate your application performance and stability under load.
+
+> [!VIDEO 96505273-6006-439c-a578-cc2ef0bb0115] 
 
 If you want to automate your load test with GitHub Actions, learn how to [manually configure a CI/CD pipeline for Azure Load Testing](./how-to-configure-load-test-cicd.md).
 

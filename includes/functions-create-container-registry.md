@@ -32,7 +32,7 @@ Before you begin, you must have the following requirements in place:
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-+ Install a version of Python that is [supported by Azure Functions](../articles/azure-functions/functions-reference-python.md#python-version). 
++ Install a version of Python that is [supported by Azure Functions](../articles/azure-functions/functions-reference-python.md#supported-python-versions). 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
 + Install the [.NET 6 SDK](https://dotnet.microsoft.com/download).

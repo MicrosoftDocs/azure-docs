@@ -744,7 +744,8 @@ stateStoreResources: [
 ]
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
+
 
 In your custom resource definition, include the `stateStoreResources` section in your authorization policy.
 
@@ -1019,7 +1020,8 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
+
 
 ``` yaml
 stateStoreResources:

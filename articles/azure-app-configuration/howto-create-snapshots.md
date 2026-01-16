@@ -5,7 +5,7 @@ author: Muksvso
 ms.author: mubatra
 ms.service: azure-app-configuration
 ms.topic: how-to 
-ms.date: 09/26/2025
+ms.date: 12/11/2025
 ---
 
 # Manage and use snapshots
@@ -110,6 +110,30 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 > - `Microsoft.Extensions.Configuration.AzureAppConfiguration`
 > - `Microsoft.Azure.AppConfiguration.AspNetCore`
 > - `Microsoft.Azure.AppConfiguration.Functions.Worker`
+
+### [Python](#tab/python)
+
+Edit the call to the `load` method in your application. If you don't have an application, you can reference the [Python quickstart guide for Azure App Configuration](./quickstart-python.md).
+
+**Add snapshots to your configuration**
+
+```python
+from azure.appconfiguration.provider import load, SettingSelector
+from azure.identity import DefaultAzureCredential
+import os
+
+endpoint = os.environ["APPCONFIGURATION_ENDPOINT_STRING"]
+
+# Load configuration settings from a snapshot
+config = load(
+    endpoint=endpoint,
+    credential=DefaultAzureCredential(),
+    selects=[SettingSelector(snapshot_name="SnapshotName")]
+)
+```
+
+> [!NOTE]
+> Snapshot support is available if you use version **2.3.0** or later of the `azure-appconfiguration-provider` package.
 
 ### [Spring](#tab/spring)
 

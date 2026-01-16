@@ -1,6 +1,6 @@
 ---
- title: Description of Azure Storage availability zone normal operations experience
- description: Description of Azure Storage availability zone normal operations experience
+ title: Description of Azure Storage availability zone normal operations experience - traffic routing
+ description: Description of Azure Storage availability zone normal operations experience - traffic routing
  author: anaharris-ms
  ms.service: azure
  ms.topic: include
@@ -9,6 +9,6 @@
  ms.custom: include file
 ---
 
-- **Traffic routing between zones:** Azure Storage with zone-redundant storage (ZRS) automatically distributes requests across storage clusters in multiple availability zones. Traffic distribution is transparent to applications and requires no client-side configuration.
+- **Traffic routing between zones:** [!INCLUDE [Storage - Behavior when all zones are healthy - Traffic routing](./reliability-storage-availability-zone-normal-operations-traffic-routing-include.md)]
 
-- **Data replication between zones:** All write operations to ZRS are replicated synchronously across all availability zones within the region. When you upload or modify data, the operation isn't considered complete until the data has been successfully replicated across all of the availability zones. This synchronous replication ensures strong consistency and zero data loss during zone failures.
+- **Data replication between zones:** [!INCLUDE [Storage - Behavior when all zones are healthy - Data replication](./reliability-storage-availability-zone-normal-operations-data-replication-include.md)]

@@ -3,8 +3,8 @@ title: Threats - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
 description: Threat category page for the Microsoft Threat Modeling Tool, containing categories for all exposed generated threats.
 services: security
 author: jegeib
-ms.service: information-protection
-ms.subservice: aiplabels
+ms.service: azure-information-protection
+ms.subservice: azure-information-protection-policy
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan

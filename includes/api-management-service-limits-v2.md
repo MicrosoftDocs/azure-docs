@@ -39,7 +39,7 @@ ms.custom: Include file
 | Tags per API | 500 | 500 | 500 |
 | Version sets  | 100 | 100 | 100 |
 | Releases per API | 100 | 100 | 100 |
-| Operations per API | 200 | 200 | 200 |
+| Operations per API | 100 | 300 | 500 |
 | GraphQL resolvers  | 100 | 100 | 100 |
 | GraphQL resolvers per API | 100 | 100 | 100 |
 | APIs per product | 100 | 100 | 100 |

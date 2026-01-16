@@ -6,6 +6,8 @@
     href: bastion-overview.md
   - name: What's new in Bastion?
     href: whats-new.md
+  - name: Bastion SKU comparison
+    href: bastion-sku-comparison.md
   - name: Cost optimization principles
     href: cost-optimization.md
 - name: Quickstarts & Tutorials
@@ -23,6 +25,8 @@
     href: quickstart-deploy-terraform.md
 - name: Concepts
   items:
+  - name: Bastion configuration settings
+    href: configuration-settings.md
   - name: Work remotely
     items:
     - name: Support for working remotely
@@ -33,8 +37,6 @@
     href: bastion-faq.md
   - name: Design architecture
     href: design-architecture.md
-  - name: Bastion configuration settings
-    href: configuration-settings.md
   - name: VM connections and features
     href: vm-about.md
   - name: Bastion and VNet peering

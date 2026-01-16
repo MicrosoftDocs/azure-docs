@@ -2,7 +2,7 @@
 title: Manage and monitor SQL Server DBs on an Azure VM
 description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
 ms.topic: how-to
-ms.date: 12/03/2025
+ms.date: 12/19/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -18,11 +18,11 @@ If you haven't yet configured backups for your SQL Server databases, see [Back u
 >[!Note]
 >See the [SQL backup support matrix](sql-support-matrix.md) to know more about the supported configurations and scenarios.
 
-## Monitor backup jobs in the portal
+## Monitor backup jobs in the Azure portal
 
-Azure Backup shows all scheduled and on-demand operations under **Jobs** in **Business Continuity Center** in the Azure portal, except the scheduled log backups since they can be very frequent. The jobs you see in this portal includes database discovery and registration, configure backup, and backup and restore operations.
+Azure Backup shows all scheduled and on-demand operations under **Jobs** in **Resiliency** in the Azure portal, except the scheduled log backups since they can be very frequent. The jobs you see in this portal includes database discovery and registration, configure backup, and backup and restore operations.
 
-:::image type="content" source="./media/backup-azure-sql-database/monitor-sql-database-backup-operations.png" alt-text="Screenshot shows the Backup jobs in Azure Business Continuity Center." lightbox="./media/backup-azure-sql-database/monitor-sql-database-backup-operations.png":::
+:::image type="content" source="./media/backup-azure-sql-database/monitor-sql-database-backup-operations.png" alt-text="Screenshot shows the Backup jobs in Resiliency." lightbox="./media/backup-azure-sql-database/monitor-sql-database-backup-operations.png":::
 
 For details on Monitoring scenarios, go to [Monitoring in the Azure portal](backup-azure-monitoring-built-in-monitor.md) and [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
@@ -40,7 +40,7 @@ For more information on the supported alert scenarios, see [Azure Monitor alerts
 
 To monitor database backup alerts, follow these steps:
 
-1. In the Azure portal, go to **Business Continuity Center** select **Monitoring + Reporting** > **Alerts**.
+1. In the Azure portal, go to **Resiliency** select **Monitoring + Reporting** > **Alerts**.
 
    :::image type="content" source="./media/backup-azure-sql-database/alerts-list.png" alt-text="Screenshot shows the list of alerts." lightbox="./media/backup-azure-sql-database/alerts-list.png":::
 
@@ -62,7 +62,7 @@ Azure Backup provides the following options to stop protection of a SQL Server d
 
 To stop protection for a database:
 
-1. Go to **Business Continuity Center** and select **Protection inventory** > **Protected items**.
+1. Go to **Resiliency** and select **Protection inventory** > **Protected items**.
 
    :::image type="content" source="./media/backup-azure-sql-database/protected-items.png" alt-text="Screenshot shows how to select a protected SQL database item." lightbox="./media/backup-azure-sql-database/protected-items.png":::
 2. On the **Protected items** pane, select **SQL in Azure VM** as the datasource type, and then select a protected item from the list.
@@ -92,11 +92,11 @@ To stop protection for a database:
 >
 >
 
-## Resume protection for an SQL database
+## Resume protection for a SQL database
 
 When you stop protection for the SQL database, if you select the **Retain Backup Data** option, you can later resume protection. If you don't retain the backup data, you can't resume protection.
 
-To resume protection for an SQL database, follow these steps:
+To resume protection for a SQL database, follow these steps:
 
 1. Open the backup item and select **Resume backup**.
 

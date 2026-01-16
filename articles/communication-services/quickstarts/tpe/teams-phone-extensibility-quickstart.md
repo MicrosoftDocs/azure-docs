@@ -166,6 +166,14 @@ You need to assign a public switched telephone network (PSTN) number to your Res
 1. Also, if you plan to make outbound PSTN calls using your Resource Accounts assigned phone number, now is a good time to assign a [Microsoft Teams Calling Plan](/microsoftteams/calling-plans-for-office-365).
 
 
+> **Note:** Proper configuration depends on the phone number service type assigned to the Resource account:
+> - **Direct Routing** – The tenant must be configured for Direct Routing with a verified Session Border Controller (SBC), a Direct Routing phone number assigned to the Resource account, and a Voice Routing Policy that allows PSTN calls assigned to the Resource account.
+> - **Calling Plan** – The Resource account must be assigned a Calling Plan service number and licensed with Microsoft Teams Phone Resource Account.
+> - **Operator Connect** – The phone number must be provisioned by an approved Operator Connect provider that supports outbound PSTN calling for voice applications.
+> - For all these connectivity options, you need to make sure you have the proper Microsoft licenses in place as detailed in the [general license prerequisite](/azure/communication-services/concepts/interop/tpe/teams-phone-extensibility-overview#prerequisites) or specifically for [Outbound license requirements](/azure/communication-services/quickstarts/tpe/teams-phone-extensibility-server-outbound-call#licensing-requirements)
+
+
+
 ### CCaaS Developer: Get Resource Account Information
 
 We're introducing a new Graph API to get a list of Resource Accounts and phone numbers where assigned. The Graph API supports an optional filter on your Microsoft Entra first party `applicationID` / `clientId`.
