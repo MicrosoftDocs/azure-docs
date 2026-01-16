@@ -133,7 +133,7 @@ In DNS-based data exfiltration attacks, malicious actors encode stolen data into
 
 Azure DNS Security Policy provides comprehensive protection against DNS-based data exfiltration attacks by offering granular control over DNS traffic within Azure Virtual Networks. This service enables organizations to implement proactive security measures that can detect, alert on, and block suspicious DNS activity before data can be successfully exfiltrated.
 
-Azure DNS Security Policy addresses DNS data exfiltration through several key mechanisms. First, it provides the ability to create DNS traffic rules that can block queries to known malicious domains or suspicious domain patterns commonly used in exfiltration attempts. Organizations can maintain blocklists of domains associated with command and control infrastructure or data exfiltration services. Second, the service offers comprehensive DNS logging capabilities that capture all DNS queries and responses within protected virtual networks. This logging enables security teams to analyze DNS traffic patterns and identify potential exfiltration attempts. Third, the policy engine supports wildcard domain filtering, allowing organizations to block entire categories of suspicious domains or implement allowlists for approved DNS destinations.
+Azure DNS Security Policy addresses DNS data exfiltration through several key mechanisms. First, it provides the ability to create DNS traffic rules that can block queries to known malicious domains or suspicious domain patterns commonly used in exfiltration attempts. Organizations can maintain block lists of domains associated with command and control infrastructure or data exfiltration services. Second, the service offers comprehensive DNS logging capabilities that capture all DNS queries and responses within protected virtual networks. This logging enables security teams to analyze DNS traffic patterns and identify potential exfiltration attempts. Third, the policy engine supports wildcard domain filtering, allowing organizations to block entire categories of suspicious domains or implement allow lists for approved DNS destinations.
 
 The implementation of Azure DNS Security Policy creates multiple layers of defense against DNS data exfiltration. Traffic rules can be configured with different priority levels, allowing for complex security policies that balance security with operational requirements. The service supports real-time blocking of malicious queries while providing detailed logs for forensic analysis and threat hunting. Additionally, virtual network links ensure that DNS security policies are consistently applied across all resources within protected network segments, creating a comprehensive security perimeter that's difficult for attackers to bypass.
 
@@ -164,7 +164,7 @@ Create separate DNS Domain Lists containing specific domains that are required f
 - Operating system update services
 - Certificate authority domains
 
-Associate these allowlists to DNS traffic rules configured with:
+Associate these allow lists to DNS traffic rules configured with:
 
 - **Priority**: 500-1000 (higher priority than the default deny)
 - **Action**: Allow
@@ -174,7 +174,7 @@ Associate these allowlists to DNS traffic rules configured with:
 Azure DNS Security Policy processes rules in priority order (lower numbers = higher priority). When a DNS query is made:
 
 1. The system first evaluates high-priority allow rules (priority 500-1000)
-2. If the domain matches an allowlist, the query is permitted
+2. If the domain matches an allow list, the query is permitted
 3. If no `allow` rules match, the query falls through to the default deny rule (priority 65000) and the traffic is blocked
 
 This approach provides several security advantages:
@@ -182,7 +182,7 @@ This approach provides several security advantages:
 - **Zero trust model**: No DNS queries are permitted unless explicitly authorized
 - **Granular control**: Organizations can precisely control which domains are accessible
 - **Audit trail**: All blocked queries are logged, providing visibility into potential threats
-- **Incremental updates**: New approved domains can be added to allowlists without modifying the default deny rule
+- **Incremental updates**: New approved domains can be added to allow lists without modifying the default deny rule
 
 **Example implementation:**
 
@@ -200,7 +200,7 @@ Priority 65000: Default deny rule
 - Action: Block
 ```
 
-Organizations implementing this approach should start with a comprehensive inventory of required domains and gradually refine the allowlists based on operational needs and security logs. Regular review of blocked queries helps identify legitimate domains that might need to be added to the allowlists while maintaining strong security posture.
+Organizations implementing this approach should start with a comprehensive inventory of required domains and gradually refine the allow lists based on operational needs and security logs. Regular review of blocked queries helps identify legitimate domains that might need to be added to the allow lists while maintaining strong security posture.
 
 #### Implementing deny-by-default DNS policies with Windows DNS Server
 
