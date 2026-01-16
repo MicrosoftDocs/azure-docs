@@ -97,7 +97,7 @@ You also need these prerequisites to [run and debug your functions locally](#run
 + The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell). 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-+ [Python](https://www.python.org/downloads/), one of the [supported versions](functions-reference-python.md#python-version).
++ [Python](https://www.python.org/downloads/), one of the [supported versions](functions-reference-python.md#supported-python-versions).
 
 + [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
 

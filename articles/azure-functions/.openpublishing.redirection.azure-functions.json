@@ -661,6 +661,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-functions/python-313-changes.md",
+            "redirect_url": "/azure/azure-functions/functions-reference-python#python-313-updates",
+            "redirect_document_id": false
+        }, 
+        {
             "source_path_from_root": "/articles/azure-functions/functions-bindings-mongodb-vcore-input.md",
             "redirect_url": "/azure/azure-functions/functions-bindings-documentdb-input",
             "redirect_document_id": true

@@ -48,10 +48,10 @@ Artifact Signing Client Tools for SignTool.exe is a library plugin that requires
 To simplify this setup there is an MSI installer package that is available for download along with a Setup.exe.
 
 > [!div class="nextstepaction"]
-> [Artifact Signing Client Tools MSI Download](https://download.microsoft.com/download/6d9cb638-4d5f-438d-9f21-23f0f4405944/TrustedSigningClientTools.msi)
+> [Artifact Signing Client Tools MSI Download](https://download.microsoft.com/download/70ad2c3b-761f-4aa9-a9de-e7405aa2b4c1/ArtifactSigningClientTools.msi)
 
 > [!div class="nextstepaction"]
-> [Artifact Signing Client Tools Setup.exe Download](https://download.microsoft.com/download/6d9cb638-4d5f-438d-9f21-23f0f4405944/setup.exe)
+> [Artifact Signing Client Tools Setup.exe Download](https://download.microsoft.com/download/70ad2c3b-761f-4aa9-a9de-e7405aa2b4c1/setup.exe)
 
 #### Installing from the Windows Package Manager
 
@@ -70,7 +70,7 @@ The `-e` option is to ensure the official Artifact Signing Client Tools package 
 To install the Artifact Signing Client Tools using PowerShell, start PowerShell **as administrator** and run the following command:
 
    ```PowerShell
-   $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri "https://download.microsoft.com/download/6d9cb638-4d5f-438d-9f21-23f0f4405944/TrustedSigningClientTools.msi" -OutFile .\TrustedSigningClientTools.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I TrustedSigningClientTools.msi /quiet'; Remove-Item .\TrustedSigningClientTools.msi
+  $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri "https://download.microsoft.com/download/70ad2c3b-761f-4aa9-a9de-e7405aa2b4c1/ArtifactSigningClientTools.msi" -OutFile .\ArtifactSigningClientTools.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I ArtifactSigningClientTools.msi /quiet'; Remove-Item .\ArtifactSigningClientTools.msi
    ```
 
 ### Summary of manual setup steps
@@ -221,7 +221,7 @@ Artifact Signing certificates have a three-day validity, so time stamping is cri
 
 You can also use the following tools or platforms to set up signing integrations with Artifact Signing.
 
-- **GitHub Actions**: To learn how to use a GitHub action for Artifact Signing, see [Artifact Signing - Actions](https://github.com/azure/trusted-signing-action) in GitHub Marketplace. Complete the instructions to set up and use a GitHub action.
+- **GitHub Actions**: To learn how to use a GitHub action for Artifact Signing, see [Artifact Signing - Actions](https://github.com/azure/artifact-signing-action) in GitHub Marketplace. Complete the instructions to set up and use a GitHub action.
 
 - **Azure DevOps task**: To use the Artifact Signing Azure DevOps task, see [Artifact Signing](https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.TrustedSigning&ssr=false#overview) in Visual Studio Marketplace. Complete the instructions for setup.
 

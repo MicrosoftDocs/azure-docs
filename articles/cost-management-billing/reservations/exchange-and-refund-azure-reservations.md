@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/28/2025
+ms.date: 01/15/2026
 ms.author: primittal
 # customer intent: As a reservation purchaser, I want learn how to exchange or refund Azure reservations.
 ---

@@ -2,7 +2,7 @@
 title: Monitor executions in Azure Functions
 description: Learn how to use Azure Application Insights with Azure Functions to monitor function executions. Application Insights collects log, performance, and error data.
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/07/2025
 ms.custom:
   - devx-track-csharp
@@ -87,7 +87,7 @@ By assigning logged items to a category, you have more control over telemetry ge
 
 ### Custom telemetry data
 
-In [C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions), [JavaScript](functions-reference-node.md#track-custom-data), and [Python](functions-reference-python.md#log-custom-telemetry), you can use an Application Insights SDK to write custom telemetry data.
+In [C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions), [JavaScript](functions-reference-node.md#track-custom-data), and [Python](functions-reference-python.md#logging-and-monitoring), you can use an Application Insights SDK to write custom telemetry data.
 
 ### Dependencies
 
@@ -110,7 +110,7 @@ In addition to automatic dependency data collection, you can also use one of the
 
 - [Log custom telemetry in C# functions](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions)
 - [Log custom telemetry in JavaScript functions](functions-reference-node.md#track-custom-data) 
-- [Log custom telemetry in Python functions](functions-reference-python.md#log-custom-telemetry)
+- [Log custom telemetry in Python functions](functions-reference-python.md#logging-and-monitoring)
 
 ### Performance Counters
 
@@ -124,7 +124,7 @@ The way that you write to logs and the APIs you use depend on the language of yo
 - [Java](functions-reference-java.md#logger)
 - [JavaScript](functions-reference-node.md#logging) 
 - [PowerShell](functions-reference-powershell.md#logging)
-- [Python](functions-reference-python.md#logging)
+- [Python](functions-reference-python.md#logging-and-monitoring)
 
 ## Analyze data
 

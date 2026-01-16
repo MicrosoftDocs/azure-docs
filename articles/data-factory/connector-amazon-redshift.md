@@ -6,7 +6,7 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 12/29/2025
+ms.date: 01/15/2026
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -19,7 +19,7 @@ ms.custom:
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from an Amazon Redshift. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
-> The Amazon Redshift version 2.0 provides improved native Amazon Redshift support. If you are using the Amazon Redshift version 1.0 in your solution, please [upgrade your Amazon Redshift connector](#upgrade-the-amazon-redshift-connector) as version 1.0 is at [End of Support stage](connector-release-stages-and-timelines.md). Your pipeline will fail after **March 31, 2026**. Refer to this [section](#differences-between-amazon-redshift-connector-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
+> The Amazon Redshift version 2.0 provides improved native Amazon Redshift support. If you are using the Amazon Redshift version 1.0 in your solution, please [upgrade your Amazon Redshift connector](#upgrade-the-amazon-redshift-connector) before **March 31, 2026**. Refer to this [section](#differences-between-amazon-redshift-connector-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 

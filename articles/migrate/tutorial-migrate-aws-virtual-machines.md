@@ -114,7 +114,7 @@ The Migration and modernization tool uses a replication appliance to replicate m
 
 To prepare for appliance deployment:
 
-- Set up a separate EC2 VM to host the replication appliance. This instance must be running Windows Server 2012 R2 or Windows Server 2016. [Review](./migrate-replication-appliance.md#appliance-requirements) the hardware, software, and networking requirements for the appliance.
+- Set up a separate EC2 VM to host the replication appliance. This instance must be running Windows Server 2022. [Review](./tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended) the hardware, software, and networking requirements for the appliance.
 - The appliance shouldn't be installed on a source VM that you want to replicate or on the Azure Migrate: Discovery and assessment appliance you might have installed before. It should be deployed on a different VM.
 - The source AWS VMs to be migrated should have a network line of sight to the replication appliance. Configure necessary security group rules to enable this capability. We recommend that you deploy the replication appliance in the same virtual private cloud (VPC) as the source VMs to be migrated. If the replication appliance needs to be in a different VPC, the VPCs must be connected through VPC peering.
 - The source AWS VMs communicate with the replication appliance on ports HTTPS 443 (control channel orchestration) and TCP 9443 (data transport) inbound for replication management and replication data transfer. The replication appliance in turn orchestrates and sends replication data to Azure over port HTTPS 443 outbound. To configure these rules, edit the security group inbound/outbound rules with the appropriate ports and source IP information.
@@ -152,7 +152,7 @@ The first step of migration is to set up the replication appliance. To set up th
 
     ![Screenshot that shows the Download button.](media/tutorial-migrate-physical-virtual-machines/download-provider.png)
 
-1. Copy the appliance setup file and key file to the Windows Server 2016 or Windows Server 2012 AWS VM you created for the replication appliance.
+1. Copy the appliance setup file and key file to the Windows Server 2022 AWS VM you created for the replication appliance.
 1. Run the replication appliance setup file, as described in the next procedure.
     1. Under **Before You Begin**, select **Install the configuration server and process server**. Then select **Next**.
     1. In **Third-Party Software License**, select **I accept the third-party license agreement**. Then select **Next**.

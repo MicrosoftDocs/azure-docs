@@ -13,7 +13,7 @@ metadata:
   ms.author: cshoe
   ms.date: 04/09/2025
 landingContent:
-  - title: About Azure Container Apps
+  - title: Learn and get started
     linkLists:
       - linkListType: overview
         links:
@@ -21,67 +21,64 @@ landingContent:
             url: overview.md
           - text: Compare container options in Azure
             url: compare-options.md
-          - text: Learn to develop with .NET
-            url: dotnet-overview.md
-          - text: Learn to develop with Java
-            url: java-overview.md
-          - text: Learn to develop with JavaScript
-            url: javascript-overview.md
-  - title: Get started
-    linkLists:
       - linkListType: quickstart
         links:
-          - text: Deploy your first container app - Azure CLI
-            url: ./get-started.md
-          - text: Deploy your first container app - Azure portal
-            url: ./quickstart-portal.md
+          - text: Deploy your first container app
+            url: get-started.md
+          - text: Deploy from existing container image
+            url: get-started-existing-container-image.md
       - linkListType: concept
         links:
-          - text: Environments
-            url: environment.md
-          - text: Containers
+          - text: Core concepts
             url: containers.md
-          - text: Revisions
-            url: revisions.md
-          - text: Application lifecycle management
-            url: application-lifecycle-management.md
-          - text: Microservices
-            url: microservices.md
-          - text: Observability
-            url: observability.md
-          - text: Jobs
-            url: jobs.md
-          - text: Azure Functions
+
+  - title: Build your applications
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Develop with .NET
+            url: dotnet-overview.md
+          - text: Develop with Java
+            url: java-overview.md
+          - text: Develop with JavaScript
+            url: javascript-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure scaling and ingress
+            url: scale-app.md
+          - text: Connect microservices
+            url: connect-apps.md
+          - text: Manage secrets and configuration
+            url: manage-secrets.md
+
+  - title: Advanced scenarios
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Run Azure Functions serverlessly
             url: functions-overview.md
-  - title: Common tasks
+          - text: Build microservices with Dapr
+            url: dapr-overview.md
+          - text: Schedule background jobs
+            url: jobs.md
+      - linkListType: tutorial
+        links:
+          - text: Deploy AI/ML workloads on GPU
+            url: gpu-image-generation.md
+          - text: Microservices communication with Dapr
+            url: microservices-dapr.md
+
+  - title: Manage and troubleshoot
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Set scaling rules
-            url: scale-app.md
-          - text: Manage secrets
-            url: manage-secrets.md
-          - text: Manage revisions
-            url: revisions-manage.md
-          - text: Set up ingress
-            url: ingress-how-to.md
-          - text: Connect multiple apps
-            url: connect-apps.md
-          - text: Use a custom VNET 
-            url: vnet-custom.md
-          - text: Quotas
+          - text: Monitor and observe your apps
+            url: observability.md
+          - text: Set up authentication and networking
+            url: authentication.md
+          - text: Deploy with GitHub Actions
+            url: github-actions.md
+      - linkListType: reference
+        links:
+          - text: Quotas and billing
             url: quotas.md
-          - text: Create a Functions app
-            url: functions-usage.md  
-      - linkListType: concept
-        links:
-          - text: What's new in Dapr?
-            url: whats-new.md
-          - text: Dapr integration
-            url: dapr-overview.md
-  - title: Apps and microservices
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Microservices with Dapr
-            url: microservices-dapr.md

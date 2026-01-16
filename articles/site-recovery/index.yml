@@ -21,6 +21,8 @@ landingContent:
         links:
           - text: What is Site Recovery?
             url: ./site-recovery-overview.md
+          - text: Pricing
+            url: ./site-recovery-cost.md
       - linkListType: whats-new
         links:
           - text: What's new in Site Recovery

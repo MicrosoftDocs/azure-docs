@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/28/2025
+ms.date: 01/15/2026
 ms.author: primittal
 #customer intent: As an Azure billing administrator, I want to understand what Azure Red Hat OpenShift reservations are and how buying one can help me save money.
 ---

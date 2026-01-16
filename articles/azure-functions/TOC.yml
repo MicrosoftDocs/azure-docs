@@ -338,35 +338,30 @@
     href: functions-reference-powershell.md
   - name: Python
     items:
-    - name: Developer reference guide
-      displayName: python
-      href: functions-reference-python.md
-    - name: Updates for Python 3.13+
-      displayName: python
-      href: python-313-changes.md
-    - name: Programming models
-      displayName: python
-      href: functions-reference-python.md#programming-model
-    - name: Binding definitions for Python v2
-      href: functions-bindings-triggers-python.md
-    - name: Python worker extensions
-      href: develop-python-worker-extensions.md
-    - name: Scale and performance recommendations
-      displayName: python
-      href: python-scale-performance-reference.md
-    - name: Troubleshooting
-      items:
-      - name: General troubleshooting
+      - name: Developer reference guide
         displayName: python
-        href: recover-python-functions.md
-      - name: Memory profiling
+        href: functions-reference-python.md
+      - name: Build Options
         displayName: python
-        href: python-memory-profiler-reference.md
-    - name: Python library API reference for Functions
-      href: /python/api/azure-functions/azure.functions
-    - name: Samples
-      displayName: python
-      href: /samples/browse/?products=azure-functions&languages=python
+        href: python-build-options.md
+      - name: Scale and performance recommendations
+        displayName: python
+        href: python-scale-performance-reference.md
+      - name: Samples
+        displayName: python
+        href: /samples/browse/?products=azure-functions&languages=python
+      - name: Python worker extensions
+        href: develop-python-worker-extensions.md
+      - name: Troubleshooting
+        items:
+          - name: General troubleshooting
+            displayName: python
+            href: recover-python-functions.md
+          - name: Memory profiling
+            displayName: python
+            href: python-memory-profiler-reference.md
+      - name: Python SDK API reference
+        href: /python/api/azure-functions/azure.functions
 - name: How-to guides
   items:
   - name: Develop

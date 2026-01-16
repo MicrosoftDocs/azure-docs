@@ -41,6 +41,15 @@ UEBA behaviors can be enabled independently from UEBA anomaly detection.
 
 For more information, see [Translate raw security logs to behavioral insights using UEBA behaviors in Microsoft Sentinel](../sentinel/entity-behaviors-layer.md).
 
+### New detections for Sentinel solution for SAP BTP
+
+This update expands [detection coverage for SAP BTP](../sentinel/sap/sap-btp-security-content.md#built-in-analytics-rules), strengthening visibility into high‑risk control plane, integration, and identity activities.
+
+- **SAP Integration Suite**: Detects unauthorized changes to integration artifacts, access policies, JDBC data sources, and package imports that could enable data exfiltration or backdoors.
+- **SAP Cloud Identity Service**: Monitors user deletions, privilege grants, and SAML/OIDC configuration changes that weaken authentication controls or create persistent access.
+- **SAP Build Work Zone**: Identifies mass role deletions and unauthorized access to restricted portal resources.
+- **SAP BTP Audit Logging**: Detects audit log ingestion gaps and disruptions that reduce security visibility and enable stealthy activity.
+
 ## November 2025
 
 ### New Entity Behavior Analytics (UEBA) experiences in the Defender portal (Preview)

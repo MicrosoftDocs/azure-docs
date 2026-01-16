@@ -729,6 +729,8 @@ items:
             href: diagnostics/bcp192.md
           - name: BCP201
             href: diagnostics/bcp201.md
+          - name: BCP226
+            href: diagnostics/bcp226.md
           - name: BCP238
             href: diagnostics/bcp238.md
           - name: BCP266

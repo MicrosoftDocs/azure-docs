@@ -100,6 +100,8 @@ In this case you can disable the warning for one line only, not the entire docum
 scriptDownloadUrl: 'https://mytools.blob.core.windows.net/...'
 ```
 
+Multiple codes may be listed, separated by spaces.
+
 It's good practice to add a comment explaining why the rule doesn't apply to this line.
 
 If you want to suppress a linter rule, you can change the level of the rule to `Off` in [bicepconfig.json](./bicep-config-linter.md). For example, in the following example, the `no-deployments-resources` rule is suppressed:

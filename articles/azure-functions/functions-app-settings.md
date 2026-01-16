@@ -368,7 +368,7 @@ Indicates the account used to access a private container registry. This setting 
 
 ## DOCKER_SHM_SIZE
 
-Sets the shared memory size (in bytes) when the Python worker is using shared memory. To learn more, see [Shared memory](functions-reference-python.md#shared-memory).
+Sets the shared memory size (in bytes) when the Python worker is using shared memory. To learn more, see [Shared memory](https://github.com/Azure/azure-functions-python-worker/wiki/Shared-Memory).
 
 |Key|Sample value|
 |---|------------|
@@ -490,7 +490,7 @@ This setting enables the Python worker to use shared memory to improve throughpu
 |---|------------|
 |FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED|`1`|
 
-With this setting enabled, you can use the [DOCKER_SHM_SIZE](#docker_shm_size) setting to set the shared memory size. To learn more, see [Shared memory](functions-reference-python.md#shared-memory).
+With this setting enabled, you can use the [DOCKER_SHM_SIZE](#docker_shm_size) setting to set the shared memory size. To learn more, see [Shared memory](https://github.com/Azure/azure-functions-python-worker/wiki/Shared-Memory).
 
 ## JAVA_APPLICATIONINSIGHTS_ENABLE_TELEMETRY
 
@@ -565,7 +565,7 @@ Sets an optional list of headers that are applied to all outgoing data exported 
 
 ## PIP\_INDEX\_URL
 
-Overrides the default base URL of the Python Package Index (`https://pypi.org/simple`) when running a remote build. Because this setting replaces the package index, you might see unexpected behaviour on restore. Only use this setting when you need to use a complete set of custom dependencies. When possible, you should instead use `PIP_EXTRA_URL`, which lets you reference an additional package index. For more information, see [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
+Overrides the default base URL of the Python Package Index (`https://pypi.org/simple`) when running a remote build. Because this setting replaces the package index, you might see unexpected behaviour on restore. Only use this setting when you need to use a complete set of custom dependencies. When possible, you should instead use `PIP_EXTRA_URL`, which lets you reference an additional package index. For more information, see [Custom dependencies](python-build-options.md#custom-dependencies) in the Python build article.
 
 |Key|Sample value|
 |---|------------|
@@ -575,13 +575,13 @@ These custom dependencies can be in a package index repository compliant with PE
 
 ## PIP\_EXTRA\_INDEX\_URL
 
-The value for this setting indicates an extra index URL for custom packages for Python apps, to use in addition to the `--index-url`. Use this setting when you need to run a remote build using custom dependencies that are found in an extra package index. Should follow the same rules as `--index-url`.
+The value for this setting indicates an extra index URL for custom packages for Python apps, to use in addition to the `--index-url`. Use this setting when you need to run a remote build using custom dependencies that are found in an extra package index. For more information, see [Custom dependencies](python-build-options.md#custom-dependencies) in the Python build article.
 
 |Key|Sample value|
 |---|------------|
 |PIP\_EXTRA\_INDEX\_URL|`http://my.custom.package.repo/simple` |
 
-For more information, see [`pip` documentation for `--extra-index-url`](https://pip.pypa.io/en/stable/cli/pip_wheel/?highlight=index%20url#cmdoption-extra-index-url) and [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
+Should follow the same rules as `--index-url`. For more information, see [`pip` documentation for `--extra-index-url`](https://pip.pypa.io/en/stable/cli/pip_wheel/?highlight=index%20url#cmdoption-extra-index-url).
 
 ## PROJECT
 
@@ -616,7 +616,7 @@ Indicates whether the Python worker process should export telemetry to an Open T
 
 ## PYTHON\_ENABLE\_WORKER\_EXTENSIONS
 
-The configuration is specific to Python function apps. Setting this value to `1` allows the worker to load in [Python worker extensions](functions-reference-python.md#python-worker-extensions) defined in requirements.txt. It enables your function app to access new features provided by partner packages. It can also change the behavior of function load and invocation in your app. Ensure the extension you choose is trustworthy as you bear the risk of using it. Azure Functions gives no express warranties to any extensions. For how to use an extension, visit the extension's manual page or readme doc. By default, this value sets to `0`.
+The configuration is specific to Python function apps. Setting this value to `1` allows the worker to load in [Python worker extensions](./develop-python-worker-extensions.md) defined in requirements.txt. It enables your function app to access new features provided by partner packages. It can also change the behavior of function load and invocation in your app. Ensure the extension you choose is trustworthy as you bear the risk of using it. Azure Functions gives no express warranties to any extensions. For how to use an extension, visit the extension's manual page or readme doc. By default, this value sets to `0`.
 
 |Key|Value|Description|
 |---|-----|-----------|

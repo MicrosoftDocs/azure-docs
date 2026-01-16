@@ -1,7 +1,7 @@
 ---
 title: Azure Functions language stack support policy
 description: Learn about the support policy for the various language stacks that Azure Functions supports.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/03/2025
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -76,7 +76,7 @@ Use these resources to better understand and plan for language support-related c
 | --- | --- |
 | **Supported versions** | [Currently supported stack versions](supported-languages.md?pivots=programming-language-powershell#languages-by-runtime-version) | 
 | **Language version support timelines** | [PowerShell Support Lifecycle](/powershell/scripting/powershell-support-lifecycle#powershell-end-of-support-dates)|
-| **Configuring language versions** | [Changing the PowerShell version](./functions-reference-python.md#python-version)|
+| **Configuring language versions** | [Changing the PowerShell version](./functions-reference-python.md#supported-python-versions)|
 
 ::: zone-end  
 ::: zone pivot="programming-language-python" 
@@ -85,7 +85,7 @@ Use these resources to better understand and plan for language support-related c
 | --- | --- |
 | **Supported versions** | [Currently supported stack versions](supported-languages.md?pivots=programming-language-python#languages-by-runtime-version) | 
 | **Language version support timelines** | [Python developer's guide](https://devguide.python.org/#status-of-python-branches)|
-| **Configuring language versions** | [Changing Python version](functions-reference-python.md#changing-python-version)|
+| **Configuring language versions** | [Changing Python version](./set-runtime-version.md?tabs=azure-portal&pivots=platform-linux#manual-version-updates-on-linux)|
 
 ::: zone-end  
 

@@ -2,7 +2,7 @@
 title: Deployment technologies in Azure Functions
 description: Learn the different ways you can deploy code to Azure Functions.
 ms.custom: vs-azure, vscode-azure-extension-update-not-needed, build-2023, build-2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/07/2024
 ---
 
@@ -86,7 +86,7 @@ The Functions host also performs a background trigger sync after the application
 You can request Azure Functions to perform a remote build of your code project during deployment. In these scenarios, you should request a remote build instead of building locally:
 
 + You're deploying an app to a Linux-based function app that was developed on a Windows computer. This is commonly the case for Python app development. You can end up with incorrect libraries being used when building the deployment package locally on Windows.
-+ Your project has dependencies on a [custom package index](functions-reference-python.md#remote-build-with-extra-index-url).
++ Your project has dependencies on a [custom package index](./python-build-options.md#remote-build-with-an-extra-index-url).
 + You want to reduce the size of your deployment package.
 
 How you request a remote build depends on whether your app runs in Azure on Windows or Linux.
