@@ -10,7 +10,7 @@ ms.author: anfdocs
 ---
 # Configure LDAP directory services for Azure NetApp Files NFS volumes (preview)
 
-In addition to native Active Directory support, Azure NetApp Files supports native integration with directory services including FreeIPA, Red Hat Identity Management (IdM),  OpenLDAP, Red Hat Directory Server, and Oracle Unified Directory (OUD) for lightweight directory access protocol (LDAP) directory servers. With native LDAP directory server support, you can achieve secure and scalable identity-based access control for NFS volumes in Linux environments.
+In addition to native Active Directory support, Azure NetApp Files supports native integration with directory services including FreeIPA, Red Hat Identity Management (IdM), OpenLDAP, Red Hat Directory Server, and Oracle Unified Directory (OUD) for lightweight directory access protocol (LDAP) directory servers. With native LDAP directory server support, you can achieve secure and scalable identity-based access control for NFS volumes in Linux environments.
 
 Azure NetApp Files' LDAP integration simplifies file share access management by leveraging trusted directory services. It supports NFSv3 and NFSv4.1 protocols and uses DNS SRV record-based discovery for high availability and load balancing across LDAP servers. From a business perspective, this feature enhances: 
 
