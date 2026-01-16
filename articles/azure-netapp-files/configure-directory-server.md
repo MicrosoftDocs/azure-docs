@@ -1,6 +1,6 @@
 ---
 title: Configure LDAP directory servers for Azure NetApp Files NFS volumes
-description: Azure NetApp Files NFS volumes support FreeIPA, Red Hat IdM OpenLDAP, and Red Hat Directory Server as alternative directory services in Azure NetApp Files.
+description: Azure NetApp Files NFS volumes support FreeIPA, Red Hat IdM OpenLDAP, Red Hat Directory Server, and Oracle Unified Directory (OUD) as alternative directory services in Azure NetApp Files.
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
@@ -10,7 +10,7 @@ ms.author: anfdocs
 ---
 # Configure LDAP directory services for Azure NetApp Files NFS volumes (preview)
 
-In addition to native Active Directory support, Azure NetApp Files supports native integration with directory services including FreeIPA, Red Hat Identity Management (IdM),  OpenLDAP, and Red Hat Directory Server for lightweight directory access protocol (LDAP) directory servers. With native LDAP directory server support, you can achieve secure and scalable identity-based access control for NFS volumes in Linux environments.
+In addition to native Active Directory support, Azure NetApp Files supports native integration with directory services including FreeIPA, Red Hat Identity Management (IdM),  OpenLDAP, Red Hat Directory Server, and Oracle Unified Directory (OUD) for lightweight directory access protocol (LDAP) directory servers. With native LDAP directory server support, you can achieve secure and scalable identity-based access control for NFS volumes in Linux environments.
 
 Azure NetApp Files' LDAP integration simplifies file share access management by leveraging trusted directory services. It supports NFSv3 and NFSv4.1 protocols and uses DNS SRV record-based discovery for high availability and load balancing across LDAP servers. From a business perspective, this feature enhances: 
 
@@ -27,6 +27,7 @@ Azure NetApp Files' LDAP integration simplifies file share access management by 
 * **Red Hat IdM**: Centralized identity and access management in Linux environments
 * **OpenLDAP**: Lightweight and flexible directory service for custom deployments
 * **Red Hat Directory Server**: Enterprise-grade LDAP service with advanced scalability and security features
+* **Oracle Unified Directory**: Enterprise-grade LDAP directory service ideal for Oracle application ecosystems, with multi-master replication and comprehensive compliance features
 
 >[!IMPORTANT]
 >To configure LDAP with Active Directory, see [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md).
@@ -80,17 +81,24 @@ Each directory service appeals to different use cases in Azure NetApp Files.
 * **Regulated industries**: Ideal for financial, healthcare, and government sectors where compliance and vendor support are critical.
 * **Integration with Red Hat Ecosystem**: Seamlessly fits into environments leveraging Red Hat Enterprise Linux and related solutions.
 
+### Oracle Unified Directory 
+
+* **Oracle ecosystem integration**: Ideal for enterprises running Oracle applications (E-Business Suite, PeopleSoft, WebLogic, Fusion Middleware) that require seamless LDAP authentication with Azure NetApp Files storage.
+* **Enterprise-scale directory services**: Supports large directories with millions of entries, built-in multi-master replication, and high availability for mission-critical deployments.
+* **Standards-based compliance**: Provides full LDAPv3 compliance with comprehensive logging and access controls suitable for regulated industries.
+
+
 ## Considerations 
 
-* FreeIPA,Red Hat IdM, OpenLDAP, and Red Hat Directory Server are supported with NFSv3 and NFSv4.1 volumes; they aren't currently supported with dual-protocol volumes. 
+* FreeIPA, Red Hat IdM, OpenLDAP, Red Hat Directory Server, and Oracle Unified Directory are supported with NFSv3 and NFSv4.1 volumes; they aren't currently supported with dual-protocol volumes. 
 * These directory services aren't currently supported with large volumes. 
 * You must configure the LDAP server before creating the volume. 
-* You can only configure FreeIPA, Red Hat IdM, OpenLDAP, or Red Hat Directory Server on _new_ NFS volumes. You can't convert existing volumes to use these directory services. 
+* You can only configure FreeIPA, Red Hat IdM, OpenLDAP, Red Hat Directory Server, or Oracle Unified Directory on _new_ NFS volumes. You can't convert existing volumes to use these directory services. 
 * [!INCLUDE [Kerberos support limitation](includes/kerberos-other-servers.md)]
 
 ## Register the feature
 
-Support for FreeIPA, Red Hat IdM, OpenLDAP, and Red Hat Directory Server is currently in preview. Before connecting your NFS volumes to one of these directory servers, you must register the feature: 
+Support for FreeIPA, Red Hat IdM, OpenLDAP, Red Hat Directory Server, and Oracle Unified Directory is currently in preview. Before connecting your NFS volumes to one of these directory servers, you must register the feature: 
 
 1.  Register the feature:
 
@@ -116,8 +124,9 @@ You must first create the LDAP server before you can connect it to Azure NetApp 
 * To configure FreeIPA, see the [FreeIPA QuickStart Guide](https://www.freeipa.org/page/Quick_Start_Guide) then follow [Red Hat's guidance](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/linux_domain_identity_authentication_and_policy_guide/client-install#client-install-non-interactive).
 * To configure RedHat IDM, see [Red Hat documentation](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/installing_identity_management/index). 
 * To configure OpenLDAP, see [OpenLDAP documentation](https://www.openldap.org/doc/).
-* To configure Red Hat Directory Server, follow the [Red Hat documentation](https://docs.redhat.com/en/documentation/red_hat_fuse/6.3/html/security_guide/esbldaptutorialinstallds#ESBLDAPTutorialInstallDS). 
-    For more information, see the [install guide for 389 Directory Server](https://www.port389.org/docs/389ds/howto/howto-install-389.html). 
+* To configure Red Hat Directory Server, follow the [Red Hat documentation](https://docs.redhat.com/en/documentation/red_hat_fuse/6.3/html/security_guide/esbldaptutorialinstallds#ESBLDAPTutorialInstallDS). For more information, see the [install guide for 389 Directory Server](https://www.port389.org/docs/389ds/howto/howto-install-389.html). 
+* To configure Oracle Unified Directory, follow the [Oracle Unified Directory documentation](https://docs.oracle.com/en/middleware/idm/unified-directory/14.1.2/install.html). 
+    
 
 ## Configure the LDAP connection in Azure NetApp Files 
 

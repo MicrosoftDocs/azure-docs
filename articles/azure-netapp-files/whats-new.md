@@ -17,6 +17,12 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## April 2026
+
+* [Support for Red Hat IdM and Oracle Unified Directory (OUD)](configure-directory-server.md) (preview)
+ 
+    Azure NetApp Files now supports Red Hat IdM and Oracle Unified Directory, enabling seamless integration with widely used enterprise directory services. This capability allows organizations to leverage their existing LDAP-based identity infrastructure for authentication and access control providing simplified identity management, enhanced security and compliance, and improved scalability. This feature is ideal for enterprises-grade LDAP service with advanced scalability and security features. This feature is available in all Azure NetApp Files supported regions. This feature in currently in preview.
+
 ## November 2025
 
 * [Subscription quota metrics](azure-netapp-files-metrics.md#subscription-quota-metrics) are now generally available (GA)
