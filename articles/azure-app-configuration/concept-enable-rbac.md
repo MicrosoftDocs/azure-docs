@@ -60,7 +60,7 @@ Follow these steps to assign App Configuration Data roles to your credential.
 3. On the **Members** tab, follow the wizard to select the credential you're granting access to and then select **Next**.
 4. Finally, on the **Review + assign** tab, select **Review + assign** to assign the role.
 
-## Configuring cloud-specific audience for Entra ID authentication
+## Cloud-specific audience for Entra ID authentication
 
 When using Entra ID and the following Azure App Configuration libraries in clouds other than Azure cloud, Azure Government, and Microsoft Azure operated by 21Vianet, an appropriate Entra ID audience must be configured to enable authentication.
 
@@ -78,7 +78,7 @@ In the **Azure SDK for .NET**, audience is configured by utilizing the following
 
 The following code snippet demonstrates how to instantiate a configuration client with a cloud-specific audience.
 
-```
+```csharp
 var configurationClient = new ConfigurationClient(
     myStoreEndpoint,
     new DefaultAzureCredential(),
@@ -94,7 +94,7 @@ In the **.NET configuration provider**, audience is configured by utilizing the 
 
 The following code snippet demonstrates how to add the Azure App Configuration provider into a .NET application with a cloud-specific audience.
 
-```
+```csharp
 builder.AddAzureAppConfiguration(o =>
     {
         o.Connect(

@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/frontdoor/migrate-cdn-to-front-door.md",
+      "redirect_url": "/previous-versions/azure/frontdoor/migrate-cdn-to-front-door",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/synapse-analytics/data-explorer/data-explorer-compare.md",
       "redirect_url": "/previous-versions/azure/synapse-analytics/data-explorer/data-explorer-compare",
       "redirect_document_id": false

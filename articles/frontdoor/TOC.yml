@@ -175,8 +175,6 @@
       items:
       - name: Migrate CDN provider
         href: ../cdn/cdn-change-provider.md?toc=/azure/frontdoor/toc.json
-      - name: Custom domain
-        href: migrate-cdn-to-front-door.md
     - name: AFD/CDN Classic migration FAQ
       href: migration-faq.md
     - name: Post migration Dev-Ops experience
