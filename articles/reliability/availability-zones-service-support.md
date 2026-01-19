@@ -35,7 +35,7 @@ The following table lists zonal and zone-redundant Azure services. Some services
 | [Azure Bastion](./reliability-bastion.md#resilience-to-availability-zone-failures) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: |
 | [Azure Batch](./reliability-batch.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: ||
 | [Azure Blob Storage](./reliability-storage-blob.md#resilience-to-availability-zone-failures) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: ||
-| [Azure Cache for Redis](./migrate-cache-redis.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: |
+| [Azure Cache for Redis](../redis/migrate-cache-redis-zones.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: |
 | [Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery#high-availability) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: ||
 | [Azure Container Apps](reliability-azure-container-apps.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: ||
 | [Azure Container Instances](migrate-container-instances.md) || :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: |

@@ -103,6 +103,10 @@ items:
         items:
           - name: Microsoft Entra ID for authentication
             href: entra-for-authentication.md
+      - name: Reliability
+        items:
+          - name: Reliability in Azure Managed Redis
+            href: ../reliability/reliability-managed-redis.md?toc=/azure/redis/toc.json&bc=/azure/redis/breadcrumb/toc.json
       - name: Security and networking
         items:
           - name: Using TLS with a managed cache

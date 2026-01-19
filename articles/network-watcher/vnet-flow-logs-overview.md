@@ -251,6 +251,8 @@ Currently, these Azure services don't support virtual network flow logs:
 - If traffic analytics is enabled with virtual network flow logs, traffic analytics pricing applies at per gigabyte processing rates. Traffic analytics isn't offered with a free tier of pricing. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
 
 - Storage of logs is charged separately. For more information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+  
+- Virtual Network Flow Logs extend logging coverage beyond network security boundaries to include platform and application‑level traffic scenarios. This broader scope supports additional use cases and traffic patterns, which may result in higher log volumes compared to more narrowly scoped flow logging configurations.
 
 ## Supported scenarios
 

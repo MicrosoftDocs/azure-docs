@@ -10,13 +10,13 @@ ms.date: 09/12/2025
 
 # What's new in Azure VMware Solution
 
-Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-private-cloud-maintenance-best-practices.md#host-maintenance-and-lifecycle-management).
+Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-private-cloud-maintenance.md#host-maintenance-and-lifecycle-management).
 
 ## December 2025
 
 **Resource Health for Azure VMware Solution**
 
-Resource Health for Azure VMware Solution is now Generally Available! Resource Health, an Azure native feature, monitors the health of an Azure VMware Solution private cloud and suggests actions for existing issues. Setup Azure Monitor notifications on top of these alerts to notify stakeholders to remediate and ensure the private cloud is in a healthy and maintainable state. [Learn more](resource-health-for-azure-vmware-solution-overview.md)
+Resource Health for Azure VMware Solution is now Generally Available! Resource Health, an Azure native feature, monitors the health of an Azure VMware Solution private cloud and suggests actions for existing issues. Set up Azure Monitor notifications on top of these alerts to notify stakeholders to remediate and ensure the private cloud is in a healthy and maintainable state. [Learn more](resource-health-for-azure-vmware-solution-overview.md)
 
 ## November 2025
 

@@ -77,7 +77,7 @@ Updating `ZonalAllocationPolicy` to any other value than `Automatic` isn't suppo
 Learn more about:
 
 > [!div class="nextstepaction"]
-> [Azure services that support availability zones](availability-zones-service-support.md)
+> [Azure services that support availability zones](/azure/reliability/availability-zones-service-support)
 
 > [!div class="nextstepaction"]
-> [Azure regions that support availability zones](regions-list.md)
+> [Azure regions that support availability zones](/azure/reliability/regions-list)

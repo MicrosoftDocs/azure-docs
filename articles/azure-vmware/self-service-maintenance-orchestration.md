@@ -10,7 +10,7 @@ ms.custom: engagement-fy24
 # Customer intent: As a cloud administrator, I want to reschedule planned maintenance for my Azure VMware Solution, so that I can manage my resources effectively and minimize downtime during critical business periods.
 ---
 
-# Plan self-service maintenance for Azure VMware Solution (public preview)
+# Plan self-service maintenance for Azure VMware Solution
 
 In this article, you learn about how to use the self-service maintenance orchestration feature to schedule or reschedule planned maintenance directly from the Azure portal. For more information, see [Host maintenance and lifecycle management](architecture-private-clouds.md).
 
@@ -19,9 +19,10 @@ In this article, you learn about how to use the self-service maintenance orchest
 Before scheduling or rescheduling maintenance, ensure the following:
 
 - An Azure VMware Solution private cloud in place.
-- A subscription with Early Access and Self Serve for Maintenance features enabled, available under Preview Features in the Azure portal.
+- Contributor Level access is required to view and edit the information on Maintenance blade.
 
 ## Schedule maintenance
+
 To schedule maintenance, follow these steps:
 
 1.	Access the Maintenance pane by clicking the Schedule link in the banner. You see a list of upcoming maintenance events.
@@ -56,7 +57,9 @@ Once rescheduled, the system updates the schedule with the new date, visible in 
 
 ## Errors and restrictions
 The following system error or warning messages appear while trying to reschedule maintenance tasks:
-- You can schedule/reschedule maintenance only before the upgrade deadline and on freeze days.
+- Each maintenance event has an internal deadline. You can schedule/reschedule maintenance only before the maintenance deadline. Dates beyond this appear greyed out on the portal. To reschedule past this point, raise a support ticket. 
+
+- Critical maintenance or fixes for critical security vulnerabilities may have the reschedule option disabled.
 - You can reschedule maintenance up to 24 hours before the start of the maintenance.
-- Each maintenance task has an internal deadline. Dates beyond this appear greyed out on the portal. To reschedule past this point, raise a support ticket. Critical maintenance or fixes for critical security vulnerabilities may have the reschedule option disabled.
+
 - This feature is enabled only for specific maintenance activities. As a result, not all Azure VMware Solution maintenance tasks appear in this section or have the option to reschedule.

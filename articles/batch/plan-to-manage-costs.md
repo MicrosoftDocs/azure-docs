@@ -166,7 +166,7 @@ To determine VM utilization, you can log in to a node when running tasks to view
 
 Multiple task slots can be specified for a pool, so that the corresponding number of tasks can be run in parallel on each node. Pool task slots can be used to reduce the number of nodes used in a pool by choosing larger VM sizes and running multiple tasks in parallel on the node to ensure the node is well utilized. If nodes are underutilized, slots can be used to increase utilization. For example, for a single-threaded task application, one slot per core could be configured. It is also possible to have more slots than cores. This would be applicable if the application blocks significantly waiting for calls to external services to be returned, for one example.
 
-Setting [`taskSchedulingPolicy`](/rest/api/batchservice/pool/add#taskschedulingpolicy) to `pack` helps ensure VMs are utilized as much as possible, with scaling more easily able to remove nodes not running any tasks.
+Setting [`taskSchedulingPolicy`](/rest/api/batchservice/pools/create-pool#batchtaskschedulingpolicy) to `pack` helps ensure VMs are utilized as much as possible, with scaling more easily able to remove nodes not running any tasks.
 
 ### Use Azure Spot virtual machines
 

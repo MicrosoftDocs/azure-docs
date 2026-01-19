@@ -2,7 +2,7 @@
 title: Configure node endpoints in Azure Batch pool
 description: How to configure node endpoints such as access to SSH or RDP ports on compute nodes in an Azure Batch pool.
 ms.topic: how-to
-ms.date: 12/16/2024
+ms.date: 01/12/2026
 # Customer intent: As an IT administrator, I want to configure remote access endpoints for compute nodes in an Azure Batch pool, so that I can control external connectivity while ensuring security and compliance in my environment.
 ---
 
@@ -21,17 +21,17 @@ node in a Linux pool.
 
 In your environment, you might need to enable, restrict, or disable external access settings or any other ports you wish
 on the Batch pool. You can modify these settings by using the Batch APIs to set the
-[PoolEndpointConfiguration](/rest/api/batchservice/pool/add#poolendpointconfiguration) property.
+[PoolEndpointConfiguration](/rest/api/batchservice/pools/create-pool#batchpoolendpointconfiguration) property.
 
 ## Batch pool endpoint configuration
-The endpoint configuration consists of one or more [network address translation (NAT) pools](/rest/api/batchservice/pool/add#inboundnatpool)
+The endpoint configuration consists of one or more [network address translation (NAT) pools](/rest/api/batchservice/pools/create-pool#batchinboundnatpool)
 of frontend ports. Don't confuse a NAT pool with the Batch pool of compute nodes. You set up each NAT pool to override
 the default connection settings on the pool's compute nodes.
 
-Each NAT pool configuration includes one or more [network security group (NSG) rules](/rest/api/batchservice/pool/add#networksecuritygrouprule). Each NSG rule allows or denies certain network traffic to the endpoint. You can choose to allow or deny all traffic, traffic identified by a [service tag](../virtual-network/network-security-groups-overview.md#service-tags) (such as "Internet"), or traffic from specific IP addresses or subnets.
+Each NAT pool configuration includes one or more [network security group (NSG) rules](/rest/api/batchservice/pools/create-pool#networksecuritygrouprule). Each NSG rule allows or denies certain network traffic to the endpoint. You can choose to allow or deny all traffic, traffic identified by a [service tag](../virtual-network/network-security-groups-overview.md#service-tags) (such as "Internet"), or traffic from specific IP addresses or subnets.
 
 ### Considerations
-* The pool endpoint configuration is part of the pool's [network configuration](/rest/api/batchservice/pool/add#networkconfiguration). The network configuration can optionally include settings to join the pool to an [Azure virtual network](batch-virtual-network.md). If you set up the pool in a virtual network, you can create NSG rules that use address settings in the virtual network.
+* The pool endpoint configuration is part of the pool's [network configuration](/rest/api/batchservice/pools/create-pool#networkconfiguration). The network configuration can optionally include settings to join the pool to an [Azure virtual network](batch-virtual-network.md). If you set up the pool in a virtual network, you can create NSG rules that use address settings in the virtual network.
 * You can configure multiple NSG rules when you configure a NAT pool. The rules are checked in the order of priority. Once a rule applies, no more rules are tested for matching.
 
 ## Example: Allow RDP traffic from a specific IP address

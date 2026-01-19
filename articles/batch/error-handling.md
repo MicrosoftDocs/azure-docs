@@ -2,7 +2,7 @@
 title: Error handling and detection in Azure Batch
 description: Learn about error handling in Batch service workflows from a development standpoint.
 ms.topic: concept-article
-ms.date: 04/13/2023
+ms.date: 01/12/2026
 # Customer intent: "As a cloud developer, I want to understand error handling and detection in Batch service workflows, so that I can effectively troubleshoot and resolve application and task failures in my cloud-based solutions."
 ---
 
@@ -117,7 +117,7 @@ Reimaging a node reinstalls the operating system. Start tasks and job preparatio
 
 Removing the node from the pool is sometimes necessary. 
 
-- Batch REST API: [removenodes](/rest/api/batchservice/pool/remove-nodes)
+- Batch REST API: [removenodes](/rest/api/batchservice/pools/remove-nodes)
 - Batch .NET API: [PoolOperations](/dotnet/api/microsoft.azure.batch.pooloperations)
 
 ### Disable task scheduling on node
