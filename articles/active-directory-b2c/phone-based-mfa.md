@@ -7,7 +7,7 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 11/05/2025
+ms.date: 1/20/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 ms.custom: sfi-image-nochange
@@ -123,13 +123,18 @@ To help prevent fraudulent sign-ups, remove any country/region codes that do not
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-      xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="yourtenant.onmicrosoft.com" PolicyId="B2C_1A_signup_signin" PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_signup_signin">
+      xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
+      PolicySchemaVersion="0.3.0.0"
+      TenantId="yourtenant.onmicrosoft.com"
+      PolicyId="B2C_1A_signup_signin"
+      PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_signup_signin">
     
       <BasePolicy>
         <TenantId>yourtenant.onmicrosoft.com</TenantId>
         <PolicyId>B2C_1A_TrustFrameworkExtensions</PolicyId>
       </BasePolicy>
-    
+
+      <!-- Add this BuildingBlocks section to the relying party policy. -->
       <BuildingBlocks>
          <!-- Add the XML code outlined in Step 2 if this section. -->
       </BuildingBlocks>
@@ -141,6 +146,10 @@ To help prevent fraudulent sign-ups, remove any country/region codes that do not
     ```
 
 1. In the `BuildingBlocks` section of this policy file, add the following code. Make sure to include only the country/region codes relevant to your organization:
+
+  > [!IMPORTANT]
+  > This code must be added to the **relying party policy** to ensure the country/region code restrictions are properly enforced on the server side.
+  > Defining these elements only in the parent policies will not work, they **must be added to the relying party policy**.
 
    ```xml
     <BuildingBlocks>
@@ -178,8 +187,7 @@ To help prevent fraudulent sign-ups, remove any country/region codes that do not
    
     The countryList acts as an allow list. Only the countries/regions you specify in this list (for example, Japan, Bulgaria, and the United States) are permitted to use MFA. All other countries/regions are blocked.
 
-  > [!IMPORTANT]
-  > This code must be added to the relying party policy to ensure the country/region code restrictions are properly enforced on the server side. 
+
 
 ## Related content
 
