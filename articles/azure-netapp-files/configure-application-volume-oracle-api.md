@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 05/12/2025
+ms.date: 01/14/2026
 ms.author: anfdocs
 ms.custom:
   - build-2025
@@ -1116,9 +1116,9 @@ curl -X PUT -H "Authorization: Bearer $token" -H "Content-Type:application/json"
 }
 ```
 
-## <a name="replication"></a> Configure cross-region or cross-zone replication (preview)
+## <a name="replication"></a> Configure cross-region or cross-zone replication
 
-You can use [cross-zone or cross-region replication](replication.md) for disaster recovery for your application volume group. This example configures cross-zone replication. This feature is currently in _preview_. 
+You can use [cross-zone or cross-region replication](replication.md) for disaster recovery for your application volume group. This example configures cross-zone replication.
 
 >[!NOTE]
 >In this example, placeholders for `<CapacityPoolResourceId>`, `<SrcVolumeId>`, and `<SubnetId>` need to be replaced. 

@@ -31,7 +31,7 @@ Before you configure backup for Azure Database for PostgreSQL - Flexible Server,
   >[!Note]
   >Terraform only supports authenticating to Azure with the Azure CLI. Authenticating using Azure PowerShell isn't supported. Therefore, while you can use the Azure PowerShell module when doing your Terraform work, you first need to authenticate to Azure.
 
-## Implement the Terraform code
+## Implement the Terraform code for PostgreSQL Flexible Server backup configuration
 
 > [!NOTE]
 > See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform).
@@ -227,15 +227,15 @@ variable "retention_duration_in_months" {
 ```
 
 
-## Initialize Terraform
+## Initialize Terraform for PostgreSQL Flexible Server backup
 
 [!INCLUDE [terraform-init.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-init.md)]
 
-## Create a Terraform execution plan
+## Create a Terraform execution plan for PostgreSQL Flexible Server backup
 
 [!INCLUDE [terraform-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan.md)]
 
-## Apply a Terraform execution plan
+## Apply a Terraform execution plan for PostgreSQL Flexible Server backup
 
 [!INCLUDE [terraform-apply-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-apply-plan.md)]
 

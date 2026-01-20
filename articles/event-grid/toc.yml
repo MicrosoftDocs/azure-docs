@@ -431,6 +431,8 @@ items:
                         href: event-schema-resources.md
                       - name: Container Service Event Resources
                         href: event-schema-containerservice-resources.md
+                      - name: AKS resources
+                        href: event-schema-aks-resources.md
                   - name: Azure Service Bus
                     href: event-schema-service-bus.md
                   - name: Azure SignalR
@@ -622,6 +624,8 @@ items:
             href: subscribe-to-resource-notifications-resources-events.md
           - name: Subscribe to Azure Resource Notifications - Container Service events
             href: subscribe-to-resource-notifications-containerservice-events.md
+          - name: Subscribe to Azure Resource Notifications - AKS events
+            href: subscribe-to-resource-notifications-aks-resources-events.md
           - name: Track asynchronous REST operations
             href: ../azure-resource-manager/management/async-operations.md?toc=/azure/event-grid/toc.json
           - name: Relocate

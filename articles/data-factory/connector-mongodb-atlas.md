@@ -6,7 +6,7 @@ author: jianleishen
 ms.author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 09/20/2023
+ms.date: 12/25/2025
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -246,6 +246,28 @@ To achieve such schema-agnostic copy, skip the "structure" (also called *schema*
 ## Schema mapping
 
 To copy data from MongoDB Atlas to tabular sink or reversed, refer to [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping).
+
+## Data type mapping for MongoDB Atlas
+
+When copying data from MongoDB Atlas, the following mappings are used from MongoDB Atlas data types to interim data types used by the service internally. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
+
+| MongoDB Atlas data type | Interim service data type |
+| ------ | ------ |
+| Date | String |
+| ObjectId | String |
+| Decimal128 | String |
+| TimeStamp | The most significant 32 bits -> Int64<br>The least significant 32 bits -> Int64 |
+| String | String |
+| Double | String |
+| Int32 | String |
+| Int64 | String |
+| Boolean | Boolean |
+| Null | Null |
+| JavaScript | String |
+| Regular Expression | String |
+| Min key | Int64 |
+| Max key | Int64 |
+| Binary | String |
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

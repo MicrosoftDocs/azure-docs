@@ -2,19 +2,19 @@
 # Each line is a file pattern followed by one or more owners.
 
 # Folder paths in this list have been migrated to new repositories and content can no longer be created for these services in this repo.
-/articles/aks @tynevi @thomps23 @jasonwhowell
-/articles/defender-for-cloud  @tynevi @thomps23 @jasonwhowell
-/articles/attestation  @tynevi @thomps23 @jasonwhowell
-/articles/confidential-ledger  @tynevi @thomps23 @jasonwhowell
-/articles/dedicated-hsm  @tynevi @thomps23 @jasonwhowell
-/articles/key-vault  @tynevi @thomps23 @jasonwhowell
-/articles/payment-hsm  @tynevi @thomps23 @jasonwhowell
-/articles/postgresql @tynevi @thomps23 @jasonwhowell
-/articles/cosmos-db @tynevi @thomps23 @jasonwhowell
-/articles/dms @tynevi @thomps23 @jasonwhowell
-/articles/mariadb @tynevi @thomps23 @jasonwhowell
-/articles/mysql @tynevi @thomps23 @jasonwhowell
-/articles/managed-instance-apache-cassandra @tynevi @thomps23 @jasonwhowell
+/articles/aks @thomps23 @jasonwhowell
+/articles/defender-for-cloud @thomps23 @jasonwhowell
+/articles/attestation @thomps23 @jasonwhowell
+/articles/confidential-ledger @thomps23 @jasonwhowell
+/articles/dedicated-hsm @thomps23 @jasonwhowell
+/articles/key-vault @thomps23 @jasonwhowell
+/articles/payment-hsm @thomps23 @jasonwhowell
+/articles/postgresql @thomps23 @jasonwhowell
+/articles/cosmos-db @thomps23 @jasonwhowell
+/articles/dms @thomps23 @jasonwhowell
+/articles/mariadb @thomps23 @jasonwhowell
+/articles/mysql @thomps23 @jasonwhowell
+/articles/managed-instance-apache-cassandra @thomps23 @jasonwhowell
 /articles/virtual-machines @jasonwhowell @thomps23
 /articles/virtual-machines-scale-sets @jasonwhowell @thomps23
 /articles/container-instances @jasonwhowell @thomps23
@@ -37,3 +37,4 @@
 /articles/quotas @jasonwhowell @thomps23
 /articles/container-registry @jasonwhowell @thomps23
 /articles/kubernetes-fleet @MicrosoftDocs/azure-docs-codeowners
+/articles/reliability @thomps23

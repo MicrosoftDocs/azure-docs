@@ -6,7 +6,7 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 06/17/2024
+ms.date: 12/31/2025
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -494,6 +494,51 @@ WHERE s.name='[your schema]' AND t.name = '[your table name]'
 If the table has physical partition, you would see "HasPartition" as "yes" like the following.
 
 :::image type="content" source="./media/connector-azure-sql-database/sql-query-result.png" alt-text="Sql query result":::
+
+## Data type mapping for Amazon RDS for SQL Server
+
+When copying data from Amazon RDS for SQL Server, the following mappings are used from Amazon RDS for SQL Server data types to interim data types used by the service internally. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
+
+| Amazon RDS for SQL Server data type | Interim service data type |
+| ------ | ------ |
+| bigint | Int64 |
+| binary | Byte[] |
+| bit | Boolean |
+| char | String, Char[] |
+| date | DateTime |
+| Datetime | DateTime |
+| datetime2 | DateTime |
+| Datetimeoffset | DateTimeOffset |
+| Decimal | Decimal |
+| FILESTREAM attribute (varbinary(max)) | Byte[] |
+| Float | Double |
+| image | Byte[] |
+| int | Int32 |
+| money | Decimal |
+| nchar | String, Char[] |
+| ntext | String, Char[] |
+| numeric | Decimal |
+| nvarchar | String, Char[] |
+| real | Single |
+| rowversion | Byte[] |
+| smalldatetime | DateTime |
+| smallint | Int16 |
+| smallmoney | Decimal |
+| sql_variant | Object |
+| text | String, Char[] |
+| time | TimeSpan |
+| timestamp | Byte[] |
+| tinyint | Int16 |
+| uniqueidentifier | Guid |
+| varbinary | Byte[] |
+| varchar | String, Char[] |
+| xml | String |
+
+>[!NOTE]
+> For data types that map to the Decimal interim type, currently Copy activity supports precision up to 28. If you have data that requires precision larger than 28, consider converting to a string in a SQL query.  
+>
+> When copying data from Amazon RDS for SQL Server using Azure Data Factory, the bit data type is mapped to the Boolean interim data type. If you have data that need to be kept as the bit data type, use queries with [T-SQL CAST or CONVERT](/sql/t-sql/functions/cast-and-convert-transact-sql?view=sql-server-ver15&preserve-view=true). 
+
 
 ## Lookup activity properties
 

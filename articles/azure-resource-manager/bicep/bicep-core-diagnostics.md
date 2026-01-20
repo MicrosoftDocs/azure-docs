@@ -7,12 +7,14 @@ ms.custom:
   - devx-track-bicep
   - devx-track-arm-template
   - build-2025
-ms.date: 01/15/2026
+ms.date: 01/16/2026
 ---
 
 # Bicep core diagnostics
 
 If you need more information about a particular diagnostic code, select the **Feedback** button in the upper-right corner of the page and specify the code.
+
+You can suppress Bicep diagnostic codes by using the `disable-next-line` directive. See [`disable-next-line`](./file.md#disable-next-line).
 
 | Code       | Level | Description |
 |------------|-------|-------------|

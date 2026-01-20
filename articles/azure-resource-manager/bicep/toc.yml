@@ -260,19 +260,19 @@ items:
         displayName: any,supported types,arrays,booleans,integers,objects,strings,secure,interpolation
       - name: Parameters (param)
         href: parameters.md
-        displayName: decorators,secure,objects,constraints
+        displayName: decorator,secure,objects,constraints
       - name: Variables (var)
         href: variables.md
-        displayName: configuration
+        displayName: decorator,configuration
       - name: Resources (resource)
-        displayName: batchsize,onlyifnotexists,description,decorators
+        displayName: batchsize,onlyifnotexists,description,decorator
         href: resource-declaration.md
       - name: Outputs (output)
         href: outputs.md
-        displayName: dynamic number of outputs,modules
+        displayName: decorator,dynamic number of outputs,modules
       - name: Modules (module)
         href: modules.md
-        displayName: scopes,consume,registry,module registry,private module registry,public module registry,avm,azure verified modules
+        displayName: decorator,scopes,consume,registry,module registry,private module registry,public module registry,avm,azure verified modules
       - name: Using (using/using none)
         href: bicep-using.md
         displayName: avm,azure verified modules,using none
@@ -280,10 +280,10 @@ items:
         href: bicep-import.md
       - name: User-defined data types (type)
         href: user-defined-data-types.md
-        displayName: custom,resourceInput,resourceOutput,resource-derived types
+        displayName: decorator,custom,resourceInput,resourceOutput,resource-derived types
       - name: User-defined functions (func)
         href: user-defined-functions.md
-        displayName: custom
+        displayName: custom,decorator
       - name: Existing resources (existing)
         href: existing-resource.md
       - name: Child resources (parent)
