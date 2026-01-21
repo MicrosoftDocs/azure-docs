@@ -4,7 +4,7 @@ titleSuffix: Microsoft Security
 description: Learn how to use Microsoft Sentinel's Model Context Protocol (MCP) collection of security tools or your own custom tool in Microsoft Foundry 
 author: poliveria
 ms.topic: how-to
-ms.date: 11/24/2025
+ms.date: 01/21/2026
 ms.author: pauloliveria
 ms.service: microsoft-sentinel
 
@@ -109,7 +109,7 @@ Custom tools let you build deterministic workflows by prescribing exactly what d
     - **Authentication:** OAuth Identity Passthrough
     - **Client ID:** Use the **Application (client) ID** value you saved previously
     - **Client secret:** Use the secret value you saved previously
-    - **Token URL:** Use the following format and replace `<tenant ID>` with the **Directory (tenant) ID** value you saved previously:
+    - **Token URL** and **Refresh URL:** Use the following format and replace `<tenant ID>` with the **Directory (tenant) ID** value you saved previously:
         ```
         https://login.microsoftonline.com/<tenant ID>/oauth2/v2.0/token
         ```

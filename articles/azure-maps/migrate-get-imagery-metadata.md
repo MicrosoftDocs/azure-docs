@@ -66,7 +66,7 @@ http://dev.virtualearth.net/REST/V1/Imagery/Metadata/road/37.770864,-122.467217?
 Azure Maps _Get Map Tile_ API request:
 
 ``` http
-https://atlas.microsoft.com/map/tile?api-version=2022-08-01&tilesetId=microsoft.base.&zoom=15&x=5236&y=12665&tileSize=256&subscription-key={Your-Azure-Maps-Subscription-key}
+https://atlas.microsoft.com/map/tile?api-version=2022-08-01&tilesetId=microsoft.base&zoom=15&x=5236&y=12665&tileSize=256&subscription-key={Your-Azure-Maps-Subscription-key}
 ```
 
 ## Response fields

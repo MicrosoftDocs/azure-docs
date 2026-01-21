@@ -29,7 +29,7 @@ Each profile type determines how your apps scale, the level of resource isolatio
 
 - **Dedicated profiles** run on reserved compute resources in your own dedicated pool. You select the size and type of virtual machine, deploy multiple apps per profile, and pay per-profile instance. Dedicated profiles can be more cost-effective for steady workloads and support general purpose, memory-optimized, and GPU use cases.
 
-- **Flexible profile** (preview) blends the billing and setup simplicity of the *Consumption* profile with many of the performance characteristics of the Dedicated profiles. Flexible profiles are billed like a Consumption profile plus the dedicated management fee, run in a single‑tenant compute pool, offer planned maintenance windows, and dedicated networking and access to larger replica sizes. Flexible profiles require a subnet of at least `/25`.
+- **Flexible profile** (preview) blends the billing and setup simplicity of the *Consumption* profile with many of the performance characteristics of the Dedicated profiles. Flexible profiles are billed like a Consumption profile plus the dedicated management fee, run in a single‑tenant compute pool, offer planned maintenance windows, and dedicated networking and access to larger replica sizes. Flexible profiles require a subnet of at least `/25`. Apps running on the Flexible profile are not able to scale to zero.
 
 Each Container Apps environment includes a default Consumption profile. You can add Dedicated or Consumption GPU profiles and, when available, Flexible profiles to meet your application's needs.
 

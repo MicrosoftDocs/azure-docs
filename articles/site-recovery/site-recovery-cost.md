@@ -1,9 +1,10 @@
 ---
 title: Understanding Azure Site Recovery for Managed Disks Charges
+ms.reviewer: v-gajeronika
 description: This article summarizes the costs disaster recovery and migration deployment scenarios.
 ms.topic: overview
 ms.service: azure-site-recovery
-ms.date: 08/29/2025
+ms.date: 11/28/2025
 ms.author: v-gajeronika
 author: Jeronika-MS
 # Customer intent: As a cloud architect, I want to analyze the cost components of Azure Site Recovery for managed disks, so that I can effectively budget for disaster recovery and optimize overall expenses.
@@ -18,7 +19,7 @@ You can use this [pricing calculator](https://aka.ms/asr_a2a_calculator) to simu
 > [!NOTE]
 > This calculator gives an estimate of Site Recovery usage costs. It shouldn't be taken as the final cost. If you have any issues or feedback, contact askasr@microsoft.com.
 
-## Protected Instance License fee
+## Protected Instance License fee 
 
 The Protected Instance License fee is a fundamental charge for using Azure Site Recovery. This license is billed per protected instance, where an instance refers to either a virtual machine or a physical server. The fee is a fixed cost and applies uniformly across different types of instances.
 

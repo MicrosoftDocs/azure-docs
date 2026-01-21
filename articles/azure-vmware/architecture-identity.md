@@ -230,7 +230,7 @@ Now that you've covered Azure VMware Solution access and identity concepts, you 
 
 - [Details of each privilege](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-security-8-0/defined-privileges.html)
 
-- [How Azure VMware Solution monitors and repairs private clouds](azure-vmware-solution-private-cloud-maintenance-best-practices.md#host-monitoring-and-remediation)
+- [How Azure VMware Solution monitors and repairs private clouds](azure-vmware-solution-private-cloud-maintenance.md#host-monitoring-and-remediation)
 
 <!-- LINKS - external-->
 [VMware product documentation]: https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-security-8-0/defined-privileges.html

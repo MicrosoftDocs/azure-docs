@@ -5,7 +5,7 @@ author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.author: v-gajeronika
-ms.date: 04/26/2025
+ms.date: 12/18/2025
 # Customer intent: "As a VMware administrator, I want to utilize the Azure Site Recovery Deployment Planner, so that I can accurately assess bandwidth and storage requirements for disaster recovery to Azure and optimize my virtual machine replication process."
 ---
 

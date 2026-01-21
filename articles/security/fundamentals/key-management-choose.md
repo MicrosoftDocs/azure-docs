@@ -59,7 +59,7 @@ Use the table to compare all the solutions side by side. Begin from top to botto
 | What is your **budget**? | $ | $$ | $$$ | $$$ | $$$$ |
 | Who takes responsibility for **patching and maintenance**? | Microsoft | Microsoft | Microsoft | Microsoft | Customer |
 | Who takes responsibility for **service health and hardware failover**? | Microsoft | Microsoft | Shared | Microsoft | Customer |
-| What kind of **objects** are you using? | Asym Keys, Secrets, Certs | Asym Keys, Secrets, Certs | Asym/Sym Keys | Asym/Sym Keys | Local Master Key |
+| What kind of **objects** are you using? | Asym Keys, Secrets, Certs | Asym Keys, Secrets, Certs | Asym/Sym Keys | Asym/Sym Keys, Certs | Local Master Key |
 | **Root of trust control** | Microsoft | Microsoft | Customer | Customer | Customer |
 
 ## Common key management solution uses by industry segments

@@ -52,7 +52,6 @@ The following table provides links to reliability guidance for Azure services. E
 |Azure Batch| [Reliability in Batch](reliability-batch.md)||
 |Azure Blob Storage| [Reliability in Blob Storage](reliability-storage-blob.md) ||
 |Azure Bot Service | [Reliability in Bot Service](reliability-bot.md)||
-|Azure Cache for Redis||[Enable zone redundancy for Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-zone-redundancy.md) </p> [Configure passive geo-replication for Premium Azure Cache for Redis instances](../azure-cache-for-redis/cache-how-to-geo-replication.md) |
 |Azure Chaos Studio| [Reliability in Chaos Studio](reliability-chaos-studio.md)||
 |Azure Communications Gateway | | [Reliability in Azure Communications Gateway](../communications-gateway/reliability-communications-gateway.md)|
 |Azure Container Apps| [Reliability in Container Apps](reliability-azure-container-apps.md)||

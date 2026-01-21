@@ -75,7 +75,7 @@ Currently, you're limited to 25 task hubs when using the Dedicated SKU. For more
 
 You have an orchestration with 5 activities, plus error handling, and averaging 12 actions per orchestration (orchestrator and activity invocations). Let's calculate running 20 million orchestrations per month.
 
-|   | Calculation | Result |
+| Activity | Calculation | Result |
 | - | ----------- | ------ |
 | Monthly actions | 20,000,000 × 12 | 240,000,000 actions |
 | Actions per second | 240,000,000 ÷ 2,628,000 (seconds in a month) | ≈ 91 actions/second |
@@ -85,7 +85,7 @@ You have an orchestration with 5 activities, plus error handling, and averaging 
 
 A large enterprise runs 500 million complex orchestrations monthly, with an average of 15 actions per orchestration (multiple activities with orchestrator coordination). 
 
-|   | Calculation | Result |
+| Activity | Calculation | Result |
 | - | ----------- | ------ |
 | Monthly actions | 500 million × 13 | 6.5 billion actions |
 | Actions per second | 6.5 billion ÷ 2,628,000 | ≈ 2,473 actions/second |
@@ -95,7 +95,7 @@ A large enterprise runs 500 million complex orchestrations monthly, with an aver
 
 A Software as a Service (SaaS) platform supports 800 million orchestrations monthly, each with an average of 15 actions (user interactions, background processing, and external API calls).
 
-|   | Calculation | Result |
+| Activity | Calculation | Result |
 | - | ----------- | ------ |
 | Monthly actions | 800 million × 15 | 12 billion actions |
 | Actions per second | 12 billion ÷ 2,628,000  | ≈ 4,571 actions/second |
@@ -122,7 +122,7 @@ Currently, you're limited to 5 task hubs when using the Consumption SKU.  For mo
 
 A development team is testing simple orchestrations, each with three actions (using [the "Hello City" pattern](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/quickstarts/durable-functions/dotnet/HelloCities)), and runs 10,000 orchestrations per month.
 
-|   | Calculation | Result |
+| Activity | Calculation | Result |
 | - | ----------- | ------ |
 | Monthly actions | 10,000 × 3 | 30,000 actions |
 | Cost | 30,000 × $0.003 | **$90/month** |
@@ -131,7 +131,7 @@ A development team is testing simple orchestrations, each with three actions (us
 
 An e-commerce application experiences dynamic workload scaling during promotional sales events, especially on weekends. It uses an orchestration comprising seven total actions, which executes approximately 20,000 times per month.
 
-|   | Calculation | Result |
+| Activity | Calculation | Result |
 | - | ----------- | ------ |
 | Monthly actions | 20,000  × 7 | 140,000 actions |
 | Cost | 140,000 × $0.003 | **$420/month** |

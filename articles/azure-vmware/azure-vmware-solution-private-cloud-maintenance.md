@@ -1,15 +1,15 @@
 ---
-title: Azure VMware Solution - private cloud maintenance best practices
-description: Understand the best practices and recommendations to maintain Azure VMware Solution private cloud
+title: Azure VMware Solution - private cloud maintenance
+description: Ensuring seamless, reliably maintaintenance of Azure VMware Solution private cloud
 ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 03/25/2025
-# Customer intent: "As an IT administrator managing Azure VMware Solution, I want to follow best practices for private cloud maintenance and monitoring, so that I can ensure optimal performance and minimize downtime during updates."
+# Customer intent: "As an IT administrator managing Azure VMware Solution, I want to ensure optimal performance and minimize downtime during updates."
 ---
 
-# Azure VMware Solution private cloud maintenance best practices
+# Azure VMware Solution private cloud maintenance
 
-Azure VMware Solution undertakes periodic maintenance of the private cloud. This maintenance includes security patches, minor and major updates to VMware software stack. This page describes the host monitoring, remediation, and recommended best practices that help keep the private cloud ready for maintenance.
+Azure VMware Solution undertakes periodic maintenance of the private cloud. This maintenance includes security patches, minor and major updates to VMware software stack. This page describes the host monitoring, remediation, and mandatory steps that keep the private cloud ready for maintenance.
 
 ## Host maintenance and lifecycle management
 
@@ -41,8 +41,8 @@ Azure VMware Solution monitors the following conditions on the host:
 - Storage status
 - Connection failure
 
-## Maintenance Operations Best Practices
-The following actions are always recommended for ensuring host maintenance operations are carried out successfully:
+## Actions to ensure private cloud is maintenance-ready
+The following actions are necessary for ensuring host maintenance operations are carried out successfully:
 - **vSAN storage utilization:** To maintain Service Level Agreement (SLA), ensure that your vSphere cluster's storage space utilization remains below 75%. If the utilization exceeds 75%, upgrades may take longer than expected or fail entirely. If your storage utilization exceeds 75%, consider adding a node to expand the cluster and prevent potential downtime during upgrades.
 - **Distributed Resource Scheduler (DRS) rules:** DRS VM-VM anti-affinity rules must be configured in a way to have at least (N+1) hosts in the cluster, where N is the number of VMs part of DRS rule.
 - **Failures To Tolerate (FTT) violation:** To prevent data loss, change VMs configured with a vSAN storage policy for Failures to Tolerate (FTT) of 0 to a vSAN storage policy compliant with [Microsoft SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) (FTT=1 for up to five hosts in a cluster and FTT=2 for six or more hosts in a cluster) and ensure host maintenance operations can carried out seamlessly.
@@ -81,7 +81,7 @@ The following actions are always recommended for ensuring host maintenance opera
 
 ## Next steps
 
-Now that you've covered Azure VMware Solution private cloud maintenance best practices, you might want to learn about:
+Now that you've learnt how to ensure seamless Azure VMware Solution private cloud maintenance, you might want to learn about:
 
 - [How to configure Resource Health alerts for Azure VMware Solution](configure-azure-monitor-for-resource-health-for-azure-vmware-solution.md)
 - [Azure VMware Solution networking and interconnectivity concepts](architecture-networking.md)

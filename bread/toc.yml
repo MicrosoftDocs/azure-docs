@@ -425,6 +425,9 @@ items:
     - name: Kubernetes
       tocHref: /azure/container-service/kubernetes/
       topicHref: /azure/container-service/kubernetes/
+  - name: Container Apps
+    tocHref: /azure/container-apps/
+    topicHref: /azure/container-apps/
   - name: CycleCloud
     tocHref: /azure/cyclecloud/
     topicHref: /azure/cyclecloud/index/
@@ -817,6 +820,9 @@ items:
   - name: SQL Server Stretch Database
     tocHref: /azure/sql-server-stretch-database/
     topicHref: /azure/sql-server-stretch-database/
+  - name: SRE Agent
+    tocHref: /azure/sre-agent/
+    topicHref: /azure/sre-agent/
   - name: Storage
     tocHref: /azure/storage/
     topicHref: /azure/storage/

@@ -1,11 +1,11 @@
 ---
 title: Disaster recovery for Azure Data Share
 description: Disaster recovery for Azure Data Share
-author: sidontha
-ms.author: sidontha
+author: chvukosw
+ms.author: chvukosw
 ms.service: azure-data-share
 ms.topic: how-to
-ms.date: 02/12/2025
+ms.date: 01/20/2026
 ---
 # Disaster recovery for Azure Data Share
 
@@ -19,7 +19,7 @@ Data providers can create secondary Azure Data Share resources in another region
 
 If the data consumers have active share subscriptions in a secondary environment provisioned for DR purposes, they can enable snapshot schedule as part of failover. If the data consumers don't want to subscribe to a secondary region for DR purposes, they can be invited into the secondary share at a later time.
 
-Data consumers can either have an active share subscription that is idle for DR purposes, or data providers can invite them at a later time as part of manual failover procedures.
+Data consumers can either have an active share subscription that's idle for DR purposes, or data providers can invite them at a later time as part of manual failover procedures.
 
 ## Related content
 

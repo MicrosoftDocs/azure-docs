@@ -2,7 +2,7 @@
 title: Deploy application packages to compute nodes
 description: Learn how to use the application packages feature of Azure Batch to easily manage multiple applications and versions for installation on Batch compute nodes.
 ms.topic: how-to
-ms.date: 04/25/2025
+ms.date: 01/12/2026
 ms.devlang: csharp
 ms.custom: H1Hack27Feb2017, devx-track-csharp
 # Customer intent: As a developer, I want to manage application packages in Azure Batch, so that I can deploy multiple application versions to compute nodes efficiently and simplify my deployment process.
@@ -293,5 +293,5 @@ foreach (ApplicationSummary app in applications)
 
 ## Next steps
 
-- The [Batch REST API](/rest/api/batchservice) also provides support to work with application packages. For example, see the [applicationPackageReferences](/rest/api/batchservice/pool/add#applicationpackagereference) element for how to specify packages to install, and [Applications](/rest/api/batchservice/application) for how to obtain application information.
+- The [Batch REST API](/rest/api/batchservice) also provides support to work with application packages. For example, see the [applicationPackageReferences](/rest/api/batchservice/pools/create-pool#batchapplicationpackagereference) element for how to specify packages to install, and [Applications](/rest/api/batchservice/application) for how to obtain application information.
 - Learn how to programmatically [manage Azure Batch accounts and quotas with Batch Management .NET](batch-management-dotnet.md). The [Batch Management .NET](batch-management-dotnet.md#create-and-delete-batch-accounts) library can enable account creation and deletion features for your Batch application or service.

@@ -16,6 +16,31 @@ The DHCP information model is used to describe events reported by a DHCP server,
 
 For more information, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
 
+## Parsers
+
+For more information about ASIM parsers, see the [ASIM parsers overview](normalization-parsers-overview.md).
+
+### Filtering parser parameters
+
+The DHCP parsers support [filtering parameters](normalization-about-parsers.md#optimizing-parsing-using-parameters). While these parameters are optional, they can improve your query performance.
+
+The following filtering parameters are available:
+
+| Name     | Type      | Description |
+|----------|-----------|-------------|
+| **starttime** | datetime | Filter only DHCP events that occurred at or after this time. This parameter filters on the `TimeGenerated` field, which is the standard designator for the time of the event, regardless of the parser-specific mapping of the EventStartTime and EventEndTime fields. |
+| **endtime** | datetime | Filter only DHCP events that occurred at or before this time. This parameter filters on the `TimeGenerated` field, which is the standard designator for the time of the event, regardless of the parser-specific mapping of the EventStartTime and EventEndTime fields. |
+| **srcipaddr_has_any_prefix** | dynamic | Filter only DHCP events where the source IP address prefix matches any of the listed values. Prefixes should end with a `.`, for example: `10.0.`. |
+| **srchostname_has_any** | dynamic | Filter only DHCP events where the source hostname has any of the listed values. |
+| **srcusername_has_any** | dynamic | Filter only DHCP events where the source username has any of the listed values. |
+| **eventresult** | string | Filter only DHCP events with a specific event result. Use `*` to include all results. |
+
+For example, to filter only DHCP events from a specific IP address range in the last day, use:
+
+```kusto
+_Im_DhcpEvent (srcipaddr_has_any_prefix=dynamic(['10.0.']), starttime = ago(1d), endtime=now())
+```
+
 ## Schema overview
 
 The ASIM DHCP schema represents DHCP server activity, including serving requests for DHCP IP address leased from client systems and updating a DNS server with the leases granted.

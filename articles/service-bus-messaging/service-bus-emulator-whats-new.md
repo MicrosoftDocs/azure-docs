@@ -18,9 +18,16 @@ This article provides a detailed overview of the enhancements introduced in the 
 >
 > Kindly report any problems or suggestions in the emulator's [GitHub installer repository](https://github.com/Azure/azure-service-bus-emulator-installer/issues).
 
-## Latest version ``1.1.2``
+## Latest version ``2.0.0``
 
-> *Released March 11th, 2025*
+> *Released January 16th, 2026*
+
+- Provides native .NET Administration Client support in the Service Bus emulator  
+
+## Previous releases
+
+
+### ``1.1.2`` (11th March,2025)
 
 This release introduces new features, bug fixes for Service Bus emulator. The details are as follows:
 
@@ -30,7 +37,6 @@ This release introduces new features, bug fixes for Service Bus emulator. The de
 - Added support for updating LockDuration to a minimum of 5 seconds.
 - Other bug fixes.
 
-## Previous releases
 
 ### ``1.0.1`` (19th November,2024)
 

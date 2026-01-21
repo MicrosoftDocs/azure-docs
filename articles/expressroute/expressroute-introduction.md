@@ -30,7 +30,7 @@ Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethern
 * Dynamic routing between your network and Microsoft via BGP.
 * Built-in redundancy in every peering location for higher reliability.
 * Connection uptime [SLA](https://azure.microsoft.com/support/legal/sla/).
-* QoS support for Skype for Business.
+* QoS support for Microsoft Teams.
 
 For more information, see the [ExpressRoute FAQ](expressroute-faqs.md).
 

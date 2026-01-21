@@ -31,6 +31,31 @@ Some activities, such as **UserCreated**, **GroupCreated**, **UserModified**, an
 - [PreviousPropertyValue](#previouspropertyvalue) - the previous value of the property.
 - [NewPropertyValue](#newpropertyvalue) - the updated value of the property.
 
+## Parsers
+
+For more information about ASIM parsers, see the [ASIM parsers overview](normalization-parsers-overview.md).
+
+### Filtering parser parameters
+
+The User Management parsers support [filtering parameters](normalization-about-parsers.md#optimizing-parsing-using-parameters). While these parameters are optional, they can improve your query performance.
+
+The following filtering parameters are available:
+
+| Name     | Type      | Description |
+|----------|-----------|-------------|
+| **starttime** | datetime | Filter only user management events that occurred at or after this time. This parameter filters on the `TimeGenerated` field, which is the standard designator for the time of the event, regardless of the parser-specific mapping of the EventStartTime and EventEndTime fields. |
+| **endtime** | datetime | Filter only user management events that occurred at or before this time. This parameter filters on the `TimeGenerated` field, which is the standard designator for the time of the event, regardless of the parser-specific mapping of the EventStartTime and EventEndTime fields. |
+| **srcipaddr_has_any_prefix** | dynamic | Filter only user management events where the source IP address prefix matches any of the listed values. Prefixes should end with a `.`, for example: `10.0.`. |
+| **targetusername_has_any** | dynamic | Filter only user management events where the target username has any of the listed values. |
+| **actorusername_has_any** | dynamic | Filter only user management events where the actor username has any of the listed values. |
+| **eventtype_in** | dynamic | Filter only user management events where the event type is one of the listed values, such as `UserCreated`, `UserDeleted`, `UserModified`, `PasswordChanged`, or `GroupCreated`. |
+
+For example, to filter only user creation events from the last day, use:
+
+```kusto
+_Im_UserManagement (eventtype_in=dynamic(['UserCreated']), starttime = ago(1d), endtime=now())
+```
+
 ## Schema details
 
 ### Common ASIM fields

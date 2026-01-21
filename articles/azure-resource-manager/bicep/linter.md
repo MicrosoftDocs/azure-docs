@@ -3,7 +3,7 @@ title: Use Bicep linter
 description: Learn how to use Bicep linter.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 12/22/2025
+ms.date: 01/16/2026
 ---
 
 # Use Bicep linter
@@ -92,19 +92,18 @@ You can integrate these checks as a part of your CI/CD pipelines. You can use a 
 
 ## Silencing false positives
 
-Sometimes a rule can have false positives. For example, you might need to include a link to a blob storage directly without using the [environment()](./bicep-functions-deployment.md#environment) function.
-In this case you can disable the warning for one line only, not the entire document, by adding `#disable-next-line <rule name>` before the line with the warning.
+Sometimes a rule has false positives. For example, you might need to include a link to a blob storage directly without using the [environment()](./bicep-functions-deployment.md#environment) function.
+
+In this case, you can disable the warning for one line only, not the entire document, by adding the `#disable-next-line` directive before the line with the warning.
 
 ```bicep
 #disable-next-line no-hardcoded-env-urls //Direct download link to my toolset
 scriptDownloadUrl: 'https://mytools.blob.core.windows.net/...'
 ```
 
-Multiple codes may be listed, separated by spaces.
+For more information about using directives in Bicep, see [Directives](./file.md#directives).
 
-It's good practice to add a comment explaining why the rule doesn't apply to this line.
-
-If you want to suppress a linter rule, you can change the level of the rule to `Off` in [bicepconfig.json](./bicep-config-linter.md). For example, in the following example, the `no-deployments-resources` rule is suppressed:
+If you want to suppress a linter rule, change the level of the rule to `Off` in [bicepconfig.json](./bicep-config-linter.md). In the following example, the `no-deployments-resources` rule is suppressed:
 
 ```json
 {

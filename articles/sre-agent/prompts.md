@@ -111,6 +111,9 @@ Here are some prompts that you can use to help you interact with your agent:
 
 ## Azure Kubernetes Service
 
+> [!NOTE]
+> If your AKS cluster restricts inbound network access, SRE Agent will not be able to access Kubernetes objects in the cluster, such as namespaces and pods.
+
 ### Resource discovery
 
 - Which node pools are configured for my AKS cluster?

@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /azure
+  topicHref: /azure/index
+  items:
+  - name: Redis
+    tocHref: /azure/redis/
+    topicHref: /azure/redis/index
+    items:
+    - name: Redis
+      tocHref: /azure/reliability/
+      topicHref: /azure/redis/index/

@@ -6,6 +6,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/sap/automation/integration-sap-cloud-application-library.md",
+      "redirect_url": "/azure/sap/automation/deployment-framework",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/sap/large-instances/hana-overview-architecture.md",
       "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
       "redirect_document_id": false

@@ -182,7 +182,7 @@ When you enable active geo-replication, you are billed for each Azure Managed Re
 
 - **Disable geo-replication on a cache instance**: Remove an instance from a geo-replication group by deleting the cache instance. The remaining instances automatically reconfigure themselves.
 
-### Capacity planning and management
+#### Capacity planning and management
 
 During a region-down event, the other instances might be under higher pressure. If an instance is often already under resource pressure and you need to prepare for the increased capacity requirements during a region failure, consider [overprovisioning the instance](/azure/reliability/concept-redundancy-replication-backup#manage-capacity-with-over-provisioning). To learn how to scale an instance, see [Scale an Azure Managed Redis instance](../redis/how-to-scale.md).
 

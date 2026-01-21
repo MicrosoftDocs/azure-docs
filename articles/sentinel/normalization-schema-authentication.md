@@ -48,8 +48,8 @@ The following filtering parameters are available:
 
 | Name     | Type      | Description |
 |----------|-----------|-------------|
-| **starttime** | datetime | Filter only authentication events that ran at or after this time. |
-| **endtime** | datetime | Filter only authentication events that finished running at or before this time. |
+| **starttime** | datetime | Filter only authentication events that ran at or after this time. This parameter filters on the `TimeGenerated` field, which is the standard designator for the time of the event, regardless of the parser-specific mapping of the EventStartTime and EventEndTime fields. |
+| **endtime** | datetime | Filter only authentication events that finished running at or before this time. This parameter filters on the `TimeGenerated` field, which is the standard designator for the time of the event, regardless of the parser-specific mapping of the EventStartTime and EventEndTime fields. |
 | **targetusername_has** | string | Filter only authentication events that have any of the listed user names. |
 
 
@@ -130,7 +130,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 
 | Field          | Class        | Type       | Description   |
 |---------------|--------------|------------|-----------------|
-|**LogonMethod** |Optional |String |The method used to perform authentication. <br><br>Examples: `Username & Password`, `PKI` |
+|**LogonMethod** |Optional |String |The method used to perform authentication. Allowed values include: `Managed Identity`, `Service Principal`, `Username & Password`, `Multi factor authentication`, `Passwordless`, `PKI`, `PAM`, and `Other`. <br><br>Examples: `Managed Identity` |
 |**LogonProtocol** |Optional |String |The protocol used to perform authentication. <br><br>Example: `NTLM` |
 
 

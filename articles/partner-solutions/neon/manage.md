@@ -8,6 +8,9 @@ ms.date: 05/06/2025
 
 # Manage your Neon integration through the Azure portal
 
+> [!Important]
+> Deprecation Note: The Neon Azure Native Integration is being deprecated and will reach end of life on January 31, 2026. Transfer your projects to a Neon managed organization today, see [Migrate from Neon Azure Native Integration](https://neon.com/docs/import/migrate-from-azure-native).
+
 This article describes how to manage a Neon resource in the Azure portal.
 
 ## Resource overview

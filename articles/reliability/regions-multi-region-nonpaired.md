@@ -28,10 +28,6 @@ To learn about how to create multi-region solutions by using Azure API Managemen
 
 To learn about how to create multi-region solutions by using Azure App Service, see [Reliability in App Service](./reliability-app-service.md).
 
-## Azure Cache for Redis
-
-Azure Cache for Redis provides two distinct cross-region replication options: [active geo-replication](/azure/azure-cache-for-redis/cache-how-to-active-geo-replication) and [passive geo-replication](/azure/azure-cache-for-redis/cache-how-to-geo-replication). Neither option explicitly depends on region pairs.
-
 ## Azure Container Registry
 
 To learn about how to create multi-region solutions by using Azure Container Registry, see [Reliability in Container Registry](./reliability-container-registry.md).
