@@ -46,8 +46,8 @@ The following filtering parameters are available:
 
 | Name     | Type      | Description |
 |----------|-----------|-------------|
-| **starttime** | datetime | Filter only process events occurred at or after this time. |
-| **endtime** | datetime | Filter only process events queries that occurred at or before this time. |
+| **starttime** | datetime | Filter only process events occurred at or after this time. This parameter filters on the `TimeGenerated` field, which is the standard designator for the time of the event, regardless of the parser-specific mapping of the EventStartTime and EventEndTime fields. |
+| **endtime** | datetime | Filter only process events queries that occurred at or before this time. This parameter filters on the `TimeGenerated` field, which is the standard designator for the time of the event, regardless of the parser-specific mapping of the EventStartTime and EventEndTime fields. |
 | **commandline_has_any** | dynamic | Filter only process events for which the command line executed has **any** of the listed values. The length of the list is limited to 10,000 items. |
 | **commandline_has_all**| dynamic | Filter only process events for which the command line executed has **all** of the listed values. The length of the list is limited to 10,000 items.
 | **commandline_has_any_ip_prefix** | dynamic | Filter only process events for which the command line executed has **all** of the listed IP addresses or IP address prefixes. Prefixes should end with a `.`, for example: `10.0.`. The length of the list is limited to 10,000 items.  |

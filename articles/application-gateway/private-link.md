@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 06/06/2023
+ms.date: 01/21/2026
 ms.author: mbender
 
 # Customer intent: "As a network administrator, I want to implement Private Link for Application Gateway, so that I can securely connect my workloads over a private network while maintaining the benefits of Layer 7 load balancing."
@@ -52,6 +52,16 @@ Four components are required to implement Private Link with Application Gateway:
 - Private Endpoint Connection
 
    A connection on Application Gateway originated by Private Endpoints. You can autoapprove, manually approve, or reject connections to grant or deny access.
+
+## Pricing
+
+| Component | Service Provider/Private Link (Application Gateway resource owner)  | Consumer/Private Endpoint | 
+| ---------- | ---------- | ---------- |
+| **Private link service** | No charges | Not applicable | 
+| **Private endpoint** | Not applicable | [Billed as per Private Link](https://azure.microsoft.com/pricing/details/private-link/#pricing) | 
+| **Data processing (Bi-directional)** | No charges | [Billed as per Private Link](https://azure.microsoft.com/pricing/details/private-link/#pricing) | 
+| **Data transfers** | [Billed as per Bandwidth](https://azure.microsoft.com/pricing/details/bandwidth/#pricing) | [Billed as per Bandwidth](https://azure.microsoft.com/pricing/details/bandwidth/#pricing) | 
+
 
 ## Limitations
 - API version 2020-03-01 or later should be used to configure Private Link configurations.

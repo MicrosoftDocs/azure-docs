@@ -115,6 +115,10 @@
         href: packet-capture-inspect.md
       - name: Proactive network monitoring with Azure Functions
         href: packet-capture-alert-triggered.md
+      - name: Perform intrusion detection using open source tools
+        href: /previous-versions/azure/network-watcher/network-watcher-intrusion-detection-open-source-tools?toc=/azure/network-watcher/toc.json
+      - name: Visualize network traffic patterns using open source tools
+        href: /previous-versions/azure/network-watcher/network-watcher-using-open-source-tools?toc=/azure/network-watcher/toc.json
   - name: Connection troubleshoot
     items:
     - name: Overview

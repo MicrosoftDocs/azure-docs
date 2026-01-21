@@ -2,7 +2,7 @@
 title: Back Up an Azure Virtual Machine with Azure Extended Zones Portal
 description: In this article, learn how to back up an Azure virtual machine (VM) with the Azure Backup Extended Zones service.
 ms.topic: how-to
-ms.date: 07/24/2025
+ms.date: 01/21/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As an IT administrator, I want to back up Azure virtual machines using the Azure portal, so that I can protect data and ensure high availability through enhanced resiliency in Azure Extended Zones."
@@ -26,7 +26,7 @@ Before you back up a VM in Extended Zones, review the [supported scenario](./bac
 
 To apply a backup policy to your Azure VMs, follow these steps:
 
-1. Go to **Business Continuity Center** and select **+ Configure protection**.
+1. Go to **Resiliency** and select **+ Configure protection**.
 
    :::image type="content" source="./media/backup-azure-arm-vms-prepare/configure-protection.png" alt-text="Screenshot that shows how to start configuring the system backup." lightbox="./media/backup-azure-arm-vms-prepare/configure-protection.png":::
 
@@ -113,7 +113,7 @@ The initial backup runs in accordance with the schedule in the backup policy. To
 
 ## Monitor the backup job
 
-Monitor the portal notifications. To monitor the job progress, go to **Business Continuity Center** > **Monitoring + Reporting** > **Jobs** and filter the list for **In progress** jobs. Depending on the size of your VM, creating the initial backup might take a while.
+Monitor the portal notifications. To monitor the job progress, go to **Resiliency** > **Monitoring + Reporting** > **Jobs** and filter the list for **In progress** jobs. Depending on the size of your VM, creating the initial backup might take a while.
 
 Backup job details for each VM backup consist of the following phases:
 

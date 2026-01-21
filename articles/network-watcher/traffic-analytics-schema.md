@@ -109,8 +109,8 @@ The following table lists the fields in the schema and what they signify for vir
 > | **BytesDestToSrc** | - | Represents bytes sent from the destination to the source of the flow. |
 > | **BytesSrcToDest** | - | Represents bytes sent from the source to the destination of the flow. |
 > | **CompletedFlows** | - | Total number of flows completed (populated with non-zero value when a flow gets a completed event). |
-> | **SrcPublicIPs** | \<SOURCE_PUBLIC_IP\>\|\<FLOW_STARTED_COUNT\>\|\<FLOW_ENDED_COUNT\>\|\<OUTBOUND_PACKETS\>\|\<INBOUND_PACKETS\>\|\<OUTBOUND_BYTES\>\|\<INBOUND_BYTES\> | Entries separated by bars. |
-> | **DestPublicIPs** | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
+> | **SrcPublicIps** | \<SOURCE_PUBLIC_IP\>\|\<FLOW_STARTED_COUNT\>\|\<FLOW_ENDED_COUNT\>\|\<OUTBOUND_PACKETS\>\|\<INBOUND_PACKETS\>\|\<OUTBOUND_BYTES\>\|\<INBOUND_BYTES\> | Entries separated by bars. |
+> | **DestPublicIps** | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
 > | **FlowEncryption** | - Encrypted <br>- Unencrypted <br>- Unsupported hardware <br>- Software not ready <br>- Drop due to no encryption <br>- Discovery not supported <br>- Destination on same host <br>- Fall back to no encryption. | Encryption level of flows. |
 > | **PrivateEndpointResourceId** | <ResourceGroup/privateEndpointResource> | Resource ID of the private endpoint resource. Populated when traffic is flowing to or from a private endpoint resource. |
 > | **PrivateLinkResourceId** | <ResourceGroup/ResourceType/privateLinkResource> | Resource ID of the private link service. Populated when traffic is flowing to or from a private endpoint resource. |
@@ -148,7 +148,7 @@ The following table lists the fields in the schema and what they signify for net
 > | **NSGRules_s** | \<Index value 0>\|\<NSG_Rule_Name>\|\<Flow Direction>\|\<Flow Status>\|\<FlowCount ProcessedByRule> | Network security group rule that allowed or denied this flow. |
 > | **NSGRule_s** | NSG_Rule_Name | Network security group rule that allowed or denied this flow. |
 | **NSGRuleType_s**	| - User Defined <br> - Default | The type of network security group rule used by the flow. |
-> | **MACAddress_s** | MAC Address | MAC address of the NIC at which the flow was captured. |
+> | **MacAddress_s** | MAC Address | MAC address of the NIC at which the flow was captured. |
 > | **Subscription_g** | Subscription of the Azure virtual network / network interface / virtual machine is populated in this field | Applicable only for FlowType = S2S, P2S, AzurePublic, ExternalPublic, MaliciousFlow, and UnknownPrivate flow types (flow types where only one side is Azure). |
 > | **Subscription1_g** | Subscription ID | Subscription ID of virtual network / network interface / virtual machine that the source IP in the flow belongs to. |
 > | **Subscription2_g** | Subscription ID | Subscription ID of virtual network/ network interface / virtual machine that the destination IP in the flow belongs to. |
@@ -214,7 +214,7 @@ The following table details public IP schema. For more information, see [NTAIpDe
 | ----- | ------ | -------- |
 | **TableName**| NTAIpDetails | Table that contains traffic analytics IP details data. |
 | **SubType**| FlowLog | Subtype for the flow logs. Use only **FlowLog**. Other values of SubType are for internal workings of the product. |
-| **FASchemaVersion** | 3  | Schema version. Doesn't reflect virtual network flow log version. |
+| **FaSchemaVersion** | 3  | Schema version. Doesn't reflect virtual network flow log version. |
 | **FlowIntervalStartTime**| Date and time in UTC | Start time of the flow log processing interval (the time from which flow interval is measured). |
 | **FlowIntervalEndTime**| Date and time in UTC | End time of the flow log processing interval. |
 | **FlowType** | - AzurePublic <br> - ExternalPublic <br> - MaliciousFlow | See [Notes](#notes) for definitions. |

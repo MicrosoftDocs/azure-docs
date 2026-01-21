@@ -46,8 +46,8 @@ The Alert parsers support various [filtering parameters](normalization-about-par
 
 | Name | Type | Description |
 |------|------|-------------|
-| **starttime** | datetime | Filter only alerts that started at or after this time. |
-| **endtime** | datetime | Filter only alerts that started at or before this time. |
+| **starttime** | datetime | Filter only alerts that started at or after this time. This parameter filters on the `TimeGenerated` field, which is the standard designator for the time of the event, regardless of the parser-specific mapping of the EventStartTime and EventEndTime fields. |
+| **endtime** | datetime | Filter only alerts that started at or before this time. This parameter filters on the `TimeGenerated` field, which is the standard designator for the time of the event, regardless of the parser-specific mapping of the EventStartTime and EventEndTime fields. |
 | **ipaddr_has_any_prefix** | dynamic | Filter only alerts for which the **'DvcIpAddr'** field is in one of the listed values. |
 | **hostname_has_any** | dynamic | Filter only alerts for which the **'DvcHostname'** field is in one of the listed values. |
 | **username_has_any** | dynamic | Filter only alerts for which the **'Username'** field is in one of the listed values. |

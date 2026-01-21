@@ -5,7 +5,7 @@ ms.topic: overview
 ms.author: v-gajeronika
 ms.service: azure-site-recovery
 author: Jeronika-MS
-ms.date: 11/12/2025
+ms.date: 12/22/2025
 ms.custom:
   - engagement-fy23
   - linux-related-content
@@ -23,9 +23,11 @@ You can follow and subscribe to Site Recovery update notifications in the [Azure
 
 For Site Recovery components, we support N-4 versions, where N is the latest released version. These are summarized in the following table.
 
-**Update** |  **Unified Setup** | **Replication appliance / Configuration server** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
+**Update** |  **Unified Setup / Configuration server** | **Replication appliance** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
-[Rollup 80](https://support.microsoft.com/en-us/topic/update-rollup-80-for-azure-site-recovery-2cbd2ed6-6935-4dbf-91d1-8fe04a97ada9) | 9.66.7567.1 | NA | 9.65.7567.1 | NA | NA
+[Rollup 82](https://support.microsoft.com/en-us/topic/update-rollup-82-for-azure-site-recovery-df7f6773-43a1-4818-a5b1-20c62f60f195) | NA | NA | 9.66.7643.1 | NA | NA
+[Rollup 81](https://support.microsoft.com/en-us/topic/update-rollup-81-for-azure-site-recovery-fafaa6b3-2a55-4025-ab73-f14de258fdf2) | NA | NA | 9.66.7640.1 | NA | NA
+[Rollup 80](https://support.microsoft.com/en-us/topic/update-rollup-80-for-azure-site-recovery-2cbd2ed6-6935-4dbf-91d1-8fe04a97ada9) | 9.66.7567.1 | NA | 9.66.7567.1 | NA | NA
 [Rollup 79](https://support.microsoft.com/en-us/topic/update-rollup-79-for-azure-site-recovery-04417a2e-e191-450c-8625-29949d094b92) | 9.65.7417.1 | NA | 9.65.7417.1 | NA | NA
 [Rollup 78](https://support.microsoft.com/topic/update-rollup-78-for-azure-site-recovery-d1195ccc-3436-4d2f-bce3-76b18bcd6d53) | 9.64.7374.1 | NA | 9.64.7374.1 | NA | NA
 [Rollup 77](https://support.microsoft.com/topic/update-rollup-77-for-azure-site-recovery-dbd00d14-6b52-48dc-84d7-72b2f71ce20c) | 9.64.7314.1 | NA | 9.64.7314.1 | NA | NA
@@ -39,6 +41,28 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 [Learn more](service-updates-how-to.md) about update installation and support.
 
+## Updates (December 2025)
+
+### Update Rollup 82
+
+Update rollup 82 provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**VMware VM/physical disaster recovery to Azure** | Added Distro support for Redhat 9.7, Redhat 10.1, Alma 9.7, Alma 10.1, Rocky 9.7, Rocky 10.1.<br> Added kernel support for SLES 15, Debian 11, Debian 12, Ubuntu 18.04, Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04.
+
+### Update Rollup 81
+
+Update rollup 81 provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Azure VM disaster recovery** | Added Distro support for Redhat 9.7, Redhat 10.1, Alma 9.7, Alma 10.1, Rocky 9.7, Rocky 10.1.<br> Added kernel support for SLES 15, Debian 11, Debian 12, Ubuntu 18.04, Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04.
+
 ## Updates (October 2025)
 
 ### Update Rollup 80
@@ -50,6 +74,7 @@ Update rollup 80 provides the following updates:
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
 **Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
 **Azure VM disaster recovery** | Added Distro support for Redhat 9.6, Redhat 10.0, Alma 10.0, Rocky 10.0, SLES15SP7.<br> Added kernel support for SLES 15, Debian 11, Debian 12, Ubuntu 18.04, Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04.
+**VMware VM/physical disaster recovery to Azure** | Added Distro support for Redhat 9.6, Redhat 10.0, Alma 10.0, Rocky 10.0, SLES15SP7.<br> Added kernel support for SLES 15, Debian 11, Debian 12, Ubuntu 18.04, Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04.
 
 ## Updates (May 2025)
 

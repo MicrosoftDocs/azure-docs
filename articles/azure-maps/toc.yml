@@ -295,8 +295,8 @@ items:
       href: power-bi-visual-geocode.md
     - name: Understanding layers
       href: power-bi-visual-understanding-layers.md
-    - name: Add a bubble layer
-      href: power-bi-visual-add-bubble-layer.md
+    - name: Add a marker layer
+      href: power-bi-visual-add-marker-layer.md
     - name: Add a cluster bubble layer
       href: power-bi-visual-cluster-bubbles.md
     - name: Add a pie chart layer

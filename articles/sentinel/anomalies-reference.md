@@ -28,9 +28,9 @@ In the [Anomalies](/azure/azure-monitor/reference/tables/anomalies) table:
 
 
 > [!NOTE]
-> These anomaly detections are discontinued as of March 26, 2024, due to low quality of results:
-> - Domain Reputation Palo Alto anomaly
-> - Multi-region logins in a single day via Palo Alto GlobalProtect
+> These anomaly detections are discontinued as of March 8, 2026, due to low quality of results:
+> - Domain generation algorithm (DGA) on DNS domains
+> - Potential domain generation algorithm (DGA) on next-level DNS Domains
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 

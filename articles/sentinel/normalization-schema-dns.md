@@ -79,8 +79,8 @@ The following filtering parameters are available:
 
 | Name     | Type      | Description |
 |----------|-----------|-------------|
-| **starttime** | datetime | Filter only DNS queries that ran at or after this time. |
-| **endtime** | datetime | Filter only DNS queries that finished running at or before this time. |
+| **starttime** | datetime | Filter only DNS queries that ran at or after this time. This parameter filters on the `TimeGenerated` field, which is the standard designator for the time of the event, regardless of the parser-specific mapping of the EventStartTime and EventEndTime fields. |
+| **endtime** | datetime | Filter only DNS queries that finished running at or before this time. This parameter filters on the `TimeGenerated` field, which is the standard designator for the time of the event, regardless of the parser-specific mapping of the EventStartTime and EventEndTime fields. |
 | **srcipaddr** | string | Filter only DNS queries from this source IP address. |
 | **domain_has_any**| dynamic/string | Filter only DNS queries where the `domain` (or `query`) has any of the listed domain names, including as part of the event domain. The length of the list is limited to 10,000 items.
 | **responsecodename** | string | Filter only DNS queries for which the response code name matches the provided value. <br>For example: `NXDOMAIN` |

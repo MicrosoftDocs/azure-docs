@@ -48,10 +48,10 @@ Artifact Signing Client Tools for SignTool.exe is a library plugin that requires
 To simplify this setup there is an MSI installer package that is available for download along with a Setup.exe.
 
 > [!div class="nextstepaction"]
-> [Artifact Signing Client Tools MSI Download](https://download.microsoft.com/download/70ad2c3b-761f-4aa9-a9de-e7405aa2b4c1/ArtifactSigningClientTools.msi)
+> [Artifact Signing Client Tools MSI Download](https://download.microsoft.com/download/a3c24ba9-ff1f-444f-b626-eff710f345c3/ArtifactSigningClientTools.msi)
 
 > [!div class="nextstepaction"]
-> [Artifact Signing Client Tools Setup.exe Download](https://download.microsoft.com/download/70ad2c3b-761f-4aa9-a9de-e7405aa2b4c1/setup.exe)
+> [Artifact Signing Client Tools Setup.exe Download](https://download.microsoft.com/download/a3c24ba9-ff1f-444f-b626-eff710f345c3/setup.exe)
 
 #### Installing from the Windows Package Manager
 

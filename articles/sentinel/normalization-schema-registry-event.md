@@ -35,6 +35,29 @@ When implementing custom parsers for the Registry Event information model, name 
 
 Add your KQL functions to the `imRegistry` unifying parsers to ensure that any content using the Registry Event model also uses your new parser.
 
+### Filtering parser parameters
+
+The Registry Event parsers support [filtering parameters](normalization-about-parsers.md#optimizing-parsing-using-parameters). While these parameters are optional, they can improve your query performance.
+
+The following filtering parameters are available:
+
+| Name     | Type      | Description |
+|----------|-----------|-------------|
+| **starttime** | datetime | Filter only registry events that occurred at or after this time. This parameter filters on the `TimeGenerated` field, which is the standard designator for the time of the event, regardless of the parser-specific mapping of the EventStartTime and EventEndTime fields. |
+| **endtime** | datetime | Filter only registry events that occurred at or before this time. This parameter filters on the `TimeGenerated` field, which is the standard designator for the time of the event, regardless of the parser-specific mapping of the EventStartTime and EventEndTime fields. |
+| **eventtype_in** | dynamic | Filter only registry events where the event type is one of the values listed, including: `RegistryKeyCreated`, `RegistryKeyDeleted`, `RegistryKeyRenamed`, `RegistryValueDeleted`, or `RegistryValueSet`. |
+| **actorusername_has_any** | dynamic | Filter only registry events where the actor username has any of the listed values. |
+| **registrykey_has_any** | dynamic | Filter only registry events where the registry key has any of the listed values. |
+| **registryvalue_has_any** | dynamic | Filter only registry events where the registry value has any of the listed values. |
+| **registrydata_has_any** | dynamic | Filter only registry events where the registry data has any of the listed values. |
+| **dvchostname_has_any** | dynamic | Filter only registry events where the device hostname has any of the listed values. |
+
+For example, to filter only registry key creation events from the last day, use:
+
+```kusto
+_Im_RegistryEvent (eventtype_in=dynamic(['RegistryKeyCreated']), starttime = ago(1d), endtime=now())
+```
+
 ## Normalized content
 
 Microsoft Sentinel provides the [Persisting Via IFEO Registry Key](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/PersistViaIFEORegistryKey.yaml) hunting query. This query works on any registry activity data normalized using the Advanced Security Information Model.

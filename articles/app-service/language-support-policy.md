@@ -46,21 +46,21 @@ To learn more about specific timelines for the language support policy, see the 
 
 App Service supports languages on both Linux and Windows operating systems. See the following resources for the list of OS support for each language:
 
-- [.NET](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/dot_net_core.md#support-timeline)
+- [.NET](configure-language-dotnetcore.md#show-supported-net-core-runtime-versions)
 - [Java](#jdk-versions-and-maintenance)
-- [Node](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/node_support.md#support-timeline)
-- [Python](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/python_support.md#support-timeline)
-- [PHP](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#support-timeline)
+- [Node](configure-language-nodejs.md#show-the-nodejs-version)
+- [Python](configure-language-python.md#configure-the-python-version)
+- [PHP](configure-language-php.md#show-the-php-version)
 
 ## Configure language versions
 
 To learn more about how to update language versions for your App Service applications, see the following resources:
 
-- [.NET](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/dot_net_core.md#how-to-update-your-app-to-target-a-different-version-of-net-or-net-core)
-- [Java](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/java_support.md#java-on-app-service)
-- [Node](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/node_support.md#node-on-linux-app-service)
-- [Python](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/python_support.md#how-to-update-your-app-to-target-a-different-version-of-python)
-- [PHP](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#how-to-update-your-app-to-target-a-different-version-of-php)
+- [.NET](configure-language-dotnetcore.md#set-net-core-version)
+- [Java](configure-language-java-deploy-run.md#show-the-java-version)
+- [Node](configure-language-nodejs.md#set-the-nodejs-version)
+- [Python](configure-language-python.md#configure-the-python-version)
+- [PHP](configure-language-php.md#set-the-php-version)
 
 ## Java-specific runtime statement of support
 

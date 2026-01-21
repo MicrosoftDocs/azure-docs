@@ -255,9 +255,17 @@ items:
               - name: AI inference with ONNX
                 href: connect-to-cloud/howto-wasm-onnx-inference.md
                 displayName: data flow, WASM, WebAssembly, ONNX, inference, AI, wasi-nn
-          - name: Build Akri connectors with VS Code extension
-            href: develop-edge-apps/howto-build-akri-connectors-vscode.md
-            displayName: VS Code, extension, develop
+          - name: Create custom connectors
+            items:
+              - name: Develop custom connectors
+                href: develop-edge-apps/overview-akri-connectors.md
+                displayName: Akri, VS Code
+              - name: Create a custom Akri connector with .NET
+                href: develop-edge-apps/howto-develop-akri-connectors.md
+                displayName: VS Code, template, develop
+              - name: Build Akri connectors with VS Code extension
+                href: develop-edge-apps/howto-build-akri-connectors-vscode.md
+                displayName: VS Code, extension, develop
           - name: Concepts
             items:
               - name: Highly available edge apps

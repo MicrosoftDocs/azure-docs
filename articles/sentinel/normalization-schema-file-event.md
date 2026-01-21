@@ -30,8 +30,31 @@ For the list of the file activity parsers Microsoft Sentinel provides out-of-the
 
 When implementing custom parsers for the File Event information model, name your KQL functions using the following syntax: `imFileEvent<vendor><Product`.
 
-Refer to the article [Managing ASIM parsers](normalization-manage-parsers.md) to learn how to add your custom parsers to the file activity  unifying parser.
+Refer to the article [Managing ASIM parsers](normalization-manage-parsers.md) to learn how to add your custom parsers to the file activity unifying parser.
 
+### Filtering parser parameters
+
+The File Event parsers support [filtering parameters](normalization-about-parsers.md#optimizing-parsing-using-parameters). While these parameters are optional, they can improve your query performance.
+
+The following filtering parameters are available:
+
+| Name     | Type      | Description |
+|----------|-----------|-------------|
+| **starttime** | datetime | Filter only file events that occurred at or after this time. This parameter filters on the `TimeGenerated` field, which is the standard designator for the time of the event, regardless of the parser-specific mapping of the EventStartTime and EventEndTime fields. |
+| **endtime** | datetime | Filter only file events that occurred at or before this time. This parameter filters on the `TimeGenerated` field, which is the standard designator for the time of the event, regardless of the parser-specific mapping of the EventStartTime and EventEndTime fields. |
+| **eventtype_in** | dynamic | Filter only file events where the event type is one of the values listed, such as `FileCreated`, `FileModified`, `FileDeleted`, `FileRenamed`, or `FileCopied`. |
+| **srcipaddr_has_any_prefix** | dynamic | Filter only file events where the source IP address prefix matches any of the listed values. Prefixes should end with a `.`, for example: `10.0.`. |
+| **actorusername_has_any** | dynamic | Filter only file events where the actor username has any of the listed values. |
+| **targetfilepath_has_any** | dynamic | Filter only file events where the target file path has any of the listed values. |
+| **srcfilepath_has_any** | dynamic | Filter only file events where the source file path has any of the listed values. |
+| **hashes_has_any** | dynamic | Filter only file events where the file hash matches any of the listed values. |
+| **dvchostname_has_any** | dynamic | Filter only file events where the device hostname has any of the listed values. |
+
+For example, to filter only file creation and modification events from the last day, use:
+
+```kusto
+_Im_FileEvent (eventtype_in=dynamic(['FileCreated','FileModified']), starttime = ago(1d), endtime=now())
+```
 
 ## Normalized content
 

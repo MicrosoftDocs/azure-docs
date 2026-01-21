@@ -3,7 +3,7 @@ title: Quick start - Back up Azure Database for PostgreSQL server
 description: In this quickstart, learn how to back up Azure Database for PostgreSQL server to an Azure Backup Vault.
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
-ms.date: 03/18/2025
+ms.date: 01/21/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -18,7 +18,7 @@ Azure Database for PostgreSQL is a managed service that you use to run, manage, 
 
 Before you configure backup of Azure PostgreSQL database:
 
-- Identify or [create a Backup Vault](tutorial-postgresql-backup.md#create-a-backup-vault) in the same region where you want to back up the Azure Database for PostgreSQL server instance.
+- Identify or [create a Backup Vault](tutorial-postgresql-backup.md#create-a-backup-vault-for-postgresql-database-backups) in the same region where you want to back up the Azure Database for PostgreSQL server instance.
 - Check that Azure Database for PostgreSQL server is named in accordance with naming guidelines for Azure Backup. [Learn more](/azure/postgresql/tutorial-design-database-using-azure-portal#create-an-azure-database-for-postgresql)
 - [Create secrets in the key vault](backup-azure-database-postgresql.md#create-secrets-in-the-key-vault).
 - [Grant privileges to database users using PowerShell scripts](backup-azure-database-postgresql.md#run-powershell-script-to-grant-privileges-to-database-users).
@@ -41,7 +41,7 @@ You can configure backup on multiple databases across multiple Azure PostgreSQL 
 
    Alternatively, you can navigate to this page from the [Backup center](./backup-center-overview.md). 
 
-1. Select or [create](tutorial-postgresql-backup.md#create-a-backup-vault) a Backup Policy that defines the back-up schedule and the retention duration.
+1. Select or [create](tutorial-postgresql-backup.md#create-a-backup-vault-for-postgresql-database-backups) a Backup Policy that defines the back-up schedule and the retention duration.
 
    :::image type="content" source="./media/backup-azure-database-postgresql/create-or-add-backup-policy-inline.png" alt-text="Screenshot showing the option to add a Backup policy." lightbox="./media/backup-azure-database-postgresql/create-or-add-backup-policy-expanded.png":::
 

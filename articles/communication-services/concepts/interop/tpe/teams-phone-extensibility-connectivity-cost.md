@@ -23,20 +23,19 @@ This article also explores the business model for Teams Phone extensibility. We 
 ## PSTN connectivity options for Teams Phone extensibility
 
 There are three primary options available:
-
-1. **Calling Plans** are an all-in-the-cloud solution in which Microsoft acts as your PSTN carrier. Calling Plans are the simplest option, ideal for organizations that doesn't need to retain their current PSTN carrier. With Calling Plans, you get Teams Phone with added Domestic or International Calling Plans for your solution to reach phone numbers around the world.
+- **Calling Plans** are an all-in-the-cloud solution in which Microsoft acts as your PSTN carrier. Calling Plans are the simplest option, ideal for organizations that doesn't need to retain their current PSTN carrier. With Calling Plans, you get Teams Phone with added Domestic or International Calling Plans for your solution to reach phone numbers around the world.
 
    This option doesn't require any on-premises deployment or maintenance. For more information, see [Microsoft Teams Calling Plans](/microsoftteams/calling-plans-for-office-365).
 
    :::image type="content" source="./media/teams-phone-extensibility-teams-calling-plans.png" alt-text="Diagram shows the simplest solution Teams Phone system with Calling Plan using Microsoft as a public switched telephone network (PSTN) carrier."  lightbox="./media/teams-phone-extensibility-teams-calling-plans.png":::
 
-2. **Operator Connect** enables you to bring your existing PSTN carrier into the Microsoft Teams environment. If your carrier participates in the Microsoft Operator Connect program, they can manage PSTN calling and Session Border Controllers (SBCs) for you.
+- **Operator Connect** enables you to bring your existing PSTN carrier into the Microsoft Teams environment. If your carrier participates in the Microsoft Operator Connect program, they can manage PSTN calling and Session Border Controllers (SBCs) for you.
 
    Operator Connect provides a fully managed service with no hardware footprint. This option is a great choice for organizations that want to maintain their existing PSTN infrastructure while using Teams. For more information, see [Plan for Operator Connect](/microsoftteams/operator-connect-plan).
 
    :::image type="content" source="./media/teams-phone-extensibility-teams-operator-connect.png" alt-text="Diagram shows Teams Operator Connect using a public switched telephone network (PSTN) and Session Border Controller as a Service (SBCaaS) through Teams Phone / Teams Admin Center to connect your operators."  lightbox="./media/teams-phone-extensibility-teams-operator-connect.png":::
 
-3. **Direct Routing** enables you to use your own PSTN carrier by connecting your SBCs to Teams Phone. Direct Routing offers the most flexibility, enabling you to design a solution that fits complex environments or manage a multi-step migration.
+- **Direct Routing** enables you to use your own PSTN carrier by connecting your SBCs to Teams Phone. Direct Routing offers the most flexibility, enabling you to design a solution that fits complex environments or manage a multi-step migration.
 
    Direct Routing is suitable for organizations that need to retain their current PSTN carrier and have specific requirements for interoperability with third-party private branch exchanges (PBXs), analog devices, and other telephony equipment. For more information, see [Plan Direct Routing](/microsoftteams/direct-routing-plan).
 
@@ -46,27 +45,69 @@ There are three primary options available:
 
 Choosing the best PSTN connectivity solution for Teams Phone extensibility depends on several factors. You need to consider the availability of services in your region, your existing infrastructure, and your specific needs.
 
-- **Availability**: Find out if the PSTN connectivity option is available in your country. For example, Microsoft Calling Plans are available in specific regions, and Operator Connect requires your existing carrier to participate in the program. Make sure that the option you choose is supported in your location.
+- **Availability**: Find out if the PSTN connectivity option is available in your country/region. For example, Microsoft Calling Plans are available in specific regions, and Operator Connect requires your existing carrier to participate in the program. Make sure that the option you choose is supported in your location.
 
-   Teams provides the Calling Plans option in multiple countries. For more information and the up-to-date list, see [Country/region availability for Calling Plans](/microsoftteams/calling-plan-overview).
+   Teams provides the Calling Plans option in multiple countries/regions. For more information and the up-to-date list, see [Country/region availability for Calling Plans](/microsoftteams/calling-plan-overview).
 
    Microsoft Teams also offers the option to use integration with 105 operators worldwide using the Operator Connect option. For more information and the current list, see [Modern Work for Partners - Operator Directory](https://cloudpartners.transform.microsoft.com/partner-gtm/operators/directory).
 
    For the most flexible option, use Teams Direct Routing. You can connect your SBC to almost any telephony trunk or interconnect with third party PSTN equipment. This flexibility enables you to deploy your solution in any region or country. Remember that you need to configure the solution correctly for optimal performance and compliance with local regulations. For more information, see [Configure Direct Routing for Microsoft Teams](/microsoftteams/direct-routing-configure).
 
-- **Existing Infrastructure**: Consider your current telephony setup. If you have an existing PSTN carrier and infrastructure that you want to retain, either Direct Routing or Operator Connect might be the best option. If you prefer a fully managed, cloud-based solution with minimal on-premises requirements, Calling Plans could be the ideal choice.
+- **Existing infrastructure**: Consider your current telephony setup. If you have an existing PSTN carrier and infrastructure that you want to retain, either Direct Routing or Operator Connect might be the best option. If you prefer a fully managed, cloud-based solution with minimal on-premises requirements, Calling Plans could be the ideal choice.
 
-- **Specific Needs**: Evaluate your organization's specific needs. For example, do you need international calling, how complex is your telephony environment, and how much control do you require over your PSTN connectivity. Direct Routing offers the most flexibility and control, while Calling Plans provide simplicity and ease of use.
+- **Specific needs**: Evaluate your organization's specific needs. For example, do you need international calling, how complex is your telephony environment, and how much control do you require over your PSTN connectivity. Direct Routing offers the most flexibility and control, while Calling Plans provide simplicity and ease of use.
 
-## Estimate Teams Phone extensibility cost
+## Estimate Teams Phone extensibility cost on ISV
 
 - The Teams Phone Extensibility business model for independent software vendors (ISVs) includes charging contact center as a service (CCaaS) vendors for using Azure Communication Services SDKs. This model includes Calling SDK and VoIP consumption, which require charges for each leg between the call automation bot and the CCaaS agent.
 
 - This solution also includes Audio Insights with access to mixed/unmixed audio streams or direct transcriptions. Using transcription incurs an [Azure AI Speech pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for the selected Azure resource and Call Recording with pay-as-you-go for mixed/unmixed AV recordings. You can review current pricing for VoIP, transcription, and recording at [Azure Communication Services pricing](https://azure.microsoft.com/pricing/details/communication-services/).
 
-- End users can take advantage of their Teams Calling plans or any of the connectivity options for PSTN usage with inbound / outbound and any associated extra usage. Users must enable the required Teams licenses including Teams Phone License for any agent involved in the call including SMEs, and Resource Account license for the provisioned Teams resource account. For more information, see [Microsoft Teams Phone - Cloud Phone System](https://www.microsoft.com/microsoft-teams/microsoft-teams-phone).
+## Teams licenses requirements
 
-- **As of November 1st 2025**, Calling Plan licenses on resource accounts will no longer be supported for On-Behalf-Of PSTN outbound calls. A Pay-As-You-Go license will be required. For more information, see [Plan for Teams Auto attendants and Call queues](/microsoftteams/plan-auto-attendant-call-queue).
+Teams licensing requirements vary based on the calling scenario when Teams Phone Extensibility is provisioned:
+### General prerequisites
+- For every human agent who needs to place or receive calls, you need to enable the standard Teams license as well as Teams Phone license for the agent, see [Assign Teams add-on licenses to users > Product names and SKU identifiers for licensing](/microsoftteams/teams-add-on-licensing/assign-teams-add-on-licenses#product-names-and-sku-identifiers-for-licensing).
+- You need to enable Enterprise voice as described in [Teams Phone features](../../../concepts/pricing/teams-interop-pricing.md).
+- For the designated Teams resource account, you need to get a [Microsoft Teams Phone Resource Account license](/microsoftteams/teams-add-on-licensing/virtual-user), included in the Teams Phone license.
+
+### Outbound calling prerequisites
+
+Starting **November 1, 2025**, Calling Plan licenses assigned to Teams Resource Accounts will no longer support On-Behalf-Of PSTN outbound calls or server-initiated outbound calls. A **[Pay-As-You-Go Calling Plan](/microsoftteams/calling-plans-for-office-365#pay-as-you-go-calling-plan)** and Communication Credits are required for these scenarios, based on the billing agreements.
+
+> [!NOTE]
+> Direct Routing numbers aren’t affected by these licensing changes.
+
+#### Calling Plan customers
+
+Assign a Pay-As-You-Go Calling Plan license to any Teams Resource Account that uses a Calling Plan number for outbound PSTN calls. Outbound calls will fail after November 1, 2025, if licenses aren’t assigned. You can follow the below steps to make sure you get the proper licenses:
+1. Log in to the [Admin portal](https://admin.microsoft.com)
+2. Verify agreement type and funding source
+   - For **MCA agreements**:
+     - Confirm postpaid payment method is active.
+     - Navigate to **Marketplace → All Products**.
+     - Search for **Microsoft Teams Calling Plan (Pay-As-You-Go)**.
+     - Select the appropriate **Pay-As-You-Go Calling Plan Zone (Zone 1 or Zone 2)** based on your location.
+     - Add the plan under **Add-ons**.
+   - For **older agreements**:
+     - Navigate to **Marketplace → All Products** and purchase Communications Credits.
+     - Add funds to ensure a positive balance.
+     - Enable **Auto-Recharge** under **Billing → Your Products → Communications Credits**.
+
+#### Operator Connect customers
+
+Starting November 1, 2025, On-Behalf-Of PSTN outbound calls and server-initiated outbound calls may change depending on your carrier. Work with your Operator Connect carrier to ensure uninterrupted service. Without carrier adjustments, outbound calls through Teams Phone Extensibility may fail.
+
+**Learn more**
+
+- [Pay-As-You-Go Calling Plan](/microsoftteams/calling-plans-for-office-365#pay-as-you-go-calling-plan)
+- [Set up Communications Credits](/microsoftteams/set-up-communications-credits-for-your-organization)
+- [How to buy Calling Plans](/microsoftteams/calling-plans-for-office-365)
+- [Enable pay-as-you-go services](/microsoft-365/commerce/subscriptions/manage-pay-as-you-go-services)
+- [Assign Teams add-on licenses](/microsoftteams/teams-add-on-licensing/assign-teams-add-on-licenses)
+
+
+
 
 ## Related articles
 

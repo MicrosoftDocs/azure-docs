@@ -2,7 +2,7 @@
 title: Use Azure Backup Server to back up workloads
 description: In this article, learn how to prepare your environment to protect and back up workloads using Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 07/15/2025
+ms.date: 01/21/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -64,15 +64,15 @@ You can deduplicate the DPM storage using Windows Server Deduplication. Learn mo
 > [!NOTE]
 > Azure Backup Server is designed to run on a dedicated, single-purpose server. You can't install Azure Backup Server on:
 >
-> * A computer running as a domain controller
-> * A computer on which the Application Server role is installed
-> * A computer that's a System Center Operations Manager management server
-> * A computer on which Exchange Server is running
-> * A computer that's a node of a system
+> * A computer running as a domain controller.
+> * A computer that has the Application Server role installed.
+> * A computer that's a System Center Operations Manager management server.
+> * A computer that has running Exchange Server.
+> * A computer that's a node of a system.
 >
 > Installing Azure Backup Server isn't supported on Windows Server Core or Microsoft Hyper-V Server.
 
-Always join Azure Backup Server to a domain. Moving an existing Azure Backup Server machine to a new domain after deployment is *not supported*.
+Always join Azure Backup Server to a domain. Moving an existing Azure Backup Server machine to a new domain after deployment isn't supported.
 
 Whether you send backup data to Azure, or keep it locally, Azure Backup Server must be registered with a Recovery Services vault.
 
@@ -87,68 +87,58 @@ The storage replication option allows you to choose between geo-redundant storag
 
 To edit the storage replication setting:
 
-1. From the **Recovery Services vaults** pane, select the new vault. Under the **Settings** section, select  **Properties**.
-2. In **Properties**, under **Backup Configuration**, select **Update**.
+1. On the **Recovery Services vaults** pane, select the new vault. 
+1. On the **Recovery Services vaults** you selected, go to **Settings** > **Properties**.
+1. On the **Properties** pane, under **Backup Configuration**, select **Update**.
 
-3. Select the storage replication type, and select **Save**.
+   :::image type="content" source="./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png" alt-text="Screenshot that shows the selection of the storage replication type for the new Recovery Services vault." lightbox="./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png":::
 
-     ![Set the storage configuration for new vault](./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png)
+1. On the **Backup Configuration** pane, select the storage replication type, and then select **Apply**.
 
 ## Software package
 
-### Downloading the software package
+### Download the MABS software package
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. If you already have a Recovery Services vault open, continue to step 3. If you don't have a Recovery Services vault open, but are in the Azure portal, on the main menu, select **Browse**.
+2. On the search box, type **Recovery**, and then select **Recovery Services vaults** from the search results.
 
-   * In the list of resources, type **Recovery Services**.
-   * As you begin typing, the list will filter based on your input. When you see **Recovery Services vaults**, select it.
+   :::image type="content" source="./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png" alt-text="Screenshot that shows how to open the Recovery Services vaults pane in the Azure portal.":::
 
-     ![Create Recovery Services vault step 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
+1. On the **Recovery Services vaults** pane, select the new vault you created.
 
-     The list of Recovery Services vaults appears.
-   * From the list of Recovery Services vaults, select a vault.
+1. On the vault dashboard, under **Getting Started**, select **Backup**.
 
-     The selected vault dashboard opens.
+   :::image type="content" source="./media/backup-azure-microsoft-azure-backup/vault-dashboard.png" alt-text="Screenshot that shows the dashboard of the selected Recovery Services vault." lightbox="./media/backup-azure-microsoft-azure-backup/vault-dashboard.png":::
 
-     ![Vault dashboard](./media/backup-azure-microsoft-azure-backup/vault-dashboard.png)
-3. The **Settings** pane opens up by default. If it's closed, select **Settings** to open the settings pane.
+1. On the **Backup** pane, from the **Where is your workload running** menu, select **On-premises**.
 
-    ![Settings pane](./media/backup-azure-microsoft-azure-backup/vault-setting.png)
-4. Select **Backup** to open the Getting Started wizard.
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/backup-goals-azure-backup-server.png" alt-text="Screenshot that shows the selection of workloads to protect using Azure Backup Server.":::
 
-    ![Backup getting started](./media/backup-azure-microsoft-azure-backup/getting-started-backup.png)
+    From the **What do you want to back up?** drop-down menu, select the workloads you want to protect using Azure Backup Server.
 
-    In the **Getting Started with backup** pane that opens, **Backup Goals** will be auto-selected.
-
-    ![Backup-goals-default-opened](./media/backup-azure-microsoft-azure-backup/getting-started.png)
-
-5. In the **Backup Goal** pane, from the **Where is your workload running** menu, select **On-premises**.
-
-    ![on-premises and workloads as goals](./media/backup-azure-microsoft-azure-backup/backup-goals-azure-backup-server.png)
-
-    From the **What do you want to back up?** drop-down menu, select the workloads you want to protect using Azure Backup Server, and then select **OK**.
-
-    The **Getting Started with backup** wizard switches the **Prepare infrastructure** option to back up workloads to Azure.
+1. To back up workloads to Azure, select **Prepare Infrastructure** option.
 
    > [!NOTE]
    > If you only want to back up files and folders, we recommend using the Azure Backup agent and following the guidance in the article, [First look: back up files and folders](./backup-windows-with-mars-agent.md). If you're going to protect more than files and folders, or you're planning to expand the protection needs in the future, select those workloads.
    >
    >
 
-    ![Getting Started wizard change](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
+   :::image type="content" source="./media/backup-azure-microsoft-azure-backup/select-prepare-infrastructure.png" alt-text="Screenshot that shows the Prepare infrastructure option selected in the Backup Goals pane.":::
 
-6. In the **Prepare infrastructure** pane that opens, select the **Download** links for Install Azure Backup Server and Download vault credentials. You use the vault credentials during registration of Azure Backup Server to the Recovery Services vault. The links take you to the Download Center where the software package can be downloaded.
+1. On the **Prepare infrastructure** pane, for **Install MicrosoftAzure Backup Server** and **Download vault credentials**, select the **Download** links.
 
-    ![Prepare infrastructure for Azure Backup Server](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
+   You use the vault credentials during registration of Azure Backup Server to the Recovery Services vault. The links take you to the Download Center where the software package can be downloaded.
 
-7. Select all the files and select **Next**. Download all the files coming in from the Microsoft Azure Backup download page, and place all the files in the same folder.
+   :::image type="content" source="./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png" alt-text="Screenshot that shows the Prepare infrastructure pane with download links for Microsoft Azure Backup Server and vault credentials.":::
 
-    ![Download center 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
+1. On the **Microsoft Azure Backup Server download** page, select **Download**.
+1. On the MABS version selection window, select all the files and then select **Download**. Download all the files coming in from the Microsoft Azure Backup Server download page, and place all the files in the same folder.
 
-    Since the download size of all the files together is > 3 GB, on a 10-Mbps download link it may take up to 60 minutes for the download to complete.
+   :::image type="content" source="./media/backup-azure-microsoft-azure-backup/downloadcenter.png" alt-text="Screenshot that shows the Download Center with Microsoft Azure Backup Server files.":::
 
-### Extracting the software package
+    Since the download size of all the files together is > 3 GB, on a 10-Mbps download link it might take up to 60 minutes for the download to complete.
+
+### Extract the MABS software package
 
 After you've downloaded all the files, select **MicrosoftAzureBackupInstaller.exe**. This will start the **Microsoft Azure Backup Setup Wizard** to extract the setup files to a location specified by you. Continue through the wizard and select the **Extract** button to begin the extraction process.
 
@@ -157,11 +147,11 @@ After you've downloaded all the files, select **MicrosoftAzureBackupInstaller.ex
 >
 >
 
-![Setup extracting files for install](./media/backup-azure-microsoft-azure-backup/extract/03.png)
+:::image type="content" source="./media/backup-azure-microsoft-azure-backup/extract/03.png" alt-text="Screenshot that shows the setup files extraction wizard for install.":::
 
-Once the extraction process completes, check the box to launch the freshly extracted *setup.exe* to begin installing Microsoft Azure Backup Server and select the **Finish** button.
+After the extraction process completes, check the box to launch the freshly extracted *setup.exe* to begin installing Microsoft Azure Backup Server and select the **Finish** button.
 
-### Installing the software package
+### Install the software package
 
 1. Select **Microsoft Azure Backup Server** to launch the setup wizard.
 
@@ -270,7 +260,7 @@ The following sections describe how to update protection agents for client compu
 
 ## Move MABS to a new server
 
-Here are the steps if you need to move MABS to a new server, while retaining the storage. This can be done only if all the data is on Modern Backup Storage.
+Here are the steps if you need to move MABS to a new server, while retaining the storage. This can be done only if the data is on Modern Backup Storage.
 
   > [!IMPORTANT]
   >
@@ -286,7 +276,7 @@ Here are the steps if you need to move MABS to a new server, while retaining the
 7. Restore the DPMDB taken in step 1.
 8. Attach the storage from the original backup server to the new server.
 9. From SQL, restore the DPMDB.
-10. Run CMD (as an administrator) on the new server. Go to the Microsoft Azure Backup install location and bin folder.
+10. Run CMD (as an administrator) on the new server. Go to the Microsoft Azure Backup installed location and bin folder.
 
     Path example:
     `C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"`
@@ -357,7 +347,7 @@ Use the following procedures to upgrade MABS.
 
 > [!NOTE]
 >
-> MABS V3 isn't a prerequisite for installing MABS V4. However, you can upgrade to MABS V4 only from MABS V3 (RTM, Update Rollup 1 and Update Rollup 2).
+> MABS V3 isn't a prerequisite for installing MABS V4. However, you can upgrade to MABS V4 only from MABS V3 (RTM, Update Rollup 1, Update Rollup 2).
 
 Use the following steps to upgrade MABS:
 
@@ -387,9 +377,9 @@ The example below increases the limit to 12 jobs.
 
   "6e7c76f4-a832-4418-a772-8e58fd7466cb"=dword:0000000C
 
-## Troubleshooting
+## Troubleshoot MABS installation issues
 
-If Microsoft Azure Backup server fails with errors during the setup phase (or backup or restore), refer to this [error codes document](https://support.microsoft.com/kb/3041338)  for more information.
+If Microsoft Azure Backup server fails with errors during the setup, backup, or restore phase, see this [error codes document](https://support.microsoft.com/kb/3041338)  for more information.
 
 You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.yml).
 

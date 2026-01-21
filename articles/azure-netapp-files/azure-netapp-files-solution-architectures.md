@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: concept-article
-ms.date: 12/07/2025
+ms.date: 01/21/2026
 ms.author: anfdocs
 # Customer intent: As a cloud architect, I want to implement Azure NetApp Files to migrate and run mission-critical applications, so that I can ensure high performance, scalability, and security for diverse workloads in the cloud.
 ---
@@ -232,6 +232,11 @@ This section provides references for High Performance Computing (HPC) solutions.
 ## Azure platform services solutions
 
 This section provides solutions for Azure platform services. 
+
+### Azure data and AI services
+
+* [How Azure NetApp Files Object REST API powers Azure and ISV Data and AI services](https://techcommunity.microsoft.com/blog/azurearchitectureblog/how-azure-netapp-files-object-rest-api-powers-azure-and-isv-data-and-ai-services/4459545)
+* [Unlocking Advanced Data Analytics and AI with Azure NetApp Files object REST API](https://techcommunity.microsoft.com/blog/azurearchitectureblog/unlocking-advanced-data-analytics--ai-with-azure-netapp-files-object-rest-api/4486098)
 
 ### Azure Kubernetes Services and Kubernetes
 

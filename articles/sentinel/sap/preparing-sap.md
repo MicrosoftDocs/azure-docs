@@ -165,7 +165,7 @@ For more information, see [Database Collector in Background Processing](https://
     - Cloud Foundry Runtime
 
 > [!NOTE]
-> This article considers only SAP Cloud Integration in the Cloud Foundry environment. For **Neo environment** verify [SAP's latest documentation](https://community.sap.com/t5/technology-blog-posts-by-sap/cloud-integration-inbound-http-connections-using-oauth-client-credentials/ba-p/13424181) and [OAuth2 configuration](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/oauth-client-credentials-grant) instead of Cloud Foundry service key.
+> This solution considers only SAP Cloud Integration in the Cloud Foundry environment.
 
 1. Create an instance of Cloud Foundry Runtime, and then also create a Cloud Foundry space.
 
