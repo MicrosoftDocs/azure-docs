@@ -21,17 +21,16 @@ Most customers take one of two deployment approaches:
 ## Applies to
 | Management model | Billing model | Media tier | Redundancy | SMB | NFS |
 |-|-|-|-|:-:|:-:|
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | Yes | No |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | Yes | No |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | Yes | No |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | Yes | No |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | Yes | No |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | Yes | No |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | Yes | No |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | Yes | No |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | Yes | No |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | Yes | No |
 
 ## Reduce TCO with cloud file shares
 
@@ -69,7 +68,15 @@ Azure Files is built for hybrid access and offers flexible deployment options, i
 
 :::image type="content" source="media/windows-server-to-azure-files/azure-files-network-access.png" alt-text="Screenshot showing various access options for Azure file shares." lightbox="media/windows-server-to-azure-files/azure-files-network-access.png":::
 
-Moving data from Windows file servers to Azure Files is easy, and you can do it in the background without interrupting user access. Just install Azure File Sync on your file server, connect to an Azure file share, and start the synchronization.
+Moving data from Windows file servers to Azure Files is easy, and you can do it in the background without interrupting user access. Just install Azure File Sync on your file server, connect to an Azure file share, and start the synchronization.  
+
+**Prerequisites:**  
+- An active Azure subscription  
+- An Azure storage account with an Azure file share  
+- Network connectivity between the server and Azure (internet, VPN, or ExpressRoute)  
+- A supported Windows Server with the Azure File Sync agent installed  
+
+**Verify:** Confirm the Azure file share is mounted and the Azure File Sync agent reports a **Healthy** status.
 
 When you migrate to Azure Files, none of your file path links need to break. You can [use DFS Namespaces](files-manage-namespaces.md) and redirect users to Azure Files. If you're extending an existing Windows file server to Azure using Azure File Sync, users continue to access their files using the same file paths.
 

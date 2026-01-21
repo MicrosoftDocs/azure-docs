@@ -3,7 +3,7 @@ title: Exception Management - Microsoft Threat Modeling Tool - Azure | Microsoft
 description: Learn about exception management in the Threat Modeling Tool. See mitigation information and view code examples.
 services: security
 author: jegeib
-ms.service: information-protection
+ms.service: azure-information-protection
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib

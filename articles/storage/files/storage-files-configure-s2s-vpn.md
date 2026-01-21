@@ -44,6 +44,8 @@ If you don't have an existing network appliance, Windows Server contains a built
 
 ## Add virtual network to storage account
 
+You need an existing Azure storage account with an Azure file share, and a virtual network in the same region as the storage account with a subnet named `GatewaySubnet` (required for the virtual network gateway deployment in the next step).
+
 To add a new or existing virtual network to your storage account, follow these steps.
 
 # [Portal](#tab/azure-portal)
@@ -225,6 +227,8 @@ To add a new or existing virtual network to your storage account, follow these s
 
 ## Deploy a virtual network gateway
 
+You need a virtual network with a subnet named `GatewaySubnet` in the same region and subscription as your storage account, a public IP address resource (or you'll create one), and you must choose a gateway SKU (avoid Basic SKU if using IKEv2/route-based VPN); optionally, BGP configuration may apply if your organization requires it.
+
 To deploy a virtual network gateway, follow these steps.
 
 # [Portal](#tab/azure-portal)
@@ -318,6 +322,8 @@ To deploy a virtual network gateway, follow these steps.
 
 ### Create a local network gateway for your on-premises gateway
 
+You need the public IP address of your on-premises VPN device, the on-premises network address ranges (for example, 192.168.0.0/16), and optionally BGP peer IP address information if BGP is required; the local network gateway should be created in the same Azure region as your virtual network gateway.
+
 A local network gateway is an Azure resource that represents your on-premises network appliance. It's deployed alongside your storage account, virtual network, and virtual network gateway, but doesn't need to be in the same resource group or subscription as the storage account. To create a local network gateway, follow these steps.
 
 # [Portal](#tab/azure-portal)
@@ -364,6 +370,8 @@ az network local-gateway create --gateway-ip-address 5.4.3.2 --name MyLocalGatew
 
 ## Configure on-premises network appliance
 
+You need a compatible on-premises VPN device (see [list of tested devices](../../vpn-gateway/vpn-gateway-about-vpn-devices.md)), the public IP address of your Azure virtual network gateway, and a shared key (PSK) for establishing the VPN connection.
+
 The specific steps to configure your on-premises network appliance depend on the network appliance your organization has selected.
 
 When configuring your network appliance, you'll need the following items:
@@ -378,6 +386,8 @@ When configuring your network appliance, you'll need the following items:
 [!INCLUDE [Configure VPN device](../../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
 ## Create the site-to-site connection
+
+You need an existing Azure virtual network gateway, a local network gateway resource representing your on-premises VPN device, and a shared key (PSK) that matches the key configured on your on-premises VPN device; optionally, choose IKEv1 for policy-based VPN or IKEv2 for route-based VPN depending on your device.
 
 To complete the deployment of a S2S VPN, you must create a connection between your on-premises network appliance (represented by the local network gateway resource) and the Azure virtual network gateway. To do this, follow these steps.
 
@@ -470,6 +480,8 @@ az network vpn-connection show --name VNet1toSite1 --resource-group <resource-gr
 ---
 
 ## Mount Azure file share
+
+You need an established site-to-site VPN connection between your on-premises network and Azure, an Azure file share in a storage account configured for virtual network access, and appropriate client credentials; OS-specific commands apply for Windows, macOS, Linux (NFS), or Linux (SMB).
 
 The final step in configuring a S2S VPN is verifying that it works for Azure Files. You can do this by mounting your Azure file share on-premises. See the instructions to mount by OS here:
 

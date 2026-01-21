@@ -3,7 +3,7 @@ metadata:
   title: Customer Lockbox for Microsoft Azure frequently asked questions
   description: Frequently asked questions about Customer Lockbox
   services: information-protection
-  ms.service: information-protection
+  ms.service: azure-information-protection
   ms.topic: overview
   ms.date: 03/15/2024
   author: msmbaldwin
