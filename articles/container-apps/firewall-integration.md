@@ -90,6 +90,7 @@ The following tables describe how to configure a collection of NSG allow rules. 
 | TCP | Your container app's subnet<sup>1</sup> | \* | Your Container Registry | Your container registry's port | This is required to communicate with your container registry. For example, when using ACR, you need `AzureContainerRegistry` and `AzureActiveDirectory` for the destination, and the port is your container registry's port unless using private endpoints.<sup>2</sup> |
 | TCP | Your container app's subnet | \* | `Storage.<Region>` | `443` | Only required when using `Azure Container Registry` to host your images. |
 | TCP | Your container app's subnet | \* | `AzureMonitor` | `443` | Only required when using Azure Monitor. Allows outbound calls to Azure Monitor. |
+| TCP | Your container app's subnet | \* | `EventHub.<Region>` | `5671`, `5672` | This is a dependency of the `EventHub` service tag. |
 
 ---
 
