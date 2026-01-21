@@ -95,6 +95,7 @@ Each directory service appeals to different use cases in Azure NetApp Files.
 * You must configure the LDAP server before creating the volume. 
 * You can only configure FreeIPA, Red Hat IdM, OpenLDAP, Red Hat Directory Server, or Oracle Unified Directory on _new_ NFS volumes. You can't convert existing volumes to use these directory services. 
 * [!INCLUDE [Kerberos support limitation](includes/kerberos-other-servers.md)]
+* By default, the Time-to-Live (TTL) for user and group authentication entries in the NFS credential cache is set to 1 hour.
 
 ## Register the feature
 
