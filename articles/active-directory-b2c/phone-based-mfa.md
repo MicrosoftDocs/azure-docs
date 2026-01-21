@@ -149,7 +149,7 @@ To help prevent fraudulent sign-ups, remove any country/region codes that do not
 
   > [!IMPORTANT]
   > This code must be added to the **relying party policy** to ensure the country/region code restrictions are properly enforced on the server side.
-  > Defining these elements only in the parent policies will not work, they **must be added to the relying party policy**.
+  > Defining these elements only in the parent policies will not work; they **must be added to the relying party policy**.
 
    ```xml
     <BuildingBlocks>
