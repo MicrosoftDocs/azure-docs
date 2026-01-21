@@ -210,7 +210,8 @@ Choose the scenario that matches your environment.
     }
 
     resource "azurerm_kubernetes_cluster_extension" "container_storage" {
-      name           = "microsoft-azurecontainerstorage"
+      # NOTE: the `name` parameter must be "acstor" for Azure CLI compatibility
+      name           = "acstor"
       cluster_id     = azurerm_kubernetes_cluster.aks.id
       extension_type = "microsoft.azurecontainerstoragev2"
 
@@ -263,7 +264,8 @@ data "azurerm_kubernetes_cluster" "existing" {
 }
 
 resource "azurerm_kubernetes_cluster_extension" "container_storage" {
-  name           = "microsoft-azurecontainerstorage"
+  # NOTE: the `name` parameter must be "acstor" for Azure CLI compatibility
+  name           = "acstor"
   cluster_id     = data.azurerm_kubernetes_cluster.existing.id
   extension_type = "microsoft.azurecontainerstoragev2"
 

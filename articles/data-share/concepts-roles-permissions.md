@@ -1,11 +1,11 @@
 ---
 title: Roles and requirements for Azure Data Share   
 description: Learn about the permissions required to share and receive data using Azure Data Share.
-author: sidontha
-ms.author: sidontha
+author: chvukosw
+ms.author: chvukosw
 ms.service: azure-data-share
 ms.topic: concept-article
-ms.date: 02/12/2025
+ms.date: 01/20/2026
 ms.custom: subject-rbac-steps
 ---
 
@@ -17,7 +17,7 @@ This article describes roles and permissions required to share and receive data 
 
 With Azure Data Share service, you can share data without exchanging credentials between data provider and consumer. For snapshot-based sharing, Azure Data Share service uses Managed Identities (previously known as MSIs) to authenticate to Azure data store.
 
-To create shares in Azure Data share, a user will need these permissions:
+To create shares in Azure Data share, a user needs these permissions:
 
 - Data share account permissions: **Contributor**
 - Storage resource group: **Reader** (Read permissions on the resource group where your storage accounts or databases live you permission to browse for them in the portal.)
@@ -54,13 +54,13 @@ To share data from SQL, you can use either:
 - [Microsoft Entra authentication](#microsoft-entra-authentication-to-share)
 - [SQL authentication](#sql-authentication-to-share)
 
-To receive data into SQL, you'll need to [assign permissions to receive data](#authentication-to-receive-in-sql).
+To receive data into SQL, you need to [assign permissions to receive data](#authentication-to-receive-in-sql).
 
 #### Microsoft Entra authentication to share
 
-These prerequisites cover the authentication you'll need so Azure Data Share can connect with your Azure SQL Database:
+These prerequisites cover the authentication you need so Azure Data Share can connect with your Azure SQL Database:
 
-- You'll need permission to write to the databases on SQL server: *Microsoft.Sql/servers/databases/write*. This permission exists in the **Contributor** role.
+- You need permission to write to the databases on SQL server: *Microsoft.Sql/servers/databases/write*. This permission exists in the **Contributor** role.
 - SQL Server **Microsoft Entra Admin** permissions.
 - SQL Server Firewall access:
     1. In the [Azure portal](https://portal.azure.com/), navigate to your SQL server. Select *Firewalls and virtual networks* from left navigation.

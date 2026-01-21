@@ -130,7 +130,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 
 | Field          | Class        | Type       | Description   |
 |---------------|--------------|------------|-----------------|
-|**LogonMethod** |Optional |String |The method used to perform authentication. Allowed values include: `Managed Identity`, `Service Principal`, `Username & Password`, `Multi factor authentication`, `Passwordless`, `PKI`, `Other`. <br><br>Examples: `Managed Identity` |
+|**LogonMethod** |Optional |String |The method used to perform authentication. Allowed values include: `Managed Identity`, `Service Principal`, `Username & Password`, `Multi factor authentication`, `Passwordless`, `PKI`, `PAM`, and `Other`. <br><br>Examples: `Managed Identity` |
 |**LogonProtocol** |Optional |String |The protocol used to perform authentication. <br><br>Example: `NTLM` |
 
 

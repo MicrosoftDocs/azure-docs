@@ -27,6 +27,8 @@ You can upgrade your gateway to a higher-capacity SKU within the same SKU family
 - Upgrade from one availability zone-enabled SKU to another availability zone-enabled SKU
 
 For all other scenarios, including downgrades or switching between availability zone types, you must delete and recreate the gateway. This process incurs downtime.
+> [!NOTE]
+> If the gateway is connected to a Private Link, customers should expect up to 2 hours of downtime during the upgrade.
 
 ## Gateway subnet
 
