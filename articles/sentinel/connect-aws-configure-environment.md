@@ -90,10 +90,10 @@ Follow these instructions in the AWS documentation:<br>[Creating OpenID Connect 
    | **Permissions to assign** | <ul><li>`AmazonSQSReadOnlyAccess`<li>`AWSLambdaSQSQueueExecutionRole`<li>`AmazonS3ReadOnlyAccess`<li>`ROSAKMSProviderPolicy`<li>Other policies for ingesting the different types of AWS service logs | For information on these policies, see the relevant AWS S3 connector permissions policies page, in the Microsoft Sentinel GitHub repository.<ul><li>[AWS Commercial S3 connector permissions policies page](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/AwsRequiredPolicies.md)<li>[AWS Government S3 connector permissions policies page](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/AwsRequiredPoliciesForGov.md)|
    | **Name** | "OIDC_*MicrosoftSentinelRole*"| Choose a meaningful name that includes a reference to Microsoft Sentinel.<br><br>The name must include the exact prefix `OIDC_`; otherwise, the connector can't function properly. |
    
-1. Edit the new role's trust policy and add another condition:<br>`"sts:RoleSessionName": "MicrosoftSentinel_{WORKSPACE_ID)"`
+1. Edit the new role's trust policy and add another condition:<br>`"sts:RoleSessionName": "MicrosoftDefenderForClouds_{WORKSPACE_ID)"`
 
    > [!IMPORTANT]
-   > The value of the `sts:RoleSessionName` parameter must have the exact prefix `MicrosoftSentinel_`; otherwise the connector doesn't function properly.
+   > The value of the `sts:RoleSessionName` parameter must have the exact prefix `MicrosoftDefenderForClouds_`; otherwise the connector doesn't function properly.
 
    The finished trust policy should look like this:
 
@@ -110,7 +110,7 @@ Follow these instructions in the AWS documentation:<br>[Creating OpenID Connect 
          "Condition": {
            "StringEquals": {
              "sts.windows.net/cab8a31a-1906-4287-a0d8-4eef66b95f6e/:aud": "api://d4230588-5f84-4281-a9c7-2c15194b28f7",
-             "sts:RoleSessionName": "MicrosoftSentinel_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+             "sts:RoleSessionName": "MicrosoftDefenderForClouds_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
            }
          }
        }
