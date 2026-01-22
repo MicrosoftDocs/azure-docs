@@ -43,8 +43,10 @@ Azure Managed Grafana supports many popular data sources. The table below lists 
 | [Microsoft SQL Server](https://grafana.com/docs/grafana/latest/datasources/mssql/)                                            | -         | ✔       |
 | [MySQL](https://grafana.com/docs/grafana/latest/datasources/mysql/)                                                           | -         | ✔       |
 | [OpenTSDB](https://grafana.com/docs/grafana/latest/datasources/opentsdb/)                                                     | -         | ✔       |
+| [Parca](https://grafana.com/docs/grafana/latest/datasources/parca/)                                                           | -         | ✔       |
 | [PostgreSQL](https://grafana.com/docs/grafana/latest/datasources/postgres/)                                                   | -         | ✔       |
 | [Prometheus](https://grafana.com/docs/grafana/latest/datasources/prometheus/)                                                 | ✔        | ✔       |
+| [Pyroscope](https://grafana.com/docs/grafana/latest/datasources/pyroscope/)                                                   | -         | ✔       |
 | [Tempo](https://grafana.com/docs/grafana/latest/datasources/tempo/)                                                           | -         | ✔       |
 | [TestData](https://grafana.com/docs/grafana/latest/datasources/testdata/)                                                     | ✔        | ✔       |
 | [Zipkin](https://grafana.com/docs/grafana/latest/datasources/zipkin/)                                                         | -         | ✔       |

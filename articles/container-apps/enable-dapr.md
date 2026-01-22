@@ -1,9 +1,11 @@
 ---
 title: Configure Dapr on an existing container app
 description: Configure Dapr on your existing Azure Container App service.
-ms.author: hannahhunter
-author: hhunter-ms
+ms.author: nigreenf
+ms.reviewer: hannahhunter
+author: greenie-msft
 ms.service: azure-container-apps
+ms.subservice: dapr
 ms.topic: concept-article
 ms.date: 04/08/2025
 ms.custom:

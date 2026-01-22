@@ -40,7 +40,7 @@ These steps assume that you have a legacy classic VNet and a Resource Manager VN
 
   While it's possible to perform a few of the PowerShell commands using the Azure Cloud Shell environment, you need to install both versions of the cmdlets to create the connections properly.
 
-  * [Service Management (classic) PowerShell cmdlets](/powershell/azure/servicemanagement/install-azure-ps?). When you install the Service Management cmdlets, you might need to modify the [Execution policy](/powershell/module/microsoft.powershell.core/about/about_execution_policies?) in order to install the classic version of the Azure module.
+  * [Service Management (classic) PowerShell cmdlets](https://www.powershellgallery.com/packages/Azure/). When you install the Service Management cmdlets, you might need to modify the [Execution policy](/powershell/module/microsoft.powershell.core/about/about_execution_policies?) in order to install the classic version of the Azure module.
 
   * [AZ PowerShell cmdlets for Resource Manager](/powershell/azure/install-az-ps?)
 

@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: guywi-ms
 ms.author: guywild
 ms.topic: concept-article
-ms.date: 09/28/2025
+ms.date: 01/22/2026
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
 ms.custom:
   - build-2025
@@ -40,6 +40,17 @@ UEBA behaviors can be enabled independently from UEBA anomaly detection.
 **Supported data sources during public preview:** AWS CloudTrail, CommonSecurityLog (CyberArk Vault, Palo Alto Threats), and GCPAuditLogs.
 
 For more information, see [Translate raw security logs to behavioral insights using UEBA behaviors in Microsoft Sentinel](../sentinel/entity-behaviors-layer.md).
+
+### Enable UEBA directly from data connector configuration (Preview)
+
+You can now enable UEBA for supported data sources directly from the data connector configuration page, reducing management time and preventing coverage gaps. When you enable new connectors, you can onboard the data source to UEBA without navigating to a separate configuration page.
+
+This integration allows you to see which data sources feed into UEBA and enable that feed directly from the connector configuration.
+
+For more information, see:
+
+- [Connect data sources to Microsoft Sentinel by using data connectors](configure-data-connector.md#enable-user-and-entity-behavior-analytics-ueba-from-supported-connectors)
+
 
 ### New detections for Sentinel solution for SAP BTP
 

@@ -139,7 +139,7 @@ For technical resources and specific syntax requirements when using REST APIs an
 
 | Classic | Resource Manager |
 | --- | --- |
-| [PowerShell](/powershell/module/servicemanagement/azure) |[PowerShell](/powershell/module/az.network#networking) |
+| [PowerShell](https://www.powershellgallery.com/packages/Azure/) |[PowerShell](/powershell/module/az.network#networking) |
 | [REST API](/previous-versions/azure/reference/jj154113(v=azure.100)) |[REST API](/rest/api/virtual-network/) |
 
 ## Virtual network-to-virtual network connectivity

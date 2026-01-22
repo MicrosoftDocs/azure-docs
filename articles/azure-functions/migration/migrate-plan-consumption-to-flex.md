@@ -107,6 +107,9 @@ This command automatically scans your subscription and returns two arrays:
 - **eligible_apps**: Linux Consumption apps that can be migrated to Flex Consumption. These apps are compatible with Flex Consumption.
 - **ineligible_apps**: Apps that can't be migrated, along with the specific reasons why. The reasons for incompatibility need to be reviewed and addressed before continuing.
 
+> [!NOTE]
+> This command only evaluates function apps running on the **Linux Consumption plan**. Apps running on other hosting plans (Windows Consumption, Premium, Dedicated, or Flex Consumption) won't appear in either the `eligible_apps` or `ineligible_apps` arrays. If you have many function apps and aren't sure which hosting plan each one uses, you can run `az functionapp list --query "[].{name:name, sku:sku}" -o table` to see all apps and their SKUs, where `Dynamic` indicates a Consumption plan app.
+
 The output includes the app name, resource group, location, and runtime stack for each app, along with eligibility status and migration readiness information.
 
 ### [Azure portal](#tab/azure-portal)
@@ -1061,7 +1064,7 @@ There are various ways to create a function app in the Flex Consumption plan alo
 | Visual Studio | [Visual Studio deployment](../functions-develop-vs.md#publish-to-azure) |
 
 >[!TIP]  
->When possible, you should use Microsoft Entra ID for authentication instead of connection strings, which contain shared keys. Using managed identities is a best practice that improves security by eliminating the need to store shared secrets directly in application settings. If your original app used connection strings, the Flex Consumption plan is designed to support managed identities. Most of these links show you how to enable managed identities in your function app. 
+>When possible, you should use Microsoft Entra ID for authentication instead of connection strings, which contain shared keys. Using managed identities is a best practice that improves security by eliminating the need to store shared secrets directly in application settings. If your original app used connection strings, the Flex Consumption plan is designed to support managed identities. Most of these links show you how to enable managed identities in your function app.
 
 ### Apply migrated app settings in the new app
 
@@ -1507,6 +1510,7 @@ After a successful migration, you should perform these follow-up tasks:
 > + [Capture performance benchmarks](#capture-performance-benchmarks)
 > + [Create custom dashboards](#create-custom-dashboards)
 > + [Refine plan settings](#refine-plan-settings)
+> + [Update your Infrastructure as Code](#update-your-infrastructure-as-code)
 > + [Remove the original app (optional)](#remove-the-original-app-optional)
 
 ### Verify basic functionality
@@ -1564,6 +1568,257 @@ Consider setting-up dashboards and alerts on your key metrics in the Azure porta
 ### Refine plan settings
 
 Actual performance improvements and cost implications of the migration can vary based on your app-specific workloads and configuration. The Flex Consumption plan provides several settings that you can adjust to refine the performance of your app. You might want to make adjustments to more closely match the behavior of the original app or to balance cost versus performance. For more information, see [Fine-tune your app](../flex-consumption-how-to.md#fine-tune-your-app) in the Flex Consumption article.
+
+### Update your Infrastructure as Code
+
+If you manage your function app infrastructure using Bicep or Terraform, you need to update your IaC files to target the Flex Consumption plan. This section shows the key differences between Consumption and Flex Consumption plan resource definitions.
+
+> [!IMPORTANT]
+> You can't convert an existing Consumption plan app to Flex Consumption in place. You need to create new resources with a new name or delete the existing resources before deploying the Flex Consumption equivalents.
+
+#### Key differences
+
+When migrating your IaC from Consumption to Flex Consumption, consider these important changes:
+
+| Aspect | Consumption plan | Flex Consumption plan |
+| ------ | ---------------- | --------------------- |
+| Hosting plan SKU | `Y1` (Dynamic) | `FC1` (FlexConsumption) |
+| Plan required | Optional (auto-created) | Required (must be explicit) |
+| Operating system | Windows or Linux | Linux only |
+| Configuration | App settings | `functionAppConfig` section |
+| Storage content share | `WEBSITE_CONTENTSHARE` setting | `deployment.storage` in `functionAppConfig` |
+
+The examples below demonstrate the key differences between Consumption and Flex Consumption plan resource definitions, and use system assigned managed identity, but they are not complete. They don't include all required resources such as storage accounts, Application Insights, or all necessary role assignments. For complete, production-ready examples, review the [Flex Consumption IaC samples](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC).
+
+#### [Bicep](#tab/bicep)
+
+**Consumption plan (before):**
+
+```bicep
+// Consumption plan (optional - auto-created if omitted)
+resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
+  name: hostingPlanName
+  location: location
+  sku: {
+    name: 'Y1'
+    tier: 'Dynamic'
+  }
+  properties: {
+    reserved: true // Linux
+  }
+}
+
+resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
+  name: functionAppName
+  location: location
+  kind: 'functionapp,linux'
+  properties: {
+    serverFarmId: hostingPlan.id
+    siteConfig: {
+      linuxFxVersion: 'DOTNET-ISOLATED|8.0'
+      appSettings: [
+        { name: 'FUNCTIONS_EXTENSION_VERSION', value: '~4' }
+        { name: 'FUNCTIONS_WORKER_RUNTIME', value: 'dotnet-isolated' }
+        { name: 'AzureWebJobsStorage__accountName', value: storageAccount.name }
+        { name: 'WEBSITE_CONTENTAZUREFILECONNECTIONSTRING__accountName', value: storageAccount.name }
+        { name: 'WEBSITE_CONTENTSHARE', value: functionAppName }
+        { name: 'APPLICATIONINSIGHTS_CONNECTION_STRING', value: appInsights.properties.ConnectionString }
+        { name: 'APPLICATIONINSIGHTS_AUTHENTICATION_STRING', value: 'Authorization=AAD' }
+      ]
+    }
+  }
+  identity: {
+    type: 'SystemAssigned'
+  }
+}
+```
+
+**Flex Consumption plan (after):**
+
+```bicep
+// Flex Consumption plan (required)
+resource hostingPlan 'Microsoft.Web/serverfarms@2023-12-01' = {
+  name: hostingPlanName
+  location: location
+  sku: {
+    name: 'FC1'
+    tier: 'FlexConsumption'
+  }
+  kind: 'functionapp'
+  properties: {
+    reserved: true
+  }
+}
+
+// Deployment storage container (required)
+resource deploymentContainer 'Microsoft.Storage/storageAccounts/blobServices/containers@2023-05-01' = {
+  name: '${storageAccount.name}/default/deployments'
+}
+
+resource functionApp 'Microsoft.Web/sites@2023-12-01' = {
+  name: functionAppName
+  location: location
+  kind: 'functionapp,linux'
+  properties: {
+    serverFarmId: hostingPlan.id
+    functionAppConfig: {
+      deployment: {
+        storage: {
+          type: 'blobContainer'
+          value: '${storageAccount.properties.primaryEndpoints.blob}deployments'
+          authentication: {
+            type: 'SystemAssignedIdentity'
+          }
+        }
+      }
+      scaleAndConcurrency: {
+        maximumInstanceCount: 100
+        instanceMemoryMB: 2048
+      }
+      runtime: {
+        name: 'dotnet-isolated'
+        version: '8.0'
+      }
+    }
+    siteConfig: {
+      appSettings: [
+        { name: 'AzureWebJobsStorage__accountName', value: storageAccount.name }
+        { name: 'APPLICATIONINSIGHTS_CONNECTION_STRING', value: appInsights.properties.ConnectionString }
+        { name: 'APPLICATIONINSIGHTS_AUTHENTICATION_STRING', value: 'Authorization=AAD' }
+      ]
+    }
+  }
+  identity: {
+    type: 'SystemAssigned'
+  }
+}
+```
+
+> [!NOTE]
+> When using `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` with `Authorization=AAD`, you must also assign the **Monitoring Metrics Publisher** role to the function app's managed identity on the Application Insights resource.
+
+For complete Bicep examples, see the [Flex Consumption Bicep samples](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC/bicep).
+
+#### [Terraform](#tab/terraform)
+
+**Consumption plan (before):**
+
+```terraform
+resource "azurerm_service_plan" "consumption" {
+  name                = var.hosting_plan_name
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  os_type             = "Linux"
+  sku_name            = "Y1"
+}
+
+resource "azurerm_linux_function_app" "consumption" {
+  name                                   = var.function_app_name
+  location                               = azurerm_resource_group.rg.location
+  resource_group_name                    = azurerm_resource_group.rg.name
+  service_plan_id                        = azurerm_service_plan.consumption.id
+  storage_account_name                   = azurerm_storage_account.sa.name
+  storage_uses_managed_identity          = true
+
+  identity {
+    type = "SystemAssigned"
+  }
+
+  site_config {
+    application_insights_connection_string = azurerm_application_insights.appInsights.connection_string
+    application_stack {
+      dotnet_version              = "8.0"
+      use_dotnet_isolated_runtime = true
+    }
+  }
+
+  app_settings = {
+    "FUNCTIONS_WORKER_RUNTIME"                  = "dotnet-isolated"
+    "APPLICATIONINSIGHTS_AUTHENTICATION_STRING" = "Authorization=AAD"
+  }
+}
+```
+
+**Flex Consumption plan (after):**
+
+```terraform
+resource "azurerm_service_plan" "flex" {
+  name                   = var.functionPlanName
+  resource_group_name    = azurerm_resource_group.rg.name
+  location               = var.location
+  sku_name               = "FC1"
+  os_type                = "Linux"
+}
+
+resource "azurerm_storage_container" "deploymentpackage" {
+  name                  = "deploymentpackage"
+  storage_account_id    = azurerm_storage_account.sa.id
+  container_access_type = "private"
+}
+
+locals {
+  blobStorageAndContainer = "${azurerm_storage_account.sa.primary_blob_endpoint}deploymentpackage"
+}
+
+resource "azurerm_function_app_flex_consumption" "flex" {
+  name                        = var.functionAppName
+  resource_group_name         = azurerm_resource_group.rg.name
+  location                    = var.location
+  service_plan_id             = azurerm_service_plan.flex.id
+  storage_container_type      = "blobContainer"
+  storage_container_endpoint  = local.blobStorageAndContainer
+  storage_authentication_type = "SystemAssignedIdentity"
+  runtime_name                = var.functionAppRuntime
+  runtime_version             = var.functionAppRuntimeVersion
+  maximum_instance_count      = var.maximumInstanceCount
+  instance_memory_in_mb       = var.instanceMemoryMB
+
+  identity {
+    type = "SystemAssigned"
+  }
+
+  site_config {
+    application_insights_connection_string = azurerm_application_insights.appInsights.connection_string
+  }
+
+  app_settings = {
+    "AzureWebJobsStorage"                       = "" # Required: see note below
+    "AzureWebJobsStorage__accountName"          = azurerm_storage_account.sa.name
+    "APPLICATIONINSIGHTS_AUTHENTICATION_STRING" = "Authorization=AAD"
+  }
+}
+
+resource "azurerm_role_assignment" "storage_roleassignment" {
+  scope                = azurerm_storage_account.sa.id
+  role_definition_name = "Storage Blob Data Owner"
+  principal_id         = azurerm_function_app_flex_consumption.flex.identity.0.principal_id
+  principal_type       = "ServicePrincipal"
+}
+```
+
+> [!NOTE]
+> When using the `azurerm` provider with Flex Consumption, you must set `AzureWebJobsStorage` to an empty string (`""`) as a workaround until [this fix](https://github.com/hashicorp/terraform-provider-azurerm/pull/29099) is released. Use `AzureWebJobsStorage__accountName` with managed identity authentication for the actual storage connection.
+
+For complete Terraform examples, see the [Flex Consumption Terraform samples](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC/terraformazurerm).
+
+---
+
+#### Reconciling IaC after migration
+
+If you use Infrastructure as Code (IaC) to manage your Azure resources, you need to update your IaC files after migrating to Flex Consumption to prevent configuration drift. Here's a recommended approach:
+
+1. **Don't mix manual and IaC deployments**: If you used the Azure CLI or portal to create your Flex Consumption app during migration, update your IaC files before the next deployment. Otherwise, your IaC might attempt to recreate the old Consumption plan resources.
+
+2. **Update resource names or use lifecycle management**: Since you can't convert a Consumption app to Flex Consumption in place, you have two options:
+   + **New resource names**: Update your IaC to use new names for the hosting plan and function app. This approach keeps your old resources intact until you're confident the migration succeeded.
+   + **Import existing resources**: If you want to keep the same names, delete the old resources first, then let your IaC create the new Flex Consumption resources. Alternatively, import the manually-created resources into your Terraform state using `terraform import` or reference existing resources in Bicep.
+
+3. **Verify state alignment**: After updating your IaC files, run a plan/preview operation (`terraform plan` or `az deployment group what-if`) to confirm no unexpected changes will occur.
+
+4. **Update CI/CD pipelines**: If your deployment pipelines reference the old Consumption plan configuration, update them to use the new Flex Consumption resource definitions and deployment methods.
+
+> [!TIP]
+> To minimize disruption, consider running both the old Consumption app and new Flex Consumption app in parallel during a transition period. Update your IaC to manage the new Flex Consumption app, verify it works correctly, then remove the old Consumption app resources from both Azure and your IaC files.
 
 ### Remove the original app (optional)
 

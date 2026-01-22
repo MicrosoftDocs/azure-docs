@@ -2,9 +2,11 @@
 title: "Tutorial: Use Dapr Publish and Subscribe for Microservices Communication"
 titleSuffix: "Azure Container Apps"
 description: Find out how to create a publisher/subscriber system that uses the Dapr pub/sub API to communicate. Follow steps for deploying the app to Azure Container Apps.
-author: hhunter-ms
-ms.author: hannahhunter
+author: greenie-msft
+ms.author: nigreenf
+ms.reviewer: hannahhunter
 ms.service: azure-container-apps
+ms.subservice: dapr
 ms.custom: devx-track-dotnet, devx-track-js, devx-track-python
 ms.topic: how-to
 ms.date: 12/04/2025

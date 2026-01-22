@@ -140,6 +140,9 @@ One deploy is the only deployment technology supported for apps on a [Flex Consu
 
 >__Where app content is stored:__ When you create a Flex Consumption function app, you specify a [deployment storage container](functions-infrastructure-as-code.md?pivots=flex-consumption-plan#deployment-sources). This is a blob container where your tools upload the app content you deployed. To change the location, you can visit the Deployment Settings blade in the Azure portal or use the [Azure CLI](flex-consumption-how-to.md#configure-deployment-settings).
 
+> [!TIP]
+> A **Flex Function App deployment details** diagnostic tool is available in the Azure portal. Open your Flex Consumption app, select **Diagnose and solve problems**, and search for `Flex Function App deployment details`. This tool displays detailed information about your deployments, including deployment history, package status, and troubleshooting recommendations.
+
 ### Zip deploy
 
 Zip deploy is the default and recommended deployment technology for function apps on the Consumption, Elastic Premium, and App Service (Dedicated) plans. The end result a ready-to-run .zip package that your function app runs on. It differs from [external package URL](#external-package-url) in that our platform is responsible for remote building and storing your app content.

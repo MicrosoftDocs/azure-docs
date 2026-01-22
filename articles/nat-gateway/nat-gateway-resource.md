@@ -14,10 +14,6 @@ ms.author: alittleton
 
 This article describes the key components of the NAT gateway resource that enable it to provide highly secure, scalable, and resilient outbound connectivity. NAT Gateway can be configured in your subscription through supported clients. These clients include Azure portal, Azure CLI, Azure PowerShell, Resource Manager templates, or appropriate alternatives.
 
-> [!IMPORTANT]
-> Standard V2 SKU Azure NAT Gateway is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## NAT Gateway SKUs
 NAT Gateway is available in two SKUs: StandardV2 and Standard. 
 

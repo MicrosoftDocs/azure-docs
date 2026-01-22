@@ -152,7 +152,7 @@ role has the same permissions as the Owner role, *except* for:
 You can assign the DevCenter Owner role at either the resource group scope or the dev center scope.
 
 #### DevCenter Owner role at the resource group scope
-Assign the DevCenter Owner role to a resource group give a user full control over Microsoft.DevCenter resources without granting broader access to other resources in the resource group. 
+Assign the DevCenter Owner role to a resource group to give a user full control over Microsoft.DevCenter resources without granting broader access to other resources in the resource group. 
 
 When a user has the DevCenter Owner role on a resource group, they can:
 

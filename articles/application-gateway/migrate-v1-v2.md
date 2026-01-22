@@ -46,6 +46,9 @@ This article primarily helps with the configuration migration. Client traffic mi
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
+> [!NOTE]
+> If NetworkIsolation is enabled on the subscription, all Application Gateway v2 deployments whether public‑only or  private‑only must be deployed in a subnet delegated to Microsoft.Network/applicationGateways.  Use the following [steps to set up subnet delegation](/azure/virtual-network/manage-subnet-delegation?tabs=manage-subnet-delegation-portal).
+
 ## Configuration migration
 The configuration migration focuses on setting up the new V2 gateway with the settings from your existing V1 environment. We provide two Azure PowerShell scripts designed to facilitate the migration of configurations from V1 (Standard or WAF) to V2 (Standard_V2 or WAF_V2) gateways. These scripts help streamline the transition process by automating key deployment and configuration tasks.
 

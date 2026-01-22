@@ -327,7 +327,7 @@ Before you can set up your function app to use the managed identity and Microsof
 
 #### Find the tenant ID for your Microsoft Entra tenant
 
-Either run the PowerShell command named [**Get-AzureAccount**](/powershell/module/servicemanagement/azure/get-azureaccount), or in the Azure portal, follow these steps:
+Either run the PowerShell command named [**Get-AzContext**](/powershell/module/az.accounts/get-azcontext), or in the Azure portal, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your Microsoft Entra tenant.
 

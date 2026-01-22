@@ -15,10 +15,6 @@ ms.custom: template-quickstart, FY23 content-maintenance, linux-related-content
 
 In this quickstart, learn how to create a NAT gateway by using the Azure portal, Azure CLI, PowerShell, Bicep, ARM template and Terraform. The NAT Gateway service provides scalable outbound connectivity for virtual machines in Azure.
 
-> [!IMPORTANT]
-> Standard V2 SKU Azure NAT Gateway is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 :::image type="content" source="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png" alt-text="Diagram of resources created in nat gateway quickstart." lightbox="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png":::
 
 ## Prerequisites

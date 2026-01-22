@@ -25,8 +25,8 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 
 | Azure region   | OCI region   | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure | Oracle Database Autonomous Recovery Service@Azure | Exadata Database Service on Exascale Infrastructure@Azure | BaseDB | Golden Gate | Regional Availability |
 | -------------- | ----------------------- | ----------------------------- | -------------------------------- | -------- |---------|---------|---------|-----|
-| Australia East | Australia East (Sydney) | ✓         | ✓      | ✓ | ✓ | Preview available | ✓|  Dual   |
-| Australia Southeast | Australia Southeast (Melbourne) | ✓        | ✓ | | |  | |   Dual   |
+| Australia East | Australia East (Sydney) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓|  Dual   |
+| Australia Southeast | Australia Southeast (Melbourne) | ✓ | ✓ | | |  | |   Dual   |
 | Central India | India West (Mumbai) | ✓  | ✓ | | | | |   Single   |
 | Japan East | Japan East (Tokyo) | ✓  | ✓  | ✓ | ✓ | ✓ | ✓ |   Dual   |
 | Japan West | Japan Central (Osaka) | ✓  | ✓ | | | | |   Single   |
@@ -47,13 +47,13 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 |Azure region |OCI region  | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure | Oracle Database Autonomous Recovery Service@Azure| Exadata Database Service on Exascale Infrastructure@Azure | BaseDB | Golden Gate | Regional Availability |
 |------------|--|--------------------------|------------------------------| ------| ---- | ---- |----|-------|
 | France Central       |France central (Paris) | ✓   | ✓ | ✓ | ✓ | | |  Dual |
-| France South | France South (Marseille) |  ✓  | ✓ | | | | |   Single   |
-| Germany North |Germany Central (Frankfurt) | ✓  | ✓ |  | ✓ | | |   Single    |
+| France South | France South (Marseille) |  ✓  | ✓ | ✓  | | | |   Single   |
+| Germany North |Germany Central (Frankfurt) | ✓  | ✓ | ✓  | ✓ | ✓ | |   Single    |
 | Germany West Central |Germany Central (Frankfurt) |  ✓  | ✓ | ✓ | ✓ | ✓ | ✓ | Dual |
 | Italy North | Italy North (Milan)   | ✓   | ✓   | ✓ |  ✓ | ✓ | ✓ | Dual |
 | North Europe | Ireland (Dublin) | ✓  | ✓ |   | | | ✓ |   Dual   |
 | Spain Central | 	Spain Central (Madrid) | ✓  | ✓ |  |  | | |   Dual    |
-| Sweden Central | 	Sweden Central (Stockholm) | ✓  | ✓ | | ✓ | | |   Dual    |
+| Sweden Central | 	Sweden Central (Stockholm) | ✓  | ✓ | ✓ | ✓ | | |   Dual    |
 | Switzerland North | Switzerland North (Zurich) | ✓  | ✓ | | | | |   Single    |
 | UAE Central | UAE Central (Abu Dhabi) | ✓  | ✓ | | | | |   Single    |
 | UAE North | UAE North (Dubai) | ✓  | ✓ | ✓ | | | ✓ |   Dual    |
@@ -73,7 +73,7 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | East US 2        | US East (Ashburn)  | ✓    | ✓  | ✓  |  ✓   |   |  | Dual     |
 | North Central US | US Midwest (Chicago) | ✓  |  ✓ |  |  |  |  | Single   |
 | South Central US | US South (Dallas)| ✓  |  ✓  | |  |   |   | Dual |
-| West US          | US West (San Jose) | ✓    | ✓  | ✓  |  ✓   |  Preview available  |  | Single   |
+| West US          | US West (San Jose) | ✓    | ✓  | ✓  |  ✓   |  Preview available  | ✓ | Single   |
 | West US 2        | US West (Quincy) | ✓  | ✓ |  ✓ |   |  |  | Dual |
 | West US 3        | US West (Phoenix) | ✓ |   |  ✓ |   |  |  | Dual   |
 

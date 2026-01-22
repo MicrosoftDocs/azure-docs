@@ -2,7 +2,7 @@
 title: Back Up and Restore Encrypted Azure VMs
 description: This article describes how to back up and restore encrypted Azure VMs with Azure Backup.
 ms.topic: how-to
-ms.date: 08/20/2025
+ms.date: 01/22/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -72,22 +72,31 @@ Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent
 To configure a backup policy, follow these steps:
 
 1. If you don't have a Recovery Services backup vault, follow [these instructions](backup-create-rs-vault.md) to create one.
-1. Go to **Backup center**, and on the **Overview** tab, select **+ Backup**.
+1. Go to **Resiliency**, and then select **+ Configure protection**.
 
-    ![Screenshot that shows Backup center.](./media/backup-azure-vms-encryption/select-backup.png)
+   :::image type="content" source="./media/backup-azure-arm-vms-prepare/configure-protection.png" alt-text="Screenshot that shows the Configure protection option." lightbox="./media/backup-azure-arm-vms-prepare/configure-protection.png":::
 
-1. For **Datasource type**, select **Azure Virtual machines**, and select the vault that you created. Then select **Continue**.
+1. On the **Configure protection** pane, fill in the following fields:
 
-     ![Screenshot that shows the scenario pane.](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
+   - **Resources managed by**: Select **Azure**.
+   - **Datasource type**: Select **Azure Virtual machines**.
+   - **Solution**: Select **Azure Backup**.
 
-1. Select the policy that you want to associate with the vault, and then select **OK**.
+   Then select **Continue**.
 
-   - A backup policy specifies when backups are taken and how long they're stored.
-   - The details of the default policy are listed on the dropdown menu.
+   :::image type="content" source="./media/backup-azure-arm-vms-prepare/configure-system-protection.png" alt-text="Screenshot that shows the Configure protection pane." lightbox="./media/backup-azure-arm-vms-prepare/configure-system-protection.png":::
 
-   ![Screenshot that shows choosing the backup policy.](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
+1. On the **Start: Configure Backup** pane, for **Datasource type**, select **Azure Virtual machines**, and select the vault that you created. Then select **Continue**.
 
-1. If you don't want to use the default policy, select **Create New**, and [create a custom policy](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
+   :::image type="content" source="./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png" alt-text="Screenshot that shows the Start: Configure Backup pane.":::
+
+1. On the **Configure backup** pane, assign a backup policy.
+
+   - The default policy backs up the VM once a day. The daily backups are retained for 30 days. Instant recovery snapshots are retained for two days.
+
+   :::image type="content" source="./media/backup-azure-arm-vms-prepare/default-policy.png" alt-text="Screenshot that shows choosing the backup policy." lightbox="./media/backup-azure-arm-vms-prepare/default-policy.png":::
+
+   - If you don't want to use the default policy, select **Create New**, and [create a custom policy](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
 1. Under **Virtual Machines**, select **Add**.
 
@@ -155,13 +164,13 @@ For Azure RBAC-enabled key vaults, you can create a custom role with the followi
 
 The initial backup runs according to the schedule, but you can also run it immediately:
 
-1. Go to **Backup center** and select the **Backup Instances** menu item.
-1. For **Datasource type**, select **Azure Virtual machines**. Then search for the VM that you configured for backup.
+1. Go to **Resiliency** > **Protected items**.
+1. On the **Protected items** pane, for **Datasource type**, select **Azure Virtual machines**. Then search for the VM that you configured for backup.
 1. Right-click the relevant row or select **More** (**…**), and then select **Backup Now**.
 1. On **Backup Now**, use the calendar control to select the last day that the recovery point should be retained. Then select **OK**.
 1. Monitor the portal notifications.
 
-   To monitor the job progress, go to **Backup center** > **Backup Jobs** and filter the list for jobs that are in progress. Depending on the size of your VM, creating the initial backup might take a while.
+   To monitor the job progress, go to **Resiliency** > **Jobs** and filter the list for jobs that are in progress. Depending on the size of your VM, creating the initial backup might take a while.
 
 ## Provide permissions
 

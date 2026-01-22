@@ -16,13 +16,6 @@ ms.customs: references_regions
 
 This article provides guidance on how to correctly configure your NAT gateway and troubleshoot common configuration and deployment related issues.  
 
-> [!IMPORTANT]
-> Standard V2 SKU Azure NAT Gateway is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.  
-
-* [NAT gateway configuration basics](#nat-gateway-configuration-basics) 
-
-* [NAT gateway in a failed state](#nat-gateway-in-a-failed-state) 
 
 * [Add or remove NAT gateway](#add-or-remove-nat-gateway) 
 
@@ -95,7 +88,7 @@ To analyze outbound traffic from Standard NAT gateway, use virtual network (VNet
 
 * For guides on how to enable VNet flow logs, see [Manage virtual network flow logs](../network-watcher/vnet-flow-logs-portal.md).
 
-* It's recommended to access the log data on [Log Analytics workspaces](/azure/azure-monitor/logs/log-analytics-overview) where you can also query and filter the data for outbound traffic. To learn more about using Log Analytics, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
+* Access log data on [Log Analytics workspaces](/azure/azure-monitor/logs/log-analytics-overview) to query and filter the data for outbound traffic. To learn more about using Log Analytics, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
 
 * For more information on the VNet flow log schema, see [Traffic analytics schema and data aggregation](../network-watcher/traffic-analytics-schema.md).
 
@@ -109,15 +102,13 @@ You can experience outbound connectivity failure if your NAT gateway resource is
 
 1. Update the toggle on the right-hand top corner to Read/Write. 
 
-1. Select on Edit for the resource in failed state. 
+1. Select Edit for the resource in failed state.
 
-1. Select on PUT followed by GET to ensure the provisioning state was updated to Succeeded. 
-
-1. You can then proceed with other actions as the resource is out of failed state. 
+1. Select PUT followed by GET to ensure the provisioning state was updated to Succeeded.
 
 ## Virtual network or NAT gateway in a failed state with StandardV2 NAT gateway
 
-Associating a StandardV2 NAT Gateway to an empty subnet that was created before April 2025 and that doesn't contain any virtual machines may cause either the virtual network or the NAT gateway to go into a failed state. To resolve the issue, follow these steps:
+Associating a StandardV2 NAT Gateway to an empty subnet that was created before April 2025 and that doesn't contain any virtual machines might cause either the virtual network or the NAT gateway to go into a failed state. To resolve the issue, follow these steps:
 1. Remove the StandardV2 NAT gateway from the subnet or virtual network.
 1. Create a virtual machine in the subnet.
 1. Reattach the StandardV2 NAT gateway to the subnet or virtual network.
@@ -180,7 +171,7 @@ To get your virtual machine network interface out of a failed state, you can use
 
 1. Expand networkInterfaces.
 
-1. Select on the network interface that is in the failed provisioning state.
+1. Select the network interface that is in the failed provisioning state.
 
 1. Select the Read/Write button at the top.
 

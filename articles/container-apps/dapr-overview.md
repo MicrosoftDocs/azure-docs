@@ -1,9 +1,11 @@
 ---
 title: Microservice APIs powered by Dapr
 description: Learn more about using Dapr on your Azure Container App service to develop applications.
-ms.author: hannahhunter
-author: hhunter-ms
+ms.author: nigreenf
+ms.reviewer: hannahhunter
+author: greenie-msft
 ms.service: azure-container-apps
+ms.subservice: dapr
 ms.topic: concept-article
 ms.date: 05/21/2025
 ms.custom:

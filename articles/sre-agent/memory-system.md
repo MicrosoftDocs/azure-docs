@@ -4,7 +4,7 @@ description: Use the SRE Agent memory system to build team knowledge that agents
 author: craigshoemaker
 ms.author: cshoe
 ms.reviewer: cshoe
-ms.date: 12/18/2025
+ms.date: 01/17/2026
 ms.topic: article
 ms.service: azure-sre-agent
 ms.collection: ce-skilling-ai-copilot
@@ -66,7 +66,31 @@ The `SearchMemory` tool retrieves all memory components. It searches across user
 - Custom subagents: Add `SearchMemory` tool to your configuration
 
 > [!IMPORTANT]
-> Don't store secrets, credentials, API keys, or sensitive data in any memory component. Memories are shared across your team and indexed for search.
+> Don't store secrets, credentials, API keys, or sensitive data in any memory component. Your team shares memories, and the system indexes them for search.
+
+### Enhanced search parameters
+
+The `SearchNodes` tool supports filtering options for more targeted searches:
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `entityType` | string | Filter results by entity type, such as `Incident`, `Service`, or `Resource`. |
+| `includeNeighbors` | bool | Include connected nodes in the search results. |
+
+**Example:**
+
+```text
+Search for all incidents related to "database timeout" and include connected resources
+```
+
+When you set `includeNeighbors` to `true`, the search returns not only matching incident nodes but also their connected:
+
+- Resources
+- Services
+- Related incidents
+- Linked documents
+
+By showing the full relationship graph around matching nodes, you get richer context during investigations.
 
 ## Quick start
 
@@ -140,7 +164,7 @@ Save facts, standards, or context for future conversations.
 #remember Team uses Kusto for logs. Workspace is "myteam-prod-logs"
 ```
 
-Content is embedded by using OpenAI, stored in Azure AI Search, and becomes available for automatic retrieval across all conversations. You see a confirmation: `✅ Agent Memory saved.`
+The system embeds content by using OpenAI, stores it in Azure AI Search, and makes it available for automatic retrieval across all conversations. You see a confirmation: `✅ Agent Memory saved.`
 
 #### Remove memories by using `#forget`
 
@@ -159,7 +183,7 @@ Delete previously saved memories by searching for them.
 #forget production environment location
 ```
 
-The system searches your memories semantically for the best match, shows you the content, and deletes it. You see a confirmation: `✅ Agent Memory forgotten: [deleted content]`
+The system semantically searches your memories for the best match, shows you the content, and deletes it. You see a confirmation: `✅ Agent Memory forgotten: [deleted content]`
 
 #### Query memories by using `#retrieve`
 
@@ -178,7 +202,7 @@ Explicitly search and display saved memories without triggering agent reasoning.
 #retrieve deployment process
 ```
 
-Searches memories semantically, and then uses the top five matches to synthesize a response. Both the individual memories and the synthesized answer are displayed.
+The system semantically searches memories. It uses the top five matches to synthesize a response. Both the individual memories and the synthesized answer are displayed.
 
 ### Scope and storage
 
@@ -205,6 +229,49 @@ The knowledge base provides direct document upload capabilities for runbooks, tr
 
     The portal automatically validates, uploads, and indexes files.
 
+### Upload via agent tool
+
+The agent can upload documents directly to the knowledge base by using the `UploadKnowledgeDocument` tool. This method is useful when:
+
+- You want to capture troubleshooting steps discovered during an investigation.
+- You need to add runbooks generated from incident resolutions.
+- You want to programmatically add documentation without UI access.
+
+**Tool: UploadKnowledgeDocument**
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `fileName` | string | Yes | Filename with extension (for example, `runbook-database-issues.md`). Must be `.md` or `.txt`. |
+| `content` | string | Yes | Full document content in plain text or Markdown format. |
+| `triggerIndexing` | bool | No | Trigger immediate indexing (default: `true`). Set to `false` for batch uploads. |
+
+**Example usage:**
+
+Ask the agent:
+
+> "Save our troubleshooting steps for the database timeout issue to the knowledge base"
+
+The agent uses `UploadKnowledgeDocument` to:
+
+1. Create a document with an appropriate filename.
+1. Format the content in Markdown.
+1. Upload the document to Azure Blob Storage.
+1. Trigger indexing for immediate searchability.
+
+**Constraints:**
+
+- Maximum file size: 16 MB.
+- Supported extensions: `.md` and `.txt` only.
+- If a document with the same filename exists, the agent overwrites it.
+
+**Error handling:**
+
+| Error | Resolution |
+|-------|------------|
+| "Agent memory is disabled" | Enable agent memory in configuration. |
+| "Invalid file extension" | Use `.md` or `.txt` extension only. |
+| "Document content exceeds maximum size" | Split large documents into smaller files. |
+
 ### Manage documents
 
 - **View**: Go to **Settings** > **Knowledge Base** to see all uploaded documents.
@@ -215,7 +282,7 @@ The knowledge base provides direct document upload capabilities for runbooks, tr
 
 ## Session insights
 
-As the agent handles your incidents, it learns. Session insights capture what worked, what didn't, and key learnings from each session. The agent automatically applies that knowledge to help with similar issues in the future.
+As the agent handles your incidents, it learns. Session insights capture what worked, what didn't, and key learnings from each session. The agent automatically applies that knowledge to help with similar problems in the future.
 
 ### Automatic improvement
 
@@ -240,11 +307,11 @@ While session insights work automatically, reviewing them can surface valuable p
 | Telemetry gaps made diagnosis harder | Improve logging or add metrics |
 | Alert triggered but wasn't actionable | Tune the alert or add runbook links |
 
-Think of session insights as a window into what the agent learns. You might find something worth acting on, or you might just let the agent handle any surfaced issues.
+Think of session insights as a window into what the agent learns. You might find something worth acting on, or you might just let the agent handle any surfaced problems.
 
 ### How it works
 
-Session insights create a continuous improvement loop: the agent captures symptoms, steps, root cause, and pitfalls from each session, then retrieves relevant past insights when similar issues arise. This automatic cycle helps the agent resolve problems faster over time.
+Session insights create a continuous improvement loop: the agent captures symptoms, steps, root cause, and pitfalls from each session, then retrieves relevant past insights when similar problems arise. This automatic cycle helps the agent resolve problems faster over time.
 
 <!--
 ```mermaid

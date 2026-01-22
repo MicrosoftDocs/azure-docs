@@ -66,10 +66,16 @@ After a successful installation by using the step CLI, open a Command Prompt win
 
 ## Create a namespace
 
+Create a resource group.
+
+```azurecli-interactive
+az group create --name {Resource Group} --location {Location}
+```
+
 Use this command to create a namespace. Update the command with your resource group and a namespace name.
 
 ```azurecli-interactive
-az eventgrid namespace create --resource-group {Resource Group} --name {Namespace Name} --topic-spaces-configuration "{state:Enabled}"
+az eventgrid namespace create --location {Location} --resource-group {Resource Group} --name {Namespace Name} --topic-spaces-configuration "{state:Enabled}"
 ```
 
 To keep this quickstart simple, create a namespace with minimal properties. For more information about network, security, and settings on other tabs, see [Create and manage namespaces](create-view-manage-namespaces.md).
