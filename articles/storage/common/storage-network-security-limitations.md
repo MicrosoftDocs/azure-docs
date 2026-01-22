@@ -59,7 +59,7 @@ Before you implement network security for your storage accounts, review the impo
 
 - You can't use IP network rules to restrict access to Azure services deployed in the same region as the storage account.
   
--  Identify and remove any Azure backend IP addresses including physical host IP addresses from Azure storage account firewall or else the customer will see high transaction cost when they use Network security group (NSG) Flow Logs. 
+-  Identify and remove any Azure backend IP addresses including physical host IP addresses from Azure storage account firewall or else the customer will see high transaction costs when they use Network security group (NSG) Flow Logs. 
 
   Services deployed in the same region as the storage account use private Azure IP addresses for communication. Therefore, you can't restrict access to specific Azure services based on their public outbound IP address range.
 
