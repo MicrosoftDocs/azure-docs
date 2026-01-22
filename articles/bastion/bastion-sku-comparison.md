@@ -52,7 +52,7 @@ Compare the features across all four Azure Bastion SKU tiers:
 ¹ For dedicated deployments (Basic, Standard, Premium), the AzureBastionSubnet must be /26 or larger (/25, /24, etc.). For more information, see [Azure Bastion subnet](configuration-settings.md#subnet).  
 ² Private-only deployment option doesn't require public IP address. For more information, see [Private-only deployment](private-only-deployment.md).  
 ³ Bastion Developer uses a shared resource and supports one VM connection at a time.  
-⁴ Developer SKU supports availability zones in select regions. For more information, see [Reliability in Azure Bastion](../reliability/reliability-bastion.md).  
+⁴ Developer SKU supports availability zones in select regions. For more information, see [Reliability in Azure Bastion](/azure/reliability/reliability-bastion).  
 ⁵ At maximum scale (50 instances). For more information, see [Instances and host scaling](configuration-settings.md#instance).  
 ⁶ First 5 GB per month is free. For more information, see [Azure Bastion pricing](https://azure.microsoft.com/pricing/details/azure-bastion/).
 

@@ -21,7 +21,7 @@ items:
 - name: Design & architecture
   items:
   - name: Reliability in Azure Firewall
-    href: ../reliability/reliability-firewall.md?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
+    href: /azure/reliability/reliability-firewall?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
   - name: Policy
     items:
     - name: Policy rule sets

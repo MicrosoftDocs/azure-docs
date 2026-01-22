@@ -77,7 +77,7 @@
   - name: Reliability
     items:
     - name: Reliability in Stream Analytics
-      href: ../reliability/reliability-stream-analytics.md?toc=/azure/stream-analytics/TOC.json
+      href: /azure/reliability/reliability-stream-analytics?toc=/azure/stream-analytics/TOC.json
     - name: Pair jobs for reliability
       href: stream-analytics-job-reliability.md
     - name: Geo-redundancy

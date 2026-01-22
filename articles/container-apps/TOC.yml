@@ -330,7 +330,7 @@ items:
 - name: Reliability
   items:
     - name: Reliability in Azure Container Apps
-      href: ../reliability/reliability-container-apps.md?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
+      href: /azure/reliability/reliability-container-apps?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
     - name: Create a zone-redundant container app
       href: how-to-zone-redundancy.md
 - name: Dedicated compute

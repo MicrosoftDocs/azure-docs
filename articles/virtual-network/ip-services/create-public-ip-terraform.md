@@ -77,7 +77,7 @@ To create an IPv6 address, set the `ip_version` value to **IPv6**.
 :::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip/main.tf" range="35-45":::
 
 >[!NOTE]
->For more information about availability zones, see [What are availability zones?](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+>For more information about availability zones, see [What are availability zones?](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ---
 

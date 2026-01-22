@@ -17,7 +17,7 @@ In this article, you learn how to configure a zone-redundant Azure Cache instanc
 > [!NOTE]
    > In regions that don't support zones, the option to enable zone redundancy is disabled. For a list of regions that support zones, see [Azure Cache for Redis - zones supported regions](cache-high-availability.md#regional-availability).
 
-Azure Cache for Redis Standard, Premium, and Enterprise tiers provide built-in redundancy by hosting each cache on two dedicated virtual machines (VMs). Even though these VMs are located in separate [Azure fault and update domains](/azure/virtual-machines/availability) and highly available, they're susceptible to data center-level failures. Azure Cache for Redis also supports zone redundancy in its Standard, Premium, and Enterprise tiers. A zone-redundant cache runs on VMs spread across multiple [Availability Zones](../reliability/availability-zones-overview.md). It provides higher resilience and availability.
+Azure Cache for Redis Standard, Premium, and Enterprise tiers provide built-in redundancy by hosting each cache on two dedicated virtual machines (VMs). Even though these VMs are located in separate [Azure fault and update domains](/azure/virtual-machines/availability) and highly available, they're susceptible to data center-level failures. Azure Cache for Redis also supports zone redundancy in its Standard, Premium, and Enterprise tiers. A zone-redundant cache runs on VMs spread across multiple [Availability Zones](/azure/reliability/availability-zones-overview). It provides higher resilience and availability.
 
 ## Prerequisites
 
@@ -123,7 +123,7 @@ It is selected as default option for caches if `ZonalAllocationPolicy` isn't pas
 
 ### Why can't I enable zone redundancy when creating a Premium cache?
 
-Zone redundancy is available only in Azure regions that have Availability Zones. See [Azure regions with Availability Zones](../reliability/availability-zones-region-support.md) for the latest list.
+Zone redundancy is available only in Azure regions that have Availability Zones. See [Azure regions with Availability Zones](/azure/reliability/availability-zones-region-support) for the latest list.
 
 ### Why can't I select all three zones during cache create?
 

@@ -94,7 +94,7 @@ Flex Consumption includes an _always ready_ feature that lets you choose instanc
 
 For example, if you set always ready to 2 for your HTTP group of functions, the platform keeps two instances always running for those functions. Those instances process your function executions first. Depending on concurrency settings, the platform scales beyond those two instances with on-demand instances.
 
-No less than two always-ready instances can be configured per function or function group while [zone redundancy is enabled](../reliability/reliability-functions.md?pivots=flex-consumption-plan#availability-zone-support). 
+No less than two always-ready instances can be configured per function or function group while [zone redundancy is enabled](/azure/reliability/reliability-functions?pivots=flex-consumption-plan#availability-zone-support). 
 
 To learn how to configure always ready instances, see [Set always ready instance counts](flex-consumption-how-to.md#set-always-ready-instance-counts).
 

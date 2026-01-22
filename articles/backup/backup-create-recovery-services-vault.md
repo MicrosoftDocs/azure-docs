@@ -41,7 +41,7 @@ The storage replication settings for the vault aren't relevant for Azure file sh
 
 ## Set Cross Region Restore
 
-With the Cross Region Restore option, you can restore data in a secondary, [Azure paired region](../reliability/cross-region-replication-azure.md). You can use Cross Region Restore to conduct drills when there's an audit or compliance requirement. You can also use it to restore the data if there's a disaster in the primary region.
+With the Cross Region Restore option, you can restore data in a secondary, [Azure paired region](/azure/reliability/cross-region-replication-azure). You can use Cross Region Restore to conduct drills when there's an audit or compliance requirement. You can also use it to restore the data if there's a disaster in the primary region.
 
 Before you begin, consider the following information:
 

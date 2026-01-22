@@ -32,7 +32,7 @@ Azure Bastion doesn't move or store customer data out of the region it's deploye
 
 ### <a name="az"></a>Does Azure Bastion support availability zones?
 
-For information on availability zone support in Azure Bastion, see [Reliability in Azure Bastion](../reliability/reliability-bastion.md).  
+For information on availability zone support in Azure Bastion, see [Reliability in Azure Bastion](/azure/reliability/reliability-bastion).  
 
 ### <a name="vwan"></a>Does Azure Bastion support Virtual WAN?
 

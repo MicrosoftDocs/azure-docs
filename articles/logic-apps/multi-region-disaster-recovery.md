@@ -12,7 +12,7 @@ ms.date: 07/17/2025
 
 This article provides guidance and strategies for how to set up a multi-region deployment for your logic app workflows in Azure Logic Apps. A multi-region deployment helps you protect data, recover quickly from disasters and other disruptive events, restore resources required by critical business functions, and maintain business continuity.
 
-For more information on the reliability features in Azure Logic Apps, including intra-regional resiliency via availability zones, see [Reliability in Azure Logic Apps](../reliability/reliability-logic-apps.md).
+For more information on the reliability features in Azure Logic Apps, including intra-regional resiliency via availability zones, see [Reliability in Azure Logic Apps](/azure/reliability/reliability-logic-apps).
 
 ## Considerations
 
@@ -24,7 +24,7 @@ Logic app workflows help you more easily integrate and orchestrate data between 
 
 * [Integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) where you define and store the artifacts that logic apps use for [business-to-business (B2B) enterprise integration](../logic-apps/logic-apps-enterprise-integration-overview.md) scenarios. For example, you can [set up cross-region disaster recovery for integration accounts](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md).
 
-For more information on reliability in Azure Logic Apps, including intra-regional resiliency via availability zones and multi-region deployments, see [Reliability in Azure Logic Apps](../reliability/reliability-logic-apps.md).
+For more information on reliability in Azure Logic Apps, including intra-regional resiliency via availability zones and multi-region deployments, see [Reliability in Azure Logic Apps](/azure/reliability/reliability-logic-apps).
 
 <a name="primary-secondary-locations"></a>
 

@@ -79,7 +79,7 @@ To find more Bicep files or ARM templates that are related to Azure Load Balance
     ---
 
     > [!NOTE]
-    > The Bicep file deployment creates three availability zones. Availability zones are supported only in [certain regions](../reliability/availability-zones-overview.md). Use one of the supported regions. If you aren't sure, enter **EastUS**.
+    > The Bicep file deployment creates three availability zones. Availability zones are supported only in [certain regions](/azure/reliability/availability-zones-overview). Use one of the supported regions. If you aren't sure, enter **EastUS**.
 
     You're prompted to enter the following values:
 

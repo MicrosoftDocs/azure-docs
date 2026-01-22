@@ -41,7 +41,7 @@ If you use [cross-zone-region replication](replication.md#cross-zone-region-repl
 
 ## Cross-zone replication requirements and considerations
 
-* The cross-zone replication feature uses the [availability zone volume placement feature](../reliability/reliability-netapp-files.md) of Azure NetApp Files.
+* The cross-zone replication feature uses the [availability zone volume placement feature](/azure/reliability/reliability-netapp-files) of Azure NetApp Files.
 
 * To establish cross-zone replication, you must [create the source volume in an availability zone](manage-availability-zone-volume-placement.md).
 

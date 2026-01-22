@@ -48,7 +48,7 @@ HDInsight clusters can currently be created using availability zones in the foll
 
 ## Overview of availability zones for HDInsight clusters
 
-Availability zones are unique physical locations within a region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. In Azure, a region contains one or more Availability Zones. This physical separation of availability zones within a region protects applications and data from datacenter failures. For more information, see [What are availability zones in Azure](../reliability/availability-zones-overview.md).
+Availability zones are unique physical locations within a region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. In Azure, a region contains one or more Availability Zones. This physical separation of availability zones within a region protects applications and data from datacenter failures. For more information, see [What are availability zones in Azure](/azure/reliability/availability-zones-overview).
 
 Azure HDInsight clusters can be configured to deploy within one Availability Zone. All the nodes in this HDInsight cluster including the two head nodes, three zookeeper nodes, two gateway nodes and the worker nodes will be placed in the specified Availability Zone.  For example, there are three Availability zones in East US. A HDInsight cluster in East US can be created with all the nodes in Availability zone 1.
 

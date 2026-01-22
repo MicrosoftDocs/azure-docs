@@ -245,7 +245,7 @@
       "redirect_url": "/azure/resiliency/quick-understand-protection-estate",
       "redirect_document_id": false
     },
-      {
+    {
       "source_path": "articles/business-continuity-center/business-continuity-center-support-matrix.md",
       "redirect_url": "/azure/resiliency/resiliency-support-matrix",
       "redirect_document_id": false
@@ -273,42 +273,27 @@
     {
       "source_path": "articles/migrate/concepts-azure-spring-apps-assessment-calculation.md",
       "redirect_url": "/azure/migrate",
-      "redirect_document_id": false,
-      "monikers": [
-        "migrate"
-      ]
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/migrate/how-to-create-azure-spring-apps-assessment.md",
       "redirect_url": "/azure/migrate",
-      "redirect_document_id": false,
-      "monikers": [
-        "migrate"
-      ]
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/migrate/troubleshoot-spring-boot-discovery.md",
       "redirect_url": "/azure/migrate",
-      "redirect_document_id": false,
-      "monikers": [
-        "migrate"
-      ]
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/migrate/tutorial-assess-spring-boot.md",
       "redirect_url": "/azure/migrate",
-      "redirect_document_id": false,
-      "monikers": [
-        "migrate"
-      ]
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/migrate/tutorial-discover-spring-boot.md",
       "redirect_url": "/azure/migrate",
-      "redirect_document_id": false,
-      "monikers": [
-        "migrate"
-      ]
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-functions/functions-proxies.md",
@@ -1242,7 +1227,8 @@
     },
     {
       "source_path": "articles/databox-online/azure-stack-edge-2301-release-notes.md",
-      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-2301-release-notes"
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-2301-release-notes",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/network-watcher/nsg-flow-logs-rest.md",
@@ -6394,8 +6380,7 @@
       "redirect_url": "/azure/cyclecloud/release-notes/ccws/2025-02-06",
       "redirect_document_id": false
     },
-
-    {  
+    {
       "source_path": "articles/app-service/sre-agent-overview.md",
       "redirect_url": "/azure/sre-agent/overview",
       "redirect_document_id": false
@@ -6446,23 +6431,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/reliability/asm-retirement.md",
-      "redirect_url": "/azure/azure-resource-manager/management/asm-retirement",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/reliability/reliability-azure-container-apps.md",
-      "redirect_url": "/azure/reliability/reliability-container-apps",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/storage/container-storage/container-storage-aks-quickstart.md",
       "redirect_url": "/azure/storage/container-storage/install-container-storage-aks",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/reliability/reliability-cosmos-mongodb.md",
-      "redirect_url": "/azure/reliability/reliability-documentdb",
       "redirect_document_id": true
     },
     {
@@ -6654,7 +6624,7 @@
       "source_path": "articles/communications-gateway/whats-new.md",
       "redirect_url": "/previous-versions/azure/communications-gateway/whats-new",
       "redirect_document_id": false
-      },
+    },
     {
       "source_path": "articles/vpn-gateway/about-zone-redundant-vnet-gateways.md",
       "redirect_url": "/azure/reliability/reliability-virtual-network-gateway",
@@ -6665,19 +6635,9 @@
       "redirect_url": "https://learn.microsoft.com/dotnet/api/overview/azure/resourcemanager.dns-readme",
       "redirect_document_id": false
     },
-    { 
+    {
       "source_path": "articles/oracle/oracle-db/exadata-vm-clusters.md",
       "redirect_url": "/azure/oracle/oracle-db/database-overview",
-      "redirect_document_id": false
-    },
-    { 
-      "source_path": "articles/reliability/reliability-health-insights.md",
-      "redirect_url": "/azure/azure-health-insights/reliability-health-insights",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/reliability/migrate-load-balancer.md",
-      "redirect_url": "/azure/reliability/reliability-load-balancer",
       "redirect_document_id": false
     },
     {

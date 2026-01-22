@@ -92,7 +92,7 @@ To find more templates that are related to Azure Load Balancer, see [Azure Quick
 
 1. Enter the values.
 
-   The template deployment creates three availability zones. Availability zones are supported only in [certain regions](../reliability/availability-zones-overview.md). Use one of the supported regions. If you aren't sure, enter **EastUS**.
+   The template deployment creates three availability zones. Availability zones are supported only in [certain regions](/azure/reliability/availability-zones-overview). Use one of the supported regions. If you aren't sure, enter **EastUS**.
 
    The resource group name is the project name with **`rg`** appended. You need the resource group name in the next section.
 

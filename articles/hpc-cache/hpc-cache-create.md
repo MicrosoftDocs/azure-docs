@@ -36,7 +36,7 @@ In **Service Details**, set the cache name and these other attributes:
 
 * Location - Select one of the [supported regions](hpc-cache-overview.md#region-availability).
 
-  If that region supports [availability zones](../reliability/availability-zones-overview.md), select the zone that will host your cache resources. Azure HPC Cache is a zonal service.
+  If that region supports [availability zones](/azure/reliability/availability-zones-overview), select the zone that will host your cache resources. Azure HPC Cache is a zonal service.
 
 * Virtual network - You can select an existing one or create a new virtual network.
 * Subnet - Choose or create a subnet with at least 64 IP addresses (/24). This subnet must be used only for this Azure HPC Cache instance.

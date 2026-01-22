@@ -49,7 +49,7 @@ Azure Stack Edge service is a non-regional, always-available service and has no 
 
 ## Cross-region disaster recovery
 
-Cross region disaster recovery for all regions for multiple region geographies is done via using the Azure regional pairs. A regional pair consists of two regions, primary and secondary, within the same geography. Azure serializes platform updates (planned maintenance) across regional pairs, ensuring that only one region in each pair updates at a time. If an outage affects multiple regions, at least one region in each pair is prioritized for recovery. Applications that are deployed across paired regions are guaranteed to have one of the regions recovered with priority. For more information, see [Cross-region replication in Azure](../reliability/cross-region-replication-azure.md). 
+Cross region disaster recovery for all regions for multiple region geographies is done via using the Azure regional pairs. A regional pair consists of two regions, primary and secondary, within the same geography. Azure serializes platform updates (planned maintenance) across regional pairs, ensuring that only one region in each pair updates at a time. If an outage affects multiple regions, at least one region in each pair is prioritized for recovery. Applications that are deployed across paired regions are guaranteed to have one of the regions recovered with priority. For more information, see [Cross-region replication in Azure](/azure/reliability/cross-region-replication-azure). 
 
 In the event of region outage, when the service instance fails over to from the primary region to the secondary region, the Azure Stack Edge service may be inaccessible for a short duration.
 
@@ -88,7 +88,7 @@ For detailed instructions, see [Reset and reactivate your Azure Stack Edge devic
 
 ## Planning disaster recovery
 
-Microsoft and its customers operate under the [Shared responsibility model](../reliability/business-continuity-management-program.md#shared-responsibility-model). This means that for customer-enabled (responsible services DR), the customer must address disaster recovery for any service they deploy and control. To ensure that recovery is proactive, customers should always pre-deploy secondaries because there's no guarantee of capacity at time of impact for those who haven't pre-allocated. 
+Microsoft and its customers operate under the [Shared responsibility model](/azure/reliability/business-continuity-management-program#shared-responsibility-model). This means that for customer-enabled (responsible services DR), the customer must address disaster recovery for any service they deploy and control. To ensure that recovery is proactive, customers should always pre-deploy secondaries because there's no guarantee of capacity at time of impact for those who haven't pre-allocated. 
 
 When using Azure Stack Edge service, the customer can create a resource proactively, ahead of time, in another supported region. In the event of a disaster, this resource can then be deployed. 
 

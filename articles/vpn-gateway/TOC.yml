@@ -345,7 +345,7 @@
 - name: Reliability
   items:
   - name: Reliability in VPN Gateway
-    href: ../reliability/reliability-virtual-network-gateway.md?pivot=vpn&toc=/azure/vpn-gateway/TOC.json
+    href: /azure/reliability/reliability-virtual-network-gateway?pivots=vpn&toc=/azure/vpn-gateway/TOC.json
   - name: Configure a zone redundant gateway
     href: create-zone-redundant-vnet-gateway.md
   - name: Design highly available gateway connections

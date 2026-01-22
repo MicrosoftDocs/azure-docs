@@ -44,7 +44,7 @@
   - name: Work with NSGs
     href: bastion-nsg.md
   - name: Availability zones and disaster recovery 
-    href: ../reliability/reliability-bastion.md?toc=/azure/bastion/TOC.json
+    href: /azure/reliability/reliability-bastion?toc=/azure/bastion/TOC.json
 - name: Security
   items:
   - name: Secure Bastion

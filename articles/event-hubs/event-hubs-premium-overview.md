@@ -66,10 +66,10 @@ The Premium tier offers all the features of the Standard plan but with better pe
 
 ## High availability with availability zones
 
-Event Hubs Standard, Premium, and Dedicated tiers offer [availability zones](../reliability/availability-zones-service-support.md) support with no extra cost. By using availability zones, you can run event streaming workloads in physically separate locations within each Azure region that are tolerant to local failures.
+Event Hubs Standard, Premium, and Dedicated tiers offer [availability zones](/azure/reliability/availability-zones-service-support) support with no extra cost. By using availability zones, you can run event streaming workloads in physically separate locations within each Azure region that are tolerant to local failures.
 
 > [!IMPORTANT]
-> - Availability zone support is only available in [Azure regions with availability zones](../reliability/availability-zones-region-support.md).
+> - Availability zone support is only available in [Azure regions with availability zones](/azure/reliability/availability-zones-region-support).
 >
 
 ## Premium vs. Dedicated tiers

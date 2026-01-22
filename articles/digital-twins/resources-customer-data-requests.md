@@ -29,7 +29,7 @@ The digital representations called *digital twins* in Azure Digital Twins repres
 
 ### Regional replication
 
-By default, the customer data stored in Azure Digital Twins is replicated to the corresponding [geo-paired region](../reliability/cross-region-replication-azure.md) for disaster recovery capabilities. For regions with built-in data residency requirements, customer data is always kept within the same region.
+By default, the customer data stored in Azure Digital Twins is replicated to the corresponding [geo-paired region](/azure/reliability/cross-region-replication-azure) for disaster recovery capabilities. For regions with built-in data residency requirements, customer data is always kept within the same region.
 
 For more information about regional replication and disaster recovery in Azure Digital Twins, see [Cross region DR](concepts-high-availability-disaster-recovery.md).
 

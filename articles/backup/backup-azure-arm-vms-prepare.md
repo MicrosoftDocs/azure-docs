@@ -44,7 +44,7 @@ By default, vaults use [geo-redundant storage (GRS)](../storage/common/storage-r
 
 * If the vault is your primary backup mechanism, we recommend that you use GRS.
 * [Locally redundant storage](../storage/common/storage-redundancy.md#locally-redundant-storage) is a less-expensive option.
-* [Zone-redundant storage](../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your data in [availability zones](../reliability/availability-zones-overview.md) for data residency and resiliency in the same region.
+* [Zone-redundant storage](../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your data in [availability zones](/azure/reliability/availability-zones-overview) for data residency and resiliency in the same region.
 
 To modify the storage replication type, follow these steps:
 

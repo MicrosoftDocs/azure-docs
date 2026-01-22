@@ -173,9 +173,9 @@
   - name: Reliability
     items:
     - name: Availability zone and disaster recovery
-      href: ../reliability/reliability-backup.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+      href: /azure/reliability/reliability-backup?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
     - name: Migrate to availability zone support
-      href: ../reliability/migrate-recovery-services-vault.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+      href: /azure/reliability/migrate-recovery-services-vault?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
   - name: Support matrices
     items:
     - name: Azure Backup support matrix

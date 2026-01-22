@@ -68,7 +68,7 @@ This section helps you deploy Bastion to your virtual network. After Bastion is 
    | --- | --- |
    | Name| Specify the name that you want to use for your Bastion resource. For example, **VNet1-bastion**. |
    | Region | Select the region where your virtual network resides. |
-   | Availability zone | Select the zone(s) from the dropdown, if desired. Only certain regions are supported. For more information, see [What are availability zones?](../reliability/availability-zones-overview.md?tabs=azure-cli) |
+   | Availability zone | Select the zone(s) from the dropdown, if desired. Only certain regions are supported. For more information, see [What are availability zones?](/azure/reliability/availability-zones-overview?tabs=azure-cli) |
    | Tier| For this tutorial, select the **Standard** SKU. For information about the features available for each SKU, see [Bastion SKU comparison](bastion-sku-comparison.md). |
    | Instance count | Configure host scaling in scale unit increments. Use the slider or enter a number to configure the instance count that you want, for example, **3**. For more information, see [Instances and host scaling](configuration-settings.md#instance) and [Azure Bastion pricing](https://azure.microsoft.com/pricing/details/azure-bastion). |
 

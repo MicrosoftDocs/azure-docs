@@ -32,7 +32,7 @@ sections:
       answer: Azure IoT Operations supports message persistence through disk-backed message buffers and configurable persistence settings. To learn more, see [Configure disk-backed message buffer](../manage-mqtt-broker/howto-disk-backed-message-buffer.md) and [Data persistence](../manage-mqtt-broker/howto-broker-persistence.md).
     - question: |
          Does Azure Device Registry offer high availability across availability zones and regions?
-      answer: For information on high availability across availability zones and regions for ADR, see [Reliability in Azure Device Registry](../../reliability/reliability-device-registry.md).
+      answer: For information on high availability across availability zones and regions for ADR, see [Reliability in Azure Device Registry](/azure/reliability/reliability-device-registry).
     - question: |
          On which platforms is Azure IoT Operations supported?
       answer: To learn more about supported platforms for deploying Azure IoT Operations, see [Supported environments](../overview-support.md#supported-environments).

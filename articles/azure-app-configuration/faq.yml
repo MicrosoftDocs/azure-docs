@@ -134,9 +134,9 @@ sections:
         answer: |
           Azure App Configuration supports [geo-replication](./concept-geo-replication.md) for enhanced resiliency to regional outages.
 
-          Azure App Configuration supports Azure availability zones to protect your application and data from single datacenter failures. All availability zone enabled regions consist of a minimum of three availability zones, where each is a physically independent datacenter. For resiliency, this support in App Configuration is enabled for all customers at no extra cost. Following are regions that App Configuration has enabled availability zone support. For more information, see [Azure regions with availability zone support](../reliability/availability-zones-region-support.md).
+          Azure App Configuration supports Azure availability zones to protect your application and data from single datacenter failures. All availability zone enabled regions consist of a minimum of three availability zones, where each is a physically independent datacenter. For resiliency, this support in App Configuration is enabled for all customers at no extra cost. Following are regions that App Configuration has enabled availability zone support. For more information, see [Azure regions with availability zone support](/azure/reliability/availability-zones-region-support).
           
-          [!INCLUDE [Azure App Configuration availability zones table](../../includes/azure-app-configuration-availability-zones.md)]
+          [!INCLUDE [Azure App Configuration availability zones table](~/reusable-content/ce-skilling/azure/includes/azure-app-configuration-availability-zones.md)]
 
       - question: Are there any limits on the number of requests made to App Configuration?
         answer: |        

@@ -96,7 +96,7 @@
   - name: Reliability
     items:
     - name: Reliability in Azure Queue storage
-      href: ../../reliability/reliability-storage-queue.md?toc=/azure/storage/queues/toc.json
+      href: /azure/reliability/reliability-storage-queue?toc=/azure/storage/queues/toc.json
     - name: Data redundancy
       href: ../common/storage-redundancy.md?toc=/azure/storage/queues/toc.json
     - name: Disaster recovery and failover

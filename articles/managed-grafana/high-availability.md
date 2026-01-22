@@ -28,7 +28,7 @@ The network load balancer, virtual machines, and database that underpin an Azure
 
 ### With zone redundancy enabled
 
-When the zone redundancy option is enabled, virtual machines are spread across [availability zones](../reliability/availability-zones-overview.md). Other resources, such as the network load balancer and database, are also configured for availability zones.
+When the zone redundancy option is enabled, virtual machines are spread across [availability zones](/azure/reliability/availability-zones-overview). Other resources, such as the network load balancer and database, are also configured for availability zones.
 
 In a zone-wide outage, no user action is required. An impacted Azure Managed Grafana workspace rebalances itself to take advantage of the healthy zone automatically. The Azure Managed Grafana service attempts to heal the affected workspaces during zone recovery.
 

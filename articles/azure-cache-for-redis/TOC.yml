@@ -204,7 +204,7 @@
     - name: Failover and patching
       href: cache-failover.md
     - name: Migrate to availability zone support
-      href: ../reliability/migrate-cache-redis.md
+      href: /azure/reliability/migrate-cache-redis
 
   - name: Diagnose and troubleshoot
     items:

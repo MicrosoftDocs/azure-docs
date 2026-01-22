@@ -229,7 +229,7 @@
         - name: Virtual networks
           href: /azure/resource-mover/tutorial-move-region-virtual-machines?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
     - name: Azure Virtual Network reliability
-      href: ../reliability/reliability-virtual-network.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+      href: /azure/reliability/reliability-virtual-network?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
 - name: Troubleshoot
   items:
     - name: Configure reverse lookup zones for an SMTP banner check

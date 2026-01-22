@@ -505,7 +505,7 @@ When clustering is enabled, the JBoss EAP instances use the `FILE_PING` JGroups 
 > [!Note]
 > You can avoid JBoss EAP clustering timeouts by [cleaning up obsolete discovery files during your app startup](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/JBOSS/avoid_timeouts_obsolete_nodes.md).
 
-The Premium V3, Premium V4, and Isolated V2 App Service Plan types can optionally be distributed across Availability Zones to improve resiliency and reliability for your business-critical workloads. This architecture is also known as [zone redundancy](../reliability/migrate-app-service.md). The JBoss EAP clustering feature is compatible with the zone redundancy feature.
+The Premium V3, Premium V4, and Isolated V2 App Service Plan types can optionally be distributed across Availability Zones to improve resiliency and reliability for your business-critical workloads. This architecture is also known as [zone redundancy](/azure/reliability/migrate-app-service). The JBoss EAP clustering feature is compatible with the zone redundancy feature.
 
 ### Autoscale rules
 

@@ -76,7 +76,7 @@ items:
     - name: Reliability and Business continuity
       items:
         - name: Reliability in HDInsight
-          href: ../reliability/reliability-hdinsight.md?toc=/azure/hdinsight/toc.json&bc=/azure/hdinsight/breadcrumb/toc.json
+          href: /azure/reliability/reliability-hdinsight?toc=/azure/hdinsight/toc.json&bc=/azure/hdinsight/breadcrumb/toc.json
         - name: Business continuity architecture
           href: ./hdinsight-business-continuity-architecture.md
         - name: High availability case study

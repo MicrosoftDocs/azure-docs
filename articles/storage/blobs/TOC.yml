@@ -515,7 +515,7 @@ items:
   - name: Reliability
     items:
     - name: Reliability in Azure Blob Storage
-      href: ../../reliability/reliability-storage-blob.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      href: /azure/reliability/reliability-storage-blob?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Design highly available applications
       href: ../common/geo-redundant-design.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: 'Tutorial: Design applications for high availability'

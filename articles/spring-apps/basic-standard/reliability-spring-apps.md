@@ -17,7 +17,7 @@ This article contains detailed information on regional resiliency with [availabi
 
 ## Availability zone support
 
-[!INCLUDE [Availability zone description](../../reliability/includes/reliability-availability-zone-description-include.md)]
+[!INCLUDE [Availability zone description](~/reusable-content/ce-skilling/azure/includes/reliability/reliability-availability-zone-description-include.md)]
 
 Azure Spring Apps supports zone-redundancy. When you create an Azure Spring Apps service instance with zone-redundancy enabled, Azure Spring Apps automatically distributes fundamental resources across logical sections of underlying Azure infrastructure. The underlying compute resource distributes VMs across all availability zones to ensure the ability to compute. The underlying storage resource replicates data across availability zones to keep it available even if there are datacenter failures. This distribution provides a higher level of availability and protects against hardware failures or planned maintenance events.   
 
@@ -90,11 +90,11 @@ There's no extra cost associated with enabling zone-redundancy. You only need to
 
 ## Cross-region disaster recovery and business continuity
 
-[!INCLUDE [introduction to disaster recovery](../../reliability/includes/reliability-disaster-recovery-description-include.md)]
+[!INCLUDE [introduction to disaster recovery](~/reusable-content/ce-skilling/azure/includes/reliability/reliability-disaster-recovery-description-include.md)]
 
 The Azure Spring Apps service doesn't provide geo-disaster recovery, but careful planning can help protect you from experiencing downtime.
 
-To ensure high availability and protection from disasters, deploy your applications hosted in Azure Spring Apps to multiple regions. Azure provides a list of [paired regions](../../reliability/regions-paired.md) so that you can plan your app deployments accordingly.
+To ensure high availability and protection from disasters, deploy your applications hosted in Azure Spring Apps to multiple regions. Azure provides a list of [paired regions](/azure/reliability/regions-paired) so that you can plan your app deployments accordingly.
 
  Consider the following key factors when you design your architecture:
 
@@ -145,4 +145,4 @@ The following diagram shows the architecture of a multi-region redundancy, virtu
 
 - [Quickstart: Deploy your first Spring Boot app in Azure Spring Apps](./quickstart.md)
 
-- [Reliability in Azure](../../reliability/overview.md)
+- [Reliability in Azure](/azure/reliability/overview)

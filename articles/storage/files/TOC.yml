@@ -226,7 +226,7 @@
 - name: Reliability
   items:
   - name: Reliability in Azure Files
-    href: ../../reliability/reliability-storage-files.md?toc=/azure/storage/files/toc.json
+    href: /azure/reliability/reliability-storage-files?toc=/azure/storage/files/toc.json
   - name: Storage redundancy
     href: files-redundancy.md
   - name: Disaster recovery and failover

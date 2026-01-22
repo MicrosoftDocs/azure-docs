@@ -62,7 +62,7 @@ Template section to add:
 >
 
 >[!NOTE]
->The above options for zones are only valid selections in regions with [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+>The above options for zones are only valid selections in regions with [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### Zone redundant (Standardv2)
 
@@ -96,7 +96,7 @@ Template section to add:
 >
 
 >[!NOTE]
->The above options for zones are only valid selections in regions with [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+>The above options for zones are only valid selections in regions with [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## Routing preference and tier
 

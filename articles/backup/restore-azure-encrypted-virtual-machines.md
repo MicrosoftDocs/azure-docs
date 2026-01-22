@@ -75,7 +75,7 @@ Reinstall the ADE extension so the data disks are open and mounted.
 
 ## Cross Region Restore for an encrypted Azure VM
 
-Azure Backup supports Cross Region Restore of encrypted Azure VMs to the [Azure paired regions](../reliability/cross-region-replication-azure.md). Learn how to [enable Cross Region Restore](backup-create-rs-vault.md#set-cross-region-restore) for an encrypted VM.
+Azure Backup supports Cross Region Restore of encrypted Azure VMs to the [Azure paired regions](/azure/reliability/cross-region-replication-azure). Learn how to [enable Cross Region Restore](backup-create-rs-vault.md#set-cross-region-restore) for an encrypted VM.
 
 > [!NOTE]
 > Cross region restore for Encrypted VMs is not supported if the paired region is not in the same geography. For example: Brazil South and South Central US.

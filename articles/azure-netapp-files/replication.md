@@ -17,7 +17,7 @@ Azure NetApp Files supports the following models for replication:
 - Cross-region replication
 - Cross-zone-region replication
 
-Learn about all three models to decide which options best suit your [reliability plan](../reliability/reliability-netapp-files.md).
+Learn about all three models to decide which options best suit your [reliability plan](/azure/reliability/reliability-netapp-files).
 
 ## Cross-zone replication and availability zones 
 
@@ -25,19 +25,19 @@ Azure NetApp Files supports cross-zone replication, which relies on availability
 
 ### Availability zones
 
-Azure [availability zones](../reliability/availability-zones-overview.md) are physically separate locations within each supporting Azure region that are tolerant to local failures. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Redundancy and logical isolation of Azure services achieve this tolerance to failures. To ensure resiliency, a minimum of three separate availability zones are present in all [availability zone-enabled regions](../reliability/regions-list.md).
+Azure [availability zones](/azure/reliability/availability-zones-overview) are physically separate locations within each supporting Azure region that are tolerant to local failures. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Redundancy and logical isolation of Azure services achieve this tolerance to failures. To ensure resiliency, a minimum of three separate availability zones are present in all [availability zone-enabled regions](/azure/reliability/regions-list).
 
 >[!IMPORTANT]
 > When you configure the availability zone for a volume, you actually configure its *logical zone*. Each datacenter is assigned to a physical zone. [Physical zones are mapped to logical zones in your Azure subscription](/azure/reliability/availability-zones-overview#physical-and-logical-availability-zones), and the mapping is different with different subscriptions. Azure subscriptions are automatically assigned this mapping when a subscription is created. Azure NetApp Files aligns with the generic logical-to-physical availability zone mapping for all Azure services for the subscription.
 
-To learn more about availability zones in Azure NetApp Files, see [Reliability in Azure NetApp Files](../reliability/reliability-netapp-files.md).
+To learn more about availability zones in Azure NetApp Files, see [Reliability in Azure NetApp Files](/azure/reliability/reliability-netapp-files).
 
 > [!IMPORTANT]
 > If you manage volumes with Terraform, [add the zone property to your volume](manage-availability-zone-volume-placement.md#populate-availability-zone-for-terraform-managed-volumes).
 
 #### Azure regions with availability zones
 
-For a list of regions that currently support availability zones, see [Azure regions with availability zone support](../reliability/regions-list.md).
+For a list of regions that currently support availability zones, see [Azure regions with availability zone support](/azure/reliability/regions-list).
 
 ### Cross-zone replication
 
@@ -45,9 +45,9 @@ In many cases, you can achieve resiliency across availability zones by implement
 
 Similarly to Azure NetApp Files [cross-region replication](#cross-region-replication), cross-zone replication provides data protection between volumes in different availability zones. You can asynchronously replicate data from an Azure NetApp Files volume (the source) in one availability zone to another Azure NetApp Files volume (the destination) in another availability zone. This capability enables you to fail over your critical application if a zone-wide outage or disaster happens.
 
-Cross-zone replication is available in all [availability zone-enabled regions](../reliability/regions-list.md) that support [Azure NetApp Files](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
+Cross-zone replication is available in all [availability zone-enabled regions](/azure/reliability/regions-list) that support [Azure NetApp Files](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
 
-For more information about service-level objectives (SLOs), see [Azure NetApp Files reliability](../reliability/reliability-netapp-files.md#behavior-during-a-region-failure).
+For more information about service-level objectives (SLOs), see [Azure NetApp Files reliability](/azure/reliability/reliability-netapp-files#behavior-during-a-region-failure).
 
 ### Cost model for cross-zone replication 
 
@@ -59,7 +59,7 @@ Azure NetApp Files replication is available across regions. You can asynchronous
 
 Azure NetApp Files cross-region replication must use [supported regional pairs](#supported-region-pairs). 
 
-For more information about SLOs, see [Azure NetApp Files reliability](../reliability/reliability-netapp-files.md#behavior-during-a-region-failure).
+For more information about SLOs, see [Azure NetApp Files reliability](/azure/reliability/reliability-netapp-files#behavior-during-a-region-failure).
 
 ### Cost model for cross-region replication
 

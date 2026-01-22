@@ -75,9 +75,9 @@ Stream Analytics guarantees exactly-once event processing and at-least-once deli
 
 Stream Analytics has built-in recovery capabilities in case the delivery of an event fails. Stream Analytics also provides built-in checkpoints to maintain the state of your job and provides repeatable results.
 
-For enhanced reliability, Stream Analytics in [availability zone](../reliability/availability-zones-overview.md)-enabled regions automatically distributes job resources across multiple zones without additional configuration or cost. This zone-redundant deployment ensures that your streaming jobs continue processing even if an entire availability zone becomes unavailable, providing protection against zone-level infrastructure failures.
+For enhanced reliability, Stream Analytics in [availability zone](/azure/reliability/availability-zones-overview)-enabled regions automatically distributes job resources across multiple zones without additional configuration or cost. This zone-redundant deployment ensures that your streaming jobs continue processing even if an entire availability zone becomes unavailable, providing protection against zone-level infrastructure failures.
 
-For more information on how Stream Analytics supports availability zones, as well as multi-region disaster recovery options, see [Reliability in Stream Analytics](../reliability/reliability-stream-analytics.md).
+For more information on how Stream Analytics supports availability zones, as well as multi-region disaster recovery options, see [Reliability in Stream Analytics](/azure/reliability/reliability-stream-analytics).
 
 
 As a managed service, Stream Analytics guarantees event processing with a 99.9% availability at a minute level of granularity. 

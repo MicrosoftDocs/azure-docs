@@ -16,7 +16,7 @@ ms.custom:
 
 # SAP workload configurations with Azure Availability Zones
 
-Deployment of the different SAP architecture layers across [Azure Availability Zones](../../reliability/availability-zones-overview.md) is the recommended architecture for SAP workload deployments on Azure. An Azure Availability Zone is defined as: "Unique physical locations within a region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking". Azure Availability Zones aren't available in all regions. For Azure regions that provide Availability Zones, check the [Azure region map](https://azure.microsoft.com/global-infrastructure/geographies/). The article lists which regions provide Availability Zones. Most of the Azure regions that are equipped to host larger SAP workload are providing Availability Zones. New Azure regions are providing Availability Zones from the start. Some of older regions were or are  in the process getting retrofitted with Availability Zones. 
+Deployment of the different SAP architecture layers across [Azure Availability Zones](/azure/reliability/availability-zones-overview) is the recommended architecture for SAP workload deployments on Azure. An Azure Availability Zone is defined as: "Unique physical locations within a region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking". Azure Availability Zones aren't available in all regions. For Azure regions that provide Availability Zones, check the [Azure region map](https://azure.microsoft.com/global-infrastructure/geographies/). The article lists which regions provide Availability Zones. Most of the Azure regions that are equipped to host larger SAP workload are providing Availability Zones. New Azure regions are providing Availability Zones from the start. Some of older regions were or are  in the process getting retrofitted with Availability Zones. 
 
 As of the typical SAP NetWeaver or S/4HANA architecture, you need to protect three different layers:
 
@@ -37,7 +37,7 @@ As another resiliency deployment functionality, Azure introduced [Virtual machin
 
 Consider the following when you use Availability Zones:
 
-- More information about Azure Availability Zones is presented in the document [Regions and availability zones](../../reliability/availability-zones-overview.md).
+- More information about Azure Availability Zones is presented in the document [Regions and availability zones](/azure/reliability/availability-zones-overview).
 - The experienced network roundtrip latency isn't necessarily indicative to the real geographical distance of the datacenters that form the different zones. The network roundtrip latency is also influenced by the cable connectivities and the routing of the cables between these different datacenters. 
 - If you use Availability Zones as small distance DR solution, keep in mind that we experienced natural disasters causing widespread damage in different regions of the world, including heavy and widespread damage to power infrastructures. The distances between various zones might not always be large enough to compensate for such larger natural disasters.
 - The network latency across Availability Zones isn't the same in all Azure regions. Even within an Azure region, the network latencies between the different zones may vary. Though even in the worst case, synchronous replication on the database level based on HANA System Replication or SQL Server Always On is going to work without impacting the scalability of the workload. 

@@ -327,7 +327,7 @@ def test_function(message: func.ServiceBusMessage):
 
 # [v1](#tab/python-v1)
 
-A Service Bus binding is defined in *function.json* where *type* is set to `serviceBusTrigger` and the topic is set by `topicName`.
+A Service Bus binding is defined in *function.json* where *type* is set to `serviceBusTrigger`, the topic is set by `topicName`, and the subscription is set by `subscriptionName`.
 
 ```json
 {
@@ -338,6 +338,7 @@ A Service Bus binding is defined in *function.json* where *type* is set to `serv
      "direction": "in",
      "name": "msg",
      "topicName": "inputtopic",
+     "subscriptionName": "inputsubscription",
      "connection": "AzureServiceBusConnectionString"
    }
   ]

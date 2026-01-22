@@ -46,7 +46,7 @@ To set the retention policy in a backup policy, follow these steps:
 
    - **First successful backup taken every day**: In addition to the default rule, every first successful backup of the day can be retained in the Operational datastore and Vault-standard store. You can edit and delete this rule (if you want to retain backups in Operational datastore).
 
-With the new backup policy, you can [configure protection for the AKS cluster](azure-kubernetes-service-cluster-backup.md#configure-backup) and store in both Operational Tier (as snapshot) and Vault Tier (as blobs). Once the configuration is complete, the backups stored in the vault are available in the Secondary Region (an [Azure paired region](../reliability/cross-region-replication-azure.md#azure-paired-regions)) for restore that can be used when during regional outage.
+With the new backup policy, you can [configure protection for the AKS cluster](azure-kubernetes-service-cluster-backup.md#configure-backup) and store in both Operational Tier (as snapshot) and Vault Tier (as blobs). Once the configuration is complete, the backups stored in the vault are available in the Secondary Region (an [Azure paired region](/azure/reliability/cross-region-replication-azure#azure-paired-regions)) for restore that can be used when during regional outage.
 
 
 ## Restore in secondary region
@@ -60,7 +60,7 @@ Follow these steps:
 
 2. On the next page, select **Select backup instance**, and then select the *instance* that you want to restore.
 
-   If a disaster occurs and there is an outage in the Primary Region, select Secondary Region. Then, it allows you to choose recovery points available in the [Azure Paired Region](../reliability/cross-region-replication-azure.md#azure-paired-regions). 
+   If a disaster occurs and there is an outage in the Primary Region, select Secondary Region. Then, it allows you to choose recovery points available in the [Azure Paired Region](/azure/reliability/cross-region-replication-azure#azure-paired-regions). 
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/select-backup-instance-for-restore.png" alt-text="Screenshot shows selection of backup instance for restore.":::
 

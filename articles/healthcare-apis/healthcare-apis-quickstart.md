@@ -40,7 +40,7 @@ Before you create a workspace in the Azure portal, you need an Azure account sub
 
    :::image type="content" source="media/healthcare-apis-quickstart/create-health-data-services-workspace-basics-tab.png" alt-text="Screenshot showing the workspace settings on the Basics tab." lightbox="media/healthcare-apis-quickstart/create-health-data-services-workspace-basics-tab.png":::
    
-1. Enter a **Name** for the workspace, and then select a **Region**. The name must be 3 to 24 alphanumeric characters, all lowercase. Don't use a hyphen "-" as it's an invalid character for the name. For information about regions and availability zones, see [Regions and Availability Zones in Azure](../reliability/availability-zones-overview.md).
+1. Enter a **Name** for the workspace, and then select a **Region**. The name must be 3 to 24 alphanumeric characters, all lowercase. Don't use a hyphen "-" as it's an invalid character for the name. For information about regions and availability zones, see [Regions and Availability Zones in Azure](/azure/reliability/availability-zones-overview).
 
 1. Select **Next: Networking >**. Connect a workspace publicly with the default **Public endpoint (all networks)** option selected. You can also connect a workspace using a private endpoint by selecting the **Private endpoint** option. For more information about accessing Azure Health Data Services over a private endpoint, see [Configure Private Link for Azure Health Data Services](healthcare-apis-configure-private-link.md).
 

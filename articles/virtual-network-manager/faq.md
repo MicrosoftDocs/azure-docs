@@ -23,7 +23,7 @@ This article answers frequently asked questions about Azure Virtual Network Mana
 For current information about region support, refer to [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=virtual-network-manager).
 
 > [!NOTE]
-> All regions have [availability zones](../reliability/availability-zones-region-support.md).
+> All regions have [availability zones](/azure/reliability/availability-zones-region-support).
 
 ### What are common use cases for Azure Virtual Network Manager?
 

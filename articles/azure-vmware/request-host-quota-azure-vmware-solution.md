@@ -46,7 +46,8 @@ You need an Azure account in an Azure subscription that adheres to one of the fo
 
 > [!NOTE]
 > - Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts.
-> - Any unused quota expires after 30 days. A new request needs to be submitted for more quota.
+> - Any unused quota or extra quota not deployed will expire after 30 days. A new request needs to be submitted for more quota.
+> - Customers with a valid VCF key and extra quota not deployed, quota will not expire and remain after 30 days.
 > - **NEW** If requesting quota to use Portable [VMware Cloud Foundation (VCF)](/azure/azure-vmware/vmware-cloud-foundations-license-portability) pricing, add the following statement as is, by replacing (N) with the Number of VCF cores you purchased from Broadcom for license portability to Azure VMware Solution. **"I acknowledge that I have procured portable VCF license from Broadcom for (N) cores to use with Azure VMware Solution."**  
 > - **VCF Disclaimer** Quota allocation is processed upon request.  If you didn't submit the VCF license through registeravsvcfbyol@microsoft.com and provision the hosts, you're subject to Azure VMware Solution pay-as-you-go (PayGo) pricing.
 > - **NEW** If you have an Availability Zone requirement for integrating with other Azure services; for example, Azure NetApp Files, create a technical **[New support request](https://portal.azure.com/#create/Microsoft.Support)** once the quota is allocated and before provisioning.

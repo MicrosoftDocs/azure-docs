@@ -173,7 +173,7 @@ Yes. Virtual networks can be IPv4 only or dual stack (IPv4 + IPv6). For details,
 
 ### Can a virtual network span regions?
 
-No. A virtual network is limited to a single region. But a virtual network does span availability zones. To learn more about availability zones, see [What are Azure regions and availability zones?](../reliability/availability-zones-overview.md).
+No. A virtual network is limited to a single region. But a virtual network does span availability zones. To learn more about availability zones, see [What are Azure regions and availability zones?](/azure/reliability/availability-zones-overview).
 
 You can connect virtual networks in different regions by using virtual network peering. For details, see [Virtual network peering](virtual-network-peering-overview.md).
 

@@ -74,7 +74,7 @@ You can define rules on a subscription. A subscription rule has a **filter** to 
 ### Namespaces
 A namespace is a container for all messaging components (queues and topics). A namespace can have one or more queues and topics and it often serves as an application container.
 
-A namespace can be compared to a server in the terminology of other brokers, but the concepts aren't directly equivalent. A Service Bus namespace is your own capacity slice of a large cluster made up of dozens of all-active virtual machines. It optionally spans three [Azure availability zones](../reliability/availability-zones-overview.md). So, you get all the availability and robustness benefits of running the message broker at enormous scale. And, you don't need to worry about underlying complexities. Service Bus is serverless messaging.
+A namespace can be compared to a server in the terminology of other brokers, but the concepts aren't directly equivalent. A Service Bus namespace is your own capacity slice of a large cluster made up of dozens of all-active virtual machines. It optionally spans three [Azure availability zones](/azure/reliability/availability-zones-overview). So, you get all the availability and robustness benefits of running the message broker at enormous scale. And, you don't need to worry about underlying complexities. Service Bus is serverless messaging.
 
 ## Advanced features
 

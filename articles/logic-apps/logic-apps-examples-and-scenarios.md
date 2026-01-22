@@ -84,7 +84,7 @@ Azure Logic Apps includes rich capabilities for advanced control flow, such as c
 
 ## Reliability
 
-* [Reliability in Azure Logic Apps](../reliability/reliability-logic-apps.md)
+* [Reliability in Azure Logic Apps](/azure/reliability/reliability-logic-apps)
 * [Enable zone-redundancy for your logic app](set-up-zone-redundancy-availability-zones.md)
 * [Create replication tasks for Azure resources using Azure Logic Apps](create-replication-tasks-azure-resources.md)
 * [Set up cross-region disaster recovery for integration accounts in Azure Logic Apps](logic-apps-enterprise-integration-b2b-business-continuity.md)

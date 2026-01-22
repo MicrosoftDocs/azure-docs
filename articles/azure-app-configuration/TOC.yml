@@ -344,7 +344,7 @@
   - name: Resiliency and disaster recovery
     href: concept-disaster-recovery.md
   - name: Availability zone support
-    href: ../reliability/migrate-app-configuration.md
+    href: /azure/reliability/migrate-app-configuration
 - name: Samples
   items:
   - name: Azure CLI

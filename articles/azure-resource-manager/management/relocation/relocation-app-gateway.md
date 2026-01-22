@@ -38,7 +38,7 @@ ms.custom: subject-relocation
 
 To relocate Application Gateway and optional WAF, you must create a separate Application Gateway deployment with a new public IP address at the target location. Workloads are then migrated from the source Application Gateway setup to the new one.  Since you're changing the public IP address, changes to DNS configuration, virtual networks, and subnets are also required.
 
-If you only want to relocate in order to gain availability zones support, see [Migrate Application Gateway and WAF to availability zone support](../../../reliability/migrate-app-gateway-v2.md).
+If you only want to relocate in order to gain availability zones support, see [Migrate Application Gateway and WAF to availability zone support](/azure/reliability/migrate-app-gateway-v2).
 
 **To create a separate Application Gateway, WAF (optional) and IP address:**
 

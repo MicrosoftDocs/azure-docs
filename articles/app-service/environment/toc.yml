@@ -26,7 +26,7 @@
   - name: Reliability
     items:
     - name: Reliability in an Azure App Service Environment
-      href: ../../reliability/reliability-app-service-environment.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json&bc=/azure/app-service/breadcrumb/toc.json
+      href: /azure/reliability/reliability-app-service-environment?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json&bc=/azure/app-service/breadcrumb/toc.json
     - name: Configure an App Service Environment for zone redundancy
       href: configure-zone-redundancy-environment.md
   - name: Certificates

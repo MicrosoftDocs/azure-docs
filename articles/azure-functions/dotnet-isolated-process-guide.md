@@ -154,20 +154,18 @@ The following code shows an example of a [HostBuilder] pipeline:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_startup":::
 
-This code requires `using Microsoft.Extensions.DependencyInjection;`.
+Considerations for your start-up code:
 
-Before calling `Build()` on the `IHostBuilder`, you should:
+- Before calling `Build()` on the `IHostBuilder`, you should:
+    - Call either `ConfigureFunctionsWebApplication()` if you're using [ASP.NET Core integration](#aspnet-core-integration) or `ConfigureFunctionsWorkerDefaults()` otherwise. See [HTTP trigger](#http-trigger) for details on these options.   
+        If you're writing your application using F#, some trigger and binding extensions require extra configuration. See the setup documentation for the [Blobs extension][fsharp-blobs], the [Tables extension][fsharp-tables], and the [Cosmos DB extension][fsharp-cosmos] when you plan to use these extensions in an F# app.
+    - Configure any services or app configuration your project requires. See [Configuration](#configuration) for details.  
+        If you plan to use Application Insights, you need to call `AddApplicationInsightsTelemetryWorkerService()` and `ConfigureFunctionsApplicationInsights()` in the `ConfigureServices()` delegate. See [Application Insights](#application-insights) for details.
+- If your project targets .NET Framework 4.8, you also need to add `FunctionsDebugger.Enable();` before creating the HostBuilder. It should be the first line of your `Main()` method. For more information, see [Debugging when targeting .NET Framework](#debugging-when-targeting-net-framework).
+- This example includes dependency injection, which is optional for your start-up code. Dependency injection also requires `using Microsoft.Extensions.DependencyInjection;`. For more information, see [Dependency injection](#dependency-injection). 
+- The [HostBuilder] builds and returns a fully initialized [`IHost`][IHost] instance. You run this instance asynchronously to start your function app. 
 
-- Call either `ConfigureFunctionsWebApplication()` if you're using [ASP.NET Core integration](#aspnet-core-integration) or `ConfigureFunctionsWorkerDefaults()` otherwise. See [HTTP trigger](#http-trigger) for details on these options.   
-    If you're writing your application using F#, some trigger and binding extensions require extra configuration. See the setup documentation for the [Blobs extension][fsharp-blobs], the [Tables extension][fsharp-tables], and the [Cosmos DB extension][fsharp-cosmos] when you plan to use these extensions in an F# app.
-- Configure any services or app configuration your project requires. See [Configuration](#configuration) for details.  
-    If you plan to use Application Insights, you need to call `AddApplicationInsightsTelemetryWorkerService()` and `ConfigureFunctionsApplicationInsights()` in the `ConfigureServices()` delegate. See [Application Insights](#application-insights) for details.
-
-If your project targets .NET Framework 4.8, you also need to add `FunctionsDebugger.Enable();` before creating the HostBuilder. It should be the first line of your `Main()` method. For more information, see [Debugging when targeting .NET Framework](#debugging-when-targeting-net-framework).
-
-The [HostBuilder] builds and returns a fully initialized [`IHost`][IHost] instance. You run this instance asynchronously to start your function app. 
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_host_run":::
+    :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_host_run":::
 
 ---
 

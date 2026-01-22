@@ -22,22 +22,24 @@ This article explains the levels of support offered for your preferred language 
 
 The following table shows which languages supported by Functions can run on Linux or Windows. It also indicates whether there's support for editing each language in the Azure portal. The language is based on the **Runtime stack** option you select when you [create your function app in the Azure portal](functions-create-function-app-portal.md#create-a-function-app). This value is the same as the `--worker-runtime` option that you specify when you use the `func init` command in Azure Functions Core Tools.
 
-| Language | Runtime stack | Linux | Windows | In-portal editing |
+| Language | Runtime stack | Linux | Windows | In-portal editing<sup>1</sup> |
 |:--- |:-- |:--|:--- |:--- |
 | [C# (isolated worker model)](dotnet-isolated-process-guide.md) |.NET|✓ |✓ | |
-| [C# (in-process model)](functions-dotnet-class-library.md)|.NET|✓ |✓ | <sup>*</sup> |
+| [C# (in-process model)](functions-dotnet-class-library.md)|.NET|✓ |✓ | <sup>2</sup> |
 | [JavaScript](functions-reference-node.md?tabs=javascript) | Node.js |✓ |✓ | ✓ |
-| [Python](functions-reference-python.md) | Python |✓ |X|✓ |
+| [Python](functions-reference-python.md) | Python |✓ |X|✓ <sup>1</sup> |
 | [Java](functions-reference-java.md) | Java |✓ |✓ | |
 | [PowerShell](functions-reference-powershell.md) |PowerShell Core |✓ |✓ |✓ |
 | [TypeScript](functions-reference-node.md?tabs=typescript) | Node.js |✓ |✓ |  |
 | [Go/Rust/other](functions-custom-handlers.md) | Custom Handlers |✓ |✓ | |
 
-<sup>*</sup>Although we recommend local development for C# apps, you can use the portal to develop and test C# script functions that use the in-process model. For more information, see [Create a C# script app](functions-reference-csharp.md#create-a-c-script-app).
+1. In-portal editing isn't currently supported when running in the [Flex Consumption plan](./flex-consumption-plan.md). When in-portal editing isn't available, you must instead [develop your function apps locally](functions-develop-local.md#local-development-environments).
+2. Although we recommend local development for C# apps, you can use the portal to develop and test C# script functions that use the in-process model. For more information, see [Create a C# script app](functions-reference-csharp.md#create-a-c-script-app).
+3. In-portal editing for Python is only supported when running in the Consumption plan. 
+ 
+[!INCLUDE [functions-linux-consumption-retirement](../../includes/functions-linux-consumption-retirement.md)]
 
 For more information on operating system and language support, see [Operating system support](functions-scale.md#operating-systemruntime).
-
-When in-portal editing isn't available, you must instead [develop your function apps locally](functions-develop-local.md#local-development-environments).
 
 For more information about how to maintain full-support coverage while running your function apps in Azure, see [Azure Functions language stack support policy](language-support-policy.md).
 

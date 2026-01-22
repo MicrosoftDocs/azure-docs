@@ -74,7 +74,7 @@ To create an IPv4 public IP prefix, specify **IPv4** as the `ip_version` value. 
 :::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="24-34"  highlight="7-8,10":::
 
 >[!NOTE]
->For more information about availability zones, see [What are availability zones?](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+>For more information about availability zones, see [What are availability zones?](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ---
 
@@ -101,7 +101,7 @@ To create an IPv6 public IP prefix, specify **IPv6** as the `ip_version` value. 
 :::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="72-82"  highlight="7-8,10":::
 
 >[!NOTE]
->For more information about availability zones, see [What are availability zones?](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+>For more information about availability zones, see [What are availability zones?](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ---
 

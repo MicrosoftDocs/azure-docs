@@ -47,7 +47,7 @@ Azure Private Link provides the following benefits:
 - **Extend to your own services**: Enable the same experience and functionality to render your service privately to consumers in Azure. By placing your service behind a standard Azure Load Balancer, you can enable it for Private Link. The consumer can then connect directly to your service using a private endpoint in their own virtual network. You can manage the connection requests using an approval call flow. Azure Private Link works for consumers and services belonging to different Microsoft Entra tenants. 
 
 > [!NOTE]
-> Azure Private Link, along with Azure Virtual Network, span across [Azure Availability Zones](../reliability/availability-zones-overview.md) and are therefore zone resilient. To provide high availability for the Azure resource using a private endpoint, ensure that resource is zone resilient.
+> Azure Private Link, along with Azure Virtual Network, span across [Azure Availability Zones](/azure/reliability/availability-zones-overview) and are therefore zone resilient. To provide high availability for the Azure resource using a private endpoint, ensure that resource is zone resilient.
 
 ## Availability 
 

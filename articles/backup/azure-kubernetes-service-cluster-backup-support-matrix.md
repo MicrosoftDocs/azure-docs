@@ -28,7 +28,7 @@ Australia Central, Australia Central 2, Australia East, Australia Southeast, Bra
 China East 2, China East 3, China North 2, China North 3, US GOV Arizona, US GOV Texas, US GOV Virginia,  Israel Central, Poland Central, and Spain Central 
 
 >[!Note]
-  >If you require geo-redundant backups with the ability to restore on demand, store your backups in the Vault tier and enable Cross Region Restore on your Backup Vault. This ensures that your backups are also available in the paired Azure region, allowing you to perform restores even if the primary region is unavailable. See the [list of Azure Paired Region](../reliability/cross-region-replication-azure.md#azure-paired-regions).
+  >If you require geo-redundant backups with the ability to restore on demand, store your backups in the Vault tier and enable Cross Region Restore on your Backup Vault. This ensures that your backups are also available in the paired Azure region, allowing you to perform restores even if the primary region is unavailable. See the [list of Azure Paired Region](/azure/reliability/cross-region-replication-azure#azure-paired-regions).
 
 ## Supported Scenarios
 

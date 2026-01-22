@@ -83,7 +83,7 @@ A single NAT gateway can scale by the number of public IP addresses associated t
 
 ## Availability zones
 
-NAT Gateway has two SKUs – Standard and StandardV2. To ensure that your architecture is resilient to zonal failures, deploy StandardV2 NAT gateway as it is a zone-redundant resource. When an [availability zone](../reliability/availability-zones-overview.md) in a region goes down, new connections flow from the remaining healthy zones.
+NAT Gateway has two SKUs – Standard and StandardV2. To ensure that your architecture is resilient to zonal failures, deploy StandardV2 NAT gateway as it is a zone-redundant resource. When an [availability zone](/azure/reliability/availability-zones-overview) in a region goes down, new connections flow from the remaining healthy zones.
 
 :::image type="content" source="./media/nat-overview/zone-redundant-standard-2.png" alt-text="Diagram of multi-zone deployment of StandardV2 NAT Gateway.":::
 

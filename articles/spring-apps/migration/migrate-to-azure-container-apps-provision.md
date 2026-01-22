@@ -133,13 +133,13 @@ For more information, see [Azure Container Apps planned maintenance](../../conta
 
 ### Availability zone support
 
-In most regions, Azure Spring Apps and Azure Container Apps use availability zones in regions where they're available. For a list of regions that support availability zones, see [Azure services with availability zone support](../../reliability/availability-zones-service-support.md). Azure Container Apps offers the same reliability support regardless of your plan type.
+In most regions, Azure Spring Apps and Azure Container Apps use availability zones in regions where they're available. For a list of regions that support availability zones, see [Azure services with availability zone support](/azure/reliability/availability-zones-service-support). Azure Container Apps offers the same reliability support regardless of your plan type.
 
-To enable availability zones in Azure Container Apps, you need to specify a virtual network with an available subnet when creating the container app environment. Both Azure Spring Apps and Azure Container Apps use the same parameter to enable zone redundancy. For more information on how to enable availability zones, see [Reliability in Azure Container Apps](../../reliability/reliability-azure-container-apps.md).
+To enable availability zones in Azure Container Apps, you need to specify a virtual network with an available subnet when creating the container app environment. Both Azure Spring Apps and Azure Container Apps use the same parameter to enable zone redundancy. For more information on how to enable availability zones, see [Reliability in Azure Container Apps](/azure/reliability/reliability-azure-container-apps).
 
 ### Disaster recovery
 
-Azure Spring Apps and Azure Container Apps employ a unified strategy for disaster recovery and business continuity. For more information, see the [Cross-region disaster recovery and business continuity](../../reliability/reliability-azure-container-apps.md#cross-region-disaster-recovery-and-business-continuity) section of [Reliability in Azure Container Apps](../../reliability/reliability-azure-container-apps.md).
+Azure Spring Apps and Azure Container Apps employ a unified strategy for disaster recovery and business continuity. For more information, see the [Cross-region disaster recovery and business continuity](/azure/reliability/reliability-azure-container-apps#cross-region-disaster-recovery-and-business-continuity) section of [Reliability in Azure Container Apps](/azure/reliability/reliability-azure-container-apps).
 
 ## Known limitations
 

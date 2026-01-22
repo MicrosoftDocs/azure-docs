@@ -271,8 +271,8 @@ After you confirm that your function works, create your logic app resource and w
    > [!NOTE]
    >
    > Availability zones are automatically enabled for new and existing Consumption logic app workflows in 
-   > [Azure regions that support availability zones](../reliability/availability-zones-region-support.md). 
-   > For more information, see [Reliability in Azure Functions](../reliability/reliability-functions.md#availability-zone-support) and 
+   > [Azure regions that support availability zones](/azure/reliability/availability-zones-region-support). 
+   > For more information, see [Reliability in Azure Functions](/azure/reliability/reliability-functions#availability-zone-support) and 
    > [Protect logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md).
 
 1. When you're ready, select **Review + create**. After Azure validates the information about your logic app resource, select **Create**.

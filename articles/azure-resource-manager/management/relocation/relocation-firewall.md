@@ -115,7 +115,7 @@ If you're running classic firewall rules without Firewall policy, migrate to Fir
 1. Review and update the following settings to reflect the changes required for the target region.
 
     - **IP Groups.** To include IP addresses from the target region, if different from the source, *IP Groups* should be reviewed. The IP addresses included in the groups must be modified.
-    - **Zones.**  Configure the [availability Zones (AZ)](../../../reliability/availability-zones-overview.md) in the target region.
+    - **Zones.**  Configure the [availability Zones (AZ)](/azure/reliability/availability-zones-overview) in the target region.
     - **Forced Tunneling.**  [Ensure that you've relocated the virtual network](./relocation-virtual-network.md) and that the firewall *Management Subnet* is present before the Azure Firewall is relocated.   Update the IP Address in the target region of the Network Virtual Appliance (NVA) to which the Azure Firewall should redirect the traffic, in the User Defined Route (UDR).
     - **DNS.** Review IP Addresses for your custom *DNS Servers* to reflect your target region. If the *DNS Proxy* feature is enabled, be sure to configure your virtual network DNS server settings and set the Azure Firewall's private IP address as a *Custom DNS server*.
     - **Private IP ranges (SNAT).** - If custom ranges are defined for SNAT, it's recommended that you review and eventually adjust to include the target region address space.
@@ -156,7 +156,7 @@ If you're running classic firewall rules without Firewall policy, migrate to Fir
 1. Review and update the following properties to reflect the changes required for the target region.
 
     - **IP Groups.** To include IP addresses from the target region, if different from the source, *IP Groups* should be reviewed. The IP addresses included in the groups must be modified.
-    - **Zones.**  Configure the [availability Zones (AZ)](../../../reliability/availability-zones-overview.md) in the target region.
+    - **Zones.**  Configure the [availability Zones (AZ)](/azure/reliability/availability-zones-overview) in the target region.
     - **Forced Tunneling.**  [Ensure that you've relocated the virtual network](./relocation-virtual-network.md) and that the firewall *Management Subnet* is present before the Azure Firewall is relocated.   Update the IP Address in the target region of the Network Virtual Appliance (NVA) to which the Azure Firewall should redirect the traffic, in the User Defined Route (UDR).
     - **DNS.** Review IP Addresses for your custom *DNS Servers* to reflect your target region. If the *DNS Proxy* feature is enabled, be sure to configure your virtual network DNS server settings and set the Azure Firewall's private IP address as a *Custom DNS server*.
     - **Private IP ranges (SNAT).** - If custom ranges are defined for SNAT, it's recommended that you review and eventually adjust to include the target region address space.

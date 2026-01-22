@@ -59,7 +59,7 @@ items:
     - name: Reliability
       items:
         - name: Reliability overview 
-          href: ../reliability/reliability-energy-data-services.md?toc=/azure/energy-data-services/toc.json&bc=/azure/energy-data-services/breadcrumb/toc.json
+          href: /azure/reliability/reliability-energy-data-services?toc=/azure/energy-data-services/toc.json&bc=/azure/energy-data-services/breadcrumb/toc.json
           displayName: availability zones, high-availability, zone redundancy
     - name: Tier details
       href: concepts-tier-details.md

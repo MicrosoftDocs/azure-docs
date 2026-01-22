@@ -537,7 +537,7 @@ You should experience minimal to no disruption during maintenance on your Expres
 
 ### Does ExpressRoute Traffic Collector support availability zones?
 
-ExpressRoute Traffic Collector deployment by default has availability zones enabled in the regions where it is available. For information about region availability, see [Availability zones supported regions](../reliability/availability-zones-region-support.md). 
+ExpressRoute Traffic Collector deployment by default has availability zones enabled in the regions where it is available. For information about region availability, see [Availability zones supported regions](/azure/reliability/availability-zones-region-support). 
 
 ### How should I incorporate ExpressRoute Traffic Collector into my disaster recovery plan?
 

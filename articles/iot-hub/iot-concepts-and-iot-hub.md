@@ -80,7 +80,7 @@ Devices send data to IoT Hub, which acts as a central message hub for bi-directi
 IoT Hub gives you the ability to unlock the value of your device data with other Azure services so you can shift to predictive problem-solving rather than reactive management. Connect your IoT hub with other Azure services to do machine learning, analytics, and AI to act on real-time data, optimize processing, and gain deeper insights.
 
 > [!NOTE]
-> Azure IoT Hub doesn't store or process customer data outside of the geography where you deploy the service instance. For more information, see [Cross-region replication in Azure](../reliability/cross-region-replication-azure.md).
+> Azure IoT Hub doesn't store or process customer data outside of the geography where you deploy the service instance. For more information, see [Cross-region replication in Azure](/azure/reliability/cross-region-replication-azure).
 
 ### Built-in endpoint collects device data by default
 

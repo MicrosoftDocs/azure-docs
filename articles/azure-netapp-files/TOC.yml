@@ -184,7 +184,7 @@
   - name: Hybrid data mobility and protection
     items:
     - name: Reliability in Azure NetApp Files 
-      href: ../reliability/reliability-netapp-files.md?toc=azure/azure-netapp-files/toc.json&bc=/azure/azure-netapp-files/breadcrumb/toc.json
+      href: /azure/reliability/reliability-netapp-files?toc=azure/azure-netapp-files/toc.json&bc=/azure/azure-netapp-files/breadcrumb/toc.json
     - name: Understand data protection and disaster recovery options
       href: data-protection-disaster-recovery-options.md
     - name: How Azure NetApp Files snapshots work

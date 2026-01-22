@@ -330,9 +330,9 @@
       href: ../iot-dps/concepts-deploy-at-scale.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
       displayName: device provisioning, staggered provisioning schedule, reprovisioning devices, monitoring devices
     - name: Reliability in IoT Hub
-      href: ../reliability/reliability-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
+      href: /azure/reliability/reliability-iot-hub?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Reliability in Azure Device Registry
-      href: ../reliability/reliability-device-registry.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
+      href: /azure/reliability/reliability-device-registry?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Disable disaster recovery
       href: how-to-disable-dr.md
     - name: Perform manual failover

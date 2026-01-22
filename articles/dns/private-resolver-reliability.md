@@ -26,11 +26,11 @@ For a comprehensive overview of reliability in Azure, see [Azure reliability](/a
 
 ## Availability zones
 
-For more information about availability zones, see [Regions and availability zones](../reliability/availability-zones-overview.md).
+For more information about availability zones, see [Regions and availability zones](/azure/reliability/availability-zones-overview).
 
 ### Prerequisites
 
-For a list of regions that support availability zones, see [Azure regions with availability zones](../reliability/availability-zones-region-support.md). If your Azure DNS Private Resolver is located in one of the regions listed, you don't need to take any other action beyond provisioning the service.
+For a list of regions that support availability zones, see [Azure regions with availability zones](/azure/reliability/availability-zones-region-support). If your Azure DNS Private Resolver is located in one of the regions listed, you don't need to take any other action beyond provisioning the service.
 
 #### Enabling availability zones with private resolver
 
@@ -57,4 +57,4 @@ Also see the [SLA for Azure DNS](https://azure.microsoft.com/support/legal/sla/d
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Resiliency in Azure](../reliability/overview.md)
+> [Resiliency in Azure](/azure/reliability/overview)

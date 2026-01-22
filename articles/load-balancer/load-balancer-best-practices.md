@@ -42,7 +42,7 @@ Zone-redundancy provides the best resiliency by protecting the data path from zo
 - Public IP addresses can't be changed to zone redundant but we're updating all non-zonal Standard Public IPs to be zone redundant by default. For more information, visit the following Microsoft Azure Blog [Azure Public IPs are now zone-redundant by default | Microsoft Azure Blog](https://azure.microsoft.com/blog/azure-public-ips-are-now-zone-redundant-by-default/?msockid=028aa4446a5a601f37ecb0076b7761c7). To see the most updated list of regions that support zone redundant Standard Public IPs by default, see [Public IP addresses in Azure](../virtual-network/ip-services/public-ip-addresses.md)
 - If you can't deploy as zone-redundant, the next option is to have a zonal load balancer deployment.
 - A Zonal frontend is recommended when the backend is concentrated in a particular zone. Though we recommend deploying backend pool members across multiple zones to benefit from zone redundancy.
-- Refer to the following the doc if you want to migrate existing deployments to zonal or zone-redundant [Migrate Load Balancer to availability zone support](../reliability/migrate-load-balancer.md).
+- Refer to the following the doc if you want to migrate existing deployments to zonal or zone-redundant [Migrate Load Balancer to availability zone support](/azure/reliability/migrate-load-balancer).
 
 #### Redundancy in your backend pool
 
@@ -52,7 +52,7 @@ Ensure that the backend pool contains at least two instances. If your backend po
 
 Standard Load Balancer supports cross-region load balancing enabling regional redundancy through linking a global load balancer to your existing regional load balancers. With a global load balancer, if one region fails, the traffic is routed to the next closest healthy regional load balancer. For more details, visit the [Global Load Balancer documentation](cross-region-overview.md).
 
-For more information, see [Azure Load Balancer Reliability documentation](../reliability/reliability-load-balancer.md).
+For more information, see [Azure Load Balancer Reliability documentation](/azure/reliability/reliability-load-balancer).
 
 ### Reliability with Gateway Load Balancer
 

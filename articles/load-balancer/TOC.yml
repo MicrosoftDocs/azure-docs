@@ -133,9 +133,9 @@
     - name: Reliability
       items:
         - name: Availability zones and cross-region load balancer
-          href: ../reliability/reliability-load-balancer.md?toc=/azure/load-balancer/toc.json&bc=/azure/load-balancer/breadcrumb/toc.json
+          href: /azure/reliability/reliability-load-balancer?toc=/azure/load-balancer/toc.json&bc=/azure/load-balancer/breadcrumb/toc.json
         - name: Availability zone migration
-          href: ../reliability/migrate-load-balancer.md?toc=/azure/load-balancer/toc.json&bc=/azure/load-balancer/breadcrumb/toc.json
+          href: /azure/reliability/migrate-load-balancer?toc=/azure/load-balancer/toc.json&bc=/azure/load-balancer/breadcrumb/toc.json
     - name: Scaling and availability
       items:
         - name: Load balance a VM within a specific availability zone

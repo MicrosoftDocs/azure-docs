@@ -99,7 +99,7 @@
 - name: API center management and operations
   items:
   - name: Reliability
-    href: ../reliability/reliability-api-center.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json
+    href: /azure/reliability/reliability-api-center?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json
 - name: Reference
   items:
   - name: Azure CLI

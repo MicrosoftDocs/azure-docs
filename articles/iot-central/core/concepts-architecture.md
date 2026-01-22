@@ -137,7 +137,7 @@ Use the `az iot central device manual-failover` command to check if your applica
 
 For highly available device connectivity, an IoT Central application always has at least two IoT hubs. The number of hubs can grow or shrink as IoT Central scales the application in response to changes in the load profile.
 
-IoT Central also uses [availability zones](../../reliability/availability-zones-overview.md) to make various services it uses highly available.
+IoT Central also uses [availability zones](/azure/reliability/availability-zones-overview) to make various services it uses highly available.
 
 An incident that requires disaster recovery could range from a subset of services becoming unavailable to a whole region becoming unavailable. IoT Central follows different recovery processes depending on the nature and scale of the incident. For example, if an entire Azure region becomes unavailable in the wake of a catastrophic failure, disaster recovery procedures failover applications to another region in the same geography.
 
