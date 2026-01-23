@@ -50,11 +50,9 @@ To learn more on how to deploy StandardV2 NAT Gateway, see [Create a StandardV2 
 * The following regions don't support StandardV2 NAT Gateway:
     * Brazil Southeast
     * Canada East
-    * Central India
     * Chile Central
     * Indonesia Central
     * Israel Northwest
-    * Malaysia West
     * Qatar Central
     * Sweden South
     * UAE Central
