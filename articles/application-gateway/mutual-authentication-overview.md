@@ -25,10 +25,7 @@ Application Gateway provides following two options to validate client certificat
 
 
 ## Mutual TLS passthrough mode 
-In mutual TLS passthrough mode, Application Gateway requests a client certificate during the TLS handshake but doesn't terminate the connection if the certificate is missing or invalid. The connection to the backend proceeds regardless of the certificate's presence or validity. If a certificate is provided, Application Gateway can forward it to the backend if required by the application. The backend service is responsible for validating the client certificate. Refer to server variables if you want to configure certificate forwarding. There's no need to upload any CA certificate when it is on Passthrough mode. To set up passthrough, follow the steps in [Configure Application Gateway with mutual authentication using ARM Template](./mutual-authentication-arm-template.md).
- 
-> [!NOTE]
-> Currently, this feature is supported only through Azure Resource Manager deployment using API version 2025-03-01.
+In mutual TLS passthrough mode, Application Gateway requests a client certificate during the TLS handshake but doesn't terminate the connection if the certificate is missing or invalid. The connection to the backend proceeds regardless of the certificate's presence or validity. If a certificate is provided, Application Gateway can forward it to the backend if required by the application. The backend service is responsible for validating the client certificate. Refer to server variables if you want to configure certificate forwarding. There's no need to upload any CA certificate when it is on Passthrough mode. To set up passthrough, follow the steps in [Configure Application Gateway with mutual authentication using ARM Template](./mutual-authentication-arm-template.md). To set up passthrough in Portal, follow the steps in [Configure mutual authentication with Application Gateway through portal](./articles/application-gateway/mutual-authentication-portal.md).
 
 
 ## Mutual TLS strict mode
