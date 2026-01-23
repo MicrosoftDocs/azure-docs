@@ -835,12 +835,6 @@
             "branch_mapping": {}
         },
         {
-            "path_to_root": "samples-tsi",
-            "url": "https://github.com/Azure-Samples/Azure-Time-Series-Insights",
-            "branch": "master",
-            "branch_mapping": {}
-        },
-        {
             "path_to_root": "storage-mgmt-devguide-dotnet",
             "url": "https://github.com/Azure-Samples/storage-mgmt-devguide-dotnet",
             "branch": "main",

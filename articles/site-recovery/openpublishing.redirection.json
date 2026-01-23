@@ -5536,7 +5536,7 @@
     },
     {
       "source_path_from_root": "/articles/time-series-insights/migration-to-adx.md",
-      "redirect_url": "/azure/time-series-insights/migration-to-fabric.md",
+      "redirect_url": "/previous-versions/azure/time-series-insights/migration-to-fabric",
       "redirect_document_id": false
     },
     {

@@ -218,9 +218,6 @@ items:
     - name: IoT Hub Device Provisioning Service
       tocHref: /azure/iot-dps/
       topicHref: /azure/iot-dps/
-    - name: Time Series Insights
-      tocHref: /azure/time-series-insights/
-      topicHref: /azure/time-series-insights/
     - name: Azure Maps
       tocHref: /azure/azure-maps/
       topicHref: /azure/azure-maps/

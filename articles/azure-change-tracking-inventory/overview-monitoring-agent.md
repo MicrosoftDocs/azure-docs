@@ -69,6 +69,10 @@ With Change Tracking and Inventory, you can view the contents of a Windows or Li
 
 Change Tracking and Inventory allows monitoring of changes to Windows registry keys. When you use monitoring, you can pinpoint extensibility points where non-Microsoft code and malware can activate. The following table lists preconfigured (but not enabled) registry keys. To track these keys, you must enable each one.
 
+>[!Note]
+>A registry key is a container in the Windows Registry that works like a folder in a file system. It organizes configuration settings and data for hardware, software, and users. The  keys contain registry values, like files, and subkeys.
+
+
 > [!div class="mx-tdBreakAll"]
 > |Registry key | Purpose |
 > | --- | --- |

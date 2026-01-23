@@ -6664,6 +6664,11 @@
       "source_path": "articles/nat-gateway/nat-availability-zones.md",
       "redirect_url": "/azure/reliability/reliability-nat-gateway",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "articles/cyclecloud/how-to/collect-custom-metrics-gpu-infiniband-telegraf.md",
+      "redirect_url": "/azure/cyclecloud/how-to/monitor-cyclecloud-cluster-using-prometheus-grafana",
+      "redirect_document_id": false
+    }    
   ]
 }

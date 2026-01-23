@@ -589,7 +589,7 @@ Applies to: IoT Hub
 
 ### Downstream service
 
-A relative term describing services that receive data from the current context. For example, in the context of [Azure Digital Twins](#azure-digital-twins), Time Series Insights is a downstream service if you set up your data to flow from [Azure Digital Twins](#azure-digital-twins) into Time Series Insights.
+A relative term describing services that receive data from the current context. 
 
 Casing rules: Always lowercase.
 

@@ -168,10 +168,10 @@
       href: ./how-to/configure-autoscaling.md
     - name: Use the REST API
       href: ./how-to/use-rest-api.md
-  - name: Monitoring custom metrics
+  - name: Monitoring
     items:
-    - name: Collect custom metrics
-      href: ./how-to/collect-custom-metrics-gpu-infiniband-telegraf.md       
+    - name: Monitor CycleCloud Cluster Using Prometheus and Grafana
+      href: /azure/cyclecloud/how-to/monitor-cyclecloud-cluster-using-prometheus-grafana
   - name: Troubleshoot
     items:
     - name: Report an Issue

@@ -2,7 +2,7 @@
 author: msangapu-msft
 ms.service: azure-app-service
 ms.topic: include
-ms.date: 03/04/2025
+ms.date: 01/23/2026
 ms.author: msangapu
 ms.custom:
   - linux-related-content
@@ -238,6 +238,7 @@ You can customize health‑check behavior using the following app settings.
 | Azure Blob | `WEBSITE_BYOS_BLOB_HEALTH_CHECK_FREQUENCY` | `5` | Interval in seconds between health checks. |
 | Azure Blob | `WEBSITE_BYOS_BLOB_MAX_FAILED_PINGS` | `15` | Number of consecutive failures before marking the volume as faulted. |
 | Azure Blob | `WEBSITE_BYOS_BLOB_AUTO_RECOVERY_ENABLED` | `true` | Set to `false` to disable auto‑recovery logic. |
+| Azure Blob | `WEBSITE_BYOS_BLOB_DIRECT_IO` | `false` | If enabled, all transactions will query the remote storage directly and caching will be bypassed. This setting is applied at the application level and therefore affects all blob shares mounted by the application. |
 
 #### Notes
 - Auto‑recovery helps prevent long‑running application hangs caused by unresponsive storage paths.  

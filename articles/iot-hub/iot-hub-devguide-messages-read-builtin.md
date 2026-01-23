@@ -83,9 +83,6 @@ The product integrations you can use with the built-in Event Hubs-compatible end
 * [Azure Stream Analytics](../stream-analytics/index.yml)
 
     For more information, see [Stream data as input into Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
-* [Azure Time Series Insights](../time-series-insights/index.yml)
-
-    For more information, see [Add an IoT hub event source to your Azure Time Series Insight environment](../time-series-insights/how-to-ingest-data-iot-hub.md).
 * [Apache Spark integration](../hdinsight/spark/apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Kafka](https://kafka.apache.org/)
 

@@ -41,7 +41,7 @@ You need to implement the downstream event consumer logic to generate alerts in 
 
 :::image type="content" source="media/stream-analytics-solution-patterns/event-messaging-app.png" alt-text="Diagram that shows Event Hubs and IoT Hubs as data sources and Event Hubs, Service Bus, or Functions as destinations for an Azure Stream Analytics job.":::
 
-Azure Event Hubs service, on the other hand, offers the most flexible integration point. Many other services, like Azure Data Explorer and Time Series Insights can consume events from Event Hubs. Services can be connected directly to the Event Hubs sink from Azure Stream Analytics to complete the solution. Event Hubs is also the highest throughput messaging broker available on Azure for such integration scenarios.
+Azure Event Hubs service, on the other hand, offers the most flexible integration point. Many other services, like Azure Data Explorer, can consume events from Event Hubs. Services can be connected directly to the Event Hubs sink from Azure Stream Analytics to complete the solution. Event Hubs is also the highest throughput messaging broker available on Azure for such integration scenarios.
 
 ## Dynamic applications and websites
 

@@ -28,7 +28,7 @@ Azure Network Address Translation (NAT) Gateway has two stock-keeping units (SKU
 | Scalability | Public IP Addresses | 16 IPv4 addresses, 16 IPv6 addresses | 16 IPv4 addresses |
 | | Public IP Prefixes | /28 IPv4 Prefix, /124 IPv6 Prefix | /28 IPv4 Prefix |
 | | Virtual networks | 1 | 1 |
-| | Subnets | 800 - attached at subnet level, 3,000 attached at virtual network level | 800 |
+| | Subnets | 800 | 800 |
 | Monitoring | Metrics | Supported | Supported |
 | Limits | Bandwidth | 100 Gbps per NAT Gateway, 1 Gbps per connection | 50 Gbps per NAT Gateway |
 | | Packets per second | 10 million packets per second, 100,000 packets per second per connection | 5 million packets per second |
