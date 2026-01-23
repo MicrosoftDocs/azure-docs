@@ -1,8 +1,8 @@
 ---
 title: Configure Open Demand with CycleCloud
 description: How to configure Open OnDemand with CycleCloud
-author: xpillons
-ms.date: 09/18/2025
+author: abatallas
+ms.date: 01/13/2025
 ms.author: padmalathas
 ---
 
@@ -10,7 +10,7 @@ ms.author: padmalathas
 Open OnDemand is a web-based interface that provides a user-friendly way to interact with the Slurm cluster deployed by Azure CycleCloud. Azure CycleCloud automatically installs and configures Open OnDemand when you deploy Azure CycleCloud Workspace for Slurm, but you need to run a few steps manually.
 
 ## Update settings for Microsoft Entra ID authentication
-The Open OnDemand front end uses Open ID Connect (OIDC) for authentication. The OIDC provider is a Microsoft Entra ID application that you register specifically for this purpose (see [How to register a Microsoft Entra ID application for Open OnDemand Authentication](./register-entra-id-app.md)). The following steps describe how to update the settings for Microsoft Entra ID authentication.
+The Open OnDemand front end uses Open ID Connect (OIDC) for authentication. The OIDC provider is a Microsoft Entra ID application that you register for this specific purpose (see [these instructions](../create-app-registration.md) on how to register such an application). The following steps describe how to update the Open OnDemand cluster settings for Microsoft Entra ID authentication in the Azure CycleCloud interface.
 
 Browse to the CycleCloud web portal, select the OpenOnDemand cluster, and select **Edit**. This selection opens the cluster template definition. 
 1. Select **Advanced settings**.
@@ -28,4 +28,4 @@ Select `Save`, then `Start Cluster`, and wait for the Open OnDemand virtual mach
 :::image type="content" source="../../images/ccws/open-ondemand-advanced-settings.png" alt-text="Screenshot of Open OnDemand cluster configuration.":::
 
 ## Resources
-* [Add users for Open OnDemand](./open-ondemand-add-users.md)
+* [Add users to your registered Microsoft Entra ID application](../create-app-registration.md#permissioning-users-for-cyclecloud)

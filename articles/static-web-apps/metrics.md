@@ -2,11 +2,11 @@
 title: Supported metrics for managed Functions in Azure Static Web Apps
 description: List of metrics collected for managed Functions in Azure Static Web Apps
 services: static-web-apps
-author: v1212
+author: cjk7989
 ms.service: azure-static-web-apps
 ms.topic: how-to
 ms.date: 12/20/2024
-ms.author: wujia
+ms.author: jikunchen
 ms.custom:
 ---
 

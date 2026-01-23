@@ -2,11 +2,11 @@
 title: API support in Azure Static Web Apps with Azure API Management
 description: Learn how to use Azure API Management with Azure Static Web Apps
 services: static-web-apps
-author: v1212
+author: cjk7989
 ms.service: azure-static-web-apps
 ms.topic:  conceptual
 ms.date: 06/14/2022
-ms.author: wujia
+ms.author: jikunchen
 ---
 
 # API support in Azure Static Web Apps with Azure API Management

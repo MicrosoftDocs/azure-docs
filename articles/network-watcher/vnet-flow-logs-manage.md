@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 10/07/2025
+ms.date: 01/22/2026
 
 # Customer intent: As an Azure administrator, I want to manage virtual network flow logs so that I can log, analyze, and optimize IP traffic in my virtual network.
 ---
@@ -130,16 +130,7 @@ Create a flow log for your virtual network, subnet, or network interface. This f
     | Storage accounts | Select the storage account where you want to save the flow logs. To create a new storage account, select **Create a new storage account**. |
     | Retention (days) | Enter a retention period for the logs in days. This option is only available with [Standard general-purpose v2](../storage/common/storage-account-overview.md?toc=/azure/network-watcher/toc.json#types-of-storage-accounts) storage accounts. Enter *0* to retain flow log data indefinitely (until you manually delete it). For pricing information, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
 
-    > [!IMPORTANT]
-    > Currently, a storage account supports 100 rules, and each rule can accommodate 10 blob prefixes. For more information, see [How many retention policy rules can a storage account have?](frequently-asked-questions.yml#how-many-retention-policy-rules-can-a-storage-account-have-)
-
     :::image type="content" source="./media/vnet-flow-logs-manage/create-vnet-flow-log-basics.png" alt-text="Screenshot that shows the Basics tab of creating a virtual network flow log in the Azure portal." lightbox="./media/vnet-flow-logs-manage/create-vnet-flow-log-basics.png":::
-
-    > [!IMPORTANT]
-    > If you configure virtual network flow logs at the NIC, subnet, and virtual network levels, the enablement preference follows this order: NIC > subnet > virtual network.
-
-    > [!CAUTION]
-    > Virtual network flow logs are ingested into a block blob at one-minute intervals by appending blocks. While ingestion is in progress, don't perform operations that modify the blob's block structure, such as editing, overwriting, or deleting the blob content. These operations can cause all subsequent flow log write operations to fail for that specific hour's blob.
 
 1. To enable traffic analytics, select **Next: Analytics** button, or select the **Analytics** tab. Enter or select the following values:
 
@@ -228,10 +219,18 @@ Use [az network watcher flow-log create](/cli/azure/network/watcher/flow-log#az-
 
 ---
 
- > [!IMPORTANT]
- > If the storage account is in a different subscription, the resource that you're logging (virtual network, subnet, or network interface) and the storage account must be associated with the same Microsoft Entra tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
+> [!IMPORTANT]
+> If you configure virtual network flow logs at the NIC, subnet, and virtual network levels, the enablement preference follows this order: NIC > subnet > virtual network.
 
- [!INCLUDE [Traffic analytics resources](../../includes/network-watcher-traffic-analytics-resources.md)]
+> [!NOTE]
+> - If the storage account is in a different subscription, the resource that you're logging (virtual network, subnet, or network interface) and the storage account must be associated with the same Microsoft Entra tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
+> - Currently, a storage account supports 100 rules, and each rule can accommodate 10 blob prefixes. For more information, see [How many retention policy rules can a storage account have?](frequently-asked-questions.yml#how-many-retention-policy-rules-can-a-storage-account-have-)
+> - All Azure Storage redundancy configurations are supported, including locally redundant storage (LRS), zone‑redundant storage (ZRS), geo‑redundant storage (GRS), and geo‑zone‑redundant storage (GZRS).
+
+> [!WARNING]
+> Virtual network flow logs are ingested into a block blob at one-minute intervals by appending blocks. While ingestion is in progress, don't perform operations that modify the blob's block structure, such as editing, overwriting, or deleting the blob content. These operations can cause all subsequent flow log write operations to fail for that specific hour's blob.
+
+[!INCLUDE [Traffic analytics resources](../../includes/network-watcher-traffic-analytics-resources.md)]
 
 ## Enable or disable traffic analytics
 

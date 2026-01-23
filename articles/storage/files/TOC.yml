@@ -29,48 +29,44 @@
   items:
   - name: Overview of identity-based authentication
     href: storage-files-active-directory-overview.md
-  - name: Overview of authorization and access control
-    href: storage-files-authorization-overview.md    
-  - name: Windows identity-based authentication (SMB)
+  - name: On-premises AD DS authentication
     items:
-    - name: Enable an AD source
-      items:
-      - name: On-premises AD DS authentication
-        items:
-        - name: AD DS overview
-          href: storage-files-identity-ad-ds-overview.md
-        - name: Enable AD DS authentication
-          href: storage-files-identity-ad-ds-enable.md
-        - name: Use Azure Files with multiple AD DS forests
-          href: storage-files-identity-multiple-forests.md
-        - name: Update password
-          href: storage-files-identity-ad-ds-update-password.md
-      - name: Microsoft Entra Domain Services authentication
-        items:
-        - name: Enable Microsoft Entra Domain Services
-          href: storage-files-identity-auth-domain-services-enable.md
-      - name: Microsoft Entra Kerberos authentication
-        items:
-        - name: Enable authentication for hybrid or cloud-only identities
-          href: storage-files-identity-auth-hybrid-identities-enable.md
-        - name: Enable authentication for hybrid identities on legacy clients
-          href: storage-files-identity-auth-hybrid-cloud-trust.md
-    - name: Assign and manage permissions
-      items:
-      - name: Assign share-level permissions
-        href: storage-files-identity-assign-share-level-permissions.md
-      - name: Configure directory/file-level permissions
-        href: storage-files-identity-configure-file-level-permissions.md
-  - name: Linux identity-based authentication (SMB)
-    href: storage-files-identity-auth-linux-kerberos-enable.md
-  - name: Managed identities with Microsoft Entra ID
-    href: files-managed-identities.md
-  - name: Authorize access to file data
+    - name: AD DS overview
+      href: storage-files-identity-ad-ds-overview.md
+    - name: Enable AD DS authentication
+      href: storage-files-identity-ad-ds-enable.md
+    - name: Use Azure Files with multiple AD DS forests
+      href: storage-files-identity-multiple-forests.md
+    - name: Configure Linux clients
+      href: storage-files-identity-auth-linux-kerberos-enable.md
+    - name: Update password
+      href: storage-files-identity-ad-ds-update-password.md
+  - name: Microsoft Entra Domain Services authentication
     items:
-    - name: Choose how to authorize access to file data
+    - name: Enable Microsoft Entra Domain Services
+      href: storage-files-identity-auth-domain-services-enable.md
+    - name: Configure Linux clients
+      href: storage-files-identity-auth-linux-kerberos-enable.md      
+  - name: Microsoft Entra Kerberos authentication
+    items:
+    - name: Enable authentication for hybrid or cloud-only identities
+      href: storage-files-identity-auth-hybrid-identities-enable.md
+    - name: Enable authentication for hybrid identities on legacy clients
+      href: storage-files-identity-auth-hybrid-cloud-trust.md
+  - name: Authorization and access control
+    items:
+    - name: Overview of authorization and access control
+      href: storage-files-authorization-overview.md
+    - name: Assign share-level permissions
+      href: storage-files-identity-assign-share-level-permissions.md
+    - name: Configure directory/file-level permissions
+      href: storage-files-identity-configure-file-level-permissions.md
+    - name: Choose how to authorize access to file data in the Azure portal
       href: authorize-data-operations-portal.md
-    - name: Authorize access with Microsoft Entra ID using OAuth over REST
+    - name: Authorize access using Microsoft Entra ID with OAuth over REST
       href: authorize-oauth-rest.md
+    - name: Managed identities with Microsoft Entra ID
+      href: files-managed-identities.md
 - name: Mount file shares
   items:
   - name: Mount SMB file share on Windows

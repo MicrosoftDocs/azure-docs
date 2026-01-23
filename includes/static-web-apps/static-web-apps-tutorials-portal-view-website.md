@@ -2,8 +2,8 @@
 ms.service: azure-static-web-apps
 ms.topic:  include
 ms.date: 08/02/2023
-author: v1212
-ms.author: wujia
+author: cjk7989
+ms.author: jikunchen
 ---
 
 There are two aspects to deploying a static app. The first creates the underlying Azure resources that make up your app. The second is a workflow that builds and publishes your application.

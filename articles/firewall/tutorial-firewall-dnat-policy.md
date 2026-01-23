@@ -1,20 +1,21 @@
 ---
-title: 'Tutorial: Filter inbound Internet or intranet traffic with Azure Firewall DNAT policy using the portal'
-description: In this tutorial, you learn how to deploy and configure Azure Firewall policy DNAT using the Azure portal. 
+title: 'Tutorial: Filter inbound Internet traffic with Azure Firewall DNAT policy using the portal'
+description: In this tutorial, you learn how to deploy and configure Azure Firewall policy DNAT to publish a web server using the Azure portal. 
 services: firewall
 author: varunkalyana
 ms.service: azure-firewall
 ms.topic: tutorial
-ms.date: 05/07/2025
+ms.date: 01/22/2026
 ms.author: varunkalyana
 ms.custom: mvc
-#Customer intent: As an administrator, I want to deploy and configure Azure Firewall policy DNAT so that I can control inbound Internet access to resources located in a subnet.
-# Customer intent: "As a network administrator, I want to deploy and configure a DNAT policy using Azure Firewall, so that I can manage and filter inbound traffic to my virtual network resources effectively."
+#Customer intent: As an administrator, I want to deploy and configure Azure Firewall policy DNAT so that I can publish web applications and control inbound Internet access to resources located in a subnet.
 ---
 
-# Tutorial: Filter inbound Internet or intranet traffic with Azure Firewall policy DNAT using the Azure portal
+# Tutorial: Filter inbound Internet traffic with Azure Firewall policy DNAT using the Azure portal
 
-You can configure Azure Firewall policy Destination Network Address Translation (DNAT) to translate and filter inbound internet or intranet traffic to your subnets. When you configure DNAT, the *rule collection action* is set to **DNAT**. Each rule in the NAT rule collection can then be used to translate your firewall public or private IP address and port to a private IP address and port. DNAT rules implicitly add a corresponding network rule to allow the translated traffic. For security reasons, the recommended approach is to add a specific source to allow DNAT access to the network and avoid using wildcards. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](rule-processing.md).
+You can configure Azure Firewall policy Destination Network Address Translation (DNAT) to translate and filter inbound internet traffic to your subnets. When you configure DNAT, the *rule collection action* is set to **DNAT**. Each rule in the NAT rule collection can then be used to translate your firewall public IP address and port to a private IP address and port. DNAT rules implicitly add a corresponding network rule to allow the translated traffic. For security reasons, the recommended approach is to add a specific source to allow DNAT access to the network and avoid using wildcards. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](rule-processing.md).
+
+This tutorial demonstrates publishing a web server using DNAT.
 
 In this tutorial, you learn how to:
 
@@ -22,7 +23,8 @@ In this tutorial, you learn how to:
 > * Set up a test network environment
 > * Deploy a firewall and policy
 > * Create a default route
-> * Configure a DNAT rule
+> * Deploy and configure a web server
+> * Configure a DNAT rule to publish the web server
 > * Test the firewall
 
 ## Prerequisites
@@ -106,7 +108,7 @@ Now peer the two VNets.
 Create a workload virtual machine, and place it in the **SN-Workload** subnet.
 
 1. From the Azure portal menu, select **Create a resource**.
-2. Under **Popular**, select **Windows Server 2016 Datacenter**.
+2. Under **Popular**, select **Ubuntu Server 22.04 LTS**.
 
 **Basics**
 
@@ -114,11 +116,17 @@ Create a workload virtual machine, and place it in the **SN-Workload** subnet.
 1. For **Resource group**, select **RG-DNAT-Test**.
 1. For **Virtual machine name**, type **Srv-Workload**.
 1. For **Region**, select the same location that you used previously.
-1. Type a username and password.
+1. For **Image**, select **Ubuntu Server 22.04 LTS - x64 Gen2**.
+1. For **Size**, select **Standard_B2s**.
+1. For **Authentication type**, select **SSH public key**.
+1. For **Username**, type **azureuser**.
+1. For **SSH public key source**, select **Generate new key pair**.
+1. For **Key pair name**, type **Srv-Workload_key**.
+1. Select **None** in **Public inbound ports**.
 1. Select **Next: Disks**.
 
 **Disks**
-1. Select **Next: Networking**.
+- Select **Next: Networking**.
 
 **Networking**
 
@@ -130,14 +138,39 @@ Create a workload virtual machine, and place it in the **SN-Workload** subnet.
 
 **Management**
 
+- Select **Next: Monitoring**.
+
+**Monitoring**
+
 1. For **Boot diagnostics**, select **Disable**.
 1. Select **Review + Create**.
 
 **Review + Create**
 
-Review the summary, and then select **Create**. This will take a few minutes to complete.
+Review the summary, and then select **Create**. 
+
+- On the **Generate new key pair** dialog, select **Download private key and create resource**. Save the key file as **Srv-Workload_key.pem**.
 
 After deployment finishes, note the private IP address for the virtual machine. It will be used later when you configure the firewall. Select the virtual machine name, and under **Settings**, select **Networking** to find the private IP address.
+
+## Install web server
+
+Use the Azure portal Run Command feature to install a web server on the virtual machine.
+
+1. Navigate to the **Srv-Workload** virtual machine in the Azure portal.
+1. Under **Operations**, select **Run command**.
+1. Select **RunShellScript**.
+1. In the **Run Command Script** window, paste the following script:
+
+   ```bash
+   sudo apt-get update
+   sudo apt-get install -y nginx
+   echo "<h1>Azure Firewall DNAT Demo - $(hostname)</h1>" | sudo tee /var/www/html/index.html
+   ```
+
+1. Select **Run**.
+1. Wait for the script to complete. The output should show successful installation of Nginx.
+
 
 ## Deploy the firewall and policy
 
@@ -157,6 +190,7 @@ After deployment finishes, note the private IP address for the virtual machine. 
    |Choose a virtual network     |**Use existing**: VN-Hub|
    |Public IP address     |**Add new**, Name: **fw-pip**.|
 
+1. Uncheck the box next to **Enable Firewall Management NIC**.
 5. Accept the other defaults, and then select **Review + create**.
 6. Review the summary, and then select **Create** to create the firewall.
 
@@ -194,32 +228,36 @@ For the **SN-Workload** subnet, you configure the outbound default route to go t
 18. For **Next hop address**, type the private IP address for the firewall that you noted previously.
 19. Select **OK**.
 
-## Configure a NAT rule
+## Configure a DNAT rule
 
-This rule allows you to connect a remote desktop to the Srv-Workload virtual machine through the firewall.
+This rule allows inbound HTTP traffic from the Internet to reach the web server through the firewall.
 
 1. Open the **RG-DNAT-Test** resource group, and select the **fw-dnat-pol** firewall policy. 
 1. Under **Settings**, select **DNAT rules**.
 2. Select **Add a rule collection**.
-3. For **Name**, type **rdp**.
+3. For **Name**, type **web-access**.
 1. For **Priority**, type **200**.
 1. For **Rule collection group**, select **DefaultDnatRuleCollectionGroup**.
-1. Under **Rules**, for **Name**, type **rdp-nat**.
+1. Under **Rules**, for **Name**, type **http-dnat**.
 1. For **Source type**, select **IP address**.
-1. For **Source**, specify the IP address or range that you want to allow. For example, 192.168.1.0/24.
+1. For **Source**, type **\*** to allow traffic from any source.
 1. For **Protocol**, select **TCP**.
-1. For **Destination Ports**, type **3389**.
+1. For **Destination Ports**, type **80**.
 1. For **Destination Type**, select **IP Address**.
-1. For **Destination**, type the firewall public or private IP address.
+1. For **Destination**, type the firewall public IP address.
 1. For **Translated address**, type the **Srv-Workload** private IP address.
-1. For **Translated port**, type **3389**.
+1. For **Translated port**, type **80**.
 1. Select **Add**.
-
 
 ## Test the firewall
 
-1. Connect a remote desktop to firewall public IP address. You should be connected to the **Srv-Workload** virtual machine.
-2. Close the remote desktop.
+Now test the DNAT rule to verify that the web server is accessible through the firewall.
+
+1. Open a web browser.
+1. Navigate to `http://<firewall-public-ip>` (use the firewall's public IP address you noted earlier).
+1. You should see the web page displaying: **Azure Firewall DNAT Demo - Srv-Workload**
+
+The DNAT rule successfully translates the incoming HTTP request on the firewall's public IP address to the web server's private IP address. This demonstrates how Azure Firewall DNAT can be used to publish web applications while keeping the backend servers in a private subnet.
 
 ## Clean up resources
 

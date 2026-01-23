@@ -5,7 +5,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 06/06/2025
+ms.date: 01/23/2026
 ms.author: jianleishen
 ms.custom:
   - synapse
@@ -89,7 +89,7 @@ The Greenplum linked service supports the following properties when apply versio
 | port | The TCP port of the database server. The default value is `5432`.| No |
 | database | The database to connect to. | Yes |
 | username | The username to connect with. Not required if using IntegratedSecurity. |Yes |
-| password| The password to connect with. Not required if using IntegratedSecurity. Mark this field as **SecureString** to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| pwd| The password to connect with. Not required if using IntegratedSecurity. Mark this field as **SecureString** to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | sslMode | Controls whether SSL is used, depending on server support. <br/>- **Disable**: SSL is disabled. If the server requires SSL, the connection will fail. <br/>- **Allow**: Prefer non-SSL connections if the server allows them, but allow SSL connections. <br/>- **Prefer**: Prefer SSL connections if the server allows them, but allow connections without SSL. <br/>- **Require**: Fail the connection if the server doesn't support SSL. <br/>- **Verify-ca**: Fail the connection if the server doesn't support SSL. Also verifies server certificate. <br/>- **Verify-full**: Fail the connection if the server doesn't support SSL. Also verifies server certificate with host's name. <br/> Options: Disable (0) / Allow (1) / Prefer (2) / Require (3) **(Default)** / Verify-ca (4) / Verify-full (5) | Yes |
 | authenticationType | Authentication type for connecting to the database. Only supports **Basic**. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
@@ -110,7 +110,7 @@ The Greenplum linked service supports the following properties when apply versio
             "port": 5432,
             "database": "<database>",
             "username": "<username>",
-            "password": {
+            "pwd": {
                 "type": "SecureString",
                 "value": "<password>"
             },
@@ -124,7 +124,7 @@ The Greenplum linked service supports the following properties when apply versio
     }
 }
 ```
-**Example: store password in Azure Key Vault**
+**Example: store pwd in Azure Key Vault**
 ```json
 {
     "name": "GreenplumLinkedService",
@@ -136,7 +136,7 @@ The Greenplum linked service supports the following properties when apply versio
             "port": 5432,
             "database": "<database>",
             "username": "<username>",
-            "password": { 
+            "pwd": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
                     "referenceName": "<Azure Key Vault linked service name>", 

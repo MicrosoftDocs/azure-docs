@@ -6640,6 +6640,26 @@
       "redirect_url": "/azure/oracle/oracle-db/database-overview",
       "redirect_document_id": false
     },
+    { 
+      "source_path": "articles/cyclecloud/how-to/ccws/register-entra-id-app.md",
+      "redirect_url": "/azure/cyclecloud/how-to/create-app-registration",
+      "redirect_document_id": false
+    },
+    { 
+      "source_path": "articles/cyclecloud/how-to/ccws/open-ondemand-add-users.md",
+      "redirect_url": "/azure/cyclecloud/how-to/ccws/configure-open-ondemand",
+      "redirect_document_id": false
+    },   
+    {
+      "source_path": "articles/reliability/reliability-health-insights.md",
+      "redirect_url": "/azure/azure-health-insights/reliability-health-insights",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/migrate-load-balancer.md",
+      "redirect_url": "/azure/reliability/reliability-load-balancer",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/nat-gateway/nat-availability-zones.md",
       "redirect_url": "/azure/reliability/reliability-nat-gateway",

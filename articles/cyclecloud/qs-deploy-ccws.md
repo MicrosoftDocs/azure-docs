@@ -10,12 +10,12 @@ ms.author: padmalathas
 
 Azure CycleCloud Workspace for Slurm is a free Marketplace application that provides a simple, secure, and scalable way to manage compute and storage resources for HPC and AI workloads. In this quickstart, you install CycleCloud Workspace for Slurm using Azure Marketplace application.
 
-The main steps to deploy and configure CycleCloud Workspace for Slurm including Open OnDemand are:
+The main steps to deploy and configure CycleCloud Workspace for Slurm with Microsoft Entra ID authentication include:
 1. Review these instructions before starting: [Plan your CycleCloud Workspace for Slurm Deployment](./how-to/ccws/plan-your-deployment.md).
 1. Deploy a CycleCloud Workspace for Slurm environment using Azure Marketplace (this quickstart).
-1. Register a Microsoft Entra ID application for Open OnDemand authentication: [Register a Microsoft Entra ID application for Open OnDemand](./how-to/ccws/register-entra-id-app.md).
+1. Register a Microsoft Entra ID application: [Create a Microsoft Entra application registration for use with Azure CycleCloud and Azure CycleCloud Workspace for Slurm](./how-to/create-app-registration.md).
 1. Configure Open OnDemand to use the Microsoft Entra ID application: [Configure Open OnDemand with CycleCloud](./how-to/ccws/configure-open-ondemand.md)
-1. Add users in CycleCloud: [Add users for Open OnDemand](./how-to/ccws/open-ondemand-add-users.md)
+1. Add users to the registered Microsoft Entra ID application: [Permissioning users for CycleCloud](./how-to/create-app-registration.md#permissioning-users-for-cyclecloud)
 
 ## Prerequisites
 
@@ -147,7 +147,7 @@ To use Open OnDemand, select the checkbox and enter the following information:
 - whether you plan to use an existing Microsoft Entra ID application or register one manually later. `Automatically register Entra ID application` is an extra option that appears only when you use CLI deployment.
 
 >[!NOTE]
->User authentication requires a Microsoft Entra ID application. If our scripts don't create an application, manually create one. For more information, see [How to register a Microsoft Entra ID application for Open OnDemand](./how-to/ccws/register-entra-id-app.md).
+>User authentication requires a Microsoft Entra ID application. If our scripts don't create an application, manually create one. For more information, see [Create a Microsoft Entra application registration for use with Azure CycleCloud and Azure CycleCloud Workspace for Slurm](./how-to/create-app-registration.md).
 >
 >:::image type="content" source="./images/ccws/marketplace-open-ondemand.png" alt-text="Screenshot of the Open OnDemand options.":::
 >
@@ -218,9 +218,9 @@ Next, set up connectivity between your client machine and the CycleCloud VM. You
 
 ## Resources
 
-* [Register a Microsoft Entra ID application for Open OnDemand](./how-to/ccws/register-entra-id-app.md)
+* [Create a Microsoft Entra application registration for use with Azure CycleCloud and Azure CycleCloud Workspace for Slurm](./how-to/create-app-registration.md)
 * [Configure Open OnDemand with CycleCloud](./how-to/ccws/configure-open-ondemand.md)
-* [Add users for Open OnDemand](./how-to/ccws/open-ondemand-add-users.md)
+* [Add users to your registered Microsoft Entra ID application](./how-to/create-app-registration.md#permissioning-users-for-cyclecloud)
 * [How to connect to the CycleCloud Portal through Bastion](/azure/cyclecloud/how-to/ccws/connect-to-portal-with-bastion)
 * [How to connect to a Login Node through Bastion](/azure/cyclecloud/how-to/ccws/connect-to-login-node-with-bastion)
 * [How to deploy a CycleCloud Workspace for Slurm environment using the CLI](/azure/cyclecloud/how-to/ccws/deploy-with-cli)

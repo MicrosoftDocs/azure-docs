@@ -2,11 +2,11 @@
 title: Manage the default domain in Azure Static Web Apps
 description: Learn to set and unset a default domain in Azure Static Web Apps
 services: static-web-apps
-author: v1212
+author: cjk7989
 ms.service: azure-static-web-apps
 ms.topic: conceptual
 ms.date: 02/10/2022
-ms.author: wujia
+ms.author: jikunchen
 ---
 
 # Manage the default domain in Azure Static Web Apps

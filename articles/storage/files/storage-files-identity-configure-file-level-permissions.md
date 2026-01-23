@@ -4,7 +4,7 @@ description: Learn how to configure Windows ACLs for directory and file level pe
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/18/2025
+ms.date: 01/22/2026
 ms.author: kendownie
 # Customer intent: "As a system administrator, I want to configure directory and file-level permissions for Azure file shares using Windows ACLs, so that I can ensure granular access control and enhance security for users accessing shared files."
 ---
@@ -79,6 +79,9 @@ Before you configure Windows ACLs, mount the file share with admin-level access.
 ### Use the Windows permission model for SMB admin
 
 We recommend using the Windows permission model for SMB admin instead of using the storage account key. This feature lets you assign the built-in RBAC role [Storage File Data SMB Admin](/azure/role-based-access-control/built-in-roles/storage#storage-file-data-smb-admin) to users, allowing them to take ownership of a file or directory for the purpose of configuring ACLs.
+
+> [!IMPORTANT]
+> The Storage File Data SMB Admin RBAC role doesn't grant the identity direct access to a file or directory if the identity isn't granted the proper permission (such as Modify or Full Control) in the target file or directory's ACL. However, the identity with the Storage File Data SMB Admin RBAC role can take ownership of the target file or directory using the Windows [takeown](/windows-server/administration/windows-commands/takeown) command, and then modify the ACL to grant proper access permissions.
 
 The [Storage File Data SMB Admin](/azure/role-based-access-control/built-in-roles/storage#storage-file-data-smb-admin) RBAC role includes the following three data actions:
 

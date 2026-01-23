@@ -39,11 +39,7 @@ You can develop custom solutions to address a variety of scenarios with Azure Io
     - [Service samples (.NET)](https://github.com/Azure/iot-operations-sdks/blob/main/dotnet/samples/README.md#services)
     - [Service samples (Rust)](https://github.com/Azure/iot-operations-sdks/blob/main/rust/azure_iot_operations_services/README.md)
 
-## Overview of Azure IoT Operations SDKs (preview)
-
-> [!IMPORTANT]
-> The Azure IoT Operations SDKs are currently in preview.
-> The assets in the [Azure IoT Operations SDKs GitHub repository](https://github.com/Azure/iot-operations-sdks) are available for early access and feedback purposes.
+## Overview of Azure IoT Operations SDKs
 
 The [Azure IoT Operations SDKs](https://github.com/Azure/iot-operations-sdks/blob/main/README.md) are a suite of tools and libraries across multiple languages designed to help you develop for Azure IoT Operations. The SDKs are open source and available on GitHub:
 

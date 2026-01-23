@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/04/2026
+ms.date: 01/22/2026
 ms.author: jianleishen
 ---
 # Copy data from Xero using Azure Data Factory or Synapse Analytics
@@ -103,6 +103,7 @@ The Xero linked service supports the following properties when applying version 
     "name": "XeroLinkedService",
     "properties": {
         "type": "Xero",
+        "version": "2.0",
         "typeProperties": {
             "host": "api.xero.com",
             "clientId": "<client ID>",
@@ -112,8 +113,7 @@ The Xero linked service supports the following properties when applying version 
                 "type": "SecureString",
                 "value": "<refresh token>"
             },
-            "authenticationType":"OAuth_2.0", 
-            "version": "2.0"         
+            "authenticationType":"OAuth_2.0"       
         }
     }
 }

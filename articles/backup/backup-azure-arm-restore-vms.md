@@ -3,7 +3,7 @@ title: Restore VMs by using the Azure portal using Azure Backup
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: nikhilsarode
 ms.topic: how-to
-ms.date: 12/12/2025
+ms.date: 01/23/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -52,7 +52,7 @@ To restore a VM (create a new VM), make sure you have the correct Azure role-bas
 
 If you don't have permissions, you can [restore a disk](#restore-disks), and then after the disk is restored, you can [use the template](#use-templates-to-customize-a-restored-vm) that was generated as part of the restore operation to create a new VM.
 
-[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+[!INCLUDE [resiliency.md](../../includes/resiliency.md)]
 
 ## Select a restore point
 

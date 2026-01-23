@@ -2,11 +2,11 @@
 title: Deploy a static web app with Azure Static Web Apps CLI
 description: Deploy a static web app with Azure Static Web Apps CLI
 services: static-web-apps
-author: v1212
+author: cjk7989
 ms.service: azure-static-web-apps
 ms.topic:  conceptual
 ms.date: 02/05/2024
-ms.author: wujia
+ms.author: jikunchen
 ---
 
 # Deploy a static web app with Azure Static Web Apps CLI

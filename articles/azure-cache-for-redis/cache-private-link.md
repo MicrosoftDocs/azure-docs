@@ -34,7 +34,7 @@ You can restrict public access to the private endpoint of your cache by disablin
 
 ## Scope of availability
 
-|Tier      | Basic, Standard, Premium |Enterprise, Enterprise Flash  | Azure Managed Redis (preview)
+|Tier      | Basic, Standard, Premium |Enterprise, Enterprise Flash  | Azure Managed Redis
 |--------- |:------------------:|:---------:|:---------:|
 |Available | Yes          |  Yes  | Yes |
 

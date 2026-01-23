@@ -2,8 +2,8 @@
 ms.service: azure-static-web-apps
 ms.topic: include
 ms.date: 05/13/2020
-author: v1212
-ms.author: wujia
+author: cjk7989
+ms.author: jikunchen
 ---
 
 ## View the website

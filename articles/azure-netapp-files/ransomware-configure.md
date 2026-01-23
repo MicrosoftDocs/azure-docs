@@ -55,7 +55,6 @@ Advanced ransomware protection's alert mechanisms enable you to stay vigilant in
 - Japan West 
 - Korea Central 
 - Korea South 
-- New Zealand North 
 - North Central US 
 - North Europe 
 - Norway East

@@ -1,8 +1,8 @@
 ---
 title: Preview environments in Azure Static Web Apps
 description: Expose preview environments to evaluate changes in Azure Static Web Apps
-author: v1212
-ms.author: wujia
+author: cjk7989
+ms.author: jikunchen
 ms.service: azure-static-web-apps
 ms.topic: conceptual
 ms.date: 07/16/2024

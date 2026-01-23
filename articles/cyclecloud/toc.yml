@@ -88,12 +88,8 @@
     items:
     - name: Plan your CycleCloud Workspace for Slurm Deployment
       href: ./how-to/ccws/plan-your-deployment.md
-    - name: Register a Microsoft Entra ID application for Open OnDemand Authentication
-      href: ./how-to/ccws/register-entra-id-app.md
     - name: Configure Open OnDemand with CycleCloud
       href: ./how-to/ccws/configure-open-ondemand.md
-    - name: Add users for Open OnDemand
-      href: ./how-to/ccws/open-ondemand-add-users.md
     - name: How to deploy using the CLI
       href: ./how-to/ccws/deploy-with-cli.md
     - name: How to connect to a Login Node through Bastion

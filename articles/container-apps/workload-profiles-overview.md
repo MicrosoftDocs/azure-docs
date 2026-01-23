@@ -34,7 +34,7 @@ Each profile type determines how your apps scale, the level of resource isolatio
 Each Container Apps environment includes a default Consumption profile. You can add Dedicated or Consumption GPU profiles and, when available, Flexible profiles to meet your application's needs.
 
 > [!NOTE]
-> The Flexible profile is currently only available in the following regions: Central US EUAP, East US2 EUAP, East Asia, and West Central US.
+> The Flexible profile is currently only available in the following regions: Australia East, Brazil South, Canada Central, Canada East, Central India, East Asia, Germany West Central, Korea Central, North Europe, Southeast Asia, Sweden Central, UK West, West Central US, and West US 3.
 
 ## Workload profile form factors
 
@@ -80,7 +80,7 @@ All Consumption profiles support serverless scaling and are billed based on perâ
 
 | Profile names | vCPU range | Memory range | Regions | Allocation |
 |--|--|--|--|--|
-| **Flexible** | 0.25-4 | 0.5-16 GiB | Central US (EUAP), East US2 (EUAP), East Asia, West Central US | per replica |
+| **Flexible** | 0.25-4 | 0.5-16 GiB | Australia East, Brazil South, Canada Central, Canada East, Central India, East Asia, Germany West Central, Korea Central, North Europe, Southeast Asia, Sweden Central, UK West, West Central US, West US 3 | per replica |
 
 ## Resource consumption and scaling
 

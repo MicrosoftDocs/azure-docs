@@ -911,37 +911,6 @@ groups:
     title: Linux
   - id: app-service-bicep-windows-container
     title: Windows container
-# Owner: msangapu
-- id: app-spaces-component-types
-  title: App Spaces components
-  prompt: Select the component type
-  pivots:
-  - id: static
-    title: Static app component (front end)
-  - id: app
-    title: App component (back end)
-  - id: database
-    title: Database
-# Owner: msangapu
-- id: app-spaces-add-component
-  title: App Spaces apps
-  prompt: Add component from
-  pivots:
-  - id: custom
-    title: GitHub repository
-  - id: sample
-    title: Starter app (Template)
-  - id: database
-    title: Database
-# Owner: msangapu
-- id: app-spaces-frontend-backend
-  title: App Spaces apps
-  prompt: Choose an app type
-  pivots:
-  - id: frontend
-    title: Front end (Static Web App)
-  - id: backend
-    title: Back end (Azure Container App)
 # Owner: sipa
 - id: azure-maps-search
   title: Azure Maps search

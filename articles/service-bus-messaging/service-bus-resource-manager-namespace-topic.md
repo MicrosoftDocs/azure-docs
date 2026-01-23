@@ -12,7 +12,7 @@ ms.devlang: azurecli
 
 # Quickstart: Create a Service Bus namespace with topic and subscription using an Azure Resource Manager template
 
-This article shows how to use an Azure Resource Manager template that creates a Service Bus namespace and a topic and subscription within that namespace. The article explains how to specify which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
+This article shows how to use an Azure Resource Manager template that creates a Service Bus namespace and a topic and subscription within that namespace. The article explains how to specify which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
 For more information about creating templates, see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
 
@@ -99,7 +99,7 @@ Creates a standard Service Bus namespace of type **Messaging**, with topic and s
         "location": "[variables('location')]",
         "kind": "Messaging",
         "sku": {
-            "name": "Standard",
+            "name": "Standard"
         },
         "resources": [{
             "apiVersion": "[variables('sbVersion')]",
@@ -109,14 +109,14 @@ Creates a standard Service Bus namespace of type **Messaging**, with topic and s
                 "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
             ],
             "properties": {
-                "path": "[parameters('serviceBusTopicName')]",
+                "path": "[parameters('serviceBusTopicName')]"
             },
             "resources": [{
                 "apiVersion": "[variables('sbVersion')]",
                 "name": "[parameters('serviceBusSubscriptionName')]",
                 "type": "Subscriptions",
                 "dependsOn": [
-                    "[parameters('serviceBusTopicName')]"
+                    "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'), '/Topics/', parameters('serviceBusTopicName'))]"
                 ],
                 "properties": {}
             }]

@@ -12,13 +12,13 @@ ms.date: 12/16/2025
 
 # Quickstart: Create and run a load test from a recording using AI 
 
-Learn how to use the Azure App Testing browser extension for Microsoft Edge to easily create JMeter load tests. The experience uses AI to enhance your test scripts by suggesting correlations, parameterizations, and other improvements. You can then run the load test at scale in **Azure Load Testing**.
+Learn how to use the Azure App Testing browser extension for Microsoft Edge or Google Chrome to easily create JMeter load tests. The experience uses AI to enhance your test scripts by suggesting correlations, parameterizations, and other improvements. You can then run the load test at scale in **Azure Load Testing**.
 
 This quickstart guides you through the steps of installing the browser extension, recording a user journey, reviewing and enhancing the generated load test script with AI assistance, and finally running the load test in **Azure Load Testing**.
 
 ## Prerequisites
 
-- Azure App Testing browser extension for Microsoft Edge. [Download and install it here](https://aka.ms/AppTesting/Browser-Ext).  
+- Azure App Testing browser extension for [Microsoft Edge](https://aka.ms/AppTesting/Browser-Ext) or [Google Chrome](https://aka.ms/AppTesting/Browser-Ext-Chrome).
 - An Azure account with an active subscription. Needed to run load tests at scale in **Azure Load Testing**. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 
