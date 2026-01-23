@@ -963,7 +963,7 @@ For storage destinations like Azure Data Lake or Fabric OneLake, you can specify
 
 ### Node connections
 
-Node connections define the data flow path between nodes. Each connection specifies a source node and destination node, creating the processing pipeline. Connections can optionally include schema to have the schema be provided to the module at initialization, allowing for schema validation like in [this example](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/schema-registry-scenario/operators/filter/src/lib.rs).
+Node connections define the data flow path between nodes. Each connection specifies a source node and destination node, creating the processing pipeline. Connections can optionally include a schema, which is provided to the module at initialization, allowing for schema validation [as in this example](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/schema-registry-scenario/operators/filter/src/lib.rs).
 
 # [Operations experience](#tab/portal)
 

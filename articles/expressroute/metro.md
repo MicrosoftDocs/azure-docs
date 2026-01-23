@@ -66,7 +66,7 @@ The following diagram allows for a comparison between the standard ExpressRoute 
 
 ### Create an ExpressRoute Metro circuit
 
-You can create an ExpressRoute Metro circuit in the Azure portal in any of the three metropolitan areas. Within the portal, specify one of the Metro peering locations and the corresponding service provider supported in that location. For more information, see [Create an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md?pivots=expressroute-preview).
+You can create an ExpressRoute Metro circuit in the Azure portal in any of the metropolitan areas. Within the portal, specify one of the Metro peering locations and the corresponding service provider supported in that location. For more information, see [Create an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md?pivots=expressroute-preview).
 
 :::image type="content" source="./media/metro/create-metro-circuit.png" alt-text="Screenshot of creating an ExpressRoute Metro circuit.":::
 

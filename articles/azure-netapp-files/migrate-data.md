@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: conceptual
 author: b-ahibbard
 ms.author: anfdocs
-ms.date: 09/04/2025
+ms.date: 01/20/2026
 ---
 # Migrating data into Azure NetApp Files volumes
 
@@ -15,9 +15,10 @@ Azure NetApp Files supports several methods to migrate data. You can migrate dat
 
 The Azure NetApp Files [migration assistant](migrate-volumes.md) feature helps you accelerate and simplify migrations of business-critical applications and data to Azure. Benefits include:
 
-* Efficient and cost-effective data migration leveraging ONTAP's built-in replication engine for seamless transition from on-premises or Cloud Volumes ONTAP storage to Azure NetApp Files. 
-* Storage-efficient data transfer that reduces network transfer costs for both baseline and incremental updates. 
-* Low cutover/downtime window, ensuring faster and more efficient final updates, thus minimizing disruption to your operations.
+* Efficient, cost-effective migration powered by ONTAP’s built-in replication engine for a seamless transition from on-premises or Cloud Volumes ONTAP to Azure NetApp Files.
+* Storage-optimized data migration that lowers network costs for both baseline and incremental updates.
+* Minimal cutover window for faster final syncs, reducing downtime and keeping your business running smoothly.
+* Existing volume snapshots included to safeguard data integrity and reduce risk, delivering a reliable and worry-free migration experience.
 
 To use Azure NetApp Files migration assistant, you need to establish connectivity between your on-premises storage cluster and the target volume in your Azure NetApp Files region of choice. For detailed instructions, see [Migrate volumes to Azure NetApp Files](migrate-volumes.md).
 

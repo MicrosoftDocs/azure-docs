@@ -2,7 +2,7 @@
 title: Create a simplified node communication pool without public IP addresses
 description: Learn how to create an Azure Batch simplified node communication pool without public IP addresses.
 ms.topic: how-to
-ms.date: 11/20/2025
+ms.date: 01/12/2026
 ms.custom: references_regions, devx-track-arm-template, linux-related-content
 # Customer intent: "As a cloud architect, I want to create a Batch pool without public IP addresses so that I can enhance security and reduce the discoverability of compute nodes while managing compute resources efficiently."
 ---
@@ -54,7 +54,7 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 1. Pools without public IP addresses must use Virtual Machine Configuration and not Cloud Services Configuration.
 1. [Custom endpoint configuration](pool-endpoint-configuration.md) for Batch compute nodes doesn't work with pools without public IP addresses.
 1. Because there are no public IP addresses, you can't [use your own specified public IP addresses](create-pool-public-ip.md) with this type of pool.
-1. The [task authentication token](/rest/api/batchservice/task/add?tabs=HTTP#request-body) for Batch task is not supported. The workaround is to use [Batch pool with managed identities](managed-identity-pools.md).
+1. The [task authentication token](/rest/api/batchservice/tasks/create-task) for Batch task is not supported. The workaround is to use [Batch pool with managed identities](managed-identity-pools.md).
 
 ## Create a pool without public IP addresses in the Azure portal
 
@@ -76,7 +76,7 @@ IP addresses.
 
 ## Use the Batch REST API to create a pool without public IP addresses
 
-The following example shows how to use the [Batch Service REST API](/rest/api/batchservice/pool/add) to create a pool that uses public IP addresses.
+The following example shows how to use the [Batch Service REST API](/rest/api/batchservice/pools/create-pool) to create a pool that uses public IP addresses.
 
 ### REST API URI
 

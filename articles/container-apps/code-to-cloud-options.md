@@ -23,7 +23,7 @@ Depending on your situation, you might want to deploy from a [code editor](#code
 
 ## New to containers
 
-You can simplify the development and deployment of your application by packaging your app into a "container". Containers allow you to wrap up your application and all its dependencies into a single unit that is portal and can be run easily on any container platform.
+You can simplify the development and deployment of your application by packaging your app into a "container". Containers allow you to wrap up your application and all its dependencies into a single unit that is portable and can be run easily on any container platform.
 
 If you're interested in deploying your application to Azure Container Apps, but don't want to define a container ahead of time, Container Apps can create a container. The Container Apps cloud build feature automatically identifies your application stack and uses [CNCF Buildpacks](https://buildpacks.io/) to generate a container image for you.
 

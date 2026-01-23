@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: abell
 ms.service: azure-bastion
 ms.topic: faq
-ms.date: 03/03/2025
+ms.date: 12/10/2025
 ms.author: abell
 ms.custom: references_regions
 # Customer intent: "As a cloud administrator, I want to understand the deployment and connectivity requirements for Azure Bastion, so that I can effectively manage and secure remote access to our virtual machines."
@@ -59,17 +59,9 @@ You can use a private DNS zone ending with one of the names in the previous list
 
 Azure Bastion isn't supported with Azure Private DNS Zones in national clouds.
 
-### My privatelink.azure.com can't resolve to management.privatelink.azure.com
-
-This might be due to the private DNS zone for privatelink.azure.com linked to the Bastion virtual network causing management.azure.com CNAMEs to resolve to management.privatelink.azure.com behind the scenes. Create a CNAME record in their privatelink.azure.com zone for management.privatelink.azure.com to arm-frontdoor-prod.trafficmanager.net to enable successful DNS resolution.
-
 ### <a name="dns"></a>Does Azure Bastion support Private Link?
 
 No, Azure Bastion doesn't currently support Azure Private Link.
-
-### Why do I get a "Failed to add subnet" error when using "Deploy Bastion" in the portal?
-
-At this time, for most address spaces, you must add a subnet named **AzureBastionSubnet** to your virtual network before you select **Deploy Bastion**.
 
 ### <a name="write-permissions"></a>Are special permissions required to deploy Bastion to the AzureBastionSubnet?
 
@@ -105,13 +97,9 @@ No. Downgrading a SKU isn't supported. For more information about SKUs, see the 
 
 No, Bastion connectivity to Azure Virtual Desktop isn't supported.
 
-### <a name="udr"></a>How do I handle deployment failures?
+### <a name="move-virtual-network"></a>Does Bastion support moving a virtual network to another resource group?
 
-Review any error messages and [raise a support request in the Azure portal](/azure/azure-portal/supportability/how-to-create-azure-support-request) as needed. Deployment failures can result from [Azure subscription limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md). Specifically, customers might encounter a limit on the number of public IP addresses allowed per subscription that causes the Azure Bastion deployment to fail.
-
-### <a name="move-virtual-network"></a>Does Bastion support moving a VNet to another resource group?
-
-No. If you move your virtual network to another resource group (even if it's in the same subscription), you'll need to first delete Bastion from virtual network, and then proceed to move the virtual network to the new resource group. Once the virtual network is in the new resource group, you can deploy Bastion to the virtual network.
+No. If you move your virtual network to another resource group (even if it's in the same subscription), you need to first delete Bastion from virtual network, and then proceed to move the virtual network to the new resource group. Once the virtual network is in the new resource group, you can deploy Bastion to the virtual network.
 
 
 
@@ -134,11 +122,7 @@ In order to make a connection, the following roles are required:
 * Reader role on the Azure Bastion resource.
 * Reader role on the virtual network of the target virtual machine (if the Bastion deployment is in a peered virtual network).
 
-Additionally, the user must have the rights (if required) to connect to the VM. For example, if the user is connecting to a Windows VM via RDP and isn't a member of the local Administrators group, they must be a member of the Remote Desktop Users group.
-
-### <a name="session"></a>Why do I get "Your session has expired" error message before the Bastion session starts?
-
-If you go to the URL directly from another browser session or tab, this error is expected. It helps ensure that your session is more secure and that the session can be accessed only through the Azure portal. Sign in to the Azure portal and begin your session again.
+Additionally, the user must have the rights (if necessary) to connect to the VM. For example, if the user is connecting to a Windows VM via RDP and isn't a member of the local Administrators group, they must be a member of the Remote Desktop Users group.
 
 ### <a name="publicip"></a>Do I need a public IP on my virtual machine to connect via Azure Bastion?
 
@@ -164,10 +148,6 @@ No. You don't need to install an agent or any software on your browser or your A
 
 See [About VM connections and features](vm-about.md) for supported features.
 
-### <a name="shareable-links-passwords"></a>Is Reset Password available for local users connecting via shareable link?
-
-No. Some organizations have company policies that require a password reset when a user logs into a local account for the first time. When using shareable links, the user can't change the password, even though a "Reset Password" button might appear.
-
 ### <a name="audio"></a>Is remote audio available for VMs?
 
 Yes. See [About VM connections and features](vm-about.md#audio).
@@ -178,7 +158,7 @@ Azure Bastion offers support for file transfer between your target VM and local 
 
 ### <a name="aadj"></a>Does Bastion work with Entra ID extension-joined VMs?
 
-Bastion does work with Entra ID extension-joined VMs for Microsoft Entra users with RDP and SSH on the native client, and SSH only on the portal. Entra ID for RDP on the portal is not yet supported. For more information, see [Sign in to a Windows virtual machine in Azure by using Microsoft Entra ID](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
+Bastion does work with Entra ID extension-joined VMs for Microsoft Entra users with RDP and SSH on the native client, and SSH only on the portal. Entra ID for RDP on the portal isn't yet supported. For more information, see [Sign in to a Windows virtual machine in Azure by using Microsoft Entra ID](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
 
 ### <a name="rdscal-compatibility"></a>Is Bastion compatible with VMs set up as RDS session hosts?
 
@@ -226,13 +206,9 @@ Azure Bastion currently doesn't support timezone redirection and isn't timezone 
 
 ### <a name="disconnect"></a>Will an existing session disconnect during maintenance on the Bastion host?
 
-Yes, existing sessions on the target Bastion resource will disconnect during maintenance on the Bastion resource.
+Yes, existing sessions disconnect during maintenance on the Bastion resource.
 
-### I'm connecting to a VM using a JIT policy, do I need additional permissions?
-
-If user is connecting to a VM using a JIT policy, there are no additional permissions needed. For more information on connecting to a VM using a JIT policy, see [Enable just-in-time access on VMs](/azure/defender-for-cloud/just-in-time-access-usage).
-
-## <a name="peering"></a>VNet peering FAQs
+## <a name="peering"></a>Virtual network peering FAQs
 
 ### Can I still deploy multiple Bastion hosts across peered virtual networks?
 
@@ -240,29 +216,9 @@ Yes. By default, a user sees the Bastion host that is deployed in the same virtu
 
 ### If my peered VNets are deployed in different subscriptions, will connectivity via Bastion work?
 
-Yes, connectivity via Bastion will continue to work for peered virtual networks across different subscription for a single Tenant. Subscriptions across two different Tenants aren't supported. To see Bastion in the **Connect** drop down menu, the user must select the subs they have access to in **Subscription > global subscription**.
+Yes, connectivity via Bastion continues to work for peered virtual networks across different subscription for a single Tenant. Subscriptions across two different Tenants aren't supported. To see Bastion in the **Connect** drop down menu, the user must select the subs they have access to in **Subscription > global subscription**.
 
 :::image type="content" source="./media/bastion-faq/global-subscriptions.png" alt-text="Global subscriptions filter." lightbox="./media/bastion-faq/global-subscriptions.png":::
-
-### I have access to the peered VNet, but I can't see the VM deployed there.
-
-Make sure the user has **read** access to both the VM, and the peered virtual network. Additionally, check under IAM that the user has **read** access to following resources:
-
-* Reader role on the virtual machine.
-* Reader role on the NIC with private IP of the virtual machine.
-* Reader role on the Azure Bastion resource.
-* Reader role on the virtual network (Not needed if there isn't a peered virtual network).
-
-|Permissions|Description|Permission type|
-|---|---| ---|
-|Microsoft.Network/bastionHosts/read |Gets a Bastion Host|Action|
-|Microsoft.Network/virtualNetworks/BastionHosts/action |Gets Bastion Host references in a virtual network.|Action|
-|Microsoft.Network/virtualNetworks/bastionHosts/default/action|Gets Bastion Host references in a virtual network.|Action|
-|Microsoft.Network/networkInterfaces/read|Gets a network interface definition.|Action|
-|Microsoft.Network/networkInterfaces/ipconfigurations/read|Gets a network interface IP configuration definition.|Action|
-|Microsoft.Network/virtualNetworks/read|Get the virtual network definition|Action|
-|Microsoft.Network/virtualNetworks/subnets/virtualMachines/read|Gets references to all the virtual machines in a virtual network subnet|Action|
-|Microsoft.Network/virtualNetworks/virtualMachines/read|Gets references to all the virtual machines in a virtual network|Action|
 
 ## Next steps
 

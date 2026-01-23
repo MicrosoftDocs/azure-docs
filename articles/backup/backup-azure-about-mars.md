@@ -2,7 +2,7 @@
 title: About the MARS Agent
 description: Learn how the MARS Agent supports the backup scenarios
 ms.topic: overview
-ms.date: 02/28/2025
+ms.date: 01/16/2026
 ms.service: azure-backup
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
@@ -14,7 +14,7 @@ ms.author: v-mallicka
 
 Azure Backup uses the Microsoft Azure Recovery Services (MARS) agent to back up and recover files, folders, and the volume or system state from an on-premises computer to Azure.
 
-## Backup scenarios
+## Backup scenarios for MARS agent
 
 The MARS agent supports the following backup scenarios:
 
@@ -32,7 +32,7 @@ The MARS agent supports the following backup scenarios:
 
 - **Offline seeding**: Initial full backups of data to Azure typically transfer large amounts of data and require more network bandwidth. Subsequent backups transfer only the delta, or incremental, amount of data. Azure Backup compresses the initial backups. Through the process of *offline seeding*, Azure Backup can use disks to upload the compressed initial backup data offline to Azure. For more information, see [Azure Backup offline-backup using Azure Data Box](offline-backup-azure-data-box.md).
 
-## Recovery scenarios
+## Recovery scenarios for MARS agent
 
 The MARS agent supports the following recovery scenarios:
 
@@ -49,7 +49,7 @@ The MARS agent supports the following recovery scenarios:
 |   | **Volume Level** | Choose the volume and recovery point that you want to restore to another location. Create a copy of existing files, overwrite existing files, or skip recovering existing files. |
 |   | **System Level** | Choose the system state and recovery point to restore as a System State file to an alternate machine. |
 
-## Backup process
+## Backup process for MARS agent
 
 To back up files, folders, and the volume or system state from an on-premises computer to Azure using Microsoft Azure Recovery Services (MARS) agent:
 

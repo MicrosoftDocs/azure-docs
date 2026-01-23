@@ -13,7 +13,7 @@ ms.custom: ignite-2023
 
 # Save costs with Microsoft Fabric Capacity reservations
 
-You can save money with Fabric capacity reservation by committing to a reservation for your Fabric capacity usage for a duration of one year. This article explains how you can save money with Fabric capacity reservations.
+You can save money with Fabric capacity reservation by committing to a reservation for your Fabric capacity usage for a duration of one or three years. This article explains how you can save money with Fabric capacity reservations.
 
 To purchase a Fabric capacity reservation, you choose an Azure region, billing frequency, and the quantity of capacity units (CUs) that you want to purchase. Then you add the Fabric capacity reservation to your cart.
 

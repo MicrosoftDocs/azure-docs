@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: concept-article
-ms.date: 06/04/2025
+ms.date: 01/14/2026
 ms.author: anfdocs
 ms.custom:
   - build-2025
@@ -47,7 +47,7 @@ Application volume group for Oracle helps you simplify the deployment process an
 * Creation of separate storage endpoints (with different IP addresses) for data and log volumes.   
     This deployment method provides better performance and throughput for the Oracle database.
 * Customer-managed keys support increased security and compliance. 
-* [Cross-zone and cross-region replication](replication.md) provide efficient storage-based data replication without load on compute infrastructure and a layer of protection for disaster recovery. This feature currently is in preview and only supported with the [REST API](configure-application-volume-oracle-api.md#replication). 
+* [Cross-zone and cross-region replication](replication.md) provide efficient storage-based data replication without load on compute infrastructure and a layer of protection for disaster recovery. This feature is currently only supported with [REST API](configure-application-volume-oracle-api.md#replication). 
 
 ## Application volume group layout
 

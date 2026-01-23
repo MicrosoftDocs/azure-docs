@@ -168,8 +168,8 @@ items:
     href: plan-private-cloud-deployment.md
   - name: Deploy Azure VMware Solution
     href: deploy-azure-vmware-solution.md
-  - name: Azure VMware Solution private cloud maintenance best practices
-    href: azure-vmware-solution-private-cloud-maintenance-best-practices.md
+  - name: Azure VMware Solution private cloud maintenance
+    href: azure-vmware-solution-private-cloud-maintenance.md
   - name: Deploy vSAN stretched clusters
     href: deploy-vsan-stretched-clusters.md
   - name: Create a placement policy
@@ -390,7 +390,7 @@ items:
     href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
   - name: Configure VMware Cloud Director Service in Azure VMware Solution
     href: configure-vmware-cloud-director-service-azure-vmware-solution.md
-  - name: Plan self-service maintenance for Azure VMware Solution (public preview)
+  - name: Plan self-service maintenance for Azure VMware Solution
     href: self-service-maintenance-orchestration.md
   - name: Enable VMware Cloud Director Service with Azure VMware Solution
     href: enable-vmware-cds-with-azure.md

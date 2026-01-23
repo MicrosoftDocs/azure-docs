@@ -53,6 +53,8 @@ For more information on scalar and tabular functions (represented by the lookup 
 | **_ASIM_LookupDnsResponseCode** | Numeric DNS response code | Response code name | Translate a numeric DNS response code (RCODE) to its name, as defined by [IANA](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-6) |
 | **_ASIM_LookupICMPType** | Numeric ICMP type | ICMP type name | Translate a numeric ICMP type to its name, as defined by [IANA](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml#icmp-parameters-types) |
 | **_ASIM_LookupNetworkProtocol** | IP protocol number | IP protocol name | Translate a numeric IP protocol code to its name, as defined by [IANA](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) |
+| **_ASIM_LookupHTTPStatusCode** | HTTP status code | HTTP status code name | Translate a numeric HTTP status code to its name, as defined by [IANA](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml). Also supports extended status codes used by IIS and other web servers. |
+| **_ASIM_LookupAADcodes** | Microsoft Entra ID STS error code | Error category | Translate a Microsoft Entra ID STS error code to its error category, such as `Logon violates policy` or `No such user or password`. |
 
 
 ### Resolve type functions
@@ -78,12 +80,43 @@ The device resolution functions analyze a hostname and determine whether it has 
 | -------- | ---------------- | ----------- |
 | **_ASIM_ResolveFQDN** | - `ExtractedHostname`<br> - `Domain`<br> - `DomainType` <br> - `FQDN` | Analyzes the value in the field specified and set the output fields accordingly. For more information, see [example](normalization-develop-parsers.md#resolvefqnd) in the article about developing parsers. | 
 | **_ASIM_ResolveSrcFQDN** | - `SrcHostname`<br> - `SrcDomain`<br> - `SrcDomainType`<br> - `SrcFQDN` | Similar to `_ASIM_ResolveFQDN`, but sets the `Src` fields | 
-| **_ASIM_ResolveDstFQDN** | - `DstHostname`<br> - `DstDomain`<br> - `DstDomainType`<br> - `SrcFQDN` | Similar to `_ASIM_ResolveFQDN`, but sets the `Dst` fields | 
+| **_ASIM_ResolveDstFQDN** | - `DstHostname`<br> - `DstDomain`<br> - `DstDomainType`<br> - `DstFQDN` | Similar to `_ASIM_ResolveFQDN`, but sets the `Dst` fields | 
 | **_ASIM_ResolveDvcFQDN** | - `DvcHostname`<br> - `DvcDomain`<br> - `DvcDomainType`<br> - `DvcFQDN` | Similar to `_ASIM_ResolveFQDN`, but sets the `Dvc` fields | 
+
+### User type functions
+
+The user type functions help determine the type of user based on username patterns or security identifiers (SIDs).
+
+| Function | Input | Output | Description |
+| -------- | ----- | ------ | ----------- |
+| **_ASIM_GetUsernameType** | Username string | Username type | Returns the username type based on the format of the username. Possible values include `UPN` (for email-like usernames), `Windows` (for domain\\user format), `DN` (for distinguished names), `Simple`, or empty if the username is empty. |
+| **_ASIM_GetWindowsUserType** | Username string, SID string | User type | Returns the user type for Windows systems based on the username and security identifier (SID). Possible values include `Admin`, `Guest`, `Service`, `Machine`, `System`, `Anonymous`, `Regular`, or `Other`. |
+| **_ASIM_GetUserType** | Username string, SID string | User type | **Deprecated.** Use `_ASIM_GetWindowsUserType` instead. Sets the UserType in Windows systems based on the username and SID. |
 
 ### Source identification functions
 
 The **_ASIM_GetSourceBySourceType** function retrieves the list of sources associated with a source type provided as input from the `SourceBySourceType` Watchlist. The function is intended for use by parsers writers. For more information, see [Filtering by source type using a Watchlist](normalization-develop-parsers.md#filtering-by-source-type-using-a-watchlist).
+
+The **_ASIM_GetDisabledParsers** function reads the `ASimDisabledParsers` watchlist and determines based on it whether the parser provided as a parameter is disabled. This function is used internally by ASIM parsers to support disabling specific parsers.
+
+### Watchlist functions
+
+The watchlist functions provide optimized methods for reading watchlists in ASIM parsers.
+
+| Function | Input | Output | Description |
+| -------- | ----- | ------ | ----------- |
+| **_ASIM_GetWatchlistRaw** | Watchlist alias (string), optional keys (dynamic array) | Watchlist items | Reads a single watchlist in raw format. More performant than the general `_GetWatchlist` function. |
+| **_ASIM_GetWatchlistsRaw** | Watchlist aliases (dynamic array), optional keys (dynamic array) | Watchlist items | Reads multiple watchlists in raw format. The primary use case is providing an option for using multiple watchlist names for the same watchlist. |
+
+## Identity enrichment functions
+
+Identity enrichment functions help enrich your data with user information from the UEBA IdentityInfo table.
+
+| Function | Input | Output | Description |
+| -------- | ----- | ------ | ----------- |
+| **_ASIM_IdentityInfo** | None | Normalized IdentityInfo table | Deduplicates and normalizes the [IdentityInfo table](ueba-reference.md#identityinfo-table) to improve its usability in queries. Returns a deduplicated table with ASIM-normalized field names. |
+| **_ASIM_Enrich_IdentityInfo** | Input table, field name parameters | Enriched table | Enriches your result set with user information from the [IdentityInfo table](ueba-reference.md#identityinfo-table). Use the parameters to specify which field to use for matching: `AadIdField`, `TenantIdField`, `SidField`, `UpnField`, or `EmailField`. |
+
 
 ## <a name="next-steps"></a>Next steps
 

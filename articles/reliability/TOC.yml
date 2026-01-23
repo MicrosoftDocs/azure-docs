@@ -98,12 +98,6 @@ items:
         href: /azure/service-fabric/service-fabric-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-of-the-service-fabric-cluster
   - name: Databases
     items:
-    - name: Azure Cache for Redis
-      items:
-      - name: Availability zones
-        href: ../azure-cache-for-redis/cache-how-to-zone-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Disaster recovery
-        href: ../azure-cache-for-redis/cache-how-to-geo-replication.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Cosmos DB for NoSQL
       href: reliability-cosmos-db-nosql.md
     - name: Azure Cosmos DB for PostgreSQL
@@ -342,8 +336,6 @@ items:
         href: migrate-recovery-services-vault.md
       - name: Azure Batch
         href: reliability-batch.md#availability-zone-migration
-      - name: Azure Cache for Redis
-        href: migrate-cache-redis.md
       - name: Azure Container Apps
         href: reliability-container-apps.md#resilience-to-availability-zone-failures
       - name: Azure Container Instances

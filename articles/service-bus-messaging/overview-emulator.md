@@ -31,7 +31,7 @@ The emulator provides these features:
 
 - **Containerized deployment**: It runs as a Docker container (Linux based).
 - **Cross-platform compatibility**: You can use it on any platform, including Windows, macOS, and Linux.
-- **Configurability**: You can manage the number of Service bus entities by using the JSON supplied configuration.
+- **Configurability**: You can manage the number of Service bus entities by using the ServiceBus administration client or JSON supplied configuration.
 - **Streaming support**: It supports streaming messages by using the Advanced Message Queuing Protocol (AMQP).
 - **Observability**: It provides observability features, including console and file logging.
 
@@ -41,7 +41,6 @@ The current version of the emulator has the following limitations:
 
 - It can't stream messages by using the JMS protocol.
 - Partitioned entities aren't compatible with emulator. 
-- It doesn't support on-the-fly management operations through a client-side SDK.
 - AMQP Web Sockets are not supported. AMQP TCP is the only supported transport type.
 
 > [!NOTE]
@@ -85,16 +84,18 @@ Like the Service bus cloud service, the emulator provides the following quotas f
 
 
 
-## Quota configuration changes
+## Create and manage entities within Service Bus emulator
 
-By default, the emulator runs with the [config.json](https://github.com/Azure/azure-service-bus-emulator-installer/blob/main/ServiceBus-Emulator/Config/Config.json) configuration file. You can configure the quotas associated with Service bus by editing this file in the following ways, based on your needs:
+You can create and manage Service Bus entities—such as queues and topics—using the Service Bus [Administration Client](service-bus-management-libraries.md). By default, the emulator runs with the [config.json](https://github.com/Azure/azure-service-bus-emulator-installer/blob/main/ServiceBus-Emulator/Config/Config.json) configuration file. You can also make declarative changes to the configuration file as per your needs:
 
 - **Entities**: You can add more Service bus entities in accordance with the supported quotas. 
 - **Logging**: The emulator supports logging on a console, in a file, or both. You can choose according to your personal preference.
 
 > [!IMPORTANT]
 > You must supply any changes in JSON configuration before you run the emulator. Changes aren't honored on the fly. For changes to take effect, you must restart the container.
->
+> 
+> At emulator initialization, settings defined in the configuration file override any entities previously created or modified using the Service Bus Administration Client.
+> 
 > You can't rename the preset namespace (`name`) in the configuration file.
 
 ## Logs for debugging
@@ -107,3 +108,5 @@ During testing, console or file logs help you debug unexpected failures. To revi
 ## Related content
 
 [Test locally by using the Azure Service Bus emulator](test-locally-with-service-bus-emulator.md)
+
+[Service Bus emulator Samples](https://github.com/Azure/azure-service-bus-emulator-installer/tree/main/Sample-Code-Snippets)

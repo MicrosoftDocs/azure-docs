@@ -154,6 +154,11 @@
             "source_path_from_root": "/articles/reliability/reliability-deployment-environments.md",
             "redirect_url": "/azure/deployment-environments/concept-reliability-deployment-environments",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/reliability/migrate-cache-redis.md",
+            "redirect_url": "/azure/redis/migrate-cache-redis-zones",
+            "redirect_document_id": true
         }
     ]
 }

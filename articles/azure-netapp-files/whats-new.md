@@ -22,6 +22,13 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Support for Red Hat IdM and Oracle Unified Directory (OUD)](configure-directory-server.md) (preview)
  
     Azure NetApp Files now supports Red Hat IdM and Oracle Unified Directory, enabling seamless integration with widely used enterprise directory services. This capability allows organizations to leverage their existing LDAP-based identity infrastructure for authentication and access control providing simplified identity management, enhanced security and compliance, and improved scalability. This feature is ideal for enterprises-grade LDAP service with advanced scalability and security features. This feature is available in all Azure NetApp Files supported regions. This feature in currently in preview.
+## January 2026
+
+* [Application volume group for Oracle](configure-application-volume-oracle-api.md#replication) support for cross-zone and cross-region replication is now generally available (GA)
+
+    [Application volume group for Oracle](application-volume-group-oracle-introduction.md) now supports [cross-region](replication.md) and [cross-zone replication](replication.md) to improve the resilience and data protection of your Oracle deployments. With cross-zone and cross-region replication, Azure NetApp Files only replicates changed blocks across regions or zones, enabling a lower restore point objective. To understand more of the benefits of each option, see [Understand data protection and disaster recovery options in Azure NetApp Files](data-protection-disaster-recovery-options.md).
+
+    Cross-zone and cross-region replication for application volume group for Oracle is currently only supported in the REST API.
 
 ## December 2025
 
