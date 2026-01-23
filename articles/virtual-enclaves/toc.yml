@@ -156,6 +156,8 @@
     href: deploy-storage-account-service-catalog.md
   - name: Deploy service catalog Template from Azure CLI
     href: deploy-template-service-catalog-azure-cli.md
+  - name: Install application on a Remote App Virtual Machine
+    href: application-deployment-using-remote-app-vm.md
 - name: Manage and Monitor
   items:
 #     - name: Monitor your enclaves
