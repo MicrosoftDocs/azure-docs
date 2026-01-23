@@ -4,7 +4,7 @@ description: This article is an overview of mutual authentication on Application
 services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
-ms.date: 11/18/2025
+ms.date: 1/23/2026
 ms.topic: concept-article
 ms.author: mbender
 
