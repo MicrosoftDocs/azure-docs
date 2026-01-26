@@ -3,7 +3,7 @@ title: Azure Relay metrics in Azure Monitor  | Microsoft Docs
 description: This article provides information on how you can use Azure Monitor to monitor to state of Azure Relay. 
 services: service-bus-relay
 ms.topic: article
-ms.date: 12/11/2024
+ms.date: 01/24/2026
 ---
 
 # Azure Relay metrics in Azure Monitor 

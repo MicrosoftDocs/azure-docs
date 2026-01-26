@@ -2,7 +2,7 @@
 title: Azure Relay Hybrid Connections - HTTP requests in Java
 description: Write a Java console application for Azure Relay Hybrid Connections HTTP requests.
 ms.topic: tutorial
-ms.date: 01/04/2024
+ms.date: 01/24/2026
 ms.custom: devx-track-java, mode-ui, mode-api, devx-track-extended-java
 ---
 

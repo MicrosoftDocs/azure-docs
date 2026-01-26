@@ -82,7 +82,7 @@ When a reference dataset is refreshed, a diagnostic log is generated: `Loaded ne
 
 Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. Data Factory supports [connecting to a large number of cloud-based and on-premises data stores](../data-factory/copy-activity-overview.md). It can move data easily on a regular schedule that you specify.
 
-For more information on how to set up a Data Factory pipeline to generate reference data for Stream Analytics that refreshes on a predefined schedule, see this [GitHub sample](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs).
+For more information on how to set up a Data Factory pipeline to generate reference data for Stream Analytics that refreshes on a predefined schedule, see this [GitHub sample](https://github.com/Azure/Azure-DataFactory/tree/main/SamplesV2).
 
 ### Tips on refreshing blob reference data
 

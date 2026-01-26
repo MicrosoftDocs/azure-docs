@@ -104,7 +104,7 @@ The Azure Databricks Python Activity in a pipeline runs a Python file in your Az
 ### Custom activity
 If you need to transform data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline. You can configure the custom .NET activity to run using either an Azure Batch service or an Azure HDInsight cluster. See [Use custom activities](transform-data-using-dotnet-custom-activity.md) article for details. 
 
-You can create a custom activity to run R scripts on your HDInsight cluster with R installed. See [Run R Script using Azure Data Factory and Synapse pipelines](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample). 
+You can create a custom activity to run R scripts on your HDInsight cluster with R installed. See [Run R Script using Azure Data Factory and Synapse pipelines](https://github.com/Azure/Azure-DataFactory/tree/main/SamplesV2). 
 
 ### Compute environments
 You create a linked service for the compute environment and then use the linked service when defining a transformation activity. There are two supported types of compute environments. 

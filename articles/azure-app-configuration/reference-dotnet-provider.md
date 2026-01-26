@@ -713,7 +713,24 @@ For more information about health checks in .NET, see the [.NET health monitorin
 
 ## Connect to Azure Front Door
 
-The Azure Front Door integration allows client applications to fetch configuration from edge-cached endpoints rather than directly from App Configuration. This architecture delivers secure, scalable configuration access with the performance benefits of global CDN distribution. For setup instructions, see [Load Configuration from Azure Front Door in Client Applications](./how-to-load-azure-front-door-configuration-provider.md).
+The Azure Front Door integration allows client applications to fetch configuration from edge-cached endpoints rather than directly from App Configuration. This architecture delivers secure, scalable configuration access with the performance benefits of global CDN distribution.
+
+The following example demonstrates how to load configuration settings from Azure Front Door:
+
+```csharp
+builder.Configuration.AddAzureAppConfiguration(options =>
+{
+    options.ConnectAzureFrontDoor(new Uri("{YOUR-AFD-ENDPOINT}"))
+            .Select("TestApp:*")
+            .ConfigureRefresh(refreshOptions =>
+            {
+                refreshOptions.RegisterAll()
+                    .SetRefreshInterval(TimeSpan.FromMinutes(1));
+            });
+});
+```
+
+For more information about Azure Front Door, see [Load Configuration from Azure Front Door in Client Applications](./how-to-load-azure-front-door-configuration-provider.md).
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Azure Relay Hybrid Connections - WebSockets in .NET
 description: This tutorial shows you how to write a C# console application for Azure Relay Hybrid Connections WebSockets.
 ms.topic: tutorial
 ms.custom: devx-track-dotnet, mode-ui, mode-api
-ms.date: 12/10/2024
+ms.date: 01/24/2026
 # Customer intent: As a developer, I would like to know how to write a C# console application for Azure Relay Hybrid Connections WebSockets.
 ---
 

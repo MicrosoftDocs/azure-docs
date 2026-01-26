@@ -490,7 +490,27 @@ For information about using geo-replication, go to [Enable geo-replication](./ho
 
 ## Connect to Azure Front Door
 
-The Azure Front Door integration allows client applications to fetch configuration from edge-cached endpoints rather than directly from App Configuration. This architecture delivers secure, scalable configuration access with the performance benefits of global CDN distribution. For setup instructions, see [Load Configuration from Azure Front Door in Client Applications](./how-to-load-azure-front-door-configuration-provider.md).
+The Azure Front Door integration allows client applications to fetch configuration from edge-cached endpoints rather than directly from App Configuration. This architecture delivers secure, scalable configuration access with the performance benefits of global CDN distribution.
+
+The following example demonstrates how to load configuration settings from Azure Front Door:
+
+```typescript
+import { loadFromAzureFrontDoor } from "@azure/app-configuration-provider";
+
+const appConfig = await loadFromAzureFrontDoor("{YOUR-AFD-ENDPOINT}", {
+    selectors: [{
+        keyFilter: "app.*"
+    }],
+    refreshOptions: {
+        enabled: true,
+        refreshIntervalInMs: 60_000
+    }
+});
+
+const message = appConfig.get("app.message");
+```
+
+For more information about Azure Front Door, see [Load Configuration from Azure Front Door in Client Applications](./how-to-load-azure-front-door-configuration-provider.md).
 
 ## Next steps
 

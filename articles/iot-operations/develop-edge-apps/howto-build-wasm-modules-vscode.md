@@ -378,7 +378,7 @@ This example shows you how to use the schema registry with WASM modules. The sch
 
 ### Open the schema registry sample workspace
 
-Clone the [Explore IoT Operations](https://github.com/Azure-Samples/azure-iot-operations) repository if you haven't already.
+Clone the [Explore IoT Operations](https://github.com/Azure-Samples/explore-iot-operations) repository if you haven't already.
 
 Open the `samples/wasm/schema-registry-scenario` folder in Visual Studio Code by selecting **File > Open Folder** and navigating to the `samples/wasm/schema-registry-scenario` folder. This folder contains the following resources:
 

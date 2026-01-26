@@ -47,9 +47,7 @@ You can now enable UEBA for supported data sources directly from the data connec
 
 This integration allows you to see which data sources feed into UEBA and enable that feed directly from the connector configuration.
 
-For more information, see:
-
-- [Connect data sources to Microsoft Sentinel by using data connectors](configure-data-connector.md#enable-user-and-entity-behavior-analytics-ueba-from-supported-connectors)
+For more information, see [Connect data sources to Microsoft Sentinel by using data connectors](configure-data-connector.md#enable-user-and-entity-behavior-analytics-ueba-from-supported-connectors).
 
 
 ### New detections for Sentinel solution for SAP BTP

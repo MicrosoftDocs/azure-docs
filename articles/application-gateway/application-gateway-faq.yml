@@ -443,6 +443,10 @@ sections:
         answer: |
           Yes, the Application Gateway v2 SKU supports Key Vault. For more information, see [TLS termination with Key Vault certificates](key-vault-certs.md).
 
+      - question: Why can't I select an Azure key vault from a different subscription in the Azure portal when configuring a TLS listener certificate on Application Gateway?
+        answer: |
+          The Azure portal currently allows selecting key vaults only from the same subscription as Application Gateway. This is a known portal limitation. However, Application Gateway does support using a key vault from a different subscription (within the same Microsoft Entra ID tenant) by configuring the certificate through the Azure CLI or PowerShell by using the key vault secret ID, provided the Application Gateway managed identity has the required permissions on the key vault.
+
       - question: How do I configure HTTPS listeners for .com and .NET sites?
         answer: |
           For multiple domain-based (host-based) routing, you can create multisite listeners, set up listeners that use HTTPS as the protocol, and associate the listeners with the routing rules. For more information, see [Hosting multiple sites by using Application Gateway](./multiple-site-overview.md).

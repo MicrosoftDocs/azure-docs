@@ -12,7 +12,7 @@ ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 ms.custom: sfi-image-nochange
 
-#Customer Intent: As an Azure AD B2C administrator, I want to set up a password reset flow for local accounts, so that users can reset their passwords if they forget them.
+# Customer Intent: As an Azure AD B2C administrator, I want to set up a password reset flow for local accounts, so that users can reset their passwords if they forget them.
 ---
 
 # Set up a password reset flow in Azure Active Directory B2C
@@ -43,7 +43,7 @@ The default name of the **Change email** button in *selfAsserted.html* is **chan
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 
-- The B2C Users need to have an authentication method specified for self-service password reset. Select the B2C User, in the left menu under **Manage**, select **Authentication methods**. Ensure **Authentication contact info** is set. B2C users created via a Sign-up flow has this set by default. For users created via Azure Portal or by Graph API, you need to set **Authentication contact info** for SSPR to work. 
+- The B2C users need to have an authentication method specified for self-service password reset. Select the B2C User, in the left menu under **Manage**, select **Authentication methods**. Ensure **Authentication contact info** is set. B2C users created via a Sign-up flow has this set by default. For users created via Azure Portal or by Graph API, you need to set **Authentication contact info** for SSPR to work. 
 
 
 ## Self-service password reset (recommended)
@@ -52,7 +52,7 @@ The new password reset experience is now part of the sign-up or sign-in policy. 
 
 ::: zone pivot="b2c-user-flow"
 
-The self-service password reset experience can be configured for the Sign in (Recommended) or Sign up and sign in (Recommended) user flows. If you don't have one of these user flows setup, create a [sign-up or sign-in](add-sign-up-and-sign-in-policy.md) user flow.
+The self-service password reset experience can be configured for the Sign in (Recommended) or Sign up and sign in (Recommended) user flows. If you don't have one of these user flows set up, create a [sign-up or sign-in](add-sign-up-and-sign-in-policy.md) user flow.
 
 To set up self-service password reset for the sign-up or sign-in user flow:
 

@@ -5,7 +5,7 @@ description: Learn how to copy data from PostgreSQL V2 to supported sink data st
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 04/14/2025
+ms.date: 01/26/2026
 ms.author: jianleishen
 ms.custom:
   - synapse
@@ -80,8 +80,8 @@ The following properties are supported for PostgreSQL linked service:
 | server | Specifies the host name - and optionally port - on which PostgreSQL is running. | Yes |
 | port | The TCP port of the PostgreSQL server.| No |
 | database | The PostgreSQL database to connect to. | Yes |
-| username | The username to connect with. Not required if using IntegratedSecurity. | Yes |
-| password | The password to connect with. Not required if using IntegratedSecurity. | Yes |
+| username | The username to connect with. | Yes |
+| password | The password to connect with. | Yes |
 | sslMode | Controls whether SSL is used, depending on server support. <br/>- **Disable**: SSL is disabled. If the server requires SSL, the connection will fail.<br/>- **Allow**: Prefer non-SSL connections if the server allows them, but allow SSL connections.<br/>- **Prefer**: Prefer SSL connections if the server allows them, but allow connections without SSL.<br/>- **Require**: Fail the connection if the server doesn't support SSL.<br/>- **Verify-ca**: Fail the connection if the server doesn't support SSL. Also verifies server certificate.<br/>- **Verify-full**: Fail the connection if the server doesn't support SSL. Also verifies server certificate with host's name. <br/>Options: Disable (0) / Allow (1) / Prefer (2) **(Default)** / Require (3) / Verify-ca (4) / Verify-full (5) | No |
 | authenticationType | Authentication type for connecting to the database. Only supports **Basic**. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |

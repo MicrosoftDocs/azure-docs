@@ -2,7 +2,7 @@
 title: Azure Relay Hybrid Connections - WebSockets in Node
 description: Write a Node.js console application for Azure Relay Hybrid Connections WebSockets.
 ms.topic: tutorial
-ms.date: 01/04/2024
+ms.date: 01/24/2026
 ms.custom: devx-track-js,  mode-ui, mode-api
 ---
 

@@ -104,7 +104,7 @@ SMART (Substitutable Medical Applications and Reusable Technology) on FHIR is a 
 
 ### Does the FHIR service support SMART on FHIR?
 
-Yes, SMART on FHIR capability is supported using [AHDS samples](https://aka.ms/azure-health-data-services-smart-on-fhir-sample). This is referred to as SMART on FHIR(Enhanced). SMART on FHIR(Enhanced) can be considered to meet requirements with [SMART on FHIR Implementation Guide (v 1.0.0)](https://hl7.org/fhir/smart-app-launch/1.0.0/) and [§170.315(g)(10) Standardized API for patient and population services criterion](https://www.healthit.gov/test-method/standardized-api-patient-and-population-services#ccg). For more information, visit [SMART on FHIR(Enhanced) Documentation](smart-on-fhir.md).
+Yes, SMART on FHIR capability is supported using [AHDS samples](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/blob/main/samples/patientandpopulationservices-smartonfhir-oncg10-smart-v1/docs/deployment.md). This is referred to as SMART on FHIR(Enhanced). SMART on FHIR(Enhanced) can be considered to meet requirements with [SMART on FHIR Implementation Guide (v 1.0.0)](https://hl7.org/fhir/smart-app-launch/1.0.0/) and [§170.315(g)(10) Standardized API for patient and population services criterion](https://www.healthit.gov/test-method/standardized-api-patient-and-population-services#ccg). For more information, visit [SMART on FHIR(Enhanced) Documentation](smart-on-fhir.md).
 
 
 ### Can I create a custom FHIR resource?

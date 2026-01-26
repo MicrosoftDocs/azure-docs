@@ -18,6 +18,12 @@ This article provides the release notes for Azure Migrate application and code a
 
 ## Release history
 
+### 7.7.0.8
+
+This release contains the following features:
+- Added incremental report generation support.
+- Improved performance for builtin rules.
+
 ### 7.7.0.7
 
 This release contains the following fixes and enhancements:

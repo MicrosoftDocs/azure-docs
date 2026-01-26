@@ -88,19 +88,18 @@ Example /22 CIDR network address block **10.31.0.0/22** is divided into the foll
 | :-- | :-- | :-- | :-- |
 |VMware NSX Network | /27 | NSX Manager network. | 10.31.0.0/27 |
 |vCSA Network | /27 | vCenter Server network. | 10.31.0.32/27  |
-|avs-mgmt| /27 | The management appliances (vCenter Server and NSX manager) are behind the "avs-mgmt” subnet, programmed as secondary IP ranges on this subnet. | 10.31.0.64/27  |
-|avs-vnet-sync| /27 | Used by Azure VMware Solution Gen 2 to program routes created in VMware NSX into the virtual network. | 10.31.0.96/27 |
-|avs-services | /27 | Used for Azure VMware Solution Gen 2 provider services. Also used to configure private DNS resolution for your private cloud. | 10.31.0.160/27  |
+|avs-mgmt| /27 |The management appliances (vCenter Server and NSX manager) are behind the "avs-mgmt” subnet, programmed as secondary IP ranges on this subnet. | 10.31.0.64/27  |
+|avs-vnet-sync| /27 |Used by Azure VMware Solution Gen 2 to program routes created in VMware NSX into the virtual network. | 10.31.0.96/27 |
+|avs-services | /27 |Used for Azure VMware Solution Gen 2 provider services. Also used to configure private DNS resolution for your private cloud. | 10.31.0.160/27  |
 |avs-nsx-gw, avs-nsx-gw-1| /28 |Subnets off each of the T0 Gateways per edge. These subnets are used to program VMware NSX network segments as secondary IPs addresses. | 10.31.0.224/28, 10.31.0.240/28 |
-|esx-mgmt-vmk1 | /24 | vmk1 is the management interface used by customers to access the host. IPs from the vmk1 interface come from these subnets. All of the vmk1 traffic for all hosts comes from this subnet range. | 10.31.1.0/24  |
+|esx-mgmt-vmk1 | /24 |vmk1 is the management interface used by customers to access the host. IPs from the vmk1 interface come from these subnets. All of the vmk1 traffic for all hosts comes from this subnet range. | 10.31.1.0/24  |
 |esx-vmotion-vmk2 | /24 | vMotion VMkernel interfaces. | 10.31.2.0/24  |
 |esx-vsan-vmk3  | /24 | vSAN VMkernel interfaces and node communication. | 10.31.3.0/24 |
-|VMware HCX Network | /22 | VMware HCX Network | 10.31.4.0/22  |
 |Reserved | /27 | Reserved Space. | 10.31.0.128/27 |
 |Reserved | /27 | Reserved Space. | 10.31.0.192/27 |
 
 > [!Note]
-> For Azure VMware Solution Gen 2 deployments, customers must now allocate an additional /22 subnet for HCX management and uplink, in addition to the /22 entered during SDDC deployment. This additional /22 is not required for Gen 1.
+> For Azure VMware Solution Gen 2 deployments, customers must now allocate an two additional /24 subnets for HCX management and uplink, in addition to the /22 entered during SDDC deployment. These additional /24s are not required for Gen 1.
 
 ## Next steps
 
