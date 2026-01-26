@@ -73,7 +73,7 @@ To create and run a MySQL assessment, follow these steps:
 
    | **Setting** | **Details** |
    | --- | --- |
-   | **Service Tier** | Choose the most appropriate service tier option to accommodate your business needs for migration to Azure Database for MySQL. <br/><br> By default, all three service tiers are selected. As per the assessment report,  we recommend the best suited service tier for your servers based on your Environment Type and the collected performance data. <br/><br> - Select only *General Purpose* if you want an Azure Database for MySQL configuration designed for business workloads that require balanced computing and memory with scalable I/O throughput. <br/><br> - Select only *Business Critical* if you want an Azure Database for MySQL configuration designed for high-performance database workloads that require in-memory performance for faster transaction processing and higher concurrency.
+   | **Service Tier** | Choose the most appropriate service tier option to accommodate your business needs for migration to Azure Database for MySQL. <br/><br> By default, all three service tiers are selected. As per the assessment report,  we recommend the best suited service tier for your servers based on your Environment Type and the collected performance data. <br/><br> - Select only *General Purpose* if you want an Azure Database for MySQL configuration designed for business workloads that require balanced computing and memory with scalable I/O throughput. <br/><br> - Select only *Memory-Optimized* if you want an Azure Database for MySQL configuration designed for high-performance database workloads that require in-memory performance for faster transaction processing and higher concurrency.
 
 1. Select **OK**.
 

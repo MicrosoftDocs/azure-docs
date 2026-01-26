@@ -25,7 +25,7 @@ You also have the option of deploying a private DNS for your Container Apps envi
 #### Create a virtual network
 
 > [!NOTE]
-> To use a VNet with Container Apps, the VNet must have a dedicated subnet with a CIDR range of `/23` or larger when using the Consumption only environment, or a CIDR range of `/27` or larger when using the workload profiles environment. To learn more about subnet sizing, see the [networking architecture overview](./custom-virtual-networks.md#subnet).
+> To use a VNet with Container Apps, the VNet must have a dedicated subnet with a CIDR range of `/27` or larger when using the default workload profiles environment, or a CIDR range of `/23` or larger when using the legacy Consumption only environment. To learn more about subnet sizing, see the [networking architecture overview](./custom-virtual-networks.md#subnet).
 
 1. Select the **Networking** tab.
 1. Select **Yes** next to *Use your own virtual network*.
@@ -348,7 +348,10 @@ New-AzPrivateDnsRecordSet @DnsRecordArgs
 
 #### Networking parameters
 
-When using the Consumption-only environment, there are three optional networking parameters you can choose to define when calling `containerapp env create`. Use these options when you have a peered VNet with separate address ranges. Explicitly configuring these ranges ensures the addresses used by the Container Apps environment don't conflict with other ranges in the network infrastructure.
+When using the legacy Consumption-only environment, there are three optional networking parameters you can choose to define when calling `containerapp env create`. Use these options when you have a peered VNet with separate address ranges. Explicitly configuring these ranges ensures the addresses used by the Container Apps environment don't conflict with other ranges in the network infrastructure.
+
+> [!NOTE]
+> These parameters are only applicable to the legacy Consumption-only environment type. The default workload profiles environment type does not require these parameters.
 
 You must either provide values for all three of these properties, or none of them. If they aren’t provided, the values are generated for you.
 

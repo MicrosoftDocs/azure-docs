@@ -20,7 +20,7 @@ Azure Container Apps features two different environment types.
 | Name | Identifier | Is default | Notes |
 |---|---|---|---|
 | Workload profiles | v2 | Yes | This article explains the details surrounding the default *Workload profiles (v2)* environment type. |
-| Consumption-only | v1 | No | For more detail on the *Consumption-only (v1)* environment type, see [Consumption-only environment type](environment-type-consumption-only.md). |
+| Consumption-only | v1 | No | The legacy *Consumption-only (v1)* environment type is no longer the default. For more detail, see [Consumption-only environment type](environment-type-consumption-only.md). |
 
 The default environment type, **Workload profiles (v2)** environment allows you to use different compute profiles, known as *workload profiles*. Each profile features different amounts of compute resources, and is tailored specifically to meet your app's needs.
 
@@ -84,7 +84,7 @@ Yes, but there are some distinctions between how the consumption plan operates a
 
 ### I need consumption pricing. Should I use a Consumption-only (v1) environment, or a Workload profiles (v2) environment with the consumption profile?
 
-If you need the features of a consumption model, and you're creating a new Azure Container Apps environment, use the Workload profiles (v2) environment with the consumption profile. This approach gives you the flexibility to add dedicated resources to your environment should you need them in the future.
+Use the Workload profiles (v2) environment with the consumption profile. This is now the default environment type when creating new Container Apps environments. This approach gives you the flexibility to add dedicated resources to your environment should you need them in the future, along with access to improved networking features.
 
 ## Related content
 

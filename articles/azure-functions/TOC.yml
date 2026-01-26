@@ -624,6 +624,12 @@
         href: python-scale-performance-reference.md
       - name: Memory profiling
         href: python-memory-profiler-reference.md
+- name: AI
+  items: 
+  - name: Azure MCP server for Azure Functions
+    href: /azure/developer/azure-mcp-server/services/azure-mcp-server-for-functions?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
+  - name: GitHub Copilot for Azure
+    href: /azure/developer/github-copilot-azure?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
 - name: Migration guides
   items:
   - name: Migrate from AWS Lambda

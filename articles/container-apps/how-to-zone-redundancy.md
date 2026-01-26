@@ -53,7 +53,7 @@ Zone redundancy requires a virtual network with an infrastructure subnet.  You c
     When using these commands, replace the `<PLACEHOLDERS>` with your values.
     
     >[!NOTE]
-    > The Consumption only environment requires a dedicated subnet with a CIDR range of `/23` or larger. The workload profiles environment requires a dedicated subnet with a CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](../container-apps/custom-virtual-networks.md#subnet).
+    > The default workload profiles environment requires a dedicated subnet with a CIDR range of `/27` or larger. The legacy Consumption only environment requires a dedicated subnet with a CIDR range of `/23` or larger. To learn more about subnet sizing, see the [networking architecture overview](../container-apps/custom-virtual-networks.md#subnet).
     
     
     ```azurecli-interactive
@@ -96,8 +96,8 @@ Zone redundancy requires a virtual network with an infrastructure subnet.  You c
     When using these commands, replace the `<PLACEHOLDERS>` with your values.
     
     >[!NOTE]
-    > The Consumption only environment requires a dedicated subnet with a CIDR range of `/23` or larger. The workload profiles environment requires a dedicated subnet with a CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](../container-apps/custom-virtual-networks.md#subnet).
-    
+    > The default workload profiles environment requires a dedicated subnet with a CIDR range of `/27` or larger. The legacy Consumption only environment requires a dedicated subnet with a CIDR range of `/23` or larger. To learn more about subnet sizing, see the [networking architecture overview](../container-apps/custom-virtual-networks.md#subnet).
+
     ```azurepowershell-interactive
     $SubnetArgs = @{
         Name = 'infrastructure-subnet'

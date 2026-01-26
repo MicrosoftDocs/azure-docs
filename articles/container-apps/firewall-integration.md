@@ -22,7 +22,7 @@ In the workload profiles environment, user-defined routes (UDRs) and [securing o
 
 When using an external workload profiles environment, inbound traffic to Azure Container Apps is routed through the public IP that exists in the [managed resource group](./networking.md#ports-and-ip-addresses) rather than through your subnet. This means that locking down inbound traffic via NSG or Firewall on an external workload profiles environment isn't supported. For more information, see [Control outbound traffic with user defined routes](./user-defined-routes.md).
 
-In the Consumption only environment, express routes aren't supported, and custom user-defined routes (UDRs) have limited support. For more information on the level of UDR support available in a Consumption-only environment, see the [FAQ](faq.yml#do-consumption-only-environments-support-custom-user-defined-routes-).
+In the legacy Consumption only environment, express routes aren't supported, and custom user-defined routes (UDRs) have limited support. For more information on the level of UDR support available in a Consumption-only environment, see the [FAQ](faq.yml#do-consumption-only-environments-support-custom-user-defined-routes-).
 
 ## NSG allow rules
 

@@ -1,5 +1,5 @@
 ---
-title: Plan for an Azure Files deployment
+title: Plan for an Azure Files Deployment
 description: Understand how to plan for an Azure Files deployment. You can either direct mount an SMB or NFS file share, or cache SMB file shares on-premises with Azure File Sync.
 author: khdownie
 ms.service: azure-file-storage
@@ -16,7 +16,7 @@ You can deploy [Azure Files](storage-files-introduction.md) in two main ways: by
 
 - **Direct mount of an Azure file share**: Because Azure Files provides either Server Message Block (SMB) or Network File System (NFS) access, you can mount Azure file shares on-premises or in the cloud using the standard SMB or NFS clients available in your OS. Because Azure file shares are serverless, deploying for production scenarios doesn't require managing a file server or NAS device. This means you don't have to apply software patches or swap out physical disks. You can either choose to use Azure classic file shares or Microsoft.FileShares (preview) as your management model.
 
-- **Cache Azure file shares on-premises with Azure File Sync**: [Azure File Sync](../file-sync/file-sync-introduction.md) enables you to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms an on-premises (or cloud) Windows Server into a quick cache of your SMB Azure file share.
+- **Cache Azure file shares on-premises with Azure File Sync** (SMB only): [Azure File Sync](../file-sync/file-sync-introduction.md) enables you to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms an on-premises (or cloud) Windows Server into a quick cache of your SMB Azure file share.
 
 This article primarily addresses deployment considerations for deploying an Azure file share to be directly mounted by an on-premises or cloud client. To plan for an Azure File Sync deployment, see [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md).
 
@@ -144,15 +144,17 @@ With both SMB and NFS file shares, Azure Files offers enterprise-grade file shar
 
 ## Identity
 
-To access an Azure file share, the user of the file share must be authenticated and authorized to access the share. This is done based on the identity of the user accessing the file share. Azure Files supports the following methods of authentication:
+To access an Azure file share, the user must be authenticated and authorized to access the share. In nearly all cases, we recommend using [identity-based authentication](storage-files-active-directory-overview.md) instead of the storage account key to access SMB Azure file shares.
+
+Azure Files supports the following methods of authentication for SMB shares:
 
 - **On-premises Active Directory Domain Services (AD DS, or on-premises AD DS)**: Azure storage accounts can be domain joined to a customer-owned Active Directory Domain Services, just like a Windows Server file server or NAS device. You can deploy a domain controller on-premises, in an Azure VM, or even as a VM in another cloud provider; Azure Files is agnostic to where your domain controller is hosted. Once a storage account is domain-joined, the end user can mount a file share with the user account they signed into their PC with. AD-based authentication uses the Kerberos authentication protocol.
 - **Microsoft Entra Domain Services**: Microsoft Entra Domain Services provides a Microsoft-managed domain controller that can be used for Azure resources. Domain joining your storage account to Microsoft Entra Domain Services provides similar benefits to domain joining it to a customer-owned AD DS. This deployment option is most useful for application lift-and-shift scenarios that require AD-based permissions. Because Microsoft Entra Domain Services provides AD-based authentication, this option also uses the Kerberos authentication protocol.
 - **Microsoft Entra Kerberos**: Microsoft Entra Kerberos allows you to use Microsoft Entra ID to authenticate [hybrid](../../active-directory/hybrid/whatis-hybrid-identity.md) or cloud-only identities (preview). This configuration uses Microsoft Entra ID to issue Kerberos tickets to access the file share with the SMB protocol. This means your end users can access Azure file shares over the internet from Microsoft Entra hybrid joined and Microsoft Entra joined VMs.
 - **Active Directory authentication over SMB for Linux clients**: Azure Files supports identity-based authentication over SMB for Linux clients using the Kerberos authentication protocol through either AD DS or Microsoft Entra Domain Services.
-- **Azure storage account key**: Although it's not recommended for security reasons, you can also mount Azure file shares using an Azure storage account key instead of using an identity. To mount a file share using the storage account key, the storage account name is used as the username and the storage account key is used as a password. Using the storage account key to mount the Azure file share is effectively an administrator operation, because the mounted file share has full permissions to all of the files and folders on the share, even if they have ACLs. When using the storage account key to mount over SMB, the NTLMv2 authentication protocol is used. In nearly all cases, we recommend using [identity-based authentication](storage-files-active-directory-overview.md) instead of the storage account key to access SMB Azure file shares. However, if you must use the storage account key, we recommend using private endpoints or service endpoints as described in the [Networking](#networking) section.
+- **Azure storage account key**: Although it's not recommended for security reasons, you can also mount Azure file shares using an Azure storage account key instead of using an identity. To mount a file share using the storage account key, the storage account name is used as the username and the storage account key is used as a password. Using the storage account key to mount the Azure file share is effectively an administrator operation, because the mounted file share has full permissions to all of the files and folders on the share, even if they have ACLs. When using the storage account key to mount over SMB, the NTLMv2 authentication protocol is used. If you must use the storage account key, we recommend using private endpoints or service endpoints as described in the [Networking](#networking) section.
 
-For customers migrating from on-premises file servers or creating new file shares in Azure Files intended to behave like Windows file servers or NAS appliances, domain joining your storage account to **Customer-owned AD DS** is recommended. To learn more about domain joining your storage account to a customer-owned AD DS, see [Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares](storage-files-identity-ad-ds-overview.md).
+For customers migrating from on-premises file servers or creating new file shares in Azure Files intended to behave like Windows file servers or NAS appliances, we recommend domain joining your storage account to the customer-owned AD DS. To learn more, see [Overview - on-premises AD DS authentication over SMB for Azure file shares](storage-files-identity-ad-ds-overview.md).
 
 ## Networking
 
@@ -244,13 +246,16 @@ In the case of an unplanned regional service outage, you should have a disaster 
 
 ## Migration
 
-In many cases, you won't be establishing a net new file share for your organization, but instead migrating an existing file share from an on-premises file server or NAS device to Azure Files. Picking the right migration strategy and tool for your scenario is important for the success of your migration.
+In many cases, you won't be establishing a net new file share for your organization, but instead migrating an existing file share from an on-premises file server or NAS device to Azure Files. Picking the right migration strategy and tool is important for the success of your migration.
 
-The [migration overview article](storage-files-migration-overview.md) briefly covers the basics and contains a table that leads you to migration guides that likely cover your scenario.
+For SMB migrations, see [SMB migration overview](storage-files-migration-overview.md) which contains a table that leads you to migration guides that likely cover your scenario.
+
+For NFS migrations, see [Migrate to NFS Azure file shares](storage-files-migration-nfs.md).
 
 ## Next steps
 
 - [Planning for an Azure File Sync Deployment](../file-sync/file-sync-planning.md)
 - [Deploying Azure Files](./storage-how-to-create-file-share.md)
 - [Deploying Azure File Sync](../file-sync/file-sync-deployment-guide.md)
-- [Check out the migration overview article to find the migration guide for your scenario](storage-files-migration-overview.md)
+
+

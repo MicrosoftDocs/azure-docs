@@ -18,7 +18,7 @@ Environments include the following features:
 
 | Feature | Description |
 |---|---|
-| Type | There are [two different types](#types) of Container Apps environments: Workload profiles environments and Consumption only environments. Workload profiles environments support both the Consumption and Dedicated [plans](plans.md) whereas Consumption only environments support only the Consumption [plan](plans.md). |
+| Type | There are [two different types](#types) of Container Apps environments: Workload profiles environments (the default) and Consumption only environments (legacy). Workload profiles environments support both the Consumption and Dedicated [plans](plans.md) whereas Consumption only environments support only the Consumption [plan](plans.md). |
 | Virtual network | A virtual network supports each environment, which enforces the environment's secure boundaries. As you create an environment, a virtual network with [limited network capabilities](networking.md) is created for you, or you can provide your own. Adding an [existing virtual network](vnet-custom.md) gives you fine-grained control over your network. |
 | Multiple container apps | When multiple container apps are in the same environment, they share the same virtual network and write logs to the same logging destination. |
 | Multi-service integration | You can add [Azure Functions](../container-apps/functions-overview.md) and [Azure Spring Apps](https://aka.ms/asaonaca) to your Azure Container Apps environment. |
@@ -49,8 +49,8 @@ Use more than one environment when you want two or more applications to:
 
 | Type | Description | Plan | Billing considerations |
 |--|--|--|--|
-| Workload profile | Run serverless apps with support for scale-to-zero and pay only for resources your apps use with the consumption profile. You can also run apps with customized hardware and increased cost predictability by using dedicated workload profiles. | Consumption and Dedicated | You can choose to run apps under either or both plans by using separate workload profiles. The Dedicated plan has a fixed plan management cost for the entire environment regardless of how many workload profiles you're using. The Dedicated plan also has a variable cost based on the number of workload profile instances and the resources allocated to each instance. For more information, see [Billing](billing.md#dedicated-plan). |
-| Consumption only | Run serverless apps with support for scale-to-zero and pay only for resources your apps use. | Consumption only | Billed only for individual container apps and their resource usage. There's no cost associated with the Container Apps environment. |
+| Workload profile (default) | Run serverless apps with support for scale-to-zero and pay only for resources your apps use with the consumption profile. You can also run apps with customized hardware and increased cost predictability by using dedicated workload profiles. | Consumption and Dedicated | You can choose to run apps under either or both plans by using separate workload profiles. The Dedicated plan has a fixed plan management cost for the entire environment regardless of how many workload profiles you're using. The Dedicated plan also has a variable cost based on the number of workload profile instances and the resources allocated to each instance. For more information, see [Billing](billing.md#dedicated-plan). |
+| Consumption only (legacy) | Run serverless apps with support for scale-to-zero and pay only for resources your apps use. | Consumption only | Billed only for individual container apps and their resource usage. There's no cost associated with the Container Apps environment. |
 
 ## Logs
 

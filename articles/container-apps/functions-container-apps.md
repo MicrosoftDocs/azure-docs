@@ -64,10 +64,10 @@ Use these commands to create your required Azure resources:
  
     This `az group create` command creates a resource group in the East US region. If you instead want to use a region near you, using an available region code returned from the `az account list-locations` command. You must modify subsequent commands to use your custom region instead of `eastus`.
 
-1. Create Azure Container App environment with workload profiles enabled.
+1. Create an Azure Container Apps environment.
 
     ```azurecli
-    az containerapp env create --name MyContainerappEnvironment --enable-workload-profiles --resource-group AzureFunctionsContainers-rg --location eastus
+    az containerapp env create --name MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --location eastus
     ```
     This command can take a few minutes to complete.
 

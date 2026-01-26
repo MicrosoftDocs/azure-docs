@@ -387,6 +387,8 @@
     href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Monitoring & maintenance
   items:
+  - name: Getting Started with Troubleshooting Virtual WAN 
+    href: virtual-wan-troubleshooting-overview.md
   - name: Monitor Virtual WAN
     href: monitor-virtual-wan.md
   - name: Azure Monitor Insights

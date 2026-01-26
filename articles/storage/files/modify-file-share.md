@@ -462,6 +462,8 @@ az storage share-rm delete \
 > [!NOTE]
 > File share with Microsoft.FileShares is currently in preview. You may use the Azure portal, or you can use generic PowerShell or Azure CLI commands to work with file shares. If you want to try the CLI private package for Microsoft.FileShares resource provider, fill out this [survey](https://forms.microsoft.com/r/nEGcB0ccaD).
 
+Reminder: Before deleting your file share with Microsoft.FileShares, make sure to delete its associated private endpoint. File share deletion will fail if the private endpoint is still present.
+
 # [Portal](#tab/azure-portal)
 
 To delete a file share (Microsoft.FileShares) using the Azure portal, follow these steps.

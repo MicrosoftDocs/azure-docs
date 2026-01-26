@@ -1,6 +1,6 @@
 ---
-title: Consumption-only environment type in Azure Container Apps
-description: Learn about features and billing considerations for Consumption-only environment types in Azure Container Apps. 
+title: Consumption-only environment type in Azure Container Apps (legacy)
+description: Learn about features and billing considerations for the legacy Consumption-only environment type in Azure Container Apps. 
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
@@ -9,7 +9,10 @@ ms.date: 02/05/2025
 ms.author: cshoe
 ---
 
-# Consumption-only environment type in Azure Container Apps
+# Consumption-only environment type in Azure Container Apps (legacy)
+
+> [!NOTE]
+> The Consumption-only environment type is a legacy option. For new Container Apps environments, the *Workload profiles (v2)* environment type is the default and recommended choice.
 
 In Azure Container Apps, there are two environment types which determine what features are available to your applications.
 
@@ -17,7 +20,7 @@ The Consumption-only environment runs your application using compute resources e
 
 This article explains features of the *Consumption-only (v1)* environment type. For more information on the default *Workload profiles (v2)* environment type, see [Compute and billing structures in Azure Container Apps](structure.md).
 
-While Consumption-only environments are an option, for new Container Apps environments that need the consumption model, creating a *Workload profiles v2* environment with the built-in [consumption workload profile](./structure.md#workload-profiles) is recommended.
+While Consumption-only environments are still an option, the *Workload profiles (v2)* environment type is now the default when creating new Container Apps environments. For environments that need the consumption model, the built-in [consumption workload profile](./structure.md#workload-profiles) in a *Workload profiles v2* environment is recommended.
 
 The Consumption-only environment type works on the consumption plan. Apps running in the Consumption-only have access to 4 vCPUs with 8 GB of memory. There's no access to GPUs in a Consumption-only environment.
 
@@ -33,7 +36,7 @@ Yes, but there are some distinctions between how the consumption plan operates a
 
 ### I need consumption pricing. Should I use a Consumption-only (v1) environment, or a Workload profiles (v2) environment with the consumption profile?
 
-If you need the features of a consumption model, and you're creating a new Azure Container Apps environment, use the *Workload profiles (v2)* environment with the consumption profile. Using this approach gives you the flexibility to add dedicated resources to your environment should you need them in the future.
+Use the *Workload profiles (v2)* environment with the consumption profile. This the default environment type when creating new Container Apps environments. This approach gives you the flexibility to add dedicated resources to your environment should you need them in the future, along with access to improved networking features.
 
 ## Related content
 

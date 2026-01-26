@@ -81,6 +81,11 @@ For more information, see [What is Azure Private Link?](../private-link/private-
 
 For more information, see [How to configure private endpoints for a Service Bus namespace](private-link-service.md)
 
+## Network security perimeter
+
+Another way to secure your Service Bus namespace is to include it in a network security perimeter. A network security perimeter establishes a logical boundary for PaaS resources, restricting communication to resources within the perimeter and controlling public access through explicit rules. This can be particularly useful when you want to establish a security boundary around Service Bus and other PaaS resources like Azure Key Vault.
+
+For more information, see [Network security perimeter for Azure Service Bus](network-security-perimeter.md).
 
 ## Next steps
 See the following articles:
