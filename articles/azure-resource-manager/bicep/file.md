@@ -3,7 +3,7 @@ title: Bicep file structure and syntax
 description: Understand how to use declarative syntax to understand the structure and properties of Bicep files.
 ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 07/25/2025
+ms.date: 01/13/2026
 ---
 
 # Bicep file structure and syntax
@@ -462,32 +462,6 @@ The following example shows a multiline comment.
   is in same subscription and resource group as the deployment.
 */
 param existingKeyVaultName string
-```
-
-## Multi-line strings
-
-You can break a string into multiple lines. Use three single quotation marks `'''` to start and end the multi-line string.
-
-Characters within the multi-line string are handled as is. Escape characters are unnecessary. You can't include `'''` in the multi-line string. String interpolation isn't currently supported.
-
-You can start your string right after the opening `'''`, or include a new line. In either case, the resulting string doesn't include a new line. Depending on the line endings in your Bicep file, new lines are interpreted as `\r\n` or `\n`.
-
-The following example shows a multi-line string.
-
-```bicep
-var stringVar = '''
-this is multi-line
-  string with formatting
-  preserved.
-'''
-```
-
-The preceding example is equivalent to the following JSON:
-
-```json
-"variables": {
-  "stringVar": "this is multi-line\r\n  string with formatting\r\n  preserved.\r\n"
-}
 ```
 
 ## Multiple-line declarations

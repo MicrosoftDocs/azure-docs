@@ -14,7 +14,7 @@ Use the Azure CLI commands to create an IoT Hub with ADR integration and certifi
 
 The setup process in this article includes the following steps:
 
-1. Create a resource group
+1. Create a resource group in a [supported region](..\articles\iot-hub\iot-hub-what-is-new.md#supported-regions)
 1. Configure the necessary app privileges
 1. Create a user-assigned managed identity
 1. Create an ADR namespace with system-assigned managed identity
@@ -49,7 +49,7 @@ To prepare your environment to use Azure Device Registry, complete the following
 
 To create a resource group, role, and permissions for your IoT solution, complete the following steps:
 
-1. Create a resource group for your environment.
+1. Create a resource group for your environment in a [supported region](..\articles\iot-hub\iot-hub-what-is-new.md#supported-regions).
 
     ```azurecli-interactive
     az group create --name <RESOURCE_GROUP_NAME> --location <REGION>

@@ -7,7 +7,7 @@ ms.author: cwatson
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: overview
-ms.date: 12/19/2025
+ms.date: 01/27/2025
 ms.custom: references_regions
 #Customer intent: As a developer new to IoT Hub, I want to understand the new features and improvements in Azure IoT Hub.
 ---
@@ -42,7 +42,7 @@ For more information, see [Azure IoT Hub Device Provisioning Service (DPS)](../i
 
 ## Supported regions
 
-Integration of IoT Hub with Azure Device Registry and certificate management is in preview and currently supported in the following regions:
+To use IoT Hub with Azure Device Registry and certificate management, deploy instances of IoT Hub, Azure Device Registry, and Device Provisioning Service in one of the following supported regions:
 
 - East US
 - East US 2

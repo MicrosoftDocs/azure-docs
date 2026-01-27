@@ -11,7 +11,7 @@ ms.custom:
 ---
 
 
-# Network security perimeter for Azure Service Bus
+# Network security perimeter for Azure Service Bus (public preview)
 
 [Azure Service Bus](./service-bus-messaging-overview.md) supports integration with [network security perimeter](../private-link/network-security-perimeter-concepts.md).
 
@@ -34,7 +34,9 @@ Azure Service Bus supports scenarios that require access to other PaaS resources
 - **Customer-managed keys (CMK)** require communication with Azure Key Vault. For more information, see [Configure customer-managed keys for encrypting Azure Service Bus data at rest](configure-customer-managed-key.md).
 
 > [!NOTE]
+> - Network security perimeter is currently in public preview.
 > - Network security perimeter doesn't support [Azure Service Bus Geo-Disaster Recovery](./service-bus-geo-dr.md).
+> - Network security perimeter currently doesn't support [Azure Service Bus Geo-Replication](./service-bus-geo-replication.md).
 > - Network security perimeter rules don't govern private link traffic through [private endpoints](../private-link/private-endpoint-overview.md).
 
 ## Create a network security perimeter

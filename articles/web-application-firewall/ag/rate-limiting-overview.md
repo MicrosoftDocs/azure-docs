@@ -30,6 +30,8 @@ The following three *GroupByVariables* are currently available:
 - ***ClientAddr*** – This is the default setting and it means that each rate limit threshold and mitigation applies independently to every unique source IP address.
 - ***GeoLocation*** - Traffic is grouped by their geography based on a Geo-Match on the client IP address. So for a rate limit rule, traffic from the same geography is grouped together.
 - ***None*** - All traffic is grouped together and counted against the threshold of the Rate Limit rule. When the threshold is breached, the action triggers against all traffic matching the rule and doesn't maintain independent counters for each client IP address or geography. It's recommended to use *None* with specific match conditions such as a sign-in page or a list of suspicious User-Agents.
+- ***ClientAddrXFFHeader*** - Each rate limit threshold and mitigation applies independtly based on the IP Address found in the X-Forwarded-For header of the HTTP Request
+- ***GeoLocationXFFHeader*** - Traffic is grouped by their geography based on a Geo-Match on the IP address found in the X-Forwarded-For header of the HTTP Request. For a rate limit rule, traffic from the same geography is grouped together.
 
 ## Rate limiting details
 
@@ -37,7 +39,7 @@ The configured rate limit thresholds are counted and tracked independently for e
 
 The rate limit thresholds aren't always enforced exactly as defined, so it shouldn't be used for fine-grain control of application traffic. Instead, it's recommended for mitigating anomalous rates of traffic and for maintaining application availability.
 
-The  sliding window algorithm blocks all matching traffic for the first window in which the threshold is exceeded, and then throttles traffic in future windows. Use caution when defining thresholds for configuring wide-matching rules with either *GeoLocation* or *None* as the *GroupByVariables*. Incorrectly configured thresholds could lead to frequent short outages for matching traffic.
+The  sliding window algorithm blocks all matching traffic for the first window in which the threshold is exceeded, and then throttles traffic in future windows. Use caution when defining thresholds when configuring wide-matching rules with either *GeoLocation* or *None* as the *GroupByVariables*. Incorrectly configured thresholds could lead to frequent short outages for matching traffic.
 
 ## Next step
 

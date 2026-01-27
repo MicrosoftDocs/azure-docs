@@ -86,10 +86,12 @@ This example shows a dev box customization file that uses an existing WinGet Des
 
 
 ```yml
-tasks:
-    - name: winget
-      parameters:
-          configure: "projectConfiguration.dsc.yaml"
+$schema: "1.0"
+name: "devbox-customization"
+userTasks:
+  - name: ~/winget
+    parameters:
+      configure: "projectConfiguration.dsc.yaml"
 ```
 
 

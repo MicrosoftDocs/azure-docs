@@ -4,5 +4,11 @@ items:
   topicHref: /azure/index
   items:
   - name: Azure Functions
-    tocHref: /azure/azure-functions
+    tocHref: /azure/azure-functions/
+    topicHref: /azure/azure-functions/index
+  - name: Azure Functions
+    tocHref: /azure/developer/
+    topicHref: /azure/azure-functions/index
+  - name: Azure Functions
+    tocHref: /azure/reliability/
     topicHref: /azure/azure-functions/index
