@@ -36,6 +36,7 @@ During maintenance events on Virtual WAN infrastructure, backend instances are r
 To mitigate the impact of maintenance and scale-out events on Private Link or Private Endpoint traffic consider the following best practices:
 
 * Configure the TCP timeout value of any application (whether hosted on premises or in another Azure Virtual Network) that is accessing the Private Link/Private Endpoint to fall between 15-30 seconds. A smaller TCP timeout value allows application traffic to recover more quickly from maintenance and scale-out events. Alternatively, test different application timeout values to determine a suitable timeout based on your requirements.
+* When an active TCP flow accessing Private Link resource is impacted by a Virtual WAN maintenance event, Azure's underlying infrastructure sends a TCP Reset (RST) to the client application that initiatd the flow. Ensure the client application properly handles TCP RST and establishes a new TCP session to ensure faster recovery.
 * Pre-scale Virtual WAN components to handle traffic bursts to prevent autoscale events from occurring. For the Virtual Hub router, you can set the minimum routing infrastructure units on your hub router to prevent scaling during traffic bursts.
 
 Lastly, if you're using on-premises connectivity between Azure and on-premises using VPN or ExpressRoute, ensure your on-premises device is configured to use the same VPN tunnel or same Microsoft Enterprise Edge router as the next-hop for each 5-tuple corresponding to private endpoint traffic.

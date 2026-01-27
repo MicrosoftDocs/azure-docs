@@ -144,7 +144,7 @@ One deploy is the only deployment technology supported for apps on a [Flex Consu
 >__Where app content is stored:__ When you create a Flex Consumption function app, you specify a [deployment storage container](functions-infrastructure-as-code.md?pivots=flex-consumption-plan#deployment-sources). This blob container is where your tools upload the app content you deployed. To change the location, you can visit the Deployment Settings blade in the Azure portal or use the [Azure CLI](flex-consumption-how-to.md#configure-deployment-settings).
 
 > [!TIP]
-> A **Flex Function App deployment details** diagnostic tool is available in the Azure portal. Open your Flex Consumption app, select **Diagnose and solve problems**, and search for `Flex Function App deployment details`. This tool displays detailed information about your deployments, including deployment history, package status, and troubleshooting recommendations.
+> A **Flex Consumption Deployment** diagnostic tool is available in the Azure portal. Open your Flex Consumption app, select **Diagnose and solve problems**, and search for `Flex Consumption Deployment`. This tool displays detailed information about your deployments, including deployment history, package status, and troubleshooting recommendations.
 
 ### Zip deploy
 

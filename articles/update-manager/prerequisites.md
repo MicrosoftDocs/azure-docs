@@ -26,6 +26,25 @@ To use Update Manager for Azure Arc-enabled servers, you must connect those serv
 
 To learn about updates and the update sources, VM images, and Azure regions that are supported for Update Manager, refer to the [support matrix](support-matrix.md).
 
+## Sudo privileges
+
+Update Manager requires a high level of permissions due to the many components that might be updated with Update Manager (including kernel drivers and OS security patching). The Update Manager extensions use the root account for operations. Grant sudo privileges to ensure that assessment or patching operations succeed. You need to add the root account to the /etc/sudoers file. 
+
+1. Open the `sudoers` file for editing:
+
+   ```bash
+   sudo visudo
+   ```
+
+2. Add the following entry to the end of `sudoers` file:
+
+   ```bash
+   root ALL=(ALL) ALL
+   ```
+
+3. Save and close the editor by using the <kbd>Ctrl+X</kbd> keyboard shortcut. If you're using the *vi* editor, you can type `:wq` and then select the <kbd>Enter</kbd> key.
+
+
 ## Roles and permissions
 
 To manage machines from Update Manager, see [Roles and permissions in Azure Update Manager](roles-permissions.md).

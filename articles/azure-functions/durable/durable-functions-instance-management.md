@@ -1176,14 +1176,14 @@ Push-OutputBinding -Name Response -Value $Response
 
 ---
 
-## Rewind instances (preview)
+## Rewind instances
 
 If you have an orchestration failure for an unexpected reason, you can *rewind* the instance to a previously healthy state by using an API built for that purpose.
 
 > [!NOTE]
 > This API is not intended to be a replacement for proper error handling and retry policies. Rather, it is intended to be used only in cases where orchestration instances fail for unexpected reasons. Orchestrations in states other than `Failed` (e.g., `Running`, `Pending`, `Terminated`, `Completed`) cannot be "rewound". For more information on error handling and retry policies, see the [Error handling](durable-functions-error-handling.md) article.
 
-Use the `RewindAsync` (.NET) or `rewind` (JavaScript) method of the [orchestration client binding](durable-functions-bindings.md#orchestration-client) to put the orchestration back into the *Running* state. This method will also rerun the activity or sub-orchestration execution failures that caused the orchestration failure.
+Use the `RewindAsync` (.NET) or `rewind` (JavaScript) method of the orchestration client binding to put the orchestration back into the `Running` state. This method reruns the activity or sub-orchestration execution failures that caused the orchestration failure. The method only attempts to rerun failed activities, either within the parent or failed sub-orchestrations. It doesn't remedy orchestrations that failed for other reasons.
 
 For example, let's say you have a workflow involving a series of [human approvals](durable-functions-overview.md#human). Suppose there are a series of activity functions that notify someone that their approval is needed, and wait out the real-time response. After all of the approval activities have received responses or timed out, suppose that another activity fails due to an application misconfiguration, such as an invalid database connection string. The result is an orchestration failure deep into the workflow. With the `RewindAsync` (.NET) or `rewind` (JavaScript) API, an application administrator can fix the configuration error, and rewind the failed orchestration back to the state immediately before the failure. None of the human-interaction steps need to be re-approved, and the orchestration can now complete successfully.
 

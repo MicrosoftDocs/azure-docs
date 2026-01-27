@@ -30,12 +30,16 @@ items:
             href: troubleshoot-azure-container-apps.md
   - name: Features
     items:
+      - name: Code interpreter
+        href: code-interpreter.md
       - name: Memory system
         href: memory-system.md
       - name: Subagents
         href: subagent-builder-overview.md
       - name: Incident management
         href: incident-management.md
+      - name: Run custom logic
+        href: custom-logic-python.md
   - name: Automation
     items:
       - name: Build a custom subagent

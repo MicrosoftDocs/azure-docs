@@ -2,7 +2,7 @@
 title: Restore Azure Database for PostgreSQL - Flexible servers using  REST API
 description: Learn how to restore Azure Database for PostgreSQL - Flexible servers using REST API.
 ms.topic: concept-article
-ms.date: 02/28/2025
+ms.date: 01/27/2026
 ms.assetid: 759ee63f-148b-464c-bfc4-c9e640b7da6b
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -23,7 +23,7 @@ Before you restore:
 
 Let's use an existing Backup vault `TestBkpVault`, under the resource group `testBkpVaultRG` in the examples.
 
-## Restore a backed-up PostgreSQL database
+## Restore a backed-up PostgreSQL - Flexible Server database
 
 ### Set up permissions
 
@@ -103,7 +103,7 @@ X-Powered-By: ASP.NET
 
 Select the relevant recovery points from the above list and proceed to prepare the restore request. We'll choose a recovery point named *794ead7c7661410da03997d210d469e7* from the above list to restore.
 
-## Prepare the restore request
+## Prepare the restore request for PostgreSQL - Flexible Server
 
 ### Restore as files
 
@@ -224,7 +224,7 @@ X-Powered-By: ASP.NET
 
 ```
 
-## Trigger restore requests
+## Trigger restore requests for PostgreSQL - Flexible Server
 
 The trigger restore operation is a *POST* API. [Learn more](/rest/api/dataprotection/backup-instances/trigger-restore) about the trigger restore operation.
 
@@ -296,11 +296,11 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 
 ```
 
-## Track jobs
+## Track jobs for PostgreSQL - Flexible Server restore 
 
 The *trigger restore requests* trigger the restore job. To track the resultant Job ID, use the [GET Jobs API](/rest/api/dataprotection/jobs/get).
 
-Use the *GET* command to track the `JobId` present in the [trigger restore response above](#trigger-restore-requests).
+Use the *GET* command to track the `JobId` present in the [trigger restore response above](#trigger-restore-requests-for-postgresql---flexible-server).
 
 ```HTTP
  GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupJobs/c4bd49a1-0645-4eec-b207-feb818962852?api-version=2021-07-01

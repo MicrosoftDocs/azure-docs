@@ -73,7 +73,7 @@ The following table lists the fields in the schema and what they signify for vir
 > | **L7Protocol** | Protocol Name | Derived from destination port. |
 > | **FlowDirection**  | - **I** = Inbound <br> - **O** = Outbound | Direction of the flow: in or out of the target resource per flow log. |
 > | **FlowStatus** | - **A** = Allowed <br> - **D** = Denied | Status of flow: allowed or denied by target resource per flow log. |
-> | **AclList** | \<SubscriptionID\>/\<resourcegroup_Name\>/\<NSG_Name\> | Network security group associated with the flow. |
+> | **AclGroup** | \<SubscriptionID\>/\<resourcegroup_Name\>/\<NSG_Name\> | Network security group associated with the flow. |
 > | **AclRule** | NSG_Rule_Name  | Network security group rule that allowed or denied the flow. |
 > | **MACAddress** | MAC Address | MAC address of the NIC at which the flow was captured. |
 > | **SrcSubscription** | Subscription ID | Subscription ID of virtual network / network interface / virtual machine that the source IP in the flow belongs to. |

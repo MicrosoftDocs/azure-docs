@@ -13,7 +13,7 @@ ms.date: 01/26/2025
 
 **Applies to:** :heavy_check_mark: Front Door Standard/Premium :heavy_check_mark: Front Door (classic) :heavy_check_mark: CDN Standard from Microsoft (classic)
 
-On April 1, 2026, Azure Front Door (Standard, Premium, and Classic) and Azure CDN from Microsoft (Classic) services will stop negotiating the following weak DHE cipher suites for both client to service and service to origin TLS connections:
+On April 1, 2026, Azure Front Door (Standard, Premium, and classic) and Azure CDN from Microsoft (classic) services will stop negotiating the following weak DHE cipher suites for both client to service and service to origin TLS connections:
 * TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 * TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 
@@ -45,11 +45,16 @@ For best compatibility and security on Azure Front Door / Azure CDN endpoints an
 
 ## Frequently asked questions
 - Does this affect both client and origin connections?
+    
     Yes. The retirement applies to both the client to service and service to origin legs. Update both sides to avoid issues.
+
 - What if I still need legacy client compatibility?
+    
     Migrate clients to support TLS 1.2/1.3 with ECDHE. If you operate controlled clients, update their TLS policy. 
+
 - Should I make any changes to my Front Door or CDN profiles?
+    
     As an optional measure, for Front Door Standard/Premium profiles, you can also use the [Configure Azure Front Door TLS policy](/azure/frontdoor/standard-premium/tls-policy) feature to disable the DHE ciphers in advance before 1 April 2026. This option isn't available for other tiers.
 
-    For all Front Door (Standard, Premium, Classic) and Azure CDN from Microsoft (Classic) profiles, Microsoft team will disable the DHE ciphers after 1 April 2026.
+    For all Front Door (Standard, Premium, classic) and Azure CDN from Microsoft (classic) profiles, Microsoft team will disable the DHE ciphers after 1 April 2026.
 

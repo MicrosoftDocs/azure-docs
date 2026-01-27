@@ -2,7 +2,7 @@
 title: Manage and monitor SQL Server DBs on an Azure VM
 description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
 ms.topic: how-to
-ms.date: 12/19/2025
+ms.date: 01/27/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -134,7 +134,7 @@ In the vault dashboard, go to **Manage** > **Backup Policies** and choose the po
 
   ![Manage backup policy](./media/backup-azure-sql-database/modify-backup-policy.png)
 
-  ![Modify backup policy](./media/backup-azure-sql-database/modify-backup-policy-impact.png)
+  :::image type="content" source="./media/backup-azure-sql-database/modify-backup-policy-impact.png" alt-text="Screenshot that shows the impact of modifying a backup policy on associated backup items." lightbox="./media/backup-azure-sql-database/modify-backup-policy-impact.png":::
 
 Policy modification will impact all the associated Backup Items and trigger corresponding **configure protection** jobs.
 

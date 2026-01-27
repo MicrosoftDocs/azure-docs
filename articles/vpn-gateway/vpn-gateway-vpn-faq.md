@@ -211,6 +211,9 @@ See the following articles:
 * [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md)
 * [About gateway SKUs](about-gateway-skus.md)
 
+### Is IP fragmentation in site-to-site VPN tunnels supported?
+No. IP fragmentation is not supported for ESP packets or for any packets encapsulated within the site-to-site VPN tunnel.
+
 ## <a name="sku-deprecate"></a>Deprecation of older SKUs
 
 The Standard and High Performance SKUs will be deprecated on September 30, 2025. You can view the announcement on the [Azure Updates site](https://go.microsoft.com/fwlink/?linkid=2255127). The product team will make a migration path available for these SKUs by November 30, 2024. For more information, see the [VPN Gateway legacy SKUs](vpn-gateway-about-skus-legacy.md#sku-deprecation) article.

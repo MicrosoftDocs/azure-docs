@@ -43,7 +43,11 @@ You can use the `nconnect` Linux mount option to improve performance for NFS Azu
 
 ### Default mount instructions
 
+The mount instructions differ depending on whether you created the NFS file share using the Microsoft.Storage resource provider (classic file share) or the Microsoft.FileShares resource provider (preview).
+
 #### Classic NFS file share (Microsoft.Storage)
+
+Follow these steps to mount a classic NFS file share.
 
 1. After you create the file share, select the share and then select **Connect from Linux**.
 1. Enter the mount path you'd like to use, then copy the script and run it on your client. Azure portal offers a step-by-step, ready-to-use installation script tailored to your selected Linux distribution for installing the AZNFS mount helper package and to securely mount the share using [Encryption in Transit](encryption-in-transit-for-nfs-shares.md). Only the required mount options are included in the script, but you can add other [recommended mount options](#mount-options).
@@ -74,7 +78,7 @@ sudo mkdir -p /mount/<YourStorageAccountName>/<FileShareName>
 sudo mount -t nfs <YourStorageAccountName>.file.core.windows.net:/<YourStorageAccountName>/<FileShareName> /mount/<YourStorageAccountName>/<FileShareName> -o vers=4,minorversion=1,sec=sys,nconnect=4
 ```
 
-### [SUSE](#tab/SUSE)
+# [SUSE](#tab/SUSE)
 
 ```bash
 sudo zypper update
@@ -88,14 +92,16 @@ sudo mount -t nfs <YourStorageAccountName>.file.core.windows.net:/<YourStorageAc
 
 #### NFS file share (Microsoft.FileShares)
 
-1. Once the file share is created, select the share and then select **Connect from Linux**.
+Follow these steps to mount a file share created with the Microsoft.FileShares resource provider (preview).
+
+1. After you create the file share, select the share and then select **Connect from Linux**.
 1. Enter the mount path you'd like to use, then copy the script and run it on your client. Azure portal offers a step-by-step, ready-to-use installation script tailored to your selected Linux distribution for installing the AZNFS mount helper package and to securely mount the share using [Encryption in Transit](encryption-in-transit-for-nfs-shares.md). Only the required mount options are included in the script, but you can add other [recommended mount options](#mount-options).
 
    ![image for mount mfs](./media/storage-files-how-to-mount-nfs-shares/file-share-mount-with-encryption-in-transit.png)
 
 ##### Mount an NFS share using the NFS client mount in command line
 
-You can also mount the Azure file share using NFS client mount in command line. Select the tab below for your Linux distribution to see the commands you need to run. Replace `<your-subscription-id>`, `<your-resource-group>` and `<your-file-share-name>` with your information.
+You can also mount the file share using NFS client mount in command line. Select the tab below for your Linux distribution to see the commands you need to run. Replace `<your-subscription-id>`, `<your-resource-group>` and `<your-file-share-name>` with your information.
 
 ```bash
 # Customize these placeholders:
@@ -134,7 +140,7 @@ sudo mkdir -p /mount/<your-file-share-name>
 sudo mount -t nfs $hostName:/$shortName/<your-file-share-name> /mount/<your-file-share-name> -o vers=4,minorversion=1,sec=sys
 ```
 
-### [SUSE](#tab/SUSE)
+# [SUSE](#tab/SUSE)
 
 ```bash
 sudo zypper update
@@ -213,11 +219,11 @@ The following mount options are recommended or required when mounting NFS Azure 
 
 ## Validate connectivity
 
-If your mount fails, it's possible that your private endpoint wasn't set up correctly or isn't accessible. For details on confirming connectivity, see [Verify connectivity](storage-files-networking-endpoints.md#verify-connectivity).
+If your mount fails, it's possible that your private endpoint wasn't set up correctly or isn't accessible. For details, see [Verify connectivity](storage-files-networking-endpoints.md#verify-connectivity).
 
 ## NFS file share snapshots
 
-Customers using NFS Azure file shares can take file share snapshots. This capability allows users to roll back entire file systems or recover files that were accidentally deleted or corrupted. See [Use share snapshots with Azure Files](storage-snapshots-files.md#nfs-file-share-snapshots).
+Customers using NFS Azure file shares can take file share snapshots. This capability allows users to roll back entire file systems or recover files that are accidentally deleted or corrupted. See [Use share snapshots with Azure Files](storage-snapshots-files.md#nfs-file-share-snapshots).
 
 ## Next step
 

@@ -175,14 +175,14 @@ sections:
         imageUrl: images/adopt-azure.png
         links:
           - componentType: link
-            text: Prepare your Azure environment for migration
-            url: /azure/cloud-adoption-framework/migrate/prepare/ready-azure-landing-zone
+            text: Plan for cloud adoption
+            url: /azure/cloud-adoption-framework/plan/prepare-organization-for-cloud
           - componentType: link
-            text: Assess workload readiness and classification
-            url: /azure/cloud-adoption-framework/migrate/assess/classify
+            text: Ready your environment
+            url: /azure/cloud-adoption-framework/ready/
           - componentType: link
-            text: Deploy Azure services for migration
-            url: /azure/cloud-adoption-framework/migrate/deploy/
+            text: Plan for migration
+            url: /azure/cloud-adoption-framework/migrate/plan-migration
       - componentType: card
         title: Design and govern for Azure
         summary: ""

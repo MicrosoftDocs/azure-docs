@@ -3,7 +3,7 @@ title: Quick start - Back up Azure Database for PostgreSQL server
 description: In this quickstart, learn how to back up Azure Database for PostgreSQL server to an Azure Backup Vault.
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
-ms.date: 01/21/2026
+ms.date: 01/27/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -39,7 +39,7 @@ You can configure backup on multiple databases across multiple Azure PostgreSQL 
 
    :::image type="content" source="./media/backup-azure-database-postgresql/adding-backup-details-inline.png" alt-text="Screenshot showing the option to add back-up information." lightbox="./media/backup-azure-database-postgresql/adding-backup-details-expanded.png":::
 
-   Alternatively, you can navigate to this page from the [Backup center](./backup-center-overview.md). 
+   Alternatively, you can navigate to this page from the [Resiliency](../resiliency/tutorial-configure-protection-datasource.md). 
 
 1. Select or [create](tutorial-postgresql-backup.md#create-a-backup-vault-for-postgresql-database-backups) a Backup Policy that defines the back-up schedule and the retention duration.
 

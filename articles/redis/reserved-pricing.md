@@ -72,7 +72,7 @@ To buy a reservation:
 How to use the Azure portal to buy reservations:
 
 1. In the portal, search for and select **Reservations** and then select **Add**, or select this link to the [Purchase reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/) page.
-1. On the **Purchase reservations** page, select **Azure Cache for Redis**.
+1. On the **Purchase reservations** page, select **Azure Cache for Redis and Managed Redis**.
 1. In the **Select the product you want to purchase** pane, select the **Scope** and **Subscription** you want to use for the reservation.
 1. Select the values you want from the dropdown lists for **Region**, **Term**, and **Billing frequency**.
 

@@ -109,7 +109,7 @@ To learn how to set concurrency limits for HTTP trigger functions, see [Set HTTP
 Deployments in the Flex Consumption plan follow a single path, and there's no longer the need for app settings to influence deployment behavior. Your project code is built and zipped into an application package, then deployed to a blob storage container. On startup, your app gets the package and runs your function code from this package. By default, the same storage account used to store internal host metadata (AzureWebJobsStorage) is also used as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by [configuring your app's deployment settings](flex-consumption-how-to.md#configure-deployment-settings).
 
 > [!TIP]
-> A **Flex Function App deployment details** diagnostic tool is available in the Azure portal. Open your Flex Consumption app, select **Diagnose and solve problems**, and search for `Flex Function App deployment details`. This tool displays detailed information about your deployments, including deployment history, package status, and troubleshooting recommendations.
+> A **Flex Consumption Deployment** diagnostic tool is available in the Azure portal. Open your Flex Consumption app, select **Diagnose and solve problems**, and search for `Flex Consumption Deployment`. This tool displays detailed information about your deployments, including deployment history, package status, and troubleshooting recommendations.
 
 ### Zero-downtime deployments
 

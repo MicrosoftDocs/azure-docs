@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Back up a VM with the Azure portal by using Azure Backup
 description: In this Quickstart, learn how to create a Recovery Services vault, enable protection on an Azure VM, and back up the VM,  with the Azure portal.
-ms.date: 09/24/2025
+ms.date: 01/27/2026
 ms.topic: quickstart
 ms.devlang: azurecli
 ms.custom: mvc, mode-ui, engagement-fy24
@@ -30,7 +30,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 To apply a backup policy to your Azure VMs, follow these steps:
 
-1. Go to **Business Continuity Center** and select **+ Configure protection**.
+1. Go to **Resiliency** and select **+ Configure protection**.
 
    :::image type="content" source="./media/backup-azure-arm-vms-prepare/configure-protection.png" alt-text="Screenshot shows how to start configuring system backup." lightbox="./media/backup-azure-arm-vms-prepare/configure-protection.png":::
 
@@ -110,7 +110,7 @@ If you selected to create a new backup policy, fill in the policy settings.
 
 The initial backup will run in accordance with the schedule, but you can run it immediately as follows:
 
-1. Go to **Business Continuity Center** and then select **Protection Inventory** > **Protected items**.
+1. Go to **Resiliency** and then select **Protection Inventory** > **Protected items**.
 1. On the **Protected items** pane, filter **Datasource type** by Virtual machines, and then select the **more icon** > **Details** corresponding to the VM instance you want to back up.
 1. On the selected VM instance pane, right-click the relevant row or select the more icon (…), and then select **Backup Now**.
 1. On the **Backup now** pane, use the calendar control to select the last day that the recovery point should be retained. Then select **OK**.
