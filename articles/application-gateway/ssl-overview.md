@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 10/09/2025
+ms.date: 01/27/2026
 ms.author: mbender
 
 # Customer intent: "As a cloud architect, I want to configure end to end TLS on the application gateway, so that I can ensure secure communication and compliance for sensitive data transmitted between clients and backend servers."
@@ -28,8 +28,44 @@ Application Gateway supports TLS termination at the gateway, after which traffic
 
 To configure TLS termination, a TLS/SSL certificate must be added to the listener. This allows the Application Gateway to decrypt incoming traffic and encrypt response traffic to the client. The certificate provided to the Application Gateway must be in Personal Information Exchange (PFX) format, which contains both the private and public keys. The supported PFX algorithms are listed at [PFXImportCertStore function](/windows/win32/api/wincrypt/nf-wincrypt-pfximportcertstore#remarks).
 
-> [!IMPORTANT] 
-> The certificate on the listener requires the entire certificate chain to be uploaded (the root certificate from the CA, the intermediates and the leaf certificate) to establish the chain of trust. 
+### Understanding SSL/TLS certificate chains
+
+An SSL certificate chain is a hierarchical structure that establishes trust between your website's certificate and a trusted root certificate authority (CA). Think of it as a chain of trust that browsers use to verify your website's identity.
+
+**What is a certificate chain?**
+- **Root Certificate**: The ultimate authority that browsers inherently trust
+- **Intermediate Certificate(s)**: Bridge certificates between root and your website certificate  
+- **Leaf Certificate**: Your website's actual SSL certificate
+
+**Why chains are necessary:**
+- Root CAs don't directly sign website certificates for security reasons
+- Intermediate CAs provide a buffer layer of security
+- If an intermediate CA is compromised, only that branch needs to be revoked
+- Browsers can validate the complete trust path
+
+### Certificate chain requirements for Application Gateway
+
+**What you must upload:**
+- Your PFX file must contain the complete chain: leaf certificate → intermediate CA(s) → root CA
+- The chain must be in the correct order
+- All certificates must be valid and not expired
+
+> [!IMPORTANT]
+> **Full Certificate Chain Required for Listeners**
+> 
+> The certificate on the listener requires the **entire certificate chain** to be uploaded (the root certificate from the CA, the intermediates and the leaf certificate) to establish the chain of trust. This is a common source of configuration errors.
+> 
+> **What this means operationally:**
+> - Your PFX file must contain the complete chain: leaf certificate → intermediate CA(s) → root CA
+> - Simply uploading only the leaf certificate will cause TLS handshake failures
+> - The chain must be in the correct order
+> 
+> **Common mistakes to avoid:**
+> - Uploading only the leaf certificate
+> - Wrong certificate order (root → leaf instead of leaf → intermediate → root)
+> - Missing or incorrect PFX password
+> - Incomplete intermediate certificates in the chain
+
 
 > [!NOTE] 
 > Application gateway doesn't provide any capability to create a new certificate or send a certificate request to a certification authority.
@@ -50,18 +86,42 @@ Application gateway supports the following types of certificates:
 - Wildcard Certificate: This certificate supports any number of subdomains based on *.site.com, where your subdomain would replace the *. It doesn’t, however, support site.com, so in case the users are accessing your website without typing the leading "www", the wildcard certificate won't cover that.
 - Self-Signed certificates: Client browsers don't trust these certificates and will warn the user that the virtual service’s certificate isn't part of a trust chain. Self-signed certificates are good for testing or environments where administrators control the clients and can safely bypass the browser’s security alerts. Production workloads should never use self-signed certificates.
 
-For more information, see [configure TLS termination with application gateway](./create-ssl-portal.md).
+### Certificate management best practices
 
-### Size of the certificate
-Check the [Application Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-application-gateway-limits) section to know the maximum TLS/SSL certificate size supported.
+**Certificate size limits:**
+- Check [Application Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-application-gateway-limits) for maximum certificate size
+- Large certificates may impact performance
+- Consider certificate optimization for better load times
+
+**Certificate storage and security:**
+- Store certificates in Azure Key Vault when possible
+- Use strong passwords for PFX files
+- Implement certificate rotation procedures
+- Monitor certificate expiration dates
+
+**Certificate provisioning:**
+- Application Gateway doesn't create certificates
+- Cannot send certificate requests to CAs
+- You must obtain certificates from external sources
+- Consider automated certificate management solutions
+
+**Common certificate chain problems:**
+
+| Problem | Symptom | Solution |
+|---------|---------|----------|
+| Missing intermediate | "Certificate chain incomplete" error | Download complete bundle from CA |
+| Wrong order | TLS handshake fails | Order: leaf → intermediate → root |
+| Expired intermediate | Browser warnings | Update certificate bundle |
+| Self-signed without trust | Security warnings | Use trusted CA or upload root |
+
+> [!NOTE]
+> For more details on configuration, see [configure TLS termination with Application Gateway](./create-ssl-portal.md).
 
 ## End-to-end TLS encryption
 
 You may not want unencrypted communication to the backend servers. You may have security requirements, compliance requirements, or the application may only accept a secure connection. Azure Application Gateway has end-to-end TLS encryption to support these requirements.
 
 End-to-end TLS allows you to encrypt and securely transmit sensitive data to the backend while you use Application Gateway's Layer-7 load-balancing features. These features include cookie-based session affinity, URL-based routing, support for routing based on sites, the ability to rewrite or inject X-Forwarded-* headers, and so on.
-
-When configured with end-to-end TLS communication mode, Application Gateway terminates the TLS sessions at the gateway and decrypts user traffic. It then applies the configured rules to select an appropriate backend pool instance to route traffic to. Application Gateway then initiates a new TLS connection to the backend server and re-encrypts data using the backend server's public key certificate before transmitting the request to the backend. Any response from the web server goes through the same process back to the end user. End-to-end TLS is enabled by setting protocol setting in [Backend HTTP Setting](./configuration-overview.md#backend-settings) to HTTPS, which is then applied to a backend pool.
 
 In Application Gateway v1 SKU gateways, [TLS policy](./application-gateway-ssl-policy-overview.md) applies the TLS version only to frontend traffic and the defined ciphers to both frontend and backend targets.  In Application Gateway v2 SKU gateways, TLS policy only applies to frontend traffic, backend TLS connections will always be negotiated via TLS 1.0 to TLS 1.2 versions.
 
@@ -70,14 +130,13 @@ Application Gateway only communicates with those backend servers that have eithe
 If the certificates of the members in the backend pool aren't signed by well-known CA authorities, then each instance in the backend pool with end to end TLS enabled must be configured with a certificate to allow secure communication. Adding the certificate ensures that the application gateway only communicates with known backend instances. This further secures the end-to-end communication.
 
 > [!NOTE] 
->
 > The certificate added to **Backend HTTP Setting** to authenticate the backend servers can be the same as the certificate added to the **listener** for TLS termination at application gateway or different for enhanced security.
 
 ![end to end TLS scenario][1]
 
 In this example, requests using TLS1.2 are routed to backend servers in Pool1 using end to end TLS.
 
-## End to end TLS and allow listing of certificates
+## End-to-end TLS and allow listing of certificates
 
 Application Gateway only communicates with those backend servers that have either allow-listed their certificate with the Application Gateway or whose certificates are signed by well-known CA authorities and the certificate's CN matches the host name in the HTTP backend settings. There are some differences in the end-to-end TLS setup process with respect to the version of Application Gateway used. The following section explains the versions individually.
 
@@ -140,7 +199,7 @@ The following tables outline the differences in SNI between the v1 and v2 SKU in
 
 |Scenario | v1 | v2 |
 | --- | --- | --- |
-| When an FQDN or SNI is configured | Set as FQDN from the backend pool. As per [RFC 6066](https://tools.ietf.org/html/rfc6066), literal IPv4 and IPv6 addresses aren't permitted in SNI hostname. | The SNI value is set based on the [TLS validation type](configuration-http-settings.md?tabs=backendhttpsettings#backend-https-validation-settings) in the Backend Settings.<br><br> 1. **Complete validation** – The probes uses the SNI in the following order of precedence:<br> a) Custom Health Probe's hostname <br> b) Backend Setting's hostname (as per Overridden value or Pick from backend server) <br><br> 2.	**Configurable** <br> Use specific SNI: The probes use this fixed hostname for validation.<br> Skip SNI: No Subject Name validation.
+| When an FQDN or SNI is configured | Set as FQDN from the backend pool. As per [RFC 6066](https://tools.ietf.org/html/rfc6066), literal IPv4 and IPv6 addresses aren't permitted in SNI hostname. | The SNI value is set based on the [TLS validation type](configuration-http-settings.md?tabs=backendhttpsettings#backend-https-validation-settings) in the Backend Settings.<br><br> 1. **Complete validation** – The probes use the SNI in the following order of precedence:<br> a) Custom Health Probe's hostname <br> b) Backend Setting's hostname (as per Overridden value or Pick from backend server) <br><br> 2.	**Configurable** <br> Use specific SNI: The probes use this fixed hostname for validation.<br> Skip SNI: No Subject Name validation. |
 | When an FQDN or SNI is NOT configured (only IP address is available)  | SNI (server_name) won’t be set. <br> **Note:** In this case, the backend server should be able to return a default/fallback certificate and this should be allow-listed in HTTP settings under authentication certificate. If there’s no default/fallback certificate configured in the backend server and SNI is expected, the server might reset the connection and will lead to probe failures | If the Custom Probe or Backend Settings use an IP address in the hostname field, the SNI is not set, in accordance with [RFC 6066](https://tools.ietf.org/html/rfc6066). This includes cases where the default probe uses 127.0.0.1. |
 
 #### For live traffic
@@ -153,7 +212,11 @@ The following tables outline the differences in SNI between the v1 and v2 SKU in
 
 ## Next steps
 
-After learning about end to end TLS, go to [Configure end to end TLS by using Application Gateway with PowerShell](application-gateway-end-to-end-ssl-powershell.md) to create an application gateway using end to end TLS.
+After learning about end-to-end TLS, go to [Configure end-to-end TLS by using Application Gateway with PowerShell](application-gateway-end-to-end-ssl-powershell.md) to create an application gateway using end-to-end TLS.
+
+<!--Image references-->
+
+[1]: ./media/ssl-overview/scenario.png
 
 <!--Image references-->
 
