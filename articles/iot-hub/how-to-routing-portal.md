@@ -73,7 +73,7 @@ Routes send messages or event logs to an Azure service for storage or processing
    | **Cosmos DB account** | Use the drop-down menu to select an existing Cosmos DB account in your subscription. |
    | **Database** | Use the drop-down menu to select an existing database in your Cosmos DB account. |
    | **Collection** | Use the drop-down menu to select an existing collection (or container). |
-   | **Generate a synthetic partition key for messages** | Select **Enable** to support data storage for high-scale scenarios. Otherwise, select **Disable** For more information, see [Partitioning and horizontal scaling in Azure Cosmos DB](/azure/cosmos-db/partitioning-overview) and [Create a synthetic partition key](/azure/cosmos-db/nosql/synthetic-partition-keys). |
+   | **Generate a synthetic partition key for messages** | Select **Enable** to support data storage for high-scale scenarios. Otherwise, select **Disable** For more information, see [Partitioning and horizontal scaling in Azure Cosmos DB](/azure/cosmos-db/partitioning-overview) and [Create a synthetic partition key](/azure/cosmos-db/synthetic-partition-keys). |
    | **Partition key name** | If you enable synthetic partition keys, provide a name for the partition key. The partition key property name is defined at the container level and can't be changed once set. |
    | **Partition key template** | Provide a template that is used to configure the synthetic partition key value. The generated partition key value is automatically added to the partition key property for each new Cosmos DB record. |
 

@@ -19,7 +19,7 @@ This article helps you copy and paste text to and from virtual machines when usi
 
 Before you proceed, make sure you have the following items.
 
-* A virtual network with [Azure Bastion](./tutorial-create-host-portal.md) deployed.
+* A virtual network with [Azure Bastion](./quickstart-host-portal.md) deployed.
 * A Windows virtual machine deployed to your virtual network.
 
 ## <a name="configure"></a> Configure the bastion host

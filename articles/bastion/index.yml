@@ -43,14 +43,10 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Deploy Bastion - default settings - Standard SKU
+          - text: Deploy Bastion from the Azure portal
             url: quickstart-host-portal.md
-          - text: Deploy Bastion Developer
-            url: quickstart-developer.md
       - linkListType: deploy
         links:
-          - text: Deploy Bastion using manually specified settings and SKUs
-            url: tutorial-create-host-portal.md
           - text: Deploy Bastion as a private-only deployment
             url: private-only-deployment.md          
   # Card

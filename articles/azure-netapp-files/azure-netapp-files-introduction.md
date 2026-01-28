@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: overview
-ms.date: 10/28/2025
+ms.date: 01/28/2026
 ms.author: anfdocs
 # Customer intent: As a cloud architect, I want to evaluate Azure NetApp Files for high-performance file storage, so that I can efficiently manage enterprise workloads while ensuring data availability, scalability, and security in the cloud.
 ---
@@ -39,7 +39,7 @@ Azure NetApp Files is designed to provide high-performance file storage for ente
 | Functionality | Description | Benefit |
 | - | - | - | 
 | In-Azure bare-metal flash performance | Fast and reliable all-flash performance with submillisecond latency. | Run performance-intensive workloads in the cloud with on-premises infrastructure-level performance.
-| Multi-protocol support | Supports multiple protocols, including NFSv3, NFSv4.1, SMB 3.0, SMB 3.1.1, and simultaneous dual-protocol. Also supports integration with S3. | Seamlessly integrate with existing infrastructure and workflows without compatibility issues or complex configurations. Azure NetApp Files also integrates with S3 using the [object REST API](object-rest-api-introduction.md). |
+| Multi-protocol support | Supports multiple protocols, including NFSv3, NFSv4.1, SMB 3.0, SMB 3.1.1, and simultaneous dual-protocol. Also supports object REST API based on S3 protocol. | Seamlessly integrate with existing infrastructure and workflows without compatibility issues or complex configurations. Azure NetApp Files also integrates with Microsoft Fabric through OneLake, and object-based services using the [object REST API](object-rest-api-introduction.md). |
 | Four adaptable performance tiers (Flexible, Standard, Premium, Ultra) | Four performance tiers with dynamic service-level change capability based on workload needs, including cool access for cold data. | Choose the right performance level for workloads and dynamically adjust performance without overspending on resources.
 | Small-to-large volumes | Easily resize file volumes from 100 GiB up to 100 TiB without downtime. | Scale storage as business needs grow without over-provisioning, avoiding upfront cost.
 | Small-to-large volumes | Easily resize file volumes from 50 GiB up to 100 TiB without downtime. | Scale storage as business needs grow without over-provisioning, avoiding upfront cost.

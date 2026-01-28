@@ -31,8 +31,7 @@ For some configurations, the user can connect to the virtual machine via the nat
 
 For configuration steps, see:
 
-* [Deploy Bastion automatically using default settings and the Standard SKU](quickstart-host-portal.md)
-* [Deploy Bastion using manually specified settings](tutorial-create-host-portal.md)
+* [Deploy Bastion from the Azure portal](quickstart-host-portal.md)
 
 ## <a name="developer"></a>Deployment - Bastion Developer
 
@@ -40,7 +39,7 @@ For configuration steps, see:
 
 [!INCLUDE [Bastion Developer](../../includes/bastion-developer-description.md)]
 
-For more information about Bastion Developer, see [Connect with Azure Bastion Developer](quickstart-developer.md).
+For more information about Bastion Developer, see [Deploy Bastion from the Azure portal](quickstart-host-portal.md).
 
 ## <a name="private-only"></a>Deployment - Private-only
 
@@ -58,7 +57,6 @@ For more information about private-only deployments, see [Deploy Bastion as priv
 
 ## Next steps
 
-* [Deploy Bastion automatically - Standard SKU only](quickstart-host-portal.md)
-* [Deploy Bastion using manually specified settings and SKU](tutorial-create-host-portal.md)
-* [Connect with Azure Bastion Developer](quickstart-developer.md)
+* [Deploy Bastion from the Azure portal](quickstart-host-portal.md)
+* [Deploy Bastion from the Azure portal](quickstart-host-portal.md)
 * [Deploy Bastion as private-only](private-only-deployment.md)

@@ -101,6 +101,8 @@ You can configure the networking of target resources to one of the following opt
 
   - [Transition to a Network Security Perimeter in Azure](/azure/private-link/network-security-perimeter-transition)
 
+  - [How to front a network security perimeter-protected Azure resource with Azure API Management](../using-network-security-perimeter.md)
+
 ### Step 3: Disable trusted service connectivity in API Management gateway
 
 After ensuring that your API Management gateway doesn't access other Azure services using trusted service connectivity, you must explicitly disable trusted connectivity in your gateway to acknowledge you have verified that the service no longer depends on trusted connectivity.

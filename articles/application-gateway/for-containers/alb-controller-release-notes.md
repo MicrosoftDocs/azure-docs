@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: release-notes
-ms.date: 11/10/2025
+ms.date: 1/28/2026
 ms.author: mbender
 # Customer intent: As a Kubernetes operator, I want to access the release notes for the ALB Controller, so that I can understand the latest updates and changes to optimize my configuration and deployments of Application Gateway for Containers.
 ---
@@ -27,12 +27,13 @@ Instructions for new or existing deployments of ALB Controller are found in the 
 
 | ALB Controller Version | Gateway API Version | Minimum Kubernetes Version | Release Notes |
 | ---------------------- | ------------------- | ------------------ | ------------- |
-| 1.8.12 | v1.2.1 | v1.27 | WAF improvements |
+| 1.9.11 | v1.2.1 | v1.27 | [allowPrivilegeEscalation false](https://github.com/Azure/AKS/issues/5389), [Integration with AKS Istio Service Mesh Add-on](https://github.com/Azure/AKS/issues/5479), [fix for NAP with Karpenter](https://github.com/Azure/AKS/issues/5486), general image updates |
 
 ## Release history
 
 | ALB Controller Version | Gateway API Version | Minimum Kubernetes Version | Release Notes |
 | ---------------------- | ------------------- | ------------------ | ------------- |
+| 1.8.12 | v1.2.1 | v1.27 | WAF improvements |
 | 1.8.9 | v1.2.1 | v1.27 | [Slow start load balancing algorithm](api-specification-kubernetes.md#alb.networking.azure.io/v1.BackendLoadBalancingPolicy), Image updated to use [Azure Linux 3.0](https://github.com/microsoft/azurelinux), [nodeSelector fix](https://github.com/Azure/AKS/issues/5302), miscellaneous bug fixes and enhancements |
 | 1.7.12 | v1.2.1 | v1.27 | Hotfix for pod crash due to [invalid Provider ID](https://github.com/Azure/AKS/issues/5310) |
 | 1.7.9 | v1.2.1 | v1.27 | [Web Application Firewall (WAF) Public Preview](https://aka.ms/agc/waf), Updated to Gateway API v1.2.1, [nodeSelector support](https://github.com/Azure/AKS/issues/4370#issuecomment-2894487836), [Permissions fix for Overlay networks](https://github.com/Azure/AKS/issues/5039), fix for SAN regex matching, miscellaneous performance improvements |

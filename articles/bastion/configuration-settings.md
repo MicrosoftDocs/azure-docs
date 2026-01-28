@@ -32,7 +32,7 @@ You can configure this setting using the following methods:
 
 | Method | Value | Links |
 | --- | --- |--- |
-| Azure portal | Subnet  |[Quickstart](quickstart-host-portal.md)<br>[Tutorial](tutorial-create-host-portal.md)|
+| Azure portal | Subnet  |[Quickstart](quickstart-host-portal.md)|
 | Azure PowerShell | -subnetName|[cmdlet](/powershell/module/az.network/new-azbastion#parameters) |
 | Azure CLI |  --subnet-name | [command](/cli/azure/network/vnet#az-network-vnet-create) |
 

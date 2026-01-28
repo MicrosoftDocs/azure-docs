@@ -5,7 +5,7 @@ services: application-gateway
 author: JackStromberg
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 11/15/2025
+ms.date: 1/28/2026
 ms.author: jstrom
 ---
 
@@ -30,9 +30,6 @@ Here's a diagram of Application Gateway for Containers integrating with Istio se
 The ALB Controller Istio Extension consists of two pods, deployed in active / standby configuration to allow resiliency during node failure, handle certificate lifecycle management between Application Gateway for Containers and Istio, and implicitly handle mTLS configuration to services part of a service mesh.
 
 >[!NOTE]
->Application Gateway for Containers only supports the community/open source version of Istio today. Istio-based service mesh add-on for AKS isn't supported at this time.
-
->[!NOTE]
 >To use ALB Controller Service Mesh Extension, you must define your ingress intent using Gateway API. Ingress API isn't supported.
 
 ### Install the ALB Controller Service Mesh Extension for Istio
@@ -51,7 +48,7 @@ az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
 
 helm install alb-controller-servicemesh-extension oci://mcr.microsoft.com/application-lb/charts/alb-controller-servicemesh-extension \
      --namespace $HELM_NAMESPACE \
-     --version 1.8.12
+     --version 1.9.11
 ```
 
 ### Verify the ALB Controller installation

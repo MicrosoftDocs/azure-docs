@@ -64,6 +64,10 @@ API Management only supports:
 - OpenAPI version 3.0.x (up to version 3.0.3)
 - OpenAPI version 3.1 (import only)
 
+> [!NOTE]
+> API Management does not fully support OpenAPI 3.1. The platform allows 3.1 documents to be *imported*, but most 3.1-specific constructs (such as updated JSON Schema, callbacks, links, examples, requestBodies, headers, and other components) are not processed or enforced. During import, unsupported features are ignored, downgraded to 3.0-equivalent behavior, or removed.
+> Because of this, OpenAPI 3.1 should be treated as **import-compatible only**, not feature-compatible. For full fidelity, use OpenAPI 2.0 or 3.0.x.
+
 **Size limitations**
 
 | Size limit | Description |

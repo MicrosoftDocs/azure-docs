@@ -104,7 +104,7 @@ To register an Artifact Signing resource provider by using the Azure CLI:
 9. To add the extension for Artifact Signing, use this command:
 
    ```azurecli
-   az extension add --name trustedsigning
+   az extension add --name artifact-signing
    ```
 
 ---
@@ -191,30 +191,30 @@ To create an Artifact Signing account by using the Azure CLI:
    To create an Artifact Signing account that has a Basic SKU:
 
 ```azurecli
-  az trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Basic
+  az artifact-signing create -n MyAccount -l eastus -g MyResourceGroup --sku Basic
 ```
 
    To create an Artifact Signing account that has a Premium SKU:
 
    ```azurecli
-  az trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
+  az artifact-signing create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
    ```
 
 3. Verify your Artifact Signing account by using: 
 ```azurecli
-az trustedsigning show -g MyResourceGroup -n MyAccount` command.
+az artifact-signing show -g MyResourceGroup -n MyAccount` command.
 ```
    > [!NOTE]
    > If you use an earlier version of the Azure CLI from the Artifact Signing preview, your account defaults to the Basic SKU. To use the Premium SKU, either upgrade the Azure CLI to the latest version or use the Azure portal to create the account.
 
 The following table lists *helpful commands* to use when you create an Artifact Signing account:
 
-| Command                                                                                  | Description                               |  
-|:-----------------------------------------------------------------------------------------|:------------------------------------------|
-| `az trustedsigning -h`                                                                      | Shows help commands and detailed options.   |
-| `az trustedsigning show -n MyAccount  -g MyResourceGroup`                                   | Shows the details of an account.            |
-| `az trustedsigning update -n MyAccount -g MyResourceGroup --tags "key1=value1 key2=value2"` | Updates tags.                               |
-| `az trustedsigning list -g MyResourceGroup`                                                 | Lists all accounts that are in a resource group. |
+| Command                                                                                       | Description                                      |  
+|:----------------------------------------------------------------------------------------------|:-------------------------------------------------|
+| `az artifact-signing -h`                                                                      | Shows help commands and detailed options.        |
+| `az artifact-signing show -n MyAccount  -g MyResourceGroup`                                   | Shows the details of an account.                 |
+| `az artifact-signing update -n MyAccount -g MyResourceGroup --tags "key1=value1 key2=value2"` | Updates tags.                                    |
+| `az artifact-signing list -g MyResourceGroup`                                                 | Lists all accounts that are in a resource group. |
 
 ---
 
@@ -473,7 +473,7 @@ To create a certificate profile by using the Azure CLI:
 1. Create a certificate profile by using the following command:
 
 ```azurecli
-az trustedsigning certificate-profile create -g MyResourceGroup --a
+az artifact-signing certificate-profile create -g MyResourceGroup --a
    account-name MyAccount -n MyProfile --profile-type PublicTrust --identity-validation-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
@@ -482,22 +482,22 @@ az trustedsigning certificate-profile create -g MyResourceGroup --a
 2. Create a certificate profile that includes optional fields (street address or postal code) in the subject name of the certificate by using the following command:
 
   ```azurecli
-  az trustedsigning certificate-profile create -g MyResourceGroup --account-name MyAccount -n MyProfile --profile-type PublicTrust --identity-validation-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --include-street true
+  az artifact-signing certificate-profile create -g MyResourceGroup --account-name MyAccount -n MyProfile --profile-type PublicTrust --identity-validation-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --include-street true
    ```
 
 3. Verify that you successfully created a certificate profile by using the following command:
 
   ```azurecli
-  az trustedsigning certificate-profile show -g myRG --account-name MyAccount -n  MyProfile
+  az artifact-signing certificate-profile show -g myRG --account-name MyAccount -n  MyProfile
    ```
 
 The following table lists *helpful commands* to use when you create a certificate profile by using the Azure CLI:
 
-| Command                               | Description  |
-| :----------------------------------- | :------------------- |
-| `az trustedsigning certificate-profile create -–help`                            | Shows help for sample commands, and shows detailed parameter descriptions.              |
-| `az trustedsigning certificate-profile list -g MyResourceGroup --account-name MyAccount`                            | Lists all certificate profiles that are associated with an Artifact Signing account.          |
-| `az trustedsigning certificate-profile show -g MyResourceGroup --account-name MyAccount -n MyProfile`                            | Gets the details for a certificate profile.              |
+| Command                                                                                                    | Description                                                                           |
+| :--------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------ |
+| `az artifact-signing certificate-profile create -–help`                                                    | Shows help for sample commands, and shows detailed parameter descriptions.            |
+| `az artifact-signing certificate-profile list -g MyResourceGroup --account-name MyAccount`                 | Lists all certificate profiles that are associated with an Artifact Signing account.  |
+| `az artifact-signing certificate-profile show -g MyResourceGroup --account-name MyAccount -n MyProfile`    | Gets the details for a certificate profile.                                           |
 
 ---
 
@@ -536,7 +536,7 @@ To delete Artifact Signing resources by using the Azure CLI:
 To delete an Artifact Signing certificate profile, run this command:
 
 ```azurecli
-az trustedsigning certificate-profile delete -g MyResourceGroup --account-name MyAccount -n MyProfile
+az artifact-signing certificate-profile delete -g MyResourceGroup --account-name MyAccount -n MyProfile
 ```
 
 > [!NOTE]
@@ -549,7 +549,7 @@ You can use the Azure CLI to delete Artifact Signing resources.
 To delete an Artifact Signing account, run this command:
 
 ```azurecli
-az trustedsigning delete -n MyAccount -g MyResourceGroup
+az artifact-signing delete -n MyAccount -g MyResourceGroup
 ```
 
 > [!NOTE]

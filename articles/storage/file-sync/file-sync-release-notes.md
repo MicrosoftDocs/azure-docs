@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: azure-file-storage
 ms.topic: release-notes
-ms.date: 12/10/2025
+ms.date: 01/22/2026
 ms.author: wgries
 ms.custom:
   - build-2025
@@ -24,7 +24,7 @@ The following Azure File Sync agent versions are supported:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| V22 Release - [KB5056967](https://support.microsoft.com/topic/ded35c33-ff9c-4716-8a8d-a080d1bc067b)|22.0.0.0| December 10, 2025| Supported - Flighting |
+| V22 Release - [KB5056967](https://support.microsoft.com/topic/ded35c33-ff9c-4716-8a8d-a080d1bc067b)|22.0.0.0| December 10, 2025| Supported |
 | V21.2 Release - [KB5063825](https://support.microsoft.com/topic/6490aef8-ebae-465d-beba-718c05f8a71f)|21.2.0.0| July 08, 2025| Supported |
 | v21.1 Release - [KB5063486](https://support.microsoft.com/topic/e0016f74-573d-492c-8bf7-c3be1e380836) |21.1.0.0 | August 11, 2025 | Supported - Security Update |
 | v20.1 Release - [KB5056953](https://support.microsoft.com/topic/6a558f5d-005d-4111-9ebd-21e5dd652d77) |20.1.0.0 | August 11, 2025 | Supported - Security Update |
@@ -95,9 +95,9 @@ The following release notes are for Azure File Sync version 22.0.0.0 (released D
 
 A new agentVersionExpiration metric provides visibility into how many days remain before an agent reaches expiration. Customers can configure Azure Monitor alerts when an agent is within 90 days of expiry, enabling proactive management and reducing the risk of unexpected service interruptions. To learn more, see [Azure File Sync Monitoring Metric Charts](file-sync-monitoring.md)
 
-**Generally Available: Azure File Sync in Poland Central, Spain Central, and New Zealand North**
+**Generally Available: Azure File Sync in Poland Central, Spain Central, New Zealand North, and Israel Central**
 
- The expansion into Poland Central, Spain Central, and New Zealand North brings the service closer to organizations in these regions, offering lower latency, better performance, and support for local data residency requirements.  
+ The expansion into Poland Central, Spain Central, New Zealand North, and Israel Central brings the service closer to organizations in these regions, offering lower latency, better performance, and support for local data residency requirements.  
 
 **Software Assurance License Benefit​​​​​​**
 

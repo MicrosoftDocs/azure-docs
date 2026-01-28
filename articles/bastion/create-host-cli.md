@@ -22,7 +22,7 @@ Once you deploy Bastion to your virtual network, you can connect to your VMs via
 
 In this article, you create a virtual network (if you don't already have one), deploy Azure Bastion using CLI, and connect to a VM. You can also deploy Bastion by using the following other methods:
 
-* [Azure portal](./tutorial-create-host-portal.md)
+* [Azure portal](./quickstart-host-portal.md)
 * [Azure PowerShell](bastion-create-host-powershell.md)
 * [Quickstart - Deploy Bastion with default settings and the Standard SKU](quickstart-host-portal.md)
 

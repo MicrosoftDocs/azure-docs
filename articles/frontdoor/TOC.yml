@@ -243,6 +243,8 @@
     href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Operational excellence
   items:
+  - name: High availability implementation guide
+    href: high-availability.md
   - name: WebSocket
     href: standard-premium/websocket.md
   - name: HTTP/2

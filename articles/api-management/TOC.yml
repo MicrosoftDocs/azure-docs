@@ -129,6 +129,8 @@
       href: protect-with-ddos-protection.md
     - name: Configure Front Door
       href: front-door-api-management.md
+    - name: Access resource protected by network security perimeter
+      href: using-network-security-perimeter.md
   - name: Configuration management
     items:
     - name: Landing zone accelerator

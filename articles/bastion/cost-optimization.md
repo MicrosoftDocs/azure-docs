@@ -51,7 +51,7 @@ Azure Bastion offers four SKU tiers with different cost profiles: Developer (fre
 
 | Recommendation | Cost Optimization Benefit |
 |---|---|
-| **Maximize Developer SKU usage** for all development and test environments where single-VM access is acceptable. | Developer SKU eliminates 100% of Bastion costs for nonproduction workloads. No hourly charges, no data transfer fees. Use this tier to reserve budget for production deployments. See [Connect with Azure Bastion Developer](quickstart-developer.md). |
+| **Maximize Developer SKU usage** for all development and test environments where single-VM access is acceptable. | Developer SKU eliminates 100% of Bastion costs for nonproduction workloads. No hourly charges, no data transfer fees. Use this tier to reserve budget for production deployments. See [Deploy Bastion from the Azure portal](quickstart-host-portal.md). |
 | **Start with Basic SKU** for production environments unless advanced features are required. Upgrade only when you identify specific feature gaps. | Basic SKU minimizes production costs while providing essential capabilities (peering, Kerberos, concurrent connections). Prevents over-provisioning by deploying only needed features. Evaluate actual usage before committing to higher-cost tiers. |
 | **Select Standard SKU** when cost analysis justifies advanced features. Key cost drivers: scaling needs (>2 instances), native client requirements, or operational efficiency from shareable links. | Standard SKU enables cost-effective scaling through host scaling (2-50 instances) with incremental pricing. Variable costs align with actual demand. Advanced features can reduce operational overhead that offsets higher hourly rates. |
 | **Choose Premium SKU** when compliance requirements mandate session recording or when Standard-to-Premium cost difference is negligible compared to total infrastructure spend. | Premium adds minimal cost over Standard while future-proofing deployments. Session recording eliminates need for third-party audit solutions. Private-only deployment can reduce networking costs in highly restricted environments. |
@@ -99,7 +99,7 @@ Remote access needs change as your infrastructure evolves. Set up continuous mon
 
 - [Learn about Azure Bastion](bastion-overview.md).
 - [Learn about Bastion configuration settings](configuration-settings.md).
-- [Deploy Bastion](tutorial-create-host-portal.md).
+- [Deploy Bastion](quickstart-host-portal.md).
 - [Monitor Azure Bastion](monitor-bastion.md).
 - [Azure Cost Management documentation](/azure/cost-management-billing/).
 - [Azure Bastion pricing](https://azure.microsoft.com/pricing/details/azure-bastion/).

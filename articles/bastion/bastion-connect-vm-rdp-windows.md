@@ -27,7 +27,7 @@ Before you begin, verify that you've met the following criteria:
 * A VNet with the Bastion host already installed.
 
   * Make sure that you have set up an Azure Bastion host for the virtual network in which the VM is located. Once the Bastion service is provisioned and deployed in your virtual network, you can use it to connect to any VM in the virtual network.
-  * To set up an Azure Bastion host, see [Create a bastion host](tutorial-create-host-portal.md#createhost). If you plan to configure custom port values, be sure to select the Standard SKU or higher when configuring Bastion.
+  * To set up an Azure Bastion host, see [Create a bastion host](quickstart-host-portal.md#createhost). If you plan to configure custom port values, be sure to select the Standard SKU or higher when configuring Bastion.
 
 * A Windows virtual machine in the virtual network.
 

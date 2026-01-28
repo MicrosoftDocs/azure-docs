@@ -23,7 +23,7 @@ In this article, you create a virtual network (if you don't already have one), d
 
 You can also deploy Bastion by using the following other methods:
 
-* [Azure portal - Deploy Bastion with specified settings and SKUs](./tutorial-create-host-portal.md)
+* [Azure portal - Deploy Bastion](./quickstart-host-portal.md)
 * [Azure portal - Deploy Bastion with default settings and Standard SKU](quickstart-host-portal.md)
 * [Deploy using Azure CLI](create-host-cli.md)
 

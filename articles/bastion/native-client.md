@@ -23,7 +23,7 @@ You can configure this feature by modifying an existing Bastion deployment, or y
 
 ## Deploy Bastion with the native client feature
 
-If you haven't already deployed Bastion to your virtual network, you can deploy with the native client feature specified by deploying Bastion using manual settings. For steps, see [Tutorial - Deploy Bastion with manual settings](tutorial-create-host-portal.md#createhost). When you deploy Bastion, specify the following settings:
+If you haven't already deployed Bastion to your virtual network, you can deploy with the native client feature specified by deploying Bastion using manual settings. For steps, see [Quickstart: Deploy Azure Bastion from the Azure portal](quickstart-host-portal.md#createhost). When you deploy Bastion, specify the following settings:
 
 1. On the **Basics** tab, for **Instance Details -> Tier** select **Standard**. Native client support requires the Standard SKU.
 

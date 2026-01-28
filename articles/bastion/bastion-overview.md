@@ -87,8 +87,7 @@ For information about troubleshooting and frequently asked questions, see the [t
 ## Next steps
 
 * [Quickstart: Deploy Bastion automatically with default settings and Standard SKU](quickstart-host-portal.md)
-* [Quickstart: Deploy Bastion Developer](quickstart-developer.md)
-* [Tutorial: Deploy Bastion using specified settings and SKUs](tutorial-create-host-portal.md)
+* [Quickstart: Deploy Azure Bastion from the Azure portal](quickstart-host-portal.md)
 * [Choose the right Azure Bastion SKU](bastion-sku-comparison.md)
 * [About Bastion configuration settings](configuration-settings.md)
 * [Azure Bastion FAQ](bastion-faq.md)

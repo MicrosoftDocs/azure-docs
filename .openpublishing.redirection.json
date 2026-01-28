@@ -2892,7 +2892,12 @@
     },
     {
       "source_path_from_root": "/articles/bastion/quickstart-developer-sku.md",
-      "redirect_url": "/azure/bastion/quickstart-developer",
+      "redirect_url": "/azure/bastion/quickstart-host-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/bastion/quickstart-developer.md",
+      "redirect_url": "/azure/bastion/quickstart-host-portal",
       "redirect_document_id": false
     },
     {
@@ -2907,7 +2912,12 @@
     },
     {
       "source_path_from_root": "/articles/bastion/bastion-create-host-portal.md",
-      "redirect_url": "/azure/bastion/tutorial-create-host-portal",
+      "redirect_url": "/azure/bastion/quickstart-host-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/bastion/tutorial-create-host-portal.md",
+      "redirect_url": "/azure/bastion/quickstart-host-portal",
       "redirect_document_id": false
     },
     {
@@ -6628,7 +6638,7 @@
     {
       "source_path": "articles/vpn-gateway/about-zone-redundant-vnet-gateways.md",
       "redirect_url": "/azure/reliability/reliability-virtual-network-gateway",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/dns/dns-sdk.md",

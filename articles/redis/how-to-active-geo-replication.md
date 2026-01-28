@@ -18,9 +18,10 @@ In this article, you learn how to configure an active geo-replicated cache using
 Active geo-replication groups up to five instances of Azure Managed Redis into a single cache that spans across Azure regions. All instances act as the local, primary caches. An application decides which instance or instances to use for read and write requests.
 
 > [!NOTE]
-> Data transfer between Azure regions is charged at standard [bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/).
+> * Using active geo-replication produces data transfer between Azure regions. These bandwidth charges are currently absorbed by Azure Managed Redis and not passed on to customers.
+> Billing can change in the future. For more information, see [bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/).
 >
-> Data sync among replicas follows eventual consistency. The service does not provide SLA on sync time. Please design your system without relying on the  timeliness of data sync.
+> * Data sync among replicas follows eventual consistency. The service does not provide SLA on sync time. Please design your system without relying on the timeliness of data sync.
 >
 
 ## How active geo-replication works
@@ -39,10 +40,10 @@ For a more detailed breakdown of how active geo-replication works, see [Active-A
 
 |Tier      | Memory Optimized, Balanced, Compute Optimized  | Flash Optimized  |
 |--------- |:------------------:|:----------:|
-|Available | Yes (except B0 and B1)        | Yes       |
+|Available | Yes (except B0 and B1)        | No       |
 
 > [!IMPORTANT]
-> The Balanced B0 and B1 SKUs don't support active geo-replication.
+> The Balanced B0 and B1 SKUs & Flash Optimized SKUs don't support active geo-replication.
 >
 
 ## Active geo-replication prerequisites
@@ -53,7 +54,7 @@ There are a few restrictions when using active geo replication:
 
 - Only the [RediSearch](redis-modules.md#redisearch) and [RedisJSON](redis-modules.md#redisjson) modules are supported
 
-- On the _Flash Optimized_ tier, only the _No Eviction_ eviction policy can be used. All eviction policies are supported on the other tiers.
+- When using RediSearch, only the _No Eviction_ eviction policy can be used. All eviction policies are supported on the other tiers.
 
 - Data persistence isn't supported because active geo-replication provides a superior experience.
 

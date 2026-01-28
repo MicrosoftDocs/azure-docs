@@ -20,7 +20,7 @@ This article helps you to configure Azure subscription policies to control the m
 
 ## Prerequisites
 
-- Only directory [global administrators](../../active-directory/roles/permissions-reference.md#global-administrator) can edit subscription policies. Before editing subscription policies, the global administrator must [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md). Then they can edit subscription policies.
+- Only directory [global administrators](../../active-directory/roles/permissions-reference.md#global-administrator) with direct role assignment can edit subscription policies. Before editing subscription policies, the global administrator must [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md). Then they can edit subscription policies.
 - All other users can only read the current policy setting.
 - Subscriptions transferred into or out of a directory must remain associated with a Billing Tenant to ensure billing occurs correctly. 
 

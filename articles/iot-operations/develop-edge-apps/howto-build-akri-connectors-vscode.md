@@ -12,7 +12,7 @@ ms.service: azure-iot-operations
 
 # Build Akri connectors in VS Code
 
-This article describes how to build, validate, debug, and publish custom Akri connectors using the Azure IoT Operations Akri connectors VS Code extension.
+This article describes how to build, validate, debug, and publish custom Akri connectors using the **Azure IoT Operations Akri Connectors** preview VS Code extension.
 
 The extension supports the following platforms:
 
@@ -31,7 +31,7 @@ Development environment:
 
 - Docker
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [Azure IoT Operations Akri connectors](https://marketplace.visualstudio.com/items?itemName=ms-azureiotoperations.azure-iot-operations-akri-connectors-vscode) VS Code extension
+- [Azure IoT Operations Akri Connectors (preview)](https://marketplace.visualstudio.com/items?itemName=ms-azureiotoperations.azure-iot-operations-akri-connectors-vscode) VS Code extension
 - [.NET SDK](https://dotnet.microsoft.com/download)
 - To debug .NET based connectors - [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 - To debug Rust based connectors - [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-VSCode.cpptools)

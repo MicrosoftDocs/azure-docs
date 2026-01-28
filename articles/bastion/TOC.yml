@@ -10,22 +10,24 @@
     href: bastion-sku-comparison.md
   - name: Cost optimization principles
     href: cost-optimization.md
-- name: Quickstarts & Tutorials
+  - name: Bastion FAQ
+    href: bastion-faq.md
+- name: Get Started
   expanded: true
   items:
-  - name: Deploy Bastion Developer
-    href: quickstart-developer.md
-  - name: Deploy Bastion - Standard SKU
+  - name: Deploy Bastion - Azure portal
     href: quickstart-host-portal.md
-  - name: Deploy Bastion - specify settings and SKU
-    href: tutorial-create-host-portal.md
+  - name: Deploy private-only Bastion
+    href: private-only-deployment.md
   - name: Deploy Bastion - ARM template
     href: quickstart-host-arm-template.md
   - name: Deploy Bastion - Terraform
     href: quickstart-deploy-terraform.md
-  - name: Bastion FAQ
-    href: bastion-faq.md
-- name: Concepts
+  - name: Azure PowerShell
+    href: bastion-create-host-powershell.md
+  - name: Azure CLI
+    href: create-host-cli.md
+- name: Design & Architecture
   items:
   - name: Identity & authentication
     items:
@@ -112,18 +114,8 @@
     href: /security/benchmark/azure/baselines/bastion-security-baseline?toc=/azure/bastion/TOC.json
   - name: Azure Security blog
     href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
-- name: How-to guides
+- name: Configure
   items:
-  - name: Deploy Bastion
-    items:
-    - name: Azure portal
-      href: tutorial-create-host-portal.md
-    - name: Azure PowerShell
-      href: bastion-create-host-powershell.md
-    - name: Azure CLI
-      href: create-host-cli.md
-    - name: Developer SKU
-      href: quickstart-developer.md
   - name: Configure Bastion settings
     items:
     - name: View or upgrade SKU

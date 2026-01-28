@@ -26,7 +26,7 @@ The SSH private key must be in a format that begins with  `"-----BEGIN RSA PRIVA
 
 ## Prerequisites
 
-Make sure that you have set up an Azure Bastion host for the virtual network in which the VM resides. For more information, see [Create an Azure Bastion host](tutorial-create-host-portal.md). Once the Bastion service is provisioned and deployed in your virtual network, you can use it to connect to any VM in this virtual network.
+Make sure that you have set up an Azure Bastion host for the virtual network in which the VM resides. For more information, see [Create an Azure Bastion host](quickstart-host-portal.md). Once the Bastion service is provisioned and deployed in your virtual network, you can use it to connect to any VM in this virtual network.
 
 To SSH to a Windows virtual machine, you must also ensure that:
 * Your Windows virtual machine is running Windows Server 2019 or later.

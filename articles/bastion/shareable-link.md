@@ -28,7 +28,7 @@ By default, users in your org have only **Read** access to shared links. If a us
 
 ## Prerequisites
 
-* Azure Bastion is deployed to your virtual network. See [Tutorial - Deploy Bastion using manual settings](tutorial-create-host-portal.md) for steps.
+* Azure Bastion is deployed to your virtual network. See [Quickstart: Deploy Azure Bastion from the Azure portal](quickstart-host-portal.md) for steps.
 
 * Bastion must be configured to use the **Standard** SKU for this feature. You can update the SKU from Basic to Standard when you configure the shareable links feature.
 

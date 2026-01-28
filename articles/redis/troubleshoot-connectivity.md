@@ -74,7 +74,7 @@ Steps to check your private endpoint configuration:
 
 1. Run a command like `nslookup <hostname>` from within the VNet that is linked to the private endpoint to verify that the command resolves to the private IP address for the cache.
 
-1. `Public Network Access` is currently not supported for Azure Managed Redis. You cannot connect to your cache private endpoint from outside the virtual network of your cache.
+1. `Public Network Access` is supported for Azure Managed Redis. You cannot connect to your cache private endpoint from outside the virtual network of your cache.
 
 ### Firewall rules
 

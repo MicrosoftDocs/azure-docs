@@ -41,7 +41,7 @@ The diagram shows the architecture of an Azure Bastion deployment in a hub-and-s
 
 1. Verify that you have configured [virtual networks](../virtual-network/quick-create-portal.md), and [virtual machines](/azure/virtual-machines/windows/quick-create-portal) within the virtual networks.
 1. [Configure virtual network peering](../virtual-network/virtual-network-peering-overview.md).
-1. [Configure Bastion](tutorial-create-host-portal.md) in one of the VNets.
+1. [Configure Bastion](quickstart-host-portal.md) in one of the VNets.
 1. [Verify permissions](#permissions).
 1. [Connect to a virtual machine](bastion-connect-vm-rdp-windows.md) via Azure Bastion. In order to connect via Azure Bastion, you must have the correct permissions for the subscription you're signed into.
 

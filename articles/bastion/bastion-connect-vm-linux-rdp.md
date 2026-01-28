@@ -21,7 +21,7 @@ When you use Azure Bastion, your VMs don't require a client or an agent. However
 
 ## Prerequisites and limitations
 
-Make sure you've configured an Azure Bastion host for the virtual network in which the VM resides. For more information, see [Create an Azure Bastion host](./tutorial-create-host-portal.md). Once the Bastion service is provisioned and deployed in your virtual network, you can use it to connect to any VM in this virtual network.
+Make sure you've configured an Azure Bastion host for the virtual network in which the VM resides. For more information, see [Create an Azure Bastion host](./quickstart-host-portal.md). Once the Bastion service is provisioned and deployed in your virtual network, you can use it to connect to any VM in this virtual network.
 
 * The connection settings and features that are available depend on the Bastion SKU you're using.
 

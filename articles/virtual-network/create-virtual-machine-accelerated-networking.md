@@ -370,7 +370,12 @@ New-AzBastion @bastionParams -AsJob
 
 ### [Portal](#tab/portal)
 
-Accelerated networking is enabled in the portal during virtual machine creation. Create a virtual machine in the following section.
+Accelerated networking is enabled in the portal during virtual machine creation. Create a virtual machine in the following section. 
+
+>[!NOTE]
+>- The Accelerated Networking setting in the portal shows the user-selected state. Accelerated Networking allows choosing Disabled in the portal even if the VM size requires Accelerated Networking. VM sizes that require Accelerated Networking enable Accelerated Networking at runtime regardless of the user setting in the portal. Accelerated Networking is a required feature for general purpose VM sizes of v5 or higher.
+
+
 
 ### [PowerShell](#tab/powershell)
 
