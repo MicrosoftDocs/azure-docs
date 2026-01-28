@@ -12,7 +12,7 @@ ms.author: mbender
 ---
 
 # Export a trusted client CA certificate chain to use with client authentication
-In order to configure mutual authentication with the client, or client authentication, Application Gateway requires a trusted client CA certificate chain to be uploaded to the gateway. If you have multiple certificate chains, you need to create the chains separately and upload them as different files on the Application Gateway. In this article, you learn how to export a trusted client CA certificate chain that you can use in your client authentication configuration on your gateway.  
+In order to configure mutual authentication with the client, or client authentication, Application Gateway requires a trusted client CA certificate chain to be uploaded to the gateway. If you have multiple certificate chains, you need to create the chains separately and upload them as different files on the Application Gateway. In this article, you learn how to export a trusted client CA certificate chain that you can use in your client authentication configuration on your gateway. See more information on what are certificate chains and [best practices for Application Gateway certificate chains](/azure/application-gateway/ssl-overview).
 
 ## Prerequisites
 
