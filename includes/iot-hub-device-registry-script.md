@@ -12,7 +12,7 @@ ms.date: 12/19/2025
 
 Use the provided PowerShell script to automate the setup of your IoT Hub with Azure Device Registry integration. The script performs all the necessary steps to create the required resources and link them together, including:
 
-1. Create a resource group
+1. Create a resource group in a [supported region](..\articles\iot-hub\iot-hub-what-is-new.md#supported-regions).
 1. Configure the necessary app privileges
 1. Create a user-assigned managed identity
 1. Create an ADR namespace with system-assigned managed identity

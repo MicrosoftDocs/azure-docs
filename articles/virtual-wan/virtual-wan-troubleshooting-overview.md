@@ -16,6 +16,12 @@ There are various built-in tools and dashboards for diagnosing and resolving iss
 
 The following sections outline key troubleshooting and monitoring tools, providing guidance for analyzing routing and BGP sessions, validating datapath connectivity, monitoring resource health and logs, and managing maintenance activities.  
 
+## Known Issues & Limitations
+Review known issues and limitations that may impact your Virtual WAN deployment.
+* [Virtual WAN Known Issues](whats-new.md#knownissues) - A list of known issues and limitations for Azure Virtual WAN. Validate that your Virtual WAN is not affected by any documented issues before proceeding with troubleshooting.
+* Review the service limits for Virtual WAN resources to ensure your deployment is within supported thresholds.
+[!INCLUDE [virtual-wan-limits](../../includes/virtual-wan-limits.md)]
+
 ## Topology, Routing, and BGP
 Analyze routing logic, advertised prefixes, AS Path, and BGP session health.
 * [Virtual WAN Topology via Insights](azure-monitor-insights.md) - Shows high-level topology overview of Virtual WAN and dependency-tree with insights. 
@@ -44,5 +50,5 @@ Plan, manage, and review Virtual WAN resource maintenance.
 * [Customer-Controlled Firewall Maintenance](../firewall/customer-controlled-maintenance.md) – Guidance for scheduling maintenance windows for the Azure Firewall in your Virtual WAN secured hub.
 
 ## Additional Resources and Related Wikis
-* For more information about Virtual WAN, see the [Azure Virtual WAN documentation](virtual-wan-about.md).
+* For more information about Virtual WAN, see the [Azure Virtual WAN documentation](virtual-wan-about.md) and the [FAQ](virtual-wan-faq.md).
 * Learn more about monitoring Virtual WAN and related services in [Monitor Azure Virtual WAN](monitor-virtual-wan.md).

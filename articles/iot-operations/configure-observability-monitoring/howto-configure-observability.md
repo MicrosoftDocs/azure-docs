@@ -4,7 +4,7 @@ description: Learn how to deploy Azure IoT Operations observability resources, c
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
-ms.date: 12/19/2025
+ms.date: 01/27/2026
 
 # CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data on the health of my industrial assets and edge environment.
 ---
@@ -97,7 +97,7 @@ Define and deploy an [OpenTelemetry (OTel) Collector](https://opentelemetry.io/d
    fullnameOverride: aio-otel-collector
    image:
      repository: otel/opentelemetry-collector
-     tag: 0.107.0
+     tag: 0.143.0
 
    config:
      processors:
@@ -127,7 +127,7 @@ Define and deploy an [OpenTelemetry (OTel) Collector](https://opentelemetry.io/d
 
        telemetry:
          metrics:
-           readers: []
+           level: none
 
        pipelines:
          metrics:

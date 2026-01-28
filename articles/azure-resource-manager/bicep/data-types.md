@@ -2,7 +2,7 @@
 title: Data types in Bicep
 description: This article describes the data types that are available in Bicep.
 ms.topic: reference
-ms.date: 01/02/2026
+ms.date: 01/27/2026
 ms.custom: devx-track-bicep
 ---
 
@@ -355,14 +355,11 @@ var storageName = 'storage${uniqueString(resourceGroup().id)}'
 
 ### Multi-line strings
 
-In Bicep, multi-line strings are defined between three single quotation marks (`'''`) followed optionally by a newline (the opening sequence) and three single quotation marks (`'''` is the closing sequence). Characters that are entered between the opening and closing sequence are read verbatim. Escaping isn't necessary or possible.
+## Multi-line strings
 
-> [!NOTE]
-> The Bicep parser reads every character as it is. Depending on the line endings of your Bicep file, newlines are interpreted as either `\r\n` or `\n`.
->
-> Interpolation isn't currently supported in multi-line strings. Because of this limitation, you might need to use the [`concat`](./bicep-functions-string.md#concat) function instead of using [interpolation](#strings).
->
-> Multi-line strings that contain `'''` aren't supported.
+You can define a multi-line string by enclosing it in three single quotation marks (`'''`). The string content is preserved exactly as written, so escape characters are not required. The delimiter `'''` cannot appear within the string.
+
+The string may begin immediately after the opening delimiter or on the following line. In both cases, the resulting value does not include a leading newline. Line breaks are interpreted as `\r\n` or `\n`, depending on the line-ending format of the Bicep file.
 
 ```bicep
 // evaluates to "hello!"
@@ -389,11 +386,26 @@ var myVar5 = '''
 comments // are included
 /* because everything is read as-is */
 '''
+```
 
+With Bicep CLI version v0.40.2 or higher, string interpolation is supported. An optional `$` prefix can be added before the opening delimiter to enable string interpolation using standard Bicep `${...}` syntax. If you need to include `${...}` as a literal value without escaping, you can control interpolation by repeating the `$` prefix. Interpolation is only performed when the number of `$` characters preceding `${...}` matches the number of `$` characters used in the opening delimiter.
+
+```bicep
 // evaluates to "interpolation\nis ${blocked}"
 // note ${blocked} is part of the string, and is not evaluated as an expression
 var myVar6 = '''interpolation
 is ${blocked}'''
+
+// evaluates to "this is a test"
+var interpolated = 'a test'
+var myVar7 = $'''
+this is ${interpolated}'''
+
+// evaluates to "this is a test\nthis is not ${interpolated}"
+var interpolated = 'a test'
+var myVar8 = $$'''
+this is $${interpolated}
+this is not ${interpolated}'''
 ```
 
 ### String-related operators

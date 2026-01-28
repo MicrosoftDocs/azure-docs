@@ -1,16 +1,16 @@
 ### YamlMime:Landing
 
-title: Azure Files documentation # < 60 chars
+title: Azure Files Documentation # < 60 chars
 summary: Simple, secure, and serverless enterprise-grade cloud file shares. # < 160 chars
 
 metadata:
-  title: Azure Files documentation
-  description: Mount file shares in the cloud or on-premises on Windows, Linux, and macOS. Cache Azure file shares on Windows Servers with Azure File Sync for local access.
+  title: Azure Files Documentation
+  description: Mount file shares in the cloud or on-premises on Windows, Linux, and macOS. Cache Azure file shares on Windows Servers with Azure File Sync for fast local access.
   ms.service: azure-file-storage
   ms.topic: landing-page
   author: khdownie
   ms.author: kendownie
-  ms.date: 05/28/2025
+  ms.date: 01/27/2026
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -66,8 +66,6 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-          - text: Introduction to Azure Files
-            url: /training/modules/introduction-to-azure-files/
           - text: Configure Azure Files and Azure File Sync
             url: /training/modules/configure-azure-files-file-sync/
 
