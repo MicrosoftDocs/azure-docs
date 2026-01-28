@@ -4,8 +4,8 @@ description: Learn how to track dependencies between APIs and related resources 
 ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 08/28/2025
-ms.author: danlep
-author: dlepow
+
+
 ms.custom: 
 # Customer intent: As an API developer or API program manager, I want to understand the dependencies between API resources in my organization's API center.
 ---

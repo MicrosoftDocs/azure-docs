@@ -1,11 +1,11 @@
 ---
 title: Synchronize APIs from Azure API Management instance
 description: Integrate an API Management instance to Azure API Center for automatic synchronization of APIs to the inventory.
-author: dlepow
+
 ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 01/20/2026
-ms.author: danlep 
+ 
 ms.custom: devx-track-azurecli
 # Customer intent: As an API program manager, I want to integrate my Azure API Management instance with my API center and synchronize API Management APIs to my inventory.
 ---

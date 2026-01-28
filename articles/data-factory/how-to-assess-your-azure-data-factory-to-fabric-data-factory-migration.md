@@ -1,27 +1,39 @@
 ---
-title: Assess your Azure Data Factory pipelines for migration to Fabric
+title: Assess your Azure Data Factory and Synapse pipelines for migration to Fabric
 description: Learn how to check which pipelines are ready to migrate and which ones need attention 
 author: ssindhub
 ms.author: ssrinivasara
 ms.topic: article
-ms.date: 12/02/2025
+ms.date: 01/27/2026
 ms.custom: pipelines
 ---
 
-# How to assess your Azure Data Factory to Fabric Data Factory Migration
+# Assess your Pipelines for Migration to Fabric Data Factory
 Use the built-in upgrade assessment to quickly check pipeline readiness and identify activity compatibility issues before migrating to Fabric.
 
-In [Azure Data Factory](https://adf.azure.com), open the factory you'd like to assess for migration. On the authoring canvas toolbar, select Start assessment (preview).
+## Assess your Azure Data Factory pipelines for migration
+
+In [Azure Data Factory](https://adf.azure.com), open the factory you'd like to assess for migration. On the authoring canvas toolbar, select **Start assessment (preview)**.
 > [!NOTE]
-> If you are unable to see the banner where the "Start assesssment" button is located, try clearing your browser cache and cookies. This often resolves display issues.
+> If you are unable to see the banner where the "Start assessment" button is located, try clearing your browser cache and cookies. This often resolves display issues.
 
-:::image type="content" source="media/how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration/run-upgrade-assessment.png" alt-text="Screenshot showing how to run the Assessment tool.":::
+:::image type="content" source="media/how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration/run-upgrade-assessment.png" alt-text="Screenshot showing how to run the Azure Data Factory Assessment tool." lightbox="media/how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration/run-upgrade-assessment.png":::
 
-This opens a side pane with the preview of list of pipelines and expandable list of activities within the pipeline.
+This opens a side pane showing a preview of the list of pipelines in your data factory with expandable list of activities within the pipeline.
 
-:::image type="content" source="media/how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration/pipeline-assessment.png" alt-text="Screenshot showing how to view the assessment in the side pane.":::
+:::image type="content" source="media/how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration/pipeline-assessment.png" alt-text="Screenshot showing how to view the Azure Data Factory migration assessment in the side pane." lightbox="media/how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration/pipeline-assessment.png" :::
 
-You can export the assessment results as a .csv file, which lists pipeline names, activity-level statuses, and compatibility notes.
+## Assess your Azure Synapse Analytics pipelines for migration
+
+In [Azure Synapse Analytics](https://web.azuresynapse.net), open the pipelines you'd like to assess for migration. On the authoring canvas toolbar, select **Start assessment (preview)**.
+
+:::image type="content" source="media/how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration/start-synapse-pipelines-upgrade-assessment.png" alt-text="Screenshot showing how to run the Assessment tool in Synapse Analytics Workspace." lightbox="media/how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration/start-synapse-pipelines-upgrade-assessment.png":::
+
+This opens a side pane showing a preview of the list of pipelines in your Synapse workspace with expandable list of activities within the pipeline.
+
+:::image type="content" source="media/how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration/synapse-pipelines-assessment.png" alt-text="Screenshot showing how to view the Synapse Pipelines assessment in the side pane.":::
+
+You can export both ADF and Synapse assessment results as a .csv file, which lists pipeline names, activity-level statuses, and compatibility notes.
 
 Some results point to features that are still in progress or out of scope. Use the results to prioritize the fixes and to decide whether to migrate now using existing tools such as [PowerShell upgrade module](/fabric/data-factory/migrate-pipelines-powershell-upgrade-module-for-azure-data-factory-to-fabric) or wait for upcoming support.
 

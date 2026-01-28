@@ -257,7 +257,7 @@ third-party platform in the content artifact.
 > [Test a custom machine configuration package](./3-test-package.md)
 
 <!-- Reference link definitions -->
-[01]: ../../overview.md
+[01]: ../../overview/01-overview-concepts.md
 [02]: /powershell/dsc/overview?view=dsc-2.0&preserve-view=true
 [03]: ./1-set-up-authoring-environment.md
 [05]: /powershell/dsc/resources/authoringResourceClass

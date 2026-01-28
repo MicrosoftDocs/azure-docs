@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 12/06/2024
+ms.date: 01/28/2026
 ms.author: mbender
 ms.custom:
   - mvc

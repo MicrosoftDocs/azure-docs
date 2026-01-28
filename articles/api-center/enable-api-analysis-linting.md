@@ -4,8 +4,8 @@ description: Configure linting of API definitions in your API center to analyze 
 ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 12/03/2024
-ms.author: danlep
-author: dlepow
+
+
 ms.custom:
   - devx-track-azurecli
   - sfi-image-nochange

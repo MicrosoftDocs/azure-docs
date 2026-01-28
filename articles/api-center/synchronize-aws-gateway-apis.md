@@ -1,11 +1,11 @@
 ---
 title: Synchronize APIs from Amazon API Gateway - Azure API Center
 description: Integrate an Amazon API Gateway to Azure API Center for automatic synchronization of APIs to the inventory.
-author: dlepow
+
 ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 01/21/2026
-ms.author: danlep 
+ 
 ms.custom: 
   - devx-track-azurecli
 ms.collection: 

@@ -1,11 +1,11 @@
 ---
 title: Configure API access in Azure API Center
 description: Learn how to configure access to APIs in the Azure API Center inventory using API keys or OAuth 2.0 authorization. Users authorized for access can test APIs in the API Center portal.
-author: dlepow
+
 ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 06/02/2025
-ms.author: danlep 
+ 
 ms.custom: 
 # Customer intent: As an API program manager, I want to store API authorization information in my API center and enable authorized users to test APIs in the API Center portal.
 ---

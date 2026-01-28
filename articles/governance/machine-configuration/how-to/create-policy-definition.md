@@ -389,7 +389,7 @@ updated.
 - Learn how to view [compliance details for machine configuration][11] policy assignments.
 
 <!-- Reference link definitions -->
-[01]: ../overview.md
+[01]: ../overview/01-overview-concepts.md
 [02]: ../concepts/remediation-options.md
 [03]: ./develop-custom-package/1-set-up-authoring-environment.md
 [04]: ./develop-custom-package/2-create-package.md

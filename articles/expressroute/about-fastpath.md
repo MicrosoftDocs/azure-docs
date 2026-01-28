@@ -140,6 +140,10 @@ FastPath doesn't support traffic to Azure internal load balancers or Azure PaaS 
 
 Internal load balancers deployed in the hub virtual network work with FastPath and traffic bypasses the gateway.
 
+### Azure Firewall 
+
+You can use Azure Firewall with FastPath in the hub virtual network. However, Azure Firewall deployed in spoke virtual networks isn't supported. Traffic to Azure Firewall in spoke networks flows through the ExpressRoute gateway instead of FastPath.
+
 ### Virtual network peering configurations
 
 When using FastPath with virtual network peering, be aware of the following limitations:

@@ -1,11 +1,11 @@
 ---
 title: Enable API Center portal view - Azure API Center - VS Code extension
 description: Enable enterprise developers to view the enterprise's API Center portal view including API definitions using the Visual Studio Code Extension for Azure API Center.
-author: dlepow
+
 ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 05/27/2025
-ms.author: danlep 
+ 
 ms.custom: 
 # Customer intent: As an API program manager, I want to enable an API catalog so that app developers in my organization can discover and consume the APIs in my organization's API center without needing to manage the API inventory itself.
 ---

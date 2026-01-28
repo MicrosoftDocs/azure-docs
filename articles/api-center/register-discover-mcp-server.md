@@ -1,11 +1,11 @@
 ---
 title: Inventory and Discover MCP Servers in Your API Center
 description: Learn about how Azure API Center can be a centralized registry for MCP servers in your organization. Developers and other stakeholders can use the API Center portal to discover MCP servers.
-author: dlepow
+
 ms.service: azure-api-center
 ms.topic: concept-article
 ms.date: 09/08/2025
-ms.author: danlep 
+ 
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 # Customer intent: As an API program manager, I want to register and discover  MCP servers as APIs in my API Center inventory.

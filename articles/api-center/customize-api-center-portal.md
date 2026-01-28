@@ -1,12 +1,12 @@
 ---
 title: Customize the API Center Portal
 description: Learn about settings you can customize in your Azure API Center portal.
-author: dlepow
+
 ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 08/07/2025
 ms.update-cycle: 180-days
-ms.author: danlep 
+ 
 ms.custom: 
 ms.collection: ce-skilling-ai-copilot
 # Customer intent: As an API program manager, I want to customize the Azure-managed portal for developers and other API stakeholders in my organization.

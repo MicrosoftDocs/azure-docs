@@ -2,7 +2,7 @@
 author: EdB-MSFT
 ms.author: edbayansh
 ms.topic: include
-ms.date: 01/15/2026
+ms.date: 01/26/2026
 
 # This file is auto-generated . Do not edit manually. Changes will be overwritten.
 ---
@@ -1028,23 +1028,23 @@ The [CloudGuard](https://sc1.checkpoint.com/documents/CloudGuard_Dome9/Documenta
 
  ---
    
-<a name="check-point-cyberint-ioc-connector"></a><details><summary>**Check Point Cyberint IOC Connector**</summary>
+<a name="check-point-cyberint-alerts-connector-via-codeless-connector-platform"></a><details><summary>**Check Point Cyberint Alerts Connector (via Codeless Connector Framework)**</summary>
 
 **Supported by:** [Cyberint](https://www.checkpoint.com/support-services/contact-support/)
 
-This is data connector for Check Point Cyberint IOC.
+Cyberint, a Check Point company, provides a Microsoft Sentinel integration to streamline critical Alerts and bring enriched threat intelligence from the Infinity External Risk Management solution into Microsoft Sentinel. This simplifies the process of tracking the status of tickets with automatic sync updates across systems. Using this new integration for Microsoft Sentinel, existing Cyberint and Microsoft Sentinel customers can easily pull logs based on Cyberint's findings into Microsoft Sentinel platform.
 
 **Log Analytics table(s):**  
 
 |Table|DCR support|Lake-only ingestion|
 |---|---|---|
-|`iocsent_CL`|No|No|
+|`argsentdc_CL`|Yes|Yes|
 
-**Data collection rule support:** Not currently supported
+**Data collection rule support:** [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal)
 
 **Prerequisites:**
 
-- **Check Point Cyberint API Key and Argos URL**: The connector API key and Argos URL are required<br><br>
+- **Check Point Cyberint API Key, Argos URL, and Customer Name**: The connector API key, Argos URL, and Customer Name are required<br><br>
 </details> 
 
  ---
@@ -1104,8 +1104,8 @@ The Cisco Cloud Security solution for Microsoft Sentinel enables you to ingest [
 |`Cisco_Umbrella_dns_CL`|Yes|Yes|
 |`Cisco_Umbrella_proxy_CL`|Yes|Yes|
 |`Cisco_Umbrella_ip_CL`|Yes|Yes|
-|`Cisco_Umbrella_cloudfirewall_CL`|No|No|
-|`Cisco_Umbrella_firewall_CL`|No|No|
+|`Cisco_Umbrella_cloudfirewall_CL`|Yes|Yes|
+|`Cisco_Umbrella_firewall_CL`|Yes|Yes|
 |`Cisco_Umbrella_dlp_CL`|No|No|
 |`Cisco_Umbrella_ravpnlogs_CL`|No|No|
 |`Cisco_Umbrella_audit_CL`|No|No|
@@ -1139,8 +1139,8 @@ The Cisco Umbrella data connector provides the capability to ingest [Cisco Umbre
 |`Cisco_Umbrella_dns_CL`|Yes|Yes|
 |`Cisco_Umbrella_proxy_CL`|Yes|Yes|
 |`Cisco_Umbrella_ip_CL`|Yes|Yes|
-|`Cisco_Umbrella_cloudfirewall_CL`|No|No|
-|`Cisco_Umbrella_firewall_CL`|No|No|
+|`Cisco_Umbrella_cloudfirewall_CL`|Yes|Yes|
+|`Cisco_Umbrella_firewall_CL`|Yes|Yes|
 |`Cisco_Umbrella_dlp_CL`|No|No|
 |`Cisco_Umbrella_ravpnlogs_CL`|No|No|
 |`Cisco_Umbrella_audit_CL`|No|No|
@@ -1934,7 +1934,7 @@ When critical systems fail or security incidents happen, SIGNL4 bridges the ‘l
    
 <a name="digital-shadows-searchlight-using-azure-functions"></a><details><summary>**Digital Shadows Searchlight (using Azure Functions)**</summary>
 
-**Supported by:** [Digital Shadows](https://marketplace.atlassian.com/vendors/1217521/digital-shadows)
+**Supported by:** [Digital Shadows](https://www.digitalshadows.com/contact-us/)
 
 The Digital Shadows data connector provides ingestion of the incidents and alerts from Digital Shadows Searchlight into the Microsoft Sentinel using the REST API. The connector will provide the incidents and alerts information such that it helps to examine, diagnose and analyse the potential security risks and threats.
 
@@ -2872,6 +2872,32 @@ Through the API integration, you have the capability to retrieve all the issues 
 **Prerequisites:**
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. For more information, see [Azure Functions](/azure/azure-functions/).<br><br>
+</details> 
+
+ ---
+   
+<a name="halcyon-connector"></a><details><summary>**Halcyon Connector**</summary>
+
+**Supported by:** [Halcyon](https://supportal.halcyon.ai/)
+
+The [Halcyon](https://www.halcyon.ai) connector provides the capability to send data from Halcyon to Microsoft Sentinel.
+
+**Log Analytics table(s):**  
+
+|Table|DCR support|Lake-only ingestion|
+|---|---|---|
+|`HalcyonAuthenticationEvents_CL`|No|No|
+|`HalcyonDnsActivity_CL`|No|No|
+|`HalcyonFileActivity_CL`|No|No|
+|`HalcyonNetworkSession_CL`|No|No|
+|`HalcyonProcessEvent_CL`|No|No|
+
+**Data collection rule support:** Not currently supported
+
+**Prerequisites:**
+
+- **Microsoft Entra Create Permissions**: Permissions to create an app registration in Microsoft Entra ID. Typically requires Entra ID Application Developer role or higher.
+- **Role Assignment Permissions**: Write permissions required to assign Monitoring Metrics Publisher role to the data collection rule (DCR). Typically requires Owner or User Access Administrator role at the resource group level.<br><br>
 </details> 
 
  ---

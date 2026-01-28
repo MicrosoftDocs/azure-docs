@@ -4,8 +4,8 @@ description: Learn how to set up a notification workflow to set API status in yo
 ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 10/18/2024
-ms.author: danlep
-author: dlepow
+
+
 ms.custom:
   - sfi-image-nochange
 # Customer intent: As an API program manager, I want to automate a workflow for an individual to receive a Microsoft Teams notification to set status for an API that is registered in my organization's API center.

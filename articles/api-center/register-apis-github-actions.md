@@ -4,8 +4,8 @@ description: Learn how to automate the registration of APIs in your API center u
 ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 12/23/2024
-ms.author: danlep
-author: dlepow
+
+
 ms.custom: devx-track-azurecli
 # Customer intent: As an API developer, I want to automate the registration of APIs in my API center using a CI/CD workflow based on GitHub Actions.
 ---

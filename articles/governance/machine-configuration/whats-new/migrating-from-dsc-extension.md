@@ -159,7 +159,7 @@ Use the `Remove-DscConfigurationDocument` command as documented in
 - [Assign your custom policy definition][11] using Azure portal.
 
 <!-- Reference link definitions -->
-[01]: ../overview.md
+[01]: ../overview/01-overview-concepts.md
 [02]: /powershell/module/microsoft.powershell.core/about/about_windows_powershell_compatibility
 [03]: ../how-to/develop-custom-package/2-create-package.md
 [04]: ../how-to/develop-custom-package/2-create-package.md#author-a-configuration

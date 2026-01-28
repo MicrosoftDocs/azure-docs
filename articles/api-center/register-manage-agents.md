@@ -1,8 +1,8 @@
 ---
 title: Register and Manage Agents in Azure API Center
 description: "Learn how to update agent metadata, add skills, configure capabilities, and manage provider information for A2A agents."
-author: ProfessorKendrick
-ms.author: kkendrick
+
+
 ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 11/11/2025

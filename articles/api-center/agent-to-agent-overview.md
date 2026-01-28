@@ -1,8 +1,8 @@
 ---
 title: Agent registry in Azure API Center
 description: "Overview of the agent registry for discovering, registering, and managing A2A agents in API Center."
-author: ProfessorKendrick
-ms.author: kkendrick
+
+
 ms.service: azure-api-center
 ms.topic: overview
 ms.date: 11/03/2025

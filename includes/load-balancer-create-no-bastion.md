@@ -29,8 +29,6 @@ The following procedure creates a virtual network with a resource subnet.
     | Name | Enter **lb-vnet**. |
     | Region | Select **East US**. |
 
-    :::image type="content" source="./media/load-balancer-internal-create-bastion-include/create-virtual-network-basics.png" alt-text="Screenshot of Basics tab of Create virtual network in the Azure portal.":::
-
 1. Select the **IP addresses** tab, or the **Next: Security** and **Next: IP Addresses** buttons at the bottom of the page.
   
 1. In the address space box in **Subnets**, select the **default** subnet.
@@ -46,8 +44,6 @@ The following procedure creates a virtual network with a resource subnet.
     | Subnet size | Leave the default of **/24(256 addresses)**. |
     | **Security** |   |
     | NAT Gateway | Select **lb-nat-gateway**. |
-
-    :::image type="content" source="./media/load-balancer-internal-create-bastion-include/edit-subnet-window.png" alt-text="Screenshot of default subnet rename and configuration.":::
 
 1. Select **Save**.
 

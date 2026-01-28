@@ -1,12 +1,12 @@
 ---
 title: Build and Register APIs - VS Code Extension
 description: Learn how API developers can use the Azure API Center extension for Visual Studio Code to build and register APIs in their organization's API center.
-author: dlepow
+
 ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 08/28/2025
 ms.update-cycle: 180-days
-ms.author: danlep 
+ 
 ms.collection: ce-skilling-ai-copilot
 ms.custom: 
 # Customer intent: As an API developer, I want to use my Visual Studio Code environment to register APIs in my organization's API center as part of my development workflow.
