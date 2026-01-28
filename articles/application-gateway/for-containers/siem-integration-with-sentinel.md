@@ -108,7 +108,8 @@ In this quickstart guide, you set up:
 
 1. Send traffic into the URL to create an incident: 
    - Now you're ready to send some traffic with **/secret/path** to your sample application, via the **FQDN** (fully qualified domain name) assigned to the frontend. Use the following command to get the FQDN:
-    ```bash
+
+```bash
     fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addresses[0].value}')
 ```
 2. Curling this FQDN should return responses from the backend as configured on the HTTPRoute:
