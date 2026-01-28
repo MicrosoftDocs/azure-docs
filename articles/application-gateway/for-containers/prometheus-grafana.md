@@ -18,14 +18,14 @@ Establishing monitoring for Application Gateway for Containers is a crucial part
 ## Learn About the Services
 Before diving into the configuration, let's understand how these components work together to create a unified monitoring solution. 
 
-- [What is Azure Monitor Managed Prometheus?](https://learn.microsoft.com/en-us/azure/azure-monitor/metrics/prometheus-metrics-overview)
-    - Azure Managed Prometheus offers native integration and management capabilities, simplifying the setup and management of monitoring infrastructure. It integrates with Azure Managed Grafana, provides a seamless data source for Azure Monitor dashboards with Grafana, and can also provide data for your existing self-managed Grafana environment. See [Self-managed Prometheus to Grafana](https://learn.microsoft.com/en-us/azure/azure-monitor/metrics/prometheus-metrics-overview)
+- [What is Azure Monitor Managed Prometheus?](/azure/azure-monitor/metrics/prometheus-metrics-overview)
+    - Azure Managed Prometheus offers native integration and management capabilities, simplifying the setup and management of monitoring infrastructure. It integrates with Azure Managed Grafana, provides a seamless data source for Azure Monitor dashboards with Grafana, and can also provide data for your existing self-managed Grafana environment. See [Self-managed Prometheus to Grafana](/azure/azure-monitor/metrics/prometheus-metrics-overview)
 
-- [What is Azure Grafana?](https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/visualize-grafana-overview#azure-managed-grafana)
-    - Azure Monitor Dashboards with Grafana: Delivers prebuilt Grafana dashboards directly in the Azure portal. It's automatically available at no cost and with no configuration requirements. See available data sources with [Azure Monitor Dashboards with Grafana](https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/visualize-grafana-overview#data-sources). If you require other data sources, then see Azure Managed Grafana. 
+- [What is Azure Grafana?](/azure/azure-monitor/visualize/visualize-grafana-overview#azure-managed-grafana)
+    - Azure Monitor Dashboards with Grafana: Delivers prebuilt Grafana dashboards directly in the Azure portal. It's automatically available at no cost and with no configuration requirements. See available data sources with [Azure Monitor Dashboards with Grafana](/azure/azure-monitor/visualize/visualize-grafana-overview#data-sources). If you require other data sources, then see Azure Managed Grafana. 
     - Azure Managed Grafana is an open-source analytics and visualization platform that enables you to query, monitor, and create interactive dashboards for metrics, logs, and traces from multiple data sources. 
 
-- [What is Azure Monitor Workspace?](https://learn.microsoft.com/en-us/azure/azure-monitor/metrics/azure-monitor-workspace-manage?tabs=azure-portal)
+- [What is Azure Monitor Workspace?](/azure/azure-monitor/metrics/azure-monitor-workspace-manage?tabs=azure-portal)
     - The workspace is a unique environment for data collected by Azure Monitor. Each workspace has its own data repository, configuration, and permissions.
 
 You can monitor Azure Application Gateway for Containers resources in the following ways. Refer to the diagram.
@@ -53,12 +53,12 @@ Use the following steps to use the Grafana dashboards that are already available
 4. Click Configure.
 5. Select **Enable Prometheus Metrics** and **Container Logs**. Under Advanced Settings: select your specific Azure Monitor Workspace, Log Analytics Workspace, and Log Presets. 
 
-![A diagram of architecture grid.](./media/prometheus-grafana/configure-monitor-with-grafana.png)
+![Configure Monitor with Grafana.](./media/prometheus-grafana/configure-monitor-with-grafana.png)
 
 6. Browse the list of available dashboards in the Azure Managed Prometheus listings.
-![A diagram of architecture grid.](./media/prometheus-grafana/prometheus-template.png)
+![Prometheus Template Dashboards.](./media/prometheus-grafana/prometheus-template.png)
 
-See additional customization in [Azure Monitor Dashboards with Grafana](https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/visualize-use-grafana-dashboards)
+See additional customization in [Azure Monitor Dashboards with Grafana](/azure/azure-monitor/visualize/visualize-use-grafana-dashboards)
 
 ## Azure Managed Grafana
 Azure Managed Grafana provides a dedicated, fully managed Grafana instance with broader flexibility. Choose Azure Managed Grafana when you need advanced user management, customization, integration with a wide variety of Azure and non-Azure data sources, or when you require Grafana's full feature set, such as advanced alerting, reporting, and enterprise plugins.
@@ -68,13 +68,13 @@ Azure Managed Grafana provides a dedicated, fully managed Grafana instance with 
 2. Navigate to AKS Cluster in the Azure portal.
     - New AKS Cluster: configure monitoring in the Monitoring tab and enable Prometheus metrics and container logs.
     - Existing Cluster: Navigate to your cluster in the Azure portal. In the service menu, select Monitor and then Monitor Settings.
-![A diagram of architecture grid.](./media/prometheus-grafana/configure-monitor-with-grafana.png)
+![Azure Monitor with Grafana.](./media/prometheus-grafana/configure-monitor-with-grafana.png)
 
 3. In the Search resources, services, and docs (G+/) box, enter Azure Managed Grafana and select Azure Managed Grafana.
-4. Create an [Azure Managed Grafana Workspace](https://learn.microsoft.com/en-us/azure/managed-grafana/quickstart-managed-grafana-portal). 
+4. Create an [Azure Managed Grafana Workspace](/azure/managed-grafana/quickstart-managed-grafana-portal). 
 - An Azure Managed Grafana instance is automatically configured with a managed identity with the Monitoring Data Reader role required to allow the identity to read any monitoring data for the subscription. The identity is used to authenticate Grafana to Azure Monitor.
-5.  Create an [Azure Monitor Workspace](https://learn.microsoft.com/en-us/azure/azure-monitor/metrics/azure-monitor-workspace-manage?tabs=azure-portal). Copy the Query endpoint. 
-![A diagram of architecture grid.](./media/prometheus-grafana/query-endpoint.png)
+5.  Create an [Azure Monitor Workspace](/azure/azure-monitor/metrics/azure-monitor-workspace-manage?tabs=azure-portal). Copy the Query endpoint. 
+![Monitor Query Endpoint.](./media/prometheus-grafana/query-endpoint.png)
 
 
 ## Create the Prometheus data Source in Grafana
@@ -86,7 +86,7 @@ Azure Managed Grafana provides a dedicated, fully managed Grafana instance with 
 6. Under Azure Authentication, select Managed Identity from the Authentication dropdown list.
 7. Scroll to the bottom of the page and select Save & test.
 
-![A diagram of architecture grid.](./media/prometheus-grafana/prometheus-data-source.png)
+![Prometheus Data Source.](./media/prometheus-grafana/prometheus-data-source.png)
 
 ## Graph Prometheus Metrics on Grafana
 A Grafana dashboard contains panels and rows. You can import a Grafana dashboard and adapt it to your own scenario, create a new Grafana dashboard, or duplicate an existing dashboard.
@@ -109,7 +109,7 @@ A Grafana dashboard contains panels and rows. You can import a Grafana dashboard
 ## Graph Azure Monitor Logs on Grafana
 We created the resources and now we combine all resources and configure Prometheus.
 1. Deploy the menu on the left and select Connections > Data sources.
-![A diagram of architecture grid.](./media/prometheus-grafana/monitordata-source-configuration.png)
+![Monitor Data source.](./media/prometheus-grafana/monitordata-source-configuration.png)
 
 1. Azure Monitor is listed as a built-in data source for your Azure Managed Grafana workspace. Select Azure Monitor.
 2. In the Settings tab, authenticate through Managed Identity and select your subscription from the dropdown list. When you select managed identity, the authentication and authorization are made through the system-assigned or the user-assigned managed identity you configured in your Azure Managed Grafana workspace. 
