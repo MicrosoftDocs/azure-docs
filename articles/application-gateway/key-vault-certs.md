@@ -15,11 +15,17 @@ ms.author: mbender
 > [!IMPORTANT]
 > Starting **August 31, 2025**, all clients and backend servers interacting with Azure Application Gateway must use Transport Layer Security (TLS) 1.2 or higher, as [support for TLS 1.0 and 1.1 will be discontinued](https://azure.microsoft.com/updates/azure-application-gateway-support-for-tls-10-and-tls-11-will-end-by-31-august-2025).
 
-## Prerequisitess 
+## Prerequisites 
 1. You must have **Contributor** permissions and **User-assigned Managed Identity** enabled for Application Gateway.
 2. You must have **Key Vault Contributor** and **Key Vault Secrets User** access.
-    - If the vault permissions are removed or the secret version is deleted, the listener is set to **Disabled** and traffic may stop..
-   
+    - If the vault permissions are removed or the secret version is deleted, the listener is set to **Disabled** and traffic may stop.
+3. You must be able to reach the Key Vault: when Key Vault is behind a Network Security Perimeter, Trusted Microsoft Services bypass does NOT apply. Suggestions to reduce this barrier:
+    - Private Endpoint with Key Vault DNS linked to Application Gateway subnet.
+    - Service Endpoint where public network is disabled and “Allow trusted Microsoft services to bypass” is **enabled**.
+    
+> [!NOTE]
+> Migration of an Application Gateway  that uses a customer‑managed Key Vault certificate across different Azure tenants is NOT supported.
+
 ## Introduction
 [Azure Key Vault](/azure/key-vault/general/overview) is a platform-managed secret store that you can use to safeguard secrets, keys, and TLS/SSL certificates. Azure Application Gateway supports integration with Key Vault for server certificates that are attached to HTTPS-enabled listeners. This support is limited to the v2 SKU of Application Gateway.
 
@@ -39,12 +45,12 @@ Application Gateway integration with Key Vault offers many benefits, including:
 
 ## Supported certificates
 
-Application Gateway currently supports software-validated certificates only. Hardware security module (HSM) -validated certificates aren't supported.
+Application Gateway currently supports software-validated certificates only. Hardware security module (HSM)-validated certificates aren't supported.
 
 After Application Gateway is configured to use Key Vault certificates, its instances retrieve the certificate from Key Vault and install them locally for TLS termination. The instances poll Key Vault at **four-hour intervals** to retrieve a renewed version of the certificate, if it exists. If an updated certificate is found, the TLS/SSL certificate that's associated with the HTTPS listener is automatically rotated.
 
 > [!TIP]
-> Any change to Application Gateway forces a check against Key Vault to see if any new versions of certificates are available. This includes, but not limited to, changes to Frontend IP Configurations, Listeners, Rules, Backend Pools, Resource Tags, and more. If an updated certificate is found, the new certificate is immediately presented.
+> Any change to Application Gateway forces a check against Key Vault to see if any new versions of certificates are available. This includes, but isn't limited to, changes to Frontend IP Configurations, Listeners, Rules, Backend Pools, Resource Tags, and more. If an updated certificate is found, the new certificate is immediately presented.
 
 Application Gateway uses a secret identifier in Key Vault to reference the certificates. For Azure PowerShell, the Azure CLI, or Azure Resource Manager, we strongly recommend that you use a secret identifier that doesn't specify a version. This way, Application Gateway automatically rotates the certificate if a newer version is available in your Key Vault. An example of a secret URI without a version is `https://myvault.vault.azure.net/secrets/mysecret/`. You may refer to the PowerShell steps provided in the [following section](#key-vault-azure-role-based-access-control-permission-model).
 
@@ -96,8 +102,8 @@ When you're using a restricted Key Vault, use the following steps to configure A
 > If using Private Endpoints to access Key Vault, you must link the privatelink.vaultcore.azure.net private DNS zone, containing the corresponding record to the referenced Key Vault, to the virtual network containing Application Gateway. Custom DNS servers may continue to be used on the virtual network instead of the Azure DNS provided resolvers, however the private DNS zone needs to remain linked to the virtual network as well.
 
 1. In the Azure portal, in your Key Vault, select **Networking**.
-2. On the **Firewalls and virtual networks** tab, select Selected network
-3. For Virtual networks, select **+ Add existing virtual networks**, and then add the virtual network and subnet for your Application Gateway instance. If prompted, ensure the _Do not configure 'Microsoft.KeyVault' service endpoint(s) at this time_ checkbox is unchecked to ensure the `Microsoft.KeyVault` service endpoint is enabled on the subnet.
+2. On the **Firewalls and virtual networks** tab, select **Selected networks**.
+3. For **Virtual networks**, select **+ Add existing virtual networks**, and then add the virtual network and subnet for your Application Gateway instance. If prompted, ensure the _Do not configure 'Microsoft.KeyVault' service endpoint(s) at this time_ checkbox is unchecked to ensure the `Microsoft.KeyVault` service endpoint is enabled on the subnet.
 4. Select **Yes** to allow trusted services to bypass the Key Vault's firewall.
 
    ![Screenshot that shows selections for configuring Application Gateway to use firewalls and virtual networks.](media/key-vault-certs/key-vault-firewall.png)
@@ -161,7 +167,7 @@ Under **Choose a certificate** select the certificate named in the previous step
 ## Investigating and resolving Key Vault errors
 
 > [!NOTE]
-> It is important to consider any impact on your application gateway resource when making changes or revoking access to your Key Vault resource. If your application gateway is unable to access the associated key vault or locate the certificate object in it, the application gateway automatically sets the listener to a disabled state. 
+> It's important to consider any impact on your application gateway resource when making changes or revoking access to your Key Vault resource. If your application gateway is unable to access the associated Key Vault or locate the certificate object in it, the application gateway automatically sets the listener to a disabled state.
 >
 > You can identify this user-driven event by viewing the Resource Health for your application gateway. [Learn more](../application-gateway/disabled-listeners.md).
  
