@@ -80,7 +80,7 @@ Azure Managed Grafana provides a dedicated, fully managed Grafana instance with 
 ## Create the Prometheus data Source in Grafana
 1. Open your Azure Managed Grafana workspace in the Azure portal and select the endpoint to view the Grafana workspace.
 2. Select Connections > Data sources and then add data source.
-3. Search for and select Prometheus. 
+3. Search for and select **Prometheus**. 
 4. Paste the query endpoint from your Azure Monitor workspace into the Prometheus server URL field.
 5. Under Authentication, select Azure Auth.
 6. Under Azure Authentication, select Managed Identity from the Authentication dropdown list.
