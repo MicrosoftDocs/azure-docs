@@ -27,6 +27,7 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 |:--- |:--- |:--- |
 | Advanced ransomware protection | Preview | No |
 | Customer-managed keys with managed Hardware Security Module | Generally available | No |
+| Elastic zone-redundant storage | Preview | No |
 | File access logs | Generally available | [Partial support](manage-file-access-logs.md#supported-regions) |
 
 ## Portal access

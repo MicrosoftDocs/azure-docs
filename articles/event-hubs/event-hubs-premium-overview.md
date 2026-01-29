@@ -11,7 +11,7 @@ ms.custom:
   - ai-gen-description
 ---
 
-# Azure Event Hubs Premium preview
+# Azure Event Hubs Premium overview
 
 Azure Event Hubs Premium (Premium tier) is designed for high-end streaming scenarios that require elastic, superior performance with predictable latency. The Premium tier provides reserved compute, memory, and storage resources, which minimize cross-tenant interference in a managed multitenant platform-as-a-service (PaaS) environment.
 

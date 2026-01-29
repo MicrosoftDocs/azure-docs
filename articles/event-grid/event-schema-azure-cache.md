@@ -11,6 +11,8 @@ ms.author: spelluru
 
 This article provides the properties and schema for Azure Cache for Redis events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). 
 
+[!INCLUDE [cache-retirement-alert](../azure-cache-for-redis/includes/cache-retirement-alert.md)]
+
 ## Available event types
 These events are triggered when a client exports, imports, or scales by calling Azure Cache for Redis REST APIs. Patching event is triggered by Redis update.
 

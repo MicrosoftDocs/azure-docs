@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 09/17/2025
+ms.date: 01/29/2026
 ms.custom: build-2025
 
 # Customer intent: "As a web application security administrator, I want to manage DRS and CRS rule sets in the web application firewall, so that I can customize security settings and protect against a broad range of vulnerabilities effectively."
@@ -21,7 +21,45 @@ You can disable rules individually, or set specific actions for each rule. This 
 > [!NOTE]
 > When you change a ruleset version in a WAF Policy, you should forward your existing rule action and state overrides and exclusions to apply on the new ruleset version. For more information, see [Upgrading or changing ruleset version](upgrade-ruleset-version.md).
 
+## Default rule set 2.2
+
+Default rule set (DRS) 2.2 is based on Open Web Application Security Project (OWASP) Core Rule Set 3.3.4, bringing refinements to existing detections and new protections, including rules that detect content types declared outside the actual content-type header and enhanced remote code execution (RCE) detections. DRS 2.2 includes additional proprietary protections rules developed by Microsoft Threat Intelligence team, which expand coverage across SQL injection, XSS, and application-security attack patterns.
+
+DRS 2.2 offers a new engine and new rule sets defending against Java injections, an initial set of file upload checks, and fewer false positives compared with older DRS and CRS versions. You can also [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md). Learn more about the new [Azure WAF engine](waf-engine.md).
+
+DRS 2.2 includes 18 rule groups, as shown in the following table. Each group contains multiple rules, and you can customize behavior for individual rules, rule groups, or entire rule set.
+
+|Threat Type|Rule Group Name|
+|---|---|
+|General|**[General](?tabs=drs22#general-22)**|
+|Lock-down methods (PUT, PATCH)|**[METHOD-ENFORCEMENT](?tabs=drs22#drs911-22)**|
+|Protocol and encoding issues|**[PROTOCOL-ENFORCEMENT](?tabs=drs22#drs920-22)**|
+|Header injection, request smuggling, and response splitting|**[PROTOCOL-ATTACK](?tabs=drs22#drs921-22)**|
+|File and path attacks|**[LFI](?tabs=drs22#drs930-22)**|
+|Remote file inclusion (RFI) attacks|**[RFI](?tabs=drs22#drs931-22)**|
+|Remote code execution attacks|**[RCE](?tabs=drs22#drs932-22)**|
+|PHP-injection attacks|**[PHP](?tabs=drs22#drs933-22)**
+|Node JS attacks|**[NodeJS](?tabs=drs22#drs934-22)**|
+|Cross-site scripting attacks|**[XSS](?tabs=drs22#drs941-22)**|
+|SQL-injection attacks|**[SQLI](?tabs=drs22#drs942-22)**|
+|Session-fixation attacks|**[SESSION-FIXATION](?tabs=drs22#drs943-22)**|
+|JAVA attacks|**[SESSION-JAVA](?tabs=drs22#drs944-22)**|
+|Web shell attacks (MS)|**[MS-ThreatIntel-WebShells](?tabs=drs22#drs9905-22)**|
+|AppSec attacks (MS)|**[MS-ThreatIntel-AppSec](?tabs=drs22#drs9903-22)**|
+|SQL-injection attacks (MS)|**[MS-ThreatIntel-SQLI](?tabs=drs22#drs99031-22)**|
+|CVE attacks (MS)|**[MS-ThreatIntel-CVEs](?tabs=drs22#drs99001-22)**|
+|XSS attacks (MS)|**[MS-ThreatIntel-CVEs](?tabs=drs22#drs99032-22)**|
+
+
+#### Disabled rules
+DRS 2.2 rules configured in Paranoia Level 2 are disabled by default. You can leave their state as disabled if you wish to keep you WAF policy configured in Paranoia Level 1. If you wish to increase the policy's paranoia level, you can safely change these rules' state to enabled and their action to log mode. Analyze the logs, make the required fine tuning and enable the rules accordingly. For more information, see [#paranoia-level](Paranoia level) and [#tuning-of-managed-rule-sets](Tuning of managed rule sets)
+
+Some OWASP rules are superseded by Microsoft-authored replacements. The original rules are disabled by default and their descriptions end with “(replaced by …)”.
+
+
 ## Default rule set 2.1
+
+While you can still use default rule set (DRS) 2.1, it's recommended to use the latest version of DRS 2.2.
 
 Default rule set (DRS) 2.1 is baselined off the Open Web Application Security Project (OWASP) Core Rule Set (CRS) 3.3.2 and includes additional proprietary protections rules developed by Microsoft Threat Intelligence team and updates to signatures to reduce false positives. It also supports transformations beyond just URL decoding.
 
@@ -68,7 +106,7 @@ Use the following guidance to tune WAF while you get started with DRS 2.1 on App
 
 ## Core rule sets (CRS) - legacy
 
-The recommended managed rule set is the Default Rule Set 2.1, which is baselined off the Open Web Application Security Project (OWASP) Core Rule Set (CRS) 3.3.2 and includes additional proprietary protections rules developed by Microsoft Threat Intelligence team and updates to signatures to reduce false positives. When creating a new WAF policy you should use the latest, recommended ruleset version DRS 2.1. If you have an existing WAF policy using CRS 3.2 or CRS 3.1, it's recommended to upgrade to DRS 2.1. For more information, see [Upgrade CRS or DRS ruleset version](upgrade-ruleset-version.md).
+The recommended managed rule set is the latest Default Rule Set 2.2, which is baselined off the Open Web Application Security Project (OWASP) Core Rule Set (CRS) 3.3.4 and includes additional proprietary protections rules developed by Microsoft Threat Intelligence team and updates to signatures to reduce false positives. When creating a new WAF policy you should use the latest, recommended ruleset version DRS 2.2. If you have an existing WAF policy using DRS 2.1, CRS 3.2 or CRS 3.1, it's recommended to upgrade to DRS 2.2. For more information, see [Upgrade CRS or DRS ruleset version](upgrade-ruleset-version.md).
 
 > [!NOTE]
 > - CRS 3.2 is only available on the WAF_v2 SKU. You can't downgrade from CRS 3.2 to CRS 3.1 or earlier because CRS 3.2 runs on the new Azure WAF engine. It's recommended to upgrade to the latest DRS 2.1 directly and validate new rules safely by changing the new rules' action to log mode. For more information, see [Validate new rules safely](upgrade-ruleset-version.md#validate-new-rules-safely).
@@ -104,8 +142,10 @@ For example, a single *Critical* rule match is enough for the WAF to block a req
 
 Each rule is assigned in a specific Paranoia Level (PL). Rules configured in Paranoia Level 1 (PL1) are less aggressive and hardly ever trigger a false positive. They provide baseline security with minimal need for fine tuning. Rules in PL2 detect more attacks, but they're expected to trigger false positives that should be fine-tuned.
 
-By default, DRS 2.1 and CRS 3.2 rule versions are pre-configured in Paranoia Level 2, including rules assigned in both PL1 and in PL2.
-If you want to use WAF exclusively with PL1, you can disable any or all PL2 rules or change their action to 'log'. PL3 and PL4 are currently not supported in Azure WAF.
+By default, DRS 2.2 is configured at Paranoia Level 1 (PL1), and all PL2 rules are disabled. To run WAF at PL2, you can manually enable any or all PL2 rules.
+For earlier rule sets, DRS 2.1 and CRS 3.2 include rules defined for Paranoia Level 2, which covers both PL1 and PL2 rules. If you prefer to operate strictly at PL1, you can disable specific PL2 rules or set their action to Log.
+
+Paranoia Levels 3 and 4 aren't currently supported in Azure WAF.
 
 > [!NOTE]
 > CRS 3.2 ruleset includes rules in PL3 and PL4, but these rules are always inactive and can't be enabled, regardless of their configured state or action.
@@ -138,6 +178,299 @@ The Bot Manager 1.1 rule set is an enhancement to Bot Manager 1.0 rule set. It p
 |**[UnknownBots](?tabs=bot11#bot11-300)**|Identify unknown bots|
 
 The following rule groups and rules are available when using Web Application Firewall on Application Gateway.
+
+# [DRS 2.2](#tab/drs22)
+
+## <a name="drs22"></a> 2.2 rule sets
+
+### <a name="general-22"></a> General
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|200002|Critical - 5|1|Failed to parse request body.|
+|200003|Critical - 5|1|Multipart request body failed strict validation|
+
+
+### <a name="drs911-22"></a> Method enforcement
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|911100|Critical - 5|1|Method isn't allowed by policy|
+
+
+### <a name="drs920-22"></a> Protocol enforcement
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|920100|Notice - 2|1|Invalid HTTP Request Line|
+|920120|Critical - 5|1|Attempted multipart/form-data bypass|
+|920121|Critical - 5|2|Attempted multipart/form-data bypass|
+|920160|Critical - 5|1|Content-Length HTTP header isn't numeric.|
+|920170|Critical - 5|1|GET or HEAD Request with Body Content.|
+|920171|Critical - 5|1|GET or HEAD Request with Transfer-Encoding.|
+|920180|Notice - 2|1|POST without Content-Length or Transfer-Encoding headers.|
+|920181|Warning - 3|1|Content-Length and Transfer-Encoding headers present|
+|920190|Warning - 3|1|Range: Invalid Last Byte Value.|
+|920200|Warning - 3|2|Range: Too many fields (6 or more)|
+|920201|Warning - 3|2|Range: Too many fields for pdf request (63 or more)|
+|920210|Warning - 3|1|Multiple/Conflicting Connection Header Data Found.|
+|920220|Warning - 3|1|URL Encoding Abuse Attack Attempt|
+|920230|Warning - 3|2|Multiple URL Encoding Detected|
+|920240|Warning - 3|1|URL Encoding Abuse Attack Attempt|
+|920260|Warning - 3|1|Unicode Full/Half Width Abuse Attack Attempt|
+|920270|Critical - 5|1|Invalid character in request (null character)|
+|920271|Critical - 5|2|Invalid character in request (non printable characters)|
+|920280|Warning - 3|1|Request Missing a Host Header|
+|920290|Warning - 3|1|Empty Host Header|
+|920300|Notice - 2|2|Request Missing an Accept Header|
+|920310|Notice - 2|1|Request Has an Empty Accept Header|
+|920311|Notice - 2|1|Request Has an Empty Accept Header|
+|920320|Notice - 2|2|Missing User Agent Header|
+|920330|Notice - 2|1|Empty User Agent Header|
+|920340|Notice - 2|1|Request Containing Content, but Missing Content-Type header|
+|920341|Critical - 5|2|Request Containing Content Requires Content-Type header|
+|920350|Warning - 3|1|Host header is a numeric IP address|
+|920420|Critical - 5|2|Request content type is not allowed by policy|
+|920430|Critical - 5|1|HTTP protocol version is not allowed by policy|
+|920440|Critical - 5|1|URL file extension is restricted by policy|
+|920450|Critical - 5|1|HTTP header is restricted by policy|
+|920470|Critical - 5|1|Illegal Content-Type header|
+|920480|Critical - 5|1|Request content type charset is not allowed by policy|
+|920500|Critical - 5|1|Attempt to access a backup or working file|
+|920530|Critical - 5|1|Restrict charset parameter inside content type header to occur max once|
+|920620|Critical - 5|1|Multiple Content-Type Request Headers|
+
+
+### <a name="drs921-22"></a> Protocol attack
+
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|921110|Critical - 5|1|HTTP Request Smuggling Attack|
+|921120|Critical - 5|1|HTTP Response Splitting Attack|
+|921130|Critical - 5|1|HTTP Response Splitting Attack|
+|921140|Critical - 5|1|HTTP Header Injection Attack via headers|
+|921150|Critical - 5|1|HTTP Header Injection Attack via payload (CR/LF detected)|
+|921151|Critical - 5|2|HTTP Header Injection Attack via payload (CR/LF detected)|
+|921160|Critical - 5|1|HTTP Header Injection Attack via payload (CR/LF and header-name detected)|
+|921190|Critical - 5|1|HTTP Splitting (CR/LF in request filename detected)|
+|921200|Critical - 5|1|LDAP Injection Attack|
+|921422|Critical - 5|2|Detect content types in the Content-Type header outside of the actual content type declaration|
+
+
+### <a name="drs930-22"></a> LFI: Local file inclusion
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|930100|Critical - 5|1|Path Traversal Attack (/../)|
+|930110|Critical - 5|1|Path Traversal Attack (/../)|
+|930120|Critical - 5|1|OS File Access Attempt|
+|930130|Critical - 5|1|Restricted File Access Attempt|
+
+
+### <a name="drs931-22"></a> RFI: Remote file inclusion
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|931100|Critical - 5|2|Possible Remote File Inclusion (RFI) Attack: URL Parameter using IP Address|
+|931110|Critical - 5|1|Possible Remote File Inclusion (RFI) Attack: Common RFI Vulnerable Parameter Name used w/URL Payload|
+|931120|Critical - 5|1|Possible Remote File Inclusion (RFI) Attack: URL Payload Used w/Trailing Question Mark Character (?)|
+|931130|Critical - 5|2|Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link|
+
+
+### <a name="drs932-22"></a> RCE: Remote command execution
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|932100|Critical - 5|1|Remote Command Execution: Unix Command Injection|
+|932105|Critical - 5|1|Remote Command Execution: Unix Command Injection|
+|932110|Critical - 5|1|Remote Command Execution: Windows Command Injection|
+|932115|Critical - 5|1|Remote Command Execution: Windows Command Injection|
+|932120|Critical - 5|1|Remote Command Execution: Windows PowerShell Command Found|
+|932130|Critical - 5|1|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) Found|
+|932140|Critical - 5|1|Remote Command Execution: Windows FOR/IF Command Found|
+|932150|Critical - 5|1|Remote Command Execution: Direct Unix Command Execution|
+|932160|Critical - 5|1|Remote Command Execution: Unix Shell Code Found|
+|932170|Critical - 5|1|Remote Command Execution: Shellshock (CVE-2014-6271)|
+|932171|Critical - 5|1|Remote Command Execution: Shellshock (CVE-2014-6271)|
+|932180|Critical - 5|1|Restricted File Upload Attempt|
+
+
+### <a name="drs933-22"></a> PHP attacks
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|933100|Critical - 5|1|PHP Injection Attack: PHP Open Tag Found|
+|933110|Critical - 5|1|PHP Injection Attack: PHP Script File Upload Found|
+|933120|Critical - 5|1|PHP Injection Attack: Configuration Directive Found|
+|933130|Critical - 5|1|PHP Injection Attack: Variables Found|
+|933140|Critical - 5|1|PHP Injection Attack: I/O Stream Found|
+|933150|Critical - 5|1|PHP Injection Attack: High-Risk PHP Function Name Found|
+|933151|Critical - 5|2|PHP Injection Attack: Medium-Risk PHP Function Name Found|
+|933160|Critical - 5|1|PHP Injection Attack: High-Risk PHP Function Call Found|
+|933170|Critical - 5|1|PHP Injection Attack: Serialized Object Injection|
+|933180|Critical - 5|1|PHP Injection Attack: Variable Function Call Found|
+|933200|Critical - 5|1|PHP Injection Attack: Wrapper scheme detected|
+|933210|Critical - 5|1|PHP Injection Attack: Variable Function Call Found|
+
+
+### <a name="drs934-22"></a> Node JS attacks
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|934100|Critical - 5|1|Node.js Injection Attack|
+
+
+### <a name="drs941-22"></a> XSS: Cross-site scripting
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|941100|Critical - 5|1|XSS Attack Detected via libinjection|
+|941101|Critical - 5|2|XSS Attack Detected via libinjection|
+|941110|Critical - 5|1|XSS Filter - Category 1: Script Tag Vector|
+|941120|Critical - 5|2|XSS Filter - Category 2: Event Handler Vector|
+|941130|Critical - 5|1|XSS Filter - Category 3: Attribute Vector|
+|941140|Critical - 5|1|XSS Filter - Category 4: Javascript URI Vector|
+|941150|Critical - 5|2|XSS Filter - Category 5: Disallowed HTML Attributes|
+|941160|Critical - 5|1|NoScript XSS InjectionChecker: HTML Injection|
+|941170|Critical - 5|1|NoScript XSS InjectionChecker: Attribute Injection|
+|941180|Critical - 5|1|Node-Validator Blacklist Keywords|
+|941190|Critical - 5|1|IE XSS Filters - Attack Detected.|
+|941200|Critical - 5|1|IE XSS Filters - Attack Detected.|
+|941210|Critical - 5|1|IE XSS Filters - Attack Detected.|
+|941220|Critical - 5|1|IE XSS Filters - Attack Detected.|
+|941230|Critical - 5|1|IE XSS Filters - Attack Detected.|
+|941240|Critical - 5|1|IE XSS Filters - Attack Detected.|
+|941250|Critical - 5|1|IE XSS Filters - Attack Detected.|
+|941260|Critical - 5|1|IE XSS Filters - Attack Detected.|
+|941270|Critical - 5|1|IE XSS Filters - Attack Detected.|
+|941280|Critical - 5|1|IE XSS Filters - Attack Detected.|
+|941290|Critical - 5|1|IE XSS Filters - Attack Detected.|
+|941300|Critical - 5|1|IE XSS Filters - Attack Detected.|
+|941310|Critical - 5|1|US-ASCII Malformed Encoding XSS Filter - Attack Detected.|
+|941320|Critical - 5|2|Possible XSS Attack Detected - HTML Tag Handler|
+|941330|Critical - 5|2|IE XSS Filters - Attack Detected.|
+|941340|Critical - 5|2|IE XSS Filters - Attack Detected.|
+|941350|Critical - 5|1|UTF-7 Encoding IE XSS - Attack Detected.|
+|941360|Critical - 5|1|JSFuck / Hieroglyphy obfuscation detected|
+|941370|Critical - 5|1|JavaScript global variable found|
+|941380|Critical - 5|2|AngularJS client side template injection detected|
+
+
+### <a name="drs942-22"></a> SQLI: SQL injection
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|942100|Critical - 5|1|SQL Injection Attack Detected via libinjection|
+|942110|Warning - 3|2|SQL Injection Attack: Common Injection Testing Detected|
+|942120|Critical - 5|2|SQL Injection Attack: SQL Operator Detected|
+|942140|Critical - 5|1|SQL Injection Attack: Common DB Names Detected|
+|942150|Critical - 5|2|SQL Injection Attack (replaced by rule #99031003)|
+|942160|Critical - 5|1|Detects blind sqli tests using sleep() or benchmark().|
+|942170|Critical - 5|1|Detects SQL benchmark and sleep injection attempts including conditional queries|
+|942180|Critical - 5|2|Detects basic SQL authentication bypass attempts 1/3|
+|942190|Critical - 5|1|Detects MSSQL code execution and information gathering attempts|
+|942200|Critical - 5|2|Detects MySQL comment-/space-obfuscated injections and backtick termination|
+|942210|Critical - 5|2|Detects chained SQL injection attempts 1/2|
+|942220|Critical - 5|1|Looking for integer overflow attacks, these are taken from skipfish, except 3.0.00738585072007e-308 is the "magic number" crash|
+|942230|Critical - 5|1|Detects conditional SQL injection attempts|
+|942240|Critical - 5|1|Detects MySQL charset switch and MSSQL DoS attempts|
+|942250|Critical - 5|1|Detects MATCH AGAINST, MERGE and EXECUTE IMMEDIATE injections|
+|942260|Critical - 5|2|Detects basic SQL authentication bypass attempts 2/3 (replaced by rule #99031004)|
+|942270|Critical - 5|1|Looking for basic SQL injection. Common attack string for MySQL, Oracle, and others.|
+|942280|Critical - 5|1|Detects Postgres pg_sleep injection, waitfor delay attacks and database shutdown attempts|
+|942290|Critical - 5|1|Finds basic MongoDB SQL injection attempts|
+|942300|Critical - 5|2|Detects MySQL comments, conditions and ch(a)r injections|
+|942310|Critical - 5|2|Detects chained SQL injection attempts 2/2|
+|942320|Critical - 5|1|Detects MySQL and PostgreSQL stored procedure/function injections|
+|942330|Critical - 5|2|Detects classic SQL injection probings 1/3|
+|942340|Critical - 5|2|Detects basic SQL authentication bypass attempts 3/3 (replaced by rule #99031006)|
+|942350|Critical - 5|1|Detects MySQL UDF injection and other data/structure manipulation attempts|
+|942360|Critical - 5|1|Detects concatenated basic SQL injection and SQLLFI attempts|
+|942361|Critical - 5|2|Detects basic SQL injection based on keyword alter or union|
+|942370|Critical - 5|2|Detects classic SQL injection probings 2/3|
+|942380|Critical - 5|2|SQL Injection Attack|
+|942390|Critical - 5|2|SQL Injection Attack|
+|942400|Critical - 5|2|SQL Injection Attack|
+|942410|Critical - 5|2|SQL Injection Attack|
+|942430|Warning - 3|2|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12) (replaced by rule #99031005)|
+|942440|Critical - 5|2|SQL Comment Sequence Detected (replaced by rule #99031002).|
+|942450|Critical - 5|2|SQL Hex Encoding Identified|
+|942470|Critical - 5|2|SQL Injection Attack|
+|942480|Critical - 5|2|SQL Injection Attack|
+|942500|Critical - 5|1|MySQL in-line comment detected.|
+|942510|Critical - 5|2|SQLi bypass attempt by ticks or backticks detected.|
+
+
+### <a name="drs943-22"></a> Session fixation
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|943100|Critical - 5|1|Possible Session Fixation Attack: Setting Cookie Values in HTML|
+|943110|Critical - 5|1|Possible Session Fixation Attack: SessionID Parameter Name with Off-Domain Referer|
+|943120|Critical - 5|1|Possible Session Fixation Attack: SessionID Parameter Name with No Referer|
+
+
+### <a name="drs944-22"></a> Java attacks
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|944100|Critical - 5|1|Remote Command Execution: Suspicious Java class detected|
+|944110|Critical - 5|1|Remote Command Execution: Java process spawn (CVE-2017-9805)|
+|944120|Critical - 5|1|Remote Command Execution: Java serialization (CVE-2015-5842)|
+|944130|Critical - 5|1|Suspicious Java class detected|
+|944200|Critical - 5|2|Magic bytes Detected, probable java serialization in use|
+|944210|Critical - 5|2|Magic bytes Detected Base64 Encoded, probable java serialization in use|
+|944240|Critical - 5|2|Remote Command Execution: Java serialization and Log4j vulnerability (CVE-2021-44228, CVE-2021-45046)|
+|944250|Critical - 5|2|Remote Command Execution: Suspicious Java method detected|
+
+
+### <a name="drs9905-22"></a> MS-ThreatIntel-WebShells
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|99005002|Critical - 5|2|Web Shell Interaction Attempt (POST)|
+|99005003|Critical - 5|2|Web Shell Upload Attempt (POST) - CHOPPER PHP|
+|99005004|Critical - 5|2|Web Shell Upload Attempt (POST) - CHOPPER ASPX|
+|99005005|Critical - 5|2|Web Shell Interaction Attempt|
+|99005006|Critical - 5|2|Spring4Shell Interaction Attempt|
+
+### <a name="drs9903-22"></a> MS-ThreatIntel-AppSec
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|99030001|Critical - 5|2|Path Traversal Evasion in Headers (/.././../)|
+|99030002|Critical - 5|2|Path Traversal Evasion in Request Body (/.././../)|
+|99030003|Critical - 5|2|URL encoded file path|
+|99030004|Critical - 5|2|Missing brotli encoding from supporting browser with https referer|
+|99030005|Critical - 5|2|Missing brotli encoding from supporting browser over HTTP/2|
+|99030006|Critical - 5|2|Illegal character in requested filename|
+
+
+### <a name="drs99031-22"></a> MS-ThreatIntel-SQLI
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|99031001|Warning - 3|2|SQL Injection Attack: Common Injection Testing Detected (replacing rule #942110)|
+|99031002|Critical - 5|2|SQL Comment Sequence Detected (replacing rule #942440).|
+|99031003|Critical - 5|2|SQL Injection Attack (replacing rule #942150)|
+|99031004|Critical - 5|2|Detects basic SQL authentication bypass attempts 2/3 (replacing rule #942260)|
+|99031005|Warning - 3|2|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12) (replacing rule #942430)|
+|99031006|Critical - 5|2|Detects basic SQL authentication bypass attempts 3/3 (replacing rule #942340)|
+
+
+### <a name="drs99001-22"></a> MS-ThreatIntel-CVEs
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|99001001|Critical - 5|2|Attempted F5 tmui (CVE-2020-5902) REST API exploitation with known credentials|
+|99001002|Critical - 5|2|Attempted Citrix NSC_USER directory traversal [CVE-2019-19781](https://www.cve.org/CVERecord?id=CVE-2019-19781)|
+|99001003|Critical - 5|2|Attempted Atlassian Confluence Widget Connector exploitation [CVE-2019-3396](https://www.cve.org/CVERecord?id=CVE-2019-3396)|
+|99001004|Critical - 5|2|Attempted Pulse Secure custom template exploitation [CVE-2020-8243](https://www.cve.org/CVERecord?id=CVE-2019-8243)|
+|99001005|Critical - 5|2|Attempted SharePoint type converter exploitation [CVE-2020-0932](https://www.cve.org/CVERecord?id=CVE-2019-0932)|
+|99001006|Critical - 5|2|Attempted Pulse Connect directory traversal [CVE-2019-11510](https://www.cve.org/CVERecord?id=CVE-2019-11510)|
+|99001007|Critical - 5|2|Attempted Junos OS J-Web local file inclusion [CVE-2020-1631](https://www.cve.org/CVERecord?id=CVE-2019-1631)|
+|99001008|Critical - 5|2|Attempted Fortinet path traversal [CVE-2018-13379](https://www.cve.org/CVERecord?id=CVE-2019-13379)|
+|99001009|Critical - 5|2|Attempted Apache struts ognl injection [CVE-2017-5638](https://www.cve.org/CVERecord?id=CVE-2019-5638)|
+|99001010|Critical - 5|2|Attempted Apache struts ognl injection [CVE-2017-12611](https://www.cve.org/CVERecord?id=CVE-2019-12611)|
+|99001011|Critical - 5|2|Attempted Oracle WebLogic path traversal [CVE-2020-14882](https://www.cve.org/CVERecord?id=CVE-2019-14882)|
+|99001012|Critical - 5|2|Attempted Telerik WebUI insecure deserialization exploitation [CVE-2019-18935](https://www.cve.org/CVERecord?id=CVE-2019-18935)|
+|99001013|Critical - 5|2|Attempted SharePoint insecure XML deserialization [CVE-2019-0604](https://www.cve.org/CVERecord?id=CVE-2019-0604)|
+|99001014|Critical - 5|2|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
+|99001015|Critical - 5|2|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
+|99001016|Critical - 5|2|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
+|99001017|Critical - 5|2|Attempted Apache Struts file upload exploitation [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|
+
+
+### <a name="drs99032-22"></a> MS-ThreatIntel-XSS
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|99032001|Critical - 5|1|XSS Filter - Category 2: Event Handler Vector (replacing rule #941120)|
+|99032002|Critical - 5|2|Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link (replacing rule #931130)|
+
 
 # [DRS 2.1](#tab/drs21)
 
@@ -316,7 +649,7 @@ The following rule groups and rules are available when using Web Application Fir
 |942240|Critical - 5|PL1|Detects MySQL charset switch and MSSQL DoS attempts|
 |942250|Critical - 5|PL1|Detects MATCH AGAINST, MERGE and EXECUTE IMMEDIATE injections|
 |942260|Critical - 5|PL2|Detects basic SQL authentication bypass attempts 2/3|
-|942270|Critical - 5|PL1|Looking for basic sql injection. Common attack string for mysql, oracle, and others|
+|942270|Critical - 5|PL1|Looking for basic SQL injection. Common attack string for MySQL, Oracle, and others|
 |942280|Critical - 5|PL1|Detects Postgres pg_sleep injection, waitfor delay attacks and database shutdown attempts|
 |942290|Critical - 5|PL1|Finds basic MongoDB SQL injection attempts|
 |942300|Critical - 5|PL2|Detects MySQL comments, conditions, and ch(a)r injections|
@@ -674,7 +1007,7 @@ Below are previous Core Rule Set versions. If you're using CRS 3.2, CRS 3.1, CRS
 |942240|Critical - 5|PL1|Detects MySQL charset switch and MSSQL DoS attempts|
 |942250|Critical - 5|PL1|Detects MATCH AGAINST, MERGE, and EXECUTE IMMEDIATE injections|
 |942260|Critical - 5|PL2|Detects basic SQL authentication bypass attempts 2/3|
-|942270|Critical - 5|PL1|Looking for basic sql injection. Common attack string for mysql, oracle, and others|
+|942270|Critical - 5|PL1|Looking for basic SQL injection. Common attack string for MySQL, Oracle, and others|
 |942280|Critical - 5|PL1|Detects Postgres pg_sleep injection, waitfor delay attacks and database shutdown attempts|
 |942290|Critical - 5|PL1|Finds basic MongoDB SQL injection attempts|
 |942300|Critical - 5|PL2|Detects MySQL comments, conditions, and ch(a)r injections|
@@ -950,8 +1283,8 @@ Below are previous Core Rule Set versions. If you're using CRS 3.2, CRS 3.1, CRS
 |942250|Detects MATCH AGAINST, MERGE, and EXECUTE IMMEDIATE injections|
 |942251|Detects HAVING injections|
 |942260|Detects basic SQL authentication bypass attempts 2/3|
-|942270|Looking for basic sql injection. Common attack string for mysql oracle and others|
-|942280|Detects Postgres pg_sleep injection, waitfor delay attacks and database shutdown attempts|
+|942270|Looking for basic SQL injection. Common attack string for MySQL, Oracle, and others|
+|942280|Detects Postgres pg_sleep injection, waitfor delay attacks, and database shutdown attempts|
 |942290|Finds basic MongoDB SQL injection attempts|
 |942300|Detects MySQL comments, conditions, and ch(a)r injections|
 |942310|Detects chained SQL injection attempts 2/2|
@@ -1191,10 +1524,10 @@ Below are previous Core Rule Set versions. If you're using CRS 3.2, CRS 3.1, CRS
 |942220|Looking for integer overflow attacks, these are taken from skipfish, except 3.0.00738585072007e-308 is the \"magic number\" crash'|
 |942230|Detects conditional SQL injection attempts|
 |942240|Detects MySQL charset switch and MSSQL DoS attempts|
-|942250|Detects MATCH AGAINST, MERGE and EXECUTE IMMEDIATE injections|
+|942250|Detects MATCH AGAINST, MERGE, and EXECUTE IMMEDIATE injections|
 |942260|Detects basic SQL authentication bypass attempts 2/3|
-|942270|Looking for basic sql injection. Common attack string for mysql oracle and others|
-|942280|Detects Postgres pg_sleep injection, waitfor delay attacks and database shutdown attempts|
+|942270|Looking for basic SQL injection. Common attack string for MySQL, Oracle, and others|
+|942280|Detects Postgres pg_sleep injection, waitfor delay attacks, and database shutdown attempts|
 |942290|Finds basic MongoDB SQL injection attempts|
 |942300|Detects MySQL comments, conditions, and ch(a)r injections|
 |942310|Detects chained SQL injection attempts 2/2|
@@ -1361,7 +1694,7 @@ Below are previous Core Rule Set versions. If you're using CRS 3.2, CRS 3.1, CRS
 |981272|Detects blind sqli tests using sleep() or benchmark()|
 |981250|Detects SQL benchmark and sleep injection attempts including conditional queries|
 |981241|Detects conditional SQL injection attempts|
-|981276|Looking for basic sql injection. Common attack string for mysql oracle and others|
+|981276|Looking for basic SQL injection. Common attack string for MySQL, Oracle, and others|
 |981270|Finds basic MongoDB SQL injection attempts|
 |981253|Detects MySQL and PostgreSQL stored procedure/function injections|
 |981251|Detects MySQL UDF injection and other data/structure manipulation attempts|

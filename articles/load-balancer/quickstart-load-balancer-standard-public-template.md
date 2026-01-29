@@ -7,7 +7,7 @@ author: mbender-ms
 manager: KumudD
 ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 11/26/2024
+ms.date: 01/28/2026
 ms.author: mbender
 ms.custom:
   - mvc

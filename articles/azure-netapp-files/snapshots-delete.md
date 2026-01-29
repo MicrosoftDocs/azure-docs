@@ -24,14 +24,12 @@ You can delete snapshots that you no longer need.
 
 ## Steps
 
-1. Go to the **Snapshots** menu of a volume. Select the three dots at the end of the row of the snapshot want to delete. Select **Delete**.
+1. Go to the **Snapshots** menu of a volume. Select the three dots `...` at the end of the row of the snapshot want to delete. In the action menu, select **Delete**.
 
-    ![Screenshot illustrating the Snapshot overview menu.](./media/shared/snapshot-right-click-menu.png) 
-
-2. In the Delete Snapshot window, confirm that you want to delete the snapshot by selecting **Yes**. 
+2. In the Delete snapshots window, confirm that you want to delete the snapshot by selecting **Yes**. 
 
     ![Screenshot showing confirmed snapshot deletion.](./media/snapshots-delete/snapshot-confirm-delete.png)  
-
+    
 ## Next steps
 
 * [Learn more about snapshots](snapshots-introduction.md)

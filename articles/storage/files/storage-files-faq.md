@@ -64,7 +64,7 @@ ms.topic: faq
     1. Add the following registry key on the server:
 
        ```cmd
-       reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v SkipOfflineAttributeOnTieredFile /t RE
+       reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v SkipOfflineAttributeOnTieredFile /t REG_DWORD /d 1 /f
        ```
 
     1. Restart the **FileSyncSvc** service.

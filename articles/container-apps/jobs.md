@@ -510,7 +510,7 @@ The following table includes the job settings that you can configure:
 | Job type | `triggerType` | `--trigger-type` | The type of job. (`Manual`, `Schedule`, or `Event`) |
 | Replica timeout | `replicaTimeout` | `--replica-timeout` | The maximum time in seconds to wait for a replica to complete. |
 | Polling interval | `pollingInterval` | `--polling-interval` | The time in seconds to wait between polling for events. Default is 30 seconds. |
-| Replica retry limit | `replicaRetryLimit` | `--replica-retry-limit` | The maximum number of times to retry a failed replica. To fail a replica without retrying, set the value to `0`. |
+| Replica retry limit | `replicaRetryLimit` | `--replica-retry-limit` | The maximum number of times to retry a failed replica. To fail a replica without retrying, set the value to `0`. The `replicaTimeout` setting takes precedence if it expires before all retries occur. |
 | Parallelism | `parallelism` | `--parallelism` | The number of replicas to run per execution. For most jobs, set the value to `1`. |
 | Replica completion count | `replicaCompletionCount` | `--replica-completion-count` | The number of replicas to complete successfully for the execution to succeed. Most be equal or less than the parallelism. For most jobs, set the value to `1`. |
 

@@ -13,6 +13,9 @@ ms.author: anfdocs
 
 Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume I/OPS, and latency. By analyzing these metrics, you can gain a better understanding on the usage pattern and volume performance of your NetApp accounts.  
 
+>[!IMPORTANT]
+>These metrics are for the Flexible, Standard, Premium, and Ultra services levels. For Elastic zone-redundant storage, see [Metrics for Azure NetApp Files' Elastic zone-redundant storage](elastic-metrics.md).
+
 ## Definitions 
 
 Understanding the terminology related to performance and capacity in Azure NetApp Files is essential to understanding the metrics available:  
@@ -124,7 +127,7 @@ SMB commands included in **Other IOPS** with opcode value:
 
 Azure NetApp Files metrics are natively integrated into Azure monitor. From within the Azure portal, you can find metrics for Azure NetApp Files capacity pools and volumes from two locations:
 
-- From Azure monitor, select **Metrics**, select a capacity pool or volume. Then select **Metric** to view the available metrics:
+- From [Azure monitor](/azure/azure-monitor/platform/monitor-azure-resource), select **Metrics** then choose a capacity pool or volume. Select **Metric** to view the available metrics:
    
     :::image type="content" source="./media/azure-netapp-files-metrics/metrics-select-pool-volume.png" alt-text="Screenshot that shows how to access Azure NetApp Files metrics for capacity pools or volumes." lightbox="./media/azure-netapp-files-metrics/metrics-select-pool-volume.png":::
 

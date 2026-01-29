@@ -12,20 +12,29 @@ ms.date: 10/21/2025
 
 # Configure the connector for MQTT (preview)
 
-This is a preview version of the connector for MQTT connector that lets you model external MQTT endpoints as assets in Azure IoT Operations. The MQTT connector can detect new topic paths as they appear, you can view the custom resources that represent the detected topics.
+This preview version of the connector for MQTT connector lets you model external MQTT endpoints as assets in Azure IoT Operations. The MQTT connector can detect new topic paths as they appear, you can view the custom resources that represent the detected topics.
 
 [!INCLUDE [iot-operations-asset-definition](../includes/iot-operations-asset-definition.md)]
 
 [!INCLUDE [iot-operations-device-definition](../includes/iot-operations-device-definition.md)]
 
-The connector for MQTT (preview) supports the following features:
+The following table summarizes the features the connector for MQTT (preview) supports:
 
-- Enables topics from MQTT device to be represented as assets in Azure Device Registry (ADR).
-- Establishes communication with MQTT broker for northbound and southbound connections.
-- Detects new topics that appear under a given topic path and communicates with Akri. Akri creates the _detected asset_ custom resource ready for OT approval and import into ADR.
-- Detects new topics that appear under a given MQTT wildcard path and communicates with Akri. Akri creates the _detected asset_ custom resource ready for OT approval and import into ADR.
-- For approved or imported assets, the connector copies data from raw paths to user-assigned unified namespace paths.
-- Follows MQTTS practices for secure communications with the Azure IoT Operations MQTT broker.
+| Feature | Supported | Notes |
+|---------|:---------:|-------|
+| Username/password authentication | Yes | Basic HTTP authentication |
+| X.509 client certificates | No | |
+| Anonymous access | Yes | For testing purposes |
+| Certificate trust list | Yes | MQTTS for secure communications with the inbound endpoint |
+| OpenTelemetry integration | Yes | |
+| WASM data transformation | No | |
+| Schema generation | Yes | Registers inferred schema with the schema registry |
+
+The connector for MQTT:
+
+1. Detects new topics that appear under a given topic path or MQTT wildcard path and communicates with Akri.
+1. Akri creates the *detected asset* custom resource ready for OT approval and import into Azure Device Registry.
+1. For approved or imported assets, the connector for MQTT subscribes to the topics and forwards the data to the unified namespace topics you specify.
 
 This article explains how to use the connector for MQTT to perform tasks such as:
 
@@ -38,13 +47,17 @@ This article explains how to use the connector for MQTT to perform tasks such as
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
-Your IT administrator must have configured the connector for MQTT template for your Azure IoT Operations instance in the Azure portal.
+Your IT administrator must configure the connector for MQTT template for your Azure IoT Operations instance in the Azure portal.
 
 You need any credentials required to access the MQTT source. If the MQTT source requires authentication, you need to create a Kubernetes secret that contains the username and password for the MQTT source.
 
 ## Deploy the connector for MQTT
 
 [!INCLUDE [deploy-connectors-simple](../includes/deploy-connectors-simple.md)]
+
+### Configure a certificate trust list for the connector
+
+[!INCLUDE [connector-certificate-application](../includes/connector-certificate-application.md)]
 
 ## Create a device
 
@@ -88,10 +101,6 @@ To use the `Username password` authentication mode:
 
 [!INCLUDE [connector-username-password-portal](../includes/connector-username-password-portal.md)]
 
-### Configure a certificate trust list for a device to use
-
-To manage the trusted certificates list for the connector for MQTT, see [Manage certificates for external communications](../secure-iot-ops/howto-manage-certificates.md#manage-certificates-for-external-communications).
-
 ## Discover and create assets
 
 When you send a message to a topic that matches the topic filter you specified when creating the device, the connector for MQTT detects the new topic and creates a _detected asset_ custom resource. For example, if you specified the topic filter as `A/B/+`, and you send a message to the topic `A/B/asset1`, the connector for MQTT detects the new topic and creates a _detected asset_ that you can view in the operations experience web UI:
@@ -112,7 +121,7 @@ To create an asset from the detected asset, follow these steps:
     :::image type="content" source="media/howto-use-mqtt-connector/detected-asset-dataset.png" alt-text="Screenshot that shows the dataset created from the detected asset." lightbox="media/howto-use-mqtt-connector/detected-asset-dataset.png":::
 
     > [!TIP]
-    > You can add more datasets if required to capture messages from other topics.
+    > You can add more datasets if necessary to capture messages from other topics.
 
     Select **Next** to continue.
 

@@ -76,7 +76,11 @@
     - name: Storage hierarchy of Azure NetApp Files
       href: azure-netapp-files-understand-storage-hierarchy.md
     - name: Service levels for Azure NetApp Files
-      href: azure-netapp-files-service-levels.md
+      items: 
+        - name: Understand service levels 
+          href: azure-netapp-files-service-levels.md
+        - name: Understand Elastic zone-redundant storage 
+          href: elastic-zone-redundant-concept.md
     - name: Guidelines for Azure NetApp Files network planning 
       href: azure-netapp-files-network-topologies.md
     - name: Resource limits for Azure NetApp Files
@@ -97,6 +101,8 @@
       href: monitor-azure-netapp-files.md
     - name: Metrics for Azure NetApp Files
       href: azure-netapp-files-metrics.md
+    - name: Metrics for Elastic zone-redundant Storage
+      href: elastic-metrics.md
     - name: Azure Policy definitions for Azure NetApp Files
       href: azure-policy-definitions.md
     - name: Storage service add-ons
@@ -139,7 +145,7 @@
           href: performance-linux-nfs-read-ahead.md
         - name: SMB performance best practices
           href: azure-netapp-files-smb-performance.md
-        - name: Azure virtual machine SKUs best practices
+        - name: Azure virtual machine SKU best practices
           href: performance-virtual-machine-sku.md 
         - name: Performance considerations for cool access tiering
           href: performance-considerations-cool-access.md
@@ -247,7 +253,7 @@
           href: azacsnap-cmd-ref-configure.md
         - name: Test configuration of AzAcSnap
           href: azacsnap-cmd-ref-test.md
-        - name: Backup your database with AzAcSnap
+        - name: Back up your database with AzAcSnap
           href: azacsnap-cmd-ref-backup.md
       - name: Disaster recovery using AzAcSnap
         href: azacsnap-disaster-recovery.md
@@ -257,6 +263,8 @@
         href: azacsnap-troubleshoot.md
       - name: Preview release features of AzAcSnap
         href: azacsnap-preview.md
+    - name: Understand advanced ransomware protection
+      href: advanced-ransomware-protection.md
   - name: Solutions and benefits
     items:
     - name: Solution architectures using Azure NetApp Files
@@ -283,149 +291,173 @@
   items: 
   - name: Register and set up
     items:
-    - name: Register for NetApp Resource Provider
-      href: azure-netapp-files-register.md
-    - name: Create a NetApp account
-      href: azure-netapp-files-create-netapp-account.md
-    - name: Delegate a subnet to Azure NetApp Files
-      href: azure-netapp-files-delegate-subnet.md
-    - name: Request region access
-      href: request-region-access.md
-  - name: Manage Active Directory 
+      - name: Register for NetApp Resource Provider
+        href: azure-netapp-files-register.md
+      - name: Create a NetApp account
+        href: azure-netapp-files-create-netapp-account.md
+      - name: Delegate a subnet to Azure NetApp Files
+        href: azure-netapp-files-delegate-subnet.md
+      - name: Request region access
+        href: request-region-access.md
+  - name: Elastic service level
     items:
-    - name: Create and manage Active Directory connections
-      href: create-active-directory-connections.md
-    - name: Modify Active Directory connections
-      href: modify-active-directory-connections.md
-    - name: Configure AD DS LDAP authentication for NFS volumes
-      href: configure-ldap-over-tls.md
-    - name: Join a Linux VM to an Active Directory Domain
-      href: join-active-directory-domain.md
-  - name: Manage capacity pools
-    items:
-    - name: Set up a capacity pool
-      href: azure-netapp-files-set-up-capacity-pool.md
-    - name: Manage a manual QoS capacity pool
-      href: manage-manual-qos-capacity-pool.md
-    - name: Manage billing by using tags
-      href: manage-billing-tags.md
-  - name: Manage volumes
-    items:
-    - name: Manage NFS volumes
-      items:
-      - name: Create an NFS volume
-        href: azure-netapp-files-create-volumes.md
-      - name: Configure NFSv4.1 ID domain
-        href: azure-netapp-files-configure-nfsv41-domain.md
-      - name: Configure NFSv4.1 Kerberos encryption
-        href: configure-kerberos-encryption.md
-      - name: Configure AD DS LDAP with extended groups for NFS
-        href: configure-ldap-extended-groups.md
-      - name: Configure LDAP server 
-        href: configure-directory-server.md
-      - name: Configure an NFS client for Azure NetApp Files
-        href: configure-nfs-clients.md
-      - name: Convert an NFS volume between NFSv3 and NFSv4.1
-        href: convert-nfsv3-nfsv41.md
-      - name: Disable showmount
-        href: disable-showmount.md
-    - name: Manage SMB volumes
-      items:
-      - name: Create an SMB volume
-        href: azure-netapp-files-create-volumes-smb.md
-      - name: Enable Continuous Availability on existing SMB volumes
-        href: enable-continuous-availability-existing-SMB.md
-      - name: Use DFS-N and DFS Root Consolidation with Azure NetApp Files
-        href: use-dfs-n-and-dfs-root-consolidation-with-azure-netapp-files.md
-    - name: Manage dual-protocol volumes
-      items:
-      - name: Create a dual-protocol volume 
-        href: create-volumes-dual-protocol.md
-    - name: Manage object REST API 
-      items:
-      - name: Configure object REST API
-        href: object-rest-api-access-configure.md
-      - name: Connect to Azure Databricks 
-        href: object-rest-api-databricks.md
-      - name: Connect to OneLake
-        href: object-rest-api-onelake.md
-      - name: Access volumes with an S3-compatible client 
-        href: object-rest-api-browser.md
-    - name: Migrate volumes to Azure NetApp Files
-      href: migrate-volumes.md
-    - name: Manage volume access and encryption 
-      items:
-      - name: Configure export policy for NFS or dual protocol
-        href: azure-netapp-files-configure-export-policy.md
-      - name: Configure Unix permissions and change ownership mode
-        href: configure-unix-permissions-change-ownership-mode.md
-      - name: Configure access control lists for NFSv4.1
-        href: configure-access-control-lists.md
-      - name: Manage SMB share ACLs in Azure NetApp Files
-        href: manage-smb-share-access-control-lists.md
-      - name: Configure network features for a volume
-        href: configure-network-features.md
-      - name: Configure customer-managed keys 
-        href: configure-customer-managed-keys.md
-      - name: Configure customer-managed keys with managed HSM
-        href: configure-customer-managed-keys-hardware.md
-      - name: Configure cross-tenant customer-managed keys 
-        href: customer-managed-keys-cross-tenant.md
-      - name: Configure Virtual WAN
-        href: configure-virtual-wan.md
-    - name: Mount volumes
-      items:
-      - name: Mount an NFS volume for Windows or Linux VMs
-        href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
-      - name: Mount an SMB volume for Windows VMs
-        href: mount-volumes-vms-smb.md
-    - name: Manage volume capacity and performance 
-      items:
-      - name: Monitor the capacity of a volume
-        href: monitor-volume-capacity.md
-      - name: Resize a capacity pool or a volume
-        href: azure-netapp-files-resize-capacity-pools-or-volumes.md
-      - name: Dynamically change the service level of a volume
-        href: dynamic-change-volume-service-level.md
-      - name: Manage default and individual user and group quotas for a volume
-        href: manage-default-individual-user-group-quotas.md
-      - name: Generate user and group quota reports for a volume 
-        href: generate-user-group-quota-reports.md 
-      - name: Manage storage with cool access 
-        href: manage-cool-access.md
-      - name: Manage file access logs 
-        href: manage-file-access-logs.md
-    - name: Update Terraform-managed volume
-      href: terraform-manage-volume.md
-  - name: Manage application volume groups 
-    items:
-      - name: Manage application volume groups for SAP HANA
+      - name: Create a NetApp Elastic account
+        href: elastic-account.md 
+      - name: Manage Active Directory 
+        items:         
+        - name: Create an Active Directory connection 
+          href: elastic-active-directory.md
+      - name: Manage capacity pools 
+        items:
+          - name: Create an Elastic capacity pool
+            href: elastic-capacity-pool-task.md
+          - name: Change zones for Elastic capacity pools 
+            href: elastic-change-zones.md
+      - name: Manage volumes
         items: 
-        - name: Deploy the first SAP HANA host
-          href: application-volume-group-deploy-first-host.md
-        - name: Add hosts to a multiple-host SAP HANA system
-          href: application-volume-group-add-hosts.md
-        - name: Add volumes for an SAP HANA system as a secondary database in HSR
-          href: application-volume-group-add-volume-secondary.md
-        - name: Add volumes for an SAP HANA system as a DR system
-          href: application-volume-group-disaster-recovery.md
-        - name: Manage volumes in an application volume group for SAP HANA
-          href: application-volume-group-manage-volumes.md
-        - name: Configure application volume groups for SAP HANA using REST API
-          href: configure-application-volume-group-sap-hana-api.md
-      - name: Manage application volume groups for Oracle
-        items: 
-        - name: Deploy application volume group for Oracle
-          href: application-volume-group-oracle-deploy-volumes.md
-        - name: Manage volumes in an application volume group for Oracle
-          href: application-volume-group-manage-volumes-oracle.md
-        - name: Configure application volume group for Oracle using REST API
-          href: configure-application-volume-oracle-api.md 
-        - name: Deploy application volume group for Oracle using Azure Resource Manager
-          href: configure-application-volume-oracle-azure-resource-manager.md 
-      - name: Delete an application volume group
-        href: application-volume-group-delete.md
-  - name: Manage hybrid data mobility and protection  
+          - name: Create an NFS volume 
+            href: elastic-volume.md
+          - name: Create an SMB volume 
+            href: elastic-volume-server-message-block.md
+      - name: Manage volume encryption 
+        items:
+          - name: Configure customer-managed keys
+            href: elastic-customer-managed-keys.md
+  - name: Flexible, Standard, Premium, and Ultra service levels
+    items: 
+    - name: Manage Active Directory 
+      items:
+      - name: Create and manage Active Directory connections
+        href: create-active-directory-connections.md
+      - name: Modify Active Directory connections
+        href: modify-active-directory-connections.md
+      - name: Configure AD DS LDAP authentication for NFS volumes
+        href: configure-ldap-over-tls.md
+      - name: Join a Linux VM to an Active Directory Domain
+        href: join-active-directory-domain.md
+    - name: Manage capacity pools
+      items:
+      - name: Set up a capacity pool
+        href: azure-netapp-files-set-up-capacity-pool.md
+      - name: Manage a manual QoS capacity pool
+        href: manage-manual-qos-capacity-pool.md
+      - name: Manage billing by using tags
+        href: manage-billing-tags.md
+    - name: Manage volumes
+      items:
+      - name: Manage NFS volumes
+        items:
+        - name: Create an NFS volume
+          href: azure-netapp-files-create-volumes.md
+        - name: Configure NFSv4.1 ID domain
+          href: azure-netapp-files-configure-nfsv41-domain.md
+        - name: Configure NFSv4.1 Kerberos encryption
+          href: configure-kerberos-encryption.md
+        - name: Configure AD DS LDAP with extended groups for NFS
+          href: configure-ldap-extended-groups.md
+        - name: Configure an NFS client for Azure NetApp Files
+          href: configure-nfs-clients.md
+        - name: Convert an NFS volume between NFSv3 and NFSv4.1
+          href: convert-nfsv3-nfsv41.md
+        - name: Disable showmount
+          href: disable-showmount.md
+      - name: Manage SMB volumes
+        items:
+        - name: Create an SMB volume
+          href: azure-netapp-files-create-volumes-smb.md
+        - name: Enable Continuous Availability on existing SMB volumes
+          href: enable-continuous-availability-existing-SMB.md
+        - name: Use DFS-N and DFS Root Consolidation with Azure NetApp Files
+          href: use-dfs-n-and-dfs-root-consolidation-with-azure-netapp-files.md
+      - name: Manage dual-protocol volumes
+        items:
+        - name: Create a dual-protocol volume 
+          href: create-volumes-dual-protocol.md
+      - name: Manage object REST API
+        items:
+        - name: Configure object REST API
+          href: object-rest-api-access-configure.md
+        - name: Connect to Azure Databricks 
+          href: object-rest-api-databricks.md
+        - name: Connect to OneLake
+          href: object-rest-api-onelake.md
+        - name: Access volumes with an S3-compatible client 
+          href: object-rest-api-browser.md
+      - name: Migrate volumes to Azure NetApp Files
+        href: migrate-volumes.md
+      - name: Manage volume access and encryption 
+        items:
+        - name: Configure export policy for NFS or dual protocol
+          href: azure-netapp-files-configure-export-policy.md
+        - name: Configure Unix permissions and change ownership mode
+          href: configure-unix-permissions-change-ownership-mode.md
+        - name: Configure access control lists for NFSv4.1
+          href: configure-access-control-lists.md
+        - name: Manage SMB share ACLs in Azure NetApp Files
+          href: manage-smb-share-access-control-lists.md
+        - name: Configure network features for a volume
+          href: configure-network-features.md
+        - name: Configure customer-managed keys 
+          href: configure-customer-managed-keys.md
+        - name: Configure customer-managed keys with managed HSM
+          href: configure-customer-managed-keys-hardware.md
+        - name: Configure cross-tenant customer-managed keys 
+          href: customer-managed-keys-cross-tenant.md
+        - name: Configure Virtual WAN
+          href: configure-virtual-wan.md
+      - name: Mount volumes
+        items:
+        - name: Mount an NFS volume for Windows or Linux VMs
+          href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
+        - name: Mount an SMB volume for Windows VMs
+          href: mount-volumes-vms-smb.md
+      - name: Manage volume capacity and performance 
+        items:
+        - name: Monitor the capacity of a volume
+          href: monitor-volume-capacity.md
+        - name: Resize a capacity pool or a volume
+          href: azure-netapp-files-resize-capacity-pools-or-volumes.md
+        - name: Dynamically change the service level of a volume
+          href: dynamic-change-volume-service-level.md
+        - name: Manage default and individual user and group quotas for a volume
+          href: manage-default-individual-user-group-quotas.md
+        - name: Generate user and group quota reports
+          href: generate-user-group-quota-reports.md
+        - name: Manage storage with cool access 
+          href: manage-cool-access.md
+        - name: Manage file access logs 
+          href: manage-file-access-logs.md
+      - name: Update Terraform-managed volume
+        href: terraform-manage-volume.md
+    - name: Manage application volume groups 
+      items:
+        - name: Manage application volume groups for SAP HANA
+          items: 
+          - name: Deploy the first SAP HANA host
+            href: application-volume-group-deploy-first-host.md
+          - name: Add hosts to a multiple-host SAP HANA system
+            href: application-volume-group-add-hosts.md
+          - name: Add volumes for an SAP HANA system as a secondary database in HSR
+            href: application-volume-group-add-volume-secondary.md
+          - name: Add volumes for an SAP HANA system as a DR system
+            href: application-volume-group-disaster-recovery.md
+          - name: Manage volumes in an application volume group for SAP HANA
+            href: application-volume-group-manage-volumes.md
+          - name: Configure application volume groups for SAP HANA using REST API
+            href: configure-application-volume-group-sap-hana-api.md
+        - name: Manage application volume groups for Oracle
+          items: 
+          - name: Deploy application volume group for Oracle
+            href: application-volume-group-oracle-deploy-volumes.md
+          - name: Manage volumes in an application volume group for Oracle
+            href: application-volume-group-manage-volumes-oracle.md
+          - name: Configure application volume group for Oracle using REST API
+            href: configure-application-volume-oracle-api.md 
+          - name: Deploy application volume group for Oracle using Azure Resource Manager
+            href: configure-application-volume-oracle-azure-resource-manager.md 
+        - name: Delete an application volume group
+          href: application-volume-group-delete.md
+  - name: Manage data protection  
     items:
     - name: Manage volume snapshots
       items:
@@ -479,10 +511,10 @@
         href: reestablish-deleted-volume-relationships.md
       - name: Test disaster recovery with cross-region replication
         href: test-disaster-recovery.md
-    - name: Manage caching
-      items:
-      - name: Configure a cache volume  
-        href: configure-cache-volumes.md   
+    - name: Manage caching 
+      items: 
+        - name: Configure cache volumes 
+          href: configure-cache-volumes.md
     - name: Manage availability zones and cross-zone replication
       items: 
       - name: Manage availability zone volume placement
@@ -493,10 +525,10 @@
       href: cross-zone-region-replication-configure.md
     - name: Configure ransomware protection 
       href: ransomware-configure.md
-  - name: Relocate
-    items:
-    - name: Relocate volume to another region
-      href: ../azure-resource-manager/management/relocation/relocation-netapp.md?toc=/azure/azure-netapp-files/toc.json
+    - name: Relocate
+      items:
+      - name: Relocate volume to another region
+        href: ../azure-resource-manager/management/relocation/relocation-netapp.md?toc=/azure/azure-netapp-files/toc.json
   - name: Develop
     items:
     - name: REST API

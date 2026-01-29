@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom:
 ms.topic: troubleshooting
-ms.date: 01/28/2025
+ms.date: 01/12/2026
 ms.author: anfdocs
 # Customer intent: "As a system administrator, I want to troubleshoot volume errors for Azure NetApp Files, so that I can ensure reliable performance and resolve issues effectively."
 ---
@@ -49,6 +49,7 @@ If a volume create-read-update-delete (CRUD) operation is performed on a volume 
 |`Hostname lookup failed`  	| You need to create a reverse lookup zone on the DNS server, and then add a PTR record of the AD host machine in that reverse lookup zone. <br> For example, assume that the IP address of the AD machine is `10.1.1.4`, the hostname of the AD machine (as found by using the hostname command) is `AD1`, and the domain name is `contoso.com`. The PTR record added to the reverse lookup zone should be `10.1.1.4 -> AD1.contoso.com`. |
 |`Volume creation fails due to unreachable DNS server`  | Two possible solutions are available: <br> <ul><li> This error indicates that DNS isn't reachable. The cause can be an incorrect DNS IP or a networking issue. Check the DNS IP entered in the AD connection and make sure that the IP is correct. </li> <li> If you're using Basic network features, ensure that the AD and the volume are in same region and in same VNet. If they are in different VNets, ensure that VNet peering is established between the two VNets. <br> See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#azure-native-environments) for details. </li></ul> |
 |NFSv4.1 Kerberos volume creation fails with an error similar to the following example: <br> `Failed to enable NFS Kerberos on LIF "svm_e719cde8d6d0413fbd6adac0636cdecb_7ad0b82e_73349613". Failed to bind service principal name on LIF "svm_e719cde8d6d0413fbd6adac0636cdecb_7ad0b82e_73349613". SecD Error: server create fail join user auth.`	|The KDC IP is wrong and the Kerberos volume has been  created. Update the KDC IP with a correct address. <br> You need to re-create the volume. |
+|`The KDC IP or AD Name operation fails because the Service Principal Name (SPN) already exists` | <ol><li> Navigate to **Active Directory Users and Computers** from the Server Manager. </li> <li> Delete the NFS machine account and change the KDC IP. <br> You can locate the required NFS machine account for this volume by referring to the mount instructions where the mount path is specified. <br> Example mount instruction: `sudo mount -vvv -t nfs -o sec=krb5,rw,hard,rsize=262144,wsize=262144,vers=4.1,tcp DHR-4EC7.contoso.com:/kerb-vol kerb-vol` <br> In this example, the machine account name is NFS-DHR-4EC7.</li>|
 
 ## Errors for LDAP volumes
 

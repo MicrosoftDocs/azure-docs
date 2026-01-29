@@ -888,6 +888,8 @@
       items:
       - name: Creating codeless data connectors (CCF)
         href: create-codeless-connector.md
+      - name: Creating push codeless data connectors (CCF)
+        href: create-push-codeless-connector.md
       - name: Creating analytics rules
         href: sentinel-analytic-rules-creation.md
       - name: Creating hunting queries

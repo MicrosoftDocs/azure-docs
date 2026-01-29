@@ -12,6 +12,7 @@ metadata:
   ms.author: jenhayes
   ms.date: 09/05/2025
   adobe-target: true
+  learn-experiments: true
   featureFlags:
   - clicktale
 highlightedContent:

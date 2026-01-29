@@ -294,7 +294,7 @@ Support | ASP.NET web apps | Java web apps
 --- | --- | ---
 Stack | VMware, Hyper-V, and physical servers. | VMware, Hyper-V, and physical servers.
 Windows servers | Windows Server 2008 R2 and later are supported. | Not supported.
-Linux servers | Not supported | Servers that meet the [requirements](/migrate-support-matrix-hyper-v?view=migrate#hyper-v-host-requirements)
+Linux servers | Not supported | Servers that meet the [requirements](/azure/migrate/migrate-support-matrix-hyper-v?view=migrate#hyper-v-host-requirements)
 Web server versions | IIS 7.5 and later | Tomcat 8 or later
 Required privileges | The least privileged user should be a part of the two user groups 1. Remote Management Users 2. IIS_IUSRS. The users must have read permissions to the following locations: C:\Windows\system32\inetsrv\config, C:\Windows\system32\inetsrv\config\applicationHost.config and C:\Windows\system32\inetsrv\config\redirection.config. | **Read (r)** and **Execute (x)** permissions recursively on all CATALINA_HOME directories.
 

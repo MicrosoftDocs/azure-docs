@@ -2,7 +2,7 @@
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
 ms.topic: reference
-ms.date: 01/08/2025
+ms.date: 01/29/2026
 ms.custom: references_regions, linux-related-content
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -212,7 +212,7 @@ The following table lists the workload specific operations supported even if zon
 Azure Backup provides the following monitoring and reporting capabilities on backup operations:
 
 - Backup Alerts are available for all workloads in both Recovery Services vault and Backup vault.
-- Backup Alerts view and manage capabilities are available on Azure Monitor, Business Continuity Center, Recovery Services vault, Backup vault.
+- Backup Alerts view and manage capabilities are available on Azure Monitor, Resiliency, Recovery Services vault, Backup vault.
 
 Learn [about the different backup alerts currently available via Azure Monitor and the supported workload/vault types](monitoring-and-alerts-overview.md#azure-monitor-alerts-for-azure-backup).
 

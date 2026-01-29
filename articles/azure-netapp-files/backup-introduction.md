@@ -19,6 +19,9 @@ Azure NetApp Files backup expands the data protection capabilities of Azure NetA
 
 Azure NetApp Files backup is available in all Azure NetApp Files-enabled regions.
 
+>[!NOTE]
+>With Elastic zone-redundant storage, Azure NetApp Files backup is limited to regions that support [Elastic zone-redundant storage](elastic-zone-redundant-concept.md#supported-regions). 
+
 ## Backup vault 
 
 Backup vaults are organizational units to manage backups. You must create a backup vault before you can create a backup. 

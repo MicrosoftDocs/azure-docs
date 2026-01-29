@@ -2,7 +2,7 @@
 title: Back up an SAP HANA database to Azure with Azure Backup 
 description: In this article, learn how to back up an SAP HANA database to Azure virtual machines with the Azure Backup service.
 ms.topic: how-to
-ms.date: 01/09/2026
+ms.date: 01/29/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -142,28 +142,30 @@ At the Recovery Services vault, you can enable Cross Region Restore. Learn [how 
 
 ## Discover the databases
 
-1. In the Azure portal, go to **Backup center** and select **+Backup**.
+1. In the [Azure portal](https://portal.azure.com/), go to **Resiliency** and select **+Configure protection**.
 
-   :::image type="content" source="./media/backup-azure-sap-hana-database/backup-center-configure-inline.png" alt-text="Screenshot showing to start checking for SAP HANA databases." lightbox="./media/backup-azure-sap-hana-database/backup-center-configure-expanded.png":::
+1. On the **Configure protection** pane, select **Datasource type** as **SAP HANA in Azure VM**, and then select **Continue**.
 
-1. Select **SAP HANA in Azure VM** as the datasource type, select a Recovery Services vault to use for backup, and then select **Continue**.
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-datasource-type.png" alt-text="Screenshot that shows the selection of SAP HANA in Azure VM as datasource type.":::
 
-   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-vault.png" alt-text="Screenshot showing to select an SAP HANA database in Azure VM.":::
+1. On the **Start: Configure Backup** pane, for **Vault** selection, click **Select vault** to use for backup, and then select **Continue**.
 
-1. Select **Start Discovery**. This initiates discovery of unprotected Linux VMs in the vault region.
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-vault.png" alt-text="Screenshot that shows the selection of a Recovery Services vault for SAP HANA database backup.":::
+
+1. On the **Backup Goal** pane, select **Start Discovery**. This initiates discovery of unprotected Linux VMs in the vault region.
 
    * After discovery, unprotected VMs appear in the portal, listed by name and resource group.
    * If a VM isn't listed as expected, check whether it's already backed up in a vault.
    * Multiple VMs can have the same name but they belong to different resource groups.
 
-   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-discover-databases.png" alt-text="Screenshot showing to select Start Discovery.":::
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-discover-databases.png" alt-text="Screenshot that shows how to select Start Discovery.":::
 
 1. In **Select Virtual Machines**, select the link to download the script that provides permissions for the Azure Backup service to access the SAP HANA VMs for database discovery.
 1. Run the script on each VM hosting SAP HANA databases that you want to back up.
 1. After running the script on the VMs, in **Select Virtual Machines**, select the VMs. Then select **Discover DBs**.
 1. Azure Backup discovers all SAP HANA databases on the VM. During discovery, Azure Backup registers the VM with the vault, and installs an extension on the VM. No agent is installed on the database.
 
-   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-virtual-machines-inline.png" alt-text="Screenshot showing the discovered SAP HANA databases." lightbox="./media/backup-azure-sap-hana-database/hana-select-virtual-machines-expanded.png":::
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-virtual-machines.png" alt-text="Screenshot that shows the discovered SAP HANA databases." lightbox="./media/backup-azure-sap-hana-database/hana-select-virtual-machines.png":::
 
 ## Configure backup  
 
@@ -171,20 +173,21 @@ Now enable backup.
 
 1. In Step 2, select **Configure Backup**.
 
-   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-configure-backups.png" alt-text="Screenshot showing to configure Backup.":::
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-configure-backups.png" alt-text="Screenshot that shows the configuration of Backup.":::
 
-2. In **Select items to back up**, select all the databases you want to protect > **OK**.
+2. On the **Select items to back up** pane, select all the databases you want to protect > **OK**.
 
-   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-databases-inline.png" alt-text="Screenshot showing to select databases to back up." lightbox="./media/backup-azure-sap-hana-database/hana-select-databases-expanded.png":::
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-databases.png" alt-text="Screenshot that shows how to select databases to back up." lightbox="./media/backup-azure-sap-hana-database/hana-select-databases.png":::
 
-3. In **Backup Policy** > **Choose backup policy**, create a new backup policy for the databases, in accordance with the instructions below.
+3. For **Backup Policy**, choose a backup policy, or create a new backup policy for the databases, in accordance with the instructions below.
 
-   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-policy-summary.png" alt-text="Screenshot showing to choose backup policy.":::
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-policy-summary.png" alt-text="Screenshot that shows the selection of a backup policy.":::
 
 4. After creating the policy, on the **Backup** menu, select **Enable backup**.
 
-    ![Enable backup](./media/backup-azure-sap-hana-database/enable-backup.png)
-5. Track the backup configuration progress in the **Notifications** area of the portal.
+    ![Screenshot showing how to enable backup.](./media/backup-azure-sap-hana-database/enable-backup.png)
+
+You can track the backup configuration progress in the **Notifications** area of the portal.
 
 ### Create a backup policy
 

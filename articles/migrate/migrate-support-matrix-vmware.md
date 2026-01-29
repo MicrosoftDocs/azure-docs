@@ -292,7 +292,7 @@ Support | ASP.NET web apps | Java web apps
 --- | --- | ---
 Stack |VMware, Hyper-V, and physical servers. | VMware, Hyper-V, and physical servers.
 Windows servers | Windows Server 2008 R2 and later are supported. | Not supported.
-Linux servers | Not supported | Servers that meet the [requirements](/migrate-support-matrix-vmware?view=migrate&tabs=businesscase#vmware-requirements)
+Linux servers | Not supported | Servers that meet the [requirements](/azure/migrate/migrate-support-matrix-vmware?view=migrate&tabs=businesscase#vmware-requirements)
 Web server versions | IIS 7.5 and later. | Tomcat 8 or later.
 Protocol | WinRM port 5986 (HTTPS) by default, if HTTPS prerequisites aren't configured on the target servers, communication falls back to WinRM port 5985 (HTTP) | SSH port 22 (TCP)
 Required privileges | Local admin. | **Read (r)** and **Execute (x)** permissions recursively on all CATALINA_HOME directories.

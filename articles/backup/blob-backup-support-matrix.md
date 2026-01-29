@@ -24,7 +24,7 @@ Operational backup for blobs is available in all public cloud regions, except Fr
 
 # [Vaulted backup](#tab/vaulted-backup)
 
-Vaulted backup for blobs is available in all public cloud regions.
+Vaulted backup for blobs is available in all public cloud regions. It's also available in China East, China East 2, China East 3, China North 2, China North 3, US GOV Arizona, US GOV Texas, US GOV Virginia,  US DoD East, US DoD Central.
 
 
 ---

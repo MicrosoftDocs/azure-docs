@@ -36,13 +36,12 @@ To see all features that you can enable for an NFS volume and relevant considera
 
 > [!NOTE]
 > The registration process can take some time to complete.
->
 
 # [Portal](#tab/azure-portal)
 
 For registration steps using Portal,
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/#home). 
+1. Log in to the [Azure portal](https://portal.azure.com/#home). 
 
 2. In the Azure portal's search box, enter **Subscriptions** and then select your subscription.
 
@@ -72,7 +71,7 @@ Prepare your environment for the Azure CLI.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-[!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
+[!INCLUDE [azure-netapp-files-cloudshell-include](./includes/azure-netapp-files-azure-cloud-shell-window.md)]
 
 # [Template](#tab/template)
 

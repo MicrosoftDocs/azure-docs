@@ -15,10 +15,23 @@ Service levels are an attribute of a capacity pool. Service levels are defined a
 
 ## Supported service levels
 
-Azure NetApp Files supports four service levels: *Flexible*, *Standard*, *Premium*, and *Ultra*.   
+Azure NetApp Files supports five service levels: *Elastic*, *Flexible*, *Standard*, *Premium*, and *Ultra*. 
 
-* <a name="Flexible"></a>Flexible storage:
+The Elastic service level isn't bare-metal flash and is based on Azure infrastructure. 
 
+* **Elastic service level (preview)**:
+    Elastic is an advanced, high-availability service level designed to deliver continuous data access with zero data loss even if an entire Azure Availability Zone becomes unavailable. This service eliminates single points of failure, making it ideal for mission-critical workloads that require uncompromising resilience and in-region data protection.
+    
+    With the Elastic service level, you can:
+
+    - Create capacity pools from 1 TiB to 128 TiB with shared QoS across volumes for seamless workload adaptation.
+    - Provision volumes as small as 1 GiB, giving you flexibility to optimize storage for workloads of any size.
+    - Achieve throughput of 32 MiB/s per 1 TiB, ensuring predictable performance at scale.
+
+    For more information including a review of the available features, see [Understand Elastic zone-redundant storage](elastic-zone-redundant-concept.md).
+
+
+* <a name="Flexible"></a>Flexible service level:
     The Flexible service level enables you to adjust throughput and size limits independently. You can use the Flexible service level to create high-capacity volumes with low throughput requirements or the reverse: low-capacity volumes with high throughput requirements. The Flexible service level is designed for demanding applications such as Oracle or SAP HANA.
     
     The minimum throughput you can assign a Flexible capacity pool is 128 MiB/second regardless of the pool quota. The maximum throughput is 5 x 128 MiB/second/TiB x the size of the capacity pool in TiB. For more information, see [Flexible service level throughput examples](#flexible-examples) and [considerations for the Flexible service level](azure-netapp-files-set-up-capacity-pool.md#considerations).
@@ -26,20 +39,21 @@ Azure NetApp Files supports four service levels: *Flexible*, *Standard*, *Premiu
     >[!IMPORTANT]
     >The Flexible service level is only supported for new _manual QoS_ capacity pools.
 
-* <a name="Standard"></a>Standard storage:   
+* <a name="Standard"></a>Standard service level:   
     The Standard service level provides up to 16 MiB/s of throughput per 1 TiB of capacity provisioned.   
 
-* <a name="Premium"></a>Premium storage:   
+* <a name="Premium"></a>Premium service level:   
     The Premium service level provides up to 64 MiB/s of throughput per 1 TiB of capacity provisioned. 
 
-* <a name="Ultra"></a>Ultra storage:   
+* <a name="Ultra"></a>Ultra service level:   
     The Ultra service level provides up to 128 MiB/s of throughput per 1 TiB of capacity provisioned. 
 
-* Storage with cool access:      
-    [Cool access storage](manage-cool-access.md#register-the-feature) is available with the Standard, Premium, Ultra, and Flexible service levels. The throughput experience for any of these service levels with cool access is the same for cool access as it is for data in the hot tier. Throughput experiences differ when data that resides in the cool tier is accessed. For more information, see [Azure NetApp Files storage with cool access](cool-access-introduction.md) and [Performance considerations for storage with cool access](performance-considerations-cool-access.md). 
+### Storage with cool access
 
-    >[!NOTE]
-    >Cool access pricing is calculated in the same manner for all service levels (Standard, Premium, Ultra, and Flexible).
+[Cool access storage](manage-cool-access.md#register-the-feature) is available with the Standard, Premium, Ultra, and Flexible service levels. The throughput experience for any of these service levels with cool access is the same for cool access as it is for data in the hot tier. Throughput experiences differ when data that resides in the cool tier is accessed. For more information, see [Azure NetApp Files storage with cool access](cool-access-introduction.md) and [Performance considerations for storage with cool access](performance-considerations-cool-access.md). 
+
+>[!NOTE]
+>Cool access pricing is calculated in the same manner for all service levels (Standard, Premium, Ultra, and Flexible).
 
 ## Throughput limits
 
@@ -54,7 +68,7 @@ The following diagram shows throughput limit examples of volumes in an auto QoS 
 
 ![Service level illustration](./media/azure-netapp-files-service-levels/azure-netapp-files-service-levels.png)
 
-* In Example 1, a volume from an auto QoS capacity pool with the Premium storage tier that is assigned 2 TiB of quota will be assigned a throughput limit of 128 MiB/s (2 TiB * 64 MiB/s). This scenario applies regardless of the capacity pool size or the actual volume consumption.
+* In Example 1, a volume from an auto QoS capacity pool with the Premium service level that is assigned 2 TiB of quota will be assigned a throughput limit of 128 MiB/s (2 TiB * 64 MiB/s). This scenario applies regardless of the capacity pool size or the actual volume consumption.
 
 * In Example 2, a volume from an auto QoS capacity pool at the Premium service level with 100 GiB of quota has an assigned throughput limit of 6.25 MiB/s (0.09765625 TiB * 64 MiB/s). This scenario applies regardless of the capacity pool size or the actual volume consumption.
 
@@ -99,6 +113,28 @@ As illustrated in the diagram, the SAP HANA backup volume receives baseline thro
 
 >[!NOTE]
 >Azure NetApp Files ensures a consistent baseline throughput regardless of capacity pool size. For example, both a 1-TiB capacity pool and a 10-TiB capacity pool receive the same complimentary baseline throughput of 128 MiB/s.
+
+
+### Throughput limits examples in a Shared QoS capacity pool 
+
+In a shared QoS capacity pool, all volumes draw from a common throughput pool instead of each volume having a fixed limit. The total throughput available for the pool is determined by the capacity pool's size (TiB) and Elastic service level. For example, a zone-redundant capacity pool provides 32 MiB/s of throughput per 1 TiB of provisioned capacity, scaling up linearly (a 128 TiB pool yields 4,096 MiB/s total). Volumes in a shared QoS pool don't have individual throughput limits. Instead any volume can consume throughput on demand up to the pool's total limit, if capacity is available. A volume's throughput consumption counts against the pools overall throughput budget, thereby reducing what remains for other volumes. 
+
+This dynamic allocation is managed by Azure NetApp Files to ensure each volume still meets its performance targets (throughput and latency) while staying within the pool’s total throughput. Shared QoS is only available for the Elastic service levels (for instance, when using the zone-redundant service level), and there is no way to convert to auto or manual QoS. For specific throughput values and limits at different pool sizes and service levels, refer to [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md).
+
+Throughput is allocated per the following table: 
+
+| Capacity pool size (TiB) | Total throughput (MiB/s) | 
+| - | - | 
+| 1 | 32 |
+| 4 | 128 | 
+| 8 | 256 | 
+| 16 | 512 | 
+| 32 | 1,024 | 
+| 128 | 4,096 | 
+
+:::image type="content" source="./media/azure-netapp-files-service-levels/elastic-throughput.png" alt-text="Diagram of Elastic zone-redundant service level throughput." lightbox="./media/azure-netapp-files-service-levels/elastic-throughput.png":::
+
+
 
 ## Next steps
 

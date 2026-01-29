@@ -1,19 +1,16 @@
 ---
-title: include file
-description: include file
-services: azure-netapp-files
 author: b-juche
 ms.service: azure-netapp-files
 ms.topic: include
-ms.date: 09/10/2019
-ms.author: b-juche
+ms.date: 11/10/2025
+ms.author: anfdocs
 ms.custom: include file
 ---
 
-1. Specify the subscription that has been approved for Azure NetApp Files:
+1. Specify the subscription you're using for Azure NetApp Files:
     
     ```azurecli-interactive
-    az account set --subscription <subscriptionId>
+    az account set --subscription <subscriptionID>
     ```
 
 1. Register the Azure Resource Provider: 

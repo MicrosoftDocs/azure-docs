@@ -17,7 +17,7 @@ This article shows you how to configure manual backups. For policy-based backup 
 
 ## About manual backups  
 
-Every Azure NetApp Files volume must have a backup vault assigned before any backups (policy-based or manual) can be taken.   
+Every Azure NetApp Files volume must have a backup vault assigned before any backups (policy-based or manual) can be taken. After you assign a backup vault, you can choose to manually back up a volume. 
 
 After you assign a backup vault, you can choose to manually back up a volume. A manual backup takes a point-in-time snapshot of the active file system and backs up that snapshot to the Azure storage account.
 
@@ -30,7 +30,7 @@ The following list summarizes manual backup behaviors:
 * Manual backups do not carry a retention time, meaning they will exist until you delete them. Backups can be deleted from the backup list on selecting Delete from the Actions column. 
 
 >[!NOTE]
->The option to disable backups is no longer available beginning with the 2023.09 API version. If your workflows require the disable function, you can still use an API version earlier than 2023.09 or the Azure CLI. 
+>The option to disable backups is not supported beginning with the 2023.09 API version. If your workflows require the disable function, you can still use an API version earlier than 2023.09 or the Azure CLI. 
 
 ## Requirements
 

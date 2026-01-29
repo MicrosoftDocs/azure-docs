@@ -2,7 +2,7 @@
 title: Back up Azure Managed Disks
 description: Learn how to back up Azure Managed Disks from the Azure portal.
 ms.topic: how-to
-ms.date: 08/26/2025
+ms.date: 01/29/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -28,7 +28,7 @@ Learn how to [create a Backup vault](create-manage-backup-vault.md#create-a-back
 
 To create a backup policy for Azure Disks, follow these steps:
 
-1. Go to **Business Continuity Center**, and then select **Manage** > **Protection policies**.
+1. Go to **Resiliency**, and then select **Manage** > **Protection policies**.
 
    :::image type="content" source="./media/backup-managed-disks/create-policy.png" alt-text="Screenshot shows how to start creating a backup policy." lightbox="./media/backup-managed-disks/create-policy.png":::
 
@@ -80,7 +80,7 @@ To create a backup policy for Azure Disks, follow these steps:
 
 To configure Azure Disk backup, follow these steps:
 
-1. Go to **Business Continuity Center**, and then select **+ Configure protection**.
+1. Go to **Resiliency**, and then select **+ Configure protection**.
 
 1. On the **Configure protection** pane, select **Resource managed by** as **Azure**, **Datasource type** as **Azure Disks**, **Solution** as **Azure Backup**, and then select **Continue**.
 

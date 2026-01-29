@@ -16,16 +16,16 @@ Azure NetApp Files is an Azure native, first-party, enterprise-class, high-perfo
 
 Key attributes of Azure NetApp Files are:
 
-- Performance, cost optimization, and scale.
-- Simplicity and availability.
-- Data management and security.
+- Performance, cost optimization, and scale
+- Simplicity and availability
+- Data management and security
 
 Azure NetApp Files supports SMB, NFS, and dual protocols volumes and can be used for use cases such as:
 
-- File sharing.
-- Home directories.
-- Databases.
-- High-performance computing.
+- File sharing
+- Home directories
+- Databases
+- High-performance computing
 
 >[!NOTE]
 >Azure NetApp Files also supports integrations with S3. For more information, see [Understand object REST API](object-rest-api-introduction.md).
@@ -40,7 +40,7 @@ Azure NetApp Files is designed to provide high-performance file storage for ente
 | - | - | - | 
 | In-Azure bare-metal flash performance | Fast and reliable all-flash performance with submillisecond latency. | Run performance-intensive workloads in the cloud with on-premises infrastructure-level performance.
 | Multi-protocol support | Supports multiple protocols, including NFSv3, NFSv4.1, SMB 3.0, SMB 3.1.1, and simultaneous dual-protocol. Also supports object REST API based on S3 protocol. | Seamlessly integrate with existing infrastructure and workflows without compatibility issues or complex configurations. Azure NetApp Files also integrates with Microsoft Fabric through OneLake, and object-based services using the [object REST API](object-rest-api-introduction.md). |
-| Four adaptable performance tiers (Flexible, Standard, Premium, Ultra) | Four performance tiers with dynamic service-level change capability based on workload needs, including cool access for cold data. | Choose the right performance level for workloads and dynamically adjust performance without overspending on resources.
+| Five adaptable performance tiers (Elastic zone-redundant, Flexible, Standard, Premium, Ultra) | Five performance tiers with dynamic service-level change capability* based on workload needs, including cool access for cold data. | Choose the right performance level for workloads and dynamically adjust performance without overspending on resources.
 | Small-to-large volumes | Easily resize file volumes from 100 GiB up to 100 TiB without downtime. | Scale storage as business needs grow without over-provisioning, avoiding upfront cost.
 | Small-to-large volumes | Easily resize file volumes from 50 GiB up to 100 TiB without downtime. | Scale storage as business needs grow without over-provisioning, avoiding upfront cost.
 | 1-TiB minimum capacity pool size | 1-TiB capacity pool is a reduced-size storage pool compared to the initial 4-TiB minimum. | Save money by starting with a smaller storage footprint and lower entry point, without sacrificing performance or availability. Scale storage based on growth without high upfront costs.
@@ -53,9 +53,13 @@ Azure NetApp Files is designed to provide high-performance file storage for ente
 | Datastores for Azure VMware Solution | Use Azure NetApp Files as a storage solution for VMware workloads in Azure, reducing the need for superfluous compute nodes normally included with Azure VMware Solution expansions. | Save money by eliminating the need for unnecessary compute nodes when you expand storage, resulting in significant cost savings.
 | Cool access | Use the cool access option of Azure NetApp Files to move inactive data transparently from Azure NetApp Files storage (the hot tier) to an Azure Storage account (the cool tier). | Save money by transitioning data that resides within Azure NetApp Files volumes (the hot tier) by moving blocks to the lower-cost storage (the cool tier). |
 
+\* To understand specifics about service level changes, see [Azure NetApp Files service levels](azure-netapp-files-service-levels.md).
+
 These features work together to provide a high-performance file storage solution for the demands of enterprise workloads. They help to ensure that your workloads experience optimal (low) storage latency, cost, and scale.
 
 ## Simplicity and availability
+
+<!-- ZRS storage update -->
 
 Azure NetApp Files is designed to provide simplicity and high availability for your file storage needs. Key features include:
 
@@ -63,12 +67,12 @@ Azure NetApp Files is designed to provide simplicity and high availability for y
 | - | - | - | 
 | Volumes as a service | Provision and manage volumes in minutes with a few clicks like any other Azure service. | Enables businesses to quickly and easily provision and manage volumes without the need for dedicated hardware or complex configurations.
 | Native Azure integration | Integration with the Azure portal, REST, CLI, billing, monitoring, and security. | Simplifies management and ensures consistency with other Azure services while providing a familiar interface and integration with existing tools and workflows.
-| High availability | Azure NetApp Files provides a [high-availability SLA](https://azure.microsoft.com/support/legal/sla/netapp/) with automatic failover. | Ensures that data is always available and accessible, avoiding downtime and disruption to business operations.
+| High availability | Azure NetApp Files provides a [high-availability SLA](https://azure.microsoft.com/support/legal/sla/netapp/) with automatic failover. | Ensures that data is always available and accessible, avoiding downtime and disruption to business operations. |
 | Application migration | Migrate applications to Azure without refactoring. | Enables businesses to move their workloads to Azure quickly and easily without the need for costly and time-consuming application refactoring or redesign.
 | Cross-region and cross-zone replication | Replicate data between regions or zones. | Provides disaster recovery capabilities and ensures data availability and redundancy across different Azure regions or availability zones.
 | Application volume groups | Application volume groups enable you to deploy all application volumes according to best practices in a single one-step and optimized workflow. | Simplified multi-volume deployment for applications ensures volumes and mount points are optimized and adhere to best practices in a single step, saving time and effort.
-| Programmatic deployment | Automate deployment and management with APIs and SDKs. | Enables businesses to integrate Azure NetApp Files with their existing automation and management tools, reducing the need for manual intervention and improving efficiency.
-| Fault-tolerant bare metal | Built on a fault-tolerant bare-metal fleet powered by ONTAP. | Ensures high performance and reliability by using a robust, fault-tolerant storage platform and powerful data management capabilities provided by ONTAP.
+| Programmatic deployment | Automate deployment and management with APIs and SDKs. | Enables businesses to integrate Azure NetApp Files with their existing automation and management tools, reducing the need for manual intervention and improving efficiency. |
+| Fault-tolerant bare metal | Built on a fault-tolerant bare-metal fleet powered by ONTAP. | Ensures high performance and reliability by using a robust, fault-tolerant storage platform and powerful data management capabilities provided by ONTAP. |
 | Azure native billing | Integrates natively with Azure billing, providing a seamless and easy-to-use billing experience, based on hourly usage. | Easily and accurately manage and track the cost of using the service for seamless budgeting and cost control. Easily track usage and expenses directly from the Azure portal for a unified experience for billing and management. |
 
 These features work together to provide a simple-to-use and highly available file storage solution. This solution ensures that your data is easy to manage and always available, recoverable, and accessible to your applications, even in an outage.

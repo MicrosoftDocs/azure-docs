@@ -6,7 +6,7 @@ ms.custom:
   - references_regions
   - ignite-2024
   - build-2025
-ms.date: 05/13/2025
+ms.date: 01/29/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -100,5 +100,5 @@ The following table lists the required parameters for adding/removing SAP ASE in
 - [Restore SAP ASE database on Azure VMs using Azure portal](sap-ase-database-restore.md).
 - [Manage and monitor backed-up SAP ASE database using Azure portal](sap-ase-database-manage.md).
 - [Quickstart: Run the preregistration script for SAP ASE (Sybase) database backup in Azure Cloud Shell](sap-ase-database-backup-run-preregistration-quickstart.md).
-- [Tutorial: Back up SAP ASE (Sybase) database using Azure Business Continuity Center](sap-ase-database-backup-tutorial.md).
+- [Tutorial: Back up SAP ASE (Sybase) database using Resiliency](sap-ase-database-backup-tutorial.md).
 - [Troubleshoot SAP ASE (Sybase) database backup](troubleshoot-sap-ase-sybase-database-backup.md).

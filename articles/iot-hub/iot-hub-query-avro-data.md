@@ -44,7 +44,7 @@ In this section, you query Avro data and export it to a CSV file in Azure Blob s
 
 4. In Data Lake Analytics, configure Azure Blob storage as an additional store, the same Blob storage that Azure IoT Hub routes data to.
 
-   :::image type="content" source="./media/iot-hub-query-avro-data/query-avro-data-4.png" alt-text="{Screenshot of the Data sources pane from Data Lake Analytics, highlighting an Azure Storage instance as an additional data source.":::
+   :::image type="content" source="./media/iot-hub-query-avro-data/query-avro-data-4.png" alt-text="Screenshot of the Data sources pane from Data Lake Analytics, highlighting an Azure Storage instance as an additional data source.":::
 
 5. As discussed in the [U-SQL Avro example](https://github.com/Azure/usql/tree/master/Examples/AvroExamples), you need four DLL files. Upload these files to a location in your Data Lake Store instance.
 

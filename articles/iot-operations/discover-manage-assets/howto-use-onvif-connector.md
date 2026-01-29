@@ -12,11 +12,26 @@ ms.date: 12/11/2025
 
 # Configure the connector for ONVIF
 
-In Azure IoT Operations, the connector for ONVIF enables you to discover and use an [ONVIF conformant](https://www.onvif.org/profiles-add-ons-specifications/) camera that's connected to your Azure IoT Operations cluster.
+In Azure IoT Operations, the connector for ONVIF enables you to discover and use an [ONVIF conformant](https://www.onvif.org/profiles-add-ons-specifications/) camera  connected to your Azure IoT Operations cluster.
 
 [!INCLUDE [iot-operations-asset-definition](../includes/iot-operations-asset-definition.md)]
 
 [!INCLUDE [iot-operations-device-definition](../includes/iot-operations-device-definition.md)]
+
+The following table summarizes the features the connector for ONVIF supports:
+
+| Feature | Supported | Notes |
+|---------|:---------:|-------|
+| Username/password authentication | Yes | |
+| X.509 client certificates | No | |
+| Anonymous access | Yes | For testing purposes |
+| Certificate trust list | Yes | For secure TLS connections to ONVIF cameras |
+| OpenTelemetry integration | Yes | |
+| Device discovery | Yes | Discovers ONVIF cameras on the network |
+| Capability discovery | Yes | Discovers PTZ and other device capabilities |
+| Media endpoint discovery | Yes | Discovers media streams, framerate, resolution, encoding |
+| Camera configuration | Yes | Retrieve and update camera settings |
+| PTZ control | Yes | Control pan, tilt, and zoom |
 
 The connector connects ONVIF cameras to your Azure IoT Operations instance and registers them in the Azure Device Registry. The connector then automatically discovers:
 
@@ -44,12 +59,6 @@ This article describes how to use the operations experience web UI and Azure CLI
 - View the assets and devices discovered at the ONVIF endpoint.
 - Create a device that represents the media endpoints exposed by the ONVIF camera.
 - Create an asset that captures snapshots from the media endpoint and publishes them to the MQTT broker.
-
-The connector for ONVIF supports the following authentication methods:
-  - Username/password authentication
-  - Anonymous access for testing purposes
-
-To establish a TLS connection to the ONVIF camera, you can configure a certificate trust list for the connector.
 
 ## Prerequisites
 
@@ -79,6 +88,10 @@ The connector enables support for the following capabilities:
 ## Deploy the connector for ONVIF
 
 [!INCLUDE [deploy-connectors-simple](../includes/deploy-connectors-simple.md)]
+
+### Configure a certificate trust list for the connector
+
+[!INCLUDE [connector-certificate-application](../includes/connector-certificate-application.md)]
 
 ## Create a device with an ONVIF endpoint
 
@@ -171,8 +184,6 @@ To use the `Username password` authentication mode, complete the following steps
 ---
 
 ### Other security options
-
-To manage the trusted certificates list for the connector for ONVIF, see [Manage certificates for external communications](../secure-iot-ops/howto-manage-certificates.md#manage-certificates-for-external-communications).
 
 When you create the inbound endpoint in the operations experience, you can also select the following options on the **Advanced** tab:
 
