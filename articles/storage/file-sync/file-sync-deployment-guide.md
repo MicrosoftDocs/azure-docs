@@ -407,27 +407,29 @@ Run the following PowerShell code to download the appropriate version of the Azu
 
 ```powershell
 # Gather the OS version.
+
 $osver = [System.Environment]::OSVersion.Version
 
 # Download the appropriate version of the Azure File Sync agent for your OS.
-if ($osver.Equals([System.Version]::new(10, 0, 20348, 0))) {
-    Invoke-WebRequest `
-        -Uri https://aka.ms/afs/agent/Server2022 `
-        -OutFile "StorageSyncAgent.msi" 
+if ($osver.Equals([System.Version]::new(10, 0, 26100, 0))) {
+    # Windows Server 2025
+    Invoke-WebRequest -Uri https://aka.ms/afs/agent/Server2025 -OutFile "StorageSyncAgent.msi"
+} elseif ($osver.Equals([System.Version]::new(10, 0, 20348, 0))) {
+    # Windows Server 2022
+    Invoke-WebRequest -Uri https://aka.ms/afs/agent/Server2022 -OutFile "StorageSyncAgent.msi"
 } elseif ($osver.Equals([System.Version]::new(10, 0, 17763, 0))) {
-    Invoke-WebRequest `
-        -Uri https://aka.ms/afs/agent/Server2019 `
-        -OutFile "StorageSyncAgent.msi" 
+    # Windows Server 2019
+    Invoke-WebRequest -Uri https://aka.ms/afs/agent/Server2019 -OutFile "StorageSyncAgent.msi"
 } elseif ($osver.Equals([System.Version]::new(10, 0, 14393, 0))) {
-    Invoke-WebRequest `
-        -Uri https://aka.ms/afs/agent/Server2016 `
-        -OutFile "StorageSyncAgent.msi" 
+    # Windows Server 2016
+    Invoke-WebRequest -Uri https://aka.ms/afs/agent/Server2016 -OutFile "StorageSyncAgent.msi"
 } elseif ($osver.Equals([System.Version]::new(6, 3, 9600, 0))) {
-    Invoke-WebRequest `
-        -Uri https://aka.ms/afs/agent/Server2012R2 `
-        -OutFile "StorageSyncAgent.msi" 
+    # Windows Server 2012 R2
+    Invoke-WebRequest -Uri https://aka.ms/afs/agent/Server2012R2 -OutFile "StorageSyncAgent.msi"
 } else {
-    throw [System.PlatformNotSupportedException]::new("Azure File Sync is only supported on Windows Server 2012 R2, Windows Server 2016, Windows Server 2019 and Windows Server 2022")
+    throw [System.PlatformNotSupportedException]::new(
+        "Azure File Sync is only supported on Windows Server 2012 R2, Windows Server 2016, Windows Server 2019, Windows Server 2022, and Windows Server 2025"
+    )
 }
 
 # Install the .msi file. Start-Process is used for PowerShell blocks until the operation is complete.
