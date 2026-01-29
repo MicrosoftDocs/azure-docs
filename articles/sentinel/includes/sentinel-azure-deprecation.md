@@ -4,7 +4,7 @@ description: Provides an include file for reuse of the Microsoft Sentinel in the
 services: microsoft-sentinel
 author: batamig
 ms.topic: "include"
-ms.date: 07/01/2025
+ms.date: 01/28/2026
 ms.author: bagol
 ms.custom: "include file"
 ---
@@ -12,7 +12,7 @@ ms.custom: "include file"
 
 Microsoft Sentinel is [generally available in the Microsoft Defender portal](../microsoft-sentinel-defender-portal.md), including for customers without Microsoft Defender XDR or an E5 license. This means that you can use Microsoft Sentinel in the Defender portal even if you aren't using other Microsoft Defender services.
 
-Starting in **July 2026**, Microsoft Sentinel will be supported in the Defender portal only, and any remaining customers using the Azure portal will be automatically redirected.
+After **March 31, 2027**, Microsoft Sentinel will no longer be supported in the Azure portal and will be available only in the Microsoft Defender portal.
 
 If you're currently using Microsoft Sentinel in the Azure portal, we recommend that you start planning your transition to the Defender portal now to ensure a smooth transition and take full advantage of the [unified security operations experience offered by Microsoft Defender](/unified-secops-platform/overview-unified-security).
 

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Security
 description: Learn about the different tools available in the Agent creation collection in Microsoft Sentinel 
 author: poliveria
 ms.topic: how-to
-ms.date: 12/01/2025
+ms.date: 01/30/2026
 ms.author: pauloliveria
 ms.service: microsoft-sentinel
 
@@ -18,7 +18,7 @@ The agent creation tool collection in the Microsoft Sentinel Model Context Proto
 ## Prerequisites
 
 To access the agent creation tool collection, you must have the following prerequisites:
-- [Microsoft Sentinel data lake](sentinel-lake-onboarding.md)
+- [Microsoft Security Copilot](/copilot/security/microsoft-security-copilot)
 - Any of the supported AI-powered code editors and agent-building platforms:
     - [Visual Studio Code](sentinel-mcp-use-tool-visual-studio-code.md) 
 

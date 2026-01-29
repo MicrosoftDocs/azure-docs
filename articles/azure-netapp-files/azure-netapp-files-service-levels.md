@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 09/16/2025
+ms.date: 01/29/2026
 ms.author: anfdocs
 # Customer intent: "As a cloud storage administrator, I want to understand the throughput capabilities of different service levels in Azure NetApp Files, so that I can choose the right configuration to meet my application's performance requirements."
 ---
@@ -17,7 +17,7 @@ Service levels are an attribute of a capacity pool. Service levels are defined a
 
 Azure NetApp Files supports five service levels: *Elastic*, *Flexible*, *Standard*, *Premium*, and *Ultra*. 
 
-The Elastic service level isn't bare-metal flash and is based on Azure infrastructure. 
+The Flexible, Standard, Premium, and Ultra service levels deliver in‑Azure bare‑metal flash performance. The Elastic service level runs on Azure infrastructure and provides built‑in zonal redundancy with low single‑digit millisecond latency.
 
 * **Elastic service level (preview)**:
     Elastic is an advanced, high-availability service level designed to deliver continuous data access with zero data loss even if an entire Azure Availability Zone becomes unavailable. This service eliminates single points of failure, making it ideal for mission-critical workloads that require uncompromising resilience and in-region data protection.

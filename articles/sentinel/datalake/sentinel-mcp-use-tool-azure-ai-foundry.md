@@ -4,7 +4,7 @@ titleSuffix: Microsoft Security
 description: Learn how to use Microsoft Sentinel's Model Context Protocol (MCP) collection of security tools or your own custom tool in Microsoft Foundry 
 author: poliveria
 ms.topic: how-to
-ms.date: 01/21/2026
+ms.date: 01/30/2026
 ms.author: pauloliveria
 ms.service: microsoft-sentinel
 
@@ -105,7 +105,10 @@ Custom tools let you build deterministic workflows by prescribing exactly what d
 
 1. Add the following values:
     - **Name:** Enter a friendly name for your tool
-    - **Remote MCP server endpoint:** Paste the endpoint you copied from your custom tool collection
+    - **Remote MCP server endpoint:** Paste the endpoint you copied from your custom tool collection; it should have the following format:
+        ```
+        https://sentinel.microsoft.com/mcp/custom/<name of your custom collection>
+        ```
     - **Authentication:** OAuth Identity Passthrough
     - **Client ID:** Use the **Application (client) ID** value you saved previously
     - **Client secret:** Use the secret value you saved previously

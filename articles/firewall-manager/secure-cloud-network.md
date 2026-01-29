@@ -5,7 +5,7 @@ services: firewall-manager
 author: duau
 ms.service: azure-firewall-manager
 ms.topic: tutorial
-ms.date: 02/10/2025
+ms.date: 01/29/2026
 ms.author: duau
 ms.custom: sfi-image-nochange
 ---
@@ -60,14 +60,18 @@ The two virtual networks each have a workload server in them and are protected b
 
 
 1. Select **Next**, then select **Next**.
-1. In the **Networking** tab, create a subnet with the following settings:
+1. In the **Networking** tab, create subnets with the following settings:
 
     | Setting                  | Value                |
     |--------------------------|----------------------|
     | Add IPv4 address space   | 10.0.0.0/16 (default)|
-    | Subnets                  | default              |
+    | Subnets                  |                      |
+    | **Workload subnet**      |                      |
     | Name                     | Workload-01-SN       |
     | Starting address         | 10.0.1.0/24          |
+    | **Bastion subnet**       |                      |
+    | Name                     | AzureBastionSubnet   |
+    | Starting address         | 10.0.2.0/26          |
     
 
 
@@ -161,7 +165,8 @@ Now you can peer the hub and spoke virtual networks.
 ## Deploy the servers
 
 1. On the Azure portal, select **Create a resource**.
-1. Select **Windows Server 2019 Datacenter** in the **Popular** list.
+1. Search for **Ubuntu Server 22.04 LTS** and select it.
+1. Select **Create** > **Virtual machine**.
 1. Enter these values for the virtual machine:
 
    |Setting  |Value  |
@@ -169,8 +174,11 @@ Now you can peer the hub and spoke virtual networks.
    |Resource group     |**fw-manager-rg**|
    |Virtual machine name     |**Srv-workload-01**|
    |Region     |**(US) East US**|
-   |Administrator user name     |type a user name|
-   |Password     |type a password|
+   |Image     |**Ubuntu Server 22.04 LTS - x64 Gen2**|
+   |Authentication type     |**SSH public key**|
+   |Username     |**azureuser**|
+   |SSH public key source     |**Generate new key pair**|
+   |Key pair name     |**srv-workload-01_key**|
 
 1. Under **Inbound port rules**, for **Public inbound ports**, select **None**.
 1. Accept the other defaults and select **Next: Disks**.
@@ -182,8 +190,9 @@ Now you can peer the hub and spoke virtual networks.
 1. Select **Disable** to disable boot diagnostics. 
 1. Accept the other defaults and select **Review + create**.
 1. Review the settings on the summary page, and then select **Create**.
+1. When prompted, download and save the private key file (for example, **srv-workload-01_key.pem**).
 
-Use the information in the following table to configure another virtual machine named **Srv-Workload-02**. The rest of the configuration is the same as the **Srv-workload-01** virtual machine.
+Use the information in the following table to configure another virtual machine named **Srv-Workload-02**. The rest of the configuration is the same as the **Srv-workload-01** virtual machine, but use a different key pair name such as **srv-workload-02_key**.
 
 |Setting  |Value  |
 |---------|---------|
@@ -191,6 +200,47 @@ Use the information in the following table to configure another virtual machine 
 |Subnet|**Workload-02-SN**|
 
 After the servers are deployed, select a server resource, and in **Networking** note the private IP address for each server.
+
+### Install Nginx on the servers
+
+After the virtual machines are deployed, install Nginx on both servers to verify web connectivity later.
+
+1. In the Azure portal, navigate to the **Srv-workload-01** virtual machine.
+1. Select **Run command** > **RunShellScript**.
+1. Run the following command:
+
+   ```bash
+   sudo apt-get update && sudo apt-get install -y nginx && echo '<h1>Srv-workload-01</h1>' | sudo tee /var/www/html/index.html
+   ```
+
+1. Repeat the same steps for **Srv-workload-02**, replacing the hostname in the echo command:
+
+   ```bash
+   sudo apt-get update && sudo apt-get install -y nginx && echo '<h1>Srv-workload-02</h1>' | sudo tee /var/www/html/index.html
+   ```
+
+### Deploy Azure Bastion
+
+Deploy Azure Bastion in the Spoke-01 virtual network to securely connect to the virtual machines.
+
+1. In the Azure portal, search for **Bastions** and select it.
+1. Select **Create**.
+1. Configure the Bastion with the following settings:
+
+   | Setting                | Value                |
+   |------------------------|----------------------|
+   | Subscription           | Select your subscription |
+   | Resource group         | **fw-manager-rg**    |
+   | Name                   | **Bastion-01**       |
+   | Region                 | **East US**          |
+   | Tier                   | **Developer**        |
+   | Virtual network        | **Spoke-01**         |
+   | Subnet                 | **AzureBastionSubnet (10.0.2.0/26)** |
+
+1. Select **Review + create**, then select **Create**.
+
+> [!NOTE]
+> Azure Bastion deployment can take approximately 10 minutes to complete.
 
 ## Create a firewall policy and secure your hub
 
@@ -222,43 +272,24 @@ A firewall policy defines collections of rules to direct traffic on one or more 
     
 
 1. Select **Add**.
-1. Add a **DNAT rule** so you can connect a remote desktop to the **Srv-Workload-01** virtual machine.
-1. Select **Add a rule collection** and enter the following information. 
 
-    | Setting                | Value                                      |
-    |------------------------|--------------------------------------------|
-    | Name                   | **dnat-rdp**                               |
-    | Rule collection type   | **DNAT**                                   |
-    | Priority               | **100**                                    |
-    | Rule Name              | **Allow-rdp**                              |
-    | Source type            | **IP address**                             |
-    | Source                 | **\***                                     |
-    | Protocol               | **TCP**                                    |
-    | Destination Ports      | **3389**                                   |
-    | Destination            | The firewall public IP address noted previously. |
-    | Translated type        | **IP Address**                             |
-    | Translated address     | The private IP address for **Srv-Workload-01** noted previously. |
-    | Translated port        | **3389**                                   |
-
-1. Select **Add**.
-
-1. Add a **Network rule** so you can connect a remote desktop from **Srv-Workload-01** to **Srv-Workload-02**.
+1. Add a **Network rule** to allow SSH and HTTP traffic between the spoke virtual networks.
 
 1. Select **Add a rule collection** and enter the following information. 
 
     | Setting                | Value                                      |
     |------------------------|--------------------------------------------|
-    | Name                   | **vnet-rdp**                               |
+    | Name                   | **vnet-access**                            |
     | Rule collection type   | **Network**                                |
     | Priority               | **100**                                    |
     | Rule collection action | **Allow**                                  |
-    | Rule Name              | **Allow-vnet**                             |
+    | Rule Name              | **Allow-SSH-HTTP**                         |
     | Source type            | **IP address**                             |
-    | Source                 | **\***                                     |
+    | Source                 | **10.0.0.0/16,10.1.0.0/16**                |
     | Protocol               | **TCP**                                    |
-    | Destination Ports      | **3389**                                   |
+    | Destination Ports      | **22,80**                                  |
     | Destination Type       | **IP Address**                             |
-    | Destination            | The **Srv-Workload-02** private IP address that you noted previously. |
+    | Destination            | **10.0.0.0/16,10.1.0.0/16**                |
 
 
 1. Select **Add**, then select **Next: IDPS**.
@@ -302,22 +333,32 @@ Now you must ensure that network traffic gets routed through your firewall.
 
 ## Test the firewall
 
-To test the firewall rules, connect a remote desktop using the firewall public IP address, which is NATed to **Srv-Workload-01**. From there, use a browser to test the application rule and connect a remote desktop to **Srv-Workload-02** to test the network rule.
+To test the firewall rules, use Azure Bastion to connect to **Srv-Workload-01** and verify both the application and network rules are working.
 
 ### Test the application rule
 
 Now, test the firewall rules to confirm that it works as expected.
 
-1. Connect a remote desktop to firewall public IP address, and sign in.
+1. In the Azure portal, navigate to the **Srv-workload-01** virtual machine.
+1. Select **Connect** > **Connect via Bastion**.
+1. Provide the username **azureuser** and upload the private key `.pem` file that you downloaded when you created the VM.
+1. Select **Connect** to open an SSH session.
 
-2. Open Internet Explorer and browse to `https://www.microsoft.com`.
-3. Select **OK** > **Close** on the Internet Explorer security alerts.
+1. In the SSH session, run the following command to test access to Microsoft:
 
-   You should see the Microsoft home page.
+   ```bash
+   curl https://www.microsoft.com
+   ```
 
-4. Browse to `https://www.google.com`.
+   You should see HTML content returned, confirming access is allowed.
 
-   The firewall should block this.
+1. Test access to Google (which should be blocked):
+
+   ```bash
+   curl https://www.google.com
+   ```
+
+   The request should timeout or fail, showing the firewall is blocking this site.
 
 So now you verified that the firewall application rule is working:
 
@@ -325,14 +366,16 @@ So now you verified that the firewall application rule is working:
 
 ### Test the network rule
 
-Now test the network rule.
+Now test the network rule by connecting from **Srv-Workload-01** to **Srv-Workload-02** using HTTP.
 
-- From Srv-Workload-01, open a remote desktop to the Srv-Workload-02 private IP address.
+1. Test HTTP connectivity to the Nginx web server on **Srv-Workload-02**:
 
-   A remote desktop should connect to Srv-Workload-02.
+   ```bash
+   curl http://<Srv-Workload-02-private-IP>
+   ```
 
-So now you verified that the firewall network rule is working:
-* You can connect a remote desktop to a server located in another virtual network.
+   You should see the status returned by the web server.
+
 
 ## Clean up resources
 

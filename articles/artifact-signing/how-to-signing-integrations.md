@@ -223,7 +223,7 @@ You can also use the following tools or platforms to set up signing integrations
 
 - **GitHub Actions**: To learn how to use a GitHub action for Artifact Signing, see [Artifact Signing - Actions](https://github.com/azure/artifact-signing-action) in GitHub Marketplace. Complete the instructions to set up and use a GitHub action.
 
-- **Azure DevOps task**: To use the Artifact Signing Azure DevOps task, see [Artifact Signing](https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.TrustedSigning&ssr=false#overview) in Visual Studio Marketplace. Complete the instructions for setup.
+- **Azure DevOps task**: To use the Artifact Signing Azure DevOps task, see [Artifact Signing](https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.ArtifactSigning) in Visual Studio Marketplace. Complete the instructions for setup.
 
 - **PowerShell for Authenticode**: To use PowerShell for Artifact Signing, see [Artifact Signing](https://www.powershellgallery.com/packages/TrustedSigning/) in PowerShell Gallery to install the PowerShell module.
 

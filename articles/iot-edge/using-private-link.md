@@ -3,7 +3,7 @@ title: Use Azure Private Link and Private Endpoints to secure Azure IoT traffic 
 description: Learn how to use IoT Edge while completely isolating your network from the internet traffic using various Azure services such as Azure ExpressRoute, Private Link, and DNS Private Resolver
 author: sethmanheim
 ms.author: sethm
-ms.date: 07/22/2025
+ms.date: 01/29/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -31,5 +31,41 @@ Azure Private Link lets you use Azure PaaS services and Azure-hosted customer-ow
 ### Azure DNS Private Resolver
 
 Azure DNS Private Resolver lets you query Azure DNS private zones from an on-premises environment and the other way around without deploying VM-based DNS servers. Azure DNS Private Resolver makes it easier to manage both private and public IPs. The DNS forwarding ruleset feature in Azure DNS Private Resolver helps an IoT admin easily configure rules and manage which address an endpoint should resolve. To learn more about Azure DNS Private Resolver, see [What is Azure DNS Private Resolver?](../dns/dns-private-resolver-overview.md).
+
+### Configure IoT Edge endpoints when using Private Link
+
+When Private Link is enabled, you must configure IoT Edge to use the **private endpoint FQDNs**, not the public service hostnames. If public hostnames are used, IoT Edge modules fail to connect after public network access is disabled.
+
+#### Which hostname should be used?
+
+| Azure service | Public FQDN | Private Link FQDN | What IoT Edge should use |
+|---------------|-------------|-------------------|---------------------------|
+| IoT Hub | `<hubname>.azure-devices.net` | `<hubname>.privatelink.azure-devices.net` | Use Private Link FQDN |
+| DPS | `global.azure-devices-provisioning.net` | `global.privatelink.azure-devices-provisioning.net` | Use Private Link FQDN |
+| Azure Container Registry (ACR) | `<registry>.azurecr.io` | `<registry>.privatelink.azurecr.io` | Use Private Link FQDN |
+| Storage (Blob) | `<account>.blob.core.windows.net` | `<account>.privatelink.blob.core.windows.net` | Use Private Link FQDN |
+
+#### Example IoT Edge `config.yaml`
+
+```yaml
+provisioning:
+  source: "dps"
+  global_endpoint: "global.privatelink.azure-devices-provisioning.net"
+  scope_id: "<scope-id>"
+
+agent:
+  env:
+    IOTEDGE_IOTHUBHOSTNAME: "<hubname>.privatelink.azure-devices.net"
+```
+
+#### DNS requirement
+
+Your environment must correctly resolve private endpoint hostnames. Ensure:
+
+- Private DNS zones for IoT Hub, DPS, ACR, and Storage are configured.
+- Private DNS zones are linked to your VNET.
+- On-premises systems forward DNS queries via Azure DNS Private Resolver (if applicable).
+
+If DNS isn't configured, IoT Edge won't be able to resolve the private endpoint FQDNs.
 
 For a walkthrough example scenario, see [Using Azure Private Link and Private Endpoints to secure Azure IoT traffic](https://kevinsaye.wordpress.com/2020/09/30/using-azure-private-link-and-private-endpoints-to-secure-azure-iot-traffic/). This example shows a possible configuration for a factory network and isn't intended as a production-ready reference.

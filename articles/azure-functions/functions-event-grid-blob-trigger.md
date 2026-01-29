@@ -273,7 +273,7 @@ Visual Studio Code uses Azurite to emulate Azure Storage services when running l
 
 1. Verify that the *local.settings.json* file has `"UseDevelopmentStorage=true"` set for `AzureWebJobsStorage`. This setting tells Core Tools to use Azurite instead of a real storage account connection when running locally. 
 
-1. Press F1 to open the command palette, type `Azurite: Start Blob Service`, and press enter. This action starts the Azurite Blob Storage service emulator.
+1. Press F1 to open the command palette, type `Azurite: Start`, and press Enter. This action starts the Azurite Blob Storage service emulator.
 
 1. Select the Azure icon in the Activity bar, expand **Workspace** > **Attached Storage Accounts** > **Local Emulator**, right-click **Blob Containers**, select **Create Blob Container...**, enter the name `samples-workitems`, and press Enter.
  

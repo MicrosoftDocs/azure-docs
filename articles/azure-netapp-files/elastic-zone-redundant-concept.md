@@ -1,5 +1,5 @@
 ---
-title: Understand Azure NetApp Files zone-redundant storage service level
+title: Understand Azure NetApp Files Elastic zone-redundant storage service level
 description: Understand the unique qualities of Elastic zone-redundant storage, which delivers built-in local redundancy is designed as a more affordable alternative. 
 services: azure-netapp-files
 author: b-ahibbard
@@ -10,7 +10,7 @@ ms.author: anfdocs
 ms.custom: references-regions 
 ---
 
-# Understand Azure NetApp Files zone-redundant storage service level (preview)
+# Understand Azure NetApp Files Elastic zone-redundant storage service level (preview)
 
 Azure NetApp Files Elastic zone-redundant storage is a high-availability storage service level for Azure NetApp Files that synchronously replicates your data across multiple Azure Availability Zones in a single region. This means if one zone experiences an outage, your data and applications remain available from the other zones with zero data loss. Azure NetApp Files Elastic zone-redundant storage delivers similar enterprise-grade features as other Azure NetApp Files service levels (support for NFSv3, NFSv4.1, SMB, snapshots, clones, encryption, backup) but with built-in multi-availability zone redundancy. It eliminates single points of failure, ensuring continuous data access even during an entire zone outage.
 

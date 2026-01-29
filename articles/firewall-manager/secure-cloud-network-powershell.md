@@ -5,7 +5,7 @@ services: firewall-manager
 author: jomore
 ms.topic: tutorial
 ms.service: azure-firewall-manager
-ms.date: 10/22/2020
+ms.date: 01/29/2026
 ms.author: duau
 ms.custom:
   - devx-track-azurepowershell
@@ -65,6 +65,8 @@ $Hub = New-AzVirtualHub -Name $HubName -ResourceGroupName $RG -VirtualWan $Vwan 
 ```azurepowershell-interactive
 # Create Virtual Network
 $Spoke1 = New-AzVirtualNetwork -Name "spoke1" -ResourceGroupName $RG -Location $Location -AddressPrefix "10.1.1.0/24"
+Add-AzVirtualNetworkSubnetConfig -Name "AzureBastionSubnet" -VirtualNetwork $Spoke1 -AddressPrefix "10.1.1.64/26"
+$Spoke1 | Set-AzVirtualNetwork
 $Spoke2 = New-AzVirtualNetwork -Name "spoke2" -ResourceGroupName $RG -Location $Location -AddressPrefix "10.1.2.0/24"
 # Connect Virtual Network to Virtual WAN
 $Spoke1Connection = New-AzVirtualHubVnetConnection -ResourceGroupName $RG -ParentResourceName  $HubName -Name "spoke1" -RemoteVirtualNetwork $Spoke1 -EnableInternetSecurityFlag $True
@@ -179,53 +181,64 @@ Update-AzVHubRouteTable -ResourceGroupName <rgname> -ParentResourceName <hubname
  
 ## Test connectivity
 
-Now that your secure hub is fully operational, you can test connectivity by deploying a virtual machine in each spoke virtual network connected to the hub:
+Now that your secure hub is fully operational, you can test connectivity by deploying a virtual machine in each spoke virtual network connected to the hub.
+
+First, create SSH keys for authentication:
+
+```azurepowershell-interactive
+# Generate SSH key pair for VM authentication
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/vwan-lab-key -N ""
+$sshPublicKey = Get-Content ~/.ssh/vwan-lab-key.pub
+```
+
+Now create the virtual machines without public IP addresses:
 
 ```azurepowershell-interactive
 # Create VMs in spokes for testing
-$VMLocalAdminUser = "lab-user"
-$VMLocalAdminSecurePassword = ConvertTo-SecureString -AsPlainText -Force
-$VMCredential = New-Object System.Management.Automation.PSCredential ($VMLocalAdminUser, $VMLocalAdminSecurePassword);
+$VMLocalAdminUser = "azureuser"
 $VMSize = "Standard_B2ms"
 # Spoke1
 $Spoke1 = Get-AzVirtualNetwork -ResourceGroupName $RG -Name "spoke1"
 Add-AzVirtualNetworkSubnetConfig -Name "vm" -VirtualNetwork $Spoke1 -AddressPrefix "10.1.1.0/26"
 $Spoke1 | Set-AzVirtualNetwork
 $VM1 = New-AzVM -Name "spoke1-vm" -ResourceGroupName $RG -Location $Location `
-            -Image "UbuntuLTS" -credential $VMCredential `
-            -VirtualNetworkName "spoke1" -SubnetName "vm" -PublicIpAddressName "spoke1-pip"
+            -Image "Ubuntu2204" -Size $VMSize `
+            -VirtualNetworkName "spoke1" -SubnetName "vm" `
+            -PublicIpAddressName "" -OpenPorts 22,80 `
+            -GenerateSshKey -SshKeyName "spoke1-ssh-key"
 $NIC1 = Get-AzNetworkInterface -ResourceId $($VM1.NetworkProfile.NetworkInterfaces[0].Id)
 $Spoke1VMPrivateIP = $NIC1.IpConfigurations[0].PrivateIpAddress
-$Spoke1VMPIP = $(Get-AzPublicIpAddress -ResourceGroupName $RG -Name "spoke1-pip")
 # Spoke2
 $Spoke2 = Get-AzVirtualNetwork -ResourceGroupName $RG -Name "spoke2"
 Add-AzVirtualNetworkSubnetConfig -Name "vm" -VirtualNetwork $Spoke2 -AddressPrefix "10.1.2.0/26"
 $Spoke2 | Set-AzVirtualNetwork
 $VM2 = New-AzVM -Name "spoke2-vm" -ResourceGroupName $RG -Location $Location `
-            -Image "UbuntuLTS" -credential $VMCredential `
-            -VirtualNetworkName "spoke2" -SubnetName "vm" -PublicIpAddressName "spoke2-pip"
+            -Image "Ubuntu2204" -Size $VMSize `
+            -VirtualNetworkName "spoke2" -SubnetName "vm" `
+            -PublicIpAddressName "" -OpenPorts 22,80 `
+            -GenerateSshKey -SshKeyName "spoke2-ssh-key"
 $NIC2 = Get-AzNetworkInterface -ResourceId $($VM2.NetworkProfile.NetworkInterfaces[0].Id)
 $Spoke2VMPrivateIP = $NIC2.IpConfigurations[0].PrivateIpAddress
-$Spoke2VMPIP = $(Get-AzPublicIpAddress -ResourceGroupName $RG -Name "spoke2-pip")
 ```
 
-By default, the firewall policy blocks all traffic. To allow access to your test virtual machines, you must configure DNAT (Destination Network Address Translation) rules. These rules will enable you to connect to the VMs through the Azure Firewall's public IP address:
+### Deploy Azure Bastion
+
+Deploy Azure Bastion in the Spoke-01 virtual network to securely connect to the virtual machines without requiring public IP addresses or DNAT rules.
 
 ```azurepowershell-interactive
-# Adding DNAT rules for virtual machines in the spokes
-$AzFWPublicAddress = $AzFW.HubIPAddresses.PublicIPs.Addresses[0].Address
-$NATRuleSpoke1 = New-AzFirewallPolicyNatRule -Name "Spoke1SSH" -Protocol "TCP" `
-        -SourceAddress "*" -DestinationAddress $AzFWPublicAddress -DestinationPort 10001 `
-        -TranslatedAddress $Spoke1VMPrivateIP -TranslatedPort 22
-$NATRuleSpoke2 = New-AzFirewallPolicyNatRule -Name "Spoke2SSH" -Protocol "TCP" `
-        -SourceAddress "*" -DestinationAddress $AzFWPublicAddress -DestinationPort 10002 `
-        -TranslatedAddress $Spoke2VMPrivateIP -TranslatedPort 22
-$NATCollection = New-AzFirewallPolicyNatRuleCollection -Name "SSH" -Priority 100 `
-        -Rule @($NATRuleSpoke1, $NATRuleSpoke2) -ActionType "Dnat"
-$NATGroup = New-AzFirewallPolicyRuleCollectionGroup -Name "NAT" -Priority 100 -RuleCollection $NATCollection -FirewallPolicyObject $FWPolicy
+# Deploy Azure Bastion for secure VM access
+$BastionPip = New-AzPublicIpAddress -ResourceGroupName $RG -Name "bastion-pip" `
+    -Location $Location -AllocationMethod Static -Sku Standard
+$Spoke1 = Get-AzVirtualNetwork -ResourceGroupName $RG -Name "spoke1"
+$BastionSubnet = Get-AzVirtualNetworkSubnetConfig -Name "AzureBastionSubnet" -VirtualNetwork $Spoke1
+New-AzBastion -ResourceGroupName $RG -Name "spoke1-bastion" `
+    -PublicIpAddress $BastionPip -VirtualNetwork $Spoke1 -Sku "Basic"
 ```
 
-Next, configure example rules for your firewall policy. First, create a network rule to allow SSH traffic between the virtual networks. Then, add an application rule to permit Internet access only to the Fully Qualified Domain Name (FQDN) `ifconfig.co`, which returns the source IP address seen in the HTTP request:
+> [!NOTE]
+> Azure Bastion deployment can take approximately 10 minutes to complete.
+
+By default, the firewall policy blocks all traffic. To allow access between spoke virtual machines and to the internet, you must configure firewall rules. First, create a network rule to allow SSH traffic between the virtual networks. Then, add an application rule to permit Internet access only to the Fully Qualified Domain Name (FQDN) `ifconfig.co`, which returns the source IP address seen in the HTTP request:
 
 ```azurepowershell-interactive
 # Add Network Rule
@@ -250,27 +263,40 @@ Get-AzEffectiveRouteTable -ResourceGroupName $RG -NetworkInterfaceName $NIC1.Nam
 Get-AzEffectiveRouteTable -ResourceGroupName $RG -NetworkInterfaceName $NIC2.Name | ft
 ```
 
-Generate traffic from one virtual machine to the other and verify that it is filtered by Azure Firewall. Use SSH to connect to the virtual machines—accept the SSH fingerprint and enter the password you set during VM creation. In this example, you will:
+Generate traffic from one virtual machine to the other and verify that it is filtered by Azure Firewall. Use Azure Bastion to connect to the virtual machines. In this example, you will:
 
-- Send five ICMP echo requests (pings) from the VM in spoke1 to the VM in spoke2.
-- Attempt a TCP connection on port 22 using the `nc` (netcat) utility with the `-vz` flags, which checks connectivity without sending data.
+- Connect to spoke1-vm using Azure Bastion through the Azure portal
+- Send five ICMP echo requests (pings) from the VM in spoke1 to the VM in spoke2
+- Attempt a TCP connection on port 22 using the `nc` (netcat) utility with the `-vz` flags, which checks connectivity without sending data
 
 You should observe that the ping requests fail (blocked by the firewall), while the TCP connection on port 22 succeeds, as allowed by the previously configured network rule.
 
-```azurepowershell-interactive
-# Connect to one VM and ping the other. It should not work, because the firewall should drop the traffic, since no rule for ICMP is configured
-ssh $AzFWPublicAddress -p 10001 -l $VMLocalAdminUser "ping $Spoke2VMPrivateIP -c 5"
-# Connect to one VM and send a TCP request on port 22 to the other. It should work, because the firewall is configured to allow SSH traffic (port 22)
-ssh $AzFWPublicAddress -p 10001 -l $VMLocalAdminUser "nc -vz $Spoke2VMPrivateIP 22"
+To test connectivity:
+
+1. In the Azure portal, navigate to the **spoke1-vm** virtual machine.
+2. Select **Connect** > **Connect via Bastion**.
+3. Provide the username **azureuser** and upload the private key file generated earlier.
+4. Select **Connect** to open an SSH session.
+5. In the SSH session, run the following commands:
+
+```bash
+# Ping should fail (blocked by firewall)
+ping $Spoke2VMPrivateIP -c 5
+# SSH connectivity check should succeed (allowed by firewall)
+nc -vz $Spoke2VMPrivateIP 22
 ```
 
-You can also test Internet access through the firewall. HTTP requests using the `curl` utility to the allowed FQDN (`ifconfig.co`) should succeed, while requests to other destinations (such as `bing.com`) should be blocked by the firewall policy:
+Replace `$Spoke2VMPrivateIP` with the actual private IP address of spoke2-vm (displayed in the PowerShell output).
 
-```azurepowershell-interactive
+You can also test Internet access through the firewall. HTTP requests using the `curl` utility to the allowed FQDN (`ifconfig.co`) should succeed, while requests to other destinations (such as `bing.com`) should be blocked by the firewall policy.
+
+From the same SSH session on spoke1-vm:
+
+```bash
 # This HTTP request should succeed, since it is allowed in an app rule in the AzFW, and return the public IP of the FW
-ssh $AzFWPublicAddress -p 10001 -l $VMLocalAdminUser "curl -s4 ifconfig.co"
+curl -s4 ifconfig.co
 # This HTTP request should fail, since the FQDN bing.com is not in any app rule in the firewall policy
-ssh $AzFWPublicAddress -p 10001 -l $VMLocalAdminUser "curl -s4 bing.com"
+curl -s4 bing.com
 ```
 
 To confirm that the firewall is dropping packets as expected, review the logs sent to Azure Monitor. Since Azure Firewall is configured to send diagnostic logs to Azure Monitor, you can use Kusto Query Language (KQL) to query and analyze the relevant log entries:
@@ -297,7 +323,6 @@ $(Invoke-AzOperationalInsightsQuery -Workspace $LogWS -Query $LogQuery).Results 
 
 In the previous command you should see different entries:
 
-* Your SSH connection being DNAT'ed
 * Dropped ICMP packets between the VMs in the spokes (10.1.1.4 and 10.1.2.4)
 * Allowed SSH connections between the VMs in the spokes
 
@@ -306,17 +331,14 @@ Here a sample output produced by the command above:
 ```
 TimeGenerated            Protocol    SourceIP       SourcePort TargetIP      TargetPort Action  NatDestination Resource
 -------------            --------    --------       ---------- --------      ---------- ------  -------------- --------
-2020-10-04T20:53:02.41Z  TCP         109.125.122.99 62281      51.105.224.44 10001      DNAT'ed 10.1.1.4:22    AZFW1
 2020-10-04T20:53:07.045Z TCP         10.1.1.4       35932      10.1.2.4      22         Allow   N/A            AZFW1
-2020-10-04T20:53:50.119Z TCP         109.125.122.99 62293      51.105.224.44 10001      DNAT'ed 10.1.2.4:22    AZFW1
-2020-10-04T20:52:47.475Z TCP         109.125.122.99 62273      51.105.224.44 10001      DNAT'ed 10.1.2.4:22    AZFW1
-2020-10-04T20:51:04.682Z TCP         109.125.122.99 62200      51.105.224.44 10001      DNAT'ed 10.1.2.4:22    AZFW1
+2020-10-04T20:52:47.475Z TCP         10.1.1.4       53748      10.1.2.4      22         Allow   N/A            AZFW1
+2020-10-04T20:51:04.682Z ICMP Type=8 10.1.1.4       N/A        10.1.2.4      N/A        Deny    N/A            AZFW1
 2020-10-04T20:51:17.031Z ICMP Type=8 10.1.1.4       N/A        10.1.2.4      N/A        Deny    N/A            AZFW1
 2020-10-04T20:51:18.049Z ICMP Type=8 10.1.1.4       N/A        10.1.2.4      N/A        Deny    N/A            AZFW1
 2020-10-04T20:51:19.075Z ICMP Type=8 10.1.1.4       N/A        10.1.2.4      N/A        Deny    N/A            AZFW1
 2020-10-04T20:51:20.097Z ICMP Type=8 10.1.1.4       N/A        10.1.2.4      N/A        Deny    N/A            AZFW1
 2020-10-04T20:51:21.121Z ICMP Type=8 10.1.1.4       N/A        10.1.2.4      N/A        Deny    N/A            AZFW1
-2020-10-04T20:52:52.356Z TCP         10.1.1.4       53748      10.1.2.4      22         Allow   N/A            AZFW1
 ```
 
 If you want to see the logs for the application rules (describing allowed and denied HTTP connections) or change the way that the logs are displayed, you can try with other KQL queries. You can find some examples in [Azure Monitor logs for Azure Firewall](../firewall/firewall-workbook.md).

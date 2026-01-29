@@ -85,7 +85,7 @@ After you create a dev box, connect to it remotely through the developer portal 
 [!INCLUDE [connect-with-windows-app](includes/connect-with-windows-app.md)]
 
 > [!TIP]
-> Follow the [AVD guidelines](https://aka.ms/how-often-turn-on-vms) to keep Dev Boxes registered for connection. 
+> To ensure continued connectivity to your Dev Boxes, regular startup is required in accordance wih [AVD guidance](https://aka.ms/how-often-turn-on-vms). 
 
 ## Use multiple monitors
 

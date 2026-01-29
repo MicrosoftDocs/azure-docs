@@ -70,6 +70,13 @@ Except for the Free tier, an App Service plan carries a charge on the compute re
 
 - **Shared tier**: Each app receives a quota of CPU minutes, so *each app* is charged for the CPU quota.
 - **Dedicated compute tiers (Basic, Standard, Premium, PremiumV2, PremiumV3, PremiumV4)**: The App Service plan defines the number of VM instances that the apps are scaled to, so *each VM instance* in the App Service plan is charged. These VM instances are charged the same, regardless of how many apps are running on them. To avoid unexpected charges, see [Delete an App Service plan](app-service-plan-manage.md#delete-an-app-service-plan).
+
+> [!NOTE] 
+> In dedicated compute tiers, the VM resources are **dedicated to your App Service plan and are not shared with other customers**.  
+> However, **any apps you place inside the same App Service plan share those dedicated resources with each other**.    
+> This means compute is dedicated at the **plan level**, not the **per-app level**.  
+> To isolate compute per app, create a separate App Service plan.
+
 - **IsolatedV2 tier**: The App Service Environment defines the number of isolated workers that run your apps, and *each worker* is charged.
 
 You aren't charged for using the App Service features that are available to you. These features include configuring custom domains, TLS/SSL certificates, deployment slots, and backups. The exceptions are:
