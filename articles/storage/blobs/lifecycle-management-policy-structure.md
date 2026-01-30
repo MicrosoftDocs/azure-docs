@@ -122,7 +122,7 @@ The following table describes each action run condition.
 
 You can enable access time tracking to keep a record of when your blob is last read or written and as a filter to manage tiering and retention of your blob data. 
 
-When you enable access time tracking, a blob property called `LastAccessTime` is updated when a blob is read or written. The [Get Blob](/rest/api/storageservices/get-blob) and [Put Blob](/rest/api/storageservices/put-blob) operations are access operations and will update the access time of a blob. However, the [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), and [Get Blob Tags](/rest/api/storageservices/get-blob-tags) aren't access operations. Those operations won't update the access time of a blob. 
+When you enable access time tracking, a blob property called `LastAccessTime` is updated when a blob is read or written. For example, [Get Blob](/rest/api/storageservices/get-blob) and [Put Blob](/rest/api/storageservices/put-blob) are access operations that will update the last access time of a blob. However, the [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), and [Get Blob Tags](/rest/api/storageservices/get-blob-tags) aren't access operations. Those operations won't update the access time of a blob. 
 
 If you apply the **daysAfterLastAccessTimeGreaterThan** run condition to a policy, then the `LastAccessTime` is used to determine whether that condition is met. 
 

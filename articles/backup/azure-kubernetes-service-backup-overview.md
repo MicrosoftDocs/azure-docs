@@ -6,7 +6,7 @@ ms.service: azure-backup
 ms.custom:
   - ignite-2023
   - ignite-2024
-ms.date: 04/15/2025
+ms.date: 01/30/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to understand more about AKS before configuring scheduled backups for my AKS clusters, so that I can ensure the protection and easy restoration of containerized applications and data in case of failures or operational needs.
@@ -18,7 +18,7 @@ ms.author: v-mallicka
 
 The solution gives you granular control. You can back up or restore a specific namespace or an entire cluster by storing backups locally in a blob container and as disk snapshots. You can use AKS backup for end-to-end scenarios, including operational recovery, cloning developer or test environments, and cluster upgrade scenarios.
 
-AKS backup integrates with Backup center in Azure, to provide a single view that can help you govern, monitor, operate, and analyze backups at scale. Your backups are also available in the Azure portal under **Settings** on the service menu for an AKS instance.
+AKS backup integrates with Resiliency in Azure, to provide a single view that can help you govern, monitor, operate, and analyze backups at scale. Your backups are also available in the Azure portal under **Settings** on the service menu for an AKS instance.
 
 ## How does AKS backup work?
 
@@ -57,7 +57,7 @@ You can use AKS backup to create multiple backup instances for a single AKS clus
 
 When the backup configuration for an AKS cluster is finished, a backup instance is created in the Backup vault. You can view the backup instance for the cluster in the **Backup** section for an AKS instance in the Azure portal. You can perform any backup-related operations for the instance, such as initiating restores, monitoring, stopping protection, and so on, through its corresponding backup instance.
 
-AKS backup also integrates directly with Backup center to help you centrally manage protection for all your AKS clusters and other backup-supported workloads. Backup center provides a single view for all your backup requirements, such as monitoring jobs and the state of backups and restores. Backup center helps you ensure compliance and governance, analyze backup usage, and perform critical operations to back up and restore data.
+AKS backup also integrates directly with Resiliency to help you centrally manage protection for all your AKS clusters and other backup-supported workloads. Resiliency provides a single view for all your backup requirements, such as monitoring jobs and the state of backups and restores. Resiliency helps you ensure compliance and governance, analyze backup usage, and perform critical operations to back up and restore data.
 
 AKS backup uses managed identity to access other Azure resources. To configure the backup of an AKS cluster and to restore from an earlier backup, the Backup vault's managed identity requires a set of permissions on the AKS cluster. It also requires a set of permissions on the snapshot resource group where snapshots are created and managed. Currently, the AKS cluster requires a set of permissions on the snapshot resource group. 
 
@@ -242,7 +242,7 @@ To create and apply resource modification, follow these steps:
 
    When you perform a restore operation, provide the `ConfigMap name` and the `namespace` where it deploys as part of restore configuration. These details need to be provided under **Resource Modifier Rules**.
 
-   :::image type="content" source="./media/azure-kubernetes-service-backup-overview/resource-modifier-rules.png" alt-text="Screenshot that shows the location to provide resource details." lightbox="./media/azure-kubernetes-service-backup-overview/resource-modifier-rules.png":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/parameter-selection.png" alt-text="Screenshot that shows the location to provide resource details." lightbox="./media/azure-kubernetes-service-cluster-restore/parameter-selection.png":::
 
 ### Operations supported by Resource Modifier
 

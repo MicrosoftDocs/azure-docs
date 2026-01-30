@@ -18,6 +18,10 @@ ms.devlang: csharp
 
 On **February 3, 2026**, Azure Blob Storage will stop supporting versions 1.0 and 1.1 of Transport Layer Security (TLS). TLS 1.2 will become the new minimum TLS version. This change impacts all existing and new blob storage accounts, using TLS 1.0 and 1.1 in all clouds. Storage accounts already using TLS 1.2 aren't impacted by this change.
 
+> [!NOTE]
+> The minimum TLS version is enforced at the **storage account level**. If your storage account hosts other Azure Storage services (such as **Azure Files, Queue Storage, or Table Storage**), those services are also subject to the same TLS requirements.
+> While this article focuses on Azure Blob Storage, the guidance applies to all supported storage services within the same storage account.
+
 To avoid disruptions to applications that connect to your storage account, you must ensure that your account requires clients to send and receive data by using TLS **1.2**, and remove dependencies on TLS version 1.0 and 1.1.
 
 ## About Transport Layer Security

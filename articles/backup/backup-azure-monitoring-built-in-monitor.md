@@ -14,11 +14,11 @@ ms.author: v-mallicka
 
 Azure Backup provides multiple backup solutions based on the backup requirement and infrastructure topology (On-premises vs Azure). Any backup user or admin should see what's going on across all solutions and can expect to be notified in important scenarios. 
 
-Overview of alerts, jobs, security and usage are available by default in the **Overview** pane of Azure Business Continuity Center, Recovery Services Vault and Backup Vault. This article describes the ways to view and configure monitoring capabilities via Business Continuity Center, Recovery Services Vault and Backup Vault.
+Overview of alerts, jobs, security and usage are available by default in the **Overview** pane of Resiliency, Recovery Services Vault and Backup Vault. This article describes the ways to view and configure monitoring capabilities via Resiliency, Recovery Services Vault and Backup Vault.
 
-## Protected and protectable items in Azure Business Continuity Center
+## Protected and protectable items in Resiliency
 
-You can monitor all your protected and protectable items via Azure Business Continuity Center. Go to the **[Protected Items](../business-continuity-center/tutorial-view-protected-items-and-perform-actions.md)** blade in Azure Business Continuity Center to view your resources protected by one or more solutions and perform actions on them. Go to the **[Protectable resources](../business-continuity-center/tutorial-view-protectable-resources.md)** in Azure Business Continuity Center to view your resources that aren't currently protected by any solution.
+You can monitor all your protected and protectable items via Resiliency. Go to the **[Protected Items](../resiliency/tutorial-view-protected-items-and-perform-actions.md)** blade in Resiliency to view your resources protected by one or more solutions and perform actions on them. Go to the **[Protectable resources](../resiliency/tutorial-view-protectable-resources.md)** in Resiliency to view your resources that aren't currently protected by any solution.
 
 ## Backup Items in Recovery Services vault
 
@@ -33,9 +33,9 @@ You can monitor all your backup items via a Recovery Services vault. Navigating 
 
 ## Backup Jobs
 
-Learn how to monitor Backup jobs in [Azure Business Continuity Center](../business-continuity-center/tutorial-monitor-operate.md), [Recovery Services vault](backup-azure-manage-windows-server.md#manage-backup-jobs), and [Backup vault](manage-backup-vault.md#manage-backup-jobs).
+Learn how to monitor Backup jobs in [Resiliency](../resiliency/tutorial-monitor-operate.md), [Recovery Services vault](backup-azure-manage-windows-server.md#manage-backup-jobs), and [Backup vault](manage-backup-vault.md#manage-backup-jobs).
 
 ## Next steps
 
 - [Monitor Azure Backup workloads using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
-- [Monitor and govern protection estate, using Azure Business Continuity Center](../business-continuity-center/tutorial-monitor-protection-summary.md).
+- [Monitor and govern protection estate, using Resiliency](../resiliency/tutorial-monitor-protection-summary.md).

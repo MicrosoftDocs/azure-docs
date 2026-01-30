@@ -7,7 +7,7 @@ manager: juergent
 ms.service: sap-on-azure
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.date: 01/07/2026
+ms.date: 01/29/2026
 ms.author: radeltch
 ms.custom:
   - linux-related-content
@@ -397,7 +397,7 @@ On the cluster nodes, connect and discover iSCSI device that was created in the 
     systemctl restart systemd-modules-load
     ```
 
-16. **[A]** The SBD service timeout value is set to 90 seconds by default. However, if the `SBD_DELAY_START` value is set to `yes`, the SBD service will delay its start until after the `msgwait` timeout. Therefore, the SBD service timeout value should exceed the `msgwait` timeout when `SBD_DELAY_START` is enabled.
+16. **[A]** When `SBD_DELAY_START` is set to a value, it delays the startup of the SBD service on boot. If the systemd `TimeoutSec` of SBD service remains at its default (90 seconds), the service may time out before starting, so `TimeoutSec` must be increased to a value greater than `SBD_DELAY_START`.
 
     ```bash
     sudo mkdir /etc/systemd/system/sbd.service.d
@@ -540,7 +540,7 @@ foreach ($vmName in $vmNames) {
    systemctl restart systemd-modules-load
    ```
 
-8. **[A]** The SBD service timeout value is set to 90 seconds by default. However, if the `SBD_DELAY_START` value is set to `yes`, the SBD service will delay its start until after the `msgwait` timeout. Therefore, the SBD service timeout value should exceed the `msgwait` timeout when `SBD_DELAY_START` is enabled.
+8. **[A]** When `SBD_DELAY_START` is set to a value, it delays the startup of the SBD service on boot. If the systemd `TimeoutSec` of SBD service remains at its default (90 seconds), the service may time out before starting, so `TimeoutSec` must be increased to a value greater than `SBD_DELAY_START`.
 
    ```bash
    sudo mkdir /etc/systemd/system/sbd.service.d

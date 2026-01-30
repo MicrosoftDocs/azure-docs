@@ -2,7 +2,7 @@
 title: Restore Azure Managed Disks
 description: Learn how to restore Azure Managed Disks from the Azure portal.
 ms.topic: how-to
-ms.date: 09/23/2025
+ms.date: 01/30/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to restore Azure Managed Disks using recovery points, so that I can recover lost or corrupted data while maintaining the integrity of the original disk.
@@ -29,7 +29,7 @@ Backup vault uses a system assigned managed identity, which is restricted to one
 
 To restore a new disk from a recovery point, follow these steps:
 
-1. Go to **Business Continuity Center**, and then select **Recover**.
+1. Go to **Resiliency**, and then select **Recover**.
 
     Alternately, you can perform this operation from the Backup vault you used to configure backup for the disk.
 

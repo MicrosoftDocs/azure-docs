@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 06/05/2025
+ms.date: 01/30/2026
 ms.author: anfdocs
 # Customer intent: As an IT administrator, I want to configure policy-based backups for Azure NetApp Files, so that I can automate data protection and ensure regular, reliable backups of my storage volumes.
 ---
@@ -14,6 +14,9 @@ ms.author: anfdocs
 Azure NetApp Files backup supports *policy-based* (scheduled) backups and *manual* (on-demand) backups at the volume level. You can use both types of backups in the same volume. During the configuration process, you'll enable the backup feature for an Azure NetApp Files volume before policy-based backups or manual backups can be taken. 
 
 This article explains how to configure policy-based backups. For manual backup configuration, see [Configure manual backups](backup-configure-manual.md).  
+
+[!INCLUDE [Elastic backup preview](includes/elastic-backup-preview.md)]
+
 
 ## About policy-based backups    
 

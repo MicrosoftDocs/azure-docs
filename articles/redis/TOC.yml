@@ -31,8 +31,6 @@ items:
                 href: dotnet-core-quickstart.md
               - name: .NET app
                 href: dotnet-how-to-use-azure-redis-cache.md
-              - name: Java app
-                href: java-get-started.md
               - name: Node.js app
                 href: nodejs-get-started.md
               - name: Python app
@@ -84,7 +82,7 @@ items:
           - name: Monitor using diagnostic settings
             href: monitor-diagnostic-settings.md
           - name: List of Redis metrics
-            href: ../azure-cache-for-redis/monitor-cache-reference.md#metrics
+            href: monitor-cache-reference.md#metrics
       - name: Scaling and performance
         items:
           - name: Change the size and tier of a cache

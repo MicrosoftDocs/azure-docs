@@ -2,7 +2,7 @@
 title: About the SAP ASE (Sybase) database backup on Azure VMs
 description: In this article, learn about backing up SAP ASE (Sybase) databases that are running on Azure virtual machines.
 ms.topic: overview
-ms.date: 11/03/2025
+ms.date: 01/30/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
@@ -111,5 +111,5 @@ Learn how to:
 - [Restore SAP ASE database on Azure VMs using Azure portal](sap-ase-database-restore.md).
 - [Manage and monitor backed-up SAP ASE database using Azure portal](sap-ase-database-manage.md).
 - [Quickstart: Run the preregistration script for SAP ASE (Sybase) database backup in Azure Cloud Shell](sap-ase-database-backup-run-preregistration-quickstart.md).
-- [Tutorial: Back up SAP ASE (Sybase) database using Azure Business Continuity Center](sap-ase-database-backup-tutorial.md).
+- [Tutorial: Back up SAP ASE (Sybase) database using Resiliency](sap-ase-database-backup-tutorial.md).
 - [Troubleshoot SAP ASE (Sybase) database backup](troubleshoot-sap-ase-sybase-database-backup.md).

@@ -34,19 +34,22 @@ sections:
           To register the Microsoft.CodeSigning app, go to the subscription **Resource providers** pane as shown in this example:
           
           :::image type="content" source="media/artifact-signing-resource-provider.png" alt-text="Screenshot of registering the Microsoft.CodeSigning resource provider." lightbox="media/artifact-signing-resource-provider.png":::
+      - question: What if I'm unable to register Microsoft.CodeSigning as a resource provider?
+        answer: | 
+          The Microsoft.CodeSigning resource provider isn't supported on Free or Trial Azure subscriptions.. A paid Azure subscription is required to register the provider.
       - question: What is the cost of using Artifact Signing?
         answer: | 
           - For pricing information, see [Artifact Signing pricing](https://azure.microsoft.com/pricing/details/artifact-signing/).
       - question: What are my support options when I set up Artifact Signing?
         answer: | 
-          - You can create a support ticket in the Azure portal to get Azure support. Also, you can post a question or search for related questions on Microsoft Q&A (use the tag **artifact-signing**) or [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**).  
+          - You can create a support ticket in the Azure portal to get Azure support. Also, you can post a question or search for related questions on Microsoft Q&A (use the tag **Artifact Signing**) or [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**).  
   - name: Identity validation
     questions:
       - question: What if I need to create another identity validation for the same organization with a different primary email address?
         answer: For cases where identity validation exists with a primary email address and another identity valiadation request is required, contact support to continue onboarding.
-      - question: What if my country/region is not listed in country/region drop down on the Identity Validation page?
+      - question: What if my country/region isn't listed in country/region drop down on the Identity Validation page?
         answer: | 
-          - For Public Trust certificates, Artifact Signing is currently available to organizations in the USA, Canada, the European Union, and the United Kingdom, as well as individual developers in the USA and Canada. This limitation is not applicable to Private Trust certificates.
+          - For Public Trust certificates, Artifact Signing is currently available to organizations in the USA, Canada, the European Union, and the United Kingdom, as well as individual developers in the USA and Canada. This limitation isn't applicable to Private Trust certificates.
       - question: What if my Artifact Signing subject name is different from the name in my certificate and my MSIX package name is different now? 
         answer: |
           - For Windows app MSIX packages, follow the guidance in [MSIX persistent identity](/windows/msix/package/persistent-identity).
@@ -63,17 +66,17 @@ sections:
         answer: | 
           - Ensure that you didn't miss an email verification link that was sent to the primary email address you entered when you created your identity validation request. The link expires after seven days. If you overlooked the email or if you didn't select the link in the email within seven days, create a new identity validation request.   
           - If identity validation fails, but not because of a missed email verification, the Microsoft validation team wasn't able to make a determination about your request based on the information that you provided. Even if you provide more documentation when we request it, if we can't validate the information, we can't onboard you to Artifact Signing. In this scenario, we recommend that you delete your Artifact Signing account so that you aren't billed for unused resources.
-          - In cases where additional documents were required, you've exhausted all 3 attempts. Therefore, we cannot proceed further with the onboarding.
+          - In cases where additional documents were required, you've exhausted all 3 attempts. Therefore, we can't proceed further with the onboarding.
       - question: What if I need assistance with identity validation?
         answer: | 
           - For questions about identity validation in Artifact Signing, contact us via Azure Support or by using Microsoft Q&A (use the tag **artifact-signing**).
-          - Note: creating additional identity validation requests for the same entity that is in progress does not help. Identity Validation requests cannot be expedited.
+          - Note: creating additional identity validation requests for the same entity that is in progress doesn't help. Identity Validation requests can't be expedited.
       - question: What if email validation link has expired?
         answer: | 
-          - If you missed to click on the email verification within 7 days, you need to start a new identity validation request. A new link cannot be resent on the same request.
+          - If you missed to click on the email verification within 7 days, you need to start a new identity validation request. A new link can't be resent on the same request.
       - question: What if email validation says "Failed" and you think you never received the email validation link?
         answer: | 
-          - Create another identity validation request. Ensure that the email address used is not a distribution list and the email address can receive links from external email addresses.
+          - Create another identity validation request. Ensure that the email address used isn't a distribution list and the email address can receive links from external email addresses.
       - question: Where can I find Identity Validation Id? 
         answer: |
           -  On Identity Validation page, click on the Identity Validation you intend to use. The Identity Validation Id will be shown as "Id" in the details pane that opens.
@@ -84,9 +87,9 @@ sections:
       - question: For Individual identity validation, what if I don’t have an address on a bank statement or utility bill? 
         answer: |  
           - Be sure to use a government-issued ID with an address on it, to successfully go through the process. 
-      - question: For Individual identity validation, I see an error - "You do not have permission to access this page". 
+      - question: For Individual identity validation, I see an error - "You don't have permission to access this page". 
         answer: |  
-          - If you see the error, it is because the email address entered in the individual identity validation request is different from the one being used to sign in to access the identity validation link. Make sure both the email addresses match.   
+          - If you see the error, it's because the email address entered in the individual identity validation request is different from the one being used to sign in to access the identity validation link. Make sure both the email addresses match.   
           :::image type="content" source="media/artifact-signing-indie-validation-email-mismatch.png" alt-text="Screenshot of email mismatch when access link to verify individual developer." lightbox="media/artifact-signing-indie-validation-email-mismatch.png"::: 
   - name: Certificate profiles
     questions:
@@ -95,7 +98,7 @@ sections:
           - For Windows app MSIX packages, follow the guidance in [MSIX persistent identity](/windows/msix/package/persistent-identity).
       - question: Does deleting a certificate profile revoke the certificates? 
         answer: |
-          - Deleting a certificate profile does not revoke any previously issued certificates or invalidate their signatures; they remain valid.
+          - Deleting a certificate profile doesn't revoke any previously issued certificates or invalidate their signatures; they remain valid.
       - question: Can I add OU field to Public Trust or Public Trust Test or VBS enclave certificate profile? 
         answer: |
           - No. OU is only available for Private Trust and Private Trust CI Policy certificates.
@@ -161,7 +164,7 @@ sections:
          Currently, Artifact Signing resources can't be migrated across subscriptions or tenants or resource groups or resources. If you want to make any change to your tenant ID or subscription ID, you must create all your Artifact Signing resources again.
       - question: Does Artifact Signing issue EV certificates?
         answer: |
-          No, Artifact Signing doesn't issue Extended Validation (EV) certificates. There is no plan to issue EV certificates in the future.
+          No, Artifact Signing doesn't issue Extended Validation (EV) certificates. There's no plan to issue EV certificates in the future.
       - question: Why does SignTool keep looping when it signs MSIX packages?
         answer: |
           Looping multiple times is expected in MSIX signing because each application file and manifest file inside the package is signed.
@@ -178,7 +181,7 @@ sections:
           | Error code (-2147024885/0x8007000b)            |  For MSIX signing, this error indicates that the publisher in the manifest file doesn't match the certificate subject. Check the publisher that's listed in the manifest file. |
           | Error code (-2147467259/0x80004005)            |  If you use Service Principal + certificate based authentication, check your Environment Variables listed under the table for ["Service principal with certificate"](https://learn.microsoft.com/dotnet/api/azure.identity.environmentcredential?view=azure-dotnet).|
           | No error codes, SignTool silently fails          |  Ensure that the relevant .NET runtime version is installed. |
-          | `Azure.Identity.CredentialUnavailableException`      |  You might see this error in [environments outside Azure](https://github.com/Azure/azure-sdk-for-net/issues/29471). If you are working outside of Azure, we recommend that you add "exclude ManagedIdentity" to your manifest file. |
+          | `Azure.Identity.CredentialUnavailableException`      |  You might see this error in [environments outside Azure](https://github.com/Azure/azure-sdk-for-net/issues/29471). If you're working outside of Azure, we recommend that you add "exclude ManagedIdentity" to your manifest file. |
           | 403          |  - Check the status of your Azure subscription should be "Registered".  <br>  - Check the identity trying to sign the file has Artifact Signing Certificate Profile Signer role.  <br>  - Check the Artifact Signing account name and the Artifact Signing certificate profile name in your *metadata.json* file. <br> - Check the dlib and dlib path. <br>  - Install C++ Redistributables from https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170. <br>  - Check your .NET version, dlib version, and Windows SDK version. <br>  - Check if the corresponding identity validation has a status of **Completed**.<br> - Check the status of the Certificate Profile must be active.  <br> - Verify whether you access the Artifact Signing endpoint from this virtual machine or computer. Try executing the action on a different virtual machine or computer. The error might indicate a network issue. <br> - For Private Trust scenarios 403: The user object ID that does the signing is different from the user object ID that calls  `Get-azCodeSigningRootCert`. The appropriate object ID must have the role Artifact Signing Certificate Profile Signer.|
   - name: Cost management and billing
     questions:  
@@ -187,9 +190,9 @@ sections:
           To review cost information, in the Azure portal, go to your subscription overview. On the left menu, select **Cost Management**. For more information, see [Cost Management](https://learn.microsoft.com/azure/cost-management-billing/costs/).
 
           To review billing information, go to your subscription overview. On the left menu, select **Billing**. For more information, see [Billing](https://learn.microsoft.com/azure/cost-management-billing/manage/).
-       - question: Is the pricing pro-rated or it is full amount regardless of when you begin to use the service?
+       - question: Is the pricing pro-rated or it's full amount regardless of when you begin to use the service?
          answer: | 
-          The pricing is not calculated on a pro rata basis. The invoice is generated with the full amount for the SKU that you selected when you created the account, regardless of when you begin to use the service after you create your account. 
+          The pricing isn't calculated on a pro rata basis. The invoice is generated with the full amount for the SKU that you selected when you created the account, regardless of when you begin to use the service after you create your account. 
        - question: What does the signing quota include?
          answer: | 
           The signing quota encompasses all signing activities across any certificate profile within an Artifact Signing account. 

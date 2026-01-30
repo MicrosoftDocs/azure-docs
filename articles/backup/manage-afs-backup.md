@@ -2,7 +2,7 @@
 title: Manage Azure Files backups
 description: Learn common tasks for managing and monitoring backed-up Azure Files using Azure Backup.
 ms.topic: how-to
-ms.date: 05/22/2025
+ms.date: 01/30/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -22,7 +22,7 @@ When you trigger a backup or restore operation, the backup service creates a job
 
 To open the **Jobs** pane, follow these steps:
 
-1. Go to **Business Continuity Center** and select **Jobs** under the **Monitoring** section.
+1. Go to **Resiliency** and select **Jobs** under the **Monitoring** section.
 
    :::image type="content" source="./media/manage-afs-backup/jobs-list.png" alt-text="Screenshot showing Backup Jobs in the Monitoring section." lightbox="./media/manage-afs-backup/jobs-list.png":::
 
@@ -41,11 +41,11 @@ Azure Backup provides a reporting solution that uses [Azure Monitor logs](/azure
 
 ## Create a new policy
 
-You can create a new policy to back up Azure Files from the **Protection policies** section of **Azure Business Continuity Center**. All policies created when you configured backup for File Shares show up with the **Policy Type** as **Azure File Share**.
+You can create a new policy to back up Azure Files from the **Protection policies** section of **Resiliency**. All policies created when you configured backup for File Shares show up with the **Policy Type** as **Azure File Share**.
 
 To create a new backup policy, follow these steps:
 
-1. Go to **Business Continuity Center** > **Protection policies**, and then select **+ Create Policy** > **Create Backup Policy**.
+1. Go to **Resiliency** > **Protection policies**, and then select **+ Create Policy** > **Create Backup Policy**.
 
    :::image type="content" source="./media/manage-afs-backup/azure-files-backup-add-policy.png" alt-text="Screenshot showing the option to start creating a new backup policy." lightbox="./media/manage-afs-backup/azure-files-backup-add-policy.png":::
 
@@ -97,7 +97,7 @@ To create a new backup policy, follow these steps:
 
 To view the existing backup policies:
 
-1. Go to **Business Continuity Center** > **Protection policies** under the **Manage** section, and then select **Azure Backup** as a solution.
+1. Go to **Resiliency** > **Protection policies** under the **Manage** section, and then select **Azure Backup** as a solution.
 
    All Backup policies configured across your vault appear.
 
@@ -111,7 +111,7 @@ You can modify a backup policy to change the backup frequency or retention range
 
 To modify a policy, follow these steps:
 
-1. Go to **Business Continuity Center** > **Protection policies** under the **Manage** section, and then select **Azure Backup** as a solution.
+1. Go to **Resiliency** > **Protection policies** under the **Manage** section, and then select **Azure Backup** as a solution.
 
    All Backup policies configured across your vaults appear.
 
@@ -140,7 +140,7 @@ There might be a cost associated with leaving the recovery points in storage, be
 
 To stop protection for Azure Files, follow these steps:
 
-1. Go to **Business Continuity Center** > **Protected Items**, and then select **Azure Backup** as a **Solution** and  **Azure Files (Azure Storage)** as the **Datasource type**.
+1. Go to **Resiliency** > **Protected Items**, and then select **Azure Backup** as a **Solution** and  **Azure Files (Azure Storage)** as the **Datasource type**.
 
    :::image type="content" source="./media/manage-afs-backup/azure-file-share-backup-instances.png" alt-text="Screenshot shows how to select Azure Files as the data type." lightbox="./media/manage-afs-backup/azure-file-share-backup-instances.png":::
 
@@ -162,7 +162,7 @@ If the **Retain Backup Data** option was selected when protection for the File S
 
 To resume protection for the Azure Files, follow these steps:
 
-1. Go to **Business Continuity Center** > **Protected Items**, and then select **Azure Backup** as a **Solution** and  **Azure Files (Azure Storage)** as the **Datasource type**.
+1. Go to **Resiliency** > **Protected Items**, and then select **Azure Backup** as a **Solution** and  **Azure Files (Azure Storage)** as the **Datasource type**.
 
    :::image type="content" source="./media/manage-afs-backup/azure-file-share-backup-instances.png" alt-text="Screenshot shows how to select Azure Files as the datasource type." lightbox="./media/manage-afs-backup/azure-file-share-backup-instances.png":::
 

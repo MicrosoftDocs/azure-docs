@@ -21,7 +21,7 @@ Creating a NetApp account enables you to set up a capacity pool so that you can 
 
 ## Register for the Elastic zone-redundant storage
 
-Elastic zone-redundant storage is currently in preview. To register for Elastic zone-redundant storage, submit a [waitlist request](https://forms.cloud.microsoft/r/RcEfunRDrz).
+Elastic zone-redundant storage is currently in preview. To register for Elastic zone-redundant storage, submit a [waitlist request](https://forms.cloud.microsoft/r/RcEfunRDrz). If you plan to use backups with Elastic zone-redundant storage, you must note that in the waitlist request.  
 
 Waitlists requests are reviewed weekly. An Azure NetApp Files representative will contact you after your request has been reviewed. 
 

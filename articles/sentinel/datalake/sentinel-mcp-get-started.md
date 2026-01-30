@@ -4,7 +4,7 @@ titleSuffix: Microsoft Security
 description: Learn how to set up and use Microsoft Sentinel's Model Context Protocol (MCP) collection of security tools to enable natural language queries and AI-powered security investigations 
 author: poliveria
 ms.topic: get-started
-ms.date: 11/24/2025
+ms.date: 01/30/2026
 ms.author: pauloliveria
 ms.service: microsoft-sentinel
 
@@ -15,20 +15,16 @@ ms.service: microsoft-sentinel
 
 This article shows you how to set up and use Microsoft Sentinel's Model Context Protocol (MCP) collection of security tools to enable natural language queries against your security data. Sentinel's support for MCP enables security teams to bring AI into their security operations by allowing AI models to access security data in a standard way. 
 
-Sentinel's [collection](sentinel-mcp-tools-overview.md) of security tools works with multiple clients and automation platforms. You can use these tools to: 
-- Search for relevant tables
-- Retrieve data
-- Analyze entities
-- Create Security Copilot agents
-- Triage incidents
-- Hunt for threats
+Sentinel's [collection](sentinel-mcp-tools-overview.md) of security tools works with multiple clients and automation platforms. You can use these tools to search for relevant tables and retrieve data, analyze entities, triage incidents, hunt for threats, and other tasks.
 
 ## Prerequisites
 
-To use Microsoft Sentinel MCP server and access its collection of tools, you need to be onboarded to at least one of the following products:
-- [Microsoft Sentinel data lake](sentinel-lake-onboarding.md)
+Most of the tools in the Microsoft Sentinel MCP server require you to be onboarded to the [Microsoft Sentinel data lake](sentinel-lake-onboarding.md) to use them.
+
+Other tools might also need you to be onboarded to at least one of the following products:
 - [Microsoft Sentinel in Microsoft Defender portal](/unified-secops/microsoft-sentinel-onboard)
 - [Microsoft Defender XDR or Microsoft Defender for Endpoint](/unified-secops/overview-deploy)
+- [Microsoft Security Copilot](/copilot/security/microsoft-security-copilot)
 
 For more information about a tool collection's specific product prerequisites, see their respective articles. 
 
@@ -56,7 +52,7 @@ After adding Microsoft Sentinel's collection of tools, use the following sample 
 - Investigate users with a password spray alert in the last seven days and tell me if any of them are compromised.
 - Find all the URL IOCs from <threat analytics report\> and analyze them to tell me everything Microsoft knows about them.
 
-To understand how agents invoke our tools to answer these prompts, see [How Microsoft Sentinel MCP tools work alongside your agent](sentinel-mcp-data-exploration-tool.md#how-microsoft-sentinel-mcp-tools-work-alongside-your-agent).
+To understand how agents invoke these tools to answer these prompts, see [How Microsoft Sentinel MCP tools work alongside your agent](sentinel-mcp-data-exploration-tool.md#how-microsoft-sentinel-mcp-tools-work-alongside-your-agent).
 
 ## Next step
 - [Tool collection in Microsoft Sentinel MCP server](sentinel-mcp-tools-overview.md)

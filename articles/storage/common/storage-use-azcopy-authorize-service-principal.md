@@ -207,7 +207,7 @@ export AZCOPY_TENANT_ID=<tenant-id>
 ### [Windows](#tab/windows)
 
 ```powershell
-$Env:AZCOPY_AUTO_LOGIN_TYPE="PSCRED"
+$Env:AZCOPY_AUTO_LOGIN_TYPE="AZCLI"
 $Env:AZCOPY_TENANT_ID="<tenant-id>"
 ```
 

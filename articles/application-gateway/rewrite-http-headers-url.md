@@ -163,6 +163,15 @@ Application Gateway inserts an X-Forwarded-For header into all requests before i
 
 ![A screenshot showing a remove port action.](./media/rewrite-http-headers-url/remove-port.png)
 
+#### Remove an in-line Proxy's IP for use with a backend firewall's X-Forwarded-For source feature
+
+Some third-party firewalls, also referred to as Network Virtual Appliances (NVAs), determine the source IP address by using the incoming `X-Forwarded-For` header instead of the packet’s source IP address, which would otherwise reflect the Application Gateway’s IP address. In many cases, NVAs display only the most recent IP address in the header.
+
+When a request traverses multiple proxies (for example, Client -> Azure Front Door -> Application Gateway -> NVA), the most recent IP address in the `X-Forwarded-For` header may represent Azure Front Door rather than the original client IP address. To preserve the client IP address, you can configure an Application Gateway rewrite rule to set the `X-Forwarded-For` header to the `http_req_X-Forwarded-For` server variable. This configuration prevents Application Gateway from appending the IP address of Azure Front Door or other intermediate reverse proxies, as shown in the following screenshot:
+
+![A screenshot showing the removal of in-line proxy IP from XFF header.](./media/rewrite-http-headers-url/remove-inline-proxy-xff.png)
+
+This captures the incoming X-Forwarded-For header, which will be the client's original IP address, and forwards it as-is rather than adding the AFD or proxy's IP to the header, allowing the NVA to display and evaluate the original client IP.
 
 ### Modify a redirection URL
 

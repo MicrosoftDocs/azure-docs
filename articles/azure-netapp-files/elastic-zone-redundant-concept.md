@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: article
-ms.date: 01/29/2026
+ms.date: 01/30/2026
 ms.author: anfdocs
 ms.custom: references-regions 
 ---
@@ -57,8 +57,8 @@ Elastic zone-redundant storage offers several key benefits for resiliency, opera
 * Canada Central 
 * Central US 
 * South Central US
-* UK South 
 * West Europe
+* West US 3
 
 ### Best practice
 

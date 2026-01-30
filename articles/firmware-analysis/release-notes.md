@@ -17,6 +17,11 @@ Get notified about when to revisit this page for updates by copying and pasting 
 
 into your RSS feed reader.
 
+## January 2026
+
+- **Fixed hostapd version detection**: Fixed component version detection for hostapd, ensuring vulnerabilities are accurately identified and reported.
+- **Fixed CVSS localization issues in CVE details**: Resolved an issue where some titles in the CVE detail panel were displaying placeholder strings instead of the correct localized text.
+
 ## November 2025
 
 - **Download firmware analysis results as ZIP**: You can now download a ZIP file of firmware analysis results, making it easy to share findings with suppliers and partners.

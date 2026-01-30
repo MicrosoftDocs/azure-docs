@@ -120,57 +120,7 @@ To onboard SAP BTP subaccounts at scale, API and CLI based approaches are recomm
 
 We recommend that you periodically rotate the BTP subaccount client secrets. For an automated, platform-based approach, see our [Automatic SAP BTP trust store certificate renewal with Azure Key Vault – or how to stop thinking about expiry dates once and for all](https://community.sap.com/t5/technology-blogs-by-members/automatic-sap-btp-trust-store-certificate-renewal-with-azure-key-vault-or/ba-p/13565138) (SAP blog).
 
-The following sample script demonstrates the process of updating an existing data connector with a new secret fetched from Azure Key Vault.
-
-Before you start, collect the values you need for the scripts parameters, including:
-
-- The subscription ID, resource group, and workspace name for your Microsoft Sentinel workspace.
-- The key vault and the name of the key vault secret.
-- The name of the data connector you want to update with a new secret.  To identify the data connector name, open the SAP BPT data connector in the Microsoft Sentinel data connectors page. The data connector name has the following syntax: *BTP_{connector name}*
-
-```powershell
-param(
-    [Parameter(Mandatory = $true)] [string]$subscriptionId,
-    [Parameter(Mandatory = $true)] [string]$workspaceName,
-    [Parameter(Mandatory = $true)] [string]$resourceGroupName,
-    [Parameter(Mandatory = $true)] [string]$connectorName,
-    [Parameter(Mandatory = $true)] [string]$clientId,
-    [Parameter(Mandatory = $true)] [string]$keyVaultName,
-    [Parameter(Mandatory = $true)] [string]$secretName
-)
-
-# Import the required modules
-Import-Module Az.Accounts
-Import-Module Az.KeyVault
-
-try {
-    # Login to Azure
-    Login-AzAccount
-
-    # Retrieve BTP client secret from Key Vault
-    $clientSecret = (Get-AzKeyVaultSecret -VaultName $keyVaultName -Name $secretName).SecretValue
-    if (!($clientSecret)) {
-        throw "Failed to retrieve the client secret from Azure Key Vault"
-    }
-
-    # Get the connector from data connectors API
-    $path = "/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.OperationalInsights/workspaces/{2}/providers/Microsoft.SecurityInsights/dataConnectors/{3}?api-version=2024-01-01-preview" -f $subscriptionId, $resourceGroupName, $workspaceName, $connectorName
-    $connector = (Invoke-AzRestMethod -Path $path -Method GET).Content | ConvertFrom-Json
-    if (!($connector)) {
-        throw "Failed to retrieve the connector"
-    }
-
-    # Add the updated client ID and client secret to the connector
-    $connector.properties.auth | Add-Member -Type NoteProperty -Name "clientId" -Value $clientId
-    $connector.properties.auth | Add-Member -Type NoteProperty -Name "clientSecret" -Value ($clientSecret | ConvertFrom-SecureString -AsPlainText)
-
-    # Update the connector with the new auth object
-    Invoke-AzRestMethod -Path $path -Method PUT -Payload ($connector | ConvertTo-Json -Depth 10)
-}
-catch {
-    Write-Error "An error occurred: $_"
-}
-```
+This [script library](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP%20BTP/Tools#key-rotation) demonstrates the automatic process of updating an existing data connector with a new secret.
 
 ## Related content
 

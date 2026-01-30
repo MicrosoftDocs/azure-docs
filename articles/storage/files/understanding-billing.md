@@ -13,27 +13,27 @@ ms.custom:
 ---
 
 # Understand Azure Files billing models
-The cost of a deployment of Azure Files is determined by four key factors:
+The cost of a deployment of Azure Files is determined by four key factors: billing model, media tier, redundancy, and resource model.
 
 - **Billing model**: Azure Files supports three different billing models that shape the cost structure of an Azure Files deployment:
     - **Provisioned v2**: A provisioned billing model where you have the ability to separately provision storage, IOPS, and throughput. You pay based on what you provision, regardless of how much you actually use. We recommend the provisioned v2 model for all new Azure Files deployments.
     - **Provisioned v1**: A provisioned billing model where you provision the amount of storage you need, while IOPS and throughput are determined by how much storage you provision. We recommend using the provisioned v2 model unless you have a specific reason to use the provisioned v1 model.
     - **Pay-as-you-go**: A usage-based billing model where the cost is determined based on how much you use the file share, in the form of used storage, transaction, and data transfer costs. We recommend using the provisioned v2 model unless you have a specific reason to use the pay-as-you-go model.
 
-- **Media tier**: Azure Files supports two different media tiers of storage, SSD and HDD. This allows you to tailor your file shares to the performance and price requirements of your scenario.
-    - **SSD (premium)**: File shares hosted on solid-state drives (SSDs) provide consistent high performance and low latency, with single-digit millisecond latency for most IO operations.
-    - **HDD (standard)**: File shares hosted on hard disk drives (HDDs) provide cost-effective storage for general purpose use.
+- **Media tier**: Azure Files supports two different media tiers of storage: solid state drives (SSD) and hard disk drives (HDD). This allows you to tailor your file shares to the performance and price requirements of your scenario.
+    - **SSD (premium)**: File shares hosted on SSD provide consistent high performance and low latency, with single-digit millisecond latency for most IO operations.
+    - **HDD (standard)**: File shares hosted on HDD provide cost-effective storage for general purpose use.
 
 - **Redundancy**: Azure Files supports four different redundancy options that allow you to control how many copies of your data stored and where those copied are placed within Azure's infrastructure. More resilient options provide greater durability and availability, but at a higher cost:
-    - **Local**: Locally-redundant storage (LRS) keeps three copies of your data within a single data center in one region.
-    - **Zone**: Zone-redundant storage (ZRS) stores three copies of your data across independent datacenters (availability zones) within a region.
-    - **Geo**: Geo-redundant storage (GRS) stores three copies of the data in the primary region and asynchronously replicates to a paired region, for a total of six copies. Available on HDD storage only.
-    - **GeoZone**: GeoZone-redundant storage (GZRS) combines zone redundancy in the primary region with asynchronous replication to a secondary region. Available on HDD storage only.
+    - **Locally-redundant storage (LRS)** keeps three copies of your data within a single data center in one region.
+    - **Zone-redundant storage (ZRS)** stores three copies of your data across independent datacenters (availability zones) within a region.
+    - **Geo-redundant storage (GRS)** stores three copies of the data in the primary region and asynchronously replicates to a paired region, for a total of six copies. Available on HDD storage only.
+    - **Geo-zone-redundant storage (GZRS)** combines zone redundancy in the primary region with asynchronous replication to a secondary region. Available on HDD storage only.
 
-- **Resource model**: Azure Files supports two different types of *resources*, manageable items that you create and configure within your Azure subscriptions and resource groups. Each resource type supports slightly different billing model options, which in turn impacts both cost and cost structure:
+- **Resource model**: Azure Files supports two different top-level resource types, which are items that you create and manage within your Azure subscriptions and resource groups. Each resource type supports slightly different billing model options, which in turn impacts both cost and cost structure:
     - **Storage accounts** represent a shared pool of storage, IOPS, and throughput in which you can deploy **classic file shares** or other storage resources, depending on the storage account kind. Storage accounts support all billing models, media tiers, and redundancy options. All storage resources that are deployed into a storage account share the limits that apply to that storage account. Classic file shares support both the SMB and NFS protocols, although NFS is only supported on SSD storage. Storage accounts are offered by the `Microsoft.Storage` resource provider.
 
-    - **File shares** (preview) are a new top-level resource type that simplifies the deployment of Azure Files by eliminating the storage account. File shares support the recommended provisioned v2 model only, and support only the SSD media tier with the NFS file system protocol. File shares are offered by the `Microsoft.FileShares` resource provider.
+    - **File shares** (preview) are a new top-level resource type that simplifies the deployment of Azure file shares by eliminating the need to create a storage account. File shares support the recommended provisioned v2 model only, and support only the SSD media tier with the NFS file system protocol. File shares are offered by the `Microsoft.FileShares` resource provider.
 
 For Azure Files pricing information, see [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 
@@ -117,15 +117,9 @@ The provisioned v2 model is available for the following combinations of media ti
 | HDD | Geo | NFS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | HDD | GeoZone | NFS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 
-Currently, the provisioned v2 model is generally available in a limited subset of regions:
+The provisioned v2 model is generally available in all Azure public cloud regions and all Azure US Government cloud regions. Not all regions support all media tiers and redundancy options.
 
-- All Azure public cloud regions.
-- All Azure US Government cloud regions.
-
-> [!NOTE]  
-> Not all regions support all media tiers and redundancy options.
-
-### Provisioned v2 provisioning detail
+### Provisioned v2 provisioning
 When you create a provisioned v2 file share, you specify the provisioned capacity for the file share in terms of storage, IOPS, and throughput. File shares are limited based on the following attributes:
 
 | Item | SSD value | HDD value |
@@ -140,7 +134,7 @@ When you create a provisioned v2 file share, you specify the provisioned capacit
 | Maximum provisioned IOPS | 102,400 IOPS | 50,000 IOPS |
 | Maximum provisioned throughput | 10,340 MiB / sec | 5,120 MiB / sec |
 
-By default, we recommend IOPS and throughput provisioning based on the provisioned storage you specify. These recommendation formulas are based on typical customer usage for that amount of provisioned storage for that media tier in Azure Files:
+By default, we provide recommendations for IOPS and throughput provisioning based on the provisioned storage you specify. These recommendation formulas are based on typical customer usage for that amount of provisioned storage for that media tier in Azure Files:
 
 | Formula name | SSD formula | HDD formula |
 |-|-|-|
@@ -182,7 +176,7 @@ The following table illustrates a few examples of these formulas for various pro
 | 102,400 | Up to 102,400 | 0 | -- | -- |
 
 ### Provisioned v2 resource models
-The provisioned v2 billing model is available for both resource types used by Azure Files. You can create a provisioned v2 file share as either a classic file share either within a storage account (`Microsoft.Storage`) or directly as top-level file share (`Microsoft.FileShares`).
+The provisioned v2 billing model is available for both resource types used by Azure Files. You can create a provisioned v2 file share as either a classic file share within a storage account (`Microsoft.Storage`) or directly as top-level file share (`Microsoft.FileShares`).
 
 #### Provisioned v2 classic file shares (Microsoft.Storage)
 To create a classic file share using the provisioned v2 model, your storage account must use one of the following combinations of settings:
@@ -207,25 +201,25 @@ Classic file shares created in the same storage account share that storage accou
 | Maximum provisioned throughput per storage account | 10,340 MiB / sec | 5,120 MiB / sec | At provision time. |
 | Maximum number of classic file shares per storage account | 50 classic file shares | 50 classic file shares | At provision time. | 
 
-To correctly do a deployment of Azure Files with the provisioned v2 billing model on classic file shares, you need to consider the following dimensions of capacity planning:
+To deploy Azure Files with the provisioned v2 billing model on classic file shares, you need to consider the following dimensions of capacity planning:
 
 - **How much provisioned storage, IOPS, and throughput do you need for each classic file share? How do these requirements change over time?**  
-    Because storage accounts have shared limits, when you allocate classic file shares to storage accounts, you need to consider the needs of each classic file share both now and over time. The provisioning logic for the provisioned v2 model prevents you from provisioning more storage, IOPS, or throughput than the storage account supports. If enough classic file shares are placed in a single storage account so that one of these dimensions is maxed out, existing classic file shares cannot grow without first migrating to a different storage account. To reduce this risk, plan sufficient headroom in each storage account so that you can maintain mappings of classic file shares to storage accounts for at least 3 to 5 years.
+    Because storage accounts have shared limits, when you allocate classic file shares to storage accounts, you need to consider the needs of each classic file share both now and over time. The provisioning logic for the provisioned v2 model prevents you from provisioning more storage, IOPS, or throughput than the storage account supports. If enough classic file shares are placed in a single storage account so that one of these dimensions is maxed out, existing classic file shares can't grow without first migrating to a different storage account. To reduce this risk, plan sufficient headroom in each storage account so that you can maintain mappings of classic file shares to storage accounts for at least 3 to 5 years.
 
 - **Do you have special requirements regarding tracking the bill for each classic file share back to individual projects, departments, or customers?**  
-    In Azure, the lowest granularity that you can see billing for is the *resource*, meaning that if you put two classic file shares in the same storage account, you cannot easily track their costs back to individual projects, departments, or customers. To solve this, group classic file shares into storage accounts based on how they need to be tracked from a billing perspective.
+    In Azure, the lowest granularity that you can see billing for is the *resource*, meaning that if you put two classic file shares in the same storage account, you can't easily track their costs back to individual projects, departments, or customers. To solve this, you should group classic file shares into storage accounts based on how they need to be tracked from a billing perspective.
 
 - **How many storage accounts are available in your subscription for your target region?**  
-    An additional complicating factor is the number of storage accounts you can have per subscription per region. See [`Microsoft.Storage` control plane limits](./storage-files-scale-targets.md#microsoftstorage-control-plane-limits) for more information. Depending on how many storage accounts you need, you may need to use additional subscriptions to achieve additional storage accounts.
+    An additional complicating factor is the number of storage accounts you can have per subscription per region. See [`Microsoft.Storage` control plane limits](./storage-files-scale-targets.md#microsoftstorage-control-plane-limits) for more information. Depending on how many storage accounts you need, you might need to use additional subscriptions to create additional storage accounts.
 
 #### Provisioned v2 file shares (Microsoft.FileShares)
 Creating file shares using the `Microsoft.FileShares` management model makes deploying Azure Files considerably easier:
 
 - **You don't need to consider the current and future of needs of each file share to decide where to deploy that file share.**  
-    Each file share's provisioning is independent of every other file share's provisioning. The only consideration on the growth of the file share is the limits of the file share, detailed in [Provisioned v2 provisioning detail](#provisioned-v2-provisioning-detail).
+    Each file share's provisioning is independent of every other file share's provisioning. The only consideration on the growth of the file share is the limits of the file share, detailed in [Provisioned v2 provisioning](#provisioned-v2-provisioning).
 
 - **The bill for each file share is tracked independently.**  
-    Because file shares are top-level resources, you can track the bill for each file share independently from every other file share. You can also use tags to make it easy to group together the resources to track costs for projects, departments, or customers.
+    Because file shares created with the Microsoft.FileShares resource provider are top-level resources, you can track the bill for each file share independently from every other file share. You can also use tags to make it easy to group together the resources to track costs for projects, departments, or customers.
 
 - **While file shares still have a limit per subscription per region, the limit of file shares is much higher than the limit of storage accounts.**  
     For more information, see [`Microsoft.FileShares` control plane limits](./storage-files-scale-targets.md#microsoftfileshares-control-plane-limits).

@@ -62,9 +62,11 @@ Run the `Get-StoragePolicy` cmdlet to list the vSAN-based storage policies that 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or, if applicable, sign in to the [Azure US Government portal](https://portal.azure.us/).
 
-1. Select **Run command** > **Packages** > **Get-StoragePolicies**.
+1. Select **Run command** > **Microsoft.AVS.Management** > **Packages** > **Get-StoragePolicies**.
+   
+    :::image type="content" source="media/run-command/run-command-avs-management.png" alt-text="Screenshot that shows how to access the AVS management in run commands." lightbox="media/run-command/run-command-avs-management.png":::
 
-   :::image type="content" source="media/run-command/run-command-overview-storage-policy.png" alt-text="Screenshot that shows how to access the available storage policy run commands." lightbox="media/run-command/run-command-overview-storage-policy.png":::
+   :::image type="content" source="media/run-command/run-command-get-storage-policies.png" alt-text="Screenshot that shows how to access the available storage policy run commands." lightbox="media/run-command/run-command-get-storage-policies.png":::
 
 1. Provide the required values or change the default values according to the following table. Then select **Run**.
 

@@ -1215,7 +1215,10 @@ Consider concurrency settings first if you want your new app to scale similarly 
 
 If you had a custom scale-out limit set in your original app, you can also apply it to your new app. Otherwise, you can skip to the next section.
 
-The default maximum instance count is 100, and it must be set to a value of 40 or higher.
+The default maximum instance count is 100, and it must be set to a value between 1 and 1,000.
+
+> [!NOTE]
+> Reducing maximum instance count below 40 for HTTP function apps can cause frequent request failures and prolonged throttling windows when traffic exceeds capacity. This setting is intended only for advanced scenarios where limited scale-out is acceptable and has been fully tested.
 
 #### [Azure CLI](#tab/azure-cli)
 

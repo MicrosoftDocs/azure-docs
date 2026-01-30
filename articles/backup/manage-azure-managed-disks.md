@@ -2,7 +2,7 @@
 title: Manage Azure Managed Disks
 description: Learn about managing Azure Managed Disk from the Azure portal.
 ms.topic: how-to
-ms.date: 08/25/2025
+ms.date: 01/30/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.service: azure-backup
@@ -40,7 +40,7 @@ To change the backup policy for Azure Disk, follow these steps:
 
 The Azure Backup service creates a job to track the progress of backup (scheduled and on-demand) and restore operations. After you trigger a backup or restore, Azure Backup initiates a job and shows notifications about its status in the Azure portal. To view the job progress for backup or restore, follow these steps:
 
-1. Go to the **Business Continuity Center** and select **Monitoring + Reporting** > **Jobs**.
+1. Go to the **Resiliency** and select **Monitoring + Reporting** > **Jobs**.
 
    The **Jobs** pane shows the jobs dashboard with operation and status for the past six hours. You can extend the list upto two weeks or set a custom time range.
 
@@ -72,7 +72,7 @@ You can stop protecting an Azure Disk using one of the following methods:
 
 #### Stop Protection and Retain Data
 
-1. Go to **Business Continuity Center** and select **Protection inventory** > **Protected items**.
+1. Go to **Resiliency** and select **Protection inventory** > **Protected items**.
 
    :::image type="content" source="./media/manage-azure-managed-disks/protected-items.png" alt-text="Screenshot shows the list of protected Azure Disks." lightbox="./media/manage-azure-managed-disks/protected-items.png":::
 
@@ -97,7 +97,7 @@ You can stop protecting an Azure Disk using one of the following methods:
 
 #### Stop Protection and Delete Data
 
-1. Go to **Business Continuity Center** and select **Protection inventory** > **Protected items**.
+1. Go to **Resiliency** and select **Protection inventory** > **Protected items**.
 
    :::image type="content" source="./media/manage-azure-managed-disks/protected-items.png" alt-text="Screenshot shows the list of protected Azure Disks." lightbox="./media/manage-azure-managed-disks/protected-items.png":::
 
@@ -124,7 +124,7 @@ If you stop protection with the **Retain backup data** option, you can resume pr
 
 To resume protection for a disk backup instance, follow these steps:
 
-1. Go to **Business Continuity Center** and select **Protection inventory** > **Protected items**.
+1. Go to **Resiliency** and select **Protection inventory** > **Protected items**.
 
    :::image type="content" source="./media/manage-azure-managed-disks/protected-items.png" alt-text="Screenshot shows the list of protected Azure Disks." lightbox="./media/manage-azure-managed-disks/protected-items.png":::
 
@@ -149,7 +149,7 @@ If you choose to stop all scheduled backup jobs and delete all existing backups,
 
 To delete a disk backup instance, follow these steps:
 
-1. Go to **Business Continuity Center** and select **Protection inventory** > **Protected items**.
+1. Go to **Resiliency** and select **Protection inventory** > **Protected items**.
 
    :::image type="content" source="./media/manage-azure-managed-disks/protected-items.png" alt-text="Screenshot shows the list of protected Azure Disks." lightbox="./media/manage-azure-managed-disks/protected-items.png":::
 

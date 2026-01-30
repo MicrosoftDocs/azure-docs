@@ -29,6 +29,10 @@ The Rock and Fluid Samples (RAFS) DDMS is now generally available in Azure Data 
 
 To learn more about RAFS DDMS, see the official documentation: [Rock and Fluid Samples (RAFS) DDMS APIs](tutorial-rock-and-fluid-samples-ddms.md).
 
+### Compliant with M25.1 OSDU&reg; release
+Azure Data Manager for Energy has now been upgraded with the supported set of services with the M25.1 OSDU&reg; milestone release. With this release, you can take advantage of the key improvements made in the OSDU&reg; latest 
+ community features and capabilities available in the [OSDU&reg; M25.1](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M25.1-Release-Notes). The upgrade with the OSDU&reg; M25.1 release is limited to the services available and supported and you can refer [here](osdu-services-on-adme.md) for a detailed list of services available and unavailable on Azure Data Manager for Energy. See the [updated API Swaggers here](https://microsoft.github.io/adme-samples/).
+
 ### Dangerous Query Rate Limit Enforcement
 To strengthen service resiliency, Azure Data Manager for Energy now applies targeted ratelimiting to a narrow class of highrisk wildcard queries that can negatively impact cluster performance. This guardrail affects only queries using the fully unbounded pattern \*\:\*\:\*\:\* in the kind field of requests sent to /api/search/v2/query and /api/search/v2/query_with_cursor. Typical ingestion, search, and operational workloads are not impacted. 
 

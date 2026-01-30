@@ -114,7 +114,6 @@ Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 - **Mode**: (case sensitive: `ApplyAndMonitor`, `ApplyAndAutoCorrect`, `Audit`) choose if the
   policy should audit or deploy the configuration. The default is `Audit`.
 - **Tag**: Adds one or more tag filters to the policy definition.
-- **Category**: Sets the category metadata field in the policy definition.
 - **LocalContentPath**: The path to the local copy of the `.zip` Machine Configuration package
   file. This parameter is required if you're using a User Assigned Managed Identity to provide
   access to an Azure Storage blob.

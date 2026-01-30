@@ -2,7 +2,7 @@
 title: View reports for Azure Backup
 description: Learn how to view backup reports.
 ms.topic: how-to
-ms.date: 01/23/2026
+ms.date: 01/30/2026
 ms.custom: references_regions, devx-track-azurepowershell
 ms.service: azure-backup
 author: AbhishekMallick-MS
