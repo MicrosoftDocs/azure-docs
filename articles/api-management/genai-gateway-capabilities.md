@@ -6,7 +6,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.topic: concept-article
-ms.date: 11/13/2025
+ms.date: 01/27/2026
 ms.update-cycle: 180-days
 ms.author: danlep
 ms.custom:
@@ -17,7 +17,7 @@ ms.custom:
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-The *AI gateway* in Azure API Management is a set of capabilities that help you manage your AI backends effectively. These capabilities help you manage, secure, scale, monitor, and govern large language model (LLM) deployments, AI APIs, and Model Context Protocol (MCP) servers that back your intelligent apps and agents.
+The *AI gateway* in Azure API Management is a set of capabilities that help you manage your AI backends effectively. Use these capabilities to secure, scale, monitor, and govern AI models, agents, and tools that back your intelligent apps and workloads.
 
 Use the AI gateway to manage a wide range of AI endpoints, including:
 
@@ -30,7 +30,10 @@ Use the AI gateway to manage a wide range of AI endpoints, including:
 :::image type="content" source="media/genai-gateway-capabilities/capabilities-summary.png" alt-text="Diagram summarizing AI gateway capabilities of Azure API Management.":::
 
 > [!NOTE]
-> The AI gateway, including [MCP server capabilities](mcp-server-overview.md), extends API Management's existing [API gateway](api-management-key-concepts.md#api-gateway); it isn't a separate offering. Related governance and developer features are in [Azure API Center](../api-center/overview.md).
+> The AI gateway, including [MCP server capabilities](mcp-server-overview.md), extends API Management's existing [API gateway](api-management-key-concepts.md#api-gateway); it's not a separate offering. Related governance and developer features are in [Azure API Center](../api-center/overview.md).
+
+> [!NOTE]
+> New! AI gateway can now be integrated directly into Microsoft Foundry, enabling you to govern AI models, agents, and tools from within your Foundry environment. Learn more in the [AI gateway in Microsoft Foundry](#ai-gateway-in-microsoft-foundry-preview) section.
 
 ## Why use an AI gateway?
 
@@ -40,7 +43,7 @@ AI adoption in organizations involves several phases:
 * Building AI apps and agents that need access to AI models and services
 * Operationalizing and deploying AI apps and backends to production
 
-As AI adoption matures, especially in larger enterprises, the AI gateway helps address key challenges, helping to:
+As AI adoption matures, especially in larger enterprises, the AI gateway helps address key challenges. It helps you:
 
 * Authenticate and authorize access to AI services
 * Load balance across multiple AI endpoints
@@ -48,10 +51,9 @@ As AI adoption matures, especially in larger enterprises, the AI gateway helps a
 * Manage token usage and quotas across multiple applications
 * Enable self-service for developer teams
 
-
 ## Traffic mediation and control
 
-With the AI gateway, you can:
+By using the AI gateway, you can:
 
 * Quickly import and configure OpenAI-compatible or passthrough LLM endpoints as APIs
 * Manage models deployed in Microsoft Foundry or providers such as Amazon Bedrock
@@ -74,13 +76,13 @@ More information:
 
 ## Scalability and performance
 
-One of the main resources in generative AI services is *tokens*. Microsoft Foundry and other providers assign quotas for your model deployments as tokens-per-minute (TPM). You distribute these tokens across your model consumers, such as different applications, developer teams, or departments within the company.
+One of the main resources in generative AI services is *tokens*. Microsoft Foundry and other providers assign quotas for your model deployments as tokens per minute (TPM). You distribute these tokens across your model consumers, such as different applications, developer teams, or departments within the company.
 
 If you have a single app connecting to an AI service backend, you can manage token consumption with a TPM limit that you set directly on the model deployment. However, when your application portfolio grows, you might have multiple apps calling single or multiple AI service endpoints. These endpoints can be pay-as-you-go or [Provisioned Throughput Units](/azure/ai-services/openai/concepts/provisioned-throughput) (PTU) instances. You need to make sure that one app doesn't use the whole TPM quota and block other apps from accessing the backends they need.
 
 ### Token rate limiting and quotas
 
-Configure a token limit policy on your LLM APIs to manage and enforce limits per API consumer based on the usage of AI service tokens. With this policy, you can set a TPM limit or a token quota over a specified period, such as hourly, daily, weekly, monthly, or yearly. 
+Configure a token limit policy on your LLM APIs to manage and enforce limits per API consumer based on the usage of AI service tokens. By using this policy, you can set a TPM limit or a token quota over a specified period, such as hourly, daily, weekly, monthly, or yearly. 
 
 :::image type="content" source="media/genai-gateway-capabilities/token-rate-limiting.png" alt-text="Diagram of limiting Azure OpenAI Service tokens in API Management.":::
 
@@ -122,11 +124,11 @@ More information:
 * [Deploy an API Management instance in multiple regions](api-management-howto-deploy-multi-region.md)
 
 > [!NOTE]
-> While API Management can scale gateway capacity, you also need to scale and distribute traffic to your AI backends to accommodate increased load (see the [Resiliency](#resiliency) section). For example, to take advantage of geographical distribution of your system in a multiregion configuration, you should deploy backend AI services in the same regions as your API Management gateways.
+> While API Management can scale gateway capacity, you also need to scale and distribute traffic to your AI backends to accommodate increased load (see the [Resiliency](#resiliency) section). For example, to take advantage of geographical distribution of your system in a multiregion configuration, deploy backend AI services in the same regions as your API Management gateways.
 
 ## Security and safety
 
-An AI gateway secures and controls access to your AI APIs. With the AI gateway, you can:
+An AI gateway secures and controls access to your AI APIs. By using the AI gateway, you can:
 
 * Use managed identities to authenticate to Azure AI services, so you don't need API keys for authentication
 * Configure OAuth authorization for AI apps and agents to access APIs or MCP servers by using API Management's credential manager
@@ -139,6 +141,7 @@ More information:
 * [Authenticate and authorize access to LLM APIs](api-management-authenticate-authorize-ai-apis.md)
 * [About API credentials and credential manager](credentials-overview.md)
 * [Enforce content safety checks on LLM requests](llm-content-safety-policy.md)
+* [Secure access to MCP servers](secure-mcp-servers.md)
 
 
 ## Resiliency
@@ -163,15 +166,15 @@ More information:
 
 ## Observability and governance
 
-API Management provides comprehensive monitoring and analytics capabilities to track token usage patterns, optimize costs, ensure compliance with your AI governance policies, and troubleshoot issues with your AI APIs. Use these capabilities to:
+API Management provides comprehensive monitoring and analytics capabilities to track token usage patterns, optimize costs, ensure compliance with your AI governance policies, and troubleshoot problems with your AI APIs. Use these capabilities to:
 
-* Log prompts and completions to Azure Monitor
-* Track token metrics per consumer in Application Insights
-* View the built-in monitoring dashboard
-* Configure policies with custom expressions
-* Manage token quotas across applications
+* Log prompts and completions to Azure Monitor.
+* Track token metrics per consumer in Application Insights.
+* View the built-in monitoring dashboard.
+* Configure policies with custom expressions.
+* Manage token quotas across applications.
 
-For example, you can emit token metrics with the [llm-emit-token-metric](llm-emit-token-metric-policy.md) policy and add custom dimensions you can use to filter the metric in Azure Monitor. The following example emits token metrics with dimensions for client IP address, API ID, and user ID (from a custom header):
+For example, you can emit token metrics by using the [llm-emit-token-metric](llm-emit-token-metric-policy.md) policy and add custom dimensions you can use to filter the metric in Azure Monitor. The following example emits token metrics with dimensions for client IP address, API ID, and user ID (from a custom header):
 
 ```xml
 <llm-emit-token-metric namespace="llm-metrics">
@@ -182,7 +185,6 @@ For example, you can emit token metrics with the [llm-emit-token-metric](llm-emi
 ```
 
 :::image type="content" source="media/genai-gateway-capabilities/emit-token-metrics.png" alt-text="Diagram of emitting token metrics using API Management.":::
-
 
 Also, enable logging for LLM APIs in Azure API Management to track token usage, prompts, and completions for billing and auditing. After you enable logging, you can analyze the logs in Application Insights and use a built-in dashboard in API Management to view token consumption patterns across your AI APIs.
 
@@ -214,6 +216,23 @@ More information:
 * [Azure API Management policy toolkit](https://github.com/Azure/azure-api-management-policy-toolkit/)
 * [API Center Copilot Studio connector](../api-center/export-to-copilot-studio.yml)
 
+## AI gateway in Microsoft Foundry (preview)
+
+You can now integrate AI gateway directly into Microsoft Foundry, enabling you to govern AI traffic from within your Foundry environment. When you create or associate an AI gateway instance with your Foundry resource, you can govern, secure, and monitor your Foundry resources through the gateway.
+
+**Models**: Configure token quotas and rate limits directly in the Foundry interface for all model deployments, including Azure OpenAI and other providers.
+
+**Agents**: Register agents running anywhere - Azure, other clouds, or on-premises - into the Foundry control plane for centralized inventory and governance. View telemetry in Foundry or Application Insights, and apply policies such as throttling or content safety.
+
+**Tools**: Register MCP tools hosted across any environment for automatic governance and discovery. Tools appear in the Foundry inventory, ready for consumption by agents.
+
+For advanced scenarios such as custom policies, enterprise networking, or federated gateways, access the full Azure API Management experience while maintaining continuity with Foundry-managed resources.
+
+More information:
+
+* [Enable AI gateway in Microsoft Foundry](/azure/ai-foundry/configuration/enable-ai-api-management-gateway-portal)
+* [Register custom agents in Foundry](/azure/ai-foundry/control-plane/register-custom-agent)
+* [Govern tools with AI gateway](/azure/ai-foundry/agents/how-to/tools/governance)
 
 ## Early access to AI gateway features    
 
@@ -222,7 +241,6 @@ As an API Management customer, you can get early access to new features and capa
 More information:
 
 * [Configure service update settings for your API Management instances](configure-service-update-settings.md)
-
 
 ## Labs and code samples
 
@@ -240,6 +258,7 @@ More information:
 
 ## Related content
 
+* [Blog: AI gateway in Azure API Management is now available in Microsoft Foundry](https://techcommunity.microsoft.com/blog/integrationsonazureblog/ai-gateway-in-azure-api-management-is-now-available-in-microsoft-foundry-preview/4470676)
 * [Blog: Introducing AI capabilities in Azure API Management](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/introducing-genai-gateway-capabilities-in-azure-api-management/ba-p/4146525)
 * [Blog: Integrating Azure Content Safety with API Management](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/integrating-azure-content-safety-with-api-management-for-azure/ba-p/4202505)
 * [Training: Manage your generative AI APIs](/training/modules/api-management)

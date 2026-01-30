@@ -121,6 +121,7 @@ To do so, set a custom property `Microsoft.WindowsAzure.ApiManagement.Gateway.Ma
   "location": "string",
   "properties": {
     "customProperties": {
+      // Existing custom properties defined on the service
       "Microsoft.WindowsAzure.ApiManagement.Gateway.ManagedIdentity.DisableOverPrivilegedAccess": "True"
     }
   },
@@ -130,6 +131,9 @@ To do so, set a custom property `Microsoft.WindowsAzure.ApiManagement.Gateway.Ma
   }
 }
 ```
+
+> [!NOTE]
+> Existing custom properties, such as ciphers, must be added to the PATCH call as they would otherwise be removed from the service.
 
 The Azure Advisor recommendation should disappear within a day or two of disabling the trusted connectivity on the API Management gateway. 
 

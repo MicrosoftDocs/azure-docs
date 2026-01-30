@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: concept-article
-ms.date: 02/20/2025
+ms.date: 01/29/2026
 ms.author: mbender
 ms.custom: references_regions
 # Customer intent: "As a cloud architect, I want to implement a global load balancer, so that I can ensure high availability and geo-redundancy for applications, optimizing traffic distribution while minimizing latency."
@@ -16,17 +16,17 @@ ms.custom: references_regions
 
 Azure Standard Load Balancer supports global load balancing enabling geo-redundant high availability scenarios such as:
 
-* Incoming traffic originating from multiple regions.
-* [Instant global failover](#regional-redundancy) to the next optimal regional deployment.
-* Load distribution across regions to the closest Azure region with [ultra-low latency](#ultra-low-latency).
-* Ability to [scale up/down](#ability-to-scale-updown-behind-a-single-endpoint) behind a single endpoint.
-* Static anycast global IP address
-* [Client IP preservation](#client-ip-preservation)
-* [Build on existing load balancer](#build-cross-region-solution-on-existing-azure-load-balancer) solution with no learning curve
+- Incoming traffic originating from multiple regions.
+- [Instant global failover](#regional-redundancy) to the next optimal regional deployment.
+- Load distribution across regions to the closest Azure region with [ultra-low latency](#ultra-low-latency).
+- Ability to [scale up/down](#ability-to-scale-updown-behind-a-single-endpoint) behind a single endpoint.
+- Static anycast global IP address
+- [Client IP preservation](#client-ip-preservation)
+- [Build on existing load balancer](#build-cross-region-solution-on-existing-azure-load-balancer) solution with no learning curve
 
 The frontend IP configuration of your global load balancer is static and advertised across [most Azure regions](#participating-regions-in-azure).
 
-:::image type="content" source="./media/cross-region-overview/cross-region-load-balancer.png" alt-text="Diagram of global load balancer." border="true":::
+:::image type="content" source="./media/cross-region-overview/cross-region-load-balancer.png" alt-text="Screenshot of diagram showing global load balancer architecture." border="true":::
 
 > [!NOTE]
 > The backend port of your load balancing rule on global load balancer should match the frontend port of the load balancing rule/inbound nat rule on regional standard load balancer. 
@@ -39,7 +39,7 @@ If one region fails, the traffic is routed to the next closest healthy regional 
 
 The health probe of the global load balancer gathers information about availability of each regional load balancer every 5 seconds. If one regional load balancer drops its availability to 0, global load balancer detects the failure. The regional load balancer is then taken out of rotation. 
 
-:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagram of global region traffic view." border="true":::
+:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Screenshot of diagram showing global region traffic view." border="true":::
 
 ### Ultra-low latency
 
@@ -49,8 +49,8 @@ Traffic started from a client hits the closest participating region and travel t
 
 For example, you have a global load balancer with standard load balancers in Azure regions:
 
-* West US
-* North Europe
+- West US
+- North Europe
 
 If a flow is started from Seattle, traffic enters West US. This region is the closest participating region from Seattle. The traffic is routed to the closest region load balancer, which is West US.
 
@@ -65,8 +65,6 @@ Egress traffic follows the routing preference set on the regional load balancers
 ### Ability to scale up/down behind a single endpoint
 
 When you expose the global endpoint of a global load balancer to customers, you can add or remove regional deployments behind the global endpoint without interruption. 
-
-<!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
 ### Static anycast global IP address
 
@@ -98,16 +96,16 @@ Add your existing load balancer deployments to a global load balancer for a high
 This region doesn't affect how the traffic is routed. If a home region goes down, traffic flow is unaffected.
 
 #### Home regions in Azure
-* Central US
-* East Asia
-* East US 2
-* North Europe
-* Southeast Asia
-* UK South
-* US Gov Virginia
-* West Europe
-* West US
-* China North 2
+- Central US
+- East Asia
+- East US 2
+- North Europe
+- Southeast Asia
+- UK South
+- US Gov Virginia
+- West Europe
+- West US
+- China North 2
 
 > [!NOTE]
 > You can only deploy your global load balancer or Public IP in Global tier in one of the listed Home regions.
@@ -118,51 +116,51 @@ Traffic started by the user travels to the closest participating region through 
 
 Global load balancer routes the traffic to the appropriate regional load balancer.
 
-:::image type="content" source="./media/cross-region-overview/multiple-region-global-traffic.png" alt-text="Diagram of multiple region global traffic.":::
+:::image type="content" source="./media/cross-region-overview/multiple-region-global-traffic.png" alt-text="Screenshot of diagram showing multiple region global traffic flow.":::
 
 #### Participating regions in Azure
 
-* Australia East 
-* Australia Southeast 
-* Central India 
-* Central US 
-* East Asia 
-* East US 
-* East US 2 
-* Japan East 
-* North Central US 
-* North Europe 
-* South Central US 
-* Southeast Asia 
-* UK South 
-* US DoD Central
-* US DoD East
-* US Gov Arizona
-* US Gov Texas
-* US Gov Virginia
-* West Central US 
-* West Europe 
-* West US 
-* West US 2 
+- Australia East 
+- Australia Southeast 
+- Central India 
+- Central US 
+- East Asia 
+- East US 
+- East US 2 
+- Japan East 
+- North Central US 
+- North Europe 
+- South Central US 
+- Southeast Asia 
+- UK South 
+- US DoD Central
+- US DoD East
+- US Gov Arizona
+- US Gov Texas
+- US Gov Virginia
+- West Central US 
+- West Europe 
+- West US 
+- West US 2 
 
 > [!NOTE]
 > The backend regional load balancers can be deployed in any publicly available Azure Region and isn't limited to just participating regions.
 
 ## Limitations of global load balancer
 
-* Global frontend IP configurations are public only. An internal frontend is currently not supported.
+- Global frontend IP configurations are public only. An internal frontend is currently not supported.
 
-* Private or internal load balancer can't be added to the backend pool of a global load balancer 
+- Private or internal load balancer can't be added to the backend pool of a global load balancer 
 
-* NAT64 translation isn't supported at this time. The frontend and backend IPs must be of the same type (v4 or v6).
+- NAT64 translation isn't supported at this time. The frontend and backend IPs must be of the same type (v4 or v6).
 
-* UDP traffic on port 3 isn't supported on global load balancer
+- UDP traffic on port 3 isn't supported on global load balancer
 
-* Outbound rules aren't supported on global load balancer. For outbound connections, utilize [outbound rules](./outbound-rules.md) on the regional load balancer or [NAT gateway](../nat-gateway/nat-overview.md).
+- Outbound rules aren't supported on global load balancer. For outbound connections, utilize [outbound rules](./outbound-rules.md) on the regional load balancer or [NAT gateway](../nat-gateway/nat-overview.md).
 
-* Regional load balancers can't be upgraded to the global tier. Only new load balancers can be created as the global tier.
+- Regional load balancers can't be upgraded to the global tier. Only new load balancers can be created as the global tier.
 
-* When placing the same NIC(s) behind multiple regional load balancers with global load balancer, the load balancing rules on each regional load balancer with the same frontend port must also be configured to the same backend port.
+- When placing the same NIC(s) behind multiple regional load balancers with global load balancer, the load balancing rules on each regional load balancer with the same frontend port must also be configured to the same backend port.
 
 ## Pricing and SLA
 Global load balancer shares the [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) of standard load balancer.

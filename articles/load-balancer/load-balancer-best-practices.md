@@ -6,14 +6,12 @@ services: load-balancer
 author: cozhang8
 ms.service: azure-load-balancer
 ms.topic: troubleshooting
-ms.date: 01/13/2025
+ms.date: 01/29/2026
 ms.author: mbender
 # Customer intent: As a cloud architect, I want to implement best practices for deploying and configuring a load balancer, so that I can enhance the reliability and performance of my Azure network infrastructure.
 ---
 
 # Azure Load Balancer Best Practices
-<!-- Before Publishing: -->
-<!-- Verify TOC entry is added to TOC.yml -->
 
 This article discusses a collection of Azure best practices for your load balancer deployment. These best practices are derived from our experience with Azure networking and the experiences of customers like yourself.  
 
