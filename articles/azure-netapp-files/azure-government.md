@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: devx-track-azurecli, no-azure-ad-ps-ref
 ms.topic: concept-article
-ms.date: 12/11/2025
+ms.date: 02/02/2026
 ms.author: anfdocs
 # Customer intent: As a government IT administrator, I want to understand how to access and utilize Azure NetApp Files in Azure Government, so that I can effectively manage mission-critical workloads within the dedicated cloud environment.
 ---
@@ -27,7 +27,7 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 |:--- |:--- |:--- |
 | Advanced ransomware protection | Preview | No |
 | Customer-managed keys with managed Hardware Security Module | Generally available | No |
-| Elastic zone-redundant storage | Preview | No |
+| Elastic zone-redundant storage service level | Preview | No |
 | File access logs | Generally available | [Partial support](manage-file-access-logs.md#supported-regions) |
 
 ## Portal access

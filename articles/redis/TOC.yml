@@ -23,14 +23,10 @@ items:
                 displayName: Resource Manager
           - name: Use a cache
             items:
-              - name: ASP.NET app
-                href: web-app-cache-howto.md
-              - name: ASP.NET Core app
-                href: web-app-aspnet-core-howto.md
-              - name: .NET Core app
-                href: dotnet-core-quickstart.md
               - name: .NET app
-                href: dotnet-how-to-use-azure-redis-cache.md
+                href: dotnet.md
+              - name: ASP.NET app
+                href: aspnet.md
               - name: Node.js app
                 href: nodejs-get-started.md
               - name: Python app

@@ -38,7 +38,7 @@ This feature allows promoting any secondary region to primary, at any time. Prom
 
 ## Comparison with Geo-Disaster Recovery
 
-Azure Service Bus offers two features for geographic resilience: Geo-Replication and [Geo-Disaster Recovery](service-bus-geo-dr.md). The key difference is that Geo-Replication replicates both metadata and data (messages, message states, property changes), while Geo-Disaster Recovery replicates metadata only. For most disaster recovery scenarios, Geo-Replication is the recommended choice. For a detailed comparison, see [High-level feature differences](service-bus-outages-disasters.md#high-level-feature-differences).
+Azure Service Bus offers two features for geographic resilience: Geo-Replication and [Geo-Disaster Recovery](service-bus-geo-dr.md). The key difference is that Geo-Replication replicates both metadata and data (messages, message states, property changes), while Geo-Disaster Recovery replicates metadata only. For most disaster recovery scenarios, Geo-Replication is the recommended choice. For a detailed comparison, see [Reliability in Azure Service Bus - Resilience to region-wide failures](/azure/reliability/reliability-service-bus?toc=/azure/service-bus-messaging/TOC.json#resilience-to-region-wide-failures).
 
 ## Scenarios
 The Geo-Replication feature can be used to implement different scenarios, as described here. For guidance on when to trigger a promotion, see [Recommended scenarios to trigger promotion](#recommended-scenarios-to-trigger-promotion).

@@ -2,7 +2,7 @@
 author: EdB-MSFT
 ms.author: edbayansh
 ms.topic: include
-ms.date: 01/26/2026
+ms.date: 02/02/2026
 
 # This file is auto-generated . Do not edit manually. Changes will be overwritten.
 ---
@@ -1454,15 +1454,19 @@ The [Cribl](https://cribl.io/accelerate-cloud-migration/) connector allows you t
 
 **Supported by:** [Microsoft Corporation](https://support.microsoft.com/)
 
-The [CrowdStrike Data Connector](https://www.crowdstrike.com/) allows ingesting logs from the CrowdStrike API into Microsoft Sentinel. This connector is built on the Microsoft Sentinel Codeless Connector Framework and uses the CrowdStrike API to fetch logs for Alerts, Detections, Hosts, Incidents, and Vulnerabilities. It supports DCR-based ingestion time transformations so that queries can run more efficiently.
+The [CrowdStrike Data Connector](https://www.crowdstrike.com/) allows ingesting logs from the CrowdStrike API into Microsoft Sentinel. This connector provides the capability to ingest CrowdStrike [Alerts](https://falcon.crowdstrike.com/documentation/84/detection-and-prevention-policies-apis#get-alerts), [Detections](https://falcon.crowdstrike.com/documentation/84/detection-and-prevention-policies-apis#get-detections), [Hosts](https://falcon.crowdstrike.com/documentation/84/host-and-host-group-management-apis#get-hosts), [Cases](https://falcon.crowdstrike.com/documentation/84/cases-apis#get-cases), and [Vulnerabilities](https://falcon.crowdstrike.com/documentation/84/spotlight-apis#get-vulnerabilities) into Microsoft Sentinel. This connector is built on the Microsoft Sentinel Codeless Connector Framework and uses the CrowdStrike API to fetch logs. It supports DCR-based ingestion time transformations so that queries can run more efficiently. Refer to [CrowdStrike API documentation](https://falcon.crowdstrike.com/documentation/page/a2a7fc0e/crowdstrike-oauth2-based-apis) for more information.
 
 **Log Analytics table(s):**  
 
 |Table|DCR support|Lake-only ingestion|
 |---|---|---|
-|[`CrowdStrikeVulnerabilities`](/azure/azure-monitor/reference/tables/CrowdStrikeVulnerabilities)|Yes|Yes|
+|[`CrowdStrikeAlerts`](/azure/azure-monitor/reference/tables/CrowdStrikeAlerts)|Yes|Yes|
 
-**Data collection rule support:** [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal)<br><br>
+**Data collection rule support:** [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal)
+
+**Prerequisites:**
+
+- **Crowdstrike OAuth2 API Client and Scopes**: **Alerts**, **API Integrations**, **App Logs**, **Cases**, **Correlation Rules**, **Detections**, **Hosts**, **Assets**, **Incidents**, **Quarantined Files**, **Vulnerabilities** are required for REST API. For more information, see [API](https://falcon.us-2.crowdstrike.com/documentation/page/a2a7fc0e/crowdstrike-oauth2-based-apis).<br><br>
 </details> 
 
  ---
@@ -1477,7 +1481,7 @@ The [CrowdStrike](https://www.crowdstrike.com/) Falcon Indicators of Compromise 
 
 |Table|DCR support|Lake-only ingestion|
 |---|---|---|
-|[`ThreatIntelligenceIndicator`](/azure/azure-monitor/reference/tables/ThreatIntelligenceIndicator)|Yes|No|
+|[`ThreatIntelIndicators`](/azure/azure-monitor/reference/tables/ThreatIntelIndicators)|Yes|No|
 
 **Data collection rule support:** [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal)
 
@@ -1561,23 +1565,23 @@ Many applications log information to text or JSON files instead of standard logg
 |Table|DCR support|Lake-only ingestion|
 |---|---|---|
 |`JBossEvent_CL`|No|No|
-|`JuniperIDP_CL`|No|No|
-|`ApacheHTTPServer_CL`|No|No|
-|`Tomcat_CL`|No|No|
-|`meraki_CL`|No|No|
+|`JuniperIDP_CL`|Yes|Yes|
+|`ApacheHTTPServer_CL`|Yes|Yes|
+|`Tomcat_CL`|Yes|Yes|
+|`meraki_CL`|Yes|Yes|
 |`VectraStream_CL`|No|No|
 |`MarkLogicAudit_CL`|No|No|
-|`MongoDBAudit_CL`|No|No|
-|`NGINX_CL`|No|No|
-|`OracleWebLogicServer_CL`|No|No|
-|`PostgreSQL_CL`|No|No|
-|`SquidProxy_CL`|No|No|
-|`Ubiquiti_CL`|No|No|
-|`vcenter_CL`|No|No|
-|`ZPA_CL`|No|No|
-|`SecurityBridgeLogs_CL`|No|No|
+|`MongoDBAudit_CL`|Yes|Yes|
+|`NGINX_CL`|Yes|Yes|
+|`OracleWebLogicServer_CL`|Yes|Yes|
+|`PostgreSQL_CL`|Yes|Yes|
+|`SquidProxy_CL`|Yes|Yes|
+|`Ubiquiti_CL`|Yes|Yes|
+|`vcenter_CL`|Yes|Yes|
+|`ZPA_CL`|Yes|Yes|
+|`SecurityBridgeLogs_CL`|Yes|Yes|
 
-**Data collection rule support:** Not currently supported
+**Data collection rule support:** [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal)
 
 **Prerequisites:**
 
@@ -3417,6 +3421,27 @@ These alerts can be imported into Microsoft Sentinel with this connector, allowi
 
 - Azure Log Analytics will be deprecated, to collect data from non-Azure VMs, Azure Arc is recommended. [Learn more](/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)
 - **Detailled documentation**: >**NOTE:** Detailled documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
+</details> 
+
+ ---
+   
+<a name="microsoft-copilot"></a><details><summary>**Microsoft Copilot**</summary>
+
+**Supported by:** [Microsoft](https://support.microsoft.com/)
+
+The Microsoft Copilot logs connector in Microsoft Sentinel enables the seamless ingestion of Copilot-generated activity logs into Microsoft Sentinel for advanced threat detection, investigation, and response. It collects telemetry from Microsoft Copilot services - such as usage data, prompts and system responses - and ingests into Microsoft Sentinel, allowing security teams to monitor for misuse, detect anomalies, and maintain compliance with organizational policies.
+
+**Log Analytics table(s):**  
+
+|Table|DCR support|Lake-only ingestion|
+|---|---|---|
+|[`CopilotActivity`](/azure/azure-monitor/reference/tables/CopilotActivity)|No|Yes|
+
+**Data collection rule support:** Not currently supported
+
+**Prerequisites:**
+
+- **Tenant Permissions**: 'Security Administrator' or 'Global Administrator' on the workspace's tenant.<br><br>
 </details> 
 
  ---
@@ -6354,9 +6379,9 @@ Collects alerts from ZeroFox API.
 
 |Table|DCR support|Lake-only ingestion|
 |---|---|---|
-|`ZeroFoxAlertPoller_CL`|No|No|
+|`ZeroFoxAlertPoller_CL`|Yes|Yes|
 
-**Data collection rule support:** Not currently supported
+**Data collection rule support:** [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal)
 
 **Prerequisites:**
 

@@ -75,6 +75,26 @@
             "source_path_from_root": "/articles/redis/tutorial-semantic-cache.md",
             "redirect_url": "/azure/redis/overview-vector-similarity",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/redis/dotnet-core-quickstart.md",
+            "redirect_url": "/azure/redis/dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/redis/dotnet-how-to-use-azure-redis-cache.md",
+            "redirect_url": "/azure/redis/dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/redis/web-app-aspnet-core-howto.md",
+            "redirect_url": "/azure/redis/aspnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/redis/web-app-cache-howto.md",
+            "redirect_url": "/azure/redis/aspnet",
+            "redirect_document_id": false
         }
     ]
 }

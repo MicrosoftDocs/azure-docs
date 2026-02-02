@@ -2884,6 +2884,11 @@
             "source_path_from_root": "/articles/storage/blobs/blobfuse2-how-to-deploy.md",
             "redirect_url": "/azure/storage/blobs/blobfuse2-mount-container",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-how-to-mount-container-linux.md",
+            "redirect_url": "/previous-versions/azure/storage/blobs/storage-how-to-mount-container-linux",
+            "redirect_document_id": false
         }
     ]
 }

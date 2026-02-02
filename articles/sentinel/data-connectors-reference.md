@@ -63,6 +63,9 @@ Filter and ingest logs in text-file format from network or security applications
 
 [!INCLUDE [deprecated-connectors](includes/deprecated-connectors.md)]
 
+For a list of tables ingested into Microsoft Sentinel and the connectors that ingest them, see [Microsoft Sentinel tables and associated connectors](sentinel-tables-connectors-reference.md).
+
+
 ## Next steps
 
 For more information, see:

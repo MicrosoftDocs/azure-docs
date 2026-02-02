@@ -1160,10 +1160,6 @@ items:
                 href: ../common/storage-reference-azcopy-map-commands-to-rest-operations.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: BlobFuse2
             items:
-              - name: BlobFuse1
-                items:
-                  - name: Deploy BlobFuse v1 on Linux
-                    href: storage-how-to-mount-container-linux.md
               - name: Configure BlobFuse2
                 href: blobfuse2-configuration.md
               - name: Commands

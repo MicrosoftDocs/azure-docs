@@ -46,7 +46,7 @@ If you have used access keys in the past for authentication, you need to update 
 
 ### Microsoft Entra client workflow
 
-1. Configure your client application to acquire a Microsoft Entra token for scope, `https://redis.azure.com/.default`, or `acca5fbb-b7e4-4009-81f1-37e38fd66d78/.default`, by using the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview).
+1. Configure your client application to acquire a Microsoft Entra token for scope, `https://redis.azure.com/.default`, or `acca5fbb-b7e4-4009-81f1-37e38fd66d78/.default`, by using the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview).
 
 1. Update your Redis connection logic to use the following `User` and `Password`:
 
@@ -98,6 +98,7 @@ If you have a cache using access keys, we recommend switching to Microsoft Entra
 When you disable access keys, the system terminates all existing client connections, regardless of whether they use access keys or Microsoft Entra ID authentication.
 
 Before you disable access keys on geo-replicated caches, you must:
+
    1. Unlink the caches.
    1. Disable access keys.
    1. Relink the caches.
@@ -106,13 +107,13 @@ To disable access keys, follow this procedure:
 
 1. In the Azure portal, select the Azure Managed Redis instance where you want to disable access keys.
 
-1. On the **Resource** menu, select **Authentication**.
+1. On the **Resource** menu, select **Authentication**.
 
-1. On the working pane, select **Access keys**.
+1. On the working pane, select **Access keys**.
 
 1. Select the **Access Keys Authentication** control to disable access keys.
 
-1. Confirm that you want to update your configuration by selecting **Yes**.
+1. Confirm that you want to update your configuration by selecting **Yes**.
 
     > [!IMPORTANT]
     > When the **Access Keys Authentication** setting is changed for a cache, all existing client connections, using access keys or Microsoft Entra, are terminated. Follow the best practices to implement proper retry mechanisms for reconnecting Microsoft Entra-based connections. For more information, see [Connection resilience](best-practices-connection.md).

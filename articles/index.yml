@@ -10,7 +10,7 @@ metadata:
   ms.topic: hub-page
   author: JnHs
   ms.author: jenhayes
-  ms.date: 09/05/2025
+  ms.date: 01/29/2026
   adobe-target: true
   learn-experiments: true
   featureFlags:
@@ -301,10 +301,17 @@ productDirectory:
       summary: Fast NoSQL database with open APIs for any scale
       imageSrc: ./media/index/cosmos-db.svg
       azureCategories:
-        - featured
         - databases
         - iot
       url: /azure/cosmos-db/
+    # Card
+    - title: Azure DocumentDB
+      summary: Powerful MongoDB-compatible open-source document database for modern apps
+      imageSrc: ./media/index/documentdb.svg
+      azureCategories:
+        - featured
+        - databases
+      url: /azure/documentdb/
     # Card
     - title: Azure Managed Instance for Apache Cassandra
       summary: Automate deployment and scaling for managed open-source Apache Cassandra datacenters

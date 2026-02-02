@@ -17,6 +17,9 @@ The simplified experience leverages an enhanced agent-based migration stack tail
 - **Broader OS support**: It enables migration of newer Linux distributions to Azure, expanding compatibility and allowing customers to benefit from the latest innovations in Linux technology.
 - **Modern replication appliance**: It utilizes Windows Server 2022 (WS2022) for the replication appliance, ensuring robust and up-to-date infrastructure.
 - **Unified OS support matrix**: This provides a consistent and streamlined approach to operating system support across migration workflows, simplifying planning and execution.
+
+> [!NOTE]
+> For the latest list of supported operating systems, including EOL or unsupported OSs such as CentOS, see [Azure support matrix](/azure/site-recovery/vmware-physical-azure-support-matrix).
   
 Overall, the upgraded stack equips customers with powerful tools to efficiently migrate newer Linux distributions, leverage modern Windows Server platform for replication, and benefit from a unified OS support framework, enhancing the entire migration journey to Azure.
 

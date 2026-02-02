@@ -12,6 +12,13 @@ ms.date: 09/12/2025
 
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-private-cloud-maintenance.md#host-maintenance-and-lifecycle-management).
 
+## January 2026
+
+**Self-service maintenance orchestrator**
+
+Self-service maintenance orchestration is now Generally Available (GA). This feature enables customers to schedule and reschedule planned maintenance directly from the Azure portal, providing greater visibility into and control over upcoming maintenance events. [Learn More](self-service-maintenance-orchestration.md)
+
+
 ## December 2025
 
 **Resource Health for Azure VMware Solution**

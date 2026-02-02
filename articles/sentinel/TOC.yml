@@ -1005,6 +1005,8 @@
       items:
         - name: Data source schema reference
           href: data-source-schema-reference.md
+        - name: Sentinel tables and connectors
+          href: sentinel-tables-connectors-reference.md
         - name: Security alert schema reference
           href: security-alert-schema.md
         - name: CEF log field mapping

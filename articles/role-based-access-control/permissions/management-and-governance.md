@@ -314,7 +314,7 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/addEnrollmentAccount/write |  |
 > | Microsoft.Billing/billingAccounts/addPaymentTerms/write |  |
 > | Microsoft.Billing/billingAccounts/agreements/read | Lists the agreements for a billing account. |
-> | Microsoft.Billing/billingAccounts/alertPreferences/write | Creates or updates an AlertPreference for the specifed Billing Account. |
+> | Microsoft.Billing/billingAccounts/alertPreferences/write | Creates or updates an AlertPreference for the specified Billing Account. |
 > | Microsoft.Billing/billingAccounts/alertPreferences/read | Gets the AlertPreference with the given Id. |
 > | Microsoft.Billing/billingAccounts/alerts/read | Gets the alert definition by an Id. |
 > | Microsoft.Billing/billingAccounts/alerts/write | Creates or updates an alert for the specified Billing Account. |

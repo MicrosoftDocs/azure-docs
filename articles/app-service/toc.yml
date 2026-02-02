@@ -12,7 +12,21 @@ items:
   - name: Managed Instance overview
     href: overview-managed-instance.md
 - name: Integrate AI with App Service
-  href: overview-ai-integration.md
+  items:
+  - name: Overview
+    href: overview-ai-integration.md
+  - name: Chatbots and RAG applications
+    href: scenario-ai-chatbot-retrieval-augmented-generation.md
+  - name: Agentic web applications
+    href: scenario-ai-agentic-web-apps.md
+  - name: OpenAPI tools for Foundry agents
+    href: scenario-ai-openapi-tool.md
+  - name: Model Context Protocol servers
+    href: scenario-ai-model-context-protocol-server.md
+  - name: Local small language models
+    href: scenario-ai-local-small-language-model.md
+  - name: Secure AI applications
+    href: scenario-ai-authentication.md
 - name: Get started
   items:
   - name: Get started
@@ -21,12 +35,16 @@ items:
     items: 
     - name: Quickstart
       href: quickstart-dotnetcore.md
+    - name: Aspire Quickstart
+      href: quickstart-dotnet-aspire.md
     - name: Configure
       items:
       - name: ASP.NET
         href: configure-language-dotnet-framework.md
       - name: ASP.NET Core
         href: configure-language-dotnetcore.md
+      - name: Aspire
+        href: configure-language-dotnet-aspire.md
     - name: Connect
       items:
       - name: ASP.NET Core with SQL DB

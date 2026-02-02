@@ -25,5 +25,6 @@ If your namespace is experiencing connection failures, check the [Resource Hea
 
 ## Next steps 
 
+- To learn about how to make Azure Service Bus resilient to a range of problems, see [Reliability in Azure Service Bus](/azure/reliability/reliability-service-bus?toc=/azure/service-bus-messaging/TOC.json).
 - For more information about retry logic, see [Retry logic for Azure services](/azure/architecture/best-practices/retry-service-specific). 
 - Learn more about handling transient faults in Azure at [Transient fault handling](/azure/architecture/best-practices/transient-faults). 

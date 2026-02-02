@@ -1,5 +1,5 @@
 ---
-title: Microsoft Sentinel CCF push connectors - Getting started guide
+title: Microsoft Sentinel CCF push connectors (preview) - Getting started guide
 description: Learn how to create and deploy push-based codeless connectors for Microsoft Sentinel that sends data in real-time.
 author: EdB-MSFT
 ms.service: microsoft-sentinel
@@ -9,9 +9,9 @@ ms.date: 01/28/2026
 # customer intent: As a security engineer or ISV partner, I want to understand how CCF Push connectors work and how to build one so I can send real-time data from my application to Microsoft Sentinel.
 ---
 
-# Microsoft Sentinel CCF push connectors - Getting started guide
+# Microsoft Sentinel CCF push connectors (preview) - Getting started guide
 
-This guide helps you understand, build, and deploy push-based codeless connectors for Microsoft Sentinel using the Codeless Connector Framework (CCF) Push.
+This guide helps you understand, build, and deploy push-based codeless connectors for Microsoft Sentinel using the Codeless Connector Framework (CCF) Push (preview).
 
 ## What is CCF push?
 

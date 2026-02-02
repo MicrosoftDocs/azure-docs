@@ -156,6 +156,8 @@
         href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub
       - name: Acquire messages from Event Hubs
         href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus
+  - name: Reliability
+    href: /azure/reliability/reliability-service-bus?toc=/azure/service-bus-messaging/TOC.json
   - name: Security
     items:
     - name: Security baseline

@@ -21,7 +21,7 @@ BlobFuse provides several caching mechanisms, including file, metadata, and attr
 The BlobFuse project is [licensed under the MIT license](https://github.com/Azure/azure-storage-fuse/blob/main/LICENSE).
 
 > [!NOTE]
-> BlobFuse is the latest version of BlobFuse and has many significant improvements over BlobFuse v1. [BlobFuse v1](storage-how-to-mount-container-linux.md) support ends in September 2026. Migrate to BlobFuse v2 by using the provided [instructions](https://github.com/Azure/azure-storage-fuse/blob/main/MIGRATION.md).
+> BlobFuse v2 is the latest version of BlobFuse and has many significant improvements over BlobFuse v1. [BlobFuse v1](storage-how-to-mount-container-linux.md) support ends in September 2026. Migrate to BlobFuse v2 by using the provided [instructions](https://github.com/Azure/azure-storage-fuse/blob/main/MIGRATION.md).
 
 ## Key use cases
 

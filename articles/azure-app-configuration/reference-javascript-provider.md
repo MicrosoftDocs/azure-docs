@@ -317,7 +317,7 @@ import { ConfigurationMapFeatureFlagProvider, FeatureManager } from "@microsoft/
 // Create a feature flag provider which uses the configuration provider as feature flag source
 const ffProvider = new ConfigurationMapFeatureFlagProvider(appConfig);
 // Create a feature manager which will evaluate the feature flag
-const fm = new FeatureManager(ffProvider);
+const featureManager = new FeatureManager(ffProvider);
 
 import express from "express";
 const server = express();

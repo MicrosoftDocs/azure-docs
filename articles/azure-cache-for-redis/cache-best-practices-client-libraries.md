@@ -52,10 +52,8 @@ For client library-specific guidance and best practices, see the following links
 
 Besides the reference documentation, you can use the following tutorials to get started with Azure Redis using different languages and cache clients:
 
-- [Code a .NET Framework app](../redis/dotnet-how-to-use-azure-redis-cache.md)
-- [Code a .NET Core app](../redis/dotnet-core-quickstart.md)
-- [Code an ASP.NET web app](../redis/web-app-cache-howto.md)
-- [Code an ASP.NET Core web app](../redis/web-app-aspnet-core-howto.md)
+<!-- - [Code a .NET app](../redis/dotnet.md) -->
+<!-- - [Code an ASP.NET app](../redis/aspnet.md) -->
 - [Code a Java app](../redis/java-get-started.md)
 
 ## Best practices for Redisson (Java)
@@ -73,8 +71,6 @@ Here are some recommended best practices for the [Redisson](https://redisson.pro
   Redisson has a connection pooling strategy with configurable minimum and maximum settings, and the default minimum values are large. The large defaults could contribute to aggressive reconnect behaviors or connection storms. To reduce this risk, consider using fewer connections. You can efficiently pipeline commands or batches of commands over a few connections.
 
 - Reset the idle connection timeout if necessary. Redisson has a default 10-second idle connection timeout, which can lead to more closing and reopening of connections than ideal.
-
-- For information about using Redisson with Java EE JCache to store HTTP session state on an Azure Kubernetes Service (AKS) cluster, see [Using Azure Redis as session cache for WebSphere Liberty or Open Liberty](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache).
 
 - Use the following recommended baseline configuration for cluster mode, and modify it as needed.
 

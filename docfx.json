@@ -1871,7 +1871,8 @@
           "articles/sap/workloads/**/**.md",
           "articles/site-recovery/**/*.md",
           "articles/virtual-network/accelerated-networking-how-it-works.md",
-          "articles/vmware-cloudsimple/on-premises-dns-setup.md"
+          "articles/vmware-cloudsimple/on-premises-dns-setup.md",
+          "articles/sentinel/includes/sentinel-tables-connectors.md"
         ]
       },
       "sensitive-language-bl": {
@@ -1888,7 +1889,8 @@
           "articles/web-application-firewall/afds/waf-front-door-drs.md",
           "articles/web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md",
           "articles/sentinel/includes/connector-details.md",
-          "articles/sentinel/includes/deprecated-connectors.md"
+          "articles/sentinel/includes/deprecated-connectors.md",
+          "articles/sentinel/includes/sentinel-tables-connectors.md"
         ]
       },
       "sensitive-language-wl": {
@@ -1908,7 +1910,8 @@
           "articles/storsimple/storsimple-configure-mpio-on-linux.md",
           "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md",
           "articles/sentinel/includes/connector-details.md",
-          "articles/sentinel/includes/deprecated-connectors.md"
+          "articles/sentinel/includes/deprecated-connectors.md",
+          "articles/sentinel/includes/sentinel-tables-connectors.md"
         ]
       }
     }
