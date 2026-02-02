@@ -30,29 +30,29 @@ MACC functionality in the Azure portal is available only to direct MCA and direc
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for **Cost Management + Billing**.  
-    :::image type="content" source="./media/track-consumption-commitment/billing-search-cost-management-billing.png" alt-text="Screenshot showing search in portal for Cost Management + Billing." lightbox="./media/track-consumption-commitment/billing-search-cost-management-billing.png" :::
+    :::image type="content" source="../../manage/media/track-consumption-commitment/billing-search-cost-management-billing.png" alt-text="Screenshot showing search in portal for Cost Management + Billing." lightbox="../../manage/media/track-consumption-commitment/billing-search-cost-management-billing.png" :::
 3. In the billing scopes page, select the billing account for which you want to track the commitment. The billing account type must be **Microsoft Customer Agreement** for Microsoft Customer Agreement (MCA) customers or **Enterprise Agreement** for EA customers.   
-    :::image type="content" source="./media/track-consumption-commitment/list-of-scopes.png" alt-text="Screenshot that shows Billing Scopes." lightbox="./media/track-consumption-commitment/list-of-scopes.png" :::
+    :::image type="content" source="../../manage/media/track-consumption-commitment/list-of-scopes.png" alt-text="Screenshot that shows Billing Scopes." lightbox="../../manage/media/track-consumption-commitment/list-of-scopes.png" :::
     > [!NOTE]
-     > Azure portal remembers the last billing scope that you access and displays the scope the next time you come to Cost Management + Billing page. You don't see the billing scopes page if you visited Cost Management + Billing earlier. If so, check that you are in the [right scope](#check-access-to-a-microsoft-customer-agreement). If not, [switch the scope](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) to select the billing account for a Microsoft Customer Agreement.
+     > Azure portal remembers the last billing scope that you access and displays the scope the next time you come to Cost Management + Billing page. You don't see the billing scopes page if you visited Cost Management + Billing earlier. If so, check that you are in the [right scope](#check-access-to-a-microsoft-customer-agreement). If not, [switch the scope](../../manage/view-all-accounts.md#switch-billing-scope-in-the-azure-portal) to select the billing account for a Microsoft Customer Agreement.
 4. Depending on your agreement type, do one of the following steps:
     - For MCA customers, select **Properties** from the left-hand side and then select **Microsoft Azure Consumption Commitment (MACC)**.  
-        :::image type="content" source="./media/track-consumption-commitment/select-macc-tab.png" alt-text="Screenshot that shows selecting the MACC tab for MCA." lightbox="./media/track-consumption-commitment/select-macc-tab.png" :::
+        :::image type="content" source="../../manage/media/track-consumption-commitment/select-macc-tab.png" alt-text="Screenshot that shows selecting the MACC tab for MCA." lightbox="../../manage/media/track-consumption-commitment/select-macc-tab.png" :::
     - For EA customers, select **Credits + Commitments** in the left navigation menu, then select **Microsoft Azure Consumption Commitment (MACC)**.  
-        :::image type="content" source="./media/track-consumption-commitment/select-macc-tab-ea.png" alt-text="Screenshot that shows selecting the MACC tab for EA." lightbox="./media/track-consumption-commitment/select-macc-tab-ea.png" :::
+        :::image type="content" source="../../manage/media/track-consumption-commitment/select-macc-tab-ea.png" alt-text="Screenshot that shows selecting the MACC tab for EA." lightbox="../../manage/media/track-consumption-commitment/select-macc-tab-ea.png" :::
 1. The Microsoft Azure Consumption Commitment (MACC) tab has the following sections.
 
 #### Remaining commitment 
 
 The remaining commitment displays the remaining commitment amount since your last invoice.
 
-:::image type="content" source="./media/track-consumption-commitment/macc-remaining-commitment.png" alt-text="Screenshot of remaining commitment for a MACC." lightbox="./media/track-consumption-commitment/macc-remaining-commitment.png" :::
+:::image type="content" source="../../manage/media/track-consumption-commitment/macc-remaining-commitment.png" alt-text="Screenshot of remaining commitment for a MACC." lightbox="../../manage/media/track-consumption-commitment/macc-remaining-commitment.png" :::
 
 #### Details
 
 The Details section displays other important aspects of your commitment.
 
-:::image type="content" source="./media/track-consumption-commitment/macc-details.png" alt-text="Screenshot of MACC details." lightbox="./media/track-consumption-commitment/macc-details.png" :::
+:::image type="content" source="../../manage/media/track-consumption-commitment/macc-details.png" alt-text="Screenshot of MACC details." lightbox="../../manage/media/track-consumption-commitment/macc-details.png" :::
 
 | Term | Definition |
 |---|---|
@@ -74,7 +74,7 @@ Your MACC can have one of the following statuses:
 
 The Events section displays events (invoiced spend) that decremented your MACC commitment.
 
-:::image type="content" source="./media/track-consumption-commitment/macc-events.png" alt-text="Screenshot of MACC events." lightbox="./media/track-consumption-commitment/macc-events.png" :::
+:::image type="content" source="../../manage/media/track-consumption-commitment/macc-events.png" alt-text="Screenshot of MACC events." lightbox="../../manage/media/track-consumption-commitment/macc-events.png" :::
 
 | Term | Definition |
 |---|---|
@@ -292,9 +292,9 @@ Milestones are predefined financial targets within the MACC framework that must 
 > [!NOTE]
 > Not every MACC includes milestones. If your MACC has milestones configured, you can see them in the Azure portal.
 
-:::image type="content" source="./media/track-consumption-commitment/macc-main-page-milestones.png" alt-text="Screenshot that shows MACC page with milestones." lightbox="./media/track-consumption-commitment/macc-main-page-milestones.png" :::
+:::image type="content" source="../../manage/media/track-consumption-commitment/macc-main-page-milestones.png" alt-text="Screenshot that shows MACC page with milestones." lightbox="../../manage/media/track-consumption-commitment/macc-main-page-milestones.png" :::
 
-:::image type="content" source="./media/track-consumption-commitment/macc-milestones-page.png" alt-text="Screenshot that shows MACC milestones details." lightbox="./media/track-consumption-commitment/macc-milestones-page.png" :::
+:::image type="content" source="../../manage/media/track-consumption-commitment/macc-milestones-page.png" alt-text="Screenshot that shows MACC milestones details." lightbox="../../manage/media/track-consumption-commitment/macc-milestones-page.png" :::
 
 
 **Key points about MACC milestones:**
@@ -348,7 +348,7 @@ If your organization purchased Azure Prepayment, consumption or purchases covere
 
 
 ## Check access to a Microsoft Customer Agreement
-[!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
+[!INCLUDE [billing-check-mca](../../../../includes/billing-check-mca.md)]
 
 ## Need help? Contact support.
 
@@ -357,4 +357,4 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 ## Next steps
 
 - [Determine which offers are eligible for Azure consumption commitments (MACC/CTC)](/marketplace/azure-consumption-commitment-benefit#determine-which-offers-are-eligible-for-azure-consumption-commitments-maccctc)
-- [Track your Azure credits balance](mca-check-azure-credits-balance.md)
+- [Track your Azure credits balance](../credits/mca-check-azure-credits-balance.md)

@@ -60,7 +60,7 @@ Here's an example that shows credits on the Credits tab on the Credits + Commitm
 
 For more information about your invoice, see [View and download your Microsoft Azure invoice](../understand/download-azure-invoice.md)
 
-For more information about credits, see [Track Microsoft Customer Agreement Azure credit balance](../manage/mca-check-azure-credits-balance.md).
+For more information about credits, see [Track Microsoft Customer Agreement Azure credit balance](../benefits/credits/mca-check-azure-credits-balance.md).
 
 ## Microsoft Azure mobile app
 

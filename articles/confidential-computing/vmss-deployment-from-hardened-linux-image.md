@@ -2,8 +2,7 @@
 title: Deploy a virtual machine scale set using a hardened Linux image
 description: Learn how to use vmss to deploy a scale set using the hardened linux image.
 author: samyaktelsang-msft
-ms.service: azure-virtual-machines
-mms.subservice: confidential-computing
+ms.service: azure-confidential-computing
 ms.topic: how-to
 ms.date: 9/12/2023
 ms.author: satelsan

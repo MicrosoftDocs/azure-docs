@@ -3,11 +3,10 @@ title: Trusted Execution Environment (TEE)
 description: This article helps you to understand what the TEE is and what it includes.
 author: vinfnet
 ms.author: sgallagher
-ms.service: azure
+ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 06/09/2023
 ms.custom: template-concept
-ms.subservice: confidential-computing
 # Customer intent: As a cloud architect, I want to explore the capabilities of Trusted Execution Environments (TEEs), so that I can implement secure workloads that protect sensitive data and enhance privacy in my applications.
 ---
 # Trusted Execution Environment (TEE)

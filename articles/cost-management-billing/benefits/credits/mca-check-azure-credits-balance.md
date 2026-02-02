@@ -14,7 +14,7 @@ ms.author: shrshett
 
 You can check the Azure credit balance for your billing account for a Microsoft Customer Agreement in the Azure portal or through REST APIs.
 
-In the billing account for a Microsoft Customer Agreement, credits are assigned to a billing profile. Each billing profile has its own credits that are automatically applied to the charges on its invoice. You must have an owner, contributor, reader, or invoice manager role on the billing profile or owner, contributor, or reader role on the billing account to view Azure credit balance for a billing profile. To learn more about the roles, see [Understand Microsoft Customer Agreement administrative roles in Azure](understand-mca-roles.md).
+In the billing account for a Microsoft Customer Agreement, credits are assigned to a billing profile. Each billing profile has its own credits that are automatically applied to the charges on its invoice. You must have an owner, contributor, reader, or invoice manager role on the billing profile or owner, contributor, or reader role on the billing account to view Azure credit balance for a billing profile. To learn more about the roles, see [Understand Microsoft Customer Agreement administrative roles in Azure](../../../cost-management-billing/manage/understand-mca-roles.md).
 
 > [!NOTE]
 > New credit can take up to 24 hours to appear in the Azure portal. If you get new credit and can't see it in the portal, allow 24 hours for it to appear.
@@ -29,11 +29,11 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 2. Search for **Cost Management + Billing**.
 
-    :::image type="content" border="true" source="./media/mca-check-azure-credits-balance/billing-search-cost-management-billing.png" alt-text="Screenshot that shows search in the Azure portal for Cost Management + Billing.":::
+    :::image type="content" border="true" source="../../../cost-management-billing/manage/media/mca-check-azure-credits-balance/billing-search-cost-management-billing.png" alt-text="Screenshot that shows search in the Azure portal for Cost Management + Billing.":::
 
 1. In the billing scopes page, select the billing account for which you want to track the credit balance. The billing account should be of type **Microsoft Customer Agreement**.
 
-    :::image type="content" border="true" source="./media/mca-check-azure-credits-balance/list-of-scopes.png" alt-text="Screenshot that shows billing scopes in Cost Management + Billing.":::
+    :::image type="content" border="true" source="../../../cost-management-billing/manage/media/mca-check-azure-credits-balance/list-of-scopes.png" alt-text="Screenshot that shows billing scopes in Cost Management + Billing.":::
 
    
    > [!NOTE]
@@ -45,7 +45,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 1. Select **Payment methods** from the left-hand side and then select **Azure credits**.
 
 
-    :::image type="content" border="true" source="./media/mca-check-azure-credits-balance/azure-credits-page-azportal.png" alt-text="Screenshot that shows Credits in the Azure portal for Cost Management + Billing.":::
+    :::image type="content" border="true" source="../../../cost-management-billing/manage/media/mca-check-azure-credits-balance/azure-credits-page-azportal.png" alt-text="Screenshot that shows Credits in the Azure portal for Cost Management + Billing.":::
    
    
    
@@ -71,7 +71,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
      The transactions section displays all transactions that affected your credits balance.
    
-     :::image type="content" border="true" source="./media/mca-check-azure-credits-balance/credits-transactions-azportal.png" alt-text="Screenshot that shows Credit transactions in the Azure portal for Cost Management + Billing.":::
+     :::image type="content" border="true" source="../../../cost-management-billing/manage/media/mca-check-azure-credits-balance/credits-transactions-azportal.png" alt-text="Screenshot that shows Credit transactions in the Azure portal for Cost Management + Billing.":::
    
    | Term | Definition |
    |---|---|
@@ -80,14 +80,14 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
    | Amount |The amount of transaction.|
    
    > [!NOTE]
-   > If you don't see Azure credits in the payment methods page, either you don't have credits or you have not selected the right scope. Select the billing account which has credits or one of its billing profiles. To learn how to change scopes, see [Switch billing scopes in the Azure portal](view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
+   > If you don't see Azure credits in the payment methods page, either you don't have credits or you have not selected the right scope. Select the billing account which has credits or one of its billing profiles. To learn how to change scopes, see [Switch billing scopes in the Azure portal](../../../cost-management-billing/manage/view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
    
    
    
    
 1. If you are viewing Azure credits at the billing account scope and the billing account has more than one billing profiles, the Azure credits page will show a table with a summary of Azure credits for each billing profile. Select a billing profile from the list, select payment methods and then Azure credits to view details for a billing profile.
 
-    :::image type="content" border="true" source="./media/mca-check-azure-credits-balance/mca-account-credit-list.png" alt-text="Screenshot showing the credit list for a billing account.":::
+    :::image type="content" border="true" source="../../../cost-management-billing/manage/media/mca-check-azure-credits-balance/mca-account-credit-list.png" alt-text="Screenshot showing the credit list for a billing account.":::
 
 ### [REST API](#tab/rest)
 
@@ -334,7 +334,7 @@ Credits that you acquire are assigned to a billing profile. When an invoice is g
 - Azure support plans
 
 ## Check access to a Microsoft Customer Agreement
-[!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
+[!INCLUDE [billing-check-mca](../../../../includes/billing-check-mca.md)]
 
 ## Need help? Contact support.
 
@@ -342,7 +342,7 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 
 ## Next steps
 
-- [Understand billing account for Microsoft Customer Agreement](../understand/mca-overview.md)
+- [Understand billing account for Microsoft Customer Agreement](../../../cost-management-billing/understand/mca-overview.md)
 
-- [Understand terms on your Microsoft Customer Agreement invoice](../understand/mca-understand-your-invoice.md)
+- [Understand terms on your Microsoft Customer Agreement invoice](../../../cost-management-billing/understand/mca-understand-your-invoice.md)
 

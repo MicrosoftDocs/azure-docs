@@ -4,7 +4,7 @@ description: Azure Confidential Computing offers multiple options for confidenti
 author: cynthn
 ms.author: cynthn
 ms.reviewer: mattmcinnes
-ms.service: azure-virtual-machines
+ms.service: azure-confidential-computing
 ms.custom: devx-track-azurecli
 ms.topic: concept-article
 ms.date: 11/15/2023

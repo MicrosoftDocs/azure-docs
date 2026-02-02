@@ -20,7 +20,7 @@ service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 
 When you accept a Microsoft Azure Consumption Commitment (MACC) in a Microsoft Customer Agreement, the MACC resource gets placed in a subscription and resource group. The resource contains the metadata related to the MACC. Including: status of the MACC, commitment amount, start date, end date, and System ID. You can view the metadata in the Azure portal.
 
-:::image type="content" source="./media/manage-consumption-commitment/consumption-commitment-overview.png" border="true" alt-text="Screenshot showing the MACC overview page." lightbox="./media/manage-consumption-commitment/consumption-commitment-overview.png" :::
+:::image type="content" source="../../manage/media/manage-consumption-commitment/consumption-commitment-overview.png" border="true" alt-text="Screenshot showing the MACC overview page." lightbox="../../manage/media/manage-consumption-commitment/consumption-commitment-overview.png" :::
 
 ## Move MACC across resource groups or subscriptions
 
@@ -30,7 +30,7 @@ Moving a MACC resource to another subscription or resource group is a metadata c
 
 ### To move a MACC
 
-Here are the high-level steps to move a MACC resource. For more information about moving an Azure resource, see [Move Azure resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
+Here are the high-level steps to move a MACC resource. For more information about moving an Azure resource, see [Move Azure resources to a new resource group or subscription](../../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 1. In the [Azure portal](https://portal.azure.com), navigate to **Resource groups**.
 2. Select the resource group that contains the MACC resource.
@@ -50,18 +50,18 @@ After a MACC moves, its resource URI changes because of the move.
 
 Here's an example image:
 
-:::image type="content" source="./media/manage-consumption-commitment/consumption-commitment-uri.png" border="true" alt-text="Screenshot showing the MACC properties page URI." lightbox="./media/manage-consumption-commitment/consumption-commitment-uri.png" :::
+:::image type="content" source="../../manage/media/manage-consumption-commitment/consumption-commitment-uri.png" border="true" alt-text="Screenshot showing the MACC properties page URI." lightbox="../../manage/media/manage-consumption-commitment/consumption-commitment-uri.png" :::
 
 
 ## Rename MACC
-The MACC’s resource name is a part of its Uniform Resource Identifier (URI) and cannot be changed. However, you can use [tags](../../azure-resource-manager/management/tag-resources.md) to help identify the MACC resource based on a nomenclature relevant to your organization.
+The MACC’s resource name is a part of its Uniform Resource Identifier (URI) and cannot be changed. However, you can use [tags](../../../azure-resource-manager/management/tag-resources.md) to help identify the MACC resource based on a nomenclature relevant to your organization.
  
 ## Delete MACC
 A MACC resource may only be deleted if its status is _failed_ or _canceled_. Deletion of a MACC resource is a permanent action and cannot be undone.  
  
 ## Cancel MACC
-Please contact your Microsoft account team if you have questions about cancelling your MACC.
+Please contact your Microsoft account team if you have questions about canceling your MACC.
 
 ## Related content
 
-- [Move Azure resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Move Azure resources to a new resource group or subscription](../../../azure-resource-manager/management/move-resource-group-and-subscription.md)

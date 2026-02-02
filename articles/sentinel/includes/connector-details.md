@@ -1,6 +1,6 @@
 ---
 author: EdB-MSFT
-ms.author: edbayansh
+ms.author: edbaynash
 ms.topic: include
 ms.date: 02/02/2026
 
@@ -4943,7 +4943,7 @@ The [Proofpoint Targeted Attack Protection (TAP)](https://www.proofpoint.com/us/
 
  ---
    
-<a name="qscoutappeventsconnector"></a><details><summary>**QscoutAppEventsConnector**</summary>
+<a name="qscoutappeventsconnector-via-codeless-connector-framework"></a><details><summary>**QscoutAppEventsConnector (via Codeless Connector Framework)**</summary>
 
 **Supported by:** [Quokka](https://www.quokka.io/contact-us)
 
@@ -4959,8 +4959,8 @@ Ingest Qscout application events into Microsoft Sentinel
 
 **Prerequisites:**
 
-- **Qscout organization id**: The API requires your organization ID in Qscout.
-- **Qscout organization API key**: The API requires your organization API key in Qscout.<br><br>
+- **Qscout Organization ID**: The API requires your organization ID in Qscout.
+- **Qscout Organization API Key**: The API requires your organization API key in Qscout.<br><br>
 </details> 
 
  ---

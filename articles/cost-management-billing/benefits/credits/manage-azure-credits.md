@@ -15,7 +15,7 @@ service.tree.id: cf90d1aa-e8ca-47a9-a6d0-bc69c7db1d52
 
 # Manage a Microsoft Azure credit resource under a subscription
 
-When you accept Microsoft Azure credit under a Customer Agreement, the credit is assigned to a [subscription](../../cost-management-billing/manage/cloud-subscription.md) and resource group. The associated resource holds metadata such as status, credit amount, currency, start date, and end date. This information is accessible in the Azure portal.
+When you accept Microsoft Azure credit under a Customer Agreement, the credit is assigned to a [subscription](../../../cost-management-billing/manage/cloud-subscription.md) and resource group. The associated resource holds metadata such as status, credit amount, currency, start date, and end date. This information is accessible in the Azure portal.
 
 >[!NOTE] 
 >This article applies to Azure Credit Offer, Azure Prepayment, End Customer Investment Funds (ECIF), and Support credits accepted after ***August 2025***, credits accepted earlier are not listed as resources under a subscription.
@@ -29,7 +29,7 @@ The new resource group or subscription must remain within the same billing profi
 
 ## To move a credit resource
 
-Here are the high-level steps to move a credit resource. For more information on moving Azure resources, see [Move Azure resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
+Here are the high-level steps to move a credit resource. For more information on moving Azure resources, see [Move Azure resources to a new resource group or subscription](../../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 
 ### To move a credit resource to a new resource group
@@ -67,7 +67,7 @@ When a credit is moved, the resource URI associated with it's updated to reflect
 
 ## Rename a credit resource
 
-The credit’s resource name is a part of its Uniform Resource Identifier (URI) and can't be changed. However, you can use [tags](../../azure-resource-manager/management/tag-resources.md) to help identify the credit resource based on a nomenclature relevant to your organization.
+The credit’s resource name is a part of its Uniform Resource Identifier (URI) and can't be changed. However, you can use [tags](../../../azure-resource-manager/management/tag-resources.md) to help identify the credit resource based on a nomenclature relevant to your organization.
 
 
 ## Delete a credit resource 
@@ -110,9 +110,9 @@ By default, the user account that accepted the credit proposal has owner access 
 
 ## Next steps
 
-For information on checking the credit balance, see: [Track Azure credit balance for a Microsoft Customer Agreement](../../cost-management-billing/manage/mca-check-azure-credits-balance.md).
+For information on checking the credit balance, see: [Track Azure credit balance for a Microsoft Customer Agreement](../../../cost-management-billing/benefits/credits/mca-check-azure-credits-balance.md).
 
 ## Related content
-- [Track Azure credit balance for a Microsoft Customer Agreement](../../cost-management-billing/manage/mca-check-azure-credits-balance.md)
-- [What is a cloud subscription](../../cost-management-billing/manage/cloud-subscription.md)
-- [Move Azure resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Track Azure credit balance for a Microsoft Customer Agreement](../../../cost-management-billing/benefits/credits/mca-check-azure-credits-balance.md)
+- [What is a cloud subscription](../../../cost-management-billing/manage/cloud-subscription.md)
+- [Move Azure resources to a new resource group or subscription](../../../azure-resource-manager/management/move-resource-group-and-subscription.md)

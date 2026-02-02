@@ -6,7 +6,7 @@ author: angarg05
 ms.topic: concept-article
 ms.date: 11/7/2023
 ms.author: ananyagarg
-ms.service: azure-kubernetes-service
+ms.service: azure-confidential-computing
 ms.custom:
   - ignite-fall-2023
   - ignite-2023

@@ -97,16 +97,6 @@
         href: manage/find-tenant-id-domain.md
       - name: Understand spending limit
         href: manage/spending-limit.md
-      - name: Track credits for Microsoft Customer Agreement
-        href: manage/mca-check-azure-credits-balance.md
-      - name: Manage a Microsoft Azure credit resource
-        href: manage/manage-azure-credits.md
-      - name: Manage a Microsoft Azure Consumption Commitment
-        href: manage/manage-consumption-commitment.md
-      - name: Track your Microsoft Azure Consumption Commitment
-        href: manage/track-consumption-commitment.md
-      - name: Manage a Microsoft Azure discount resource
-        href: manage/manage-azure-discount.md
       - name: Markup - China
         href: manage/markup-china.md
     - name: Administer subscriptions
@@ -255,6 +245,26 @@
       href: manage/supported-payment-methods.md
     - name: View payment history
       href: manage/view-payment-history.md
+  - name: Manage billing benefits
+    items:
+    - name: Overview
+      href: benefits/overview.md
+    - name: Manage credits
+      items:
+      - name: Track credits for Microsoft Customer Agreement
+        href: benefits/credits/mca-check-azure-credits-balance.md
+      - name: Manage a Microsoft Azure credit resource
+        href: benefits/credits/manage-azure-credits.md
+    - name: Manage discounts
+      items:
+      - name: Manage a Microsoft discount resource
+        href: benefits/discounts/manage-azure-discount.md
+    - name: Manage Microsoft Azure Consumption Commitment
+      items:
+      - name: Track your Microsoft Azure Consumption Commitment
+        href: benefits/macc/track-consumption-commitment.md
+      - name: Manage a Microsoft Azure Consumption Commitment
+        href: benefits/macc/manage-consumption-commitment.md
   - name: Troubleshoot billing
     items:
     - name: Can't view or find invoices

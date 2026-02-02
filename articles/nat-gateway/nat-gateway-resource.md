@@ -156,6 +156,7 @@ For UDP traffic, after a connection closes, the port is in hold down for 65 seco
 ## Bandwidth
 There are different bandwidth limits for each SKU of NAT Gateway.
 StandardV2 SKU NAT Gateway supports up to 100 Gbps of data throughput per NAT gateway resource.
+
 Standard SKU NAT Gateway provides 50 Gbps of throughput, which is split between outbound and inbound (response) data. Data throughput is rate limited at 25 Gbps for outbound and 25 Gbps for inbound (response) data per Standard NAT gateway resource.
 
 ## Performance

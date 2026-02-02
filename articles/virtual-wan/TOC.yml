@@ -407,6 +407,10 @@
     href: monitor-point-to-site-connections.md
   - name: Configure customer-controlled gateway maintenance
     href: customer-controlled-gateway-maintenance.md
+- name: Troubleshoot
+  items:
+  - name: Troubleshooting for Virtual WAN - Getting started
+    href: virtual-wan-troubleshooting-overview.md
 - name: Reference
   items:
   - name: Azure PowerShell

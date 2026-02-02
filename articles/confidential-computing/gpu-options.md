@@ -4,7 +4,7 @@ description: Learn about Azure Confidential VMs with confidential GPU.
 author: kphande
 ms.author: khande
 ms.reviewer: mattmcinnes
-ms.service: azure-virtual-machines
+ms.service: azure-confidential-computing
 ms.custom: confidential-compute
 ms.topic: concept-article
 ms.date: 07/16/2024

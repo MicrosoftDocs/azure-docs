@@ -4,7 +4,7 @@ description: Learn about Azure confidential virtual machines. These series are f
 author: cynthn
 ms.author: mmcrey
 ms.reviewer: mattmcinnes
-ms.service: azure-virtual-machines
+ms.service: azure-confidential-computing
 ms.custom:
   - ignite-2023
 ms.topic: overview
