@@ -1,6 +1,6 @@
 ---
 title: Deploy a Node.js + MongoDB app to Azure
-description: This article shows you have to deploy a Node.js app using Express.js and a MongoDB database to Azure. Azure App Service is used to host the web application and Azure Cosmos DB to host the database using the 100% compatible MongoDB API built into Azure Cosmos DB.
+description: This article shows you have to deploy a Node.js app using Express.js and a MongoDB database to Azure. Azure App Service is used to host the web application and Azure DocumentDB to host the database using the 100% compatible MongoDB database.
 ms.topic: tutorial
 ms.date: 09/30/2024
 ms.service: azure-app-service
@@ -15,14 +15,14 @@ ms.collection: ce-skilling-ai-copilot
 
 # Tutorial: Deploy a Node.js + MongoDB web app to Azure
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a secure Node.js app in Azure App Service that's connected to a [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction) database. When you're finished, you'll have an Express.js app running on Azure App Service on Linux.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a secure Node.js app in Azure App Service that's connected to an [Azure DocumentDB](/azure/documentdb/overview) database. When you're finished, you'll have an Express.js app running on Azure App Service on Linux.
 
-:::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-browse-app-2.png" alt-text="Screenshot of Node.js application storing data in Cosmos DB.":::
+:::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-browse-app-2.png" alt-text="Screenshot of Node.js application storing data in Azure DocumentDB.":::
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a secure-by-default architecture for Azure App Service and Azure Cosmos DB with MongoDB API.
+> * Create a secure-by-default architecture for Azure App Service and Azure DocumentDB.
 > * Secure connection secrets using a managed identity and Key Vault references.
 > * Deploy a Node.js sample app to App Service from a GitHub repository.
 > * Acces App Service app settings in the application code.
@@ -113,9 +113,9 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ::: zone pivot="azure-portal"  
 
-## 2. Create App Service and Azure Cosmos DB
+## 2. Create App Service and Azure DocumentDB (with MongoDB compatibility)
 
-In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Cosmos DB for MongoDB. For the creation process, you'll specify:
+In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure DocumentDB (with MongoDB compatibility). For the creation process, you'll specify:
 
 * The **Name** for the web app. It's used as part of the DNS name for your app in the form of `https://<app-name>-<hash>.<region>.azurewebsites.net`.
 * The **Region** to run the app physically in the world. It's also used as part of the DNS name for your app.
@@ -143,7 +143,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Region*: Any Azure region near you.
         1. *Name*: **msdocs-expressjs-mongodb-XYZ**, where *XYZ* is any three random characters. 
         1. *Runtime stack*: **Node 20 LTS**.
-        1. *Engine*: **Cosmos DB API for MongoDB**. Azure Cosmos DB is a cloud native database offering a 100% MongoDB compatible API. Note the database name that's generated for you (*\<app-name>-database*). You'll need it later.
+        1. *Engine*: **Azure DocumentDB**. Azure DocumentDB is a cloud native database offering a MongoDB compatible API. Note the database name that's generated for you (*\<app-name>-database*). You'll need it later.
         1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier.
         1. Select **Review + create**.
         1. After validation completes, select **Create**.
@@ -161,8 +161,8 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         - **Virtual network** &rarr; Integrated with the App Service app and isolates back-end network traffic.
         - **Private endpoint** &rarr; Access endpoint for the database resource in the virtual network.
         - **Network interface** &rarr; Represents a private IP address for the private endpoint.
-        - **Azure Cosmos DB for MongoDB** &rarr; Accessible only from behind the private endpoint. A database and a user are created for you on the server.
-        - **Private DNS zone** &rarr; Enables DNS resolution of the Azure Cosmos DB server in the virtual network.
+        - **Azure DocumentDB** &rarr; Accessible only from behind the private endpoint. A database and a user are created for you on the server.
+        - **Private DNS zone** &rarr; Enables DNS resolution of the Azure DocumentDB server in the virtual network.
         
     :::column-end:::
     :::column:::
@@ -181,7 +181,7 @@ The creation wizard generated the connectivity string for you already as an [app
         **Step 1:** In the App Service page:
         1. In the left menu, select **Settings > Environment variables**. 
         1. Next to **AZURE_COSMOS_CONNECTIONSTRING**, select **Show value**.
-        This connection string lets you connect to the Cosmos DB database secured behind a private endpoint. However, the secret is saved directly in the App Service app, which isn't the best. You'll change this.
+        This connection string lets you connect to the Azure DocumentDB database secured behind a private endpoint. However, the secret is saved directly in the App Service app, which isn't the best. You'll change this.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-secure-connection-secrets-1.png" alt-text="A screenshot showing how to see the value of an app setting." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-secure-connection-secrets-1.png":::
@@ -500,7 +500,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 
 ## 2. Create Azure resources and deploy a sample app
 
-In this step, you create the Azure resources and deploy a sample app to App Service on Linux. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Cosmos DB.
+In this step, you create the Azure resources and deploy a sample app to App Service on Linux. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure DocumentDB.
 
 The dev container already has the [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) (AZD).
 
@@ -538,11 +538,11 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     - **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *B1* tier is created.
     - **App Service**: Represents your app and runs in the App Service plan.
     - **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
-    - **Azure Cosmos DB account with MongoDB API**: Accessible only from behind its private endpoint. A database is created for you on the server.
+    - **Azure DocumentDB account**: Accessible only from behind its private endpoint. A database is created for you on the server.
     - **Azure Cache for Redis**: Accessible only from within the virtual network.
     - **Key vault**: Accessible only from behind its private endpoint. Used to manage secrets for the App Service app.
     - **Private endpoints**: Access endpoints for the key vault, the database server, and the Redis cache in the virtual network.
-    - **Private DNS zones**: Enable DNS resolution of the Cosmos DB database, the Redis cache, and the key vault in the virtual network.
+    - **Private DNS zones**: Enable DNS resolution of the Azure DocumentDB database, the Redis cache, and the key vault in the virtual network.
     - **Log Analytics workspace**: Acts as the target container for your app to ship its logs, where you can also query the logs.
 
     Once the command finishes creating resources and deploying the application code the first time, the deployed sample app doesn't work yet because you must make small changes to make it connect to the database in Azure.
@@ -561,7 +561,7 @@ The AZD template you use generated the connectivity variables for you already as
             - AZURE_KEYVAULT_SCOPE
     </pre>
 
-    `AZURE_COSMOS_CONNECTIONSTRING` contains the connection string to the Cosmos DB database in Azure. You need to use it in your code later. 
+    `AZURE_COSMOS_CONNECTIONSTRING` contains the connection string to the Azure DocumentDB database in Azure. You need to use it in your code later. 
 
 1. For your convenience, the AZD template shows you the direct link to the app's app settings page. Find the link and open it in a new browser tab.
 
@@ -621,7 +621,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 2. Add a few tasks to the list.
 
-    :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-browse-app-2.png" alt-text="A screenshot of the Express.js web app with Cosmos DB running in Azure showing tasks." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-browse-app-2.png":::
+    :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-browse-app-2.png" alt-text="A screenshot of the Express.js web app with Azure DocumentDB running in Azure showing tasks." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-browse-app-2.png":::
 
     Congratulations, you're running a web app in Azure App Service, with secure connectivity to Azure Cosmos DB.
 
@@ -684,15 +684,15 @@ You probably still need to make the connection string changes in your applicatio
 Pricing for the created resources is as follows:
 
 - The App Service plan is created in **Basic** tier and can be scaled up or down. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
-- The Azure Cosmos DB server is created in a single region and can be distributed to other regions. See [Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).
+- The Azure DocumentDB server is created in a single region and can be distributed to other regions. See [Azure DocumentDB pricing](https://azure.microsoft.com/pricing/details/document-db/).
 - The virtual network doesn't incur a charge unless you configure extra functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 - The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/). 
 
-#### How do I connect to the Azure Cosmos DB server that's secured behind the virtual network with other tools?
+#### How do I connect to the Azure DocumentDB server that's secured behind the virtual network with other tools?
 
 - For basic access from a command-line tool, you can run `mongosh` from the app's SSH terminal. The app's container doesn't come with `mongosh`, so you must [install it manually](https://www.mongodb.com/docs/mongodb-shell/install/). Remember that the installed client doesn't persist across app restarts.
 - To connect from a MongoDB GUI client, your machine must be within the virtual network. For example, it could be an Azure VM that's connected to one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
-- To connect from the MongoDB shell from the Azure Cosmos DB management page in the portal, your machine must also be within the virtual network. You could instead open the Azure Cosmos DB server's firewall for your local machine's IP address, but it increases the attack surface for your configuration.
+- To connect from the MongoDB shell from the Azure DocumentDB management page in the portal, your machine must also be within the virtual network. You could instead open the Azure DocumentDB server's firewall for your local machine's IP address, but it increases the attack surface for your configuration.
 
 #### How does local app development work with GitHub Actions?
 
