@@ -150,7 +150,6 @@ spark.read.option("accesstoken", token).mssql("dbo.publicExample").show()
 # [User/Password](#tab/userandpassword)
 
 ```python
-import com.microsoft.sqlserver.jdbc.spark
 url = "jdbc:sqlserver://<server>:<port>;database=<database>;"
 row_data = [("Alice", 1),("Bob", 2),("Charlie", 3)]
 column_header = ["Name", "Age"]
