@@ -182,5 +182,5 @@ When the process finishes, the output of your Spark read operation appears in th
 ## Related content
 
 * [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database)
-* [Fabric SQL databases](https://learn.microsoft.com/fabric/database/sql/overview)
+* [Fabric SQL databases](/fabric/database/sql/overview)
 * [Azure SQL Database - Authentication and authorization](/azure/azure-sql/database/logins-create-manage)
