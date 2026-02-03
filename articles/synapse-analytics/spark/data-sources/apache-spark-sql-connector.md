@@ -82,7 +82,6 @@ The following code shows how to write and read data by using the `mssql("<schema
 # [PySpark](#tab/pyspark)
 
 ```python
-import com.microsoft.sqlserver.jdbc.spark
 url = "jdbc:sqlserver://<server>:<port>;database=<database>;"
 row_data = [("Alice", 1),("Bob", 2),("Charlie", 3)]
 column_header = ["Name", "Age"]
