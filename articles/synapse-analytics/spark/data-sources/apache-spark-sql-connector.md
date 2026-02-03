@@ -143,8 +143,8 @@ credential = ClientSecretCredential(tenant_id="", client_id="", client_secret=""
 scope = "https://database.windows.net/.default"
 token = credential.get_token(scope).token
 
-df.write.mode("overwrite").option("url", url).option("accesstoken", token).mssql("dbo.publicExample")
-spark.read.option("accesstoken", token).mssql("dbo.publicExample").show()
+df.write.mode("overwrite").option("url", url).option("accessToken", token).mssql("dbo.publicExample")
+spark.read.option("accessToken", token).mssql("dbo.publicExample").show()
 ```
 
 # [User/Password](#tab/userandpassword)
