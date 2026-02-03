@@ -61,7 +61,7 @@ The Artifact Signing Client Tools installer is available on the Windows Package 
 > winget is available by default in Windows 11 and modern versions of Windows 10. However, it may not be installed in older versions of Windows. See the [winget documentation](/windows/package-manager/winget/) for installation instructions.
 
    ```PowerShell
-   winget install -e --id Microsoft.Azure.TrustedSigningClientTools
+   winget install -e --id Microsoft.Azure.ArtifactSigningClientTools
    ```
 
 The `-e` option is to ensure the official Artifact Signing Client Tools package is installed. This command installs the latest version by default. To specify a version, add a `-v <version>` with your desired version to the command.
@@ -179,8 +179,8 @@ For example, when authenticating with [EnvironmentCredential](/dotnet/api/azure.
 
    ```json
    {
-     "Endpoint": "<Trusted Signing account endpoint>",
-     "CodeSigningAccountName": "<Trusted Signing account name>",
+     "Endpoint": "<Artifact Signing account endpoint>",
+     "CodeSigningAccountName": "<Signing account name>",
      "CertificateProfileName": "<Certificate profile name>",
      "CorrelationId": "<Optional CorrelationId value>",
      "ExcludeCredentials": [

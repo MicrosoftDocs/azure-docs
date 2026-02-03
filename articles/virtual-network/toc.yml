@@ -204,6 +204,8 @@
               href: accelerated-networking-mana-linux.md
             - name: Windows VMs
               href: accelerated-networking-mana-windows.md
+            - name: MANA support for existing VM sizes
+              href: accelerated-networking-mana-existing-sizes.md
         - name: Migrate a VM public IP address to a NAT gateway
           href: /azure/nat-gateway/tutorial-migrate-ilip-nat?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
         - name: Network bandwidth

@@ -209,3 +209,29 @@ The previous sections explained how to manage certificates using the operations 
 
 > [!TIP]
 > Remember, these certificates must be stored as secrets in Azure Key Vault.
+
+## Add certificates as secrets to Azure Key Vault
+
+If you use the operations experience to select existing certificates that were previously added to Azure Key Vault, make sure that the secrets are in a format and encoding that's supported by Azure IoT Operations.
+
+To add a PEM certificate secret to Azure Key Vault, you can use a command like the following example:
+
+```azcli
+az keyvault secret set \
+  --vault-name <your-key-vault-name> \
+  --name my-cert-pem \
+  --file ./my-cert.pem \
+  --encoding hex \
+  --content-type 'application/x-pem-file'
+```
+
+To add a binary DER certificate secret to Azure Key Vault, you can use a command like the following example:
+
+```azcli
+az keyvault secret set \
+  --vault-name <your-key-vault-name> \
+  --name my-cert-der \
+  --file ./my-cert.der \
+  --encoding hex \
+  --content-type 'application/pkix-cert'
+```

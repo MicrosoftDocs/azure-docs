@@ -36,7 +36,11 @@ sections:
           - For vaulted backup only, reduce version retention after the first successful backup. We recommend you to keep versions for at least seven days after backup completion, or longer for large accounts with frequent changes.
 
           - If you use both operational and vaulted backup, apply the higher of the two retention requirements.
-
+      - question: |
+          What is the impact on existing recovery points when I modify the Backup policy?
+        answer: |
+          With the modification of backup instance, you can assign new policy. Policy are applied only on future recovery points. Past recovery points are still retained as per the previous policy's retention period.
+          
 additionalContent: |
   ## Related content
 

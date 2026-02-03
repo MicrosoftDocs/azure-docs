@@ -579,7 +579,6 @@ Generate SSH keys in Azure with [New-AzSshKey](/powershell/module/az.compute/new
 $webSshKeyParams = @{
     ResourceGroupName = "test-rg"
     Name = "vm-web-key"
-    Location = "westus2"
 }
 New-AzSshKey @webSshKeyParams
 
@@ -587,7 +586,6 @@ New-AzSshKey @webSshKeyParams
 $mgmtSshKeyParams = @{
     ResourceGroupName = "test-rg"
     Name = "vm-mgmt-key"
-    Location = "westus2"
 }
 New-AzSshKey @mgmtSshKeyParams
 ```
@@ -595,6 +593,9 @@ New-AzSshKey @mgmtSshKeyParams
 Create a VM configuration with [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig), then create the VM with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM that serves as a web server. The `-AsJob` option creates the VM in the background, so you can continue to the next step:
 
 ```azurepowershell-interactive
+# Get the SSH public key
+$sshKey = Get-AzSshKey -Name "vm-web-key" -ResourceGroupName "test-rg"
+
 $webVmConfigParams = @{
     VMName = "vm-web"
     VMSize = "Standard_DS1_V2"
@@ -607,21 +608,29 @@ $vmImageParams = @{
     Version = "latest"
 }
 
-$webVmConfig = New-AzVMConfig @webVmConfigParams | Set-AzVMOperatingSystem -Linux -ComputerName "vm-web" | Set-AzVMSourceImage @vmImageParams | Add-AzVMNetworkInterface -Id $webNic.Id | Set-AzVMOSDisk -CreateOption FromImage -Linux | Set-AzVMBootDiagnostic -Disable
+$webVmConfig = New-AzVMConfig @webVmConfigParams | `
+    Set-AzVMOperatingSystem -Linux -ComputerName "vm-web" -Credential (New-Object System.Management.Automation.PSCredential("azureuser", (ConvertTo-SecureString "DummyP@ssw0rd" -AsPlainText -Force))) -DisablePasswordAuthentication | `
+    Set-AzVMSourceImage @vmImageParams | `
+    Add-AzVMNetworkInterface -Id $webNic.Id | `
+    Set-AzVMOSDisk -CreateOption FromImage | `
+    Set-AzVMBootDiagnostic -Disable | `
+    Add-AzVMSshPublicKey -KeyData $sshKey.publicKey -Path "/home/azureuser/.ssh/authorized_keys"
 
 $webVmParams = @{
     ResourceGroupName = "test-rg"
     Location = "westus2"
     VM = $webVmConfig
-    SshKeyName = "vm-web-key"
 }
 
-New-AzVM @webVmParams -GenerateSshKey -AsJob
+New-AzVM @webVmParams -AsJob
 ```
 
 Create a VM to serve as a management server:
 
 ```azurepowershell-interactive
+# Get the SSH public key
+$sshKey = Get-AzSshKey -Name "vm-mgmt-key" -ResourceGroupName "test-rg"
+
 $mgmtVmConfigParams = @{
     VMName = "vm-mgmt"
     VMSize = "Standard_DS1_V2"
@@ -634,16 +643,21 @@ $vmImageParams = @{
     Version = "latest"
 }
 
-$mgmtVmConfig = New-AzVMConfig @mgmtVmConfigParams | Set-AzVMOperatingSystem -Linux -ComputerName "vm-mgmt" | Set-AzVMSourceImage @vmImageParams | Add-AzVMNetworkInterface -Id $mgmtNic.Id | Set-AzVMOSDisk -CreateOption FromImage -Linux | Set-AzVMBootDiagnostic -Disable
+$mgmtVmConfig = New-AzVMConfig @mgmtVmConfigParams | `
+    Set-AzVMOperatingSystem -Linux -ComputerName "vm-mgmt" -Credential (New-Object System.Management.Automation.PSCredential("azureuser", (ConvertTo-SecureString "DummyP@ssw0rd" -AsPlainText -Force))) -DisablePasswordAuthentication | `
+    Set-AzVMSourceImage @vmImageParams | `
+    Add-AzVMNetworkInterface -Id $mgmtNic.Id | `
+    Set-AzVMOSDisk -CreateOption FromImage | `
+    Set-AzVMBootDiagnostic -Disable | `
+    Add-AzVMSshPublicKey -KeyData $sshKey.publicKey -Path "/home/azureuser/.ssh/authorized_keys"
 
 $mgmtVmParams = @{
     ResourceGroupName = "test-rg"
     Location = "westus2"
     VM = $mgmtVmConfig
-    SshKeyName = "vm-mgmt-key"
 }
 
-New-AzVM @mgmtVmParams -GenerateSshKey
+New-AzVM @mgmtVmParams
 ```
 
 The virtual machine takes a few minutes to create. Don't continue with the next step until Azure finishes creating the VM.

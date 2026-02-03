@@ -17,6 +17,14 @@ ms.custom:
 
 Release notes describe features, enhancements, and bug fixes released in 2026 for the FHIR&reg; service and DICOM&reg; service in Azure Health Data Services.
 
+## February 2026
+### FHIR service
+#### Bug fixes:
+
+**Bug fix for `$bulk-delete` queries with paged results exceeding 100 included items**: There was an issue where some `$bulk-delete` queries that return paged results exceeding 1,000 included items with related links could return an HTTP 500 Internal Server Error. The issue is fixed, and the results are returned correctly now.
+
+**Bug fix for queries combining `_include` and `_revinclude`**: There was an issue where queries combining `_include` and `_revinclude` (for example, `GET /Patient?_include=Patient:organization&_revinclude=Observation:patient`) could return an HTTP 500 Internal Server Error. This issue is fixed, and results are returned correctly now.
+
 ## January 2026
 ### FHIR service
 
@@ -26,7 +34,7 @@ Release notes describe features, enhancements, and bug fixes released in 2026 fo
 
 **Updates to responses for update and deletion of FHIR spec-defined search parameters**: There are a few updates to the behaviors and responses for update and deletion of FHIR spec-defined search parameters:
   - Deletion of out-of-box FHIR spec-defined search parameters previously returned a "204 No Content" and the parameter wasn't deleted. The response is updated to correctly return "405 Method Not Allowed."
-  - Update of out-of-box FHIR spec-defined search parameters previously returned "201 Created," which can cause unintended behavior. The response is updated to return "405 Method Not Allowed." If you wish to update an out-of-box FHIR spec-defined search parameter, please create a new custom search parameter with a different URL.
+  - Update of out-of-box FHIR spec-defined search parameters previously returned "201 Created," which can cause unintended behavior. The response is updated to return "405 Method Not Allowed." If you wish to update an out-of-box FHIR spec-defined search parameter, create a new custom search parameter with a different URL.
 
 **Enhanced response logging for deletion of non-existent search parameters**:  Deletion of nonexistent search parameters previously returned a "204 No Content." The response is improved to be more informative and now returns "404 Not Found."
 

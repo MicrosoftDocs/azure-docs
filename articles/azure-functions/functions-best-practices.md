@@ -2,7 +2,7 @@
 title: Azure Functions best practices
 description: Learn best practices for designing, deploying, and maintaining efficient function code running in Azure.
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/20/2026
 ms.devlang: csharp
 ms.custom:

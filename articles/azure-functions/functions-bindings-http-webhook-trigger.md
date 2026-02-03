@@ -706,7 +706,7 @@ You can customize this route using the optional `route` property on the HTTP tri
 
 #### [Isolated worker model](#tab/isolated-process)
 
-The following function code accepts two parameters `category` and `id` in the route and writes a response using both parameters.
+The following function code accepts two parameters `category` and `id` in the route and writes a response using both parameters. The first piece of the variable is the name, and the second is a [route constraint](/aspnet/core/fundamentals/routing#route-constraints).
 
 ```csharp
 [Function("HttpTrigger1")]

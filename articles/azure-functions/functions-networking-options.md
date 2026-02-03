@@ -129,10 +129,11 @@ Considerations for the [Elastic Premium](./functions-premium-plan.md), [Dedicate
 * The feature is available for Elastic Premium and App Service Premium V2 and Premium V3. It's also available in Standard but only from newer App Service deployments. If you are on an older deployment, you can only use the feature from a Premium V2 App Service plan. If you want to make sure you can use the feature in a Standard App Service plan, create your app in a Premium V3 App Service plan. Those plans are only supported on our newest deployments. You can scale down if you desire after that.
 * The feature can't be used by Isolated plan apps that are in an App Service Environment.
 * The app and the virtual network must be in the same region.
-* The feature requires an unused subnet that's a /28 or larger in an Azure Resource Manager virtual network.
-* The integration subnet can be used by only one App Service plan.
+* The feature requires a subnet that's a /28 or larger in an Azure Resource Manager virtual network.
+* The integration subnet can be used by multiple App Service plans.
 * You can have up to two regional virtual network integrations per App Service plan. Multiple apps in the same App Service plan can use the same integration subnet.
-* The subnet can't already be in use for other purposes (like private or service endpoints, or [delegated](../virtual-network/subnet-delegation-overview.md) to the Flex Consumption plan or any other service). While you can share the same subnet with multiple apps in the same App Service plan, the networking resources are shared across these function apps, which can lead to one app impacting the performance of others on the same subnet.
+* The subnet you choose can't already be used for other purposes, such as with private endpoints or service endpoints, or be delegated to any other hosting plan or service.
+* You can share the same subnet with more than one app in an App Service plan. Because the networking resources are shared across all apps, one function app might affect the performance of others on the same subnet.
 * You can't delete a virtual network with an integrated app. Remove the integration before you delete the virtual network.
 * You can't change the subscription of an app or a plan while there's an app that's using regional virtual network integration.
 

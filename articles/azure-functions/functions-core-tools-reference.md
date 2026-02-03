@@ -278,7 +278,7 @@ The following publish options apply, based on version:
 |**`--list-ignored-files`** | Displays a list of files that are ignored during publishing, which is based on the `.funcignore` file. |
 | **`--list-included-files`** | Displays a list of files that are published, which is based on the `.funcignore` file. |
 | **`--no-build`** | Project isn't built during publishing. For Python, `pip install` isn't performed. |
-| **`--nozip`** | Turns the default `Run-From-Package` mode off. |
+| **`--nozip`** | Turns the default `Run-From-Package` mode off. Files are extracted to the `wwwroot` folder on the server instead of running directly from the deployment package. |
 | **`--overwrite-settings -y`** | Suppress the prompt to overwrite app settings when `--publish-local-settings -i` is used.|
 | **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists. If you're using a [local storage emulator](functions-develop-local.md#local-storage-emulator), first change the app setting to an [actual storage connection](#func-azure-storage-fetch-connection-string). |
 | **`--publish-settings-only`**, **`-o`** |  Only publish settings and skip the content. Default is prompt. |

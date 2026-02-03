@@ -56,7 +56,7 @@ The following actions are necessary for ensuring host maintenance operations are
     - Consult with your solution vendor and update in advance if necessary to maintain compatibility post-upgrade.
 
 >[!IMPORTANT]
-> If any of these maintenance blocking configurations exist on an Azure VMware Solution host, you'll receive alerts on your Resource Health for AVS dashboard. To ensure unhealthy hosts are replaced and upgrades succeed, such blocking configurations will be mitigated by taking appropriate remediation steps to maintain the availability of your private cloud. In some cases, these remediation steps would include powering off a VM and migrating it to another host and then powering it on, which might briefly disrupt the application running on the VM
+> If any of these maintenance blocking configurations exist on an Azure VMware Solution host, you'll receive alerts on your Resource Health dashboard. To ensure unhealthy hosts are replaced and upgrades succeed, such blocking configurations will be mitigated by taking appropriate remediation steps to maintain the availability of your private cloud. In some cases, these remediation steps would include powering off a VM and migrating it to another host and then powering it on, which might briefly disrupt the application running on the VM.
 
 ## Alert Codes and Remediation Table
 |  Error Code         |        Error Details              |  Recommended Action     |

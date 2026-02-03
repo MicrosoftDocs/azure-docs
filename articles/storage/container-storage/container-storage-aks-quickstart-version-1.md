@@ -49,7 +49,7 @@ az extension add --upgrade --name k8s-extension
 
 Set your Azure subscription context using the `az account set` command. You can view the subscription IDs for all the subscriptions you have access to by running the `az account list --output table` command. Remember to replace `<subscription-id>` with your subscription ID.
 
-```azurecli-interactive
+```azurecli
 az account set --subscription <subscription-id>
 ```
 
@@ -129,7 +129,7 @@ The installation command is different depending on whether you already have a pr
 
 If you already have a preview instance of Azure Container Storage running on your cluster, we recommend updating to the latest generally available (GA) version by running the following command. If you're installing Azure Container Storage for the first time on the cluster, proceed instead to [Install Azure Container Storage and create a storage pool](#install-azure-container-storage-and-create-a-storage-pool). You can also [Install Azure Container Storage on specific node pools](#install-azure-container-storage-on-specific-node-pools).
 
-```azurecli-interactive
+```azurecli
 az k8s-extension update --cluster-type managedClusters --cluster-name <cluster-name> --resource-group <resource-group> --name azurecontainerstorage --version 1.1.0 --auto-upgrade false --release-train stable
 ```
 
@@ -150,7 +150,7 @@ Running this command will enable Azure Container Storage on the system node pool
 >
 > **If you're using a multi-zone AKS cluster with Azure Elastic SAN:** You'll need to use a zone-redundant storage (ZRS) Elastic SAN. The default for an Elastic SAN storage pool is locally redundant storage (LRS). To enable ZRS for Elastic SAN, use `elasticSan` for the storage pool type and append the `--storage-pool-sku Premium_ZRS` flag to the following CLI command.
 
-```azurecli-interactive
+```azurecli
 az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-storage <storage-pool-type> --container-storage-version 1
 ```
 
@@ -181,7 +181,7 @@ If you want to enable a storage pool type that wasn't originally enabled during 
 
 If you want to specify additional storage pool parameters with this command, see [this table](container-storage-faq.md#storage-pool-parameters).
 
-```azurecli-interactive
+```azurecli
 az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-storage <storage-pool-type> --container-storage-version 1
 ```
 
@@ -194,13 +194,13 @@ If the new storage pool type that you've enabled takes up more resources than th
 
 To get the list of available storage pools, run the following command:
 
-```azurecli-interactive
+```azurecli
 kubectl get sp -n acstor
 ```
 
 To check the status of a storage pool, run the following command:
 
-```azurecli-interactive
+```azurecli
 kubectl describe sp <storage-pool-name> -n acstor
 ```
 
@@ -210,7 +210,7 @@ If the `Message` doesn't say `StoragePool is ready`, then your storage pool is s
 
 If you're no longer using a specific storage pool type and want to disable it to free up resources in your node pool, run the following command. Replace `<cluster-name>` and `<resource-group>` with your own values. For `<storage-pool-type>`, specify `azureDisk`, `ephemeralDisk`, or `elasticSan`.
 
-```azurecli-interactive
+```azurecli
 az aks update -n <cluster-name> -g <resource-group> --disable-azure-container-storage <storage-pool-type>
 ```
 
@@ -222,7 +222,7 @@ az aks update -n <cluster-name> -g <resource-group> --disable-azure-container-st
 To create volumes, select the link for the backing storage type you selected.
 
 - [Create persistent volume with Azure managed disks](use-container-storage-with-managed-disks.md#3-create-a-persistent-volume-claim)
-- [Create persistent volume with Azure Elastic SAN](use-container-storage-with-elastic-san.md#3-create-a-persistent-volume-claim)
+- [Create persistent volume with Azure Elastic SAN](use-container-storage-with-elastic-san-version-1.md#3-create-a-persistent-volume-claim)
 - [Create generic ephemeral volume with local NVMe](use-container-storage-with-local-disk-version-1.md#create-and-attach-generic-ephemeral-volumes)
 - [Create generic ephemeral volume with temp SSD](use-container-storage-with-temp-ssd.md#create-and-attach-generic-ephemeral-volumes)
 - [Create persistent volume with local NVMe and volume replication](use-container-storage-with-local-nvme-replication.md#create-and-attach-persistent-volumes)

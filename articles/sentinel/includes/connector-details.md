@@ -7,13 +7,6 @@ ms.date: 02/02/2026
 # This file is auto-generated . Do not edit manually. Changes will be overwritten.
 ---
 
-##  Sentinel data connectors
-
-
-> [!NOTE]
-> The following table lists the data connectors that are available in the Microsoft Sentinel Content hub. The connectors are supported by the product vendor. For support, see the link in the **Supported by** column in the following table.
-
-
 
 <a name="1password-serverless"></a><details><summary>**1Password (Serverless)**</summary>
 
@@ -1164,7 +1157,7 @@ The Cisco Umbrella data connector provides the capability to ingest [Cisco Umbre
 
 **Supported by:** [N/A](https://globalcontacts.cloudapps.cisco.com/contacts/contactDetails/en_US/c1o1-c2o2-c3o8)
 
-The connector fetches data from ETD api for threat analysis
+The connector fetches data from ETD API for threat analysis
 
 **Log Analytics table(s):**  
 
@@ -1354,7 +1347,7 @@ The Cohesity function apps provide the ability to ingest Cohesity Datahawk ranso
 
 **Supported by:** [Commvault](https://ma.commvault.com/)
 
-This Azure Function enables Commvault users to ingest alerts/events into their Microsoft Sentinel instance. With Analytic Rules,Microsoft Sentinel can automatically create Microsoft Sentinel incidents from incoming events and logs.
+This Azure Function enables Commvault users to ingest alerts/events into their Microsoft Sentinel instance. With Analytic Rules, Microsoft Sentinel can automatically create Microsoft Sentinel incidents from incoming events and logs.
 
 **Log Analytics table(s):**  
 
@@ -1416,7 +1409,7 @@ The [Corelight](https://corelight.com/) data connector enables incident responde
 
 **Supported by:** [DEFEND Ltd.](https://defend.co.nz/contact/)
 
-Custom Data connector from DEFEND to utilise the Cortex API to ingest incidents from Cortex XDR platform into Microsoft Sentinel.
+Custom Data connector from DEFEND to utilize the Cortex API to ingest incidents from Cortex XDR platform into Microsoft Sentinel.
 
 **Log Analytics table(s):**  
 
@@ -1497,7 +1490,7 @@ The [CrowdStrike](https://www.crowdstrike.com/) Falcon Indicators of Compromise 
 
 **Supported by:** [Microsoft Corporation](https://support.microsoft.com/)
 
-The Crowdstrike Falcon Data Replicator (S3) connector provides the capability to ingest FDR event datainto Microsoft Sentinel from the AWS S3 bucket where the FDR logs have been streamed. The connector provides ability to get events from Falcon Agents which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.<p>NOTE:</p><p>1. CrowdStrike FDR license must be available & enabled.</p><p>2. The connector requires an IAM role to be configured on AWS to allow access to the AWS S3 bucket and may not be suitable for environments that leverage CrowdStrike - managed buckets.</p><p>3. For environments that leverage CrowdStrike-managed buckets, please configure the <strong>CrowdStrike Falcon Data Replicator (CrowdStrike-Managed AWS S3)</strong> connector.</p>
+The Crowdstrike Falcon Data Replicator (S3) connector provides the capability to ingest FDR event data into Microsoft Sentinel from the AWS S3 bucket where the FDR logs have been streamed. The connector provides ability to get events from Falcon Agents which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.<p>NOTE:</p><p>1. CrowdStrike FDR license must be available & enabled.</p><p>2. The connector requires an IAM role to be configured on AWS to allow access to the AWS S3 bucket and may not be suitable for environments that leverage CrowdStrike - managed buckets.</p><p>3. For environments that leverage CrowdStrike-managed buckets, please configure the <strong>CrowdStrike Falcon Data Replicator (CrowdStrike-Managed AWS S3)</strong> connector.</p>
 
 **Log Analytics table(s):**  
 
@@ -1851,7 +1844,7 @@ The Darktrace REST API connector pushes real-time events from Darktrace to Micro
 - **Darktrace Prerequisites**: To use this Data Connector a Darktrace master running v5.2+ is required.
  Data is sent to the [Azure Monitor HTTP Data Collector API](/azure/azure-monitor/logs/data-collector-api) over HTTPs from Darktrace masters, therefore outbound connectivity from the Darktrace master to Microsoft Sentinel REST API is required.
 - **Filter Darktrace Data**: During configuration it is possible to set up additional filtering on the Darktrace System Configuration page to constrain the amount or types of data sent.
-- **Try the Darktrace Sentinel Solution**: You can get the most out of this connector by installing the Darktrace Solution for Microsoft Sentinel. This will provide workbooks to visualise alert data and analytics rules to automatically create alerts and incidents from Darktrace Model Breaches and AI Analyst incidents.<br><br>
+- **Try the Darktrace Sentinel Solution**: You can get the most out of this connector by installing the Darktrace Solution for Microsoft Sentinel. This will provide workbooks to visualize alert data and analytics rules to automatically create alerts and incidents from Darktrace Model Breaches and AI Analyst incidents.<br><br>
 </details> 
 
  ---
@@ -1921,7 +1914,7 @@ Connects the Datawiza DAP logs to Azure Log Analytics via the REST API interface
 
 **Supported by:** [Derdack](https://signl4.zendesk.com/hc/en-us)
 
-When critical systems fail or security incidents happen, SIGNL4 bridges the ‘last mile’ to your staff, engineers, IT admins and workers in the field. It adds real-time mobile alerting to your services, systems, and processes in no time. SIGNL4 notifies through persistent mobile push, SMS text and voice calls with acknowledgement, tracking and escalation. Integrated duty and shift scheduling ensure the right people are alerted at the right time.
+When critical systems fail or security incidents happen, SIGNL4 bridges the ‘last mile’ to your staff, engineers, IT admins and workers in the field. It adds real-time mobile alerting to your services, systems, and processes in no time. SIGNL4 notifies through persistent mobile push, SMS text and voice calls with acknowledgment, tracking and escalation. Integrated duty and shift scheduling ensure the right people are alerted at the right time.
 
 [Learn more >](https://www.signl4.com)
 
@@ -1940,7 +1933,7 @@ When critical systems fail or security incidents happen, SIGNL4 bridges the ‘l
 
 **Supported by:** [Digital Shadows](https://www.digitalshadows.com/contact-us/)
 
-The Digital Shadows data connector provides ingestion of the incidents and alerts from Digital Shadows Searchlight into the Microsoft Sentinel using the REST API. The connector will provide the incidents and alerts information such that it helps to examine, diagnose and analyse the potential security risks and threats.
+The Digital Shadows data connector provides ingestion of the incidents and alerts from Digital Shadows Searchlight into the Microsoft Sentinel using the REST API. The connector will provide the incidents and alerts information such that it helps to examine, diagnose and analyze the potential security risks and threats.
 
 **Log Analytics table(s):**  
 
@@ -1989,7 +1982,7 @@ For more information, see the [Microsoft Sentinel documentation](https://go.micr
 
 **Supported by:** [Doppel](https://www.doppel.com/request-a-demo)
 
-The data connector is built on Microsoft Sentinel for Doppel events and alerts and supports DCR-based [ingestion time transformations](/azure/azure-monitor/logs/ingestion-time-transformations) that parses the received security event data into a custom columns so that queries don't need to parse it again, thus resulting in better performance.
+The data connector is built on Microsoft Sentinel for Doppel events and alerts and supports DCR-based [ingestion time transformations](/azure/azure-monitor/logs/ingestion-time-transformations) that parses the received security event data into a custom column so that queries don't need to parse it again, thus resulting in better performance.
 
 **Log Analytics table(s):**  
 
@@ -2260,7 +2253,7 @@ Connector used to push Exchange On-Premises Security configuration for Microsoft
 **Prerequisites:**
 
 - **Service Account with Organization Management role**: The service Account that launch the script as scheduled task needs to be Organization Management to be able to retrieve all the needed security Information.
-- **Detailled documentation**: >**NOTE:** Detailled documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
+- **Detailed documentation**: >**NOTE:** Detailed documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
 </details> 
 
  ---
@@ -2311,7 +2304,7 @@ The [ExtraHop](https://extrahop.com/) Detections Data Connector enables you to i
 - **ExtraHop RevealX permissions**: The following is required on your ExtraHop RevealX system:
  1.Your RevealX system must be running firmware version 9.9.2 or later.
  2.Your RevealX system must be connected to ExtraHop Cloud Services.
- 3.Your user account must have System Administratin privileges on RevealX 360 or Full Write privileges on RevealX Enterprise.<br><br>
+ 3.Your user account must have System Administration privileges on RevealX 360 or Full Write privileges on RevealX Enterprise.<br><br>
 </details> 
 
  ---
@@ -2587,7 +2580,7 @@ Use this data connector to integrate with Gigamon Application Metadata Exporter 
 
 The [GitHub](https://www.github.com) webhook data connector provides the capability to ingest GitHub subscribed events into Microsoft Sentinel using [GitHub webhook events](https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads). The connector provides ability to get events into Microsoft Sentinel which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more. 
 
- **Note:** If you are intended to ingest Github Audit logs, Please refer to GitHub Enterprise Audit Log Connector from "**Data Connectors**" gallery.
+ **Note:** If you are intended to ingest GitHub Audit logs, Please refer to GitHub Enterprise Audit Log Connector from "**Data Connectors**" gallery.
 
 **Log Analytics table(s):**  
 
@@ -2859,7 +2852,7 @@ This Data Connector installs an Azure Function app to download GreyNoise indicat
 
  ---
    
-<a name="hackerview-intergration-using-azure-functions"></a><details><summary>**HackerView Intergration (using Azure Functions)**</summary>
+<a name="hackerview-intergration-using-azure-functions"></a><details><summary>**HackerView Integration (using Azure Functions)**</summary>
 
 **Supported by:** [Cyber Threat Management 360](https://www.ctm360.com/contact-us/)
 
@@ -2946,7 +2939,7 @@ The connector provides the capability to poll data from Holm Security Center int
 **Prerequisites:**
 
 - Azure Log Analytics will be deprecated, to collect data from non-Azure VMs, Azure Arc is recommended. [Learn more](/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)
-- **Detailled documentation**: >**NOTE:** Detailled documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
+- **Detailed documentation**: >**NOTE:** Detailed documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
 </details> 
 
  ---
@@ -3008,7 +3001,7 @@ The Illumio Insights Summary data connector provides the capability to ingest [I
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. For more information, see [Azure Functions](/azure/azure-functions/).
 - **SQS and AWS S3 account credentials/permissions**: **AWS_SECRET**, **AWS_REGION_NAME**, **AWS_KEY**, **QUEUE_URL** is required.   If you are using s3 bucket provided by Illumio, contact Illumio support. At your request they will provide you with the AWS S3 bucket name, AWS SQS url and AWS credentials to access them.
-- **Illumio API key and secret**: **ILLUMIO_API_KEY**, **ILLUMIO_API_SECRET** is required for a workbook to make connection to SaaS PCE and fetch api responses.<br><br>
+- **Illumio API key and secret**: **ILLUMIO_API_KEY**, **ILLUMIO_API_SECRET** is required for a workbook to make connection to SaaS PCE and fetch API responses.<br><br>
 </details> 
 
  ---
@@ -3420,7 +3413,7 @@ These alerts can be imported into Microsoft Sentinel with this connector, allowi
 **Prerequisites:**
 
 - Azure Log Analytics will be deprecated, to collect data from non-Azure VMs, Azure Arc is recommended. [Learn more](/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)
-- **Detailled documentation**: >**NOTE:** Detailled documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
+- **Detailed documentation**: >**NOTE:** Detailed documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
 </details> 
 
  ---
@@ -3463,7 +3456,7 @@ Microsoft Dataverse is a scalable and secure data platform that enables organiza
 **Prerequisites:**
 
 - **Tenant Permissions**: 'Security Administrator' or 'Global Administrator' on the workspace's tenant.
-- **Micorosft Purview Audit**: Microsoft Purview Audit (Standard or Premium) must be activated.
+- **Microsoft Purview Audit**: Microsoft Purview Audit (Standard or Premium) must be activated.
 - **Production Dataverse**: Activity logging is available only for Production environments. Other types, such as sandbox, do not support activity logging.
 - **Dataverse Audit Settings**: Audit settings must be configured both globally and at the entity/table level. For more information, see [Dataverse audit settings](/azure/sentinel/business-applications/deploy-power-platform-solution).<br><br>
 </details> 
@@ -3688,7 +3681,7 @@ Entra ID assets data connector gives richer insights into activity data by suppl
 
 **Supported by:** [Microsoft Corporation](https://support.microsoft.com/)
 
-Microsoft Entra ID Protection provides a consolidated view at risk users, risk events and vulnerabilities, with the ability to remediate risk immediately, and set policies to auto-remediate future events. The service is built on Microsoft’s experience protecting consumer identities and gains tremendous accuracy from the signal from over 13 billion logins a day. Integrate Microsoft Microsoft Entra ID Protection alerts with Microsoft Sentinel to view dashboards, create custom alerts, and improve investigation. For more information, see the [Microsoft Sentinel documentation ](https://go.microsoft.com/fwlink/p/?linkid=2220065&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).
+Microsoft Entra ID Protection provides a consolidated view at risk users, risk events and vulnerabilities, with the ability to remediate risk immediately, and set policies to auto-remediate future events. The service is built on Microsoft’s experience protecting consumer identities and gains tremendous accuracy from the signal from over 13 billion logins a day. Integrate Microsoft Entra ID Protection alerts with Microsoft Sentinel to view dashboards, create custom alerts, and improve investigation. For more information, see the [Microsoft Sentinel documentation ](https://go.microsoft.com/fwlink/p/?linkid=2220065&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).
 
 [Get Microsoft Entra ID Premium P1/P2 ](https://aka.ms/asi-ipcconnectorgetlink)
 
@@ -3720,7 +3713,7 @@ Microsoft Entra ID Protection provides a consolidated view at risk users, risk e
 **Prerequisites:**
 
 - Azure Log Analytics will be deprecated, to collect data from non-Azure VMs, Azure Arc is recommended. [Learn more](/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)
-- **Detailled documentation**: >**NOTE:** Detailled documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
+- **Detailed documentation**: >**NOTE:** Detailed documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
 </details> 
 
  ---
@@ -3729,7 +3722,7 @@ Microsoft Entra ID Protection provides a consolidated view at risk users, risk e
 
 **Supported by:** [Community](https://github.com/Azure/Azure-Sentinel/issues)
 
-[Option 7] - Using Azure Monitor Agent - You can stream HTTP Proxy logs and Security Event logs from the Windows machines connected to your Microsoft Sentinel workspace using the Windows agent. This connection enables you create custom alerts, and improve investigation. [Learn more](https://aka.ms/ESI_DataConnectorOptions)
+[Option 7] - Using Azure Monitor Agent - You can stream HTTP Proxy logs and Security Event logs from the Windows machines connected to your Microsoft Sentinel workspace using the Windows agent. This connection enables to you create custom alerts, and improve investigation. [Learn more](https://aka.ms/ESI_DataConnectorOptions)
 
 **Log Analytics table(s):**  
 
@@ -3742,7 +3735,7 @@ Microsoft Entra ID Protection provides a consolidated view at risk users, risk e
 **Prerequisites:**
 
 - **Azure Log Analytics will be deprecated**: Azure Log Analytics will be deprecated, to collect data from non-Azure VMs, Azure Arc is recommended. [Learn more](/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)
-- **Detailled documentation**: >**NOTE:** Detailled documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
+- **Detailed documentation**: >**NOTE:** Detailed documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
 </details> 
 
  ---
@@ -3764,7 +3757,7 @@ Microsoft Entra ID Protection provides a consolidated view at risk users, risk e
 **Prerequisites:**
 
 - **Azure Log Analytics will be deprecated**: Azure Log Analytics will be deprecated, to collect data from non-Azure VMs, Azure Arc is recommended. [Learn more](/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)
-- **Detailled documentation**: >**NOTE:** Detailled documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
+- **Detailed documentation**: >**NOTE:** Detailed documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
 </details> 
 
  ---
@@ -3786,7 +3779,7 @@ Microsoft Entra ID Protection provides a consolidated view at risk users, risk e
 **Prerequisites:**
 
 - **Azure Log Analytics will be deprecated**: Azure Log Analytics will be deprecated, to collect data from non-Azure VMs, Azure Arc is recommended. [Learn more](/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)
-- **Detailled documentation**: >**NOTE:** Detailled documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
+- **Detailed documentation**: >**NOTE:** Detailed documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
 </details> 
 
  ---
@@ -3808,7 +3801,7 @@ Power Automate is a Microsoft service that helps users create automated workflow
 **Prerequisites:**
 
 - **Tenant Permissions**: 'Security Administrator' or 'Global Administrator' on the workspace's tenant.
-- **Micorosft Purview Audit**: Microsoft Purview Audit (Standard or Premium) must be activated.<br><br>
+- **Microsoft Purview Audit**: Microsoft Purview Audit (Standard or Premium) must be activated.<br><br>
 </details> 
 
  ---
@@ -3830,16 +3823,16 @@ Microsoft Power Platform is a low-code/no-code suite empowering both citizen and
 **Prerequisites:**
 
 - **Tenant Permissions**: 'Security Administrator' or 'Global Administrator' on the workspace's tenant.
-- **Micorosft Purview Audit**: Microsoft Purview Audit (Standard or Premium) must be activated.<br><br>
+- **Microsoft Purview Audit**: Microsoft Purview Audit (Standard or Premium) must be activated.<br><br>
 </details> 
 
  ---
    
-<a name="microsoft-powerbi"></a><details><summary>**Microsoft PowerBI**</summary>
+<a name="microsoft-powerbi"></a><details><summary>**Microsoft Power BI**</summary>
 
 **Supported by:** [Microsoft Corporation](https://support.microsoft.com/)
 
-Microsoft PowerBI is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights. Your data may be an Excel spreadsheet, a collection of cloud-based and on-premises hybrid data warehouses, or a data store of some other type. This connector lets you stream PowerBI audit logs into Microsoft Sentinel, allowing you to track user activities in your PowerBI environment. You can filter the audit data by date range, user, dashboard, report, dataset, and activity type.
+Microsoft Power BI is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights. Your data may be an Excel spreadsheet, a collection of cloud-based and on-premises hybrid data warehouses, or a data store of some other type. This connector lets you stream Power BI audit logs into Microsoft Sentinel, allowing you to track user activities in your Power BI environment. You can filter the audit data by date range, user, dashboard, report, dataset, and activity type.
 
 **Log Analytics table(s):**  
 
@@ -4308,7 +4301,7 @@ Netskope Security Alerts and Events
 
 **Prerequisites:**
 
-- **Netskope organisation url**: The Netskope data connector requires you to provide your organisation url. You can find your organisation url by signing into the Netskope portal.
+- **Netskope organization url**: The Netskope data connector requires you to provide your organization url. You can find your organization url by signing into the Netskope portal.
 - **Netskope API key**: The Netskope data connector requires you to provide a valid API key. You can create one by following the [Netskope documentation](https://docs.netskope.com/en/rest-api-v2-overview-312207/).<br><br>
 </details> 
 
@@ -4475,7 +4468,7 @@ The Obsidian Datasharing connector provides the capability to read raw event dat
 
 **Supported by:** [Microsoft Corporation](https://support.microsoft.com/)
 
-The [Okta Single Sign-On (SSO)](https://www.okta.com/products/single-sign-on/) data connector provides the capability to ingest audit and event logs from the Okta Sysem Log API into Microsoft Sentinel. The data connector is built on Microsoft Sentinel Codeless Connector Framework and uses the Okta System Log API to fetch the events. The connector supports DCR-based [ingestion time transformations](/azure/azure-monitor/logs/custom-logs-overview) that parses the received security event data into a custom columns so that queries don't need to parse it again, thus resulting in better performance.
+The [Okta Single Sign-On (SSO)](https://www.okta.com/products/single-sign-on/) data connector provides the capability to ingest audit and event logs from the Okta System Log API into Microsoft Sentinel. The data connector is built on Microsoft Sentinel Codeless Connector Framework and uses the Okta System Log API to fetch the events. The connector supports DCR-based [ingestion time transformations](/azure/azure-monitor/logs/custom-logs-overview) that parses the received security event data into a custom column so that queries don't need to parse it again, thus resulting in better performance.
 
 **Log Analytics table(s):**  
 
@@ -4564,7 +4557,7 @@ The [OneLogin](https://www.onelogin.com/) data connector provides the capability
 
 **Supported by:** [OneTrust, LLC](https://my.onetrust.com/s/contactsupport?language=en_US)
 
-The OneTrust connector for Microsoft Sentinel provides the capability to have near real time visibility into where sensitive data has been located or remediated across across Google Cloud and other OneTrust supported data sources.
+The OneTrust connector for Microsoft Sentinel provides the capability to have near real time visibility into where sensitive data has been located or remediated across Google Cloud and other OneTrust supported data sources.
 
 **Log Analytics table(s):**  
 
@@ -4707,7 +4700,7 @@ The Palo Alto Prisma Cloud CSPM data connector allows you to connect to your Pal
 
 **Supported by:** [Microsoft Corporation](https://support.microsoft.com/)
 
-The [Palo Alto Prisma Cloud CWPP](https://prisma.pan.dev/api/cloud/cwpp/audits/#operation/get-audits-incidents) data connector allows you to connect to your Palo Alto Prisma Cloud CWPP instance and ingesting alerts into Microsoft Sentinel. The data connector is built on Microsoft Sentinel's Codeless Connector Framework and uses the Prisma Cloud API to fetch security events and supports DCR-based [ingestion time transformations](/azure/azure-monitor/logs/custom-logs-overview) that parses the received security event data into a custom columns so that queries don't need to parse it again, thus resulting in better performance.
+The [Palo Alto Prisma Cloud CWPP](https://prisma.pan.dev/api/cloud/cwpp/audits/#operation/get-audits-incidents) data connector allows you to connect to your Palo Alto Prisma Cloud CWPP instance and ingesting alerts into Microsoft Sentinel. The data connector is built on Microsoft Sentinel's Codeless Connector Framework and uses the Prisma Cloud API to fetch security events and supports DCR-based [ingestion time transformations](/azure/azure-monitor/logs/custom-logs-overview) that parses the received security event data into a custom column so that queries don't need to parse it again, thus resulting in better performance.
 
 **Log Analytics table(s):**  
 
@@ -4838,7 +4831,7 @@ The Prancer Data Connector has provides the capability to ingest Prancer (CSPM)[
 
 **Supported by:** [Microsoft Corporation](https://support.microsoft.com/)
 
-Microsoft Sentinel provides you the capability to import threat intelligence generated by Microsoft to enable monitoring, alerting and hunting. Use this data connector to import Indicators of Compromise (IOCs) from Premium Microsoft Defender Threat Intelligence (MDTI) into Microsoft Sentinel. Threat indicators can include IP addresses, domains, URLs, and file hashes, etc. Note: This is a paid connector. To use and ingest data from it, please purchase the "MDTI API Access" SKU from the Partner Center.
+Microsoft Sentinel provides you with the capability to import threat intelligence generated by Microsoft to enable monitoring, alerting and hunting. Use this data connector to import Indicators of Compromise (IOCs) from Premium Microsoft Defender Threat Intelligence (MDTI) into Microsoft Sentinel. Threat indicators can include IP addresses, domains, URLs, and file hashes, etc. Note: This is a paid connector. To use and ingest data from it, please purchase the "MDTI API Access" SKU from the Partner Center.
 
 **Log Analytics table(s):**  
 
@@ -4855,7 +4848,7 @@ Microsoft Sentinel provides you the capability to import threat intelligence gen
 
 **Supported by:** [Proofpoint, Inc.](https://proofpoint.my.site.com/community/s/)
 
-Proofpoint On Demand Email Security data connector provides the capability to get Proofpoint on Demand Email Protection data, allows users to check message traceability, monitoring into email activity, threats,and data exfiltration by attackers and malicious insiders. The connector provides ability to review events in your org on an accelerated basis, get event log files in hourly increments for recent activity.
+Proofpoint On Demand Email Security data connector provides the capability to get Proofpoint on Demand Email Protection data, allows users to check message traceability, monitoring into email activity, threats, and data exfiltration by attackers and malicious insiders. The connector provides ability to review events in your org on an accelerated basis, get event log files in hourly increments for recent activity.
 
 **Log Analytics table(s):**  
 
@@ -4877,7 +4870,7 @@ Proofpoint On Demand Email Security data connector provides the capability to ge
 
 **Supported by:** [Microsoft Corporation](https://support.microsoft.com/)
 
-Proofpoint On Demand Email Security data connector provides the capability to get Proofpoint on Demand Email Protection data, allows users to check message traceability, monitoring into email activity, threats,and data exfiltration by attackers and malicious insiders. The connector provides ability to review events in your org on an accelerated basis, get event log files in hourly increments for recent activity.
+Proofpoint On Demand Email Security data connector provides the capability to get Proofpoint on Demand Email Protection data, allows users to check message traceability, monitoring into email activity, threats, and data exfiltration by attackers and malicious insiders. The connector provides ability to review events in your org on an accelerated basis, get event log files in hourly increments for recent activity.
 
 **Log Analytics table(s):**  
 
@@ -4971,7 +4964,7 @@ Ingest Qscout application events into Microsoft Sentinel
 
 The [Qualys Vulnerability Management (VM)](https://www.qualys.com/apps/vulnerability-management/) KnowledgeBase (KB) connector provides the capability to ingest the latest vulnerability data from the Qualys KB into Microsoft Sentinel. 
 
- This data can used to correlate and enrich vulnerability detections found by the [Qualys Vulnerability Management (VM)](/azure/sentinel/connect-qualys-vm) data connector.
+ This data can be used to correlate and enrich vulnerability detections found by the [Qualys Vulnerability Management (VM)](/azure/sentinel/connect-qualys-vm) data connector.
 
 **Log Analytics table(s):**  
 
@@ -4993,7 +4986,7 @@ The [Qualys Vulnerability Management (VM)](https://www.qualys.com/apps/vulnerabi
 
 **Supported by:** [Microsoft Corporation](https://support.microsoft.com/)
 
-The [Qualys Vulnerability Management (VM)](https://www.qualys.com/apps/vulnerability-management/) data connector provides the capability to ingest vulnerability host detection data into Microsoft Sentinel through the Qualys API. The connector provides visibility into host detection data from vulerability scans.
+The [Qualys Vulnerability Management (VM)](https://www.qualys.com/apps/vulnerability-management/) data connector provides the capability to ingest vulnerability host detection data into Microsoft Sentinel through the Qualys API. The connector provides visibility into host detection data from vulnerability scans.
 
 **Log Analytics table(s):**  
 
@@ -5267,7 +5260,7 @@ The SAP S/4HANA Cloud Public Edition (GROW with SAP) data connector enables inge
 
 **Supported by:** [SecurityBridge](https://abap-experts.atlassian.net/servicedesk/customer/portal/1)
 
-SecurityBridge enhances SAP security by integrating seamlessly with Microsoft Sentinel, enabling real-time monitoring and threat detection across SAP environments. This integration allows Security Operations Centers (SOCs) to consolidate SAP security events with other organizational data, providing a unified view of the threat landscape . Leveraging AI-powered analytics and Microsoft’s Security Copilot, SecurityBridge identifies sophisticated attack patterns and vulnerabilities within SAP applications, including ABAP code scanning and configuration assessments . The solution supports scalable deployments across complex SAP landscapes, whether on-premises, in the cloud, or hybrid environments . By bridging the gap between IT and SAP security teams, SecurityBridge empowers organizations to proactively detect, investigate, and respond to threats, enhancing overall security posture.
+SecurityBridge enhances SAP security by integrating seamlessly with Microsoft Sentinel, enabling real-time monitoring and threat detection across SAP environments. This integration allows Security Operations Centers (SOCs) to consolidate SAP security events with other organizational data, providing a unified view of the threat landscape. Leveraging AI-powered analytics and Microsoft’s Security Copilot, SecurityBridge identifies sophisticated attack patterns and vulnerabilities within SAP applications, including ABAP code scanning and configuration assessments. The solution supports scalable deployments across complex SAP landscapes, whether on-premises, in the cloud, or hybrid environments. By bridging the gap between IT and SAP security teams, SecurityBridge empowers organizations to proactively detect, investigate, and respond to threats, enhancing overall security posture.
 
 **Log Analytics table(s):**  
 
@@ -5602,7 +5595,7 @@ The [TeamCymruScout](https://scout.cymru.com/) Data Connector allows users to br
 
 **Supported by:** [Tenable](https://www.tenable.com/support/technical-support)
 
-Tenable Identity Exposure connector allows Indicators of Exposure, Indicators of Attack and trailflow logs to be ingested into Microsoft Sentinel.The different work books and data parsers allow you to more easily manipulate logs and monitor your Active Directory environment.  The analytic templates allow you to automate responses regarding different events, exposures and attacks.
+Tenable Identity Exposure connector allows Indicators of Exposure, Indicators of Attack and trailflow logs to be ingested into Microsoft Sentinel. The different work books and data parsers allow you to more easily manipulate logs and monitor your Active Directory environment.  The analytic templates allow you to automate responses regarding different events, exposures and attacks.
 
 **Log Analytics table(s):**  
 
@@ -5649,7 +5642,7 @@ The TVM data connector provides the ability to ingest Asset, Vulnerability, Comp
 
 **Supported by:** [Microsoft Corporation](https://support.microsoft.com/)
 
-Microsoft Defender for Cloud is a security management tool that allows you to detect and quickly respond to threats across Azure, hybrid, and multi-cloud workloads. This connector allows you to stream your MDC security alerts from Microsoft 365 Defender into Microsoft Sentinel, so you can can leverage the advantages of XDR correlations connecting the dots across your cloud resources, devices and identities and view the data in workbooks, queries and investigate and respond to incidents. For more information, see the [Microsoft Sentinel documentation](https://go.microsoft.com/fwlink/p/?linkid=2269832&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).
+Microsoft Defender for Cloud is a security management tool that allows you to detect and quickly respond to threats across Azure, hybrid, and multi-cloud workloads. This connector allows you to stream your MDC security alerts from Microsoft 365 Defender into Microsoft Sentinel, so you can leverage the advantages of XDR correlations connecting the dots across your cloud resources, devices and identities and view the data in workbooks, queries and investigate and respond to incidents. For more information, see the [Microsoft Sentinel documentation](https://go.microsoft.com/fwlink/p/?linkid=2269832&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).
 
 **Log Analytics table(s):**  
 
@@ -6096,7 +6089,7 @@ The [VMware Carbon Black Cloud](https://www.broadcom.com/products/carbon-black/t
 **Prerequisites:**
 
 - **Environment**: You must have the following AWS resources defined and configured: S3, Simple Queue Service (SQS), IAM roles and permissions policies
-- **Environment**: You must have the a Carbon black account and required permissions to create a Data Forwarded to AWS S3 buckets. 
+- **Environment**: You must have a Carbon black account and required permissions to create a Data Forwarded to AWS S3 buckets. 
 For more information, see [Carbon Black Data Forwarder Docs](https://docs.vmware.com/en/VMware-Carbon-Black-Cloud/services/carbon-black-cloud-user-guide/GUID-E8D33F72-BABB-4157-A908-D8BBDB5AF349.html)<br><br>
 </details> 
 

@@ -12,7 +12,8 @@ ms.author: duau
 
 # Azure Firewall certifications
 
-To help you meet your own compliance obligations across regulated industries and markets worldwide, Azure maintains the largest compliance portfolio in the industry both in terms of breadth (total number of offerings) and depth (number of [customer-facing services](https://azure.microsoft.com/services/) in assessment scope). For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
+To help you meet your own compliance obligations across regulated industries and markets worldwide, Azure maintains the largest compliance portfolio in the industry both in terms of breadth (total number of offerings) and depth (number of [customer-facing services](https://azure.microsoft.com/services/) in assessment scope). 
+For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 
 ## Azure Firewall audit scope
 

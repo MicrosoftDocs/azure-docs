@@ -5,78 +5,40 @@
   items:
   - name: What is Azure Container Storage?
     href: container-storage-introduction.md
-- name: Tutorials
-  items:
-  - name: Install Azure Container Storage on AKS
-    href: install-container-storage-aks.md
-- name: Storage options
-  items:
-  - name: Use with Local NVMe
-    href: use-container-storage-with-local-disk.md
 - name: How-to guides
   items:
+  - name: Install Azure Container Storage
+    href: install-container-storage-aks.md
+  - name: Use with local NVMe
+    href: use-container-storage-with-local-disk.md
+  - name: Use with Azure Elastic SAN
+    href: use-container-storage-with-elastic-san.md
   - name: Remove Azure Container Storage
     href: remove-container-storage.md
-  - name: Enable monitoring with managed Prometheus
-    href: enable-monitoring.md
-  - name: Use Grafana dashboards
-    href: use-grafana-dashboard.md
 - name: Concepts
   items:
+  - name: Frequently asked questions
+    href: container-storage-faq.md
+  - name: Enable zone-redundant storage
+    href: enable-multi-zone-redundancy.md
+  - name: Resize persistent volumes
+    href: resize-volume.md
+  - name: Volume snapshots
+    href: volume-snapshot-restore.md
+  - name: Configure encryption
+    href: configure-encryption-for-elastic-san.md
+  - name: Connect with Prometheus
+    href: enable-monitoring.md
+  - name: Connect with Grafana
+    href: use-grafana-dashboard.md
   - name: Understand billing
     href: container-storage-billing.md 
-  - name: FAQ
-    href: container-storage-faq.md
-- name: Azure Container Storage (version 1.x.x)
+- name: Resources
   items:
-  - name: What is Azure Container Storage (version 1.x.x)?
-    href: container-storage-introduction-version-1.md
-  - name: Quickstarts (version 1.x.x)
-    items:
-    - name: Use Azure Container Storage with AKS
-      href: container-storage-aks-quickstart-version-1.md
-  - name: Tutorials (version 1.x.x)
-    items:
-    - name: Create AKS cluster and install Azure Container Storage
-      href: install-container-storage-aks-version-1.md
-  - name: Storage options (version 1.x.x)
-    items:
-    - name: Use with Azure Disks
-      href: use-container-storage-with-managed-disks.md
-    - name: Use with Azure Elastic SAN
-      href: use-container-storage-with-elastic-san.md
-    - name: Use with Ephemeral Disk
-      items:
-      - name: Local NVMe
-        href: use-container-storage-with-local-disk-version-1.md
-      - name: Local NVMe with replication
-        href: use-container-storage-with-local-nvme-replication.md
-      - name: Temp SSD
-        href: use-container-storage-with-temp-ssd.md    
-  - name: How-to guides (version 1.x.x)
-    items:
-    - name: Use volume snapshot and restore
-      href: volume-snapshot-restore.md
-    - name: Expand a persistent volume
-      href: resize-volume.md
-    - name: Clone a persistent volume
-      href: clone-volume.md
-    - name: Enable multi-zone storage redundancy
-      href: enable-multi-zone-redundancy.md
-    - name: Enable monitoring with managed Prometheus
-      href: enable-monitoring-version-1.md
-    - name: Remove Azure Container Storage
-      href: remove-container-storage-version-1.md
-    - name: Troubleshoot Azure Container Storage
-      href: troubleshoot-container-storage.md
-    - name: Install Azure Container Storage using Azure Arc (optional)
-      href: install-container-storage-azure-arc.md    
-  - name: Concepts (version 1.x.x)
-    items:
-    - name: Understand billing
-      href: container-storage-billing-version-1.md
-    - name: FAQ
-      href: container-storage-faq.md
+  - name: Pricing for Azure Container Storage
+    href: https://azure.microsoft.com/pricing/details/container-storage/
+  - name: Release notes for Azure Container Storage
+    href: container-storage-release-notes.md
 - name: Reference
   items:
   - name: Storage pool parameters (version 1.x.x)
@@ -108,10 +70,53 @@
   - name: Resource Manager template
     displayName: arm
     href: /azure/templates/microsoft.storage/allversions
-- name: Resources
+- name: Azure Container Storage (version 1.x.x)
   items:
-  - name: Pricing for Azure Container Storage
-    href: https://azure.microsoft.com/pricing/details/container-storage/
-  - name: Release notes for Azure Container Storage
-    href: container-storage-release-notes.md
-  
+  - name: What is Azure Container Storage (version 1.x.x)?
+    href: container-storage-introduction-version-1.md
+  - name: Quickstarts (version 1.x.x)
+    items:
+    - name: Use Azure Container Storage with AKS
+      href: container-storage-aks-quickstart-version-1.md
+  - name: Tutorials (version 1.x.x)
+    items:
+    - name: Create AKS cluster and install Azure Container Storage
+      href: install-container-storage-aks-version-1.md
+  - name: Storage options (version 1.x.x)
+    items:
+    - name: Use with Azure Disks
+      href: use-container-storage-with-managed-disks.md
+    - name: Use with Azure Elastic SAN
+      href: use-container-storage-with-elastic-san-version-1.md
+    - name: Use with Ephemeral Disk
+      items:
+      - name: Local NVMe
+        href: use-container-storage-with-local-disk-version-1.md
+      - name: Local NVMe with replication
+        href: use-container-storage-with-local-nvme-replication.md
+      - name: Temp SSD
+        href: use-container-storage-with-temp-ssd.md    
+  - name: How-to guides (version 1.x.x)
+    items:
+    - name: Use volume snapshot and restore
+      href: volume-snapshot-restore-version-1.md
+    - name: Expand a persistent volume
+      href: resize-volume-version-1.md
+    - name: Clone a persistent volume
+      href: clone-volume.md
+    - name: Enable multi-zone storage redundancy
+      href: enable-multi-zone-redundancy-version-1.md
+    - name: Enable monitoring with managed Prometheus
+      href: enable-monitoring-version-1.md
+    - name: Remove Azure Container Storage
+      href: remove-container-storage-version-1.md
+    - name: Troubleshoot Azure Container Storage
+      href: troubleshoot-container-storage.md
+    - name: Install Azure Container Storage using Azure Arc (optional)
+      href: install-container-storage-azure-arc.md    
+  - name: Concepts (version 1.x.x)
+    items:
+    - name: Understand billing
+      href: container-storage-billing-version-1.md
+    - name: FAQ
+      href: container-storage-faq.md

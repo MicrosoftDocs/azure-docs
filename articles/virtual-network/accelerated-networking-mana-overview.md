@@ -19,27 +19,7 @@ MANA supports several VM operating systems. Although your VM might be running a 
 
 MANA maintains feature parity with previous Azure networking features. VMs run on hardware with both Mellanox and MANA NICs, so existing `mlx4` and `mlx5` support still needs to be present.
 
-### Supported Azure Marketplace images
-
-Several [Azure Marketplace](/marketplace/azure-marketplace-overview) images have built-in support for the Ethernet driver in MANA. 
-
-#### Linux
-
-- Ubuntu 22.04 LTS (with linux-azure kernel >= 6.8.0-1033)
-- Ubuntu 24.04 LTS
-- SUSE Linux Enterprise Server 15 SP5 and above
-- Debian 12 "Bookworm"
-- Debian 13 "Trixie"
-- Oracle Linux 9.0 UEK R8
-
-> [!NOTE]
-> Newer MANA features are under active development and Linux distribution vendors partner with Microsoft to update their kernels with upstream changes. Cadence of updates varies by distribution vendor. The newer your distribution and kernel is, the more likely it is to have the latest updates. 
-
-#### Windows
-
-- Windows Server 2019
-- Windows Server 2022
-- Windows Server 2025
+For operating system support see [Azure Accelerated Networking Overview](accelerated-networking-overview.md).
 
 ### Custom images and legacy VMs
 

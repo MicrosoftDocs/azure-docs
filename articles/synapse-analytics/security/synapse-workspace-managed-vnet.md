@@ -32,8 +32,8 @@ If your workspace has a Managed workspace Virtual Network, Data integration and 
 
 Dedicated SQL pool and serverless SQL pool are multitenant capabilities and therefore reside outside of the Managed workspace Virtual Network. Intra-workspace communication to dedicated SQL pool and serverless SQL pool use Azure private links. These private links are automatically created for you when you create a workspace with a Managed workspace Virtual Network associated to it.
 
->[!IMPORTANT]
->You can't change this workspace configuration after the workspace is created. For example, you can't reconfigure a workspace that doesn't have a Managed workspace Virtual Network associated with it and associate a Virtual Network to it. Similarly, you can't reconfigure a workspace with a Managed workspace Virtual Network associated to it and disassociate the Virtual Network from it.
+> [!IMPORTANT]
+> You can't change this workspace configuration after the workspace is created. For example, you can't reconfigure a workspace that doesn't have a Managed workspace Virtual Network associated with it and associate a Virtual Network to it. Similarly, you can't reconfigure a workspace with a Managed workspace Virtual Network associated to it and disassociate the Virtual Network from it.
 
 ## Create an Azure Synapse workspace with a Managed workspace Virtual Network
 
@@ -43,8 +43,8 @@ To create an Azure Synapse workspace that has a Managed workspace Virtual Networ
 
 If you leave the checkbox unchecked, then your workspace won't have a Virtual Network associated with it.
 
->[!IMPORTANT]
->You can only use private links in a workspace that has a Managed workspace Virtual Network.
+> [!IMPORTANT]
+> You can only use private links in a workspace that has a Managed workspace Virtual Network.
 
 :::image type="content" source="./media/synpase-workspace-ip-firewall/azure-synapse-analytics-networking-managed-virtual-network-outbound-traffic.png" lightbox="./media/synpase-workspace-ip-firewall/azure-synapse-analytics-networking-managed-virtual-network-outbound-traffic.png" alt-text="Screenshot of the Create Synapse workspace networking page, with the Managed virtual network option Enabled and the Allow outbound data traffic only to approved targets option to Yes.":::
 
@@ -61,6 +61,31 @@ You can also control the targets to which Managed private endpoints are created 
 After the workspace is created, you can check whether your Azure Synapse workspace is associated to a Managed workspace Virtual Network by selecting **Overview** from Azure portal.
 
 :::image type="content" source="./media/synpase-workspace-ip-firewall/azure-synapse-analytics-overview-managed-virtual-network-enabled.png" lightbox="./media/synpase-workspace-ip-firewall/azure-synapse-analytics-overview-managed-virtual-network-enabled.png" alt-text="Screenshot of the Azure Synapse workspace overview page indicating that a managed virtual network is enabled.":::
+
+## Integration Runtime behavior with Managed Virtual Network and Data Exfiltration Protection
+
+When an Azure Synapse workspace is created with Managed Virtual Network and Data Exfiltration Protection (DEP) enabled, data movement and external data access are designed to run through the Managed Virtual Network Integration Runtime (VNET IR).
+
+Using VNET IR ensures that:
+
+- Data access is routed through the managed virtual network boundary
+
+- Outbound connectivity is restricted to approved targets
+
+- Managed private endpoints are used for external resource access
+
+- DEP security controls are enforced consistently across pipeline activities and data operations
+
+In DEP-enabled workspaces, VNET IR should be used for pipelines, linked services, and activities that access external data sources.
+
+> [!NOTE]
+> In certain scenarios, due to a known production issue, a DEP-enabled workspace may still allow artifacts (such as pipelines, linked services, or activities) to reference a public Azure Integration Runtime (Azure IR) in certain cases. Azure IR can access data sources over public network paths, which does not align with the intended Data Exfiltration Protection model.
+>
+> Customers should review Integration Runtime references in DEP-enabled workspaces and update them to use Managed Virtual Network Integration Runtime. Warning indicators may appear in the Synapse UI when Azure IR is referenced in a DEP-enabled workspace.
+>
+> For Webhook activities, Integration Runtime usage can be enabled through the workspace tag **enable_webhookonir**, after which a VNET IR can be selected in the UI.
+>
+>If public network access is required, use a workspace without DEP enabled instead of mixing Azure IR with a DEP-enabled workspace.
 
 ## Related content
 

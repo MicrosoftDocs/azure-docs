@@ -408,6 +408,8 @@
         href: backup-azure-vms-first-look-arm.md
       - name: Set up a vault and enable backup for Azure VMs
         href: backup-azure-arm-vms-prepare.md
+      - name: Back up Confidential VMs
+        href: confidential-vm-backup.md  
       - name: Back up encrypted Azure VMs
         href: backup-azure-vms-encryption.md
       - name: Configure app-consistent backups of Azure VMs running Linux
@@ -424,6 +426,8 @@
         href: backup-azure-arm-restore-vms.md
       - name: Recover files from Azure VM backups
         href: backup-azure-restore-files-from-vm.md
+      - name: Restore Confidential VMs
+        href: confidential-vm-restore.md  
       - name: Restore encrypted VMs
         href: restore-azure-encrypted-virtual-machines.md
       - name: Restore keys and secret for encrypted VMs

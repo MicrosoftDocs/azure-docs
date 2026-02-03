@@ -77,3 +77,29 @@ The previous sections explained how to manage secrets using the operations exper
 1. Use `kubectl` to create an `AKVSync` custom resource to configure the synchronization of a secret from Azure Key Vault to the Kubernetes cluster.
 
 1. Use `az iot ops ns device endpoint inbound add` to configure an endpoint that references the synced secrets.
+
+## Add secrets to Azure Key Vault
+
+If you use the operations experience to select existing secrets that were previously added to Azure Key Vault, make sure that the secrets are in a format and encoding that's supported by Azure IoT Operations.
+
+To add a PEM certificate secret to Azure Key Vault, you can use a command like the following example:
+
+```azcli
+az keyvault secret set \
+  --vault-name <your-key-vault-name> \
+  --name client-cert-pem \
+  --file ./client-cert.pem \
+  --encoding hex \
+  --content-type 'application/x-pem-file'
+```
+
+To add a binary DER certificate secret to Azure Key Vault, you can use a command like the following example:
+
+```azcli
+az keyvault secret set \
+  --vault-name <your-key-vault-name> \
+  --name cert-file-der \
+  --file ./cert-file.der \
+  --encoding hex \
+  --content-type 'application/pkix-cert'
+```

@@ -1,5 +1,5 @@
 ---
-title: Securing phone-based MFA in Azure AD B2C
+title: Secure phone-based MFA in Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Learn tips for securing phone-based multifactor authentication in your Azure AD B2C tenant by using Azure Monitor Log Analytics reports and alerts. Use our workbook to identify fraudulent phone authentications and mitigate fraudulent sign-ups. =
 
@@ -7,7 +7,7 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 1/23/2025
+ms.date: 02/03/2026
 ms.author: kengaderdus
 ms.subservice: b2c
 ms.custom: sfi-image-nochange
@@ -17,7 +17,7 @@ ms.custom: sfi-image-nochange
 #Customer intent: As an Azure AD B2C administrator, I want to monitor phone authentication failures and mitigate fraudulent sign-ups, so that I can protect against malicious use of the telephony service and ensure a secure authentication process.
 
 ---
-# Securing phone-based multifactor authentication
+# Secure phone-based multifactor authentication
 [!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 With Microsoft Entra multifactor authentication, users can choose to receive an automated voice call at a phone number they register for verification. Malicious users could take advantage of this method by creating multiple accounts and placing phone calls without completing the MFA registration process. These numerous failed sign-ups could exhaust the allowed sign-up attempts, preventing other users from signing up for new accounts in your Azure AD B2C tenant. To help protect against these attacks, you can use Azure Monitor to monitor phone authentication failures and mitigate fraudulent sign-ups.
@@ -144,8 +144,8 @@ To help prevent fraudulent sign-ups, remove any country/region codes that do not
       </RelyingParty>
     </TrustFrameworkPolicy>
     ```
-  > [!IMPORTANT]
-  >Add the code in step 2 to the _relying party policy_ to enforce country/region code restrictions on the server side. You must not define these elements only in parent policies; put them in the relying party policy.
+      > [!IMPORTANT]
+      >Add the code in step 2 to the _relying party policy_ to enforce country/region code restrictions on the server side. You must not define these elements only in parent policies; put them in the relying party policy.
 
 1. In the `BuildingBlocks` section of this policy file, add the following code. Make sure to include only the country/region codes relevant to your organization:
 

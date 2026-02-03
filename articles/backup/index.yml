@@ -65,26 +65,14 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Confidential VM backup (preview)
+            url: confidential-vm-backup.md
           - text: Threat Detection with Microsoft Defender for Cloud integration (preview)
             url: threat-detection-overview.md
           - text: Azure Files (Premium) vaulted backup
             url: azure-file-share-backup-overview.md
-          - text: Azure Elastic SAN backup (preview)
-            url: azure-elastic-storage-area-network-backup-overview.md
-          - text: SAP ASE (Sybase) database backup support
-            url: sap-ase-database-about.md        
           - text: Azure Data Lake Storage vaulted backup support
             url: azure-data-lake-storage-backup-overview.md
-          - text: Azure Files vaulted backup support
-            url: azure-file-share-backup-overview.md?tabs=vault-standard
-          - text: Azure Database for PostgreSQL - Flexible server backup support
-            url: backup-azure-database-postgresql-flex-overview.md
-          - text: Secure by default with Vault soft delete (preview)
-            url: secure-by-default.md
-          - text: WORM enabled Immutable Storage for Recovery Services vaults
-            url: backup-azure-immutable-vault-concept.md  
-          - text: Vaulted backup and Cross Region Restore support for AKS
-            url: azure-kubernetes-service-backup-overview.md          
 
   # Card
   - title: Back up Azure VMs

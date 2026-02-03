@@ -71,12 +71,33 @@ For more information about the `BlobTrigger` attribute, see [Attributes](#attrib
 
 This function uses a byte array to write a log when a blob is added or updated in the `myblob` container.
 
+Polling-based:
+
+The following example uses the default polling trigger:
+
 ```java
 @FunctionName("blobprocessor")
 public void run(
   @BlobTrigger(name = "file",
                dataType = "binary",
                path = "myblob/{name}",
+               connection = "MyStorageAccountAppSetting") byte[] content,
+  @BindingName("name") String filename,
+  final ExecutionContext context
+) {
+  context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
+}
+```
+
+The following example uses an Event Grid trigger:
+
+```java
+@FunctionName("blobprocessor")
+public void run(
+  @BlobTrigger(name = "file",
+               dataType = "binary",
+               path = "myblob/{name}",
+               source = "EventGrid",
                connection = "MyStorageAccountAppSetting") byte[] content,
   @BindingName("name") String filename,
   final ExecutionContext context

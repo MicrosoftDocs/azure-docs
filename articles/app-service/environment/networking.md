@@ -3,7 +3,7 @@ title: App Service Environment networking
 description: App Service Environment networking details
 author: seligj95
 ms.topic: overview
-ms.date: 10/15/2025
+ms.date: 02/03/2026
 ms.author: jordanselig
 ms.service: azure-app-service
 ---
@@ -131,6 +131,47 @@ Your application uses one of the default outbound addresses for egress traffic t
 
 > [!NOTE]
 > Outbound SMTP connectivity (port 25) is supported for App Service Environment v3. The supportability is determined by a setting on the subscription where the virtual network is deployed. For virtual networks/subnets created before 1. August 2022 you need to initiate a temporary configuration change to the virtual network/subnet for the setting to be synchronized from the subscription. An example could be to add a temporary subnet, associate/dissociate an NSG temporarily, or configure a service endpoint temporarily. For more information and troubleshooting, see [Troubleshoot outbound SMTP connectivity problems in Azure](../../virtual-network/troubleshoot-outbound-smtp-connectivity.md).
+
+## Outbound network segmentation
+
+Outbound network segmentation allows you to join apps to alternate subnets to control how outbound traffic is routed. By default, all outbound traffic from an App Service Environment originates from the subnet hosting the App Service Environment.
+
+### Enable outbound network segmentation
+
+You must enable outbound network segmentation when you create your App Service Environment. You can't enable this feature on existing App Service Environments. Portal support for enabling this cluster setting or joining alternate subnets isn't available.
+
+To enable the feature, configure the `MultipleSubnetJoinEnabled` cluster setting when you create the App Service Environment using an Azure Resource Manager or Bicep template:
+
+```json
+"clusterSettings": [
+    {
+        "name": "MultipleSubnetJoinEnabled",
+        "value": "true"
+    }
+]
+```
+
+For guidance on configuring cluster settings, see [Custom configuration settings for App Service Environments](app-service-app-service-environment-custom-settings.md).
+
+### Join an app to an alternate subnet
+
+The alternate subnet must be empty and delegated to `Microsoft.Web/serverFarms`. Ensure that [application traffic routing is enabled for your app](../configure-vnet-integration-routing.md#configure-application-routing) to route all traffic through the alternate subnet.
+
+To join an app to an alternate subnet, use the following Azure CLI command:
+
+```azurecli-interactive
+az webapp vnet-integration add --resource-group <APP-RESOURCE-GROUP> --name <APP-NAME> --vnet <VNET-NAME> --subnet <ALTERNATE-SUBNET-NAME>
+```
+
+If your alternate subnet is in a different resource group than your app, run `az webapp vnet-integration add -h` to learn how to specify the resource ID.
+
+To change the alternate subnet for an app, first remove the existing integration and then add a new one.
+
+### Limitations
+
+- Each app from a given plan can only integrate with one alternate subnet.
+- A plan can have up to four different subnet connections, and apps in the same plan can use any of the connections.
+- This feature isn't compatible with the [multi-plan subnet join](../overview-vnet-integration.md#subnet-requirements) feature available in the multitenant App Service offering.
 
 ## Private endpoint
 

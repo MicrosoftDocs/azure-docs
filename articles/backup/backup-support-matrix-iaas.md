@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM backups
 description: Get a summary of support settings and limitations for backing up Azure VMs by using the Azure Backup service.
 ms.topic: reference
-ms.date: 10/27/2025
+ms.date: 01/28/2026
 ms.custom:
   - references_regions
   - linux-related-content
@@ -104,6 +104,10 @@ Azure Backup provides the following support for customers to author their own pr
 
 
 
+## Support for Confidential VM backup (preview)
+
+[!INCLUDE [Confidential VM backup support scenarios..](../../includes/confidential-vm-backup-support-matrix.md)]
+
 ## Support for agentless multi-disk crash-consistent VM backup
 
 [!INCLUDE [backup-azure-agentless-multi-disk-crash-consistent-vm-backup-support-scenarios.md](../../includes/backup-azure-agentless-multi-disk-crash-consistent-vm-backup-support-scenarios.md)]
@@ -187,8 +191,8 @@ Configure standalone Azure VMs in Windows Storage Spaces direct | Not supported.
 [Restore Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration) | Supported for the flexible orchestration model to back up and restore a single Azure VM.
 Restore with managed identities | Supported for managed Azure VMs. <br><br> Not supported for classic and unmanaged Azure VMs. <br><br> Cross-region restore isn't supported with managed identities. <br><br> Currently, this is available in all Azure public and national cloud regions. <br><br> [Learn more](backup-azure-arm-restore-vms.md#restore-vms-with-managed-identities).
 <a name="tvm-backup">Back up trusted launch VMs</a>    |  Supported via [Enhanced policy](backup-azure-vms-enhanced-policy.md) and [Standard policy](backup-instant-restore-capability.md). <br><br>    **Feature details**:  <br><br> - Backup of a VM with Data disks having Security Type 'TrustedLaunch' or 'ConfidentialVM' is not supported. This can happen if you attach the OS disk from a Trusted Launch as a Data disk to another VM. <br>   - Item-level restore is supported for the [applicable scenarios](#support-for-file-level-restore).      <br><br>  **Backup support via Enhanced policy**:  <br><br> - Azure portal, PowerShell, and REST API clients support trusted launch VM backup with Enhanced policy.   <br>  - The Azure portal allows you to enable backup through a [Recovery Services vault](backup-azure-arm-vms-prepare.md), the [VM management pane](backup-during-vm-creation.md#run-an-on-demand-backup-after-vm-creation), and the VM creation pane.   <br>  - Resiliency supports [backup](../resiliency/tutorial-configure-protection-datasource.md), [alerts](../resiliency/tutorial-monitor-alerts-metrics.md), and [monitoring](../resiliency/tutorial-monitor-protection-summary.md) for trusted launch VMs.    <br><br>       **Backup support via Standard policy**:    <br><br>  - CLI (version 2.73.0 and later), PowerShell (version Az 14.0.0 and later), and REST API (version 2025-01-01 and later) only support trusted launch VM backup with Standard policy.  <br>  - Trusted Launch virtual machines with standard policy use managed disk snapshots for Instant Restore. In this scenario, you incur Snapshot storage cost same as that of Enhanced policy. [Learn more](backup-instant-restore-capability.md#cost-impact).    <br><br>    Note that migration of an existing Gen2 VM (protected by Azure Backup Standard policy) to Trusted Launch VM requires first [switching to Enhanced policy](backup-azure-vm-migrate-enhanced-policy.md).
-[Back up confidential VMs](../confidential-computing/confidential-vm-overview.md) | Unsupported. <br><br>    Note that the following limited preview support scenarios are discontinued and currently not available: <br><br> - Backup of Confidential VMs with no confidential disk encryption.   <br> - Backup of Confidential VMs with confidential OS disk encryption through a platform-managed key (PMK).
-Backup of VMs with SSE and CMK encryption using HSM | Supported. <br><br> You must assign the permissions get, wrap, and unwrap key to the Key Vault to User-assigned managed identity.
+[Back up confidential VMs](../confidential-computing/confidential-vm-overview.md) | Supported (in preview). [Learn more about the supported scenarios](#support-for-confidential-vm-backup-preview).
+
 
 ## VM storage support
 

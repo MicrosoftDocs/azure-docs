@@ -122,7 +122,7 @@ builder.Logging.Services.Configure<LoggerFilterOptions>(options =>
     {
         // The Application Insights SDK adds a default logging filter that instructs ILogger to capture only Warning and more severe logs. Application Insights requires an explicit override.
         // Log levels can also be configured using appsettings.json. For more information, see https://learn.microsoft.com/azure/azure-monitor/app/worker-service#ilogger-logs
-        LoggerFilterRule defaultRule = options.Rules.FirstOrDefault(rule => rule.ProviderName
+        LoggerFilterRule? defaultRule = options.Rules.FirstOrDefault(rule => rule.ProviderName
             == "Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider");
         if (defaultRule is not null)
         {
@@ -828,6 +828,9 @@ public class MyFunction {
 }
 ```
 
+> [!NOTE]
+> When you inject an `ILogger<T>` in your class constructor, like the previous example, the log category is automatically set to the fully qualified name of that class, such as `MyFunctionApp.MyFunction`. These category names contain `.` (period) characters. When you host your function app on Linux, you can't use environment variables to override log levels for categories that contain periods. To work around this limitation, you can instead [configure log levels in your code](#managing-log-levels) or in an `appsettings.json` file.
+
 You can also get the logger from a [FunctionContext] object passed to your function. Call the [GetLogger&lt;T&gt;] or [GetLogger] method, passing a string value that is the name for the category in which the logs are written. The category is usually the name of the specific function from which the logs are written. For more information about categories, see the [monitoring article](functions-monitoring.md#log-levels-and-categories).
 
 Use the methods of [`ILogger<T>`][ILogger&lt;T&gt;] and [`ILogger`][ILogger] to write various log levels, such as `LogWarning` or `LogError`. For more information about log levels, see the [monitoring article](functions-monitoring.md#log-levels-and-categories). You can customize the log levels for components added to your code by registering filters:
@@ -1005,7 +1008,7 @@ builder.Services
 
 builder.Logging.Services.Configure<LoggerFilterOptions>(options =>
     {
-        LoggerFilterRule defaultRule = options.Rules.FirstOrDefault(rule => rule.ProviderName
+        LoggerFilterRule? defaultRule = options.Rules.FirstOrDefault(rule => rule.ProviderName
             == "Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider");
         if (defaultRule is not null)
         {
@@ -1036,7 +1039,7 @@ var host = new HostBuilder()
     {
         logging.Services.Configure<LoggerFilterOptions>(options =>
         {
-            LoggerFilterRule defaultRule = options.Rules.FirstOrDefault(rule => rule.ProviderName
+            LoggerFilterRule? defaultRule = options.Rules.FirstOrDefault(rule => rule.ProviderName
                 == "Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider");
             if (defaultRule is not null)
             {
