@@ -102,7 +102,7 @@ import org.apache.spark.sql.Row
 import org.apache.spark.sql.types._
 val url = "jdbc:sqlserver://<server>:<port>;database=<database>;"
 val row_data = Seq(
-  Row("Alice", 2),
+  Row("Alice", 1),
   Row("Bob", 2),
   Row("Charlie", 3)
 )
