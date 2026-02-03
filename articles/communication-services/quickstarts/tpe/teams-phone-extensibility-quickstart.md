@@ -192,14 +192,31 @@ Once you grant the Microsoft Entra application appropriate Graph permissions, th
 
 The CCaaS Admin also needs elevated permissions to access Teams Resource Account information. The Graph API is getting Teams Resource Account information and that information is an asset owned by Teams Admin, so it requires privileged access as a Teams Admin. For more information, see [Permissions for Managing Resource Accounts](/microsoftteams/manage-resource-accounts#assign-permissions-for-managing-a-resource-account).
 
-Query definition:
+
+### Querying Teams Resource Accounts with Filtering and Paging
+
+The Teams Resource Accounts API supports **OData filtering**, **server‑side paging**, and **cursor-based continuation** via the `@odata.nextLink` field.  
+This enables CCaaS developers to efficiently retrieve Resource Accounts associated with their Azure Communication Services (ACS) resources.
+
+#### Query definition
+
 
 > https://graph.microsoft.com/beta/admin/teams/resourceAccounts 
 
-Example request URI (RURI) to get Resource Accounts with a filter on appId:
+You can extend the base query with OData options such as:
+
+- `$filter` — filter Resource Accounts by fields such as `appId` or `acsResourceId`
+- `$top` — limit the number of results returned per page
+- `@odata.nextLink` — Graph-provided URL for retrieving subsequent pages
+
+---
+
+### Filter by ACS Resource ID
+
+The following example returns only Resource Accounts that are associated with a specific ACS Resource ID:
 
 ```rest
-GET https://graph.microsoft.com/beta/admin/teams/resourceAccounts?$filter=appid eq 'aa123456-1234-1234-1234-aaa123456789'
+GET https://graph.microsoft.com/beta/admin/teams/resourceAccounts?$filter=acsResourceId eq '18fd7cfe-58c2-4f96-ad84-aa8bb1180fba'
 ```
 
 Successful response:
@@ -208,15 +225,109 @@ Successful response:
 {
   "@odata.context": "https://graph.microsoft.com/beta/$metadata#admin/teams/resourceAccounts",
   "value": [
-  {
+    {
       "id": "cc123456-5678-5678-1234-ccc123456789",
       "userPrincipalName": "myteamsphoneresourceaccount@contoso.com",
-      "appId": "aa123456-1234-1234-1234-aaa123456789",
       "displayName": "My RA Name",
+      "appId": "aa123456-1234-1234-1234-aaa123456789",
       "phoneNumber": "tel:+1234567890",
-      "acsResourceId": "bb567890-1234-1234-1234-bbb123456789"
-   }]
-} 
+      "acsResourceId": "18fd7cfe-58c2-4f96-ad84-aa8bb1180fba"
+    }
+  ]
+}
+```
+
+### Paging with $top
+
+You can use $top to specify the maximum number of results per page:
+
+```rest
+GET https://graph.microsoft.com/beta/admin/teams/resourceAccounts?$top=5
+```
+
+If more than 5 Resource Accounts exist, Microsoft Graph returns an @odata.nextLink value for the next page:
+
+```rest
+
+{
+  "value": [
+    {
+      "id": "...",
+      "displayName": "...",
+      "acsResourceId": "..."
+    }
+  ],
+  "@odata.nextLink":
+    "https://graph.microsoft.com/beta/admin/teams/resourceAccounts?$top=5&$skiptoken=abc123..."
+}
+```
+To continue paging, call the URL in the @odata.nextLink field until it is no longer present.
+
+### Combined paging and filtering
+
+Developers can combine $top and $filter to retrieve a filtered, paginated list:
+
+```rest
+GET https://graph.microsoft.com/beta/admin/teams/resourceAccounts?$top=5&$filter=acsResourceId eq '18fd7cfe-58c2-4f96-ad84-aa8bb1180fba'
+```
+This returns up to 5 Resource Accounts that match the specified ACS Resource ID.
+
+### C# Example — Filtering + Paging
+The following C# sample demonstrates how to:
+
+1. Query Teams Resource Accounts
+2. Filter by acsResourceId
+3. Limit results to 5 per page
+4. Follow @odata.nextLink for full pagination
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
+
+public static async Task<List<JObject>> GetResourceAccountsAsync(
+    string acsResourceId,
+    string accessToken)
+{
+    var results = new List<JObject>();
+
+    string requestUrl =
+        $"https://graph.microsoft.com/beta/admin/teams/resourceAccounts" +
+        $"?$top=5&$filter=acsResourceId eq '{acsResourceId}'";
+
+    string nextUrl = requestUrl;
+
+    while (!string.IsNullOrEmpty(nextUrl))
+    {
+        var request = new HttpRequestMessage(HttpMethod.Get, nextUrl);
+        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+        using (var client = new HttpClient())
+        {
+            var response = await client.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+
+            var json = await response.Content.ReadAsStringAsync();
+            var page = JObject.Parse(json);
+
+            if (page["value"] is JArray items)
+            {
+                foreach (var item in items)
+                {
+                    results.Add((JObject)item);
+                }
+            }
+
+            // Continue to the next page if returned
+            nextUrl = (string)page["@odata.nextLink"];
+        }
+    }
+
+    return results;
+}
 ```
 
 ### CCaaS Developer: Receive and answer incoming call
