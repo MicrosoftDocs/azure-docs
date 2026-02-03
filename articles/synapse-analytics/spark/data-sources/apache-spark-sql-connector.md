@@ -134,7 +134,6 @@ The following examples show how to use authentication methods other than Microso
 # [Service Principal or Access Token](#tab/accesstoken)
 
 ```python
-import com.microsoft.sqlserver.jdbc.spark
 url = "jdbc:sqlserver://<server>:<port>;database=<database>;"
 row_data = [("Alice", 1),("Bob", 2),("Charlie", 3)]
 column_header = ["Name", "Age"]
