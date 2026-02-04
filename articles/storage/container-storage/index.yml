@@ -25,19 +25,24 @@ landingContent:
           - text: What is Azure Container Storage?
             url: container-storage-introduction.md
 
+
   # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Install Azure Container Storage for use with Azure Kubernetes Service
+            url: install-container-storage-aks.md
+
+# Card (optional)
   - title: How-to
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Install Azure Container Storage for use with Azure Kubernetes Service
-            url: install-container-storage-aks.md
           - text: Use Azure Container Storage with local NVMe
             url: use-container-storage-with-local-disk.md
-          - text: Use Azure Container Storage with Elastic SAN
-            url: use-container-storage-with-elastic-san.md
 
-  # Card (optional)
+# Card (optional)
   - title: Frequently asked questions
     linkLists:
       - linkListType: concept

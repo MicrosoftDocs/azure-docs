@@ -6,7 +6,6 @@ ms.service: azure-vmware
 ms.date: 12/16/2025
 ms.custom:
   - build-2025
-# customer intent: As a cloud administrator, I want to learn about Azure VMware Solution Generation 2 private cloud design considerations so that I can make informed decisions about my Azure VMware Solution deployment.
 # Customer intent: As a cloud administrator, I want to understand the design considerations for Azure VMware Solution Generation 2 private clouds so that I can effectively plan and implement my private cloud deployment while ensuring compliance with current limitations and requirements.
 ---
 
@@ -36,8 +35,7 @@ The following functionality is limited during this time. These limitations will 
 1. **vSAN Stretched Clusters** isn't supported.
 
 11. **Public IP down to the VMware NSX Microsoft Edge** for configuring internet will not be supported. You can find what internet options are supported in [Internet connectivity options](native-internet-connectivity-design-considerations.md).  
-1. During **unplanned maintenance** – like a host hardware failure – on any of the first four hosts in your SDDC, you may experience a temporary North-South network connectivity disruption for some workloads, lasting up to 30 seconds. North-South connectivity refers to traffic between your AVS VMware workloads and external endpoints beyond the NSX-T Tier-0 (T0) Edge, such as Azure services or on-premises environments.  
-
+1. During **unplanned maintenance** – like a host hardware failure – on any of the first four hosts in your SDDC, you may experience a temporary North-South network connectivity disruption for some workloads, lasting up to 30 seconds. North-South connectivity refers to traffic between your AVS VMware workloads and external endpoints beyond the NSX-T Tier-0 (T0) Edge, such as Azure services or on-premises environments. This limitation has been removed in specific Azure regions. Check with with Azure Support to see if your region is affected by this limitation.
 13. **Network Security Groups** associated with the private cloud host virtual network must be created in the ***same*** resource group as the private cloud and its virtual network.  
 14. **Cross-resource group and cross-subscription references** from customer virtual networks to the Azure VMware Solution virtual network are not supported by default. This includes resource types such as: User-defined routes (UDRs), DDoS Protection Plans, and other linked networking resources. If a customer virtual network is associated with one of these references that resides in a different resource group or subscription than the Azure VMware Solution virtual network, network programming (such as NSX segment propagation) may fail. To avoid issues, customers must ensure that the Azure VMware Solution virtual network isn't linked to resources in a different resource group or subscription and detach such resources (for example, DDoS Protection Plans) from the virtual network before proceeding.  
     - To maintain your cross-resource group reference, create a role assignment from your cross-resource group or subscription and give the “AzS VIS Prod App” the "AVS on Fleet VIS Role". The role assignment allows you to use reference and have your reference correctly applied for your Azure VMware Solution private cloud.  
@@ -88,13 +86,14 @@ Example /22 CIDR network address block **10.31.0.0/22** is divided into the foll
 | :-- | :-- | :-- | :-- |
 |VMware NSX Network | /27 | NSX Manager network. | 10.31.0.0/27 |
 |vCSA Network | /27 | vCenter Server network. | 10.31.0.32/27  |
-|avs-mgmt| /27 |The management appliances (vCenter Server and NSX manager) are behind the "avs-mgmt” subnet, programmed as secondary IP ranges on this subnet. | 10.31.0.64/27  |
+|avs-mgmt| /27|The management appliances (vCenter Server and NSX manager) are behind the "avs-mgmt” subnet, programmed as secondary IP ranges on this subnet. You may need to adjust the route tables associated with this subnet if your network traffic, for your management appliances, needs to route through an NVA or firewall | 10.31.0.64/27  |
 |avs-vnet-sync| /27 |Used by Azure VMware Solution Gen 2 to program routes created in VMware NSX into the virtual network. | 10.31.0.96/27 |
-|avs-services | /27 |Used for Azure VMware Solution Gen 2 provider services. Also used to configure private DNS resolution for your private cloud. | 10.31.0.160/27  |
-|avs-nsx-gw, avs-nsx-gw-1| /28 |Subnets off each of the T0 Gateways per edge. These subnets are used to program VMware NSX network segments as secondary IPs addresses. | 10.31.0.224/28, 10.31.0.240/28 |
-|esx-mgmt-vmk1 | /24 |vmk1 is the management interface used by customers to access the host. IPs from the vmk1 interface come from these subnets. All of the vmk1 traffic for all hosts comes from this subnet range. | 10.31.1.0/24  |
-|esx-vmotion-vmk2 | /24 | vMotion VMkernel interfaces. | 10.31.2.0/24  |
-|esx-vsan-vmk3  | /24 | vSAN VMkernel interfaces and node communication. | 10.31.3.0/24 |
+|avs-services | /27 |Used for Azure VMware Solution Gen 2 provider services. Also used to configure private DNS resolution for your private cloud. | 10.31.0.224/27  |
+|avs-nsx-gw, avs-nsx-gw-1| /27 |Subnets off each of the T0 Gateways per edge. These subnets are used to program VMware NSX network segments as secondary IPs addresses. |10.31.0.128/27, 10.31.0.160/27 |
+|esx-mgmt-vmk1 | /25 |vmk1 is the management interface used by customers to access the host. IPs from the vmk1 interface come from these subnets. All of the vmk1 traffic for all hosts comes from this subnet range. | 10.31.1.0/25  |
+|esx-vmotion-vmk2 | /25 | vMotion VMkernel interfaces. | 10.31.1.128/25  |
+|esx-vsan-vmk3  | /25 | vSAN VMkernel interfaces and node communication. | 10.31.2.0/25 |
+|avs-network-infra-gw|/26|Used by Azure VMware Solution management for programming NSX segments. Customers do no need to modify this subnet because it s only used for Azure VMware Solution infrastructure.|10.31.2.128/26|
 |Reserved | /27 | Reserved Space. | 10.31.0.128/27 |
 |Reserved | /27 | Reserved Space. | 10.31.0.192/27 |
 

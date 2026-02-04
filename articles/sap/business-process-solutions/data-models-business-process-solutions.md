@@ -3,7 +3,7 @@ title: Data models in Business Process Solutions
 description: Learn about various data models and how they provide essential building blocks for enterprise analytics to transform raw data and how to use it to drive business value.
 author: mohitmakhija1
 ms.service: sap-on-azure
-ms.subservice:
+ms.subservice: center-sap-solutions
 ms.topic: overview
 ms.custom: subject-monitoring
 ms.date: 11/07/2025

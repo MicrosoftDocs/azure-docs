@@ -290,12 +290,26 @@ productDirectory:
         - analytics
       url: hdinsight/index.yml
     # Card
-    - title: Power BI Embedded
-      summary: Embed fully interactive, stunning data visualizations in your applications
+    - title: Power BI
+      summary: Turn your data into visually immersive and interactive insights
       imageSrc: ./media/index/power-bi.svg
       azureCategories:
         - analytics
       url: /power-bi/developer/azure-pbie-what-is-power-bi-embedded
+    # Card
+    - title: Power BI Embedded
+      summary: Embed fully interactive, stunning data visualizations in your applications
+      imageSrc: ./media/index/power-bi-embedded.svg
+      azureCategories:
+        - analytics
+      url: /power-bi/fundamentals/power-bi-overview
+    # Card
+    - title: Microsoft Fabric
+      summary: Import, transform, analyze, and govern data
+      imageSrc: ./media/index/fabric.svg
+      azureCategories:
+        - analytics
+      url: /fabric/fundamentals/microsoft-fabric-overview
     # Card
     - title: Azure Cosmos DB
       summary: Fast NoSQL database with open APIs for any scale

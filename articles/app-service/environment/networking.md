@@ -167,8 +167,18 @@ If your alternate subnet is in a different resource group than your app, run `az
 
 To change the alternate subnet for an app, first remove the existing integration and then add a new one.
 
+To remove the alternate subnet join for an app, remove the virtual network integration using the Azure CLI or ARM/Bicep:
+
+```azurecli-interactive
+az webapp vnet-integration remove --resource-group <APP-RESOURCE-GROUP> --name <APP-NAME>
+```
+
+> [!IMPORTANT]
+> Don't add the App Service Environment's subnet as the alternate subnet. This configuration causes a conflict and will prevent your app from functioning correctly.
+
 ### Limitations
 
+- The app, App Service Environment, and virtual network must all be in the same subscription.
 - Each app from a given plan can only integrate with one alternate subnet.
 - A plan can have up to four different subnet connections, and apps in the same plan can use any of the connections.
 - This feature isn't compatible with the [multi-plan subnet join](../overview-vnet-integration.md#subnet-requirements) feature available in the multitenant App Service offering.

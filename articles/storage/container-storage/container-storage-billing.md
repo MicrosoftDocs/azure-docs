@@ -18,7 +18,11 @@ ms.topic: concept-article
 
 ## Azure Container Storage pricing model
 
-Azure Container Storage doesn’t add any service or orchestration fees. You only pay for the underlying storage you choose. Local NVMe is included in your Azure Kubernetes Service (AKS) virtual machine pricing. Azure Elastic SAN is billed at its standard resource rates.
+Because Azure Container Storage (version 2.x.x) currently only supports local NVMe disk, there are no extra charges for backing storage. The cost of local NVMe disks is included in your Azure Kubernetes Service (AKS) virtual machine pricing. There's no service fee for orchestration.
+
+## Azure Container Storage with local NVMe Disk
+
+If you use local NVMe disks on your AKS cluster nodes, using Azure Container Storage (version 2.x.x) doesn't incur extra costs.
 
 ## See also
 

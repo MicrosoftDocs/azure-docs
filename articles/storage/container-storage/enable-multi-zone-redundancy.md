@@ -1,205 +1,93 @@
 ---
-title: Enable multi-zone redundancy in Azure Container Storage (version 2.x.x) with Azure Elastic SAN
-description: Enable storage redundancy across multiple availability zones in Azure Container Storage to improve stateful application availability. Use locally redundant storage (LRS) or zone-redundant storage (ZRS) on Azure Elastic SAN.
-author: saurabh0501
+title: Enable multi-zone redundancy in Azure Container Storage (version 1.x.x)
+description: Enable storage redundancy across multiple availability zones in Azure Container Storage (version 1.x.x) to improve stateful application availability. Use multi-zone storage pools and zone-redundant storage (ZRS) disks.
+author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 01/29/2026
-ms.author: saurabsharma
-# Customer intent: As a cloud engineer, I want to enable multi-zone storage redundancy in Azure Container Storage (version 2.x.x), so that I can enhance the availability of my stateful applications running in a multi-zone Kubernetes environment.
+ms.date: 09/03/2025
+ms.author: kendownie
+# Customer intent: As a cloud engineer, I want to enable multi-zone storage redundancy in Azure Container Storage (version 1.x.x), so that I can enhance the availability of my stateful applications running in a multi-zone Kubernetes environment.
 ---
 
-# Enable multi-zone storage redundancy in Azure Container Storage
+# Enable multi-zone storage redundancy in Azure Container Storage (version 1.x.x)
 
-With Azure Container Storage, you can improve stateful application availability by using zone-redundant storage (ZRS) or locally redundant storage (LRS). Choose LRS with explicit zonal placement or ZRS for synchronous replication across three availability zones, based on your resiliency and performance needs.
+You can improve stateful application availability by using multi-zone storage pools and zone-redundant storage (ZRS) disks when using Azure Container Storage (version 1.x.x) in a multi-zone Azure Kubernetes Service (AKS) cluster. To create an AKS cluster that uses availability zones, see [Use availability zones in Azure Kubernetes Service](/azure/aks/availability-zones).
 
-## Choose a redundancy model
-
-**Locally redundant storage (LRS)**: With LRS, Azure stores three copies of each Elastic SAN in a single datacenter. This redundancy protects against hardware faults such as a failed disk. If a disaster occurs in that datacenter, all replicas can be lost or unavailable.
-
-**Zone-redundant storage (ZRS)**: With ZRS, Azure stores three copies of each Elastic SAN across three distinct availability zones in the same region. Writes are synchronous. The write completes only after all three replicas update.
+> [!IMPORTANT]
+> This article covers features and capabilities available in Azure Container Storage (version 1.x.x). [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available.
 
 ## Prerequisites
 
-[!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
+- This article requires the latest version of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges.
+- You'll need an AKS cluster with a node pool of at least three virtual machines (VMs) for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
+- This article assumes you've already [installed Azure Container Storage (version 1.x.x)](container-storage-aks-quickstart-version-1.md) on your AKS cluster.
+- You'll need the Kubernetes command-line client, `kubectl`. It's already installed if you're using Azure Cloud Shell, or you can install it locally by running the `az aks install-cli` command.
 
-- If you use Elastic SAN for the first time in the subscription, run this one-time registration command:
+## Create a multi-zone storage pool
 
-```azurecli-interactive
-az provider register --namespace Microsoft.ElasticSan
-```
+In your storage pool definition, you can specify the zones where you want your storage capacity to be distributed across. The total storage pool capacity will be distributed evenly across the number of zones specified. For example, if two zones are specified, each zone gets half of the storage pool capacity; if three zones are specified, each zone gets one-third of the total capacity. Corresponding storage will be provisioned in each of the zones. This is useful when running workloads that offer application-level replication such as Cassandra.
 
-- When ZRS is newly enabled in a region, you might need to register a subscription-level feature flag so Azure Container Storage can deploy SAN targets:
+If there are no nodes available in a specified zone, the capacity will be provisioned once a node is available in that zone. Persistent volumes (PVs) can only be created from storage pool capacity from one zone.
 
-```azurecli
-Register-AzProviderFeature -FeatureName EnableElasticSANTargetDeployment -ProviderNamespace Microsoft.ElasticSan
-```
+Valid values for `zones` are:
 
-- Verify that the region supports your chosen redundancy option. See the current [Elastic SAN region availability](../elastic-san/elastic-san-create.md#).
+- [""]
+- ["1"]
+- ["2"]
+- ["3"]
+- ["1", "2"]
+- ["1", "3"]
+- ["2", "3"]
+- ["1", "2", "3"]
 
-## Create a StorageClass with locally redundant storage
+Follow these steps to create a multi-zone storage pool that uses Azure Disks. For `zones`, choose a valid value.
 
-### Use an LRS SKU without specifying a zone
+1. Use your favorite text editor to create a YAML manifest file such as `code acstor-multizone-storagepool.yaml`.
 
-If a region supports zones and you don't specify a zone in the StorageClass, Azure Container Storage defaults to zone 1.
+1. Paste in the following code and save the file. The storage pool **name** value can be whatever you want. For **storage**, specify the amount of storage capacity for the pool in Gi or Ti.
 
-Create a YAML manifest file such as `storageclass.yaml`, then use the following specification.
+   ```yml
+   apiVersion: containerstorage.azure.com/v1
+   kind: StoragePool
+   metadata:
+     name: azuredisk
+     namespace: acstor
+   spec:
+     zones: ["1", "2", "3"]
+     poolType:
+       azureDisk: {}
+     resources:
+       requests:
+         storage: 1Ti
+   ```
 
-```yaml
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: esan-lrs-default
-provisioner: san.csi.azure.com
-parameters:
-  skuName: Premium_LRS
-reclaimPolicy: Delete
-allowVolumeExpansion: true
-volumeBindingMode: WaitForFirstConsumer
-```
+1. Apply the YAML manifest file to create the multi-zone storage pool.
+   
+   ```azurecli-interactive
+   kubectl apply -f acstor-multizone-storagepool.yaml 
+   ```
 
-### Use an LRS SKU and specify a zone
+## Use zone-redundant storage (ZRS) disks
 
-Use a single zone when you create an LRS Elastic SAN in regions that support availability zones. In regions without zones, omit the `zones` parameter to avoid validation failures.
+If your workload requires storage redundancy, you can leverage disks that use [zone-redundant storage](/azure/virtual-machines/disks-deploy-zrs), which copies your data synchronously across three Azure availability zones in the primary region.
 
-For LRS with zone pinning, the scheduler places the pod on a node in the specified zone, and the persistent volume (PV) binds to the corresponding zone's SAN. LRS volumes are accessible from any zone, so Azure Container Storage doesn't restrict cross-zone attachment. The `allowedTopologies` section ensures the PV binds to a node in the same zone as the LRS SAN.
+You can specify the disk `skuName` as either `StandardSSD_ZRS` or `Premium_ZRS` in your storage pool definition, as in the following example.
 
-Create a YAML manifest file such as `storageclass.yaml`, then use the following specification.
-
-```yaml
-# LRS with a zone (2)
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: esan-lrs-zone2
-provisioner: san.csi.azure.com
-parameters:
-  skuName: Premium_LRS
-  zones: "2"
-reclaimPolicy: Delete
-allowVolumeExpansion: true
-volumeBindingMode: WaitForFirstConsumer
-# Optional:
-allowedTopologies:
-  - matchLabelExpressions:
-      - key: topology.kubernetes.io/zone
-        values:
-          - canadacentral-2
-```
-
-## Create a StorageClass with zone-redundant storage
-
-You don't need to specify zones because Azure Container Storage defaults to all three zones. If you set the `zones` field, list all three zones as "1,2,3".
-
-Create a YAML manifest file such as `storageclass.yaml`, then use the following specification.
-
-```yaml
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: esan-zrs-zones
-provisioner: san.csi.azure.com
-parameters:
-  skuName: Premium_ZRS
-  zones: "1,2,3" # optional
-reclaimPolicy: Delete
-allowVolumeExpansion: true
-volumeBindingMode: WaitForFirstConsumer
-```
-
-## Create the StorageClass
-
-```azurecli
-kubectl apply -f storageclass.yaml
-```
-
-Verify that the StorageClass is created:
-
-```azurecli
-kubectl get storageclass <storage-class-name>
-```
-
-You should see output similar to:
-
-```output
-NAME             PROVISIONER          RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
-esan-zrs-zones   san.csi.azure.com    Delete          WaitForFirstConsumer   true                   10s
-```
-
-## Create a persistent volume claim
-
-Create a YAML manifest file such as `acstor-pvc.yaml`. The PVC `name` value can be any value. Use the StorageClass name that you created in the previous steps.
-
-```yaml
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: managedpvc
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
-  storageClassName: esan-zrs-zones # or esan-lrs-zone2, esan-lrs-default
-```
-
-Apply the manifest to create the PVC.
-
-```azurecli
-kubectl apply -f acstor-pvc.yaml
-```
-
-You should see output similar to:
-
-```output
-persistentvolumeclaim/managedpvc created
-```
-
-## Deploy a pod and attach a persistent volume
-
-Create a YAML manifest file such as `acstor-pod.yaml`.
-
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: esan-app
-spec:
-  containers:
-    - name: app
-      image: mcr.microsoft.com/oss/nginx/nginx:1.25.2
-      volumeMounts:
-        - name: data
-          mountPath: /data
-  volumes:
-    - name: data
-      persistentVolumeClaim:
-        claimName: managedpvc
-```
-
-Apply the manifest to create the pod.
-
-```azurecli
-kubectl apply -f acstor-pod.yaml
-```
-
-You should see output similar to:
-
-```output
-pod/esan-app created
-```
-
-Verify the PV and StorageClass:
-
-```azurecli
-kubectl get pv
-kubectl describe sc esan-zrs-zones
-kubectl describe sc esan-lrs-zone2
-```
-
-Confirm regional support and redundancy model for the volumes with the [Elastic SAN region list](../elastic-san/elastic-san-create.md#).
+   ```yml
+   apiVersion: containerstorage.azure.com/v1
+   kind: StoragePool
+   metadata:
+     name: azuredisk
+     namespace: acstor
+   spec:
+     poolType:
+       azureDisk:
+         skuName: Premium_ZRS
+     resources:
+       requests:
+         storage: 1Ti
+   ```
 
 ## See also
 
-- [What is Azure Elastic SAN?](../elastic-san/elastic-san-introduction.md)
+- [What is Azure Container Storage (version 1.x.x)?](container-storage-introduction-version-1.md)

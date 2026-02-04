@@ -3,7 +3,7 @@ title: Attestation Document
 description: This article provides attestation document for Business Process Solutions.
 author: mohitmakhija1
 ms.service: sap-on-azure
-ms.subservice:
+ms.subservice: center-sap-solutions
 ms.topic: overview
 ms.custom: compliance, security
 ms.date: 11/07/2025

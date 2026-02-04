@@ -3,7 +3,7 @@ title: Configure SAP source system with Open Mirroring
 description: Learn how to configure SAP S/4HANA and SAP ECC source systems with Open Mirroring in Business Process Solutions, including setting up source system connections.
 author: mohitmakhija1
 ms.service: sap-on-azure
-ms.subservice:
+ms.subservice: center-sap-solutions
 ms.topic: how-to
 ms.date: 11/07/2025
 ms.author: momakhij

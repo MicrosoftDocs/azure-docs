@@ -195,6 +195,8 @@ items:
               href: gpu-image-generation.md
             - name: Deploy an NVIDIA Llama3 NIM
               href: serverless-gpu-nim.md
+            - name: Deploy OpenAI GPT with OSS Ollama
+              href: deploy-openai-gpt-oss-ollama.md
     - name: Dynamic sessions
       items:
         - name: Overview

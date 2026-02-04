@@ -5,7 +5,7 @@ author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/08/2024
+ms.date: 02/03/2026
 ms.author: kendownie
 ms.custom: monitoring
 # Customer intent: As a cloud administrator, I want to create monitoring alerts for Azure Files metrics and logs, so that I can proactively identify and resolve issues before they impact users.
@@ -20,18 +20,22 @@ This article shows you how to create alerts on throttling, capacity, egress, and
 For more information about alert types and alerts, see [Monitor Azure Files](storage-files-monitoring.md#alerts).
 
 ## Applies to
-| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
-|-|-|-|-|:-:|:-:|
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Management model  | Billing model  | Media tier     | Redundancy     |                 SMB                 |                 NFS                 |
+| ----------------- | -------------- | -------------- | -------------- | :---------------------------------: | :---------------------------------: |
+| Microsoft.FileShares | Provisioned v2 | SSD (premium)  | Local (LRS)    | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.FileShares | Provisioned v2 | SSD (premium)  | Zone (ZRS)     | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | SSD (premium)  | Local (LRS)    |  ![Yes](../media/icons/yes-icon.png)  | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v2 | SSD (premium)  | Zone (ZRS)     |  ![Yes](../media/icons/yes-icon.png)  | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS)    | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS)     | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS)      | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage | Provisioned v1 | SSD (premium)  | Local (LRS)    | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium)  | Zone (ZRS)     | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Pay-as-you-go  | HDD (standard) | Local (LRS)    | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage | Pay-as-you-go  | HDD (standard) | Zone (ZRS)     | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage | Pay-as-you-go  | HDD (standard) | Geo (GRS)      | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage | Pay-as-you-go  | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
 
 ## Metrics to use for alerts
 
