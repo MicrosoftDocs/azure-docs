@@ -7,7 +7,7 @@ ms.author: jovanpop
 ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 03/24/2022
+ms.date: 02/04/2026
 ms.custom: sfi-ropc-nochange
 
 ---
@@ -124,11 +124,11 @@ You can use various tools to connect to Synapse SQL to query data.
 
 | Tool  | Dedicated | Serverless |
 | --- | --- | --- |
-| **Synapse Studio** | Yes, SQL scripts | Yes, SQL scripts can be used in Synapse Studio. Use SSMS or ADS instead of Synapse Studio if you are returning a large amount of data as a result. |
+| **Synapse Studio** | Yes, SQL scripts | Yes, SQL scripts can be used in Synapse Studio. Use SSMS or Visual Studio Code instead of Synapse Studio if you are returning a large amount of data as a result. |
 | **Power BI** | Yes | Yes, you can [use Power BI](tutorial-connect-power-bi-desktop.md) to create reports on serverless SQL pool. Import mode is recommended for reporting.|
 | **Azure Analysis Service** | Yes | Yes, you can load data in Azure Analysis Service using the serverless SQL pool. |
-| **Azure Data Studio (ADS)** | Yes | Yes, you can [use Azure Data Studio](get-started-azure-data-studio.md) (version 1.18.0 or higher) to query a serverless SQL pool. SQL scripts and SQL notebooks are supported. |
-| **SQL Server Management Studio (SSMS)** | Yes | Yes, you can [use SQL Server Management Studio](get-started-ssms.md) (version 18.5 or higher) to query a serverless SQL pool. SSMS shows only the objects that are available in the serverless SQL pools. |
+| **SQL Server Management Studio (SSMS)** | Yes | Yes, you can [use SQL Server Management Studio](get-started-ssms.md) to query a serverless SQL pool. SSMS shows only the objects that are available in the serverless SQL pools. |
+| **MSSQL extension for Visual Studio Code** | Yes | Yes, you can [use Visual Studio Code](/sql/tools/visual-studio-code-extensions/mssql/mssql-extension-visual-studio-code) to query a serverless SQL pool. SQL scripts and SQL notebooks are supported. Visual Studio Code shows only the objects that are available in the serverless SQL pools. |
 
 > [!NOTE]
 > You can use SSMS to connect to serverless SQL pool and query. It is partially supported starting from version 18.5, you can use it to connect and query only.

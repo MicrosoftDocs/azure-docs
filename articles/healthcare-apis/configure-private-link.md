@@ -39,7 +39,7 @@ Private link is configured at the workspace level, and is automatically configur
 There are two ways to create a private endpoint. Auto Approval flow allows a user that has RBAC permissions on the workspace to create a private endpoint without a need for approval. Manual Approval flow allows a user without permissions on the workspace to request that owners of the workspace or resource group approve the private endpoint.
 
 > [!NOTE]
-> When an approved private endpoint is created for Azure Health Data Services, public traffic to it is automatically disabled. 
+> When an approved private endpoint is created for Azure Health Data Services, public traffic to it's automatically disabled. 
 
 ### Auto approval
 
@@ -47,13 +47,13 @@ Ensure the region for the new private endpoint is the same as the region for you
 
 :::image type="content" source="media/private-link/private-link-basics.png" alt-text="Screenshot showing image of the Azure portal Basics Tab.":::
 
-For the resource type, search and select **Microsoft.HealthcareApis/workspaces** from the drop-down list. For the resource, select the workspace in the resource group. The target subresource, **healthcareworkspace**, is automatically populated.
+For the resource type, search and select **Microsoft.HealthcareApis/workspaces** from the drop-down list. For the resource, select the workspace in the resource group. The target subresource, **healthcare workspace**, is automatically populated.
 
 :::image type="content" source="media/private-link/private-link-resource.png" alt-text="Screenshot showing image of the Azure portal Resource tab.":::
 
 ### Manual approval
 
-For manual approval, select the second option under Resource, **Connect to an Azure resource by resource ID or alias**. For the resource ID, enter **subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.HealthcareApis/workspaces/{workspacename}**. For the Target subresource, enter **healthcareworkspace** as in Auto Approval.
+For manual approval, select the second option under Resource, **Connect to an Azure resource by resource ID or alias**. For the resource ID, enter **subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.HealthcareApis/workspaces/{workspacename}**. For the Target subresource, enter **healthcare workspace** as in Auto Approval.
 
 :::image type="content" source="media/private-link/private-link-resource-id.png" alt-text="Screen image of the Manual Approval Resources tab.":::
 
@@ -70,7 +70,7 @@ After the deployment is complete, browse to the new resource group that is creat
 :::image type="content" source="media/private-link/private-link-fhir-map.png" alt-text="Screenshot showing image of Private Link FHIR Mapping.":::
 
 Select **Virtual network links** from the **Settings**. Notice that the FHIR service is linked to the virtual network. 
-Make sure only a single VNET is associated with the DNS zone. If you need to support multiple VNETs, you must create separate DNS zones in different resource groups.During the setup confirm that the Private Endpoint and Private DNS Zone are not shared across multiple VNETs, as this is a common misconfiguration that can lead to IP resolution issues and access failures leading to HTTP 403 errors on the service.
+Make sure only a single VNET is associated with the DNS zone. If you need to support multiple VNETs, you must create separate DNS zones in different resource groups. During the setup confirm that the Private Endpoint and Private DNS Zone aren't shared across multiple VNETs, as this is a common misconfiguration that can lead to IP resolution issues and access failures leading to HTTP 403 errors on the service.
 
 :::image type="content" source="media/private-link/private-link-vnet-link-fhir.png" alt-text="Screenshot showing image of Private Link virtual network Link FHIR.":::
 
@@ -89,7 +89,7 @@ To verify that your service isn’t receiving public traffic after disabling pub
 It can take up to 5 minutes after updating the public network access flag before public traffic is blocked.
 
 > [!IMPORTANT]
-> Every time a new service gets added into the Private Link enabled workspace, wait for the provisioning to complete. Refresh the private endpoint if DNS A records are not getting updated for the newly added service(s) in the workspace. If DNS A records are not updated in your private DNS zone, requests to a newly added service(s) will not go over Private Link. 
+> Every time a new service gets added into the Private Link enabled workspace, wait for the provisioning to complete. Refresh the private endpoint if DNS A records aren't getting updated for the newly added services in the workspace. If DNS A records aren't updated in your private DNS zone, requests to a newly added services won't go over Private Link. 
 
 To ensure your Private Endpoint can send traffic to your server:
 
@@ -99,7 +99,20 @@ To ensure your Private Endpoint can send traffic to your server:
 
 ## FAQ
 
-### 1. From logs, requests failing with HTTP 403 are not due to bad tokens but instead they are rejected by Private Links, as their origin is not allowed to access the FHIR service.
+### 1. FHIR service configured with Private endpoints is missing their private link DNS entries, what should I do?
+FHIR services configured with a private endpoint that are missing private link DNS entries will resolve through the public CNAME path instead of resolving to the private IP address via *.private link.fhir.azurehealthcareapis.com. This is a known issue with the FHIR service that can intermittently occur during provisioning and may prevent the correct configuration of the private link DNS entries.
+Due to this issue, services may be unreachable from the virtual network (VNet), which can result in connectivity failures for applications relying on private network access.
+
+To mitigate this issue, remove and readd the private endpoint connection to the Azure Health Data Services (AHDS) Workspace. This action triggers a new provisioning cycle that correctly configures the private link DNS entries.
+
+Follow the steps below to resolve the issue:
+1. Navigate to the AHDS Workspace in the Azure portal.
+2. Select Networking → Private endpoint connections.
+3. Remove the existing Private Endpoint.
+4. Re-create the Private Endpoint using the same configuration.
+5. Verify that DNS resolution returns the private IP address.
+
+### 2. From logs, requests failing with HTTP 403 are not due to bad tokens but instead they're rejected by Private Links, as their origin isn't allowed to access the FHIR service.
 
 Validate the below points:
 

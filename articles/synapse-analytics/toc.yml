@@ -600,8 +600,6 @@ items:
       items:
       - name: Overview
         href: sql/connect-overview.md
-      - name: Query with Azure Data Studio
-        href: sql/get-started-azure-data-studio.md
       - name: Connection strings
         href: sql/connection-strings.md
       - name: Query with SSMS
@@ -612,7 +610,7 @@ items:
         href: sql/get-started-visual-studio.md
       - name: Query using .NET Core
         href: /azure/azure-sql/database/connect-query-dotnet-core?context=/azure/synapse-analytics/context/context
-      - name: Query using Visual Studio .NET
+      - name: Query using Visual Studio
         href: /azure/azure-sql/database/connect-query-dotnet-visual-studio?context=/azure/synapse-analytics/context/context
       - name: Query using Python
         href: /azure/azure-sql/database/connect-query-python?context=/azure/synapse-analytics/context/context

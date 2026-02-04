@@ -25,6 +25,8 @@ Release notes describe features, enhancements, and bug fixes released in 2026 fo
 
 **Bug fix for queries combining `_include` and `_revinclude`**: There was an issue where queries combining `_include` and `_revinclude` (for example, `GET /Patient?_include=Patient:organization&_revinclude=Observation:patient`) could return an HTTP 500 Internal Server Error. This issue is fixed, and results are returned correctly now.
 
+**Pagination bug in FHIR search fix**: There was an issue where a pagination bug in FHIR search queries caused resources to be intermittently skipped when results span multiple pages and use continuation tokens. The issue is fixed.
+
 ## January 2026
 ### FHIR service
 

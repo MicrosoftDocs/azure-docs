@@ -20,6 +20,10 @@ The listed features were released in the last six months. For information about 
 
 ## January 2026
 
+### New Entity Behavior Analytics (UEBA) widget in the Defender portal home page (Preview)
+
+The Defender portal home page now includes a UEBA widget where analysts can immediately have visibility into anomalous user behavior and therefore accelerate threat detection workflows. For more information, see [How UEBA empowers analysts and streamlines workflows](identify-threats-with-entity-behavior-analytics.md#ueba-experiences-in-the-defender-portal-empower-analysts-and-streamline-workflows-preview).
+
 ### Updated date: Microsoft Sentinel in the Azure portal to be retired March 2027 
 
 [!INCLUDE [sentinel-azure-deprecation](includes/sentinel-azure-deprecation.md)]
@@ -67,7 +71,7 @@ This update expands [detection coverage for SAP BTP](../sentinel/sap/sap-btp-sec
 
 ### New Entity Behavior Analytics (UEBA) experiences in the Defender portal (Preview)
 
-Microsoft Sentinel introduces new UEBA experiences in the Defender portal, bringing behavioral insights directly into key analyst workflows. These enhancements help analysts prioritize investigations and apply UEBA context more effectively.
+Microsoft Sentinel introduces new UEBA experiences in the Defender portal, bringing behavioral insights directly into key analyst workflows. These enhancements help analysts prioritize investigations and apply UEBA context more effectively. 
 
 #### Anomaly-focused user investigations
 
@@ -90,7 +94,7 @@ Advanced hunting and custom detection experiences now include a contextual banne
 
 All features require UEBA to be enabled and are workspace-scoped to the currently selected workspace.
 
-For more information, see [How UEBA empowers analysts and streamlines workflows](identify-threats-with-entity-behavior-analytics.md#ueba-experiences-in-the-defender-portal-empower-analysts-and-streamline-workflows).
+For more information, see [How UEBA empowers analysts and streamlines workflows](identify-threats-with-entity-behavior-analytics.md#ueba-experiences-in-the-defender-portal-empower-analysts-and-streamline-workflows-preview).
 
 ### SAP data connectors
 

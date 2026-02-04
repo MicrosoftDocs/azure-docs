@@ -5,7 +5,7 @@ services: bastion
 author: abell
 ms.service: azure-bastion
 ms.topic: troubleshooting
-ms.date: 12/10/2025
+ms.date: 02/04/2026
 ms.author: abell
 # Customer intent: As a network administrator, I want to troubleshoot connectivity issues in Azure Bastion so that I can ensure seamless access to my virtual machines and efficiently manage network security settings.
 ---

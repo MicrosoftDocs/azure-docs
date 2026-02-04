@@ -134,8 +134,6 @@ Throughput is allocated per the following table:
 
 :::image type="content" source="./media/azure-netapp-files-service-levels/elastic-throughput.png" alt-text="Diagram of Elastic zone-redundant service level throughput." lightbox="./media/azure-netapp-files-service-levels/elastic-throughput.png":::
 
-
-
 ## Next steps
 
 - [Azure NetApp Files pricing page](https://azure.microsoft.com/pricing/details/storage/netapp/)

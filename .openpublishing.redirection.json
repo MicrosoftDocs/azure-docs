@@ -1,6 +1,216 @@
 {
   "redirections": [
     {
+      "source_path": "articles/azure-health-insights/configure-containers.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/configure-containers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/deploy-portal.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/deploy-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/get-started-cli.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/get-started-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/get-started-powershell.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/get-started-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/index.yml",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/overview.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/reliability-health-insights.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/reliability-health-insights",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/use-containers.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/use-containers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/age-mismatch-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/age-mismatch-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/communication-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/communication-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/complete-order-discrepancy-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/complete-order-discrepancy-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/critical-result-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/critical-result-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/faq.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/finding-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/finding-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/get-started.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/guidance-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/guidance-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/index.yml",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/inferences.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/inferences",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/laterality-mismatch-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/laterality-mismatch-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/limited-order-discrepancy-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/limited-order-discrepancy-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/model-configuration.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/model-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/overview.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/quality-measure-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/quality-measure-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/radiology-procedure-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/radiology-procedure-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/recommendation-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/recommendation-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/scoring-and-assessment-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/scoring-and-assessment-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/sex-mismatch-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/sex-mismatch-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/support-and-help.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/support-and-help",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/transparency-note.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/transparency-note",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/tutorial.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/responsible-ai/data-privacy-security.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/responsible-ai/data-privacy-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/trial-matcher/faq.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/trial-matcher/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/trial-matcher/get-started.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/trial-matcher/get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/trial-matcher/index.yml",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/trial-matcher/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/trial-matcher/inferences.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/trial-matcher/inferences",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/trial-matcher/integration-and-responsible-use.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/trial-matcher/integration-and-responsible-use",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/trial-matcher/model-configuration.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/trial-matcher/model-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/trial-matcher/overview.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/trial-matcher/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/trial-matcher/patient-info.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/trial-matcher/patient-info",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/trial-matcher/support-and-help.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/trial-matcher/support-and-help",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/trial-matcher/transparency-note.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/trial-matcher/transparency-note",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/trial-matcher/trial-matcher-modes.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/trial-matcher/trial-matcher-modes",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/network-watcher/network-watcher-using-open-source-tools.md",
       "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-using-open-source-tools",
       "redirect_document_id": false
@@ -6673,6 +6883,11 @@
     {
       "source_path": "articles/nat-gateway/nat-availability-zones.md",
       "redirect_url": "/azure/reliability/reliability-nat-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/sql/get-started-azure-data-studio.md",
+      "redirect_url": "/azure/synapse-analytics/sql/get-started-ssms",
       "redirect_document_id": false
     },
     {

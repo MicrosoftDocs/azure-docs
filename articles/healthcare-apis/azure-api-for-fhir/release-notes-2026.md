@@ -19,14 +19,21 @@ ms.author: evach
 
 Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+## February 2026
+### FHIR service
+
+#### Bug fixes:
+**Pagination bug in FHIR search fix**: There was an issue where a pagination bug in FHIR search queries caused resources to be intermittently skipped when results span multiple pages and use continuation tokens. The issue is fixed.
+
+
 ## January 2026
 ### FHIR service
 
 **Improved capability statement refresh after profile updates**: Improved latency for profile updates to reflect in the Capability Statement.
 
 **Updates to responses for update and deletion of FHIR spec-defined search parameters**: There are a few updates to the behaviors and responses for update and deletion of FHIR spec-defined search parameters:
-  - Deletion of out-of-box FHIR spec-defined search parameters previously returned a "204 No Content" and the parameter was not deleted. The response is updated to correctly return "405 Method Not Allowed."
-  - Update of out-of-box FHIR spec-defined search parameters previously returned "201 Created", which can cause unintended behavior. The response is updated to return "405 Method Not Allowed." If you wish to update an out-of-box FHIR spec-defined search parameter, please create a new custom search parameter with a different URL.
+  - Deletion of out-of-box FHIR spec-defined search parameters previously returned a "204 No Content" and the parameter wasn't deleted. The response is updated to correctly return "405 Method Not Allowed."
+  - Update of out-of-box FHIR spec-defined search parameters previously returned "201 Created," which can cause unintended behavior. The response is updated to return "405 Method Not Allowed." If you wish to update an out-of-box FHIR spec-defined search parameter, create a new custom search parameter with a different URL.
 
 **Enhanced response logging for deletion of non-existent search parameters**:  Deletion of nonexistent search parameters previously returned a "204 No Content." The response is improved to be more informative and now returns "404 Not Found."
 

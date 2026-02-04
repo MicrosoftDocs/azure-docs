@@ -1,9 +1,9 @@
 ---
 title: Network Security Perimeter 
 titleSuffix: Azure Event Hubs
-description: Overview of Network Security Perimeter feature for Event Hubs
+description: Learn how Network Security Perimeter (NSP) enhances security for Azure Event Hubs by controlling network access between PaaS services.
 ms.reviewer: spelluru
-ms.date: 12/16/2025
+ms.date: 01/31/2026
 ms.topic: conceptual
 ms.custom:
 ---
@@ -11,25 +11,59 @@ ms.custom:
 
 # Network Security Perimeter for Azure Event Hubs
 
-[Event Hubs](./event-hubs-about.md)
+Network Security Perimeter (NSP) is a network isolation feature that enables you to define a logical network boundary for Platform as a Service (PaaS) resources, including Azure Event Hubs. It restricts public network access to resources within the perimeter while allowing secure communication between associated PaaS services.
 
-The Network Security Perimeter serves as a crucial safeguard for network traffic between Azure Event Hubs and other Platform as a Service (PaaS) offerings like Azure Storage and Azure Key Vault. By confining communication solely to Azure resources within its boundaries, it effectively blocks unauthorized attempts to access resources beyond its secure perimeter.
+## Overview
 
-Integrating Event Hubs Kafka within this framework enhances data streaming capabilities while ensuring robust security measures. This integration not only provides a reliable and scalable platform but also strengthens data protection strategies, mitigating risks associated with unauthorized access or data breaches.
+Network Security Perimeter provides an extra layer of security for your Azure Event Hubs namespace by:
 
-Operating as a service under Azure Private Link, the Network Security Perimeter facilitates secure communication for PaaS services deployed outside the virtual network. It enables seamless interaction among PaaS services within the perimeter and facilitates communication with external resources through carefully configured access rules. Additionally, it supports outbound resources such as Azure Key Vault for Bring Your Own Key (BYOK) and Azure Storage for data capture, further enhancing its versatility and utility in diverse cloud environments.
+- **Restricting public access**: By default, resources within the perimeter are protected from unauthorized external access.
+- **Enabling secure PaaS-to-PaaS communication**: Event Hubs can securely communicate with other Azure services like Azure Storage and Azure Key Vault within the same perimeter.
+- **Simplifying network security management**: Instead of managing individual service firewalls, you can define access rules at the perimeter level.
+- **Supporting compliance requirements**: NSP helps meet regulatory requirements by providing clear network boundaries for your data.
 
-> [!NOTE]
-> - Network Security Perimeter does not support [Azure Event Hubs - Geo-disaster recovery](./event-hubs-geo-dr.md)
-> - Certain Network Security Perimeter features such as same perimeter access, cross perimeter access, and subscription access rules don’t work with Shared Access Signature authentication "
+Operating as a service under Azure Private Link, Network Security Perimeter facilitates secure communication for PaaS services deployed outside the virtual network. It supports:
 
-## Associate Event Hubs with a Network Security Perimeter in the Azure portal
-1. Search for "Network Security Perimeter" in the Portal search bar and then click on **Create** button and create the resource.
-1. In the first screen, provide a Name and Region and choose the subscription.
-1. Under the **Resources** section, click on the **Associate** button and navigate to the Event Hubs namespace you want to add. 
+- Seamless interaction among PaaS services within the perimeter
+- Communication with external resources through carefully configured access rules
+- Outbound access to services such as Azure Key Vault for Bring Your Own Key (BYOK) encryption and Azure Storage for Event Hubs Capture
 
-## Related Content
-- For an overview of [network service perimeter](../private-link/network-security-perimeter-concepts.md)
-- For monitoring with [diagnostic logs in network security perimeter](../private-link/network-security-perimeter-concepts.md)
-- For other Event Hubs security features, see [Network Security for Azure Event Hubs](./network-security.md)
-- For additional information on using private endpoints, see [Use Private Endpoints](./private-link-service.md)
+## Key capabilities
+
+When you associate an Event Hubs namespace with a Network Security Perimeter, you gain the following capabilities:
+
+| Capability | Description |
+| --- | --- |
+| **Inbound access rules** | Control which external resources, IP addresses, or subscriptions can send data to your Event Hubs namespace. |
+| **Outbound access rules** | Define which external resources your Event Hubs namespace can communicate with (for example, storage accounts for Capture). |
+| **Profile-based management** | Apply different access rule sets to different resources using NSP profiles. |
+| **Diagnostic logging** | Monitor network access attempts and audit security events through NSP diagnostic logs. |
+
+## Supported scenarios
+
+Network Security Perimeter for Event Hubs supports the following scenarios:
+
+- **Event ingestion from Azure services**: Allow other Azure services within the same perimeter to send events to your Event Hubs namespace.
+- **Kafka workloads**: Integrating Event Hubs with Kafka within the NSP framework enhances data streaming capabilities while maintaining robust security.
+- **Data capture**: Configure outbound rules to allow Event Hubs to write captured data to Azure Storage or Azure Data Lake Storage.
+- **Customer-managed keys**: Enable outbound access to Azure Key Vault for encryption with customer-managed keys (BYOK).
+
+## Limitations
+
+Be aware of the following limitations when using Network Security Perimeter with Event Hubs:
+
+- Network Security Perimeter doesn't support [Azure Event Hubs - Geo-disaster recovery](./event-hubs-geo-dr.md).
+- Certain Network Security Perimeter features, such as same perimeter access, cross perimeter access, and subscription access rules, don't work with Shared Access Signature (SAS) authentication. Use Microsoft Entra ID authentication for full NSP functionality.
+
+## Associate Event Hubs with a Network Security Perimeter
+
+To learn how to associate a Network Security Perimeter with your Event Hubs namespace, see [Associate Network Security Perimeter with Event Hubs](associate-network-security-perimeter.md).
+
+## Related content
+
+- [Network security perimeter concepts](/azure/private-link/network-security-perimeter-concepts)
+- [Create a network security perimeter](/azure/private-link/create-network-security-perimeter-portal)
+- [Diagnostic logs in network security perimeter](/azure/private-link/network-security-perimeter-diagnostic-logs)
+- [Network security for Azure Event Hubs](./network-security.md)
+- [Use private endpoints with Event Hubs](./private-link-service.md)
+- [Configure IP firewall rules](./event-hubs-ip-filtering.md)

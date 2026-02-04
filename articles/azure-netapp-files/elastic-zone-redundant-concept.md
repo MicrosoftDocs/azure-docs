@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: article
-ms.date: 01/30/2026
+ms.date: 02/04/2026
 ms.author: anfdocs
 ms.custom: references-regions 
 ---
@@ -104,6 +104,6 @@ For more detailed information, see [Azure NetApp Files REST API](/rest/api/netap
 ## Next steps 
 
 - [Storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
-- [Create a NetApp account](azure-netapp-files-create-netapp-account.md)
-- [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
+- [Create a NetApp Elastic account](elastic-account.md)
+- [Set up an Elastic capacity pool](elastic-capacity-pool-task.md)
 - [Azure NetApp Files resource limits](azure-netapp-files-resource-limits.md)

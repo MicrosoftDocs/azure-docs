@@ -27,6 +27,8 @@ The following functionality is limited during this time. These limitations will 
 4. Your private cloud and virtual network for your private cloud must be in the ***same*** Resource Group.  
 5. You cannot ***move*** your private cloud from one Resource Group to another after the private cloud is created.  
 6. You cannot ***move*** your private cloud from one tenant to another after the private cloud is created.  
+1. If you require **ExpressRoute FastPath** or **Global Virtual Network Peering** for your AVS Private Cloud**,** create a Support Case through the Azure Portal. 
+
 1. **Service Endpoints** direct connectivity from Azure VMware Solution workloads isn't supported.
 
 1. **Private Endpoints when globally peered** across regions connected to Azure VMware Solution isn't supported.
@@ -43,7 +45,7 @@ The following functionality is limited during this time. These limitations will 
 16. If you are using **Private DNS** for your Azure VMware Solution Gen 2 private cloud, using **Custom DNS** on the virtual network where an Azure VMware Solution Gen 2 private cloud is deployed is unsupported. Custom DNS breaks lifecycle operations such as scaling, upgrades, and patching.  
 17. If you are **deleting** your private cloud and some Azure VMware Solution created resources are not removed, you can retry the deletion of the Azure VMware Solution private cloud using the Azure CLI.
 18. Azure VMware Solution Gen 2 uses an HTTP Proxy to distinguish between customer and management network traffic. Certain VMware cloud service endpoints **may not follow the same network path or proxy rules as general vCenter-managed traffic**. Examples include: "scapi.vmware" and "apigw.vmware". The VAMI proxy governs the vCenter Server Appliance’s (VCSA) general outbound internet access, but not all service endpoint interactions flow through this proxy. Some interactions originate directly from the user’s browser or from integration components, which instead follow the workstation’s proxy settings or initiate connections independently. As a result, traffic to VMware cloud service endpoints may bypass the VCSA proxy entirely.
-19. HCX RAV and Bulk migrations on Gen 2 can experience significantly slower performance due to stalls during Base Sync and Online Sync phases. Customers should plan for longer migration windows and schedule waves accordingly for now. For suitable workloads, vMotion offers a faster, low‑overhead option when host and network conditions allow.
+1. HCX RAV and Bulk migrations on Gen 2 can experience significantly slower performance due to stalls during Base Sync and Online Sync phases. Customers should plan for longer migration windows and schedule waves accordingly for now. For suitable workloads, vMotion offers a faster, low‑overhead option when host and network conditions allow.
 
 ## Unsupported integrations
 

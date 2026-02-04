@@ -6,14 +6,13 @@ author: azaricstefan
 ms.service: azure-synapse-analytics
 ms.topic: overview 
 ms.subservice: sql 
-ms.date: 04/15/2020 
+ms.date: 02/04/2026
 ms.author: stefanazaric 
 ---
 
 # Connect to Synapse SQL with sqlcmd
 
 > [!div class="op_single_selector"]
-> * [Azure Data Studio)](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
 > * [Visual Studio](../sql/get-started-visual-studio.md)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)

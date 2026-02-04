@@ -66,7 +66,7 @@ Each type of failover has a unique set of use cases, corresponding expectations 
 
 | Type                                   | Failover Scope  | Use case | Expected data loss | Hierarchical Namespace (HNS) supported |
 |----------------------------------------|-----------------|----------|--------------------|----------------------------------------|
-| Customer-managed planned failover      | Storage account | The storage service endpoints for the primary and secondary regions are available, and you want to perform disaster recovery testing. <br></br> The storage service endpoints for the primary region are available, but another service is preventing your workloads from functioning properly.<br><br>To proactively prepare for large-scale disasters, such as a hurricane, that might affect a region. | [No](#anticipate-data-loss-and-inconsistencies)  | Yes <br> *(In preview)* |
+| Customer-managed planned failover      | Storage account | The storage service endpoints for the primary and secondary regions are available, and you want to perform disaster recovery testing. <br></br> The storage service endpoints for the primary region are available, but another service is preventing your workloads from functioning properly.<br><br>To proactively prepare for large-scale disasters, such as a hurricane, that might affect a region. | [No](#anticipate-data-loss-and-inconsistencies)  | Yes |
 | Customer-managed (unplanned) failover  | Storage account | The storage service endpoints for the primary region become unavailable, but the secondary region is available. <br></br> You received an Azure Advisory in which Microsoft advises you to perform a failover operation of storage accounts potentially affected by an outage. | [Yes](#anticipate-data-loss-and-inconsistencies) | Yes |
 | Microsoft-managed                      | Entire region   | The primary region becomes unavailable due to a significant disaster, but the secondary region is available. | [Yes](#anticipate-data-loss-and-inconsistencies) | Yes |
 
@@ -291,5 +291,5 @@ Microsoft also recommends that you design your application to prepare for the po
 - [Use geo-redundancy to design highly available applications](geo-redundant-design.md)
 - [Tutorial: Build a highly available application with Blob storage](../blobs/storage-create-geo-redundant-storage.md)
 - [Azure Storage redundancy](storage-redundancy.md)
-- [How customer-managed planned failover (preview) works](storage-failover-customer-managed-planned.md)
+- [How customer-managed planned failover works](storage-failover-customer-managed-planned.md)
 - [How customer-managed (unplanned) failover works](storage-failover-customer-managed-unplanned.md)

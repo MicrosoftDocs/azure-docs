@@ -3,7 +3,7 @@ title: "Quickstart: Create a Durable Functions app that uses the MSSQL storage p
 description: Create a Durable Functions app to use the Microsoft SQL Server (MSSQL) storage provider in Azure Functions.
 author: lilyjma
 ms.topic: quickstart
-ms.date: 05/06/2025
+ms.date: 02/04/2026
 ms.reviewer: azfuncdf
 ms.custom:
   - devx-track-dotnet
@@ -313,7 +313,7 @@ az role assignment create --assignee "$clientId" --role "Storage Blob Data Owner
     az sql server ad-admin create --resource-group $resourceGroup --server-name <SQL_SERVER_NAME> --display-name ADMIN --object-id "$assignee"
     ```
 
-1. Connect to the SQL database created previously using tools such as [Azure Data Studio](/azure-data-studio/download-azure-data-studio) or [SQL Management Server Studio](/ssms/download-sql-server-management-studio-ssms). Or you can run the following [SQLCMD](/sql/tools/sqlcmd/sqlcmd-utility) command to connect:
+1. Connect to the SQL database created previously using tools such as [SQL Management Server Studio](/ssms/download-sql-server-management-studio-ssms) or [Visual Studio Code](/sql/tools/visual-studio-code-extensions/mssql/mssql-extension-visual-studio-code). Or you can run the following [SQLCMD](/sql/tools/sqlcmd/sqlcmd-utility) command to connect:
     ```bash
     sqlcmd -S <SQL_SERVER_NAME>.database.windows.net -d <DATABASE_NAME> -U <someone@example.com> -P "ACCOUNT_PASSWORD" -G -l 30
     ```

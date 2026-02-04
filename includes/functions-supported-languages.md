@@ -117,10 +117,14 @@ The following table shows the language versions supported for Python function ap
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
+| Python 3.14<sup>2</sup> | Preview | Pending<sup>1</sup> |
 | Python 3.13 | GA | October 2029 |
 | Python 3.12 | GA | October 2028 |
 | Python 3.11 | GA | October 2027 |
 | Python 3.10 | GA | October 2026 |
+
+1. The end-of-support date for Python 3.14 is determined when general availability (GA) is declared.
+2. Remote build support for Python 3.14 isn't yet available when running in a Flex Consumption plan.
 
 For more information, see [Azure Functions Python developer guide](../articles/azure-functions/functions-reference-python.md).
 ::: zone-end

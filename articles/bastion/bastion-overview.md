@@ -7,7 +7,7 @@ ms.service: azure-bastion
 services: bastion
 ms.topic: overview
 ms.custom: mvc, references_regions, ignite-2024
-ms.date: 01/14/2026
+ms.date: 02/04/2026
 # Customer intent: As an administrator, I want to evaluate Azure Bastion so I can determine if I want to use it.
 ---
 
@@ -75,10 +75,14 @@ Azure Bastion supports multiple connection methods:
 
 For more information about connection methods and authentication options, see [About VM connections and features](vm-about.md).
 
+## Pricing and SLA
 
+Azure Bastion pricing combines hourly SKU charges with outbound data transfer costs. Billing starts from the moment Bastion is deployed, regardless of usage.
+
+For pricing details, see [Azure Bastion pricing](https://azure.microsoft.com/pricing/details/azure-bastion/). For SLA and reliability information, see [Reliability in Azure Bastion](/azure/reliability/reliability-bastion).
 ## What's new
 
-Azure Bastion is continuously updated with new features and improvements. To learn about the latest updates and announcements, see [What's new in Azure Bastion?](whats-new.md).
+Azure Bastion is continuously updated with new features and improvements. To learn about the latest updates and announcements, see [What's new in Azure Bastion?](whats-new.md)
 
 ## Troubleshooting and FAQ
 

@@ -5,7 +5,7 @@ description: This tutorial shows how to run SQL queries on an Azure Synapse serv
 author: jovanpop-msft
 ms.service: azure-data-lake-storage
 ms.topic: tutorial
-ms.date: 11/18/2024
+ms.date: 02/04/2026
 ms.author: normesta
 ms.custom:
   - devx-track-sql
@@ -71,8 +71,7 @@ This tutorial uses flight data from the Bureau of Transportation Statistics. You
 
 #### Find your Synapse SQL endpoint name (optional) 
 
-The serverless SQL endpoint name server name enables you to connect with any tool that can run T-SQL queries on SQL server or Azure SQL database (For example: [SQL Server Management Studio](../../synapse-analytics/sql/get-started-ssms.md),
-[Azure Data Studio](../../synapse-analytics/sql/get-started-azure-data-studio.md), or [Power BI](../../synapse-analytics/sql/get-started-power-bi-professional.md)). 
+The serverless SQL endpoint name server name enables you to connect with any tool that can run T-SQL queries on SQL server or Azure SQL database (For example: [SQL Server Management Studio](../../synapse-analytics/sql/get-started-ssms.md), the [MSSQL extension in Visual Studio Code](/sql/tools/visual-studio-code-extensions/mssql/mssql-extension-visual-studio-code), or [Power BI](../../synapse-analytics/sql/get-started-power-bi-professional.md)). 
 
 To find the fully qualified server name:
 
