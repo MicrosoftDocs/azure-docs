@@ -107,6 +107,9 @@ From a Log Analytics perspective, Microsoft Sentinel’s integration into Micros
 
 Alerts related to Defender products are streamed directly from the [Microsoft Defender XDR connector](/azure/sentinel/connect-microsoft-365-defender) to ensure consistency. Make sure that you have incidents and alerts from this connector turned on in your workspace. Once you have this data connector configured in your workspace, [offboarding the workspace from Microsoft Defender](/unified-secops/microsoft-sentinel-onboard#offboard-microsoft-sentinel) also disconnects the Microsoft Defender XDR connector.
 
+> [!NOTE]
+> This change in connectors results in schema differences for some alerts. For a detailed comparison, see [Alert schema differences: Standalone vs. XDR connector](security-alert-schema-differences.md).
+
 For more information, see [Connect data from Microsoft Defender XDR to Microsoft Sentinel](connect-microsoft-365-defender.md).
 
 #### Integrate with Microsoft Defender for Cloud
@@ -302,3 +305,4 @@ The Microsoft Sentinel [similar incidents](investigate-cases.md#similar-incident
 - [The Best of Microsoft Sentinel - now in Microsoft Defender](https://techcommunity.microsoft.com/blog/MicrosoftThreatProtectionBlog/the-best-of-microsoft-sentinel-%E2%80%94-now-in-microsoft-defender/4415822) (blog)
 - Watch the webinar: [Transition to the Unified SOC Platform: Deep Dive and Interactive Q&A for SOC Professionals](https://www.youtube.com/watch?v=WIM6fbJDkK4).
 - See frequently asked questions in the [TechCommunity blog](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/unified-security-operations-platform---technical-faq/4189136) or the [Microsoft Community Hub](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/frequently-asked-questions-about-the-unified-security-operations-platform/4212048).
+- Review [alert schema differences between Standalone and XDR connectors](security-alert-schema-differences.md)

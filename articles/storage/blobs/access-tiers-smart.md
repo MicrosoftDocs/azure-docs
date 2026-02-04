@@ -49,12 +49,12 @@ Blob lifecycle management doesn't impact objects on smart tier. Storage actions 
 
 
 ## Billing details
-Objects on smart tier are billed for the capacity meters and connected prices of the underlying capacity tier (hot, cool, or cold tier). there's no smart tier specific capacity meter or price. All capacity under smart tier is billed at pay-as-you-go rates. there's no reserved capacity applicable.
+Objects on smart tier are billed for the capacity meters and connected prices of the underlying capacity tier (hot, cool, or cold tier). There's no smart tier specific capacity meter or price. All capacity under smart tier is billed at pay-as-you-go rates. There's no reserved capacity applicable.
 Smart tier charges a monthly monitoring operation for each object over 128KiB managed by smart tier.
 Objects in smart tier aren't charged for tier transitions within smart tier, early deletion fees, or data retrieval operations.
 
 All access operations billed for smart tier objects occur against the hot tier. This transaction includes the initial move to the hot tier for any object on other capacity tiers. Moving existing objects into smart tier doesn't trigger any tier transition transaction, moving blobs out of smart tier triggers a cool write operation per object.
-Versions and snapshots are billed full content length in current public preview phase. Storage account metrics show how smart tier objects are spread across the underlying tiers by blob count and capacity. Objects smaller than 128KiB is displayed under the regular hot tier metric.
+Versions and snapshots are billed full content length in current public preview phase. Storage account metrics show how smart tier objects are spread across the underlying tiers by blob count and capacity. Objects smaller than 128KiB are displayed under the regular hot tier metric.
 
 
 ## Client Tooling

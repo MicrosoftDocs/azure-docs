@@ -68,7 +68,7 @@ The **payload** property must be a JSON object and can contain any data relevant
 
 ## SDK support
 
-This feature is available in C, C#, JAVA and Node.js client SDKs. To learn more about the Azure IoT SDKs available for IoT Hub and IoT Hub Device Provisioning service, see [Microsoft Azure IoT SDKs]( https://github.com/Azure/azure-iot-sdks).
+This feature is available in C, C#, JAVA and Node.js client SDKs. To learn more about the Azure IoT SDKs available for IoT Hub and IoT Hub Device Provisioning Service, see [Microsoft Azure IoT SDKs]( https://github.com/Azure/azure-iot-sdks).
 
 ## IoT Edge support
 

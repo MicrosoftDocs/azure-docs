@@ -83,6 +83,8 @@ In DEP-enabled workspaces, VNET IR should be used for pipelines, linked services
 >
 > Customers should review Integration Runtime references in DEP-enabled workspaces and update them to use Managed Virtual Network Integration Runtime. Warning indicators may appear in the Synapse UI when Azure IR is referenced in a DEP-enabled workspace.
 >
+>:::image type="content" source="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-managed-virtual-network-ir-warning.png" lightbox="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-managed-virtual-network-ir-warning.png" alt-text="Screenshot of the managed virtual network with data exfiltration protection enabled and the warning when public azure integration runtime is used in linked service or activities.":::
+>
 > For Webhook activities, Integration Runtime usage can be enabled through the workspace tag **enable_webhookonir**, after which a VNET IR can be selected in the UI.
 >
 >If public network access is required, use a workspace without DEP enabled instead of mixing Azure IR with a DEP-enabled workspace.

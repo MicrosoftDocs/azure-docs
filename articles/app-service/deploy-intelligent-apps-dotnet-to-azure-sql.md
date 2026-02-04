@@ -3,7 +3,7 @@ title: 'Deploy a .NET Blazor App Connected to Azure SQL and Azure OpenAI on Azur
 description: Get started connecting Azure SQL to your OpenAI app
 author: jeffwmartinez
 ms.author: jefmarti
-ms.date: 04/17/2025
+ms.date: 02/04/2026
 ms.update-cycle: 180-days
 ms.topic: tutorial
 ms.custom:
@@ -152,7 +152,7 @@ To perform a hybrid vector search on your Azure SQL database, you first need to 
 
 ## 5. Create procedure to generate embeddings
 
-With [Azure SQL vector support (preview)](https://devblogs.microsoft.com/azure-sql/announcing-eap-native-vector-support-in-azure-sql-database/), you can create a stored procedure that will use a Vector data type to store generated embeddings for search queries. The stored procedure invokes an external REST API endpoint to get the embeddings. See the [documentation](/azure-data-studio/quickstart-sql-database) to use Azure Data Studio to connect to your database before running the query. 
+With [Azure SQL vector support (preview)](https://devblogs.microsoft.com/azure-sql/announcing-eap-native-vector-support-in-azure-sql-database/), you can create a stored procedure that will use a Vector data type to store generated embeddings for search queries. The stored procedure invokes an external REST API endpoint to get the embeddings. See the [MSSQL extension documentation](/sql/tools/visual-studio-code-extensions/mssql/mssql-extension-visual-studio-code) to use Visual Studio Code to connect to your database before running the query. 
 
 Use the following to create a stored procedure with your preferred SQL query editor. You need to populate the @url parameter with your Azure OpenAI resource name and populate the rest endpoint with the API key from your text embedding model. You'll notice the model name as part of the @url, which will be populated with your search query.
 

@@ -1,6 +1,6 @@
 ---
 title: Use Azure IoT Edge as a gateway for downstream devices
-description: Use Azure IoT Edge to create a transparent, opaque, or proxy gateway device that sends data from multiple downstream devices to the cloud or processes locally.
+description: Use Azure IoT Edge to create a transparent, opaque, or proxy gateway device that sends data from multiple connected devices to the cloud or processes locally.
 author: sethmanheim
 ms.author: sethm
 ms.date: 07/09/2025
@@ -19,7 +19,7 @@ ms.custom:
 
 IoT Edge devices can operate as gateways, providing a connection between other devices on the network and IoT Hub.
 
-The IoT Edge hub module acts like IoT Hub, so it can handle connections from other devices that have an identity with the same IoT hub. This type of gateway pattern is called *transparent* because messages can pass from downstream devices to IoT Hub as though there weren't a gateway between them.
+The IoT Edge hub module acts like IoT Hub, so it can handle connections from other devices that have an identity with the same IoT hub. This type of gateway pattern is called *transparent* because messages can pass from downstream devices (devices that connect through the gateway) to IoT Hub as though there weren't a gateway between them.
 
 For devices that don't or can't connect to IoT Hub on their own, IoT Edge gateways can provide that connection. This type of gateway pattern is called *translation* because the IoT Edge device has to perform processing on incoming downstream device messages before they can be forwarded to IoT Hub. These scenarios require extra modules on the IoT Edge gateway to handle the processing steps.
 
@@ -28,14 +28,14 @@ The transparent and translation gateway patterns aren't mutually exclusive. A si
 All gateway patterns provide the following benefits:
 
 * **Analytics at the edge** - Use AI services locally to process data coming from downstream devices without sending full-fidelity telemetry to the cloud. Find and react to insights locally and only send a subset of data to IoT Hub.
-* **Downstream device isolation** - The gateway device can shield all downstream devices from exposure to the internet. It can sit in between an operational technology (OT) network that doesn't have connectivity and an information technology (IT) network that provides access to the web. Similarly, devices that don't have the capability to connect to IoT Hub on their own can connect to a gateway device instead.
-* **Connection multiplexing** - All devices connecting to IoT Hub through an IoT Edge gateway can use the same underlying connection. This multiplexing capability requires that the IoT Edge gateway uses AMQP as its upstream protocol.
+* **Connected device isolation** - The gateway device can shield all connected devices from exposure to the internet. It can sit in between an operational technology (OT) network that doesn't have connectivity and an information technology (IT) network that provides access to the web. Similarly, devices that don't have the capability to connect to IoT Hub on their own can connect to a gateway device instead.
+* **Connection multiplexing** - All devices connecting to IoT Hub through an IoT Edge gateway can use the same underlying connection. This multiplexing capability requires that the IoT Edge gateway uses AMQP as its cloud-bound protocol.
 * **Traffic smoothing** - The IoT Edge device automatically implements exponential backoff if IoT Hub throttles traffic, while persisting the messages locally. This benefit makes your solution resilient to spikes in traffic.
 * **Offline support** - The gateway device stores messages and twin updates that can't be delivered to IoT Hub.
 
 ## Transparent gateways
 
-In the transparent gateway pattern, devices that theoretically could connect to IoT Hub can connect to a gateway device instead. The downstream devices have their own IoT Hub identities and connect using either MQTT or AMQP protocols. The gateway simply passes communications between the devices and IoT Hub. Both the devices and the users interacting with them through IoT Hub are unaware that a gateway is mediating their communications. This lack of awareness means the gateway is considered *transparent*.
+In the transparent gateway pattern, devices that theoretically could connect to IoT Hub can connect to a gateway device instead. These devices (called *downstream devices* or *child devices*) have their own IoT Hub identities and connect using either MQTT or AMQP protocols. The gateway simply passes communications between the devices and IoT Hub. Both the devices and the users interacting with them through IoT Hub are unaware that a gateway is mediating their communications. This lack of awareness means the gateway is considered *transparent*.
 
 For more information about how the IoT Edge hub manages communication between downstream devices and the cloud, see [Azure IoT Edge runtime and architecture overview](iot-edge-runtime.md).
 

@@ -28,7 +28,7 @@ To use an If Condition activity in a pipeline, complete the following steps:
 
    :::image type="content" source="media/control-flow-if-condition-activity/if-condition-activity.png" alt-text="Shows the UI for an If Condition activity.":::
 
-1. Enter an expression that returns a boolean true or false value. This can be any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
+1. Enter an expression that returns a boolean true or false value. This can be any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#expressions-with-parameters).
 1. Select the Edit Activities buttons on the Activities tab for the If Condition, or directly from the If Condition on the pipeline canvas, to add activities that will be executed when the expression evaluates to `true` or `false`.
 
 ## Syntax

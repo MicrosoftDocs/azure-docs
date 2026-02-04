@@ -287,7 +287,7 @@ The following points describe the requirements that your custom allocation webho
 
 ## SDK support
 
-The DPS device SDKs provide APIs in C, C#, Java, and Node.js to help you register devices with DPS. Both the IoT Hub SDKs and the DPS SDKs provide classes that represent device and service artifacts like device twins and enrollment entries that might be helpful when developing custom allocation webhooks. To learn more about the Azure IoT SDKs available for IoT Hub and IoT Hub Device Provisioning service, see [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) and [Microsoft SDKs for IoT Hub Device Provisioning Service](./libraries-sdks.md).
+The DPS device SDKs provide APIs in C, C#, Java, and Node.js to help you register devices with DPS. Both the IoT Hub SDKs and the DPS SDKs provide classes that represent device and service artifacts like device twins and enrollment entries that might be helpful when developing custom allocation webhooks. To learn more about the Azure IoT SDKs available for IoT Hub and IoT Hub Device Provisioning Service, see [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) and [Microsoft SDKs for IoT Hub Device Provisioning Service](./libraries-sdks.md).
 
 ## Next steps
 

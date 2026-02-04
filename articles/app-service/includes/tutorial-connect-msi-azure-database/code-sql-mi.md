@@ -79,28 +79,27 @@ For more information, see [Connect using Microsoft Entra authentication](/sql/co
 
 1. Install dependencies.
     ```bash
-    python -m pip install pyodbc
+    python -m pip install mssql-python python-dotenv
     ```
 
 1. Get the Azure SQL Database connection configurations from the environment variable added by Service Connector. Uncomment the part of the code snippet for the authentication type you want to use.
     ```python
-    import os;
-    import pyodbc
+    import os
+    from mssql_python import connect
     
     server = os.getenv('AZURE_SQL_SERVER')
     port = os.getenv('AZURE_SQL_PORT')
     database = os.getenv('AZURE_SQL_DATABASE')
-    authentication = os.getenv('AZURE_SQL_AUTHENTICATION')  # The value should be 'ActiveDirectoryMsi'
     
     # Uncomment the following lines according to the authentication type.
     # For system-assigned managed identity.
-    # connString = f'Driver={{ODBC Driver 18 for SQL Server}};Server={server},{port};Database={database};Authentication={authentication};Encrypt=yes;'
+    # connection_string = f'Server={server},{port};Database={database};Authentication=ActiveDirectoryMSI;Encrypt=yes;'
     
     # For user-assigned managed identity.
     # client_id = os.getenv('AZURE_SQL_USER')
-    # connString = f'Driver={{ODBC Driver 18 for SQL Server}};Server={server},{port};Database={database};UID={client_id};Authentication={authentication};Encrypt=yes;'
+    # connection_string = f'Server={server},{port};Database={database};UID={client_id};Authentication=ActiveDirectoryMSI;Encrypt=yes;'
     
-    conn = pyodbc.connect(connString)
+    conn = connect(connection_string)
     ```
     For an alternative method, you can also connect to Azure SQL Database using an access token, refer to [Migrate a Python application to use passwordless connections with Azure SQL Database](/azure/azure-sql/database/azure-sql-passwordless-migration-python).
 

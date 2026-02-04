@@ -32,7 +32,7 @@ To use a Set Variable activity in a pipeline, complete the following steps:
 
 5. Select the variable for the Name property.
 
-6. Enter an expression to set the value for the variables. This expression can be a literal string expression, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
+6. Enter an expression to set the value for the variables. This expression can be a literal string expression, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#expressions-with-parameters).
 
 :::image type="content" source="media/control-flow-set-variable-activity/set-variable-activity.png" alt-text="Screenshot of the UI for a Set variable activity.":::
     

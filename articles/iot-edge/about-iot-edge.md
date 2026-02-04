@@ -1,6 +1,6 @@
 ---
 title: What is Azure IoT Edge
-description: Learn how Azure IoT Edge enables you to deploy, run, and monitor containerized Linux workloads at the edge for better business insights and offline decision-making.
+description: Learn how Azure IoT Edge enables you to deploy, run, and monitor containerized Linux applications at the edge for better business insights and offline decision-making.
 author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-edge
@@ -19,9 +19,9 @@ ms.custom:
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-Azure IoT Edge is a device-focused runtime that enables you to deploy, run, and monitor containerized Linux workloads, bringing analytics closer to your devices for faster insights and offline decision-making.
+Azure IoT Edge is a device-focused runtime that enables you to deploy, run, and monitor containerized Linux applications, bringing analytics closer to your devices for faster insights and offline decision-making.
 
-Analytics drives business value in IoT solutions, but not all analytics need to be in the cloud. Azure IoT Edge helps you bring the analytical power of the cloud closer to your devices to drive better business insights and enable offline decision making. For example, you can run anomaly detection workloads at the edge to respond as quickly as possible to emergencies happening on a production line. If you want to reduce bandwidth costs and avoid transferring terabytes of raw data, you can clean and aggregate the data locally then only send the insights to the cloud for analysis.
+Analytics drives business value in IoT solutions, but not all analytics need to be in the cloud. Azure IoT Edge helps you bring the analytical power of the cloud closer to your devices to drive better business insights and enable offline decision making. For example, you can run anomaly detection at the edge to respond as quickly as possible to emergencies happening on a production line. If you want to reduce bandwidth costs and avoid transferring terabytes of raw data, you can clean and aggregate the data locally then only send the insights to the cloud for analysis.
 
 Azure IoT Edge brings edge-based capabilities to a cloud-based solution and is a feature of [Azure IoT Hub](../iot-hub/iot-concepts-and-iot-hub.md) that enables you to scale out and manage an IoT solution from the cloud. By packaging your business logic into standard containers and using optional pre-built IoT Edge module images from partners or the [Microsoft Artifact Registry](https://mcr.microsoft.com/catalog?cat=IoT%20Edge%20Modules&alphaSort=asc&alphaSortKey=Name), you can easily compose, deploy, and maintain your solution.
 
@@ -40,7 +40,7 @@ IoT Edge modules are units of execution, implemented as Docker-compatible contai
 
 ### Artificial intelligence at the edge
 
-Azure IoT Edge allows you to deploy advanced AI workloads like machine learning, image recognition, and complex event processing directly at the edge—without the need for in-house development. Azure services like Azure Stream Analytics and Azure Machine Learning can all be run on-premises via Azure IoT Edge. You're not limited to Azure services, though. Anyone can create AI modules for their own use.
+Azure IoT Edge allows you to deploy advanced AI capabilities like machine learning, image recognition, and complex event processing directly at the edge—without the need for in-house development. Azure services like Azure Stream Analytics and Azure Machine Learning can all be run on-premises via Azure IoT Edge. You're not limited to Azure services, though. Anyone can create AI modules for their own use.
 
 ### Bring your own code
 
@@ -50,7 +50,7 @@ When you want to deploy your own code to your devices, Azure IoT Edge supports t
 
 The Azure IoT Edge runtime enables custom and cloud logic on IoT Edge devices. The runtime sits on the IoT Edge device, and performs management and communication operations. The runtime performs several functions:
 
-* Installs and updates workloads on the device.
+* Installs and updates modules on the device.
 * Maintains Azure IoT Edge security standards on the device.
 * Ensures that IoT Edge modules are always running.
 * Reports module health to the cloud for remote monitoring.
@@ -60,17 +60,17 @@ The Azure IoT Edge runtime enables custom and cloud logic on IoT Edge devices. T
 
 How you use an Azure IoT Edge device is up to you. The runtime is often used to deploy AI to gateway devices that aggregate and process data from other on-premises devices, but this deployment model is just one option.
 
-The Azure IoT Edge runtime runs on a large set of IoT devices that enables using it in a wide variety of ways. It supports both Linux and Windows operating systems and abstracts hardware details. Use a device smaller than a Raspberry Pi 3 if you're not processing much data, or use an industrial server to run resource-intensive workloads.
+The Azure IoT Edge runtime runs on a large set of IoT devices that enables using it in a wide variety of ways. It supports both Linux and Windows operating systems and abstracts hardware details. Use a device smaller than a Raspberry Pi 3 if you're not processing much data, or use an industrial server to run resource-intensive applications.
 
 ## IoT Edge cloud interface
 
-It's difficult to manage the software lifecycle for millions of IoT devices that are often different makes and models or geographically scattered. Workloads are created and configured for a particular type of device, deployed to all of your devices, and monitored to catch any misbehaving devices. These activities can't be done on a per-device basis and must be done at scale.
+It's difficult to manage the software lifecycle for millions of IoT devices that are often different makes and models or geographically scattered. Modules are created and configured for a particular type of device, deployed to all of your devices, and monitored to catch any misbehaving devices. These activities can't be done on a per-device basis and must be done at scale.
 
 Azure IoT Edge integrates seamlessly with [Azure IoT Central](../iot-central/index.yml) to provide one control plane for your solution's needs. Cloud services allow you to:
 
-* Create and configure a workload to be run on a specific type of device.
-* Send a workload to a set of devices.
-* Monitor workloads running on devices in the field.
+* Create and configure a module to run on a specific type of device.
+* Deploy a module to a set of devices.
+* Monitor modules running on devices in the field.
 
 :::image type="content" source="./media/about-iot-edge/cloud-interface.png" alt-text="Diagram of how device data and actions are coordinated with the cloud." lightbox="media/about-iot-edge/cloud-interface.png":::
 

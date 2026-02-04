@@ -2,7 +2,7 @@
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: include
-ms.date: 02/02/2026    
+ms.date: 02/04/2026    
 # This file is auto-generated. Do not edit manually. Changes will be overwritten.
 ---
 
@@ -263,7 +263,7 @@ ms.date: 02/02/2026
 |[GCPVPCFlow](/azure/azure-monitor/reference/tables/GCPVPCFlow)|[GCP Pub/Sub VPC Flow Logs (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#gcp-pubsub-vpc-flow-logs-via-codeless-connector-framework)|Yes|Yes|
 |Gigamon_CL|[Gigamon AMX Data Connector](/azure/sentinel/data-connectors-reference#gigamon-amx-data-connector)|No|No|
 |GitHubAuditLogPolling_CL|[[Deprecated] GitHub Enterprise Audit Log](/azure/sentinel/data-connectors-reference#deprecated-github-enterprise-audit-log)|Yes|Yes|
-|GitHubAuditLogsV2_CL|[GitHub Enterprise Audit Log (via Codeless Connector Framework) (Preview)](/azure/sentinel/data-connectors-reference#github-enterprise-audit-log-via-codeless-connector-framework-preview)|Yes|Yes|
+|GitHubAuditLogsV2_CL|[GitHub Enterprise Audit Log (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#github-enterprise-audit-log-via-codeless-connector-framework)|Yes|Yes|
 |githubscanaudit_CL|[GitHub (using Webhooks)](/azure/sentinel/data-connectors-reference#github-using-webhooks)|Yes|Yes|
 |[GKEAudit](/azure/azure-monitor/reference/tables/GKEAudit)|[Google Kubernetes Engine (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#google-kubernetes-engine-via-codeless-connector-framework)|Yes|Yes|
 |[GoogleCloudSCC](/azure/azure-monitor/reference/tables/GoogleCloudSCC)|[Google Security Command Center](/azure/sentinel/data-connectors-reference#google-security-command-center)|Yes|Yes|
@@ -457,6 +457,8 @@ ms.date: 02/02/2026
 |VeeamOneTriggeredAlarms_CL|[Veeam Data Connector (using Azure Functions)](/azure/sentinel/data-connectors-reference#veeam-data-connector-using-azure-functions)|Yes|Yes|
 |VeeamSecurityComplianceAnalyzer_CL|[Veeam Data Connector (using Azure Functions)](/azure/sentinel/data-connectors-reference#veeam-data-connector-using-azure-functions)|Yes|Yes|
 |VeeamSessions_CL|[Veeam Data Connector (using Azure Functions)](/azure/sentinel/data-connectors-reference#veeam-data-connector-using-azure-functions)|Yes|Yes|
+|VersasecCmsErrorLogs_CL|[VersasecCms](/azure/sentinel/data-connectors-reference#versaseccms)|No|No|
+|VersasecCmsSysLogs_CL|[VersasecCms](/azure/sentinel/data-connectors-reference#versaseccms)|No|No|
 |[W3CIISLog](/azure/azure-monitor/reference/tables/W3CIISLog)|[IIS Logs of Microsoft Exchange Servers](/azure/sentinel/data-connectors-reference#iis-logs-of-microsoft-exchange-servers)<br>[[Deprecated] Microsoft Exchange Logs and Events](/azure/sentinel/data-connectors-reference#deprecated-microsoft-exchange-logs-and-events)|Yes|No|
 |web_assets_CL|[Holm Security Asset Data (using Azure Functions)](/azure/sentinel/data-connectors-reference#holm-security-asset-data-using-azure-functions)|No|No|
 |[WindowsEvent](/azure/azure-monitor/reference/tables/WindowsEvent)|[Windows Forwarded Events](/azure/sentinel/data-connectors-reference#windows-forwarded-events)|Yes|Yes|

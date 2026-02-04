@@ -132,12 +132,16 @@ landingContent:
         links:
           - text: Connect and build applications with your data
             url: build-applications-with-planetary-computer-pro.md
+          - text: Working with Partner Applications
+            url: working-with-partner-applications.md
       - linkListType: quickstart
         links:
           - text: Use the explorer
             url: use-explorer.md
           - text: Build a web application
             url: build-web-application.md
+          - text: Authoring and Configuring a Partner Application
+            url: configure-cross-tenant-application.md
       - linkListType: how-to-guide
         links:
           - text: Application authentication
@@ -146,6 +150,8 @@ landingContent:
             url: create-connection-arc-gis-pro.md
           - text: Connect to QGIS
             url: configure-qgis.md
+          - text: Authorizing Partner Cross-Tenant Application Access
+            url: authorize-cross-tenant-partner-applications.md
       - linkListType: quickstart
         links:
           - text: Azure Batch and Microsoft Planetary Computer Pro

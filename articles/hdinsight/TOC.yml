@@ -657,8 +657,6 @@ items:
           href: ./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
         - name: Connect Power BI to Apache Hadoop
           href: ./hadoop/apache-hadoop-connect-hive-power-bi.md
-        - name: Connect Excel to Apache Hadoop
-          href: ./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md
         - name: Connect using the Apache Hive JDBC driver
           href: ./hadoop/apache-hadoop-connect-hive-jdbc-driver.md
         - name: Analyze stored tweets
@@ -959,8 +957,6 @@ items:
         href: ./hadoop/apache-hadoop-use-hive-visual-studio.md
       - name: Use a Java UDF with Apache Hive
         href: ./hadoop/apache-hadoop-hive-java-udf.md
-      - name: Query Hive with PowerShell and ODBC
-        href: ./interactive-query/apache-hive-query-odbc-driver-powershell.md
       - name: Enable Hive LLAP Workload Management feature
         href: ./interactive-query/hive-workload-management.md
     - name: Manage

@@ -87,6 +87,14 @@
     href: create-connection-arc-gis-pro.md
   - name: Connect to QGIS
     href: configure-qgis.md
+  - name: Working with Partner Applications
+    items:
+    - name: Partner Application Overview
+      href: working-with-partner-applications.md
+    - name: Authorizing Partner Cross-Tenant Application Access
+      href: authorize-cross-tenant-partner-applications.md
+    - name: Authoring and Configuring a Partner Application
+      href: configure-cross-tenant-application.md
   - name: Azure Batch and Microsoft Planetary Computer Pro
     href: azure-batch.md
   - name: API Reference

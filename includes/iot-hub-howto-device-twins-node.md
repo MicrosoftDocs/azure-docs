@@ -381,4 +381,4 @@ query.nextAsTwin(function(err, results) {
 
 ### Service SDK sample
 
-The Azure IoT SDK for Node.js provides a working sample of a service app that handles device twin tasks. For more information, see [Device Twin Backend Service](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples/helpers/device-twin-service) - This project is used to send device twin patch updates for a specific device.
+The Azure IoT SDK for Node.js provides a working sample of a service app that handles device twin tasks. For more information, see [Device twin backend service](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples/helpers/device-twin-service) - This project is used to send device twin patch updates for a specific device.

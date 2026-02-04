@@ -31,7 +31,7 @@ You can use a Filter activity in a pipeline to apply a filter expression to an i
 
 To use a Filter activity in a pipeline, complete the following steps:
 
-1. You can use any array type variable or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions) as the input for your filter condition.  To create an array variable, select the background of the pipeline canvas and then select the **Variables** tab to add an array type variable as shown below.
+1. You can use any array type variable or [outputs from other activities](how-to-expression-language-functions.md#expressions-with-parameters) as the input for your filter condition.  To create an array variable, select the background of the pipeline canvas and then select the **Variables** tab to add an array type variable as shown below.
 
    :::image type="content" source="media/control-flow-activities-common/pipeline-array-variable.png" alt-text="Shows an empty pipeline canvas with an array type variable added to the pipeline.":::
 

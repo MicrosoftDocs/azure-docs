@@ -1,11 +1,11 @@
 ---
-title: Azure API Management backends | Microsoft Docs
+title: Azure API Management Backends | Microsoft Docs
 description: Learn about backends in Azure API Management. Backend entities encapsulate information about backend services, promoting reusability across APIs and governance.
 services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 11/20/2025
+ms.date: 01/15/2026
 ms.author: danlep
 ms.custom:
   - build-2024
@@ -23,28 +23,28 @@ When you import certain APIs, API Management automatically configures the API ba
 * A [SOAP API](import-soap-api.md).
 
 For other APIs, such as APIs from Azure services, you import an Azure resource without specifying the backend service explicitly. Examples include: 
-* An HTTP-triggered [Azure Function App](import-function-app-as-api.md) 
+* An HTTP-triggered [Azure Function App](import-function-app-as-api.md). 
 * A [Logic App](import-logic-app-as-api.md).
 
 API Management also supports using other resources as an API backend, such as:
 * A [Service Fabric cluster](how-to-configure-service-fabric-backend.yml).
-* AI services
-* A custom service
+* AI services.
+* A custom service.
 
 For these backends, you can create a *backend entity* in API Management and reference it in your APIs.  
 
 ## Benefits of backends
 
-API Management supports backend entities so you can manage the backend services of your API. A backend entity encapsulates information about the backend service, promoting reusability across APIs and improved governance.
+API Management supports backend entities so you can manage the backend services of your API. A backend entity encapsulates information about the backend service, which promotes reusability across APIs and improves governance.
 
-Use backends for one or more of the following:
+Use backends for one or more of the following tasks:
 
-* Authorize the credentials of requests to the backend service
-* Take advantage of API Management functionality to maintain secrets in Azure Key Vault if [named values](api-management-howto-properties.md) are configured for header or query parameter authentication
-* Define circuit breaker rules to protect your backend from too many requests
-* Route or load-balance requests to multiple backends
+* Authorize the credentials of requests to the backend service.
+* Take advantage of API Management functionality to maintain secrets in Azure Key Vault if [named values](api-management-howto-properties.md) are configured for header or query parameter authentication.
+* Define circuit breaker rules to protect your backend from too many requests.
+* Route or load-balance requests to multiple backends.
 
-Configure and manage backend entities in the Azure portal, or by using Azure APIs or tools.
+You can configure and manage backend entities in the Azure portal, or by using Azure APIs or tools.
 
 ## Create a backend
 
@@ -98,7 +98,7 @@ If the backend service is secured with a certificate issued by a well-known CA, 
 
 ### Configure CA certificate
 
-If the backend service uses a custom CA certificate, you can reference the custom CA certificate in the backend entity. You might need to do this step to establish trust for the backend server certificate - for example, with self-signed certificates, untrusted root certificates, or partial certificate chains.
+If the backend service uses a custom CA certificate, you can reference the custom CA certificate in the backend entity. You might need to add a custom CA certificate to establish trust for the backend server certificate - for example, with self-signed certificates, untrusted root certificates, or partial certificate chains.
 
 > [!NOTE]
 > Currently, you can only configure CA certificate details in a backend entity in the [v2 tiers](v2-service-tiers-overview.md).
@@ -123,7 +123,7 @@ To add CA certificate details, follow these steps:
 
 ## Reference backend using set-backend-service policy
 
-After creating a backend, you can reference the backend identifier (name) in your APIs. Use the [`set-backend-service`](set-backend-service-policy.md) policy to direct an incoming API request to the backend. If you already configured a backend web service for an API, you can use the `set-backend-service` policy to redirect the request to a backend entity instead. For example:
+After creating a backend, reference the backend identifier (name) in your APIs. Use the [`set-backend-service`](set-backend-service-policy.md) policy to direct an incoming API request to the backend. If you already configured a backend web service for an API, use the `set-backend-service` policy to redirect the request to a backend entity instead. For example:
 
 ```xml
 <policies>
@@ -135,11 +135,11 @@ After creating a backend, you can reference the backend identifier (name) in you
 <policies/>
 ```
 > [!NOTE]
-> Alternatively, you can use `base-url`. Usually, the format is `https://backend.com/api`. Avoid adding a slash at the end to prevent misconfigurations. Typically, the `base-url` and HTTP(S) endpoint value in the backend should match to enable seamless integration between frontend and backend. Note that API Management instances append the backend service name to the `base-url`.
+> Alternatively, you can use `base-url`. Usually, the format is `https://backend.com/api`. Avoid adding a slash at the end to prevent misconfigurations. Typically, the `base-url` and HTTP(S) endpoint value in the backend should match to enable seamless integration between frontend and backend. API Management instances append the backend service name to the `base-url`.
 
-You can use conditional logic with the `set-backend-service` policy to change the effective backend based on location, gateway that was called, or other expressions.
+Use conditional logic with the `set-backend-service` policy to change the effective backend based on location, gateway that was called, or other expressions.
 
-For example, here is a policy to route traffic to another backend based on the gateway that was called:
+For example, the following policy routes traffic to another backend based on the gateway that was called:
 
 ```xml
 <policies>
@@ -275,7 +275,7 @@ Include a JSON snippet similar to the following in your ARM template for a backe
 
 ## Load-balanced pool
 
-API Management supports backend *pools* when you want to implement multiple backends for an API and load-balance requests across those backends. A pool is a collection of backends that are treated as a single entity for load balancing.
+API Management supports backend *pools* when you want to implement multiple backends for an API and load-balance requests across those backends. A pool is a collection of backends that the service treats as a single entity for load balancing.
 
 Use a backend pool for scenarios such as the following scenarios:
 
@@ -303,7 +303,7 @@ API Management supports the following load balancing options for backend pools:
 
 ### Session awareness
 
-With any of the preceding load balancing options, you can enable **session awareness** (session affinity) to ensure that all requests from a specific user during a session go to the same backend in the pool. API Management sets a session ID cookie to maintain session state. This option is useful, for example, in scenarios with backends such as AI chat assistants or other conversational agents to route requests from the same session to the same endpoint.
+By using any of the preceding load balancing options, you can enable **session awareness** (session affinity) to ensure that all requests from a specific user during a session go to the same backend in the pool. API Management sets a session ID cookie to maintain session state. This option is useful, for example, in scenarios with backends such as AI chat assistants or other conversational agents to route requests from the same session to the same endpoint.
 
 > [!NOTE]
 > Session awareness in load-balanced pools is being released first to the **AI Gateway Early** [update group](configure-service-update-settings.md).
@@ -312,7 +312,7 @@ With any of the preceding load balancing options, you can enable **session aware
 
 When you use session awareness, the client must handle cookies appropriately. The client needs to store the `Set-Cookie` header value and send it with subsequent requests to maintain session state.
 
-You can use API Management policies to help set cookies for session awareness. For example, for the case of the Assistants API (a feature of [Azure OpenAI in Microsoft Foundry Models](/azure/ai-services/openai/concepts/models)), the client needs to keep the session ID, extract the thread ID from the body, and keep the pair and send the right cookie for each call. Moreover, the client needs to know when to send a cookie or when not to send a cookie header. These requirements can be handled appropriately by defining the following example policies:
+You can use API Management policies to help set cookies for session awareness. For example, in the case of the Assistants API (a feature of [Azure OpenAI in Microsoft Foundry Models](/azure/ai-services/openai/concepts/models)), the client needs to keep the session ID, extract the thread ID from the body, and keep the pair and send the right cookie for each call. Moreover, the client needs to know when to send a cookie or when not to send a cookie header. These requirements can be handled appropriately by defining the following example policies:
 
 
 ```xml
@@ -440,6 +440,30 @@ This example includes an optional `sessionAffinity` pool configuration for sessi
 
 ---
 
+## Context.Backend variable
+When you configure a backend entity in API Management, you can access backend properties in policies by using the `context.Backend` [context variable](api-management-policy-expressions.md#ContextVariables).
+
+The following table lists the properties of the `context.Backend` variable.
+
+| Property | Description |
+|----------|-------------|
+| `Id` | The resource identifier of the backend entity. |
+| `Type` | The type of the backend: `Single` or `Pool`.|
+| `AzureRegion` | The backend region, if specified. |
+
+### Example
+
+The following example shows how to set a custom header with the backend type in an inbound policy:
+
+```xml
+<inbound>
+  <base />
+  <set-backend-service backend-id="my-backend" />
+  <set-header name="X-Backend-Type" exists-action="override">
+    <value>@(context.Backend?.Type ?? "n/a")</value>
+  </set-header>
+</inbound>
+```
 
 ## Limitations
 

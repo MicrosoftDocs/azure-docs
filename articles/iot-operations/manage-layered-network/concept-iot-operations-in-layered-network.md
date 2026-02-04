@@ -51,7 +51,7 @@ In this example, Azure IoT Operations is deployed to levels 2 through 4. At leve
 With extra configuration, you can use this technique to direct traffic east-west. This route lets Azure IoT Operations components send data to other components at upper levels and create data pipelines from the bottom layer to the cloud. In a multilayer network, you can deploy Azure IoT Operations components across layers based on your architecture and data flow needs. This example gives you general ideas about where to place individual components.
 
 - Place the connector for OPC UA at the lower layer, closer to your assets and OPC UA servers.
-- Transfer data toward the cloud through the MQTT Broker components in each layer.
+- Transfer data toward the cloud through the MQTT broker components in each layer.
 - Use the Data Flows component on nodes with enough compute resources, because it typically uses more compute.
 
 ## Key scenarios
