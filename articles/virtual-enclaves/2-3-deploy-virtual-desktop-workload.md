@@ -13,12 +13,12 @@ ms.custom: references_region
 This tutorial guides you through deploying Azure Virtual Desktop (AVD) in Azure Virtual Enclaves. You create AVD infrastructure including host pools, session hosts, application groups, and FSLogix storage, all secured within your enclave boundary.
 
 In this tutorial, you learn how to:
-✅ Deploy AVD community endpoint for external connectivity
-✅ Deploy AVD enclave infrastructure
-✅ Deploy AVD workload with session hosts and control plane
-✅ Configure identity and encryption
-✅ Access AVD via encrypted connections
-✅ Validate the deployment
+  - Deploy AVD community endpoint for external connectivity
+  - Deploy AVD enclave infrastructure
+  - Deploy AVD workload with session hosts and control plane
+  - Configure identity and encryption
+  - Access AVD via encrypted connections
+  - Validate the deployment
 
 ## Prerequisites
 

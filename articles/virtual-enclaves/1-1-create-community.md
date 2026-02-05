@@ -26,20 +26,20 @@ Communities are isolated hub networks that can securely and logically group seve
 In this tutorial, part one of eight, you prepare a monitored and secure network cloud environment in the Azure portal using Azure Virtual Enclaves. One [enclave](./what-enclave.md) contains web applications and is publicly accessible by routing traffic through a second enclave with a Web Application Gateway, Web Application Firewall, and a Public IP address. An [enclave endpoint](./what-enclave-endpoint.md) for the Web App and creating an [enclave connection](./what-enclave-connection.md) between the Web App enclave and second enclaves enables Web App access.
 
 You learn how to:
-✅ Plan your community architecture and address space
-✅ Deploy a community for your enclaves
-✅ Understand hub-and-spoke topology benefits
-✅ Validate community deployment and networking
-✅ Monitor your community infrastructure
+  - Plan your community architecture and address space
+  - Deploy a community for your enclaves
+  - Understand hub-and-spoke topology benefits
+  - Validate community deployment and networking
+  - Monitor your community infrastructure
 
 ## Prerequisites
 
 **Azure requirements:**
-✅ Azure subscription with appropriate quotas
-✅ Required Azure role permissions for Role Based Access Control (RBAC):
+  - Azure subscription with appropriate quotas
+  - Required Azure role permissions for Role Based Access Control (RBAC):
   - Contributor on subscription or resource group
   - User Access Administrator (for other RBAC assignments)
-✅ Azure CLI or PowerShell installed (optional, for validation)
+  - Azure CLI or PowerShell installed (optional, for validation)
 
 **Knowledge:**
 - Basic understanding of Azure networking concepts
@@ -362,14 +362,14 @@ AzureDiagnostics
 
 After deployment, confirm:
 
-✅ Community status shows **Succeeded**
-✅ Community managed resource group created with expected resources
-✅ Virtual Network configured with correct address space and subnets
-✅ Azure Firewall deployed and running
-✅ Log Analytics workspace connected
-✅ Diagnostic settings enabled
-✅ RBAC permissions are configured
-✅ No deployment errors in activity log
+  - Community status shows **Succeeded**
+  - Community managed resource group created with expected resources
+  - Virtual Network configured with correct address space and subnets
+  - Azure Firewall deployed and running
+  - Log Analytics workspace connected
+  - Diagnostic settings enabled
+  - RBAC permissions are configured
+  - No deployment errors in activity log
 
 ## Clean up resources
 
