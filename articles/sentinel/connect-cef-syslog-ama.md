@@ -438,7 +438,7 @@ To send demo messages, complete one of the following steps:
     Test Cisco ASA ingestion using the following command:
 
     ```bash
-    echo -n "<164>%ASA-7-106010: Deny inbound TCP src inet:1.1.1.1 dst inet:2.2.2.2" | nc -u -w0 localhost 514
+    echo -n "<164>DummyHost ASA-FW %ASA-7-106010: Deny inbound TCP src inet:1.1.1.1 dst inet:2.2.2.2" | nc -u -w0 localhost 514
     ```
 
     After you run these commands, messages arrive on port 514 and forward to port 28330.
