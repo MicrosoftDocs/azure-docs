@@ -1,4 +1,4 @@
----
+﻿---
 title: What's new in Azure VPN Gateway?
 description: Learn what's new with Azure VPN Gateway such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 author: cherylmc
