@@ -66,7 +66,7 @@
       href: understand-admin-vm.md
     - name: Understand Domain Name Service
       href: understand-domain-name-service.md
-- name: Tutorials - Deploy Azure Virtual Enclaves
+- name: Tutorial - Deploy Azure Virtual Enclaves
   items:
   - name: Learn Virtual Enclaves
     href: virtual-enclaves-learn.md
@@ -86,7 +86,7 @@
     href: 1-7-host-publicly-accessible-application-virtual-enclave.md
   - name: Migrate workload resources
     href: 1-8-migrate-workload-resources.md
-- name: Tutorials - Create a complex workload architecture
+- name: Tutorial - Create a complex workload architecture
   items:
   - name: Plan your architecture for AVD and AKS workloads
     href: 2-1-plan-architecture-workloads.md
