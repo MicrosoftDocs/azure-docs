@@ -2,7 +2,7 @@
 title: What is Azure Event Hubs - Real-time data streaming platform
 description: Azure Event Hubs is a fully managed, real-time data streaming platform with native Apache Kafka support. Learn about capabilities, use cases, and how to get started.
 ms.topic: overview
-ms.date: 12/16/2025
+ms.date: 01/27/2026
 ---
 
 # What is Azure Event Hubs?
