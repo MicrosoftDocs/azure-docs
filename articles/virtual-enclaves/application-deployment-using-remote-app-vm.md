@@ -44,7 +44,7 @@ The RemoteApp template supports scripting to automate the process of installing 
 
 > [!NOTE]
 > 
-> If the storage account is in a different enclave, create an [enclave endpoint](./create-enclave-endpoint-portal.md) in the enclave with the storage account and [enclave connection](./create-enclave-connection-portal.md) between that storage account enclave and the enclave where you are installing the application.
+> If the storage account is in a different enclave, create an [enclave endpoint](./create-enclave-endpoint-portal.md) in the enclave with the storage account. Then create an [enclave connection](./create-enclave-connection-portal.md) between that storage account enclave and the enclave where you're installing the application.
 
 
 ### Azure Resources Deployed
@@ -62,7 +62,7 @@ The RemoteApp template supports scripting to automate the process of installing 
 
 ## Installation 
 
-### Setup Storage Account to install VS Code
+### Set up Storage Account to install Visual Studio Code
 1. Add app folder to container within storage account.
 ![Diagram showing method of installation within the same enclave.](./media/remoteapp-install-inside-storage-account-enclave.png)
 ![Diagram showing method of installation outside enclave that contains the storage account.](./media/remoteapp-install-outside-storage-account-enclave.png)
