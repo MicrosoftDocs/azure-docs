@@ -316,8 +316,8 @@ kubectl delete storageclass local
 
 ## See also
 
-- [What is Azure Container Storage?](container-storage-introduction.md)
-- [Install Azure Container Storage with AKS](install-container-storage-aks.md)
-- [Use Azure Container Storage (version 1.x.x) with local NVMe](use-container-storage-with-local-disk-version-1.md)
+- [What is Azure Container Storage?](./container-storage-introduction.md)
+- [Install Azure Container Storage with AKS](./install-container-storage-aks.md)
+- [Use Azure Container Storage (version 1.x.x) with local NVMe](./use-container-storage-with-local-disk-version-1.md)
 - [Overview of deploying a highly available PostgreSQL database on Azure Kubernetes Service (AKS)](/azure/aks/postgresql-ha-overview#storage-considerations)
 - [Best practices for ephemeral NVMe data disks in Azure Kubernetes Service (AKS)](/azure/aks/best-practices-storage-nvme)

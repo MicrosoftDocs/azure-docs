@@ -1,5 +1,5 @@
 ---
-title: Azure VMware Solution - private cloud maintenance
+title: Private Cloud Maintenance
 description: Ensuring seamless, reliably maintaintenance of Azure VMware Solution private cloud
 ms.topic: concept-article
 ms.service: azure-vmware

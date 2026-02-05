@@ -472,6 +472,27 @@ az storage account or-policy delete \
 
 N/A
 
+## Behavior when re-creating an object replication policy 
+
+
+When an object replication policy is deleted and re‑created on the same source and destination container pair, Azure treats the new policy as an entirely separate replication relationship. The following behavior applies: 
+
+- A new policy ID is generated for the re‑created policy. 
+
+- Any replication tasks associated with the previous policy are terminated. 
+
+- The destination container is assigned a new replication lock tied to the new policy ID. 
+
+- Replication state from the previous policy is not reused. 
+
+## Replication behavior after re‑creating an object replication policy 
+
+After the policy is re‑created, Azure attempts replication again for eligible blobs, and the outcome depends on the availability of blob version history on the source account: 
+
+- **If a source blob has no previous versions available on the destination:** Azure determines that the blob has already been copied under a prior policy. Re‑replication of that blob does not succeed. Only new blob writes (or new versions created after the policy is re‑created) replicate successfully. 
+
+- **If a source blob has previous versions available on the destination:** Azure is able to re‑replicate the blob. The blob is copied again to the destination as a new version. This enables successful re‑replication of existing blobs without data inconsistency. 
+
 ---
 
 ## Next steps
@@ -479,4 +500,5 @@ N/A
 - [Object replication for block blobs](object-replication-overview.md)
 - [Prevent object replication across Microsoft Entra tenants](object-replication-prevent-cross-tenant-policies.md)
 - [Enable and manage blob versioning](versioning-enable.md)
+
 - [Process change feed in Azure Blob storage](storage-blob-change-feed-how-to.md)

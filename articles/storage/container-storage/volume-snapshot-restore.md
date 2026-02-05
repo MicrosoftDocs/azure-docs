@@ -1,206 +1,200 @@
 ---
-title: Use Volume Snapshots with Azure Container Storage (version 1.x.x)
-description: Take a point-in-time snapshot of a persistent volume and restore it. You'll create a volume snapshot class, take a snapshot, create a restored persistent volume claim, and deploy a new pod.
-author: khdownie
+title: Use volume snapshots with Azure Container Storage (version 2.x.x) with Azure Elastic SAN
+description: Take a snapshot of a persistent volume and restore it.
+author: saurabh0501
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 09/03/2025
+ms.date: 01/28/2026
 ms.author: kendownie
-# Customer intent: As a Kubernetes operator, I want to create and restore volume snapshots in Azure Container Storage (version 1.x.x), so that I can recover from potential data loss.
+# Customer intent: As a Kubernetes operator, I want to create and restore volume snapshots in Azure Container Storage, so that I can recover from potential data loss.
 ---
 
-# Use volume snapshots with Azure Container Storage (version 1.x.x)
+# Use volume snapshots with Azure Container Storage
 
-Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to take a point-in-time snapshot of a persistent volume and restore it with a new persistent volume claim.
+Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built for containers. This article shows how to take a point-in-time snapshot of a persistent volume and restore it with a new persistent volume claim (PVC).
 
-> [!IMPORTANT]
-> This article covers features and capabilities available in Azure Container Storage (version 1.x.x). [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available, but it doesn't currently support volume snapshots.
+## Limitations
+
+Volume snapshots aren't supported when you use ephemeral disk (local NVMe) as backing storage.
 
 ## Prerequisites
 
-- This article requires the latest version of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges.
-- You'll need an Azure Kubernetes Service (AKS) cluster with a node pool of at least three virtual machines (VMs) for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
-- This article assumes you've already installed Azure Container Storage on your AKS cluster, and that you've created a storage pool and persistent volume claim (PVC) using either [Azure Disks](use-container-storage-with-managed-disks.md) or [ephemeral disk (local storage)](use-container-storage-with-local-disk-version-1.md). Volume snapshots aren't currently supported when you use Elastic SAN as backing storage.
+- This article requires the latest version of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you use Azure Cloud Shell, the latest version is already installed. If you run commands locally, use an account with administrative privileges.
+- This article assumes you installed Azure Container Storage on your Azure Kubernetes Service (AKS) cluster and created a PVC using [Azure Elastic SAN](use-container-storage-with-elastic-san.md).
 
 ## Create a volume snapshot class
 
-First, create a volume snapshot class, which allows you to specify the attributes of the volume snapshot, by defining it in a YAML manifest file. Follow these steps to create a volume snapshot class for Azure Disks.
+A volume snapshot class defines snapshot settings. Follow these steps to create a volume snapshot class for Elastic SAN.
 
-1. Use your favorite text editor to create a YAML manifest file such as `code acstor-volumesnapshotclass.yaml`.
+1. Create a YAML manifest file such as `acstor-volumesnapshotclass.yaml`.
 
-1. Paste in the following code. The volume snapshot class **name** value can be whatever you want.
+1. Paste the following code. The volume snapshot class `name` value can be any value.
 
-   ```yml
+   ```yaml
    apiVersion: snapshot.storage.k8s.io/v1
    kind: VolumeSnapshotClass
    metadata:
-     name: csi-acstor-vsc
-   driver: containerstorage.csi.azure.com
+     name: elasticsan-snapshot-class
+   driver: san.csi.azure.com
    deletionPolicy: Delete
-   parameters:
-     incremental: "true"  # available values: "true", "false" ("true" by default for Azure Public Cloud, and "false" by default for Azure Stack Cloud)
    ```
 
-1. Apply the YAML manifest file to create the volume snapshot class.
-   
+1. Apply the manifest to create the volume snapshot class.
+
    ```azurecli-interactive
    kubectl apply -f acstor-volumesnapshotclass.yaml
    ```
-   
-   When creation is complete, you'll see a message like:
-   
+
+   When creation is complete, you see a message like:
+
    ```output
-   volumesnapshotclass.snapshot.storage.k8s.io/csi-acstor-vsc created
+   volumesnapshotclass.snapshot.storage.k8s.io/elasticsan-snapshot-class created
    ```
-   
-   You can also run `kubectl get volumesnapshotclass` to check that the volume snapshot class has been created. You should see output such as:
-   
+
+   You can also run `kubectl get volumesnapshotclass` to confirm creation. You should see output such as:
+
    ```output
-   NAME            DRIVER                            DELETIONPOLICY    AGE
-   csi-acstor-vsc	 containerstorage.csi.azure.com	   Delete	           11s
+   NAME                        DRIVER                DELETIONPOLICY    AGE
+   elasticsan-snapshot-class   san.csi.azure.com     Delete            11s
    ```
-   
+
 ## Create a volume snapshot
 
-Next, you'll create a snapshot of an existing persistent volume claim and apply the volume snapshot class you created in the previous step.
+Next, create a snapshot of an existing PVC and apply the volume snapshot class you created in the previous step.
 
-1. Use your favorite text editor to create a YAML manifest file such as `code acstor-volumesnapshot.yaml`.
+1. Create a YAML manifest file such as `acstor-volumesnapshot.yaml`.
 
-1. Paste in the following code. The `volumeSnapshotClassName` should be the name of the volume snapshot class that you created in the previous step. For `persistentVolumeClaimName`, use the name of the persistent volume claim that you want to take a snapshot of. The volume snapshot **name** value can be whatever you want.
+1. Paste the following code. Set `volumeSnapshotClassName` to the name of the volume snapshot class you created in the previous step. Set `persistentVolumeClaimName` to the name of the PVC you want to snapshot. The volume snapshot `name` value can be any value.
 
-   ```yml
+   ```yaml
    apiVersion: snapshot.storage.k8s.io/v1
    kind: VolumeSnapshot
    metadata:
-     name: azuredisk-volume-snapshot
+     name: elasticsan-volume-snapshot
    spec:
-     volumeSnapshotClassName: csi-acstor-vsc
+     volumeSnapshotClassName: elasticsan-snapshot-class
      source:
-       persistentVolumeClaimName: azurediskpvc
+       persistentVolumeClaimName: elasticsanpvc
    ```
 
-1. Apply the YAML manifest file to create the volume snapshot.
-   
+1. Apply the manifest to create the volume snapshot.
+
    ```azurecli-interactive
    kubectl apply -f acstor-volumesnapshot.yaml
    ```
-   
-   When creation is complete, you'll see a message like:
-   
+
+   When creation is complete, you see a message like:
+
    ```output
-   volumesnapshot.snapshot.storage.k8s.io/azuredisk-volume-snapshot created
+   volumesnapshot.snapshot.storage.k8s.io/elasticsan-volume-snapshot created
    ```
-   
-   You can also run `kubectl get volumesnapshot` to check that the volume snapshot has been created. If `READYTOUSE` indicates *true*, you can move on to the next step.
+
+   You can also run `kubectl get volumesnapshot` to check that the volume snapshot is created. If `READYTOUSE` is `true`, you can move on to the next step.
 
 ## Create a restored persistent volume claim
 
-Now you can create a new persistent volume claim that uses the volume snapshot as a data source.
+Create a new PVC that uses the volume snapshot as a data source.
 
-1. Use your favorite text editor to create a YAML manifest file such as `code acstor-pvc-restored.yaml`.
+1. Create a YAML manifest file such as `acstor-pvc-restored.yaml`.
 
-1. Paste in the following code. The `storageClassName` must match the storage class that you used when creating the original persistent volume. For example, if you're using ephemeral disk (local NVMe) instead of Azure Disks for back-end storage, change `storageClassName` to `acstor-ephemeraldisk`. For the data source **name** value, use the name of the volume snapshot that you created in the previous step. The metadata **name** value for the persistent volume claim can be whatever you want.
+1. Paste the following code. The `storageClassName` must match the StorageClass you used when creating the original PVC. For the data source `name` value, use the name of the volume snapshot you created in the previous step. The PVC `metadata.name` value can be any value.
 
-   ```yml
+   ```yaml
    apiVersion: v1
    kind: PersistentVolumeClaim
    metadata:
-     name: pvc-azuredisk-snapshot-restored
+     name: pvc-elasticsan-snapshot-restored
    spec:
      accessModes:
        - ReadWriteOnce
-     storageClassName: acstor-azuredisk
+     storageClassName: azuresan
      resources:
        requests:
          storage: 100Gi
      dataSource:
-       name: azuredisk-volume-snapshot
+       name: elasticsan-volume-snapshot
        kind: VolumeSnapshot
        apiGroup: snapshot.storage.k8s.io
    ```
 
-1. Apply the YAML manifest file to create the PVC.
-   
+1. Apply the manifest to create the PVC.
+
    ```azurecli-interactive
    kubectl apply -f acstor-pvc-restored.yaml
    ```
-   
-   When creation is complete, you'll see a message like:
-   
+
+   When creation is complete, you see a message like:
+
    ```output
-   persistentvolumeclaim/pvc-azuredisk-snapshot-restored created
+   persistentvolumeclaim/pvc-elasticsan-snapshot-restored created
    ```
-   
-   You can also run `kubectl describe pvc pvc-azuredisk-snapshot-restored` to check that the persistent volume has been created. You should status **Pending** and the message **waiting for first consumer to be created before binding**.
+
+   You can also run `kubectl describe pvc pvc-elasticsan-snapshot-restored` to check that the persistent volume is created. The status shows **Pending** with a message that it is waiting for the first consumer to be created before binding.
 
 > [!TIP]
-> If you already created a restored persistent volume claim and want to apply the yaml file again to correct an error or make a change, you'll need to first delete the old persistent volume claim before applying the yaml file again: `kubectl delete pvc <pvc-name>`.
+> If you need to reapply the YAML file to fix an error or make a change, delete the old PVC first: `kubectl delete pvc <pvc-name>`.
 
 ## Delete the original pod (optional)
 
-Before you create a new pod, you might want to delete the original pod that you created the snapshot from.
+Before you create a new pod, you can delete the original pod that you created the snapshot from.
 
-1. Run `kubectl get pods` to list the pods. Make sure you're deleting the right pod.
+1. Run `kubectl get pods` to list the pods. Make sure you delete the correct pod.
 1. To delete the pod, run `kubectl delete pod <pod-name>`.
 
 ## Create a new pod using the restored snapshot
 
-Next, create a new pod using the restored persistent volume claim. Create the pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for benchmarking and workload simulation, and specify a mount path for the persistent volume.
+Create a new pod using the restored PVC. Create the pod using Flexible I/O Tester (fio) for benchmarking and workload simulation, and specify a mount path for the persistent volume.
 
-1. Use your favorite text editor to create a YAML manifest file such as `code acstor-pod2.yaml`.
+1. Create a YAML manifest file such as `fio-pod-restore.yaml`.
 
-1. Paste in the following code. The persistent volume claim `claimName` should be the name of the restored snapshot persistent volume claim that you created. The metadata **name** value for the pod can be whatever you want.
+1. Paste the following code. The persistent volume claim `claimName` should be the name of the restored PVC you created. The pod `metadata.name` value can be any value.
 
-   ```yml
-   kind: Pod
+   ```yaml
    apiVersion: v1
+   kind: Pod
    metadata:
-     name: fiopod2
+     name: fio-restore
    spec:
-     nodeSelector:
-       acstor.azure.com/io-engine: acstor
      volumes:
-       - name: diskpv
+       - name: iscsi-volume
          persistentVolumeClaim:
-           claimName: pvc-azuredisk-snapshot-restored
+           claimName: pvc-elasticsan-snapshot-restored
      containers:
        - name: fio
          image: nixery.dev/shell/fio
-         args:
-           - sleep
-           - "1000000"
          volumeMounts:
-           - mountPath: "/volume"
-             name: diskpv
+           - mountPath: /volume
+             name: iscsi-volume
    ```
 
-1. Apply the YAML manifest file to deploy the pod.
-   
+1. Apply the manifest to deploy the pod.
+
    ```azurecli-interactive
-   kubectl apply -f acstor-pod2.yaml
+   kubectl apply -f fio-pod-restore.yaml
    ```
-   
+
    You should see output similar to the following:
-   
+
    ```output
-   pod/fiopod2 created
+   pod/fio-restore created
    ```
 
-1. Check that the pod is running and that the persistent volume claim has been bound successfully to the pod:
+1. Check that the pod is running and the PVC is bound:
 
    ```azurecli-interactive
-   kubectl describe pod fiopod2
-   kubectl describe pvc pvc-azuredisk-snapshot-restored
+   kubectl describe pod fio-restore
+   kubectl describe pvc pvc-elasticsan-snapshot-restored
    ```
 
 1. Check fio testing to see its current status:
 
    ```azurecli-interactive
-   kubectl exec -it fiopod2 -- fio --name=benchtest --size=800m --filename=/volume/test --direct=1 --rw=randrw --ioengine=libaio --bs=4k --iodepth=16 --numjobs=8 --time_based --runtime=60
+   kubectl exec -it fio-restore -- fio --name=benchtest --size=800m --filename=/volume/test --direct=1 --rw=randrw --ioengine=libaio --bs=4k --iodepth=16 --numjobs=8 --time_based --runtime=60
    ```
 
-You've now deployed a new pod from the restored persistent volume claim, and you can use it for your Kubernetes workloads.
+You now have a pod that uses the restored PVC and can use it for your Kubernetes workloads.
 
 ## See also
 
-- [What is Azure Container Storage (version 1.x.x)?](container-storage-introduction-version-1.md)
+- [What is Azure Container Storage?](container-storage-introduction.md)
+- [Use Azure Container Storage with local NVMe](use-container-storage-with-local-disk.md)

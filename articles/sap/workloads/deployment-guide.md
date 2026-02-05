@@ -8,12 +8,425 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.custom: linux-related-content
 ms.topic: article
-ms.date: 06/14/2023
-ms.author: sedusch
+ms.date: 02/04/2026
+ms.author: bentrin
 # Customer intent: "As an IT administrator, I want to deploy SAP NetWeaver on Azure virtual machines, so that I can leverage cloud resources for improved reliability and integration with my existing on-premises infrastructure."
 ---
 # Azure Virtual Machines deployment for SAP NetWeaver
 
+## Overview
+
+**Purpose**: Deploy SAP NetWeaver-based applications on Azure Virtual Machines  
+**Scope**: VM deployment, configuration, and troubleshooting for SAP workloads  
+**Target Audience**: IT administrators deploying SAP on Azure  
+**Prerequisites**: Planning phase must be completed first - see [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md)
+
+Azure Virtual Machines enables organizations to deploy SAP applications with minimal procurement cycles while extending reliability and availability. This guide covers deployment steps, alternate deployment options, and troubleshooting for SAP applications on Azure VMs.
+
+## Key Terminology
+
+- **SAP NetWeaver**: SAP's technology platform for building and integrating SAP applications
+- **SAPS**: SAP Application Performance Standard - unit of measurement for SAP system performance
+- **CTS**: SAP Correction and Transport System - manages software changes
+- **VM Agent**: Azure Virtual Machine Agent - provides VM management capabilities
+- **DBMS**: Database Management System
+- **Cross-premises**: Hybrid deployment connecting on-premises and Azure resources
+
+## Prerequisites Matrix
+
+### Environment Prerequisites
+
+| Component | Requirement | Details |
+|-----------|-------------|---------|
+| **Local Management Computer** | Windows 10+ OR Linux with Azure CLI | For VM management via PowerShell/Azure CLI |
+| **Internet Connectivity** | Required | For tool downloads, VM Agent, and Azure Extension for SAP |
+| **Azure Subscription** | Active Azure account | Required for all Azure resources |
+| **Network Planning** | Completed topology design | Virtual networks must be configured before deployment |
+
+### SAP Sizing Requirements
+
+**Input Requirements**:
+- Projected SAP workload (use SAP Quick Sizer tool)
+- SAPS number requirements
+- CPU resource and memory consumption estimates
+- Required I/O operations per second
+- Network bandwidth requirements (VM-to-VM and on-premises connectivity)
+
+### Azure Architecture Definition
+
+**Must Be Defined Before Deployment**:
+- Azure Managed Disks selection
+- Virtual network and subnet configuration
+- Resource group assignment
+- Azure region selection
+- Azure Availability Zones (if applicable)
+- SAP configuration tier (two-tier or three-tier)
+- VM sizes and additional data disk requirements
+- SAP CTS configuration
+
+## SAP Resource Requirements
+
+### Critical SAP Notes by Category
+
+**VM Sizing and Support**:
+- **SAP Note 1928533**: Azure VM sizes, capacity info, supported SAP software/OS/database combinations, required SAP kernel versions
+
+**Deployment Prerequisites**:
+- **SAP Note 2015553**: Prerequisites for SAP-supported deployments in Azure
+
+**Monitoring and Agents**:
+- **SAP Note 2178632**: Monitoring metrics for SAP in Azure
+- **SAP Note 1409604**: SAP Host Agent version for Windows
+- **SAP Note 2191498**: SAP Host Agent version for Linux
+- **SAP Note 1999351**: Azure Extension for SAP troubleshooting
+
+**Operating System Specific**:
+- **SAP Note 2243692**: SAP licensing on Linux
+- **SAP Note 2578899**: SUSE Linux Enterprise Server 15 information
+- **SAP Note 3108316**: Red Hat Enterprise Linux 9.x information
+- **SAP Note 3399081**: Oracle Linux 9.x information
+- **SAP Note 1597355**: Linux swap-space information
+
+### Additional Resources
+
+**SAP Community Resources**:
+- [SAP on Azure SCN page](https://wiki.scn.sap.com/wiki/x/Pia7Gg): News and resources
+- [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Required SAP Notes for Linux
+
+**Azure Tools Integration**:
+- [Azure PowerShell][azure-ps]: SAP-specific PowerShell cmdlets
+- [Azure CLI][azure-cli]: SAP-specific Azure CLI commands
+
+## Deployment Scenarios
+
+### Scenario Decision Matrix
+
+| Scenario       | Source | Use Case | VM Agent Status | Complexity |
+|----------------|--------|----------|----------------|------------|
+| **Scenario 1** | Azure Marketplace | Standard OS deployment | Auto-installed | Low |
+| **Scenario 2** | Custom/Generalized Image | Standardized deployments | Auto-installed | Medium |
+| **Scenario 3** | Non-generalized VHD | Lift-and-shift migration | Manual installation | High |
+
+### Scenario 1: Azure Marketplace Deployment
+
+**Context**: Deploy VM using Microsoft or third-party images from Azure Marketplace  
+**Image Types**: Windows Server, Linux distributions, DBMS-included images (e.g., SQL Server)  
+**VM Agent**: Automatically installed  
+**DBMS Reference**: [Azure Virtual Machines DBMS deployment for SAP NetWeaver][dbms-guide]
+
+#### Implementation Methods
+
+**Method 1: Azure Portal Deployment**
+
+**Process Flow**:
+1. Navigate to Azure portal → Create Resource → Virtual Machine
+2. Select OS type (Windows Server 2025+, SLES 15+, RHEL 9.4+, Oracle Linux 9.x+)
+3. Configure deployment model (Resource Manager)
+4. Complete wizard-guided configuration
+
+**Key Configuration Areas**:
+
+**Basic Configuration**:
+- VM name and resource identification
+- VM disk type (Premium Storage recommended for both OS and data disks)
+- Authentication (username/password for Windows, SSH public key for Linux)
+- Subscription and resource group assignment
+- Location selection (must align with virtual network location)
+
+**Size Configuration**:
+- **Requirement**: Must support Premium Storage for optimal performance
+- **Reference**: SAP Note 1928533 for supported VM types
+- **Additional Info**: [Azure storage for SAP workloads](./planning-guide-storage.md)
+
+**Settings Configuration**:
+```
+Storage:
+├── Disk Type: Premium Storage (recommended)
+├── Managed Disks: Yes (recommended)
+└── Storage Account: Select existing or create new
+
+Network:
+├── Virtual Network: Connect to existing network for hybrid connectivity
+├── Subnet: Select appropriate subnet
+├── Public IP: Configure as needed
+└── Network Security Group: Configure traffic rules
+
+Extensions:
+├── Installation: Not required during initial deployment
+└── SAP Extensions: Install post-deployment (see post-deployment steps)
+
+High Availability:
+├── Options: Virtual Machine Scale Set, Availability Zone, or Availability Set
+├── Recommendation: Azure Availability Zones in VM Scale Sets
+└── Reference: [Deployment options](./sap-high-availability-architecture-scenarios.md#comparison-of-different-deployment-types-for-sap-workload)
+
+Monitoring:
+├── Boot Diagnostics: Can be disabled
+└── Guest OS Diagnostics: Can be disabled
+```
+
+**Method 2: Template-Based Deployment**
+
+**Template Repository**: [Azure Quickstart Templates][azure-quickstart-templates-github]
+
+**Available Templates**:
+
+**Two-Tier Configuration**:
+- [Standard VM template][sap-templates-2-tier-marketplace-image]: Single VM deployment
+- [Managed Disks template][sap-templates-2-tier-marketplace-image-md]: Single VM with Managed Disks
+
+**Three-Tier Configuration**:
+- [Multi-VM template][sap-templates-3-tier-marketplace-image]: Multiple VM deployment
+- [Managed Disks multi-VM template][sap-templates-3-tier-marketplace-image-md]: Multiple VMs with Managed Disks
+
+**Template Parameters**:
+
+**Basic Parameters**:
+- Subscription and resource group selection
+- Location (uses existing resource group location if selected)
+
+**SAP-Specific Parameters**:
+- **SAP System ID (SID)**: Unique identifier for SAP system
+- **OS Type**: Windows or Linux selection
+- **SAP System Size**: SAPS number (consult SAP Technology Partner if unknown)
+- **System Availability** (three-tier only): Standard or HA configuration
+
+**Storage Parameters**:
+- **Storage Type**: Premium Storage/Premium Storage v2 recommended for larger systems
+- **References**: 
+  - [SAP DBMS Premium SSD usage][2367194]
+  - [RDBMS Storage structure](./dbms-guide-general.md#65fa79d6-a85f-47ee-890b-22e794f51a64)
+  - [Premium Storage guide][storage-premium-storage-portal]
+  - [Azure Storage introduction][storage-introduction]
+
+**Network Parameters**:
+- **Subnet Configuration**: New or existing subnet selection
+- **Subnet ID Format**: `/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>/subnets/<subnet-name>`
+
+#### Post-Deployment Configuration Steps
+
+**Step 1: Proxy Configuration** *(if required)*
+- **Condition**: Cross-premises connectivity via VPN or ExpressRoute
+- **Purpose**: Enable internet access for VM extensions and SAP Host agent
+- **Reference**: [Configure the proxy][deployment-guide-configure-proxy]
+
+**Step 2: Domain Integration** *(Windows only)*
+- **Condition**: Cross-premises Active Directory/DNS integration
+- **Process**: Join VM to on-premises domain
+- **Reference**: [Join VM to domain][deployment-guide-4.3]
+
+**Step 3: Azure Extension for SAP Configuration**
+- **Purpose**: Enable SAP support for Azure environment
+- **Process**: Install and configure Azure Extension for SAP
+- **Reference**: [Configure Azure Extension for SAP][deployment-guide-4.5]
+
+**Step 4: SAP Software Installation**
+- **Approach**: Follow same guidelines as on-premises installation
+- **Media Storage Options**:
+  - Azure VHDs or Managed Disks
+  - Azure VM as file server
+  - Cross-premises installation shares
+
+### Scenario 2: Custom Image Deployment
+
+**Context**: Deploy VM using custom OS/DBMS VM image for standardized deployments  
+**Use Case**: Organizations with specific patch requirements or standardized configurations  
+**Image Preparation**: Different processes for Linux vs. Windows
+
+#### Image Preparation Requirements
+
+**Windows Image Preparation**:
+- **Tool**: [sysprep](/previous-versions/windows/it-pro/windows-8.1-and-8/hh825084(v=win.10))
+- **Purpose**: Abstract Windows settings (SID, hostname) for redeployment
+
+**Linux Image Preparation**:
+- **Tool**: `waagent -deprovision`
+- **Purpose**: Abstract Linux settings for multiple VM deployment
+- **References**: 
+  - [Linux VM capture][virtual-machines-linux-capture-image]
+  - [Azure Linux agent guide][virtual-machines-linux-agent-user-guide-command-line-options]
+
+#### Database Content Strategy
+
+**Options for Database Setup**:
+1. **SAP Software Provisioning Manager**: Install new SAP system with database backup restore
+2. **Direct Azure Storage Restore**: Restore database backup directly from Azure storage (if DBMS supports)
+3. **System Rename Procedure**: Adapt existing on-premises SAP system using SAP Software Provisioning Manager (SAP Note [1619720])
+
+#### Implementation Methods
+
+**Method 1: Azure Portal with Managed Disk Image**
+
+**Prerequisites**: 
+- Managed Disk image available
+- **Reference**: [Capture managed image](/azure/virtual-machines/windows/capture-image-resource)
+
+**Process**:
+1. Navigate to Azure portal → Images
+2. Select Managed Disk image → Create VM
+3. Follow configuration wizard (same parameters as Scenario 1)
+
+**Method 2: Template Deployment**
+
+**Available Templates**:
+- [Two-tier user image][sap-templates-2-tier-user-image]: Single VM deployment
+- [Two-tier Managed Disk image][sap-templates-2-tier-user-image-md]: Single VM with Managed Disks
+- [Three-tier user image][sap-templates-3-tier-user-image]: Multi-VM deployment
+- [Three-tier Managed Disk image][sap-templates-3-tier-user-image-md]: Multi-VM with Managed Disks
+
+**Additional Template Parameters**:
+- **User Image VHD URI** (unmanaged disk template): Private OS image location
+- **User Image Storage Account** (unmanaged disk template): Storage account for private OS image
+- **userImageId** (managed disk template): Managed Disk image identifier
+
+#### Post-Deployment Requirements
+
+**VM Agent Installation** *(Linux only)*:
+- **Requirement**: VM Agent must be pre-installed in user image
+- **Failure Condition**: Template deployment fails without VM Agent
+- **Reference**: [Download, install, and enable Azure VM Agent][deployment-guide-4.4]
+
+**Additional Configuration Steps**: Same as Scenario 1 (proxy, domain join, Azure Extension for SAP)
+
+### Scenario 3: Non-Generalized VHD Migration
+
+**Context**: Move specific SAP system from on-premises to Azure using non-generalized VHD  
+**Use Case**: Lift-and-shift migration maintaining existing configuration  
+**Key Characteristic**: Preserves hostname, SAP SID, and user accounts  
+**VM Agent Status**: Manual installation required
+
+#### Migration Process
+
+**Data Migration**:
+- Upload VHD with OS, SAP binaries, and DBMS binaries
+- Upload VHDs with data and log files
+- **Planning Reference**: [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide]
+
+**Template Deployment Options**:
+- [Two-tier OS disk template][sap-templates-2-tier-os-disk]: Single VM deployment
+- [Two-tier Managed Disk template][sap-templates-2-tier-os-disk-md]: Single VM with Managed Disk
+
+**Template Parameters**:
+- **OS Disk VHD URI** (unmanaged disk): Private OS disk location
+- **OS Disk Managed Disk ID** (managed disk): Managed Disk OS disk identifier
+- Format: `/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Compute/disks/<disk-name>`
+
+#### Manual Installation Requirements
+
+**VM Agent Installation**:
+- **Requirement**: Must be installed on OS disk before deployment
+- **Alternative**: Install after deployment if not using templates
+- **Reference**: [Download, install, and enable Azure VM Agent][deployment-guide-4.4]
+
+**Post-Deployment Steps**: Same as previous scenarios (domain join, proxy, Azure Extension for SAP)
+
+## Detailed Configuration Tasks
+
+### Domain Integration (Windows Only)
+
+**Applicability**: Cross-premises scenarios with Active Directory/DNS extension to Azure  
+**Requirements**: Additional software installation (anti-malware, backup, monitoring)
+
+**Proxy Configuration Considerations**:
+- **Scope**: Windows Local System Account (S-1-5-18)
+- **Method**: Domain Group Policy (recommended for consistent application)
+
+### VM Agent Management
+
+#### Automatic Installation Scenarios
+- **Azure Marketplace deployments**: VM Agent pre-installed
+- **Generalized custom images**: VM Agent included in image preparation
+
+#### Manual Installation Scenarios
+- **Non-generalized images**: Requires manual installation
+- **Migration scenarios**: Install during or after migration
+
+#### Installation Process
+
+**Windows Installation**:
+1. Download [Azure VM Agent installer](https://go.microsoft.com/fwlink/?LinkId=394789)
+2. Connect via RDP to deployed VM
+3. Transfer and execute MSI installer
+4. **Proxy Configuration**: Ensure Local System account (S-1-5-18) has correct proxy settings
+
+**Linux Installation**:
+
+**SUSE Linux Enterprise Server**:
+```bash
+sudo zypper install WALinuxAgent
+```
+
+**Red Hat Enterprise Linux/Oracle Linux**:
+```bash
+sudo yum install WALinuxAgent
+```
+
+**Agent Updates**: Automatic updates (no VM restart required)
+
+#### Update Process
+- **Linux Agent Updates**: [Update Azure Linux Agent][virtual-machines-linux-update-agent]
+
+### Proxy Configuration
+
+#### Windows Proxy Setup
+
+**Configuration Scope**: Local System account  
+**Alternative Method**: Group Policy configuration
+
+**Manual Configuration Process**:
+1. Start → gpedit.msc
+2. Navigate: Computer Configuration → Administrative Templates → Windows Components → Internet Explorer
+3. Verify: "Make proxy settings per-machine" is disabled/not configured
+4. Control Panel → Network and Sharing Center → Internet Options
+5. Connections tab → LAN settings
+6. Configure proxy settings
+7. **Required Exception**: Add IP address 168.63.129.16
+
+#### Linux Proxy Setup
+
+**Configuration File**: `/etc/waagent.conf`
+
+**Required Parameters**:
+```bash
+HttpProxy.Host=<proxy host>          # Example: proxy.corp.local
+HttpProxy.Port=<proxy port>          # Example: 80
+```
+
+**Service Restart**:
+```bash
+sudo service waagent restart
+```
+
+**Azure Repository Access**:
+- Ensure repository traffic bypasses on-premises intranet
+- Configure user-defined routes for direct internet access
+- Avoid routing through site-to-site VPN
+
+#### Repository-Specific Configuration
+
+**SUSE Linux Enterprise Server**:
+- Add routes for IP addresses in `/etc/regionserverclnt.cfg`
+
+**Red Hat Enterprise Linux**:
+- Add routes for IP addresses in `/etc/yum.repos.d/rhui-load-balancers`
+
+**Oracle Linux**:
+- Configure custom repositories or use public repositories
+
+**VM Extension for SAP**: Must also have internet access for proper operation
+
+### Azure Extension for SAP
+
+**Support Channel**: SAP Support (not Microsoft)  
+**Installation Timing**: After VM preparation completion  
+**Availability**: Global Azure datacenters  
+**Purpose**: Enable SAP support validation for Azure environment
+
+**Installation Reference**: [Configure the Azure Extension for SAP][deployment-guide-4.5]
+
+## Reference Links
+
+### SAP Notes Reference Links
 [1409604]:https://launchpad.support.sap.com/#/notes/1409604
 [1597355]:https://launchpad.support.sap.com/#/notes/1597355
 [1619720]:https://launchpad.support.sap.com/#/notes/1619720
@@ -28,43 +441,23 @@ ms.author: sedusch
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [2367194]:https://launchpad.support.sap.com/#/notes/2367194
 
+### Azure Documentation Links
 [azure-cli]:/cli/azure/install-classic-cli
 [azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 
-[dbms-guide]:dbms-guide-general.md (Azure Virtual Machines DBMS deployment for SAP)
-
-[deployment-guide]:deployment-guide.md (Azure Virtual Machines deployment for SAP)
-[deployment-guide-3.3]:deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2 (Scenario 2: Deploying a VM with a custom image for SAP)
-[deployment-guide-3]:deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e (Deployment scenarios of VMs for SAP on Microsoft Azure)
-[deployment-guide-4.3]:deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc (Join a VM to an on-premises domain - Windows only)
-[deployment-guide-4.4]:deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d (Download, install, and enable the Azure VM Agent)
-[deployment-guide-4.5]:vm-extension-for-sap.md (Configure the Azure Extension for SAP)
-
-[deployment-guide-configure-proxy]:deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d (Configure the proxy)
-[deployment-guide-figure-100]:media/virtual-machines-shared-sap-deployment-guide/100-deploy-vm-image.png
-[deployment-guide-figure-300]:media/virtual-machines-shared-sap-deployment-guide/300-deploy-private-image.png
-[deployment-guide-figure-400]:media/virtual-machines-shared-sap-deployment-guide/400-deploy-using-disk.png
-[deployment-guide-figure-50]:media/virtual-machines-shared-sap-deployment-guide/50-forced-tunneling-suse.png
-
-[Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
-[Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
-
-[planning-guide]:planning-guide.md (Azure Virtual Machines planning and implementation for SAP NetWeaver)
-
-[resource-group-overview]:../../azure-resource-manager/management/overview.md
-[sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
-[sap-templates-2-tier-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-2-tier-marketplace-image-md%2Fazuredeploy.json
-[sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
-[sap-templates-2-tier-os-disk-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-2-tier-user-disk-md%2Fazuredeploy.json
-[sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
-[sap-templates-2-tier-user-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-2-tier-user-image-md%2Fazuredeploy.json
-[sap-templates-3-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image%2Fazuredeploy.json
-[sap-templates-3-tier-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-md%2Fazuredeploy.json
-[sap-templates-3-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-user-image%2Fazuredeploy.json
-[sap-templates-3-tier-user-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-user-image-md%2Fazuredeploy.json
-[storage-introduction]:../../storage/common/storage-introduction.md
-[storage-premium-storage-preview-portal]:/azure/virtual-machines/disks-types
+[dbms-guide]:dbms-guide-general.md
+[deployment-guide]:deployment-guide.md
+[deployment-guide-3.3]:deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2
+[deployment-guide-3]:deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e
+[deployment-guide-4.3]:deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc
+[deployment-guide-4.4]:deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d
+[deployment-guide-4.5]:vm-extension-for-sap.md
+[deployment-guide-configure-proxy]:deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d
+[planning-guide]:planning-guide.md
+[resource-group-overview]:/azure/azure-resource-manager/management/overview
+[storage-introduction]:/azure/storage/common/storage-introduction
+[storage-premium-storage-portal]:/azure/virtual-machines/disks-types
 [virtual-machines-windows-agent-user-guide]:/azure/virtual-machines/extensions/agent-windows
 [virtual-machines-linux-agent-user-guide]:/azure/virtual-machines/extensions/agent-linux
 [virtual-machines-linux-agent-user-guide-command-line-options]:/azure/virtual-machines/extensions/agent-linux#command-line-options
@@ -76,12 +469,6 @@ ms.author: sedusch
 [virtual-machines-windows-tutorial]:/azure/virtual-machines/windows/quick-create-portal
 [virtual-networks-nsg]:../../virtual-network/security-overview.md
 [virtual-networks-udr-overview]:../../virtual-network/virtual-networks-udr-overview.md
-
-Azure Virtual Machines is the solution for organizations that need compute and storage resources, in minimal time, and without lengthy procurement cycles. You can use Azure Virtual Machines to deploy classical applications, like SAP NetWeaver-based applications, in Azure. Extend an application's reliability and availability without additional on-premises resources. Azure Virtual Machines supports cross-premises connectivity, so you can integrate Azure Virtual Machines into your organization's on-premises domains, private clouds, and SAP system landscape.
-
-In this article, we cover the steps to deploy SAP applications on virtual machines (VMs) in Azure, including alternate deployment options and troubleshooting. This article builds on the information in [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md). It also complements SAP installation documentation and SAP Notes, which are the primary resources for installing and deploying SAP software.
-
-## Prerequisites
 
 Setting up an Azure virtual machine for SAP software deployment involves multiple steps and resources. Before you start, make sure that you meet the prerequisites for installing SAP software on virtual machines in Azure.
 
@@ -624,6 +1011,6 @@ For more information about user-defined routes, see [User-defined routes and IP 
 
 When you've prepared the VM as described in [Deployment scenarios of VMs for SAP on Azure][deployment-guide-3], the Azure VM Agent is installed on the virtual machine. The next step is to deploy the Azure Extension for SAP, which is available in the Azure Extension Repository in the global Azure datacenters. For more information, see [Configure the Azure Extension for SAP][deployment-guide-4.5].
 
-## Next steps
+## Next Steps
 
 Learn about [RHEL for SAP in-place upgrade](/azure/virtual-machines/workloads/redhat/redhat-in-place-upgrade#upgrade-sap-environments-from-rhel-7-vms-to-rhel-8-vms)

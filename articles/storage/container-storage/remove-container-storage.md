@@ -11,22 +11,59 @@ ms.topic: how-to
 
 # Remove Azure Container Storage
 
-This article shows you how to remove Azure Container Storage by deleting the extension instance for Azure Kubernetes Service (AKS). To clean up resources, you can also delete the AKS cluster or entire resource group.
+This article shows how to remove Azure Container Storage components from your Azure Kubernetes Service (AKS) cluster. To clean up resources, you can also delete the AKS cluster or the entire resource group.
 
 > [!IMPORTANT]
 > This article applies to [Azure Container Storage (version 2.x.x)](container-storage-introduction.md). If you have Azure Container Storage (version 1.x.x) installed on your AKS cluster, remove it by following [these steps](remove-container-storage-version-1.md).
 
-## Delete extension instance
+## Remove Azure Container Storage
 
-Follow these steps to remove Azure Container Storage from your AKS cluster.
+You can either remove the components for a specific storage type or remove Azure Container Storage entirely.
 
-1. Delete all Persistent Volume Claims (PVCs) and Persistent Volumes (PVs) before uninstalling the extension. Removing Azure Container Storage without cleaning up these resources could disrupt your running workloads. To avoid disruptions, ensure that there are no existing workloads or storage classes relying on Azure Container Storage.
+- CSI driver for specific storage types
+- The entire Azure Container Storage installation (installer and CSI drivers)
 
-1. Delete the extension by running the following Azure CLI command. Be sure to replace `<cluster-name>` and `<resource-group>` with your own values.
+> [!IMPORTANT]
+> Delete all persistent volume claims (PVCs) and persistent volumes (PVs) before uninstalling the extension. Removing Azure Container Storage without cleaning up these resources can disrupt running workloads. Ensure no workloads or StorageClass objects rely on Azure Container Storage before you continue.
 
-   ```azurecli
-   az aks update -n <cluster-name> -g <resource-group> --disable-azure-container-storage
-   ```
+## Remove CSI driver for a specific storage type
+
+Remove the CSI driver by running the following Azure CLI command. Replace `<cluster-name>` and `<resource-group>` with your own values.
+
+```azurecli-interactive
+az aks update -n <cluster-name> -g <resource-group> --disable-azure-container-storage <storage-type>
+```
+
+Supported storage type values:
+
+- `ephemeralDisk` - removes only the local CSI driver
+- `elasticSan` - removes only the Elastic SAN CSI driver
+- `all` - removes both Elastic SAN and local CSI drivers
+
+You can also use comma-separated values to remove specific CSI drivers, such as `ephemeralDisk,elasticSan`.
+
+This command removes the specified CSI driver(s), while the Azure Container Storage installer components remain installed.
+
+## Remove the entire Azure Container Storage installation (installer and CSI drivers)
+
+Remove Azure Container Storage entirely by running the following Azure CLI command. Replace `<cluster-name>` and `<resource-group>` with your own values.
+
+```azurecli
+az aks update -n <cluster-name> -g <resource-group> --disable-azure-container-storage
+```
+
+## Re-enable Azure Container Storage
+
+If you previously removed CSI drivers for one or more storage types, you can re-enable the storage type by running the following Azure CLI command.
+
+```azurecli
+az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-storage <storage-type>
+```
+
+Expected behavior:
+
+- Specifying a storage type is optional. When no storage type is provided, only the Azure Container Storage installer component is installed, if it isn't already present.
+- When a storage type is specified, the corresponding CSI driver is installed. If a StorageClass for that storage type already exists, only the driver is installed; otherwise, a default StorageClass is created as part of the installation.
 
 ### Remove the extension with Terraform
 
@@ -45,7 +82,10 @@ If you provisioned Azure Container Storage with Terraform, remove the correspond
     terraform apply
     ```
 
-## Delete AKS cluster
+> [!NOTE]
+> Terraform manages the extension resource. If you want to remove only a specific storage type (for example, Elastic SAN or local NVMe), use the Azure CLI workflow in this article. Terraform doesn't provide a separate disable flag per storage type.
+
+## Delete the AKS cluster
 
 To delete an AKS cluster and all persistent volumes, run the following Azure CLI command. Replace `<resource-group>` and `<cluster-name>` with your own values.
 
@@ -55,13 +95,13 @@ az aks delete --resource-group <resource-group> --name <cluster-name>
 
 If the AKS cluster was created with Terraform, you can also remove it by running the following command.
 
-```bash
+```azurecli
 terraform destroy
 ```
 
 This command deletes all resources that Terraform manages in the current working directory. This includes the cluster, the resource group, and the Azure Container Storage extension. Run this command only when you intend to remove the entire deployment.
 
-## Delete resource group
+## Delete the resource group
 
 You can also use the [`az group delete`](/cli/azure/group) command to delete the resource group and all resources it contains. Replace `<resource-group>` with your resource group name.
 

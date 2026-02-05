@@ -34,6 +34,11 @@
             "source_path_from_root": "/articles/azure-app-configuration/concept-preview-api-lifecycle.md",
             "redirect_url": "/azure/azure-app-configuration/concept-preview-api-life-cycle",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-app-configuration/monitor-app-configuration-reference.md",
+            "redirect_url": "/azure/azure-app-configuration/monitor-app-configuration#schema-reference",
+            "redirect_document_id": false
         }
     ]
 }

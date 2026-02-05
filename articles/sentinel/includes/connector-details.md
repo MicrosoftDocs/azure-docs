@@ -2,11 +2,10 @@
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: include
-ms.date: 02/04/2026
+ms.date: 02/05/2026
 
 # This file is auto-generated . Do not edit manually. Changes will be overwritten.
 ---
-
 
 <a name="1password-serverless"></a><details><summary>**1Password (Serverless)**</summary>
 
@@ -1157,7 +1156,7 @@ The Cisco Umbrella data connector provides the capability to ingest [Cisco Umbre
 
 **Supported by:** [N/A](https://globalcontacts.cloudapps.cisco.com/contacts/contactDetails/en_US/c1o1-c2o2-c3o8)
 
-The connector fetches data from ETD api for threat analysis
+The connector fetches data from ETD API for threat analysis
 
 **Log Analytics table(s):**  
 
@@ -2253,7 +2252,7 @@ Connector used to push Exchange On-Premises Security configuration for Microsoft
 **Prerequisites:**
 
 - **Service Account with Organization Management role**: The service Account that launch the script as scheduled task needs to be Organization Management to be able to retrieve all the needed security Information.
-- **Detailled documentation**: >**NOTE:** Detailled documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
+- **Detailed documentation**: >**NOTE:** Detailed documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
 </details> 
 
  ---
@@ -2939,7 +2938,7 @@ The connector provides the capability to poll data from Holm Security Center int
 **Prerequisites:**
 
 - Azure Log Analytics will be deprecated, to collect data from non-Azure VMs, Azure Arc is recommended. [Learn more](/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)
-- **Detailled documentation**: >**NOTE:** Detailled documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
+- **Detailed documentation**: >**NOTE:** Detailed documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
 </details> 
 
  ---
@@ -3001,7 +3000,7 @@ The Illumio Insights Summary data connector provides the capability to ingest [I
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. For more information, see [Azure Functions](/azure/azure-functions/).
 - **SQS and AWS S3 account credentials/permissions**: **AWS_SECRET**, **AWS_REGION_NAME**, **AWS_KEY**, **QUEUE_URL** is required.   If you are using s3 bucket provided by Illumio, contact Illumio support. At your request they will provide you with the AWS S3 bucket name, AWS SQS url and AWS credentials to access them.
-- **Illumio API key and secret**: **ILLUMIO_API_KEY**, **ILLUMIO_API_SECRET** is required for a workbook to make connection to SaaS PCE and fetch api responses.<br><br>
+- **Illumio API key and secret**: **ILLUMIO_API_KEY**, **ILLUMIO_API_SECRET** is required for a workbook to make connection to SaaS PCE and fetch API responses.<br><br>
 </details> 
 
  ---
@@ -3413,7 +3412,7 @@ These alerts can be imported into Microsoft Sentinel with this connector, allowi
 **Prerequisites:**
 
 - Azure Log Analytics will be deprecated, to collect data from non-Azure VMs, Azure Arc is recommended. [Learn more](/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)
-- **Detailled documentation**: >**NOTE:** Detailled documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
+- **Detailed documentation**: >**NOTE:** Detailed documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
 </details> 
 
  ---
@@ -3713,7 +3712,7 @@ Microsoft Entra ID Protection provides a consolidated view at risk users, risk e
 **Prerequisites:**
 
 - Azure Log Analytics will be deprecated, to collect data from non-Azure VMs, Azure Arc is recommended. [Learn more](/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)
-- **Detailled documentation**: >**NOTE:** Detailled documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
+- **Detailed documentation**: >**NOTE:** Detailed documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
 </details> 
 
  ---
@@ -3735,7 +3734,7 @@ Microsoft Entra ID Protection provides a consolidated view at risk users, risk e
 **Prerequisites:**
 
 - **Azure Log Analytics will be deprecated**: Azure Log Analytics will be deprecated, to collect data from non-Azure VMs, Azure Arc is recommended. [Learn more](/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)
-- **Detailled documentation**: >**NOTE:** Detailled documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
+- **Detailed documentation**: >**NOTE:** Detailed documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
 </details> 
 
  ---
@@ -3757,7 +3756,7 @@ Microsoft Entra ID Protection provides a consolidated view at risk users, risk e
 **Prerequisites:**
 
 - **Azure Log Analytics will be deprecated**: Azure Log Analytics will be deprecated, to collect data from non-Azure VMs, Azure Arc is recommended. [Learn more](/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)
-- **Detailled documentation**: >**NOTE:** Detailled documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
+- **Detailed documentation**: >**NOTE:** Detailed documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
 </details> 
 
  ---
@@ -3779,7 +3778,7 @@ Microsoft Entra ID Protection provides a consolidated view at risk users, risk e
 **Prerequisites:**
 
 - **Azure Log Analytics will be deprecated**: Azure Log Analytics will be deprecated, to collect data from non-Azure VMs, Azure Arc is recommended. [Learn more](/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)
-- **Detailled documentation**: >**NOTE:** Detailled documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
+- **Detailed documentation**: >**NOTE:** Detailed documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
 </details> 
 
  ---

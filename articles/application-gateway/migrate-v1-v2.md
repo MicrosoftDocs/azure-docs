@@ -38,9 +38,13 @@ This article primarily helps with the configuration migration. Client traffic mi
 * Make sure you have the latest PowerShell modules, or you can use Azure Cloud Shell in the portal.
 * If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 * Ensure that there's no existing Application gateway with the provided AppGW V2 Name and Resource group name in V1 subscription. This rewrites the existing resources.
+* Ensure that no other operation is planned on the V1 gateway or any associated resources during migration.
 * If a public IP address is provided, ensure that it's in a succeeded state. If not provided and AppGWResourceGroupName is provided ensure that public IP resource with name AppGWV2Name-IP  doesn’t  exist in a resource group with the name AppGWResourceGroupName in the V1 subscription.
 * For the V1 SKU, authentication certificates are required to set up TLS connections with backend servers. The V2 SKU requires uploading [trusted root certificates](./certificates-for-backend-authentication.md) for the same purpose. While V1 allows the use of self-signed certificates as authentication certificates, V2 mandates [generating and uploading a self-signed Root certificate](./self-signed-certificates.md) if self-signed certificates are used in the backend.
-* Ensure that no other operation is planned on the V1 gateway or any associated resources during migration.
+
+> [!NOTE]
+> Application Gateway V2 includes [customer controlled Backend TLS Relaxation](configuration-http-settings.md#backend-https-validation-settings), a capability that streamlines backend certificate validation during migration. This feature allows you to temporarily relax TLS checks by skipping certificate‑chain , expiry validation or overriding SNI validation, aligning behavior with what is already permitted in the V1 SKU. When the [enhanced migration script](migrate-v1-v2.md#1-enhanced-cloning-script) runs, these relaxation settings are enabled by default for HTTPS backends to prevent disruptions caused by the stricter certificate enforcement in V2. After completing the migration, you can upload the appropriate trusted root certificates and disable Backend TLS Relaxation to align with the recommended security posture for V2.
+  
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 

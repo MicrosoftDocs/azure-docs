@@ -293,8 +293,6 @@
   items:
   - name: Monitor App Configuration
     href: monitor-app-configuration.md
-  - name: Reference for monitoring data
-    href: monitor-app-configuration-reference.md
 - name: Resource management
   items:
   - name: Move a resource between Azure regions

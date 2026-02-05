@@ -5,7 +5,7 @@ author: mattreatMSFT
 ms.author: mareat
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 02/02/2026
+ms.date: 02/05/2026
 ms.custom: linux-related-content
 # Customer intent: "As a cloud architect, I want to implement Accelerated Networking on Azure VMs, so that I can enhance networking performance by reducing latency and CPU utilization for my high-demand applications."
 ---
@@ -60,19 +60,22 @@ The following versions of Windows support Accelerated Networking for all interfa
 
 The following Linux and FreeBSD distributions from Azure Marketplace support Accelerated Networking out of the box:
 
-- Ubuntu 22.04 LTS
+- Azure Linux 3
 - Ubuntu 24.04 LTS
-- Red Hat Enterprise Linux 8.8
-- Red Hat Enterprise Linux 8.10
-- Red Hat Enterprise Linux 9.2
-- Red Hat Enterprise Linux 9.4
+- Ubuntu 22.04 LTS
+- Red Hat Enterprise Linux 10.0
 - Red Hat Enterprise Linux 9.6
-- SUSE Linux Enterprise Server 15 SP4
-- Rocky Linux (CIQ) 8.10 (all variants)
-- Rocky Linux (CIQ) 9.2+ (all variants) 
+- AlmaLinux 10.0
+- AlmaLinux 9.6
+- Rocky Linux 10.0
+- Rocky Linux 9.6
+- SUSE Linux Enterprise Server 16
+- SUSE Linux Enterprise Server 15 SP7
+- SUSE Linux Enterprise Server 15 SP6
+- Debian 13 "Trixie"
 - Debian 12 "Bookworm"
-- Oracle Linux 8.0 UEK R7
-- Oracle Linux 9.0 UEK R7
+- Oracle Linux UEK R8
+- Oracle Linux UEK R7
 
 For users of non endorsed Linux distributions or utilizing custom kernels, we recommend the Linux Kernel 6.12 or later found at [kernel.org](https://www.kernel.org/)
 

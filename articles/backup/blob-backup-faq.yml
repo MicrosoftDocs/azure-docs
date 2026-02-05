@@ -41,6 +41,11 @@ sections:
         answer: |
           With the modification of backup instance, you can assign new policy. Policy are applied only on future recovery points. Past recovery points are still retained as per the previous policy's retention period.
           
+      - question: |
+          What happens when account has blobs in archive tier?
+        answer: |
+          Archive blobs present before backup is configured are skipped during backup. This behavior is expected and does not cause failures, delays, or errors in the backup job. If blobs are moved to archive after backup configuration, the backup copy in the vault will not inherit the Archive tier, and backup continues without issues.
+          
 additionalContent: |
   ## Related content
 
