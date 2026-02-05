@@ -171,6 +171,83 @@ Run the `Update-StoragePolicyOfUnassociatedVsanObjects` cmdlet to modify curre
 
    3. Check **Notifications** to see the progress.
 
+## Delete unassociated vSAN objects using Run Command
+
+Unassociated vSAN objects can remain in a cluster due to interrupted operations, policy mismatches, or failed workflows. These objects consume storage capacity and may block certain cluster operations.
+
+This article explains how to **list** and **delete** unassociated vSAN objects in **Azure VMware Solution (AVS)** using **Run Command**.
+
+### Prerequisites
+
+Before listing or deleting unassociated vSAN objects, ensure that:
+
+- You have access to the Azure portal with permissions equivalent to the **cloudadmin** role for the AVS private cloud.
+- The cluster meets the minimum host requirements for its vSAN configuration (OSA or ESA).
+- You are using the latest supported version of the **Microsoft.AVS.Management** Run Command package.
+- You have validated that the objects to be deleted are **not required** by any workload, management VM, or system component.
+
+### List unassociated vSAN objects
+
+Before deleting any objects, list and review them to confirm that they are truly unassociated.
+
+Use the **Get‑UnassociatedVsanObjectsWithPolicy** Run Command to list unassociated vSAN objects and obtain their UUIDs.
+
+For detailed steps, see:
+- **Get‑UnassociatedVsanObjectsWithPolicy Run Command documentation**
+
+The output of this command includes the **UUID** of each unassociated vSAN object, which is required for deletion.
+
+
+## Delete unassociated vSAN objects
+
+After reviewing the list of unassociated objects, delete them **individually** by specifying their UUID and ClusterName.
+
+> **Important**  
+> Deleting a vSAN object is irreversible. Ensure that the object is not associated with any VM, management component, or system service before proceeding.
+
+### Run Command: `Remove-AvsUnassociatedObject`
+
+1. Navigate to your AVS private cloud in the Azure portal.
+2. Select **Run command** > **Packages** > **Microsoft.AVS.Management**.
+3. Select **Remove-AvsUnassociatedObject**.
+
+:::image type="content"
+source="media/run-command/run-command-overview-remove-unassociatedObject.png"
+alt-text="Screenshot showing the Remove-AvsUnassociatedObject Run Command in the Azure portal"
+lightbox="media/run-command/run-command-overview-remove-unassociatedObject.png"
+:::
+
+4. Provide the **UUID** and **ClusterName** of the unassociated object you want to remove.
+
+:::image type="content"
+source="media/run-command/run-command-RemoveUnassociatedObject.png"
+alt-text="Screenshot of the Remove-AvsUnassociatedObject Run Command execution"
+lightbox="media/run-command/run-command-RemoveUnassociatedObject.png"
+:::
+
+5. Select **Run** and monitor execution progress.
+
+Once the command completes successfully, the specified vSAN object is permanently removed from the cluster. 
+
+### Best practices and safety guidance
+
+- Always **list objects first** and review them carefully before deletion.
+- Delete objects **one at a time** to minimize risk.
+- Avoid deleting objects with names or attributes associated with:
+  - Management VMs
+  - vCenter
+  - NSX
+  - HCX
+  - SRM
+  - Backup or replication components
+- If you are unsure about an object, do not delete it and investigate further.
+
+### Next steps
+
+- Review storage policy assignments to prevent future unassociated objects.
+- Monitor vSAN health checks regularly.
+- Use Run Command outputs and retention settings to maintain auditability.
+
 ## Specify a storage policy for a cluster
 
 Run the `Set-ClusterDefaultStoragePolicy` cmdlet to specify a default storage policy for a cluster.
