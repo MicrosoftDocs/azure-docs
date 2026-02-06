@@ -89,10 +89,10 @@ The following limitations exist for confidential VMs. For frequently asked quest
 
 Confidential VMs support the following VM sizes:
 
-- General Purpose without local disk: DCasv5-series, DCesv5-series
-- General Purpose with local disk: DCadsv5-series, DCedsv5-series
-- Memory Optimized without local disk: ECasv5-series, ECesv5-series
-- Memory Optimized with local disk: ECadsv5-series, ECedsv5-series
+- General Purpose without local disk: DCasv5-series, DCasv6-series DCesv6-series
+- General Purpose with local disk: DCadsv5-series, DCadsv6-series DCedsv6-series
+- Memory Optimized without local disk: ECasv5-series, ECasv6-series ECesv6-series
+- Memory Optimized with local disk: ECadsv5-series, ECadsv6-series ECedsv6-series
 - NVIDIA H100 Tensor Core GPU powered NCCadsH100v5-series
 
 ### OS support

@@ -8,11 +8,11 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.date: 01/25/2022
+ms.date: 02/02/2026
 ms.author: juergent
 # Customer intent: As an SAP administrator, I want to access a comprehensive list of supported SAP certifications and configurations on Azure, so that I can ensure compliance and optimize my SAP workloads on the cloud platform.
 ---
-# SAP certifications and configurations running on Microsoft Azure
+# SAP certifications and configurations on Microsoft Azure
 
 SAP and Microsoft have a long history of working together in a strong partnership that has mutual benefits for their customers. Microsoft is constantly updating its platform and submitting new certification details to SAP in order to ensure Microsoft Azure is the best platform on which to run your SAP workloads. The following tables outline Azure supported configurations and list of growing SAP certifications. This list is an overview list that might deviate here and there from the official SAP lists. How to get to the detailed data is documented in the article [What SAP software is supported for Azure deployments](./supported-product-on-azure.md)
 
@@ -44,7 +44,7 @@ References:
 | SAP BusinessObjects BI | Windows |N/A | [1928533 - SAP Applications on Azure: Supported Products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533) |
 | SAP NetWeaver | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (Windows and Oracle Linux only), DB2, SAP ASE | [1928533 - SAP Applications on Azure: Supported Products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533) |
 
-## Other SAP Workload supported on Azure
+## Other SAP Workloads supported on Azure
 
 | SAP Product | Guest OS | RDBMS | Virtual Machine Types |
 | --- | --- | --- | --- |

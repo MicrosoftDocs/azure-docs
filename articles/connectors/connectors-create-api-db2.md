@@ -5,20 +5,20 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: haroldcampos, azla
 ms.topic: how-to
-ms.date: 01/26/2026
+ms.date: 02/05/2026
 ms.custom: sfi-image-nochange
 #Customer intent: As a developer who works with Azure Logic Apps, I want to access and manage IBM DB2 resources for my cloud or on-premises databases.
 ---
 
-# Access and manage IBM DB2 resources from workflows in Azure Logic Apps
+# Connect to IBM DB2 resources from workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-When your automated integration workflow needs to work with resources in your DB2 database, use the [**DB2** connector](/connectors/db2/). For example, your workflow can read, list rows, add rows, change rows, delete rows, and so on. Your workflow can include actions that return data from your database and make that output available for other actions to use in your workflow.
+When your automated integration workflow needs to work with resources in your DB2 database, use the [**DB2** connector](/connectors/db2/) to perform different operations on your database. For example, your workflow can read, list tables or rows, add rows, update rows, delete rows, and more. These actions can return data from your database for other actions in your workflow to use.
 
-The DB2 connector includes a Microsoft client that communicates with remote DB2 servers across a TCP/IP network. So, you can use this connector to access cloud databases such as IBM DB2 for Windows running in Azure virtualization.
+The DB2 connector includes a Microsoft client that communicates with remote DB2 servers across a TCP/IP network. You can use this connector to access cloud databases such as IBM DB2 for Windows running in Azure virtualization.
 
-This guide shows how to connect your workflow to your DB2 database and perform various operations on that database.
+This guide shows how to add a DB2 action to your workflow and set up a connection to your DB2 database.
 
 ## Supported platforms and versions
 
@@ -53,8 +53,8 @@ For more information about the connector and these actions, see [DB2 connector](
 
 - The logic app resource and workflow from where you want to access your DB2 database.
 
-  The DB2 connector provides only actions. If you have an empty workflow, you must first [add a trigger](../logic-apps/add-trigger-action-workflow.md) that works best for your business scenario, to start the workflow.
-  
+  The DB2 connector provides only actions. If you have an empty workflow, you must first [add a trigger](../logic-apps/add-trigger-action-workflow.md) that works best for your scenario.
+
   The examples in this guide use the [**Recurrence** trigger](connectors-native-recurrence.md).
 
   For more information, see:
@@ -62,13 +62,13 @@ For more information about the connector and these actions, see [DB2 connector](
   - [Create a Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md)
   - [Create a Standard logic app workflow](../logic-apps/create-single-tenant-workflows-azure-portal.md)
 
-- To access on-premises DB2 databases, you need to [install and set up the on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md).
+- To connect your workflow to on-premises DB2 databases, first [install and set up the on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md).
 
 <a name="add-action"></a>
 
 ## Add a DB2 action
 
-The following steps show how to add a DB2 action, for example, **Get tables**, to your workflow.
+The following steps show how to add a DB2 action, such as **Get tables**, to your workflow.
 
 > [!NOTE]
 >
@@ -117,7 +117,7 @@ For example:
 
 | Property | Required | Description |
 |----------|----------|-------------|
-| **Connect via on-premises gateway** | Yes | Applies only to on-premises connections and shows the on-premises connection properties. |
+| **Connect via on-premises gateway** | Yes | Applies only to on-premises connections. This option also shows more properties for the on-premises connection. |
 | **Connection Name** | Yes | The name for your connection, for example, *DB2-connection*. | 
 | **Server** | Yes | The address or alias and port number for your DB2 server, for example, *myDB2server:50000*. <br><br>**Note**: This value is a string that represents a TCP/IP address or alias, either in IPv4 or IPv6 format, followed by a colon and a TCP/IP port number. |
 | **Database** | Yes | The name for your database. <br><br>**Note**: This value is a string that represents a DRDA Relational Database Name (RDBNAM): <br><br>- DB2 for z/OS accepts a 16-byte string where the database is known as an *IBM DB2 for z/OS* location. <br><br>- DB2 for i accepts an 18-byte string where the database is known as an *IBM DB2 for i* relational database. <br><br>- DB2 for LUW accepts an 8-byte string. |
@@ -136,7 +136,7 @@ For example:
 
 ### Test your workflow and view output tables
 
-To manually run your workflow, on the designer toolbar, from the **Run** list, select **Run**. After your workflow completes, you can view the output from the run.
+To manually run your workflow, on the designer toolbar, from the **Run** list, select **Run**. After your workflow finishes, you can view the output from the run.
 
 1. If the run details page doesn't open, follow these steps based on your logic app:
 

@@ -4,7 +4,7 @@ description: Learn how to install SAP software on an SAP system that you created
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
-ms.date: 02/03/2023
+ms.date: 02/02/2026
 author: sagarkeswani
 ms.author: sagarkeswani
 ms.custom: sfi-ropc-nochange
@@ -15,12 +15,7 @@ ms.custom: sfi-ropc-nochange
 # Install SAP software
 
 
-
-
-
-After you've created infrastructure for your new SAP system using *Azure Center for SAP solutions*, you need to install the SAP software.
-
-In this how-to guide, you'll learn two ways to install the SAP software for your system. Choose whichever method is appropriate for your use case. You can either:
+After you've created infrastructure for your new SAP system using *Azure Center for SAP solutions*, you need to install the SAP software. In this how-to guide, you'll learn two ways to install the SAP software for your system. Choose whichever method is appropriate for your use case. You can either:
 
 - [Install the SAP software through Azure Center for SAP solutions directly using the installation wizard](#install-sap-with-azure-center-for-sap-solutions).
 - [Install the SAP software outside of Azure Center for SAP solutions, then detect the installed system from the service](#install-sap-through-outside-method).

@@ -6,7 +6,7 @@ author: MartinPankraz
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: how-to
-ms.date: 03/11/2022
+ms.date: 02/02/2026
 ms.author: mapankra
 ms.custom: sfi-image-nochange
 # Customer intent: "As an SAP system administrator, I want to configure outbound email communication from SAP ABAP Platform to Exchange Online, so that I can efficiently manage notifications and workflows while ensuring compliance with modern authentication standards."

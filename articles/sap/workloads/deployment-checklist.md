@@ -6,12 +6,12 @@ manager: bburns
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 11/19/2024
+ms.date: 02/02/2026
 ms.author: juergent
 # Customer intent: "As an SAP solutions architect, I want to utilize a detailed checklist for deploying SAP workloads to Azure, so that I can ensure a smooth migration and optimize system performance throughout each project phase."
 ---
 
-# SAP workloads on Azure: planning and deployment checklist
+# SAP workload planning and deployment checklist
 
 This checklist is designed for customers moving SAP applications to Azure infrastructure as a service. SAP applications in this document represent SAP products running the SAP kernel, including SAP NetWeaver, S/4HANA, BW and BW/4 and others. Throughout the duration of the project, a customer and/or SAP partner should review the checklist. It's important to note that many of the checks are completed at the beginning of the project and during the planning phase. After the deployment is done, straightforward changes on deployed Azure infrastructure or SAP software releases can become complex.
 
@@ -116,7 +116,7 @@ We recommend that you set up and validate a full HADR solution and security desi
    [Migrate very large databases (VLDB) to Azure for SAP](/training/modules/migrate-very-large-databases-to-azure/)  
 
 ### Technical validation
-
+In the pilot phase, validate the following technical aspects of your planned deployment:
 - **Compute / VM types**
   - Review the resources in SAP support notes, in the SAP HANA hardware directory, and in the SAP PAM again. Make sure to match supported VMs for Azure, supported OS releases for those VM types, and supported SAP and DBMS releases.
   - Validate again the sizing of your application and the infrastructure you deploy on Azure. If you're moving existing applications, you can often derive the necessary SAPS from the infrastructure you use and the [SAP benchmark webpage](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) and compare it to the SAPS numbers listed in [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533). Also keep [this article on SAPS ratings](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAPS-ratings-on-Azure-VMs-8211-where-to-look-and-where-you-can/ba-p/368208) in mind.

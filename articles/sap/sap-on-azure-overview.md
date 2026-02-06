@@ -5,12 +5,14 @@ author: ju-shim
 ms.author: bentrin
 ms.service: sap-on-azure
 ms.topic: overview
+
 ms.date: 02/03/2026
+
 ms.custom: template-overview
 # Customer intent: As an IT manager overseeing SAP systems, I want to explore available offerings for running and managing SAP on Azure, so that I can choose the best solutions for deploying, integrating, and monitoring our SAP workloads effectively.
 ---
 
-# What SAP on Azure offerings are available?
+# SAP on Azure offerings
 
 ## Overview
 
@@ -116,7 +118,7 @@ Microsoft Azure provides multiple offerings for running and managing SAP systems
 
 ## Microsoft Services Integration
 
-### SAP Integration with Microsoft Services
+### SAP integration with Microsoft services
 
 **Integration Scope**: SAP workloads (IaaS and SaaS) with Microsoft product ecosystem  
 **Service Coverage**: Microsoft Entra ID, Exchange Online, Power Platform, Power BI, Azure Integration Services
@@ -210,9 +212,12 @@ Microsoft Azure provides multiple offerings for running and managing SAP systems
 
 #### Azure Key Vault
 
+For more information, see the [SAP integration with Microsoft services](workloads/integration-get-started.md) documentation.
+
 **Service Overview**: Secure storage and management for cryptographic keys, certificates, and secrets  
 **SAP Integration**: Centralized secret management for SAP applications and infrastructure  
 **Security Benefits**: Hardware security module protection and access control
+
 
 **Key Capabilities**:
 - Centralized cryptographic key management

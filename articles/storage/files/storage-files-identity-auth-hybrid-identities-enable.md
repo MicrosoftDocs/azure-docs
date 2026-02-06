@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication over Ser
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/26/2025
+ms.date: 02/05/2026
 ms.author: kendownie
 # Customer intent: As a storage administrator, I want to enable Microsoft Entra Kerberos authentication on Azure Files, so that hybrid and cloud-only users can securely access file shares with their Microsoft Entra credentials.
 ---
@@ -38,7 +38,7 @@ The following prerequisites are mandatory. Without these, you can't authenticate
 
 - If you want to authenticate hybrid identities, you'll also need AD DS and either [Microsoft Entra Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md) or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md). You must create these accounts in Active Directory and sync them to Microsoft Entra ID. To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Microsoft Entra ID. This doesn't apply to cloud-only identities.
 
-- The WinHTTP Web Proxy Auto-Discovery Service (`WinHttpAutoProxySvc`) is required, and must be in the "running" state. You may optionally [disable Web Proxy Auto-Discovery (WPAD)](/troubleshoot/windows-server/networking/disable-http-proxy-auth-features#how-to-disable-wpad), but the service should still be running.
+- The WinHTTP Web Proxy Auto-Discovery Service (`WinHttpAutoProxySvc`) is required, and must be in the "running" state. For security reasons, you may optionally [disable Web Proxy Auto-Discovery (WPAD)](/troubleshoot/windows-server/networking/disable-http-proxy-auth-features#how-to-disable-wpad) via registry keys. However, you shouldn't disable the the entire `WinHttpAutoProxySvc` service, as it is responsible for a host of other functionalities, including Kerberos Key Distribution Center Proxy (KDC Proxy) requests.
 
 - The IP Helper service (`iphlpsvc`) is required, and must be in the "running" state.
 

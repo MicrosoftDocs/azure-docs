@@ -15,7 +15,7 @@ ms.custom: references_regions
 [Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use local NVMe disk as back-end storage for your Kubernetes workloads. NVMe is designed for high-speed data transfer between storage and CPU, providing high IOPS and throughput.
 
 > [!IMPORTANT]
-> This article applies to [Azure Container Storage (version 2.x.x)](container-storage-introduction.md), which currently only supports local NVMe disk for backing storage. For details about earlier versions, see [Azure Container Storage (version 1.x.x) documentation](container-storage-introduction-version-1.md).
+> This article applies to [Azure Container Storage (version 2.x.x)](container-storage-introduction.md), which supports local NVMe disk and Azure Elastic SAN as backing storage types. For details about earlier versions, see [Azure Container Storage (version 1.x.x) documentation](container-storage-introduction-version-1.md).
 
 ## What is local NVMe?
 
@@ -99,7 +99,7 @@ Alternatively, you can create the storage class using Terraform.
       required_providers {
         kubernetes = {
           source  = "hashicorp/kubernetes"
-          version = "~> 3.x"
+          version = "~> 3.0"
         }
       }
     }

@@ -15,7 +15,7 @@ ms.date: 11/15/2023
 
 Azure offers a choice of Trusted Execution Environment (TEE) options from both AMD and Intel. These TEEs allow you to create Confidential VM environments with excellent price-to-performance ratios, all without requiring any code changes.
 
-For AMD-based Confidential VMs, the technology used is [AMD SEV-SNP](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf), which was introduced with 3rd Gen AMD EPYC™ processors. On the other hand, Intel-based Confidential VMs utilize [Intel TDX](https://cdrdv2-public.intel.com/690419/TDX-Whitepaper-February2022.pdf), a technology introduced with 4th Gen Intel® Xeon® processors. Both technologies have different implementations, however both provide similar protections from the cloud infrastructure stack.
+For AMD-based Confidential VMs, the technology used is [AMD SEV-SNP](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf), which was introduced with 3rd Gen AMD EPYC™ processors. On the other hand, Intel-based Confidential VMs utilize [Intel TDX](https://cdrdv2-public.intel.com/690419/TDX-Whitepaper-February2022.pdf), a technology introduced with 5th Gen Intel® Xeon® processors. Both technologies have different implementations, however both provide similar protections from the cloud infrastructure stack.
 
 ## Sizes
 
@@ -31,10 +31,10 @@ We offer the following VM sizes:
 | **DCadsv6-series** | AMD SEV-SNP | General purpose CVM with local temporary disk.                                        |
 | **ECasv6-series** | AMD SEV-SNP | Memory-optimized CVM with remote storage. No local temporary disk. |
 | **ECadsv6-series** | AMD SEV-SNP | Memory-optimized CVM with local temporary disk.                      |
-| **DCesv5-series** | Intel TDX | General purpose CVM with remote storage. No local temporary disk.                  |
-| **DCedsv5-series** | Intel TDX | General purpose CVM with local temporary disk.                                        |
-| **ECesv5-series** | Intel TDX | Memory-optimized CVM with remote storage. No local temporary disk. |
-| **ECedsv5-series** | Intel TDX | Memory-optimized CVM with local temporary disk. |
+| **DCesv6-series** | Intel TDX | General purpose CVM with remote storage. No local temporary disk.                  |
+| **DCedsv6-series** | Intel TDX | General purpose CVM with local temporary disk.                                        |
+| **ECesv6-series** | Intel TDX | Memory-optimized CVM with remote storage. No local temporary disk. |
+| **ECedsv6-series** | Intel TDX | Memory-optimized CVM with local temporary disk. |
 | **NCCadsH100v5-series** | AMD SEV-SNP and NVIDIA H100 Tensor Core GPUs | CVM with Confidential GPU. | 
 
 > [!NOTE]
@@ -88,7 +88,7 @@ For availability information, see which [VM products are available by Azure regi
 
 ### Resizing
 
-Confidential VMs run on specialized hardware, so you can only [resize confidential VM instances](confidential-vm-faq.yml#can-i-convert-a-dcasv5-ecasv5-cvm-into-a-dcesv5-ecesv5-cvm-or-a-dcesv5-ecesv5-cvm-into-a-dcasv5-ecasv5-cvm-) to other confidential sizes in the same region. For example, if you have a DCasv5-series VM, you can resize to another DCasv5-series instance or a DCesv5-series instance. 
+Confidential VMs run on specialized hardware, so you can only [resize confidential VM instances](confidential-vm-faq.yml#can-i-convert-a-dcasv5-ecasv5-cvm-into-a-dcesv5-ecesv5-cvm-or-a-dcesv5-ecesv5-cvm-into-a-dcasv5-ecasv5-cvm-) to other confidential sizes in the same region. For example, if you have a DCasv5-series VM, you can resize to another DCasv5-series instance or a DCesv6-series instance. 
 
 It's not possible to resize a non-confidential VM to a confidential VM.
 
@@ -108,7 +108,7 @@ Make sure to specify the following properties for your VM in the parameters sect
 
 - VM size (`vmSize`). Choose from the different [confidential VM families and sizes](#sizes).
 - OS image name (`osImageName`). Choose from the qualified OS images. 
-- Disk encryption type (`securityType`). Choose from VMGS-only encryption (`VMGuestStateOnly`) or full OS disk pre-encryption (`DiskWithVMGuestState`), which might result in longer provisioning times. For Intel TDX instances only we also support another security type (`NonPersistedTPM`) which has no VMGS or OS disk encryption.
+- Disk encryption type (`securityType`). Choose from VMGS-only encryption (`VMGuestStateOnly`) or full OS disk pre-encryption (`DiskWithVMGuestState`), which might result in longer provisioning times.
 
 ## Next steps 
 

@@ -699,7 +699,7 @@ Here's an example local.settings.json file with the optional settings:
 
 ## Set up change tracking (required)
 
-Setting up change tracking for use with the Azure Database for MySQL trigger requires you to add a column in a table by using a function. You can complete these steps from any MySQL tool that supports running queries, including [Visual Studio Code](/sql/tools/visual-studio-code-extensions/mssql/mssql-extension-visual-studio-code).
+Setting up change tracking for use with the Azure Database for MySQL trigger requires you to add a column in a table by using a function. You can complete these steps from any MySQL tool that supports running queries, including [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=Oracle.mysql-shell-for-vs-code).
 
 Azure Database for MySQL trigger bindings use `az_func_updated_at` and column data to monitor the user table for changes. As such, you need to alter the table structure to allow change tracking on the MySQL table before you use the trigger support. You can enable the change tracking on a table through the following query. For example, enable it on the `Products` table:
 

@@ -7,7 +7,9 @@ keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 01/05/2026
+
+ms.date: 02/2/2026
+
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, linux-related-content
 # Customer intent: As an SAP HANA administrator, I want to configure optimal Azure storage solutions for my virtual machines, so that I can ensure high performance and reliability for my database workloads.
@@ -38,7 +40,7 @@ In the on-premises world, you rarely had to care about the I/O subsystems and it
 
 Given that low storage latency is critical for DBMS systems, even as DBMS, like SAP HANA, keep data in-memory. The critical path in storage is usually around the transaction log writes of the DBMS systems. But also operations like writing savepoints or loading data in-memory after crash recovery can be critical. Therefore, it's **mandatory** to use Azure premium SSD v1/v2, Ultra disk, or Azure NetApp Files NFS for **/hana/data** and **/hana/log** volumes. 
 
-Some guiding principles in selecting your storage configuration for HANA can be listed like:
+The following are some guiding principles in selecting your storage configuration for HANA:
 
 - Decide on the type of storage based on [Azure Storage types for SAP workload](./planning-guide-storage.md) and [Select a disk type](/azure/virtual-machines/disks-types)
 - The overall VM I/O throughput and IOPS limits in mind when sizing or deciding for a VM. Overall VM storage throughput is documented in the article [Memory optimized virtual machine sizes](/azure/virtual-machines/sizes-memory)   
@@ -78,7 +80,7 @@ If you're using LVM or mdadm to build stripe sets across several Azure premium d
 - 64 KB for **/hana/log**
 
 > [!NOTE]
-> The stripe size for **/hana/data** got changed from earlier recommendations calling for 64 KB or 128 KB to 256 KB based on customer experiences with more recent Linux versions. The size of 256 KB is providing slightly better performance. We also changed the recommendation for stripe sizes of **/hana/log** from 32 KB to 64 KB in order to get enough throughput with larger I/O sizes.
+> The stripe size for **/hana/data** got changed from earlier recommendations calling for 64 KB or 128 KB to 256 KB based on customer experiences with more recent Linux versions. The size of 256 KB provides a slightly better performance. We also changed the recommendation for stripe sizes of **/hana/log** from 32 KB to 64 KB to get enough throughput with larger I/O sizes.
 
 > [!NOTE]
 > You don't need to configure any redundancy level using RAID volumes since Azure block storage keeps three images of a VHD. The usage of a stripe set with Azure premium disks is purely to configure volumes that provide sufficient IOPS and/or I/O throughput.

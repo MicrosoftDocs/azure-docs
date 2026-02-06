@@ -8,12 +8,12 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.date: 12/21/2023
+ms.date: 02/02/2026
 ms.author: robiro
 # Customer intent: As an SAP administrator, I want to integrate Azure services with my SAP RISE environment, so that I can efficiently manage data and application workflows across platforms.
 ---
 
-# Integrating Azure services with SAP RISE
+# Integrate Azure services with SAP RISE
 
 Your SAP landscape running within SAP RISE can easily integrate with additional applications on Azure. With the information about [available interfaces](./rise-integration-network.md#network-communication-ports-with-sap-rise) to the SAP RISE/ECS landscape, many scenarios with Azure Services are possible.
 

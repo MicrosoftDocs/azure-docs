@@ -51,7 +51,7 @@ Choose `VMGuestStateOnly` for no OS disk confidential encryption. Or, choose `Di
 az vm create \
   --resource-group myResourceGroup \
   --name myVM \
-  --size Standard_DC4es_v5 \
+  --size Standard_DC4es_v6 \
   --admin-username <azure-username> \
   --admin-password <azure-password> \
   --enable-vtpm true \

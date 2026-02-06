@@ -3,7 +3,7 @@ title: 'Tutorial: Isolate back-end communication with Virtual Network integratio
 description: Connections from App Service to back-end services are routed through shared network infrastructure with other apps and subscriptions. Learn how to isolate traffic by using Virtual Network integration.
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 10/26/2021
+ms.date: 02/05/2026
 
 ms.reviewer: jordanselig
 author: cephalin
@@ -45,6 +45,9 @@ The tutorial continues to use the following environment variables from the previ
     csResourceName=<cs-resource-name>
     appName=<app-name>
     vaultName=<vault-name>
+    planName=<plan-name>
+    csResourceKVUri=<cs-resource-kv-uri>
+    csKeyKVUri=<cs-key-kv-uri>
 ```
 
 ## Create virtual network and subnets
@@ -61,7 +64,7 @@ The tutorial continues to use the following environment variables from the previ
 1. Create a subnet for the App Service virtual network integration.
 
     ```azurecli-interactive
-    az network vnet subnet create --resource-group $groupName --vnet-name $vnetName --name vnet-integration-subnet --address-prefixes 10.0.0.0/24 --delegations Microsoft.Web/serverfarms --disable-private-endpoint-network-policies false
+    az network vnet subnet create --resource-group $groupName --vnet-name $vnetName --name vnet-integration-subnet --address-prefixes 10.0.0.0/24 --delegations Microsoft.Web/serverfarms --private-endpoint-network-policies Enabled
     ```
 
     For App Service, the virtual network integration subnet is recommended to have a CIDR block of `/26` at a minimum (see [Virtual network integration subnet requirements](overview-vnet-integration.md#subnet-requirements)). `/24` is more than sufficient. `--delegations Microsoft.Web/serverfarms` specifies that the subnet is [delegated for App Service virtual network integration](../virtual-network/subnet-delegation-overview.md).
@@ -69,7 +72,7 @@ The tutorial continues to use the following environment variables from the previ
 1. Create another subnet for the private endpoints.
 
     ```azurecli-interactive
-    az network vnet subnet create --resource-group $groupName --vnet-name $vnetName --name private-endpoint-subnet --address-prefixes 10.0.1.0/24 --disable-private-endpoint-network-policies true
+    az network vnet subnet create --resource-group $groupName --vnet-name $vnetName --name private-endpoint-subnet --address-prefixes 10.0.1.0/24 --private-endpoint-network-policies Disabled
     ```
 
     For private endpoint subnets, you must [disable private endpoint network policies](../private-link/disable-private-endpoint-network-policy.md).
@@ -114,7 +117,7 @@ Because your Key Vault and Azure AI services resources will sit behind [private 
 1. Block public traffic to the Azure AI services resource.
 
     ```azurecli-interactive
-    az rest --uri $csResourceId?api-version=2021-04-30 --method PATCH --body '{"properties":{"publicNetworkAccess":"Disabled"}}' --headers 'Content-Type=application/json'
+    az rest --uri $csResourceId?api-version=2024-10-01 --method PATCH --body '{"properties":{"publicNetworkAccess":"Disabled"}}' --headers 'Content-Type=application/json'
 
     # Repeat following command until output is "Succeeded"
     az cognitiveservices account show --resource-group $groupName --name $csResourceName --query properties.provisioningState
@@ -153,7 +156,7 @@ The two private endpoints are only accessible to clients inside the virtual netw
 1. Scale the app up to a supported pricing tier (see [Integrate your app with an Azure virtual network](overview-vnet-integration.md)).
 
     ```azurecli-interactive
-    az appservice plan update --name $appName --resource-group $groupName --sku S1
+    az appservice plan update --name $planName --resource-group $groupName --sku S1
     ```
 
 1. Unrelated to our scenario but also important, enforce HTTPS for inbound requests.

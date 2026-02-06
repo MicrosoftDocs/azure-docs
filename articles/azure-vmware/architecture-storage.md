@@ -28,7 +28,7 @@ Local storage in cluster hosts is used in the cluster-wide vSAN datastore. All d
 - Datastore.UpdateVirtualMachineMetadata
 
 >[!IMPORTANT]
->You can't change the name of datastores or clusters. Azure CLI and PowerShell support changing the name of the resource clusters (Cluster-2 to Cluster-12), however this should not be used, because it creates a meta-data mismatch between the Azure portal resource cluster name and the vSphere cluster name.
+>You can't change the name of datastores or clusters. Azure CLI and PowerShell support changing the name of the resource clusters (Cluster-2 to Cluster-12), however this should not be used, because it creates a metadata mismatch between the Azure portal resource cluster name and the vSphere cluster name.
 
 ## Storage policies and fault tolerance
 
@@ -37,7 +37,7 @@ The default storage policy is set to **RAID-1 FTT-1**, with Object Space Reserva
 In a three-host cluster, FTT-1 accommodates a single host's failure. Microsoft governs failures regularly and replaces the hardware when events are detected from an operations perspective.
 
 >[!NOTE]
->When you log on to the vSphere Client, you may notice a VM Storage Policy called **vSAN Default Storage Policy** with **Object Space Reservation** set to **Thick** provisioning. Please note that this is not the default storage policy applied to the cluster. This policy exists for historical purposes and will eventually be modified to **Thin** provisioning. 
+>When you log on to the vSphere Client, you may notice a VM Storage Policy called **vSAN Default Storage Policy** with **Object Space Reservation** set to **Thick** provisioning. This is not the default storage policy applied to the cluster. This policy exists for historical purposes and will eventually be modified to **Thin** provisioning. 
 
 >[!NOTE]
 >All of the software-defined data center (SDDC) management VMs (vCenter Server, NSX Manager, NSX Edges, and others) use the **Microsoft vSAN Management Storage Policy**, with **Object Space Reservation** set to **Thin** provisioning.

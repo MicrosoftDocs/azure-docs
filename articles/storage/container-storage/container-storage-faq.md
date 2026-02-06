@@ -18,7 +18,7 @@ Azure Container Storage is a cloud-based volume management, deployment, and orch
 
 * <a id="azure-container-storage-versions"></a>
   **What's the difference between Azure Container Storage version 2.x.x and version 1.x.x?**
-  Azure Container Storage (version 2.x.x) features a lighter weight, on-demand installation, and optimized resource utilization. However, version 2.x.x currently only supports Ephemeral Disk (Local NVMe) as backing storage, whereas version 1.x.x supports Azure Disks, Ephemeral Disk, and Azure Elastic SAN.
+  Azure Container Storage (version 2.x.x) features a lighter weight, on-demand installation, and optimized resource utilization. However, version 2.x.x currently supports local NVMe and Azure Elastic SAN as backing storage, whereas version 1.x.x supports Azure Disks, Ephemeral Disk (local NVMe and temp SSD), and Azure Elastic SAN.
 
 * <a id="azure-container-storage-applicability"></a>
   **What changes between Azure Container Storage versions 2.0.x and 2.1.x+?**
@@ -27,7 +27,7 @@ Azure Container Storage is a cloud-based volume management, deployment, and orch
   | Azure Container Storage version | Storage types supported | Installer present | Driver installation trigger |
   |---|---|---|---|
   | 2.0.x | Local NVMe | No | Installed during `--enable-azure-container-storage` |
-  | 2.1.x and later | Local NVMe and Elastic SAN | Yes | Via storage type selection during enable or by creating a StorageClass (installer-only flow) |
+  | 2.1.x and later | Local NVMe and Elastic SAN | Yes | Via storage type selection during enable or by creating a storage class (installer-only flow) |
 
 * <a id="azure-container-storage-install-models"></a>
   **What installation models are available in version 2.1.x and later?**
@@ -43,7 +43,7 @@ Azure Container Storage is a cloud-based volume management, deployment, and orch
   **Behavior:**
   - Installs only the installer.
   - No storage-specific driver or node agent is installed initially.
-  - Creating a StorageClass later triggers the correct CSI driver installation.
+  - Creating a storage class later triggers the correct CSI driver installation.
 
   **Installer + storage type(s)**  
   Use this option when you know the backend(s) required.
@@ -60,7 +60,7 @@ Azure Container Storage is a cloud-based volume management, deployment, and orch
 
   **Behavior:**
   - Installs the installer plus the selected CSI driver(s).
-  - Creates default StorageClass objects if none exists.
+  - Creates default storage class objects if none exists.
   - Supports comma-separated storage types.
 
   Supported storage types for version 2.1.0 and later: `ephemeralDisk` (local NVMe) and `elasticSan` (Azure Elastic SAN).
@@ -69,27 +69,27 @@ Azure Container Storage is a cloud-based volume management, deployment, and orch
   **How do installation models work with Terraform?**
   The extension configuration supports the same flows as Azure CLI:
 
-  - **Installer-only (choose storage later):** Set `enable-azure-container-storage` to `true`. Create a StorageClass later to trigger driver installation.
+  - **Installer-only (choose storage later):** Set `enable-azure-container-storage` to `true`. Create a storage class later to trigger driver installation.
   - **Installer + storage type(s):** Set `enable-azure-container-storage` to a storage type value such as `ephemeralDisk`, `elasticSan`, or a comma-separated list like `ephemeralDisk,elasticSan`. This installs the installer and the selected CSI drivers.
 
   Supported storage types for version 2.1.0 and later: `ephemeralDisk` (local NVMe) and `elasticSan` (Azure Elastic SAN).
 
 * <a id="azure-container-storage-components"></a>
   **What components are installed in installer-only mode?**
-  Installer-only mode creates the installer and telemetry deployments in the `kube-system` namespace, but doesn't install any CSI drivers or node agents until you enable a storage type or create a StorageClass.
+  Installer-only mode creates the installer and telemetry deployments in the `kube-system` namespace, but doesn't install any CSI drivers or node agents until you enable a storage type or create a storage class.
 
   | Component | Resource type | Name | Description |
   |---|---|---|---|
-  | Installer | Deployment | acstor-cluster-manager | Core controller that watches StorageClass objects and orchestrates CSI driver lifecycle |
+  | Installer | Deployment | acstor-cluster-manager | Core controller that watches storage class objects and orchestrates CSI driver lifecycle |
   | Telemetry | Deployment | acstor-geneva | Internal monitoring and telemetry containers |
 
 * <a id="azure-container-storage-driver-install"></a>
   **When are CSI drivers installed?**
-  If you enable a storage type during installation, the driver installs immediately and default StorageClass objects are created if missing. If you choose installer-only, the driver installs when you create a StorageClass (or if a StorageClass already exists).
+  If you enable a storage type during installation, the driver installs immediately and default storage class objects are created if missing. If you choose installer-only, the driver installs when you create a storage class (or if a storage class already exists).
 
 * <a id="azure-container-storage-driver-components"></a>
   **What gets installed when a CSI driver is enabled?**
-  When you enable a storage type or create a StorageClass, Azure Container Storage installs the storage-specific CSI driver plus supporting components.
+  When you enable a storage type or create a storage class, Azure Container Storage installs the storage-specific CSI driver plus supporting components.
 
   | Component | Resource type | Name | Description |
   |---|---|---|---|
@@ -117,7 +117,7 @@ Azure Container Storage is a cloud-based volume management, deployment, and orch
 
 * <a id="azure-container-storage-node-scheduling"></a>
   **How are Azure Container Storage components scheduled?**
-  CSI drivers run according to StorageClass affinity. The node agent runs wherever a driver is present, and the installer prefers system node pools.
+  CSI drivers run according to storage class affinity. The node agent runs wherever a driver is present, and the installer prefers system node pools.
 
 * <a id="azure-container-storage-vs-csi-drivers"></a>
   **What's the difference between Azure Container Storage and Azure CSI (Container Storage Interface) drivers?**  

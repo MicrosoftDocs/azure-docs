@@ -15,7 +15,7 @@ ms.custom: references_regions
 [Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage (version 1.x.x) to use Ephemeral Disk with temp SSD as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using temp SSD as its storage.
 
 > [!IMPORTANT]
-> This article covers features and capabilities available in Azure Container Storage (version 1.x.x). [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available, but it currently only supports local NVMe for backing storage.
+> This article covers features and capabilities available in Azure Container Storage (version 1.x.x). [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available and supports local NVMe and Azure Elastic SAN for backing storage.
 
 ## What is Ephemeral Disk?
 
