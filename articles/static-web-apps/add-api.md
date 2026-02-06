@@ -327,7 +327,7 @@ Run the frontend app and API together by starting the app with the Static Web Ap
     ```bash
     swa start build --api-location api
     ```
-   # [React (Vite)](#tab/react-vite)
+    # [React (Vite)](#tab/react-vite)
 
     Pass the build output folder (`dist`) and the API folder (`api`) to the CLI.
 
