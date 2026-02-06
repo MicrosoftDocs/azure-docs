@@ -80,18 +80,15 @@ Use the following information to download your Azure usage file.
 
 1. You can also download the Azure usage file from the invoice details page.
 
-#### Calculate discount in the usage file
+### Calculate discount in the usage file
 
-The usage file shows the following per-consumption line items:
+You can use the two columns `paygCostInBillingCurrency` and `costInBillingCurrency`to calculate your discount amount and discount percentage. 
 
-- `costInBillingCurrency` (Column AU)
-- `paygCostInBillingCurrency` (Column AX).
+To determine discount amount = `( paygCostInBillingCurrency) - ( costInBillingCurrency)`
 
-Use the information from the two columns to calculate your discount amount and discount percentage, as follows:
+To determine discount percentage =  `( paygCostInBillingCurrency - costInBillingCurrency) / paygCostInBillingCurrency * 100`
 
-Discount amount = (AX – AU)
-
-Discount percentage = (Discount amount / AX) * 100
+For more information on cost details fields, see: [Understand cost details fields](../automate/understand-usage-details-fields.md#list-of-fields-and-descriptions)
 
 ## Get usage data with Azure CLI
 

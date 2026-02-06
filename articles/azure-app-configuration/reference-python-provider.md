@@ -9,7 +9,7 @@ ms.service: azure-app-configuration
 ms.devlang: python
 ms.custom: devx-track-python
 ms.topic: tutorial
-ms.date: 12/11/2025
+ms.date: 02/04/2026
 #Customer intent: I want to learn how to use Azure App Configuration Python client library.
 ---
 
@@ -94,6 +94,9 @@ size = appConfig["font"]["size"]
 color = appConfig["font"]["color"]
 ```
 
+> [!NOTE]
+> Starting with version *2.2.0* of `azure-appconfiguration-provider`, the configuration provider allows comments, as defined in ([JSONC](https://jsonc.org/)), in key-values with an `application/json` content type.
+
 ### Load specific key-values using selectors
 
 By default, the `load` method loads all configurations with no label from the configuration store. You can configure the behavior of the `load` method through the optional parameter of `selects`, which is a list of `SettingSelector`s.
@@ -112,6 +115,21 @@ config = load(endpoint=endpoint, credential=DefaultAzureCredential(), selects=se
 
 > [!NOTE]
 > Key-values are loaded in the order in which the selectors are listed. If multiple selectors retrieve key-values with the same key, the value from the last one overrides any previously loaded value.
+
+#### Tag filters
+
+The tag filters parameter selects key-values with specific tags. A key-value is only loaded if it has all of the tags and corresponding values specified in the filters.
+
+```python
+from azure.appconfiguration.provider import load, SettingSelector
+from azure.identity import DefaultAzureCredential
+tag_filters = [{"env": "prod"}, {"region": "us"}]
+selects = [SettingSelector(key_filter="*", label_filter="*", tag_filters=tag_filters)]
+config = load(endpoint=endpoint, credential=DefaultAzureCredential(), selects=selects)
+```
+
+> [!NOTE]
+> The characters asterisk (`*`), comma (`,`), and backslash (`\`) are reserved and must be escaped with a backslash when used in a tag filter.
 
 ### Load configuration from snapshots
 
@@ -140,6 +158,43 @@ from azure.identity import DefaultAzureCredential
 trim_prefixes = ["App1/"]
 config = load(endpoint=endpoint, credential=DefaultAzureCredential(), trim_prefixes=trim_prefixes)
 print(config["message"])  # Access the key "message" instead of "/application/message"
+```
+
+### Configuration setting mapping
+
+The `configuration_mapper` parameter allows you to transform configuration settings before they're processed and added to the provider. The mapper function receives each `ConfigurationSetting` object and can modify it in-place.
+
+```python
+from azure.appconfiguration.provider import load
+from azure.identity import DefaultAzureCredential
+
+def my_mapper(setting):
+    if setting.key == "message":
+        setting.value = "transformed value"
+
+config = load(endpoint=endpoint, credential=DefaultAzureCredential(), configuration_mapper=my_mapper)
+```
+
+The mapper function is called for each configuration setting loaded from the store, allowing you to:
+
+- Modify setting values before they're added
+- Transform or decrypt values
+- Perform custom processing based on the setting key, label, or content type
+
+> [!NOTE]
+> The mapper is invoked before key trimming is applied. Use the original key when checking conditions in your mapper function.
+
+For async operations, provide an async mapper function:
+
+```python
+from azure.appconfiguration.provider.aio import load
+from azure.identity.aio import DefaultAzureCredential
+
+async def my_async_mapper(setting):
+    if setting.key == "secret_message":
+        setting.value = await decrypt_value(setting.value)
+
+config = await load(endpoint=endpoint, credential=DefaultAzureCredential(), configuration_mapper=my_async_mapper)
 ```
 
 ## Configuration refresh
@@ -225,6 +280,16 @@ print(f"Beta is: {feature_manager.is_enabled("Beta")}")
 
 For more information about how to use the Python feature management library, go to the [feature flag quickstart](./quickstart-feature-flag-python.md).
 
+### Feature flag telemetry
+
+When feature flag telemetry is enabled, the Azure App Configuration provider injects additional properties to feature flag telemetry data. These properties provide more context about the feature flag and its evaluation:
+
+- **AllocationID**: A unique identifier representing the state of the feature flag's allocation.
+- **ETag**: The current ETag for the feature flag.
+- **FeatureFlagReference**: A reference to the feature flag in the format of `<your_store_endpoint>kv/<feature_flag_key>`. When a label is present, the reference includes it as a query parameter: `<your_store_endpoint>kv/<feature_flag_key>?label=<feature_flag_label>`.
+
+The full schema can be found in the [App Configuration Feature Evaluation Event schema definition](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureEvaluationEvent/AppConfigurationFeatureEvaluationEvent.v1.0.0.schema.json). For more information about how to use the feature flag telemetry, go to the [enable telemetry for feature flags](./howto-telemetry.md) walkthrough.
+
 ### Feature flag refresh
 
 To enable refresh for feature flags, you need to set `feature_flag_refresh_enabled=True`. This parameter allows the provider to refresh feature flags the same way it refreshes configurations. Unlike configurations, all loaded feature flags are monitored for changes and cause a refresh. Refresh of configuration settings and feature flags are independent of each other. Both configuration settings and feature flags are updated by the `refresh` method, but a feature flag changing doesn't cause a refresh of configurations and vice versa. Also, if refresh for configuration settings isn't enabled, feature flags can still be enabled for refresh.
@@ -291,6 +356,30 @@ def secret_resolver(uri):
     return "From Secret Resolver"
 
 config = load(endpoint=endpoint, credential=DefaultAzureCredential(), secret_resolver=secret_resolver)
+```
+
+
+### Key Vault secret refresh
+
+Azure App Configuration enables you to configure secret refresh intervals independently of your configuration refresh cycle. This is crucial for security because while the Key Vault reference URI in App Configuration remains unchanged, the underlying secret in Key Vault might be rotated as part of your security practices.
+
+To ensure your application always uses the most current secret values, configure the `secret_refresh_interval` key word in `load`. This forces the provider to retrieve fresh secret values from Key Vault when:
+
+- Your application calls `refresh`
+- The configured refresh interval for the secret has elapsed
+
+This mechanism works even when no changes are detected in your App Configuration store, ensuring your application stays in sync with rotated secrets.
+
+```python
+from azure.appconfiguration.provider import load
+from azure.identity import DefaultAzureCredential
+
+config = load(
+    endpoint=endpoint,
+    credential=DefaultAzureCredential(),
+    keyvault_credential=DefaultAzureCredential(),
+    secret_refresh_interval=7200  # 2 hours
+)
 ```
 
 ## Geo-replication

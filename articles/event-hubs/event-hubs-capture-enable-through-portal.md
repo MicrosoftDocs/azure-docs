@@ -33,7 +33,7 @@ To create an event hub within the namespace, follow these steps:
 
 1. On the **Overview** page for your namespace, select **+ Event hub** on the command bar. 
    
-      :::image type="content" source="./media/event-hubs-quickstart-portal/create-event-hub4.png" lightbox="./media/event-hubs-quickstart-portal/create-event-hub4.png" alt-text="Screenshot of the selection of Add event hub button on the command bar.":::
+      :::image type="content" source="./media/event-hubs-quickstart-portal/create-event-hub-button.png" lightbox="./media/event-hubs-quickstart-portal/create-event-hub-button.png" alt-text="Screenshot of the selection of Add event hub button on the command bar.":::
 2. On the **Create event hub** page, type a name for your event hub, then select **Next: Capture** at the bottom of the page.
    
       :::image type="content" source="./media/event-hubs-capture-enable-through-portal/create-event-hub-basics-page.png" alt-text="Screenshot of the Create event hub page.":::

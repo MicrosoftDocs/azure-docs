@@ -5,7 +5,7 @@ services: firewall
 author: duongau
 ms.service: azure-firewall
 ms.topic: how-to
-ms.date: 01/24/2025
+ms.date: 02/05/2026
 ms.author: duau
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -75,23 +75,36 @@ This virtual network has two subnets.
 > [!NOTE]
 > The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
-1. On the Azure portal menu or from the **Home** page, search for **Virtual networks**.
-1. Select **Virtual networks** in the result pane.
+1. On the Azure portal menu or from the **Home** page, search for and select **Virtual networks**.
 1. Select **Create**.
-1. For **Subscription**, select your subscription.
-1. For **Resource group**, select **Test-FW-RG**.
-1. For **Virtual network name**, type **Test-FW-VN**.
-1. For **Region**, select **West US**.
+1. On the **Basics** tab, configure the following settings:
+
+   | Setting | Value |
+   |---------|-------|
+   | Subscription | Select your subscription |
+   | Resource group | **Test-FW-RG** |
+   | Virtual network name | **Test-FW-VN** |
+   | Region | **West US** |
+
 1. Select **Next**.
-1. On the **Security** tab, select **Enable Azure Firewall**.
-1. For **Azure Firewall name**, type **Test-FW01**.
-1. For **Azure Firewall public IP address**, select **Create a public IP address**.
-1. For **Name**, type **fw-pip** and select **OK**.
+1. On the **Security** tab, configure the following settings:
+
+   | Setting | Value |
+   |---------|-------|
+   | Enable Azure Firewall | Selected |
+   | Azure Firewall name | **Test-FW01** |
+   | Tier | **Standard** |
+   | Policy | **None (Use classic firewall rules)** |
+   | Azure Firewall public IP address | Select **Create a public IP address**, type **fw-pip** for the name, and select **OK** |
+
 1. Select **Next**.
-1. For **Address space**, accept the default **10.0.0.0/16**.
-1. Under **Subnets**, select **default** and change the **Name** to **Workload-SN**.
-1. For **Starting address**, change it to **10.0.2.0/24**.
-1. Select **Save**.
+1. On the **IP addresses** tab, configure the following settings:
+
+   | Setting | Value |
+   |---------|-------|
+   | Address space | Accept the default **10.0.0.0/16** |
+   | Subnets | Select **default**, change **Name** to **Workload-SN**, and set **Starting address** to **10.0.2.0/24**. Select **Save**. |
+
 1. Select **Review + create**.
 1. Select **Create**.
 
@@ -118,14 +131,17 @@ Now create the workload virtual machine, and place it in the **Workload-SN** sub
    |SSH public key source|Generate new key pair|
    |Key pair name|**Srv-Work_key**|
 
-4. Under **Inbound port rules**, **Public inbound ports**, select **None**.
-6. Accept the other defaults and select **Next: Disks**.
-7. Accept the disk defaults and select **Next: Networking**.
-8. Make sure that **Test-FW-VN** is selected for the virtual network and the subnet is **Workload-SN**.
-9. For **Public IP**, select **None**.
-11. Accept the other defaults and select **Next: Management**.
+1. On the **Networking** tab, configure the following settings:
+
+   | Setting | Value |
+   |---------|-------|
+   | Virtual network | **Test-FW-VN** |
+   | Subnet | **Workload-SN** |
+   | Public IP | **None** |
+
+1. Accept the other defaults and select **Next: Management**.
 1. Accept the defaults and select **Next: Monitoring**.
-1. For **Boot diagnostics**, select **Disable** to disable boot diagnostics. Accept the other defaults and select **Review + create**.
+1. For **Boot diagnostics**, select **Disable**. Accept the other defaults and select **Review + create**.
 1. Review the settings on the summary page, and then select **Create**.
 1. On the **Generate new key pair** dialog, select **Download private key and create resource**. Save the key file as **Srv-Work_key.pem**.
 1. After the deployment is complete, select **Go to resource** and note the **Srv-Work** private IP address that you'll need to use later.
@@ -142,54 +158,71 @@ Now create the workload virtual machine, and place it in the **Workload-SN** sub
 
 When you create a route for outbound and inbound connectivity through the firewall, a default route to 0.0.0.0/0 with the virtual appliance private IP as a next hop is sufficient. This directs any outgoing and incoming connections through the firewall. As an example, if the firewall is fulfilling a TCP-handshake and responding to an incoming request, then the response is directed to the IP address who sent the traffic. This is by design. 
 
-As a result, there's no need create another user defined route to include the AzureFirewallSubnet IP range. This might result in dropped connections. The original default route is sufficient.
+As a result, there's no need to create another user defined route to include the AzureFirewallSubnet IP range. This might result in dropped connections. The original default route is sufficient.
 
 For the **Workload-SN** subnet, configure the outbound default route to go through the firewall.
 
-1. On the Azure portal, search for **Route tables**.
-1. Select **Route tables** in the results pane.
+1. On the Azure portal, search for and select **Route tables**.
 1. Select **Create**.
-1. For **Subscription**, select your subscription.
-1. For **Resource group**, select **Test-FW-RG**.
-1. For **Region**, select **West US**.
-1. For **Name**, type **Firewall-route**.
+1. On the **Basics** tab, configure the following settings:
+
+   | Setting | Value |
+   |---------|-------|
+   | Subscription | Select your subscription |
+   | Resource group | **Test-FW-RG** |
+   | Region | **West US** |
+   | Name | **Firewall-route** |
+   | Propagate gateway routes | Select your preference |
+
 1. Select **Review + create**.
 1. Select **Create**.
 
 After deployment completes, select **Go to resource**.
 
-1. On the **Firewall-route** page, select **Subnets** and then select **Associate**.
+1. On the **Firewall-route** page, select **Settings** > **Subnets** and then select **Associate**.
 1. For **Virtual network**, select **Test-FW-VN**.
 1. For **Subnet**, select **Workload-SN**. Make sure that you select only the **Workload-SN** subnet for this route, otherwise your firewall won't work correctly.
+1. Select **OK**.
+1. Select **Routes** and then select **Add**.
+1. Configure the route with the following settings:
 
-13. Select **OK**.
-14. Select **Routes** and then select **Add**.
-15. For **Route name**, type **fw-dg**.
-1. For **Destination type**, select **IP Addresses**.
-1. For **Destination IP addresses/CIDR ranges**, type **0.0.0.0/0**.
-1. For **Next hop type**, select **Virtual appliance**.
+   | Setting | Value |
+   |---------|-------|
+   | Route name | **fw-dg** |
+   | Destination type | **IP Addresses** |
+   | Destination IP addresses/CIDR ranges | **0.0.0.0/0** |
+   | Next hop type | **Virtual appliance**. Azure Firewall is actually a managed service, but virtual appliance works in this situation. |
+   | Next hop address | The private IP address for the firewall that you noted previously |
 
-    Azure Firewall is actually a managed service, but virtual appliance works in this situation.
-18. For **Next hop address**, type the private IP address for the firewall that you noted previously.
-19. Select **Add**.
+1. Select **Add**.
 
 ## Configure an application rule
 
 This is the application rule that allows outbound access to `www.google.com`.
 
-1. Open the **Test-FW-RG**, and select the **Test-FW01** firewall.
-2. On the **Test-FW01** page, under **Settings**, select **Rules (classic)**.
-3. Select the **Application rule collection** tab.
-4. Select **Add application rule collection**.
-5. For **Name**, type **App-Coll01**.
-6. For **Priority**, type **200**.
-7. For **Action**, select **Allow**.
-8. Under **Rules**, **Target FQDNs**, for **Name**, type **Allow-Google**.
-9. For **Source type**, select **IP address**.
-10. For **Source**, type **10.0.2.0/24**.
-11. For **Protocol:port**, type **http, https**.
-12. For **Target FQDNS**, type **`www.google.com`**
-13. Select **Add**.
+1. Open the **Test-FW-RG** resource group and select the **Test-FW01** firewall.
+1. On the **Test-FW01** page, under **Settings**, select **Rules (classic)**.
+1. Select the **Application rule collection** tab.
+1. Select **Add application rule collection**.
+1. Configure the rule collection with the following settings:
+
+   | Setting | Value |
+   |---------|-------|
+   | Name | **App-Coll01** |
+   | Priority | **200** |
+   | Action | **Allow** |
+
+1. Under **Rules**, **Target FQDNs**, configure the following settings:
+
+   | Setting | Value |
+   |---------|-------|
+   | Name | **Allow-Google** |
+   | Source type | **IP address** |
+   | Source | **10.0.2.0/24** |
+   | Protocol:port | **http, https** |
+   | Target FQDNs | **`www.google.com`** |
+
+1. Select **Add**.
 
 Azure Firewall includes a built-in rule collection for infrastructure FQDNs that are allowed by default. These FQDNs are specific for the platform and can't be used for other purposes. For more information, see [Infrastructure FQDNs](infrastructure-fqdns.md).
 
@@ -198,20 +231,28 @@ Azure Firewall includes a built-in rule collection for infrastructure FQDNs that
 This is the network rule that allows outbound access to two IP addresses at port 53 (DNS).
 
 1. Select the **Network rule collection** tab.
-2. Select **Add network rule collection**.
-3. For **Name**, type **Net-Coll01**.
-4. For **Priority**, type **200**.
-5. For **Action**, select **Allow**.
-6. Under **Rules**, **IP addresses**, for **Name**, type **Allow-DNS**.
-7. For **Protocol**, select **UDP**.
-9. For **Source type**, select **IP address**.
-1. For **Source**, type **10.0.2.0/24**.
-2. For **Destination type** select **IP address**.
-3. For **Destination address**, type **209.244.0.3,209.244.0.4**
+1. Select **Add network rule collection**.
+1. Configure the rule collection with the following settings:
 
-   These addresses are public DNS servers operated by Level3.
-1. For **Destination Ports**, type **53**.
-2. Select **Add**.
+   | Setting | Value |
+   |---------|-------|
+   | Name | **Net-Coll01** |
+   | Priority | **200** |
+   | Action | **Allow** |
+
+1. Under **Rules**, **IP addresses**, configure the following settings:
+
+   | Setting | Value |
+   |---------|-------|
+   | Name | **Allow-DNS** |
+   | Protocol | **UDP** |
+   | Source type | **IP address** |
+   | Source | **10.0.2.0/24** |
+   | Destination type | **IP address** |
+   | Destination address | **209.244.0.3,209.244.0.4** (public DNS servers operated by Level3) |
+   | Destination Ports | **53** |
+
+1. Select **Add**.
 
 ## Deploy Azure Bastion
 
@@ -220,39 +261,49 @@ Now deploy Azure Bastion to provide secure access to the virtual machine.
 1. On the Azure portal menu, select **Create a resource**.
 1. In the search box, type **Bastion** and select it from the results.
 1. Select **Create**.
-1. On the **Create a Bastion** page, configure the following settings:
+1. On the **Basics** tab, configure the following settings:
 
    | Setting | Value |
    |---------|-------|
    | Subscription | Select your subscription |
    | Resource group | **Test-FW-RG** |
    | Name | **Test-Bastion** |
-   | Region | West US |
+   | Region | **West US** |
    | Tier | **Developer** |
    | Virtual network | **Test-FW-VN** |
-   | Subnet | Select **Manage subnet configuration** |
+   | Subnet | Select **Edit subnet** |
 
-1. In the **Subnets** page, select **+ Subnet**.
-1. Configure the new subnet:
-   - **Name**: **AzureBastionSubnet** (this name is required)
-   - **Subnet address range**: **10.0.4.0/26**
+1. In the **Edit subnet** page, configure the following settings:
+
+   | Setting | Value |
+   |---------|-------|
+   | Starting address | **10.0.4.0/26** |
+   | Size | **/26** |
+
 1. Select **Save** and close the subnets page.
 1. Select **Review + create**.
 1. After validation passes, select **Create**.
 
-   The Bastion deployment takes about 10 minutes to complete.
+> [!NOTE]
+> The Bastion deployment takes about 10 minutes to complete. The Developer tier is intended for test and evaluation purposes. For production deployments, review the Azure Bastion SKU options in [Azure Bastion SKU comparison](../bastion/bastion-sku-comparison.md).
 
 ### Change the primary and secondary DNS address for the **Srv-Work** network interface
 
 For testing purposes, configure the server's primary and secondary DNS addresses. This isn't a general Azure Firewall requirement.
 
 1. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups* from any page. Select the **Test-FW-RG** resource group.
-2. Select the network interface for the **Srv-Work** virtual machine.
-3. Under **Settings**, select **DNS servers**.
-4. Under **DNS servers**, select **Custom**.
-5. Type **209.244.0.3** and press Enter in the **Add DNS server** text box, and **209.244.0.4** in the next text box.
-6. Select **Save**.
-7. Restart the **Srv-Work** virtual machine.
+1. Select the network interface for the **Srv-Work** virtual machine.
+1. Under **Settings**, select **DNS servers**.
+1. Under **DNS servers**, select **Custom**.
+1. Configure the following DNS servers:
+
+   | DNS server | Value |
+   |------------|-------|
+   | Primary | **209.244.0.3** |
+   | Secondary | **209.244.0.4** |
+
+1. Select **Save**.
+1. Restart the **Srv-Work** virtual machine.
 
 ## Test the firewall
 

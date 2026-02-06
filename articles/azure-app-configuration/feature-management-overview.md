@@ -7,7 +7,7 @@ author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.service: azure-app-configuration
 ms.topic: overview
-ms.date: 01/22/2025
+ms.date: 02/04/2026
 #Customer intent: I want to learn about the feature management libraries of different languages, specifically to track their feature development status.
 ms.custom:
   - build-2025

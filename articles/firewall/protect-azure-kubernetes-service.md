@@ -5,7 +5,7 @@ author: duongau
 ms.service: azure-firewall
 services: firewall
 ms.topic: how-to
-ms.date: 09/30/2024
+ms.date: 02/05/2026
 ms.author: duau
 ms.custom:
   - devx-track-azurecli

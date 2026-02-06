@@ -29,6 +29,10 @@ landingContent:
         links:
           - text: What's new in Microsoft Planetary Computer Pro
             url: whats-new.md
+      - linkListType: reference
+        links:
+          - text: US Government cloud support
+            url: us-government-cloud-support.md
       - linkListType: concept
         links:
           - text: STAC overview

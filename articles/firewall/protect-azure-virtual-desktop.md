@@ -5,7 +5,7 @@ author: duongau
 ms.service: azure-firewall
 services: firewall
 ms.topic: how-to
-ms.date: 01/31/2025
+ms.date: 02/05/2026
 ms.author: duau
 # Customer intent: As an IT administrator, I want to configure Azure Firewall for Azure Virtual Desktop, so that I can securely manage outbound access and enhance the protection of my virtual desktop environment.
 ---
