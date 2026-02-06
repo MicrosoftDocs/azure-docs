@@ -18,10 +18,8 @@ You can improve stateful application availability by using multi-zone storage po
 
 ## Prerequisites
 
-- This article requires the latest version of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges.
+[!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 - You'll need an AKS cluster with a node pool of at least three virtual machines (VMs) for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
-- This article assumes you've already [installed Azure Container Storage (version 1.x.x)](container-storage-aks-quickstart-version-1.md) on your AKS cluster.
-- You'll need the Kubernetes command-line client, `kubectl`. It's already installed if you're using Azure Cloud Shell, or you can install it locally by running the `az aks install-cli` command.
 
 ## Create a multi-zone storage pool
 

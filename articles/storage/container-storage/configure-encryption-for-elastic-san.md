@@ -17,8 +17,8 @@ This article shows how to configure encryption for an Elastic SAN volume group b
 
 ## Prerequisites
 
-- This article requires the latest version of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you use Azure Cloud Shell, the latest version is already installed. If you run commands locally, use an account with administrative privileges.
-- This article assumes you installed Azure Container Storage version 2.1.0 or later on your Azure Kubernetes Service (AKS) cluster.
+[!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
+- This article assumes you [installed Azure Container Storage version 2.1.0 or later](./install-container-storage-aks.md) on your Azure Kubernetes Service (AKS) cluster.
 
 ## Configure the key vault
 

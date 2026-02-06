@@ -374,7 +374,7 @@ With an architecture completely different from BizTalk Server, most services in 
 
 Azure Logic Apps includes an [Azure Service Bus connector](/connectors/servicebus/) that you can use to publish and subscribe to messages. The benefit is that you can use messaging independently from your workflow. Unlike BizTalk Server, your messaging is decoupled from your workflow platform. Although messaging and workflow capabilities are decoupled in Azure Logic Apps, you can create message subscriptions in Azure Service Bus, which supports [message properties (user properties)](/rest/api/servicebus/message-headers-and-properties#message-properties). You can use these properties to provide key-value pairs that are evaluated by filters created on a [topic subscription](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md). You define these user properties when you set up an Azure Service Bus operation by adding one or more key-value pairs. For a demonstration, see the following video: [Pub Sub Messaging using Azure Integration Services - Part 2 Content Based Routing](https://youtu.be/1ZMJhWGDVro).
 
-Outside Azure Integration Services, you can also implement publish-subscribe scenarios by using we can also use [Azure Cache for Redis](../azure-cache-for-redis/cache-overview.md).
+Outside Azure Integration Services, you can also implement publish-subscribe scenarios by using [Azure Managed Redis](../azure-cache-for-redis/cache-overview.md).
 
 ### Business rules engine
 
@@ -661,7 +661,7 @@ The separation between configuration and code becomes important when you want to
 
 - Custom caching
 
-  You can also implement custom caching solutions with Azure Integration Services. Popular approaches include using [caching policies](/azure/api-management/api-management-caching-policies#CachingPolicies) in [Azure API Management](../api-management/api-management-key-concepts.md) and [Azure Cache for Redis](../azure-cache-for-redis/cache-overview.md).
+  You can also implement custom caching solutions with Azure Integration Services. Popular approaches include using [caching policies](/azure/api-management/api-management-caching-policies#CachingPolicies) in [Azure API Management](../api-management/api-management-key-concepts.md) and [Azure Managed Redis](../azure-cache-for-redis/cache-overview.md).
 
 - Custom database
 
@@ -890,7 +890,7 @@ The following table and diagram roughly show how resources, artifacts, features,
 |--------------------------|----------------|-------|
 | Orchestrations | - BizTalk Server orchestration <br>- C# code | - Azure Logic Apps workflow <br>- Azure Logic Apps workflow templates <br>- Azure Functions function app |
 | Pipelines | - BizTalk Server pipelines <br>- Pipeline components | - Azure Logic Apps workflows (as pipelines) <br>- Azure API Management (as pipelines) <br>- Azure Functions function app <br>- Azure API app |
-| Message routing | - MessageBox <br>- Property Promotions <br>- Filters | - Azure Service Bus queues and topics (message headers, message properties, and subscriptions) <br>- Azure Event Grid or Azure API Management <br>- SQL Server or Azure Cache for Redis |
+| Message routing | - MessageBox <br>- Property Promotions <br>- Filters | - Azure Service Bus queues and topics (message headers, message properties, and subscriptions) <br>- Azure Event Grid or Azure API Management <br>- SQL Server or Azure Managed Redis |
 | Application connectivity | - BizTalk Server out-of-the-box and custom adapters <br>- Internet Information Services (IIS) and Azure API Management (hybrid capabilities) | - Azure Logic Apps connectors <br>- Azure API Management (as connectors) <br>- Azure Functions function app <br>- Azure API app |
 | Cross-references | xref_ * tables on BizTalk Management database (BizTalkMgmtDb) | - Azure Functions <br>- SQL Server <br>- Custom |
 | Schemas (XSD) | - BizTalk Server schemas <br>- XML, JSON, and flat file schemas | - Azure Logic Apps (Standard) <br>- Azure integration account <br>- Azure storage account <br>- Azure Functions function app <br>- Azure API app |

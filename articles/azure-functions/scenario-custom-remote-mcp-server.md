@@ -178,9 +178,9 @@ You can review the code that defines the MCP server tools:
 ::: zone pivot="programming-language-csharp"
 The function code for the MCP server tools is defined in the `src` folder. The `McpToolTrigger` attribute exposes the functions as MCP Server tools:
 
-:::code language="csharp" source="~/functions-scenarios-custom-mcp-dotnet/src/HelloTool.cs" range="10-17" :::  
+:::code language="csharp" source="~/functions-scenarios-custom-mcp-dotnet/src/FunctionsMcpTool/HelloTool.cs" range="10-17" :::  
 
-:::code language="csharp" source="~/functions-scenarios-custom-mcp-dotnet/src/SnippetsTool.cs" range="11-34" :::
+:::code language="csharp" source="~/functions-scenarios-custom-mcp-dotnet/src/FunctionsMcpTool/SnippetsTool.cs" range="11-34" :::
 
 You can view the complete project template in the [Azure Functions .NET MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-dotnet) GitHub repository.
 ::: zone-end  

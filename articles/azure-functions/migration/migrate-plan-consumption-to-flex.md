@@ -13,39 +13,55 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 # Migrate Consumption plan apps to the Flex Consumption plan
 
-This article provides step-by-step instructions for migrating your existing function apps hosted in the [Consumption plan](../consumption-plan.md) in Azure Functions to instead use the [Flex Consumption plan](../flex-consumption-plan.md).
+This article walks you through migrating your existing function apps from the [Consumption plan](../consumption-plan.md) to the [Flex Consumption plan](../flex-consumption-plan.md). **The good news:** for most apps, this migration is straightforward and your code doesn't need to change.
 
-The way you migrate your app to the Flex Consumption plan depends on whether your app runs on Linux or on Windows. Make sure to select your operating system at the top of the article.
-::: zone pivot="platform-linux"  
-> [!TIP]
-> Azure Functions provides Azure CLI commands in [`az functionapp flex-migration`](/cli/azure/functionapp/flex-migration) that automate most of the steps required to move your Linux app from the Consumption to the Flex Consumption plan. This article features these commands, which are currently only supported for apps running on Linux.
+::: zone pivot="platform-linux"
+> [!IMPORTANT]
+> **The Linux Consumption hosting plan for Azure Functions is being retired on September 30, 2028.** You have plenty of time to migrate, and we provide tools to help make it easy. Key dates:
+>
+> | Date | What happens |
+> |------|-------------|
+> | **September 30, 2025** | No new features for Linux Consumption. The option is removed from Azure portal, Visual Studio, and VS Code (but you can still manage existing apps via CLI and IaC). |
+> | **September 30, 2028** | Retirement date. No technical support and no new Linux Consumption apps can be created. |
 ::: zone-end
-When you migrate your existing serverless apps, your functions can take advantage of these benefits of the Flex Consumption plan:
 
-+ **Enhanced performance**: your apps benefit from improved scalability and always-ready instances to reduce cold start impacts.
-+ **Improved controls**: fine-tune your functions with per-function scaling and concurrency settings.
-+ **Expanded networking**: virtual network integration and private endpoints let you run your functions in both public and private networks.
-+ **Future platform investment**: as the top serverless hosting plan, current and future investments are made on Flex Consumption first for platform stability, performance, and features. 
+Select your operating system at the top of the article to see the right instructions for your app.
 
-The Flex Consumption plan is the recommended serverless hosting option for your functions going forward. For more information, see [Flex Consumption plan benefits](../flex-consumption-plan.md#benefits). For a detailed comparison between hosting plans, see [Azure Functions hosting options](../functions-scale.md).
+::: zone pivot="platform-linux"
+> [!TIP]
+> **We've made this easier for you.** Azure Functions provides CLI commands ([`az functionapp flex-migration`](/cli/azure/functionapp/flex-migration)) that automate most of the migration steps. You can also use the Azure portal if you prefer a visual approach—just select the **Azure portal** tab in each section below.
+::: zone-end
 
-## Considerations
+## Why migrate? What you'll gain
 
-Before starting a migration, keep these considerations in mind:
+When you migrate, your functions get these benefits without changing your code:
 
-+ If you're running Consumption plan function apps on Azure Government regions, review this guidance now to prepare for migration until Flex Consumption is enabled in Azure Government.
++ **Faster cold starts**: always-ready instances mean your functions respond more quickly.
++ **Better scaling**: per-function scaling and concurrency controls give you more control.
++ **Virtual network support**: connect your functions to private networks and use private endpoints.
++ **Active investment**: Flex Consumption is where new features and improvements land first.
 
-+ Due to the significant configuration and behavior differences between the two plans, you aren't able to _shift_ an existing Consumption plan app to the Flex Consumption plan. The migration process instead has you create a new Flex Consumption plan app that's equivalent to your current app. This new app runs in the same resource group and with the same dependencies as your current app.
+For more details, see [Flex Consumption plan benefits](../flex-consumption-plan.md#benefits) and [hosting plan comparison](../functions-scale.md).
 
-+ You should prioritize the migration of your apps that run in a Consumption plan on Linux.  
+## What to expect
 
-+ This article assumes that you have a general understanding of Functions concepts and architectures and are familiar with features of your apps being migrated. Such concepts include triggers and bindings, authentication, and networking customization.
+Here's what the migration process looks like:
 
-+ This article shows you how to both evaluate the current app and deploy your new Flex Consumption plan app using either the [Azure portal] or the [Azure CLI](/cli/azure). If your current app deployment is defined by using infrastructure-as-code (IaC), you can generally follow the same steps. You can perform the same actions directly in your ARM templates or Bicep files, with these resource-specific considerations:
+1. **Your code stays the same.** You don't need to rewrite your functions if you are on a Flex Consumption supported language version, and this guide will help you check.
+1. **You'll create a new app.** The migration creates a new Flex Consumption app alongside your existing one, so you can test before switching over.
+1. **Same resource group.** Your new app runs in the same resource group with access to the same dependencies.
+1. **You control the timing.** Test your new app thoroughly before redirecting traffic and retiring the old one.
 
-    + The Flex Consumption plan introduced a new section in the `Microsoft.Web/sites` resource type called `functionAppConfig`, which contains many of the configurations that were application settings. For more information, see [Flex Consumption plan deprecations](../functions-app-settings.md#flex-consumption-plan-deprecations).
-    + You can find resource configuration details for a Flex Consumption plan app in [Automate resource deployment for your function app in Azure Functions](../functions-infrastructure-as-code.md?pivots=flex-consumption-plan).
-    + Functions maintains a set of canonical Flex Consumption plan deployment examples for [ARM templates](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC/armtemplate), [Bicep files](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC/bicep), and [Terraform files](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC).
+> [!NOTE]
+> If you're using Azure Government, Flex Consumption isn't available there yet. Review this guidance now so you're ready when it becomes available.
+
+### Choose your tooling
+
+This guide provides instructions for both the [Azure portal] and the [Azure CLI](/cli/azure)—use whichever you're more comfortable with. If you deploy using infrastructure-as-code (IaC), you can follow the same steps in your ARM templates, Bicep files, or Terraform configurations:
+
++ The Flex Consumption plan uses a new `functionAppConfig` section in the `Microsoft.Web/sites` resource. See [Flex Consumption plan deprecations](../functions-app-settings.md#flex-consumption-plan-deprecations).
++ See [Automate resource deployment](../functions-infrastructure-as-code.md?pivots=flex-consumption-plan) for resource configuration details.
++ Check out ready-to-use examples for [ARM templates](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC/armtemplate), [Bicep](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC/bicep), and [Terraform](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC).
 
 ## Prerequisites
 
@@ -90,14 +106,15 @@ Before starting a migration, keep these considerations in mind:
 
 ## Identify potential apps to migrate
 
-Use these steps to make a list of the function apps you need to migrate. In this list, make note of their names, resource groups, locations, and runtime stacks. You can then repeat the steps in this guide for each app you decide to migrate to the Flex Consumption plan.
+> [!TIP]
+> **Already know which app to migrate?** You can skip this section and go straight to [Assess your existing app](#assess-your-existing-app).
 
-The way that function app information is maintained depends on whether your app runs on Linux or Windows.
+If you have multiple function apps and aren't sure which ones need to migrate, this section helps you find them. You'll get a list of app names, resource groups, locations, and runtime stacks.
 
 ::: zone pivot="platform-linux" 
 ### [Azure CLI](#tab/azure-cli)
 
-For Linux Consumption apps, use the new [`az functionapp flex-migration list`](/cli/azure/functionapp/flex-migration#az-functionapp-flex-migration-list) command to identify apps that are eligible for migration:
+Run this command to see which of your Linux Consumption apps are ready to migrate:
 
 ```azurecli
 az functionapp flex-migration list
@@ -174,7 +191,7 @@ This command generates a table with the app name, location, and resource group f
 
 ## Assess your existing app
 
-Before migrating to the Flex Consumption plan, you should perform these checks to make sure that your function app can be migrated successfully:
+Before migrating, run through this quick checklist to make sure your app is ready. Most apps pass these checks without issues:
 
 > [!div class="checklist"]
 > + [Confirm region compatibility](#confirm-region-compatibility)
@@ -443,7 +460,10 @@ For more information, see [Tutorial: Trigger Azure Functions on blob containers 
 
 ## Consider dependent services
 
-Because Azure Functions is a compute service, you must consider the effect of migration on data and services both upstream and downstream of your app.
+> [!TIP]
+> **Simple HTTP-only app?** If your functions only use HTTP triggers and don't connect to other Azure services, you can likely skip most of this section—just remember to update any clients to point to your new app's URL after migration.
+
+Because Azure Functions is a compute service, you should consider the effect of migration on data and services both upstream and downstream of your app.
 
 ### Data protection strategies
 
@@ -474,7 +494,7 @@ You should plan mitigation strategies to protect data for the specific function 
 
 ## Start the migration for Linux
 
-The [az functionapp flex-migration start](/cli/azure/functionapp/flex-migration#az-functionapp-flex-migration-start) command automatically collects application configuration information and creates a new Flex Consumption app with the same configurations as the source app. Use the command as shown in this example:
+Here's the easy part! The [`az functionapp flex-migration start`](/cli/azure/functionapp/flex-migration#az-functionapp-flex-migration-start) command does most of the work for you—it collects your app's configuration and creates a new Flex Consumption app with the same settings.
 
 ```azurecli
 az functionapp flex-migration start \
@@ -523,9 +543,12 @@ After you've completed running `az functionapp flex-migration start` successfull
 
 ## Premigration tasks
 
-Before proceeding with the migration, you must collect key information about and resources used by your Consumption plan app to help make a smooth transition to running in the Flex Consumption plan.
+Before creating your new Flex Consumption app, you'll gather some information about your current app. This ensures nothing gets lost in the transition.
 
-You should complete these tasks before you migrate your app to run in a Flex Consumption plan:
+> [!TIP]
+> **This is mostly copy-paste work.** You're just collecting settings from your existing app so you can apply them to the new one.
+
+Complete these tasks before migrating:
 
 > [!div class="checklist"]
 > + [Collect app settings](#collect-app-settings)
@@ -1506,7 +1529,7 @@ In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource 
 
 ## Post-migration tasks
 
-After a successful migration, you should perform these follow-up tasks:
+🎉 **Congratulations!** Your app is now running on Flex Consumption. Here are some optional follow-up tasks to get the most out of your new plan:
 
 > [!div class="checklist"]
 > + [Verify basic functionality](#verify-basic-functionality)
@@ -1825,7 +1848,10 @@ If you use Infrastructure as Code (IaC) to manage your Azure resources, you need
 
 ### Remove the original app (optional)
 
-After thoroughly testing your new Flex Consumption function app and validating that everything is working as expected, you might want to clean up resources to avoid unnecessary costs. Even though triggers in the original app are likely already disabled, you might wait a few days or even weeks before removing the original app entirely. This delay, which depends on your application's usage patterns, makes sure that all scenarios, including infrequent ones, are properly tested. Only after you're satisfied with the migration results, should you proceed to remove your original function app.
+> [!TIP]
+> **No rush here.** We recommend keeping your original app around for a few days or weeks while you verify everything works. The Consumption plan only charges for actual usage, so keeping the old app (with triggers disabled) costs very little.
+
+Once you're confident the new app is working correctly, you can clean up the original. This is entirely optional—some teams keep the old app around as a reference or rollback option.
 
 >[!IMPORTANT]  
 >This action deletes your original function app. The Consumption plan remains intact if other apps are using it. Before you proceed, make sure you've successfully migrated all functionality to the new Flex Consumption app, verified no traffic is being directed to the original app, and backed up any relevant logs, configuration, or data that might be needed for reference.
@@ -1851,7 +1877,7 @@ In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource 
 
 ## Troubleshooting and Recovery Strategies
 
-Despite careful planning, migration issues can occur. Here's how to handle potential issues during migration:
+Most migrations complete without issues, but if something doesn't work as expected, here's how to fix common problems:
 
 | Issue | Solution |
 |-------|----------|

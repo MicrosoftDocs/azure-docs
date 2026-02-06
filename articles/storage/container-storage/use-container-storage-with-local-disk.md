@@ -33,15 +33,8 @@ For example, the [Lsv3 series](/azure/virtual-machines/sizes/storage-optimized/l
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
-
-- This article requires the latest version (2.77.0 or later) of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). Avoid Azure Cloud Shell, because `az upgrade` isn't available in Cloud Shell. Be sure to run the commands in this article with administrative privileges.
-
+[!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 - [Review the installation instructions](install-container-storage-aks.md) and ensure Azure Container Storage is properly installed.
-
-- You need the Kubernetes command-line client, `kubectl`. You can install it locally by running the `az aks install-cli` command.
-
-- Check if your target region is supported in [Azure Container Storage regions](container-storage-introduction.md#regional-availability).
 
 ## Choose a VM type that supports local NVMe
 
