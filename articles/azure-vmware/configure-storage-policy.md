@@ -186,7 +186,7 @@ Before listing or deleting unassociated vSAN objects, ensure that:
 - You are using the latest supported version of the **Microsoft.AVS.Management** Run Command package.
 - You have validated that the objects to be deleted are **not required** by any workload, management VM, or system component.
 
-### List unassociated vSAN objects
+## List unassociated vSAN objects
 
 Before deleting any objects, list and review them to confirm that they are truly unassociated.
 
@@ -202,7 +202,7 @@ The output of this command includes the **UUID** of each unassociated vSAN objec
 
 After reviewing the list of unassociated objects, delete them **individually** by specifying their UUID and ClusterName.
 
-> **Important**  
+> [!IMPORTANT]  
 > Deleting a vSAN object is irreversible. Ensure that the object is not associated with any VM, management component, or system service before proceeding.
 
 ### Run Command: `Remove-AvsUnassociatedObject`
@@ -211,18 +211,28 @@ After reviewing the list of unassociated objects, delete them **individually** b
 2. Select **Run command** > **Packages** > **Microsoft.AVS.Management**.
 3. Select **Remove-AvsUnassociatedObject**.
 
+### Run Command parameters
+
+| Field | Description |
+|------|-------------|
+| **Uuid** | UUID of the unassociated vSAN object to delete. Obtain this value from the output of `Get‑UnassociatedVsanObjectsWithPolicy`. |
+| **ClusterName** | Name of the vSAN cluster that contains the unassociated object. |
+| **Retain up to** | Retention period for the Run Command output. |
+| **Specify name for execution** | Alphanumeric name used to identify this Run Command execution. |
+| **Timeout** | Time after which the command exits if it does not complete. |
+
 :::image type="content"
-source="media/run-command/run-command-overview-remove-unassociatedObject.png"
-alt-text="Screenshot showing the Remove-AvsUnassociatedObject Run Command in the Azure portal"
-lightbox="media/run-command/run-command-overview-remove-unassociatedObject.png"
+source="media/run-command/run-command-overview-remove-unassociated-object.png"
+alt-text="Screenshot showing the Remove-AvsUnassociatedObject Run Command in the Azure portal."
+lightbox="media/run-command/run-command-overview-remove-unassociated-object.png"
 :::
 
 4. Provide the **UUID** and **ClusterName** of the unassociated object you want to remove.
 
 :::image type="content"
-source="media/run-command/run-command-RemoveUnassociatedObject.png"
-alt-text="Screenshot of the Remove-AvsUnassociatedObject Run Command execution"
-lightbox="media/run-command/run-command-RemoveUnassociatedObject.png"
+source="media/run-command/run-command-remove-unassociated-object.png"
+alt-text="Screenshot of the Remove-AvsUnassociatedObject Run Command execution."
+lightbox="media/run-command/run-command-remove-unassociated-object.png"
 :::
 
 5. Select **Run** and monitor execution progress.
