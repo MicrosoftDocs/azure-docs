@@ -178,13 +178,15 @@ The following tables show what role you need to complete tasks in the context of
 
 ### Manage subscriptions for invoice section
 
-|Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Azure subscription creator|Billing profile owner|Billing profile contributor|Billing profile reader |Invoice manager|Billing account owner|Billing account contributor|Billing account reader 
+|Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Azure subscription creator|Billing profile owner|Billing profile contributor|Billing profile reader |Invoice manager|Billing account owner|Billing account contributor|Billing account reader|
 |---|---|---|---|---|---|---|---|---|---|---|---|
 |View all Azure subscriptions for invoice section|✔|✔|✔|✘|✔|✔|✔|✔|✔|✔|✔|
 |Create Azure subscriptions|✔|✔|✘|✔|✔|✔|✘|✘|✔|✔|✘|
-|Cancel Azure subscriptions|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|
+|Cancel Azure subscriptions|✘|✘|✘|✔¹|✘|✘|✘|✘|✘|✘|✘|
 |Change invoice section for the Azure subscription|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
 |Request billing ownership of subscriptions from users in other billing accounts|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
+
+¹ Azure subscription creator can only cancel the subscriptions they created.
 
 ## Subscription billing roles and tasks
 
@@ -196,7 +198,9 @@ The following table shows what role you need to complete tasks in the context of
 |Update cost center for the subscription|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
 |Change invoice section for the subscription|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
 |Change billing profile for the subscription|✘|✘|✘|✘|✔|✔|✘|✘|✔|✔|✘|
-|Cancel Azure subscriptions|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|
+|Cancel Azure subscriptions|✘|✘|✘|✔¹|✘|✘|✘|✘|✘|✘|✘|
+
+¹ Azure subscription creator can only cancel the subscriptions they created.
 
 ## Manage billing roles in the Azure portal
 
