@@ -1,4 +1,4 @@
-﻿---
+---
 title: Control plane and data plane operations
 description: Describes the difference between control plane and data plane operations. Azure Resource Manager handles control plane operations. A service handles data plane operations.
 ms.topic: article
@@ -48,7 +48,7 @@ The control plane includes two scenarios for handling requests - "green field" a
 
 ## Data plane
 
-Requests for data plane operations are sent to an endpoint that's specific to your instance. For example, the [Detect Language operation](/azure/ai-services/language-service/language-detection/overview) in Azure AI services is a data plane operation because the request URL is:
+Requests for data plane operations are sent to an endpoint that's specific to your instance. For example, the [Detect Language operation](/azure/ai-services/language-service/language-detection/overview) in Foundry Tools is a data plane operation because the request URL is:
 
 ```http
 POST {Endpoint}/text/analytics/v2.0/languages

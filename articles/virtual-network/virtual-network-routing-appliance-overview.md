@@ -53,6 +53,10 @@ Virtual network routing appliance is purpose-built for horizontal scaling, accel
 
 Because Virtual network routing appliance is a top-level Azure resource, you can manage and govern it like other Azure networking resources.
 
+## High Availability and Load Balancing Guidance
+Virtual network routing appliance provides built‑in high availability and is availability zone resilient by default. It also offers high bandwidth without requiring an additional load balancer in front of it.
+As such, you do not need to place a load balancer in front of the appliance. If you do so, the load balancer will not forward traffic to the appliance.
+
 ## Preview region availability
 
 During the public preview, virtual network routing appliance is available in a limited set of Azure regions. The current public preview regions include:  
@@ -69,13 +73,11 @@ During the public preview, virtual network routing appliance is available in a l
 
 - This preview is intended for testing, evaluation, and feedback purposes. Don't use the preview for production workloads.
 
-- Each subscription can have up to two virtual network appliance instances.
+- Each subscription can have up to two virtual network routing appliance instances.
 
 - During preview, each virtual network appliance supports up to 200 Gbps of configurable bandwidth.
 
 - Select regions offer the preview: West US, East US, East Asia, North Europe, West Europe, East US 2, West Central US, and UK South.
-
-- Placement of a virtual network routing appliance behind an internal load balancer isn't supported.
 
 - Traffic routed through a virtual network routing appliance can't reach destinations exposed via Azure Private Link/Private Link Service.
 

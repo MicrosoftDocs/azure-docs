@@ -250,8 +250,6 @@ items:
     href: enable-vmware-vcd-with-azure-network.md
   - name: Deploy VMware Cloud Director Availability in Azure VMware Solution
     href: deploy-vmware-cloud-director-availability-in-azure-vmware-solution.md
-  - name: Enable VMware Cloud Director Service with Azure VMware solution
-    href: enable-vmware-cds-with-azure.md
 - name: Virtual machines
   items:
   - name: Operating system support for VMs

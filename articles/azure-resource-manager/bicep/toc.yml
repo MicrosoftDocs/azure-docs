@@ -61,7 +61,7 @@ items:
         items:
           - name: Cognitive Search
             href: /azure/search/search-get-started-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
-          - name: Azure AI services
+          - name: Foundry Tools
             href: /azure/ai-services/create-account-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
           - name: Data Science Virtual Machine
             href: /azure/machine-learning/data-science-virtual-machine/dsvm-tutorial-bicep?toc=/azure/azure-resource-manager/bicep/toc.json

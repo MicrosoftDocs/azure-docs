@@ -135,7 +135,7 @@ See [Service limits in Azure AI Search](/azure/search/search-limits-quotas-capac
 
 <a name='azure-cognitive-services-limits'></a>
 
-## Azure AI Services limits
+## Foundry Tools limits
 
 [!INCLUDE [azure-cognitive-services-limits](../../../includes/azure-cognitive-services-limits.md)]
 

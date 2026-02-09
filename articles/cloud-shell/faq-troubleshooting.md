@@ -1,6 +1,6 @@
 ---
 description: This article answers common questions and explains how to troubleshoot Cloud Shell issues.
-ms.date: 02/05/2026
+ms.date: 02/09/2026
 ms.topic: troubleshooting
 tags: azure-resource-manager
 ms.custom: has-azure-ad-ps-ref
@@ -147,15 +147,16 @@ command that requires elevated permissions.
      corner. Search for `terminals?` to find the request for a Cloud Shell terminal. Select the one
      of the request entries found by the search. In the **Headers** tab, find the hostname in the
      **Request URL**. The name is similar to
-     `ccon-prod-<region-name>-aci-XX.servicebus.windows.net`. For Azure Government Cloud, the
-     hostname ends with `servicebus.usgovcloudapi.net`.
+     `ccon-prod-<region-name>-aci-XX.servicebus.windows.net`. In the Azure Government Cloud, the
+     hostnames are `ccon-fairfax-usgovvirginia-dedicated-aci-02.servicebus.usgovcloudapi.net` and
+     `ccon-fairfax-arizona-aci-dedicated-01.servicebus.usgovcloudapi.net`.
 
      The following screenshot shows the Developer Tools in Microsoft Edge for a successful request
      for a terminal. The hostname is `ccon-prod-southcentalus-aci-02.servicebus.windows.net`. In
      your case, the request should be unsuccessful, but you can find the hostname you need to
      resolve.
 
-     [![Screenshot of the browser developer tools.][06]](media/faq-troubleshooting/devtools-large.png#lightbox)
+     [![Screenshot of the browser developer tools.][06]][07]
 
      For information about accessing the Developer Tools in other browsers, see
      [Capture a browser trace for troubleshooting][01].
@@ -291,3 +292,4 @@ Use the following steps to delete your user settings.
 [04]: /shows/it-ops-talk/azure-cloud-shell-in-the-windows-terminal
 [05]: https://code.visualstudio.com/docs/azure/vscodeforweb
 [06]: media/faq-troubleshooting/devtools-small.png
+[07]: media/faq-troubleshooting/devtools-large.png#lightbox

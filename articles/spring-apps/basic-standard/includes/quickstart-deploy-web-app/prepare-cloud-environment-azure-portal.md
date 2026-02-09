@@ -8,7 +8,7 @@ ms.update-cycle: 1095-days
 ---
 
 <!--
-For clarity of structure, a separate markdown file is used to describe how to prepare cloud env using Azure Portal.
+For clarity of structure, a separate markdown file is used to describe how to prepare cloud env using Azure portal.
 
 [!INCLUDE [prepare-cloud-environment-on-azure-portal](../../includes/quickstart-deploy-web-app/prepare-cloud-environment-azure-portal.md)]
 
