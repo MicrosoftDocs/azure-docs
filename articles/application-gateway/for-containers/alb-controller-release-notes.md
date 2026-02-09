@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: release-notes
-ms.date: 1/28/2026
+ms.date: 2/7/2026
 ms.author: mbender
 # Customer intent: As a Kubernetes operator, I want to access the release notes for the ALB Controller, so that I can understand the latest updates and changes to optimize my configuration and deployments of Application Gateway for Containers.
 ---
@@ -18,21 +18,24 @@ The ALB Controller is a Kubernetes deployment that orchestrates configuration an
 
 Each release of ALB Controller has a documented helm chart version and supported Kubernetes cluster version.
 
-Instructions for new or existing deployments of ALB Controller are found in the following links:
+Instructions for new or existing deployments of ALB Controller deployed with helm are found in the following links:
 
-- [New deployment of ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md#for-new-deployments)
-- [Upgrade existing ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md#for-existing-deployments)
+- [New deployment of ALB Controller with helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md#for-new-deployments)
+- [Upgrade existing ALB Controller with helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md#for-existing-deployments)
+
+If using the AKS add-on, updates will automatically be applied to the cluster.
 
 ## Latest Release (Recommended)
 
 | ALB Controller Version | Gateway API Version | Minimum Kubernetes Version | Release Notes |
 | ---------------------- | ------------------- | ------------------ | ------------- |
-| 1.9.11 | v1.2.1 | v1.27 | [allowPrivilegeEscalation false](https://github.com/Azure/AKS/issues/5389), [Integration with AKS Istio Service Mesh Add-on](https://github.com/Azure/AKS/issues/5479), [fix for NAP with Karpenter](https://github.com/Azure/AKS/issues/5486), general image updates |
+| 1.9.13 | v1.2.1 | v1.27 | Concurrency-related pod crash fix, security updates |
 
 ## Release history
 
 | ALB Controller Version | Gateway API Version | Minimum Kubernetes Version | Release Notes |
 | ---------------------- | ------------------- | ------------------ | ------------- |
+| 1.9.11 | v1.2.1 | v1.27 | [allowPrivilegeEscalation false](https://github.com/Azure/AKS/issues/5389), [Integration with AKS Istio Service Mesh Add-on](https://github.com/Azure/AKS/issues/5479), [fix for NAP with Karpenter](https://github.com/Azure/AKS/issues/5486), general image updates |
 | 1.8.12 | v1.2.1 | v1.27 | WAF improvements |
 | 1.8.9 | v1.2.1 | v1.27 | [Slow start load balancing algorithm](api-specification-kubernetes.md#alb.networking.azure.io/v1.BackendLoadBalancingPolicy), Image updated to use [Azure Linux 3.0](https://github.com/microsoft/azurelinux), [nodeSelector fix](https://github.com/Azure/AKS/issues/5302), miscellaneous bug fixes and enhancements |
 | 1.7.12 | v1.2.1 | v1.27 | Hotfix for pod crash due to [invalid Provider ID](https://github.com/Azure/AKS/issues/5310) |

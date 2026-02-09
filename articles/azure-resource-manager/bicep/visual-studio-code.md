@@ -2,13 +2,13 @@
 title: Create Bicep files with Visual Studio Code
 description: Learn how to use Visual Studio Code to create Bicep files.
 ms.topic: how-to
-ms.date: 01/07/2026
+ms.date: 02/04/2026
 ms.custom: devx-track-bicep
 ---
 
-# Create Bicep files with Visual Studio Code
+# Create Bicep files by using Visual Studio Code
 
-This article shows you how to use Visual Studio Code to create Bicep files.
+This article shows you how to use Visual Studio Code to create Bicep files. To use Bicep MCP server, see [Use Bicep MCP server in VS Code](./bicep-mcp-server.md).
 
 ## Install Visual Studio Code
 
@@ -201,7 +201,18 @@ The deployment pane provides an interactive UI in VS Code that can access your A
 
 :::image type="content" source="./media/visual-studio-code/visual-studio-code-deployment-pane.png" alt-text="Screenshot of deployment pane in Visual Studio Code.":::
 
-See [Deployment Pane](./deploy-vscode.md#deployment-pane) for more information.
+See [Deployment Pane](./deploy-visual-studio-code.md#deployment-pane) for more information.
+
+## Bicep MCP server
+
+The Bicep MCP (Model Context Protocol) server provides AI agents with tools to help generate high-quality Bicep code. The Bicep MCP server is automatically included with the Bicep Visual Studio Code extension version 0.40.2. To set up your environment for Bicep development using the Bicep MCP server in Visual Studio Code, see [Install Bicep tools](./install.md).
+
+> [!NOTE]
+> The Bicep MCP server doesn't appear under `MCP SERVERS` in the extension view, because it is automatically included with the Bicep VSCode extension.
+
+For general information about using MCP servers in Visual Studio Code, see [Use MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers).
+
+For walking through a quickstart, see [Quickstart: Create Bicep files with Visual Studio Code and Bicep MCP server](./quickstart-create-bicep-use-visual-studio-code-model-context-protocol.md).
 
 ## Use quick fix suggestions
 

@@ -217,8 +217,8 @@ To enable and use the UEBA behaviors layer, you need these permissions:
 
 | **User action**                                              | **Permission required**                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Enable behaviors | At least the **Security Administrator** role in Microsoft Entra ID. |
-| Query behaviors tables                                         | <ul><li>**Security Reader** or **Security Operator** role in Microsoft Entra ID to run Advanced Hunting queries in the Defender portal</li><li>`Read` access to the `BehaviorInfo` and `BehaviorEntities` tables in your Sentinel workspace</li><li>`Read` access to source tables to drill down to raw events</li></ul> |
+| Enable behaviors | At least the **Security Administrator** role in Microsoft Entra ID and the **Microsoft Sentinel Contributor** role in your Sentinel workspace. |
+| Query behaviors tables                                         | <ul><li>**Security Reader** or **Security Operator** role in Microsoft Entra ID to run Advanced Hunting queries in the Defender portal.</li><li>**Read** access to the `BehaviorInfo` and `BehaviorEntities` tables in your Sentinel workspace.</li><li>**Read** access to source tables to drill down to raw events.</li></ul> |
 
 For more information about unified RBAC in the Defender portal, see [Microsoft Defender XDR Unified role-based access control (RBAC)](/defender-xdr/manage-rbac).
 

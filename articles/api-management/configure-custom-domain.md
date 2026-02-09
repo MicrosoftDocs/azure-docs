@@ -126,6 +126,8 @@ API Management offers a free, managed TLS certificate for your domain, if you do
 * Supports only public domain names
 * Can only be configured when updating an existing API Management instance, not when creating an instance
 
+### Allow access to DigiCert IP addresses
+
 [!INCLUDE [api-management-managed-certificate-ip-access.md](../../includes/api-management-managed-certificate-ip-access.md)]
 
 ---

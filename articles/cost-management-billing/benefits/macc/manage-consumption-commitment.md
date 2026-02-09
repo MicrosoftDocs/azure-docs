@@ -1,13 +1,13 @@
 ---
 title: Manage a Microsoft Azure Consumption Commitment resource
 description: Learn how to manage your Microsoft Azure Consumption Commitment (MACC) resource, including moving it across resource groups or subscriptions.
-author: Nicholak-MS
-ms.reviewer: nicholak
+author: dekadays
+ms.reviewer: liuyizhu
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/29/2025
-ms.author: nicholak
+ms.date: 2/4/2026
+ms.author: liuyizhu
 ms.custom:
 - sfi-image-nochange
 - build-2025
@@ -20,7 +20,7 @@ service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 
 When you accept a Microsoft Azure Consumption Commitment (MACC) in a Microsoft Customer Agreement, the MACC resource gets placed in a subscription and resource group. The resource contains the metadata related to the MACC. Including: status of the MACC, commitment amount, start date, end date, and System ID. You can view the metadata in the Azure portal.
 
-:::image type="content" source="../../manage/media/manage-consumption-commitment/consumption-commitment-overview.png" border="true" alt-text="Screenshot showing the MACC overview page." lightbox="../../manage/media/manage-consumption-commitment/consumption-commitment-overview.png" :::
+:::image type="content" source="../../manage/media/benefits/azure-consumption-commitment/consumption-commitment-overview.png" border="true" alt-text="Screenshot showing the MACC overview page." lightbox="../../manage/media/benefits/azure-consumption-commitment/consumption-commitment-overview.png" :::
 
 ## Move MACC across resource groups or subscriptions
 
@@ -39,7 +39,7 @@ Here are the high-level steps to move a MACC resource. For more information abou
 5. Follow the instructions to move the MACC resource.
 6. After the move is complete, verify that the MACC resource is in the new resource group or subscription.
 
-After a MACC moves, its resource URI changes because of the move.
+After a MACC moves, its resource URI changes to reflect the new location.
 
 ### To view the MACC resource URI
 
@@ -50,8 +50,7 @@ After a MACC moves, its resource URI changes because of the move.
 
 Here's an example image:
 
-:::image type="content" source="../../manage/media/manage-consumption-commitment/consumption-commitment-uri.png" border="true" alt-text="Screenshot showing the MACC properties page URI." lightbox="../../manage/media/manage-consumption-commitment/consumption-commitment-uri.png" :::
-
+:::image type="content" source="../../manage/media/benefits/azure-consumption-commitment/consumption-commitment-uri.png" border="true" alt-text="Screenshot showing the MACC properties page URI." lightbox="../../manage/media/benefits/azure-consumption-commitment/consumption-commitment-uri.png" :::
 
 ## Rename MACC
 The MACC’s resource name is a part of its Uniform Resource Identifier (URI) and cannot be changed. However, you can use [tags](../../../azure-resource-manager/management/tag-resources.md) to help identify the MACC resource based on a nomenclature relevant to your organization.
@@ -62,6 +61,25 @@ A MACC resource may only be deleted if its status is _failed_ or _canceled_. Del
 ## Cancel MACC
 Please contact your Microsoft account team if you have questions about canceling your MACC.
 
+## Track your MACC
+If your organization has a MACC associated with a Microsoft Customer Agreement (MCA) or Enterprise Agreement (EA) billing account, you can track key details—including start and end dates, remaining balance, and eligible spend—through the Azure portal or REST APIs. For more information, see [Track your Microsoft Azure Consumption Commitment (MACC)](track-consumption-commitment.md).
+
+### View MACC milestones
+If your MACC includes milestones, you can view milestone details in the Azure portal. Navigate to your MACC resource and select the **Milestones** tab to see a detailed breakdown of your commitment milestones. For more information about milestones, see [MACC Milestones](track-consumption-commitment.md#macc-milestones).
+
+The milestones view displays the following information for each milestone:
+- **End Date**: The deadline for reaching the milestone commitment amount
+- **Commitment amount**: The amount that needs to be consumed by the end date
+- **Status**: Current status of the milestone (such as Active, Completed, or Failed)
+- **Automatic Shortfall**: Whether automatic shortfall is applicable for the milestone
+- **Shortfall Amount**: Any shortfall amount if the commitment isn't met (displays when applicable)
+
+Here's an example of the milestone view:
+
+:::image type="content" source="../../manage/media/benefits/azure-consumption-commitment/manage-consumption-commitment-milestones.png" border="true" alt-text="Screenshot showing MACC milestones and progress tracking." lightbox="../../manage/media/benefits/azure-consumption-commitment/manage-consumption-commitment-milestones.png" :::
+
+
 ## Related content
 
+- [Track your MACC consumption commitment](track-consumption-commitment.md)
 - [Move Azure resources to a new resource group or subscription](../../../azure-resource-manager/management/move-resource-group-and-subscription.md)

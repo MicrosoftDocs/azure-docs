@@ -53,7 +53,7 @@ Microsoft Sentinel repositories require careful planning to ensure you have the 
 - Pipelines must be enabled for Azure DevOps.
 - An Azure DevOps connection must be in the same tenant as your Microsoft Sentinel workspace.
 
-Creating a connection to a repository requires an **Owner** role in the resource group that contains your Microsoft Sentinel workspace. If you're unable to use the Owner role in your environment, use the combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection.
+Creating a connection to a repository requires an **Owner** role in the resource group that contains your Microsoft Sentinel workspace.
 
 If you find content in a public repository where you aren't a contributor, first import, fork, or clone the content to a repo where you're a contributor. Then connect your repo to your Microsoft Sentinel workspace. For more information, see [Deploy custom content from your repository](ci-cd.md).
 

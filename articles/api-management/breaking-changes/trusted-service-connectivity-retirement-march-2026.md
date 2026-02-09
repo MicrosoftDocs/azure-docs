@@ -31,7 +31,7 @@ First, check for an Azure Advisor recommendation:
 
 **If you don't see a recommendation**, your API Management gateway isn't affected by the change.
 
-**If you see a recommendation**, your API Management gateway is affected by the breaking change and you need to take action: 
+**If you see a recommendation**, your API Management gateway has previously sent traffic to the listed Azure services. Because of this, it is considered affected by the breaking change and you need to take action:   
 
 1. Determine if your API Management gateway relies on trusted service connectivity to Azure services. 
 1. If it does, update the networking configuration to eliminate the dependency on trusted service connectivity. If it doesn’t, proceed to the next step. 

@@ -49,6 +49,80 @@ Tables created by using the Logs Ingestion API or Azure Monitor Agent (AMA) and 
 
 When you onboard to both Microsoft Defender and Microsoft Sentinel and then onboard to the data lake, you no longer see auxiliary log tables in Microsoft Defender’s Advanced hunting or in the Microsoft Sentinel Azure portal. The auxiliary table data is available in the data lake and you can query it by using KQL queries or Jupyter notebooks. Find KQL queries under **Microsoft Sentinel** > **Data lake exploration** in the Defender portal.
  
+## Direct ingestion to the data lake tier
+
+Depending on your organization's security needs, you might choose to ingest some log sources directly into the data 
+lake. Directly ingesting logs to the data lake allows you to better manage costs by optimizing data retention and storage based on the value of the data for real-time detection versus long-term analysis.
+
+Ingest high-volume logs that are less critical for real-time detection but valuable for deep analysis and forensics directly to the lake, and ingest only high-value logs to the analytics tier. Note that logs ingested to the analytics tier are also mirrored to the data lake.
+
+Use the following table to prioritize which sources you should ingest directly to the data lake versus the analytics tier.
+
+| Log source type                                    | Typical log volume | Value for real-time threat detection and alerting | Value for threat hunting | Value for incident investigation and forensics | Ingest to data lake |
+|-------------------------------------------------|--------------------|-------------------------------------|----------------|-----------------------------------|-----------------------|
+| AAA (TACACS/Radius)                             | Medium             | High                                | High           | High                              | Yes                   |
+| Active Directory (on-premises)                      | High               | High                                | High           | High                              | No                    |
+| Application Logs                                | High               | Medium                              | Medium         | High                              | Yes                   |
+| AV Logs (Windows Events 5000s & 3rd party)      | Medium             | High                                | High           | High                              | No                    |
+| Azure Activity                                  | Medium             | High                                | High           | High                              | No                    |
+| Biometric Access System Logs                    | Low                | Medium                              | Low            | High                              | Yes                   |
+| Building Security System Logs                   | Low                | Low                                 | Low            | Medium                            | Yes                   |
+| Call Center/VoIP Logs                           | Medium             | Low                                 | Low            | Medium                            | Yes                   |
+| CASB                                            | High               | High                                | High           | High                              | Yes                   |
+| Citrix/Horizon/ALBs                             | Medium             | Medium                              | Medium         | High                              | Yes                   |
+| Cloud IAM                                       | Medium             | High                                | High           | High                              | No                    |
+| Cloud PaaS                                      | High               | High                                | High           | High                              | Yes                   |
+| Cloud Security Controls                         | Medium             | High                                | Medium         | High                              | No                    |
+| Cloud Storage (S3, Blob, etc.) Logs             | High               | High                                | High           | High                              | No                    |
+| CRM Audit Logs                                  | Low-Medium         | Low                                 | Low            | Medium                            | Yes                   |
+| Database Audit Tools                            | Medium             | High                                | High           | High                              | Yes                   |
+| DHCP Logs                                       | Medium             | Medium                              | Medium         | High                              | Yes                   |
+| DLP Alerts                                      | Low                | High                                | High           | High                              | Yes                   |
+| DNS Logs                                        | High               | High                                | High           | High                              | Yes                   |
+| Endpoint Detection and Response (EDR) (Alerts)  | Medium             | High                                | High           | High                              | No                    |
+| Endpoint Detection and Response (EDR) (Raw)     | High               | High                                | High           | High                              | Yes                   |
+| Email Security (3rd party alerts)               | Medium             | High                                | Medium         | High                              | No                    |
+| ERP Audit Logs                                  | Low-Medium         | Low                                 | Low            | Medium                            | Yes                   |
+| File Integrity                                  | Low                | Medium                              | Medium         | High                              | Yes                   |
+| Firewall Threat/Malware/IPS/IDS                 | High               | High                                | High           | High                              | No                    |
+| Firewall Traffic Logs                           | High               | High                                | High           | High                              | Yes                   |
+| GitHub/GitLab/Code Repo Logs                    | Low-Medium         | Medium                              | Medium         | High                              | Yes                   |
+| Google Workspace Logs                           | Medium             | Medium                              | Medium         | High                              | Yes                   |
+| Identity (Entra ID, Okta, LDAP)                 | Medium             | High                                | High           | High                              | No                    |
+| IIS/Apache Logs                                 | Medium             | High                                | High           | High                              | Yes                   |
+| IoT Device Logs                                 | High               | Medium                              | Medium         | Medium                            | Yes                   |
+| Kubernetes/Container Logs (alerts, critical)    | High               | High                                | High           | High                              | No                    |
+| Kubernetes/Container Logs (raw logs)            | High               | High                                | High           | High                              | Yes                   |
+| LAN/WAN Router Switch                           | High               | Medium                              | Medium         | Medium                            | Yes                   |
+| Linux Server AuditD                             | Medium             | High                                | High           | High                              | No                    |
+| Mobile Device Management (Intune)               | Medium             | Medium                              | Medium         | Medium                            | Yes                   |
+| Microsoft Office Logs (Teams, Office, SharePoint)| Medium            | Medium                              | Medium         | High                              | No                    |
+| Microsoft XDR Alerts (Defender: Office, Identity, Endpoint, CloudApp) | Medium | High | High | High | No |
+| Multifactor authentication (MFA)               | Medium             | High                                | Medium         | High                              | No                    |
+| Netflow                                         | High               | Medium                              | High           | Medium                            | Yes                   |
+| Network Detection (Corelight, Vectra, Darktrace)| High               | High                                | High           | High                              | No                    |
+| OT/ICS System Logs                              | Medium             | High                                | High           | High                              | Yes                   |
+| PAM (Privileged Access Management)              | Low                | High                                | High           | High                              | No                    |
+| PIM (Privileged Identity Management)            | Low                | High                                | High           | High                              | No                    |
+| POS System Logs                                 | High               | High                                | High           | High                              | Yes                   |
+| Proxy Logging (URL filtering)                   | High               | High                                | High           | High                              | Yes                   |
+| Salesforce Audit Logs                           | Medium             | Medium                              | Medium         | High                              | Yes                   |
+| SD-WAN                                          | Medium             | Medium                              | Medium         | Medium                            | Yes                   |
+| ServiceNow Audit Logs                           | Low                | Low                                 | Low            | Medium                            | Yes                   |
+| SIEM/SOAR Platform Logs                         | Medium             | High                                | High           | High                              | No                    |
+| Slack/Teams Collaboration Logs                  | Medium             | Low                                 | Medium         | Medium                            | Yes                   |
+| Sysmon (Endpoint, for EDR complement)           | Medium             | High                                | High           | High                              | Yes                   |
+| Threat Intelligence Indicators                  | Low                | High                                | High           | High                              | No                    |
+| VDI Logs                                        | Medium             | Medium                              | Medium         | High                              | Yes                   |
+| VPN                                             | Medium             | High                                | High           | High                              | No                    |
+| Vulnerability Scanning                          | Low                | Medium                              | Medium         | Medium                            | Yes                   |
+| Web Application Firewall (WAF) Logs             | Medium             | High                                | High           | High                              | Yes                   |
+| Windows Server Events                           | High               | High                                | High           | High                              | No                    |
+| XDR Source Logs (Defender: Office, Identity, Endpoint, CloudApp) | Medium | High | High | High | No |
+| Zoom Meeting Logs                               | Low-Medium         | Low                                 | Low            | Medium                            | Yes                   |
+
+
+
 
 ## Related articles
 

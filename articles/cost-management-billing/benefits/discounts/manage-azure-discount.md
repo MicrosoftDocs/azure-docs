@@ -6,7 +6,7 @@ ms.reviewer: benshy
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/29/2025
+ms.date: 02/09/2026
 ms.author: benshy
 #customer intent: As a Microsoft Customer Agreement billing owner, I want learn about managing a discount so that I move the discount when needed.
 service.tree.id: cf90d1aa-e8ca-47a9-a6d0-bc69c7db1d52

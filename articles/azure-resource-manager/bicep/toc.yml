@@ -22,6 +22,9 @@ items:
       - name: Create Bicep files - VS Code
         href: quickstart-create-bicep-use-visual-studio-code.md
         displayName: vscode,vs code
+      - name: Create Bicep files - Bicep MCP Server
+        href: quickstart-create-bicep-use-visual-studio-code-model-context-protocol.md
+        displayName: vscode,vs code
       - name: Create Bicep files - Visual Studio
         href: quickstart-create-bicep-use-visual-studio.md
       - name: Create template specs
@@ -389,6 +392,8 @@ items:
           - name: Visual Studio Code
             href: visual-studio-code.md
             displayName: vscode,vs code,deployment pane
+          - name: Bicep MCP server
+            href: bicep-mcp-server.md
           - name: Private module registry
             href: private-module-registry.md
             displayName: module registry,private module registry

@@ -78,6 +78,7 @@ A: Yes, however, installation of Application Gateway for Containers on a cluster
 
 ## Next steps
 
-* [Deploy ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md?tabs=install-helm-windows)
+* [Deploy ALB Controller - Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md)
+* [Deploy ALB Controller - Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)
 * [Application Gateway for Containers components](application-gateway-for-containers-components.md)
 * [Upgrade AKS to CNI Overlay](/azure/aks/upgrade-aks-ipam-and-dataplane#upgrade-an-existing-cluster-to-azure-cni-overlay)

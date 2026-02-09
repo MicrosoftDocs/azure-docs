@@ -1,11 +1,11 @@
 ---
-title: Limits and configuration reference guide
+title: Limits and Configuration Reference Guide
 description: Reference guide about the limits and configuration settings for logic app resources and workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
 ms.topic: reference
-ms.date: 12/05/2025
+ms.date: 02/07/2026
 ms.custom: sfi-image-nochange
 ---
 
@@ -58,7 +58,7 @@ The following table lists the values for a single workflow run:
 | Name | Multitenant | Single-tenant | Notes |
 |------|-------------|---------------|-------|
 | Run history retention in storage | 90 days | 90 days <br>(Default) | The amount of time to keep a workflow's run history in storage after a run starts. <br><br>**Note**: If the workflow's run duration exceeds the retention limit, this run is removed from the run history in storage. If a run isn't immediately removed after reaching the retention limit, the run is removed within 7 days. <br><br>Whether a run completes or times out, retention is always calculated by using the run's start time and the retention limit at the *time when the run started*, not the current limit. You can find the retention limit in the workflow setting, [**Run history retention in days**](#change-retention). <br><br>For more information, review [Change duration and run history retention in storage](#change-retention). |
-| Run duration | 90 days | - Stateful workflow: 90 days <br>(Default) <br><br>- Stateless workflow: 5 min <br>(Default) | The amount of time that a workflow can continue running before forcing a time-out. The run duration is calculated by using a run's start time and the limit that's specified in the workflow setting, [**Run history retention in days**](#change-duration) at that start time. <br><br>**Important**: Make sure the run duration value is always less than or equal to the run history retention in storage value. Otherwise, run histories might be deleted before the associated jobs are complete. <br><br>For more information, review [Change run duration and history retention in storage](#change-duration). |
+| Run duration | 90 days | - Stateful workflow: 90 days <br>(Default) <br><br>- Stateless workflow: 5 min <br>(Default) | The amount of time that a workflow can continue running before forcing a timeout. The run duration is calculated by using a run's start time and the limit that's specified in the workflow setting, [**Run history retention in days**](#change-duration) at that start time. <br><br>**Important**: Make sure the run duration value is always less than or equal to the run history retention in storage value. Otherwise, run histories might be deleted before the associated jobs are complete. <br><br>For more information, review [Change run duration and history retention in storage](#change-duration). |
 | Recurrence interval | - Min: 1 sec <br><br>- Max: 500 days | - Min: 1 sec <br><br>- Max: 500 days ||
 
 <a name="change-duration"></a>
@@ -166,7 +166,7 @@ The following table lists the values for an **Until** loop:
 | Name | Multitenant | Single-tenant | Notes |
 |------|-------------|---------------|-------|
 | Iterations | - Default: 60 <br>- Min: 1 <br>- Max: 5,000 | Stateful workflow: <br><br>- Default: 60 <br>- Min: 1 <br>- Max: 5,000 <br><br>Stateless workflow: <br><br>- Default: 60 <br>- Min: 1 <br>- Max: 100 | The number of cycles that an **Until** loop can have during a workflow run. <br><br>To change this value in multitenant Azure Logic Apps, in the **Until** loop shape, select **Change limits**, and specify the value for the **Count** property. <br><br>To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
-| Time-out | Default: PT1H (1 hour) | Stateful workflow: PT1H (1 hour) <br><br>Stateless workflow: PT5M (5 min) | The amount of time that the **Until** loop can run before exiting and is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). The time-out value is evaluated for each loop cycle. If any action in the loop takes longer than the time-out limit, the current cycle doesn't stop. However, the next cycle doesn't start because the limit condition isn't met. <br><br>To change this value in multitenant Azure Logic Apps, in the **Until** loop shape, select **Change limits**, and specify the value for the **Timeout** property. <br><br>To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
+| Timeout | Default: PT1H (1 hour) | Stateful workflow: PT1H (1 hour) <br><br>Stateless workflow: PT5M (5 min) | The amount of time that the **Until** loop can run before exiting and is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). The timeout value is evaluated for each loop cycle. If any action in the loop takes longer than the timeout limit, the current cycle doesn't stop. However, the next cycle doesn't start because the limit condition isn't met. <br><br>To change this value in multitenant Azure Logic Apps, in the **Until** loop shape, select **Change limits**, and specify the value for the **Timeout** property. <br><br>To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
 
 <a name="concurrency-debatching"></a>
 
@@ -405,16 +405,16 @@ The following tables list the values for a single inbound or outbound call:
 
 <a name="http-time-out-limits"></a>
 
-### Time-out duration
+### Timeout duration
 
-By default, the HTTP action and API connection actions follow the [standard asynchronous operation pattern](/azure/architecture/patterns/async-request-reply), while the Response action follows the *synchronous operation pattern*. Some managed connector operations make asynchronous calls or listen for webhook requests, so the time-out for these operations might be longer than the following limits. For more information, see [each connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors) and the [Workflow triggers and actions page](logic-apps-workflow-actions-triggers.md#http-action).
+By default, the HTTP action and API connection actions follow the [standard asynchronous operation pattern](/azure/architecture/patterns/async-request-reply), while the Response action follows the *synchronous operation pattern*. Some managed connector operations make asynchronous calls or listen for webhook requests, so the timeout for these operations might be longer than the following limits. For more information, see [each connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors) and the [Workflow triggers and actions page](logic-apps-workflow-actions-triggers.md#http-action).
 
 For Standard logic app resources in single-tenant Azure Logic Apps, stateless workflows can only run *synchronously*. Stateless workflows only save each action's inputs, outputs, and states in memory, not external storage. As a result, stateless workflows perform faster with quicker response times, provide higher throughput, reduce running costs from not using external storage, and shorter runs usually finish in 5 minutes or less. However, if outages happen, interrupted runs aren't automatically restored. The caller must manually resubmit interrupted runs. For the best performance, make sure that a stateless workflow handles data or content that doesn't exceed 64 KB in total file size. Larger sizes, such as multiple large attachments, might significantly slow workflow performance or even cause the workflow to crash from out-of-memory exceptions. If you require a workflow to handle larger file sizes, create a stateful workflow instead.
 
 | Name | Multitenant | Single-tenant | Notes |
 |------|-------------|---------------|-------|
-| Outbound request | 120 sec <br>(2 min) | 235 sec <br>(3.9 min) <br>(Default) | Examples of outbound requests include calls made by the HTTP trigger or action. <br><br>**Tip**: For longer running operations, use an [asynchronous polling pattern](logic-apps-create-api-app.md#async-pattern) or an ["Until" loop](logic-apps-workflow-actions-triggers.md#until-action). To work around time-out limits when you call another workflow that has a [callable endpoint](logic-apps-http-endpoint.md), you can use the built-in Azure Logic Apps action instead, which you can find in the designer's operation picker under **Built-in**. <br><br>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
-| Inbound request | 120 sec <br>(2 min) | 235 sec <br>(3.9 min) <br>(Default) | Examples of inbound requests include calls received by the Request trigger, HTTP Webhook trigger, and HTTP Webhook action. <br><br>**Note**: For the original caller to get the response, all steps in the response must finish within the limit unless you call another nested workflow. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). <br><br>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
+| Outbound request | 120 sec <br>(2 min) | 225 sec <br>(3 min and 45 seconds) <br>(Default) | Examples of outbound requests include calls made by the HTTP trigger or action. If the server doesn't respond within the timeout limit, the HTTP action fails. <br><br>**Tip**: For longer running operations, use an [asynchronous polling pattern](logic-apps-create-api-app.md#async-pattern) or an ["Until" loop](logic-apps-workflow-actions-triggers.md#until-action). To work around timeout limits when you call another workflow that has a [callable endpoint](logic-apps-http-endpoint.md), you can use the built-in Azure Logic Apps action instead, which you can find in the designer's operation picker under **Built-in**. <br><br>To change the default timeout limit in the single-tenant service, follow these steps in the Azure portal or see [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md): <br><br>1. On the designer, in the workflow, select the **HTTP** action. <br>2. In the action pane, select the **Settings** tab. <br>3. Under **Request options - Timeout**, change the duration. |
+| Inbound request | 120 sec <br>(2 min) | 225 sec <br>(3 min and 45 seconds) <br>(Default) | Examples of inbound requests include calls received by the Request trigger, HTTP Webhook trigger, and HTTP Webhook action. <br><br>**Note**: For the original caller to get the response, all steps in the response must finish within the limit unless you call another nested workflow. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). <br><br>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
 
 <a name="content-storage-size-limits"></a>
 
@@ -489,7 +489,7 @@ The following table lists the values for custom connectors:
 | APIs per service | SOAP-based: 50 | Not applicable ||
 | Parameters per API | SOAP-based: 50 | Not applicable ||
 | Requests per minute for a custom connector | 500 requests per minute per connection | Based on your implementation ||
-| Connection time-out | 2 min | Idle connection: <br>4 min <br><br>Active connection: <br>10 min ||
+| Connection timeout | 2 min | Idle connection: <br>4 min <br><br>Active connection: <br>10 min ||
 
 For more information, review the following documentation:
 
@@ -545,7 +545,7 @@ The following tables list the values for the number of artifacts limited to each
 | Artifact | Limit | Notes |
 | -------- | ----- | ----- |
 | Assembly | 8 MB | To upload files larger than 2 MB, use an [Azure storage account and blob container](logic-apps-enterprise-integration-schemas.md). |
-| Map (XSLT file) | 8 MB | To upload files larger than 2 MB, use the [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate). <br><br>**Note**: The amount of data or records that a map can successfully process is based on the message size and action time-out limits in Azure Logic Apps. For example, if you use an HTTP action, based on [HTTP message size and time-out limits](#http-limits), a map can process data up to the HTTP message size limit if the operation completes within the HTTP time-out limit. |
+| Map (XSLT file) | 8 MB | To upload files larger than 2 MB, use the [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate). <br><br>**Note**: The amount of data or records that a map can successfully process is based on the message size and action timeout limits in Azure Logic Apps. For example, if you use an HTTP action, based on [HTTP message size and timeout limits](#http-limits), a map can process data up to the HTTP message size limit if the operation completes within the HTTP timeout limit. |
 | Schema | 8 MB | To upload files larger than 2 MB, use an [Azure storage account and blob container](logic-apps-enterprise-integration-schemas.md). |
 
 <a name="integration-account-throughput-limits"></a>

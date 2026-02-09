@@ -137,7 +137,7 @@ If you haven't already done so, [install Azure Container Storage.](install-conta
 1. Create an Elastic SAN in the managed resource group.
 
    ```azurecli
-   az elastic-san create --resource-group <node-resource-group> --name <san-name> --location <node-region> --sku Premium_ZRS --base-size-tib 1 --extended-capacity-size-tib 1
+   az elastic-san create --resource-group <node-resource-group> --name <san-name> --location <node-region> --sku "{name:Premium_LRS,tier:Premium}" --base-size-tib 1 --extended-capacity-size-tib 1
    ```
 
 1. Create a storage class that references the Elastic SAN:

@@ -353,8 +353,6 @@ All strings in Bicep support interpolation. To inject an expression, surround it
 var storageName = 'storage${uniqueString(resourceGroup().id)}'
 ```
 
-### Multi-line strings
-
 ## Multi-line strings
 
 You can define a multi-line string by enclosing it in three single quotation marks (`'''`). The string content is preserved exactly as written, so escape characters are not required. The delimiter `'''` cannot appear within the string.

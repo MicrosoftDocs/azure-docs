@@ -7,8 +7,10 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Deploy Application Gateway for Containers ALB Controller
-    href: quickstart-deploy-application-gateway-for-containers-alb-controller.md
+  - name: Deploy Application Gateway for Containers ALB Controller - Add-on
+    href: quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md
+  - name: Deploy Application Gateway for Containers ALB Controller - Helm
+    href: quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md
   - name: Create Application Gateway for Containers - bring your own deployment
     href: quickstart-create-application-gateway-for-containers-byo-deployment.md
   - name: Create Application Gateway for Containers - managed by ALB Controller

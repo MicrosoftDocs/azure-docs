@@ -34,7 +34,7 @@ The ALB Controller Istio Extension consists of two pods, deployed in active / st
 
 ### Install the ALB Controller Service Mesh Extension for Istio
 
-Install the ALB Controller Service Mesh Extension using the Helm chart after provisioning [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md). The ALB Controller Service mesh Extension is installed using a separate [helm chart](service-mesh-helm-chart.md).
+Install the ALB Controller Service Mesh Extension using the Helm chart after provisioning ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)). The ALB Controller Service mesh Extension is installed using a separate [helm chart](service-mesh-helm-chart.md).
 
 The following helm command can be used to install the extension.
 

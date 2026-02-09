@@ -336,6 +336,9 @@ items:
             displayName: Azure CLI, command line, az cli
           - name: Azure IoT Operations REST API
             href: /rest/api/iotoperations
+          - name: Device Registry REST API
+            href: /rest/api/deviceregistry/
+            displayName: device, asset, namespace
           - name: Custom RBAC
             href: reference/custom-rbac.md
             displayName: permission, role, auth, authz

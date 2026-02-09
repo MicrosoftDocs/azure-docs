@@ -54,23 +54,23 @@ Origin support for direct private endpoint connectivity is currently limited to 
 
 Azure Front Door private link is available in the following regions:
 
-| Americas | Europe | Africa | Asia Pacific |
-|--|--|--|--|
-| Brazil South | France Central | South Africa North | Australia East |
-| Canada Central | Germany West Central | | Central India |
-| Central US | North Europe | | Japan East |
-| East US | Norway East | | Korea Central |
-| East US 2 | UK South | | East Asia |
-| South Central US | West Europe | | South East Asia |
-| West US 2 | Sweden Central | | China East 3 |
-| West US 3 | | | China North 3 |
-| US Gov Arizona | | | |
-| US Gov Texas | | | |
-| US Gov Virginia | | | |
-| US Nat East | | | |
-| US Nat West | | | |
-| US Sec East | | | |
-| US Sec West | | | |
+| Americas | Europe | Africa | Asia Pacific | Middle East |
+|--|--|--|--|--|
+| Brazil South | France Central | South Africa North | Australia East | UAE North (Preview) |
+| Canada Central | Germany West Central | | Central India | |
+| Central US | North Europe | | Japan East | |
+| East US | Norway East | | Korea Central | |
+| East US 2 | UK South | | East Asia | |
+| South Central US | West Europe | | South East Asia | |
+| West US 2 | Sweden Central | | China East 3 | |
+| West US 3 | | | China North 3 | |
+| US Gov Arizona | | | | |
+| US Gov Texas | | | | |
+| US Gov Virginia | | | | |
+| US Nat East | | | | |
+| US Nat West | | | | |
+| US Sec East | | | | |
+| US Sec West | | | | |
 
 The Azure Front Door Private Link feature is region agnostic but for the best latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint. If your origin's region isn't supported in the list of regions Front Door Private Link supports, pick the next nearest region. You can use [Azure network round-trip latency statistics](../networking/azure-network-latency.md) to determine the next nearest region in terms of latency. We are in the process of enabling support for more regions. Once a new region is supported, you can follow these [instructions](blue-green-deployment.md) to gradually shift traffic to the new region.
 
