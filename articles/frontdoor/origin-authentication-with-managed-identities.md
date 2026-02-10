@@ -121,3 +121,4 @@ Managed identities are specific to the Microsoft Entra tenant where your Azure s
 * It is recommended that you use different managed identities for origin authentication and for AFD to Azure Key Vault authentication.
 * For best practices while using managed identities, refer to [Managed identity best practice recommendations](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
 * For best practices while assigning RBAC role for Azure storage account, refer to [Assign an Azure role for access to blob data](../storage/blobs/assign-azure-role-data-access.md)
+* When origin authentication is enabled on an origin group, Front Door includes the access token in the Authorization header for health probes probing the origins within the origin group, not just for end-user traffic requests.

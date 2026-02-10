@@ -19,7 +19,7 @@ Find the project for this sample on [GitHub](https://github.com/Azure-Samples/co
 
 ## Overview
 
-This sample is a server-side application that helps you create a virtual assistant that can handle calls by using Call Automation. It also enables your assistant to respond to customers by using Azure AI services, which provide AI capabilities such as text to speech and speech to text, along with smart responses provided by Azure OpenAI.
+This sample is a server-side application that helps you create a virtual assistant that can handle calls by using Call Automation. It also enables your assistant to respond to customers by using Foundry Tools, which provide AI capabilities such as text to speech and speech to text, along with smart responses provided by Azure OpenAI.
 
 This Azure Communication Services Call Automation AI sample demonstrates how to use the Call Automation SDK to answer an inbound call. It recognizes user voice input by using Call Automation to recognize the API with support for speech to text. When the system recognizes the input, it sends the information to OpenAI for an answer. It uses the Call Automation Play API with support for text to speech to play back the answer provided by OpenAI to the caller.
 
@@ -59,14 +59,14 @@ devtunnel host
 
 #### Step 3: Add a managed identity to the Azure Communication Services resource that connects to the Azure AI services resource
 
-Follow the instructions in [Connect Azure Communication Services with Azure AI services](/azure/communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration).
+Follow the instructions in [Connect Azure Communication Services with Foundry Tools](/azure/communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration).
 
 #### Step 4: Add the required API keys and endpoints
 
 Open the `main.py` file to configure the following settings:
 
 - `CALLBACK_URI_HOST`: Your dev tunnel endpoint.
-- `COGNITIVE_SERVICE_ENDPOINT`: The Azure AI services endpoint.
+- `COGNITIVE_SERVICE_ENDPOINT`: The Azure AI Services endpoint.
 - `ACS_CONNECTION_STRING`: Azure Communication Services resource connection string.
 - `AZURE_OPENAI_SERVICE_KEY`: Azure OpenAI service key.
 - `AZURE_OPENAI_SERVICE_ENDPOINT`: Azure OpenAI service endpoint.

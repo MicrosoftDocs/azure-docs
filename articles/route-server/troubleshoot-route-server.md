@@ -28,7 +28,7 @@ For more information, see [User-defined routes](../virtual-network/virtual-netwo
 |-------|----------|
 | 0.0.0.0/0 | Internet |
 
-### Why does the NVA lose its connectivity to the Route Server after forcing all traffic to a firewall using a user-defined route (UDR) on the GatewaySubnet?
+### Why do I experience on-premises connectivity issues after adding a user-defined route (UDR) on the GatewaySubnet?
 
 If you want to inspect your on-premises traffic using a firewall, you can force all on-premises traffic to the firewall using a user-defined route (UDR) on the GatewaySubnet. However, this UDR might break the communication between the Route Server and the gateway by forcing their control plane traffic (BGP) to the firewall. This issue occurs if you're inspecting the traffic destined to the virtual network that has the Route Server.
 
@@ -45,6 +45,8 @@ In this example:
 - 10.0.0.0/16 is the address space of the virtual network
 - 10.0.1.0/27 is the address space of RouteServerSubnet
 - 10.0.2.1 is the IP address of the firewall
+
+The above scenario also applies when adding a UDR to your NVA's subnet. If you have an SDWAN NVA that is BGP peered with Route Server, and you add a UDR to the NVA's subnet with next hop as a firewall, then this UDR can impact the BGP peering between the SDWAN NVA and Route Server. To prevent this from happening, add a UDR for the RouteServerSubnet's address range with next hop as "VirtualNetwork". 
 
 ### I added a user-defined route (UDR) with next hop type as Virtual Network Gateway, but this UDR isn't taking effect. Is this expected?
 

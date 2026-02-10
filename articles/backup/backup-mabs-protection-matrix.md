@@ -1,7 +1,7 @@
 ---
 title: MABS (Azure Backup Server) V4 protection matrix
 description: This article provides a support matrix listing all workloads, data types, and installations that Azure Backup Server v4 protects.
-ms.date: 07/17/2025
+ms.date: 02/10/2026
 ms.topic: reference
 ms.service: azure-backup
 ms.custom: linux-related-content, engagement-fy24
@@ -48,9 +48,9 @@ The following sections details the protection support matrix for MABS:
 
 | **Workload**                                                 | **Version**                                             | **Azure  Backup Server   installation**                      | **Supported  Azure Backup Server** | **Protection  and recovery**                                 |
 | ------------------------------------------------------------ | ------------------------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
-| Hyper-V  host - MABS protection agent on Hyper-V host server, cluster, or VM | Windows  Server 2022, 2019, 2016, 2012 R2, 2012               | Physical  server  <br><br>    Hyper-V virtual machine <br><br>    VMware  virtual machine | V4                                 | Protect:  Virtual machines, cluster shared volumes (CSVs)  <br><br>    Recover: Virtual machine, Item-level recovery of files and folders available  only for Windows, volumes, virtual hard drives |
+| Hyper-V  host - MABS protection agent on Hyper-V host server, cluster, or VM | Windows  Server 2022, 2019, 2016, 2012 R2, 2012               | Physical  server  <br><br>    Hyper-V virtual machine <br><br>    VMware  virtual machine | V4                                 | Protect:  Virtual machines, cluster shared volumes (CSVs)  <br><br>    Recover: Virtual machine, Item-level recovery of files and folders available  only for Windows, volumes, virtual hard drives <br><br> Note that Item Level Recovery isn't supported for Virtual Machine volumes that have BitLocker enabled. |
 | Azure Local  |       V1, 20H2, 21H2, 22H2, and 23H2      |    Physical server        <br><br>     Hyper-V / Azure Local virtual machine     <br><br>    VMware virtual machine     |    V4   | Protect: Virtual machines, cluster shared volumes (CSVs)      <br><br>     Recover: Virtual machine, Item-level recovery of files and folders available only for Windows, volumes, virtual hard drives <br><br> Recovery of Arc VMs is supported in a limited capacity in Azure Local, version 23H2. [Learn more](back-up-azure-stack-hyperconverged-infrastructure-virtual-machines.md). |
-| VMware  VMs                                                  | VMware  server 6.5, 6.7, 7.0, 8.0 (Licensed Version) | Hyper-V  virtual machine  <br><br>   VMware  virtual machine         | V4                             | Protect:  VMware VMs on cluster-shared volumes (CSVs), NFS, and SAN storage   <br><br>     Recover:  Virtual machine, Item-level recovery of files and folders available only for  Windows, volumes, virtual hard drives <br><br>    VMware  vApps aren't supported.        <br><br> vSphere 8.0 DataSets feature isn't supported for backup. |
+| VMware  VMs                                                  | VMware  server 6.5, 6.7, 7.0, 8.0 (Licensed Version) | Hyper-V  virtual machine  <br><br>   VMware  virtual machine         | V4                             | Protect:  VMware VMs on cluster-shared volumes (CSVs), NFS, and SAN storage   <br><br>     Recover:  Virtual machine, Item-level recovery of files and folders available only for  Windows, volumes, virtual hard drives <br><br>    Note that Item Level Recovery isn't supported for Virtual Machine volumes that have BitLocker enabled. <br><br> VMware  vApps aren't supported.        <br><br> vSphere 8.0 DataSets feature isn't supported for backup. |
 
 >[!NOTE]
 > MABS doesn't support backup of virtual machines with pass-through disks or those that use a remote VHD. We recommend that in these scenarios you use guest-level backup using MABS, and install an agent on the virtual machine to back up the data.

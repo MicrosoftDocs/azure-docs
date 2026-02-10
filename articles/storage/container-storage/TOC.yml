@@ -16,6 +16,8 @@
       href: use-container-storage-with-local-disk.md
     - name: Manage driver placement
       href: manage-local-container-storage-interface-driver-placement.md
+    - name: Best practices for ephemeral NVMe data disks
+      href: /azure/aks/best-practices-storage-nvme?toc=/azure/storage/container-storage/toc.json
   - name: Use with Elastic SAN
     items:
     - name: Configure Elastic SAN

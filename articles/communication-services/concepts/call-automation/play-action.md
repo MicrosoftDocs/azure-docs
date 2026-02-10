@@ -13,9 +13,9 @@ ms.author: kpunjabi
 
 The play action provided through the Azure Communication Services Call Automation SDK allows you to play audio prompts to participants in the call. This action can be accessed through the server-side implementation of your application. You can play audio to call participants through one of two methods;
 - Providing Azure Communication Services access to prerecorded audio files in WAV format, which Azure Communication Services can access with support for authentication.
-- Regular text that can be converted into speech output through the integration with Azure AI services.
+- Regular text that can be converted into speech output through the integration with Foundry Tools.
 
-You can use the newly announced integration between [Azure Communication Services and Azure AI services](./azure-communication-services-azure-cognitive-services-integration.md) to play personalized responses using Azure [Text-To-Speech](../../../../articles/cognitive-services/Speech-Service/text-to-speech.md). You can use human like prebuilt neural voices out of the box or create custom neural voices that are unique to your product or brand. For more information on supported voices, languages and locales see [Language and voice support for the Speech service](../../../../articles/cognitive-services/Speech-Service/language-support.md).
+You can use the newly announced integration between [Azure Communication Services and Foundry Tools](./azure-communication-services-azure-cognitive-services-integration.md) to play personalized responses using Azure [Text-To-Speech](../../../../articles/cognitive-services/Speech-Service/text-to-speech.md). You can use human like prebuilt neural voices out of the box or create custom neural voices that are unique to your product or brand. For more information on supported voices, languages and locales see [Language and voice support for the Speech service](../../../../articles/cognitive-services/Speech-Service/language-support.md).
 > [!NOTE]
 > Azure Communication Services currently supports two file formats, MP3 files with ID3V2TAG and WAV files formatted as 16-bit Pulse Code Modulation (PCM) mono channel audio recorded at 16 KHz. You can create your own audio files using [Speech synthesis with Audio Content Creation tool](/azure/ai-services/speech-service/how-to-audio-content-creation). 
 
@@ -49,7 +49,7 @@ As part of compliance requirements in various industries, vendors are expected t
 
 ## Known limitations
 - Text-to-Speech prompts support a maximum of 4,000 characters. If your prompt is longer than this limit, we suggest using Speech Synthesis Markup Language (SSML) for Text-to-Speech based play actions.
-- HD Voices from Azure AI Foundry aren't officially supported. Using these voices results in timeouts.
+- HD Voices from Microsoft Foundry aren't officially supported. Using these voices results in timeouts.
 - For scenarios where you exceed your Speech service quota limit, you can request to increase this limit by following the steps outlined [here](/azure/ai-services/speech-service/speech-services-quotas-and-limits).
 
 ## Next Steps

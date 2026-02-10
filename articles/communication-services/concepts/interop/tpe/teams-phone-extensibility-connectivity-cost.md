@@ -61,7 +61,7 @@ Choosing the best PSTN connectivity solution for Teams Phone extensibility depen
 
 - The Teams Phone Extensibility business model for independent software vendors (ISVs) includes charging contact center as a service (CCaaS) vendors for using Azure Communication Services SDKs. This model includes Calling SDK and VoIP consumption, which require charges for each leg between the call automation bot and the CCaaS agent.
 
-- This solution also includes Audio Insights with access to mixed/unmixed audio streams or direct transcriptions. Using transcription incurs an [Azure AI Speech pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for the selected Azure resource and Call Recording with pay-as-you-go for mixed/unmixed AV recordings. You can review current pricing for VoIP, transcription, and recording at [Azure Communication Services pricing](https://azure.microsoft.com/pricing/details/communication-services/).
+- This solution also includes Audio Insights with access to mixed/unmixed audio streams or direct transcriptions. Using transcription incurs an [Azure Speech in Foundry Tools pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for the selected Azure resource and Call Recording with pay-as-you-go for mixed/unmixed AV recordings. You can review current pricing for VoIP, transcription, and recording at [Azure Communication Services pricing](https://azure.microsoft.com/pricing/details/communication-services/).
 
 ## Teams licenses requirements
 

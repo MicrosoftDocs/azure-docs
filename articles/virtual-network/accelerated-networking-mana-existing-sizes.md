@@ -38,7 +38,7 @@ VMs already deployed will be eligible to land on MANA capable hardware following
 
 ### How will I know if my VM is deployed on MANA capable hardware? 
 
-To determine if your VM Guest Operating System supports MANA, follow the instructions described in [Linux VMs with the Microsoft Azure Network Adapter](/azure/virtual-network/accelerated-networking-mana-linux). You'll see a PCIe device in the virtual machine and on the bonded NIC.
+To determine if your VM Guest Operating System deployed on MANA, follow the instructions described in [Linux VMs with the Microsoft Azure Network Adapter](/azure/virtual-network/accelerated-networking-mana-linux). You'll see a PCIe device in the virtual machine and on the bonded NIC.
 
 ### What will be the performance implications for Accelerated Networking enabled VMs? 
 If the VM’s underlying operating system supports all network devices used in Azure, there's no expected change in performance. This is because networking limits are associated with the VM Size as opposed to the underlying hosting infrastructure.  
@@ -55,7 +55,7 @@ Yes. We recommend that you update your DPDK-based applications to support MANA. 
 Visit [Microsoft Azure Network Adapter (MANA) and DPDK on Linux](/azure/virtual-network/setup-dpdk-mana) for the minimum requirements to support MANA and DPDK. 
 
 ### Are Network Virtual Appliances (NVAs) impacted by this change? 
-NVAs based on the VM Sizes listed above may also be deployed on MANA capable hardware starting in March 2026. Visit [NVA Support insert link to NVA doc page][def] for more information about MANA support for NVAs. 
+NVAs based on the VM Sizes listed above may also be deployed on MANA capable hardware. Visit [NVA Support insert link to NVA doc page][def] for more information about MANA support for NVAs. 
 
 ### Where can I find more information about MANA? 
 To learn more about MANA, visit [Microsoft Azure Network Adapter](/azure/virtual-network/accelerated-networking-mana-overview). On this page you can learn more about operating system support for MANA, installing MANA device drivers (Windows), and more information about MANA capabilities.  

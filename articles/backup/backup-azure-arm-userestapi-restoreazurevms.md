@@ -3,7 +3,7 @@ title: Restore Azure VMs using REST API
 description: In this article, learn how to manage to restore operations of Azure Virtual Machine Backup using REST API.
 ms.topic: how-to
 ms.service: azure-backup
-ms.date: 02/09/2025
+ms.date: 02/10/2026
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -12,13 +12,13 @@ ms.author: v-mallicka
 
 # Restore Azure Virtual machines using REST API
 
-This article describes how to restore an Azure VM or disks using the REST API.
+This article describes how to restore Azure Virtual Machines or individual disks from a recovery point by using REST API. It covers selecting recovery points, triggering restore operations, and performing cross-region restores.
 
 ## Prerequisites
 
 After completing an Azure VM backup with Azure Backup, you can restore entire VMs, disks, or files from the same backup copy. For any restore operation, you have to first identify the relevant recovery point.
 
-## Select Recovery point
+## Select Recovery point for Azure VM restore
 
 The available recovery points of a backup item can be listed using the [list recovery point REST API](/rest/api/backup/recovery-points/list). It's a simple *GET* operation with all the relevant values.
 
@@ -116,9 +116,9 @@ X-Powered-By: ASP.NET
 
 The recovery point is identified with the `{name}` field in the given response.
 
-## Restore operations
+## Trigger the restore operations for Azure VM
 
-After selecting the [relevant restore point](#select-recovery-point), proceed to trigger the restore operation.
+After selecting the [relevant restore point](#select-recovery-point-for-azure-vm-restore), proceed to trigger the restore operation.
 
 ***All restore operations on the backup item are performed with the same *POST* API. Only the request body changes with the restore scenarios.***
 
@@ -211,7 +211,7 @@ Since the restore job is a long running operation, it should be tracked as expla
 
 ### Restore disks
 
-If there's a need to customize the creation of a VM from the backup data, restore the disks into a chosen storage account and create a VM from those disks according to their requirements. The storage account should be in the same region as the Recovery Services vault and shouldn't be zone redundant. The disks, as well as the configuration of the backed-up VM ("vmconfig.json"), is stored in the given storage account. As explained [here](#restore-operations), the relevant request body for restore disks is provided below.
+If there's a need to customize the creation of a VM from the backup data, restore the disks into a chosen storage account and create a VM from those disks according to their requirements. The storage account should be in the same region as the Recovery Services vault and shouldn't be zone redundant. The disks, as well as the configuration of the backed-up VM ("vmconfig.json"), is stored in the given storage account. As explained [here](#trigger-the-restore-operations-for-azure-vm), the relevant request body for restore disks is provided below.
 
 #### Create request body
 
@@ -247,7 +247,7 @@ The following request body defines properties required to trigger a disk restore
 
 ### Restore disks selectively
 
-If you're [selectively backing up disks](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup), then the current backed-up disk list is provided in the [recovery point summary](#select-recovery-point) and [detailed response](/rest/api/backup/recovery-points/get). You can also selectively restore disks and more details are provided [here](selective-disk-backup-restore.md#selective-disk-restore). To selectively restore a disk among the list of backed up disks, find the LUN of the disk from the recovery point response and add the **restoreDiskLunList** property to the [request body above](#example-request) as shown below.
+If you're [selectively backing up disks](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup), then the current backed-up disk list is provided in the [recovery point summary](#select-recovery-point-for-azure-vm-restore) and [detailed response](/rest/api/backup/recovery-points/get). You can also selectively restore disks and more details are provided [here](selective-disk-backup-restore.md#selective-disk-restore). To selectively restore a disk among the list of backed up disks, find the LUN of the disk from the recovery point response and add the **restoreDiskLunList** property to the [request body above](#example-request) as shown below.
 
 ```json
 {
@@ -273,7 +273,7 @@ Once you track the response as explained [here](#responses), and the long runnin
 
 ### Replace disks in a backed-up virtual machine
 
-While restore disks creates disks from the recovery point, replace disks replaces the current disks of the backed-up VM with the disks from the recovery point. As explained [here](#restore-operations), the relevant request body for replacing disks is provided below.
+While restore disks create disks from the recovery point, replace disks replaces the current disks of the backed-up VM with the disks from the recovery point. As explained [here](#trigger-the-restore-operations-for-azure-vm), the relevant request body for replacing disks is provided below.
 
 #### Create request body
 
@@ -314,7 +314,7 @@ The following request body defines properties required to trigger a disk restore
 
 ### Restore as another virtual machine
 
-As explained [above](#restore-operations), the following request body defines properties required to trigger a virtual machine restore.
+As explained [above](#trigger-the-restore-operations-for-azure-vm), the following request body defines properties required to trigger a virtual machine restore.
 
 ```json
 {
@@ -340,7 +340,7 @@ As explained [above](#restore-operations), the following request body defines pr
 
 The response should be handled in the same way as [explained above for restoring disks](#responses).
 
-## Cross Region Restore
+## Cross Region Restore for Azure VMs
 
 If Cross Region Restore (CRR) is enabled on the vault with which you've protected your VMs, the backup data is replicated to the secondary region. You can use the backup data to perform a restore operation. To trigger a restore operation in the secondary region using REST API, follow these steps:
 

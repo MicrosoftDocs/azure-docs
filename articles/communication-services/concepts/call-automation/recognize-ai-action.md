@@ -1,7 +1,7 @@
 ---
 title: Recognize Action
 titleSuffix: An Azure Communication Services concept document
-description: Conceptual information gathering user voice input using Call Automation and Azure AI services
+description: Conceptual information gathering user voice input using Call Automation and Foundry Tools
 author: Kunaal
 ms.service: azure-communication-services
 ms.topic: conceptual
@@ -18,7 +18,7 @@ With the release of Azure Communication Services Call Automation Recognize actio
 
 **Voice recognition with speech-to-text**
 
-[Azure Communications services integration with Azure AI services](./azure-communication-services-azure-cognitive-services-integration.md), allows you through the Recognize action to analyze audio in real-time to transcribe spoken word into text. Out of the box Microsoft utilizes a Universal Language Model as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. This model is pre-trained with dialects and phonetics representing a variety of common domains. For more information about support languages please see [Languages and voice support for the Speech service](../../../../articles/cognitive-services/Speech-Service/language-support.md). 
+[Azure Communications services integration with Foundry Tools](./azure-communication-services-azure-cognitive-services-integration.md), allows you through the Recognize action to analyze audio in real-time to transcribe spoken word into text. Out of the box Microsoft utilizes a Universal Language Model as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. This model is pre-trained with dialects and phonetics representing a variety of common domains. For more information about support languages please see [Languages and voice support for the Speech service](../../../../articles/cognitive-services/Speech-Service/language-support.md). 
 
 
 **DTMF**

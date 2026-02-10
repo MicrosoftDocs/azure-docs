@@ -182,6 +182,7 @@ The following table shows connectivity locations and the service providers for e
 | **Washington DC2** | [Coresite VA2](https://www.coresite.com/data-center/va2-reston-va) | 1 | East US<br/>East US 2 | &cross; | CenturyLink Cloud Connect<br/>Coresite<br/>Intelsat<br/>Megaport<br/>Momentum Telecom<br/>Viasat<br/>Zayo |
 | **Zurich** | [Digital Realty(Interxion) ZUR2](https://www.digitalrealty.com/data-centers/emea/zurich/zur2) | 1 | Switzerland North | &check; | Colt<br/>Equinix<br/>Green Datacenter<br/>Intercloud<br/>Interxion (Digital Realty)<br/>Megaport<br/>Swisscom<br/>Zayo |
 | **Zurich2** | [Equinix ZH5](https://www.equinix.com/data-centers/europe-colocation/switzerland-colocation/zurich-data-centers/zh5) | 1 | Switzerland North | &check; | Equinix<br/>Green Datacenter<br/>Swisscom |
+
 ---
 
 ### National cloud environments

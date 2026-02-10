@@ -1,7 +1,7 @@
 ---
 title: Automation in Azure Backup support matrix
 description: This article summarizes automation tasks related to Azure Backup support.
-ms.date: 12/19/2025
+ms.date: 02/10/2026
 ms.topic: reference
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -26,7 +26,7 @@ You  can automate most backup related tasks using programmatic methods in Azure 
 | Backup | Selective disk backup | Supported  <br><br> [See the examples](./selective-disk-backup-restore.md#use-powershell) | Supported  <br><br> [See the examples](./selective-disk-backup-restore.md#use-the-cli). | Supported  <br><br> [See the examples](./backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup). | N/A | N/A | N/A | Currently not supported. | 
 | Backup | Run on-demand backup | Supported   <br><br> [See the examples](./quick-backup-vm-powershell.md#trigger-an-azure-vm-backup-job). | Supported -  <br><br> [See the examples](./quick-backup-vm-cli.md#trigger-an-azure-vm-backup-job). | Supported   <br><br> [See the examples](./backup-azure-arm-userestapi-backupazurevms.md#trigger-an-on-demand-backup-for-a-protected-azure-vm). | N/A | N/A | N/A | N/A | 
 | Restore | Restore disks to primary region | Supported   <br><br> [See the examples](./backup-azure-vms-automation.md#restore-an-azure-vm). | Supported  <br><br> [See the examples](./tutorial-restore-disk.md#restore-a-vm-disk). | Supported  <br><br> [See the examples](./backup-azure-arm-userestapi-restoreazurevms.md). | N/A | N/A | N/A | N/A |
-| Restore | Cross-region restore | Supported   <br><br> [See the examples](./backup-azure-vms-automation.md#restore-disks-to-a-secondary-region). | Supported   <br><br> [See the examples](/cli/azure/backup/restore#az-backup-restore-restore-disks). | Supported   <br><br> [See the examples](./backup-azure-arm-userestapi-restoreazurevms.md#cross-region-restore). | N/A | N/A | N/A | N/A |
+| Restore | Cross-region restore | Supported   <br><br> [See the examples](./backup-azure-vms-automation.md#restore-disks-to-a-secondary-region). | Supported   <br><br> [See the examples](/cli/azure/backup/restore#az-backup-restore-restore-disks). | Supported   <br><br> [See the examples](./backup-azure-arm-userestapi-restoreazurevms.md#cross-region-restore-for-azure-vms). | N/A | N/A | N/A | N/A |
 | Restore | Restore selective disks | Supported   <br><br> [See the examples](./backup-azure-vms-automation.md#restore-selective-disks). | Supported   <br><br> [See the examples](./selective-disk-backup-restore.md#restore-disks-with-the-cli). | Supported   <br><br> [See the examples](./backup-azure-arm-userestapi-restoreazurevms.md#restore-disks-selectively). | N/A | N/A | N/A | N/A |
 | Restore | Create a VM from restored disks | Supported   <br><br> [See the examples](./backup-azure-vms-automation.md#using-managed-identity-to-restore-disks). | Supported   <br><br> [See the examples](./tutorial-restore-disk.md#using-managed-identity-to-restore-disks). | Supported   <br><br> [See the examples](/rest/api/backup/restores/trigger). | N/A | N/A | N/A | N/A |
 | Restore | Restore files | Supported   <br><br> [See the examples](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks). | Supported   <br><br> [See the examples](./tutorial-restore-disk.md#create-a-vm-from-the-restored-disk). | Supported   <br><br> [See the examples](./backup-azure-arm-userestapi-restoreazurevms.md#restore-disks). | N/A | N/A | N/A | N/A |

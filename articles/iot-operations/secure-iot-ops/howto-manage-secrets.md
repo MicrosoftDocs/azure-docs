@@ -66,18 +66,6 @@ You can delete synced secrets from the **Secrets** page. When you delete a synce
 >
 > Before deleting a synced secret, make sure that all references to the secret from Azure IoT Operations components are removed.
 
-## Use CLI commands to create secrets
-
-The previous sections explained how to manage secrets using the operations experience web UI and the Azure portal. You can also use the Azure CLI and `kubectl` command to create and synchronize secrets for your device inbound endpoints and data flow endpoints:
-
-1. Ensure that *secure settings* are enabled for your Azure IoT Operations instance. These settings configure the Azure Key Vault secret store extension to sync secrets from the selected key vault to the Kubernetes cluster. To learn more, see [Enable secure settings for your Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
-
-1. Use `az keyvault secret set` to add a secret to Azure Key Vault.
-
-1. Use `kubectl` to create an `AKVSync` custom resource to configure the synchronization of a secret from Azure Key Vault to the Kubernetes cluster.
-
-1. Use `az iot ops ns device endpoint inbound add` to configure an endpoint that references the synced secrets.
-
 ## Add secrets to Azure Key Vault
 
 If you use the operations experience to select existing secrets that were previously added to Azure Key Vault, make sure that the secrets are in a format and encoding that's supported by Azure IoT Operations.

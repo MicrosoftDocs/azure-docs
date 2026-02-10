@@ -2,7 +2,7 @@
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: include
-ms.date: 02/04/2026    
+ms.date: 02/09/2026    
 # This file is auto-generated. Do not edit manually. Changes will be overwritten.
 ---
 
@@ -182,6 +182,7 @@ ms.date: 02/04/2026
 |Cymru_Scout_IP_Data_Summary_PDNS_CL|[Team Cymru Scout Data Connector (using Azure Functions)](/azure/sentinel/data-connectors-reference#team-cymru-scout-data-connector-using-azure-functions)|No|No|
 |Cymru_Scout_IP_Data_x509_CL|[Team Cymru Scout Data Connector (using Azure Functions)](/azure/sentinel/data-connectors-reference#team-cymru-scout-data-connector-using-azure-functions)|No|No|
 |CynerioEvent_CL|[Cynerio Security Events](/azure/sentinel/data-connectors-reference#cynerio-security-events)|No|No|
+|Cyren_Indicators_CL|[Cyren Threat Intelligence](/azure/sentinel/data-connectors-reference#cyren-threat-intelligence)|No|No|
 |darktrace_model_alerts_CL|[Darktrace Connector for Microsoft Sentinel REST API](/azure/sentinel/data-connectors-reference#darktrace-connector-for-microsoft-sentinel-rest-api)|Yes|Yes|
 |DataminrPulse_Alerts_CL|[Dataminr Pulse Alerts Data Connector (using Azure Functions)](/azure/sentinel/data-connectors-reference#dataminr-pulse-alerts-data-connector-using-azure-functions)|No|No|
 |[DataverseActivity](/azure/azure-monitor/reference/tables/DataverseActivity)|[Microsoft Dataverse](/azure/sentinel/data-connectors-reference#microsoft-dataverse)|Yes|Yes|
@@ -423,6 +424,7 @@ ms.date: 02/04/2026
 |[StorageTableLogs](/azure/azure-monitor/reference/tables/StorageTableLogs)|[Azure Storage Account](/azure/sentinel/data-connectors-reference#azure-storage-account)|Yes|Yes|
 |SymantecICDx_CL|[Symantec Integrated Cyber Defense Exchange](/azure/sentinel/data-connectors-reference#symantec-integrated-cyber-defense-exchange)|No|No|
 |[Syslog](/azure/azure-monitor/reference/tables/Syslog)|[CTERA Syslog](/azure/sentinel/data-connectors-reference#ctera-syslog)<br>[Cisco Software Defined WAN](/azure/sentinel/data-connectors-reference#cisco-software-defined-wan)<br>[Syslog via AMA](/azure/sentinel/data-connectors-reference#syslog-via-ama)<br>[Syslog via Legacy Agent](/azure/sentinel/data-connectors-reference#syslog-via-legacy-agent)|Yes|Yes|
+|TacitRed_Findings_CL|[TacitRed Compromised Credentials](/azure/sentinel/data-connectors-reference#tacitred-compromised-credentials)|No|No|
 |Talon_CL|[Talon Insights](/azure/sentinel/data-connectors-reference#talon-insights)|No|No|
 |Tenable_VM_Asset_CL|[Tenable Vulnerability Management (using Azure Functions)](/azure/sentinel/data-connectors-reference#tenable-vulnerability-management-using-azure-functions)|Yes|Yes|
 |Tenable_VM_Compliance_CL|[Tenable Vulnerability Management (using Azure Functions)](/azure/sentinel/data-connectors-reference#tenable-vulnerability-management-using-azure-functions)|Yes|Yes|

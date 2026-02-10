@@ -2,7 +2,7 @@
 author: msangapu-msft
 ms.service: azure-app-service
 ms.topic: include
-ms.date: 01/23/2026
+ms.date: 02/09/2026
 ms.author: msangapu
 ms.custom:
   - linux-related-content
@@ -45,8 +45,8 @@ You need to mount the storage to the app. Here are three mounting options for Az
 | Mounting option | Usage |
 |:----------------|:------|
 | Basic | Choose this option to mount storage using the Azure portal. You can use the basic option as long as the storage account doesn't use [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [private endpoints](../../../storage/common/storage-private-endpoints.md), or [Azure Key Vault](/azure/key-vault/general/overview). In this case, the portal gets and stores the access key for you. |
-| Access Key | If you plan to mount storage using the Azure CLI, you need to obtain an access key. Choose this option if storage account doesn't use [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [private endpoints](../../../storage/common/storage-private-endpoints.md), or [Azure Key Vault](/azure/key-vault/general/overview). |
-| Key Vault | Also use this option when you plan to mount storage using the Azure CLI, which requires the access key. Choose this option when you use Azure Key Vault to securely store and retrieve access keys. [Azure Key Vault](/azure/key-vault/general/overview) has the benefits of storing application secrets centrally and securely with the ability to monitor, administer, and integrate with other Azure services like Azure App Service. |
+| Access Key | If you plan to mount storage by using the Azure CLI, you need to get an access key. Choose this option if the storage account doesn't use [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [private endpoints](../../../storage/common/storage-private-endpoints.md), or [Azure Key Vault](/azure/key-vault/general/overview). |
+| Key Vault | Also use this option when you plan to mount storage by using the Azure CLI, which requires the access key. Choose this option when you use Azure Key Vault to securely store and retrieve access keys. [Azure Key Vault](/azure/key-vault/general/overview) has the benefits of storing application secrets centrally and securely with the ability to monitor, administer, and integrate with other Azure services like Azure App Service. |
 
 ## Prerequisites
 
@@ -79,17 +79,17 @@ No extra steps are required because the portal gets and stores the access key fo
 
 ### [Access Key](#tab/access-key)
 
-You need to obtain the access key from your storage account.
+You need to get the access key from your storage account.
 
 ### [Key Vault](#tab/key-vault)
 
-Before you can mount storage using Key Vault access, you need to get the Key Vault secret and add it as an application setting in your app.  
+Before you can mount storage by using Key Vault access, you need to get the Key Vault secret and add it as an application setting in your app.  
 
 1. In the Azure portal, browse to your Key Vault. Select **Objects** > **Secrets**. Copy the **Secret Identifier** to your clipboard.
 
    :::image type="content" source="../../media/configure-azure-storage/key-vault-secret-identifier.png" alt-text="Screenshot of Key Vault secret identifier.":::
 
-1. Back in your app, follow the [key vault reference](../../app-service-key-vault-references.md#source-app-settings-from-key-vault) to create an [**application setting**](../../configure-common.md#configure-app-settings) using the **Secret Identifier**.
+1. Back in your app, follow the [key vault reference](../../app-service-key-vault-references.md#source-app-settings-from-key-vault) to create an [**application setting**](../../configure-common.md#configure-app-settings) by using the **Secret Identifier**.
 
    Example app setting value: `@Microsoft.KeyVault(SecretUri=https://mykeyvault.vault.azure.net/secrets/mykeyvaultsecret/aaaaaaaa0b0b1c1c2d2d333333333333)`
 
@@ -103,13 +103,13 @@ The way that you mount storage depends on your storage access option and whether
 
 # [Azure portal](#tab/portal/basic)
 
-1. In the [Azure portal](https://portal.azure.com), navigate to the app.
-1. From the left navigation, select **Settings** > **Configuration**. Select **Path mappings**, then **New Azure Storage Mount**.
+1. In the [Azure portal](https://portal.azure.com), go to the app.
+1. From the left navigation, select **Settings** > **Configuration**. Select **Path mappings**, and then select **New Azure Storage Mount**.
 1. Configure the storage mount according to the following table. When finished, select **OK**.
 
    | Setting | Description |
    |:--------|:------------|
-   | **Name** | Name of the mount configuration. Spaces aren't allowed. |
+   | **Name** | Name of the mount configuration. Don't use spaces. |
    | **Configuration options** | Select **Basic** if the storage account doesn't use [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [private endpoints](../../../storage/common/storage-private-endpoints.md), or [Azure Key Vault](/azure/key-vault/general/overview). Otherwise, select **Advanced**. |
    | **Storage accounts** | Azure Storage account. |
    | **Storage type** | Select the type based on the storage you want to mount. Azure Blobs only supports read-only access. |
@@ -119,13 +119,13 @@ The way that you mount storage depends on your storage access option and whether
 
 # [Azure portal](#tab/portal/access-key)
 
-1. In the [Azure portal](https://portal.azure.com), navigate to the app.
-1. From the left navigation, select **Settings** > **Configuration**. Select **Path mappings**, then **New Azure Storage Mount**.
+1. In the [Azure portal](https://portal.azure.com), go to the app.
+1. From the left navigation, select **Settings** > **Configuration**. Select **Path mappings**, and then select **New Azure Storage Mount**.
 1. Configure the storage mount according to the following table. When finished, select **OK**.
 
    | Setting | Description |
    |:--------|:------------|
-   | **Name** | Name of the mount configuration. Spaces aren't allowed. |
+   | **Name** | Name of the mount configuration. Don't use spaces. |
    | **Configuration options** | Select  **Advanced**. |
    | **Storage accounts** | Azure Storage account. |
    | **Storage type** | Select the type based on the storage you want to mount. Azure Blobs only supports read-only access. |
@@ -137,13 +137,13 @@ The way that you mount storage depends on your storage access option and whether
 
 # [Azure portal](#tab/portal/key-vault)
 
-1. In the [Azure portal](https://portal.azure.com), navigate to the app.
-1. From the left navigation, select **Settings** > **Configuration**. Select **Path mappings**, then **New Azure Storage Mount**.
+1. In the [Azure portal](https://portal.azure.com), go to the app.
+1. From the left navigation, select **Settings** > **Configuration**. Select **Path mappings**, and then select **New Azure Storage Mount**.
 1. Configure the storage mount according to the following table. When finished, select **OK**.
 
    | Setting | Description |
    |:--------|:------------|
-   | **Name** | Name of the mount configuration. Spaces aren't allowed. |
+   | **Name** | Name of the mount configuration. Don't use spaces. |
    | **Configuration options** | Select **Advanced**. |
    | **Storage accounts** | Azure Storage account. |
    | **Storage type** | Select the type based on the storage you want to mount. Azure Blobs only supports read-only access. |
@@ -157,7 +157,7 @@ The way that you mount storage depends on your storage access option and whether
 
 # [Azure CLI](#tab/cli/basic)
 
-Using Azure CLI to mount storage requires you to provide the storage access key.
+To use Azure CLI to mount storage, you need to provide the storage access key.
 
 # [Azure CLI](#tab/cli/access-key)
 
@@ -183,11 +183,11 @@ The Azure CLI doesn't currently support mounting storage with Key Vault access. 
 ---
 
 > [!NOTE]
-> Adding, editing, or deleting a storage mount causes the app to restart.
+> Adding, editing, or deleting a storage mount restarts the app.
 
 ## Validate the mounted storage
 
-To validate that the Azure Storage is mounted successfully for the app:
+To validate that Azure Storage is mounted successfully for the app:
 
 1. [Open an SSH session](../../configure-linux-open-ssh-session.md) into the container.
 1. In the SSH terminal, execute the following command:
@@ -197,7 +197,7 @@ To validate that the Azure Storage is mounted successfully for the app:
    ```
 
 1. Check if the storage share is mounted. If it's not present, there's an issue with mounting the storage share.
-1. Check latency or general reachability of the storage mount with the following command:
+1. Check latency or general reachability of the storage mount by using the following command:
 
    ```bash
    tcpping Storageaccount.file.core.windows.net 
@@ -214,12 +214,12 @@ Azure App Service includes a built‑in health‑check mechanism to ensure that 
    - **Location:** A `LogFiles` subdirectory under the mounted path (for example, `/mount/path/LogFiles/__lastCheckTime.txt`).  
    - **Behavior:**  
      - A read operation is attempted on this file.  
-     - The file does *not* need to exist—“file not found” is treated as a successful check.
+     - The file doesn't need to exist – "file not found" is treated as a successful check.
 
-2. **Frequency**  
+1. **Frequency**  
    The check runs every **5 seconds** by default.
 
-3. **Failure handling**  
+1. **Failure handling**  
    - Each failed or timed‑out check increments a *failed ping counter*.  
    - When failures exceed the configured threshold:  
      - **Azure Files:** 18 failed pings  
@@ -228,7 +228,7 @@ Azure App Service includes a built‑in health‑check mechanism to ensure that 
 
 #### Configuration via App Settings
 
-You can customize health‑check behavior using the following app settings.
+You can customize health‑check behavior by using the following app settings.
 
 | Storage type | Setting name | Default value | Description |
 |--------------|--------------|---------------|-------------|
@@ -242,16 +242,16 @@ You can customize health‑check behavior using the following app settings.
 
 #### Notes
 - Auto‑recovery helps prevent long‑running application hangs caused by unresponsive storage paths.  
-- Disabling auto‑recovery is not recommended unless troubleshooting specific mount behavior.
+- Don't disable auto‑recovery unless you're troubleshooting specific mount behavior.
 
 ## Best practices
 
 ### Performance
 
-- To avoid latency issues, place the app and the Azure Storage account in the same region. If you grant access from App Service IP addresses in the [Azure Storage firewall configuration](../../../storage/common/storage-network-security.md) when the app and Azure Storage account are in the same region, then these IP restrictions aren't honored.
+- To avoid latency problems, place the app and the Azure Storage account in the same region. If you grant access from App Service IP addresses in the [Azure Storage firewall configuration](../../../storage/common/storage-network-security.md) when the app and Azure Storage account are in the same region, these IP restrictions aren't honored.
 - The mounted Azure Storage account can be either Standard or Premium performance tier. Based on the app capacity and throughput requirements, choose the appropriate performance tier for the storage account. See the scalability and performance targets that correspond to the storage type: [Files](../../../storage/files/storage-files-scale-targets.md) and [Blobs](../../../storage/blobs/scalability-targets.md).
 
-- If your app [scales to multiple instances](/azure/azure-monitor/autoscale/autoscale-get-started), all the instances connect to the same mounted Azure Storage account. To avoid performance bottlenecks and throughput issues, choose the appropriate performance tier for the storage account.
+- If your app [scales to multiple instances](/azure/azure-monitor/autoscale/autoscale-get-started), all the instances connect to the same mounted Azure Storage account. To avoid performance bottlenecks and throughput problems, choose the appropriate performance tier for the storage account.
 
 ### Security
 
@@ -268,9 +268,9 @@ You can customize health‑check behavior using the following app settings.
 ### Troubleshooting
 
 - The mount directory in the custom container should be empty. Any content stored at this path is deleted when the Azure Storage is mounted, if you specify a directory under */home*, for example. If you migrate files for an existing app, make a backup of the app and its content before you begin.
-- When mounting an NFS share, you'll need to ensure that Secure Transfer Required is disabled on the storage account. App Service doesn't support mounting NFS shares when this is enabled. It uses port 2409 and virtual network integration and private endpoints as the security measure.
+- When mounting an NFS share, you need to ensure that Secure Transfer Required is disabled on the storage account. App Service doesn't support mounting NFS shares when this setting is enabled. It uses port 2409 and virtual network integration and private endpoints as the security measure.
 - If you delete an Azure Storage account, container, or share, remove the corresponding storage mount configuration in the app to avoid possible error scenarios.
-- We don't recommend that you use storage mounts for local databases, such as SQLite, or for any other applications and components that rely on file handles and locks.
+- Don't use storage mounts for local databases, such as SQLite, or for any other applications and components that rely on file handles and locks.
 - Ensure the following ports are open when using virtual network integration: Azure Files: 80 and 445. Azure Blobs: 80 and 443.
 - If you [initiate a storage failover](../../../storage/common/storage-initiate-account-failover.md) when the storage account is mounted to the app, the mount doesn't connect until the app is restarted or the storage mount is removed and added again.
 

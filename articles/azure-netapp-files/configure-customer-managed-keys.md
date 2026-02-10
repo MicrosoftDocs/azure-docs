@@ -322,7 +322,7 @@ Azure NetApp Files supports the ability to move existing volumes using platform-
 ### Transition volumes
 
 >[!NOTE]
->When you transition volumes to use customer-managed keys, you must perform the transition for every virtual network where your Azure NetApp Files account has volumes. 
+>When you transition volumes to use customer-managed keys, you must perform the transition for every virtual network where your Azure NetApp Files account has volumes. If you manage your Azure resources using Terraform, you should update all [Terraform-managed Azure resources](terraform-manage-volume.md) for all volumes that were modified out-of-band. 
 
 1. Ensure you [configured your Azure NetApp Files account to use customer-managed keys](#configure-a-netapp-account-to-use-customer-managed-keys).
 1. In the Azure portal, navigate to **Encryption**. 

@@ -30,8 +30,6 @@ Release notes describe features, enhancements, and bug fixes released in 2026 fo
 ## January 2026
 ### FHIR service
 
-**Hard delete now supported inside transaction bundles**:  Hard deletes are now allowed inside transaction bundles. Previously, hard deletes and conditional deletes were not supported. Conditional deletes are still not allowed.
-
 **Metadata-only updates and versioning configuration with PATCH**: Introduced new query parameter "_meta-history" for PATCH updates when versioning policy is set to either "versioned" or "version-update." The new query is used to configure whether or not the old version is saved as a historical record. "_meta-history = true" is the default. By default, the resource version is incremented, a new version is created, and the old version is saved as a historical record. "_meta-history=false" can be configured so that the resource version is incremented, a new version is created, but the old version isn't saved as a historical record. For more information, visit [metadata-only updates and versioning](./fhir/fhir-versioning-policy-and-history-management.md#metadata-only-updates-and-versioning).
 
 **Updates to responses for update and deletion of FHIR spec-defined search parameters**: There are a few updates to the behaviors and responses for update and deletion of FHIR spec-defined search parameters:

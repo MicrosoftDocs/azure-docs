@@ -43,6 +43,8 @@ Make sure both Microsoft.FileShares and Microsoft.Storage resource providers are
 > [!NOTE]
 > File share with Microsoft.FileShares is currently in preview. You may use the Azure portal, or you can use generic PowerShell or Azure CLI commands to work with file shares. If you want to try the CLI private package for Microsoft.FileShares resource provider, fill out this [survey](https://forms.microsoft.com/r/nEGcB0ccaD).
 
+You can also create a file share with Microsoft.FileShares using Azure MCP Server. To learn more, see [Azure Files tools for the Azure MCP Server overview](/azure/developer/azure-mcp-server/tools/azure-file-shares). 
+
 # [Portal](#tab/azure-portal)
 
 To create a file share via the Azure portal, use the search box at the top of the Azure portal to search for **file share** and select the matching result.

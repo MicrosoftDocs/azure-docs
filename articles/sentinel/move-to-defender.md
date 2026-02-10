@@ -4,7 +4,7 @@ description: Move Microsoft Sentinel operations from the Azure portal to the Mic
 author: guywi-ms
 ms.author: guywild
 ms.topic: how-to #Required; leave this attribute/value as-is
-ms.date: 01/01/2026
+ms.date: 02/09/2026
 ms.collection: usx-security
 
 #Customer intent: As a security operations team member, I want to understand the process involved in moving our Microsoft Sentinel experience from the Azure portal to the Defender portal so that I can benefit from unified security operations across my entire environment.
@@ -261,7 +261,7 @@ Most functionalities of User and Entity Behavior Analytics (UEBA) remain the sam
 
 - Adding entities to threat intelligence from incidents is supported only in the Azure portal. For more information, see [Add entity to threat indicators](add-entity-to-threat-intelligence.md).
 
-- After onboarding Microsoft Sentinel to the Defender portal, the `IdentityInfo` table used in the Defender portal includes unified fields from both Defender XDR and Microsoft Sentinel. Some fields that existed when used in the Azure portal are either renamed in the Defender portal, or aren't supported at all. We recommend that you check your queries for any references to these fields and update them as needed. For more information, see [IdentityInfo table](ueba-reference.md?tabs=unified-table#identityinfo-table).
+- When you onboard Microsoft Sentinel to the Microsoft Defender portal, the `IdentityInfo` table is available both in the Microsoft Defender Advanced Hunting experience and in your Sentinel Log Analytics workspace. The `IdentityInfo` table used in Advanced Hunting includes unified fields from both Defender XDR and Microsoft Sentinel. Some fields that exist in the Sentinel Log Analytics workspace table are either renamed or aren't supported in the Advanced Hunting table. Be sure to review and update any queries that run in Microsoft Defender, such as Advanced Hunting queries or custom detections. Microsoft Sentinel analytic rules, workbooks, and other Sentinel queries continue to use the `IdentityInfo` table in the Log Analytics workspace and aren’t affected. For more information and a comparison of the table schemas in Advanced Hunting experience and Log Analytics, see [IdentityInfo table](ueba-reference.md?tabs=unified-table#identityinfo-table).
 
 > [!IMPORTANT]
 > When you transition to the Defender portal, the `IdentityInfo` table becomes a native Defender table that doesn't support table-level role-based access control (RBAC). If your organization uses table-level RBAC to restrict access to the `IdentityInfo` table in the Azure portal, this access control will no longer be available after you transition to the Defender portal.

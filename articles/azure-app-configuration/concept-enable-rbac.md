@@ -105,6 +105,106 @@ builder.AddAzureAppConfiguration(o =>
     });
 ```
 
+### [JavaScript](#tab/javascript)
+
+The Audience for the target cloud must be configured for the following packages.
+
+- Azure SDK for JavaScript: @azure/app-configuration >= 1.9.0
+- JavaScript configuration provider: @azure/app-configuration-provider >= 1.0.0
+
+In the **Azure SDK for JavaScript**, audience is configured by passing the `audience` option to the `AppConfigurationClient` constructor.
+
+The following code snippet demonstrates how to instantiate a configuration client with a cloud-specific audience.
+
+```javascript
+const client = new AppConfigurationClient(myStoreEndpoint, new DefaultAzureCredential(), {
+    audience: "{Cloud specific audience here}",
+});
+```
+
+In the **JavaScript configuration provider**, audience is configured by passing the `clientOptions` with the `audience` property to the `load` function.
+
+The following code snippet demonstrates how to load Azure App Configuration in a JavaScript application with a cloud-specific audience.
+
+```javascript
+const appConfig = await load(myStoreEndpoint, credential, {
+    clientOptions: {
+        audience: "{Cloud specific audience here}"
+    }
+});
+```
+
+### [Go](#tab/go)
+
+The Audience for the target cloud must be configured for the following packages.
+
+- Azure SDK for Go: azappconfig >= 2.1.0
+- Go configuration provider: azureappconfiguration >= 1.0.0
+
+You need to import the following packages:
+
+```golang
+import (
+    "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
+    "github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
+)
+```
+
+In the **Azure SDK for Go**, audience is configured by utilizing the cloud configuration.
+
+The following code snippet demonstrates how to instantiate a configuration client with a cloud-specific audience.
+
+```golang
+credential, _:= azidentity.NewDefaultAzureCredential(nil)
+
+cloudConfig := cloud.Configuration{
+    Services: map[cloud.ServiceName]cloud.ServiceConfiguration{
+        azappconfig.ServiceName: {
+            Audience: "{Cloud specific audience here}",
+        },
+    },
+}
+
+clientOptions := &azappconfig.ClientOptions{
+    ClientOptions: policy.ClientOptions{
+        Cloud: cloudConfig,
+    },
+}
+
+client, _ := azappconfig.NewClient(myStoreEndpoint, credential, clientOptions)
+```
+
+In the **Go configuration provider**, audience is configured by passing the `ClientOptions` with the cloud configuration to the `Load` function.
+
+The following code snippet demonstrates how to load Azure App Configuration in a Go application with a cloud-specific audience.
+
+```golang
+credential, _:= azidentity.NewDefaultAzureCredential(nil)
+
+authOptions := azureappconfiguration.AuthenticationOptions{
+    Endpoint: myStoreEndpoint,
+    Credential: credential,
+}
+
+cloudConfig := cloud.Configuration{
+    Services: map[cloud.ServiceName]cloud.ServiceConfiguration{
+        azappconfig.ServiceName: {
+            Audience: "{Cloud specific audience here}",
+        },
+    },
+}
+
+options := &azureappconfiguration.Options{
+    ClientOptions: &azappconfig.ClientOptions{
+        ClientOptions: policy.ClientOptions{
+            Cloud: cloudConfig,
+        },
+    },
+}
+
+appConfig, _ := azureappconfiguration.Load(context.Background(), authOptions, options)
+```
+
 ---
 
 ### Audience

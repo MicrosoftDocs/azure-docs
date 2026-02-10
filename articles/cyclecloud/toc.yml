@@ -1,3 +1,4 @@
+items:
 - name: Azure CycleCloud
   href: index.yml
 - name: Overview
@@ -44,38 +45,44 @@
     items:
     - name: Plan Your Production Deployment
       href: ./how-to/plan-prod-deployment.md
-    - name: Manually Install Application
-      href: ./how-to/install-manual.md
-    - name: Install CycleCloud CLI
-      href: ./how-to/install-cyclecloud-cli.md
-    - name: Run in a Container Instance
-      href: ./how-to/run-in-container.md
-    - name: Run CycleCloud using ARM Template
-      href: ./how-to/install-arm.md
     - name: Prepare Your Azure Subscription
       href: ./how-to/configuration.md
-    - name: Use Service Principals with CycleCloud
-      href: ./how-to/service-principals.md
-    - name: Use Managed Identities with CycleCloud
-      href: ./how-to/managed-identities.md
-    - name: Configure User Authentication
-      href: ./how-to/user-authentication.md
+    - name: Configure Microsoft Entra ID for Authentication
+      href: ./how-to/create-app-registration.md
+    - name: Installation
+      items:
+      - name: Manually Install Application
+        href: ./how-to/install-manual.md
+      - name: Install CycleCloud CLI
+        href: ./how-to/install-cyclecloud-cli.md
+      - name: Run in a Container Instance
+        href: ./how-to/run-in-container.md
+      - name: Run CycleCloud using ARM Template
+        href: ./how-to/install-arm.md
+    - name: Configuration
+      items:
+      - name: Use Service Principals with CycleCloud
+        href: ./how-to/service-principals.md
+      - name: Use Managed Identities with CycleCloud
+        href: ./how-to/managed-identities.md
+      - name: Configure User Authentication
+        href: ./how-to/user-authentication.md
+      - name: Configure Proxies
+        href: ./how-to/running-behind-proxy.md
+      - name: Run in Locked Down Network
+        href: ./how-to/running-in-locked-down-network.md
+      - name: Configure Event Grid
+        href: ./how-to/event-grid.md
+      - name: Customize UI Theme
+        href: ./how-to/theming.md
+      - name: Configure SSL
+        href: ./how-to/ssl-configuration.md
     - name: Upgrade and Migrate
       href: ./how-to/upgrade-and-migrate.md
     - name: Plan CycleCloud 7 retirement
       href: ./how-to/cyclecloud7-retirement-guide.md
     - name: Backup and Restore
       href: ./how-to/backup-and-restore.md
-    - name: Configure Proxies
-      href: ./how-to/running-behind-proxy.md
-    - name: Run in Locked Down Network
-      href: ./how-to/running-in-locked-down-network.md
-    - name: Configure Event Grid
-      href: ./how-to/event-grid.md
-    - name: Customize UI Theme
-      href: ./how-to/theming.md
-    - name: Configure SSL
-      href: ./how-to/ssl-configuration.md
     - name: Run Multiple CycleCloud Installs
       href: ./how-to/multiple-installs.md
     - name: Move a Cluster to Another Resource Group
@@ -266,7 +273,9 @@
         href: ./release-notes/8-8-0.md
   - name: Release Notes - CycleCloud Workspace for Slurm
     items:
-      - name: Current Release - 2025.12.01
+      - name: Current Release - 2026.02.01
+        href: ./release-notes/ccws/2026-02-01.md
+      - name: Previous Release - 2025.12.01
         href: ./release-notes/ccws/2025-12-01.md
       - name: All Releases
         href: ./release-notes/ccws/release-notes.md

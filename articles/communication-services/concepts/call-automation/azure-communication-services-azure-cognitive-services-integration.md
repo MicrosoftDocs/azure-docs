@@ -1,7 +1,7 @@
 ---
-title: Connect Azure Communication Services to Azure AI services
+title: Connect Azure Communication Services to Foundry Tools
 titleSuffix: An Azure Communication Services how-to document
-description: Provides a how-to guide for connecting Azure Communication Services to Azure AI services.
+description: Provides a how-to guide for connecting Azure Communication Services to Foundry Tools.
 author: kunaal
 ms.service: azure-communication-services
 ms.subservice: call-automation
@@ -12,13 +12,13 @@ ms.custom: references_regions
 services: azure-communication-services
 ---
 
-# Connect Azure Communication Services with Azure AI services
+# Connect Azure Communication Services with Foundry Tools
 
-Azure Communication Services Call Automation APIs allow developers to steer and control calls made through Azure Communication Services, including telephony, VoIP, and WebRTC. These APIs use real-time event triggers, which enable actions based on custom business logic that is specific to each developer’s domain. With Call Automation APIs, developers can use simple AI-powered features. For example, they can play personalized greetings, recognize spoken responses to gather information from customers, and analyze sentiment to improve service. These targeted APIs are managed through **Azure AI Foundry**, which allow developers to customize AI models. Importantly, developers do not need to deal with media streams or send them back to Azure for these AI functions—the processing happens seamlessly.
+Azure Communication Services Call Automation APIs allow developers to steer and control calls made through Azure Communication Services, including telephony, VoIP, and WebRTC. These APIs use real-time event triggers, which enable actions based on custom business logic that is specific to each developer’s domain. With Call Automation APIs, developers can use simple AI-powered features. For example, they can play personalized greetings, recognize spoken responses to gather information from customers, and analyze sentiment to improve service. These targeted APIs are managed through **Microsoft Foundry**, which allow developers to customize AI models. Importantly, developers do not need to deal with media streams or send them back to Azure for these AI functions—the processing happens seamlessly.
 
-All this functionality is possible with one click, allowing enterprises to access a secure solution and link their models through the portal. Furthermore, developers and enterprises don't need to manage credentials. Connecting your Azure AI services uses managed identities to access user-owned resources. Developers can use managed identities to authenticate any resource that supports Microsoft Entra authentication.
+All this functionality is possible with one click, allowing enterprises to access a secure solution and link their models through the portal. Furthermore, developers and enterprises don't need to manage credentials. Connecting your Foundry Tools uses managed identities to access user-owned resources. Developers can use managed identities to authenticate any resource that supports Microsoft Entra authentication.
 
-Azure AI services can be easily integrated into any application regardless of the programming language. When creating an Azure Resource in Azure portal, enable the option and provide the URL to the Azure AI services. This simple experience allows developers to meet their needs, scale, and avoid investing time and resources into designing and maintaining a custom solution.
+Foundry Tools can be easily integrated into any application regardless of the programming language. When creating an Azure Resource in Azure portal, enable the option and provide the URL to the Foundry Tools. This simple experience allows developers to meet their needs, scale, and avoid investing time and resources into designing and maintaining a custom solution.
 
 > [!NOTE]
 > This integration only supports Multi-service Cognitive Service resource, we recommend if you're creating a new Azure AI Service resource you create a Multi-service Cognitive Service resource or when you're connecting an existing resource confirm that it's a Multi-service Cognitive Service resource.
@@ -27,7 +27,7 @@ Azure AI services can be easily integrated into any application regardless of th
 
 ### Build applications that can play and recognize speech 
 
-With the ability to connect your Azure AI services to Azure Communication Services. You can enable custom play functionality, using [Text-to-Speech](../../../../articles/cognitive-services/Speech-Service/text-to-speech.md) and [Speech Synthesis Markup Language (SSML)](../../../../articles/cognitive-services/Speech-Service/speech-synthesis-markup.md) configuration, to play more customized and natural sounding audio to users. Through the Azure AI services connection, you can also use the Speech-To-Text service to incorporate recognition of voice responses that can be converted into actionable tasks through business logic in the application. These functions can be further enhanced within Azure AI services by:
+With the ability to connect your Foundry Tools to Azure Communication Services. You can enable custom play functionality, using [Text-to-Speech](../../../../articles/cognitive-services/Speech-Service/text-to-speech.md) and [Speech Synthesis Markup Language (SSML)](../../../../articles/cognitive-services/Speech-Service/speech-synthesis-markup.md) configuration, to play more customized and natural sounding audio to users. Through the Foundry Tools connection, you can also use the Speech-To-Text service to incorporate recognition of voice responses that can be converted into actionable tasks through business logic in the application. These functions can be further enhanced within Foundry Tools by:
 
 - Creating custom models tailored to your domain and region
 - Selecting which languages are spoken and recognized
@@ -40,7 +40,7 @@ With the ability to connect your Azure AI services to Azure Communication Servic
 ## Azure portal experience
 You need to connect your Azure Communication Services resource with the Azure AI resource through the Azure portal. There are two ways you can accomplish this step:
 - Navigating through the steps of the Cognitive Services tab in your Azure Communication Services (recommended).
-- Manually adding the Managed Identity to your Azure Communication Services resource. This step is more advanced and requires a little more effort to connect your Azure Communication Services to your Azure AI services. 
+- Manually adding the Managed Identity to your Azure Communication Services resource. This step is more advanced and requires a little more effort to connect your Azure Communication Services to your Foundry Tools. 
 
 ## Prerequisites 
 - Azure account with an active subscription and access to Azure portal, for details see [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
@@ -112,11 +112,11 @@ Alternatively if you would like to go through the manual process of connecting y
 
 Your Azure Communication Service has now been linked to your Azure Cognitive Service resource.
 
-## Azure AI services regions supported
+## Foundry Tools regions supported
 
-Our integration between Azure Communication Services (ACS) and Azure AI is fully aligned with the regional availability of Azure AI Foundry. This means that ACS to Azure AI integration is supported in all regions where Azure AI Foundry is available.
+Our integration between Azure Communication Services (ACS) and Azure AI is fully aligned with the regional availability of Foundry. This means that ACS to Azure AI integration is supported in all regions where Foundry is available.
 
-For the most up-to-date list of supported regions, refer to the official Azure AI Foundry [documentation](/azure/ai-services/speech-service/regions).
+For the most up-to-date list of supported regions, refer to the official Foundry [documentation](/azure/ai-services/speech-service/regions).
 
 ## Known limitations
 

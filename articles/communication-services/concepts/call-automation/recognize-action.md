@@ -14,7 +14,7 @@ With the release of Azure Communication Services Call Automation Recognize actio
 
 **Voice recognition with speech-to-text**
 
-[Azure Communications services integration with Azure AI services](./azure-communication-services-azure-cognitive-services-integration.md), allows you through the Recognize action to analyze audio in real-time to transcribe spoken word into text. Out of the box Microsoft utilizes a Universal Language Model as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. This model is pretrained with dialects and phonetics representing various common domains. For more information about supported languages, see [Languages and voice support for the Speech service](../../../../articles/cognitive-services/Speech-Service/language-support.md). 
+[Azure Communications services integration with Foundry Tools](./azure-communication-services-azure-cognitive-services-integration.md), allows you through the Recognize action to analyze audio in real-time to transcribe spoken word into text. Out of the box Microsoft utilizes a Universal Language Model as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. This model is pretrained with dialects and phonetics representing various common domains. For more information about supported languages, see [Languages and voice support for the Speech service](../../../../articles/cognitive-services/Speech-Service/language-support.md). 
 
 
 **DTMF**

@@ -19,7 +19,7 @@ Find the project for this sample on [GitHub](https://github.com/Azure-Samples/co
 
 ## Overview
 
-This sample is a server-side application that helps you create a virtual assistant that can handle calls by using Call Automation. The virtual assistant responds to customers by using the newly announced integration with Azure AI services to provide AI capabilities such as text to speech and speech to text, along with smart responses provided by Azure OpenAI.
+This sample is a server-side application that helps you create a virtual assistant that can handle calls by using Call Automation. The virtual assistant responds to customers by using the newly announced integration with Foundry Tools to provide AI capabilities such as text to speech and speech to text, along with smart responses provided by Azure OpenAI.
 
 This Azure Communication Services Call Automation AI sample demonstrates how to use the Call Automation SDK to answer an inbound call. It recognizes user voice input by using Call Automation to recognize the API with support for speech to text. When the system recognizes the input, it sends that information to OpenAI for an answer. It uses the Call Automation Play API with support for text to speech to play back the answer provided by OpenAI to the caller.
 
@@ -40,7 +40,7 @@ Open the application.yml file in the resources folder to configure the following
 
 - `connectionstring`: Azure Communication Services resource connection string.
 - `basecallbackuri`: Base URL of the app. For local development, use the dev tunnel URL.
-- `cognitiveServicesUrl`: Azure AI services endpoint.
+- `cognitiveServicesUrl`: Azure AI Services endpoint.
 - `azureOpenAiServiceKey`: Azure OpenAI service key.
 - `azureOpenAiServiceEndpoint`: Azure OpenAI service endpoint.
 - `openAiModelName`: Azure OpenAI model name.

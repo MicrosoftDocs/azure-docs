@@ -77,8 +77,6 @@ items:
       - name: What are Dev Box customizations
         href: concept-what-are-dev-box-customizations.md
         displayName: customizations, image definition, team customization
-      - name: Quickstart:Use Team Customizations
-        href: quickstart-team-customizations.md
       - name: Configure team customizations
         href: how-to-configure-team-customizations.md
         displayName: customizations, image definition, team customization

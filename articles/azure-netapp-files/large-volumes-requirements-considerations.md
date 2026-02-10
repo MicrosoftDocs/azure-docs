@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: references_regions
 ms.topic: concept-article
-ms.date: 11/11/2025
+ms.date: 02/10/2026
 ms.author: anfdocs
 # Customer intent: As a storage administrator, I want to review the requirements and limitations of large volumes in Azure NetApp Files, so that I can effectively plan the deployment and management of storage solutions to meet my organization's data capacity and performance needs.
 ---
@@ -127,6 +127,7 @@ Support for Azure NetApp Files large volumes is available in the following regio
 * South Africa North 
 * South Central US
 * Southeast Asia
+* Spain Central
 * Sweden Central
 * Switzerland North
 * Switzerland West

@@ -36,7 +36,7 @@ In results, we be able to find "ID" field
 ```
 
 Or the same ID could be found in [Azure portal](https://aka.ms/portal) in Users tab:
-![User Object ID in Azure Portal](./includes/teams-user/portal-user-id.png)
+![User Object ID in Azure portal](./includes/teams-user/portal-user-id.png)
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/teams-user/teams-user-javascript.md)]
