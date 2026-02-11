@@ -122,7 +122,7 @@ The first step of migration is to set up the replication appliance. To set up th
 ## Classic experience (Retiring)
 
 > [!NOTE]
-> Classic experience is scheduled for retirement on **30 September 2026**. Final recovery point for replications will be on **31 May 2026**. Support for migrations continue until the retirement date. 
+>Enabling replications via classic experience appliance will be blocked from **31 March 2026**. Switch to the simplified experience appliance to enable replications.Final recovery point for existing replications will be on **31 May 2026**. Support for migrations will continue until the retirement date (**30 September 2026**)
 > Switch sooner to gain the richer benefits of [simplified experience](simplified-experience-for-azure-migrate.md). [Learn more](tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended) on how to set up the Simplified Experience.
 
 

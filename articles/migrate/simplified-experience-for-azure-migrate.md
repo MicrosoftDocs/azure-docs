@@ -38,7 +38,15 @@ The key differences between the Classic and Simplified experience:
 | Retirement of classic experience | Azure Migrate supports existing replication and migrations until 30 September 2026. Plan your final migrations for these machines well before the retirement date |Switch sooner to gain the richer benefits of a simplified experience|
 
 ## Retirement of classic experience
+**Key Dates**
+
+- **31 March 2026**: You won't be able to start replications (Enable replication) for servers via the classic experience appliance. Existing replications can continue till the specified date (refer next point).
+- **31 May 2026**: Replication support ends on classic experience, and this will be the last day to create new recovery points for replications in the classic experience. You can use this final recovery point for migrations to Azure till the retirement date, i.e. 30 September 2026.
+- **30 September 2026**: The classic experience will be fully retired. From this date forward, you won't be able to view, manage, or carry out replication or migration activities for these VMs still on classic experience. To continue any replications or migrations beyond this point, you’ll need to transition to the simplified experience with the enhanced new appliance.
+
 **Action required**
+
+- **IMPORTANT**: Enable replication for servers before **31 March 2026** if you have migrations planned for them before **31 May'26**. If else, switch to the simplified experience appliance to enable replications.
 - The classic experience retires on **30 September 2026**. Final recovery point for replications will be on **31 May 2026**. Support for migrations will continue until the retirement date. Switch sooner to gain the richer benefits of simplified experience.
 - You can continue using the classic experience for existing VMware and physical machines migrations until **30 September 2026**. Plan your final migrations for these machines before the retirement date. After September 2026, you must move to the new simplified experience to continue replications and trigger migrations.
 - You won’t be able to view, manage, or perform replication & migration related operations on these machines through the Azure portal after the retirement date.

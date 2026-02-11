@@ -4,8 +4,9 @@ description: Learn how to prepare Azure VMware Solution servers for disaster rec
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 3/22/2024
+ms.date: 02/11/2026
 ms.author: v-gajeronika
+ms.reviewer: v-gajeronika
 ms.custom: MVC, engagement-fy23
 # Customer intent: "As a cloud administrator, I want to prepare Azure VMware Solution servers for disaster recovery, so that I can ensure my virtual machines can be efficiently replicated and restored in case of a failure."
 ---
@@ -13,7 +14,7 @@ ms.custom: MVC, engagement-fy23
 
 This tutorial describes how to prepare Azure VMware Solution servers for disaster recovery to Azure by using the [Azure Site Recovery](site-recovery-overview.md) service.
 
-This is the second tutorial in a series that shows you how to set up disaster recovery to Azure for Azure VMware Solution virtual machines (VMs). In the first tutorial, you [set up the Azure components](avs-tutorial-prepare-azure.md) that you need for Azure VMware Solution disaster recovery.
+This tutorial is the second tutorial in a series that shows you how to set up disaster recovery to Azure for Azure VMware Solution virtual machines (VMs). In the first tutorial, you [set up the Azure components](avs-tutorial-prepare-azure.md) that you need for Azure VMware Solution disaster recovery.
 
 In this tutorial, you learn how to:
 
@@ -41,8 +42,8 @@ Site Recovery needs access to Azure VMware Solution servers to:
 Create the account as follows:
 
 1. To use a dedicated account, create a role at the vCenter server level. Give the role a name such as **Azure_Site_Recovery**.
-2. Assign the role the permissions summarized in the following table.
-3. Create a user on the vCenter server. Assign the role to the user.
+1. Assign the role the permissions summarized in the following table.
+1. Create a user on the vCenter server. Assign the role to the user.
 
 Task | Role/Permissions | Details
 --- | --- | ---
@@ -51,7 +52,7 @@ Full replication, failover, failback |  Create a role (Azure_Site_Recovery) with
 
 ## Prepare an account for Mobility service installation
 
-The Mobility service must be installed on machines that you want to replicate. Azure Site Recovery can do a push installation of this service when you enable replication for a machine. Or, you can install it manually or by using installation tools.
+You must install the Mobility service on machines that you want to replicate. Azure Site Recovery can push-install this service when you enable replication for a machine. Or, you can install it manually or by using installation tools.
 
 In this tutorial, you install the Mobility service by using the push installation. For this push installation, you need to prepare an account that Azure Site Recovery can use to access the VM. You specify this account when you set up disaster recovery in the Azure console.
 
@@ -71,7 +72,7 @@ Make sure that the VMware vCenter server and VMs comply with requirements:
 * For Linux VMs, check [file system and storage requirements](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage).
 * Check [network](vmware-physical-azure-support-matrix.md#network) and [storage](vmware-physical-azure-support-matrix.md#storage) support.
 * Check what's supported for [Azure networking](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](vmware-physical-azure-support-matrix.md#azure-storage), and [compute](vmware-physical-azure-support-matrix.md#azure-compute) after failover.
-* Verify that the Azure VMware Solution VMs that you'll replicate to Azure comply with [Azure VM requirements](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
+* Verify that the Azure VMware Solution VMs that you replicate to Azure comply with [Azure VM requirements](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
 * For Linux VMs, ensure that no two devices or mount points have the same names. These names must be unique and aren't case-sensitive. For example, you can't name two devices for the same VM as *device1* and *Device1*.
 
 
@@ -85,13 +86,13 @@ After failover, you might want to connect to the Azure VMs from your Azure VMwar
 Before failover, enable Remote Desktop Protocol (RDP) on the Azure VMware Solution VM:
 
 * For internet access:
-  * Make sure that TCP and UDP rules are added for the **Public** profile.
-  * Make sure that RDP is allowed in **Windows Firewall** > **Allowed Apps** for all profiles.
+  * Add TCP and UDP rules for the **Public** profile.
+  * Allow RDP in **Windows Firewall** > **Allowed Apps** for all profiles.
 * For site-to-site VPN access:
-  * Make sure that RDP is allowed in **Windows Firewall** > **Allowed apps and features** for **Domain and Private** networks.
-  * Check that the operating system's SAN policy is set to **OnlineAll**. [Learn more](https://support.microsoft.com/kb/3031135).
+  * Allow RDP in **Windows Firewall** > **Allowed apps and features** for **Domain and Private** networks.
+  * Set the operating system's SAN policy to **OnlineAll**. [Learn more](https://support.microsoft.com/kb/3031135).
 
-There should be no Windows updates pending on the VM when you trigger a failover. If there are, you won't be able to sign in to the virtual   machine until the update finishes.
+Don't leave any Windows updates pending on the VM when you trigger a failover. If you leave updates pending, you can't sign in to the virtual machine until the update finishes.
 
 After failover, check **Boot diagnostics** to view a screenshot of the VM. If you can't connect, check that the VM is running and review [troubleshooting tips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
@@ -110,7 +111,7 @@ You can check **Boot diagnostics** to view a screenshot of the VM.
 
 ## Failback requirements
 
-If you plan to fail back to your Azure VMware Solution cloud, there are several [prerequisites for failback](avs-tutorial-reprotect.md#before-you-begin). You can prepare these now, but you don't need to. You can prepare after you fail over to Azure.
+If you plan to fail back to your Azure VMware Solution cloud, there are several [prerequisites for failback](avs-tutorial-reprotect.md#before-you-begin). You can prepare these prerequisites now, but you don't need to. You can prepare them after you fail over to Azure.
 
 
 ## Next steps

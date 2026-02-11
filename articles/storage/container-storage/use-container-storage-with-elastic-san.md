@@ -21,12 +21,23 @@ ms.custom:
 
 ## What is Azure Elastic SAN?
 
-Azure Elastic SAN is a managed, shared block-storage service that provides a central pool of capacity and performance (IOPS and throughput) from which multiple volumes are created and attached to many compute resources. Instead of provisioning and tuning individual disks per workload, Elastic SAN lets you allocate storage from a single capacity pool and consume performance elastically across all attached volumes. This model is well suited to environments with many dynamic workloads—such as container platforms like Azure Kubernetes Service—where demand varies over time and unused performance on one volume can be used by another. Elastic SAN is typically used when you need shared, scalable block storage across many volumes or nodes, faster volume attach/detach for orchestrated workloads, support for higher volume density per node, and a single place to provision and manage storage capacity and performance.
+Azure Elastic SAN is a managed, shared block-storage service that provides a central pool of capacity and performance (IOPS and throughput) from which multiple volumes are created and attached to many compute resources. Instead of provisioning and tuning individual disks per workload, Elastic SAN lets you allocate storage from a single capacity pool and consume performance elastically across all attached volumes. This model is well suited to environments with many dynamic workloads where demand varies over time and unused performance on one volume can be used by another. Elastic SAN is typically used when you need shared, scalable block storage across many volumes or nodes, faster volume attach/detach for orchestrated workloads, support for higher volume density per node, and a single place to provision and manage storage capacity and performance.
 
 ## Prerequisites
 
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 - [Review the installation instructions](install-container-storage-aks.md) and ensure Azure Container Storage is properly installed.
+- If you use Elastic SAN for the first time in the subscription, run this one-time registration command:
+```azurecli-interactive
+az provider register --namespace Microsoft.ElasticSan
+```
+- When [ZRS is newly enabled](enable-multi-zone-redundancy.md) in a region, you might need to register a subscription-level feature flag so Azure Container Storage can deploy SAN targets:
+```azurecli
+az feature register \
+  --namespace Microsoft.ElasticSan \
+  --name EnableElasticSANTargetDeployment
+```
+- Assign the **Azure Container Storage Operator** role to the `*-agentpool` managed identity in the AKS node resource group. In the Azure portal, open the node resource group (for example, *MC_myResourceGroup_myAKSCluster_eastus*), go to **Access Control (IAM) > Add > Add role assignment**, select **Azure Container Storage Operator**, and assign it to the managed identity created by the cluster (typically named *myAKSCluster-agentpool*).
 
 ## Limitations
 
@@ -275,13 +286,11 @@ Create a pod using Flexible I/O Tester (fio) for benchmarking and workload simul
      name: fiopod
    spec:
      containers:
-       - image: nixery.dev/shell/fio
-         name: fio
-         ports:
-           - containerPort: 80
-             protocol: TCP
+       - name: fio
+         image: mayadata/fio
+         args: ["sleep", "1000000"]
          volumeMounts:
-           - mountPath: /volume
+           - mountPath: "/volume"
              name: iscsi-volume
      volumes:
        - name: iscsi-volume

@@ -4,7 +4,7 @@ description: Learn about how Azure API Center can be a centralized registry for 
 
 ms.service: azure-api-center
 ms.topic: concept-article
-ms.date: 09/08/2025
+ms.date: 02/05/2026
  
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
@@ -15,17 +15,20 @@ ms.custom:
 
 # Register and discover remote MCP servers in your API inventory
 
-This article describes how to use Azure API Center to maintain an inventory (or *registry*) of remote model context protocol (MCP) servers and help stakeholders discover them using the API Center portal. MCP servers expose backend APIs or data sources in a standard way to AI agents and models that consume them.
+This article describes how to use Azure API Center to maintain an inventory (or *registry*) of remote model context protocol (MCP) servers and help stakeholders discover them through the API Center portal. MCP servers expose backend APIs or data sources in a standard way to AI agents and models that consume them.
+
+> [!NOTE]
+> New! MCP servers registered in your API Center can now be integrated with Azure AI Foundry's tool catalogs, enabling you to govern MCP tools and make them available to AI agents. Learn more in  [Tool catalog for agents in Azure AI Foundry](/azure/ai-foundry/agents/concepts/tool-catalog) and [Private tool catalogs for Azure AI Foundry agents](/azure/ai-foundry/agents/how-to/private-tool-catalog).
 
 [!INCLUDE [about-mcp-servers](includes/about-mcp-servers.md)]
 
 ## Manually register an MCP server in your API inventory
 
-The following sections describe how to manually inventory a remote MCP server in your API center.
+The following sections describe how to manually add a remote MCP server to your API center inventory.
 
 ### MCP API type
 
-Manually register an MCP server in your API center inventory similar to the way you register other APIs, specifying the API type as **MCP**. To register an API using the Azure portal, see [Tutorial: Register APIs in your API inventory](././tutorials/register-apis.md).
+Manually register an MCP server in your API center inventory similar to the way you register other APIs. Specify the API type as **MCP**. To register an API by using the Azure portal, see [Tutorial: Register APIs in your API inventory](././tutorials/register-apis.md).
 
 As described in the following sections, when you register an MCP server, you can specify an environment, deployment, and definition.
 
@@ -35,7 +38,7 @@ As described in the following sections, when you register an MCP server, you can
 
 ### Environment and deployment for MCP server
 
-In API Center, specify an *environment* and a *deployment* for your MCP server. The environment is the location of the MCP server, such as an API management platform or a compute service, and the deployment is a runtime URL for the MCP service. 
+In API Center, specify an *environment* and a *deployment* for your MCP server. The environment is the location of the MCP server, such as an API management platform or a compute service. The deployment is a runtime URL for the MCP service. 
 
 For information about creating an environment and a deployment, see [Tutorial: Add environments and deployments for APIs](././tutorials/configure-environments-deployments.md).
 
@@ -44,7 +47,7 @@ For information about creating an environment and a deployment, see [Tutorial: A
 Optionally, add an API definition for a remote MCP server in OpenAPI 3.0 format. The API definition must include a URL endpoint for the MCP server. For an example of adding an OpenAPI definition, see [Tutorial: Register APIs in your API inventory](././tutorials/register-apis.md#add-a-definition-to-your-version).
 
 
-You can use the following lightweight OpenAPI 3.0 API definition for your MCP server, which includes a `url` endpoint for the MCP server:
+Use the following lightweight OpenAPI 3.0 API definition for your MCP server, which includes a `url` endpoint for the MCP server:
 
 
 ```json
@@ -73,15 +76,15 @@ Register one or more of the partner MCP servers in your API inventory to make th
 
 To register a partner MCP server:
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your API center.
+1. In the [Azure portal](https://portal.azure.com), go to your API center.
 1. In the sidebar menu, under **Discover**, select **MCP** (preview).
-1. Browse the available partner MCP servers. Select **Register** to add an MCP server to your API inventory. Follow on-screen instructions if provided to complete the registration.
+1. Browse the available partner MCP servers. Select **Register** to add an MCP server to your API inventory. Follow the on-screen instructions if they're provided to complete the registration.
 
-When you add a partner MCP server, API Center automatically configures the following for you:
+When you add a partner MCP server, API Center automatically configures the following settings for you:
 
 * Creates an API entry in your API inventory with the API type set to **MCP**.
 * Creates an environment and a deployment for the MCP server.
-* Adds an OpenAPI definition for the MCP server if available from the partner.
+* Adds an OpenAPI definition for the MCP server if the partner provides one.
 
 To build and register a Logic Apps MCP server, see [Build and register a Logic Apps MCP server](../logic-apps/create-mcp-server-api-center.md).
 

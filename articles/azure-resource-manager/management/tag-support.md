@@ -2,13 +2,12 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: article
-ms.date: 07/22/2025
+ms.date: 02/09/2026
 ---
 
 # Tag support for Azure resources
 
 This article describes whether a resource type supports [tags](tag-resources.md). The column labeled **Supports tags** indicates whether the resource type has a property for the tag. The column labeled **Tag in cost report** indicates whether that resource type passes the tag to the cost report. You can view costs by tags in the [Cost Management cost analysis](../../cost-management-billing/costs/group-filter.md) and the [Azure billing invoice and daily usage data](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). To ensure that all the usage/cost records are tagged irrespective of whether the resource supports or emits tags, use [tag inheritance in Cost Management](../../cost-management-billing/costs/enable-tag-inheritance.md).
-
 
 To get the same data as a file of comma-separated values, download [tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
 
@@ -3760,6 +3759,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
+> | instanceFailoverGroup | No | No |
 > | instancePools | Yes | Yes |
 > | managedInstances | Yes | Yes |
 > | managedInstances / administrators | No | No |
@@ -3768,6 +3768,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | managedInstances / databases / advancedThreatProtectionSettings | No | No |
 > | managedInstances / databases / backupLongTermRetentionPolicies | No | No |
 > | managedInstances / databases / ledgerDigestUploads | No | No |
+> | managedInstances / databases / LongTermRetentionBackups | No | No |
 > | managedInstances / databases / vulnerabilityAssessments | No | No |
 > | managedInstances / dnsAliases | No | No |
 > | managedInstances / metricDefinitions | No | No |
@@ -3804,6 +3805,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | servers / databases / extensions | No | No |
 > | servers / databases / geoBackupPolicies | No | No |
 > | servers / databases / ledgerDigestUploads | No | No |
+> | servers / databases / LongTermRetentionBackups | No | No |
 > | servers / databases / metricDefinitions | No | No |
 > | servers / databases / metrics | No | No |
 > | servers / databases / recommendedSensitivityLabels | No | No |
@@ -3852,13 +3854,15 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | servers / usages | No | No |
 > | servers / virtualNetworkRules | No | No |
 > | servers / vulnerabilityAssessments | No | No |
-> | virtualClusters | No | No |
+> | virtualClusters | Yes | No |
 
 <a id="sqlnote"></a>
 
 > [!NOTE]
 > The Master database doesn't support tags, but other databases, including Azure Synapse Analytics databases, support tags. Azure Synapse Analytics databases must be in Active (not Paused) state.
 
+> [!NOTE]
+> Only Virtual Clusters with version 2.0 support tags. Minimal required API version for configuring tags is 2022-05-01.
 
 ## Microsoft.SqlVirtualMachine
 

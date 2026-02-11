@@ -23,9 +23,9 @@ sections:
 
       - question: Why is the Initial backup taking longer time to complete?
         answer: |
-          Initial backup is always a full backup and its duration will depend on the size of the data and when the backup is processed.
+          Initial backup is always a full backup and its duration depends on the size of the data and when the backup is processed.
 
-          To improve backup performance see, [backup best practices](./backup-azure-vms-introduction.md#best-practices); [Backup considerations](./backup-azure-vms-introduction.md#backup-and-restore-considerations) and [Backup Performance](./backup-azure-vms-introduction.md#backup-performance)
+          To improve backup performance, see, [backup best practices](./backup-azure-vms-introduction.md#best-practices); [Backup considerations](./backup-azure-vms-introduction.md#backup-and-restore-considerations) and [Backup Performance](./backup-azure-vms-introduction.md#backup-performance)
 
           Although the total backup time for incremental backups is less than 24 hours that might not be the case for the first backup.
 
@@ -70,7 +70,7 @@ sections:
 
       - question: I enabled a lock on the resource group created by Azure Backup Service (for example, `AzureBackupRG_<geo>_<number>`). Will my backups continue to work?
         answer: |
-          If you lock the resource group created by the Azure Backup Service, backups will start to fail.
+          If you lock the resource group created by the Azure Backup Service, backups start to fail.
           Remove the lock, and clear the restore point collection from that resource group to make the future backups successful. [Follow these steps](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) to remove the restore point collection.
 
       - question: I have a lock at the resource group level that contains all the resources related to my virtual machine. Will my backup work?
@@ -91,7 +91,7 @@ sections:
 
       - question: What is the maximum delay I can expect in backup start time from the scheduled backup time I have set in my VM backup policy?
         answer: |
-          The scheduled backup will be triggered within 2 hours of the scheduled backup time. For example, If 100 VMs have their backup start time scheduled at 2:00 AM, then by 4:00 AM at the latest all the 100 VMs will have their backup job in progress. If scheduled backups have been paused because of an outage and resumed or retried, then the backup can start outside of this scheduled two-hour window.
+          The scheduled backup is triggered within 2 hours of the scheduled backup time. For example, If 100 VMs have their backup start time scheduled at 2:00 AM, then by 4:00 AM at the latest all the 100 VMs have their backup job in progress. If scheduled backups have been paused because of an outage and resumed or retried, then the backup can start outside of this scheduled two-hour window.
 
       - question: What is the minimum allowed retention range for a daily backup point?
         answer: Azure Virtual Machine backup policy supports a minimum retention range from seven days up to 9999 days. By default, backup of VMs are kept for *7 days* in snapshot and *180 days* in vault. Any modification to an existing VM backup policy with less than seven days will require an update to meet the minimum retention range of seven days.
@@ -108,7 +108,7 @@ sections:
           If [tenant changes](/azure/devops/organizations/accounts/change-azure-ad-connection) occur, you're required to disable and re-enable [managed identities](../active-directory/managed-identities-azure-resources/overview.md) to make backups work again.
 
       - question: Does Azure Backup support backing up NFS files mounted from storage?
-        answer: Azure Backup doesn't support backing up NFS files that are mounted from storage, or from any other NFS server, to Linux or Windows machines. It only backs up disks which are locally attached to the VM.
+        answer: Azure Backup doesn't support backing up NFS files that are mounted from storage, or from any other NFS server, to Linux or Windows machines. It only backs up disks that are locally attached to the VM.
 
       - question: What are the VM configurations stored in the virtual machine backup?
         answer: All the VM configurations required to perform the restore operations are stored in the VM backup. That includes the encryption copies of the VM encrypted keys, which are accessible to you on restore. The encryption copies can only be decrypted using the key vault. Temporary disks and memory state aren't captured in the snapshot.
@@ -126,11 +126,11 @@ sections:
 
       - question: Does Azure Backup interfere with application performance?
         answer: |
-          Creating a VM Snapshot takes few minutes, and there will be a very minimal interference on application performance at this stage. But, data transfer to a vault takes a couple of hours; so we recommend scheduling backups during off business hours. Learn more about [best practices for backup and restore](./backup-azure-vms-introduction.md#backup-and-restore-considerations).
+          Creating a VM Snapshot takes few minutes, and there will be a minimal interference on application performance at this stage. But, data transfer to a vault takes a couple of hours; so we recommend scheduling backups during off business hours. Learn more about [best practices for backup and restore](./backup-azure-vms-introduction.md#backup-and-restore-considerations).
 
       - question: Will a new disk added to VM be backed up automatically?
         answer: |
-          Yes, a new disk added to a VM will be backed up automatically during the next backup, unless selective disk backup is configured on the VM. A newly added disk to the VM will have a Full snapshot (Initial Replica) taken on the first backup, the existing disks will continue the Incremental logic chain.
+          Yes, a new disk added to a VM will be backed up automatically during the next backup, unless selective disk backup is configured on the VM. A newly added disk to the VM has a Full snapshot (Initial Replica) taken on the first backup, the existing disks continue the Incremental logic chain.
           
       
       - question: Can I restore the files and folders from an encrypted VM backup?
@@ -143,7 +143,7 @@ sections:
 
       - question: Does Azure Backup take backup of keys for ADE encrypted VMs and restore it along with the restored disk?
         answer: |
-          Azure Backup backs up encryption keys and secrets of the backup data. Generally, the keys are not restored in the Key vault, but Azure Backup allows restoring the keys during the loss of keys.
+          Azure Backup backs up encryption keys and secrets of the backup data. Generally, the keys aren't restored in the Key vault, but Azure Backup allows restoring the keys during the loss of keys.
 
       - question: Can I remove all restore points and retain the latest one?
         answer: |
@@ -151,7 +151,7 @@ sections:
 
       - question: In Azure VM Backup, what is the Snapshot Tier and Storage Redundancy for snapshot taken as part of backup?
         answer: |
-          In Azure VM Backup, snapshots are taken using the Standard HDD tier type, regardless of the source VM disk tier. By default, the storage redundancy for these snapshots is Locally Redundant Storage (LRS). However, if the VM backups are managed by an Enhanced Policy and the underlying source disk storage locates in the region which supports Zone Redundancy, snapshots will be of Zone Redundant Storage.
+          In Azure VM Backup, snapshots are taken using the Standard HDD tier type, regardless of the source VM disk tier. By default, the storage redundancy for these snapshots is Locally Redundant Storage (LRS). However, if the VM backups are managed by an Enhanced Policy and the underlying source disk storage locates in the region that supports Zone Redundancy, snapshots are of Zone Redundant Storage.
 
       - question: How long can I retain backup points of Azure VMs using the backup policy?
         answer: |
@@ -172,9 +172,9 @@ sections:
       - question: How Soft-Delete behavior occurs when the retention of the backup policy is changed or modified?
         answer: |
           When the retention period of a backup policy is changed, the soft-delete behavior for restore points (RPs) is determined based on the current policy at the time of evaluation—not the policy in place when the RP was created.
-      - question: I have an Azure VM stored in a zone with a Premium SSD ZRS disk. What happens if I restore this VM to a Paired region using CRR where ZRS is not supported?
+      - question: I have an Azure VM stored in a zone with a Premium SSD ZRS disk. What happens if I restore this VM to a Paired region using CRR where ZRS isn't supported?
         answer: |
-          When restoring a VM to a peered region that does not support Zone-Redundant Storage (ZRS), Azure Backup will automatically create the disk in the same performance tier (e.g., Standard or Premium) as the original disk, but with Locally Redundant Storage (LRS) instead of ZRS. This ensures that the restore operation completes successfully, even though the redundancy model changes.
+          When restoring a VM to a peered region that doesn't support Zone-Redundant Storage (ZRS), Azure Backup will automatically create the disk in the same performance tier (e.g., Standard or Premium) as the original disk, but with Locally Redundant Storage (LRS) instead of ZRS. This ensures that the restore operation completes successfully, even though the redundancy model changes.
       - question: Is 64 TB disk support for Azure Backup available in all regions?
         answer: |
           Azure Backup supports individual disk sizes up to 64 TB and a combined total of 512 TB per VM. This support is available in all Azure regions where Azure Backup services are offered.
@@ -184,21 +184,22 @@ sections:
           
           **When the checkbox is NOT selected:**
           
-          Enhanced Policy will attempt to take application-consistent or filesystem-consistent backups. However, if these attempts fail, the policy will fall back to crash-consistent backups at specific intervals:
+          Enhanced Policy will attempt to take application-consistent or filesystem-consistent backups. However, if these attempts fail, the policy will fallback to crash-consistent backups at specific intervals:
             - A crash-consistent snapshot will be taken on the 4th, 6th, and 8th attempt.
             - This fallback ensures backup continuity even when consistency cannot be guaranteed.
-          
+          Reasons for fallback to MDCC include offline VMs, VMs with unsupported OS, Guest Agent issues, VMSnapshotLinux extension provisioning issues etc.   
+
           **When the checkbox is selected:**
 
-          The policy will not attempt application or filesystem consistency. Instead, it will directly initiate a crash-consistent MDCC backup without any retries for higher consistency levels.
+          The policy won't attempt application or filesystem consistency. Instead, it will directly initiate a crash-consistent MDCC backup without any retries for higher consistency levels.
           
           This option is useful when speed and simplicity are prioritized over consistency guarantees.
-      - question: When we migrate the policy from the Standard to enhanced, how does the retention period will apply on the restore points?
+      - question: When we migrate a protected item from the Standard to Enhanced policy, which retention period  applies on the restore points?
         answer: |
-          Retention Period will apply as per the new enhanced policy for all the restore points.
+          Retention Period applies as per the new enhanced policy for all the restore points.
       - question: Why don’t I see the updated expiry time for my Recovery Points immediately after changing the backup policy?
         answer: |
-          When you modify a backup policy (for example, changing the retention duration), the updated expiry time for Recovery Points (RPs) is not reflected instantly on the Azure portal. This is expected behavior.
+          When you modify a backup policy (for example, changing the retention duration), the updated expiry time for Recovery Points (RPs) isn't reflected instantly on the Azure portal. This is expected behavior.
           
           The expiry time is updated only after the system runs its daily cleanup process (also known as the expired Recovery Points pruning job). This job typically runs once every 24 hours. Therefore, it may take up to 24 hours for the new expiry time to appear on the portal for existing or newly created Recovery Points.
           
@@ -282,7 +283,7 @@ sections:
 
           >[!Note]
           >- Azure Backup currently doesn't support taking different SAs as inputs for different disks.
-          >- **Restore to original disks SA** is only available for snapshot tier, and it increases restore performance because data is copied much faster to the same SA than to a different SA. It's not intended to support disk type, but can be used to retain it.
+          >- **Restore to original disks SA** is only available for snapshot tier, and it increases restore performance because data is copied faster to the same SA than to a different SA. It's not intended to support disk type, but can be used to retain it.
 
       - question: Can I delete JSON template and VHD files after the restore process is complete?
         answer: |
@@ -290,7 +291,7 @@ sections:
 
       - question: How do I run restore operation for Cross Region Restore (CRR) of ADE encrypted VMs?
         answer: |
-          The encrypted keys are not expected to be present in the target region as part of Cross Regions Restore (CRR). Therefore, you need to restore the encrypted keys and secrets using the restored file. When the restore is complete, you can create Azure encrypted VM using restored disks.
+          The encrypted keys aren't expected to be present in the target region as part of Cross Regions Restore (CRR). Therefore, you need to restore the encrypted keys and secrets using the restored file. When the restore is complete, you can create Azure encrypted VM using restored disks.
 
       - question: Are there any recommended naming conventions of an Azure VM in Azure Backup?
         answer: |
@@ -322,9 +323,9 @@ sections:
         answer: |
           Yes, [Cross Zonal Restore](backup-azure-arm-restore-vms.md#restore-options) now allows you to restore Azure zone pinned VMs to a different available zone using a recovery point in a vault with [Zonal-redundant storage (ZRS)](backup-create-rs-vault.md#set-storage-redundancy) enabled as per Azure role-based access control (Azure RBAC) rules. It's also supported from [vaults with Cross Region Restore (CRR)](backup-create-rs-vault.md#set-storage-redundancy).
 
-      - question: Can I restore an Azure non-zone pinned Virtual Machine in a different zone?
+      - question: Can I restore an Azure nonzone pinned Virtual Machine in a different zone?
         answer: |
-          Yes, [Cross Zonal Restore](backup-azure-arm-restore-vms.md#restore-options) now allows you to restore Azure non-zone pinned VMs to any available zones using a recovery point in a vault with [Zonal-redundant storage (ZRS)](backup-create-rs-vault.md#set-storage-redundancy) enabled as per Azure role-based access control (Azure RBAC) rules.
+          Yes, [Cross Zonal Restore](backup-azure-arm-restore-vms.md#restore-options) now allows you to restore Azure nonzone pinned VMs to any available zones using a recovery point in a vault with [Zonal-redundant storage (ZRS)](backup-create-rs-vault.md#set-storage-redundancy) enabled as per Azure role-based access control (Azure RBAC) rules.
 
       - question: Does Cross Zonal Restore support all Azure VM?
         answer: |
@@ -350,14 +351,14 @@ sections:
         answer: |
           During a virtual machine (VM) restore using Azure Backup, you might notice that the restored VM doesn't retain the Offer, SKU, and Publisher properties that were present on the source VM. This is an expected behavior, and happens due to the following reasons:
 
-          - **MarketPlace Image VMs**: Only VMs created from a MarketPlace image will have the Offer, SKU, and Publisher details. These properties are derived from the VM image itself. When a VM is created from a MarketPlace image, the createOption is set to **from image**. This ensures that the Offer, SKU, and Publisher properties are included during the VM creation process. 
+          - **MarketPlace Image VMs**: Only VMs created from a MarketPlace image has the Offer, SKU, and Publisher details. These properties are derived from the VM image itself. When a VM is created from a MarketPlace image, the createOption is set to **from image**. This ensures that the Offer, SKU, and Publisher properties are included during the VM creation process. 
           - **VMs Created from Disks**: When a VM is created from disks (such as restored VMs, uploaded VMs, or VMs created from snapshots), the createOption is set to **Attach** instead of "from image". In this case, the Offer, SKU, and Publisher properties are not included because these properties are read-only and can only be added during the initial VM creation process when the createOption is **from image**. 
 
       - question: What is the expected throughput when we perform the restore from the Vault storage.
         answer: |
-          For Tier-2 restores (restores from vault data), the time required depends on the amount of allocated data that needs to be transferred. In one observed case, disks with approximately 2 TB of allocated data each contributed significantly to the overall transfer time. While a transfer rate of 30 MBps is generally considered optimal, we achieved around 50 MBps in this instance.
+          For Tier-2 restores (restores from vault data), the time required depends on the amount of allocated data that needs to be transferred. In one observed case, disks with approximately 2 TB of allocated data each contributed significantly to the overall transfer time. While a transfer rate of 30 MBps is considered optimal, we achieved around 50 MBps in this instance.
           
-          For example, if a customer has a 16 TB disk with 2 TB of allocated data per segment, the total restore time could extend up to 20 hours at the optimal transfer rate.
+          For example, if a customer has a 16-TB disk with 2 TB of allocated data per segment, the total restore time could extend up to 20 hours at the optimal transfer rate.
  
   - name: Manage VM backups
     questions:
@@ -368,7 +369,7 @@ sections:
           - If retention is extended, existing recovery points are marked and kept in accordance with the new policy.
           - If retention is reduced, recovery points are marked for pruning in the next cleanup job, and subsequently deleted.
           
-          However, recovery points are specific to retention range frequency. For example, adding or modifying a yearly retention policy does not affect the retention of preexisting monthly recovery points. 
+          However, recovery points are specific to retention range frequency. For example, adding or modifying a yearly retention policy doesn't affect the retention of preexisting monthly recovery points. 
 
       - question: How do I move a VM backed up by Azure Backup to a different resource group?
         answer: |
@@ -391,18 +392,18 @@ sections:
         answer: |
           Once a VM is moved to a different resource group, it's a new VM as far as Azure Backup is concerned.
 
-          After moving the VM to a new resource group, you can reprotect the VM either in the same vault or a different vault. Since this is a new VM for Azure Backup, you'll be billed for it separately.
+          After moving the VM to a new resource group, you can reprotect the VM either in the same vault or a different vault. Since this is a new VM for Azure Backup, you are billed for it separately.
 
           The old VM's restore points will be available for restore if needed. If you don't need this backup data, you can stop protecting your old VM with delete data.
 
       - question: Is there a limit on number of VMs that can be associated with the same backup policy?
-        answer: Yes, there's a limit of 100 VMs that can be associated to the same backup policy. We recommend that for more than 100 VMs, create multiple backup policies with same schedule or different schedule.<br><br>There is a daily limit of 1000 for overall configure/modify protections in a vault.
+        answer: Yes, there's a limit of 100 VMs that can be associated to the same backup policy. We recommend that for more than 100 VMs, create multiple backup policies with same schedule or different schedule.<br><br>There's a daily limit of 1000 for overall configure/modify protections in a vault.
 
       - question: How can I view the retention settings for my backups?
         answer: |
           Currently, you can view retention settings at a backup item (VM) level based on the backup policy that's assigned to the VM.
 
-          One way to view the retention settings for your backups, is to navigate to the backup item [dashboard](./backup-azure-manage-vms.md#view-vms-on-the-dashboard) for your VM, in the Azure portal. Selecting the link to its backup policy helps you view the retention duration of all the daily, weekly, monthly and yearly retention points associated with the VM.
+          One way to view the retention settings for your backups, is to navigate to the backup item [dashboard](./backup-azure-manage-vms.md#view-vms-on-the-dashboard) for your VM, in the Azure portal. Selecting the link to its backup policy helps you view the retention duration of all the daily, weekly, monthly, and yearly retention points associated with the VM.
 
           You can also use [Backup Explorer](./monitor-azure-backup-with-backup-explorer.md) to view the retention settings for all your VMs within a single pane of glass. Go to the Backup Explorer from any Recovery Services vault, go to the **Backup Items** tab and select the Advanced View to see detailed retention information for each VM.
       - question: When the snapshot is moved from a storage account to a vault, how is encryption in the transit managed?
@@ -461,7 +462,7 @@ sections:
 
       - question: When I update the backup policy, why is the expiry time not getting updated immediately?
         answer: |
-          **Expiry Time** of recovery points are updated when Garbage Collector (GC) runs, which is *every 24 hours*. Once you update the backup policy, it can take up to *24 hours* to show the updates in the **Expiry Time**, if there're no delays in GC jobs.
+          **Expiry Time** of recovery points are updated when Garbage Collector (GC) runs, which is *every 24 hours*. Once you update the backup policy, it can take up to *24 hours* to show the updates in the **Expiry Time**, if there are no delays in GC jobs.
 
       - question: Why the expiry time for latest recovery points doesn't appear in the Azure portal for VMs?
         answer: |
@@ -489,25 +490,25 @@ sections:
           >- **OLR**: Provides a seamless continuation of backups with the same policy.
           >- **ALR**: Requires manual setup of backup policies for the new VM.
 
-      - question: Why VMs with the Storage Spaces direct and Storage Spaces are not supported with the Azure VM Backup? 
+      - question: Why VMs with the Storage Spaces direct and Storage Spaces aren't supported with the Azure VM Backup? 
         answer: |    
-          Storage Spaces Direct is not supported since it has data spread across two different virtual machines.
+          Storage Spaces Direct isn't supported since it has data spread across two different virtual machines.
 
-          Storage spaces in a single VM not supported for application consistent VM backup. For application consistent VM backup, VSS freezes the I/O and ensures that disk snapshots are consistent. Storage Spaces can still perform writes in the background, breaking the application consistent guarantee. This can result in a small probability that the backup taken is not application consistent. Today, backup and recovery of VM with storage spaces is not blocked in the product.
+          Storage spaces in a single VM not supported for application consistent VM backup. For application consistent VM backup, VSS freezes the I/O and ensures that disk snapshots are consistent. Storage Spaces can still perform writes in the background, breaking the application consistent guarantee. This can result in a small probability that the backup taken isn't application consistent. Today, backup, and recovery of VM with storage spaces isn't blocked in the product.
 
       - question: If I remove one of the disks from VM and increase the size of existing disk, what happens to the backups and if next backup creates Full Backup for all disk?
         answer: |
-          If you remove a disk, the snapshot or data transfer operation won't run for the removed disk. Number of disks included in the restore point will differ depending on the VM state at the time of the backup.
+          If you remove a disk, the snapshot or data transfer operation won't run for the removed disk. Number of disks included in the restore point differs depending on the VM state at the time of the backup.
 
-          Resizing a disk will continue with incremental backups unless the underlying storage account of the disk changes, which results in a full backup.
+          Resizing a disk continues with incremental backups unless the underlying storage account of the disk changes, which results in a full backup.
 
       - question: What is directory "/var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux"?
         answer: |
-          This is the directory used by Backup Extension VMSnapshotLinux and it gets created when backups are enabled on VM using Recovery Services Vault. Logs are written in this location during backups, restores or extension operations such as schedule updates, generally they should use up only a few GB and the size of the logs is not proportional with the size of the backup. 
+          This is the directory used by Backup Extension VMSnapshotLinux and it gets created when backups are enabled on VM using Recovery Services Vault. Logs are written in this location during backups, restores, or extension operations such as schedule updates, generally they should use up only a few GB and the size of the logs is not proportional with the size of the backup. 
 
-      - question: If backup fails with a time-out error for large disk VMs after running sometime, when can I re-trigger the backup job again and will the backup continue from where it failed?
+      - question: If backup fails with a timeout error for large disk VMs after running sometime, when can I retrigger the backup job again and will the backup continue from where it failed?
         answer: |
-          For Initial Replica, a full backup will be re-initiated in case of failure. However, for Incremental the snapshot from the last successful backup will be compared to the latest snapshot to copy the changed data into the vault.
+          For Initial Replica, a full backup will be reinitiated in case of failure. However, for Incremental the snapshot from the last successful backup will be compared to the latest snapshot to copy the changed data into the vault.
 
       - question: Why SSD V2 with GRS Vaults/Cross Region Restore is not supported?
         answer: |

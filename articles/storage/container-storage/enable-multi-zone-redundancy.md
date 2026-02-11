@@ -28,7 +28,9 @@ az provider register --namespace Microsoft.ElasticSan
 ```
 - When ZRS is newly enabled in a region, you might need to register a subscription-level feature flag so Azure Container Storage can deploy SAN targets:
 ```azurecli
-Register-AzProviderFeature -FeatureName EnableElasticSANTargetDeployment -ProviderNamespace Microsoft.ElasticSan
+az feature register \
+  --namespace Microsoft.ElasticSan \
+  --name EnableElasticSANTargetDeployment
 ```
 - Verify that the region supports your chosen redundancy option. See the current [Elastic SAN region availability](../elastic-san/elastic-san-create.md#).
 

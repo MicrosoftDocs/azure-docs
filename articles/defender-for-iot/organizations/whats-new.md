@@ -20,6 +20,12 @@ Features released earlier than nine months ago are described in the [What's new 
 
 [!INCLUDE [defender-iot-defender-reference](../includes/defender-for-iot-defender-reference.md)]
 
+## February 2026
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | Sensor version 25.2.2 is now available. See [release details and updates](release-notes.md#version-2522) |
+
 ## December 2025
 
 |Service area  |Updates  |

@@ -7,7 +7,7 @@ manager: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 10/22/2025
+ms.date: 02/10/2026
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
 
@@ -55,7 +55,7 @@ The easiest way to connect your Spring Boot application to App Configuration is 
         <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>6.0.0</version>
+        <version>7.0.0</version>
         <type>pom</type>
         <scope>import</scope>
         </dependency>

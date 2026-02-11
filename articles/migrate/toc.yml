@@ -428,6 +428,8 @@ items:
       href: how-to-test-replicating-virtual-machines.md
     - name: Upgrade Windows OS
       href: how-to-upgrade-windows.md
+    - name: Automate agent-based migrations using REST API
+      href: how-to-automate-vmware-to-azure-migration-rest-api.md
     - name: Scale migration
       items:
       - name: How to migrate VMware VMs at scale using the agentless replication method

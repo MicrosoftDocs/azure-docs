@@ -162,7 +162,7 @@ az network vnet subnet update --resource-group rgname --name subnetname --vnet-n
  
 * Virtual machines are still able to access Azure Storage accounts in the same region in a private subnet without an explicit method of outbound. NSGs are recommended to control egress connectivity.
 
-* Private subnets aren't applicable to delegated or managed subnets used for hosting PaaS services. In these scenarios, outbound connectivity is managed by the individual service.
+* Private subnets aren't applicable to delegated or managed subnets used for hosting PaaS services. In these scenarios, outbound connectivity is managed by the individual service. Please refer to service-specific documentation for more information.
 
 > [!IMPORTANT]
 > When a load balancer backend pool is configured by IP address, it uses default outbound access due to an ongoing known issue. For secure by default configuration and applications with demanding outbound needs, associate a NAT gateway to the VMs in your load balancer's backend pool to secure traffic. See more on existing [known issues](../../load-balancer/whats-new.md#known-issues).
@@ -209,7 +209,7 @@ No changes are made to existing VNETs. This means that both existing virtual mac
 
 #### What about new virtual network deployments? My infrastructure has a dependency on default outbound IPs and isn't ready to move to private subnets at this time.
 
-You can still configure subnets as nonprivate using any supported method (ARM templates, portal, CLI, PowerShell). This ensures compatibility for infrastructures that rely on default outbound IPs and aren't yet ready to transition to private subnets.
+You can still configure subnets as nonprivate using any supported method (ARM templates, portal, CLI, PowerShell). This ensures compatibility for infrastructures that rely on default outbound IPs and aren't yet ready to transition to private subnets. Please note if you already have a private subnet enabled and want to transistion back to using default outbound for a virtual machine, you will need to modify the subnet to not be private and then perform a stop/deallocate on the virtual machine.
 
 ## Next steps
 

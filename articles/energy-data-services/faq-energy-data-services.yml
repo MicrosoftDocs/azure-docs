@@ -30,7 +30,7 @@ sections:
           answer: >
             The OSDU&reg; platform does not offer APIs for making country/region specific configuration changes. These configuration settings are stored in .json files within the legal service container, and any changes require a service restart to take effect. Additionally, the Azure Data Manager for Energy service architecture does not expose the underlying infrastructure to customers, preventing them from making these changes directly.
 
-    - name: External Data Sources
+    - name: External Data Services 
       questions:
         - question:  What is the impact of data sharing across tenancy boundaries on security, privacy, and compliance?
           answer: >

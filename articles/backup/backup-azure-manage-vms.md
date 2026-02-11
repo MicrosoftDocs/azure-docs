@@ -86,6 +86,11 @@ To manage a backup policy:
 
     :::image type="content" source="./media/backup-azure-manage-vms/backup-policy-create-new-inline.png" alt-text="Screenshot showing to choose a backup policy." lightbox="./media/backup-azure-manage-vms/backup-policy-create-new-expanded.png":::
 
+### Default backup policies in Recovery Services vaults
+When you create a Recovery Services vault, Azure Backup automatically creates a small set of system‑managed default backup policies. These policies ensure that baseline backup functionality is always available in any vault. Examples include policies such as HourlyBackup, DefaultPolicy, or Enhanced.
+These default policies are system‑managed, can be deleted temporarily but are recreated automatically and act as fallback policies when no custom policy is defined.
+You can safely ignore these default policies if your organization uses its own standards for policy naming, scheduling, or retention. Create custom backup policies that match your requirements and assign your protected items to those custom policies. The default policies will continue to exist in the vault but will not be used unless explicitly selected.
+
 ## Run an on-demand backup
 
 You can run an on-demand backup of a VM after you set up its protection. Keep these details in mind:

@@ -38,7 +38,7 @@ Azure Data Manager for Energy is currently compliant with the M25.1 OSDU® miles
 - **Reservoir DDMS [[Preview]](how-to-enable-reservoir-ddms.md)**: Provides storage associated with seismic and well interpretation, structural modeling, geological modeling, and reservoir modeling including reservoir simulation input.
 
 ### Ingestion services
-- **EDS DMS [[Preview]](how-to-enable-external-data-sources.md)**: Pulls specified data (metadata) from OSDU-compliant data sources via scheduled jobs while leaving associated dataset files (LAS, SEG-Y, etc.) stored at the external source for retrieval on demand.
+- **EDS DMS [[Preview]](how-to-enable-external-data-services.md)**: Pulls specified data (metadata) from OSDU-compliant data sources via scheduled jobs while leaving associated dataset files (LAS, SEG-Y, etc.) stored at the external source for retrieval on demand.
   - **EDS Fetch & Ingest DAG**: Facilitates fetching data from external providers and ingesting it into the OSDU platform. It involves steps like registering with providers, creating data jobs, and triggering ingestion.
   - **EDS Scheduler DAG**: Automates data fetching based on predefined schedules and sends emails to recipients as needed. It ensures data remains current without manual intervention
   - **EDS Naturalization DAG**: Converts external dataset references into internal ones by fetching and storing actual data files into the OSDU platform, enabling full integration and alignment with internal schemas.

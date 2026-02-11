@@ -81,10 +81,10 @@ items:
           href: how-to-deploy-gcz.md
         - name: Deploy OSDU Admin UI
           href: how-to-deploy-osdu-admin-ui.md
-        - name: How to enable External Data Sources (EDS)
-          href: how-to-enable-external-data-sources.md
-        - name: How to register External Data Sources (EDS)
-          href: how-to-register-external-data-sources.md
+        - name: How to enable External Data Services (EDS)
+          href: how-to-enable-external-data-services.md
+        - name: How to register External Data Services (EDS)
+          href: how-to-register-external-data-services.md
         - name: How to enable legal tags restricted COO (Country of Origin)
           href: how-to-enable-legal-tags-restricted-country-of-origin.md
         - name: How to enable Reservoir DDMS
