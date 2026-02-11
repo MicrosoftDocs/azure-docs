@@ -111,7 +111,7 @@ A network security perimeter-aware private link resource is a PaaS resource that
 > The following onboarded services are in public preview with Network Security Perimeter:
 > - Cosmos DB
 > - SQL DB
-> - Azure Open AI Service
+> - Azure OpenAI Service
 >   
 > These previews are provided without a service level agreement, and it's not recommended for production workloads.
 > Certain features might not be supported or might have constrained capabilities.

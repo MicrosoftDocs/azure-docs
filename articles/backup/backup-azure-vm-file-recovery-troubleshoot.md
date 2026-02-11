@@ -184,7 +184,7 @@ The copy might fail with the error **0x80070780: The file cannot be accessed by 
 
 Check if the source server has disk **deduplication** enabled. If the option is enabled, ensure the restore server also has **deduplication** enabled on the drives. You can leave deduplication unconfigured so that you don't deduplicate the drives on the restore server.
 
-### Disk is not unmounted although Unmount disks is clicked on Azure Portal (Linux OS)
+### Disk is not unmounted although Unmount disks is clicked on Azure portal (Linux OS)
 
 Unmount disks manually by running python script with the `clean` parameter. The following example shows installation of **python 3 package** by the machine.
 

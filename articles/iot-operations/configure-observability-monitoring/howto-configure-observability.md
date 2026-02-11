@@ -242,11 +242,11 @@ az iot ops upgrade --resource-group <rg name> -n <instance name> --ops-config ob
 
 ## Deploy dashboards to Grafana
 
-Azure IoT Operations provides a [sample dashboard](https://github.com/Azure/azure-iot-operations/tree/main/samples/grafana-dashboard) designed to give you many of the visualizations you need to understand the health and performance of your Azure IoT Operations deployment.
+Azure IoT Operations provides a [sample dashboard](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/observability), designed to give you many of the visualizations you need to understand the health and performance of your Azure IoT Operations deployment.
 
 Complete the following steps to install the Azure IoT Operations curated Grafana dashboards:
 
-1. Clone or download the **azure-iot-operations** repository to get the sample Grafana Dashboard json file locally: [https://github.com/Azure/azure-iot-operations](https://github.com/Azure/azure-iot-operations).
+1. Clone or download the **explore-iot-operations** repository to get the sample Grafana Dashboard json file locally: [https://github.com/Azure-Samples/explore-iot-operations](https://github.com/Azure-Samples/explore-iot-operations).
 1. Sign in to the Grafana console. You can access the console through the Azure portal or use the `az grafana show` command to retrieve the URL.
 
    ```azurecli
@@ -255,9 +255,12 @@ Complete the following steps to install the Azure IoT Operations curated Grafana
 
 1. On the Grafana landing page, select the **Create your first dashboard** tile.
 1. Select **Import Dashboard**.
-1. Browse to the sample dashboard directory in your local copy of the Azure IoT Operations repository, **azure-iot-operations > samples > grafana-dashboard**, then select the  **aio.sample.json** dashboard file.
+1. Browse to the sample dashboard directory in your local copy of the Azure IoT Operations repository, **explore-iot-operations > samples > observability > grafana-dashboard**, then select the  **aio-observability.json** dashboard file.
 1. When the application prompts, select your managed Prometheus data source.
 1. Select **Import**.
+
+> [!NOTE]
+> In the **aio-observability.json** file, make sure to configure both the Prometheus and Azure Monitor datasources, and set the `subscriptionId` variable to your Azure subscription ID, for log queries.
 
 ## Next steps
 

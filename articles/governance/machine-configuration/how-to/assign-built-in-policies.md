@@ -19,7 +19,7 @@ Azure Policy definitions describe *what* is being evaluated and *how* compliance
 
 To view and explore these built-in policies:
 
-1.  Navigate to **Azure Portal → Policy → Definitions**.
+1.  Navigate to **Azure portal → Policy → Definitions**.
 
 2.  In the left-hand navigation, select **Definitions** under the *Authoring* section.
 

@@ -213,8 +213,6 @@ items:
       items:
       - name: Why migrate from BizTalk Server?
         href: biztalk-server-migration-overview.md
-      - name: Which integration services to choose
-        href: azure-integration-services-choose-capabilities.md
       - name: Migration options and best practices
         href: biztalk-server-migration-approaches.md
   - name: Develop

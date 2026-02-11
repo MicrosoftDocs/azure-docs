@@ -227,7 +227,7 @@ You can also use the following tools or platforms to set up signing integrations
 
 - **PowerShell for Authenticode**: To use PowerShell for Artifact Signing, see [Artifact Signing](https://www.powershellgallery.com/packages/TrustedSigning/) in PowerShell Gallery to install the PowerShell module.
 
-- **Azure PowerShell - App Control for Business CI policy**: To use Artifact Signing for code integrity (CI) policy signing, follow the instructions in [Sign a new CI policy](./how-to-sign-ci-policy.md) and see [Az.TrustedSigning PowerShell Module](/powershell/azure/install-azps-windows).
+- **Azure PowerShell - App Control for Business CI policy**: To use Artifact Signing for code integrity (CI) policy signing, follow the instructions in [Sign a new CI policy](./how-to-sign-ci-policy.md) and download the [Az.ArtifactSigning PowerShell Module](https://www.powershellgallery.com/packages/Az.ArtifactSigning).
 
 - **Artifact Signing SDK**: To create your own signing integration, you can use our open-source [Artifact Signing SDK](https://www.nuget.org/packages/Azure.CodeSigning.Sdk). 
 

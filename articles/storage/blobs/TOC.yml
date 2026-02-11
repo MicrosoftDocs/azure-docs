@@ -1327,609 +1327,6 @@ items:
             href: ../common/storage-compliance-offerings.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Data Lake Storage
     items:
-    - name: Data protection
-      href: data-protection-overview.md
-    - name: Soft delete versus versioning
-      href: soft-delete-vs-versioning-options.md
-    - name: Soft delete
-      items:
-      - name: Soft delete for containers
-        href: soft-delete-container-overview.md
-      - name: Enable soft delete for containers
-        href: soft-delete-container-enable.md
-      - name: Soft delete for blobs
-        href: soft-delete-blob-overview.md
-      - name: Enable blob soft delete
-        href: soft-delete-blob-enable.md
-      - name: Manage and restore soft-deleted blobs
-        href: soft-delete-blob-manage.yml
-    - name: Versioning
-      href: versioning-overview.md
-      items:
-      - name: Enable blob versioning
-        href: versioning-enable.md
-    - name: Point-in-time-restore
-      href: point-in-time-restore-overview.md
-      items:
-      - name: Enable point-in-time restore
-        href: point-in-time-restore-manage.md
-    - name: Snapshots
-      href: snapshots-overview.md
-    - name: Immutable storage
-      href: immutable-storage-overview.md
-      items:
-      - name: Container-level policies
-        href: immutable-container-level-worm-policies.md
-      - name: Version-level policies
-        href: immutable-version-level-worm-policies.md
-      - name: Configure container-level policies
-        href: immutable-policy-configure-container-scope.md
-      - name: Configure version-level policies
-        href: immutable-policy-configure-version-scope.md
-  - name: Reliability
-    items:
-    - name: Reliability in Azure Blob Storage
-      href: /azure/reliability/reliability-storage-blob?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Design highly available applications
-      href: ../common/geo-redundant-design.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: 'Tutorial: Design applications for high availability'
-      items:
-      - name: 1 - Make your application highly available
-        href: storage-create-geo-redundant-storage.md
-      - name: 2 - Simulate a failure in reading data from the primary region
-        href: simulate-primary-region-failure.md
-    - name: Data redundancy
-      href: ../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      items:
-      - name: Change redundancy configuration
-        href: ../common/redundancy-migration.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Change redundancy configuration - FAQs
-        href: ../common/storage-redundancy-change-faq.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Geo Priority replication
-        href: ../common/storage-redundancy-priority-replication.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Disaster recovery
-      items:
-      - name: Disaster recovery planning and failover
-        href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: How customer-managed planned failover works
-        href: ../common/storage-failover-customer-managed-planned.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: How customer-managed unplanned failover works
-        href: ../common/storage-failover-customer-managed-unplanned.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Initiate account failover
-        href: ../common/storage-initiate-account-failover.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Failover FAQs
-        href: ../common/storage-failover-faq.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Check the Last Sync Time property
-        href: ../common/last-sync-time-get.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Failover considerations for storage accounts with private endpoints
-        href: ../common/storage-failover-private-endpoints.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-  - name: Performance and scale
-    items:
-    - name: Performance checklist
-      href: storage-performance-checklist.md
-    - name: Optimize data partitions
-      href: storage-performance-blob-partitions.md
-    - name: Latency in Blob storage
-      href: storage-blobs-latency.md
-    - name: Performance and scale targets
-      items:
-      - name: Blob storage
-        href: scalability-targets.md
-      - name: Standard storage accounts
-        href: ../common/scalability-targets-standard-account.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Premium block blob storage accounts
-        href: scalability-targets-premium-block-blobs.md
-      - name: Premium page blob storage accounts
-        href: scalability-targets-premium-page-blobs.md
-      - name: Storage resource provider
-        href: ../common/scalability-targets-resource-provider.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Object replication
-      items:
-      - name: Object replication
-        href: object-replication-overview.md
-      - name: Object replication priority replication
-        href: object-replication-priority-replication.md
-      - name: Configure object replication policies
-        href: object-replication-configure.md
-      - name: Prevent object replication across tenants
-        href: object-replication-prevent-cross-tenant-policies.md
-  - name: Cost management
-    items:
-    - name: Plan and manage costs
-      href: ../common/storage-plan-manage-costs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Find prices
-      items:
-      - name: Azure Blob Storage prices
-        href: https://azure.microsoft.com/pricing/details/storage/blobs/
-      - name: Azure Data Lake Storage prices
-        href: https://azure.microsoft.com/pricing/details/storage/data-lake/
-      - name: Map each REST operation to a price
-        href: map-rest-apis-transaction-categories.md
-    - name: Estimate costs
-      items:
-      - name: Guides 
-        items:
-        - name: Estimate the cost of Azure Blob Storage
-          href: blob-storage-estimate-costs.md
-        - name: Estimate the cost of AzCopy transfers
-          href: azcopy-cost-estimation.md
-        - name: Estimate the cost to archive data
-          href: archive-cost-estimation.md
-      - name: Estimates
-        items:
-        - name: Move out of the archive tier
-          href: cost-estimate-archive-retrieval-set-tier.md
-        - name: Retrieve data from the archive tier
-          href: cost-estimate-archive-retrieval-copy-blob.md
-        - name: Cross region data access
-          href: cost-estimate-multi-region-access.md
-    - name: Optimize costs
-      items:
-      - name: Access tiers
-        href: access-tiers-overview.md
-        items:
-        - name: Best practices
-          href: access-tiers-best-practices.md
-        - name: Smart tiering
-          href: access-tiers-smart.md
-        - name: Change a blob's access tier
-          href: access-tiers-online-manage.md
-        - name: Archive and rehydrate
-          items:
-          - name: Blob rehydration overview
-            href: archive-rehydrate-overview.md
-          - name: Archive blobs
-            href: archive-blob.md
-          - name: Rehydrate blobs
-            href: archive-rehydrate-to-online-tier.md
-          - name: Handle an event on blob rehydration
-            href: archive-rehydrate-handle-event.md
-      - name: Azure Storage reserved capacity
-        href: storage-blob-reserved-capacity.md
-  - name: Monitoring metrics and logs
-    items:
-    - name: Monitor Blob Storage
-      href: monitor-blob-storage.md
-    - name: Best practices for monitoring
-      href: blob-storage-monitoring-scenarios.md
-    - name: Use Storage insights
-      href: ../common/storage-insights-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Transition from classic metrics
-      href: ../common/storage-metrics-migration.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Monitoring (classic)
-      items:
-      - name: Storage Analytics
-        href: ../common/storage-analytics.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Logs
-        href: ../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Enable and manage logs
-        href: ../common/manage-storage-analytics-logs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-  - name: Application development
-    items:
-    - name: Overview
-      href: ../common/storage-srp-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Resource management developer guide
-      items:
-      - name: .NET
-        items:
-        - name: Get started
-          href: ../common/storage-srp-dotnet-get-started.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Manage a storage account
-          href: ../common/storage-srp-manage-account-dotnet.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Data access developer guide
-      items:
-      - name: Blob Storage object model
-        items:
-        - name: Understand how apps interact with Blob Storage data resources
-          href: storage-blob-object-model.md
-        - name: Create and manage client objects
-          href: storage-blob-client-management.md
-        - name: Query for a Blob Storage endpoint
-          href: storage-blob-query-endpoint-srp.md
-      - name: .NET
-        items:
-        - name: Get started
-          href: storage-blob-dotnet-get-started.md
-        - name: Authorize access from your application
-          items:
-          - name: Microsoft Entra ID
-            items:
-            - name: Overview
-              href: /dotnet/azure/sdk/authentication?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Auth using developer service principals
-              href: /dotnet/azure/sdk/authentication-local-development-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Auth using developer accounts
-              href: /dotnet/azure/sdk/authentication-local-development-dev-accounts?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Auth from Azure-hosted apps
-              href: /dotnet/azure/sdk/authentication-azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Auth from on-premises apps
-              href: /dotnet/azure/sdk/authentication-on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Shared access signature (SAS)
-            items:
-            - name: Authorize using a user delegation SAS
-              href: storage-blob-user-delegation-sas-create-dotnet.md
-            - name: Authorize using a service SAS
-              href: sas-service-create-dotnet.md
-            - name: Authorize using an account SAS
-              href: ../common/storage-account-sas-create-dotnet.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Container actions
-          items:
-          - name: Create a container
-            href: storage-blob-container-create.md
-          - name: Delete and restore containers
-            href: storage-blob-container-delete.md
-          - name: List containers
-            href: storage-blob-containers-list.md
-          - name: Manage container leases
-            href: storage-blob-container-lease.md
-          - name: Manage properties and metadata
-            href: storage-blob-container-properties-metadata.md
-        - name: Blob actions
-          items:
-          - name: Upload blobs
-            href: storage-blob-upload.md
-          - name: Download blobs
-            href: storage-blob-download.md
-          - name: Copy blobs
-            items:
-            - name: Overview of copy operations
-              href: storage-blob-copy.md
-            - name: Copy from a source object URL
-              href: storage-blob-copy-url-dotnet.md
-            - name: Copy with asynchronous scheduling
-              href: storage-blob-copy-async-dotnet.md
-          - name: List blobs
-            href: storage-blobs-list.md
-          - name: Delete and restore blobs
-            href: storage-blob-delete.md
-          - name: Find blobs using tags
-            href: storage-blob-tags.md
-          - name: Manage blob properties and metadata
-            href: storage-blob-properties-metadata.md
-          - name: Manage blob leases
-            href: storage-blob-lease.md
-          - name: Create and manage snapshots
-            href: snapshots-manage-dotnet.md
-          - name: Create and list blob versions
-            href: versions-manage-dotnet.md
-          - name: Set or change a blob's access tier
-            href: storage-blob-use-access-tier-dotnet.md
-        - name: Append blob actions
-          items:
-          - name: Append data to an append blob
-            href: storage-blob-append.md
-        - name: Client library configuration options
-          items:
-          - name: Performance tuning for uploads and downloads
-            href: storage-blobs-tune-upload-download.md
-          - name: Implement a retry policy
-            href: storage-retry-policy.md
-          - name: Configure logging
-            href: /dotnet/azure/sdk/logging?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Manage concurrency
-            href: concurrency-manage.md
-          - name: Provide an encryption key on a write request
-            href: storage-blob-customer-provided-key.md
-        - name: 'Tutorial: Upload and process image files'
-          href: blob-upload-function-trigger.md
-      - name: Java
-        items:
-        - name: Get started
-          href: storage-blob-java-get-started.md
-        - name: Authorize access from your application
-          items:
-          - name: Microsoft Entra ID
-            items:
-            - name: Overview
-              href: /azure/developer/java/sdk/identity?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Auth in development environments
-              href: /azure/developer/java/sdk/identity-dev-env-auth?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Auth with user credentials
-              href: /azure/developer/java/sdk/identity-user-auth?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Auth with service principals
-              href: /azure/developer/java/sdk/identity-service-principal-auth?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Auth in Azure hosted applications
-              href: /azure/developer/java/sdk/identity-azure-hosted-auth?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Shared access signature (SAS)
-            items:
-            - name: Authorize using a user delegation SAS
-              href: storage-blob-user-delegation-sas-create-java.md
-            - name: Authorize using a service SAS
-              href: sas-service-create-java.md
-            - name: Authorize using an account SAS
-              href: ../common/storage-account-sas-create-java.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Container actions
-          items:
-          - name: Create a container
-            href: storage-blob-container-create-java.md
-          - name: Delete and restore containers
-            href: storage-blob-container-delete-java.md
-          - name: List containers
-            href: storage-blob-containers-list-java.md
-          - name: Manage container leases
-            href: storage-blob-container-lease-java.md
-          - name: Manage properties and metadata
-            href: storage-blob-container-properties-metadata-java.md
-        - name: Blob actions
-          items:
-          - name: Upload blobs
-            href: storage-blob-upload-java.md
-          - name: Download blobs
-            href: storage-blob-download-java.md
-          - name: Copy blobs
-            items:
-            - name: Overview of copy operations
-              href: storage-blob-copy-java.md
-            - name: Copy from a source object URL
-              href: storage-blob-copy-url-java.md
-            - name: Copy with asynchronous scheduling
-              href: storage-blob-copy-async-java.md
-          - name: List blobs
-            href: storage-blobs-list-java.md
-          - name: Delete and restore blobs
-            href: storage-blob-delete-java.md
-          - name: Find blobs using tags
-            href: storage-blob-tags-java.md
-          - name: Manage blob leases
-            href: storage-blob-lease-java.md
-          - name: Manage blob properties and metadata
-            href: storage-blob-properties-metadata-java.md
-          - name: Set or change a blob's access tier
-            href: storage-blob-use-access-tier-java.md
-        - name: Client library configuration options
-          items:
-          - name: Performance tuning for uploads and downloads
-            href: storage-blobs-tune-upload-download-java.md
-          - name: Implement a retry policy
-            href: storage-retry-policy-java.md
-          - name: Configure logging
-            href: /azure/developer/java/sdk/logging-overview?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: JavaScript
-        items:
-        - name: Get started
-          href: storage-blob-javascript-get-started.md
-        - name: Authorize access from your application
-          items:
-          - name: Microsoft Entra ID
-            items:
-            - name: Overview
-              href: /azure/developer/javascript/sdk/authentication/overview?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Auth using developer service principals
-              href: /azure/developer/javascript/sdk/authentication/local-development-environment-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Auth using developer accounts
-              href: /azure/developer/javascript/sdk/authentication/local-development-environment-developer-account?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Auth from Azure-hosted apps
-              href: /azure/developer/javascript/sdk/authentication/azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Auth from on-premises apps
-              href: /azure/developer/javascript/sdk/authentication/on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Work with SAS tokens
-            items:
-            - name: User delegation SAS
-              href: storage-blob-create-user-delegation-sas-javascript.md
-            - name: Service SAS
-              href: sas-service-create-javascript.md
-            - name: Account SAS
-              href: storage-blob-account-delegation-sas-create-javascript.md
-        - name: Container actions
-          items:
-          - name: Create a container
-            href: storage-blob-container-create-javascript.md
-          - name: Get container URL
-            href: storage-blob-get-url-javascript.md
-          - name: Delete and restore containers
-            href: storage-blob-container-delete-javascript.md
-          - name: List containers
-            href: storage-blob-containers-list-javascript.md
-          - name: Manage container leases
-            href: storage-blob-container-lease-javascript.md
-          - name: Manage properties and metadata
-            href: storage-blob-container-properties-metadata-javascript.md
-        - name: Blob actions
-          items:
-          - name: Upload blobs
-            href: storage-blob-upload-javascript.md
-          - name: Download blobs
-            href: storage-blob-download-javascript.md
-          - name: Copy blobs
-            items:
-            - name: Overview of copy operations
-              href: storage-blob-copy-javascript.md
-            - name: Copy from a source object URL
-              href: storage-blob-copy-url-javascript.md
-            - name: Copy with asynchronous scheduling
-              href: storage-blob-copy-async-javascript.md
-          - name: List blobs
-            href: storage-blobs-list-javascript.md
-          - name: Delete and restore blobs
-            href: storage-blob-delete-javascript.md
-          - name: Find blobs using tags
-            href: storage-blob-tags-javascript.md
-          - name: Manage blob leases
-            href: storage-blob-lease-javascript.md
-          - name: Manage blob properties and metadata
-            href: storage-blob-properties-metadata-javascript.md
-          - name: Get blob URL
-            href: storage-blob-get-url-javascript.md
-          - name: Set or change a blob's access tier
-            href: storage-blob-use-access-tier-javascript.md
-        - name: Client library configuration options
-          items:
-          - name: Performance tuning for uploads and downloads
-            href: storage-blobs-tune-upload-download-javascript.md
-          - name: Implement a retry policy
-            href: storage-retry-policy-javascript.md
-      - name: Python
-        items:
-        - name: Get started
-          href: storage-blob-python-get-started.md
-        - name: Authorize access from your application
-          items:
-          - name: Microsoft Entra ID
-            items:
-            - name: Overview
-              href: /azure/developer/python/sdk/authentication-overview?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Auth using developer service principals
-              href: /azure/developer/python/sdk/authentication-local-development-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Auth using developer accounts
-              href: /azure/developer/python/sdk/authentication-local-development-dev-accounts?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Auth from Azure-hosted apps
-              href: /azure/developer/python/sdk/authentication-azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Auth from on-premises apps
-              href: /azure/developer/python/sdk/authentication-on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Shared access signature (SAS)
-            items:
-            - name: Authorize using a user delegation SAS
-              href: storage-blob-user-delegation-sas-create-python.md
-            - name: Authorize using a service SAS
-              href: sas-service-create-python.md
-            - name: Authorize using an account SAS
-              href: ../common/storage-account-sas-create-python.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Container actions
-          items:
-          - name: Create a container
-            href: storage-blob-container-create-python.md
-          - name: Delete and restore containers
-            href: storage-blob-container-delete-python.md
-          - name: List containers
-            href: storage-blob-containers-list-python.md
-          - name: Manage container leases
-            href: storage-blob-container-lease-python.md
-          - name: Manage properties and metadata
-            href: storage-blob-container-properties-metadata-python.md
-        - name: Blob actions
-          items:
-          - name: Upload blobs
-            href: storage-blob-upload-python.md
-          - name: Download blobs
-            href: storage-blob-download-python.md
-          - name: Copy blobs
-            items:
-            - name: Overview of copy operations
-              href: storage-blob-copy-python.md
-            - name: Copy from a source object URL
-              href: storage-blob-copy-url-python.md
-            - name: Copy with asynchronous scheduling
-              href: storage-blob-copy-async-python.md
-          - name: List blobs
-            href: storage-blobs-list-python.md
-          - name: Delete and restore blobs
-            href: storage-blob-delete-python.md
-          - name: Find blobs using tags
-            href: storage-blob-tags-python.md
-          - name: Manage blob leases
-            href: storage-blob-lease-python.md
-          - name: Manage blob properties and metadata
-            href: storage-blob-properties-metadata-python.md
-          - name: Set or change a blob's access tier
-            href: storage-blob-use-access-tier-python.md
-        - name: Client library configuration options
-          items:
-          - name: Performance tuning for uploads and downloads
-            href: storage-blobs-tune-upload-download-python.md
-          - name: Implement a retry policy
-            href: storage-retry-policy-python.md
-          - name: Configure logging
-            href: /azure/developer/python/sdk/azure-sdk-logging?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Go
-        items:
-        - name: Get started
-          href: storage-blob-go-get-started.md
-        - name: Authorize access from your application
-          items:
-          - name: Microsoft Entra ID
-            items:
-            - name: Authentication in development environments
-              href: /azure/developer/go/azure-sdk-authentication?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Authentication in Azure-hosted apps
-              href: /azure/developer/go/azure-sdk-authentication-managed-identity?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Authentication with a service principal
-              href: /azure/developer/go/azure-sdk-authentication-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Container actions
-          items:
-          - name: Create a container
-            href: storage-blob-container-create-go.md
-          - name: Delete and restore containers
-            href: storage-blob-container-delete-go.md
-          - name: List containers
-            href: storage-blob-containers-list-go.md
-          - name: Manage properties and metadata
-            href: storage-blob-container-properties-metadata-go.md
-        - name: Blob actions
-          items:
-          - name: Upload blobs
-            href: storage-blob-upload-go.md
-          - name: Download blobs
-            href: storage-blob-download-go.md
-          - name: Copy blobs
-            items:
-            - name: Overview of copy operations
-              href: storage-blob-copy-go.md
-            - name: Copy from a source object URL
-              href: storage-blob-copy-url-go.md
-            - name: Copy with asynchronous scheduling
-              href: storage-blob-copy-async-go.md
-          - name: List blobs
-            href: storage-blobs-list-go.md
-          - name: Delete and restore blobs
-            href: storage-blob-delete-go.md
-          - name: Find blobs using tags
-            href: storage-blob-tags-go.md
-          - name: Manage blob properties and metadata
-            href: storage-blob-properties-metadata-go.md
-        - name: Client library configuration options
-          items:
-          - name: Performance tuning for uploads and downloads
-            href: storage-blobs-tune-upload-download-go.md
-          - name: Implement a retry policy
-            href: storage-retry-policy-go.md
-    - name: Test with a storage emulator
-      items:
-      - name: Use the Azurite open-source emulator
-        items:
-        - name: About Azurite
-          href: ../common/storage-use-azurite.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Install and run Azurite
-          href: ../common/storage-install-azurite.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Connect to Azurite with SDKs and tools
-          href: ../common/storage-connect-azurite.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Use Azurite to run automated tests
-          href: use-azurite-to-run-automated-tests.md
-      - name: Use the Azure Storage emulator (deprecated)
-        href: ../common/storage-use-emulator.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Change feed and events
-      items:
-      - name: Change feed
-        href: storage-blob-change-feed.md
-      - name: Process change feed logs
-        href: storage-blob-change-feed-how-to.md
-      - name: Event handling
-        href: storage-blob-event-overview.md
-      - name: Route events to a custom endpoint
-        href: storage-blob-event-quickstart.md
-    - name: Data Movement library (.NET)
-      href: ../common/storage-use-data-movement-library.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Performance checklist for developers
-      href: storage-performance-checklist-developers.md
-  - name: Troubleshooting
-    href: /troubleshoot/azure/azure-storage/welcome-azure-storage?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-  - name: Samples
-    items:
-    - name: .NET
-      href: ../common/storage-samples-dotnet.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Java
-      href: ../common/storage-samples-java.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Spring
-      href: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.3.0/storage/spring-cloud-azure-starter-storage-blob/storage-blob-sample
-    - name: Python
-      href: ../common/storage-samples-python.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: JavaScript
-      href: ../common/storage-samples-javascript.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: C++
-      href: ../common/storage-samples-c-plus-plus.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Other languages
-      href: ../common/storage-samples.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Azure PowerShell
-      items:
       - name: Overview
         items:
           - name: Introduction to Data Lake Storage
@@ -2095,221 +1492,221 @@ items:
             href: data-lake-storage-events.md
           - name: Use with other Azure services
             href: data-lake-storage-integrate-with-services-tutorials.md
-  - name: Reference
-    items:
-      - name: Blob Storage APIs
+      - name: Reference
         items:
-          - name: APIs for data access
+          - name: Blob Storage APIs
             items:
-              - name: REST API
-                href: /rest/api/storageservices/blob-service-rest-api
-              - name: .NET SDK
-                href: /dotnet/api/overview/azure/storage
-              - name: Java SDK
-                href: /java/api/overview/azure/storage
-              - name: Python SDK
-                href: /python/api/overview/azure/storage
-              - name: JavaScript SDK
-                href: /javascript/api/overview/azure/storage
-          - name: APIs for resource management
+              - name: APIs for data access
+                items:
+                  - name: REST API
+                    href: /rest/api/storageservices/blob-service-rest-api
+                  - name: .NET SDK
+                    href: /dotnet/api/overview/azure/storage
+                  - name: Java SDK
+                    href: /java/api/overview/azure/storage
+                  - name: Python SDK
+                    href: /python/api/overview/azure/storage
+                  - name: JavaScript SDK
+                    href: /javascript/api/overview/azure/storage
+              - name: APIs for resource management
+                items:
+                  - name: REST API
+                    href: /rest/api/storagerp/
+                  - name: .NET SDK
+                    href: /dotnet/api/overview/azure/resourcemanager.storage-readme
+                  - name: Java SDK
+                    href: /java/api/overview/azure/storage/management
+                  - name: Python SDK
+                    href: /python/api/overview/azure/storage#management
+                  - name: JavaScript SDK
+                    href: /javascript/api/overview/azure/storage#management
+              - name: Spring Cloud Azure
+                href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json#resource-handing
+          - name: Data Lake Storage Gen2 APIs
             items:
-              - name: REST API
-                href: /rest/api/storagerp/
-              - name: .NET SDK
-                href: /dotnet/api/overview/azure/resourcemanager.storage-readme
-              - name: Java SDK
-                href: /java/api/overview/azure/storage/management
-              - name: Python SDK
-                href: /python/api/overview/azure/storage#management
-              - name: JavaScript SDK
-                href: /javascript/api/overview/azure/storage#management
-          - name: Spring Cloud Azure
-            href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json#resource-handing
-      - name: Data Lake Storage Gen2 APIs
-        items:
-          - name: REST
-            href: /rest/api/storageservices/data-lake-storage-gen2
-          - name: .NET
-            href: /dotnet/api/azure.storage.files.datalake
-          - name: Java
-            href: /java/api/overview/azure/storage-file-datalake-readme
-          - name: Python
-            href: /python/api/overview/azure/storage-file-datalake-readme
-          - name: JavaScript
-            href: /javascript/api/overview/azure/storage-file-datalake-readme
-          - name: C++
-            href: https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-files-datalake
-      - name: Query acceleration reference
-        href: query-acceleration-sql-reference.md
-      - name: AzCopy v10
-        items:
-          - name: Command reference
-            href: https://github.com/Azure/azure-storage-azcopy/wiki/azcopy
-          - name: Configuration settings
-            href: ../common/storage-ref-azcopy-configuration-settings.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Error codes
-            href: ../common/storage-ref-azcopy-error-codes.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: BlobFuse2
-        items:
-          - name: Configure settings
-            href: blobfuse2-configuration.md?toc=/azure/storage/blobs/toc.json
-          - name: Commands
+              - name: REST
+                href: /rest/api/storageservices/data-lake-storage-gen2
+              - name: .NET
+                href: /dotnet/api/azure.storage.files.datalake
+              - name: Java
+                href: /java/api/overview/azure/storage-file-datalake-readme
+              - name: Python
+                href: /python/api/overview/azure/storage-file-datalake-readme
+              - name: JavaScript
+                href: /javascript/api/overview/azure/storage-file-datalake-readme
+              - name: C++
+                href: https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-files-datalake
+          - name: Query acceleration reference
+            href: query-acceleration-sql-reference.md
+          - name: AzCopy v10
             items:
-              - name: The BlobFuse2 command set
-                href: blobfuse2-commands.md
-              - name: BlobFuse2 mount
-                href: blobfuse2-commands-mount.md?toc=/azure/storage/blobs/toc.json
-                items:
-                  - name: BlobFuse2 mount all
-                    href: blobfuse2-commands-mount-all.md?toc=/azure/storage/blobs/toc.json
-                  - name: BlobFuse2 mount list
-                    href: blobfuse2-commands-mount-list.md?toc=/azure/storage/blobs/toc.json
-              - name: BlobFuse2 mountv1
-                href: blobfuse2-commands-mountv1.md?toc=/azure/storage/blobs/toc.json
-              - name: BlobFuse2 unmount
-                href: blobfuse2-commands-unmount.md?toc=/azure/storage/blobs/toc.json
-                items:
-                  - name: BlobFuse2 unmount all
-                    href: blobfuse2-commands-unmount-all.md?toc=/azure/storage/blobs/toc.json
-              - name: BlobFuse2 completion
-                href: blobfuse2-commands-completion.md?toc=/azure/storage/blobs/toc.json
-                items:
-                  - name: BlobFuse2 completion bash
-                    href: blobfuse2-commands-completion-bash.md?toc=/azure/storage/blobs/toc.json
-                  - name: BlobFuse2 completion fish
-                    href: blobfuse2-commands-completion-fish.md?toc=/azure/storage/blobs/toc.json
-                  - name: BlobFuse2 completion PowerShell
-                    href: blobfuse2-commands-completion-powershell.md?toc=/azure/storage/blobs/toc.json
-                  - name: BlobFuse2 completion zsh
-                    href: blobfuse2-commands-completion-zsh.md?toc=/azure/storage/blobs/toc.json
-              - name: BlobFuse2 secure
-                href: blobfuse2-commands-secure.md?toc=/azure/storage/blobs/toc.json
-                items:
-                  - name: BlobFuse2 secure encrypt
-                    href: blobfuse2-commands-secure-encrypt.md?toc=/azure/storage/blobs/toc.json
-                  - name: BlobFuse2 secure decrypt
-                    href: blobfuse2-commands-secure-decrypt.md?toc=/azure/storage/blobs/toc.json
-                  - name: BlobFuse2 secure get
-                    href: blobfuse2-commands-secure-get.md?toc=/azure/storage/blobs/toc.json
-                  - name: BlobFuse2 secure set
-                    href: blobfuse2-commands-secure-set.md?toc=/azure/storage/blobs/toc.json
-              - name: BlobFuse2 version
-                href: blobfuse2-commands-version.md?toc=/azure/storage/blobs/toc.json
-              - name: BlobFuse2 help
-                href: blobfuse2-commands-help.md?toc=/azure/storage/blobs/toc.json
-      - name: Resource Manager template
-        href: /azure/templates/microsoft.storage/allversions
-        displayName: ARM
-      - name: Monitoring data
-        href: monitor-blob-storage-reference.md
-      - name: Host keys (SFTP) support
-        href: secure-file-transfer-protocol-host-keys.md
-      - name: Azure Policy built-ins
-        href: ../common/policy-reference.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        displayName: samples, policies, definitions
-  - name: Resources
-    items:
-      - name: FAQ
-        href: storage-blob-faq.yml
-      - name: Azure updates
-        href: https://azure.microsoft.com/updates/?product=storage
-      - name: Azure Storage Explorer
-        items:
-          - name: Download Storage Explorer
-            href: https://azure.microsoft.com/features/storage-explorer/
-          - name: Get started with Storage Explorer
-            href: ../storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Sign in to Storage Explorer
-            href: ../common/storage-explorer-sign-in.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Storage Explorer networking
-            href: ../common/storage-explorer-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Storage Explorer release notes
-            href: https://github.com/microsoft/AzureStorageExplorer/releases
-          - name: Troubleshoot Storage Explorer
-            href: /troubleshoot/azure/azure-storage/storage-explorer-troubleshooting?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Connect an emulator to Storage Explorer
-            href: ../common/storage-explorer-emulators.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Storage Explorer command line options
-            href: ../common/storage-explorer-command-line-options.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Storage Explorer direct link
-            href: ../common/storage-explorer-direct-link.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Storage Explorer security
-            href: ../common/storage-explorer-security.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Storage Explorer soft delete
-            href: ../common/storage-explorer-soft-delete.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Storage Explorer blob versioning
-            href: ../common/storage-explorer-blob-versioning.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Storage Explorer manage Azure Blob Storage
-            href: ../storage-explorer/vs-azure-tools-storage-explorer-blobs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Storage Explorer create file shares
-            href: ../storage-explorer/vs-azure-tools-storage-explorer-files.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Storage Explorer support policy and lifecycle
-            href: ../common/storage-explorer-support-policy-lifecycle.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Storage Explorer accessibility
-            href: ../storage-explorer/vs-azure-tools-storage-explorer-accessibility.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Blob Storage on Microsoft Q&A
-        href: /answers/topics/azure-blob-storage.html
-      - name: Blob Storage on Stack Overflow
-        href: https://stackoverflow.com/questions/tagged/azure-blob-storage
-      - name: Pricing for block blobs
-        href: https://azure.microsoft.com/pricing/details/storage/blobs/
-      - name: Pricing for data lake storage
-        href: https://azure.microsoft.com/pricing/details/storage/data-lake/
-      - name: Pricing for page blobs
-        href: https://azure.microsoft.com/pricing/details/storage/page-blobs/
-      - name: Azure pricing calculator
-        href: https://azure.microsoft.com/pricing/calculator/
-      - name: Videos
-        href: /shows/data-exposed/?products=azure-blob-storage
-      - name: Compare access with NFS to Azure Blob Storage, Azure Files, and Azure NetApp Files
-        href: ../common/nfs-comparison.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: NuGet packages (.NET)
-        items:
-          - name: Microsoft.Azure.Storage.Common (version 11.x)
-            href: https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/
-          - name: Azure.Storage.Common (version 12.x)
-            href: https://www.nuget.org/packages/Azure.Storage.Common/
-          - name: Microsoft.Azure.Storage.Blob (version 11.x)
-            href: https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/
-          - name: Azure.Storage.Blob (version 12.x)
-            href: https://www.nuget.org/packages/Azure.Storage.Blobs/
-          - name: Azure Configuration Manager
-            href: https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/
-          - name: Azure Storage Data Movement library
-            href: https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/
-          - name: Storage Resource Provider library
-            href: https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/
-      - name: Source code
-        items:
-          - name: .NET
+              - name: Command reference
+                href: https://github.com/Azure/azure-storage-azcopy/wiki/azcopy
+              - name: Configuration settings
+                href: ../common/storage-ref-azcopy-configuration-settings.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Error codes
+                href: ../common/storage-ref-azcopy-error-codes.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: BlobFuse2
             items:
-              - name: Azure Storage client library
+              - name: Configure settings
+                href: blobfuse2-configuration.md?toc=/azure/storage/blobs/toc.json
+              - name: Commands
                 items:
-                  - name: Version 12.x
-                    href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage
-                  - name: Version 11.x and earlier
-                    href: https://github.com/Azure/azure-storage-net
-              - name: Data Movement library
-                href: https://github.com/Azure/azure-storage-net-data-movement
+                  - name: The BlobFuse2 command set
+                    href: blobfuse2-commands.md
+                  - name: BlobFuse2 mount
+                    href: blobfuse2-commands-mount.md?toc=/azure/storage/blobs/toc.json
+                    items:
+                      - name: BlobFuse2 mount all
+                        href: blobfuse2-commands-mount-all.md?toc=/azure/storage/blobs/toc.json
+                      - name: BlobFuse2 mount list
+                        href: blobfuse2-commands-mount-list.md?toc=/azure/storage/blobs/toc.json
+                  - name: BlobFuse2 mountv1
+                    href: blobfuse2-commands-mountv1.md?toc=/azure/storage/blobs/toc.json
+                  - name: BlobFuse2 unmount
+                    href: blobfuse2-commands-unmount.md?toc=/azure/storage/blobs/toc.json
+                    items:
+                      - name: BlobFuse2 unmount all
+                        href: blobfuse2-commands-unmount-all.md?toc=/azure/storage/blobs/toc.json
+                  - name: BlobFuse2 completion
+                    href: blobfuse2-commands-completion.md?toc=/azure/storage/blobs/toc.json
+                    items:
+                      - name: BlobFuse2 completion bash
+                        href: blobfuse2-commands-completion-bash.md?toc=/azure/storage/blobs/toc.json
+                      - name: BlobFuse2 completion fish
+                        href: blobfuse2-commands-completion-fish.md?toc=/azure/storage/blobs/toc.json
+                      - name: BlobFuse2 completion PowerShell
+                        href: blobfuse2-commands-completion-powershell.md?toc=/azure/storage/blobs/toc.json
+                      - name: BlobFuse2 completion zsh
+                        href: blobfuse2-commands-completion-zsh.md?toc=/azure/storage/blobs/toc.json
+                  - name: BlobFuse2 secure
+                    href: blobfuse2-commands-secure.md?toc=/azure/storage/blobs/toc.json
+                    items:
+                      - name: BlobFuse2 secure encrypt
+                        href: blobfuse2-commands-secure-encrypt.md?toc=/azure/storage/blobs/toc.json
+                      - name: BlobFuse2 secure decrypt
+                        href: blobfuse2-commands-secure-decrypt.md?toc=/azure/storage/blobs/toc.json
+                      - name: BlobFuse2 secure get
+                        href: blobfuse2-commands-secure-get.md?toc=/azure/storage/blobs/toc.json
+                      - name: BlobFuse2 secure set
+                        href: blobfuse2-commands-secure-set.md?toc=/azure/storage/blobs/toc.json
+                  - name: BlobFuse2 version
+                    href: blobfuse2-commands-version.md?toc=/azure/storage/blobs/toc.json
+                  - name: BlobFuse2 help
+                    href: blobfuse2-commands-help.md?toc=/azure/storage/blobs/toc.json
+          - name: Resource Manager template
+            href: /azure/templates/microsoft.storage/allversions
+            displayName: ARM
+          - name: Monitoring data
+            href: monitor-blob-storage-reference.md
+          - name: Host keys (SFTP) support
+            href: secure-file-transfer-protocol-host-keys.md
+          - name: Azure Policy built-ins
+            href: ../common/policy-reference.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+            displayName: samples, policies, definitions
+      - name: Resources
+        items:
+          - name: FAQ
+            href: storage-blob-faq.yml
+          - name: Azure updates
+            href: https://azure.microsoft.com/updates/?product=storage
+          - name: Azure Storage Explorer
+            items:
+              - name: Download Storage Explorer
+                href: https://azure.microsoft.com/features/storage-explorer/
+              - name: Get started with Storage Explorer
+                href: ../storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Sign in to Storage Explorer
+                href: ../common/storage-explorer-sign-in.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Storage Explorer networking
+                href: ../common/storage-explorer-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Storage Explorer release notes
+                href: https://github.com/microsoft/AzureStorageExplorer/releases
+              - name: Troubleshoot Storage Explorer
+                href: /troubleshoot/azure/azure-storage/storage-explorer-troubleshooting?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Connect an emulator to Storage Explorer
+                href: ../common/storage-explorer-emulators.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Storage Explorer command line options
+                href: ../common/storage-explorer-command-line-options.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Storage Explorer direct link
+                href: ../common/storage-explorer-direct-link.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Storage Explorer security
+                href: ../common/storage-explorer-security.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Storage Explorer soft delete
+                href: ../common/storage-explorer-soft-delete.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Storage Explorer blob versioning
+                href: ../common/storage-explorer-blob-versioning.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Storage Explorer manage Azure Blob Storage
+                href: ../storage-explorer/vs-azure-tools-storage-explorer-blobs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Storage Explorer create file shares
+                href: ../storage-explorer/vs-azure-tools-storage-explorer-files.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Storage Explorer support policy and lifecycle
+                href: ../common/storage-explorer-support-policy-lifecycle.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Storage Explorer accessibility
+                href: ../storage-explorer/vs-azure-tools-storage-explorer-accessibility.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Blob Storage on Microsoft Q&A
+            href: /answers/topics/azure-blob-storage.html
+          - name: Blob Storage on Stack Overflow
+            href: https://stackoverflow.com/questions/tagged/azure-blob-storage
+          - name: Pricing for block blobs
+            href: https://azure.microsoft.com/pricing/details/storage/blobs/
+          - name: Pricing for data lake storage
+            href: https://azure.microsoft.com/pricing/details/storage/data-lake/
+          - name: Pricing for page blobs
+            href: https://azure.microsoft.com/pricing/details/storage/page-blobs/
+          - name: Azure pricing calculator
+            href: https://azure.microsoft.com/pricing/calculator/
+          - name: Videos
+            href: /shows/data-exposed/?products=azure-blob-storage
+          - name: Compare access with NFS to Azure Blob Storage, Azure Files, and Azure NetApp Files
+            href: ../common/nfs-comparison.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: NuGet packages (.NET)
+            items:
+              - name: Microsoft.Azure.Storage.Common (version 11.x)
+                href: https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/
+              - name: Azure.Storage.Common (version 12.x)
+                href: https://www.nuget.org/packages/Azure.Storage.Common/
+              - name: Microsoft.Azure.Storage.Blob (version 11.x)
+                href: https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/
+              - name: Azure.Storage.Blob (version 12.x)
+                href: https://www.nuget.org/packages/Azure.Storage.Blobs/
+              - name: Azure Configuration Manager
+                href: https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/
+              - name: Azure Storage Data Movement library
+                href: https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/
               - name: Storage Resource Provider library
-                href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.ResourceManager.Storage
-          - name: Java
+                href: https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/
+          - name: Source code
             items:
-              - name: Azure Storage client library version 12.x
-                href: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage
-              - name: Azure Storage client library version 8.x and earlier
-                href: https://github.com/Azure/azure-storage-java
-          - name: Node.js
-            items:
-              - name: Azure Storage client library version 12.x
-                href: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage
-              - name: Azure Storage client library version 10.x
-                href: https://github.com/Azure/azure-storage-node
-          - name: Python
-            items:
-              - name: Azure Storage client library version 12.x
-                href: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage
-              - name: Azure Storage client library version 2.1
-                href: https://github.com/Azure/azure-storage-python
-      - name: Compliance offerings
-        href: ../common/storage-compliance-offerings.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: .NET
+                items:
+                  - name: Azure Storage client library
+                    items:
+                      - name: Version 12.x
+                        href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage
+                      - name: Version 11.x and earlier
+                        href: https://github.com/Azure/azure-storage-net
+                  - name: Data Movement library
+                    href: https://github.com/Azure/azure-storage-net-data-movement
+                  - name: Storage Resource Provider library
+                    href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.ResourceManager.Storage
+              - name: Java
+                items:
+                  - name: Azure Storage client library version 12.x
+                    href: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage
+                  - name: Azure Storage client library version 8.x and earlier
+                    href: https://github.com/Azure/azure-storage-java
+              - name: Node.js
+                items:
+                  - name: Azure Storage client library version 12.x
+                    href: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage
+                  - name: Azure Storage client library version 10.x
+                    href: https://github.com/Azure/azure-storage-node
+              - name: Python
+                items:
+                  - name: Azure Storage client library version 12.x
+                    href: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage
+                  - name: Azure Storage client library version 2.1
+                    href: https://github.com/Azure/azure-storage-python
+          - name: Compliance offerings
+            href: ../common/storage-compliance-offerings.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json

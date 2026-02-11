@@ -29,7 +29,7 @@ For more information about how enterprise customers and Pay-As-You-Go customers 
 
 The size of reservation should be based on the total amount of compute used by the existing or soon-to-be-deployed data flows using the same compute tier.
 
-For example, let's suppose that you are executing a pipeline hourly using memory optimized with 32 cores. Further, let's supposed that you plan to deploy within the next month an additional pipeline that uses general purpose 64 cores. Also, let's suppose that you know that you will need these resources for at least 1 year. In this case, enter the number of cores needed for each compute type for 1 hour. In the Azure Portal, search for Reservations. Choose Data Factory > Data Flows, then enter 32 for memory optimized and 64 for general purpose.
+For example, let's suppose that you are executing a pipeline hourly using memory optimized with 32 cores. Further, let's supposed that you plan to deploy within the next month an additional pipeline that uses general purpose 64 cores. Also, let's suppose that you know that you will need these resources for at least 1 year. In this case, enter the number of cores needed for each compute type for 1 hour. In the Azure portal, search for Reservations. Choose Data Factory > Data Flows, then enter 32 for memory optimized and 64 for general purpose.
 
 ## Buy reserved capacity
 

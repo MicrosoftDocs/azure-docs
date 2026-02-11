@@ -75,7 +75,7 @@ WebPubSubServiceClient webPubSubServiceClient = new WebPubSubServiceClientBuilde
 ```java
 WebPubSubServiceClient webPubSubServiceClient = new WebPubSubServiceClientBuilder()
     .credential(new AzureKeyCredential("{access-key}"))
-    .endpoint("<Insert endpoint from Azure Portal>")
+    .endpoint("<Insert endpoint from Azure portal>")
     .hub("chat")
     .buildClient();
 ```

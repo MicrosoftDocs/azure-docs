@@ -57,7 +57,7 @@
       href: documentation-government-developer-guide.md
     - name: Azure Storage
       href: documentation-government-get-started-connect-to-storage.md
-    - name: Azure AI services
+    - name: Foundry Tools
       href: documentation-government-cognitiveservices.md
     - name: Integrate Microsoft Entra authentication
       href: documentation-government-aad-auth-qs.md

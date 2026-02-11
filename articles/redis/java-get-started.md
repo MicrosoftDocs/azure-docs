@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Use Azure Cache for Redis in Java"
-description: In this quickstart, you create a new Java app that uses Azure Cache for Redis
+title: "Quickstart: Use Azure Managed Redis in Java"
+description: In this quickstart, you create a new Java app that uses Azure Managed Redis
 author: KarlErickson
 ms.author: karler
 ms.reviewer: zhihaoguo
@@ -21,9 +21,9 @@ ms.devlang: java
 zone_pivot_groups: redis-type
 ---
 
-# Quickstart: Use Azure Cache for Redis in Java with Jedis Redis client
+# Quickstart: Use Azure Managed Redis in Java with Jedis Redis client
 
-In this quickstart, you incorporate Azure Cache for Redis into a Java app using the [Jedis](https://github.com/xetorthio/jedis) Redis client. Your cache is a secure, dedicated cache that is accessible from any application within Azure.
+In this quickstart, you incorporate Azure Managed Redis into a Java app using the [Jedis](https://github.com/xetorthio/jedis) Redis client. Your cache is a secure, dedicated cache that is accessible from any application within Azure.
 
 ## Skip to the code on GitHub
 
@@ -76,7 +76,7 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 
 
     > [!NOTE]
-    > Microsoft has entered into a partnership with Redis, Inc. As part of this collaboration, Microsoft Entra ID authentication support has been moved from Azure SDK to Redis Entra ID extensions. The new `redis-authx-entraid` library provides enhanced authentication capabilities and is the recommended approach for Microsoft Entra ID authentication with Azure Cache for Redis.
+    > Microsoft has entered into a partnership with Redis, Inc. As part of this collaboration, Microsoft Entra ID authentication support has been moved from Azure SDK to Redis Entra ID extensions. The new `redis-authx-entraid` library provides enhanced authentication capabilities and is the recommended approach for Microsoft Entra ID authentication with Azure Managed Redis.
 
     ```xml
     <dependency>
@@ -122,7 +122,7 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
         {
             String REDIS_CACHE_HOSTNAME = System.getenv("REDIS_CACHE_HOSTNAME");
             int REDIS_PORT = Integer.parseInt(System.getenv().getOrDefault("REDIS_CACHE_PORT", "10000"));
-            String SCOPES = "https://redis.azure.com/.default"; // The scope for Azure Cache for Redis
+            String SCOPES = "https://redis.azure.com/.default"; // The scope for Azure Managed Redis
 
             // Build TokenAuthConfig for Microsoft Entra ID authentication
             TokenAuthConfig tokenAuthConfig = AzureTokenAuthConfigBuilder.builder()
@@ -165,7 +165,7 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 
     ---
 
-    This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` commands are also executed.
+    This code shows you how to connect to an Azure Managed Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` commands are also executed.
 
 1. Close the **App.java** file.
 
@@ -198,9 +198,9 @@ Cache Response : Hello! The cache is working from Java!
 
 ## Next steps
 
-In this quickstart, you learned how to use Azure Cache for Redis from a Java application. Continue to the next quickstart to use Azure Cache for Redis with an ASP.NET web app.
+In this quickstart, you learned how to use Azure Managed Redis from a Java application. 
 
 - [Development](best-practices-development.md)
 - [Connection resilience](best-practices-connection.md)
-- [Azure Cache for Redis with Jakarta EE](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache)
-- [Azure Cache for Redis with Spring](/azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache)
+- [Using Azure Redis as session cache for WebSphere Liberty or Open Liberty](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache)
+- [Use Azure Redis Cache in Spring](/azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache)

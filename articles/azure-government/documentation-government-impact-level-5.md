@@ -72,59 +72,59 @@ For AI and machine learning services availability in Azure Government, see [Prod
 
 <a name='cognitive-services-content-moderator'></a>
 
-### [Azure AI services: Content Moderator](/azure/ai-services/content-moderator/)
+### [Foundry Tools: Content Moderator](/azure/ai-services/content-moderator/)
 
 - Configure encryption at rest of content in the Content Moderator service by [using customer-managed keys in Azure Key Vault](/azure/ai-services/content-moderator/encrypt-data-at-rest#customer-managed-keys-with-azure-key-vault).
 
 <a name='cognitive-services-custom-vision'></a>
 
-### [Azure AI services: Custom Vision](/azure/ai-services/custom-vision-service/)
+### [Foundry Tools: Custom Vision](/azure/ai-services/custom-vision-service/)
 
 - Configure encryption at rest of content in Azure AI Custom Vision [using customer-managed keys in Azure Key Vault](/azure/ai-services/custom-vision-service/encrypt-data-at-rest#customer-managed-keys-with-azure-key-vault).
 
 <a name='cognitive-services-face'></a>
 
-### [Azure AI services: Face](/azure/ai-services/computer-vision/overview-identity)
+### [Foundry Tools: Face](/azure/ai-services/computer-vision/overview-identity)
 
 - Configure encryption at rest of content in the Face service by [using customer-managed keys in Azure Key Vault](/azure/ai-services/computer-vision/identity-encrypt-data-at-rest#customer-managed-keys-with-azure-key-vault).
 
 <a name='cognitive-services-language-understanding-luis'></a>
 
-### [Azure AI Language Understanding (LUIS)](/azure/ai-services/luis/)
+### [Language Understanding (LUIS)](/azure/ai-services/luis/)
 
 - Configure encryption at rest of content in the Language Understanding service by [using customer-managed keys in Azure Key Vault](/azure/ai-services/luis/encrypt-data-at-rest#customer-managed-keys-with-azure-key-vault).
 
-Azure AI Language Understanding (LUIS) is part of [Azure AI Language](/azure/ai-services/language-service/).
+Language Understanding (LUIS) is part of [Language](/azure/ai-services/language-service/).
 
 <a name='cognitive-services-azure-openai'></a>
 
-### [Azure AI services: Azure OpenAI](/azure/ai-services/openai/azure-government/)
+### [Foundry Tools: Azure OpenAI](/azure/ai-services/openai/azure-government/)
 
 - Configure encryption at rest of content in Azure OpenAI [using customer-managed keys in Azure Key Vault](/azure/ai-services/openai/encrypt-data-at-rest#use-customer-managed-keys-with-azure-key-vault).
 
 <a name='cognitive-services-personalizer'></a>
 
-### [Azure AI services: Personalizer](/azure/ai-services/personalizer/)
+### [Foundry Tools: Personalizer](/azure/ai-services/personalizer/)
 
 - Configure encryption at rest of content in Azure AI Personalizer [using customer-managed keys in Azure Key Vault](/azure/ai-services/personalizer/encrypt-data-at-rest#customer-managed-keys-with-azure-key-vault).
 
 <a name='cognitive-services-qna-maker'></a>
 
-### [Azure AI services: QnA Maker](/azure/ai-services/qnamaker/)
+### [Foundry Tools: QnA Maker](/azure/ai-services/qnamaker/)
 
 - Configure encryption at rest of content in Azure AI QnA Maker [using customer-managed keys in Azure Key Vault](/azure/ai-services/qnamaker/encrypt-data-at-rest).
 
-Azure AI QnA Maker is part of [Azure AI Language](/azure/ai-services/language-service/).
+Azure AI QnA Maker is part of [Language](/azure/ai-services/language-service/).
 
 <a name='cognitive-services-speech'></a>
 
-### [Azure AI Speech](/azure/ai-services/speech-service/)
+### [Azure Speech in Foundry Tools](/azure/ai-services/speech-service/)
 
 - Configure encryption at rest of content in Speech Services by [using customer-managed keys in Azure Key Vault](/azure/ai-services/speech-service/speech-encryption-of-data-at-rest).
 
 <a name='cognitive-services-translator'></a>
 
-### [Azure AI services: Translator](/azure/ai-services/translator/)
+### [Azure Translator in Foundry Tools](/azure/ai-services/translator/)
 
 - Configure encryption at rest of content in the Translator service by [using customer-managed keys in Azure Key Vault](/azure/ai-services/translator/encrypt-data-at-rest).
 

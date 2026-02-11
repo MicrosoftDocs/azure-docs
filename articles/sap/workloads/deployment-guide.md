@@ -116,7 +116,7 @@ Azure Virtual Machines enables organizations to deploy SAP applications with min
 
 #### Implementation Methods
 
-**Method 1: Azure Portal Deployment**
+**Method 1: Azure portal Deployment**
 
 **Process Flow**:
 1. Navigate to Azure portal → Create Resource → Virtual Machine
@@ -255,7 +255,7 @@ Monitoring:
 
 #### Implementation Methods
 
-**Method 1: Azure Portal with Managed Disk Image**
+**Method 1: Azure portal with Managed Disk Image**
 
 **Prerequisites**: 
 - Managed Disk image available

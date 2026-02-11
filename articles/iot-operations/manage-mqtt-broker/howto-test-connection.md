@@ -5,7 +5,7 @@ author: sethmanheim
 ms.author: sethm
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
-ms.date: 11/06/2024
+ms.date: 02/11/2026
 
 #CustomerIntent: As an operator or developer, I want to test MQTT connectivity with tools that I'm already familiar with to know that I set up my MQTT broker correctly.
 ms.service: azure-iot-operations
@@ -64,7 +64,7 @@ mosquitto_pub --host aio-broker --port 18883 --message "hello" --topic "world" -
 
 The output should look similar to the following example:
 
-```Output    
+```output
 Client (null) sending CONNECT
 Client (null) received CONNACK (0)
 Client (null) sending PUBLISH (d0, q0, r0, m1, 'world', ... (5 bytes))
@@ -88,7 +88,7 @@ mosquitto_sub --host aio-broker --port 18883 --topic "world" --debug --cafile /v
 
 The output should look similar to the following example:
 
-```Output
+```output
 Client (null) sending CONNECT
 Client (null) received CONNACK (0)
 Client (null) sending SUBSCRIBE (Mid: 1, Topic: world, QoS: 0, Options: 0x00)
@@ -134,6 +134,18 @@ For example, to create a new broker listener with the `NodePort` service type, s
 
 1. Add TLS settings to the listener by selecting **TLS** > **Add** on the port. This step isn't required if you don't need TLS for testing. For more information, see [BrokerListener](howto-configure-brokerlistener.md).
 1. Select **Create** to create the listener.
+
+# [CLI](#tab/cli)
+
+To create a new broker listener with the `NodePort` service type, use the following Azure CLI command.
+
+```azurecli
+az iot ops broker listener port add --service-type NodePort --nodeport <static port value>
+```
+
+Optionally, for testing purposes only, you can use the `--add-insecure-listener` flag to create a listener without authentication and TLS. The `--add-insecure-listener` flag is only available on the instance deployment operation via the `az iot ops create` command. To add a port without authentication and TLS after deployment, you can use the `listener port add` operation as in the previous example, but omit the options for authentication or TLS.
+
+For more information, see [az iot ops broker listener port add](/cli/azure/iot/ops/broker/listener/port).
 
 # [Bicep](#tab/bicep)
 
@@ -294,6 +306,14 @@ For example, to create a new broker listener with the `LoadBalancer` service typ
 1. Add TLS settings to the listener by selecting **TLS** > **Add** on the port. This step isn't required if you don't need TLS for testing. For more information, see [BrokerListener](howto-configure-brokerlistener.md).
 1. Select **Create** to create the listener.
 1. Select **Create** to create the listener.
+
+# [CLI](#tab/cli)
+
+To create a new broker listener with service type `LoadBalancer`, use the following Azure CLI command.
+
+```azurecli
+az iot ops broker listener port add --port 1883 --listener newlistener --in myinstance -g mygroup
+```
 
 # [Bicep](#tab/bicep)
 
@@ -503,6 +523,14 @@ The reason that the MQTT broker uses TLS and service accounts authentication by 
     | Node port      | Enter a number between 30000 to 32767 if using node port. |
 
 1. Select **Create** to create the listener.
+
+# [CLI](#tab/cli)
+
+Use the following Azure CLI command to add or replace an existing listener port. Provide values that reflect the terminal resource state:
+
+```azurecli
+az iot ops broker listener port add --port 1883 --listener newlistener --in myinstance -g mygroup
+```
 
 # [Bicep](#tab/bicep)
 

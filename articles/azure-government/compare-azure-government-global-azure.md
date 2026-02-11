@@ -65,17 +65,17 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 |Service category|Service name|Azure Public|Azure Government|Notes|
 |-----------|-----------|-------|----------|----------------------|
 |**AI + machine learning**|Azure Bot Service|botframework.com|botframework.azure.us||
-||Azure AI Document Intelligence|cognitiveservices.azure.com|cognitiveservices.azure.us||
+||Azure Document Intelligence in Foundry Tools|cognitiveservices.azure.com|cognitiveservices.azure.us||
 ||Azure OpenAI Service|openai.azure.com|openai.azure.us||
 ||Computer Vision|cognitiveservices.azure.com|cognitiveservices.azure.us||
 ||Custom Vision|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://www.customvision.azure.us/)||
 ||Content Moderator|cognitiveservices.azure.com|cognitiveservices.azure.us||
 ||Face API|cognitiveservices.azure.com|cognitiveservices.azure.us||
-||Language Understanding|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)|Part of [Azure AI Language](/azure/ai-services/language-service/)|
+||Language Understanding|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)|Part of [Azure Language in Foundry Tools](/azure/ai-services/language-service/)|
 ||Personalizer|cognitiveservices.azure.com|cognitiveservices.azure.us||
-||QnA Maker|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Azure AI Language](/azure/ai-services/language-service/)|
+||QnA Maker|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Language](/azure/ai-services/language-service/)|
 ||Speech service|See [STT API docs](/azure/ai-services/speech-service/rest-speech-to-text-short#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)</br></br>See [Speech service endpoints](/azure/ai-services/speech-service/sovereign-clouds)</br></br>**Speech translation endpoints**</br>Virginia: `https://usgovvirginia.s2s.speech.azure.us`</br>Arizona: `https://usgovarizona.s2s.speech.azure.us`</br>||
-||Text Analytics|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Azure AI Language](/azure/ai-services/language-service/)|
+||Text Analytics|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Language](/azure/ai-services/language-service/)|
 ||Translator|See [Translator API docs](/azure/ai-services/translator/reference/v3-0-reference#base-urls)|cognitiveservices.azure.us||
 |**Analytics**|Azure HDInsight|azurehdinsight.net|azurehdinsight.us||
 ||Event Hubs|servicebus.windows.net|servicebus.usgovcloudapi.net||
@@ -161,7 +161,7 @@ For feature variations and limitations, see [Azure Machine Learning feature avai
 
 <a name='cognitive-services-content-moderator'></a>
 
-### [Azure AI services: Content Moderator](/azure/ai-services/content-moderator/)
+### [Foundry Tools: Content Moderator](/azure/ai-services/content-moderator/)
 
 The following Content Moderator **features aren't currently available** in Azure Government:
 
@@ -169,28 +169,28 @@ The following Content Moderator **features aren't currently available** in Azure
 
 <a name='cognitive-services-language-understanding-luis'></a>
 
-### [Azure AI Language Understanding (LUIS)](/azure/ai-services/luis/)
+### [Language Understanding (LUIS)](/azure/ai-services/luis/)
 
 The following Language Understanding **features aren't currently available** in Azure Government:
 
 - Speech Requests
 - Prebuilt Domains
 
-Azure AI Language Understanding (LUIS) is part of [Azure AI Language](/azure/ai-services/language-service/).
+Language Understanding (LUIS) is part of [Language](/azure/ai-services/language-service/).
 
 <a name='cognitive-services-speech'></a>
 
-### [Azure AI Speech](/azure/ai-services/speech-service/)
+### [Azure Speech in Foundry Tools](/azure/ai-services/speech-service/)
 
 For feature variations and limitations, including API endpoints, see [Speech service in sovereign clouds](/azure/ai-services/speech-service/sovereign-clouds).
 
 <a name='cognitive-services-translator'></a>
 
-### [Azure AI services: OpenAI Service](/azure/ai-services/openai/overview)
+### [Foundry Tools: OpenAI Service](/azure/ai-services/openai/overview)
 
 For feature variations and limitations see [Azure OpenAI in Azure Gov](/azure/ai-services/openai/azure-government).
 
-### [Azure AI services: Translator](/azure/ai-services/translator/)
+### [Azure Translator in Foundry Tools](/azure/ai-services/translator/)
 
 For feature variations and limitations, including API endpoints, see [Translator in sovereign clouds](/azure/ai-services/translator/sovereign-clouds).
 
@@ -210,11 +210,11 @@ For secured virtual networks, you'll want to allow network security groups (NSGs
 |US Gov Virginia|13.72.49.126 </br> 13.72.55.55 </br> 13.72.184.124 </br> 13.72.190.110| 443|
 |US Gov Arizona|52.127.3.176 </br> 52.127.3.178| 443|
 
-For a demo on how to build data-centric solutions on Azure Government using HDInsight, see Azure AI services, HDInsight, and Power BI on Azure Government.
+For a demo on how to build data-centric solutions on Azure Government using HDInsight, see Foundry Tools, HDInsight, and Power BI on Azure Government.
 
 ### [Power BI](/power-bi/fundamentals/)
 
-For usage guidance, feature variations, and limitations, see [Power BI for US government customers](/power-bi/admin/service-govus-overview). For a demo on how to build data-centric solutions on Azure Government using Power BI, see Azure AI services, HDInsight, and Power BI on Azure Government.
+For usage guidance, feature variations, and limitations, see [Power BI for US government customers](/power-bi/admin/service-govus-overview). For a demo on how to build data-centric solutions on Azure Government using Power BI, see Foundry Tools, HDInsight, and Power BI on Azure Government.
 
 ### [Power BI Embedded](/power-bi/developer/embedded/)
 

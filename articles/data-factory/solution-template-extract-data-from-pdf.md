@@ -13,34 +13,34 @@ ms.custom: sfi-image-nochange
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article describes a solution template that you can use to extract data from a PDF source using Azure Data Factory and Azure AI Document Intelligence. 
+This article describes a solution template that you can use to extract data from a PDF source using Azure Data Factory and Azure Document Intelligence in Foundry Tools. 
 
 ## About this solution template
 
-This template analyzes data from a PDF URL source using two Azure AI Document Intelligence calls. Then, it transforms the output to readable tables in a dataflow and outputs the data to a storage sink. 
+This template analyzes data from a PDF URL source using two Document Intelligence calls. Then, it transforms the output to readable tables in a dataflow and outputs the data to a storage sink. 
 
 This template contains two activities:  
--	**Web Activity** to call Azure AI Document Intelligence's prebuilt read model API
+-	**Web Activity** to call Document Intelligence's prebuilt read model API
 -	**Data flow** to transform extracted data from PDF
 
 This template defines five parameters: 
--  *CognitiveServicesURL* is the Azure AI Document Intelligence URL ("https://{endpoint}/formrecognizer/v2.1/layout/analyze"). Replace {endpoint} with the endpoint that you obtained with your Azure AI Document Intelligence subscription. You need to replace the default value with your own URL.
--  *CognitiveServicesKey* is the Azure AI Document Intelligence subscription key. You need to replace the default value with your own subscription key.
+-  *CognitiveServicesURL* is the Document Intelligence URL ("https://{endpoint}/formrecognizer/v2.1/layout/analyze"). Replace {endpoint} with the endpoint that you obtained with your Document Intelligence subscription. You need to replace the default value with your own URL.
+-  *CognitiveServicesKey* is the Document Intelligence subscription key. You need to replace the default value with your own subscription key.
 -  *PDF_SourceURL* is the URL of your PDF source. You need to replace the default value with your own URL.
 -  *OutputContainer* is the name of the container path where you want your files to be in your destination store. You need to replace the default value with your own container.
 -  *OutputFolder* is the name of the folder path where you want your files to be in your destination store. You need to replace the default value with your own folder path.
 
 ## Prerequisites
 
-* Azure AI Document Intelligence Resource Endpoint URL and Key (create a new resource [here](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer))
+* Document Intelligence Resource Endpoint URL and Key (create a new resource [here](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer))
 
 ## How to use this solution template
 
-1. Go to template **Extract data from PDF**. Create a **New** connection to your Azure AI Document Intelligence resource or choose an existing connection.
+1. Go to template **Extract data from PDF**. Create a **New** connection to your Document Intelligence resource or choose an existing connection.
 
-	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-1.png" alt-text="Screenshot of how to create a new connection or select an existing connection from a drop-down menu to an Azure AI Document Intelligence connection in template set-up.":::
+	:::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-1.png" alt-text="Screenshot of how to create a new connection or select an existing connection from a drop-down menu to a Document Intelligence connection in template set-up.":::
 	
-    In your connection to Azure AI Document Intelligence, make sure to add a **Linked service Parameter**. You'll need to use this **url** parameter as your dynamic **Base URL**.
+    In your connection to Document Intelligence, make sure to add a **Linked service Parameter**. You'll need to use this **url** parameter as your dynamic **Base URL**.
     You will also need to add a new **Auth header** under **Auth headers**. The name should be **Ocp-Apim-Subscription-Key** and the value should be the key value you find from your Azure Resource. 
    
    :::image type="content" source="media/solution-template-extract-data-from-pdf/extract-data-from-pdf-3.png" alt-text="Screenshot of the linked service base URL that references the linked service parameter and Auth headers to add.":::

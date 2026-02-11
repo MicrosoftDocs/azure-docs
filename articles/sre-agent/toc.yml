@@ -67,7 +67,13 @@ items:
   - name: Reference
     items:
       - name: Frequently asked questions
-        href: faq.md
+        items:
+          - name: General
+            href: faq.md
+          - name: Troubleshooting
+            href: faq-troubleshooting.md
+          - name: Security and compliance
+            href: faq-security-compliance.md
       - name: Billing
         href: billing.md
       - name: Data residency and privacy

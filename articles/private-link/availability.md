@@ -31,7 +31,7 @@ The following tables list the Private Link services and the regions where they'r
 |Azure Machine Learning | All public regions    |  | GA   <br/> [Learn how to create a private endpoint for Azure Machine Learning.](/azure/machine-learning/how-to-configure-private-link)   |
 |Azure Bot Service | All public regions | Supported only on Direct Line App Service extension | GA </br> [Learn how to create a private endpoint for Azure Bot Service](/azure/bot-service/dl-network-isolation-concept) |
 | Azure AI Search | All public regions | | GA </br> [Learn how to create a private endpoint for Azure AI Search](/azure/search/service-create-private-endpoint) |
-| Azure AI services | All public regions<br/>All Government regions      |   | GA   <br/> [Use private endpoints.](/azure/ai-services/cognitive-services-virtual-networks#use-private-endpoints)  |
+| Foundry Tools | All public regions<br/>All Government regions      |   | GA   <br/> [Use private endpoints.](/azure/ai-services/cognitive-services-virtual-networks#use-private-endpoints)  |
 | Azure AI Video Indexer | All public regions  |   | GA   <br/> [Use private endpoints with Azure AI Video Indexer.](/azure/azure-video-indexer/private-endpoint-overview)  |
 
 ### Analytics

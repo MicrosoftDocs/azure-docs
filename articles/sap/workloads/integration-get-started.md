@@ -42,7 +42,7 @@ Select an area for resources about how to integrate SAP and Azure in that space.
 | [Microsoft Universal Print](#microsoft-universal-print) | Learn about the available cloud native printing capabilities for SAP. |
 | [SAP Fiori](#sap-fiori) | Increase performance and security of your SAP Fiori applications by integrating them with Azure services. |
 | [Microsoft Office](#microsoft-office) | Learn about Office Add-ins in Excel, doing SAP Principal Propagation with Office 365, SAP Analytics Cloud, and Data Warehouse Cloud integration and more. |
-| [Azure Integration Services](#azure-integration-services) | Connect your SAP workloads with your end users, business partners, and their systems with world-class integration services. Learn about codevelopment efforts that enable SAP Event Mesh to exchange cloud events with Azure Event Grid, understand how you can achieve high-availability for services like SAP Cloud Integration, automate your SAP invoice processing with Logic Apps and Azure AI services and more. |
+| [Azure Integration Services](#azure-integration-services) | Connect your SAP workloads with your end users, business partners, and their systems with world-class integration services. Learn about codevelopment efforts that enable SAP Event Mesh to exchange cloud events with Azure Event Grid, understand how you can achieve high-availability for services like SAP Cloud Integration, automate your SAP invoice processing with Logic Apps and Foundry Tools and more. |
 | [App Development in any language including ABAP and DevOps](#app-development-in-any-language-including-abap-and-devops) | Apply best-in-class developer tooling to your SAP app developments and DevOps processes. |
 | [Azure Data Services](#azure-data-services) | Learn how to integrate your SAP data with data services like Microsoft Fabric, Power BI, Azure Data Factory, Azure Data Lake Storage, Data Warehouse Cloud, Analytics Cloud, including which connector to choose, how to tune performance, efficiently troubleshoot, and more. |
 | [SAP Business Technology Platform (BTP)](#sap-btp) | Discover integration scenarios like SAP Private Link to securely and efficiently connect your BTP apps to your Azure workloads. |
@@ -176,7 +176,7 @@ Also see the following SAP resources:
 
 - [Event-driven architectures for SAP ERP with Azure](https://blogs.sap.com/2021/12/09/hey-sap-where-is-my-xbox-an-insight-into-capitalizing-on-event-driven-architectures/)
 - [Achieve high availability for SAP Cloud Integration (part of SAP Integration Suite) on Azure](https://blogs.sap.com/2021/09/23/black-friday-will-take-your-cpi-instance-offline-unless/)
-- [Automate SAP invoice processing using Azure Logic Apps and Azure AI services](https://blogs.sap.com/2021/02/03/your-sap-on-azure-part-26-automate-invoice-processing-using-azure-logic-apps-and-cognitive-services/)
+- [Automate SAP invoice processing using Azure Logic Apps and Foundry Tools](https://blogs.sap.com/2021/02/03/your-sap-on-azure-part-26-automate-invoice-processing-using-azure-logic-apps-and-cognitive-services/)
 
 ### App development in any language including ABAP and DevOps
 

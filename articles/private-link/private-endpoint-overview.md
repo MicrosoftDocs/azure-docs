@@ -71,7 +71,7 @@ A private-link resource is the destination target of a specified private endpoin
 | ---------------------------| ------------- | ------------- |
 | Application Gateway | Microsoft.Network/applicationgateways |Frontend IP Configuration name|
 | Azure AI Search | Microsoft.Search/searchServices | searchService |
-| Azure AI services | Microsoft.CognitiveServices/accounts | account |
+| Foundry Tools | Microsoft.CognitiveServices/accounts | account |
 | Azure API for FHIR (Fast Healthcare Interoperability Resources) | Microsoft.HealthcareApis/services | fhir |
 | Azure API Management | Microsoft.ApiManagement/service | Gateway |
 | Azure App Configuration | Microsoft.Appconfiguration/configurationStores | configurationStores |

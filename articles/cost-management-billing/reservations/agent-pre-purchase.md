@@ -14,7 +14,7 @@ ms.author: primittal
 
 Save on select services across Microsoft Foundry, Microsoft Copilot Studio*, Microsoft Fabric, and GitHub costs when you buy a prepurchase plan. Prepurchase plans are commit units (CUs) bought at discounted tiers in your purchasing currency for a specific product. The more you buy, the greater the discount. Purchased CUs pay down qualifying costs in US dollars (USD). So, for example if Microsoft Copilot Studio or Microsoft Foundry generates a retail cost of $100 based on Copilot Credit and Microsoft Foundry usage, then 100 Agent CUs (ACUs) are consumed.
 
-Your Microsoft Agent prepurchase plan automatically uses your ACUs to pay for eligible Copilot and AI Foundry usage during its one-year term or until Agent CUs run out. Your prepurchase plan Agent CUs start paying for your Copilot Credit and Microsoft Foundry usage without having to redeploy or reassign the plan. By default, plans are configured to renew at the end of the one-year term.
+Your Microsoft Agent prepurchase plan automatically uses your ACUs to pay for eligible Copilot and Microsoft Foundry usage during its one-year term or until Agent CUs run out. Your prepurchase plan Agent CUs start paying for your Copilot Credit and Microsoft Foundry usage without having to redeploy or reassign the plan. By default, plans are configured to renew at the end of the one-year term.
 
 *Covers Copilot Credits-enabled agentic services: Microsoft Copilot Studio, Dynamics 365 first-party agents, and Copilot. Microsoft reserves the right to update Copilot Credit-eligible products.
 
@@ -22,7 +22,6 @@ Your Microsoft Agent prepurchase plan automatically uses your ACUs to pay for el
 
 
 :::image type="content" source="./media/agentprepurchase/services-covered-screenshot-v2.jpg" alt-text="Screenshot showing services covered by Microsoft Agent prepurchase plan." lightbox="./media/agentprepurchase/services-covered-screenshot-v2.jpg":::
-
 
 
 ## Prerequisites
@@ -92,6 +91,7 @@ When you have multiple AI-related purchasing options, understanding how benefits
 ### Understanding benefit overlap
 
 **What is overlap?** Overlap occurs when multiple benefits can cover the same usage. For example:
+
 - Copilot credits are eligible for both Copilot Credit prepurchase plan and Microsoft Agent prepurchase plan
 - Microsoft Foundry PTU workloads are eligible for both Microsoft Foundry PTU reservations and Microsoft Agent prepurchase plan
 
@@ -135,6 +135,7 @@ These scenarios show how benefits work together in different purchasing combinat
 - Microsoft Agent prepurchase plan: 20,000 ACUs  
 
 **How benefits apply:**
+
 1. Copilot workloads consume Copilot Credit prepurchase plan first (up to 5,000 CCCUs)
 2. Additional Copilot usage draws from Microsoft Agent prepurchase plan
 3. Microsoft Foundry usage draws from Microsoft Agent prepurchase plan
@@ -146,19 +147,20 @@ These scenarios show how benefits work together in different purchasing combinat
 - Microsoft Agent prepurchase plan: 25,000 CUs
 
 **How benefits apply:**
-1. Foundry PTU reservation covers first 15 PTUs  
+1. Microsoft Foundry PTU reservation covers first 15 PTUs  
 2. Overflow PTU usage draws from Agent prepurchase plan
 3. All Copilot usage draws from remaining Agent prepurchase plan
 
 #### Scenario 4: Complete coverage (all three benefits)
 
 **What you have:**
+
 - Microsoft Foundry PTU reservation: 10 PTUs
 - Copilot Credit prepurchase plan: 3,000 CUs
 - Microsoft Agent prepurchase plan: 15,000 CUs
 
 **How benefits apply:**
-1. Foundry reservation covers PTU usage (up to 10 PTUs)
+1. Microsoft Foundry reservation covers PTU usage (up to 10 PTUs)
 2. Copilot Credit prepurchase plan covers Copilot usage (up to 3,000 CUs)  
 3. Agent prepurchase plan covers overflow from both platforms
 

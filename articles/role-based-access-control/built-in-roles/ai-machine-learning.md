@@ -650,7 +650,7 @@ Lets you perform developer actions and management actions on Foundry Projects. I
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you perform developer actions and management actions on Azure AI Foundry Projects. Allows for making role assignments, but limited to Cognitive Service User role.",
+  "description": "Lets you perform developer actions and management actions on Microsoft Foundry Projects. Allows for making role assignments, but limited to Cognitive Service User role.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/eadc314b-1a2d-4efa-be10-5d325db5065e",
   "name": "eadc314b-1a2d-4efa-be10-5d325db5065e",
   "permissions": [
