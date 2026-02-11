@@ -52,11 +52,11 @@ A system-assigned managed identity is associated with an instance of an Azure se
 
 Only existing storage accounts can use a system-assigned identity to authorize access to the key vault. New storage accounts must use a user-assigned identity, if customer-managed keys are configured on account creation.
 
-The system-assigned managed identity must have permissions to access the key in the key vault. Assign the **Key Vault Crypto Service Encryption User** role to the system-assigned managed identity with key vault scope to grant these permissions.
+The system-assigned managed identity must have permissions to access the key in the key vault. Assign the **Key Vault Crypto Officer** role to the system-assigned managed identity with key vault scope to grant these permissions.
 
 #### [Azure portal](#tab/azure-portal)
 
-Before you can configure customer-managed keys with a system-assigned managed identity, you must assign the **Key Vault Crypto Service Encryption User** role to the system-assigned managed identity, scoped to the key vault. This role grants the system-assigned managed identity permissions to access the key in the key vault. For more information on assigning Azure RBAC roles with the Azure portal, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+Before you can configure customer-managed keys with a system-assigned managed identity, you must assign the **Key Vault Crypto Officer** role to the system-assigned managed identity, scoped to the key vault. This role grants the system-assigned managed identity permissions to access the key in the key vault. For more information on assigning Azure RBAC roles with the Azure portal, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 When you configure customer-managed keys with the Azure portal with a system-assigned managed identity, the system-assigned managed identity is assigned to the storage account for you under the covers.
 
@@ -78,7 +78,7 @@ Next, assign to the system-assigned managed identity the required RBAC role, sco
 $principalId = $storageAccount.Identity.PrincipalId
 
 New-AzRoleAssignment -ObjectId $storageAccount.Identity.PrincipalId `
-    -RoleDefinitionName "Key Vault Crypto Service Encryption User" `
+    -RoleDefinitionName "Key Vault Crypto Officer" `
     -Scope $keyVault.ResourceId
 ```
 
@@ -104,7 +104,7 @@ principalId=$(az storage account show --name $accountName \
     --output tsv)
 
 az role assignment create --assignee-object-id $principalId \
-    --role "Key Vault Crypto Service Encryption User" \
+    --role "Key Vault Crypto Officer" \
     --scope $kvResourceId
 ```
 
