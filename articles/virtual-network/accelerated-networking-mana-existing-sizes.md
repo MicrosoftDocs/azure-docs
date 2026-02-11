@@ -38,7 +38,7 @@ VMs already deployed will be eligible to land on MANA capable hardware following
 
 ### How will I know if my VM is deployed on MANA capable hardware? 
 
-To determine if your VM Guest Operating System deployed on MANA, follow the instructions described in [Linux VMs with the Microsoft Azure Network Adapter](/azure/virtual-network/accelerated-networking-mana-linux). You'll see a PCIe device in the virtual machine and on the bonded NIC.
+To determine if your VM Guest Operating System is deployed on MANA, follow the instructions described in [Linux VMs with the Microsoft Azure Network Adapter](/azure/virtual-network/accelerated-networking-mana-linux). You'll see a PCIe device in the virtual machine and on the bonded NIC.
 
 ### What will be the performance implications for Accelerated Networking enabled VMs? 
 If the VM’s underlying operating system supports all network devices used in Azure, there's no expected change in performance. This is because networking limits are associated with the VM Size as opposed to the underlying hosting infrastructure.  

@@ -91,7 +91,7 @@ The following high-level steps describe the behavior for a basic autonomous agen
    | Logic app | Model source |
    |-----------|--------------|
    | Consumption | [Microsoft Foundry](/azure/ai-foundry/foundry-models/concepts/models) |
-   | Standard | - [Azure OpenAI Service resource](/azure/ai-services/openai/concepts/models) <br>- [Azure AI Foundry project](/azure/ai-foundry/openai/concepts/models) (preview) <br>- [Azure API Management account](/azure/api-management/genai-gateway-capabilities) with an LLM API (preview) |
+   | Standard | - [Azure OpenAI Service resource](/azure/ai-services/openai/concepts/models) <br>- [Microsoft Foundry project](/azure/ai-foundry/openai/concepts/models) (preview) <br>- [Azure API Management account](/azure/api-management/genai-gateway-capabilities) with an LLM API (preview) |
 
 1. Based on the agent instructions, the model helps plan which tools that the agent needs to invoke to perform the necessary tasks.
 

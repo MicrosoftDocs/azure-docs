@@ -1,6 +1,6 @@
 ---
-title: Run Workflows as Actions on Agents in Azure AI Foundry
-description: Learn how to create and run automation workflows as actions in agents by using Azure AI Foundry and Azure Logic Apps.
+title: Run Workflows as Actions on Agents in Microsoft Foundry
+description: Learn how to create and run automation workflows as actions in agents by using Microsoft Foundry and Azure Logic Apps.
 services: logic-apps, azure-ai-foundry
 author: ecfan
 ms.suite: integration
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 10/30/2025
 ms.update-cycle: 180-days
-# Customer intent: As an integration solutions developer, I want to add an action to an agent in Azure AI Foundry so that the agent creates and runs a logic app workflow in Azure Logic Apps.
+# Customer intent: As an integration solutions developer, I want to add an action to an agent in Microsoft Foundry so that the agent creates and runs a logic app workflow in Azure Logic Apps.
 ms.custom:
   - build-2025
 ---
 
-# Run automation workflows from actions in agents with Azure AI Foundry and Azure Logic Apps (preview)
+# Run automation workflows from actions in agents with Microsoft Foundry and Azure Logic Apps (preview)
 
 [!INCLUDE [logic-apps-sku-consumption](includes/logic-apps-sku-consumption.md)]
 
@@ -23,21 +23,21 @@ ms.custom:
 > This capability is in preview, might incur charges, and is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-When you have an AI app in Azure AI Foundry that needs to automate multi-step processes or integrate with various services, systems, apps, and data sources, you can add *actions* in *agents* to run automation workflows in Azure Logic Apps.
+When you have an AI app in Microsoft Foundry that needs to automate multi-step processes or integrate with various services, systems, apps, and data sources, you can add *actions* in *agents* to run automation workflows in Azure Logic Apps.
 
-In Azure AI Foundry, an agent uses an action and an AI model to autonomously or interactively complete a task. For example, agents use actions to answer questions, get information, and perform other jobs by using AI models.
+In Foundry, an agent uses an action and an AI model to autonomously or interactively complete a task. For example, agents use actions to answer questions, get information, and perform other jobs by using AI models.
 
 In Azure Logic Apps, a logic app workflow automates processes and can integrate Azure, Microsoft, and services, systems, apps, and data sources in other ecosystems - usually without any extra code. The workflow uses a prebuilt trigger and actions from a gallery with [1,400+ connectors](/connectors/) along with runtime-native or "built-in" operations.
 
-The following diagram shows how an action on an agent in Azure AI Foundry relates to a logic app workflow in Azure Logic Apps:
+The following diagram shows how an action on an agent in Foundry relates to a logic app workflow in Azure Logic Apps:
 
-:::image type="content" source="media/add-agent-action-create-run-workflow/azure-ai-foundry-logic-apps-arch.png" alt-text="Architecture diagram shows Azure AI Foundry portal with example AI agent and action connected to Azure portal with multitenant Azure Logic Apps and example logic app workflow that accesses external APIs." border="false" lightbox="media/add-agent-action-create-run-workflow/azure-ai-foundry-logic-apps-arch.png":::
+:::image type="content" source="media/add-agent-action-create-run-workflow/azure-ai-foundry-logic-apps-arch.png" alt-text="Architecture diagram shows Foundry portal with example AI agent and action connected to Azure portal with multitenant Azure Logic Apps and example logic app workflow that accesses external APIs." border="false" lightbox="media/add-agent-action-create-run-workflow/azure-ai-foundry-logic-apps-arch.png":::
 
-This guide shows how to add an action to an agent in Azure AI Foundry so that the agent creates a Consumption logic app workflow that runs in multitenant Azure Logic Apps. A wizard guides you through the steps to set up this action with a predefined logic app workflow. After you finish adding the action, you can extend this workflow, based on your scenario's needs, by using the graphical designer in Azure Logic Apps.
+This guide shows how to add an action to an agent in Foundry so that the agent creates a Consumption logic app workflow that runs in multitenant Azure Logic Apps. A wizard guides you through the steps to set up this action with a predefined logic app workflow. After you finish adding the action, you can extend this workflow, based on your scenario's needs, by using the graphical designer in Azure Logic Apps.
 
 For more information, see the following documentation:
 
-- [What is Azure AI Foundry?](/azure/ai-foundry/what-is-azure-ai-foundry)
+- [What is Foundry?](/azure/ai-foundry/what-is-azure-ai-foundry)
 - [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
 - [Consumption logic app workflow - Hosting options](/azure/logic-apps/logic-apps-overview#create-and-deploy-to-different-environments)
 
@@ -45,7 +45,7 @@ For more information, see the following documentation:
 
 - An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- An [Azure AI Foundry project](/azure/ai-foundry/how-to/create-projects?tabs=ai-studio), which is created with a default [hub](/azure/ai-foundry/how-to/create-azure-ai-resource?tabs=portal).
+- A [Foundry project](/azure/ai-foundry/how-to/create-projects?tabs=ai-studio), which is created with a default [hub](/azure/ai-foundry/how-to/create-azure-ai-resource?tabs=portal).
 
   This project organizes your work and saves the state while you build your AI apps. The hub hosts your project and provides a team collaboration environment.
 
@@ -71,11 +71,11 @@ For more information, see the following documentation:
 
 #### Can I create and use my own workflows as actions?
 
-Yes, to make your own logic app workflows available through the actions gallery in the Azure AI Foundry portal, your workflows need to meet the following requirements:
+Yes, to make your own logic app workflows available through the actions gallery in the Foundry portal, your workflows need to meet the following requirements:
 
 - The logic app resource that contains the workflow uses the **Consumption** hosting option.
 
-- The logic app resource uses the same Azure subscription that you use with Azure AI Foundry.
+- The logic app resource uses the same Azure subscription that you use with Foundry.
 
 - The workflow starts with the [trigger named **When an HTTP request is received** trigger](/azure/connectors/connectors-native-reqres#add-request-trigger).
 
@@ -85,7 +85,7 @@ Yes, to make your own logic app workflows available through the actions gallery 
 
 Your AI app has almost endless options for running workflows that interact with Azure, Microsoft, and other services or products, plus operations that help you manage, shape, convert, and transform data. If no prebuilt connector exists for what you want to do, you can also create your own.
 
-:::image type="content" source="media/add-agent-action-create-run-workflow/azure-ai-foundry-logic-apps-arch-full.png" alt-text="Architecture diagram shows Azure AI Foundry portal with example AI agent and action connected to Azure portal with multitenant Azure Logic Apps and example logic app workflow that can access Azure, Microsoft, and REST APIs for other services and systems." border="false" lightbox="media/add-agent-action-create-run-workflow/azure-ai-foundry-logic-apps-arch-full.png":::
+:::image type="content" source="media/add-agent-action-create-run-workflow/azure-ai-foundry-logic-apps-arch-full.png" alt-text="Architecture diagram shows Foundry portal with example AI agent and action connected to Azure portal with multitenant Azure Logic Apps and example logic app workflow that can access Azure, Microsoft, and REST APIs for other services and systems." border="false" lightbox="media/add-agent-action-create-run-workflow/azure-ai-foundry-logic-apps-arch-full.png":::
 
 For more information, see the following documentation:
 
@@ -108,19 +108,19 @@ This release has the following limitations or known issues:
 
 Follow these steps to set up an action for your agent to create and run a logic app workflow.
 
-1. Sign in to the [Azure AI Foundry portal](https://ai.azure.com/), and open your project.
+1. Sign in to the [Foundry portal](https://ai.azure.com/), and open your project.
 
 1. From your project overview, on the portal navigation menu, under **Build and customize**, select **Agents**. On the **Agents** page, under **My agents**, select your agent.
 
-   :::image type="content" source="media/add-agent-action-create-run-workflow/select-agent.png" alt-text="Screenshot shows Azure AI Foundry portal, navigation menu with selected Agents option, and a selected agent." lightbox="media/add-agent-action-create-run-workflow/select-agent.png":::
+   :::image type="content" source="media/add-agent-action-create-run-workflow/select-agent.png" alt-text="Screenshot shows Foundry portal, navigation menu with selected Agents option, and a selected agent." lightbox="media/add-agent-action-create-run-workflow/select-agent.png":::
 
 1. In the **Setup** section next to the agents list, scroll down to the **Actions** section, and select **Add**.
 
-   :::image type="content" source="media/add-agent-action-create-run-workflow/add-action.png" alt-text="Screenshot shows Azure AI Foundry portal, agent's Setup sidebar, and selected option for Add action." lightbox="media/add-agent-action-create-run-workflow/add-action.png":::
+   :::image type="content" source="media/add-agent-action-create-run-workflow/add-action.png" alt-text="Screenshot shows Foundry portal, agent's Setup sidebar, and selected option for Add action." lightbox="media/add-agent-action-create-run-workflow/add-action.png":::
 
 1. In the **Add action** window, select **Azure Logic Apps**.
 
-   :::image type="content" source="media/add-agent-action-create-run-workflow/azure-logic-apps.png" alt-text="Screenshot shows Azure AI Foundry window named Add action." lightbox="media/add-agent-action-create-run-workflow/azure-logic-apps.png":::
+   :::image type="content" source="media/add-agent-action-create-run-workflow/azure-logic-apps.png" alt-text="Screenshot shows Foundry window named Add action." lightbox="media/add-agent-action-create-run-workflow/azure-logic-apps.png":::
 
 1. Under **Select an action**, select a predefined action with one of the following labels:
 
@@ -131,7 +131,7 @@ Follow these steps to set up an action for your agent to create and run a logic 
 
    The following example uses the Microsoft authored action named **Get Weather forecast for today via MSN Weather**:
 
-   :::image type="content" source="media/add-agent-action-create-run-workflow/get-weather-forecast-action.png" alt-text="Screenshot shows Azure AI Foundry window named Add Logic App action with selected action named Get Weather forecast." lightbox="media/add-agent-action-create-run-workflow/get-weather-forecast-action.png":::
+   :::image type="content" source="media/add-agent-action-create-run-workflow/get-weather-forecast-action.png" alt-text="Screenshot shows Foundry window named Add Logic App action with selected action named Get Weather forecast." lightbox="media/add-agent-action-create-run-workflow/get-weather-forecast-action.png":::
 
 1. In the **Add Logic App action** window, under the **Enter some basic information**, provide the following information:
 
@@ -145,7 +145,7 @@ Follow these steps to set up an action for your agent to create and run a logic 
 
    The following screenshot shows the example details for the sample action **Get-weather-forecast-today**:
 
-   :::image type="content" source="media/add-agent-action-create-run-workflow/action-details.png" alt-text="Screenshot shows Azure AI Foundry window details about the action to create based on the previously selected action, such as action name, description, subscription, resource group, and location." lightbox="media/add-agent-action-create-run-workflow/action-details.png":::
+   :::image type="content" source="media/add-agent-action-create-run-workflow/action-details.png" alt-text="Screenshot shows Foundry window details about the action to create based on the previously selected action, such as action name, description, subscription, resource group, and location." lightbox="media/add-agent-action-create-run-workflow/action-details.png":::
 
 1. When you're done, select **Next**.
 
@@ -159,7 +159,7 @@ Follow these steps to create any connections that the action needs and authentic
 
    The following screenshot shows the example connection to create and authenticate for the MSN Weather service:
 
-   :::image type="content" source="media/add-agent-action-create-run-workflow/authenticate-connections.png" alt-text="Screenshot shows Azure AI Foundry window, Authenticate page, and selected option for Connect to authenticate access for MSN Weather service." lightbox="media/add-agent-action-create-run-workflow/authenticate-connections.png":::
+   :::image type="content" source="media/add-agent-action-create-run-workflow/authenticate-connections.png" alt-text="Screenshot shows Foundry window, Authenticate page, and selected option for Connect to authenticate access for MSN Weather service." lightbox="media/add-agent-action-create-run-workflow/authenticate-connections.png":::
 
    Some connections require more details, so follow the prompts to provide the requested information.
 
@@ -191,7 +191,7 @@ Review and check that all the action information appears correct. If you selecte
 
    1. To consent, select the confirmation box, for example:
 
-      :::image type="content" source="media/add-agent-action-create-run-workflow/resource-create.png" alt-text="Screenshot shows Azure AI Foundry window with Resource page and selected confirmation box to create a logic app resource." lightbox="media/add-agent-action-create-run-workflow/resource-create.png":::
+      :::image type="content" source="media/add-agent-action-create-run-workflow/resource-create.png" alt-text="Screenshot shows Foundry window with Resource page and selected confirmation box to create a logic app resource." lightbox="media/add-agent-action-create-run-workflow/resource-create.png":::
 
 1. When you're ready, select **Next**
 
@@ -204,17 +204,17 @@ For the final step, review the information that the portal generates about the t
    | Parameter | Description |
    |-----------|-------------|
    | **Tool name** | The editable name for the tool that the agent uses to run your action and access Azure, Microsoft, external services, data sources, or specialized AI models so that the agent can get data, run tasks, and interact with other platforms. <br><br>**Note**: <br><br>- The action name can use only letters, numbers, and the underscore (**_**) character. <br><br>- You can't use whitespace or other special characters. |
-   | **Connection for authentication** | The read-only name for the the connection that the agent uses to access Azure, Microsoft, and external resources without having to ask for credentials every time. For more information, see [Connections in Azure AI Foundry portal](/azure/ai-foundry/concepts/connections). |
+   | **Connection for authentication** | The read-only name for the the connection that the agent uses to access Azure, Microsoft, and external resources without having to ask for credentials every time. For more information, see [Connections in Foundry portal](/azure/ai-foundry/concepts/connections). |
    | **Describe how to invoke the tool** | The description that specifies the circumstances for when the agent calls the tool. |
    | **Schema** | The schema for the logic app workflow in JavaScript Object Notation (JSON) format. |
 
-   :::image type="content" source="media/add-agent-action-create-run-workflow/finish-create-action.png" alt-text="Screenshot shows Azure AI Foundry window with Schema page and description about the circumstances to invoke the tool." lightbox="media/add-agent-action-create-run-workflow/finish-create-action.png":::
+   :::image type="content" source="media/add-agent-action-create-run-workflow/finish-create-action.png" alt-text="Screenshot shows Foundry window with Schema page and description about the circumstances to invoke the tool." lightbox="media/add-agent-action-create-run-workflow/finish-create-action.png":::
 
 1. When you're ready, select **Create**.
 
    The portal returns you to the **Agents** page for your selected agent. In the **Setup** section, the **Actions** section now shows the name for the tool that runs your action and displays the icon for Azure Logic Apps next to the tool name, for example:
 
-   :::image type="content" source="media/add-agent-action-create-run-workflow/add-action-finish.png" alt-text="Screenshot shows Azure AI Foundry window with Agents page, selected agent, and Setup section with Actions section, showing tool that runs your new action." lightbox="media/add-agent-action-create-run-workflow/add-action-finish.png":::
+   :::image type="content" source="media/add-agent-action-create-run-workflow/add-action-finish.png" alt-text="Screenshot shows Foundry window with Agents page, selected agent, and Setup section with Actions section, showing tool that runs your new action." lightbox="media/add-agent-action-create-run-workflow/add-action-finish.png":::
 
 ## Test the agent action
 
@@ -228,7 +228,7 @@ To try the new action for your agent by using the **Agents playground**, follow 
 
    The agent returns a response similar to the following example:
 
-   :::image type="content" source="media/add-agent-action-create-run-workflow/test-action.png" alt-text="Screenshot shows Azure AI Foundry window with Agents playground page, test prompt about London weather with format instructions, and response." lightbox="media/add-agent-action-create-run-workflow/test-action.png":::
+   :::image type="content" source="media/add-agent-action-create-run-workflow/test-action.png" alt-text="Screenshot shows Foundry window with Agents playground page, test prompt about London weather with format instructions, and response." lightbox="media/add-agent-action-create-run-workflow/test-action.png":::
 
 ## Review underlying logic app and workflow
 
@@ -274,7 +274,7 @@ Follow these steps to review the workflow definition and operations, or edit the
 
    - The logic app resource that contains the workflow must use the Consumption hosting option.
 
-   - The logic app resource must use the same Azure subscription that you use with Azure AI Foundry.
+   - The logic app resource must use the same Azure subscription that you use with Foundry.
 
    - The workflow must start with the [**When an HTTP request is received** trigger](/azure/connectors/connectors-native-reqres#add-request-trigger).
 
@@ -331,16 +331,16 @@ Consumption logic app workflows incur charges based the "pay-for-use" billing mo
 - [Usage metering, billing, and pricing](/azure/logic-apps/logic-apps-pricing#consumption-multitenant)
 - [Azure Logic Apps pricing (Consumption Plan - Multitenant)](https://azure.microsoft.com/pricing/details/logic-apps/)
 
-For Azure AI Foundry, see the following resources:
+For Foundry, see the following resources:
 
-- [Plan and manage costs for Azure AI Foundry](/azure/ai-foundry/how-to/costs-plan-manage)
-- [Azure AI Foundry pricing](https://azure.microsoft.com/pricing/details/ai-foundry/)
+- [Plan and manage costs for Foundry](/azure/ai-foundry/how-to/costs-plan-manage)
+- [Foundry pricing](https://azure.microsoft.com/pricing/details/ai-foundry/)
 
 ## Clean up resources
 
 If you don't need the resources that you created for this guide, delete the resources so that you don't continue getting charged. You can either follow these steps to delete the resource group that contains these resources, or you can delete each resource individually.
 
-1. In the Azure AI Foundry portal, to remove the action from the agent, next to the action name, select the ellipses (**...**) button, and then select **Remove**.
+1. In the Foundry portal, to remove the action from the agent, next to the action name, select the ellipses (**...**) button, and then select **Remove**.
 
 1. In the [Azure portal](https://portal.azure.com) title bar search box, enter **resource groups**, and select **Resource groups**.
 
@@ -353,5 +353,5 @@ If you don't need the resources that you created for this guide, delete the reso
 ## Related content
 
 - [What are connectors in Azure Logic Apps?](/azure/connectors/introduction)
-- [What is Azure AI Foundry?](/azure/ai-foundry/what-is-azure-ai-foundry)
+- [What is Foundry?](/azure/ai-foundry/what-is-azure-ai-foundry)
 - [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)

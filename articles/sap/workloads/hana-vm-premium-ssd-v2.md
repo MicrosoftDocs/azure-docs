@@ -97,7 +97,7 @@ The major difference of Premium SSD v2 to the existing NetWeaver and HANA certif
 - Like Ultra disk, Azure Premium SSD v2 doesn't offer caching options as Premium SSD does
 - With Premium SSD v2, the same storage configuration applies to the HANA certified Ev4, Ev5, D6, Ev6, and M-series virtual machines (VM) that offer the same memory 
 - Unlike Premium SSD, there's no disk or VM bursting for Premium SSD v2
-- Snapshot functionality with Premium SSD v2 works distinctively different compared to Premium SSD (v1). For more information, see [Instant access snapshots for Azure managed disks](https://learn.microsoft.com/azure/virtual-machines/disks-instant-access-snapshots?tabs=azure-cli%2Cazure-cli-snapshot-state#snapshots-of-ultra-disks-and-premium-ssd-v2)
+- Snapshot functionality with Premium SSD v2 works distinctively different compared to Premium SSD (v1). For more information, see [Instant access snapshots for Azure managed disks](/azure/virtual-machines/disks-instant-access-snapshots?tabs=azure-cli%2Cazure-cli-snapshot-state#snapshots-of-ultra-disks-and-premium-ssd-v2)
 
 Not having Azure Write Accelerator support or support by other caches makes the configuration of Premium SSD v2 for the different VM families easier and more unified and avoid variations that need to be considered in deployment automation. Not having bursting capabilities makes throughput and IOPS delivered more deterministic and reliable. Since Premium SSD v2 is a new storage type, there are still some restrictions related to its features and capabilities. To read up on these limitations and differences between the different storages, start with reading the document [Azure managed disk types](/azure/virtual-machines/disks-types).
 

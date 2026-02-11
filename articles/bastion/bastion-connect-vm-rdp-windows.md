@@ -46,6 +46,7 @@ Before you begin, verify that you've met the following criteria:
 If the following prerequisites are met, Microsoft Entra ID becomes the default option to connect to your VM. If any prerequisite is not met, Microsoft Entra ID will not be presented as a Connection Method. To learn more about Entra ID authentication for Azure machines, see [Enable Microsoft Entra sign in for a Windows virtual machine in Azure or Arc-enabled Windows Server](/entra/identity/devices/howto-vm-sign-in-azure-ad-windows#enable-microsoft-entra-sign-in-for-a-windows-virtual-machine-in-azure-or-arc-enabled-windows-server)
 
 Prerequisites:
+* Ensure that your virtual machine is compliant with the following requirements: Windows 10 version 20H2 or later, Windows 11 21H2 or later, or Windows Server 2022 or later.
 
 * **AADLoginForWindows** extension should be enabled on the VM. Microsoft Entra ID Login can be enabled during VM creation by checking the box for **Login with Microsoft Entra ID** or by adding the **AADLogin** extension to a pre-existing VM.
 

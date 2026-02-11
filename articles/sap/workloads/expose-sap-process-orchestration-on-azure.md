@@ -18,7 +18,7 @@ Enabling internal systems and external partners to interact with SAP back ends i
 This article describes configuration options on Azure, with emphasis on internet-facing implementations.
 
 > [!NOTE]
-> SAP mentions [SAP Integration Suite](https://discovery-center.cloud.sap/serviceCatalog/integration-suite?region=all)--specifically, [SAP Cloud Integration](https://help.sap.com/docs/CLOUD_INTEGRATION/368c481cd6954bdfa5d0435479fd4eaf/9af2f05c7eb04457aee5906fd8553e00.html)--running on [Business Technology Platform (BTP)](https://www.sap.com/products/business-technology-platform.html) as the successor for SAP PO and PI. Both the BTP platform and the services are available on Azure. For more information, see [SAP Discovery Center](https://discovery-center.cloud.sap/serviceCatalog/integration-suite?region=all&tab=service_plan&provider=azure). For more info about the maintenance support timeline for the legacy components, see SAP OSS note [1648480](https://launchpad.support.sap.com/#/notes/1648480).
+> SAP mentions [SAP Integration Suite](https://discovery-center.cloud.sap/serviceCatalog/integration-suite?region=all)--specifically, [SAP Cloud Integration](https://help.sap.com/docs/CLOUD_INTEGRATION/368c481cd6954bdfa5d0435479fd4eaf/9af2f05c7eb04457aee5906fd8553e00.html)--running on [Business Technology Platform (BTP)](https://www.sap.com/products/business-technology-platform.html) as the successor for SAP PO and PI. Both the BTP platform and the services are available on Azure. For more information, see [SAP Discovery Center](https://discovery-center.cloud.sap/serviceCatalog/integration-suite?region=all&tab=service_plan&provider=azure). 
 
 ## Overview
 

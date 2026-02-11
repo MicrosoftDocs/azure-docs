@@ -42,7 +42,7 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
   >
   > You can use only the Azure portal to build autonomous agent workflows, not Visual Studio Code.
 
-  Consumption autonomous agent workflows don't require that you manually set up a separate AI model. Your workflow automatically includes an agent action that uses an Azure OpenAI Service model hosted in Azure AI Foundry. Consumption autonomous workflows support only specific models, which depend on the region for your logic app. See [Supported models](#supported-models).
+  Consumption autonomous agent workflows don't require that you manually set up a separate AI model. Your workflow automatically includes an agent action that uses an Azure OpenAI Service model hosted in Microsoft Foundry. Consumption autonomous workflows support only specific models, which depend on the region for your logic app. See [Supported models](#supported-models).
 
 ### [Standard](#tab/standard)
 
@@ -68,12 +68,12 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
   | Model source | Description |
   |--------------|-------------|
   | **Azure OpenAI** | An [Azure OpenAI Service resource](/azure/ai-services/openai/overview) with a deployed [Azure OpenAI Service model](/azure/ai-services/openai/concepts/models). <br><br>You need the resource name when you connect from the agent in your workflow to the deployed AI model in Azure OpenAI Service. <br><br>For more information, see: <br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) <br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) |
-  | **Foundry Agent Service** (Preview) | An [Azure AI Foundry project](/azure/ai-foundry/what-is-azure-ai-foundry) connected to a deployed [Azure OpenAI model in Azure AI Foundry](/azure/ai-foundry/openai/concepts/models) <br><br>**Note**: Make sure that you have a Foundry project, not a Hub based project. <br><br>For more information, see: <br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) <br>- [Create a project for Azure AI Foundry](/azure/ai-foundry/how-to/create-projects?tabs=ai-foundry) <br>- [Connect Azure AI services after you create a project](/azure/ai-services/connect-services-ai-foundry-portal#connect-azure-ai-services-after-you-create-a-project) <br>- [Create a new connection in Azure AI Foundry portal](/azure/ai-foundry/how-to/connections-add?tabs=aoai%2Cblob%2Cserp&pivots=fdp-project#create-a-new-connection) <br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) |
-  | **APIM Gen AI Gateway** (Preview) | An [Azure API Management account](/azure/api-management/genai-gateway-capabilities) with the LLM API to use. <br><br>For more information, see: <br>- [AI gateway in Azure API Management](/azure/api-management/genai-gateway-capabilities) <br>- [Import an Azure AI Foundry API](/azure/api-management/azure-ai-foundry-api) <br>- [Import an Azure OpenAI API](/azure/api-management/azure-openai-api-from-specification) |
+  | **Foundry Agent Service** (Preview) | A [Foundry project](/azure/ai-foundry/what-is-azure-ai-foundry) connected to a deployed [Azure OpenAI model in Foundry](/azure/ai-foundry/openai/concepts/models) <br><br>**Note**: Make sure that you have a Foundry project, not a Hub based project. <br><br>For more information, see: <br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) <br>- [Create a project for Foundry](/azure/ai-foundry/how-to/create-projects?tabs=ai-foundry) <br>- [Connect Foundry Tools after you create a project](/azure/ai-services/connect-services-ai-foundry-portal#connect-azure-ai-services-after-you-create-a-project) <br>- [Create a new connection in Foundry portal](/azure/ai-foundry/how-to/connections-add?tabs=aoai%2Cblob%2Cserp&pivots=fdp-project#create-a-new-connection) <br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) |
+  | **APIM Gen AI Gateway** (Preview) | An [Azure API Management account](/azure/api-management/genai-gateway-capabilities) with the LLM API to use. <br><br>For more information, see: <br>- [AI gateway in Azure API Management](/azure/api-management/genai-gateway-capabilities) <br>- [Import a Foundry API](/azure/api-management/azure-ai-foundry-api) <br>- [Import an Azure OpenAI API](/azure/api-management/azure-openai-api-from-specification) |
 
 - The authentication to use when you connect your agent to your AI model.
 
-  Azure AI Foundry projects require that you use managed identity authentication.
+  Foundry projects require that you use managed identity authentication.
 
   - Managed identity authentication
 
@@ -90,7 +90,7 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
     | Model source | Role |
     |--------------|------|
     | Azure OpenAI Service resource | - **Cognitive Services OpenAI User** (least privileged) <br>- **Cognitive Services OpenAI Contributor** |
-    | Azure AI Foundry project | **Azure AI User** |
+    | Foundry project | **Azure AI User** |
 
     For more information about managed identity setup, see:
 
@@ -132,7 +132,7 @@ The following table describes current limitations and any known issues in this r
 |-----------|-----------------------------|
 | Both | To create tools for your agent, the following limitations apply: <br><br>- You can add only actions, not triggers. <br>- A tool must start with an action and always contains at least one action. <br>- A tool works only inside the agent where that tool exists. <br>- Control flow actions are unsupported. |
 | Consumption | - You can create Consumption agent workflows only in the Azure portal, not Visual Studio Code. <br>- The AI model that your agent uses can originate from any region, so data residency for a specific region isn't guaranteed for data that the model handles. <br>- The **Agent** action is throttled based on the number of tokens used. |
-| Standard | - Unsupported workflow types: **Stateless** <br><br>**Note**: Azure AI Foundry projects require that you use managed identity authentication. <br><br>- For general limits in Azure OpenAI Service, Azure AI Foundry, and Azure Logic Apps, see: <br><br>- [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits) <br>- [Azure OpenAI in Azure AI Foundry Models quotas and limits](/azure/ai-foundry/openai/quotas-limits) <br>- [Azure Logic Apps limits and configuration](/azure/logic-apps/logic-apps-limits-and-config) |
+| Standard | - Unsupported workflow types: **Stateless** <br><br>**Note**: Foundry projects require that you use managed identity authentication. <br><br>- For general limits in Azure OpenAI Service, Foundry, and Azure Logic Apps, see: <br><br>- [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits) <br>- [Azure OpenAI in Foundry Models quotas and limits](/azure/ai-foundry/openai/quotas-limits) <br>- [Azure Logic Apps limits and configuration](/azure/logic-apps/logic-apps-limits-and-config) |
 
 ## Create an autonomous agent workflow
 
@@ -280,10 +280,10 @@ To view the model that your agent uses, follow these steps:
    |-----------|----------|-------|-------------|
    | **Connection Name** | Yes | <*connection-name*> | The name to use for the connection to your AI model. <br><br>This example uses **fabrikam-azure-ai-connection**. |
    | **Agent Model Source** | Yes | - **Azure OpenAI** <br>- **Foundry Agent Service** | The source for the AI model. |
-   | **Authentication Type** | Yes | - **Managed identity** <br><br>- **URL and key-based authentication** | The authentication type to use for validating and authorizing an identity's access to your AI model. <br><br>**Note**: For Azure AI Foundry projects, you must use managed identity authentication. <br><br>- **Managed identity** requires that your Standard logic app have a managed identity enabled and set up with the required roles for role-based access. For more information, see [Prerequisites](#prerequisites). <br><br>- **URL and key-based authentication** requires the endpoint URL and API key for your AI model. These values automatically appear when you select your model source. <br><br>**Important**: For the examples and exploration only, you can use **URL and key-based authentication**. For production scenarios, use **Managed identity**. |
+   | **Authentication Type** | Yes | - **Managed identity** <br><br>- **URL and key-based authentication** | The authentication type to use for validating and authorizing an identity's access to your AI model. <br><br>**Note**: For Foundry projects, you must use managed identity authentication. <br><br>- **Managed identity** requires that your Standard logic app have a managed identity enabled and set up with the required roles for role-based access. For more information, see [Prerequisites](#prerequisites). <br><br>- **URL and key-based authentication** requires the endpoint URL and API key for your AI model. These values automatically appear when you select your model source. <br><br>**Important**: For the examples and exploration only, you can use **URL and key-based authentication**. For production scenarios, use **Managed identity**. |
    | **Subscription** | Yes | <*Azure-subscription*> | Select the Azure subscription associated with your Azure OpenAI Service resource. |
    | **Azure OpenAI Resource** | Yes, only when **Agent Model Source** is **Azure OpenAI** | <*Azure-OpenAI-Service-resource-name*> | Select your Azure OpenAI Service resource. |
-   | **AI Foundry Project** | Yes, only when **Agent Model Source** is **Foundry Agent Service** | <*Azure-AI-Foundry-project-name*> | Select your project in Azure AI Foundry. <br><br>**Note**: If you recently assigned the necessary role on your project, you might experience a delay before role permissions take effect. Meanwhile, an error message appears that you don't have correct permissions on the project. |
+   | **Foundry Project** | Yes, only when **Agent Model Source** is **Foundry Agent Service** | <*Azure-AI-Foundry-project-name*> | Select your project in Foundry. <br><br>**Note**: If you recently assigned the necessary role on your project, you might experience a delay before role permissions take effect. Meanwhile, an error message appears that you don't have correct permissions on the project. |
    | **Azure API Management Service** (preview) | Yes, only when **Agent Model Source** is **APIM Gen AI Gateway**. | <*API-Management-account*> | Select your Azure API Management account. |
    | **Azure API Management Service APIs** | Yes, only when **Agent Model Source** is **APIM Gen AI Gateway**. | <*API-Management-LLM-API*> | Select your LLM API in Azure API Management. |
    | **API Endpoint** | Yes | Automatically populated | The endpoint URL for your AI model in Azure OpenAI Service. <br><br>This example uses **`https://fabrikam-azureopenai.openai.azure.com/`**. |
@@ -295,7 +295,7 @@ To view the model that your agent uses, follow these steps:
 
    If you select **Foundry Agent Service** as your model source with **Managed identity** for authentication, your connection information looks like the following sample:
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/connection-ai-foundry.png" alt-text="Screenshot shows example connection details for a deployed model in Azure AI Foundry." lightbox="media/create-autonomous-agent-workflows/connection-ai-foundry.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/connection-ai-foundry.png" alt-text="Screenshot shows example connection details for a deployed model in Foundry." lightbox="media/create-autonomous-agent-workflows/connection-ai-foundry.png":::
 
 1. When you're done, select **Create new**.
 

@@ -90,7 +90,7 @@ To follow the example, download the [sample prompt template and inputs](https://
 
 - An [Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) with a deployed model such as GPT-3.5 or GPT-4.
 
-  - The example in this how-to guide provides test data that you can use to try out the workflow. To chat with your own data by using the Azure OpenAI Service models, you have to create an Azure AI Foundry project and add your own data source. For more information, see the following documentation:
+  - The example in this how-to guide provides test data that you can use to try out the workflow. To chat with your own data by using the Azure OpenAI Service models, you have to create a Microsoft Foundry project and add your own data source. For more information, see the following documentation:
 
     - [Quickstart: Chat with Azure OpenAI models using your own data](/azure/ai-services/openai/use-your-data-quickstart)
 
@@ -340,4 +340,4 @@ If you don't need the resources that you created for this guide, make sure to de
 
 ## Related content
 
-- [Connect to Azure AI services from workflows in Azure Logic Apps](/azure/logic-apps/connectors/azure-ai)
+- [Connect to Foundry Tools from workflows in Azure Logic Apps](/azure/logic-apps/connectors/azure-ai)

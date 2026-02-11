@@ -559,12 +559,6 @@ Storage of logs is charged separately. For more information, see [Azure Blob Sto
 1. NSG flow log workflow makes [Create container](/rest/api/storageservices/Create-Container) calls periodically and is directly proportional to associated number of MACs and are charged as per storage write operations.
 2. Any configuration change or subscription policy leading to failed upload attempts remains chargeable in accordance with storage billing policy.
 
-## Availability
-
-The following tables list the supported regions where you can enable NSG flow logs.
-
-[!INCLUDE [Traffic analytics availability](../../includes/network-watcher-flow-logs-availability.md)]
-
 ## Related content
 
 - To learn how to manage NSG flow logs, see [Create, change, disable, or delete NSG flow logs](nsg-flow-logs-manage.md).

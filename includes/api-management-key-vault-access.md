@@ -2,14 +2,14 @@
 author: dlepow
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 01/11/2023
+ms.date: 01/29/2026
 ms.author: danlep
 ---
 
 ### Configure access to key vault
 
-1. In the portal, go to your key vault.
-1. In the left menu, select **Settings** > **Access configuration**. Note the **Permission model** that's configured.
+1. In the Azure portal, go to your key vault.
+1. In the left menu, select **Settings** > **Access configuration**. Make a note of the configured **Permission model**.
 1. Depending on the permission model, configure either a [key vault access policy](/azure/key-vault/general/assign-access-policy) or [Azure RBAC access](/azure/key-vault/general/rbac-guide) for an API Management managed identity.
     
 **To add a key vault access policy:**

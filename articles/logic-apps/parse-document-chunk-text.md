@@ -189,5 +189,5 @@ The following example includes other actions that create a complete workflow pat
 
 ## Related content
 
-- [Integrate Azure AI services with Standard workflows in Azure Logic Apps](connectors/azure-ai.md)
+- [Integrate Foundry Tools with Standard workflows in Azure Logic Apps](connectors/azure-ai.md)
 - [Chunking large documents for vector search](/azure/search/vector-search-how-to-chunk-documents)

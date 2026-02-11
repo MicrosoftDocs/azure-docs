@@ -37,6 +37,8 @@ Follow these steps to set up a connector:
 1. Select **Connectors**.
 1. Choose a connector type (Outlook, Teams, or Custom MCP Server).
 1. Authenticate:
-   - For Outlook and Teams, use OAuth-based authentication.
+   - For Outlook and Teams, use OAuth-based authentication. You will need to sign in with the Outlook or Teams account. Additionally, you will need to select the user-assigned managed identity so that the connector can authenticate with Office 365 APIs.
    - For MCP Servers, provide the MCP URL and credentials or OAuth token.
 1. Confirm and save your configuration.
+
+> Note: For connectors that use a managed identity, only user-assigned managed identities are currently supported. Using system-assigned managed identities in connectors is not fully functional yet.

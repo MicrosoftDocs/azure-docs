@@ -509,4 +509,4 @@ Now you can interact with your MCP server through the Copilot chat interface.
 
 - [Workflows with AI agents and models in Azure Logic Apps](agent-workflows-concepts.md)
 - [Create workflows that use AI agents and models](create-agent-workflows.md)
-- [Run Consumption workflows as actions for agents in Azure AI Foundry](add-agent-action-create-run-workflow.md)
+- [Run Consumption workflows as actions for agents in Microsoft Foundry](add-agent-action-create-run-workflow.md)

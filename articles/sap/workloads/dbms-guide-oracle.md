@@ -409,8 +409,6 @@ Memory and NUMA configurations can be tested and benchmarked with a useful tool 
 
 [Oracle Real Application Testing: What Is It and How Do You Use It? (aemcorp.com)](https://www.aemcorp.com/managedservices/blog/oracle-real-application-testing-rat-what-is-it-and-how-do-you-use-it)
 
-Information on UDEV Log Corruption issue [Oracle Redolog corruption on Azure \| Oracle in the field (wordpress.com)](https://bjornnaessens.wordpress.com/2021/07/29/oracle-redolog-corruption-on-azure/)
-
 [Oracle ASM in Azure corruption - follow up (dbaharrison.blogspot.com)](http://dbaharrison.blogspot.com/2017/07/oracle-asm-in-azure-corruption-follow-up.html)
 
 [Data corruption on Hyper-V or Azure when running Oracle ASM - Red Hat Customer Portal](https://access.redhat.com/solutions/3114361)
