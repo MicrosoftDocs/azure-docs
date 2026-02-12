@@ -4,7 +4,7 @@ description: Describes how to enable Accelerated Networking with Azure Site Reco
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.date: 02/11/2026
+ms.date: 02/12/2026
 ms.author: v-gajeronika
 ms.reviewer: v-gajeronika
 ms.custom: engagement-fy23, linux-related-content
@@ -70,8 +70,6 @@ When you [enable replication](azure-to-azure-tutorial-enable-replication.md) for
 You can verify the status of Accelerated Networking under the respective NIC's tab in the **Network** settings for the replicated virtual machine.
 
 :::image type="content" source="./media/azure-vm-disaster-recovery-with-accelerated-networking/compute-network-accelerated-networking.png" alt-text="Screenshot of Accelerated Networking setting." lightbox="./media/azure-vm-disaster-recovery-with-accelerated-networking/compute-network-accelerated-networking.png":::
-
-
 
 If you enable Accelerated Networking on the source virtual machine after enabling replication, you can enable Accelerated Networking for the replicated virtual machine's network interfaces by the following process:
 1. Open **Network** settings for the replicated virtual machine.

@@ -45,7 +45,7 @@ Create the account as follows:
 1. Assign the role the permissions summarized in the following table.
 1. Create a user on the vCenter server. Assign the role to the user.
 
-Task | Role/Permissions | Details
+| Task | Role/Permissions | Details |
 --- | --- | ---
 VM discovery | At least a read-only user<br/><br/> Data Center object > Propagate to Child Object, role=Read-only | User is assigned at the datacenter level and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object to the child objects (vSphere hosts, datastores, VMs, and networks).
 Full replication, failover, failback |  Create a role (Azure_Site_Recovery) with the required permissions, and then assign the role to a VMware user or group<br/><br/> Data Center object > Propagate to Child Object, role=Azure_Site_Recovery<br/><br/> Datastore > Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files<br/><br/> Network > Network assign<br/><br/> Resource > Assign VM to resource pool, migrate powered off VM, migrate powered on VM<br/><br/> Scheduled Tasks > Create task, update task<br/><br/> Virtual machine > Configuration<br/><br/> Virtual machine > Interact > answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install<br/><br/> Virtual machine > Inventory > Create, register, unregister<br/><br/> Virtual machine > Provisioning > Allow virtual machine download, allow virtual machine files upload<br/><br/> Virtual machine > Snapshots > Remove snapshots | User is assigned at the datacenter level and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object to the child objects (vSphere hosts, datastores, VMs, and networks).
@@ -74,7 +74,6 @@ Make sure that the VMware vCenter server and VMs comply with requirements:
 * Check what's supported for [Azure networking](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](vmware-physical-azure-support-matrix.md#azure-storage), and [compute](vmware-physical-azure-support-matrix.md#azure-compute) after failover.
 * Verify that the Azure VMware Solution VMs that you replicate to Azure comply with [Azure VM requirements](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
 * For Linux VMs, ensure that no two devices or mount points have the same names. These names must be unique and aren't case-sensitive. For example, you can't name two devices for the same VM as *device1* and *Device1*.
-
 
 ## Prepare to connect to Azure VMs after failover
 

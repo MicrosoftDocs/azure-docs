@@ -34,7 +34,7 @@ No. Creation of new accounts using **standard ZRS on GPv1** is blocked starting 
 
 ### How does modern ZRS differ from GPv1 standard ZRS?
 
-Modern **ZRS on GPv2** replicates data **synchronously across three availability zones** in the same region, helping ensure high availability during zonal outages. **GPv1 standard ZRS** uses an older replication model that may require platform failover to access secondary copies.
+Modern **ZRS on GPv2** replicates data **synchronously across three availability zones** in the same region, helping ensure high availability during zone outages. **GPv1 standard ZRS** uses an older replication model that may require platform failover to access secondary copies.
 
 ### Which redundancy options are available on GPv2 accounts?
 

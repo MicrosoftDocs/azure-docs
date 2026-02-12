@@ -26,7 +26,7 @@ Azure Managed Grafana default dashboard support isn't currently enabled for Azur
 
 ## Collect Azure Container Storage Prometheus metrics
 
-You can use Azure Monitor managed service for Prometheus to collect Azure Container Storage metrics along with other Prometheus metrics from your AKS cluster. To start collecting Azure Container Storage metrics, [enable Managed Prometheus on the AKS cluster](/azure/azure-monitor/containers/kubernetes-monitoring-enable?tabs=cli#enable-prometheus-and-grafana). If your AKS cluster already has Prometheus enabled, then installing Azure Container Storage on that cluster will automatically start collecting Azure Container Storage metrics.
+You can use Azure Monitor managed service for Prometheus to collect Azure Container Storage metrics along with other Prometheus metrics from your AKS cluster. To start collecting Azure Container Storage metrics, [enable Managed Prometheus on the AKS cluster](/azure/azure-monitor/containers/kubernetes-monitoring-enable?tabs=cli#enable-prometheus-and-grafana). If your AKS cluster already has Prometheus enabled, then installing Azure Container Storage on that cluster automatically starts collecting Azure Container Storage metrics.
 
 ### Scrape frequency
 
@@ -53,7 +53,7 @@ Azure Container Storage provides the following disk metrics collected from the `
 | `disk_errors_total` | Count of disk errors. |
 | `disk_read_bytes_total` | The total number of bytes read successfully. |
 | `disk_written_bytes_total` | The total number of bytes written successfully. |
-| `disk_readonly_errors_gauge` | This is a gauge metric to measure read-only volume mounts. |
+| `disk_readonly_errors_gauge` | This metric is a gauge that measures read-only volume mounts. |
 | `disk_discard_operations_completed_total` | The number of total discards completed successfully over the disk. |
 | `disk_discard_operations_time_seconds_total` | The total time spent by all discards on the disk in seconds. |
 | `disk_discarded_sectors_total` | The total number of sectors discarded successfully. |
@@ -63,11 +63,11 @@ Azure Container Storage provides the following disk metrics collected from the `
 | `disk_io_now` | The number of I/Os currently in progress. |
 | `disk_io_time_seconds_total` | The total time spent doing I/Os in seconds. |
 | `disk_io_time_weighted_seconds_total` | The weighted time spent doing I/Os in seconds. |
-| `disk_readonly_status_gauge` | This is a gauge metric to measure the readonly status of volume mounts |
+| `disk_readonly_status_gauge` | This metric is a gauge that measures the read-only status of volume mounts. |
 | `disk_reads_merged_total` | The total number of reads merged. |
 | `disk_writes_merged_total` | The total number of writes merged. |
-| `disk_scrape_collector_duration_seconds` | This is the duration of a collector scrape. |
-| `disk_scrape_collector_success` | This is a gauge metric which indicates whether the disk information was successfully collected. |
+| `disk_scrape_collector_duration_seconds` | This metric captures the duration of a collector scrape. |
+| `disk_scrape_collector_success` | This metric is a gauge that indicates whether the disk information was collected successfully. |
 
 ## Query Azure Container Storage metrics
 
@@ -85,7 +85,7 @@ To view Azure Container Storage metrics, follow these steps:
 
    :::image type="content" source="media/enable-monitoring/metrics.png" alt-text="Screenshot showing how to query Azure Container Storage metrics using the Azure portal." lightbox="media/enable-monitoring/metrics.png":::
 
-1. Alternatively, you can select the Managed Grafana instance, and on the instance overview page, click on the endpoint URL. This will navigate to the Grafana portal where you can query the metrics. The data source will be automatically configured for you to query metrics from the associated Azure Monitor workspace.
+1. Alternatively, you can select the Managed Grafana instance, and on the instance overview page, click on the endpoint URL. This navigates to the Grafana portal where you can query the metrics. The data source is automatically configured for you to query metrics from the associated Azure Monitor workspace.
 
    :::image type="content" source="media/enable-monitoring/dashboard.png" alt-text="Screenshot of an Azure Managed Prometheus dashboard and metrics browser." lightbox="media/enable-monitoring/dashboard.png":::
 

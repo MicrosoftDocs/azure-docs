@@ -18,6 +18,7 @@ You can't increase a volume beyond the maximum capacity available in your Elasti
 ## Prerequisites
 
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
+
 - This article assumes you [installed Azure Container Storage version 2.x.x](./install-container-storage-aks.md) on your AKS cluster and created a persistent volume claim (PVC) using [Elastic SAN](use-container-storage-with-elastic-san.md) or [ephemeral disk (local NVMe)](use-container-storage-with-local-disk.md).
 
 ## Expand a volume
@@ -32,7 +33,7 @@ Follow these instructions to resize a persistent volume. A built-in StorageClass
 
 1. Check the PVC to confirm the new size.
 
-   ```azurecli-interactive
+   ```azurecli
    kubectl describe pvc <pvc-name>
    ```
 

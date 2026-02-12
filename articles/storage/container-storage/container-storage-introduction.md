@@ -25,7 +25,7 @@ Azure Container Storage gives your container workloads access to high-performanc
 
 Local NVMe disks provide the highest performance storage in Azure. They are ideal for latency-sensitive workloads like PostgreSQL and compute-intensive AI and ML frameworks like Ray and Kubeflow.
 
-[Elastic SAN](../elastic-san/elastic-san-introduction.md) support in Azure Container Storage lets you use durable, network-attached block storage that scales with your application. By provisioning volumes from an Elastic SAN volume group, you gain predictable throughput and built-in redundancy options such as locally redundant storage (LRS) and zone-redundant storage (ZRS). This makes Azure Container Storage a strong choice for databases, analytics engines, and any workload that needs consistent performance.
+[Elastic SAN](../elastic-san/elastic-san-introduction.md) support in Azure Container Storage lets you use durable, network-attached block storage that scales with your application. By provisioning volumes from an Elastic SAN volume group, you gain predictable throughput and built-in redundancy options such as locally redundant storage (LRS) and zone-redundant storage (ZRS). This capability makes Azure Container Storage a strong choice for databases, analytics engines, and any workload that needs consistent performance.
 
 You can create and manage storage volumes using standard Kubernetes tools. You don't need to switch between portals or install Container Storage Interface (CSI) drivers yourself.
 
@@ -34,7 +34,7 @@ Azure Container Storage works with Azure Kubernetes Service (AKS) and self-manag
 ## Key benefits
 
 - **Seamless scaling of stateful pods:** Azure Container Storage mounts persistent volumes by using NVMe over Fabrics (NVMe-oF) or iSCSI (Internet Small Computer System Interface). This speeds attach and detach operations and supports fast pod recovery. When used with Elastic SAN, Azure Container Storage can provision and attach thousands of persistent volumes per cluster. This avoids bottlenecks such as Azure Resource Manager disk attachment limits (for example, 64 disks per VM).
-- **Optimized performance for stateful workloads:** Azure Container Storage delivers high read throughput and near-native disk write speeds by using NVMe-oF over TCP. This enables cost-effective performance for tier 1 I/O-intensive, general-purpose, throughput-sensitive, and development/test workloads.
+- **Optimized performance for stateful workloads:** Azure Container Storage delivers high read throughput and near-native disk write speeds by using NVMe-oF over TCP. This approach enables cost-effective performance for tier 1 I/O-intensive, general-purpose, throughput-sensitive, and development/test workloads.
 - **Cost efficiency through storage consolidation:** Azure Container Storage reduces storage cost and management overhead by consolidating many smaller volumes under a single SAN. Elastic SAN tiered provisioning also helps reduce overprovisioning and lowers total cost of ownership.
 - **Kubernetes-native volume orchestration:** Create StorageClass objects and persistent volumes, and manage the full lifecycle of volumes including provisioning, expansion, deletion, and snapshots using `kubectl` commands.
 - **Open source and community-driven:** Azure Container Storage is developed as an open-source project. You can install it through an AKS extension, as described in the [tutorial](install-container-storage-aks.md), or through Helm using the [local-csi-driver](https://github.com/Azure/local-csi-driver) repository.
@@ -92,7 +92,7 @@ Use these terms when you work with Azure Container Storage and Kubernetes:
 - **Volume**: A directory containing data accessible to containers in a given pod. Volumes can be persistent or ephemeral.
 - **Persistent volume (PV)**: A raw block device resource that you can mount with any file system. For more information, see [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
 - **Persistent volume claim (PVC)**: A request for storage that Kubernetes uses to provision a persistent volume.
-- **Azure Elastic SAN**: An Azure-managed, scalable storage area network (SAN) that provides durable volume groups with predictable throughput and zonal redundancy.
+- **Azure Elastic SAN**: An Azure-managed, scalable storage area network (SAN) that provides durable volume groups with predictable throughput and zone redundancy.
 - **Volume group**: A grouping construct within Elastic SAN that represents a logical pool of volumes with shared policies.
 
 ## Next steps

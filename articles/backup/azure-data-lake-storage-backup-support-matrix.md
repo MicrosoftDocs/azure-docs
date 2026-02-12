@@ -56,6 +56,7 @@ Azure Data Lake Storage protection has the following supported scenarios:
 - You can protect the storage account with the vault in another subscription but in the same region as storage account.
 - Azure Data Lake Storage accounts support both Blob and Data File System (DFS) APIs.
 - `$web` container can't be restored as `$web` on the target. Use the **renameTo** option and restore it with a different container name.
+- Cross-subscription backup is supported.
 
 ### Unsupported scenarios and considerations for Azure Data Lake Storage protection
 

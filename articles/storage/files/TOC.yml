@@ -139,6 +139,8 @@
       href: /windows-server/storage/file-server/troubleshoot/detect-enable-and-disable-smbv1-v2-v3?toc=/azure/storage/files/toc.json
     - name: Disable SMB on the Linux SMB client
       href: files-remove-smb1-linux.md
+    - name: Network security perimeter
+      href: files-network-security-perimeter.md
   - name: Encryption
     items:
     - name: Encryption at rest

@@ -13,7 +13,7 @@ ms.author: anfdocs
 With Elastic zone-redundant storage, you can easily change the availability zone of a capacity pool and its volumes based on needs, for example co-locating storage in the same availability zone to reduce latency.
 
 >[!NOTE]
->Capacity pools fail over to a new zone automatically in the event of a zonal outage. 
+>Capacity pools fail over to a new zone automatically in the event of a zone outage. 
 
 ## Considerations
 

@@ -204,7 +204,7 @@ When disabling a storage pool type via `az aks update --disable-azure-container-
 
 *Disabling Azure Container Storage for storage pool type `<storage-pool-type>` forcefully deletes all the storage pools of the same type and it affects the applications using these storage pools. Forceful deletion of storage pools can also lead to leaking of storage resources which are being consumed. Do you want to validate whether any of the storage pools of type `<storage-pool-type>` are being used before disabling Azure Container Storage? (Y/n)*
 
-If you select Y, an automatic validation runs to ensure that there are no persistent volumes created from the storage pool. Selecting n bypasses this validation and disables the storage pool type, deleting any existing storage pools and potentially affecting your application.
+If you select Y, an automatic validation runs to ensure there are no persistent volumes created from the storage pool. Selecting n bypasses this validation and disables the storage pool type, deleting any existing storage pools and potentially affecting your application.
 
 ## Troubleshoot volume issues
 
@@ -265,11 +265,11 @@ Azure Container Storage uses `etcd`, a distributed, reliable key-value store, to
 
 Run the following command to get a list of pods.
 
-```azurecli-interactive
+```azurecli
 kubectl get pods
 ```
 
-You may see output similar to the following.
+You should see output similar to this example.
 
 ```output
 NAME     READY   STATUS              RESTARTS   AGE 
@@ -278,7 +278,7 @@ fiopod   0/1     ContainerCreating   0          25m
 
 Describe the pod:
 
-```azurecli-interactive
+```azurecli
 kubectl describe pod fiopod
 ```
 
@@ -300,11 +300,11 @@ Warning  FailedAttachVolume  3m8s (x6 over 23m)  attachdetach-controller  Attach
 
 You can also run the following command to check the status of `etcd` instances:
 
-```azurecli-interactive
+```azurecli
 kubectl get pods -n acstor | grep "^etcd"
 ```
 
-You should see output similar to the following, with all instances in the Running state:
+You should see output similar to this example, with all instances in the Running state:
 
 ```output
 etcd-azurecontainerstorage-bn89qvzvzv                            1/1     Running   0               4d19h

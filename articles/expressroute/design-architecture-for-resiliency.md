@@ -47,7 +47,7 @@ Standard resiliency in ExpressRoute is a single circuit with two connections con
 
 :::image type="content" source="./media/design-architecture-for-resiliency/standard-resiliency.png" alt-text="Diagram illustrating a single ExpressRoute circuit, with each link configured at a single peering location.":::
 
-## Zonal resiliency for ExpressRoute
+## Zone resiliency for ExpressRoute
 
 [Azure regions](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions) are an integral part of your ExpressRoute design and resiliency strategy. These regions are geographical locations of data centers that host Azure services. Regions are interconnected through a dedicated low-latency network and are designed to be highly available, fault-tolerant, and scalable.
 

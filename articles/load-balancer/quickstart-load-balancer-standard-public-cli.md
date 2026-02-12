@@ -330,7 +330,7 @@ Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public
     --zone 1 2 3
 ```
 
-To create a zonal redundant public IP address in Zone 1 instead, use the following command:
+To create a zonal public IP address in Zone 1 instead, use the following command:
 
 ```azurecli
   az network public-ip create \

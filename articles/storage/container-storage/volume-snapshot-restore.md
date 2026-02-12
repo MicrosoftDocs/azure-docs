@@ -20,6 +20,7 @@ Volume snapshots aren't supported when you use ephemeral disk (local NVMe) as ba
 ## Prerequisites
 
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
+
 - This article assumes you [installed Azure Container Storage](./install-container-storage-aks.md) on your Azure Kubernetes Service (AKS) cluster and created a PVC using [Azure Elastic SAN](use-container-storage-with-elastic-san.md).
 
 ## Create a volume snapshot class
@@ -51,7 +52,7 @@ A volume snapshot class defines snapshot settings. Follow these steps to create 
    volumesnapshotclass.snapshot.storage.k8s.io/elasticsan-snapshot-class created
    ```
 
-   You can also run `kubectl get volumesnapshotclass` to confirm creation. You should see output such as:
+   You can also run `kubectl get volumesnapshotclass` to confirm creation. You should see output similar to this example:
 
    ```output
    NAME                        DRIVER                DELETIONPOLICY    AGE
@@ -79,7 +80,7 @@ Next, create a snapshot of an existing PVC and apply the volume snapshot class y
 
 1. Apply the manifest to create the volume snapshot.
 
-   ```azurecli-interactive
+   ```azurecli
    kubectl apply -f acstor-volumesnapshot.yaml
    ```
 
@@ -119,7 +120,7 @@ Create a new PVC that uses the volume snapshot as a data source.
 
 1. Apply the manifest to create the PVC.
 
-   ```azurecli-interactive
+   ```azurecli
    kubectl apply -f acstor-pvc-restored.yaml
    ```
 
@@ -169,11 +170,11 @@ Create a new pod using the restored PVC. Create the pod using Flexible I/O Teste
 
 1. Apply the manifest to deploy the pod.
 
-   ```azurecli-interactive
+   ```azurecli
    kubectl apply -f fio-pod-restore.yaml
    ```
 
-   You should see output similar to the following:
+   You should see output similar to this example:
 
    ```output
    pod/fio-restore created
@@ -181,14 +182,14 @@ Create a new pod using the restored PVC. Create the pod using Flexible I/O Teste
 
 1. Check that the pod is running and the PVC is bound:
 
-   ```azurecli-interactive
+   ```azurecli
    kubectl describe pod fio-restore
    kubectl describe pvc pvc-elasticsan-snapshot-restored
    ```
 
 1. Check fio testing to see its current status:
 
-   ```azurecli-interactive
+   ```azurecli
    kubectl exec -it fio-restore -- fio --name=benchtest --size=800m --filename=/volume/test --direct=1 --rw=randrw --ioengine=libaio --bs=4k --iodepth=16 --numjobs=8 --time_based --runtime=60
    ```
 

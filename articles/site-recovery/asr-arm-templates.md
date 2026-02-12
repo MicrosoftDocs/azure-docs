@@ -5,7 +5,7 @@ services: site-recovery
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: sample
-ms.date: 02/11/2026
+ms.date: 02/12/2026
 ms.author: v-gajeronika
 ms.reviewer: v-gajeronika
 ms.custom: engagement-fy23, devx-track-arm-template

@@ -32,8 +32,8 @@ The maximum performance achieved will depend on the dataset and workload charact
 * Creating and resizing a capacity pool can be a long-running operation. On average, creating a pool takes 5-7 minutes, but can take longer. 
 * Manually changing the zone of a capacity pool can be a long-running operation. 
 * When creating capacity pools, you must designate the failover order for three zones. The order can't be changed after creating the capacity pools.
-    * Capacity pools automatically fail over if a zonal outage occurs. You can also manually fail over.  
-    * If a zonal outage occurs, capacity pools don't automatically fail back. You can manually perform a fail back. For more information, see [Change the availability zone of an Elastic capacity pool](elastic-capacity-pool-task.md).
+    * Capacity pools automatically fail over if a zone outage occurs. You can also manually fail over.  
+    * If a zone outage occurs, capacity pools don't automatically fail back. You can manually perform a fail back. For more information, see [Change the availability zone of an Elastic capacity pool](elastic-capacity-pool-task.md).
 * Volumes in zone-redundant storage capacity pools can't be moved out of the capacity pool they're created in. 
 * Review the [maximum and minimum sizes](azure-netapp-files-resource-limits.md) for Elastic zone-redundant storage. 
 * When resizing capacity pools: 

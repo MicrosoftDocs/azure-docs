@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Use Azure Container Storage (version 1.x.x) with Azure managed disks
 
-Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage (version 1.x.x) to use Azure managed disks as back-end storage for your Kubernetes workloads. At the end, you have a pod that's using Azure managed disks as its storage.
+Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage (version 1.x.x) to use Azure managed disks as backend storage for your Kubernetes workloads. At the end, you have a pod that's using Azure managed disks as its storage.
 
 > [!IMPORTANT]
 > This article covers features and capabilities available in Azure Container Storage (version 1.x.x). [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available and supports local NVMe and Azure Elastic SAN for backing storage.
@@ -20,6 +20,7 @@ Azure Container Storage is a cloud-based volume management, deployment, and orch
 ## Prerequisites
 
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
+
 - To use Azure Container Storage with Azure managed disks, your AKS cluster must have a node pool of at least three [general purpose VMs](/azure/virtual-machines/sizes-general) such as **standard_d4s_v5** for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
 
 ## Create and attach persistent volumes
@@ -98,7 +99,7 @@ Follow these steps to create a dynamic storage pool for Azure Disks.
    
    You can also run this command to check the status of the storage pool. Replace `<storage-pool-name>` with your storage pool **name** value. For this example, the value would be **azuredisk**.
    
-   ```azurecli-interactive
+   ```azurecli
    kubectl describe sp <storage-pool-name> -n acstor
    ```
 
@@ -166,7 +167,7 @@ Follow these steps to create a pre-provisioned storage pool for Azure Disks.
 
 1. Apply the YAML manifest file to create the storage pool.
    
-   ```azurecli-interactive
+   ```azurecli
    kubectl apply -f acstor-storagepool.yaml 
    ```
    
@@ -178,7 +179,7 @@ Follow these steps to create a pre-provisioned storage pool for Azure Disks.
    
    You can also run this command to check the status of the storage pool. Replace `<storage-pool-name>` with your storage pool **name** value. For this example, the value would be **sp-preprovisioned**.
    
-   ```azurecli-interactive
+   ```azurecli
    kubectl describe sp <storage-pool-name> -n acstor
    ```
 
@@ -186,7 +187,7 @@ When the storage pool is created, Azure Container Storage creates a storage clas
 
 #### Create a dynamic storage pool using your own encryption key (optional)
 
-All data in an Azure storage account is encrypted at rest. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys (CMK) when you create your storage pool to encrypt the persistent volumes that you'll create.
+All data in an Azure storage account is encrypted at rest. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys (CMK) when you create your storage pool to encrypt the persistent volumes that you create.
 
 To use your own key for server-side encryption, you must have an [Azure Key Vault](/azure/key-vault/general/overview) with a key. The Key Vault should have purge protection enabled, and it must use the Azure RBAC permission model. Learn more about [customer-managed keys on Linux](/azure/virtual-machines/disk-encryption#customer-managed-keys).
 
@@ -226,7 +227,7 @@ Follow these steps to create a storage pool using your own encryption key. All p
 
 1. Apply the YAML manifest file to create the storage pool.
    
-   ```azurecli-interactive
+   ```azurecli
    kubectl apply -f acstor-storagepool-cmk.yaml 
    ```
    
@@ -238,7 +239,7 @@ Follow these steps to create a storage pool using your own encryption key. All p
    
    You can also run this command to check the status of the storage pool. Replace `<storage-pool-name>` with your storage pool **name** value. For this example, the value would be **azuredisk**.
    
-   ```azurecli-interactive
+   ```azurecli
    kubectl describe sp <storage-pool-name> -n acstor
    ```
 
@@ -277,7 +278,7 @@ A persistent volume claim (PVC) is used to automatically provision storage based
 
 1. Apply the YAML manifest file to create the PVC.
 
-   ```azurecli-interactive
+   ```azurecli
    kubectl apply -f acstor-pvc.yaml
    ```
 
@@ -289,7 +290,7 @@ A persistent volume claim (PVC) is used to automatically provision storage based
 
    You can verify the status of the PVC by running the following command:
 
-   ```azurecli-interactive
+   ```azurecli
    kubectl describe pvc azurediskpvc
    ```
 
@@ -328,40 +329,40 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
 
 1. Apply the YAML manifest file to deploy the pod.
 
-   ```azurecli-interactive
+   ```azurecli
    kubectl apply -f acstor-pod.yaml
    ```
 
-   You should see output similar to the following:
+   You should see output similar to this example:
 
    ```output
    pod/fiopod created
    ```
 
-1. Check that the pod is running and that the persistent volume claim has been bound successfully to the pod:
+1. Check that the pod is running and that the persistent volume claim is bound successfully to the pod:
 
-   ```azurecli-interactive
+   ```azurecli
    kubectl describe pod fiopod
    kubectl describe pvc azurediskpvc
    ```
 
 1. Check fio testing to see its current status:
 
-   ```azurecli-interactive
+   ```azurecli
    kubectl exec -it fiopod -- fio --name=benchtest --size=800m --filename=/volume/test --direct=1 --rw=randrw --ioengine=libaio --bs=4k --iodepth=16 --numjobs=8 --time_based --runtime=60
    ```
 
-You've now deployed a pod that's using Azure Disks as its storage, and you can use it for your Kubernetes workloads.
+You now have a pod that uses Azure Disks as its storage, and you can use it for your Kubernetes workloads.
 
 ## Manage persistent volumes and storage pools
 
-Now that you've created a persistent volume, you can detach and reattach it as needed. You can also expand or delete a storage pool.
+Now that you have a persistent volume, you can detach and reattach it as needed. You can also expand or delete a storage pool.
 
 ### Detach and reattach a persistent volume
 
 To detach a persistent volume, delete the pod that the persistent volume is attached to. Replace `<pod-name>` with the name of the pod, for example **fiopod**.
 
-```azurecli-interactive
+```azurecli
 kubectl delete pods <pod-name>
 ```
 
@@ -398,13 +399,13 @@ Follow these instructions to expand an existing storage pool for Azure Disks.
 
 1. Apply the YAML manifest file to expand the storage pool.
    
-   ```azurecli-interactive
+   ```azurecli
    kubectl apply -f acstor-storagepool.yaml 
    ```
 
 1. Run this command to check the status of the storage pool. Replace `<storage-pool-name>` with your storage pool **name** value.
    
-   ```azurecli-interactive
+   ```azurecli
    kubectl describe sp <storage-pool-name> -n acstor
    ```
 
@@ -416,7 +417,7 @@ Follow these instructions to expand an existing storage pool for Azure Disks.
 
 If you want to delete a storage pool, run the following command. Replace `<storage-pool-name>` with the storage pool name.
 
-```azurecli-interactive
+```azurecli
 kubectl delete sp -n acstor <storage-pool-name>
 ```
 

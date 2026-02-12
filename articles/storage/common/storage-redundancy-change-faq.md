@@ -47,15 +47,15 @@ This article contains answers to frequently asked questions about the process of
 
 The terms *geo* and *zonal* refer to two different types of strategies for providing extra data redundancy within Azure. To address these strategies, Azure offers two distinct types of redundancy option changes: those involving *geo-redundant storage* (GRS), and those involving *zone-redundant storage* (ZRS).
 
-As their names imply, zonal redundancy protects against zone failures, while geo-redundancy protects against large-scale regional disasters. When you change a storage account's redundancy option, the type of conversion you initiate affects the duration of the process, potential costs, and conflicting features or scenarios. For more information, see the [Change the redundancy option for a storage account](redundancy-migration.md) article.
+As their names imply, zone redundancy protects against zone failures, while geo-redundancy protects against large-scale regional disasters. When you change a storage account's redundancy option, the type of conversion you initiate affects the duration of the process, potential costs, and conflicting features or scenarios. For more information, see the [Change the redundancy option for a storage account](redundancy-migration.md) article.
 
-#### Zonal conversion
+#### Zone-redundant conversion
 
-Zonal redundancy replicates data across multiple availability zones, or isolated data centers, within a single region. These zones, or data centers, have independent power, cooling, and networking. 
+Zone redundancy replicates data across multiple availability zones, or isolated data centers, within a single region. These zones, or data centers, have independent power, cooling, and networking. 
 
-When you add zonal redundancy to a storage account, your storage account undergoes a zonal conversion that protects your data from failures within a specific data center. Removing zonal redundancy reverses this protection.
+When you add zone redundancy to a storage account, your storage account undergoes a conversion that protects your data from failures within a specific data center. Removing zone redundancy reverses this protection.
 
-Zonal conversions include:
+Zone-redundant conversions include:
 
 - LRS &rarr; ZRS
 - ZRS &rarr; LRS
@@ -80,7 +80,7 @@ Geo conversions include:
 There are no initial costs for making zonal conversions. However, after an account is successfully converted, the ongoing data storage and transaction cost might be higher due to the increased replication. For example, there's no charge for the initial conversion of an account from LRS to ZRS. But because ZRS has higher costs for both data storage and transactions, it might incur a higher cost than LRS.
 
 - For details on pricing, refer to the [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) article.
-- For details on the types of zonal redundancy, see the [Azure Storage Redundancy](storage-redundancy.md) article.
+- For details on the types of zone redundancy, see the [Azure Storage Redundancy](storage-redundancy.md) article.
 
 When you **add** geo-redundancy, the resulting geo conversion incurs a [geo-replication data transfer charge](https://azure.microsoft.com/pricing/details/storage/blobs/) at the time of the change. This transfer charge applies because your entire storage account is being replicated to a secondary region. Because all subsequent write operations are also replicated to the secondary region, they too are subject to the data transfer charge. 
 
@@ -96,9 +96,9 @@ The type of account conversion you initiate affects the duration of the process.
 
 The actual time it takes to complete either type of conversion can vary based on several factors. You can read more about the differences between conversions and the factors affecting SKU conversion times in the [How are geo- and zonal-conversions different](#how-are-geo--and-zonal-conversions-different) section.
 
-#### Zonal conversion
+#### Zone-redundant conversions
 
-Zonal redundancy conversions typically begin within a few days after a request is validated. However, it might take weeks to complete, depending on current resource demands in the region, account size, and other factors. The conversion's progress changes to `In progress` when data movement begins.
+Zone redundancy conversions typically begin within a few days after a request is validated. However, it might take weeks to complete, depending on current resource demands in the region, account size, and other factors. The conversion's progress changes to `In progress` when data movement begins.
 
 There's currently no service level agreement (SLA) for completion of a zonal conversion, and the conversion process can't be expedited by submitting a support request. The conversion progress status changes to `In progress` when data movement begins.
 

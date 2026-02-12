@@ -35,6 +35,8 @@
     href: request-quota-increase.md
   - name: Purchase reservations and savings plans
     href: purchase-reservations-savings-plans.md
+  - name: Create a custom Azure Policy in an Extended Zone
+    href: create-azure-policy.md
 - name: Arc-enabled PaaS workloads in Extended Zones
   items:
   - name: Create Arc-Enabled AKS Clusters in Extended Zones

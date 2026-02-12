@@ -321,11 +321,11 @@ sections:
 
       - question: Can I restore an Azure zone pinned Virtual Machine in a different zone?
         answer: |
-          Yes, [Cross Zonal Restore](backup-azure-arm-restore-vms.md#restore-options) now allows you to restore Azure zone pinned VMs to a different available zone using a recovery point in a vault with [Zonal-redundant storage (ZRS)](backup-create-rs-vault.md#set-storage-redundancy) enabled as per Azure role-based access control (Azure RBAC) rules. It's also supported from [vaults with Cross Region Restore (CRR)](backup-create-rs-vault.md#set-storage-redundancy).
+          Yes, [Cross Zonal Restore](backup-azure-arm-restore-vms.md#restore-options) now allows you to restore Azure zone pinned VMs to a different available zone using a recovery point in a vault with [Zone-redundant storage (ZRS)](backup-create-rs-vault.md#set-storage-redundancy) enabled as per Azure role-based access control (Azure RBAC) rules. It's also supported from [vaults with Cross Region Restore (CRR)](backup-create-rs-vault.md#set-storage-redundancy).
 
       - question: Can I restore an Azure nonzone pinned Virtual Machine in a different zone?
         answer: |
-          Yes, [Cross Zonal Restore](backup-azure-arm-restore-vms.md#restore-options) now allows you to restore Azure nonzone pinned VMs to any available zones using a recovery point in a vault with [Zonal-redundant storage (ZRS)](backup-create-rs-vault.md#set-storage-redundancy) enabled as per Azure role-based access control (Azure RBAC) rules.
+          Yes, [Cross Zonal Restore](backup-azure-arm-restore-vms.md#restore-options) now allows you to restore Azure non-zone pinned VMs to any available zones using a recovery point in a vault with [Zone-redundant storage (ZRS)](backup-create-rs-vault.md#set-storage-redundancy) enabled as per Azure role-based access control (Azure RBAC) rules.
 
       - question: Does Cross Zonal Restore support all Azure VM?
         answer: |

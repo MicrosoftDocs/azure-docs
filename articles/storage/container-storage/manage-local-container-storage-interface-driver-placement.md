@@ -31,11 +31,11 @@ The Local CSI driver placement mechanism uses:
 - Storage class annotations to express placement requirements
 - Only creation or modification of storage classes triggers nodeAffinity recomputation
 
-You can define a nodeAffinity rule for a local NVMe StorageClass using the `storageoperator.acstor.io/nodeAffinity` annotation. These rules ensure that local CSI driver pods are scheduled only on nodes that meet the specified criteria. If no nodeAffinity rule is defined, local CSI driver pods are deployed across all nodes in the cluster by default.
+You can define a nodeAffinity rule for a local NVMe StorageClass using the `storageoperator.acstor.io/nodeAffinity` annotation. These rules ensure local CSI driver pods are scheduled only on nodes that meet the specified criteria. If no nodeAffinity rule is defined, local CSI driver pods are deployed across all nodes in the cluster by default.
 
 ## Ensure local CSI drivers are placed on nodes with local NVMe disks
 
-To ensure that local CSI drivers are deployed only on nodes equipped with local NVMe disks, you can configure node affinity based on instance type. The following example shows a StorageClass configuration:
+To ensure local CSI drivers are deployed only on nodes equipped with local NVMe disks, you can configure node affinity based on instance type. The following example shows a StorageClass configuration:
 
 ```bash
 cat <<EOF | kubectl apply -f -
@@ -70,7 +70,7 @@ aks-mygpu2-37383660-vmss000000  Standard_L16s_v3
 
 ## Ensure local CSI drivers are placed in specific node pools
 
-You can ensure that local CSI drivers are deployed only in selected node pools by configuring node affinity based on the `agentpool` label. The following example shows a StorageClass configuration:
+You can ensure local CSI drivers are deployed only in selected node pools by configuring node affinity based on the `agentpool` label. The following example shows a StorageClass configuration:
 
 ```bash
 cat <<EOF | kubectl apply -f -

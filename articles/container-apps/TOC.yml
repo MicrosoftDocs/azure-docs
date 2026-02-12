@@ -177,6 +177,12 @@ items:
               href: troubleshoot-target-port-settings.md
             - name: Container start
               href: troubleshoot-container-start-failures.md
+    - name: Migration
+      items:
+        - name: Heroku migration overview
+          href: migrate-heroku-overview.md
+        - name: Migrate from Heroku
+          href: migrate-heroku.md
 - name: AI integration
   items:
     - name: Overview

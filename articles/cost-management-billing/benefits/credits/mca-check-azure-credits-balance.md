@@ -6,7 +6,7 @@ ms.reviewer: shrshett
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/23/2025
+ms.date: 02/10/2026
 ms.author: shrshett
 ---
 
@@ -315,24 +315,31 @@ In a billing account for a Microsoft customer agreement, you use billing profile
 
 Credits that you acquire are assigned to a billing profile. When an invoice is generated for the billing profile, credits are automatically applied to the total charges to calculate the amount that you need to pay. You pay the remaining amount with your payment methods like check/ wire transfer or credit card.
 
-## Products that aren't covered by Azure credits
+## Products and services not covered by Azure credits
 
- The following products aren't covered by your Azure credits. You're charged for using these products regardless of your credit balance:
+Azure credits don’t apply to certain products and services. Any usage of these offerings is billed separately and charged regardless of your available Azure credit balance.
 
-- Canonical
-- Citrix XenApp Essentials
-- Citrix XenDesktop
-- Registered User
-- Openlogic
-- Remote Access Rights XenApp Essentials Registered User
-- Ubuntu Advantage
-- Visual Studio Enterprise (Monthly)
-- Visual Studio Enterprise (Annual)
-- Visual Studio Professional (Monthly)
-- Visual Studio Professional (Annual)
-- Azure Marketplace products
+### General credit limitations
+
+In general, Azure credits don’t cover:
+- Third-party (3PP) products or services, including partner-provided offerings and non–first-party Azure Marketplace products
 - Azure support plans
+- Software subscriptions or licenses that aren’t billed as Azure consumption
 
+### Azure Sponsorship–specific limitations
+
+In addition to the general limitations above, Azure Sponsorship credits don’t cover:
+- First-party (1PP) entitlement-based purchases, even when those offerings are sold directly by Azure (for example, Savings Plans or Reserved Instances)
+
+### AI model coverage clarification
+
+
+- **Models sold directly by Azure (1PP)** may be covered by Azure Sponsorship credits  
+  Examples: [Models sold directly by Azure](https://learn.microsoft.com/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure?view=foundry-classic&tabs=global-standard-aoai%2Cglobal-standard)
+
+- **Models from partners and the community (3PP)** aren’t covered by Azure Sponsorship credits  
+  Examples: [Models from partners and the community](https://learn.microsoft.com/azure/ai-foundry/foundry-models/concepts/models-from-partners?view=foundry-classic)
+  
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../../includes/billing-check-mca.md)]
 

@@ -16,7 +16,7 @@ ms.custom:
 
 Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. Azure Elastic SAN is a fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN, while also offering built-in cloud capabilities like high availability.
 
-This article shows you how to configure Azure Container Storage (version 1.x.x) to use Azure Elastic SAN. At the end of this article, you'll have a pod that's using Elastic SAN as its storage.
+This article shows you how to configure Azure Container Storage (version 1.x.x) to use Azure Elastic SAN. At the end of this article, you have a pod that's using Elastic SAN as its storage.
 
 > [!IMPORTANT]
 > This article covers features and capabilities available in Azure Container Storage (version 1.x.x). [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available.
@@ -24,7 +24,9 @@ This article shows you how to configure Azure Container Storage (version 1.x.x) 
 ## Prerequisites
 
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
+
 - Ensure you have either an [Azure Container Storage Owner](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-owner) role or [Azure Container Storage Contributor](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-contributor) role on your subscription. The Azure Container Storage Contributor role grants you permissions needed to perform Azure Arc extension actions and to write to and delete resources. The Azure Container Storage Owner role grants you the same permissions and allows you to manage Elastic SAN volumes outside of your cluster. To make this change, go to your subscription page in the Azure portal. Select **Access control (IAM) > Add role assignment** and search for either "Azure Container Storage Owner" or "Azure Container Storage Contributor" in the **Job function roles** tab. Select **View > Assignments > Add assignment** and add your account.
+
 - To use Azure Container Storage (version 1.x.x) with Azure Elastic SAN (preview), your AKS cluster must have a node pool of at least three [general purpose VMs](/azure/virtual-machines/sizes-general) such as **standard_d4s_v5** for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
 
 ## Limitations
@@ -73,7 +75,7 @@ Follow these steps to create a storage pool with Azure Elastic SAN (preview).
    kubectl apply -f acstor-storagepool.yaml 
    ```
    
-   When storage pool creation is complete, you'll see a message like:
+   When storage pool creation is complete, you see a message like:
    
    ```output
    storagepool.containerstorage.azure.com/managed created
@@ -81,11 +83,11 @@ Follow these steps to create a storage pool with Azure Elastic SAN (preview).
    
    You can also run this command to check the status of the storage pool. Replace `<storage-pool-name>` with your storage pool **name** value. For this example, the value would be **managed**.
    
-   ```azurecli-interactive
+   ```azurecli
    kubectl describe sp <storage-pool-name> -n acstor
    ```
 
-When the storage pool is created, Azure Container Storage will create a storage class on your behalf using the naming convention `acstor-<storage-pool-name>`. It will also create an Azure Elastic SAN resource.
+When the storage pool is created, Azure Container Storage creates a storage class on your behalf using the naming convention `acstor-<storage-pool-name>`. It also creates an Azure Elastic SAN resource.
 
 ### 2. Display the available storage classes
 
@@ -120,7 +122,7 @@ A persistent volume claim (PVC) is used to automatically provision storage based
 
 1. Apply the YAML manifest file to create the PVC.
    
-   ```azurecli-interactive
+   ```azurecli
    kubectl apply -f acstor-pvc.yaml
    ```
    
@@ -132,7 +134,7 @@ A persistent volume claim (PVC) is used to automatically provision storage based
    
    You can verify the status of the PVC by running the following command:
    
-   ```azurecli-interactive
+   ```azurecli
    kubectl describe pvc managedpvc
    ```
 
@@ -171,40 +173,40 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
 
 1. Apply the YAML manifest file to deploy the pod.
    
-   ```azurecli-interactive
+   ```azurecli
    kubectl apply -f acstor-pod.yaml
    ```
    
-   You should see output similar to the following:
+   You should see output similar to this example:
    
    ```output
    pod/fiopod created
    ```
 
-1. Check that the pod is running and that the persistent volume claim has been bound successfully to the pod:
+1. Check that the pod is running and that the persistent volume claim is bound successfully to the pod:
 
-   ```azurecli-interactive
+   ```azurecli
    kubectl describe pod fiopod
    kubectl describe pvc managedpvc
    ```
 
 1. Check fio testing to see its current status:
 
-   ```azurecli-interactive
+   ```azurecli
    kubectl exec -it fiopod -- fio --name=benchtest --size=800m --filename=/volume/test --direct=1 --rw=randrw --ioengine=libaio --bs=4k --iodepth=16 --numjobs=8 --time_based --runtime=60
    ```
 
-You've now deployed a pod that's using an Elastic SAN as its storage, and you can use it for your Kubernetes workloads.
+You now have a pod that uses an Elastic SAN as its storage, and you can use it for your Kubernetes workloads.
 
 ## Manage persistent volumes and storage pools
 
-Now that you've created a persistent volume, you can detach and reattach it as needed. You can also delete a storage pool.
+Now that you have a persistent volume, you can detach and reattach it as needed. You can also delete a storage pool.
 
 ### Detach and reattach a persistent volume
 
 To detach a persistent volume, delete the pod that the persistent volume is attached to. Replace `<pod-name>` with the name of the pod, for example **fiopod**.
 
-```azurecli-interactive
+```azurecli
 kubectl delete pods <pod-name>
 ```
 

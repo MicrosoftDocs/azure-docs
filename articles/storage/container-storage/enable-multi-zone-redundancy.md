@@ -1,6 +1,6 @@
 ---
 title: Enable multi-zone redundancy in Azure Container Storage (version 2.x.x) with Azure Elastic SAN
-description: Enable storage redundancy across multiple availability zones in Azure Container Storage to improve stateful application availability. Use locally redundant storage (LRS) or zone-redundant storage (ZRS) on Azure Elastic SAN.
+description: Improve stateful application availability by enabling storage redundancy across multiple availability zones in Azure Container Storage. Use locally redundant storage (LRS) or zone-redundant storage (ZRS) on Azure Elastic SAN.
 author: saurabh0501
 ms.service: azure-container-storage
 ms.topic: how-to
@@ -22,16 +22,19 @@ With Azure Container Storage, you can improve stateful application availability 
 ## Prerequisites
 
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
+
 - If you use Elastic SAN for the first time in the subscription, run this one-time registration command:
-```azurecli-interactive
-az provider register --namespace Microsoft.ElasticSan
-```
+  ```azurecli-interactive
+  az provider register --namespace Microsoft.ElasticSan
+  ```
+
 - When ZRS is newly enabled in a region, you might need to register a subscription-level feature flag so Azure Container Storage can deploy SAN targets:
-```azurecli
-az feature register \
+  ```azurecli
+  az feature register \
   --namespace Microsoft.ElasticSan \
   --name EnableElasticSANTargetDeployment
-```
+  ```
+
 - Verify that the region supports your chosen redundancy option. See the current [Elastic SAN region availability](../elastic-san/elastic-san-create.md#).
 
 ## Create a StorageClass with locally redundant storage

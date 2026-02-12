@@ -5,7 +5,7 @@ ms.author: v-gajeronika
 ms.reviewer: v-gajeronika
 author: Jeronika-MS
 ms.topic: how-to
-ms.date: 02/11/2026
+ms.date: 02/12/2026
 ms.service: azure-site-recovery
 
 # Customer intent: As a cloud administrator managing critical applications, I want to set up disaster recovery for Azure virtual machines using replication, so that I can ensure high availability and quick recovery in case of regional failures.

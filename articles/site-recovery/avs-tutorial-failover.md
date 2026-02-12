@@ -4,7 +4,7 @@ description: Learn how to fail over Azure VMware Solution VMs to Azure in Azure 
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 02/11/2026
+ms.date: 02/12/2026
 ms.author: v-gajeronika
 ms.reviewer: v-gajeronika
 ms.custom: MVC, engagement-fy23

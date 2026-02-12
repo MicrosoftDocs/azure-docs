@@ -22,7 +22,7 @@ Delete all persistent volume claims (PVCs) and persistent volumes (PVs) before u
 
 Remove Azure Container Storage entirely by running the following Azure CLI command. Replace `<cluster-name>` and `<resource-group>` with your own values.
 
-```azurecli
+```azurecli-interactive
 az aks update -n <cluster-name> -g <resource-group> --disable-azure-container-storage
 ```
 

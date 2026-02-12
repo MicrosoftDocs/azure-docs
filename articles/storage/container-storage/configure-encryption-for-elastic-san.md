@@ -18,6 +18,7 @@ This article shows how to configure encryption for an Elastic SAN volume group b
 ## Prerequisites
 
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
+
 - This article assumes you [installed Azure Container Storage version 2.1.0 or later](./install-container-storage-aks.md) on your Azure Kubernetes Service (AKS) cluster.
 
 ## Configure the key vault
@@ -165,7 +166,7 @@ Apply the manifest to deploy the pod.
 kubectl apply -f acstor-pod.yaml
 ```
 
-You should see output similar to the following:
+You should see output similar to this example:
 
 ```output
 pod/pod-san-encrypted created

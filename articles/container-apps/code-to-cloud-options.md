@@ -97,3 +97,4 @@ In Azure Container Apps, you can use the [Azure CLI](/cli/azure/) or the [Azure 
 
 - [Deploy to Azure Container Apps using Visual Studio](deploy-visual-studio.md)
 - [Deploy to Azure Container Apps using Visual Studio Code](deploy-visual-studio-code.md)
+- Migrating from Heroku? See [Heroku to Azure Container Apps migration overview](migrate-heroku-overview.md).

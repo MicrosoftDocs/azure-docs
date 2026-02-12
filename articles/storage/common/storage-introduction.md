@@ -116,14 +116,11 @@ For more information about Azure Elastic SAN, see [What is Azure Elastic SAN?](.
 Azure Container Storage integrates with Kubernetes and utilizes existing Azure Storage offerings for actual data storage, offering a volume orchestration and management solution purposely built for containers. You can choose any of the supported backing storage options to create a storage pool for your persistent volumes.
 
 Azure Container Storage offers substantial benefits:
-
 - Rapid scale out of stateful pods
-
 - Improved performance for stateful workloads
-
 - Kubernetes-native volume orchestration
 
-For more information about Azure Container Storage, see [What is Azure Container Storage? ](../container-storage/container-storage-introduction.md).
+For more information about Azure Container Storage, see [What is Azure Container Storage?](../container-storage/container-storage-introduction.md)
 
 ## Queue Storage
 

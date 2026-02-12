@@ -5,7 +5,7 @@ services: site-recovery
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 02/11/2026
+ms.date: 02/12/2026
 ms.author: v-gajeronika
 ms.reviewer: v-gajeronika
 ms.custom:
@@ -60,7 +60,7 @@ To complete these tasks, your account should be assigned the Virtual Machine Con
 1. Select **Backup and Site Recovery** from the search results. Then, select **Create**.
 1. On **Create Recovery Services vault**, on the **Basics** tab, do the following:
 
-    1. For **Subscription**, select the subscription in which you want to create the Recovery Services vault.
+    1. For **Subscription**, select the subscription where you want to create the Recovery Services vault.
     1. For **Resource group**, select an existing resource group or create a new one. For example, create one named **contosoRG**.
     1. For **Vault name**, enter a friendly name to identify the vault. For example, enter **ContosoVMVault**.
     1. For **Region**, select the region where the vault should be located. For example, select **West Europe**.
@@ -81,7 +81,7 @@ Azure VMware Solution VMs replicate to Azure managed disks. When failover occurs
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource**.
 1. Under **Categories**, select **Networking** > **Virtual network**.
-1. On the **Create virtual network** page, on the **Basics** tab, do the following:
+1. On the **Create virtual network** page, on the **Basics** tab, complete the following steps:
     1. For **Subscription**, select the subscription in which to create the network.
     1. For **Resource group**, select the resource group in which to create the network. For this tutorial, use the existing resource group **contosoRG**.
     1. For **Virtual network name**, enter a network name. The name must be unique within the Azure resource group. For example, enter **ContosoASRnet**.

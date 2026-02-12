@@ -15,7 +15,7 @@ ms.date: 01/13/2026
 # Migrate from Standard to StandardV2 NAT Gateway 
 
 
-StandardV2 NAT Gateway offers enhanced data processing limits and high availability through zone redundancy. StandardV2 NAT Gateway is recommended for production workloads requiring resiliency to zonal outages. 
+StandardV2 NAT Gateway offers enhanced data processing limits and high availability through zone redundancy. StandardV2 NAT Gateway is recommended for production workloads requiring resiliency to zone outages. 
 
 In this article, we discuss guidance for how to migrate your subnets from Standard NAT gateway to StandardV2 NAT gateway. In place migration to StandardV2 NAT Gateway isn't available.  
 

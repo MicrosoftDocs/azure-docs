@@ -24,7 +24,7 @@ When a NAT gateway resource is associated with an Azure Firewall subnet, all out
 There’s no double NAT with this architecture. Azure Firewall instances send the traffic to NAT gateway using their private IP address rather than Azure Firewall public IP address.
 
 > [!NOTE]
-> Deploying NAT gateway with a zone redundant firewall isn't a recommended deployment option, as Standard NAT gateway doesn't support zonal redundant deployments. StandardV2 NAT Gateway does support zone-redundant deployments and is in public preview. For more information, see [NAT Gateway SKUs](/azure/nat-gateway/nat-sku).
+> Deploying NAT gateway with a zone redundant firewall isn't a recommended deployment option, as Standard NAT gateway doesn't support zone-redundant deployments. StandardV2 NAT Gateway does support zone-redundant deployments and is in public preview. For more information, see [NAT Gateway SKUs](/azure/nat-gateway/nat-sku).
 > Azure NAT Gateway isn't supported in the secured virtual hub (vWAN) architecture. To use in a vWAN architecture, NAT Gateway must be configured directly to the spoke virtual networks associated with the secured virtual hub (vWAN). For detailed guidance on integrating NAT gateway with Azure Firewall in a hub and spoke network architecture, refer to the [NAT gateway and Azure Firewall integration tutorial](../virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall.md). For more information about Azure Firewall architecture options, see [What are the Azure Firewall Manager architecture options?](../firewall-manager/vhubs-and-vnets.md).
 
 ## Associate a NAT gateway with an Azure Firewall subnet - Azure PowerShell

@@ -96,7 +96,7 @@ Users are allowed to pass this value only for Premium caches and can be passed i
 
 Users are allowed to pass this value only for Premium caches. This is the only value supported in the regions that don't support zones.
 
-- This value can't be passed by user in the request for Standard caches, since they can't explicitly choose for non zonal standard caches.
+- This value can't be passed by user in the request for Standard caches, since they can't explicitly choose for non-zonal standard caches.
 
 It is selected as default option for caches if `ZonalAllocationPolicy` isn't passed in the request in cases:
 
@@ -108,7 +108,7 @@ It is selected as default option for caches if `ZonalAllocationPolicy` isn't pas
 
 > [!IMPORTANT]
 >
-> - Starting with 2024-11-01 API version, Automatic Zonal Allocation is chosen as default option for Premium, Standard caches. In rare cases, when sufficient zonal capacity is unavailable to at-least allocate two zones, and user does not pass `ZonalAllocationPolicy` in the request, Azure will create a non-zonal cache which user can verify by checking the `ZonalAllocationPolicy` property in the response.
+> - Starting with 2024-11-01 API version, Automatic Zonal Allocation is chosen as default option for Premium, Standard caches. In rare cases, when sufficient zone capacity is unavailable to at-least allocate two zones, and user does not pass `ZonalAllocationPolicy` in the request, Azure will create a non-zonal cache which user can verify by checking the `ZonalAllocationPolicy` property in the response.
 >   - Hence, it is recommended not to pass `ZonalAllocationPolicy` in the request body while creating the cache as it will enable Azure to choose the best option among **Automatic**, **NoZones** for the cache based on the region's zonal supportability and capacity. Otherwise, users can pass `ZonalAllocationPolicy` if they want to explicitly use a specific zonal allocation policy.
 
 > [!IMPORTANT]

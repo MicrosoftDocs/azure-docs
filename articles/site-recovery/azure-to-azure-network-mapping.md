@@ -4,7 +4,7 @@ description: Learn about mapping virtual networks between two Azure regions for 
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 02/11/2026
+ms.date: 02/12/2026
 ms.author: v-gajeronika
 ms.reviewer: v-gajeronika
 ms.custom:
@@ -84,8 +84,6 @@ The same configuration applies to the Secondary IP Configurations.
 --- | ---
 Same address space | Use the IP address of the source virtual machine NIC as the target virtual machine NIC IP address.<br/><br/> If the address isn't available, use the next available IP address.
 Different address space | Use the next available IP address in the target subnet as the target virtual machine NIC address.
-
-
 
 ## IP address assignment during test failover
 

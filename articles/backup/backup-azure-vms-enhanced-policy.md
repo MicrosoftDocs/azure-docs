@@ -8,13 +8,13 @@ ms.service: azure-backup
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: AbhishekMallick-MS
 ms.author: v-mallicka
-# Customer intent: As an Azure administrator, I want to configure an Enhanced backup policy for Azure VMs so that I can use advanced backup features like frequent snapshots and zonal resiliency to ensure better data protection and recovery options.
+# Customer intent: As an Azure administrator, I want to configure an Enhanced backup policy for Azure VMs so that I can use advanced backup features like frequent snapshots and zone resiliency to ensure better data protection and recovery options.
 ---
 # Back up an Azure VM by using the Enhanced policy
 
 Azure Backup now supports the Enhanced policy for Azure virtual machine (VM) backup that offers:
 
-- Zonal resiliency by using zone-redundant storage for Instant Restore snapshots.
+- Zone resiliency by using zone-redundant storage for Instant Restore snapshots.
 - Multiple backups per days. You can schedule backups as frequently as every 4 hours for Azure VMs.
 - Support for new Azure offerings, including Trusted Launch VMs, Premium solid-state drive (SSD) v2 and Ultra SSD disks, and multidisk crash-consistent snapshot support.
 - Longer retention in snapshot (operational) tier up to 30 days.

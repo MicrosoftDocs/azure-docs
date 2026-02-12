@@ -105,7 +105,7 @@ This feature includes:
 - Scheduling multiple backups per day (up to every 4 hours).
 - Retaining snapshots for extended durations.
 - Ensuring multi-disk crash consistency for VM backups.
-- Providing zonally resilient snapshot-tier recovery points.
+- Providing zone-resilient snapshot-tier recovery points.
 - Enabling seamless migration of VMs to Trusted Launch, and using Premium SSD v2 and Ultra disks for the VMs without disrupting existing backups.
 - Migrating protected VMs from Standard policy to Enhanced policy in bulk.
 
@@ -260,7 +260,7 @@ For more information, see [Assign network access settings during restore](backup
 
 ## Migration of Azure VM backups from standard to enhanced policy (preview)
 
-Azure Backup now supports migration to the enhanced policy for Azure VM backups using standard policy. The migration of VM backups to enhanced policy enables you to schedule multiple backups per day (up to every 4 hours), retain snapshots for longer duration, and use multi-disk crash consistency for Virtual Machine (VM) backups. Snapshot-tier recovery points (created using enhanced policy) are zonally resilient. The migration of VM backups to enhanced policy also allows you to migrate your VMs to Trusted Launch and use Premium SSD v2 and Ultra-disks for the VMs without disrupting the existing backups.
+Azure Backup now supports migration to the enhanced policy for Azure VM backups using standard policy. The migration of VM backups to enhanced policy enables you to schedule multiple backups per day (up to every 4 hours), retain snapshots for longer duration, and use multi-disk crash consistency for Virtual Machine (VM) backups. Snapshot-tier recovery points (created using enhanced policy) are zone-resilient. The migration of VM backups to enhanced policy also allows you to migrate your VMs to Trusted Launch and use Premium SSD v2 and Ultra-disks for the VMs without disrupting the existing backups.
 
 For more information, see [Migrate Azure VM backups from standard  to enhanced policy (preview)](backup-azure-vm-migrate-enhanced-policy.md).
 

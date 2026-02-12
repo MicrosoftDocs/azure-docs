@@ -40,7 +40,7 @@ To discover databases running on a VM, follow these steps:
 
 1. On the **Configure protection** pane, for **Datasource type**, select **SQL in Azure VM**. Then select **Continue**.
 
-   :::image type="content" source="./media/backup-azure-sql-database/configure-sql-backup.png" alt-text="Screenshot that shows selection of a SQL Server database as the datasource for backup.":::
+   :::image type="content" source="./media/backup-azure-sql-database/configure-sql-backup.png" alt-text="Screenshot that shows selection of a SQL Server database as the datasource for backup":::
 
 1. On the **Start: Configure Backup** pane, under **Vault**, choose **Select vault**.
 
