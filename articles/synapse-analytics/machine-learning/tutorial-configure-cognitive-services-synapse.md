@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Prerequisites for Azure AI services in Azure Synapse Analytics'
-description: Learn how to configure the prerequisites for using Azure AI services in Azure Synapse.
+title: 'Quickstart: Prerequisites for Foundry Tools in Azure Synapse Analytics'
+description: Learn how to configure the prerequisites for using Foundry Tools in Azure Synapse.
 ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: quickstart
@@ -13,16 +13,16 @@ ms.custom:
   - sfi-image-nochange
 ---
 
-# Quickstart: Configure prerequisites for using Azure AI services in Azure Synapse Analytics
+# Quickstart: Configure prerequisites for using Foundry Tools in Azure Synapse Analytics
 
-In this quickstart, you'll learn how set up the prerequisites for securely using Azure AI services in Azure Synapse Analytics. Linking these Azure AI services allows you to leverage Azure AI services from various experiences in Synapse.
+In this quickstart, you'll learn how set up the prerequisites for securely using Foundry Tools in Azure Synapse Analytics. Linking these Foundry Tools allows you to leverage Foundry Tools from various experiences in Synapse.
 
 This quickstart covers:
 > [!div class="checklist"]
 > - Create an Azure AI services resource like Text Analytics or Anomaly Detector.
 > - Store an authentication key to Azure AI services resources as secrets in Azure Key Vault, and configure access for an Azure Synapse Analytics workspace.
 > - Create an Azure Key Vault linked service in your Azure Synapse Analytics workspace.
-> - Create an Azure AI services linked service in your Azure Synapse Analytics workspace.
+> - Create a Foundry Tools linked service in your Azure Synapse Analytics workspace.
 
 If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
@@ -36,7 +36,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create an Azure AI services resource
 
-[Azure AI services](/azure/ai-services/) includes many types of services. Follow services are examples used in the Azure Synapse tutorials.
+[Foundry Tools](/azure/ai-services/) includes many types of services. Follow services are examples used in the Azure Synapse tutorials.
 
 You can create a [Text Analytics](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) resource in the Azure portal:
 
@@ -46,9 +46,9 @@ You can create an [Anomaly Detector](https://portal.azure.com/#create/Microsoft.
 
 ![Screenshot that shows Anomaly Detector in the portal, with the Create button.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00a.png)
 
-You can create an [Azure AI Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) resource (for Document Intelligence) in the Azure portal:
+You can create an [Azure Document Intelligence in Foundry Tools](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) resource (for Document Intelligence) in the Azure portal:
 
-![Screenshot that shows Azure AI Document Intelligence in the portal, with the Create button.](media/tutorial-configure-cognitive-services/tutorial-configure-form-recognizer.png)
+![Screenshot that shows Document Intelligence in the portal, with the Create button.](media/tutorial-configure-cognitive-services/tutorial-configure-form-recognizer.png)
 
 You can create a [Translator](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource in the Azure portal:
 
@@ -85,7 +85,7 @@ You can create a [Speech](https://portal.azure.com/#create/Microsoft.CognitiveSe
    ![Screenshot that shows selections for creating a secret.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00d.png)
 
    > [!IMPORTANT]
-   > Make sure you remember or note down this secret name. You'll use it later when you create the Azure AI services linked service.
+   > Make sure you remember or note down this secret name. You'll use it later when you create the Foundry Tools linked service.
 
 ## Create an Azure Key Vault linked service in Azure Synapse
 
@@ -99,16 +99,16 @@ You can create a [Speech](https://portal.azure.com/#create/Microsoft.CognitiveSe
 ## Create an Azure AI linked service in Azure Synapse
 
 1. Open your workspace in Synapse Studio.
-2. Go to **Manage** > **Linked Services**. Create an **Azure Cognitive Services** linked service by pointing to the Azure AI service that you just created. 
+2. Go to **Manage** > **Linked Services**. Create an **Azure Cognitive Services** linked service by pointing to the Foundry Tool that you just created. 
 3. Verify the connection by selecting the **Test connection** button. If the connection is green, select **Create** and then select **Publish all** to save your change.
 
-![Screenshot that shows Azure AI services as a new linked service.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-linked-service.png)
+![Screenshot that shows Foundry Tools as a new linked service.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-linked-service.png)
 
-You're now ready to continue with one of the tutorials for using the Azure AI services experience in Synapse Studio.
+You're now ready to continue with one of the tutorials for using the Foundry Tools experience in Synapse Studio.
 
 ## Next steps
 
-- [Tutorial: Sentiment analysis with Azure AI services](tutorial-cognitive-services-sentiment.md)
-- [Tutorial: Anomaly detection with Azure AI services](tutorial-cognitive-services-sentiment.md)
+- [Tutorial: Sentiment analysis with Foundry Tools](tutorial-cognitive-services-sentiment.md)
+- [Tutorial: Anomaly detection with Foundry Tools](tutorial-cognitive-services-sentiment.md)
 - [Tutorial: Machine learning model scoring in Azure Synapse dedicated SQL Pools](tutorial-sql-pool-model-scoring-wizard.md).
 - [Machine Learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)

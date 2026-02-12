@@ -151,7 +151,7 @@ Customer Lockbox request history, please use the Activity Log for subscription-s
 
 ## Customer Lockbox for Microsoft Azure integration with the Microsoft cloud security benchmark
 
-We introduced a new baseline control ([PA-8: Determine access process for cloud provider support](/security/benchmark/azure/mcsb-privileged-access#pa-8-determine-access-process-for-cloud-provider-support)) in the Microsoft cloud security benchmark that covers Customer Lockbox applicability. Customers can now use the benchmark to review Customer Lockbox applicability for a service.
+We introduced a new baseline control ([PA-8: Determine access process for cloud provider support](/security/benchmark/azure/mcsb-v2-privileged-access#pa-8-determine-access-process-for-cloud-provider-support)) in the Microsoft cloud security benchmark that covers Customer Lockbox applicability. Customers can now use the benchmark to review Customer Lockbox applicability for a service.
 
 ## Exclusions
 

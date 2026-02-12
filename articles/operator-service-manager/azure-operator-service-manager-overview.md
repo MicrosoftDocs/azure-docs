@@ -81,7 +81,7 @@ Services installed on the customer edge cluster undergo rigorous security testin
 Achieve continuous integration and continuous delivery (CI/CD) by combining Azure Operator Service Manager with Azure DevOps. 
 * Pull new software releases directly from the latest repository.
 * Deploy by using Azure safe practices, and scale from one site to thousands of sites.
-* Integrate with any Azure analytics or AI services, including Microsoft Fabric, Azure Data Explorer, Azure Logic Apps, and Microsoft Copilot.
+* Integrate with any Azure analytics or Foundry Tools, including Microsoft Fabric, Azure Data Explorer, Azure Logic Apps, and Microsoft Copilot.
 
 Go further by influencing workflow decisions with data-driven insights and actions. 
 

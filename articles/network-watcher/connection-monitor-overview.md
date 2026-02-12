@@ -72,7 +72,7 @@ To monitor connectivity from the on-premises host, it must be enabled with Arc a
 Once the Azure Arc agent is enabled, proceed to enable the Azure Monitor Agent. For more information, see [Install and manage Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-manage).
 
 > [!TIP]
-You can escape the installation process of the Azure Monitor Agent extension if you use the Azure Portal to create your connection monitor. However, you still need to enable the Azure Arc agent on the on-premises host machines. 
+You can escape the installation process of the Azure Monitor Agent extension if you use the Azure portal to create your connection monitor. However, you still need to enable the Azure Arc agent on the on-premises host machines. 
 
 > [!NOTE]
 > Currently, Connection monitor only supports Arc-enabled on-premises hosts as source endpoints. Log Analytics agent is no longer supported for monitoring on-premises machines with Connection monitor.

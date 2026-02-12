@@ -1445,7 +1445,7 @@ items:
       - name: Azure Machine Learning
         displayName: linked service
         href: machine-learning/quickstart-integrate-azure-machine-learning.md
-      - name: Azure AI services
+      - name: Foundry Tools
         displayName: linked service, configure
         href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
   - name: Concepts
@@ -1486,7 +1486,7 @@ items:
       - name: PREDICT score in Synapse spark using model registered in AML or ADLS
         displayName: predict score, Synapse spark, model registered in AML or ADLS
         href: ./machine-learning/tutorial-score-model-predict-spark-pool.md
-      - name: With Azure AI services
+      - name: With Foundry Tools
         items:
         - name: Overview
           displayName: cognitive services, ai services, score model

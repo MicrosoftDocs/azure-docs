@@ -14,7 +14,7 @@
   items:
   - name: Microsoft for Startups
     href: https://www.microsoft.com/startups
-  - name: Azure AI Foundry
+  - name: Microsoft Foundry
     href: https://ai.azure.com/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/

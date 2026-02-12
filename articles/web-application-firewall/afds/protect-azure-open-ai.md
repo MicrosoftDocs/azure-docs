@@ -30,7 +30,7 @@ First, create an OpenAI instance.
 1. Create an Azure OpenAI instance and deploy a gpt-35-turbo model using [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource).
 1. Identify the Azure OpenAI endpoint and the API key.
 
-   Open the Azure OpenAI service in the Azure AI Foundry portal and open the **Chat** option under **Playground**.
+   Open the Azure OpenAI service in the Microsoft Foundry portal and open the **Chat** option under **Playground**.
    Use the **View code** option to display the endpoint and the API key.
 
    :::image type="content" source="../media/protect-azure-open-ai/sample-code.png" alt-text="Screenshot showing Azure OpenAI sample code with Endpoint and Key.":::

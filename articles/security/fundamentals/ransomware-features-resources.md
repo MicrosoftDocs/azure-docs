@@ -115,9 +115,9 @@ Key Features:
 - [Zero Trust Guidance Center](/security/zero-trust/)
 - [Azure Web Application Firewall](../../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md?tabs=owasp32)
 - [Azure VPN gateway](../../vpn-gateway/openvpn-azure-ad-tenant.md#enable-authentication)
-- [Microsoft Entra multifactor authentication (MFA)](../../active-directory/authentication/howto-mfa-userstates.md)
-- [Microsoft Entra ID Protection](../../active-directory/authentication/concept-password-ban-bad.md)
-- [Microsoft Entra Conditional Access](../../active-directory/conditional-access/overview.md)
+- [Microsoft Entra multifactor authentication (MFA)](/entra/identity/authentication/howto-mfa-userstates.md)
+- [Microsoft Entra ID Protection](/entra/identity/authentication/concept-password-ban-bad.md)
+- [Microsoft Entra Conditional Access](/entra/identity/conditional-access/overview.md)
 - [Microsoft Defender for Cloud documentation](/azure/defender-for-cloud/)
 
 ## Conclusion

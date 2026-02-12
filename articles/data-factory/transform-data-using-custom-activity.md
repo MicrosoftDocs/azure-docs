@@ -106,7 +106,7 @@ The following JSON snippet defines a pipeline with a simple Custom Activity. The
 }
 ```
 
-In this sample, the helloworld.exe is a custom application stored in the customactv2/helloworld folder of the Azure Storage account used in the resourceLinkedService. The Custom activity submits this custom application to be executed on Azure Batch. You can replace the command to any preferred application that can be executed on the target Operation System of the Azure Batch Pool nodes.
+In this sample, the helloworld.exe is a custom application stored in the customactv2/helloworld folder of the Azure Storage account used in the resourceLinkedService. The Custom activity submits this custom application to be executed on Azure Batch. You can replace the command to any preferred application that can be executed on the target Operating System of the Azure Batch Pool nodes.
 
 The following table describes names and descriptions of properties that are specific to this activity.
 

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Sentiment analysis with Azure AI services'
-description: Learn how to use Azure AI Language for sentiment analysis in Azure Synapse Analytics
+title: 'Tutorial: Sentiment analysis with Foundry Tools'
+description: Learn how to use Azure Language in Foundry Tools for sentiment analysis in Azure Synapse Analytics
 ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
@@ -10,9 +10,9 @@ author: nelgson
 ms.author: negust
 ---
 
-# Tutorial: Sentiment analysis with Azure AI services
+# Tutorial: Sentiment analysis with Foundry Tools
 
-In this tutorial, you learn how to enrich your data in Azure Synapse Analytics with [Azure AI services](/azure/ai-services/). You'll use the [Azure AI Language](/azure/ai-services/language-service/) text analytics capabilities to perform sentiment analysis. 
+In this tutorial, you learn how to enrich your data in Azure Synapse Analytics with [Foundry Tools](/azure/ai-services/). You'll use the [Azure Language in Foundry Tools](/azure/ai-services/language-service/) text analytics capabilities to perform sentiment analysis. 
 
 A user in Azure Synapse can select a table that contains a text column to enrich with sentiments. These sentiments can be positive, negative, mixed, or neutral. A probability will also be returned.
 
@@ -20,7 +20,7 @@ This tutorial covers:
 
 > [!div class="checklist"]
 > - Steps for getting a Spark table dataset that contains a text column for sentiment analysis.
-> - Using a wizard experience in Azure Synapse to enrich data by using Text Analytics in Azure AI Language.
+> - Using a wizard experience in Azure Synapse to enrich data by using Text Analytics in Language.
 
 If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
@@ -28,7 +28,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 - [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
 - Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../quickstart-create-sql-pool-studio.md).
-- Preconfiguration steps described in the tutorial: [Configure Azure AI services in Azure Synapse](tutorial-configure-cognitive-services-synapse.md).
+- Preconfiguration steps described in the tutorial: [Configure Foundry Tools in Azure Synapse](tutorial-configure-cognitive-services-synapse.md).
 
 ## Sign in to the Azure portal
 
@@ -65,7 +65,7 @@ You'll need a Spark table for this tutorial.
 
 <a name='open-the-cognitive-services-wizard'></a>
 
-## Open the Azure AI services wizard
+## Open the Foundry Tools wizard
 
 1. In the **Workspace** tab on the data page, under your default lake table, right-click the Spark table created in the previous procedure. 
 1. Select **Machine Learning** > **Predict with a model** to open the wizard.
@@ -79,26 +79,26 @@ You'll need a Spark table for this tutorial.
 ## Configure sentiment analysis
 
 Next, configure the sentiment analysis. Select the following details:
-- **Azure Cognitive Services linked service**: As part of the prerequisite steps, you created a linked service to your [Azure AI service](tutorial-configure-cognitive-services-synapse.md). Select it here.
+- **Azure Cognitive Services linked service**: As part of the prerequisite steps, you created a linked service to your [Foundry Tool](tutorial-configure-cognitive-services-synapse.md). Select it here.
 - **Language**: Select **English** as the language of the text that you want to perform sentiment analysis on.
 - **Text column**: Select **comment (string)** as the text column in your dataset that you want to analyze to determine the sentiment.
 
-When you're done, select **Open notebook**. This generates a notebook for you with PySpark code that performs the sentiment analysis with Azure AI services.
+When you're done, select **Open notebook**. This generates a notebook for you with PySpark code that performs the sentiment analysis with Foundry Tools.
 
 ![Screenshot that shows selections for configuring sentiment analysis.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-config.png)
 
 ## Run the notebook
 
-The notebook that you just opened uses the [SynapseML library](https://github.com/microsoft/SynapseML) to connect to Azure AI services. The Azure AI services linked service that you provided allow you to securely reference your Azure AI service from this experience without revealing any secrets.
+The notebook that you just opened uses the [SynapseML library](https://github.com/microsoft/SynapseML) to connect to Foundry Tools. The Foundry Tools linked service that you provided allow you to securely reference your Foundry Tool from this experience without revealing any secrets.
 
  You can now run all cells to enrich your data with sentiments. Select **Run all**. 
 
-The sentiments are returned as **positive**, **negative**, **neutral**, or **mixed**. You also get probabilities per sentiment. [Learn more about sentiment analysis in Azure AI services](/azure/ai-services/language-service/sentiment-opinion-mining/overview).
+The sentiments are returned as **positive**, **negative**, **neutral**, or **mixed**. You also get probabilities per sentiment. [Learn more about sentiment analysis in Foundry Tools](/azure/ai-services/language-service/sentiment-opinion-mining/overview).
 
 ![Screenshot that shows sentiment analysis.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-notebook.png)
 
 ## Related content
 
-- [Tutorial: Anomaly detection with Azure AI services](tutorial-cognitive-services-anomaly.md)
+- [Tutorial: Anomaly detection with Foundry Tools](tutorial-cognitive-services-anomaly.md)
 - [Tutorial: Machine learning model scoring in Azure Synapse dedicated SQL pools](tutorial-sql-pool-model-scoring-wizard.md)
 - [Machine Learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)

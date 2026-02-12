@@ -197,8 +197,8 @@ items:
           href: gpu-types.md
         - name: Tutorials
           items:
-            - name: Generate images with serverless GPUs
-              href: gpu-image-generation.md
+            - name: Deploy AI image generation with serverless GPUs
+              href: tutorial-gpu-image-generation.md
             - name: Deploy an NVIDIA Llama3 NIM
               href: serverless-gpu-nim.md
             - name: Deploy OpenAI GPT with OSS Ollama
@@ -372,7 +372,7 @@ items:
           items:
             - name: Components overview
               href: dapr-components.md
-            - name: Connect to Azure or third-party services
+            - name: Connect to Azure or partner services
               href: dapr-component-connect-services.md
             - name: Connect to Azure services via Azure portal
               href: dapr-component-connection.md

@@ -5,7 +5,7 @@ services: container-apps, azure-functions
 author: lilyjma
 ms.service: azure-container-apps
 ms.topic: overview
-ms.date: 05/19/2025
+ms.date: 01/27/2026
 ms.author: jiayma
 ms.reviewer: cshoe, hannahhunter
 ms.custom:
@@ -15,9 +15,9 @@ ms.custom:
 # Workflow in Azure Container Apps
 
 > [!NOTE]
-> The term "workflow" often has multiple meanings. In the context of Durable Functions, you might see workflows referred to as orchestrations. To avoid any confusion with container orchestrations, this article uses the term workflows instead. 
+> The term *workflow* often has multiple meanings. In the context of Durable Functions, you might see workflows referred to as orchestrations. To avoid any confusion with container orchestrations, this article uses the term workflow instead. 
 
-Workflows are multi-step operations that usually occur in a specific order or involve long-running tasks. Real-world scenarios requiring workflows include:
+A workflow is a multi-step operation that usually occurs in a specific order or involves long-running tasks. Real-world scenarios requiring workflows include:
 - Order processing
 - AI agent orchestration
 - Infrastructure management
@@ -33,9 +33,9 @@ Durable execution provides a fault-tolerant approach to running code and handles
 - **State persistence:** The output of each step is saved to ensure progress isn't lost.
 - **Fault tolerance:** If a step fails, the operation is retried from the last successful step, skipping previously completed steps.
 
-Durable execution benefits scenarios requiring stateful chaining of operations. It simplifies the implementation of complex, long-running, stateful, and fault-tolerant application patterns. 
+Durable execution benefits scenarios that require stateful chaining of operations. It simplifies the implementation of complex, long-running, stateful, and fault-tolerant application patterns. 
 
-You can achieve durable execution in your workflows in Azure Container Apps using one of the Azure-managed workflow frameworks.
+You can achieve durable execution in your workflows in Azure Container Apps by using one of the Azure-managed workflow frameworks.
 
 ## Workflow frameworks for developers in Azure
 
@@ -43,7 +43,7 @@ Azure provides two code-oriented workflow frameworks you can use to build apps t
 - **Durable Task SDKs**
 - **Durable Functions** 
 
-The Durable Task SDKs and Durable Functions workflow frameworks are designed for developers and available in multiple programming languages. 
+These frameworks are designed for developers and are available in multiple programming languages. 
 
 ### Durable Task SDKs
 
@@ -57,16 +57,16 @@ To ensure durable execution, the Durable Task SDKs require a storage backend to 
 - Load balances orchestration execution at scale on your container app.
 
 > [!NOTE]
-> Currently, the Durable Task Python and Java SDKs are in preview. [Learn which framework is recommended for production use.](../azure-functions/durable/durable-task-scheduler/choose-orchestration-framework.md)
+> Currently, the Durable Task Python and Java SDKs are in preview. To learn which framework is recommended for production use, see [Choosing an orchestration framework](../azure-functions/durable/durable-task-scheduler/choose-orchestration-framework.md).
 
 #### Quickstarts
 
-Try out configuring the Durable Task SDKs for your container app using the following quickstarts.
+Try out configuring the Durable Task SDKs for your container app by using the following quickstarts.
 
 | Quickstart | Description | 
 | ---------- | ----------- |
-| [Configure a Durable Task SDK in your application](../azure-functions/durable/durable-task-scheduler/quickstart-portable-durable-task-sdks.md) | Learn how to create workflows that use the fan-out/fan-in Durable Functions application pattern. Currently available with the .NET, Python, and Java Durable Task SDKs. |
-| [Configure a Durable Task SDK in your container app](../azure-functions/durable/durable-task-scheduler/quickstart-container-apps-durable-task-sdk.md) | Use the Azure Developer CLI to create Durable Task Scheduler resources and deploy them to Azure with two container apps running workflow tasks. Currently available with the .NET, Python, and Java Durable Task SDKs. |
+| [Create an app with Durable Task SDKs and Durable Task Scheduler](../azure-functions/durable/durable-task-scheduler/quickstart-portable-durable-task-sdks.md) | Learn how to create workflows that use the fan-out/fan-in Durable Functions application pattern. Currently available with the .NET, Python, and Java Durable Task SDKs. |
+| [Host a Durable Task SDK app on Azure Container Apps](../azure-functions/durable/durable-task-scheduler/quickstart-container-apps-durable-task-sdk.md) | Use the Azure Developer CLI to create Durable Task Scheduler resources and deploy them to Azure with two container apps running workflow tasks. Currently available with the .NET, Python, and Java Durable Task SDKs. |
 
 ### Durable Functions 
 
@@ -77,9 +77,9 @@ As a feature of Azure Functions, [Durable Functions](../azure-functions/durable/
 
 ## How to choose 
 
-Applications built using either the Durable Task SDKs or Durable Functions can be hosted in Azure Container Apps. [Learn which framework works best for your scenario](../azure-functions/durable/durable-task-scheduler/choose-orchestration-framework.md). 
+Applications built using either the Durable Task SDKs or Durable Functions can be hosted in Azure Container Apps. To learn which framework works best for your scenario, see [Choosing an orchestration framework](../azure-functions/durable/durable-task-scheduler/choose-orchestration-framework.md). 
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Learn more about the Durable Task Scheduler](../azure-functions/durable/durable-task-scheduler/durable-task-scheduler.md) 

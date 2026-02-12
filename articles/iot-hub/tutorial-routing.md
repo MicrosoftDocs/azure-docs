@@ -14,7 +14,7 @@ ms.custom:
   - 'Role: Data Analytics'
   - devx-track-azurecli
   - sfi-image-nochange
-#Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. This step of the tutorial needs to show me how to set up my base resources using CLI and the Azure Portal.
+#Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. This step of the tutorial needs to show me how to set up my base resources using CLI and the Azure portal.
 ---
 
 # Tutorial: Send device data to Azure Storage using IoT Hub message routing

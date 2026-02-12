@@ -64,7 +64,7 @@ Networks need to evolve from traditional defenses because networks might be vuln
 Best practices are:
 
 **Best practice**: Give Conditional Access to resources based on device, identity, assurance, network location, and more.  
-**Detail**: [Microsoft Entra Conditional Access](../../active-directory/conditional-access/overview.md) lets you apply the right access controls by implementing automated access control decisions based on the required conditions. For more information, see [Manage access to Azure management with Conditional Access](../../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md).
+**Detail**: [Microsoft Entra Conditional Access](/entra/identity/conditional-access/overview) lets you apply the right access controls by implementing automated access control decisions based on the required conditions. For more information, see [Manage access to Azure management with Conditional Access](/entra/identity/conditional-access/howto-conditional-access-policy-azure-management).
 
 **Best practice**: Enable port access only after workflow approval.  
 **Detail**: You can use [just-in-time VM access in Microsoft Defender for Cloud](../../security-center/security-center-just-in-time.md) to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
@@ -203,4 +203,7 @@ To learn more about private endpoints and the Azure services and regions that pr
 
 
 ## Next steps
-See [Azure security best practices and patterns](best-practices-and-patterns.md) for more security best practices to use when you're designing, deploying, and managing your cloud solutions by using Azure.
+
+- See [Azure security best practices and patterns](best-practices-and-patterns.md) for more security best practices to use when you're designing, deploying, and managing your cloud solutions by using Azure.
+- Review the [Microsoft Cloud Security Benchmark v2 (preview) - Network Security](/security/benchmark/azure/mcsb-v2-network-security) controls for comprehensive network security guidance with Azure Policy mappings.
+- Learn about the [Microsoft Secure Future Initiative (SFI)](/security/zero-trust/sfi/secure-future-initiative-overview), Microsoft's internal security best practices for protecting networks that we also recommend to customers.

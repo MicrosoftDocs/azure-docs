@@ -29,7 +29,7 @@ Azure operational security refers to the services, controls, and features availa
 
 We recommend that you require two-step verification for all of your users. This includes administrators and others in your organization who can have a significant impact if their account is compromised (for example, financial officers).
 
-There are multiple options for requiring two-step verification. The best option for you depends on your goals, the Microsoft Entra edition you're running, and your licensing program. See [How to require two-step verification for a user](../../active-directory/authentication/howto-mfa-userstates.md) to determine the best option for you. See the [Microsoft Entra ID](https://azure.microsoft.com/pricing/details/active-directory/) and [Microsoft Entra multifactor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) pricing pages for more information about licenses and pricing.
+There are multiple options for requiring two-step verification. The best option for you depends on your goals, the Microsoft Entra edition you're running, and your licensing program. See [How to require two-step verification for a user](/entra/identity/authentication/howto-mfa-userstates) to determine the best option for you. See the [Microsoft Entra ID](https://www.microsoft.com/security/business/microsoft-entra-pricing) and [Microsoft Entra multifactor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) pricing pages for more information about licenses and pricing.
 
 Following are options and benefits for enabling two-step verification:
 
@@ -40,26 +40,26 @@ Following are options and benefits for enabling two-step verification:
 * Require MFA challenge via Microsoft Authenticator for all users
 * Restrict legacy authentication protocols.
 
-This method is available to all licensing tiers but is not able to be mixed with existing Conditional Access policies. You can find more information in [Microsoft Entra Security Defaults](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)
+This method is available to all licensing tiers but is not able to be mixed with existing Conditional Access policies. You can find more information in [Microsoft Entra Security Defaults](/entra/fundamentals/security-defaults)
 
-**Option 2**: [Enable multifactor authentication by changing user state](../../active-directory/authentication/howto-mfa-userstates.md).   
-**Benefit**: This is the traditional method for requiring two-step verification. It works with both [Microsoft Entra multifactor authentication in the cloud and Azure Multi-Factor Authentication Server](../../active-directory/authentication/concept-mfa-howitworks.md). Using this method requires users to perform two-step verification every time they sign in and overrides Conditional Access policies.
+**Option 2**: [Enable multifactor authentication by changing user state](/entra/identity/authentication/howto-mfa-userstates).   
+**Benefit**: This is the traditional method for requiring two-step verification. It works with both [Microsoft Entra multifactor authentication in the cloud and Azure Multi-Factor Authentication Server](/entra/identity/authentication/concept-mfa-howitworks). Using this method requires users to perform two-step verification every time they sign in and overrides Conditional Access policies.
 
-To determine where multifactor authentication needs to be enabled, see [Which version of Microsoft Entra multifactor authentication is right for my organization?](../../active-directory/authentication/concept-mfa-howitworks.md).
+To determine where multifactor authentication needs to be enabled, see [Which version of Microsoft Entra multifactor authentication is right for my organization?](/entra/identity/authentication/concept-mfa-howitworks).
 
-**Option 3**: [Enable multifactor authentication with Conditional Access policy](../../active-directory/authentication/howto-mfa-getstarted.md).
-**Benefit**: This option allows you to prompt for two-step verification under specific conditions by using [Conditional Access](../../active-directory/conditional-access/concept-conditional-access-policy-common.md). Specific conditions can be user sign-in from different locations, untrusted devices, or applications that you consider risky. Defining specific conditions where you require two-step verification enables you to avoid constant prompting for your users, which can be an unpleasant user experience.
+**Option 3**: [Enable multifactor authentication with Conditional Access policy](/entra/identity/authentication/howto-mfa-getstarted).
+**Benefit**: This option allows you to prompt for two-step verification under specific conditions by using [Conditional Access](/entra/identity/conditional-access/concept-conditional-access-policy-common). Specific conditions can be user sign-in from different locations, untrusted devices, or applications that you consider risky. Defining specific conditions where you require two-step verification enables you to avoid constant prompting for your users, which can be an unpleasant user experience.
 
-This is the most flexible way to enable two-step verification for your users. Enabling a Conditional Access policy works only for Microsoft Entra multifactor authentication in the cloud and is a premium feature of Microsoft Entra ID. You can find more information on this method in [Deploy cloud-based Microsoft Entra multifactor authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
+This is the most flexible way to enable two-step verification for your users. Enabling a Conditional Access policy works only for Microsoft Entra multifactor authentication in the cloud and is a premium feature of Microsoft Entra ID. You can find more information on this method in [Deploy cloud-based Microsoft Entra multifactor authentication](/entra/identity/authentication/howto-mfa-getstarted).
 
-**Option 4**: Enable multifactor authentication with Conditional Access policies by evaluating [Risk-based Conditional Access policies](../../active-directory/conditional-access/howto-conditional-access-policy-risk.md).   
+**Option 4**: Enable multifactor authentication with Conditional Access policies by evaluating [Risk-based Conditional Access policies](/entra/identity/conditional-access/howto-conditional-access-policy-risk).   
 **Benefit**: This option enables you to:
 
 * Detect potential vulnerabilities that affect your organization's identities.
 * Configure automated responses to detected suspicious actions that are related to your organization's identities.
 * Investigate suspicious incidents and take appropriate action to resolve them.
 
-This method uses the Microsoft Entra ID Protection risk evaluation to determine if two-step verification is required based on user and sign-in risk for all cloud applications. This method requires Microsoft Entra ID P2 licensing. You can find more information on this method in [Microsoft Entra ID Protection](../../active-directory/identity-protection/overview-identity-protection.md).
+This method uses the Microsoft Entra ID Protection risk evaluation to determine if two-step verification is required based on user and sign-in risk for all cloud applications. This method requires Microsoft Entra ID P2 licensing. You can find more information on this method in [Microsoft Entra ID Protection](/entra/id-protection/overview-identity-protection).
 
 > [!Note]
 > Option 2, enabling multifactor authentication by changing the user state, overrides Conditional Access policies. Because options 3 and 4 use Conditional Access policies, you cannot use option 2 with them.
@@ -73,10 +73,10 @@ The following table lists some best practices related to managing user passwords
 **Detail**: Follow the guidance in [Microsoft Password Guidance](https://www.microsoft.com/research/publication/password-guidance/), which is scoped to users of the Microsoft identity platforms (Microsoft Entra ID, Active Directory, and Microsoft account).
 
 **Best practice**: Monitor for suspicious actions related to your user accounts.   
-**Detail**: Monitor for [users at risk](../../active-directory/identity-protection/overview-identity-protection.md) and [risky sign-ins](../../active-directory/identity-protection/overview-identity-protection.md) by using Microsoft Entra security reports.
+**Detail**: Monitor for [users at risk](/entra/id-protection/overview-identity-protection) and [risky sign-ins](/entra/id-protection/overview-identity-protection) by using Microsoft Entra security reports.
 
 **Best practice**: Automatically detect and remediate high-risk passwords.   
-**Detail**: [Microsoft Entra ID Protection](../../active-directory/identity-protection/overview-identity-protection.md) is a feature of the Microsoft Entra ID P2 edition that enables you to:
+**Detail**: [Microsoft Entra ID Protection](/entra/id-protection/overview-identity-protection) is a feature of the Microsoft Entra ID P2 edition that enables you to:
 
 - Detect potential vulnerabilities that affect your organization’s identities
 - Configure automated responses to detected suspicious actions that are related to your organization’s identities
@@ -259,11 +259,11 @@ For more information, see [Create and manage policies to enforce compliance](../
 <a name='monitor-azure-ad-risk-reports'></a>
 
 ## Monitor Microsoft Entra risk reports
-The vast majority of security breaches take place when attackers gain access to an environment by stealing a user’s identity. Discovering compromised identities is no easy task. Microsoft Entra ID uses adaptive machine learning algorithms and heuristics to detect suspicious actions that are related to your user accounts. Each detected suspicious action is stored in a record called a [risk detection](../../active-directory/identity-protection/overview-identity-protection.md). Risk detections are recorded in Microsoft Entra security reports. For more information, read about the [users at risk security report](../../active-directory/identity-protection/overview-identity-protection.md) and the [risky sign-ins security report](../../active-directory/identity-protection/overview-identity-protection.md).
+The vast majority of security breaches take place when attackers gain access to an environment by stealing a user’s identity. Discovering compromised identities is no easy task. Microsoft Entra ID uses adaptive machine learning algorithms and heuristics to detect suspicious actions that are related to your user accounts. Each detected suspicious action is stored in a record called a [risk detection](/entra/id-protection/overview-identity-protection). Risk detections are recorded in Microsoft Entra security reports. For more information, read about the [users at risk security report](/entra/id-protection/overview-identity-protection) and the [risky sign-ins security report](/entra/id-protection/overview-identity-protection).
 
 ## Next steps
 See [Azure security best practices and patterns](best-practices-and-patterns.md) for more security best practices to use when you’re designing, deploying, and managing your cloud solutions by using Azure.
-
+Learn about the [Microsoft Secure Future Initiative (SFI)](/security/zero-trust/sfi/secure-future-initiative-overview), Microsoft's internal security framework based on Zero Trust principles and aligned with NIST CSF 2.0.
 The following resources are available to provide more general information about Azure security and related Microsoft services:
 * [Azure Security Team Blog](/archive/blogs/azuresecurity/) - for up to date information on the latest in Azure Security
 * [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - where Microsoft security vulnerabilities, including issues with Azure, can be reported or via email to secure@microsoft.com

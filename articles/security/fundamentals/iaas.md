@@ -24,7 +24,7 @@ In most infrastructure as a service (IaaS) scenarios, [Azure virtual machines (V
 To protect your VMs, ensure that only authorized users can set up new VMs and access existing VMs.
 
 > [!NOTE]
-> To improve the security of Linux VMs on Azure, you can integrate with Microsoft Entra authentication. When you use [Microsoft Entra authentication for Linux VMs](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md), you centrally control and enforce policies that allow or deny access to the VMs.
+> To improve the security of Linux VMs on Azure, you can integrate with Microsoft Entra authentication. When you use [Microsoft Entra authentication for Linux VMs](/entra/identity/devices/howto-vm-sign-in-azure-ad-linux.md), you centrally control and enforce policies that allow or deny access to the VMs.
 
 **Best practice**: Control VM access.
 **Detail**: Use [Azure policies](../../governance/policy/overview.md) to establish conventions for resources in your organization and create customized policies. Apply these policies to resources, such as [resource groups](../../azure-resource-manager/management/overview.md). VMs that belong to a resource group inherit its policies.
@@ -143,7 +143,7 @@ Encrypt your virtual hard disks (VHDs) to help protect your boot volume and data
 The following best practices help you use encryption at host:
 
 **Best practice**: Enable encryption at host on VMs by default.   
-**Detail**: Encryption at host is enabled by default for new VMs and provides transparent encryption by using platform-managed keys without requiring extra configuration. If you choose to use customer-managed keys, store them in Azure Key Vault or Azure Key Vault Managed HSM. Microsoft Entra authentication is required for access. For authentication purposes, you can use either client secret-based authentication or [client certificate-based Microsoft Entra authentication](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
+**Detail**: Encryption at host is enabled by default for new VMs and provides transparent encryption by using platform-managed keys without requiring extra configuration. If you choose to use customer-managed keys, store them in Azure Key Vault or Azure Key Vault Managed HSM. Microsoft Entra authentication is required for access. For authentication purposes, you can use either client secret-based authentication or [client certificate-based Microsoft Entra authentication](/entra/identity/authentication/active-directory-certificate-based-authentication-get-started.md).
 
 **Best practice**: When using customer-managed keys, use a key encryption key (KEK) for an extra layer of security for encryption keys.   
 **Detail**: When using customer-managed keys, use the [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet to create a key encryption key in Azure Key Vault or Managed HSM. You can also import a KEK from your on-premises hardware security module (HSM). For more information, see the [Key Vault documentation](/azure/key-vault/keys/hsm-protected-keys). When you specify a key encryption key, encryption at host uses that key to wrap the encryption secrets. Keeping an escrow copy of this key in an on-premises key management HSM offers extra protection against accidental deletion of keys.

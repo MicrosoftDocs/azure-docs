@@ -43,7 +43,7 @@ Service endpoints are available for the following Azure services and regions. Th
 
 - **[Azure App Service](../app-service/app-service-ip-restrictions.md)** (*Microsoft.Web*): Generally available in all Azure regions where App service is available.
 
-- **[Azure Cognitive Services](/azure/ai-services/cognitive-services-virtual-networks?tabs=portal)** (*Microsoft.CognitiveServices*): Generally available in all Azure regions where Azure AI services are available.
+- **[Azure Cognitive Services](/azure/ai-services/cognitive-services-virtual-networks?tabs=portal)** (*Microsoft.CognitiveServices*): Generally available in all Azure regions where Foundry Tools are available.
 
 - **[Azure Container Registry](/azure/container-registry/container-registry-vnet)** (*Microsoft.ContainerRegistry*): Generally available in all Azure regions where Azure Container Registry is available.
 

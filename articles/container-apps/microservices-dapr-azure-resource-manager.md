@@ -1,12 +1,12 @@
 ---
-title: "Quickstart: Deploy a Dapr application to Azure Container Apps with an Azure Resource Manager or Bicep file"
-description: Deploy a Dapr application to Azure Container Apps with an Azure Resource Manager or Bicep file.
+title: "Quickstart: Deploy a Dapr App with Azure Resource Manager or Bicep"
+description: Learn how to deploy a Dapr application to Azure Container Apps by using an Azure Resource Manager or Bicep file.
 services: container-apps
 author: greenie-msft
 ms.service: azure-container-apps
 ms.subservice: dapr
 ms.topic: quickstart
-ms.date: 08/28/2025
+ms.date: 01/28/2026
 ms.author: nigreenf
 ms.reviewer: hannahhunter
 ms.custom:
@@ -17,32 +17,28 @@ ms.custom:
 zone_pivot_groups: container-apps
 ---
 
-# Quickstart: Deploy a Dapr application to Azure Container Apps with an Azure Resource Manager or Bicep file
+# Quickstart: Deploy a Dapr application to Azure Container Apps by using an Azure Resource Manager or Bicep file
 
-[Dapr](./dapr-overview.md) (Distributed Application Runtime) helps developers build resilient, reliable microservices. In this quickstart, you enable Dapr sidecars to run alongside two container apps that produce and consume messages, stored in an Azure Blob Storage state store. Using either Azure Resource Manager or Bicep files,  you'll:
+[Dapr](./dapr-overview.md) (Distributed Application Runtime) helps developers build resilient, reliable microservices. In this quickstart, you enable Dapr sidecars to run alongside two container apps that produce and consume messages, stored in an Azure Blob Storage state store. Using either Azure Resource Manager or Bicep files, you'll:
 
 > [!div class="checklist"]
 >
 > - Pass Azure CLI commands to [deploy a template](https://github.com/Azure-Samples/Tutorial-Deploy-Dapr-Microservices-ACA) that launches everything you need to run microservices.  
 > - Verify the interaction between the two microservices in the Azure portal.
 
-:::image type="content" source="media/microservices-dapr/azure-container-apps-microservices-dapr.png" alt-text="Architecture diagram for Dapr Hello World microservices on Azure Container Apps":::
+:::image type="content" source="media/microservices-dapr/azure-container-apps-microservices-dapr.png" alt-text="Architecture diagram of Dapr Hello World microservices on Azure Container Apps.":::
 
 This quickstart mirrors the applications you deploy in the open-source Dapr [Hello World](https://github.com/dapr/quickstarts/tree/master/tutorials/hello-world) quickstart.
 
 ## Prerequisites
 
-- Install [Azure CLI](/cli/azure/install-azure-cli)
-- Install [Git](https://git-scm.com/downloads)
-
+- An Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- A GitHub account. If you don't already have one, [sign up for free](https://github.com/join).
+- Install [Azure CLI](/cli/azure/install-azure-cli).
+- Install [Git](https://git-scm.com/downloads).
 ::: zone pivot="container-apps-bicep"
-
-- [Bicep](../azure-resource-manager/bicep/install.md)
-
+- Install [Bicep tools](../azure-resource-manager/bicep/install.md).
 ::: zone-end
-
-- An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- A GitHub Account. If you don't already have one, sign up for [free](https://github.com/join).
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
@@ -56,12 +52,10 @@ Go to the repository holding the ARM and Bicep files that's used to deploy the s
 
 Select the **Fork** button at the top of the [repository](https://github.com/Azure-Samples/Tutorial-Deploy-Dapr-Microservices-ACA) to fork the repo to your account.
 
-Now you can clone your fork to work with it locally.
-
-Use the following git command to clone your forked repo into the _acadapr-templates_ directory.
+Now you can clone your fork to work with it locally. Use the following git command to clone your forked repo into the _acadapr-templates_ directory.
 
 ```git
-git clone https://github.com/$GITHUB_USERNAME/Tutorial-Deploy-Dapr-Microservices-ACA.git acadapr-templates
+git clone https://github.com/<your-github-username>/Tutorial-Deploy-Dapr-Microservices-ACA.git acadapr-templates
 ```
 
 ## Deploy
@@ -74,9 +68,9 @@ Navigate to the _acadapr-templates_ directory and run the following command:
 
 ```azurecli
 az deployment group create \
-  --resource-group "$RESOURCE_GROUP" \
+  --resource-group $RESOURCE_GROUP \
   --template-file ./azuredeploy.json \
-  --parameters environment_name="$CONTAINERAPPS_ENVIRONMENT"
+  --parameters environment_name=$CONTAINERAPPS_ENVIRONMENT
 ```
 
 # [PowerShell](#tab/powershell)
@@ -97,15 +91,13 @@ New-AzResourceGroupDeployment `
 
 ::: zone pivot="container-apps-bicep"
 
-A warning (BCP081) might be displayed. This warning has no effect on the successful deployment of the application.
-
 # [Bash](#tab/bash)
 
 ```azurecli
 az deployment group create \
-  --resource-group "$RESOURCE_GROUP" \
+  --resource-group $RESOURCE_GROUP \
   --template-file ./azuredeploy.bicep \
-  --parameters environment_name="$CONTAINERAPPS_ENVIRONMENT"
+  --parameters environment_name=$CONTAINERAPPS_ENVIRONMENT
 ```
 
 # [PowerShell](#tab/powershell)
@@ -122,6 +114,8 @@ New-AzResourceGroupDeployment `
   -TemplateFile ./azuredeploy.bicep `
   -SkipTemplateParameterPrompt
 ```
+
+A warning (BCP081) might appear. This warning has no effect on the successful deployment of the application.
 
 ::: zone-end
 
@@ -149,11 +143,11 @@ You can confirm that the services are working correctly by viewing data in your 
 
 1. Go to the newly created storage account in your resource group.
 
-1. Select **Data Storage** > **Containers** from the menu on the left side.
+1. Select **Data storage** > **Containers** from the sidebar menu.
 
 1. Select the created container.
 
-1. Verify that you can see the file named `order` in the container.
+1. Verify that you can see the file named *order* in the container.
 
 1. Select the file.
 
@@ -161,11 +155,11 @@ You can confirm that the services are working correctly by viewing data in your 
 
 1. Select the **Refresh** button to observe updates.
 
-### View Logs
+### View logs
 
-Logs from container apps are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or via the CLI. There may be a small delay initially for the table to appear in the workspace.
+Logs from container apps are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or via the CLI. There might be a small delay initially for the table to appear in the workspace.
 
-Use the following command to view logs in bash or PowerShell.
+Use the following command to view logs in Bash or PowerShell.
 
 # [Bash](#tab/bash)
 
@@ -175,7 +169,7 @@ LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az containerapp env show --name $CONTAINERAPP
 
 ```azurecli
 az monitor log-analytics query \
-  --workspace "$LOG_ANALYTICS_WORKSPACE_CLIENT_ID" \
+  --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
   --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5" \
   --out table
 ```
@@ -221,7 +215,7 @@ az group delete \
 # [PowerShell](#tab/powershell)
 
 ```azurepowershell
-Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
+Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
 ---
@@ -229,7 +223,7 @@ Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> [Learn more about Dapr components in Azure Container Apps](dapr-components.md)
+> [Learn about Dapr components in Azure Container Apps](dapr-components.md)
