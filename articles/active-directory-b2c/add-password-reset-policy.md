@@ -26,7 +26,7 @@ In a [sign-up and sign-in journey](add-sign-up-and-sign-in-policy.md), a user ca
 > [!TIP]
 > A user can change their password by using the self-service password reset flow if they forget their password and want to reset it. You can also choose one of the following user flow options to change a user's password:
 > - If a user knows their password and wants to change it, use a [password change flow](add-password-change-policy.md).
-> - If you want to force a user to reset their password (for example, when they sign in for the first time, when their passwords have been reset by an admin, or after they've been migrated to Azure AD B2C with random passwords), use a [force password reset](force-password-reset.md) flow.
+> - If you want to force a user to reset their password (for example, when they sign in for the first time, when their password have been reset by an admin, or after they've been migrated to Azure AD B2C with random passwords), use a [force password reset](force-password-reset.md) flow.
 
 The password reset flow involves the following steps:
 
