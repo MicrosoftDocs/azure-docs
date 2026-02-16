@@ -69,6 +69,7 @@ Please note, limitations tagged with **[Temporary]** will be resolved at GA.
 - Australia East
 - Korean Central
 - Canada Central
+- UAE North
 
 ## Virtual network TAP partner solutions
 
