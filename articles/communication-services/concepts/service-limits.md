@@ -31,9 +31,10 @@ Find more general guidance on how to set up your service architecture to handle 
 1. Select [Help+Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
 1. Select **Create new support request**.
 1. In the **Describe your issue** text box, enter **Technical**, and then select **Go**.
-1. From the **Select a service** dropdown menu, select **Service and Subscription Limits (Quotas)**, and then select **Next**.
-1. At the **Problem** description, choose the **Issue type**, **Subscription**, and **Quota type** values, and then select **Next**.
-1. Review any recommended solution, if available, and then select **Next**.
+1. From the **Select a service** dropdown menu, select **Communication Services**, subscription, the target resource or General question, and **Assistance with email Quota Increase** in the issue and then select **Next**.
+1. From the **Contact Support** tab, select **Create a support request**.
+1. At the **Problem** description, choose the **Issue type (You need to select "Technical")**, **Subscription**, **Assistance with email** as **Problem type** values, and **Quota Increase** as **Problem subtype** values, and then select **Next**.
+1. Review any recommended solution, if available, and then select **Return to support request**.
 1. Add other details as needed, and then select **Next**.
 1. At **Review + create**, check the information, make changes as needed, and then select **Create**.
 
@@ -58,9 +59,10 @@ To increase number purchase limits, make a request to Azure Support.
 1. Select [Help+Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
 1. Select **Create new support request**.
 1. In the **Describe your issue** text box, enter **Technical**, and then select **Go**.
-1. From the **Select a service** dropdown menu, select **Service and Subscription Limits (Quotas)**, and then select **Next**.
-1. At the **Problem** description, choose the **Issue type**, **Subscription**, and **Quota type** values, and then select **Next**.
-1. Review any recommended solutions, if available, and then select **Next**.
+1. From the **Select a service** dropdown menu, select **Communication Services**, subscription, the target resource or General question, and **Acquiring a phone number** in the issue and then select **Next**.
+1. From the **Contact Support** tab, select **Create a support request**.
+1. At the **Problem** description, choose the **Issue type (You need to select "Technical")**, **Subscription**, **Acquiring a phone number** as **Problem type** values, and then select **Next**.
+1. Review any recommended solution, if available, and then select **Return to support request**.
 1. Add more details as needed, and then select **Next**.
 1. At **Review + create** check the information, make changes as needed, and then select **Create**.
 
