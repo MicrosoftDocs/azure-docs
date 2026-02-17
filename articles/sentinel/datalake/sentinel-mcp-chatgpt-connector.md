@@ -46,8 +46,8 @@ To create a custom Sentinel connector in ChatGPT, follow these steps:
 >- If you're using the ChatGPT desktop application, you must first complete this connector setup in the ChatGPT web version.
 >- For ChatGPT Enterprise, an administrator can roll out a connector to all users in that ChatGPT organization. 
 
-1. Turn on the ChatGPT developer mode. In ChatGPT, select your account icon, then go to **Apps & connectors** > **Advanced Settings** and toggle **Developer mode**. 
-1.	Go back to **Apps & connectors** and select **Create Connector**.
+1. Turn on the ChatGPT developer mode. In ChatGPT, select your account icon, then go to **Apps** > **Advanced Settings** and toggle **Developer mode**. 
+1.	Go back to **Apps** and select **Create App**.
 1.	Provide the following required details:
     - **Connector name:** For example, `Microsoft Sentinel MCP`
     - **MCP Server URL:** `https://sentinel.microsoft.com/mcp/data-exploration`
