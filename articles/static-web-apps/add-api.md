@@ -186,7 +186,7 @@ Update the content of the _src/index.html_ file with the following code to fetch
     }
     ```
 
-# [React](#tab/react)
+# [React](#tab/react) or [React (Vite)](#tab/react-vite)
 
 Update the content of _src/App.js_ with the following code to fetch the text from the API function and display it on the screen.
 
