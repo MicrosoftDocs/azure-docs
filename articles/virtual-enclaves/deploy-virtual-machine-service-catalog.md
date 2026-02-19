@@ -82,11 +82,15 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
 
 ## Publish RemoteApp (Optional)
 If you publish your application, all of the following fields on this tab must be filled out.
+
 ![Screenshot showing the inputs needed to publish an app on the Virtual Machine.](./media/service-catalog-remote-app-vm-publish-inputs.png)
 
 > [!NOTE]
 > 
 > The file paths should use forward slashes even for Windows file paths.
+
+- **Applicaiton file path**: Provide the file path on the VM app for the application (e.g. `C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe`)
+- **Applicaiton icon file path**: Provide the file path on the VM for the icon (e.g. `C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe`)
 
 It can take 20+ minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
