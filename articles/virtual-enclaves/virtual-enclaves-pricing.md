@@ -29,8 +29,7 @@ Managed resources for the community include:
   - Virtual WAN required for the community
 Managed resources for the enclaves include:
   - Virtual Network required for the enclave
-  - Network Security Groups (NSGs) for each subnet
-  - Azure DNS required for the enclave
+  - Network Security Group (NSG) for each subnet
   - Log Analytics user selectable for community, enclave, or both.
 
 Visit the Azure Virtual Enclaves [community](./what-community.md) and [enclave](./what-enclave.md) documentation for a complete list of managed resources.
