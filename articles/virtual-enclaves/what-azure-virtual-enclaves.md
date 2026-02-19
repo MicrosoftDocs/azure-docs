@@ -19,7 +19,9 @@ AVE takes a multi-layered and hierarchical approach to virtual boundary protecti
 
 ![Graphic that shows communities and enclaves example architecture.](./media/communities-virtual-enclaves.svg)
 
-## Key Capabilities
+## Accelerated deployment and management
+
+Azure Virtual Enclaves dramatically reduces the time and complexity required to create and manage secure, compliant cloud environments. Traditional secure environment deployment can take weeks or months of planning, configuration, and testing and may be missing important isolation and policy controls. AVE reduces this to hours or days through platform-managed infrastructure and built-in security controls so you can focus on your customers or users.
 
 ## Isolated virtual networking and workloads
 With Azure Virtual Enclaves, you can easily create new isolated, zero-trust software-defined networks and deploy workloads in those networks to satisfy your business requirements on Azure.
