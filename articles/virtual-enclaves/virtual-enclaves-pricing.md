@@ -11,7 +11,7 @@ ms.date: 9/30/2025
 A description of Azure Virtual Enclaves pricing.
 
 > [!IMPORTANT]
-> The pricing shown in this article is intended to be used for example purposes only.
+> The pricing information in this article is intended to be used for example purposes only.
 >
 >   * Pricing can change at any point. For current pricing information, see the Virtual Enclaves pricing page.
 >
