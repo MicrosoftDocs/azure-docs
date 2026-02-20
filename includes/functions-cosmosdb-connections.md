@@ -31,6 +31,29 @@ In this mode, the extension requires the following properties:
 
 Additional properties may be set to customize the connection. See [Common properties for identity-based connections](../articles/azure-functions/functions-reference.md#common-properties-for-identity-based-connections).
 
+#### User-assigned managed identity
+
+To use a user-assigned managed identity, add the `credential` and `clientId` properties in addition to the `accountEndpoint`:
+
+| Property                  | Environment variable template                       | Description                                | Example value                                        |
+|---------------------------|-----------------------------------------------------|--------------------------------------------|------------------------------------------------|
+| Account Endpoint | `<CONNECTION_NAME_PREFIX>__accountEndpoint` | The Azure Cosmos DB account endpoint URI. | `https://mycosmosdb.documents.azure.com:443/` |
+| Credential | `<CONNECTION_NAME_PREFIX>__credential` | Must be set to `managedidentity`. | `managedidentity` |
+| Client ID | `<CONNECTION_NAME_PREFIX>__clientId` | The client ID of the user-assigned managed identity. | `00000000-0000-0000-0000-000000000000` |
+
+For example, if your binding configuration specifies `connection = "CosmosDBConnection"`, you would configure the following application settings:
+
+```json
+{
+    "CosmosDBConnection__accountEndpoint": "https://mycosmosdb.documents.azure.com:443/",
+    "CosmosDBConnection__credential": "managedidentity",
+    "CosmosDBConnection__clientId": "00000000-0000-0000-0000-000000000000"
+}
+```
+
+> [!TIP]
+> User-assigned managed identities are recommended for production scenarios where you need fine-grained control over identity permissions across multiple resources.
+
 [!INCLUDE [functions-identity-based-connections-configuration](./functions-identity-based-connections-configuration.md)]
 
 [!INCLUDE [functions-cosmos-permissions](./functions-cosmos-permissions.md)]
