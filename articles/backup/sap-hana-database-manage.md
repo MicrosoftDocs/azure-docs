@@ -128,6 +128,10 @@ To modify the policy to change backup types, frequencies, and retention range, f
 >[!NOTE]
 > * Any change in the retention period will be applied to both the new recovery points and, retroactively, to all older recovery points.
 >
+> * When you reduce the retention period for incremental backups, keep in mind that incremental backups are chained to the previous incremental backup and ultimately to the full backup. The full backup is retained until the retention of the last incremental backup that depends on it expires. For example, if you reduce the incremental backup retention from 30 days to 15 days, existing incremental backups are cleaned up after 15 days from their creation. However, the full backup that these incrementals depend on is retained until all those incrementals expire.
+>
+> * If incremental backups are in a soft-deleted state when a retention policy change is applied, the same dependency rules apply. Soft-deleted backups are retained for an additional 14 days beyond their retention expiry before being permanently deleted.
+>
 > * For HANA snapshots, you can edit the HANA instance policy to have a different resource group or another user-assigned managed identity. Currently, the Azure portal performs all validations during the backup configuration only. So, you must assign the required roles on the new snapshot resource group or the new user-assigned identity by using the [CLI scripts](https://github.com/Azure/Azure-Workload-Backup-Troubleshooting-Scripts/tree/main/SnapshotPreReqCLIScripts).
 
 1. On the **Backup center** dashboard, go to **Backup Policies**, and then select the policy you want to edit.

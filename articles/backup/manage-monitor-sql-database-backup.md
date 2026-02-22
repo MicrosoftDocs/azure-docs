@@ -128,6 +128,10 @@ Modify policy to change backup frequency or retention range.
 
 > [!NOTE]
 > Any change in the retention period will be applied retrospectively to all the older recovery points besides the new ones.
+>
+> When you reduce the retention period for differential backups, keep in mind that differential backups are dependent on the previous full backup for recovery. The full backup is retained until the retention of the last differential backup that depends on it expires. For example, if you reduce the differential backup retention from 30 days to 15 days, existing differential backups are cleaned up after 15 days from their creation. However, the full backup that these differentials depend on is retained until all those differentials expire.
+>
+> If differential backups are in a soft-deleted state when a retention policy change is applied, the same dependency rules apply. Soft-deleted backups are retained for an additional 14 days beyond their retention expiry before being permanently deleted.
 
 In the vault dashboard, go to **Manage** > **Backup Policies** and choose the policy you want to edit.
 

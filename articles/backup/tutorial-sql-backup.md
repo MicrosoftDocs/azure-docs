@@ -191,11 +191,13 @@ To create a backup policy:
 1. After you complete the edits to the backup policy, select **OK**.
 
 > [!NOTE]
-> Each log backup is chained to the previous full backup to form a recovery chain. This full backup is retained until the retention of the last log backup expires. This behavior might mean that the full backup is retained for an extra period to make sure all the logs can be recovered.
+> Log and differential backups are chained to the previous full backup to form recovery chains. The full backup is retained until the retention of the last dependent backup (log or differential) expires. This behavior might mean that the full backup is retained for an extra period to make sure all dependent backups can be recovered.
 >
 > Assume that you have a weekly full backup, a daily differential, and 2-hour logs. All of them are retained for 30 days. But, the weekly full backup can be cleaned up or deleted only after the next full backup is available; that is, after 30 + 7 days.
 >
-> For example, a weekly full backup happens on November 16. According to the retention policy, this backup should be retained until December 16. The last log backup happens before the next scheduled full backup, on November 22. Until this log backup is available on December 22, the November 16 full backup can't be deleted. So, the November 16 full backup is retained until December 22.
+> For example, a weekly full backup happens on November 16. According to the retention policy, this backup should be retained until December 16. The last log backup happens before the next scheduled full backup, on November 22. Until this log backup is available on December 22, the November 16 full backup can't be deleted. So, the November 16 full backup is retained until December 22. The same logic applies to differential backups: if daily differential backups have a 30-day retention, the last differential taken before the next full backup (November 22) expires on December 22, so the November 16 full backup is also retained until December 22.
+>
+> If backups are in a soft-deleted state, the same chaining and retention dependencies apply. The soft-deleted backups are also retained for 14 additional days beyond the policy retention period before being permanently deleted.
 
 ## Run an on-demand backup
 
