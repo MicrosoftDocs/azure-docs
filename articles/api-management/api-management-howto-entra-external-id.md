@@ -1,19 +1,19 @@
 ---
-title: Authorize Access to API Management Developer Portal by using Microsoft Entra External ID
+title: Authorize Access to API Management Developer Portal by using Microsoft Entra External ID - Workfoce tenant
 titleSuffix: Azure API Management
-description: Learn how to authorize external users of the developer portal in Azure API Management by using Microsoft Entra External ID
+description: Learn how to authorize external users of the developer portal in Azure API Management by using Microsoft Entra External ID in a workforce tenant
 services: api-management
 author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 12/08/2025
+ms.date: 02/23/2026
 ms.author: danlep
 ms.custom:
 
 ---
 
-# How to authorize developer accounts by using external identity providers in Microsoft Entra External ID
+Authorize developer accounts by using Microsoft Entra External ID (workforce tenant)
 
 [!INCLUDE [premium-dev-standard-premiumv2-standardv2-basicv2.md](../../includes/api-management-availability-premium-dev-standard-premiumv2-standardv2-basicv2.md)]
 
