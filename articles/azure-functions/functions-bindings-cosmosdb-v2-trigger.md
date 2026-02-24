@@ -280,14 +280,65 @@ app = func.FunctionApp()
 
 @app.function_name(name="CosmosDBTrigger")
 @app.cosmos_db_trigger(arg_name="documents", 
-                       database_name="DB_NAME", 
-                       collection_name="COLLECTION_NAME", 
-                       connection_string_setting="CONNECTION_SETTING",
- lease_collection_name="leases", create_lease_collection_if_not_exists="true")
-def test_function(documents: func.DocumentList) -> str:
+                       database_name="%COSMOS_DATABASE_NAME%", 
+                       container_name="%COSMOS_CONTAINER_NAME%",
+                       connection="COSMOS_CONNECTION",
+                       lease_container_name="leases",
+                       create_lease_container_if_not_exists="true")
+def cosmos_trigger(documents: func.DocumentList) -> str:
     if documents:
-        logging.info('Document id: %s', documents[0]['id'])
+        for doc in documents:
+            try:
+                logging.info('Processing document id: %s', doc['id'])
+                # Add your business logic here
+            except Exception as e:
+                logging.error('Error processing document %s: %s', doc.get('id', 'unknown'), str(e))
+                # Continue processing remaining documents
+
+@app.function_name(name="health")
+@app.route(route="health", methods=["GET"])
+def health_check(req: func.HttpRequest) -> func.HttpResponse:
+    """Health check endpoint for monitoring."""
+    return func.HttpResponse("OK", status_code=200)
 ```
+
+The above example uses app settings references (`%VAR_NAME%`) instead of hardcoded values. Configure these settings as described in [App Settings](#app-settings-python).
+
+### App Settings {#app-settings-python}
+
+Configure these application settings for identity-based connections:
+
+| Setting | Description | Example |
+|---------|-------------|---------|
+| `COSMOS_DATABASE_NAME` | Name of the Azure Cosmos DB database | `my-database` |
+| `COSMOS_CONTAINER_NAME` | Name of the container to monitor | `my-container` |
+| `COSMOS_CONNECTION__accountEndpoint` | Azure Cosmos DB account endpoint | `https://mycosmosdb.documents.azure.com:443/` |
+| `COSMOS_CONNECTION__credential` | Set to `managedidentity` for UAMI | `managedidentity` |
+| `COSMOS_CONNECTION__clientId` | Client ID of the user-assigned managed identity | `00000000-0000-0000-0000-000000000000` |
+
+### Local Development {#local-dev-python}
+
+For local development, create a `local.settings.json` file:
+
+```json
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+        "FUNCTIONS_WORKER_RUNTIME": "python",
+        "COSMOS_DATABASE_NAME": "my-database",
+        "COSMOS_CONTAINER_NAME": "my-container",
+        "COSMOS_CONNECTION__accountEndpoint": "https://mycosmosdb.documents.azure.com:443/"
+    }
+}
+```
+
+> [!TIP]
+> For local development, omit `COSMOS_CONNECTION__credential` and `COSMOS_CONNECTION__clientId`. The `DefaultAzureCredential` will use your `az login` credentials automatically.
+
+**Prerequisites for local development:**
+- [Azure CLI](/cli/azure/install-azure-cli) with `az login` completed
+- [Azurite storage emulator](/azure/storage/common/storage-use-azurite) running (`azurite --silent`)
 
 # [v1](#tab/python-v1)
 
@@ -339,14 +390,16 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotn
 
 _Applies only to the Python v2 programming model._
 
-For Python v2 functions defined using a decorator, the following properties on the `cosmos_db_trigger`:
+For Python v2 functions defined using a decorator, the following properties on the `cosmos_db_trigger` (Extension 4.x):
 
 | Property    | Description |
 |-------------|-----------------------------|
 |`arg_name` | The variable name used in function code that represents the list of documents with changes. |
-|`database_name`  | The name of the Azure Cosmos DB database with the collection being monitored. |
-|`collection_name`  | The name of the Azure Cosmos DB collection being monitored. |
-|`connection` | The connection string of the Azure Cosmos DB being monitored. |
+|`database_name`  | The name of the Azure Cosmos DB database. Supports `%VAR_NAME%` syntax to reference app settings. |
+|`container_name`  | The name of the Azure Cosmos DB container being monitored. Supports `%VAR_NAME%` syntax. |
+|`connection` | The name of an app setting or setting prefix for identity-based connections (e.g., `COSMOS_CONNECTION` resolves to `COSMOS_CONNECTION__accountEndpoint`, etc.). |
+|`lease_container_name` | The name of the container used to store leases. |
+|`create_lease_container_if_not_exists` | When `true`, automatically creates the lease container if it doesn't exist. |
 
 For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
 ::: zone-end
