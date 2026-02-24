@@ -27,6 +27,8 @@ Create an agent by associating resource groups that you want to monitor with the
 1. Open the [Azure portal](https://aka.ms/sreagent/portal).
 
 1. Select **Create**.
+   <img width="797" height="466" alt="image" src="https://github.com/user-attachments/assets/1e60fd2a-6a06-4292-b81e-181742d1d414" />
+
 
 1. On the **Create agent** pane, enter the following values. During this step, you create a new resource group specifically for your agent. It's independent of the resource group for your application.
 
