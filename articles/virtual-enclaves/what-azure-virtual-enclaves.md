@@ -21,7 +21,7 @@ AVE takes a multi-layered and hierarchical approach to virtual boundary protecti
 
 ## Accelerated deployment and management
 
-Azure Virtual Enclaves dramatically reduces the time and complexity required to create and manage secure, compliant cloud environments. Traditional secure environment deployment can take weeks or months of planning, configuration, and testing and may be missing important isolation and policy controls. AVE reduces this to hours or days through platform-managed infrastructure and built-in security controls so you can focus on your customers or users.
+Azure Virtual Enclaves dramatically reduces the time and complexity required to create and manage secure, compliant cloud environments. Traditional secure environment deployment can take weeks or months of planning, configuration, and testing and still might be missing important isolation and policy controls. AVE reduces the deployment time to hours or days through platform-managed infrastructure and built-in security controls so you can focus on your customers or users.
 
 ## Isolated virtual networking and workloads
 With Azure Virtual Enclaves, you can easily create new isolated, zero-trust software-defined networks and deploy workloads in those networks to satisfy your business requirements on Azure.
@@ -30,7 +30,7 @@ With Azure Virtual Enclaves, you can easily create new isolated, zero-trust soft
 
 - [**Enclaves**](./what-enclave.md) - Isolated, zero-trust, platform-managed virtual networks connected to the community hub protected through a combination of Network Security Groups (NSG), policy guardrails, and RBAC Deny Assignments that serve as the Virtual Network for one or more workloads. Enclave virtual networks and NSGs can't be directly modified and must be managed through enclave endpoints and enclave resources to establish network connectivity.
 
-- [**Workloads**](./what-workload.md) - The resource that links your [workload resource groups](./what-workload.md#workload-resource-group) to the enclave and community boundary. Workload resource groups are protected by the community, enclave, and workload policies and permissions and this is where you will put your customer deployed resources. platform-managed resource groups protected by Azure policy guardrails and RBAC Deny Assignments that serve as the resource container for an individual service or application hosted within an Enclave.
+- [**Workloads**](./what-workload.md) - The resource that links your [workload resource groups](./what-workload.md#workload-resource-group) to the enclave and community boundary. Workload resource groups are protected by the community, enclave, and workload policies and permissions and this is where you'll put your customer deployed resources. platform-managed resource groups protected by Azure policy guardrails and RBAC Deny Assignments that serve as the resource container for an individual service or application hosted within an Enclave.
 
 [ ![Diagram showing the layers Azure Virtual Enclaves within the management layers in Azure.](./media/ave-azure-layers-hierarchy.png) ](./media/ave-azure-layers-hierarchy.png#lightbox)
 
@@ -112,7 +112,7 @@ Learn more about how Azure Virtual Enclaves [governance](./what-azure-virtual-en
 ## Defense-in-depth 
 Azure Virtual Enclaves simplifies integration with existing secure Azure security and monitoring services including:
 
-**Microsoft Sentinel**: Combine the power of Microsoft Sentinel's SIEM and SOAR capabilities with Azure Virtual Enclaves to enhance threat detection, investigation, and response across your cloud environment.
+**Microsoft Sentinel**: Combine the power of Microsoft Sentinel's Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR) capabilities with Azure Virtual Enclaves to enhance threat detection, investigation, and response across your cloud environment.
 
 **Azure Monitor**: Get end-to-end visibility and in-depth monitoring of your Azure Virtual Enclaves operations, benefiting from Azure Monitor's advanced analytics.
 
