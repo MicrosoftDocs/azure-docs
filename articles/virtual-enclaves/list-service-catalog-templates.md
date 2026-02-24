@@ -47,7 +47,7 @@ Documentation:
   - [Customer Managed Key (CMK)](/azure/storage/common/customer-managed-keys-overview) for encryption
   - [Disk Encryption Set (DES)](/azure/virtual-machines/disk-encryption#full-control-of-your-keys) for disk encryption
   - [Storage Account](/azure/storage/common/storage-account-overview) quickstart. See the separate Storage Account service catalog template for more deployment customization
-  - [Managed Identity](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) to securely access your resources within Azure Virtual Enclaves
+  - [Managed Identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) to securely access your resources within Azure Virtual Enclaves
 
 ## Private DNS Zones
 [How to create the Private DNS Zones you need for your other resources from the service catalog](./deploy-private-dns-zones-service-catalog.md)
