@@ -19,7 +19,7 @@ Diagram Description: The user/admin accesses the service catalog through the por
 
 Browse the [Service Catalog List](./list-service-catalog-templates.md) to view the available templates in the service catalog. Review the documentation for each service catalog template you wish to deploy to determine if there are any prerequisite steps.
 
-[!NOTE]
+> [!NOTE]
 > Editing service catalog templates before deployment
 > You can edit the service catalog template itself but edits might change the parameter inputs view. 
 
