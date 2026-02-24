@@ -62,9 +62,9 @@ The agent uses **Managed Identities** for all Azure resource access:
 
 | Component | 
 |--|--|--|
-| Agent Runtime | 
-| Tool Execution |
-| AI Search | 
+- Agent Runtime
+- Tool Execution
+- AI Search
 
 The configuration doesn't store any secrets or connection strings.
 
@@ -92,10 +92,10 @@ You store data in the Azure region where you deploy your agent. The data plane u
 
 | Data Stored |
 |--|--|--|
-| Threads, messages, memories | 
-| Knowledge documents, files | 
-| Document indexes, embeddings | 
-| Prompts/completions (transient) |
+- Threads, messages, memories
+- Knowledge documents, files
+- Document indexes, embeddings
+- Prompts/completions (transient)
 
 ### What data is sent to the LLM?
 
@@ -103,11 +103,11 @@ When you interact with Azure SRE Agent, the following data types might be sent t
 
 | Data Type | 
 |-----------|-------------|----------|
-| User message | 
-| System prompt |
-| Conversation history | 
-| Retrieved knowledge | 
-| Tool results |
+- User message
+- System prompt
+- Conversation history
+- Retrieved knowledge
+- Tool results
 
 Azure SRE Agent uses enterprise-grade AI services with the following data handling policies:
 
