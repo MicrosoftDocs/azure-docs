@@ -77,6 +77,7 @@ Serverless GPUs are available in the following regions:
 | Australia East | Yes | Yes |
 | Brazil South | Yes | Yes |
 | Central India | No | Yes |
+| Canada Central | Yes | Yes |
 | East US | Yes | Yes |
 | France Central | No | Yes |
 | Italy North | Yes | Yes |
