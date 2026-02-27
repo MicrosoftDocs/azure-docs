@@ -383,7 +383,7 @@ Wait five minutes before moving to the next step.
 
 1. Make sure that the values in all the fields match their counterparts in your GCP project (the values in the screenshot are samples, not literals), and select **Connect**. 
 
-# [GKE Logs](#tab/auditlogs)
+# [GKE Logs](#tab/gkelogs)
 
 1. Open the [Azure portal](https://portal.azure.com/) and navigate to the **Microsoft Sentinel** service.
 
@@ -427,7 +427,7 @@ Wait five minutes before moving to the next step.
     | take 10 
     ```
 
-    # [GKE Logs](#tab/gke)
+    # [GKE Logs](#tab/gkelogs)
 
     ```kusto
     GKEAudit 
