@@ -427,6 +427,13 @@ Wait five minutes before moving to the next step.
     | take 10 
     ```
 
+    # [GKE Logs](#tab/gke)
+
+    ```kusto
+    GKEAudit 
+    | take 10 
+    ```
+
     ---
 
 1. Enable the [health feature](enable-monitoring.md) for data connectors. 
