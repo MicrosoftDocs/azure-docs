@@ -333,6 +333,8 @@ When the output from the script is displayed, save the resources parameters for 
 
 Wait five minutes before moving to the next step. 
 
+---
+
 ## Set up the GCP Pub/Sub connector in Microsoft Sentinel
 
 # [GCP Audit Logs](#tab/auditlogs)
