@@ -298,7 +298,7 @@ The instructions in this section are for using the Microsoft Sentinel **Google K
 See [GCP Security Command Center setup](#gcp-security-command-center-setup) for using the Microsoft Sentinel **GCP Pub/Sub Security Command Center** connector.
 See [GCP Audit Logs setup](#gcp-audit-logs-setup) for using the Microsoft Sentinel **GCP Pub/Sub Audit Logs** connector.
 
-# [Terraform API Setup](#tab/terraform)
+# [Terraform API Setup](#tab/terraformgke)
 
 1. Copy the Terraform audit log setup script provided by Microsoft Sentinel from the Sentinel GitHub repository into a different folder in your GCP Cloud Shell environment.
 
