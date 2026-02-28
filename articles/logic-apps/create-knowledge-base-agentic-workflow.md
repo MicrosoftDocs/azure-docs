@@ -46,8 +46,8 @@ This guide shows how to create a *knowledge hub*, upload *knowledge artifacts*, 
 
 - An Azure Cosmos DB for NoSQL account. For more information, see [Quickstart: Create an Azure Cosmos DB for NoSQL account using the Azure portal](/azure/cosmos-db/quickstart-portal).
 
-    - Before you create your knowledge hub, [enable vector search](/azure/cosmos-db/nosql/vector-search#enroll-in-the-vector-search-preview-feature) on your Cosmos DB account. This operation might take up to 15 minutes before completion.
-  
+  - Before you create your knowledge hub, [enable vector search](/azure/cosmos-db/nosql/vector-search#enroll-in-the-vector-search-preview-feature) on your Cosmos DB account. This operation might take up to 15 minutes before completion.
+
     For more information, see [Vector search in Azure Cosmos DB for NoSQL](/azure/cosmos-db/vector-search).
 
   - To set up your knowledge hub connection later, you need the following values from your Cosmos DB account:
