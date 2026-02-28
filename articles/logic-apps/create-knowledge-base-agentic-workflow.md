@@ -42,7 +42,7 @@ This guide shows how to create a *knowledge hub*, upload *knowledge artifacts*, 
   - To set up your knowledge hub connection later, you need the following values from your OpenAI resource:
 
     - Endpoint URL
-    - Access key
+    - Access key. See [Authentication](#authentication).
 
 - An Azure Cosmos DB for NoSQL account. For more information, see [Quickstart: Create an Azure Cosmos DB for NoSQL account using the Azure portal](/azure/cosmos-db/quickstart-portal).
 
@@ -53,7 +53,7 @@ This guide shows how to create a *knowledge hub*, upload *knowledge artifacts*, 
   - To set up your knowledge hub connection later, you need the following values from your Cosmos DB account:
 
     - Endpoint URL
-    - Access key
+    - Access key. See [Authentication](#authentication).
 
 - A Standard logic app and agentic workflow. You can work on either the logic app resource in the Azure portal or project in Visual Studio Code.
 
@@ -85,7 +85,9 @@ This release currently supports only the following capabilities:
 
 The KBaaS capability supports authentication by using [Microsoft Entra ID](/entra/identity/authentication/overview-authentication) with a [managed identity](/entra/identity/managed-identities-azure-resources/overview) or an API key. If possible, [set up and use a managed identity](/azure/logic-apps/authenticate-with-managed-identity) for optimal and superior security. You don't have to manually provide and manage credentials, secrets, or access keys. After you enable managed identity authentication, in the `knowledgeHubConnections` JSON object described in this guide, update the corresponding `authentication` sections.
 
-If you use an API key, secure and protect sensitive and personal data, such as credentials, secrets, access keys, connection strings, certificates, thumbprints, and similar information with the highest available or supported level of security. Securely store such information by using Microsoft Entra ID and [Azure Key Vault](/azure/key-vault/general/overview). Don't hardcode this information, share with other users, or save in plain text anywhere that others can access. Set up a plan to rotate or revoke secrets in case they become compromised. For more information, see the following resources:
+If you use an API key, secure and protect sensitive and personal data, such as credentials, secrets, access keys, connection strings, certificates, thumbprints, and similar information with the highest available or supported level of security. Securely store such information by using Microsoft Entra ID and [Azure Key Vault](/azure/key-vault/general/overview). Don't hardcode this information, share with other users, or save in plain text anywhere that others can access. Set up a plan to rotate or revoke secrets in case they become compromised.
+
+For more information, see the following resources:
 
 - [Automate secrets rotation in Azure Key Vault](/azure/key-vault/secrets/tutorial-rotation)
 - [Best practices for protecting secrets](/azure/security/fundamentals/secrets-best-practices)
