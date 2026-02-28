@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 02/03/2026
+ms.date: 02/27/2026
 
 ms.author: cherylmc
 
@@ -21,7 +21,7 @@ This article helps you understand the changes for VPN Gateway SKUs. This article
 * *Effective November 1, 2025*: You can no longer create new VPN gateways (VpnGw1-5 SKUs) that aren't supported by an availability zone.
 * *Migration period*: From September 2025 to September 2026, all existing VPN gateways (VpnGw1-5 SKUs) that aren't supported by an availability zone can be manually upgraded to VpnGw1-5 SKUs that are supported.
 
-To support this migration, we're reducing the prices on SKUs supported by availability zones. For more information about SKUs and pricing, see the [FAQs](#faqs) section of this article.
+To support this migration, we're reducing the prices on SKUs supported by availability zones. Starting March 2026, you will need to upgrade the SKU to AZ SKU to be able to do any configuration updates. For more information about SKUs and pricing, see the [FAQs](#faqs) section of this article.
 
 > [!NOTE]
 > This article doesn't apply to the following legacy gateway SKUs: Standard or High Performance. For more information, see [Working with VPN Gateway legacy SKUs](vpn-gateway-about-skus-legacy.md).
@@ -42,6 +42,10 @@ The following diagram shows current SKUs and the new SKUs that they'll automatic
 ### How long will my existing gateway SKUs be supported?
 
 The existing gateway SKUs are supported until they're migrated to the new SKUs. The old SKUs are currently scheduled for deprecation on September 16, 2026. There will be no impact to existing SKUs that are supported by availability zones.
+
+### Will my configuration updates still work on my Non-AZ gateway SKU?
+
+No, starting March 2026, you will need to upgrade your SKU to AZ SKU to do any configuration changes to the gateway.
 
 ### Will there be any pricing differences for my gateways after migration?
 
