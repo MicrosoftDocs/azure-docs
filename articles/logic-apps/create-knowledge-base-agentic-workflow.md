@@ -19,8 +19,7 @@ ms.date: 02/28/2026
 
 Your organization generates unstructured data from documents, spreadsheets, APIs, and internal systems. With the Knowledge Base-as-a-Service (KBaaS) capability in Azure Logic Apps, you can convert this content into a structured and more searchable *knowledge hub* that agentic workflows use to complete tasks. A knowledge hub is a logical container that organizes related *knowledge artifacts* such as documents related to a specific domain.
 
-KBaaS simplifies data transformation and provides an abstraction layer over Azure Cosmos DB and Azure OpenAI so that your workflows can more easily consume, process, and retrieve structured knowledge without building a custom Retrieval-Augmented Generation (RAG) pipeline. 
-For example, you might create a knowledge hub that contains all the documents related to HR policies and procedures. When you create a knowledge hub, the KBaaS automatically sets up the required Azure Cosmos DB databases, containers, and indexing policies.
+KBaaS simplifies data transformation and provides an abstraction layer over Azure Cosmos DB and Azure OpenAI so that your workflows can more easily consume, process, and retrieve structured knowledge without building a custom Retrieval-Augmented Generation (RAG) pipeline. For example, you might create a knowledge hub that contains all the documents related to HR policies and procedures. When you create a knowledge hub, the KBaaS automatically sets up the required Azure Cosmos DB databases, containers, and indexing policies.
 
 This guide shows how to create a *knowledge hub*, upload *knowledge artifacts*, and set up the hub as a tool that your Standard agentic workflows can use.
 
