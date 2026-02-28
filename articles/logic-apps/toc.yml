@@ -139,6 +139,8 @@ items:
         href: create-autonomous-agent-workflows.md
       - name: Create conversational agentic workflows
         href: create-conversational-agent-workflows.md
+      - name: Create knowledge bases for agentic workflows
+        href: create-knowledge-base-agentic-workflow.md
       - name: Add agent tools in Foundry backed by connectors
         href: add-agent-tools-connector-actions.md
       - name: Add agent actions in Foundry backed by workflows
