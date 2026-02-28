@@ -1,9 +1,14 @@
 ---
 title: Create Knowledge Bases for Agentic Workflows
-description: Learn how to create knowledge hubs from unstructured data so agentic workflows can retrieve the relevant content in Azure Logic Apps. Upload knowledge artifacts so that agent loops can consume, process, and use Retrieval-Augmented Generation (RAG) to get the necessary information.
-ms.services: azure-logic-apps, cosmos-db,
+description: Create knowledge hubs from unstructured data so agentic workflows can retrieve relevant content in Azure Logic Apps by using Retrieval-Augmented Generation (RAG).
+services: logic-apps
+ms.services: azure-logic-apps, azure-cosmos-db, azure-ai-foundry
+ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
+ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
+ai-usage: ai-assisted
 ms.date: 02/28/2026
 #Customer intent: As an AI integration developer who works with Azure Logic Apps, I want to create knowledge bases from unstructured documents so my agentic workflows can retrieve relevant information.
 ---
@@ -17,7 +22,7 @@ ms.date: 02/28/2026
 > This preview feature is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Your organization generates unstructured data from documents, spreadsheets, APIs, and internal systems. With the Knowledge Base-as-a-Service (KBaaS) capability in Azure Logic Apps, you can convert this content into a structured and more searchable *knowledge hub* that agentic workflows use to complete tasks. A knowledge hub is a logical container that organizes related *knowledge artifacts* such as documents related to a specific domain.
+Your organization generates unstructured data from documents, spreadsheets, APIs, and internal systems. By using the Knowledge Base-as-a-Service (KBaaS) capability in Azure Logic Apps, you can convert this content into a structured and more searchable *knowledge hub* that agentic workflows use to complete tasks. A knowledge hub is a logical container that organizes related *knowledge artifacts* such as documents related to a specific domain.
 
 For example, you might create a knowledge hub that contains all the documents related to HR policies and procedures. When you create a knowledge hub, the KBaaS automatically sets up the required Azure Cosmos DB databases, containers, and indexing policies.
 
@@ -41,7 +46,7 @@ This guide shows how to create a *knowledge hub*, upload *knowledge artifacts*, 
 
 - An Azure Cosmos DB for NoSQL account. For more information, see [Quickstart: Create an Azure Cosmos DB for NoSQL account using the Azure portal](/azure/cosmos-db/quickstart-portal).
 
-  - Before you create your knowledge hub, [enable vector search](/azure/cosmos-db/nosql/vector-search#enroll-in-the-vector-search-preview-feature) on your Cosmos DB account. This operation might need up to 15 minutes to take effect.
+    - Before you create your knowledge hub, [enable vector search](/azure/cosmos-db/nosql/vector-search#enroll-in-the-vector-search-preview-feature) on your Cosmos DB account. This operation might take up to 15 minutes before completion.
   
     For more information, see [Vector search in Azure Cosmos DB for NoSQL](/azure/cosmos-db/vector-search).
 
@@ -56,7 +61,6 @@ This guide shows how to create a *knowledge hub*, upload *knowledge artifacts*, 
 
   - [Create autonomous agentic workflows without human interactions in Azure Logic Apps](/azure/logic-apps/create-autonomous-agent-workflows?tabs=standard)
   - [Create conversational agentic workflows with chat interactions in Azure Logic Apps](/azure/logic-apps/create-conversational-agent-workflows?tabs=standard)
-  - [Create autonomous]
 
 ## How the knowledge base works
 
@@ -76,6 +80,16 @@ This release currently supports only the following capabilities:
 - Unstructured file formats such as PDF, Word, and TXT. Structured data formats such as JSON and CSV are in planning.
 - Text-based content parsing in documents, not images.
 - Default chunking settings, not custom chunking.
+
+## Authentication
+
+The KBaaS capability supports authentication by using [Microsoft Entra ID](/entra/identity/authentication/overview-authentication) with a [managed identity](/entra/identity/managed-identities-azure-resources/overview) or an API key. If possible, [set up and use a managed identity](/azure/logic-apps/authenticate-with-managed-identity) for optimal and superior security. You don't have to manually provide and manage credentials, secrets, or access keys. After you enable managed identity authentication, in the `knowledgeHubConnections` JSON object described in this guide, update the corresponding `authentication` sections.
+
+If you use an API key, secure and protect sensitive and personal data, such as credentials, secrets, access keys, connection strings, certificates, thumbprints, and similar information with the highest available or supported level of security. Securely store such information by using Microsoft Entra ID and [Azure Key Vault](/azure/key-vault/general/overview). Don't hardcode this information, share with other users, or save in plain text anywhere that others can access. Set up a plan to rotate or revoke secrets in case they become compromised. For more information, see the following resources:
+
+- [Automate secrets rotation in Azure Key Vault](/azure/key-vault/secrets/tutorial-rotation)
+- [Best practices for protecting secrets](/azure/security/fundamentals/secrets-best-practices)
+- [Secrets in Azure Key Vault](/azure/key-vault/secrets/)
 
 ## 1: Add app settings for the knowledge hub
 
@@ -132,37 +146,16 @@ Based on whether you're working in the Azure portal or Visual Studio Code, follo
 
 ### 2b: Add the `knowledgeHubConnections` object
 
-At the file's root level, add the `knowledgeHubConnections` JSON object with the following structure but manually replace the placeholders with the specified values:
+At the file's root level, add the `knowledgeHubConnections` JSON object with the following structure. Manually replace the placeholders with the specified values:
 
 | Placeholder | Required | Value |
 |-------------|----------|-------|
 | `<connection-name>` | Yes | A name for your knowledge hub connection. Use the same name as the knowledge hub that you plan to create so that the retrieval action can associate the correct connection. |
 | `<connection-display-name>` | Yes | A human-readable label for the connection. |
 
-> [!IMPORTANT]
->
-> This capability supports authentication using [Microsoft Entra ID](/entra/identity/authentication/overview-authentication) with a [managed identity](/entra/identity/managed-identities-azure-resources/overview) or an API key. If possible, [set up and use a managed identity](/azure/logic-apps/authenticate-with-managed-identity) for optimal and superior security. You don't have to manually provide and manage credentials, secrets, or access keys. After you enable managed identity authentication, update the corresponding `authentication` sections in the `knowledgeHubConnections` JSON object.
->
-> If you use an API key, secure and protect sensitive and personal data, such as credentials, secrets, access keys, connection strings, certificates, thumbprints, and similar information with the highest available or supported level of security. Securely store such information by using Microsoft Entra ID and [Azure Key Vault](/azure/key-vault/general/overview). Don't hardcode this information, share with other users, or save in plain text anywhere that others can access. Set up a plan to rotate or revoke secrets in the case they become compromised. For more information, see the following resources:
->
-> - [Automate secrets rotation in Azure Key Vault](/azure/key-vault/secrets/tutorial-rotation)
-> - [Best practices for protecting secrets](/azure/security/fundamentals/secrets-best-practices)
-> - [Secrets in Azure Key Vault](/azure/key-vault/secrets/)
-
 ```json
 {
-   "agentConnections": {
-      "agent": {
-         "authentication": {
-            "key": "@appsetting('agent_openAIKey')",
-            "type": "Key"
-         },
-         "displayName": "<model-connection-name>",
-         "endpoint": "@appsetting('agent_openAIEndpoint')",
-         "resourceId": "/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.CognitiveServices/accounts/<cognitive-services-account-name>",
-         "type": "model"
-      }
-   },
+   "agentConnections": {},
    "managedApiConnections": {},
    "serviceProviderConnections": {},
    "knowledgeHubConnections": {
@@ -280,15 +273,11 @@ To list, view, and delete knowledge hubs or artifacts, use the Azure portal or R
 
 ### List all knowledge hubs
 
-To view all the knowledge hubs in your logic app, follow these steps:
-
-**Portal**
-
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
 1. On the logic app sidebar, expand **Knowledge hubs**.
 
-**REST API**
+Or, make the following REST API call:
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{logicAppName}/hostruntime/runtime/webhooks/workflow/api/management/knowledgehubs
@@ -296,7 +285,9 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ### View a specific knowledge hub
 
-To view a specific knowledge hub and its artifacts, make the following REST API call:
+In the Azure portal, from the **Knowledge Hubs** page, select the knowledge hub name.
+
+Or, make the following REST API call:
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{logicAppName}/hostruntime/runtime/webhooks/workflow/api/management/knowledgehubs/{knowledgeHubName}
@@ -306,7 +297,9 @@ The response includes the knowledge hub information and a list with all the asso
 
 ### List artifacts in a knowledge hub
 
-To view all the artifacts in a specific knowledge hub, make the following REST API call:
+In the Azure portal, select the knowledge hub to view its artifacts.
+
+Or, make the following REST API call:
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{logicAppName}/hostruntime/runtime/webhooks/workflow/api/management/knowledgehubs/{knowledgeHubName}/knowledgeArtifacts
@@ -316,7 +309,11 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 This operation removes the artifact metadata, full-text chunks, and vector embeddings from Cosmos DB. The service returns a **202 Accepted** response with an operation ID for tracking deletion progress.
 
-To delete a knowledge artifact, make the following REST API call:
+1. In the Azure portal, select the knowledge hub to view its artifacts.
+
+1. Select the artifact. On the toolbar, select **Delete**.
+
+Or, make the following REST API call:
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{logicAppName}/hostruntime/runtime/webhooks/workflow/api/management/knowledgehubs/{knowledgeHubName}/knowledgeArtifacts/{artifactName}
@@ -326,7 +323,11 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 
 This operation removes the hub and all associated artifacts, chunks, and summaries from Cosmos DB.
 
-To delete a knowledge hub, make the following REST API call:
+1. In the Azure portal, select the knowledge hub.
+
+1. On the toolbar, select **Delete**.
+
+Or, make the following REST API call:
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{logicAppName}/hostruntime/runtime/webhooks/workflow/api/management/knowledgehubs/{knowledgeHubName}
