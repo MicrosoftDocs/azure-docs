@@ -245,11 +245,11 @@ At the file's root level, add the `knowledgeHubConnections` JSON object with the
       | **Description** | No | <*artifact-description*> | An optional description for the artifact. |
       | **File** | Yes | <*document-file*> | The document file to upload. Supported formats include PDF, Word, and TXT. |
 
-1. Select **Upload** to finish adding the document to the knowledge hub.
+   1. Select **Upload** to finish adding the document to the knowledge hub.
 
-   The KB service returns a **202 Accepted** response with an operation ID for tracking the upload progress.
+      The KB service returns a **202 Accepted** response with an operation ID for tracking the upload progress.
 
-1. On the **Knowledge artifacts** pane, monitor the upload status in the portal or by using the operation ID.
+   1. On the **Knowledge artifacts** pane, monitor the upload status in the portal or by using the operation ID.
 
    During the upload process, the KB service performs operations to parse, chunk, summarize, embed, and store vectorized content in the Cosmos DB container. When the process completes, the artifact status changes to **Completed** or **Failed**, based on the result.
 
