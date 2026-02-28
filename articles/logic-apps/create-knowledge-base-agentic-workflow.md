@@ -19,7 +19,7 @@ ms.date: 02/28/2026
 
 Your organization generates unstructured data from documents, spreadsheets, APIs, and internal systems. With the Knowledge Base-as-a-Service (KBaaS) capability in Azure Logic Apps, you can convert this content into a structured and more searchable *knowledge hub* that agentic workflows use to complete tasks. A knowledge hub is a logical container that organizes related *knowledge artifacts* such as documents related to a specific domain.
 
-KBaaS simplifies data transformation and provides an abstraction layer over Azure Cosmos DB and Azure OpenAI so that your workflows can more easily consume, process, and retrieve structured knowledge without building a custom Retrieval-Augmented Generation (RAG) pipeline. For example, you might create a knowledge hub that contains all the documents related to HR policies and procedures. When you create a knowledge hub, the KBaaS automatically sets up the required Azure Cosmos DB databases, containers, and indexing policies.
+For example, you might create a knowledge hub that contains all the documents related to HR policies and procedures. When you create a knowledge hub, the KBaaS automatically sets up the required Azure Cosmos DB databases, containers, and indexing policies.
 
 This guide shows how to create a *knowledge hub*, upload *knowledge artifacts*, and set up the hub as a tool that your Standard agentic workflows can use.
 
@@ -60,9 +60,11 @@ This guide shows how to create a *knowledge hub*, upload *knowledge artifacts*, 
 
 ## How the knowledge base works
 
-A knowledge base service has the following pipelines:
+KBaaS simplifies data transformation and provides an abstraction layer over Azure Cosmos DB and Azure OpenAI so that your workflows can more easily consume, process, and retrieve structured knowledge without building a custom Retrieval-Augmented Generation (RAG) pipeline. 
 
-- *Ingestion pipeline*: When you upload a document (*knowledge artifact*) to a knowledge hub, the service automatically parses, chunks, summarizes, and vectorizes the content. The service then stores the results in Azure Cosmos DB.
+The KBaaS has the following pipelines:
+
+- *Ingestion pipeline*: When you upload a document, or knowledge artifact, to a knowledge hub, the service automatically parses, chunks, summarizes, and vectorizes the content. The service then stores the results in Azure Cosmos DB.
 
 - *Retrieval pipeline*: When the agent loop queries a knowledge hub, the service rewrites the query if needed, generates a vector representation, performs a semantic search against Azure Cosmos DB, and returns the most relevant chunks to the large language model (LLM) for response generation.
 
@@ -130,7 +132,7 @@ Based on whether you're working in the Azure portal or Visual Studio Code, follo
 
 ### 2b: Add the `knowledgeHubConnections` object
 
-At the file's root level, add the `knowledgeHubConnections` JSON object with the following structure but manually replace the placedholders with the specified values:
+At the file's root level, add the `knowledgeHubConnections` JSON object with the following structure but manually replace the placeholders with the specified values:
 
 | Placeholder | Required | Value |
 |-------------|----------|-------|
@@ -141,7 +143,7 @@ At the file's root level, add the `knowledgeHubConnections` JSON object with the
 >
 > This capability supports authentication using [Microsoft Entra ID](/entra/identity/authentication/overview-authentication) with a [managed identity](/entra/identity/managed-identities-azure-resources/overview) or an API key. If possible, [set up and use a managed identity](/azure/logic-apps/authenticate-with-managed-identity) for optimal and superior security. You don't have to manually provide and manage credentials, secrets, or access keys. After you enable managed identity authentication, update the corresponding `authentication` sections in the `knowledgeHubConnections` JSON object.
 >
-> Otherwise, make sure to secure and protect sensitive and personal data, such as credentials, secrets, access keys, connection strings, certificates, thumbprints, and similar information with the highest available or supported level of security. Securely store such information by using Microsoft Entra ID and [Azure Key Vault](/azure/key-vault/general/overview). Don't hardcode this information, share with other users, or save in plain text anywhere that others can access. Set up a plan to rotate or revoke secrets in the case they become compromised. For more information, see the following resources:
+> If you use an API key, secure and protect sensitive and personal data, such as credentials, secrets, access keys, connection strings, certificates, thumbprints, and similar information with the highest available or supported level of security. Securely store such information by using Microsoft Entra ID and [Azure Key Vault](/azure/key-vault/general/overview). Don't hardcode this information, share with other users, or save in plain text anywhere that others can access. Set up a plan to rotate or revoke secrets in the case they become compromised. For more information, see the following resources:
 >
 > - [Automate secrets rotation in Azure Key Vault](/azure/key-vault/secrets/tutorial-rotation)
 > - [Best practices for protecting secrets](/azure/security/fundamentals/secrets-best-practices)
@@ -200,7 +202,7 @@ At the file's root level, add the `knowledgeHubConnections` JSON object with the
 
 <a name="create-knowledge-hub"></a>
 
-## Create a knowledge hub
+## 3: Create a knowledge hub
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -215,7 +217,7 @@ At the file's root level, add the `knowledgeHubConnections` JSON object with the
    | **Name** | Yes | <*hub-name*> | A unique name for the knowledge hub, for example, `HRKnowledgeHub`. |
    | **Description** | No | <*hub-description*> | An optional description for the knowledge hub. |
 
-1. When you finish, select **Create** to provision the knowledge hub.
+1. When you finish, select **Create**.
 
    The KB service creates the following Cosmos DB containers:
 
@@ -226,11 +228,11 @@ At the file's root level, add the `knowledgeHubConnections` JSON object with the
    | **KnowledgeArtifactChunks** | Stores full-text document chunks. |
    | **KnowledgeArtifactChunkSummaries** | Stores summarized chunks with vector embeddings for semantic search. |
 
-   After KBaaS provisions the knowledge hub, you can add the knowledge hub as a tool that your agentic workflow can use.
+   After KBaaS creates the knowledge hub, you can add the knowledge hub as a tool that your agentic workflow can use.
 
 <a name="upload-knowledge-artifacts"></a>
 
-## Upload knowledge artifacts
+## 4: Upload knowledge artifacts
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -258,7 +260,7 @@ At the file's root level, add the `knowledgeHubConnections` JSON object with the
 
 <a name="use-knowledge-hub-as-tool"></a>
 
-## Set up the knowledge hub as a tool
+## 5: Set up the knowledge hub as a tool
 
 After you create a knowledge hub and upload artifacts, add the knowledge hub as a tool for agent loops to use in your Standard logic app workflows. Agent loops can automatically query the knowledge hub to retrieve relevant information.
 
