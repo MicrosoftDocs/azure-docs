@@ -250,7 +250,9 @@ Optionally harden the configuration by updating the default route and origin gro
 - [ACA networking environment selection](../networking-environment-selection.md)
 - [Custom VNet subnet address range restrictions (workload profiles)](../custom-virtual-networks.md#subnet-address-range-restrictions)
 
-Author: Kumar Shashi Kaushal (Sr Digital Cloud Solutions Architect)
+
+
+
 
 
 
