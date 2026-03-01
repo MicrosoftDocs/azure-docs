@@ -1,3 +1,13 @@
+---
+title: Azure Container Apps with Azure Front Door Premium and Private Link
+description: Deploy Azure Container Apps in a custom virtual network with internal ingress and expose it securely using Azure Front Door Premium via Private Link.
+author: Kkaushal24011982
+ms.author: kkaushal
+ms.service: azure-container-apps
+ms.topic: conceptual
+ms.date: 03/02/2026
+---
+
 # Azure Front Door (AFD) + Azure Container Apps (ACA) with Custom VNet and Private Endpoints
 
 Technical implementation guide for deploying a zone-redundant, internal ACA environment integrated with Azure Front Door Premium via Private Link.
@@ -17,7 +27,7 @@ This document explains how to deploy an Azure Container Apps environment using w
 
 - An Azure account with permissions to create Resource Groups, VNets, Private Endpoints, Azure Container Apps, Log Analytics workspaces, and Azure Front Door profiles.
 - Azure Container Apps environment must be a workload profiles environment to use private endpoints and VNet integration together (per current platform limitations).
-- The delegated ACA subnet must meet subnet address range restrictions documented by Microsoft: https://learn.microsoft.com/en-us/azure/container-apps/custom-virtual-networks?tabs=workload-profiles-env#subnet-address-range-restrictions
+- The delegated ACA subnet must meet subnet address range restrictions documented by Microsoft: https://learn.microsoft.com/azure/container-apps/custom-virtual-networks?tabs=workload-profiles-env#subnet-address-range-restrictions
 - Azure Front Door must use the Premium SKU to configure Private Link origins.
 - Private Endpoints must be deployed into a separate subnet (they cannot share the delegated ACA subnet).
 
@@ -27,7 +37,7 @@ This document explains how to deploy an Azure Container Apps environment using w
 
 Azure Container Apps supports different environment types. This guide focuses on a workload profiles environment because it is required for the combination of VNet integration, private endpoints, and zone redundancy described here.
 
-Reference: https://learn.microsoft.com/en-us/azure/container-apps/networking#environment-selection
+Reference: https://learn.microsoft.com/azure/container-apps/networking#environment-selection
 
 ### 3.2 End-to-end traffic flow
 
@@ -44,14 +54,13 @@ The following decisions are used throughout this implementation and are called o
 
 The table below summarizes the design choices and rationale.
 
-| Decision | Value | Why |
-|---|---|---|
-| ACA subnet size | /23 | Allows room for scaling; minimum is /27 for workload profiles |
-| PE subnet | /24 (separate) | Private endpoints cannot share the delegated ACA subnet |
-| AFD SKU | Premium | Private Link origins require the Premium tier |
-| Public network access | Disabled | Ensures inbound traffic flows through Private Link/AFD rather than directly from the internet |
-| Internal virtual IP | Enabled | Ingress FQDN is still generated |
-| Workload profile | Consumption (Dedicated) | Simplest profile; private endpoints require workload profile environments |
+
+| Decision | Value | Reason |
+|---------|-------|--------|
+| ACA subnet size | /23 | Allows room for scaling |
+| AFD SKU | Premium | Required for Private Link |
+
+
 
 ### Architecture (logical)
 
@@ -236,8 +245,9 @@ Optionally harden the configuration by updating the default route and origin gro
 
 ## 8. References
 
-- ACA networking environment selection: https://learn.microsoft.com/en-us/azure/container-apps/networking#environment-selection
-- Custom VNet subnet address range restrictions (workload profiles): https://learn.microsoft.com/en-us/azure/container-apps/custom-virtual-networks?tabs=workload-profiles-env#subnet-address-range-restrictions
+- ACA networking environment selection: https://learn.microsoft.com/azure/container-apps/networking#environment-selection
+- Custom VNet subnet address range restrictions (workload profiles): https://learn.microsoft.com/azure/container-apps/custom-virtual-networks?tabs=workload-profiles-env#subnet-address-range-restrictions
 
 Author: Kumar Shashi Kaushal (Sr Digital Cloud Solutions Architect)
+
 
