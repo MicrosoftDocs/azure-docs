@@ -27,7 +27,7 @@ This document explains how to deploy an Azure Container Apps environment using w
 
 - An Azure account with permissions to create Resource Groups, VNets, Private Endpoints, Azure Container Apps, Log Analytics workspaces, and Azure Front Door profiles.
 - Azure Container Apps environment must be a workload profiles environment to use private endpoints and VNet integration together (per current platform limitations).
-- The delegated ACA subnet must meet subnet address range restrictions documented by Microsoft: https://learn.microsoft.com/azure/container-apps/custom-virtual-networks?tabs=workload-profiles-env#subnet-address-range-restrictions
+- The delegated ACA subnet must meet subnet address range restrictions documented by Microsoft: https://learn.microsoft.com/azure/container-apps/custom-virtual-networks.md#subnet-address-range-restrictions
 - Azure Front Door must use the Premium SKU to configure Private Link origins.
 - Private Endpoints must be deployed into a separate subnet (they cannot share the delegated ACA subnet).
 
@@ -37,7 +37,7 @@ This document explains how to deploy an Azure Container Apps environment using w
 
 Azure Container Apps supports different environment types. This guide focuses on a workload profiles environment because it is required for the combination of VNet integration, private endpoints, and zone redundancy described here.
 
-Reference: https://learn.microsoft.com/azure/container-apps/networking#environment-selection
+Reference: https://learn.microsoft.com/azure/container-apps/networking-environment-selection.md
 
 ### 3.2 End-to-end traffic flow
 
@@ -245,10 +245,11 @@ Optionally harden the configuration by updating the default route and origin gro
 
 ## 8. References
 
-- ACA networking environment selection: https://learn.microsoft.com/azure/container-apps/networking#environment-selection
-- Custom VNet subnet address range restrictions (workload profiles): https://learn.microsoft.com/azure/container-apps/custom-virtual-networks?tabs=workload-profiles-env#subnet-address-range-restrictions
+- ACA networking environment selection: https://learn.microsoft.com/azure/container-apps/networking-environment-selection.md
+- Custom VNet subnet address range restrictions (workload profiles): https://learn.microsoft.com/azure/container-apps/custom-virtual-networks.md#subnet-address-range-restrictions
 
 Author: Kumar Shashi Kaushal (Sr Digital Cloud Solutions Architect)
+
 
 
 
