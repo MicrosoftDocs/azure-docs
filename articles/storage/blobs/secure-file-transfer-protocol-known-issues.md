@@ -71,6 +71,12 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
 
 - There's a 2-minute time out for idle or inactive connections. OpenSSH will appear to stop responding and then disconnect. Some clients reconnect automatically.
 
+### Default ACLs and extended ACLs
+
+SFTP doesn't currently support **default ACLs** or **extended ACL entries** (ACL entries beyond the POSIX `user::`, `group::`, and `other::` entries, such as named users or named groups).
+
+If any directory in the access path (including the user's home directory) has default ACLs or extended ACL entries set, SFTP operations can fail with `Permission denied`, even when the connecting user isn't referenced by those ACL entries.
+
 ## Other
 
 - For performance issues and considerations, see [SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage](secure-file-transfer-protocol-performance.md).
