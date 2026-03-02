@@ -5,7 +5,7 @@ author: kkaushal24011982
 ms.author: kkaushal
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 2026-03-02
+ms.date: 03-02-2026
 ---
 
 
@@ -28,7 +28,7 @@ This document explains how to deploy an Azure Container Apps environment using w
 
 - An Azure account with permissions to create Resource Groups, VNets, Private Endpoints, Azure Container Apps, Log Analytics workspaces, and Azure Front Door profiles.
 - Azure Container Apps environment must be a workload profiles environment to use private endpoints and VNet integration together (per current platform limitations).
-- The delegated ACA subnet must meet subnet address range restrictions documented by Microsoft: [Custom VNet subnet address range restrictions (workload profiles)](../custom-virtual-networks.md#subnet-address-range-restrictions)
+- The delegated ACA subnet must meet subnet address range restrictions documented by Microsoft: [Custom VNet subnet address range restrictions (workload profiles)](../custom-virtual-networks.md)
 - Azure Front Door must use the Premium SKU to configure Private Link origins.
 - Private Endpoints must be deployed into a separate subnet (they cannot share the delegated ACA subnet).
 
@@ -38,7 +38,7 @@ This document explains how to deploy an Azure Container Apps environment using w
 
 Azure Container Apps supports different environment types. This guide focuses on a workload profiles environment because it is required for the combination of VNet integration, private endpoints, and zone redundancy described here.
 
-Reference: [ACA networking environment selection](../networking-environment-selection.md)
+Reference: [ACA networking environment selection](../networking.md)
 
 
 ### 3.2 End-to-end traffic flow
@@ -247,8 +247,9 @@ Optionally harden the configuration by updating the default route and origin gro
 
 ## 8. References
 
-- [ACA networking environment selection](../networking-environment-selection.md)
-- [Custom VNet subnet address range restrictions (workload profiles)](../custom-virtual-networks.md#subnet-address-range-restrictions)
+- [ACA networking environment selection](../networking.md)
+- [Custom VNet subnet address range restrictions (workload profiles)](../custom-virtual-networks.md)
+
 
 
 
