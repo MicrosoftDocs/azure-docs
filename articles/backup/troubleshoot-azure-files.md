@@ -1,4 +1,4 @@
----
+<img width="1461" height="55" alt="image" src="https://github.com/user-attachments/assets/4e1ea7bc-6d2e-4676-b678-155442f9cae9" />---
 title: Troubleshoot Azure Files backup
 description: This article is troubleshooting information about issues occurring when protecting your Azure Files.
 ms.service: azure-backup
@@ -334,6 +334,14 @@ Error Code: BMSUserErrorObjectLocked
 Error Message: Another operation is in progress on the selected item.
 
 Wait for the other in-progress operation to complete and retry at a later time.
+
+### AzureOperationFailed - The backup operation was unsuccessful because Smart Tier (Preview) is currently not supported
+
+Error Code: AzureOperationFailed
+
+Error Message: Azure operation generic failure.
+
+Storage Accounts with [Smart Tier(Preview)](https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-smart) enabled are currently not supported.
 
 ## Common Soft Delete Related Errors
 
