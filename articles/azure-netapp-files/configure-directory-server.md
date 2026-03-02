@@ -49,8 +49,8 @@ The architecture involves the following components:
 
 1.	Mount Request: The Linux VM sends an NFSv3 or NFSv4.1 mount request to Azure NetApp Files.
 2.	LDAP Bind/Search: Azure NetApp Files sends a bind/search request to the LDAP server (FreeIPA, Red Hat IdM, OpenLDAP, or RHDS) using the UID/GID.
-3. LDAP Response: The directory server returns user and group attributes.
-4. Access Control Decision: Azure NetApp Files evaluates the response and grants or denies access.
+3.  LDAP Response: The directory server returns user and group attributes.
+4.  Access Control Decision: Azure NetApp Files evaluates the response and grants or denies access.
 5.	Client Access: The decision is communicated back to the client.
 
 
@@ -68,6 +68,9 @@ Each directory service appeals to different use cases in Azure NetApp Files.
 
 * **Centralized Linux Identity & Access**: Manage users, groups, hosts, and services for large Linux domains from a single pane, enforcing consistent access controls.
 * **Hybrid Environment Integration**: Bridge Linux and Windows by establishing trust with Active Directory (AD), allowing AD users to access Linux resources.
+
+   >NOTE
+   >You should contact Red Hat (IdM) Support for any IdM availability, connectivity, or directory/authentication issues observed directly on the IdM server. You should contact NetApp Support for issues relating to ANF integration, configuration, or access.
 
 ### OpenLDAP
 
@@ -87,6 +90,8 @@ Each directory service appeals to different use cases in Azure NetApp Files.
 * **Enterprise-scale directory services**: Supports large directories with millions of entries, built-in multi-master replication, and high availability for mission-critical deployments.
 * **Standards-based compliance**: Provides full LDAPv3 compliance with comprehensive logging and access controls suitable for regulated industries.
 
+   >NOTE
+   >You should contact Oracle Support for any LDAP connectivity or directory data issues observed directly with Oracle Unified Directory. You should contact NetApp Support for issues relating to ANF integration and operations.
 
 ## Considerations 
 
