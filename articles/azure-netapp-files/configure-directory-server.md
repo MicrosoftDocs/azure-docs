@@ -69,8 +69,8 @@ Each directory service appeals to different use cases in Azure NetApp Files.
 * **Centralized Linux Identity & Access**: Manage users, groups, hosts, and services for large Linux domains from a single pane, enforcing consistent access controls.
 * **Hybrid Environment Integration**: Bridge Linux and Windows by establishing trust with Active Directory (AD), allowing AD users to access Linux resources.
 
-   >NOTE
-   >You should contact Red Hat (IdM) Support for any IdM availability, connectivity, or directory/authentication issues observed directly on the IdM server. You should contact NetApp Support for issues relating to ANF integration, configuration, or access.
+   > [!NOTE]
+   > You should contact Red Hat (IdM) Support for any IdM availability, connectivity, or directory/authentication issues observed directly on the IdM server. You should contact NetApp Support for issues relating to ANF integration, configuration, or access.
 
 ### OpenLDAP
 
@@ -90,7 +90,7 @@ Each directory service appeals to different use cases in Azure NetApp Files.
 * **Enterprise-scale directory services**: Supports large directories with millions of entries, built-in multi-master replication, and high availability for mission-critical deployments.
 * **Standards-based compliance**: Provides full LDAPv3 compliance with comprehensive logging and access controls suitable for regulated industries.
 
-   >NOTE
+   >[!NOTE]
    >You should contact Oracle Support for any LDAP connectivity or directory data issues observed directly with Oracle Unified Directory. You should contact NetApp Support for issues relating to ANF integration and operations.
 
 ## Considerations 
