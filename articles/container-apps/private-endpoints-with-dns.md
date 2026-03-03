@@ -63,6 +63,9 @@ When configuring your network security group (NSG) or firewall, the DNS requirem
 > [!IMPORTANT]
 > For organizations with strict DNS security requirements (such as banking and healthcare), Dedicated workload profiles provide the option to completely control DNS traffic flow through your custom DNS servers without requiring Azure Platform DNS access.
 
+> [!IMPORTANT]
+> Users of private DNS zones MUST NOT block or override the resolution of `*.hcp.<location>.azmk8s.io`, `mcr.microsoft.com` and other DNS requirements that are shared with AKS and listed on [Azure Global required FQDN / application rules](../../aks/outbound-rules-control-egress#azure-global-required-fqdn--application-rules). Failure to ensure resolvability of those required entries will disrupt your Container App Environment operation and networking.
+
 ### VNet-scope ingress
 
 If you plan to use VNet-scope [ingress](ingress-overview.md) in an internal environment, configure your domains in one of the following ways:
