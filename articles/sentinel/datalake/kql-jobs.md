@@ -224,21 +224,24 @@ Consider overlapping the lookback period with job frequency to reduce the risk o
 For more information, see [Handle ingestion delay in scheduled analytics rules](/azure/sentinel/ingestion-delay).
 
 ### Column names
-The following standard columns aren't supported for export. The ingestion process overwrites these columns in the destination tier:
 
-+ TenantId
-+ _TimeReceived
-+ Type
-+ SourceSystem
-+ _ResourceId
-+ _SubscriptionId
-+ _ItemId
-+ _BilledSize
-+ _IsBillable
-+ _WorkspaceId
+- Column name must start with a letter
+
+
+- The following standard columns aren't supported for export. The ingestion process overwrites these columns in the destination tier:
+
+ + TenantId
+ + _TimeReceived
+ + Type
+ + SourceSystem
+ + _ResourceId
+ + _SubscriptionId
+ + _ItemId
+ + _BilledSize
+ + _IsBillable
+ + _WorkspaceId
 
 + `TimeGenerated` is overwritten if it's older than two days. To preserve the original event time, write the source timestamp to a separate column.
-
 
 
 For service limits, see [Microsoft Sentinel data lake service limits](sentinel-lake-service-limits.md#service-parameters-and-limits-for-kql-jobs).
