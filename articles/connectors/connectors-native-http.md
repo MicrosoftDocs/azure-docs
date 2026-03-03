@@ -198,8 +198,7 @@ If you have a Standard logic app resource in single-tenant Azure Logic Apps, and
 <a id="tlsssl-certificate-authentication"></a>
 
 ### TLS certificate authentication
-1. Upload your root certificate (and intermediate certificate) to your logic app. See [Add and manage TLS/SSL certificates in Azure App Service
-](../app-service/configure-ssl-certificate.md)
+1. Upload your root certificate (and intermediate certificate) to your logic app. See [Add and manage TLS/SSL certificates in Azure App Service](../app-service/configure-ssl-certificate.md)
 
 1. In your logic app resource's app settings, add or update the app setting called `WEBSITE_LOAD_ROOT_CERTIFICATES`. For specific steps, see [Manage app settings - local.settings.json](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings).
 
