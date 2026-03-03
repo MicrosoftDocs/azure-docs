@@ -76,7 +76,7 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
 SFTP doesn't currently support **default ACLs** or **extended ACLs** (ACL entries beyond the POSIX `user::`, `group::`, and `other::` entries, such as named users or named groups).
 
 If any directory in the access path (including the user's home directory) has default ACLs or extended ACLs set, SFTP operations can fail with `Permission denied`, even when the connecting user isn't referenced by those ACL entries.
-
+Workaround: Remove default ACLs and any extended ACL entries from all directories in the SFTP access path (including the user's home directory) so that only POSIX `user::`, `group::`, and `other::` entries remain before attempting the SFTP operation again.
 ## Other
 
 - For performance issues and considerations, see [SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage](secure-file-transfer-protocol-performance.md).
