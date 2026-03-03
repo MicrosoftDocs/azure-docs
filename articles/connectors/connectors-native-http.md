@@ -228,7 +228,7 @@ For example, if you're working in Visual Studio Code, follow these steps:
 
 > [!NOTE]
 >
-> If you have a root certificate and intermediate certificate(s), you need to put them in the same setting separated by commas and no whitespace like
+> If you have a root certificate and intermediate certificate(s), you need to put them in the same setting separated by commas and no whitespace, like:
 > 84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819.
 
 > [!NOTE]
