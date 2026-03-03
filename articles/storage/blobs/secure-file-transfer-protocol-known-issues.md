@@ -73,9 +73,9 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
 
 ### Default ACLs and extended ACLs
 
-SFTP doesn't currently support **default ACLs** or **extended ACL entries** (ACL entries beyond the POSIX `user::`, `group::`, and `other::` entries, such as named users or named groups).
+SFTP doesn't currently support **default ACLs** or **extended ACLs** (ACL entries beyond the POSIX `user::`, `group::`, and `other::` entries, such as named users or named groups).
 
-If any directory in the access path (including the user's home directory) has default ACLs or extended ACL entries set, SFTP operations can fail with `Permission denied`, even when the connecting user isn't referenced by those ACL entries.
+If any directory in the access path (including the user's home directory) has default ACLs or extended ACLs set, SFTP operations can fail with `Permission denied`, even when the connecting user isn't referenced by those ACL entries.
 
 ## Other
 
