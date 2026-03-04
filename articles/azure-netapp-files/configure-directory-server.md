@@ -54,45 +54,6 @@ The architecture involves the following components:
 5.	Client Access: The decision is communicated back to the client.
 
 
-## Use cases 
-
-Each directory service appeals to different use cases in Azure NetApp Files. 
-
-### FreeIPA
-
-* **Hybrid Linux environments**: Ideal for enterprises using FreeIPA for centralized identity management across Linux systems in hybrid cloud deployments.
-* **HPC and analytics workloads**: Supports secure authentication for high-performance computing clusters and analytics platforms that rely on FreeIPA.
-* **Kerberos integration**: Enables environments that require Kerberos-based authentication for NFS workloads without Active Directory.
-
-### Red Hat IdM
-
-* **Centralized Linux Identity & Access**: Manage users, groups, hosts, and services for large Linux domains from a single pane, enforcing consistent access controls.
-* **Hybrid Environment Integration**: Bridge Linux and Windows by establishing trust with Active Directory (AD), allowing AD users to access Linux resources.
-
-   > [!NOTE]
-   > You should contact Red Hat (IdM) Support for any IdM availability, connectivity, or directory/authentication issues observed directly on the IdM server. You should contact NetApp Support for issues relating to ANF integration, configuration, or access.
-
-### OpenLDAP
-
-* **Legacy application support**: Perfect for organizations running legacy or custom applications that depend on OpenLDAP for identity services.
-* **Multi-platform identity management**: Provides a lightweight, standards-based solution for managing access across Linux, UNIX, and containerized workloads.
-* **Cost-optimized deployments**: Suitable for businesses seeking an open-source, flexible directory solution without the overhead of Active Directory.
-
-### Red Hat Directory Server
- 
-* **Enterprise-grade security and compliance**: Designed for organizations that require hardened, enterprise-supported LDAP services with strong security controls.
-* **Regulated industries**: Ideal for financial, healthcare, and government sectors where compliance and vendor support are critical.
-* **Integration with Red Hat Ecosystem**: Seamlessly fits into environments leveraging Red Hat Enterprise Linux and related solutions.
-
-### Oracle Unified Directory 
-
-* **Oracle ecosystem integration**: Ideal for enterprises running Oracle applications (E-Business Suite, PeopleSoft, WebLogic, Fusion Middleware) that require seamless LDAP authentication with Azure NetApp Files storage.
-* **Enterprise-scale directory services**: Supports large directories with millions of entries, built-in multi-master replication, and high availability for mission-critical deployments.
-* **Standards-based compliance**: Provides full LDAPv3 compliance with comprehensive logging and access controls suitable for regulated industries.
-
-   >[!NOTE]
-   >You should contact Oracle Support for any LDAP connectivity or directory data issues observed directly with Oracle Unified Directory. You should contact NetApp Support for issues relating to ANF integration and operations.
-
 ## Considerations 
 
 * FreeIPA, Red Hat IdM, OpenLDAP, Red Hat Directory Server, and Oracle Unified Directory are supported with NFSv3 and NFSv4.1 volumes; they aren't currently supported with dual-protocol volumes. 
@@ -101,6 +62,8 @@ Each directory service appeals to different use cases in Azure NetApp Files.
 * You can only configure FreeIPA, Red Hat IdM, OpenLDAP, Red Hat Directory Server, or Oracle Unified Directory on _new_ NFS volumes. You can't convert existing volumes to use these directory services. 
 * [!INCLUDE [Kerberos support limitation](includes/kerberos-other-servers.md)]
 * By default, the Time-to-Live (TTL) for both positive and negative user/group authentication entries in the NFS credential cache is set to 1 hour.
+* You should contact Red Hat (IdM) Support for any IdM availability, connectivity, or directory/authentication issues observed directly on the IdM server. You should contact NetApp Support for issues relating to Azure NetApp Files integration, configuration, or access.
+* You should contact Oracle Support for any LDAP connectivity or directory data issues observed directly with Oracle Unified Directory. You should contact NetApp Support for issues relating to Azure NetApp Files integration and operations.
 
 ## Register the feature
 
@@ -136,19 +99,19 @@ You must first create the LDAP server before you can connect it to Azure NetApp 
 
 ## Configure the LDAP connection in Azure NetApp Files 
 
-1. In the Azure portal, navigate to LDAP connections under Azure NetApp Files. 
-1. Create the new LDAP connection. 
-1. In the new menu, provide: 
+1. In the Azure portal, select **LDAP connections** within the NetApp account. 
+1. Select **Select + Create to create a new LDAP connection**.
+1. In the Configure LDAP connection window, provide the **Connection details**:
 
     * **Domain:** The domain name serves as the base DN. 
     * **LDAP servers:** The IP address of the LDAP server. 
-    * **LDAP over TLS:** Optionally, check the box to enable LDAP over TLS for secure communication. For more information, see [Configure LDAP over TLS](configure-ldap-over-tls.md).
+    * **LDAP over TLS:** Optionally, check the box to enable LDAP over TLS for secure communication. 
       
        > [!NOTE]
        > To enable LDAP over TLS on multiple servers, you should generate and install the common certificate on each server and then upload the server CA certificate in the Azure portal.
 
     * **Server CA certificate:** The certification authority certificate. This option is required if you use LDAP over TLS. 
-    * **Certificate CN Host:** The common name server of the host, for example contoso.server.com. 
+    * **Certificate CN host:** The common name server of the host, for example contoso.server.com. 
 
     :::image type="content" source="./media/configure-directory-server/configure-connection.png" alt-text="Screenshot of Configure LDAP connection options." lightbox="./media/configure-directory-server/configure-connection.png":::
 
