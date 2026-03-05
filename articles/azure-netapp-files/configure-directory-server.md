@@ -110,7 +110,7 @@ You must first create the LDAP server before you can connect it to Azure NetApp 
        > To enable LDAP over TLS on multiple servers, you should generate and install the common certificate on each server and then upload the server CA certificate in the Azure portal.
 
     * **Server CA certificate:** The certification authority certificate. This option is required if you use LDAP over TLS. 
-    * **Certificate CN host:** The common name server of the host, for example contoso.server.com. 
+    * **Certificate CN Host:** The common name server of the host, for example contoso.server.com. 
 
     :::image type="content" source="./media/configure-directory-server/configure-connection.png" alt-text="Screenshot of Configure LDAP connection options." lightbox="./media/configure-directory-server/configure-connection.png":::
 
