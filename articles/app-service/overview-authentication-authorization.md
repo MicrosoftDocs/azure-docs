@@ -237,6 +237,31 @@ Ensure that `convention` is set to `Standard` to respect the `X-Forwarded-Host` 
 az rest --uri /subscriptions/REPLACE-ME-SUBSCRIPTIONID/resourceGroups/REPLACE-ME-RESOURCEGROUP/providers/Microsoft.Web/sites/REPLACE-ME-APPNAME/config/authsettingsV2?api-version=2020-09-01 --method put --body @auth.json
 ```
 
+## Frequently asked questions
+
+### Does App Service authentication act as a confidential or public client?
+
+When a client secret is configured for the identity provider, App Service authentication (Easy Auth) acts as a *confidential client*. For Microsoft Entra ID specifically:
+
+- **With a client secret configured**: App Service uses the [hybrid flow](/entra/identity-platform/v2-oauth2-auth-code-flow) (`response_type=code id_token`). In this flow, App Service exchanges the authorization code for tokens using the secret, which keeps the secret secure on the server side.
+- **Without a client secret configured**: App Service falls back to the [implicit flow](/entra/identity-platform/v2-oauth2-implicit-grant-flow) (`response_type=id_token`). In this flow, the ID token is returned directly in the redirect without a code exchange.
+
+If your scenario requires a confidential client flow with secure token exchange, make sure a client secret is configured for the identity provider in your App Service authentication settings.
+
+### Does App Service authentication support PKCE (Proof Key for Code Exchange)?
+
+App Service authentication doesn't generate PKCE parameters (`code_verifier` and `code_challenge`) on its own. However, it does support PKCE if the *client* provides the parameters when initiating the sign-in flow.
+
+To use PKCE, include both the `code_challenge` and `code_challenge_method` parameters when you redirect users to the sign-in endpoint:
+
+```
+https://<your-app>.azurewebsites.net/.auth/login/<provider>?code_challenge=<value>&code_challenge_method=<method>
+```
+
+Both parameters must be provided together. If only one parameter is supplied, App Service rejects the request.
+
+For more information on how the authorization code flow works with PKCE, see [Microsoft identity platform and OAuth 2.0 authorization code flow](/entra/identity-platform/v2-oauth2-auth-code-flow).
+
 ## Related content
 
 For more information about App Service authentication, see:
