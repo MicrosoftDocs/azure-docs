@@ -33,7 +33,7 @@ Information in the following table is updated regularly. Capacity availability i
 | Brazil South | ✅ | ✅ | |  |
 | Canada Central  | ✅ | ✅ | ✅ |  |
 | Central India  | ✅ | ✅ | |  |
-| Central US  | ✅ | ✅ | |  |
+| Central US  | ✅ | ✅ | ✅ |  |
 | East Asia | ✅ | ✅ | | ✅ |
 | East US  | ✅ | ✅ |  |  |
 | East US 2 | ✅ | ✅ | ✅ | ✅ |

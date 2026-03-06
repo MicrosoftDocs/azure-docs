@@ -132,9 +132,6 @@ The Durable Task Scheduler emulator is only available as a Docker image today.
 
    #### [Consumption SKU](#tab/consumption)
 
-   > [!NOTE]
-   > The Consumption SKU is currently in preview. [Learn more about the SKU and orchestration framework combinations recommended for production use.](./durable-task-scheduler-billing.md)
-
     ```azurecli
     az durabletask scheduler create --name "YOUR_SCHEDULER" --resource-group "YOUR_RESOURCE_GROUP" --location "LOCATION" --ip-allowlist "[0.0.0.0/0]" --sku-name "consumption"
     ```

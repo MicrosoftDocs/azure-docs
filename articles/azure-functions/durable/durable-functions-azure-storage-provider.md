@@ -201,7 +201,7 @@ Durable Functions creates the queues, tables, and blobs it uses in a configured 
 - The `durableTask/storageProvider/connectionStringName` setting (Durable Functions 2.x)
 - The `durableTask/azureStorageConnectionStringName` setting (in Durable Functions 1.x)
 
-# [Durable Functions 2.x](#tab/durable-2x)
+### [Durable Functions 2.x](#tab/durable-2x)
 
 ```json
 {
@@ -215,7 +215,7 @@ Durable Functions creates the queues, tables, and blobs it uses in a configured 
 }
 ```
 
-# [Durable Functions 1.x](#tab/durable-1x)
+### [Durable Functions 1.x](#tab/durable-1x)
 
 ```json
 {
@@ -243,7 +243,7 @@ While you can scale out activity functions infinitely by adding more virtual mac
 
 You define the number of control queues in your `host.json` file. The following example `host.json` snippet sets the `durableTask/storageProvider/partitionCount` property (`durableTask/partitionCount` in Durable Functions 1.x) to `3`. You have as many control queues as you have partitions.
 
-# [Durable Functions 2.x](#tab/durable-2x)
+### [Durable Functions 2.x](#tab/durable-2x)
 
 ```json
 {
@@ -257,7 +257,7 @@ You define the number of control queues in your `host.json` file. The following 
 }
 ```
 
-# [Durable Functions 1.x](#tab/durable-1x)
+### [Durable Functions 1.x](#tab/durable-1x)
 
 ```json
 {
@@ -310,7 +310,7 @@ Orchestration instances and entities are distributed across all control queue in
 
 You can enable extended sessions by setting `durableTask/extendedSessionsEnabled` to `true` in your `host.json` file. You can use the `durableTask/extendedSessionIdleTimeoutInSeconds` setting to control how long an idle session stays in memory:
 
-# [Durable Functions 2.x](#tab/durable-2x)
+### [Durable Functions 2.x](#tab/durable-2x)
 ```json
 {
   "extensions": {
@@ -322,7 +322,7 @@ You can enable extended sessions by setting `durableTask/extendedSessionsEnabled
 }
 ```
 
-# [Durable Functions 1.x](#tab/durable-1x)
+### [Durable Functions 1.x](#tab/durable-1x)
 ```json
 {
   "extensions": {

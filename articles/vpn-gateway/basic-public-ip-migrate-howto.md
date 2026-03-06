@@ -12,10 +12,11 @@ ms.author: cherylmc
 
 # How to migrate a Basic SKU public IP address to Standard SKU for VPN Gateway 
 
-This article helps you migrate a Basic SKU public IP address to a Standard SKU for VPN Gateway deployments that use gateway SKUs VpnGw 1-5. For more information about Basic SKU migration, see [About migrating a Basic SKU public IP address to Standard SKU for VPN Gateway](basic-public-ip-migrate-about.md).
+This article helps you migrate a Basic SKU public IP address to a Standard SKU for VPN Gateway deployments that use gateway SKUs VpnGw 1-5. For more information about Basic SKU public IP address migration, see [About migrating a Basic SKU public IP address to Standard SKU for VPN Gateway](basic-public-ip-migrate-about.md).
 
 > [!IMPORTANT]
-> Basic SKU public IP address migration for VPN Gateway is currently Generally Available for Active-Passive with some limitations (see known issues). <br> For Active-Active Gateways this is in Preview.
+> * Basic SKU public IP address migration for VPN Gateway is currently Generally Available for Active-Passive with some limitations (see known issues). <br> For Active-Active Gateways this is in Preview.
+> * The steps on this page apply to VPN gateways using gateway SKUs other than the Basic gateway SKU. If your gateway uses the Basic gateway SKU, see [Remove the Basic SKU public IP reference from a Basic SKU VPN gateway](basic-sku-public-ip-remove.md).
 
 During the public IP address SKU migration process, your Basic SKU public IP address resource is migrated to a Standard SKU public IP address resource. The IP address assigned to your gateway doesn't change.
 

@@ -19,7 +19,7 @@ The Durable Task Scheduler is a managed backend service that persists orchestrat
 The [Durable Task Scheduler](./durable-task-scheduler.md) is a purpose-built backend as a service that persists orchestration state for your Durable Task SDK applications. The Durable Task Scheduler offers two pricing models to accommodate different service requirements, usage patterns, and preferred billing models:
 
 - [Dedicated](#dedicated-sku)
-- [Consumption (preview)](#consumption-sku)
+- [Consumption](#consumption-sku)
 
 ## What is an action?
 
@@ -105,9 +105,6 @@ A software as a service (SaaS) platform supports 800 million orchestrations mont
 | Required CUs | 4,571 ÷ 2,000 | CUs needed: 2.29 → **3 CUs sufficient** |
 
 ## Consumption SKU
-
-> [!NOTE]
-> The Consumption SKU is currently in preview. [Learn more about the SKU and orchestration framework recommended for production use.](../choose-orchestration-framework.md)
 
 The Consumption SKU offers a pay-as-you-use model, ideal for variable workloads and development scenarios. 
 

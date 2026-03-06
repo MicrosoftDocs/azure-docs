@@ -34,7 +34,7 @@ For more information about payment methods, see [Add, update, or remove a paymen
 | Argentina | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Armenia | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Australia | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Austria | ✔   |     |     | ✔   | ✔   |     |     |      |
+| Austria | ✔   |     |     | ✔   | ✔   |     |     | ✔     |
 | Azerbaijan | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Bahamas | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Bahrain | ✔   |     |     | ✔   | ✔   |     |     |     |
@@ -76,7 +76,7 @@ For more information about payment methods, see [Add, update, or remove a paymen
 | Finland | ✔   |     |     | ✔   | ✔   |     |     |     |
 | France | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Georgia | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Germany | ✔   |     |     | ✔   | ✔   |     |     |     |
+| Germany | ✔   |     |     | ✔   | ✔   |     |     | ✔   |
 | Ghana | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Greece | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Guatemala | ✔   |     |     | ✔   | ✔   |     |     |     |
@@ -116,7 +116,7 @@ For more information about payment methods, see [Add, update, or remove a paymen
 | Morocco |  ✔   |     |     | ✔   | ✔   |     |     |     |
 | Namibia | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Nepal |     |     |     |  ✔   |   ✔  |     |     |     |
-| Netherlands | ✔   |     |     | ✔   | ✔   |     |     |     |
+| Netherlands | ✔   |     |     | ✔   | ✔   |     |     | ✔   |
 | New Zealand | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Nicaragua | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Nigeria | ✔   |     |     | ✔   | ✔   |     |     |     |

@@ -121,7 +121,7 @@ You can use the following table to understand the significant tradeoffs between 
 | Price-performance configurable? | Coming soon! | ❌ No | ✅ Yes (SQL vCPUs) | ✅ Yes (Event Hubs TUs and CUs) | 
 | Disconnected environment support | ❌ Azure connectivity required | ❌ Azure connectivity required | ✅ Fully supported | ❌ Azure connectivity required |
 | Identity-based connections | ✅ Fully supported | ✅ Fully supported | ⚠️ Requires runtime-driven scaling | ❌ Not supported |
-| [Flex Consumption plan](../flex-consumption-plan.md) | ❌ Not supported | ✅ Fully supported ([see notes](./durable-functions-azure-storage-provider.md#flex-consumption-plan)) | ✅ Fully supported | ❌ Not supported |
+| [Flex Consumption plan](../flex-consumption-plan.md) | ✅ Fully supported | ✅ Fully supported ([see notes](./durable-functions-azure-storage-provider.md#flex-consumption-plan)) | ✅ Fully supported | ❌ Not supported |
 
 ::: zone-end
 

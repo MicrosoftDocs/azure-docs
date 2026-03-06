@@ -64,8 +64,10 @@
       items:
         - name: About Basic SKU public IP address migration
           href: basic-public-ip-migrate-about.md
-        - name: How to migrate a Basic SKU public IP address to Standard
+        - name: Migrate a Basic SKU public IP address to Standard
           href: basic-public-ip-migrate-howto.md
+        - name: Remove the Basic SKU public IP reference - Basic SKU VPN gateways
+          href: basic-sku-public-ip-remove.md
     - name: About active-active mode gateways
       href: about-active-active-gateways.md
     - name: VPN Gateway configuration settings

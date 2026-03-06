@@ -299,7 +299,7 @@ az role assignment create --assignee "$clientId" --role "Storage Blob Data Owner
 
 #### Azure SQL Database
 >[!NOTE]
-> Authenticating to Azure SQL database using managed identity is _not_ supported when hosting a Durable Functions app in the Flex Consumption plan. If your app is hosted in the Flex Consumption plan, skip to the [set app settings](#set-required-app-settings) section. 
+> Authenticating to Azure SQL database using managed identity is _not_ supported when hosting a Durable Functions app in the Flex Consumption plan. If your app is hosted in the Flex Consumption plan, skip to the [set app settings](#set-required-app-settings) section. If you'd like to use it, the Flex Consumption plan is supported by Durable Task Scheduler.
 
 1. Start by setting your developer identity as the database's admin.
   

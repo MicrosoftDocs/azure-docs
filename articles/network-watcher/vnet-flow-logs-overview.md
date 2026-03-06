@@ -64,6 +64,18 @@ In addition to existing support to identify traffic that [network security group
 > 
 > If you enable network security group flow logs on the network security group of a subnet, then you enable virtual network flow logs on the same subnet or parent virtual network, you might get duplicate logging or only virtual network flow logs.
 
+## Platform Rules
+
+#### What is a platform rule in flow logs
+
+In flow logs, a platform rule represents network traffic that is processed by the Azure platform itself rather than by user‑configured rules, such as Network Security Groups (NSGs) or Azure Virtual Network Manager rules. This traffic is handled automatically by the platform and is not the result of an explicit allow or deny rule defined within a deployment. Platform rule entries provide visibility into system‑managed or infrastructure‑level traffic. If analysis is focused only on traffic evaluated by explicitly configured rules, these entries can be filtered out during log analysis.
+
+In some scenarios, traffic associated with you application or workload may appear under a platform rule. This can occur in a limited number of well‑understood cases, such as when load‑balanced connections are recreated as part of normal platform operations, or when return traffic does not require rule evaluation for the response path. In these cases, the traffic is processed as expected, but the flow log may associate it with a platform rule instead of a user‑defined rule.
+
+#### Does the presence of platform rules affect traffic?
+
+No. Platform rules do not change your traffic behavior, connectivity, security posture, or performance. They only affect how certain network flows are represented in flow logs. Platform rule entries are provided for informational purposes. Excluding them from analysis does not impact how traffic is handled. If traffic appears under a platform rule and does not align with the scenarios described above, the behavior can be investigated further. In such cases, reaching out through Azure support channels is recommended so the flow logs can be reviewed in detail.
+
 ## How logging works
 
 Key properties of virtual network flow logs include:
