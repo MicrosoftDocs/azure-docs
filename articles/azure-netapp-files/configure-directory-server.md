@@ -99,7 +99,10 @@ You must first create the LDAP server before you can connect it to Azure NetApp 
 ## Configure the LDAP connection in Azure NetApp Files 
 
 1. In the Azure portal, select **LDAP connections** within the NetApp account. 
-1. Select **Select + Create to create a new LDAP connection**.
+1. Select **+ Create** to create a new LDAP connection.
+
+    :::image type="content" source="./media/configure-directory-server/navigate-configure-connection.png" alt-text="Screenshot to navigate to Configure LDAP connection options." lightbox="./media/configure-directory-server/navigate-configure-connection.png":::
+
 1. In the Configure LDAP connection window, provide the **Connection details**:
 
     * **Domain:** The domain name serves as the base DN. 
