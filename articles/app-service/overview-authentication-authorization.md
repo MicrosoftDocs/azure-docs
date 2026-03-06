@@ -254,11 +254,20 @@ App Service authentication doesn't generate PKCE parameters (`code_verifier` and
 
 To use PKCE, include both the `code_challenge` and `code_challenge_method` parameters when you redirect users to the sign-in endpoint:
 
-```
+```text
 https://<your-app>.azurewebsites.net/.auth/login/<provider>?code_challenge=<value>&code_challenge_method=<method>
 ```
 
 Both parameters must be provided together. If only one parameter is supplied, App Service rejects the request.
+
+To know the values of `code_challenge_method` that the authorization server supports, refer to the `code_challenge_methods_supported` in their Authorization Server Metadata containing the supported PKCE challenge methods.
+
+[RFC 7636](https://datatracker.ietf.org/doc/html/rfc7636) defines two methods for generating the `code_challenge` from a `code_verifier`:
+
+- **`plain`**: The `code_challenge` is the same as the `code_verifier` (`code_challenge = code_verifier`). This method sends the verifier value directly without any transformation. Use `plain` only if the client can't support SHA-256 for technical reasons.
+- **`S256`** (recommended): The `code_challenge` is the Base64url-encoded SHA-256 hash of the `code_verifier` (`code_challenge = BASE64URL(SHA256(ASCII(code_verifier)))`). This method is more secure because the original `code_verifier` is never exposed during the authorization request.
+
+The `code_verifier` must be a cryptographically random string between 43 and 128 characters long, using only unreserved characters: `A-Z`, `a-z`, `0-9`, `-`, `.`, `_`, and `~`.
 
 For more information on how the authorization code flow works with PKCE, see [Microsoft identity platform and OAuth 2.0 authorization code flow](/entra/identity-platform/v2-oauth2-auth-code-flow).
 
