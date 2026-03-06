@@ -13,7 +13,7 @@ ms.custom: sfi-ropc-nochange
 
 You can use [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) as an output for data that's relational in nature or for applications that require content to be hosted in a relational database. Azure Stream Analytics jobs write to an existing table in a PostgreSQL database. Azure Database for PostgreSQL output from Azure Stream Analytics is available for the Flexible Server deployment mode.
 
-For more information about Azure Database for PostgreSQL, see [What is Azure Database for PostgreSQL?](/azure/postgresql/overview).
+For more information about Azure Database for PostgreSQL, see [What is Azure Database for PostgreSQL?](/azure/postgresql/overview)
 
 To learn more about how to create an Azure Database for PostgreSQL server by using the Azure portal, see the [quickstart for creating an Azure Database for PostgreSQL - Flexible Server instance](/azure/postgresql/flexible-server/quickstart-create-server-portal).
 

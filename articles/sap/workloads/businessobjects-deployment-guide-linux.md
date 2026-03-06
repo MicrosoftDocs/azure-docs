@@ -17,7 +17,7 @@ ms.custom:
 
 # SAP BusinessObjects BI platform deployment guide for Linux on Azure
 
-This article describes the strategy to deploy SAP BusinessObjects BI (BOBI) platform on Azure for Linux. In this example, you configure two virtual machines with premium solid-state drive (SSD) managed disks as the install directory. You use Azure Database for MySQL for your CMS database, and you share Azure NetApp Files for your file repository server across both servers. On both virtual machines, you install the default Tomcat Java web application and BI platform application together. To load-balance user requests, you use Azure Application Gateway with native TLS/SSL offloading capabilities.
+This article describes the strategy to deploy SAP BusinessObjects BI (BOBI) platform on Azure for Linux. In this example, you configure two virtual machines with Premium SSD managed disks as the install directory. You use Azure Database for MySQL for your CMS database, and you share Azure NetApp Files for your file repository server across both servers. On both virtual machines, you install the default Tomcat Java web application and BI platform application together. To load-balance user requests, you use Azure Application Gateway with native TLS/SSL offloading capabilities.
 
 This type of architecture is effective for small deployments or non-production environments. For large deployments or production environments, you can have separate hosts for your web application. You can also have multiple BOBI application hosts, allowing the server to process more information.
 
@@ -58,7 +58,7 @@ In this section, you create two virtual machines with the Linux operating system
    - You can either use a custom image or choose an image from Azure Marketplace. For more information, see [Deploying a VM from the Azure Marketplace for SAP](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/sap/workloads/deployment-guide.md#scenario-1-deploying-a-vm-from-the-azure-marketplace-for-sap) or [Deploying a VM with a custom image for SAP](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/sap/workloads/deployment-guide.md#scenario-2-deploying-a-vm-with-a-custom-image-for-sap).
 
 5. Create virtual machine 2, called **(azusbosl2)**.
-6. Add one premium SSD disk. You'll use it as your SAP BOBI Installation directory.
+6. Add one Premium SSD. You'll use it as your SAP BOBI Installation directory.
 
 ## Provision Azure NetApp Files
 

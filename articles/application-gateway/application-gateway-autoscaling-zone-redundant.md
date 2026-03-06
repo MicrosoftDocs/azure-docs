@@ -35,10 +35,12 @@ However, it’s important to note that provisioning a new instance may take appr
 
 For scale-in events, Application Gateway drains existing connections for 5 minutes on the instance that is subject for removal. After 5 minutes, existing connections are closed and the instance removed. Any new connections during or after the 5 minute scale-in time is established to other existing instances on the same gateway.
 
+> [!NOTE]
+> During autoscaling events, brief dips in availability metrics may be observed. This behavior is expected during scaling transitions and typically resolves within seconds.
+
 ## Next steps
 
 - Learn more about zone redundancy in [Reliability for Application Gateway v2](/azure/reliability/reliability-application-gateway-v2)
 - Learn how to [Schedule autoscaling for Application Gateway](application-gateway-externally-managed-scheduled-autoscaling.md)
 - Learn more about [Application Gateway v2](overview-v2.md)
 - [Create an autoscaling, zone redundant application gateway with a reserved virtual IP address using Azure PowerShell](tutorial-autoscale-ps.md)
-

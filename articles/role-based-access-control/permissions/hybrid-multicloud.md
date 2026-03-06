@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 12/31/2025
+ms.date: 02/23/2026
 ms.custom: generated
 ---
 
@@ -134,6 +134,8 @@ Azure service: [Azure Local](/azure-stack/hci/)
 > | Microsoft.AzureStackHCI/natGateways/Write | Creates/Updates natGateways resource |
 > | Microsoft.AzureStackHCI/natGateways/Read | Gets/Lists natGateways resource |
 > | Microsoft.AzureStackHCI/natGateways/Delete | Delete natGateways resource |
+> | Microsoft.AzureStackHCI/natGateways/join/action | Joins natGateway resource |
+> | Microsoft.AzureStackHCI/NetworkInterfaces/join/action | Joins the network interfaces resource |
 > | Microsoft.AzureStackHCI/NetworkInterfaces/Delete | Deletes network interfaces resource |
 > | Microsoft.AzureStackHCI/NetworkInterfaces/Write | Creates/Updates network interfaces resource |
 > | Microsoft.AzureStackHCI/NetworkInterfaces/Read | Gets/Lists network interfaces resource |
@@ -150,10 +152,15 @@ Azure service: [Azure Local](/azure-stack/hci/)
 > | Microsoft.AzureStackHCI/publicIPAddresses/Delete | Delete publicIPAddresses resource |
 > | Microsoft.AzureStackHCI/publicIPAddresses/join/action | Joins publicIPAddresses resource |
 > | Microsoft.AzureStackHCI/RegisteredSubscriptions/read | Reads registered subscriptions |
+> | Microsoft.AzureStackHCI/Snapshots/join/action | Joins snapshot resource |
+> | Microsoft.AzureStackHCI/Snapshots/Delete | Deletes snapshot resource |
+> | Microsoft.AzureStackHCI/Snapshots/Write | Creates/Updates snapshot resource |
+> | Microsoft.AzureStackHCI/Snapshots/Read | Gets/Lists snapshot resource |
 > | Microsoft.AzureStackHCI/StorageContainers/Delete | Deletes storage containers resource |
 > | Microsoft.AzureStackHCI/StorageContainers/Write | Creates/Updates storage containers resource |
 > | Microsoft.AzureStackHCI/StorageContainers/Read | Gets/Lists storage containers resource |
 > | Microsoft.AzureStackHCI/StorageContainers/deploy/action | Deploys storage containers resource |
+> | Microsoft.AzureStackHCI/VirtualHardDisks/join/action | Joins virtual hard disk resource |
 > | Microsoft.AzureStackHCI/VirtualHardDisks/Delete | Deletes virtual hard disk resource |
 > | Microsoft.AzureStackHCI/VirtualHardDisks/Write | Creates/Updates virtual hard disk resource |
 > | Microsoft.AzureStackHCI/VirtualHardDisks/Read | Gets/Lists virtual hard disk resource |

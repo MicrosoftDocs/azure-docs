@@ -37,66 +37,66 @@ Following types of logs are supported.
 Integrating Oracle Exadata Database and Exadata Infrastructure logs with
 the Azure portal provides a broad range of benefits, including:
 
-## 1. Centralized Monitoring and Management
+- Centralized Monitoring and Management
 
-- **Unified view** of logs from various Azure services (for example, VMs, App
+  - **Unified view** of logs from various Azure services (for example, VMs, App
   Services, AKS, and Oracle Databases@Azure).
 
-- Simplifies troubleshooting by correlating logs across services in one
+  - Simplifies troubleshooting by correlating logs across services in one
   place.
 
-- Selectively deliver different types of logs to different destinations
+  - Selectively deliver different types of logs to different destinations
   for more controlled viewing.
 
-## 2. Real-Time Insights and Alerts
+- Real-Time Insights and Alerts
 
-- Use **Azure Monitor** and **Log Analytics** to query logs in real
+  - Use **Azure Monitor** and **Log Analytics** to query logs in real
   time.
 
-- Set up **alerts** based on log queries to proactively detect issues
+  - Set up **alerts** based on log queries to proactively detect issues
   (for example, failed deployments, performance bottlenecks).
 
-## 3. Advanced Querying with Kusto Query Language (KQL)
+- Advanced Querying with Kusto Query Language (KQL)
 
-- Powerful querying capabilities to analyze logs deeply.
+  - Powerful querying capabilities to analyze logs deeply.
 
-- Enables custom dashboards and reports tailored to specific operational
+  - Enables custom dashboards and reports tailored to specific operational
   needs.
 
-## 4. Integration with Azure Services
+- Integration with Azure Services
 
-- Seamless integration with services like:
+  - Seamless integration with services like:
 
-  - **Azure Security Center** for threat detection.
+    - **Azure Security Center** for threat detection.
 
-  - **Azure Sentinel** for Security Information Event Management (SIEM)
+    - **Azure Sentinel** for Security Information Event Management (SIEM)
     and security orchestration, automation, and response (SOAR)
 
-## 5. Automation and Remediation
+- Automation and Remediation
 
-- Trigger **Azure Logic Apps** or **Functions** based on log events.
+  - Trigger **Azure Logic Apps** or **Functions** based on log events.
 
-- Automate responses to incidents (for example, restart a service when a
+  - Automate responses to incidents (for example, restart a service when a
   failure is logged).
 
-## 6. Compliance and Auditing
+- Compliance and Auditing
 
-- Retain logs for auditing and compliance purposes.
+  - Retain logs for auditing and compliance purposes.
 
-- Use **Azure Policy** and **Activity Logs** to track changes and
+  - Use **Azure Policy** and **Activity Logs** to track changes and
   access.
 
-## 7. Scalability and Cost Management
+- Scalability and Cost Management
 
-- Logs stored in **Log Analytics workspace** scale with your needs.
+  - Logs stored in **Log Analytics workspace** scale with your needs.
 
-- Control costs with **data retention policies** and **sampling**.
+  - Control costs with **data retention policies** and **sampling**.
 
-## 8. Custom Dashboards and Visualization
+- Custom Dashboards and Visualization
 
-- Create rich visualizations using **Azure Workbooks**.
+  - Create rich visualizations using **Azure Workbooks**.
 
-- Share dashboards with stakeholders for transparency and collaboration.
+  - Share dashboards with stakeholders for transparency and collaboration.
 
 ## Prerequisites
 
@@ -132,7 +132,7 @@ the Azure portal provides a broad range of benefits, including:
     group to enable Microsoft Sentinel and create Log Analytics
     workspace.
 
-## Step 1: Create and configure a diagnostic setting
+## Create and configure a diagnostic setting
 
 1. Navigate to the Azure portal and select either Oracle Exadata VM
   cluster or Oracle Exadata Infrastructure you want to monitor.
@@ -142,7 +142,7 @@ the Azure portal provides a broad range of benefits, including:
 1. Choose the logs you want to send to Azure destinations using the
   below check box options:
 
-  :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/diagnostic-settings-log-category-checkboxes.png" alt-text="Screenshot of diagnostic settings log category check boxes." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/diagnostic-settings-log-category-checkboxes.png":::
+   :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/diagnostic-settings-log-category-checkboxes.png" alt-text="Screenshot of diagnostic settings log category check boxes." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/diagnostic-settings-log-category-checkboxes.png":::
 
 1. **Choose the destinations**:
 
@@ -163,7 +163,7 @@ the Azure portal provides a broad range of benefits, including:
   that send the same log categories to the same destination — each
   configuration must be unique.
 
-## Step 2: Set up Log Analytics workspace
+## Set up Log Analytics workspace
 
 1. Set up a LA workspace by creating a new LA workspace resource in
   Azure portal.
@@ -194,7 +194,7 @@ the Azure portal provides a broad range of benefits, including:
 
     :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/log-analytics-oracleclouddatabase-results.png" alt-text="Screenshot of OracleCloudDatabase table results in Log Analytics." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/log-analytics-oracleclouddatabase-results.png":::
 
-## Step 3: Archive logs in Storage account
+## Archive logs in Storage account
 
 1. Set up a storage account by creating a new Storage account resource
   in Azure portal.
@@ -212,7 +212,7 @@ the Azure portal provides a broad range of benefits, including:
 
     :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/storage-account-containers-archived-logs.png" alt-text="Screenshot of storage account containers showing archived logs." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/storage-account-containers-archived-logs.png":::
 
-## Step 4: Stream logs to Event Hubs
+## Stream logs to Event Hubs
 
 1. Create Event hub namespace and an Event Hubs instance in Azure portal following the instructions here [Event Hubs - Capture streaming
   events using Azure portal - Azure Event Hubs \| Microsoft
@@ -235,7 +235,7 @@ the Azure portal provides a broad range of benefits, including:
 
     :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/event-hubs-data-explorer-events.png" alt-text="Screenshot of Event Hubs Data Explorer showing events." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/event-hubs-data-explorer-events.png":::
 
-## Step 5: Send to Partner Solution
+## Send to Partner Solution
 
 1. Create Event hub namespace and an Event Hub instance in Azure portal following the instructions here [Event Hubs - Capture streaming
   events using Azure portal - Azure Event Hubs \| Microsoft
@@ -270,12 +270,11 @@ the Azure portal provides a broad range of benefits, including:
 
     :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/dynatrace-log-query-results.png" alt-text="Screenshot of Dynatrace log query and results." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/dynatrace-log-query-results.png":::
 
-1. More columns from the result set can be added by applying
-    the Hidden columns on
+1. To add hidden columns to the displayed results, adjust the column settings.
 
-## Step 6: Setup Alerts and Monitoring
+## Set up Alerts and Monitoring
 
-1. Go to **Azure Portal** \> **Monitor** \> **Alerts** \> **+ Create**
+1. Go to **Azure portal** \> **Monitor** \> **Alerts** \> **+ Create**
     \> **Alert rule**. [Overview of Azure Monitor alerts - Azure Monitor \| Microsoft Learn](/azure/azure-monitor/alerts/alerts-overview)
 
 1. Select the target resource in search tab by typing LA workspace name
@@ -287,23 +286,17 @@ the Azure portal provides a broad range of benefits, including:
 
     :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/azure-monitor-custom-log-search-condition.png" alt-text="Screenshot of custom log search condition in alert rule." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/azure-monitor-custom-log-search-condition.png":::
 
-1. Set the Action group
-
-    > Create or select an **Action Group**:
-    
-    - Email
-    
-    - SMS
-    
-    - Webhook
-    
-    - Azure Function
+1. Set the Action group by creating or selecting an **Action Group**:
+   - Email
+   - SMS
+   - Webhook
+   - Azure Function
 
 1. Name the alert rule with severity
 
 1. Review and create
 
-## Step 7: Set up Microsoft Sentinel
+## Set up Microsoft Sentinel
 
 To get started, add Microsoft Sentinel to an existing workspace or
 create a new one.

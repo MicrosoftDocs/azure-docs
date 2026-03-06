@@ -1,6 +1,6 @@
 ---
 title: Redundancy support for SSD Azure file shares
-description: Premium file storage (SSD) is provided for Azure file shares through the FileStorage storage account kind. Determine the Azure regions in which locally redundant storage (LRS) and zone redundant storage (ZRS) are supported for premium file shares.
+description: SSD (premium) file storage is provided for Azure file shares through the FileStorage storage account kind. Determine the Azure regions in which locally redundant storage (LRS) and zone redundant storage (ZRS) are supported for SSD file shares.
 author: khdownie
 services: storage
 ms.service: azure-file-storage

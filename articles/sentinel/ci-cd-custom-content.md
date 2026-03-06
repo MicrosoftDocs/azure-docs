@@ -28,7 +28,6 @@ For more information on Sentinel content, see [About Microsoft Sentinel content 
 > [!IMPORTANT]
 > The Microsoft Sentinel **Repositories** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for more legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-
 ## How Microsoft Sentinel repositories work
 
 You can deploy these Microsoft Sentinel custom content types from an external source control repository you connect to Microsoft Sentinel:
@@ -132,6 +131,13 @@ Once the workflow or pipeline is triggered, the deployment supports the followin
 - specify ARM template parameter files 
 
 These options are available through a feature of the PowerShell deployment script called from the workflow or pipeline. For more information on how to implement these customizations, see [Customize repository deployments](ci-cd-custom-deploy.md#customize-your-connection-configuration).
+
+## Manage Microsoft Sentinel repositories using the API
+
+For information on managing Microsoft Sentinel repositories using the API, see the [Source Control](/rest/api/securityinsights/source-control) and [Source Controls](/rest/api/securityinsights/source-controls) actions in the Microsoft Sentinel REST API.
+
+> [!IMPORTANT]
+> Starting **May 1, 2026**, older API versions used by Microsoft Sentinel repositories will no longer be supported. If you are using APIs to create and manage repository connections, transition to API version **2025-09-01**, **2025-06-01**, or **2025-07-01-preview** before June 1, 2026 to avoid service disruption. Existing repository connections aren't affected. 
 
 ## Next steps
 

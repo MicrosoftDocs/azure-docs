@@ -11,7 +11,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 In this quickstart, you use Azure Developer command-line tools to build a serverless workflow that orchestrates multiple tasks running in parallel. After testing the code locally, you deploy it to a new serverless function app running in a Flex Consumption plan in Azure Functions.
 
-The project uses the Azure Developer CLI (azd) to simplify deploying your code to Azure. This deployment follows current best practices for secure and scalable Azure Functions deployments. This quickstart demonstrates the **fan-out/fan-in** pattern in [Durable Functions](durable-functions-overview.md), an extension that orchestrates stateful workflows with durable execution. The sample fetches article titles in parallel—the orchestration fans out to multiple activities running concurrently, then fans back in to aggregate the results. 
+The project uses the Azure Developer CLI (azd) to simplify deploying your code to Azure. This deployment follows current best practices for secure and scalable Azure Functions deployments. This quickstart demonstrates the **fan-out/fan-in** pattern in [Durable Functions](what-is-durable-task.md), an extension that orchestrates stateful workflows with durable execution. The sample fetches article titles in parallel—the orchestration fans out to multiple activities running concurrently, then fans back in to aggregate the results. 
 
 By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing model, which means completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -397,8 +397,8 @@ azd down --no-prompt
 ::: zone-end  
 ## Related content
 
-+ [Durable Functions overview](durable-functions-overview.md)
-+ [Durable Functions patterns and technical concepts](durable-functions-types-features-overview.md)
++ [Durable Functions overview](what-is-durable-task.md)
++ [Durable Task programming model](programming-model-overview.md)
 + [Azure Functions scenarios](../functions-scenarios.md)
 + [Flex Consumption plan](../flex-consumption-plan.md)
 + [Azure Developer CLI (azd)](/azure/developer/azure-developer-cli/)

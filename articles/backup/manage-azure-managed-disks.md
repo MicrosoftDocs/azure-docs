@@ -2,7 +2,7 @@
 title: Manage Azure Managed Disks
 description: Learn about managing Azure Managed Disk from the Azure portal.
 ms.topic: how-to
-ms.date: 01/30/2026
+ms.date: 02/13/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.service: azure-backup
@@ -14,6 +14,7 @@ ms.custom: engagement-fy24
 
 This article describes how to manage Azure Managed Disk using the Azure portal.
 
+To view the supported Azure Disk backup and restore scenarios, region availability, and limitations, see the [support matrix](disk-backup-support-matrix.md). For common questions, see the [frequently asked questions](disk-backup-faq.yml).
 
 ## Change policy
 
@@ -58,7 +59,7 @@ The Azure Backup service creates a job to track the progress of backup (schedule
 
 ## Manage operations using the Azure portal
 
-This section describes several Azure Backup supported management operations that make it easy to manage Azure Managed disks.
+This section describes several Azure Backup supported management operations that make it easy to manage Azure Managed Disks.
 
 ### Stop Protection
 

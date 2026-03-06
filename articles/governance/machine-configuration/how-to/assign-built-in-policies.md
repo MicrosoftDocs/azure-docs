@@ -2,7 +2,7 @@
 title: Discover And Assign Built In Machine Configuration Policies
 description: Learn how to discover, configure, and assign built-in Azure Machine Configuration policies to audit and enforce compliance across Windows and Linux machines in your environment.
 ms.date: 11/07/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: references_regions
 ---
 

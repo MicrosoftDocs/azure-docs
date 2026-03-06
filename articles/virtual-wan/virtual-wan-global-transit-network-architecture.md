@@ -5,7 +5,7 @@ description: Learn how Azure Virtual WAN allows a global transit network archite
 author: cherylmc
 
 ms.service: azure-virtual-wan
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/26/2025
 ms.author: cherylmc
 

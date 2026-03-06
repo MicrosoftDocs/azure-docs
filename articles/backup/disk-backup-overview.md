@@ -2,7 +2,7 @@
 title: Overview of Azure Disk Backup
 description: Learn about the Azure Disk backup solution.
 ms.topic: overview
-ms.date: 01/30/2026
+ms.date: 02/13/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -21,6 +21,8 @@ Azure Disk Backup is integrated into Resiliency, which provides a **single unifi
 
 >[!Note]
 >- If the target disk is attached as a Persistent Volume to an AKS cluster, choose [Azure Backup for AKS](./azure-kubernetes-service-cluster-backup.md) over the standalone Disk Backup solution. It enables backing up the disk as snapshots along with the containerized application in a Kubernetes-aware manner, all as a single unit.  Additionally, you get Cross Region Restore and ransomware protection capabilities with AKS Backup.
+
+To view the supported Azure Disk backup and restore scenarios, see the [support matrix](disk-backup-support-matrix.md). For common questions, see the [frequently asked questions](disk-backup-faq.yml).
 
 ## Key benefits of Disk Backup
 
@@ -56,7 +58,7 @@ Consider Azure Disk Backup in scenarios where:
 
 - To configure backup, go to the Backup vault, assign a backup policy, select the managed disk that needs to be backed up and provide a resource group where the snapshots are to be stored and managed. Azure Backup automatically triggers scheduled backup jobs that create an incremental snapshot of the disk according to the backup frequency. Older snapshots are deleted according to the retention duration specified by the backup policy.
 
-- Azure Backup uses [incremental snapshots](/azure/virtual-machines/disks-incremental-snapshots#restrictions) of the managed disk. Incremental snapshots are a cost-effective, point-in-time backup of managed disks that are billed for the delta changes to the disk since the last snapshot. These are always stored on the most cost-effective storage, standard HDD storage regardless of the storage type of the parent disks. The first snapshot of the disk will occupy the used size of the disk, and consecutive incremental snapshots store delta changes to the disk since the last snapshot. Azure Backup automatically assigns tag to the snapshots it creates to uniquely identify them. 
+- Azure Backup uses [incremental snapshots](/azure/virtual-machines/disks-incremental-snapshots#restrictions) of the managed disk. Incremental snapshots are a cost-effective, point-in-time backup of managed disks that are billed for the delta changes to the disk since the last snapshot. These are always stored on the most cost-effective storage, Standard HDD storage regardless of the storage type of the parent disks. The first snapshot of the disk will occupy the used size of the disk, and consecutive incremental snapshots store delta changes to the disk since the last snapshot. Azure Backup automatically assigns tag to the snapshots it creates to uniquely identify them. 
 
 - Once you configure the backup of a managed disk, a backup instance will be created within the backup vault. Using the backup instance, you can find health of backup operations, trigger on-demand backups, and perform restore operations. You can also view health of backups across multiple vaults and backup instances using Resiliency, which provides a single pane of glass view.
 
@@ -103,7 +105,8 @@ The number of recovery points is determined by the Backup policy used to configu
 
 ## Next steps
 
-[Azure Disk Backup support matrix](disk-backup-support-matrix.md).
+- [Azure Disk Backup support matrix](disk-backup-support-matrix.md).
+- [Troubleshoot Azure Disk backup](disk-backup-troubleshoot.md).
 
 ## Related content
 

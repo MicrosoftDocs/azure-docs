@@ -39,7 +39,7 @@ If you just created your free Azure account, you're the administrator of your su
 - Create a virtual machine in the selected resource group.
 - Create a virtual machine in the selected virtual network.
 - Write to an Azure storage account.
-- Write to an Azure managed disk.
+- Write to an Azure Managed Disk.
 
 To complete these tasks, your account should be assigned the Virtual Machine Contributor built-in role. In addition, to manage Site Recovery operations in a vault, your account should be assigned the Site Recovery Contributor built-in role.
 

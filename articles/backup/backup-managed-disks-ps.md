@@ -2,7 +2,7 @@
 title: Back up Azure Managed Disks using Azure PowerShell
 description: Learn how to back up Azure Managed Disks using Azure PowerShell.
 ms.topic: how-to
-ms.date: 08/25/2025
+ms.date: 02/13/2026
 ms.custom: devx-track-azurepowershell
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -13,7 +13,7 @@ ms.author: v-mallicka
 
 This article explains how to back up [Azure Managed Disk](/azure/virtual-machines/managed-disks-overview) using Azure PowerShell. You can also use REST API to [create a Backup policy](backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md) and [configure backup](backup-azure-dataprotection-use-rest-api-backup-disks.md) for Azure Managed Disk.
 
-Learn about the [Azure Disk backup region availability, supported scenarios and limitations](disk-backup-support-matrix.md).
+Learn about the [Azure Disk backup region availability, supported scenarios and limitations](disk-backup-support-matrix.md). For common questions, see the [frequently asked questions](disk-backup-faq.yml).
 
 >[!Note]
 >- If the target disk is attached as a Persistent Volume to an AKS cluster, choose [Azure Backup for AKS](./azure-kubernetes-service-cluster-backup.md) over the standalone Disk Backup solution. It enables backing up the disk as snapshots along with the containerized application in a Kubernetes-aware manner, all as a single unit.  Additionally, you get Cross Region Restore and ransomware protection capabilities with AKS Backup.
@@ -256,7 +256,8 @@ You can also use Az.ResourceGraph to track all jobs across all backup vaults. Us
 
 ## Next steps
 
-Restore Managed Disk using [Azure portal](restore-managed-disks.md), [Azure PowerShell](restore-managed-disks-ps.md), [Azure CLI](restore-managed-disks-cli.md).
+- Restore Managed Disk using [Azure portal](restore-managed-disks.md), [Azure PowerShell](restore-managed-disks-ps.md), [Azure CLI](restore-managed-disks-cli.md).
+- [Troubleshoot Azure Disk backup](disk-backup-troubleshoot.md).
 
 ## Related content
 

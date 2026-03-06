@@ -112,7 +112,7 @@ These documents should help you to decide on the selection of storage types and 
 In principle you should:
 
 - Use Premium SSDs over Standard HDDs. To learn more about the available disk types, see [Select a disk type](/azure/virtual-machines/disks-types).
-- Use Azure Managed disks over unmanaged disks.
+- Use Azure Managed Disks over unmanaged disks.
 - Make sure that you have sufficient IOPS and I/O throughput configured with your disk configuration.
 - Combine `/hana/data` and `/hana/log` volume for a cost efficient storage configuration.
 

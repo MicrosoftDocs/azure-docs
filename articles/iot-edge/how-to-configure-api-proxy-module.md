@@ -28,7 +28,7 @@ Without the API proxy, each service module must bind to a separate port on the h
 
 ## Deploy the proxy module
 
-The API proxy module is available from the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azureiotedge-api-proxy/tags), and the image URI is `mcr.microsoft.com/azureiotedge-api-proxy:latest`. Deploy the module using the [Azure portal](how-to-deploy-modules-portal.md) or [Azure CLI](how-to-deploy-modules-cli.md).
+The API proxy module is available from the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/artifact/mar/azureiotedge-api-proxy/tags), and the image URI is `mcr.microsoft.com/azureiotedge-api-proxy:latest`. Deploy the module using the [Azure portal](how-to-deploy-modules-portal.md) or [Azure CLI](how-to-deploy-modules-cli.md).
 
 ## Understand the proxy module
 
@@ -243,7 +243,7 @@ Configure the following module on any **lower layer** for this scenario:
 
 Follow these steps to upload the support bundle or log file to the blob storage module at the top layer:
 
-1. Create a blob container using Azure Storage Explorer or the REST APIs. For more information, see [Store data at the edge with Azure Blob Storage on IoT Edge](how-to-store-data-blob.md).
+1. Create a blob container using Azure Storage Explorer or the REST APIs. For more information, see the [Azure Storage Explorer documentation](/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 1. Request a log or support bundle upload by following the steps in [Retrieve logs from IoT Edge deployments](how-to-retrieve-iot-edge-logs.md), but use the domain name `$upstream` and the open proxy port instead of the blob storage module address. For example:
 
    ```json

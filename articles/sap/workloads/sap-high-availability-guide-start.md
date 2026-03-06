@@ -1,21 +1,91 @@
 ---
-title: Azure VMs high availability for SAP NetWeaver | Microsoft Docs
-description: In this article, learn about Azure Virtual Machines high availability for SAP NetWeaver.
+title: High availability Azure VMs for SAP NetWeaver
+description: Learn about high availability for SAP NetWeaver Azure virtual machines.
 services: virtual-machines-windows,virtual-network,storage
-author: rdeltcheva
-manager: juergent
 ms.assetid: 1cfcc14a-6795-4cfd-a740-aa09d6d2b817
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.topic: article
+ms.topic: concept-article
 ms.tgt_pltfrm: vm-windows
-ms.date: 12/16/2022
+manager: juergent
+author: rdeltcheva
 ms.author: radeltch
+ms.date: 02/25/2026
 ms.custom: H1Hack27Feb2017
-# Customer intent: As an IT administrator, I want to implement high availability for SAP NetWeaver on Azure Virtual Machines, so that I can ensure reliability and reduce downtime for critical business applications.
+# Customer intent: As an IT administrator, I want to implement high availability for SAP NetWeaver on Azure virtual machines, so that I can ensure reliability and reduce downtime for critical business applications.
 ---
 
-# Azure Virtual Machines high availability for SAP NetWeaver
+# High availability Azure VMs for SAP NetWeaver
+
+Azure virtual machines (VMs) are the solution for organizations that need compute, storage, and network resources, in minimal time, and without lengthy procurement cycles. You can use Azure VMs to deploy classic applications such as SAP NetWeaver-based Advanced Business Application Programming (ABAP), Java, and an ABAP+Java stack. Extend reliability and availability without extra on-premises resources. Azure VMs supports cross-premises connectivity, so you can integrate Azure VMs into your organization's on-premises domains, private clouds, and SAP system landscape.
+
+This series of articles covers:
+
+* Architecture and scenarios.
+* Infrastructure preparation.
+* SAP installation steps for deploying high-availability SAP systems in Azure by using the Azure Resource Manager deployment model.
+
+  > [!IMPORTANT]
+  > We strongly recommend that you use the Azure Resource Manager deployment model for your SAP installations. It offers many benefits that aren't available in the classic deployment model. Learn more about Azure [deployment models][virtual-machines-azure-resource-manager-architecture-benefits-arm].
+
+* SAP high availability on:
+
+  * ![Windows logo.][Logo_Windows]  **Windows**, using **Windows Server Failover Cluster (WSFC)**
+  * ![Linux logo.][Logo_Linux] **Linux**, using **Linux Cluster Framework**
+
+In these articles, you learn how to help protect single point of failure (SPOF) components, such as SAP Central Services (ASCS/SCS) and database management systems (DBMS). You also learn about redundant components in Azure, such as SAP application server.
+
+## High-availability architecture and scenarios for SAP NetWeaver
+
+**Summary:** In this article, we discuss high availability architecture of an SAP system in Azure. We discuss how to solve high availability of SAP single point of failure (SPOF) and redundant components and the specifics of Azure infrastructure high availability. We also cover how these parts relate to SAP system components. Additionally, the discussion is broken out for Windows and Linux specifics. Various SAP high-availability scenarios are covered as well.
+
+**Updated:** October 2017
+
+* [Azure VMs high availability architecture and scenarios for SAP NetWeaver][sap-high-availability-architecture-scenarios]
+
+The article covers both ![Windows logo.][Logo_Windows] **Windows** and ![Linux logo.][Logo_Linux] **Linux**.
+
+## Azure infrastructure preparation for SAP NetWeaver high-availability deployment
+
+**Summary:** In the articles listed here, we cover the steps that you can take to deploy Azure infrastructure in preparation for SAP installation. To simplify Azure infrastructure deployment, SAP Azure Resource Manager templates are used to automate the whole process.
+
+**Updated:** March 2019
+
+* ![Windows logo.][Logo_Windows] [Prepare Azure infrastructure for SAP high availability by using a Windows failover cluster and **shared disk** for SAP ASCS/SCS instances][sap-high-availability-infrastructure-wsfc-shared-disk]
+
+* ![Windows logo.][Logo_Windows] [Prepare Azure infrastructure for SAP high availability by using a Windows failover cluster and **file share** for SAP ASCS/SCS instances][sap-high-availability-infrastructure-wsfc-file-share]
+
+* ![Linux logo.][Logo_Linux] [Prepare Azure infrastructure for SAP high availability by using a SUSE Linux Enterprise Server cluster framework for SAP ASCS/SCS instances][sap-suse-ascs-ha-setting-ha-nfs]
+
+* ![Linux logo.][Logo_Linux] [Prepare Azure infrastructure for SAP high availability by using a SUSE Linux Enterprise Server cluster framework for SAP ASCS/SCS instances with Azure NetApp files][sap-suse-ascs-ha-setting-ha-anf]
+
+* ![RHEL][Logo_Linux] [Prepare Azure infrastructure for SAP ASCS/SCS high availability - set up **GlusterFS** on RHEL][high-availability-guide-rhel-glusterfs]
+
+* ![RHEL][Logo_Linux] [Prepare Azure infrastructure for SAP ASCS/SCS high availability - set up **Pacemaker** on RHEL][high-availability-guide-rhel-pacemaker]
+
+## Installation of an SAP NetWeaver high availability system in Azure
+
+**Summary:** The articles listed here present step-by-step examples of the installation and configuration of a high-availability SAP system in:
+
+* A Windows Server Failover Clustering cluster.
+* A Linux cluster framework in Azure.
+
+**Updated:** March 2019
+
+* ![Windows logo.][Logo_Windows] [Install SAP NetWeaver high availability by using a Windows failover cluster and **shared disk** for SAP ASCS/SCS instances][sap-high-availability-installation-wsfc-shared-disk]
+
+* ![Windows logo.][Logo_Windows] [Install SAP NetWeaver high availability by using a Windows failover cluster and **file share** for SAP ASCS/SCS instances][sap-high-availability-installation-wsfc-file-share]
+
+* ![Linux logo.][Logo_Linux] [Install SAP NetWeaver high availability by using a SUSE Linux Enterprise Server cluster framework for SAP ASCS/SCS instances][sap-suse-ascs-ha-sap-installation]
+
+* ![Linux logo.][Logo_Linux] [Install SAP NetWeaver high availability by using a SUSE Linux Enterprise Server cluster framework for SAP ASCS/SCS instances with Azure NetApp Files][sap-suse-ascs-ha-sap-installation-anf]
+
+* ![RHEL][Logo_Linux] [Install SAP NetWeaver ASCS/SCS in high availability configuration on RHEL][sap-rhel-ascs-ha]
+
+* ![RHEL][Logo_Linux] [Install SAP NetWeaver ASCS/SCS in high availability configuration on RHEL with Azure NetApp Files][sap-rhel-ascs-ha-sap-installation-anf]
+
+[Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
+[Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -79,11 +149,6 @@ ms.custom: H1Hack27Feb2017
 [sap-ha-guide-9]:#a06f0b49-8a7a-42bf-8b0d-c12026c5746b
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
-
-
-
-[Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
-[Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
 [sap-ha-guide-figure-1001]:./media/virtual-machines-shared-sap-high-availability-guide/1001-wsfc-on-azure-ilb.png
@@ -172,67 +237,3 @@ ms.custom: H1Hack27Feb2017
 
 [sap-hana-ha]:sap-hana-high-availability.md
 [sap-suse-ascs-ha]:high-availability-guide-suse.md
-
-Azure Virtual Machines is the solution for organizations that need compute, storage, and network resources, in minimal time, and without lengthy procurement cycles. You can use Azure Virtual Machines to deploy classic applications such as SAP NetWeaver-based ABAP, Java, and an ABAP+Java stack. Extend reliability and availability without additional on-premises resources. Azure Virtual Machines supports cross-premises connectivity, so you can integrate Azure Virtual Machines into your organization's on-premises domains, private clouds, and SAP system landscape.
-
-This series of articles covers:
-
-* Architecture and scenarios.
-* Infrastructure preparation.
-* SAP installation steps for deploying high-availability SAP systems in Azure by using the Azure Resource Manager deployment model.
-
-    > [!IMPORTANT]
-    > We strongly recommend that you use the Azure Resource Manager deployment model for your SAP installations. It offers many benefits that are not available in the classic deployment model. Learn more about Azure [deployment models][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
-    >
-* SAP high availability on:
-  * ![Windows logo.][Logo_Windows]  **Windows**, using **Windows Server Failover Cluster (WSFC)**
-  * ![Linux logo.][Logo_Linux] **Linux**, using **Linux Cluster Framework**
-
-In these articles, you learn how to help protect single point of failure (SPOF) components, such as SAP Central Services (ASCS/SCS) and database management systems (DBMS). You also learn about redundant components in Azure, such as SAP application server.
-
-## High-availability architecture and scenarios for SAP NetWeaver
-
-**Summary:** In this article, we discuss high availability architecture of an SAP system in Azure. We discuss how to solve high availability of SAP single point of failure (SPOF) and redundant components and the specifics of Azure infrastructure high availability. We also cover how these parts relate to SAP system components. Additionally, the discussion is broken out for Windows and Linux specifics. Various SAP high-availability scenarios are covered as well.
-
-**Updated:** October 2017
-
-* [Azure Virtual Machines high availability architecture and scenarios for SAP NetWeaver][sap-high-availability-architecture-scenarios]
-
-The article covers both ![Windows logo.][Logo_Windows] **Windows** and ![Linux logo.][Logo_Linux] **Linux**.
-
-
-## Azure infrastructure preparation for SAP NetWeaver high-availability deployment
-
-**Summary:** In the articles listed here, we cover the steps that you can take to deploy Azure infrastructure in preparation for SAP installation. To simplify Azure infrastructure deployment, SAP Azure Resource Manager templates are used to automate the whole process.
-
-**Updated:** March 2019
-
-* ![Windows logo.][Logo_Windows] [Prepare Azure infrastructure for SAP high availability by using a Windows failover cluster and **shared disk** for SAP ASCS/SCS instances][sap-high-availability-infrastructure-wsfc-shared-disk]
-
-* ![Windows logo.][Logo_Windows] [Prepare Azure infrastructure for SAP high availability by using a Windows failover cluster and **file share** for SAP ASCS/SCS instances][sap-high-availability-infrastructure-wsfc-file-share]
-
-* ![Linux logo.][Logo_Linux] [Prepare Azure infrastructure for SAP high availability by using a SUSE Linux Enterprise Server cluster framework for SAP ASCS/SCS instances][sap-suse-ascs-ha-setting-ha-nfs]
-
-* ![Linux logo.][Logo_Linux] [Prepare Azure infrastructure for SAP high availability by using a SUSE Linux Enterprise Server cluster framework for SAP ASCS/SCS instances with Azure NetApp files][sap-suse-ascs-ha-setting-ha-anf]
-
-* ![RHEL][Logo_Linux] [Prepare Azure infrastructure for SAP ASCS/SCS high availability - set up GlusterFS on RHEL][high-availability-guide-rhel-glusterfs]
-
-* ![RHEL][Logo_Linux] [Prepare Azure infrastructure for SAP ASCS/SCS high availability - set up Pacemaker on RHEL][high-availability-guide-rhel-pacemaker]
-
-## Installation of an SAP NetWeaver high availability system in Azure
-
-**Summary:** The articles listed here present step-by-step examples of the installation and configuration of a high-availability SAP system in a Windows Server Failover Clustering cluster and Linux cluster framework in Azure.
-
-**Updated:** March 2019
-
-* ![Windows logo.][Logo_Windows] [Install SAP NetWeaver high availability by using a Windows failover cluster and **shared disk** for SAP ASCS/SCS instances][sap-high-availability-installation-wsfc-shared-disk]
-
-* ![Windows logo.][Logo_Windows] [Install SAP NetWeaver high availability by using a Windows failover cluster and **file share** for SAP ASCS/SCS instances][sap-high-availability-installation-wsfc-file-share]
-
-* ![Linux logo.][Logo_Linux] [Install SAP NetWeaver high availability by using a SUSE Linux Enterprise Server cluster framework for SAP ASCS/SCS instances][sap-suse-ascs-ha-sap-installation]
-
-* ![Linux logo.][Logo_Linux] [Install SAP NetWeaver high availability by using a SUSE Linux Enterprise Server cluster framework for SAP ASCS/SCS instances with Azure NetApp Files][sap-suse-ascs-ha-sap-installation-anf]
-
-* ![RHEL][Logo_Linux] [Install SAP NetWeaver ASCS/SCS in high availability configuration on RHEL][sap-rhel-ascs-ha]
-
-* ![RHEL][Logo_Linux] [Install SAP NetWeaver ASCS/SCS in high availability configuration on RHEL with Azure NetApp Files][sap-rhel-ascs-ha-sap-installation-anf]

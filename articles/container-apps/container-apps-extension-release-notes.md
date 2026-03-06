@@ -4,7 +4,7 @@ description: Find information on updates made during each Azure Container Apps e
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: release-notes
 ms.date: 05/01/2025
 ms.author: cshoe
 ms.custom:

@@ -245,7 +245,7 @@ For more information on how to manage orchestrations and entities using client A
 
 ## Consuming HTTP APIs
 
-As described in the [orchestrator function code constraints](durable-functions-code-constraints.md), orchestrator functions can't do I/O directly. Instead, they typically call [activity functions](durable-functions-types-features-overview.md#activity-functions) that do I/O operations.
+As described in the [orchestrator code constraints](durable-functions-code-constraints.md), orchestrator functions can't do I/O directly. Instead, they typically call [activities](programming-model-overview.md#activities) that do I/O operations.
 
 Starting with Durable Functions 2.0, orchestrations can natively consume HTTP APIs by using the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger).
 
@@ -346,7 +346,7 @@ By using the "call HTTP" action, you can do the following actions in your orches
 
 * Call HTTP APIs directly from orchestration functions, with some limitations that are mentioned later.
 * Automatically support client-side HTTP 202 status polling patterns.
-* Use [Azure Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md) to make authorized HTTP calls to other Azure endpoints.
+* Use [Azure Managed Identities](/entra/identity/managed-identities-azure-resources/overview) to make authorized HTTP calls to other Azure endpoints.
 
 The ability to consume HTTP APIs directly from orchestrator functions is intended as a convenience for a certain set of common scenarios. You can implement all of these features yourself using activity functions. In many cases, activity functions might give you more flexibility.
 
@@ -414,7 +414,7 @@ This feature is currently not supported in Java.
 
 ### Managed identities
 
-Durable Functions natively supports calls to APIs that accept Microsoft Entra tokens for authorization. This support uses [Azure managed identities](../../active-directory/managed-identities-azure-resources/overview.md) to acquire these tokens.
+Durable Functions natively supports calls to APIs that accept Microsoft Entra tokens for authorization. This support uses [Azure managed identities](/entra/identity/managed-identities-azure-resources/overview) to acquire these tokens.
 
 The following code is an example of an orchestrator function. The function makes authenticated calls to restart a virtual machine by using the Azure Resource Manager [virtual machines REST API](/rest/api/compute/virtualmachines).
 
@@ -543,7 +543,7 @@ At runtime, the configured token source automatically returns an OAuth 2.0 acces
 
 You can find a more complete example in the [precompiled C# RestartVMs sample](https://github.com/Azure/azure-functions-durable-extension/blob/dev/samples/precompiled/RestartVMs.cs).
 
-Managed identities aren't limited to Azure resource management. You can use managed identities to access any API that accepts Microsoft Entra bearer tokens, including Azure services from Microsoft and web apps from partners. A partner's web app can even be another function app. For a list of Azure services from Microsoft that support authentication with Microsoft Entra ID, see [Azure services that support Microsoft Entra authentication](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Managed identities aren't limited to Azure resource management. You can use managed identities to access any API that accepts Microsoft Entra bearer tokens, including Azure services from Microsoft and web apps from partners. A partner's web app can even be another function app. For a list of Azure services from Microsoft that support authentication with Microsoft Entra ID, see [Azure services that support Microsoft Entra authentication](/entra/identity/managed-identities-azure-resources/managed-identities-status#services-supporting-managed-identities).
 
 ### Limitations
 

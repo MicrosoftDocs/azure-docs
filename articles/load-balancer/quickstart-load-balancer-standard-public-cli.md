@@ -237,6 +237,7 @@ Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-cr
     --name myBastionHost \
     --public-ip-address myBastionIP \
     --vnet-name myVNet \
+    --sku Basic \
     --location eastus
 ```
 

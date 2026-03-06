@@ -7,7 +7,7 @@ ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/31/2025
+ms.date: 02/28/2026
 ms.custom: has-adal-ref, devx-track-csharp, devx-track-dotnet
 ROBOTS: NOINDEX
 # Customer intent: "As a .NET developer, I want to create a console application to manage Azure CDN profiles and endpoints, so that I can automate CDN operations using familiar development tools and libraries."

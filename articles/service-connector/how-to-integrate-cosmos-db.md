@@ -1,16 +1,16 @@
 ---
 title: Integrate Azure Cosmos DB for MongoDB with Service Connector
-description: Integrate Azure Cosmos DB for MongoDB into your application with Service Connector
+description: Learn how to integrate Azure Cosmos DB for MongoDB into your application with Service Connector by using the supported authentication methods and clients.
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 03/14/2025
+ms.date: 02/03/2026
 ---
 
 # Integrate Azure Cosmos DB for MongoDB with Service Connector
 
-This page shows supported authentication methods and clients, and shows sample code you can use to connect the Azure Cosmos DB for MongoDB to other cloud services using Service Connector. You might still be able to connect to Azure Cosmos DB for MongoDB in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. 
+This article shows supported authentication methods and clients, and shows sample code you can use to connect the Azure Cosmos DB for MongoDB to other cloud services using Service Connector. You might still be able to connect to Azure Cosmos DB for MongoDB in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection.  
 
 ## Supported compute services
 
@@ -24,7 +24,7 @@ Service Connector can be used to connect the following compute services to Azure
 
 ## Supported authentication types and client types
 
-The table below shows which combinations of client types and authentication methods are supported for connecting your compute service to Azure Cosmos DB for MongoDB using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
+The following table shows which combinations of client types and authentication methods are supported for connecting your compute service to Azure Cosmos DB for MongoDB using Service Connector. A *Yes* indicates that the combination is supported, while a *No* indicates that it isn't supported.
 
 | Client type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string | Service principal |
 |--------------------|----------------------------------|--------------------------------|----------------------------|-------------------|
@@ -36,14 +36,14 @@ The table below shows which combinations of client types and authentication meth
 | Go                 | Yes                              | Yes                            | Yes                        | Yes               |
 | None               | Yes                              | Yes                            | Yes                        | Yes               |
 
-This table indicates that all combinations of client types and authentication methods in the table are supported, except for the Java - Spring Boot client type, which only supports the Secret / connection string method. All other client types can use any of the authentication methods to connect to Azure Cosmos DB for MongoDB using Service Connector.
+This table indicates that all combinations of client types and authentication methods in the table are supported, except for the Java - Spring Boot client type. This client type only supports the Secret / connection string method. All other client types can use any of the authentication methods to connect to Azure Cosmos DB for MongoDB using Service Connector.
 
 > [!NOTE]
-> Cosmos DB does not natively support authentication via managed identity. Therefore, Service Connector uses the managed identity to retrieve the connection string, and the connection is subsequently established using that connection string.
+> Cosmos DB doesn't natively support authentication via managed identity. Therefore, Service Connector uses the managed identity to retrieve the connection string, and the connection is then established using that connection string.
 
 ## Default environment variable names or application properties and sample code
 
-Use the connection details below to connect compute services to Azure Cosmos DB. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection, as well as sample code. For each example below, replace the placeholder texts `<mongo-db-admin-user>`, `<password>`, `<Azure-Cosmos-DB-API-for-MongoDB-account>`, `<subscription-ID>`, `<resource-group-name>`, `<client-secret>`, and `<tenant-id>` with your own information. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+Use the following connection details to connect compute services to Azure Cosmos DB. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection, and sample code. For each of these examples, replace the placeholder texts `<mongo-db-admin-user>`, `<password>`, `<Azure-Cosmos-DB-API-for-MongoDB-account>`, `<subscription-ID>`, `<resource-group-name>`, `<client-secret>`, and `<tenant-id>` with your own information. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
 ### System-assigned managed identity
 
@@ -55,9 +55,10 @@ Use the connection details below to connect compute services to Azure Cosmos DB.
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB using a system-assigned managed identity.
+To connect to Azure Cosmos DB for MongoDB using a system-assigned managed identity, refer to the following steps and sample code.
 
 Since Cosmos DB doesn't natively support authentication via managed identity, in the following code sample, we use the managed identity to retrieve the connection string, and the connection is then established using that connection string.
+
 [!INCLUDE [code sample for mongo](./includes/code-cosmosmongo-me-id.md)]
 
 ### User-assigned managed identity
@@ -71,15 +72,16 @@ Since Cosmos DB doesn't natively support authentication via managed identity, in
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB using a user-assigned managed identity.
+To connect to Azure Cosmos DB for MongoDB using a user-assigned managed identity, refer to the following steps and sample code.
 
 Since Cosmos DB doesn't natively support authentication via managed identity, in the following code sample, we use the managed identity to retrieve the connection string, and the connection is then established using that connection string.
+
 [!INCLUDE [code sample for mongo](./includes/code-cosmosmongo-me-id.md)]
 
 ### Connection string
 
 > [!WARNING]
-> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a high degree of trust in the application, and carries risks that aren't present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
 #### Spring Boot client type
 
@@ -96,7 +98,8 @@ Since Cosmos DB doesn't natively support authentication via managed identity, in
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB using a connection string.
+To connect to Azure Cosmos DB for MongoDB using a connection string, refer to the following steps and sample code.
+
 [!INCLUDE [code sample for mongo](./includes/code-cosmosmongo-secret.md)]
 
 ### Service principal
@@ -112,12 +115,13 @@ Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB usin
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB using a service principal.
+To connect to Azure Cosmos DB for MongoDB using a service principal, refer to the following steps and sample code.
+
 [!INCLUDE [code sample for mongo](./includes/code-cosmosmongo-me-id.md)]
 
 ## Next steps
 
-Follow the tutorials listed below to learn more about Service Connector.
+To learn more about Service Connector, see the following tutorial.
 
 > [!div class="nextstepaction"]
 > [Learn about Service Connector concepts](./concept-service-connector-internals.md)

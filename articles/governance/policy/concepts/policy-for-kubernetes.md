@@ -319,7 +319,7 @@ As part of the _details.templateInfo_ or _details.constraintInfo_ properties in 
 the Kubernetes cluster. By supporting an existing standard for Kubernetes management, Azure Policy
 makes it possible to reuse existing rules and pair them with Azure Policy for a unified cloud
 compliance reporting experience. For more information, see
-[What is Rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego).
+[What is Rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)
 
 ## Assign a policy definition
 

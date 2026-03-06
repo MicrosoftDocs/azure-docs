@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 12/31/2025
+ms.date: 02/23/2026
 ms.custom: generated
 ---
 
@@ -296,6 +296,379 @@ Azure service: [Azure Digital Twins](/azure/digital-twins/)
 > | Microsoft.DigitalTwins/models/read | Read any Model |
 > | Microsoft.DigitalTwins/models/write | Create or Update any Model |
 > | Microsoft.DigitalTwins/models/delete | Delete any Model |
+
+## Microsoft.Edge
+
+Azure service: Microsoft.Edge
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.Edge/register/action | Register the subscription for Microsoft.Edge |
+> | Microsoft.Edge/unregister/action | Unregister the subscription for Microsoft.Edge |
+> | Microsoft.Edge/capabilityLists/read | List by subscription |
+> | Microsoft.Edge/capabilityLists/read | List by specified resource group |
+> | Microsoft.Edge/capabilityLists/read | Get a Capability List Resource |
+> | Microsoft.Edge/capabilityLists/write | Create or update a Capability List Resource |
+> | Microsoft.Edge/capabilityLists/delete | Delete a Capability List Resource |
+> | Microsoft.Edge/capabilityLists/write | update a Capability List Resource |
+> | Microsoft.Edge/configTemplates/createVersion/action | Create or update a Config Template Version Resource with the specified UpdateType |
+> | Microsoft.Edge/configTemplates/removeVersion/action | Remove Config Template Version Resource |
+> | Microsoft.Edge/configTemplates/write | update a Config Template Resource |
+> | Microsoft.Edge/configTemplates/delete | Delete a Config Template Resource |
+> | Microsoft.Edge/configTemplates/write | Create or update a Config Template Resource |
+> | Microsoft.Edge/configTemplates/read | Get a Config Template Resource |
+> | Microsoft.Edge/configTemplates/read | List by specified resource group |
+> | Microsoft.Edge/configTemplates/read | List by subscription |
+> | Microsoft.Edge/configTemplates/linkToHierarchies/action | Apply a Config Template to a particular hierarchy node |
+> | Microsoft.Edge/configTemplates/unLinkFromHierarchies/action | Remove a Config Template from a particular hierarchy node |
+> | Microsoft.Edge/configTemplates/configTemplateMetadatas/read | List by ConfigTemplate |
+> | Microsoft.Edge/configTemplates/configTemplateMetadatas/read | Get a ConfigTemplateMetadata Resource |
+> | Microsoft.Edge/configTemplates/versions/read | List Config Template Version Resources |
+> | Microsoft.Edge/configTemplates/versions/read | Get a Config Template Version Resource |
+> | Microsoft.Edge/configTemplates/versions/configTemplateSchemas/read | List by ConfigTemplateVersion |
+> | Microsoft.Edge/configTemplates/versions/configTemplateSchemas/read | Get a ConfigTemplateSchema Resource |
+> | Microsoft.Edge/configurationReferences/read | List ConfigurationReference resources by parent |
+> | Microsoft.Edge/configurationReferences/read | Get a ConfigurationReference |
+> | Microsoft.Edge/configurationReferences/write | Create a ConfigurationReference |
+> | Microsoft.Edge/configurationReferences/delete | Delete a ConfigurationReference |
+> | Microsoft.Edge/configurationReferences/write | Update a ConfigurationReference |
+> | Microsoft.Edge/configurations/read | List by subscription |
+> | Microsoft.Edge/configurations/read | List by specified resource group |
+> | Microsoft.Edge/configurations/read | Get a Configuration Resource |
+> | Microsoft.Edge/configurations/write | Create or update a Configuration Resource |
+> | Microsoft.Edge/configurations/delete | Delete a Configuration Resource |
+> | Microsoft.Edge/configurations/write | Update a Configuration Resource |
+> | Microsoft.Edge/configurations/arcGatewayConfigurations/read | List ArcGatewayConfiguration resources by Configuration |
+> | Microsoft.Edge/configurations/arcGatewayConfigurations/read | Get a ArcGatewayConfiguration |
+> | Microsoft.Edge/configurations/arcGatewayConfigurations/write | Create a ArcGatewayConfiguration |
+> | Microsoft.Edge/configurations/arcGatewayConfigurations/delete | Delete a ArcGatewayConfiguration |
+> | Microsoft.Edge/configurations/arcGatewayConfigurations/write | Update a ArcGatewayConfiguration |
+> | Microsoft.Edge/configurations/connectivityConfigurations/read | List ConnectivityConfiguration resources by Configuration |
+> | Microsoft.Edge/configurations/connectivityConfigurations/read | Get a ConnectivityConfiguration |
+> | Microsoft.Edge/configurations/connectivityConfigurations/write | Create a ConnectivityConfiguration |
+> | Microsoft.Edge/configurations/connectivityConfigurations/delete | Delete a ConnectivityConfiguration |
+> | Microsoft.Edge/configurations/connectivityConfigurations/write | Update a ConnectivityConfiguration |
+> | Microsoft.Edge/configurations/dynamicConfigurations/read | List Dynamic Configuration Resources |
+> | Microsoft.Edge/configurations/dynamicConfigurations/read | Get a Dynamic Configuration Resource |
+> | Microsoft.Edge/configurations/dynamicConfigurations/write | Create or update a Dynamic Configuration Resource |
+> | Microsoft.Edge/configurations/dynamicConfigurations/delete | Delete a Dynamic Configuration Resource |
+> | Microsoft.Edge/configurations/dynamicConfigurations/write | Update a Dynamic Configuration Resource |
+> | Microsoft.Edge/configurations/dynamicConfigurations/versions/read | List Dynamic Configuration Version Resource |
+> | Microsoft.Edge/configurations/dynamicConfigurations/versions/read | Get a Dynamic Configuration Version Resource |
+> | Microsoft.Edge/configurations/dynamicConfigurations/versions/write | Create or update a Dynamic Configuration Version Resource |
+> | Microsoft.Edge/configurations/dynamicConfigurations/versions/delete | Delete a Dynamic Configuration Version Resource |
+> | Microsoft.Edge/configurations/dynamicConfigurations/versions/write | update a Dynamic Configuration Version Resource |
+> | Microsoft.Edge/configurations/networkConfigurations/read | List NetworkConfiguration resources by Configuration |
+> | Microsoft.Edge/configurations/networkConfigurations/read | Get a NetworkConfiguration |
+> | Microsoft.Edge/configurations/networkConfigurations/write | Create a NetworkConfiguration |
+> | Microsoft.Edge/configurations/networkConfigurations/delete | Delete a NetworkConfiguration |
+> | Microsoft.Edge/configurations/networkConfigurations/write | Update a NetworkConfiguration |
+> | Microsoft.Edge/configurations/provisioningConfigurations/read | List ProvisioningConfiguration resources by Configuration |
+> | Microsoft.Edge/configurations/provisioningConfigurations/read | Get a ProvisioningConfiguration |
+> | Microsoft.Edge/configurations/provisioningConfigurations/write | Create a ProvisioningConfiguration |
+> | Microsoft.Edge/configurations/provisioningConfigurations/delete | Delete a ProvisioningConfiguration |
+> | Microsoft.Edge/configurations/provisioningConfigurations/write | Update a ProvisioningConfiguration |
+> | Microsoft.Edge/configurations/securityConfigurations/read | List SecurityConfiguration resources by Configuration |
+> | Microsoft.Edge/configurations/securityConfigurations/read | Get a SecurityConfiguration |
+> | Microsoft.Edge/configurations/securityConfigurations/write | Create a SecurityConfiguration |
+> | Microsoft.Edge/configurations/securityConfigurations/delete | Delete a SecurityConfiguration |
+> | Microsoft.Edge/configurations/securityConfigurations/write | Update a SecurityConfiguration |
+> | Microsoft.Edge/configurations/timeServerConfigurations/read | List TimeServerConfiguration resources by Configuration |
+> | Microsoft.Edge/configurations/timeServerConfigurations/read | Get a TimeServerConfiguration |
+> | Microsoft.Edge/configurations/timeServerConfigurations/write | Create a TimeServerConfiguration |
+> | Microsoft.Edge/configurations/timeServerConfigurations/delete | Delete a TimeServerConfiguration |
+> | Microsoft.Edge/configurations/timeServerConfigurations/write | Update a TimeServerConfiguration |
+> | Microsoft.Edge/configurationTemplates/createVersion/action | Create or update a Configuration Template Version Resource with the specified UpdateType |
+> | Microsoft.Edge/configurationTemplates/removeVersion/action | Remove Configuration Template Version Resource |
+> | Microsoft.Edge/configurationTemplates/read | List by subscription |
+> | Microsoft.Edge/configurationTemplates/read | List by specified resource group |
+> | Microsoft.Edge/configurationTemplates/read | Get a Configuration Template Resource |
+> | Microsoft.Edge/configurationTemplates/write | Create or update a Configuration Template Resource |
+> | Microsoft.Edge/configurationTemplates/delete | Delete a Configuration Template Resource |
+> | Microsoft.Edge/configurationTemplates/write | update a Configuration Template Resource |
+> | Microsoft.Edge/configurationTemplates/versions/read | List Configuration Template Version Resources |
+> | Microsoft.Edge/configurationTemplates/versions/read | Get a Configuration Template Version Resource |
+> | Microsoft.Edge/connectivityStatuses/read | List ConnectivityStatus resources by parent |
+> | Microsoft.Edge/connectivityStatuses/read | Get a ConnectivityStatus |
+> | Microsoft.Edge/connectivityStatuses/write | Create a ConnectivityStatus |
+> | Microsoft.Edge/connectivityStatuses/delete | Delete a ConnectivityStatus |
+> | Microsoft.Edge/connectivityStatuses/write | Update a ConnectivityStatus |
+> | Microsoft.Edge/contexts/read | List by subscription |
+> | Microsoft.Edge/contexts/read | List by specified resource group |
+> | Microsoft.Edge/contexts/read | Get Context Resource |
+> | Microsoft.Edge/contexts/write | Create or update Context Resource |
+> | Microsoft.Edge/contexts/delete | Delete Context Resource |
+> | Microsoft.Edge/contexts/write | update an Context Resource |
+> | Microsoft.Edge/contexts/execute/action | Post request to execute |
+> | Microsoft.Edge/contexts/publish/action | Post request to publish |
+> | Microsoft.Edge/contexts/resolve/action | Post request to resolve configuration |
+> | Microsoft.Edge/contexts/review/action | Post request to review configuration |
+> | Microsoft.Edge/contexts/eventGridFilters/read | List Event Grid Filter Resources |
+> | Microsoft.Edge/contexts/eventGridFilters/read | Get Event Grid Filter Resource |
+> | Microsoft.Edge/contexts/eventGridFilters/write | Create or Update Event Grid Filter Resource |
+> | Microsoft.Edge/contexts/eventGridFilters/delete | Delete Event Grid Filter Resource |
+> | Microsoft.Edge/contexts/eventGridFilters/write | Update Event Grid Filter Resource |
+> | Microsoft.Edge/contexts/siteReferences/read | List Site Reference Resources |
+> | Microsoft.Edge/contexts/siteReferences/read | Get Site Reference Resource |
+> | Microsoft.Edge/contexts/siteReferences/write | Get Site Reference Resource |
+> | Microsoft.Edge/contexts/siteReferences/delete | Get Site Reference Resource |
+> | Microsoft.Edge/contexts/siteReferences/write | Get Site Reference Resource |
+> | Microsoft.Edge/contexts/workflows/read | List Workflow resources |
+> | Microsoft.Edge/contexts/workflows/read | Get a Workflow resource |
+> | Microsoft.Edge/contexts/workflows/write | Create or update a Workflow resource |
+> | Microsoft.Edge/contexts/workflows/delete | Delete a Workflow resource |
+> | Microsoft.Edge/contexts/workflows/write | update a Workflow resource |
+> | Microsoft.Edge/contexts/workflows/versions/read | List Workflow Version Resources |
+> | Microsoft.Edge/contexts/workflows/versions/read | Get a Workflow Version Resource |
+> | Microsoft.Edge/contexts/workflows/versions/write | Create or update a Workflow Version Resource |
+> | Microsoft.Edge/contexts/workflows/versions/delete | Delete a Workflow Version Resource |
+> | Microsoft.Edge/contexts/workflows/versions/write | update an WorkflowVersion Resource |
+> | Microsoft.Edge/contexts/workflows/versions/executions/read | List Execution Resources |
+> | Microsoft.Edge/contexts/workflows/versions/executions/read | Get Execution Resource |
+> | Microsoft.Edge/contexts/workflows/versions/executions/write | Create or update Execution Resource |
+> | Microsoft.Edge/contexts/workflows/versions/executions/delete | Delete Execution Resource |
+> | Microsoft.Edge/contexts/workflows/versions/executions/write | update an Execution Resource |
+> | Microsoft.Edge/deploymentTargets/read | List by subscription |
+> | Microsoft.Edge/deploymentTargets/read | List by specified resource group |
+> | Microsoft.Edge/deploymentTargets/read | Get a Deployment Target Resource |
+> | Microsoft.Edge/deploymentTargets/write | Create or update a Deployment Target Resource |
+> | Microsoft.Edge/deploymentTargets/delete | Delete a Deployment Target Resource |
+> | Microsoft.Edge/deploymentTargets/write | update a Deployment Target Resource |
+> | Microsoft.Edge/diagnostics/read | Lists Diagnostics resources within an Azure subscription. |
+> | Microsoft.Edge/diagnostics/read | Returns a collection of Diagnostic resources within the resource group. |
+> | Microsoft.Edge/diagnostics/read | Returns details of specified Diagnostic resource. |
+> | Microsoft.Edge/diagnostics/write | Creates new or updates existing Diagnostic resource. |
+> | Microsoft.Edge/diagnostics/delete | Deletes specified Diagnostic resource. |
+> | Microsoft.Edge/diagnostics/write | Updates existing Diagnostic resource. |
+> | Microsoft.Edge/disconnectedOperations/read | List DisconnectedOperation resources by subscription ID |
+> | Microsoft.Edge/disconnectedOperations/read | List DisconnectedOperation resources by resource group |
+> | Microsoft.Edge/disconnectedOperations/read | Get a DisconnectedOperation |
+> | Microsoft.Edge/disconnectedOperations/write | Create a DisconnectedOperation |
+> | Microsoft.Edge/disconnectedOperations/delete | Delete a DisconnectedOperation |
+> | Microsoft.Edge/disconnectedOperations/write | Update a DisconnectedOperation |
+> | Microsoft.Edge/disconnectedOperations/listDeploymentManifest/action | get deployment manifest. |
+> | Microsoft.Edge/disconnectedOperations/hardwareSettings/read | List by parent |
+> | Microsoft.Edge/disconnectedOperations/hardwareSettings/read | Get the hardware settings resource |
+> | Microsoft.Edge/disconnectedOperations/hardwareSettings/write | Create or update hardware settings |
+> | Microsoft.Edge/disconnectedOperations/hardwareSettings/delete | Delete hardware settings |
+> | Microsoft.Edge/disconnectedOperations/images/listDownloadUri/action | get deployment manifest. |
+> | Microsoft.Edge/disconnectedOperations/images/read | List by parent |
+> | Microsoft.Edge/disconnectedOperations/images/read | Get the resource |
+> | Microsoft.Edge/disconnectedOperations/images/artifacts/read | List by parent |
+> | Microsoft.Edge/disconnectedOperations/images/artifacts/read | Get the resource |
+> | Microsoft.Edge/disconnectedOperations/images/artifacts/listDownloadUri/action | get artifact download link. |
+> | Microsoft.Edge/hierarchyLists/read | List by subscription |
+> | Microsoft.Edge/hierarchyLists/read | List by specified resource group |
+> | Microsoft.Edge/hierarchyLists/read | Get a Hierarchy List Resource |
+> | Microsoft.Edge/hierarchyLists/write | Create or update a Hierarchy List Resource |
+> | Microsoft.Edge/hierarchyLists/delete | Delete a Hierarchy List Resource |
+> | Microsoft.Edge/hierarchyLists/write | update a Hierarchy List Resource |
+> | Microsoft.Edge/jobs/read | List Jobs by parent resource |
+> | Microsoft.Edge/jobs/read | Get a Job resource |
+> | Microsoft.Edge/locations/operationStatuses/read | read operationStatuses |
+> | Microsoft.Edge/locations/operationStatuses/write | write operationStatuses |
+> | Microsoft.Edge/operations/read | read operations |
+> | Microsoft.Edge/registeredSubscriptions/read | read registeredSubscriptions |
+> | Microsoft.Edge/resourceInsights/read | List all ResourceInsight resources |
+> | Microsoft.Edge/resourceInsights/read | Get ResourceInsight resource by name |
+> | Microsoft.Edge/schemaReferences/read | Get a Schema Reference Resource |
+> | Microsoft.Edge/schemaReferences/read | List by specified resource group |
+> | Microsoft.Edge/schemaReferences/write | Create or update a Schema Reference Resource |
+> | Microsoft.Edge/schemaReferences/delete | Delete a Schema Reference Resource |
+> | Microsoft.Edge/schemaReferences/write | update a Schema Reference Resource |
+> | Microsoft.Edge/schemas/read | List by subscription |
+> | Microsoft.Edge/schemas/read | List by specified resource group |
+> | Microsoft.Edge/schemas/read | Get a Schema Resource |
+> | Microsoft.Edge/schemas/write | Create or update a Schema Resource |
+> | Microsoft.Edge/schemas/delete | Delete a Schema Resource |
+> | Microsoft.Edge/schemas/write | update a Schema Resource |
+> | Microsoft.Edge/schemas/createVersion/action | Create a Schema Version Resource |
+> | Microsoft.Edge/schemas/removeVersion/action | Remove Schema Version Resource |
+> | Microsoft.Edge/schemas/dynamicSchemas/read | List by Schema |
+> | Microsoft.Edge/schemas/dynamicSchemas/read | Get a DynamicSchema Resource |
+> | Microsoft.Edge/schemas/dynamicSchemas/write | Create or update a DynamicSchema Resource |
+> | Microsoft.Edge/schemas/dynamicSchemas/delete | Delete a DynamicSchema Resource |
+> | Microsoft.Edge/schemas/dynamicSchemas/write | update a DynamicSchema Resource |
+> | Microsoft.Edge/schemas/dynamicSchemas/versions/read | List by Dynamic Schema |
+> | Microsoft.Edge/schemas/dynamicSchemas/versions/read | Get a Dynamic Schema Version Resource |
+> | Microsoft.Edge/schemas/dynamicSchemas/versions/write | Create or update a Dynamic Schema Version Resource |
+> | Microsoft.Edge/schemas/dynamicSchemas/versions/delete | Delete a Dynamic Schema Version Resource |
+> | Microsoft.Edge/schemas/dynamicSchemas/versions/write | update a Dynamic Schema Version Resource |
+> | Microsoft.Edge/schemas/versions/read | List by specified resource group |
+> | Microsoft.Edge/schemas/versions/read | Get a Schema Version Resource |
+> | Microsoft.Edge/schemas/versions/write | Create or update a Schema Version Resource |
+> | Microsoft.Edge/schemas/versions/delete | Delete a Schema Version Resource |
+> | Microsoft.Edge/schemas/versions/write | update a Schema Version Resource |
+> | Microsoft.Edge/siteAwareResourceTypes/read | List Singleton SiteAwareResourceTypes Object. |
+> | Microsoft.Edge/siteAwareResourceTypes/read | Get Site Aware Resource Types |
+> | Microsoft.Edge/sites/write | Update a Site |
+> | Microsoft.Edge/sites/delete | Delete a Site |
+> | Microsoft.Edge/sites/write | Create a Site |
+> | Microsoft.Edge/sites/read | Get a Site |
+> | Microsoft.Edge/sites/read | List Site resources by scope |
+> | Microsoft.Edge/sites/write | Update a Site |
+> | Microsoft.Edge/sites/delete | Delete a Site |
+> | Microsoft.Edge/sites/write | Create a Site |
+> | Microsoft.Edge/sites/read | Get a Site |
+> | Microsoft.Edge/sites/read | List Site resources by scope |
+> | Microsoft.Edge/sites/write | Update a Site |
+> | Microsoft.Edge/sites/delete | Delete a Site |
+> | Microsoft.Edge/sites/write | Create a Site |
+> | Microsoft.Edge/sites/read | Get a Site |
+> | Microsoft.Edge/sites/read | List Site resources by scope |
+> | Microsoft.Edge/solutionBindings/deploy/action | Post request to deploy |
+> | Microsoft.Edge/solutionBindings/publish/action | Post request to publish |
+> | Microsoft.Edge/solutionBindings/resolveConfiguration/action | Post request to resolve configuration |
+> | Microsoft.Edge/solutionBindings/read | List by subscription |
+> | Microsoft.Edge/solutionBindings/read | List by specified resource group |
+> | Microsoft.Edge/solutionBindings/read | Get a Solution Binding Resource |
+> | Microsoft.Edge/solutionBindings/write | Create or update a Solution Binding Resource |
+> | Microsoft.Edge/solutionBindings/delete | Delete a Solution Binding Resource |
+> | Microsoft.Edge/solutionBindings/write | update a Solution Binding Resource |
+> | Microsoft.Edge/solutionBindings/solutionBindingConfigurations/read | List Solution Binding Configuration resource |
+> | Microsoft.Edge/solutionBindings/solutionBindingConfigurations/read | Get a Solution Binding Configuration Resource |
+> | Microsoft.Edge/solutionBindings/solutionBindingConfigurations/write | Create or update a Solution Binding Configuration Resource |
+> | Microsoft.Edge/solutionBindings/solutionBindingConfigurations/delete | Delete a Solution Binding Configuration Resource |
+> | Microsoft.Edge/solutionBindings/solutionBindingConfigurations/write | update a Solution Binding Configuration Resource |
+> | Microsoft.Edge/solutionBindings/solutionInstances/read | List Solution Instance Resources |
+> | Microsoft.Edge/solutionBindings/solutionInstances/read | Get a Solution Instance Resource |
+> | Microsoft.Edge/solutionBindings/solutionInstances/write | Create or update a Solution Instance Resource |
+> | Microsoft.Edge/solutionBindings/solutionInstances/delete | Delete a Solution Instance Resource |
+> | Microsoft.Edge/solutionBindings/solutionInstances/write | update a Solution Instance Resource |
+> | Microsoft.Edge/solutions/read | List by subscription |
+> | Microsoft.Edge/solutions/read | List by specified resource group |
+> | Microsoft.Edge/solutions/read | Get a Solution resource |
+> | Microsoft.Edge/solutions/write | Create or update a Solution resource |
+> | Microsoft.Edge/solutions/delete | Delete a Solution resource |
+> | Microsoft.Edge/solutions/write | update a Solution resource |
+> | Microsoft.Edge/solutions/versions/read | List Solution Version Resources |
+> | Microsoft.Edge/solutions/versions/read | Get a Solution Version Resource |
+> | Microsoft.Edge/solutions/versions/write | Create or update a Solution Version Resource |
+> | Microsoft.Edge/solutions/versions/delete | Delete a Solution Version Resource |
+> | Microsoft.Edge/solutionTemplates/createVersion/action | Create a Solution Template Version Resource |
+> | Microsoft.Edge/solutionTemplates/deprecate/action | Deprecate resource |
+> | Microsoft.Edge/solutionTemplates/removeVersion/action | Remove Solution Template Version Resource |
+> | Microsoft.Edge/solutionTemplates/read | List by subscription |
+> | Microsoft.Edge/solutionTemplates/read | List by specified resource group |
+> | Microsoft.Edge/solutionTemplates/read | Get a Solution Template Resource |
+> | Microsoft.Edge/solutionTemplates/write | Create or update a Solution Template Resource |
+> | Microsoft.Edge/solutionTemplates/delete | Delete a Solution Template Resource |
+> | Microsoft.Edge/solutionTemplates/write | update a Solution Template Resource |
+> | Microsoft.Edge/solutionTemplates/versions/deprecate/action | Deprecate resource |
+> | Microsoft.Edge/solutionTemplates/versions/bulkDeploySolution/action | Post request for bulk deploy |
+> | Microsoft.Edge/solutionTemplates/versions/bulkPublishSolution/action | Post request for bulk publish |
+> | Microsoft.Edge/solutionTemplates/versions/read | List Solution Template Version Resources |
+> | Microsoft.Edge/solutionTemplates/versions/read | Get a Solution Template Version Resource |
+> | Microsoft.Edge/solutionTemplates/versions/bulkReviewSolution/action | Post request for bulk review |
+> | Microsoft.Edge/solutionTemplates/versions/solutionSchemas/read | List by SolutionTemplateVersion |
+> | Microsoft.Edge/solutionTemplates/versions/solutionSchemas/read | Get a SolutionSchema Resource |
+> | Microsoft.Edge/targets/deploy/action | Post request to deploy |
+> | Microsoft.Edge/targets/deprecate/action | Deprecate resource |
+> | Microsoft.Edge/targets/publish/action | Post request to publish |
+> | Microsoft.Edge/targets/resolve/action | Post request to resolve configuration |
+> | Microsoft.Edge/targets/review/action | Post request to review configuration |
+> | Microsoft.Edge/targets/installSolution/action | Post request to deploy |
+> | Microsoft.Edge/targets/publishSolutionVersion/action | Post request to publish |
+> | Microsoft.Edge/targets/removeRevision/action | Post request to remove solution version revision |
+> | Microsoft.Edge/targets/resolveConfiguration/action | Post request to resolve configuration |
+> | Microsoft.Edge/targets/reviewSolutionVersion/action | Post request to review configuration |
+> | Microsoft.Edge/targets/uninstallSolution/action | Post request to uninstall |
+> | Microsoft.Edge/targets/updateExternalValidationStatus/action | Post request to update external validation status |
+> | Microsoft.Edge/targets/read | List by subscription |
+> | Microsoft.Edge/targets/read | List by specified resource group |
+> | Microsoft.Edge/targets/read | Get a Target Resource |
+> | Microsoft.Edge/targets/write | Create or update a Target Resource |
+> | Microsoft.Edge/targets/delete | Delete a Target Resource |
+> | Microsoft.Edge/targets/write | update a Target Resource |
+> | Microsoft.Edge/targets/unstageSolutionVersion/action | Post request to unstage solution version |
+> | Microsoft.Edge/targets/solutions/read | List Solution resources |
+> | Microsoft.Edge/targets/solutions/read | Get a Solution resource |
+> | Microsoft.Edge/targets/solutions/write | Create or update a Solution Resource |
+> | Microsoft.Edge/targets/solutions/delete | Delete a Solution Resource |
+> | Microsoft.Edge/targets/solutions/write | Update a Solution Resource |
+> | Microsoft.Edge/targets/solutions/instances/read | List Instance Resources |
+> | Microsoft.Edge/targets/solutions/instances/read | Get Instance Resource |
+> | Microsoft.Edge/targets/solutions/instances/write | Create or update Instance Resource |
+> | Microsoft.Edge/targets/solutions/instances/delete | Delete Instance Resource |
+> | Microsoft.Edge/targets/solutions/instances/write | Update an Instance Resource |
+> | Microsoft.Edge/targets/solutions/instances/histories/read | List InstanceHistory Resources |
+> | Microsoft.Edge/targets/solutions/instances/histories/read | Get InstanceHistory Resource |
+> | Microsoft.Edge/targets/solutions/versions/read | List Solution Version Resources |
+> | Microsoft.Edge/targets/solutions/versions/read | Get a Solution Version Resource |
+> | Microsoft.Edge/targets/solutions/versions/write | Create or update a Solution Version Resource |
+> | Microsoft.Edge/targets/solutions/versions/delete | Delete a Solution Version Resource |
+> | Microsoft.Edge/targets/solutions/versions/write | Update a Solution Version Resource |
+> | Microsoft.Edge/targetTemplates/read | List by subscription |
+> | Microsoft.Edge/targetTemplates/read | List by specified resource group |
+> | Microsoft.Edge/targetTemplates/read | Get a Target Template Resource |
+> | Microsoft.Edge/targetTemplates/write | Create or update a Target Template Resource |
+> | Microsoft.Edge/targetTemplates/delete | Delete a Target Template Resource |
+> | Microsoft.Edge/targetTemplates/write | update a Target Template Resource |
+> | Microsoft.Edge/updates/read | List Update resources by parent |
+> | Microsoft.Edge/updates/read | Get a Update |
+> | Microsoft.Edge/updates/write | Create an Update |
+> | Microsoft.Edge/updates/delete | Delete an Update |
+> | Microsoft.Edge/updates/write | Update a Update |
+> | Microsoft.Edge/winfields/listDeploymentManifest/action | get deployment manifest. |
+> | Microsoft.Edge/winfields/read | List Winfield resources by subscription ID |
+> | Microsoft.Edge/winfields/read | List Winfield resources by resource group |
+> | Microsoft.Edge/winfields/read | Get a Winfield |
+> | Microsoft.Edge/winfields/write | Create a Winfield |
+> | Microsoft.Edge/winfields/delete | Delete a Winfield |
+> | Microsoft.Edge/winfields/write | Update a Winfield |
+> | Microsoft.Edge/winfields/images/read | List by parent |
+> | Microsoft.Edge/winfields/images/read | Get the resource |
+> | Microsoft.Edge/winfields/images/listDownloadUri/action | get deployment manifest. |
+> | Microsoft.Edge/workflows/read | List by subscription |
+> | Microsoft.Edge/workflows/read | List by specified resource group |
+> | Microsoft.Edge/workflows/read | Get a Workflow resource |
+> | Microsoft.Edge/workflows/write | Create or update a Workflow resource |
+> | Microsoft.Edge/workflows/delete | Delete a Workflow resource |
+> | Microsoft.Edge/workflows/write | update a Workflow resource |
+> | Microsoft.Edge/workflows/versions/read | List Workflow Version Resources |
+> | Microsoft.Edge/workflows/versions/read | Get a Workflow Version Resource |
+> | Microsoft.Edge/workflows/versions/write | Create or update a Workflow Version Resource |
+> | Microsoft.Edge/workflows/versions/delete | Delete a Workflow Version Resource |
+> | Microsoft.Edge/workflows/versions/write | update an WorkflowVersionV2 Resource |
+> | Microsoft.Edge/workflows/versions/executions/read | List ExecutionV2 Resources |
+> | Microsoft.Edge/workflows/versions/executions/read | Get ExecutionV2 Resource |
+> | Microsoft.Edge/workflows/versions/executions/write | Create or update ExecutionV2 Resource |
+> | Microsoft.Edge/workflows/versions/executions/delete | Delete ExecutionV2 Resource |
+> | Microsoft.Edge/workflows/versions/executions/write | update an ExecutionV2 Resource |
+> | Microsoft.Edge/workflowTemplates/read | List by subscription |
+> | Microsoft.Edge/workflowTemplates/read | List by specified resource group |
+> | Microsoft.Edge/workflowTemplates/read | Get a Workflow Template Resource |
+> | Microsoft.Edge/workflowTemplates/write | Create or update a Workflow Template Resource |
+> | Microsoft.Edge/workflowTemplates/delete | Delete a Workflow Template Resource |
+> | Microsoft.Edge/workflowTemplates/write | update a Workflow Template Resource |
+> | Microsoft.Edge/workflowTemplates/versions/read | List Workflow Template Version Resources |
+> | Microsoft.Edge/workflowTemplates/versions/read | Get a Workflow Template Version Resource |
+> | Microsoft.Edge/workflowTemplates/versions/write | Create or update a Workflow Template Version Resource |
+> | Microsoft.Edge/workflowTemplates/versions/delete | Delete a Workflow Template Version Resource |
+> | Microsoft.Edge/workflowTemplates/versions/write | update a Workflow Template Version Resource |
+
+## Microsoft.EdgeMarketPlace
+
+Azure service: Microsoft.EdgeMarketplace
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.EdgeMarketPlace/register/action | Register the subscription for Microsoft.EdgeMarketPlace |
+> | Microsoft.EdgeMarketPlace/unregister/action | Unregister the subscription for Microsoft.EdgeMarketPlace |
+> | Microsoft.EdgeMarketplace/locations/operationStatuses/read | read operationStatuses |
+> | Microsoft.EdgeMarketplace/locations/operationStatuses/write | write operationStatuses |
+> | Microsoft.EdgeMarketPlace/offers/getAccessToken/action | A long-running resource action. |
+> | Microsoft.EdgeMarketPlace/offers/generateAccessToken/action | A long-running resource action. |
+> | Microsoft.EdgeMarketPlace/offers/getAccessToken/action | get access token. |
+> | Microsoft.EdgeMarketplace/offers/read | List Offer resources by subscription ID |
+> | Microsoft.EdgeMarketplace/offers/read | Get a Offer |
+> | Microsoft.EdgeMarketplace/offers/read | List Offer resources by parent |
+> | Microsoft.EdgeMarketplace/operations/read | read operations |
+> | Microsoft.EdgeMarketplace/publishers/read | List Publisher resources by parent |
+> | Microsoft.EdgeMarketplace/publishers/read | List Publisher resources in subscription |
+> | Microsoft.EdgeMarketplace/publishers/read | Get a Publisher |
 
 ## Microsoft.IoTCentral
 

@@ -46,7 +46,7 @@ API Management supports TLS versions up to TLS 1.3 for client and backend connec
 1. Select **Save**.
 
 > [!NOTE]
-> Some protocols or cipher suites (such as backend-side TLS 1.2) can't be enabled or disabled from the Azure portal. Instead, you'll need to apply the REST API call. Use the `properties.customProperties` structure in the [Create/Update API Management Service](/rest/api/apimanagement/current-ga/api-management-service/create-or-update) REST API.
+> Some protocols or cipher suites such as backend-side TLS 1.2 can't be enabled or disabled from the Azure portal. Instead, you'll need to apply the REST API call for these updates (backend side only). Use the `properties.customProperties` structure in the [Create/Update API Management Service](/rest/api/apimanagement/current-ga/api-management-service/create-or-update) REST API.
 
 ## TLS 1.3 support
 

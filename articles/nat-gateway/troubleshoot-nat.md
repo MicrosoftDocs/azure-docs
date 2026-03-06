@@ -267,7 +267,7 @@ If you're experiencing issues with NAT gateway not listed or resolved by this ar
 
 To learn more about NAT gateway, see:
 
-* [What is Azure NAT Gateway?](nat-overview.md).
+* [What is Azure NAT Gateway?](nat-overview.md)
 
 * [Azure NAT gateway resource](nat-gateway-resource.md).
 

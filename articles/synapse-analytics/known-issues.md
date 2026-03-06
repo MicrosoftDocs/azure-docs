@@ -228,7 +228,7 @@ For Microsoft Entra token expiration:
 
 - For long-running queries, switch to service principal, managed identity, or shared access signature (SAS) instead of using a user identity. For more information, see [Control storage account access for serverless SQL pool in Azure Synapse Analytics](sql/develop-storage-files-storage-access-control.md?tabs=service-principal#supported-storage-authorization-types).
 
-- Restart client (SSMS/ADS) to acquire a new token to establish the connection.
+- Restart client (SSMS) to acquire a new token to establish the connection.
 
 For MSI token expiration:
 
@@ -357,7 +357,7 @@ There is a known issue impacting session startup time when python libraries (req
 
 ### Queries using Microsoft Entra authentication fails after 1 hour
 
-SQL connections using Microsoft Entra authentication that remain active for more than 1 hour starts to fail. This includes querying storage using Microsoft Entra pass-through authentication and statements that interact with Microsoft Entra ID, like CREATE EXTERNAL PROVIDER. This affects every tool that keeps connections active, like query editor in SSMS (SQL Server Management Studio) and ADS (Azure Data Studio). Tools that open new connection to execute queries aren't affected, like Synapse Studio.
+SQL connections using Microsoft Entra authentication that remain active for more than 1 hour starts to fail. This includes querying storage using Microsoft Entra pass-through authentication and statements that interact with Microsoft Entra ID, like CREATE EXTERNAL PROVIDER. This affects every tool that keeps connections active, like query editor in SSMS (SQL Server Management Studio). Tools that open new connection to execute queries aren't affected, like Synapse Studio.
 
 **Status**: Resolved
 

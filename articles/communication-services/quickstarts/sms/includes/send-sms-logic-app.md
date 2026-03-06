@@ -2,14 +2,14 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: tophpalmer
+author: sundiraman
 manager: anvalent
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/30/2021
 ms.topic: include
-ms.author: chpalm
+ms.author: sundraman
 ms.custom:
   - include file
   - sfi-ropc-nochange

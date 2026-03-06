@@ -30,8 +30,7 @@ This article describes the steps for deploying the self-hosted gateway component
 
 ## Deploy to Kubernetes
 
-> [!TIP]
-> The following steps deploy the self-hosted gateway to Kubernetes and enable authentication to the API Management instance by using a gateway access token (authentication key). You can also deploy the self-hosted gateway to Kubernetes and enable authentication to the API Management instance by using [Microsoft Entra ID](self-hosted-gateway-enable-azure-ad.md).
+[!INCLUDE [api-management-self-hosted-gateway-authentication](../../includes/api-management-self-hosted-gateway-authentication.md)]
 
 1. Select **Gateways** under **Deployment and infrastructure**.
 1. Select the self-hosted gateway resource that you want to deploy.

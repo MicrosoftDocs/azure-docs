@@ -29,7 +29,6 @@ If you don't have an [Azure subscription](/azure/guides/developer/azure-develope
 ## Prerequisites
 
 - If you're new to Event Grid, see the [Event Grid overview](../event-grid/overview.md) before you start this tutorial.
-- Register the Event Grid resource provider according to the steps in [Register the Event Grid resource provider](../event-grid/custom-event-quickstart-portal.md#register-the-event-grid-resource-provider).
 - Make sure that port 8883 is open in your firewall. This tutorial uses the MQTT protocol, which communicates over port 8883. This port might be blocked in some corporate and educational network environments.
 - Use the Bash environment in [Azure Cloud Shell](../cloud-shell/overview.md). For more information, see [Get started with Azure Cloud Shell](../cloud-shell/quickstart.md).
 - If you prefer to run CLI reference commands locally, [install](/cli/azure/install-azure-cli) the Azure CLI. If you run on Windows or macOS, consider running the Azure CLI in a Docker container. For more information, see [Run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).

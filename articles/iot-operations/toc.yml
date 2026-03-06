@@ -9,7 +9,6 @@ items:
         href: overview-support.md
         displayName: supported environments, generally available, GA, preview, regions
       - name: Quickstart
-        expanded: true
         items:
           - name: Run Azure IoT Operations in Codespaces
             href: get-started-end-to-end-sample/quickstart-deploy.md
@@ -118,6 +117,9 @@ items:
           - name: Connect to MQTT endpoints
             href: discover-manage-assets/howto-use-mqtt-connector.md
             displayName: southbound, broker, events
+          - name: Connect to Kafka endpoints
+            href: discover-manage-assets/howto-connect-kafka.md
+            displayName: southbound, broker, hubs, MQTT, data flow
           - name: Use asset endpoints to manage assets
             href: /previous-versions/azure/iot-operations/discover-manage-assets/overview-manage-assets
             displayName: connector, tags, southbound, asset endpoint profile
@@ -184,8 +186,8 @@ items:
               - name: Azure Data Explorer
                 href: connect-to-cloud/howto-configure-adx-endpoint.md
                 displayName: data flow, endpoint, northbound
-              - name: OpenTelemetry
-                href: connect-to-cloud/howto-configure-opentelemetry-endpoint.md
+              - name: OpenTelemetry dataflow endpoints
+                href: connect-to-cloud/open-telemetry.md
                 displayName: data flow, endpoint, observability, metrics, logs, OpenTelemetry, OTLP, northbound
               - name: Local storage or ACSA
                 href: connect-to-cloud/howto-configure-local-storage-endpoint.md
@@ -241,7 +243,7 @@ items:
                 href: develop-edge-apps/howto-build-wasm-modules-vscode.md
                 displayName: VS Code, extension, develop, dataflow, graph, connector
               - name: Build WASM modules
-                href: connect-to-cloud/howto-develop-wasm-modules.md
+                href: develop-edge-apps/howto-develop-wasm-modules.md
                 displayName: data flow, WASM, WebAssembly, development, Rust, Python, modules, operators
               - name: Configure graph definitions
                 href: develop-edge-apps/howto-configure-wasm-graph-definitions.md
@@ -253,7 +255,7 @@ items:
                 href: develop-edge-apps/howto-deploy-wasm-graph-definitions.md
                 displayName: data flow, WASM, WebAssembly, graph definitions, deploy, container, registry
               - name: AI inference with ONNX
-                href: connect-to-cloud/howto-wasm-onnx-inference.md
+                href: develop-edge-apps/howto-wasm-onnx-inference.md
                 displayName: data flow, WASM, WebAssembly, ONNX, inference, AI, wasi-nn
           - name: Create custom connectors
             items:

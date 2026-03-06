@@ -1,6 +1,6 @@
 ---
 title: AI integration with Azure Container Apps
-description: Examples for running AI workloads in Azure Container Apps, including GPU-powered inference, dynamic sessions, and deploying Azure AI Foundry models.
+description: Examples for running AI workloads in Azure Container Apps, including GPU-powered inference, dynamic sessions, and deploying Microsoft Foundry models.
 author: jefmarti
 ms.author: jefmarti
 ms.service: azure-container-apps
@@ -10,7 +10,7 @@ ms.topic: article
 
 # AI integration with Azure Container Apps
 
-Azure Container Apps is a serverless container platform that simplifies the deployment and scaling of microservices and AI-powered applications. With native support for GPU workloads, seamless integration with Azure AI services, and flexible deployment options, it is an ideal platform for building intelligent, cloud-native solutions.
+Azure Container Apps is a serverless container platform that simplifies the deployment and scaling of microservices and AI-powered applications. With native support for GPU workloads, seamless integration with Foundry Tools, and flexible deployment options, it is an ideal platform for building intelligent, cloud-native solutions.
 
 
 ## GPU-powered inference
@@ -29,9 +29,9 @@ Supported session types include:
 - **[Platform managed built-in containers](./sessions-code-interpreter.md)**: a platform-managed container that supports executing code in Python and Node.js.
 - **[Custom containers](./sessions-custom-container.md)**: create a sessions pool using a custom container for specialized workloads or additional language support.
 
-## Deploying Azure AI Foundry models
+## Deploying Microsoft Foundry models
 
-Azure Container Apps integrates with Azure AI Foundry, which enables you to deploy curated AI models directly into your containerized environments. This integration simplifies model deployment and management, making it easier to build intelligent applications on Container Apps.
+Azure Container Apps integrates with Foundry, which enables you to deploy curated AI models directly into your containerized environments. This integration simplifies model deployment and management, making it easier to build intelligent applications on Container Apps.
 
 ### Sample projects
 

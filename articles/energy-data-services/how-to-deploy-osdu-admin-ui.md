@@ -106,12 +106,13 @@ There are two deployment options for the OSDU Admin UI:
     
     ```bash
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && \
-    export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && \
-    nvm install 14.17.3 && \
-    export NG_CLI_ANALYTICS=false && \ 
+    export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")" && \
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && \
+    nvm install 20.19.6 && \
+    export NG_CLI_ANALYTICS=false && \
     npm install -g @angular/cli@13.3.9 && \
-    apt-get install jq -y && \
+    sudo apt-get update && \
+    sudo apt-get install -y jq && \
     curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
     ```
     [![Screenshot that shows installation.](./media/how-to-deploy-osdu-admin-ui/install-screen.png)](./media/how-to-deploy-osdu-admin-ui/install-screen.png#lightbox)
@@ -222,37 +223,39 @@ export SCOPE="" # Scope of the ADME instance, i.e. "6ee7e0d6-0641-4b29-a283-541c
 export GRAPH_ENDPOINT="https://graph.microsoft.com/v1.0/" # Microsoft Graph API endpoint
 export APPINSIGHTS_INSTRUMENTATIONKEY="" # Optional. Application Insights instrumentation key
 export OSDU_CONNECTOR_API_ENDPOINT="" # Optional. API endpoint of the OSDU Connector API
+export REDIRECT_URI="" # this is your static website you can find in your storage account example https://<storage account name>.z21.web.core.windows.net/"
 
 
-jq --arg data "$DATA_PARTITION_ID" \
---arg domain "$DOMAIN_NAME" \
---arg tenant "$TENANT_ID" \
---arg client "$CLIENT_ID" \
---arg redirect "$REDIRECT_URI" \
---arg scope "$SCOPE" \
---arg endpoint "$OSDU_ENDPOINT" \
---arg graph "$GRAPH_ENDPOINT" \
---arg appinnsights "$APPINSIGHTS_INSTRUMENTATIONKEY" \
---arg connectorapi "$OSDU_CONNECTOR_API_ENDPOINT" \
-'.settings.appInsights.instrumentationKey = $appinnsights |
-    .settings.data_partition = $data | 
-    .settings.domain_name = $domain | 
-    .settings.idp.tenant_id = $tenant | 
-    .settings.idp.client_id = $client | 
-    .settings.idp.redirect_uri = $redirect | 
-    .settings.idp.scope = $scope | 
-    .settings.api_endpoints.entitlement_endpoint = $endpoint | 
-    .settings.api_endpoints.storage_endpoint = $endpoint | 
-    .settings.api_endpoints.search_endpoint = $endpoint | 
-    .settings.api_endpoints.legal_endpoint = $endpoint | 
-    .settings.api_endpoints.schema_endpoint = $endpoint | 
-    .settings.api_endpoints.file_endpoint = $endpoint | 
-    .settings.api_endpoints.secrets_endpoint = $connectorapi | 
-    .settings.api_endpoints.graphAPI_endpoint = $graph | 
-    .settings.api_endpoints.workflow_endpoint = $endpoint | 
-    .settings.api_endpoints.secrets_endpoint = $endpoint | 
-    .settings.api_endpoints.wddms_endpoint = $endpoint' \
-src/config/config.json > src/config/temp.json
+jq \
+  --arg data "$DATA_PARTITION_ID" \
+  --arg domain "$DOMAIN_NAME" \
+  --arg tenant "$TENANT_ID" \
+  --arg client "$CLIENT_ID" \
+  --arg redirect "$REDIRECT_URI" \
+  --arg scope "$SCOPE" \
+  --arg endpoint "$OSDU_ENDPOINT" \
+  --arg graph "$GRAPH_ENDPOINT" \
+  --arg appinsights "$APPINSIGHTS_INSTRUMENTATIONKEY" \
+  --arg connectorapi "$OSDU_CONNECTOR_API_ENDPOINT" \
+'
+.settings.appInsights.instrumentationKey = $appinsights |
+.settings.data_partition = $data |
+.settings.domain_name = $domain |
+.settings.idp.tenant_id = $tenant |
+.settings.idp.client_id = $client |
+.settings.idp.redirect_uri = $redirect |
+.settings.idp.scope = $scope |
+.settings.api_endpoints.entitlement_endpoint = $endpoint |
+.settings.api_endpoints.storage_endpoint = $endpoint |
+.settings.api_endpoints.search_endpoint = $endpoint |
+.settings.api_endpoints.legal_endpoint = $endpoint |
+.settings.api_endpoints.schema_endpoint = $endpoint |
+.settings.api_endpoints.file_endpoint = $endpoint |
+.settings.api_endpoints.secrets_endpoint = $connectorapi |
+.settings.api_endpoints.graphAPI_endpoint = $graph |
+.settings.api_endpoints.workflow_endpoint = $endpoint |
+.settings.api_endpoints.wddms_endpoint = $endpoint
+' src/config/config.json > src/config/temp.json && \
 mv src/config/temp.json src/config/config.json
 ```
 
@@ -295,14 +298,14 @@ Replace the values according to the explanation.
 
 1. Build the web UI.
     ```bash
-    ng build
+    ng build --configuration=azure-prod
     ```
 
 1. Upload the build to Storage Account.
     ```azurecli
     az storage blob upload-batch \
         --account-name $WEBSITE_NAME \
-        --source ./dist/OSDUApp \
+        --source ./dist/OSDUApp/browser/ \
         --destination '$web' \
         --overwrite
     ```

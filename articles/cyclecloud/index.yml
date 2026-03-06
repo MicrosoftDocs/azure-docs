@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page # Required
   author: adriankjohnson
   ms.author: adjohnso
-  ms.date: 12/12/2025
+  ms.date: 01/30/2026
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -45,7 +45,7 @@ landingContent:
     linkLists:            
       - linkListType: whats-new
         links:
-          - text: CycleCloud 8.8.1 is now available (Release Notes)
+          - text: CycleCloud 8.8.2 is now available (Release Notes)
             url: release-notes.md
           - text: CycleCloud Workspace for Slurm Release Notes
             url: release-notes/ccws/release-notes.md

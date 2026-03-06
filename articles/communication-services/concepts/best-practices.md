@@ -7,7 +7,7 @@ services: azure-communication-services
 
 ms.author: srahaman
 ms.date: 06/30/2021
-ms.topic: conceptual
+ms.topic: best-practice
 ms.service: azure-communication-services
 ms.custom: devx-track-js
 zone_pivot_groups: acs-plat-web-native

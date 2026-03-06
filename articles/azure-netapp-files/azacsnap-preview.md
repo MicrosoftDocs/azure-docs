@@ -13,12 +13,12 @@ ms.custom: sfi-ropc-nochange
 
 # Preview features of the Azure Application Consistent Snapshot tool
 
-This article provides a guide on setup and usage of the new features in preview for the Azure Application Consistent Snapshot tool (AzAcSnap). For basic information about the tool, see [What is the Azure Application Consistent Snapshot tool?](./azacsnap-introduction.md).
+This article provides a guide on setup and usage of the new features in preview for the Azure Application Consistent Snapshot tool (AzAcSnap). For basic information about the tool, see [What is the Azure Application Consistent Snapshot tool?](./azacsnap-introduction.md)
 
 The preview features provided with AzAcSnap 11 are:
 
 - Azure NetApp Files backup
-- Azure managed disks
+- Azure Managed Disks
 
 > [!NOTE]
 > Previews are provided "as is," "with all faults," and "as available," and are excluded from the service-level agreements and may not be covered by customer support.
@@ -51,7 +51,7 @@ You can also enable this feature by using `azacsnap -c configure --configuration
 
 For more information about this feature, see [Configure the Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md).
 
-## Azure managed disks
+## Azure Managed Disks
 
 Microsoft provides many storage options for deploying databases such as SAP HANA. For details about some of these options, see [Azure Storage types for SAP workload](/azure/virtual-machines/workloads/sap/planning-guide-storage). There's also a [cost-conscious solution with Azure premium storage](/azure/virtual-machines/workloads/sap/hana-vm-premium-ssd-v1#cost-conscious-solution-with-azure-premium-storage).
 
@@ -62,13 +62,13 @@ AzAcSnap can take application-consistent database snapshots when you deploy it o
 
 Here's the architecture at a high level:
 
-1. Attach Azure managed disks to the VM by using the Azure portal.
+1. Attach Azure Managed Disks to the VM by using the Azure portal.
 1. Create a logical volume from these managed disks.
 1. Mount the logical volume to a Linux directory.
 1. Enable communication in the same way as for Azure NetApp Files in the [AzAcSnap installation](azacsnap-configure-storage.md?tabs=azure-netapp-files#enable-communication-with-storage).
 1. Install and configure AzAcSnap.
 
-For more information about using Azure managed disks as a storage back end, see [Configure the Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md).
+For more information about using Azure Managed Disks as a storage back end, see [Configure the Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md).
 
 ### Example configuration file
 
@@ -168,7 +168,7 @@ The storage hierarchy looks like the following example for SAP HANA:
   VG Size               1023.99 GiB
   ```
   
-- Physical volumes (attached Azure managed disks):
+- Physical volumes (attached Azure Managed Disks):
 
   ```bash
   pvdisplay
@@ -197,17 +197,17 @@ The storage hierarchy looks like the following example for SAP HANA:
   PV UUID               RNCylW-F3OG-G93c-1XL3-W6pw-M0XB-2mYFGV
   ```
 
-Installing and setting up the Azure VM and Azure managed disks in this way follows Microsoft guidance to create Logical Volume Manager (LVM) stripes of the managed disks on the VM.
+Installing and setting up the Azure VM and Azure Managed Disks in this way follows Microsoft guidance to create Logical Volume Manager (LVM) stripes of the managed disks on the VM.
 
-With the Azure VM set up as prescribed, AzAcSnap can take snapshots of Azure managed disks. The snapshot operations are similar to those for other storage back ends that AzAcSnap supports; for example, Azure NetApp Files or Azure Large Instances (bare metal). Because AzAcSnap communicates with Azure Resource Manager to take snapshots, it also needs a service principal with the correct permissions to take managed disk snapshots.
+With the Azure VM set up as prescribed, AzAcSnap can take snapshots of Azure Managed Disks. The snapshot operations are similar to those for other storage back ends that AzAcSnap supports; for example, Azure NetApp Files or Azure Large Instances (bare metal). Because AzAcSnap communicates with Azure Resource Manager to take snapshots, it also needs a service principal with the correct permissions to take managed disk snapshots.
 
 This capability allows customers to test AzAcSnap on a smaller system and scale up to Azure NetApp Files and/or Azure Large Instances (bare metal).
 
-Supported `azacsnap` command functionality with Azure managed disks is `configure`, `test`, `backup`, `delete`, and `details`, but not yet `restore`.
+Supported `azacsnap` command functionality with Azure Managed Disks is `configure`, `test`, `backup`, `delete`, and `details`, but not yet `restore`.
 
-### Restore from an Azure managed disk snapshot
+### Restore from an Azure Managed Disk snapshot
 
-Although `azacsnap` is currently missing the `-c restore` option for Azure managed disks, it's possible to restore manually as follows:
+Although `azacsnap` is currently missing the `-c restore` option for Azure Managed Disks, it's possible to restore manually as follows:
 
 1. Create disks from the snapshots via the Azure portal.
 

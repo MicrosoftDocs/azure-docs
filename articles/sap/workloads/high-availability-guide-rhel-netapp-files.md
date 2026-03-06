@@ -6,7 +6,7 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 04/29/2025
+ms.date: 02/20/2026
 ms.author: radeltch
 ms.custom:
   - devx-track-azurecli
@@ -52,7 +52,6 @@ Read the following SAP Notes and papers first:
   * Important capacity information for Azure VM sizes.
   * Supported SAP software and operating system (OS) and database combinations.
   * Required SAP kernel version for Windows and Linux on Microsoft Azure.
-
 * SAP Note [2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
 * SAP Note [2002167] has recommended OS settings for Red Hat Enterprise Linux.
 * SAP Note [2009879] has SAP HANA Guidelines for Red Hat Enterprise Linux.
@@ -171,6 +170,8 @@ During VM configuration, you have an option to create or select exiting load bal
 
 The instructions in this section are only applicable if you're using Azure NetApp Files volumes with the NFSv4.1 protocol. Perform the configuration on all VMs where Azure NetApp Files NFSv4.1 volumes will be mounted.  
 
+The following **[A]** prefix applies to both PAS and AAS.
+
 1. Verify the NFS domain setting. Make sure that the domain is configured as the default Azure NetApp Files domain, that is, `defaultv4iddomain.com`, and the mapping is set to **nobody**.
 
     > [!IMPORTANT]
@@ -186,8 +187,6 @@ The instructions in this section are only applicable if you're using Azure NetAp
     Nobody-User = nobody
     Nobody-Group = nobody
     ```
-
-The following **[A]** prefix applies to both PAS and AAS.
 
 1. **[A]** Verify `nfs4_disable_idmapping`. It should be set to **Y**. To create the directory structure where `nfs4_disable_idmapping` is located, run the mount command. You won't be able to manually create the directory under `/sys/modules` because access is reserved for the kernel and drivers.
 
@@ -380,8 +379,12 @@ The following items are prefixed with either:
 1. **[1]** Configure cluster default properties.
 
    ```bash
+   # If using RHEL 7.x
    pcs resource defaults resource-stickiness=1
    pcs resource defaults migration-threshold=3
+   # If using RHEL 8.x, 9.x, 10.x
+   pcs resource defaults update resource-stickiness=1
+   pcs resource defaults update migration-threshold=3
    ```
 
 2. **[1]** Create a virtual IP resource and health probe for the ASCS instance.
@@ -392,21 +395,19 @@ The following items are prefixed with either:
    # If using NFSv3
    sudo pcs resource create fs_QAS_ASCS Filesystem device='192.168.24.5:/sapQAS/usrsapQASascs' \
      directory='/usr/sap/QAS/ASCS00' fstype='nfs' force_unmount=safe fast_stop=no \
-     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
-     --group g-QAS_ASCS
+     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40
    
    # If using NFSv4.1
    sudo pcs resource create fs_QAS_ASCS Filesystem device='192.168.24.5:/sapQAS/usrsapQASascs' \
      directory='/usr/sap/QAS/ASCS00' fstype='nfs' force_unmount=safe options='sec=sys,nfsvers=4.1' fast_stop=no \
-     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=105 \
-     --group g-QAS_ASCS
+     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=105
    
    sudo pcs resource create vip_QAS_ASCS IPaddr2 \
-     ip=192.168.14.9 \
-     --group g-QAS_ASCS
+     ip=192.168.14.9
    
-   sudo pcs resource create nc_QAS_ASCS azure-lb port=62000 \
-     --group g-QAS_ASCS
+   sudo pcs resource create nc_QAS_ASCS azure-lb port=62000
+
+   sudo pcs resource group add g-QAS_ASCS fs_QAS_ASCS vip_QAS_ASCS nc_QAS_ASCS
    ```
 
    Make sure that the cluster status is okay and that all resources are started. Which node the resources are running on isn't important.
@@ -455,21 +456,19 @@ The following items are prefixed with either:
    # If using NFSv3
    sudo pcs resource create fs_QAS_AERS Filesystem device='192.168.24.5:/sapQAS/usrsapQASers' \
      directory='/usr/sap/QAS/ERS01' fstype='nfs' force_unmount=safe fast_stop=no \
-     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
-    --group g-QAS_AERS
+     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40
    
    # If using NFSv4.1
    sudo pcs resource create fs_QAS_AERS Filesystem device='192.168.24.5:/sapQAS/usrsapQASers' \
      directory='/usr/sap/QAS/ERS01' fstype='nfs' force_unmount=safe options='sec=sys,nfsvers=4.1' fast_stop=no \
-     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=105 \
-    --group g-QAS_AERS
+     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=105
    
    sudo pcs resource create vip_QAS_AERS IPaddr2 \
-     ip=192.168.14.10 \
-    --group g-QAS_AERS
+     ip=192.168.14.10
    
-   sudo pcs resource create nc_QAS_AERS azure-lb port=62101 \
-    --group g-QAS_AERS
+   sudo pcs resource create nc_QAS_AERS azure-lb port=62101
+
+   sudo pcs resource group add g-QAS_AERS fs_QAS_AERS vip_QAS_AERS nc_QAS_AERS
    ```
 
    Make sure that the cluster status is okay and that all resources are started. Which node the resources are running on isn't important.
@@ -590,8 +589,7 @@ The following items are prefixed with either:
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
     op monitor interval=20 on-fail=restart timeout=60 \
-    op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-QAS_ASCS
+    op start interval=0 timeout=600 op stop interval=0 timeout=600
    
     # If using NFSv4.1
     sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
@@ -599,29 +597,32 @@ The following items are prefixed with either:
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
     op monitor interval=20 on-fail=restart timeout=105 \
-    op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-QAS_ASCS
-   
+    op start interval=0 timeout=600 op stop interval=0 timeout=600
+    
+    sudo pcs resource group add g-QAS_ASCS rsc_sap_QAS_ASCS00
     sudo pcs resource meta g-QAS_ASCS resource-stickiness=3000
    
     # If using NFSv3
     sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
     InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
-    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-QAS_AERS
+    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600
    
     # If using NFSv4.1
     sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
     InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
-    op monitor interval=20 on-fail=restart timeout=105 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-QAS_AERS
+    op monitor interval=20 on-fail=restart timeout=105 op start interval=0 timeout=600 op stop interval=0 timeout=600
    
-    sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS -5000
-    sudo pcs constraint location rsc_sap_QAS_ASCS00 rule score=2000 runs_ers_QAS eq 1
+    sudo pcs resource group add g-QAS_AERS rsc_sap_QAS_ERS01
+   
     sudo pcs constraint order start g-QAS_ASCS then stop g-QAS_AERS kind=Optional symmetrical=false
-   
+    sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS score=-5000
+    # On RHEL 7.x, 8.x, 9.x
+    sudo pcs constraint location rsc_sap_QAS_ASCS00 rule score=2000 runs_ers_QAS eq 1
+    # On RHEL 10.x
+    sudo pcs constraint location rsc_sap_QAS_ASCS00 rule score=2000 "runs_ers_QAS eq 1"
+
     sudo pcs node unstandby anftstsapcl1
     sudo pcs property set maintenance-mode=false
     ```
@@ -637,8 +638,7 @@ The following items are prefixed with either:
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 \
     op monitor interval=20 on-fail=restart timeout=60 \
-    op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-QAS_ASCS
+    op start interval=0 timeout=600 op stop interval=0 timeout=600
    
     # If using NFSv4.1
     sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
@@ -646,29 +646,28 @@ The following items are prefixed with either:
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 \
     op monitor interval=20 on-fail=restart timeout=105 \
-    op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-QAS_ASCS
+    op start interval=0 timeout=600 op stop interval=0 timeout=600
     
+    sudo pcs resource group add g-QAS_ASCS rsc_sap_QAS_ASCS00
     sudo pcs resource meta g-QAS_ASCS resource-stickiness=3000
    
     # If using NFSv3
     sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
     InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
-    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-QAS_AERS
+    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600
     
     # If using NFSv4.1
     sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
     InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
-    op monitor interval=20 on-fail=restart timeout=105 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-QAS_AERS
+    op monitor interval=20 on-fail=restart timeout=105 op start interval=0 timeout=600 op stop interval=0 timeout=600
    
-    sudo pcs resource meta rsc_sap_QAS_ERS01  resource-stickiness=3000
+    sudo pcs resource group add g-QAS_AERS rsc_sap_QAS_ERS01
+    sudo pcs resource meta rsc_sap_QAS_ERS01 resource-stickiness=3000
    
-    sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS -5000
     sudo pcs constraint order start g-QAS_ASCS then stop g-QAS_AERS kind=Optional symmetrical=false
+    sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS score=-5000
    
     sudo pcs node unstandby anftstsapcl1
     sudo pcs property set maintenance-mode=false

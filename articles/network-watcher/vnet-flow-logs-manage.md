@@ -1,5 +1,5 @@
 ---
-title: Manage virtual network flow logs
+title: Manage Virtual Network Flow Logs
 titleSuffix: Azure Network Watcher
 description: Learn how to create, change, enable, disable, or delete Azure Network Watcher virtual network flow logs.
 author: halkazwini

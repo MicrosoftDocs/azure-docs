@@ -2,10 +2,10 @@
 title: AI in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Azure Communication Services AI concepts.
-author: chpalm
+author: sundiraman
 manager: sundraman
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 2/3/2025
 ms.topic: conceptual
 ms.service: azure-communication-services

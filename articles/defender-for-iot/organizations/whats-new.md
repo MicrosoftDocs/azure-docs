@@ -24,6 +24,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
+| **OT networks** | [New sensor health message - NTP server not configured](sensor-health-messages.md) |
 | **OT networks** | Sensor version 25.2.2 is now available. See [release details and updates](release-notes.md#version-2522) |
 
 ## December 2025
@@ -31,12 +32,26 @@ Features released earlier than nine months ago are described in the [What's new 
 |Service area  |Updates  |
 |---------|---------|
 | **OT networks** | Sensor version 25.2.1 is now available. See [release details and updates](release-notes.md#version-2521). |
+| **OT networks** | [New sensor health message - No connection to NTP](sensor-health-messages.md) |
 
 ## September 2025
 
 |Service area  |Updates  |
 |---------|---------|
 | **OT networks** | Sensor version 25.2.0 is now available. See [release details and updates](release-notes.md#version-2520). |
+| **OT networks** | [New sensor health messages](#new-sensor-health-messages) |
+
+### New sensor health messages
+
+We've added the following sensor health messages to improve visibility into sensor connectivity issues:
+
+- **Traffic bandwidth is close to its limit**
+- **Traffic bandwidth exceeded its limit**
+- **Number of monitored devices is close to its limit**
+- **Number of monitored devices exceeded its limit**
+- **Disk is almost full**
+
+For more information, see [Sensor health message reference](sensor-health-messages.md).
 
 ## June 2025
 

@@ -118,7 +118,7 @@ az aks create -g <resource-group> -n <cluster-name> --node-count 3 -s <vm-type> 
 The deployment takes a few minutes to complete.
 
 > [!NOTE]
-> When you create an AKS cluster, AKS automatically creates a second resource group to store the AKS resources. This second resource group follows the naming convention `MC_YourResourceGroup_YourAKSClusterName_Region`. For more information, see [Why are two resource groups created with AKS?](/azure/aks/faq#why-are-two-resource-groups-created-with-aks).
+> When you create an AKS cluster, AKS automatically creates a second resource group to store the AKS resources. This second resource group follows the naming convention `MC_YourResourceGroup_YourAKSClusterName_Region`. For more information, see [Why are two resource groups created with AKS?](/azure/aks/faq#why-are-two-resource-groups-created-with-aks)
 
 ## Connect to the cluster
 
@@ -215,7 +215,7 @@ Congratulations, Azure Container Storage now runs on your cluster. You now have 
 
 Now you can create a storage pool and volumes. Follow the steps in the appropriate article depending on the backing storage type you want to use.
 
-- [Use Azure managed disks](use-container-storage-with-managed-disks.md)
+- [Use Azure Managed Disks](use-container-storage-with-managed-disks.md)
 - [Use Azure Elastic SAN](use-container-storage-with-elastic-san.md)
 - [Use local NVMe](use-container-storage-with-local-disk-version-1.md)
 - [Use temp SSD](use-container-storage-with-temp-ssd.md)

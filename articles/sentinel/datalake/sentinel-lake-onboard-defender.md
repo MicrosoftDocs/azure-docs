@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 11/13/2025
 ms.author: monaberdugo
 ms.service: microsoft-sentinel
-ms.subservice: sentinel-graph
+ms.subservice: sentinel-platform
   
 # Customer intent: As an administrator I want to onboard to the Microsoft Sentinel data lake from my Defender portal so that I can benefit from the storage and analysis capabilities of the data lake.
 ---

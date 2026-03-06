@@ -15,7 +15,7 @@ Use Durable Functions, a feature of [Azure Functions](../functions-overview.md),
 
 In this quickstart, you use the Durable Functions extension in Visual Studio Code to locally create and test a "hello world" Durable Functions app in Azure Functions. The Durable Functions app orchestrates and chains together calls to other functions. Then, you publish the function code to Azure. The tools you use are available via the Visual Studio Code extension.
 
-![Running a Durable Functions app in Azure.](./media/quickstart-js-vscode/functions-vs-code-complete.png)
+:::image type="content" source="./media/quickstart-js-vscode/functions-vs-code-complete.png" alt-text="Screenshot showing a Durable Functions app in Visual Studio Code.":::
 
 ## Prerequisites
 
@@ -128,7 +128,7 @@ Next, you add the referenced `Hello` activity function.
     | **Select a template for your function** | Select **Durable Functions activity**. | Creates an activity function. |
     | **Provide a function name** | Enter **Hello**. | The name of your activity function. |
 
-You added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/run.ps1* to see that it's taking a name as input and returning a greeting. An activity function is where you perform actions such as making a database call or performing a computation.
+You added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/run.ps1* to see that it takes a name as input and returns a greeting. An activity function is where you perform actions such as making a database call or performing a computation.
 
 Finally, you add an HTTP-triggered function that starts the orchestration.
 
@@ -231,4 +231,4 @@ If you no longer need the resources that you created to complete the quickstart,
 
 ## Related content
 
-* Learn about [common Durable Functions app patterns](durable-functions-overview.md#application-patterns).
+* Learn about [common Durable Functions app patterns](durable-functions-sequence.md).

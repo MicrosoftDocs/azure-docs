@@ -1,11 +1,11 @@
 ---
-title: Diagnose a VM network routing problem - Azure CLI
+title: Diagnose a VM Network Routing Problem - Azure CLI
 titleSuffix: Azure Network Watcher
 description: In this article, you learn how to use Azure CLI to diagnose a virtual machine network routing problem using the next hop capability of Azure Network Watcher.
 author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 10/29/2024
+ms.date: 02/25/2026
 ms.author: halkazwini
 ms.custom: devx-track-azurecli
 
@@ -26,21 +26,38 @@ In this article, you learn how to use Azure Network Watcher [next hop](network-w
 
     You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. This article requires the Azure CLI version 2.0 or later. Run [az --version](/cli/azure/reference-index#az-version) command to find the installed version. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
 
-## Create a virtual machine
+## Create a resource group
 
-Before you can create a VM, you must create a resource group to contain the VM. Create a resource group with [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Create a resource group with [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Create a VM with [az vm create](/cli/azure/vm#az-vm-create). If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option. The following example creates a VM named *myVm*:
+## Create a network security group
+
+Create a network security group with [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create). The default rules in the network security group block all inbound access from the internet.
+
+```azurecli-interactive
+az network nsg create \
+  --resource-group myResourceGroup \
+  --name myNSG
+```
+
+> [!NOTE]
+> The default rules of the network security group block all inbound access from the internet, including SSH. To connect to the virtual machine, use Azure Bastion. For more information, see [Quickstart: Deploy Azure Bastion with default settings](../bastion/quickstart-host-portal.md).
+
+## Create a virtual machine
+
+Create a VM with [az vm create](/cli/azure/vm#az-vm-create). The following example creates a VM named *myVm*. If SSH keys don't already exist in a default key location, the command creates them.
 
 ```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
   --name myVm \
   --image Ubuntu2204 \
+  --nsg myNSG \
+  --public-ip-address "" \
   --generate-ssh-keys
 ```
 

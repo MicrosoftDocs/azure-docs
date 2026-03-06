@@ -1,7 +1,7 @@
 ---
 title: Azure CLI links
 description: See links to articles about how to create and manage Azure Cache for Redis resources by using the Azure CLI.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/15/2025
 appliesto:
   - ✅ Azure Cache for Redis

@@ -25,11 +25,11 @@ items:
       href: get-started-with-fhir.md
     - name: Deploy a FHIR service
       items: 
-        - name: Using Azure portal
+        - name: Azure portal
           href: deploy-azure-portal.md
-        - name: Using Bicep
+        - name: Bicep
           href: fhir-service-bicep.md
-        - name: Using ARM template
+        - name: ARM template
           href: fhir-service-resource-manager-template.md
     - name: Use Microsoft Entra External ID for an identity provider
       expanded: true

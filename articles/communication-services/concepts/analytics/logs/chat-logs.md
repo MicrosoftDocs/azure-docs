@@ -2,9 +2,9 @@
 title: Chat logs
 titleSuffix: An Azure Communication Services article
 description: Learn about logging for Azure Communication Services chat.
-author: tophpalmer
+author: sundiraman
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 03/21/2023
 ms.topic: conceptual
 ms.service: azure-communication-services

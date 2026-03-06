@@ -13,7 +13,7 @@ ms.date: 10/20/2025
 
 # Key concepts for certificate management (preview)
 
-Certificate management in Azure IoT Hub is designed to simplify the management of X.509 certificates for IoT devices. This article introduces the fundamental concepts related to certificate management and certificate-based authentication in IoT Hub. For more information, see [What is certificate management (preview)?](iot-hub-certificate-management-overview.md).
+Certificate management in Azure IoT Hub is designed to simplify the management of X.509 certificates for IoT devices. This article introduces the fundamental concepts related to certificate management and certificate-based authentication in IoT Hub. For more information, see [What is certificate management (preview)?](iot-hub-certificate-management-overview.md)
 
 [!INCLUDE [public-preview-banner](includes/public-preview-banner.md)]
 
@@ -70,4 +70,8 @@ In certificate management, devices submit CSRs during provisioning or reprovisio
 
 X.509 certificates are only used for authentication in IoT Hub, not authorization. Unlike with [Microsoft Entra ID](authenticate-authorize-azure-ad.md) and [shared access signatures](authenticate-authorize-sas.md), you can't customize permissions with X.509 certificates.
 
+## Related content
 
+- [What is Microsoft-backed X.509 certificate management?](iot-hub-certificate-management-overview.md)
+- [Integration with Azure Device Registry](iot-hub-device-registry-overview.md)
+- [Get started with ADR and certificate management in IoT Hub](iot-hub-device-registry-setup.md)

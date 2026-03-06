@@ -12,7 +12,7 @@ ms.custom: devtestoffer
 
 # Change Directory Tenants with your Azure Subscriptions  
 
-Organizations might have several Azure credit subscriptions. Each subscription an organization sets up is associated with an [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md). 
+Organizations might have several Azure credit subscriptions. Each subscription an organization sets up is associated with a [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md). 
 
 Microsoft Entra ID is Microsoft’s cloud-based identity and access management service that helps your employees sign in and access internal and external resources.  
 

@@ -13,7 +13,7 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-Adopt DevOps with Azure IoT Edge applications using the built-in Azure IoT Edge tasks in Azure Pipelines. This article shows how to use Azure Pipelines to build, test, and deploy Azure IoT Edge modules using YAML. You can also [use the classic editor](how-to-continuous-integration-continuous-deployment-classic.md).
+Adopt DevOps with Azure IoT Edge applications using the built-in Azure IoT Edge tasks in Azure Pipelines. This article shows how to use Azure Pipelines to build, test, and deploy Azure IoT Edge modules using YAML.
 
 :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment/model.png" alt-text="Diagram of continuous integration and continuous development branches for development and production.":::
 
@@ -62,7 +62,7 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
    :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment/add-new-pipeline.png" alt-text="Screenshot showing how to create a new build pipeline using the New pipeline button .":::
 
-3. On the **Where is your code?** page, select **Azure Repos Git `YAML`**. If you wish to use the classic editor to create your project's build pipelines, see the [classic editor guide](how-to-continuous-integration-continuous-deployment-classic.md).
+3. On the **Where is your code?** page, select **Azure Repos Git `YAML`**.
 
 4. Select the repository you are creating a pipeline for.
 

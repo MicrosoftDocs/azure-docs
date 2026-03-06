@@ -2,7 +2,7 @@
 title: Model context protocol bindings for Azure Functions
 description: Learn how you can expose your functions as model context protocol (MCP) tools using bindings in Azure Functions.
 ms.topic: reference
-ms.date: 08/29/2025
+ms.date: 02/20/2026
 ms.update-cycle: 180-days
 ms.custom: 
   - build-2025
@@ -14,13 +14,14 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Model Context Protocol bindings for Azure Functions overview
 
-The [Model Context Protocol (MCP)](https://github.com/modelcontextprotocol) is a client-server protocol intended to enable language models and agents to more efficiently discover and use external data sources and tools. 
+The [Model Context Protocol (MCP)](https://github.com/modelcontextprotocol) is a client-server protocol designed to help language models and agents more efficiently discover and use external data sources and tools. 
 
-The Azure Functions MCP extension allows you to use Azure Functions to create remote MCP servers. These servers can host MCP tool trigger functions, which MCP clients, such as language models and agents, can query and access to do specific tasks.
+The Azure Functions MCP extension enables you to use Azure Functions to create remote MCP servers. These servers can host MCP tool trigger functions that MCP clients, such as language models and agents, can query and access to perform specific tasks. The extension also supports [MCP Apps](https://blog.modelcontextprotocol.io/posts/2026-01-26-mcp-apps/), which lets your tools return interactive user interfaces instead of plain text by combining tool triggers with resource triggers.
 
 | Action | Type |
-|---------|---------|
-| Run a function from an MCP tool call request | [Trigger](./functions-bindings-mcp-trigger.md) |
+| --------- | --------- |
+| Run a function from an MCP tool call request | [Tool trigger](./functions-bindings-mcp-tool-trigger.md) |
+| Expose a function as an MCP resource | [Resource trigger](./functions-bindings-mcp-resource-trigger.md) |
 
 
 [!INCLUDE [functions-mcp-extension-powershell-note](../../includes/functions-mcp-extension-powershell-note.md)]
@@ -61,7 +62,7 @@ Add the extension to your project by installing this [NuGet package](https://www
 
 [!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
 
-You can use the `extensions.mcp` section in `host.json` to define MCP server information.
+Use the `extensions.mcp` section in `host.json` to define MCP server information.
 
 ```json
 {
@@ -88,32 +89,32 @@ You can use the `extensions.mcp` section in `host.json` to define MCP server inf
 | **instructions** | Describes to clients how to access the remote MCP server. |
 | **serverName** | A friendly name for the remote MCP server. |
 | **serverVersion** | Current version of the remote MCP server. |
-| **encryptClientState** | Determines if client state is encrypted. Defaults to true. Setting to false may be useful for debugging and test scenarios but isn't recommended for production. |
+| **encryptClientState** | Determines if client state is encrypted. Defaults to true. Setting to false can be useful for debugging and test scenarios but isn't recommended for production. |
 | **messageOptions** | Options object for the message endpoint in the SSE transport. |
-| **messageOptions.UseAbsoluteUriForEndpoint** | Defaults to `false`. Only applicable to the server-sent events (SSE) transport; this setting doesn't affect the Streamable HTTP transport. If set to `false`, the message endpoint is provided as a relative URI during initial connections over the SSE transport. If set to `true`, the message endpoint is returned as an absolute URI. Using a relative URI isn't recommended unless you have a specific reason to do so.|
+| **messageOptions.UseAbsoluteUriForEndpoint** | Defaults to `false`. Only applicable to the server-sent events (SSE) transport; this setting doesn't affect the Streamable HTTP transport. If set to `false`, the message endpoint is a relative URI during initial connections over the SSE transport. If set to `true`, the message endpoint is an absolute URI. Using a relative URI isn't recommended unless you have a specific reason to do so.|
 | **system** | Options object for system-level configuration. |
 | **system.webhookAuthorizationLevel** | Defines the authorization level required for the webhook endpoint. Defaults to "System". Allowed values are "System" and "Anonymous". When you set the value to "Anonymous", an access key is no longer required for requests. Regardless of if a key is required or not, you can use [built-in MCP server authorization][authorization] as an identity-based access control layer.|
 
 ## Connect to your MCP server
 
-To connect to the MCP server exposed by your function app, you need to provide an MCP client with the appropriate endpoint and transport information. The following table shows the transports supported by the Azure Functions MCP extension, along with their corresponding connection endpoint.
+To connect to the MCP server that your function app exposes, provide an MCP client with the appropriate endpoint and transport information. The following table shows the transports supported by the Azure Functions MCP extension, along with their corresponding connection endpoint.
 
 | Transport | Endpoint |
 | ----- | ----- |
 | Streamable HTTP | `/runtime/webhooks/mcp` |
 | Server-Sent Events (SSE)<sup>1</sup> | `/runtime/webhooks/mcp/sse` |
 
-<sup>1</sup> Newer protocol versions deprecated the Server-Sent Events transport. Unless your client specifically requires it, you should use the Streamable HTTP transport instead.
+<sup>1</sup> Newer protocol versions deprecate the Server-Sent Events transport. Unless your client specifically requires it, use the Streamable HTTP transport instead.
 
-When hosted in Azure, by default, the endpoints exposed by the extension also require the [system key](./function-keys-how-to.md) named `mcp_extension`. If it isn't provided in the `x-functions-key` HTTP header or in the `code` query string parameter, your client receives a `401 Unauthorized` response. You can remove this requirement by setting the `system.webhookAuthorizationLevel` property in `host.json` to `Anonymous`. For more information, see the [host.json settings](#hostjson-settings) section.
+When you host your function app in Azure, the extension requires the [system key](./function-keys-how-to.md) named `mcp_extension` for the exposed endpoints. If you don't provide this key in the `x-functions-key` HTTP header or in the `code` query string parameter, your client receives a `401 Unauthorized` response. You can remove this requirement by setting the `system.webhookAuthorizationLevel` property in `host.json` to `Anonymous`. For more information, see the [host.json settings](#hostjson-settings) section.
 
-You can retrieve the key using any of the methods described in [Get your function access keys](./function-keys-how-to.md#get-your-function-access-keys). The following example shows how to get the key with the Azure CLI:
+You can retrieve the key by using any of the methods described in [Get your function access keys](./function-keys-how-to.md#get-your-function-access-keys). The following example shows how to get the key by using the Azure CLI:
 
 ```azurecli
 az functionapp keys list --resource-group <RESOURCE_GROUP> --name <APP_NAME> --query systemKeys.mcp_extension --output tsv
 ```
 
-MCP clients accept this configuration in various ways. Consult the documentation for your chosen client. The following example shows an `mcp.json` file like you might use to [configure MCP servers for GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers#_configuration-format). The example sets up two servers, both using the Streamable HTTP transport. The first is for local testing with the Azure Functions Core Tools. The second is for a function app hosted in Azure. The configuration takes input parameters for which Visual Studio Code prompts you when you first run the remote server. Using inputs ensures that secrets like the system key aren't saved to the file and checked into source control.
+MCP clients accept this configuration in various ways. Consult the documentation for your chosen client. The following example shows an `mcp.json` file like you might use to [configure MCP servers for GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers#_configuration-format). The example sets up two servers, both using the Streamable HTTP transport. The first server is for local testing with the Azure Functions Core Tools. The second server is for a function app hosted in Azure. The configuration takes input parameters for which Visual Studio Code prompts you when you first run the remote server. By using inputs, you ensure that secrets like the system key aren't saved to the file and checked into source control.
 
 ```json
 {
@@ -148,7 +149,9 @@ MCP clients accept this configuration in various ways. Consult the documentation
 
 ## Related articles
 
-- [Create a tool endpoint in your remote MCP server](./functions-bindings-mcp-trigger.md) 
+- [Create a tool endpoint in your remote MCP server](./functions-bindings-mcp-tool-trigger.md) 
+- [Create a resource endpoint in your remote MCP server](./functions-bindings-mcp-resource-trigger.md)
+- [Build an MCP Apps server using Azure Functions](./scenario-mcp-apps.md)
 - [Configure built-in MCP server authorization][authorization]
 
 [authorization]: ../app-service/configure-authentication-mcp.md?toc=/azure/azure-functions/toc.json

@@ -55,6 +55,8 @@ landingContent:
             url: management-monitoring-overview.md
           - text: Threat protection
             url: threat-detection.md
+          - text: Incident response
+            url: incident-response-overview.md
           - text: Recover from identity compromise
             url: recover-from-identity-compromise.md
 
@@ -77,6 +79,8 @@ landingContent:
             url: data-encryption-best-practices.md
           - text: Operational security
             url: operational-best-practices.md
+          - text: AI security
+            url: ai-security-best-practices.md
 
   # Card
   - title: Protect your Azure resources

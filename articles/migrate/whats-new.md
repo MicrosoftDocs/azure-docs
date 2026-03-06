@@ -114,8 +114,8 @@ You can use this capability to:
 
 ## Update (May 2025)
 
-- General availability: Azure Migrate enhances support for [Premium v2 SSD Disks](/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli). This offers a seamless experience to migrate their on-premises workloads to Azure and benefit from the advanced disk options that offer greater flexibility and enhanced performance of Pv2 disks in Azure. 
-- Public preview: Azure Migrate expands support for migrations with [Ultra SSD](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal). This enables customers to seamlessly migrate their on-premises workloads to Azure while taking advantage of Ultra Disk’s cutting-edge performance and scalability.
+- General availability: Azure Migrate enhances support for [Premium SSD v2 disks](/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli). This offers a seamless experience to migrate their on-premises workloads to Azure and benefit from the advanced disk options that offer greater flexibility and enhanced performance of Pv2 disks in Azure. 
+- Public preview: Azure Migrate expands support for migrations with [Ultra Disk](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal). This enables customers to seamlessly migrate their on-premises workloads to Azure while taking advantage of Ultra Disk’s cutting-edge performance and scalability.
 - Public preview: Azure Migrate enhances resiliency by supporting migration to [ZRS Disks](/azure/virtual-machines/disks-deploy-zrs?tabs=portal) during Migration only. **Zone-Redundant Storage (ZRS)** for Azure Disks synchronously replicates data across three physically separate availability zones within a region – each with independent power, cooling, and networking – enhancing Disk availability and resiliency.
 
 - General availability: Azure Migrate now supports a simplified experience through its upgraded version of the agent-based migration stack. This stack offers a streamlined experience for customers and is set to replace the classic experience over the next three years. [Learn more](simplified-experience-for-azure-migrate.md).
@@ -314,7 +314,7 @@ The RVTools XLSX (preview) file import now reads storage data, when available, f
 ## Update (August 2021)
 
 - At-scale discovery and assessment of ASP.NET web apps running on IIS servers in your VMware environment, now in preview. [Learn more](concepts-azure-webapps-assessment-calculation.md). To get started, refer to the [discovery](tutorial-discover-vmware.md) and [assessment](tutorial-assess-webapps.md) tutorials.
-- Support for Azure [ultra disks](/azure/virtual-machines/disks-types#ultra-disks) in Azure VM assessment recommendations.
+- Support for Azure [Ultra Disks](/azure/virtual-machines/disks-types#ultra-disks) in Azure VM assessment recommendations.
 - General availability of at-scale software inventory and agentless dependency analysis for VMware virtual machines.
 - Azure Migrate appliance updates:
   - Ability of users to diagnose and solve appliance problems.
@@ -415,7 +415,7 @@ New assessment and migration tools were added to Azure Migrate:
 - **RackWare**: Offers cloud migration.
 - **Movere**: Offers assessment.
 
-For more information about using tools and SDC offerings for assessment and migration in Azure Migrate, see [What is Azure Migrate?](migrate-services-overview.md).
+For more information about using tools and SDC offerings for assessment and migration in Azure Migrate, see [What is Azure Migrate?](migrate-services-overview.md)
 
 ## Azure Migrate current version
 

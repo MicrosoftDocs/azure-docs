@@ -3,7 +3,7 @@ title: Microsoft Sentinel solution for SAP applications overview
 description: This article provides an overview of the Microsoft Sentinel solution for SAP applications and available support.
 author: batamig
 ms.author: bagol
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 11/05/2024
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal

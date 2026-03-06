@@ -193,7 +193,7 @@ The following table shows the redundancy options supported by each Azure Storage
 | Queue storage                                   | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | Table storage                                   | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | Azure Files                                     | &#x2705; <sup>1</sup> | &#x2705; <sup>1</sup> | &#x2705;  | | &#x2705;  | |
-| Azure managed disks                             | &#x2705; | &#x2705; <sup>2</sup> |          |          |          |          |
+| Azure Managed Disks                             | &#x2705; | &#x2705; <sup>2</sup> |          |          |          |          |
 | Azure Elastic SAN                               | &#x2705; | &#x2705; |          |          |          |          |
 
 <sup>1</sup> SSD file shares are supported on LRS and ZRS.<br/>

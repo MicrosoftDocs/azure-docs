@@ -6,7 +6,7 @@ ms.reviewer: benshy
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 02/09/2026
+ms.date: 02/20/2026
 ms.author: benshy
 #customer intent: As a Microsoft Customer Agreement billing owner, I want learn about managing a discount so that I move the discount when needed.
 service.tree.id: cf90d1aa-e8ca-47a9-a6d0-bc69c7db1d52
@@ -23,9 +23,38 @@ Upon acceptance of a discount as part of a Microsoft Customer Agreement, the dis
 
 <br>
 
+## Viewing discount resources
+
+The Discounts view allows you to easily view and manage all discounts in one place. You can see which discounts are currently active, their applicability start and end dates, and whether they apply to consumption or purchases.
+
+1.	In the [Azure portal](https://portal.azure.com/), search for **Discounts**.
+2.	Select the Discounts service
+
+For Azure-based discounts, you can verify the discount is appropriately applied by following the instructions outlined in the [Calculate discount in the usage file](../../understand/download-azure-daily-usage.md#calculate-discount-in-the-usage-file) article.
+
+
+### View the additional discount metadata
+
+Additional detailed information regarding the available discount is accessible by viewing the JSON representation of the discount resource. This allows you to examine all relevant fields, such as discount values, eligibility criteria, validity periods, and other pertinent attributes connected to the discount. 
+
+To see the additional discount metadata 
+
+1.	In the [Azure portal](https://portal.azure.com/), search for **Discounts**.
+2.	Select the discount resource.
+3.	From Overview page, on the ***Essentials*** tab, select **JSON View**.
+
+
+### To view the discount resource URI
+1.	In the [Azure portal](https://portal.azure.com/), search for **Discounts**.
+2.	Select the discount resource.
+3.	On the Overview page, in the left navigation menu, expand **Settings**, and select **Properties**.
+4.	The discount resource URI is the **ID** value.
+
+
 ## Move a discount across resource groups or subscriptions
 
 You can move the discount resource between resource groups or subscriptions within the same billing account without affecting the discount, as only the metadata is updated.
+
 
 ### To move a discount resource
 
@@ -44,6 +73,7 @@ Here are the high-level steps to move a discount resource. For more information 
 8.	Select the acknowledgment that you need to update tools and scripts for these resources. To start moving the resources, select ***Move***
 9.	After the move is complete, verify that the discount resource is in the new resource group. 
 
+
 ### To move a discount resource to a new subscription
 
 1.	In the [Azure portal](https://portal.azure.com/), type in **Discounts** from global search.
@@ -59,40 +89,6 @@ Here are the high-level steps to move a discount resource. For more information 
 When a discount is moved, the resource URI associated with it's updated to reflect the change.
 
 
-## To view the discount resource URI
-1.	In the [Azure portal](https://portal.azure.com/), search for **Discounts**.
-2.	Select the discount resource.
-3.	On the Overview page, in the left navigation menu, expand **Settings**, and select **Properties**.
-4.	The discount resource URI is the **ID** value.
-
-## View the additional discount metadata
-
-Additional detailed information regarding the available discount is accessible by viewing the JSON representation of the discount resource. This allows you to examine all relevant fields, such as discount values, eligibility criteria, validity periods, and other pertinent attributes connected to the discount. 
-
-To see the additional discount metadata 
-
-1.	In the [Azure portal](https://portal.azure.com/), search for **Discounts**.
-2.	Select the discount resource.
-3.	From Overview page, on the ***Essentials*** tab, select **JSON View**.
-
-
-## Rename a discount resource
-The discount’s resource name is a part of its Uniform Resource Identifier (URI) and can't be changed. However, you can use [tags](../../../azure-resource-manager/management/tag-resources.md) to help identify the credit resource based on a nomenclature relevant to your organization.
-
-
-## Delete a discount resource 
-You can only delete a discount resource if its status is in the ***Failed***, ***Canceled***, or ***Expired*** states. Deletion is permanent and can't be reversed.
-If you try to delete an active discount resource in an ***Active*** state, an error notifies you that deletion is not allowed.
-
-Deleting a resource group or subscription with an active discount resource will fail. To resolve, move the discount resource to another group or subscription within the same billing account before deleting.
-
-For additional information on moving a discount resource, see section: [To move a discount resource](#to-move-a-discount-resource).
-
-
-## Cancel a discount 
-Contact your Microsoft account team if you have questions about canceling your discount.
-
-
 ## Grant user access to a discount resource
 The user who accepted the discount proposal automatically gets owner access to the discount resource. To add other users, assign them an Azure role.
 
@@ -104,6 +100,23 @@ The user who accepted the discount proposal automatically gets owner access to t
 6.	On the **Members** tab, add other users.
 7.	On the ***Review + assign*** tab, review the role assignment settings.
 8.	Select ***Review + assign*** button to assign the role.
+
+
+## Rename a discount resource
+The discount’s resource name is a part of its Uniform Resource Identifier (URI) and can't be changed. However, you can use [tags](../../../azure-resource-manager/management/tag-resources.md) to help identify the credit resource based on a nomenclature relevant to your organization.
+
+
+## Cancel a discount 
+Contact your Microsoft account team if you have questions about canceling your discount.
+
+
+## Delete a discount resource 
+You can only delete a discount resource if its status is in the ***Failed***, ***Canceled***, or ***Expired*** states. Deletion is permanent and can't be reversed.
+If you try to delete an active discount resource in an ***Active*** state, an error notifies you that deletion is not allowed.
+
+Deleting a resource group or subscription with an active discount resource will fail. To resolve, move the discount resource to another group or subscription within the same billing account before deleting.
+
+For additional information on moving a discount resource, see section: [To move a discount resource](#to-move-a-discount-resource).
 
 <br>
 
@@ -124,6 +137,7 @@ The user who accepted the discount proposal automatically gets owner access to t
 
 ## Related content
  - [Calculate discount in the usage file](../../understand/download-azure-daily-usage.md#calculate-discount-in-the-usage-file)
+ - [Microsoft.BillingBenefits/discounts - Bicep, ARM template & Terraform AzAPI reference](https://aka.ms/DiscountReference)
  - [Understand Cost Management data](../../../cost-management-billing/costs/understand-cost-mgt-data.md)
  - [View and download your organization's Azure pricing](../../../cost-management-billing/manage/ea-pricing.md)
  - [Terms in your Microsoft Customer Agreement price sheet](../../../cost-management-billing/manage/mca-understand-pricesheet.md)

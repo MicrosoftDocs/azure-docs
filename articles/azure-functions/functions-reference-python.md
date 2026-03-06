@@ -907,7 +907,7 @@ To learn more about optimizing your Python functions apps, see these articles:
 
 - [Scaling & Performance](./python-scale-performance-reference.md)
 - [Using Flask Framework with Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app/)
-- [Durable Functions](./durable/durable-functions-overview.md)
+- [Durable Functions](./durable/what-is-durable-task.md)
 - [HTTP Streaming](./functions-bindings-http-webhook-trigger.md?tabs=python-v2&pivots=programming-language-python#http-streams-1)
 
 ## Related articles

@@ -388,7 +388,7 @@ When the WebJob runs in Azure, you can't monitor function execution by viewing c
 
 ### Create an Application Insights instance
 
-1. In your **Publish** profile page, select the three dots above **Hosting** to show **Hosting profile section actions** and choose **Open in Azure Portal**.
+1. In your **Publish** profile page, select the three dots above **Hosting** to show **Hosting profile section actions** and choose **Open in Azure portal**.
 
 1. In the web app under **Monitoring**, choose **Application Insights**, and select **Turn on Application Insights**.
 
@@ -464,7 +464,7 @@ This initializes the Application Insights logging provider with default [filteri
 
 1. As before, use the Azure portal to create a queue message like you did [earlier](#test-locally), except enter *Hello App Insights!* as the message text.
 
-1. In your **Publish** profile page, select the three dots above **Hosting** to show **Hosting profile section actions** and choose **Open in Azure Portal**.
+1. In your **Publish** profile page, select the three dots above **Hosting** to show **Hosting profile section actions** and choose **Open in Azure portal**.
 
 1. In the web app under **Settings** > **Monitor**, choose **Application Insights**, and select **View Application Insights data**.
 

@@ -5,7 +5,7 @@ description: Render coverage tables list the countries/regions that support Azur
 author: faterceros
 ms.author: aterceros
 ms.date: 09/21/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-maps
 ms.subservice: render
 ---

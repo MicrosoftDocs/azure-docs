@@ -1,14 +1,13 @@
 ---
 title: Include file
-description: Include file
+description: Describes how to install and select specific versions of the Azure API Center extension in Visual Studio Code.
 services: api-center
 
 
 ms.service: azure-api-center
 ms.topic: include
-ms.date: 09/23/2024
-
+ms.date: 02/19/2026
 ms.custom: Include file
 ---
 
-When installing the extension from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center&ssr=false#overview), you can choose to install the release version or a pre-release version. Switch between the two versions at any time by using the extension's **Manage** button context menu in the Extensions view. 
+When you install the extension from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center&ssr=false#overview), you can choose to install the release version or a prerelease version (as available). To switch between installed versions, select the extension's **Manage** button (gear icon) in the **Extensions** view in Visual Studio Code. 

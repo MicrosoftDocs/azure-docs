@@ -24,7 +24,11 @@ Any entity trying to access Microsoft Entra identity services via the TLS/SSL pr
 
 - The Serial Number (top string in the table) contains the hexadecimal value of the certificate serial number.
 - The Thumbprint (bottom string in the table) is the SHA1 thumbprint.
-- For those CAs that must be downloaded over HTTP and not HTTPS, copy the link and paste into the URL field on a new tab. 
+- For those CAs that must be downloaded over HTTP and not HTTPS, copy the link and paste into the URL field on a new tab.
+
+**How to find certificate validity (expiry) dates:**
+
+To determine when a certificate expires, download the certificate file and view its properties. On Windows, double-click the downloaded `.crt` file and check the **Valid from** and **Valid to** fields under the **General** tab. On Linux or macOS, use `openssl x509 -in <certificate-file> -noout -dates` to display the validity period. Root CAs typically have validity periods of 15-25 years, while subordinate CAs have shorter validity periods of 3-10 years. 
 
 # [Root and Subordinate CAs list](#tab/root-and-subordinate-cas-list)
 

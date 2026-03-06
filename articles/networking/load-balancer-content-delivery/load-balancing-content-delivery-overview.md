@@ -70,7 +70,7 @@ Azure offers several load-balancing  and content delivery services, each caterin
 ### Use cases
 
 - **Global content delivery**: Delivers content and applications globally with low latency by using Microsoft's global edge network.
-- **Application acceleration**: Improves application performance by using features like split TCP connections and anycast network.
+- **Application acceleration**: Improves application performance by using features like split TCP connections and unicast network routing.
 - **Security**: Provides platform-level protection against DDoS attacks and integrates with web application firewalls for enhanced security.
 - **Modern Internet-first architectures**: Supports modern architectures with dynamic, high-quality digital experiences, and automated, secure platforms.
 

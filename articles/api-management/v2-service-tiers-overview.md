@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 11/21/2025
+ms.date: 02/05/2026
 ms.author: danlep
 ms.custom:
   - references_regions
@@ -103,10 +103,10 @@ The following are currently unavailable in the v2 tiers.
 
 ## Resource limits
 
-The following resource limits apply to the v2 tiers:
+The following limits apply to the v2 tiers:
 
-* [Resource limits for v2 tiers](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#limits---api-management-v2-tiers)
-* [Developer portal limits for v2 tiers](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#limits---developer-portal-in-api-management-v2-tiers)
+* [Resource limits for classic and v2 tiers](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#limits---api-management-classic-and-v2-tiers)
+* [Resource limits in developer portal in API Management v2 tiers](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#limits---developer-portal-in-api-management-v2-tiers)
 
 
 ## Deployment

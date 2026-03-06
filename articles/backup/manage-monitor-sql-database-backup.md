@@ -2,7 +2,7 @@
 title: Manage and monitor SQL Server DBs on an Azure VM
 description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
 ms.topic: how-to
-ms.date: 01/27/2026
+ms.date: 02/13/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -15,8 +15,7 @@ This article describes common tasks for managing and monitoring SQL Server datab
 
 If you haven't yet configured backups for your SQL Server databases, see [Back up SQL Server databases on Azure VMs](backup-azure-sql-database.md)
 
->[!Note]
->See the [SQL backup support matrix](sql-support-matrix.md) to know more about the supported configurations and scenarios.
+To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support). For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
 
 ## Monitor backup jobs in the Azure portal
 
@@ -129,6 +128,10 @@ Modify policy to change backup frequency or retention range.
 
 > [!NOTE]
 > Any change in the retention period will be applied retrospectively to all the older recovery points besides the new ones.
+>
+> When you reduce the retention period for differential backups, keep in mind that differential backups are dependent on the previous full backup for recovery. The full backup is retained until the retention of the last differential backup that depends on it expires. For example, if you reduce the differential backup retention from 30 days to 15 days, existing differential backups are cleaned up after 15 days from their creation. However, the full backup that these differentials depend on is retained until all those differentials expire.
+>
+> If differential backups are in a soft-deleted state when a retention policy change is applied, the same dependency rules apply. Soft-deleted backups are retained for an additional 14 days beyond their retention expiry before being permanently deleted.
 
 In the vault dashboard, go to **Manage** > **Backup Policies** and choose the policy you want to edit.
 

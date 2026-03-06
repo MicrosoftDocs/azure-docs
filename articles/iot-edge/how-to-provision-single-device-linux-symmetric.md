@@ -7,7 +7,7 @@ ms.author: sethm
 ms.service: azure-iot-edge
 services: iot-edge
 ms.topic: how-to
-ms.date: 04/29/2025
+ms.date: 02/26/2026
 ms.custom:
   - linux-related-content
   - sfi-ropc-nochange
@@ -19,7 +19,7 @@ ms.custom:
 
 This article provides end-to-end instructions for registering and provisioning a Linux IoT Edge device that includes installing IoT Edge.
 
-Each device that connects to an [IoT hub](../iot-hub/index.yml) has a device ID that's used to track [cloud-to-device](../iot-hub/iot-hub-devguide-c2d-guidance.md) or [device-to-cloud](../iot-hub/iot-hub-devguide-d2c-guidance.md) communications. You configure a device with its connection information, which includes:
+Each device that connects to an [IoT hub](../iot-hub/index.yml) has a device ID that tracks [cloud-to-device](../iot-hub/iot-hub-devguide-c2d-guidance.md) or [device-to-cloud](../iot-hub/iot-hub-devguide-d2c-guidance.md) communications. You configure a device with its connection information, which includes:
 
 * IoT hub hostname
 * Device ID
@@ -29,7 +29,7 @@ The steps in this article walk through a process called *manual provisioning*, w
 
 * **Symmetric keys**: When you create a new device identity in IoT Hub, the service creates two keys. You place one of the keys on the device, and it presents the key to IoT Hub when authenticating.
 
-  This authentication method is faster to get started, but not as secure.
+  This authentication method is faster to get started, but isn't as secure.
 
 * **X.509 self-signed**: You create two X.509 identity certificates and place them on the device. When you create a new device identity in IoT Hub, you provide thumbprints from both certificates. When the device authenticates to IoT Hub, it presents one certificate and IoT Hub verifies that the certificate matches its thumbprint.
 
@@ -46,7 +46,7 @@ This article covers using symmetric keys as your authentication method. If you w
 
 ## Prerequisites
 
-This article shows how to register your IoT Edge device and install IoT Edge (also called IoT Edge runtime) on your device. Make sure you have the device management tool of your choice, for example Azure CLI, and device requirements before you register and install your device.
+This article shows how to register your IoT Edge device and install IoT Edge (also called IoT Edge runtime) on your device. Make sure you have the device management tool of your choice, such as Azure CLI, and review device requirements before you register and install your device.
 
 <!-- Device registration prerequisites H3 and content -->
 [!INCLUDE [iot-edge-prerequisites-register-device.md](includes/iot-edge-prerequisites-register-device.md)]
@@ -57,12 +57,11 @@ This article shows how to register your IoT Edge device and install IoT Edge (al
 <!-- Azure IoT extensions for Visual Studio Code-->
 ### Visual Studio Code extensions
 
-If you're using Visual Studio Code, there are helpful Azure IoT extensions that make the device creation and management process easier.
+If you're using Visual Studio Code, helpful Azure IoT extensions make the device creation and management process easier.
 
 Install both the Azure IoT Edge and Azure IoT Hub extensions:
 
 * [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). The *Azure IoT Edge tools for Visual Studio Code* extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
-
 * [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
 
 <!-- Prerequisites end -->
@@ -75,17 +74,15 @@ Install both the Azure IoT Edge and Azure IoT Hub extensions:
 
 ## Provision the device with its cloud identity
 
-Now that the container engine and the IoT Edge runtime are installed on your device, you're ready to set up the device with its cloud identity and authentication information.
+After you install the container engine and the IoT Edge runtime on your device, set up the device with its cloud identity and authentication information.
 
 # [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
 
-You can configure your IoT Edge device with symmetric key authentication using the following command:
+You can configure your IoT Edge device with symmetric key authentication by using the following command:
 
-   ```bash
-   sudo iotedge config mp --connection-string 'PASTE_DEVICE_CONNECTION_STRING_HERE'
-   ```
-
-   This `iotedge config mp` command creates a configuration file on the device and enters your connection string in the configuration file.
+```bash
+sudo iotedge config mp --connection-string 'PASTE_DEVICE_CONNECTION_STRING_HERE'
+```
 
 1. Apply the configuration changes.
 
@@ -156,13 +153,13 @@ Verify that the runtime was successfully installed and configured on your IoT Ed
 
    A successful status response shows the `aziot` services as running or ready.
 
-1. If you need to troubleshoot the service, retrieve the service logs.
+1. If you need to troubleshoot the service, retrieve the service logs:
 
    ```bash
    sudo iotedge system logs
    ```
 
-1. Use the `check` tool to verify configuration and connection status of the device.
+1. Use the `check` tool to verify configuration and connection status of the device:
 
    ```bash
    sudo iotedge check

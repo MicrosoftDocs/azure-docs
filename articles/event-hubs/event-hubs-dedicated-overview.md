@@ -2,7 +2,7 @@
 title: Azure Event Hubs Dedicated Tier Overview
 description: Discover Azure Event Hubs Dedicated tier, a single-tenant solution for enterprise-scale, low-latency event streaming. Evaluate its benefits for mission-critical workloads.
 #customer intent: As an enterprise architect, I want to understand the benefits of Azure Event Hubs Dedicated tier so that I can evaluate its suitability for mission-critical workloads.  
-ms.topic: article
+ms.topic: overview
 ms.date: 07/28/2025
 ms.custom:
   - ai-gen-docs-bap

@@ -1,27 +1,31 @@
 ---
-title: 'Create S2S VPN connection between on-premises network and Azure virtual network - certificate authentication: Azure portal'
+title: 'Create S2S VPN Connection Between On-premises Network and Azure Virtual Network - Certificate Authentication: Azure Portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure VPN Gateway server settings for site-to-site configurations - certificate authentication.
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 12/17/2024
+ms.date: 02/24/2026
 ms.author: cherylmc
 
 #customer intent: As a network engineer, I want to create a site-to-site VPN connection between my on-premises location and my Azure virtual network using certificate authentication and Azure Key Vault.
 
 # Customer intent: "As a network engineer, I want to establish a secure site-to-site VPN connection using certificate authentication, so that I can securely connect my on-premises network to my Azure virtual network."
 ---
-# Configure a S2S VPN Gateway certificate authentication connection - Preview
+# Configure a S2S VPN Gateway certificate authentication connection - Azure portal - Preview
 
-In this article, you use the Azure portal to create a site-to-site (S2S) certificate authentication VPN gateway connection between your on-premises network and your virtual network. The steps for this configuration use Managed Identity, Azure Key Vault, and certificates. If you need to create a site-to-site VPN connection that uses a shared key instead, see [Create a S2S VPN connection](tutorial-site-to-site-portal.md).
+In this article, you use the Azure portal to create a site-to-site (S2S) certificate authentication VPN gateway connection between your on-premises network and your virtual network. The steps for this configuration use Managed Identity, Azure Key Vault, and certificates. For more information about site-to-site certificate authentication, see [About site-to-site VPN connections with certificate authentication](site-to-site-certificate-authentication-gateway-about.md). If you need to create a site-to-site VPN connection that uses a shared key instead, see [Create a S2S VPN connection](tutorial-site-to-site-portal.md).
 
 :::image type="content" source="./media/tutorial-site-to-site-portal/diagram.png" alt-text="Diagram that shows site-to-site VPN gateway cross-premises connections." lightbox="./media/tutorial-site-to-site-portal/diagram.png":::
 
+> [!IMPORTANT]
+> Site-to-site certificate authentication is currently in Preview.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Prerequisites
 
-> [!NOTE]
-> Site-to-site certificate authentication isn't supported on Basic SKU VPN gateways.
+> [!IMPORTANT]
+> Site-to-site certificate authentication isn't supported on Basic SKU VPN gateways. We recommend using VpnGw1AZ or higher.
 
 * You already have a virtual network and a VPN gateway. If you don't, follow the steps to [Create a VPN gateway](tutorial-create-gateway-portal.md), then return to this page to configure your site-to-site certificate authentication connection.
 
@@ -101,7 +105,7 @@ Use PowerShell locally on your computer to generate certificates. The following 
 Use the New-SelfSignedCertificate cmdlet to create a self-signed root certificate. For more information about parameters, see [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate).
 
 1. From a computer running Windows 10 or later, or Windows Server 2016, open a Windows PowerShell console with elevated privileges.
-1. Create a self-signed root certificate. The following example creates a self-signed root certificate named 'VPNRootCA01', which is automatically installed in 'Certificates-Current User\Personal\Certificates'. Once the certificate is created, you can view it by opening *certmgr.msc*, or *Manage User Certificates*.
+1. Create a self-signed root certificate. The following example creates a self-signed root certificate named 'VPNRootCA01', which is automatically installed in **Certificates-Current User\Personal\Certificates**. Once the certificate is created, you can view it by opening *certmgr.msc*, or *Manage User Certificates*.
 
    Make any needed modifications before using this example. The 'NotAfter' parameter is optional. By default, without this parameter, the certificate expires in one year.
 
@@ -243,7 +247,7 @@ The following steps help you upload the outbound certificate information to Azur
 1. Go to your key vault. In the left pane, open the **Access policies** page.
 1. Select **+Create**.
 1. On the **Create an access policy** page, for **Secret Management Options** and **Certificate Management Operations**, select **Select all**.
-1. Select **Next** to move to the *Principal** page.
+1. Select **Next** to move to the **Principal** page.
 1. On the **Principal** page, search and select the Managed Identity that you created earlier.
 1. Select **Next** and advance to the **Review + create** page. Select **Create**.
 
@@ -331,6 +335,8 @@ Before moving forward, gather the following information for the required configu
 
 ## Next steps
 
-Once your connection is complete, you can add virtual machines to your VNets. For more information, see [Virtual Machines](../index.yml). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-network/network-overview.md).
+Once your connection is complete, you can configure additional VPN Gateway settings. For more information, see the following articles:
 
-For P2S troubleshooting information, [Troubleshooting Azure point-to-site connections](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+* [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md)
+* [Configure BGP for VPN Gateway](vpn-gateway-bgp-overview.md)
+* [About highly available VPN gateway connections](vpn-gateway-highlyavailable.md)

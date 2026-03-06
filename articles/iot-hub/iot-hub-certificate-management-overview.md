@@ -62,7 +62,8 @@ Certificate management uses [Azure Device Registry (ADR)](iot-hub-device-registr
 The following image illustrates the X.509 certificate hierarchy used to authenticate IoT devices in Azure IoT Hub through the ADR namespace.
 
 - Each ADR namespace that has an enabled certificate management will have a unique credential (root CA) managed by Microsoft. This credential represents the top-most certificate authority in the chain.
-- Each policy within the ADR namespace defines one issuing CA (ICA) that is signed by the root CA. Each policy can only share its CA certificate with Hubs linked to the namespace. And, each policy can only issue leaf certificates to devices registered within that namespace. You can configure the validity period of the issued certificates for each policy. The minimum validity period is 1 day and the maximum validity period is 90 days.
+- Each policy within the ADR namespace defines one issuing CA (ICA) that is signed by the root CA. Each policy can only share its CA certificate with Hubs linked to the namespace. And, each policy can only issue leaf certificates to devices registered within that namespace. You can configure the validity period of the issued certificates for each policy. The minimum validity period is 7 day and the maximum validity period is 90 days.
+
 - Once you have created your credential and policies, you can sync these CA certificates directly with IoT Hub. IoT Hub will now be able to authenticate devices that present this certificate chain.
 
 :::image type="content" source="media/certificate-management/device-registry-certificate-management.png" alt-text="Diagram showing how Azure Device Registry integrates with IoT Hub and DPS for certificate management." lightbox="media/certificate-management/device-registry-certificate-management.png":::
@@ -110,3 +111,9 @@ Certificate management doesn't support certificate revocation during public prev
 
 See [Azure subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-iot-hub-limits) for the latest information about limits and quotas for certificate management with IoT Hub.
 
+## Related content
+
+- [FAQ: What is new in Azure IoT Hub?](iot-hub-faq.md)
+- [Key concepts for certificate management](iot-hub-certificate-management-concepts.md)
+- [Get started with ADR and certificate management in IoT Hub](iot-hub-device-registry-setup.md)
+- [Integration with Azure Device Registry](iot-hub-device-registry-overview.md)

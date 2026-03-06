@@ -62,7 +62,7 @@ You can connect your on-premises computers and networks to a virtual network by 
 
 - **Site-to-site VPN**: Established between your on-premises VPN device and an Azure VPN gateway deployed in a virtual network. This connection type enables any on-premises resource that you authorize to access a virtual network. The communication between your on-premises VPN device and an Azure VPN gateway is sent through an encrypted tunnel over the internet. To learn more, see [Site-to-site VPN](../vpn-gateway/design.md?toc=/azure/virtual-network/toc.json#s2smulti).
 
-- **Azure ExpressRoute**: Established between your network and Azure, through an ExpressRoute partner. This connection is private. Traffic doesn't go over the internet. To learn more, see [What is Azure ExpressRoute?](../expressroute/expressroute-introduction.md?toc=/azure/virtual-network/toc.json).
+- **Azure ExpressRoute**: Established between your network and Azure, through an ExpressRoute partner. This connection is private. Traffic doesn't go over the internet. To learn more, see [What is Azure ExpressRoute?](../expressroute/expressroute-introduction.md?toc=/azure/virtual-network/toc.json)
 
 ### Filter network traffic
 

@@ -1,16 +1,20 @@
 ---
-title: "Compute node migration overview"
-description: Get a high level idea of the steps involved when migrating compute nodes during a migration of high performance computing architecture.
+title: Select and provision HPC and GPU compute nodes on Azure
+description: Choose Azure VM SKUs, plan quotas, and provision HPC and GPU compute nodes for your cloud HPC environment.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 04/10/2025
+ms.date: 02/19/2026
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+ms.collections:
+  - hpc-migration-content
+  - migration
+  - onprem-to-azure
 # Customer intent: As an HPC administrator, I want to migrate compute nodes to the cloud effectively so that I can optimize resource usage and ensure seamless performance for high-performance computing workloads.
 ---
 
-# Compute node migration overview
+# Select and provision HPC and GPU compute nodes on Azure
 
 Managing compute nodes in an HPC cloud environment involves careful consideration of virtual machine (VM) types, images, and quota limits. Testing key on-premises workloads in the cloud helps assess the cost-benefit of different VM SKUs, allowing for more informed hardware decisions over time. Azure provides preconfigured HPC images for Ubuntu and Alma Linux, which include necessary drivers and libraries, simplifying the deployment process. Custom images can also be created using available resources from the Azure HPC image repository. Additionally, it’s important to plan resource usage carefully and consult with Azure to avoid quota limitations, especially when scaling across multiple regions.
 

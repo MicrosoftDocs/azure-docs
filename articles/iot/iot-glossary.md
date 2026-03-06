@@ -889,7 +889,7 @@ Applies to: IoT Edge
 
 ### IoT Hub
 
-A fully managed Azure service that enables reliable and secure bidirectional communications between millions of [devices](#device) and a [solution back end](#solution-back-end). For more information, see [What is Azure IoT Hub?](../iot-hub/about-iot-hub.md). Using your Azure subscription, you can create IoT hubs to handle your IoT messaging workloads.
+A fully managed Azure service that enables reliable and secure bidirectional communications between millions of [devices](#device) and a [solution back end](#solution-back-end). For more information, see [What is Azure IoT Hub?](../iot-hub/about-iot-hub.md) Using your Azure subscription, you can create IoT hubs to handle your IoT messaging workloads.
 
 [Learn more](../iot-hub/about-iot-hub.md)
 

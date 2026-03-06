@@ -2,7 +2,7 @@
 title: Use reference data for lookups in Azure Stream Analytics
 description: This article describes how to use reference data to look up or correlate data in an Azure Stream Analytics job's query design.
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/26/2024
 ---
 # Use reference data for lookups in Stream Analytics

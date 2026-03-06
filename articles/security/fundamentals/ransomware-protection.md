@@ -45,7 +45,7 @@ When targeting Azure environments, ransomware attackers often exploit:
 - **Inadequate backup protection**: Azure Backup configurations that lack immutability or MFA protection
 - **Poor identity security**: Azure AD accounts without multifactor authentication or Conditional Access policies
 
-Microsoft Defender for Cloud continuously monitors for these vulnerabilities in your Azure environment. For comprehensive guidance on attack techniques and defense strategies, see [What is ransomware?](/security/ransomware/human-operated-ransomware).
+Microsoft Defender for Cloud continuously monitors for these vulnerabilities in your Azure environment. For comprehensive guidance on attack techniques and defense strategies, see [What is ransomware?](/security/ransomware/human-operated-ransomware)
 
 ## Azure native protections against ransomware
 

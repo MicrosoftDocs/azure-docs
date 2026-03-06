@@ -265,6 +265,12 @@
         href: benefits/macc/track-consumption-commitment.md
       - name: Manage a Microsoft Azure Consumption Commitment
         href: benefits/macc/manage-consumption-commitment.md
+    - name: Manage Conditional Azure Credit Offer
+      items:
+      - name: Track your Conditional Azure Credit Offer
+        href: benefits/caco/track-conditional-credit-offer.md
+      - name: Manage a Conditional Azure Credit Offer
+        href: benefits/caco/manage-conditional-credit-offer.md
   - name: Troubleshoot billing
     items:
     - name: Can't view or find invoices

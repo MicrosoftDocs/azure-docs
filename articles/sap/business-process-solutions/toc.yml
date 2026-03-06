@@ -25,3 +25,5 @@ items:
       href: configure-insights.md
   - name: Attestation Document
     href: attestation.md
+  - name: Troubleshooting common issues
+    href: troubleshooting.md

@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 12/31/2025
+ms.date: 02/23/2026
 ms.custom: generated
 ---
 
@@ -305,7 +305,7 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/addPaymentTerms/action | Adds payment terms to all the billing profiles under the billing account.<br>Currently, payment terms can be added only on billing accounts that have Agreement Type as 'Microsoft Customer Agreement' and AccountType as 'Enterprise'.<br>This action needs pre-authorization and only Field Sellers are authorized to add the payment terms and is not a self-serve action. |
 > | Microsoft.Billing/billingAccounts/cancelPaymentTerms/action | Cancels all the payment terms on billing account that falls after the cancellation date in the request. Currently, cancel payment terms is only served by admin actions and is not a self-serve action. |
 > | Microsoft.Billing/billingAccounts/validatePaymentTerms/action | Validates payment terms on a billing account with agreement type 'Microsoft Customer Agreement' and account type 'Enterprise'. |
-> | Microsoft.Billing/billingAccounts/addresses/action | Creates or updates an address for the billing account. The address can be used for billing and shipping purposes. |
+> | Microsoft.Billing/billingAccounts/addresses/action | Gets an address by ID for the billing account. |
 > | Microsoft.Billing/billingAccounts/validateInvoicePayEligibility/action | Validates invoice pay eligibility on a billing account. The operation is supported for billing accounts with agreement of type Microsoft Customer Agreement and Microsoft Partner Agreement. |
 > | Microsoft.Billing/billingAccounts/offboard/action | Offboard a billing account |
 > | Microsoft.Billing/billingAccounts/refresh/action | Refresh resources for a billing account |
@@ -313,6 +313,7 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/addDepartment/write |  |
 > | Microsoft.Billing/billingAccounts/addEnrollmentAccount/write |  |
 > | Microsoft.Billing/billingAccounts/addPaymentTerms/write |  |
+> | Microsoft.Billing/billingAccounts/addresses/versions/action | Gets a specific version of an address by ID for the billing account. |
 > | Microsoft.Billing/billingAccounts/agreements/read | Lists the agreements for a billing account. |
 > | Microsoft.Billing/billingAccounts/alertPreferences/write | Creates or updates an AlertPreference for the specified Billing Account. |
 > | Microsoft.Billing/billingAccounts/alertPreferences/read | Gets the AlertPreference with the given Id. |
@@ -475,6 +476,7 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/enrollmentAccounts/billingSubscriptions/read | Lists the subscriptions for an enrollment account. The operation is supported for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/enrollmentAccounts/checkAccess/write | Provides a list of check access response objects for an enrollment account. |
 > | Microsoft.Billing/billingAccounts/enrollmentAccounts/transferBillingSubscriptions/write |  |
+> | Microsoft.Billing/billingAccounts/fetchAffiliatedBillingAccounts/write | Fetches affiliated billing accounts. |
 > | Microsoft.Billing/billingAccounts/invoices/download/action |  |
 > | Microsoft.Billing/billingAccounts/invoices/read | Lists the invoices for a billing account for a given start date and end date. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement, or Microsoft Online Services Program. |
 > | Microsoft.Billing/billingAccounts/invoices/amend/write | Regenerate an invoice by billing account name and invoice name. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement. |
@@ -811,6 +813,24 @@ Azure service: [Azure Maintenance](/azure/virtual-machines/maintenance-configura
 > | Microsoft.Maintenance/maintenanceConfigurations/maintenanceScope/InGuestPatch/delete | Delete maintenance configuration for InGuestPatch maintenance scope. |
 > | Microsoft.Maintenance/scheduledevents/acknowledge/action | Acknowledge scheduled event of the resource |
 > | Microsoft.Maintenance/updates/read | Read updates to a resource. |
+
+## Microsoft.ManagedOps
+
+Azure service: Microsoft.ManagedOps
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.ManagedOps/register/action | Register the subscription for Microsoft.ManagedOps |
+> | Microsoft.ManagedOps/unregister/action | Unregister the subscription for Microsoft.ManagedOps |
+> | Microsoft.ManagedOps/locations/operationStatuses/write | write operationStatuses |
+> | Microsoft.ManagedOps/locations/operationStatuses/read | read operationStatuses |
+> | Microsoft.ManagedOps/managedOps/write | Updates the ManagedOps instance with the supplied fields. |
+> | Microsoft.ManagedOps/managedOps/delete | Deletes the ManagedOps instance. |
+> | Microsoft.ManagedOps/managedOps/write | Creates or updates the ManagedOps instance. |
+> | Microsoft.ManagedOps/managedOps/read | Gets the information of the ManagedOps instance. |
+> | Microsoft.ManagedOps/managedOps/read | List all ManagedOps instances in the subscription. |
+> | Microsoft.ManagedOps/operations/read | read operations |
 
 ## Microsoft.ManagedServices
 
@@ -1279,6 +1299,10 @@ Azure service: [Azure Resource Manager](/azure/azure-resource-manager/)
 > | Microsoft.Resources/deploymentStacks/validate/action | Validates a deployment stack. |
 > | Microsoft.Resources/deploymentStacks/exportTemplate/action | Export the template for a deployment stack |
 > | Microsoft.Resources/deploymentStacks/manageDenySetting/action | Manage the denySettings property of a deployment stack. |
+> | Microsoft.Resources/deploymentStacksWhatIfResults/read | Gets or lists deployment stack what-if results |
+> | Microsoft.Resources/deploymentStacksWhatIfResults/write | Creates or updates a deployment stack what-if result, which will predict changes to the specified deployment stack |
+> | Microsoft.Resources/deploymentStacksWhatIfResults/delete | Deletes a deployment stack what-if result |
+> | Microsoft.Resources/deploymentStacksWhatIfResults/whatIf/action | Provides property-level detail for the changes predicted by the deployment stack what-if result. |
 > | Microsoft.Resources/links/read | Gets or lists resource links. |
 > | Microsoft.Resources/links/write | Creates or updates a resource link. |
 > | Microsoft.Resources/links/delete | Deletes a resource link. |

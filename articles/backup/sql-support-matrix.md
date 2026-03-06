@@ -2,7 +2,7 @@
 title: Azure Backup support matrix for SQL Server Backup in Azure VMs 
 description: Provides a summary of support settings and limitations when backing up SQL Server in Azure VMs with the Azure Backup service.
 ms.topic: reference
-ms.date: 12/09/2025
+ms.date: 02/13/2026
 ms.custom: references_regions 
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -12,7 +12,7 @@ ms.author: v-mallicka
 
 # Support matrix for SQL Server Backup in Azure VMs
 
-You can use Azure Backup to back up SQL Server databases in Azure VMs hosted on the Microsoft Azure cloud platform. This article summarizes the general support settings and limitations for scenarios and deployments of SQL Server Backup in Azure VMs.
+You can use Azure Backup to back up SQL Server databases in Azure VMs hosted on the Microsoft Azure cloud platform. This article summarizes the general support settings and limitations for scenarios and deployments of SQL Server Backup in Azure VMs. For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
 
 ## Scenario support
 
@@ -74,4 +74,6 @@ Azure Backup supports a consistent data transfer rate of 350 MBps for full and d
 
 ## Next steps
 
-Learn how to [back up a SQL Server database](backup-azure-sql-database.md) that's running on an Azure VM.
+- [Back up a SQL Server database running on an Azure VM](backup-azure-sql-database.md).
+- [Restore backed up SQL Server databases](restore-sql-database-azure-vm.md).
+- [Manage and monitor backed up SQL Server databases using Azure portal](manage-monitor-sql-database-backup.md).

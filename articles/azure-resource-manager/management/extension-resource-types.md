@@ -1,8 +1,8 @@
-﻿---
+---
 title: Extension Resource Types
 description: Lists the Azure resource types that you use to extend the capabilities of other resource types.
 ms.topic: article
-ms.date: 02/09/2025
+ms.date: 02/27/2026
 ---
 
 # Resource types that extend capabilities of other resources

@@ -28,7 +28,7 @@ This section lists the Azure resource types that Azure Load Testing supports for
 * Azure Application Gateway
 * Azure Batch Service
 * Azure Cache for Redis
-* Azure AI services
+* Foundry Tools
 * Azure Container Apps
 * Azure Container Instances
 * Azure Cosmos DB

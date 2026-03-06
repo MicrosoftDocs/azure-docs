@@ -14,9 +14,9 @@ ms.collection: usx-security
 
 ---
 
-# Microsoft Sentinel User and Entity Behavior Analytics (UEBA) reference
+# Microsoft Sentinel User and Entity Behavior Analytics (UEBA) data sources and schema enrichments
 
-This reference article lists the input data sources for the [User and Entity Behavior Analytics service in Microsoft Sentinel](./identify-threats-with-entity-behavior-analytics.md). It also describes the enrichments that UEBA adds to entities, providing needed context to alerts and incidents.
+This article lists the input data sources for the [User and Entity Behavior Analytics service in Microsoft Sentinel](./identify-threats-with-entity-behavior-analytics.md). It also describes the enrichments that UEBA adds to entities, providing needed context to alerts and incidents.
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
@@ -113,7 +113,7 @@ The following table describes the enrichments featured in the **DevicesInsights*
 | **Device type**<br>*(DeviceType)* | The client device type used in the action | Desktop |
 | **ISP**<br>*(ISP)* | The internet service provider used in the action. |  |
 | **Operating system**<br>*(OperatingSystem)* | The operating system used in the action. | Windows 10 |
-| **Threat intel indicator description**<br>*(ThreatIntelIndicatorDescription)* | Description of the observed threat indicator resolved from the IP address used in the action. | Host is member of botnet: azorult |
+| **Threat intel indicator description**<br>*(ThreatIntelIndicatorDescription)* | Description of the observed threat indicator resolved from the IP address used in the action. | Host is member of botnet: azorult |
 | **Threat intel indicator type**<br>*(ThreatIntelIndicatorType)* | The type of the threat indicator resolved from the IP address used in the action. | Botnet, C2, CryptoMining, Darknet, Ddos, MaliciousUrl, Malware, Phishing, Proxy, PUA, Watchlist |
 | **User agent**<br>*(UserAgent)* | The user agent used in the action. | Microsoft Azure Graph Client Library 1.0,<br>​Swagger-Codegen/1.4.0.0/csharp,<br>EvoSTS |
 | **User agent family**<br>*(UserAgentFamily)* | The user agent family used in the action. | Chrome, Microsoft Edge, Firefox |
@@ -211,6 +211,8 @@ The following tables describe the enrichments featured in the **ActivityInsights
 | **Unusual number of devices added**<br>*(UnusualNumberOfDevicesAdded)* | 5 | A user added an unusual number of devices. | True, False |
 | **Unusual number of devices deleted**<br>*(UnusualNumberOfDevicesDeleted)* | 5 | A user deleted an unusual number of devices. | True, False |
 | **Unusual number of users added to group**<br>*(UnusualNumberOfUsersAddedToGroup)* | 5 | A user added an unusual number of users to a group. | True, False |
+
+</details>
 
 ### IdentityInfo table
 
@@ -388,35 +390,6 @@ The following fields, while they exist in the Log Analytics schema, should be di
 
 These fields don't exist at all in the new, unified schema.
 
----
-
-## UEBA integration with Microsoft Sentinel workflows
-
-UEBA insights are integrated throughout Microsoft Sentinel to enhance your security operations workflows:
-
-### Entity pages and user investigation
-
-- **Anomalies in User Panel**: View the top 3 user anomalies from the last 30 days directly in the user side panel and overview tab of user pages. This provides immediate UEBA context when investigating users across various portal locations. For more information, see [Investigate entities with entity pages](entity-pages.md).
-
-### Hunting and detection enhancement
-
-- **Go Hunt Anomalies Query**: Access built-in anomalies queries directly from incident graphs when investigating user entities, enabling immediate contextual hunting based on UEBA outcomes.
-- **Anomalies Table Recommendations**: Receive intelligent suggestions to enhance hunting queries by adding the UEBA Anomalies table when querying eligible data sources.
-
-For more information about these hunting enhancements, see [Threat hunting in Microsoft Sentinel](hunting.md).
-
-### Investigation workflows
-
-- **Enhanced investigation graph**: When investigating incidents with user entities, access UEBA anomalies queries directly from the investigation graph to gain immediate behavioral context.
-
-For more information about investigation enhancements, see [Investigate Microsoft Sentinel incidents in depth](investigate-incidents.md).
-
-### Prerequisites for enhanced UEBA integration
-
-To access these enhanced UEBA capabilities:
-- UEBA must be enabled in your Microsoft Sentinel workspace
-- Your workspace must be onboarded to the Microsoft Defender portal (for some features)
-- Appropriate permissions to view UEBA data and run hunting queries
 
 ## Next steps
 

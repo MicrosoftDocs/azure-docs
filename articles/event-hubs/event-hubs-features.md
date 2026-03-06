@@ -7,7 +7,7 @@ ms.date: 01/12/2026
 
 # Event Hubs features and terminology
 
-This article explains the core concepts and terminology of Azure Event Hubs. For a high-level overview, see [What is Event Hubs?](./event-hubs-about.md).
+This article explains the core concepts and terminology of Azure Event Hubs. For a high-level overview, see [What is Event Hubs?](./event-hubs-about.md)
 
 ## Concepts at a glance
 

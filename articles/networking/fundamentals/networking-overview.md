@@ -87,7 +87,7 @@ The following diagram shows endpoint priority-based routing with Traffic Manager
 
 :::image type="content" source="./media/networking-overview/priority.png" alt-text="Diagram of Azure Traffic Manager 'Priority' traffic-routing method.":::
 
-For more information about Traffic Manager, see [What is Azure Traffic Manager?](../../traffic-manager/traffic-manager-overview.md).
+For more information about Traffic Manager, see [What is Azure Traffic Manager?](../../traffic-manager/traffic-manager-overview.md)
 
 ## <a name="delivery"></a>Load balancing and content delivery
 

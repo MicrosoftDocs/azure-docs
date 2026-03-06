@@ -5,7 +5,7 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 10/09/2025
+ms.date: 02/25/2026
 ms.author: kesheth
 ms.custom:
   - mode-api
@@ -31,7 +31,7 @@ Create a workspace from the [Azure portal](../healthcare-apis-quickstart.md), or
 
 You can create a FHIR service instance from the [Azure portal](../fhir/fhir-portal-quickstart.md), or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Azure Health Data Services samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
 
-Optionally, you can create a [DICOM service](../dicom/deploy-dicom-services-in-azure.md) and [MedTech service](../iot/deploy-iot-connector-in-azure.md) in the workspace.
+Optionally, you can create a [DICOM service](../dicom/deploy-dicom-services-in-azure.md) in the workspace.
 
 ## Access the FHIR service
 
@@ -81,10 +81,8 @@ Optionally, you can convert [HL7 v2](convert-data-overview.md) data and other fo
 
 ### Using FHIR data in Power BI dashboard
 
-Optionally, you can create Power BI dashboard reports with FHIR data.
+Optionally, you can create Power BI dashboard reports with FHIR data. For more information, see [Power Query connector for FHIR](/power-query/connectors/fhir/fhir)
 
-- [Power Query connector for FHIR](/power-query/connectors/fhir/fhir)
-- [MedTech service and Microsoft Power BI](../iot/iot-connector-power-bi.md)
 
 ## Next steps
 

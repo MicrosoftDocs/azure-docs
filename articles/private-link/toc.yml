@@ -118,6 +118,8 @@
           href: network-security-perimeter-role-based-access-control-requirements.md
 - name: Operational excellence
   items:
+    - name: Reliability in Azure Private Link
+      href: /azure/reliability/reliability-private-link-service?toc=/azure/private-link/toc.json
     - name: Monitor Private Link
       href: monitor-private-link.md
     - name: Manage network policies for private endpoints

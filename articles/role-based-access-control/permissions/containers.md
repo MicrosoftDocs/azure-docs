@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 12/31/2025
+ms.date: 02/23/2026
 ms.custom: generated
 ---
 
@@ -457,6 +457,9 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/fleets/coordination.k8s.io/leases/read | Reads leases |
 > | Microsoft.ContainerService/fleets/coordination.k8s.io/leases/write | Writes leases |
 > | Microsoft.ContainerService/fleets/coordination.k8s.io/leases/delete | Deletes leases |
+> | Microsoft.ContainerService/fleets/customresources/read | Reads custom resources |
+> | Microsoft.ContainerService/fleets/customresources/write | Writes custom resources |
+> | Microsoft.ContainerService/fleets/customresources/delete | Deletes custom resources |
 > | Microsoft.ContainerService/fleets/endpoints/read | Reads endpoints |
 > | Microsoft.ContainerService/fleets/endpoints/write | Writes endpoints |
 > | Microsoft.ContainerService/fleets/endpoints/delete | Deletes endpoints |

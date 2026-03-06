@@ -7,7 +7,7 @@ author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.service: azure-app-configuration
 ms.topic: overview
-ms.date: 02/04/2026
+ms.date: 02/23/2026
 #Customer intent: I want to learn about the configuration provider libraries of different languages, specifically to track their feature development status.
 ms.custom:
   - build-2025
@@ -62,13 +62,13 @@ Custom Key Vault Secret Resolution | [GA](./reference-dotnet-provider.md#key-vau
 Parallel Secret Resolution | WIP | N/A | WIP | N/A | [GA](./reference-javascript-provider.md#parallel-secret-resolution) | GA
 Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | [GA](/azure/developer/java/spring-framework/app-configuration-support#feature-management) | GA | [GA](./reference-python-provider.md#feature-flag-refresh) | [GA](./reference-javascript-provider.md#feature-flag) | [GA](./reference-go-provider.md#feature-flags)
 Variant Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | GA | GA | GA | [GA](./reference-javascript-provider.md#feature-flag) | [GA](./reference-go-provider.md#feature-flags)
-Feature Flag Telemetry | [GA](./reference-dotnet-provider.md#feature-flag-telemetry) | GA | GA | [GA](./reference-python-provider.md#feature-flag-telemetry) | GA | WIP
-Key Prefix Trim | [GA](./reference-dotnet-provider.md#trim-prefix-from-keys) | GA | GA | [GA](./reference-python-provider.md#trimming-keys) | [GA](./reference-javascript-provider.md#trim-prefix-from-keys) | [GA](./reference-go-provider.md#trim-prefix-from-keys)
+Feature Flag Telemetry | [GA](./reference-dotnet-provider.md#feature-flag-telemetry) | [GA](/azure/developer/java/spring-framework/app-configuration-support#feature-flag-telemetry) | GA | [GA](./reference-python-provider.md#feature-flag-telemetry) | GA | WIP
+Key Prefix Trim | [GA](./reference-dotnet-provider.md#trim-prefix-from-keys) | [GA](/azure/developer/java/spring-framework/app-configuration-support#trimming-keys) | GA | [GA](./reference-python-provider.md#trimming-keys) | [GA](./reference-javascript-provider.md#trim-prefix-from-keys) | [GA](./reference-go-provider.md#trim-prefix-from-keys)
 Configurable Startup Time-out | [GA](./reference-dotnet-provider.md#startup-retry) | WIP | N/A | WIP | [GA](./reference-javascript-provider.md#startup-retry) | [GA](./reference-go-provider.md#startup-retry)
 Replica Auto Discovery | [GA](./reference-dotnet-provider.md#geo-replication) | [GA](/azure/developer/java/spring-framework/app-configuration-support#geo-replication) | GA | [GA](./reference-python-provider.md#geo-replication) | [GA](./reference-javascript-provider.md#geo-replication) | [GA](./reference-go-provider.md#geo-replication)
 Replica Failover | [GA](./reference-dotnet-provider.md#geo-replication) | [GA](/azure/developer/java/spring-framework/app-configuration-support#geo-replication) | GA | [GA](./reference-python-provider.md#geo-replication) | [GA](./reference-javascript-provider.md#geo-replication) | [GA](./reference-go-provider.md#geo-replication)
 Replica Load Balancing | [GA](./reference-dotnet-provider.md#geo-replication) | GA | GA | [GA](./reference-python-provider.md#geo-replication) | [GA](./reference-javascript-provider.md#geo-replication) | [GA](./reference-go-provider.md#geo-replication)
-Snapshots | [GA](./reference-dotnet-provider.md#snapshot) | GA | GA | [GA](./reference-python-provider.md#load-configuration-from-snapshots) | [GA](./reference-javascript-provider.md#snapshot) | [GA](./reference-go-provider.md#snapshot)
+Snapshots | [GA](./reference-dotnet-provider.md#snapshot) | [GA](/azure/developer/java/spring-framework/app-configuration-support#selecting-configurations) | GA | [GA](./reference-python-provider.md#load-configuration-from-snapshots) | [GA](./reference-javascript-provider.md#snapshot) | [GA](./reference-go-provider.md#snapshot)
 Distributed Tracing | [GA](./reference-dotnet-provider.md#distributed-tracing) | WIP | WIP | WIP | WIP | N/A
 Health Check | [GA](./reference-dotnet-provider.md#health-check) | [GA](/azure/developer/java/spring-framework/app-configuration-support#health-indicator) | WIP | WIP | WIP | N/A 
 Select by Tag Filters | [GA](./reference-dotnet-provider.md#load-specific-key-values-using-selectors) | WIP | GA | [GA](./reference-python-provider.md#tag-filters) | [GA](./reference-javascript-provider.md#tag-filters) | [GA](./reference-go-provider.md#tag-filters)

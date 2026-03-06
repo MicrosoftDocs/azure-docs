@@ -42,7 +42,7 @@ The `validate-graphql-request` policy validates the GraphQL request and authoriz
 |Name|Description|Required|
 |----------|-----------------|--------------|
 | authorize | Add this element to set an appropriate authorization rule for one or more paths. | No |
-| rule | Add one or more of these elements to authorize specific query paths. Each rule can optionally specify a different [action](#request-actions). May be specified conditionally using a policy expression. | No |
+| rule | Add one or more of these elements to authorize specific query paths. Each rule can optionally specify a different [action](#request-actions). May be specified conditionally using a policy expression.<br/><br/>For each GraphQL leaf field, API Management evaluates all matching rules and applies the most specific path match (for example, `/Query/listUsers` overrides `/Query/*`). | No |
 
 
 ### rule attributes

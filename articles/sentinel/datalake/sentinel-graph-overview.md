@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 11/13/2025
 ms.author: monaberdugo
 ms.service: microsoft-sentinel
-ms.subservice: sentinel-graph
+ms.subservice: sentinel-platform
 
 #customer intent: As a security analyst, I want to understand Microsoft Sentinel graph capabilities so that I can detect complex attack paths and relationships that are difficult to identify with traditional tabular queries.
 ---

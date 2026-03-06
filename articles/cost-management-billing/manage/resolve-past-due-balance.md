@@ -2,12 +2,12 @@
 title: Resolve a past-due balance your pay-as-you-go Azure subscription
 description: Learn how to make a payment if your Azure subscription has a past-due balance.
 author: kennyday
-ms.reviewer: drjones
+ms.reviewer: souchak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.date: 10/14/2025
-ms.author: drjones
+ms.author: souchak
 ms.custom: references_regions
 ---
 

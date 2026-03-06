@@ -18,7 +18,7 @@ This article describes how to configure data export to send data to the Azure Da
 
 ## Set up an Azure Data Explorer export destination
 
-You can use an [Azure Data Explorer cluster](/azure/data-explorer/data-explorer-overview) or an [Azure Synapse Data Explorer pool](../../synapse-analytics/data-explorer/data-explorer-overview.md). To learn more, see [What is the difference between Azure Synapse Data Explorer and Azure Data Explorer?](../../synapse-analytics/data-explorer/data-explorer-compare.md).
+You can use an [Azure Data Explorer cluster](/azure/data-explorer/data-explorer-overview) or an [Azure Synapse Data Explorer pool](../../synapse-analytics/data-explorer/data-explorer-overview.md). To learn more, see [What is the difference between Azure Synapse Data Explorer and Azure Data Explorer?](../../synapse-analytics/data-explorer/data-explorer-compare.md)
 
 IoT Central exports data in near real time to a database table in the Azure Data Explorer cluster. The data is in the message body and is in JSON format encoded as UTF-8. You can add a [Transform](howto-transform-data-internally.md) in IoT Central to export data that matches the table schema.
 

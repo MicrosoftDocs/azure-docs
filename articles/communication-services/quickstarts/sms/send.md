@@ -2,10 +2,10 @@
 title: Send an SMS message
 titleSuffix: Azure Communication Services
 description: This article describes how to send an SMS message using Azure Communication Services. See code examples in C#, JavaScript, Java, and Python.
-author: tophpalmer
+author: sundiraman
 manager: chpalm
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 05/25/2022
 ms.topic: quickstart
 ms.service: azure-communication-services

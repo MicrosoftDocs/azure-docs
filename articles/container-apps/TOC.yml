@@ -45,6 +45,79 @@ items:
               href: jobs-get-started-portal.md
             - name: Command line
               href: jobs-get-started-cli.md
+
+- name: AI integration
+  items:
+    - name: Overview
+      href: ai-integration.md
+    - name: Compose for agents
+      href: compose-agent.md
+    - name: MCP servers
+      items:
+        - name: Overview
+          href: mcp-overview.md
+        - name: Choose a hosting option
+          href: mcp-choosing-azure-service.md
+        - name: Tutorials
+          items:
+            - name: Deploy with .NET
+              href: tutorial-mcp-server-dotnet.md
+            - name: Deploy with Python
+              href: tutorial-mcp-server-python.md
+            - name: Deploy with Node.js
+              href: tutorial-mcp-server-nodejs.md
+            - name: Deploy with Java
+              href: tutorial-mcp-server-java.md
+        - name: Authentication
+          href: mcp-authentication.md
+        - name: Troubleshooting
+          href: mcp-troubleshooting.md
+    - name: GPUs
+      items:
+        - name: Serverless GPUs
+          href: gpu-serverless-overview.md
+        - name: GPU types
+          href: gpu-types.md
+        - name: Tutorials
+          items:
+            - name: Deploy AI image generation with serverless GPUs
+              href: tutorial-gpu-image-generation.md
+            - name: Deploy an NVIDIA Llama3 NIM
+              href: serverless-gpu-nim.md
+            - name: Deploy OpenAI GPT with OSS Ollama
+              href: deploy-openai-gpt-oss-ollama.md
+    - name: Dynamic sessions
+      items:
+        - name: Overview
+          href: sessions.md
+        - name: Usage
+          href: sessions-usage.md
+        - name: Session pools
+          href: session-pool.md
+        - name: Code interpreter sessions
+          href: sessions-code-interpreter.md
+        - name: Custom container sessions
+          href: sessions-custom-container.md
+        - name: Tutorials
+          items:
+            - name: AutoGen
+              href: sessions-tutorial-autogen.md
+            - name: LangChain
+              href: sessions-tutorial-langchain.md
+            - name: LlamaIndex
+              href: sessions-tutorial-llamaindex.md
+            - name: Semantic Kernel
+              href: sessions-tutorial-semantic-kernel.md
+            - name: JavaScript code interpreter
+              href: sessions-tutorial-nodejs.md
+            - name: Shell session
+              href: sessions-tutorial-shell.md
+            - name: Shell session with MCP
+              href: sessions-tutorial-shell-mcp.md
+            - name: Python code interpreter with MCP
+              href: sessions-tutorial-python-mcp.md
+    - name: Modernize .NET & Java apps
+      href: modernize-ai.md
 - name: Key concepts
   items:
     - name: Compute and billing structures
@@ -183,58 +256,6 @@ items:
           href: migrate-heroku-overview.md
         - name: Migrate from Heroku
           href: migrate-heroku.md
-- name: AI integration
-  items:
-    - name: Overview
-      href: ai-integration.md
-    - name: Compose for agents
-      href: compose-agent.md
-    - name: GPUs
-      items:
-        - name: Serverless GPUs
-          href: gpu-serverless-overview.md
-        - name: GPU types
-          href: gpu-types.md
-        - name: Tutorials
-          items:
-            - name: Deploy AI image generation with serverless GPUs
-              href: tutorial-gpu-image-generation.md
-            - name: Deploy an NVIDIA Llama3 NIM
-              href: serverless-gpu-nim.md
-            - name: Deploy OpenAI GPT with OSS Ollama
-              href: deploy-openai-gpt-oss-ollama.md
-    - name: Dynamic sessions
-      items:
-        - name: Overview
-          href: sessions.md
-        - name: Usage
-          href: sessions-usage.md
-        - name: Session pools
-          href: session-pool.md
-        - name: Code interpreter sessions
-          href: sessions-code-interpreter.md
-        - name: Custom container sessions
-          href: sessions-custom-container.md
-        - name: Tutorials
-          items:
-            - name: AutoGen
-              href: sessions-tutorial-autogen.md
-            - name: LangChain
-              href: sessions-tutorial-langchain.md
-            - name: LlamaIndex
-              href: sessions-tutorial-llamaindex.md
-            - name: Semantic Kernel
-              href: sessions-tutorial-semantic-kernel.md
-            - name: JavaScript code interpreter
-              href: sessions-tutorial-nodejs.md
-            - name: Shell session
-              href: sessions-tutorial-shell.md
-            - name: Shell session with MCP
-              href: sessions-tutorial-shell-mcp.md
-            - name: Python code interpreter with MCP
-              href: sessions-tutorial-python-mcp.md
-    - name: Modernize .NET & Java apps
-      href: modernize-ai.md
 - name: Observability
   items:
     - name: Overview
@@ -449,6 +470,8 @@ items:
           href: mtls.md
         - name: Integrate with Azure Front Door
           href: how-to-integrate-with-azure-front-door.md
+        - name: Use Azure Front Door and Private Link
+          href: front-door-custom-virtual-network-private-link.md
 - name: Languages and runtimes
   items:
     - name: .NET

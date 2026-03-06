@@ -34,7 +34,7 @@ The following table shows the availability status of securing Internet access wi
 
 | Security solution |Status|
 |--|--|
-|Azure Firewall |Generally Available in Azure Public and Azure Government Clouds.|
+|Azure Firewall |Generally Available in Azure Public and Azure Government.|
 |Firewall NVA in the Virtual WAN hub| Generally Available in regions where [Network Virtual Appliances](about-nva-hub.md#regions) are available. |
 | Software-as-a-service in the Virtual WAN Hub|  Generally Avaialble in regions where [Palo Alto Cloud NGFW is available](https://docs.paloaltonetworks.com/cloud-ngfw-azure/reference/cloud-ngfw-for-azure-supported-regions-and-zones).|
 
@@ -42,12 +42,10 @@ The following table shows the availability status of securing Internet access wi
 
 The following table shows the availability status of securing Internet access with **forced tunneling** by configuring private routing policy.
 
->[!IMPORTANT]
-> Configuring Virtual WAN hubs in forced tunnel mode is deployed to Azure Public. Deployment is underway for Azure Government. If you have any questions regarding region availability, contact virtual-wan-forced-tunnel@microsoft.com or your Microsoft account team.
 
  Security solution |Status|
 |--|--|
-|Azure Firewall |Generally Available in Azure Public.|
+|Azure Firewall |Generally Available in Azure Public and Azure Government.|
 |Firewall NVA in the Virtual WAN hub| Public Preview in regions where [Network Virtual Appliances](about-nva-hub.md#regions) are available.|
 | Software-as-a-service in the Virtual WAN Hub| Public Preview in regions where [Palo Alto Cloud NGFW is available](https://docs.paloaltonetworks.com/cloud-ngfw-azure/reference/cloud-ngfw-for-azure-supported-regions-and-zones).|
 

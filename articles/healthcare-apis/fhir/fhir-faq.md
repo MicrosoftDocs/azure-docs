@@ -5,8 +5,8 @@ services: healthcare-apis
 author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
-ms.topic: reference
-ms.date: 05/27/2025
+ms.topic: faq
+ms.date: 02/23/2026
 ms.author: kesheth
 ms.custom: references_regions
 ---
@@ -29,11 +29,11 @@ Yes, the data is stored in managed databases in Azure. The FHIR service in Azure
 
 ### How can I get access to the underlying data?
 
-In the managed service, you can't access the underlying data. This is to ensure that the FHIR service offers the privacy and compliance certifications needed for healthcare data. If you need access to the underlying data, you can use the [open-source FHIR server](https://github.com/microsoft/fhir-server).  
+In the managed service, you can't access the underlying data. This policy is to ensure that the FHIR service offers the privacy and compliance certifications needed for healthcare data. If you need access to the underlying data, you can use the [open-source FHIR server](https://github.com/microsoft/fhir-server).  
 
 ### What identity provider do you support?
 
-We support Microsoft Entra ID and third party identity provider that support OpenID connect.
+We support Microsoft Entra ID and non-Microsoft identity providers that support OpenID connect.
 
 ### Can I use Azure AD B2C with the FHIR service?
 
@@ -43,7 +43,7 @@ Yes. You can use [Azure Active Directory B2C](../../active-directory-b2c/overvie
 
 We support versions 4.0.0 and 3.0.1.
 
-For more information, see [Supported FHIR features](fhir-features-supported.md). You can also read about what has changed between FHIR versions (STU3 to R4) in the [version history for HL7 FHIR](https://hl7.org/fhir/R4/history.html).
+For more information, see [Supported FHIR features](fhir-features-supported.md). You can also read about what changed between FHIR versions (STU3 to R4) in the [version history for HL7 FHIR](https://hl7.org/fhir/R4/history.html).
 
 ### What is the difference between Azure API for FHIR and the FHIR service in the Azure Health Data Services?
 
@@ -51,15 +51,15 @@ Azure API for FHIR was our initial generally available product and is being reti
 
 |Capabilities|Azure API for FHIR|Azure Health Data Services|
 |------------|------------------|--------------------------|
-|**Data ingress**|Tools available in OSS|$import operation. For information visit [Import operation](configure-import-data.md)|
+|**Data ingress**|Tools available in OSS|$import operation. For information, visit [Import operation](configure-import-data.md)|
 |**Autoscaling**|Supported on request and incurs charge|[Autoscaling](fhir-service-autoscale.md) enabled by default at no extra charge|
 |**Search parameters**|Bundle type supported: Batch <br> • Include and revinclude, iterate modifier not supported  <br> • Sorting supported by first name, last name, birthdate and clinical date|Bundle type supported: Batch and transaction  <br> • [Selectable search parameters](selectable-search-parameters.md)  <br> • Include, revinclude, and iterate modifier is supported <br>• Sorting supported by string and dateTime fields|
 |**Events**|Not Supported|Supported|
-|**Convert-data**|Supports enabling "Allow trusted services" in Account container registry| There's a known issue: Enabling private link with Azure Container Registry may result in access issues when attempting to use the container registry from the FHIR service.|
+|**Convert-data**|Supports enabling "Allow trusted services" in Account container registry| There's a known issue: Enabling private link with Azure Container Registry can result in access issues when attempting to use the container registry from the FHIR service.|
 |**Business continuity**|Supported:<br> • Cross region DR (disaster recovery)  <br>|Supported: <br> • PITR (point in time recovery) <br> • Availability zone support|
 
-By default each Azure Health Data Services, FHIR instance is limited to storage capacity of 4TB.
-To provision a FHIR instance with storage capacity beyond 4TB, create a support request with Issue type 'Service and Subscription limit (quotas)'.
+By default each Azure Health Data Services, FHIR instance is limited to storage capacity of 4 TB.
+To provision a FHIR instance with storage capacity beyond 4 TB, create a support request with Issue type 'Service and Subscription limit (quotas)'.
 
 ### What's the difference between the FHIR service in Azure Health Data Services and the open-source FHIR server?
 
@@ -73,11 +73,11 @@ FHIR service is available in all regions that Azure Health Data Services is avai
 
 ### Where can I see what is releasing into the FHIR service?
 
-The [release notes](../release-notes.md) page provides an overview of everything that has shipped to the managed service in the previous month. 
+The [release notes](../release-notes.md) page provides an overview of everything that shipped to the managed service in the previous month. 
 
-To see what will be releasing to the managed service, you can review the [releases page](https://github.com/microsoft/fhir-server/releases) of the open-source FHIR Server. We've worked to tag items with Azure Health Data Services if they'll release to the managed service and are available two weeks after they are on the open-source release page in. We have also included instructions on how to [test the build](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md), if you'd like to test in your own environment. We're evaluating how to best share additional managed service updates.
+To see what is releasing to the managed service, you can review the [releases page](https://github.com/microsoft/fhir-server/releases) of the open-source FHIR Server. Items are tagged with Azure Health Data Services if they'll release to the managed service and are available two weeks after they are on the open-source release page in. There are instructions on how to [test the build](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md), if you'd like to test in your own environment. We're evaluating how to best share more managed service updates.
 
-To see what release package is currently in the managed service, you can view the capability statement for the FHIR service and under the `software.version` property. You'll see which package is deployed. 
+To see what release package is currently in the managed service, you can view the capability statement for the FHIR service and under the `software.version` property. 
 
 ### Where can I find what version of FHIR (R4/STU3) is running on my database?
 
@@ -85,7 +85,7 @@ You can find the exact FHIR version exposed in the capability statement under th
 
 ### Can I switch my FHIR service from STU3 to R4?
 
-No. We don't have a way to change the version of an existing database. You'll need to create a new FHIR service and reload the data. You can leverage the JSON to FHIR converter as a place to start with converting STU3 data into R4.
+No. We don't have a way to change the version of an existing database. You need to create a new FHIR service and reload the data. You can use the JSON to FHIR converter as a place to start with converting STU3 data into R4.
 
 ### Can I customize the URL for my FHIR service?
 
@@ -93,8 +93,23 @@ No. You can't change the URL for the FHIR service.
 
 ### What are the limits associated with the FHIR service in Azure Health Data Services?
 
-Please refer to the "Service limits" section in 
+Refer to the "Service limits" section in 
 [Azure FHIR service limits](fhir-features-supported.md#service-limits)
+
+**What should I do if I accidentally deployed the Azure API for FHIR into the wrong subscription, deleted it, and am now facing a deployment failure in the correct subscription with a message stating that the resource name is not available?**
+
+Once a service name is used, it can't be reused in a different subscription, even after deletion. This restriction is in place to prevent impersonation and primarily impacts Azure API for FHIR.
+
+If deployed to the wrong subscription, you can move the resource to the desired subscription instead of deleting and recreating it. [Move Azure Resources](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+
+**How can I delete a service and then re-add it with the same settings?**
+
+To replicate settings between FHIR instance, you can follow below steps 
+
+*	Create standard ARM templates with the configurations.
+
+*	Create a service and add configuration as per requirement.
+
 
 ## FHIR Implementations and Specifications
 
@@ -104,16 +119,16 @@ SMART (Substitutable Medical Applications and Reusable Technology) on FHIR is a 
 
 ### Does the FHIR service support SMART on FHIR?
 
-Yes, SMART on FHIR capability is supported using [AHDS samples](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/blob/main/samples/patientandpopulationservices-smartonfhir-oncg10-smart-v1/docs/deployment.md). This is referred to as SMART on FHIR(Enhanced). SMART on FHIR(Enhanced) can be considered to meet requirements with [SMART on FHIR Implementation Guide (v 1.0.0)](https://hl7.org/fhir/smart-app-launch/1.0.0/) and [§170.315(g)(10) Standardized API for patient and population services criterion](https://www.healthit.gov/test-method/standardized-api-patient-and-population-services#ccg). For more information, visit [SMART on FHIR(Enhanced) Documentation](smart-on-fhir.md).
+Yes, SMART on FHIR capability is supported using [AHDS samples](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/blob/main/samples/patientandpopulationservices-smartonfhir-oncg10-smart-v1/docs/deployment.md). This capability is referred to as SMART on FHIR(Enhanced). SMART on FHIR(Enhanced) can be considered to meet requirements with [SMART on FHIR Implementation Guide (v 1.0.0)](https://hl7.org/fhir/smart-app-launch/1.0.0/) and [§170.315(g)(10) Standardized API for patient and population services criterion](https://www.healthit.gov/test-method/standardized-api-patient-and-population-services#ccg). For more information, visit [SMART on FHIR(Enhanced) Documentation](smart-on-fhir.md).
 
 
 ### Can I create a custom FHIR resource?
 
-We don't allow custom FHIR resources. If you need a custom FHIR resource, you can build a custom resource on top of the [Basic resource](https://www.hl7.org/fhir/basic.html) with extensions. 
+Custom FHIR resources are not supported. If you need a custom FHIR resource, you can build a custom resource on top of the [Basic resource](https://www.hl7.org/fhir/basic.html) with extensions. 
 
 ### Are extensions supported on the FHIR service?
 
-Yes. We allow you to load any valid FHIR JSON data into the server. If you want to store the structure definition that defines [extensions](https://www.hl7.org/fhir/extensibility.html), you can save this as a structure definition resource. To search on extensions, you'll need to [define your own search parameters](how-to-do-custom-search.md).
+Yes. You can load any valid FHIR JSON data into the server. If you want to store the structure definition that defines [extensions](https://www.hl7.org/fhir/extensibility.html), you can save it as a structure definition resource. To search on extensions, you need to [define your own search parameters](how-to-do-custom-search.md).
 
 ### How do I see the FHIR service in XML?
 
@@ -121,15 +136,15 @@ In the managed service, we only support JSON. The open-source FHIR server suppor
 
 ### What is the limit on _count?
 
-The current limit on _count is 1000. If you set _count to more than 1000, you'll receive a warning in the bundle that only 1,000 records will be shown.
+The current limit on _count is 1000. If you set _count to more than 1000, you receive a warning in the bundle that only 1000 records will be shown.
 
 ### Can I post a bundle to the FHIR service?
 
-We currently support posting [batch bundles](https://www.hl7.org/fhir/valueset-bundle-type.html) and posting [transaction bundles](https://www.hl7.org/fhir/http.html#transaction) in the FHIR service.
+Posting [batch bundles](https://www.hl7.org/fhir/valueset-bundle-type.html) and posting [transaction bundles](https://www.hl7.org/fhir/http.html#transaction) in the FHIR service is supported.
 
 ### How can I get all resources for a single patient in the FHIR service?
 
-We support the [$patient-everything operation](patient-everything.md) which gets you all data related to a single patient. 
+Use the [$patient-everything operation](patient-everything.md) that gets you all data related to a single patient. 
 
 ### Does the FHIR service support any terminology operations?
 
@@ -139,19 +154,19 @@ No, the FHIR service doesn't currently support terminology operations.
 
 ### Can I perform health checks on FHIR service?
 
-To perform a health check on a FHIR service, enter `{{fhirurl}}/health/check` in the GET request. You should be able to see status of FHIR service. A HTTP Status code response with 200 and OverallStatus as **Healthy** means your health check is successful.
+To perform a health check on a FHIR service, enter `{{fhirurl}}/health/check` in the GET request. You should be able to see status of FHIR service. An HTTP Status code response with 200 and OverallStatus as **Healthy** means your health check is successful.
 
-If there are errors, you may receive an error response with HTTP status code 404 (Not Found) or status code 500 (Internal Server Error), and detailed information in the response body.
+If there are errors, you could receive an error response with HTTP status code 404 (Not Found) or status code 500 (Internal Server Error), and detailed information in the response body.
 
 **What are the recommended methods for syncing data between the FHIR service and Dataverse?**
 
-Please refer to documentation for
+Refer to documentation for
 [Dataverse healthcare APIs](/dynamics365/industry/healthcare/dataverse-healthcare-apis-overview)
 
 
 ## Next steps
 
-In this article, you've learned the answers to frequently asked questions about FHIR service. To see the frequently asked questions about FHIR service in Azure API for FHIR, see
+In this article, you learned the answers to frequently asked questions about FHIR service. To see the frequently asked questions about FHIR service in Azure API for FHIR, see
  
 >[!div class="nextstepaction"]
 >[FAQs about Azure API for FHIR](../azure-api-for-fhir/fhir-faq.yml)

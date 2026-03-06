@@ -1,7 +1,6 @@
 ---
 title: Publish and Subscribe MQTT Messages Using Azure MQTT Broker
 description: Use MQTT broker to publish and subscribe to messages. Destinations include other MQTT brokers, data flows, and Azure cloud services.
-#customer intent: As a solution architect, I want to learn about the architecture of the Azure MQTT broker so that I can design fault-tolerant and scalable IoT solutions.  
 author: sethmanheim
 ms.author: sethm
 ms.subservice: azure-mqtt-broker
@@ -11,21 +10,24 @@ ms.custom:
   - ai-gen-docs-bap
   - ai-gen-title
   - ai-seo-date:05/07/2025
-ms.date: 06/06/2025
+ms.date: 02/26/2026
 ms.service: azure-iot-operations
+
+#customer intent: As a solution architect, I want to learn about the architecture of the Azure MQTT broker so that I can design fault-tolerant and scalable IoT solutions.  
+
 ---
 
 # Azure IoT Operations built-in local MQTT broker
 
 [!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
-Azure IoT Operations includes an MQTT broker that's enterprise grade and standards compliant. The MQTT broker is scalable, highly available, and Kubernetes native. It provides the messaging plane for IoT Operations, enables bidirectional edge-to-cloud communication, and supports [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
+Azure IoT Operations includes an MQTT broker that's enterprise-grade and standards-compliant. The MQTT broker is scalable, highly available, and Kubernetes native. It provides the messaging plane for Azure IoT Operations, enables bidirectional edge-to-cloud communication, and supports [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
 
 ## MQTT compliance
 
 MQTT is a common protocol in the IoT space. Its simple design lets a single broker serve thousands of clients simultaneously with lightweight publish-subscribe topic creation and management. Many IoT devices natively support MQTT. Downstream translation gateways convert various IoT protocols into MQTT.
 
-The MQTT broker supports the messaging layer in IoT Operations and is compatible with MQTT v3.1.1 and MQTT v5. For more information about supported MQTT features, see [MQTT feature support in MQTT broker](../reference/mqtt-support.md).
+The MQTT broker supports the messaging layer in Azure IoT Operations and is compatible with MQTT v3.1.1 and MQTT v5. For more information about supported MQTT features, see [MQTT feature support in MQTT broker](../reference/mqtt-support.md).
 
 ## Architecture
 
@@ -49,7 +51,7 @@ The goals of the architecture are:
 
 For configuration, the MQTT broker uses several Kubernetes custom resources to define different aspects of the broker's behavior and functionality:
 
-- The main resource is [Broker](/rest/api/iotoperations/broker), which defines the global settings like cardinality, memory usage profile, and diagnostic settings.
+- The main resource is the [Broker](/rest/api/iotoperations/broker), which defines global settings like cardinality, memory usage profile, and diagnostic settings.
 - A Broker resource can have up to three [BrokerListeners](/rest/api/iotoperations/broker-listener), each of which listens for incoming MQTT connections on the specified service type (`NodePort`, `LoadBalancer`, or `ClusterIP`). Each BrokerListener resource can have multiple ports.
 - Each port within a BrokerListener resource can be associated with a [BrokerAuthentication](/rest/api/iotoperations/broker-authentication) resource and a [BrokerAuthorization](/rest/api/iotoperations/broker-authorization) resource. These authentication and authorization policies determine which clients can connect to the port and what actions they can perform on the broker.
 
@@ -95,9 +97,9 @@ erDiagram
 > 
 > To customize the MQTT broker deployment, add new resources such as BrokerListeners, BrokerAuthentication, and BrokerAuthorization to the default Broker.
 > 
-> The Broker resource is immutable and can't be modified after deployment, but it requires customization only in advanced scenarios. To learn more about customizing the Broker resource, see [Customize default Broker](#customize-default-broker).
+> The Broker resource is immutable and can't be modified after deployment, but it requires customization only in advanced scenarios. For more information about customizing the Broker resource, see [Customize default Broker](#customize-default-broker).
 
-In a full deployment, you could have multiple BrokerListeners, each with multiple ports, and each port could have different BrokerAuthentication and BrokerAuthorization resources associated with it.
+In a full deployment, you can have multiple BrokerListeners, each with multiple ports, and each port can have different BrokerAuthentication and BrokerAuthorization resources associated with it.
 
 For example, starting from the default setup, you add:
 
@@ -189,7 +191,7 @@ Customizing the default broker resource isn't required for most setups. The sett
 
 You can customize the default broker only during the initial deployment, by using the Azure CLI or the Azure portal. A new deployment is required if you need different broker configuration settings.
 
-To customize the default Broker during deployment:
+To customize the default Broker during deployment, follow the instructions for your deployment method:
 
 # [Portal](#tab/portal)
 
@@ -197,15 +199,15 @@ When you follow the guide to [deploy IoT Operations](../deploy-iot-ops/howto-dep
 
 # [Azure CLI](#tab/azure-cli)
 
-To configure settings like the disk-backed message buffer and advanced MQTT client options, use the `--broker-config-file` flag during `az iot ops create`. To learn more, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config).
+To configure settings like the disk-backed message buffer and advanced MQTT client options, use the `--broker-config-file` flag with the `az iot ops create` command. For more information, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config).
 
 # [Bicep](#tab/bicep)
 
-Use the Azure portal or the Azure CLI to customize the default Broker resource.
+Use the Azure portal or Azure CLI to customize the default Broker resource.
 
 # [Kubernetes (preview)](#tab/kubernetes)
 
-Use the Azure portal or the Azure CLI to customize the default Broker resource.
+Use the Azure portal or Azure CLI to customize the default Broker resource.
 
 ---
 

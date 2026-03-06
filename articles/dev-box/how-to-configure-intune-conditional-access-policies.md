@@ -71,7 +71,7 @@ Follow these steps:
 
 1. Select **Create**.
 
-For more information, see [What is the location condition in Microsoft Entra Conditional Access?](/entra/identity/conditional-access/location-condition).
+For more information, see [What is the location condition in Microsoft Entra Conditional Access?](/entra/identity/conditional-access/location-condition)
 
 ### Create a new policy
 

@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 12/31/2025
+ms.date: 02/23/2026
 ms.custom: generated
 ---
 
@@ -1005,18 +1005,20 @@ Custom role for Azure Local resource provider (Microsoft.AzureStackHCI Resource 
 > | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/write | Create or update the serviceConfigurations to the endpoints resource. |
 > | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/write | Create or update the endpoint to the target resource. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.EdgeMarketplace/locations/operationStatuses/read | read operationStatuses |
-> | Microsoft.EdgeMarketPlace/offers/getAccessToken/action | get access token. |
-> | Microsoft.EdgeMarketPlace/offers/generateAccessToken/action | A long-running resource action. |
-> | Microsoft.EdgeMarketplace/publishers/read | Get a Publisher |
-> | Microsoft.EdgeMarketplace/offers/read | Get a Offer |
+> | [Microsoft.EdgeMarketplace](../permissions/internet-of-things.md#microsoftedgemarketplace)/locations/operationStatuses/read | read operationStatuses |
+> | [Microsoft.EdgeMarketPlace](../permissions/internet-of-things.md#microsoftedgemarketplace)/offers/getAccessToken/action | get access token. |
+> | [Microsoft.EdgeMarketPlace](../permissions/internet-of-things.md#microsoftedgemarketplace)/offers/generateAccessToken/action | A long-running resource action. |
+> | [Microsoft.EdgeMarketplace](../permissions/internet-of-things.md#microsoftedgemarketplace)/publishers/read | Get a Publisher |
+> | [Microsoft.EdgeMarketplace](../permissions/internet-of-things.md#microsoftedgemarketplace)/offers/read | List Offer resources by parent |
 > | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/read | Gets an Custom Location resource |
-> | Microsoft.Attestation/attestationProviders/write | Adds attestation service. |
-> | Microsoft.Attestation/attestationProviders/read | Gets the attestation service status. |
-> | Microsoft.Attestation/attestationProviders/delete | Removes attestation service. |
-> | Microsoft.Attestation/attestationProviders/attestation/read | Gets the attestation service status. |
-> | Microsoft.Attestation/attestationProviders/attestation/write | Adds attestation service. |
-> | Microsoft.Attestation/attestationProviders/attestation/delete | Removes attestation service. |
+> | [Microsoft.Attestation](../permissions/security.md#microsoftattestation)/attestationProviders/write | Adds attestation service. |
+> | [Microsoft.Attestation](../permissions/security.md#microsoftattestation)/attestationProviders/read | Gets the attestation service status. |
+> | [Microsoft.Attestation](../permissions/security.md#microsoftattestation)/attestationProviders/delete | Removes attestation service. |
+> | [Microsoft.Attestation](../permissions/security.md#microsoftattestation)/attestationProviders/attestation/read | Gets the attestation service status. |
+> | [Microsoft.Attestation](../permissions/security.md#microsoftattestation)/attestationProviders/attestation/write | Adds attestation service. |
+> | [Microsoft.Attestation](../permissions/security.md#microsoftattestation)/attestationProviders/attestation/delete | Removes attestation service. |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/settings/read | Reads any Azure Arc settings |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/settings/write | Writes an Azure Arc settings |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1066,7 +1068,9 @@ Custom role for Azure Local resource provider (Microsoft.AzureStackHCI Resource 
         "Microsoft.Attestation/attestationProviders/delete",
         "Microsoft.Attestation/attestationProviders/attestation/read",
         "Microsoft.Attestation/attestationProviders/attestation/write",
-        "Microsoft.Attestation/attestationProviders/attestation/delete"
+        "Microsoft.Attestation/attestationProviders/attestation/delete",
+        "Microsoft.HybridCompute/settings/read",
+        "Microsoft.HybridCompute/settings/write"
       ],
       "notActions": [],
       "dataActions": [],
@@ -1456,9 +1460,9 @@ Can managed Essential Machine Management resources for subscriptions
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/dataCollectionRules/write | Create or update a data collection rule |
 > | [Microsoft.Monitor](../permissions/monitor.md#microsoftmonitor)/accounts/write | Create or Update any Monitoring Account |
 > | [Microsoft.Monitor](../permissions/monitor.md#microsoftmonitor)/accounts/read | Read any Monitoring Account |
-> | Microsoft.ManagedOps/managedOps/read |  |
-> | Microsoft.ManagedOps/managedOps/write |  |
-> | Microsoft.ManagedOps/managedOps/delete |  |
+> | [Microsoft.ManagedOps](../permissions/management-and-governance.md#microsoftmanagedops)/managedOps/read | List all ManagedOps instances in the subscription. |
+> | [Microsoft.ManagedOps](../permissions/management-and-governance.md#microsoftmanagedops)/managedOps/write | Creates or updates the ManagedOps instance. |
+> | [Microsoft.ManagedOps](../permissions/management-and-governance.md#microsoftmanagedops)/managedOps/delete | Deletes the ManagedOps instance. |
 > | [Microsoft.OperationsManagement](../permissions/monitor.md#microsoftoperationsmanagement)/solutions/read | Get existing OMS solution |
 > | [Microsoft.OperationsManagement](../permissions/monitor.md#microsoftoperationsmanagement)/solutions/write | Create new OMS solution |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/read | Gets an existing workspace |
@@ -2823,6 +2827,9 @@ Full control of the agent—manage chats, incident response plans, and agent run
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.App](../permissions/compute.md#microsoftapp)/agents/read | Read SRE Agent properties |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/agents/*/read |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/agents/write | Create or Update a SRE Agent |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/agents/*/write |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2846,7 +2853,10 @@ Full control of the agent—manage chats, incident response plans, and agent run
       "actions": [
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
-        "Microsoft.App/agents/read"
+        "Microsoft.App/agents/read",
+        "Microsoft.App/agents/*/read",
+        "Microsoft.App/agents/write",
+        "Microsoft.App/agents/*/write"
       ],
       "notActions": [],
       "dataActions": [

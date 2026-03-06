@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 12/31/2025
+ms.date: 02/23/2026
 ms.custom: generated
 ---
 
@@ -130,6 +130,7 @@ Azure service: core
 > | Microsoft.Marketplace/privateStores/collections/queryRules/action | Get Rules on a given collection |
 > | Microsoft.Marketplace/privateStores/collections/upsertOfferWithMultiContext/action | Upsert an offer with different contexts |
 > | Microsoft.Marketplace/privateStores/collections/offers/action | Get Collection Offers By Public and Subscriptions Context |
+> | Microsoft.Marketplace/privateStores/collections/offers/contextsView/action | Retrieves offer details and plans for multiple subscription contexts, including approved stop-sell and hidden plans |
 > | Microsoft.Marketplace/privateStores/offers/write | Creates offer in  PrivateStore. |
 > | Microsoft.Marketplace/privateStores/offers/delete | Deletes offer from  PrivateStore. |
 > | Microsoft.Marketplace/privateStores/offers/read | Reads PrivateStore offers. |

@@ -114,7 +114,7 @@ Additional detailed guidance is available for specific domains:
 
 ## Application development and Zero Trust
 
-Applications deployed on Azure must authenticate and authorize every request rather than relying on implicit trust from network location. Key principles include using Microsoft Entra ID for identity verification, requesting minimum permissions, protecting sensitive data, and using managed identities instead of stored credentials. For comprehensive guidance, see [Develop using Zero Trust principles](/security/zero-trust/develop/overview) and [Build Zero Trust-ready apps using Microsoft identity platform](/entra/identity-platform/zero-trust-for-developers.md).
+Applications deployed on Azure must authenticate and authorize every request rather than relying on implicit trust from network location. Key principles include using Microsoft Entra ID for identity verification, requesting minimum permissions, protecting sensitive data, and using managed identities instead of stored credentials. For comprehensive guidance, see [Develop using Zero Trust principles](/security/zero-trust/develop/overview) and [Build Zero Trust-ready apps using Microsoft identity platform](/entra/identity-platform/zero-trust-for-developers).
 
 ## Next steps
 

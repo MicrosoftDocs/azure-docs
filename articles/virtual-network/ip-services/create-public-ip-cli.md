@@ -124,7 +124,7 @@ By default, the routing preference for public IP addresses is set to **Microsoft
 
 The selection of **Internet** minimizes travel on Microsoft's network, instead using the transit ISP network to deliver traffic at a cost-optimized rate. 
 
-For more information on routing preference, see [What is routing preference (preview)?](routing-preference-overview.md).
+For more information on routing preference, see [What is routing preference (preview)?](routing-preference-overview.md)
 
 The command creates a new standard zone-redundant public IPv4 address with a routing preference of type **Internet**:
 

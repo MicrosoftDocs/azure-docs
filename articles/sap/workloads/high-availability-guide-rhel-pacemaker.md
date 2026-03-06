@@ -7,7 +7,7 @@ manager: juergent
 ms.service: sap-on-azure
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.date: 01/29/2026
+ms.date: 03/03/2026
 ms.author: radeltch
 ms.custom:
   - linux-related-content
@@ -512,7 +512,7 @@ foreach ($vmName in $vmNames) {
       sudo vi /etc/sysconfig/sbd
       ```
 
-   2. Change the property of the SBD device, enable the pacemaker integration, change the start mode of SBD, and adjust SBD_DELAY_START value. 
+   2. Change the property of the SBD device, enable the pacemaker integration, change the start mode of SBD, and adjust SBD_DELAY_START value.
 
       ```bash
       [...]
@@ -563,7 +563,7 @@ The fencing device uses either a managed identity for Azure resource or a servic
 
    #### [Managed identity](#tab/msi)
 
-   To create a managed identity (MSI), [create a system-assigned](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities?pivots=qs-configure-portal-windows-vm#system-assigned-managed-identity) managed identity for each VM in the cluster. If a system-assigned managed identity already exists, then it would be used. Don't use user-assigned managed identities with Pacemaker at this time. A fence device, based on managed identity, is supported on RHEL 7.9 and RHEL 8.x/RHEL 9.x.
+   To create a managed identity (MSI), [create a system-assigned](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities?pivots=qs-configure-portal-windows-vm#system-assigned-managed-identity) managed identity for each VM in the cluster. If a system-assigned managed identity already exists, then it would be used. Don't use user-assigned managed identities with Pacemaker at this time. A fence device, based on managed identity, is supported on RHEL 7.9 and RHEL 8.x/RHEL 9.x/RHEL 10.x.
 
    #### [Service principal](#tab/spn)
 
@@ -732,7 +732,7 @@ Differences in the commands or the configuration between RHEL 7 and RHEL 8/RHEL 
    sudo pcs cluster start --all
    ```
 
-   If you're building a cluster on **RHEL 8.x/RHEL 9.x**, use the following commands:  
+   If you're building a cluster on **RHEL 8.x/RHEL 9.x/RHEL 10.x**, use the following commands:  
 
    ```bash
    sudo pcs host auth prod-cl1-0 prod-cl1-1 -u hacluster
@@ -789,7 +789,7 @@ Differences in the commands or the configuration between RHEL 7 and RHEL 8/RHEL 
 
 > [!TIP]
 >
-> * To avoid fence races within a two-node pacemaker cluster, you can configure the `priority-fencing-delay` cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [Can Pacemaker fence the cluster node with the fewest running resources?](https://access.redhat.com/solutions/5110521).
+> * To avoid fence races within a two-node pacemaker cluster, you can configure the `priority-fencing-delay` cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [Can Pacemaker fence the cluster node with the fewest running resources?](https://access.redhat.com/solutions/5110521)
 > * The property `priority-fencing-delay` is applicable for Pacemaker version 2.0.4-6.el8 or higher and on a two-node cluster. If you configure the `priority-fencing-delay` cluster property, you don't need to set the `pcmk_delay_max` property. But if the Pacemaker version is less than 2.0.4-6.el8, you need to set the `pcmk_delay_max` property.
 > * For instructions on how to set the `priority-fencing-delay` cluster property, see the respective SAP ASCS/ERS and SAP HANA scale-up HA documents.
 
@@ -845,7 +845,7 @@ Based on the selected fencing mechanism, follow only one section for relevant in
    > When using Azure government cloud, you must specify `cloud=` option when configuring fence agent. For example, `cloud=usgov` for the Azure US government cloud. For details on RedHat support on Azure government cloud, see [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341).
 
    > [!TIP]
-   > The option `pcmk_host_map` is *only* required in the command if the RHEL hostnames and the Azure VM names aren't* identical. Specify the mapping in the format **hostname:vm-name**. For more information, see [What format should I use to specify node mappings to fencing devices in pcmk_host_map?](https://access.redhat.com/solutions/2619961).
+   > The option `pcmk_host_map` is *only* required in the command if the RHEL hostnames and the Azure VM names aren't* identical. Specify the mapping in the format **hostname:vm-name**. For more information, see [What format should I use to specify node mappings to fencing devices in pcmk_host_map?](https://access.redhat.com/solutions/2619961)
 
    #### [Managed identity](#tab/msi)
 
@@ -855,22 +855,25 @@ Based on the selected fencing mechanism, follow only one section for relevant in
    sudo pcs stonith create rsc_st_azure fence_azure_arm msi=true resourceGroup="resource group" \ 
    subscriptionId="subscription id" pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
    power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
+   meta failure-timeout=120s \
    op monitor interval=3600
    ```
 
-   For RHEL **8.x/9.x**, use the following command to configure the fence device:  
+   For RHEL **8.x/9.x/10.x**, use the following command to configure the fence device:  
 
    ```bash
    # Run following command if you are setting up fence agent on (two-node cluster and pacemaker version greater than 2.0.4-6.el8) OR (HANA scale out)
    sudo pcs stonith create rsc_st_azure fence_azure_arm msi=true resourceGroup="resource group" \
    subscriptionId="subscription id" pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
    power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
+   meta failure-timeout=120s \
    op monitor interval=3600
    
    # Run following command if you are setting up fence agent on (two-node cluster and pacemaker version less than 2.0.4-6.el8)
    sudo pcs stonith create rsc_st_azure fence_azure_arm msi=true resourceGroup="resource group" \
    subscriptionId="subscription id" pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
    power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
+   meta failure-timeout=120s \
    op monitor interval=3600
    ```
 
@@ -883,10 +886,11 @@ Based on the selected fencing mechanism, follow only one section for relevant in
    resourceGroup="resource group" tenantId="tenant ID" subscriptionId="subscription id" \
    pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
    power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
+   meta failure-timeout=120s \
    op monitor interval=3600
    ```
 
-   For RHEL **8.x/9.x**, use the following command to configure the fence device:  
+   For RHEL **8.x/9.x/10.x**, use the following command to configure the fence device:  
 
    ```bash
    # Run following command if you are setting up fence agent on (two-node cluster and pacemaker version greater than 2.0.4-6.el8) OR (HANA scale out)
@@ -894,6 +898,7 @@ Based on the selected fencing mechanism, follow only one section for relevant in
    resourceGroup="resource group" tenantId="tenant ID" subscriptionId="subscription id" \
    pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
    power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
+   meta failure-timeout=120s \
    op monitor interval=3600
    
    # Run following command if you are setting up fence agent on (two-node cluster and pacemaker version less than 2.0.4-6.el8)
@@ -901,6 +906,7 @@ Based on the selected fencing mechanism, follow only one section for relevant in
    resourceGroup="resource group" tenantId="tenant ID" subscriptionId="subscription id" \
    pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
    power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
+   meta failure-timeout=120s \
    op monitor interval=3600
    ```
 
@@ -949,9 +955,14 @@ The `#heath-azure` attribute is set back to `0` on pacemaker startup once all ev
    ```bash
    sudo pcs property set node-health-strategy=custom
 
+   # For RHEL 8.x/9.x
    sudo pcs constraint location 'regexp%!health-.*' \
    rule score-attribute='#health-azure' \
    defined '#uname'
+   # For RHEL 10.x
+   sudo pcs constraint location 'regexp%!health-.*' \
+   rule score-attribute='#health-azure' \
+   "defined #uname"
    ```
 
    > [!IMPORTANT]
@@ -974,7 +985,10 @@ The `#heath-azure` attribute is set back to `0` on pacemaker startup once all ev
    op monitor interval=10s timeout=240s \
    op start timeout=10s start-delay=90s
 
+   # For RHEL 8.x/9.x
    sudo pcs resource clone health-azure-events allow-unhealthy-nodes=true
+   # For RHEL 10.x
+   sudo pcs resource clone health-azure-events meta allow-unhealthy-nodes=true
    ```
 
 6. Take the Pacemaker cluster out of maintenance mode.
@@ -1001,7 +1015,7 @@ If you need to collect diagnostic information within the VM, it might be useful 
 > [!IMPORTANT]
 > Be aware that when `fence_kdump` is configured as a first-level fencing device, it introduces delays in the fencing operations and, respectively, delays in the application resources failover.
 >
-> If a crash dump is successfully detected, the fencing is delayed until the crash recovery service completes. If the failed node is unreachable or if it doesn't respond, the fencing is delayed by time determined, the configured number of iterations, and the `fence_kdump` timeout. For more information, see [How do I configure fence_kdump in a Red Hat Pacemaker cluster?](https://access.redhat.com/solutions/2876971).
+> If a crash dump is successfully detected, the fencing is delayed until the crash recovery service completes. If the failed node is unreachable or if it doesn't respond, the fencing is delayed by time determined, the configured number of iterations, and the `fence_kdump` timeout. For more information, see [How do I configure fence_kdump in a Red Hat Pacemaker cluster?](https://access.redhat.com/solutions/2876971)
 >
 > The proposed `fence_kdump` timeout might need to be adapted to the specific environment.
 >
@@ -1009,11 +1023,11 @@ If you need to collect diagnostic information within the VM, it might be useful 
 
 The following Red Hat KB articles contain important information about configuring `fence_kdump` fencing:
 
-* See [How do I configure fence_kdump in a Red Hat Pacemaker cluster?](https://access.redhat.com/solutions/2876971).
+* See [How do I configure fence_kdump in a Red Hat Pacemaker cluster?](https://access.redhat.com/solutions/2876971)
 * See [How to configure/manage fencing levels in an RHEL cluster with Pacemaker](https://access.redhat.com/solutions/891323).
 * See [fence_kdump fails with "timeout after X seconds" in an RHEL 6 or 7 HA cluster with kexec-tools older than 2.0.14](https://access.redhat.com/solutions/2388711).
-* For information on how to change the default timeout, see [How do I configure kdump for use with the RHEL 6, 7, 8 HA Add-On?](https://access.redhat.com/articles/67570).
-* For information on how to reduce failover delay when you use `fence_kdump`, see [Can I reduce the expected delay of failover when adding fence_kdump configuration?](https://access.redhat.com/solutions/5512331).
+* For information on how to change the default timeout, see [How do I configure kdump for use with the RHEL 6, 7, 8 HA Add-On?](https://access.redhat.com/articles/67570)
+* For information on how to reduce failover delay when you use `fence_kdump`, see [Can I reduce the expected delay of failover when adding fence_kdump configuration?](https://access.redhat.com/solutions/5512331)
   
 
 Run the following optional steps to add `fence_kdump` as a first-level fencing configuration, in addition to the Azure fence agent configuration.
@@ -1079,7 +1093,7 @@ Run the following optional steps to add `fence_kdump` as a first-level fencing c
     systemctl restart kdump
     ```
 
-1. **[A]** Ensure that the `initramfs` image file contains the `fence_kdump` and `hosts` files. For more information, see [How do I configure fence_kdump in a Red Hat Pacemaker cluster?](https://access.redhat.com/solutions/2876971).
+1. **[A]** Ensure that the `initramfs` image file contains the `fence_kdump` and `hosts` files. For more information, see [How do I configure fence_kdump in a Red Hat Pacemaker cluster?](https://access.redhat.com/solutions/2876971)
 
     ```bash
     lsinitrd /boot/initramfs-$(uname -r)kdump.img | egrep "fence|hosts"
@@ -1088,7 +1102,7 @@ Run the following optional steps to add `fence_kdump` as a first-level fencing c
     # -rwxr-xr-x   1 root     root        15560 Jun 17 14:59 usr/libexec/fence_kdump_send
     ```
 
-1. Test the configuration by crashing a node. For more information, see [How do I configure fence_kdump in a Red Hat Pacemaker cluster?](https://access.redhat.com/solutions/2876971).  
+1. Test the configuration by crashing a node. For more information, see [How do I configure fence_kdump in a Red Hat Pacemaker cluster?](https://access.redhat.com/solutions/2876971)  
 
     > [!IMPORTANT]
     > If the cluster is already in productive use, plan the test accordingly because crashing a node has an impact on the application.

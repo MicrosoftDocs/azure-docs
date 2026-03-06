@@ -55,7 +55,7 @@ In this section, we'll create two VMs with a Windows operating system (OS) image
    - You can either use a custom image or choose an image from Azure Marketplace. Based on your need, see [Deploy a VM from Azure Marketplace for SAP](deployment-guide.md) or [Deploy a VM with a custom image for SAP](deployment-guide.md).
 
 1. Create virtual machine 2 (azuswinboap2).
-1. Add one Premium SSD disk. It will be used as an SAP BOBI installation directory.
+1. Add one Premium SSD. It will be used as an SAP BOBI installation directory.
 
 ## Provision Azure Premium Files
 
@@ -143,7 +143,7 @@ The steps in this section use the following prefix:
 
 The SAP BusinessObjects BI application requires a partition on which its binaries can be installed. You can install an SAP BOBI application on the OS partition (C:), but you must make sure to have enough space for the deployment and the OS. We recommend that you have at least 2 GB available for temporary files and web applications. Also, it's advisable to separate SAP BOBI installation binaries in separate partitions.
 
-In this example, an SAP BOBI application is installed on a separate partition (F:). Initialize the Premium SSD disk that you attached during the VM provisioning:
+In this example, an SAP BOBI application is installed on a separate partition (F:). Initialize the Premium SSD that you attached during the VM provisioning:
 
 1. **[A]** If no data disk is attached to the VM (azuswinboap1 and azuswinboap2), follow the steps in [Add a data disk](/azure/virtual-machines/windows/attach-managed-disk-portal#add-a-data-disk) to attach a new managed data disk.
 1. **[A]** After the managed disk is attached to the VM, initialize the disk by following the steps in [Initialize a new data disk](/azure/virtual-machines/windows/attach-managed-disk-portal#initialize-a-new-data-disk).

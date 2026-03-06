@@ -4,7 +4,7 @@ description: Explore supported versions, environments, dependencies, and licensi
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 10/08/2025
+ms.date: 02/18/2026
 ms.custom: references_regions
 
 # As an IT admin, you want to know the supported environments for Azure IoT Operations to plan your deployment effectively.

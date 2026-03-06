@@ -1,5 +1,5 @@
 ---
-title: Create or modify an Exchange peering - Azure portal
+title: Create or Modify an Exchange Peering - Azure Portal
 titleSuffix: Internet Peering
 description: Learn how to create or modify an Exchange peering using the Azure portal.
 services: internet-peering
@@ -7,8 +7,9 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 03/03/2025
+ms.date: 02/25/2026
 ms.custom: sfi-image-nochange
+
 # Customer intent: "As an Internet Exchange Provider, I want to create or modify an Exchange peering using the Azure portal, so that I can manage my peering connections efficiently and ensure reliable connectivity with Microsoft."
 ---
 

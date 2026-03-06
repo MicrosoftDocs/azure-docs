@@ -1051,7 +1051,7 @@ The `retryContext` object has the following properties:
 | **`maxRetryCount`** | Maximum number of times an execution is retried. A value of `-1` means to retry indefinitely. |
 | **`exception`** | Exception that caused the retry. |
 
-For more information, see [`retry-policies`](./functions-bindings-errors.md#retry-policies).
+For more information, see [`retry-policies`](./functions-bindings-error-pages.md#retry-policies).
 
 ::: zone-end
 
@@ -1116,11 +1116,16 @@ In addition to the default `context.log` method, the following methods are avail
 
 Azure Functions lets you define the threshold level to be used when tracking and viewing logs. To set the threshold, use the `logging.logLevel` property in the `host.json` file. This property lets you define a default level applied to all functions, or a threshold for each individual function. To learn more, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
 
-::: zone pivot="nodejs-model-v3"
-
 ## Track custom data
 
-By default, Azure Functions writes output as traces to Application Insights. For more control, you can instead use the [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js) to send custom data to your Application Insights instance.
+By default, Azure Functions writes output as traces to Application Insights. For more control, you can instead use the [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js) to send custom logs, metrics, and dependencies to your Application Insights instance.
+
+> [!NOTE]
+> Methods in the Application Insights Node.js SDK might change over time. There might be minor syntax differences from the examples shown here. For the latest API usage examples, see the [Application Insights Node.js SDK documentation](https://github.com/microsoft/applicationinsights-node.js).
+
+::: zone pivot="nodejs-model-v4"  
+For distributed tracing in the Node.js v4 programming model, you can use the [`@azure/functions-opentelemetry-instrumentation`](https://www.npmjs.com/package/@azure/functions-opentelemetry-instrumentation) package instead of the Application Insights SDK. This package provides OpenTelemetry-based automatic instrumentation for Azure Functions. For more information, see the [OpenTelemetry Azure Functions Instrumentation for Node.js](https://github.com/Azure/azure-functions-nodejs-opentelemetry) GitHub repository.  
+::: zone-end
 
 # [JavaScript](#tab/javascript)
 
@@ -1236,8 +1241,6 @@ export default httpTrigger;
 ---
 
 The `tagOverrides` parameter sets the `operation_Id` to the function's invocation ID. This setting enables you to correlate all of the automatically generated and custom logs for a given function invocation.
-
-::: zone-end
 
 <a name="http-triggers-and-bindings"></a>
 

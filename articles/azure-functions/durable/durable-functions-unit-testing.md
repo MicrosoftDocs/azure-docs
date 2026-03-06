@@ -1,182 +1,588 @@
 ---
-title: Azure Durable Functions unit testing
-description: Learn how to unit test Durable Functions.
+title: Unit testing Durable Functions and Durable Task SDKs
+description: Learn how to unit test orchestrator, activity, and client functions for Azure Durable Functions and standalone Durable Task SDKs.
+author: cgillum
 ms.topic: conceptual
-ms.date: 11/03/2019
+ms.date: 02/19/2026
+ms.author: azfuncdf
+ms.service: azure-functions
+ms.subservice: durable
+zone_pivot_groups: azure-durable-approach
+#Customer intent: As a developer, I want to learn how to write unit tests for my durable orchestrations and activities so that I can catch bugs early and prevent regressions.
 ---
 
-# Durable Functions unit testing (C# in-process)
+# Unit testing
 
-Unit testing is an important part of modern software development practices. Unit tests verify business logic behavior and protect from introducing unnoticed breaking changes in the future. Durable Functions can easily grow in complexity so introducing unit tests helps avoid breaking changes. The following sections explain how to unit test the three function types - Orchestration client, orchestrator, and activity functions.
+Unit tests verify business logic and protect against regressions. Durable orchestrations coordinate multiple activities and can grow complex quickly. Adding unit tests helps you catch errors early.
 
-> [!NOTE]
-> This article provides guidance for unit testing for Durable Functions apps written in C# for the .NET in-process worker and targeting Durable Functions 2.x. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+::: zone pivot="durable-functions"
+
+With Durable Functions, you test orchestrators, activities, and client (trigger) functions by **mocking the framework-provided context objects** and calling your functions directly. This approach isolates your business logic from the Azure Functions runtime.
+
+::: zone-end
+
+::: zone pivot="durable-task-sdks"
+
+The standalone Durable Task SDKs provide **built-in test infrastructure** that runs orchestrations in-memory without external dependencies. You register orchestrators and activities with a test worker, schedule orchestrations through a test client, and assert on the results. No mocking is required for C# and JavaScript. Python uses an executor-based approach with mock history events.
+
+::: zone-end
 
 ## Prerequisites
 
-The examples in this article require knowledge of the following concepts and frameworks:
+::: zone pivot="durable-functions"
 
-* Unit testing
+# [C#](#tab/csharp)
 
-* Durable Functions
+- [xUnit](https://xunit.net/) — test framework
+- [Moq](https://github.com/moq/moq4) — mocking framework
+- Familiarity with the [.NET isolated worker model](../dotnet-isolated-process-guide.md)
 
-* [xUnit](https://github.com/xunit/xunit) - Testing framework
+# [Python](#tab/python)
 
-* [moq](https://github.com/moq/moq4) - Mocking framework
+- Python [unittest](https://docs.python.org/3/library/unittest.html) — test framework
+- [unittest.mock](https://docs.python.org/3/library/unittest.mock.html) — mocking library
+- Familiarity with the [Python v2 programming model](../functions-reference-python.md)
 
-## Base classes for mocking
+# [JavaScript](#tab/javascript)
 
-Mocking is supported via the following interface:
+JavaScript unit testing for Durable Functions isn't covered in this article.
 
-* [IDurableOrchestrationClient](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient), [IDurableEntityClient](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableentityclient), and [IDurableClient](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableclient)
+---
 
-* [IDurableOrchestrationContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext)
+::: zone-end
 
-* [IDurableActivityContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableactivitycontext)
+::: zone pivot="durable-task-sdks"
 
-* [IDurableEntityContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableentitycontext)
+# [C#](#tab/csharp)
 
-These interfaces can be used with the various trigger and bindings supported by Durable Functions. While it is executing your Azure Functions, the functions runtime runs your function code with a concrete implementation of these interfaces. For unit testing, you can pass in a mocked version of these interfaces to test your business logic.
+- [xUnit](https://xunit.net/) — test framework
+- The `Microsoft.DurableTask.InProcessTestHost` NuGet package
 
-## Unit testing trigger functions
+# [Python](#tab/python)
 
-In this section, the unit test validates the logic of the following HTTP trigger function for starting new orchestrations.
+- [pytest](https://docs.pytest.org/) — test framework (or `unittest`)
+- The `durabletask` PyPI package
 
-[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
+# [JavaScript](#tab/javascript)
 
-The unit test task verifies the value of the `Retry-After` header provided in the response payload. So the unit test mocks some of `IDurableClient` methods to ensure predictable behavior.
+- [Jest](https://jestjs.io/) — test framework
+- The `@microsoft/durabletask-js` npm package
 
-First, we use a mocking framework ([moq](https://github.com/moq/moq4) in this case) to mock `IDurableClient`:
+---
+
+::: zone-end
+
+## Test orchestrator functions
+
+Orchestrator functions coordinate activities, timers, and external events. They typically contain the most business logic and benefit the most from unit testing.
+
+::: zone pivot="durable-functions"
+
+Mock the orchestration context to control the return values of activity calls. Then call your orchestrator directly and verify the output.
+
+# [C#](#tab/csharp)
+
+Consider this orchestrator that calls an activity three times:
 
 ```csharp
-// Mock IDurableClient
-var durableClientMock = new Mock<IDurableClient>();
-```
-
-> [!NOTE]
-> While you can mock interfaces by directly implementing the interface as a class, mocking frameworks simplify the process in various ways. For instance, if a new method is added to the interface across minor releases, moq doesn't require any code changes unlike concrete implementations.
-
-Then `StartNewAsync` method is mocked to return a well-known instance ID.
-
-```csharp
-// Mock StartNewAsync method
-durableClientMock.
-    Setup(x => x.StartNewAsync(functionName, It.IsAny<object>())).
-    ReturnsAsync(instanceId);
-```
-
-Next `CreateCheckStatusResponse` is mocked to always return an empty HTTP 200 response.
-
-```csharp
-// Mock CreateCheckStatusResponse method
-durableClientMock
-    // Notice that even though the HttpStart function does not call IDurableClient.CreateCheckStatusResponse() 
-    // with the optional parameter returnInternalServerErrorOnFailure, moq requires the method to be set up
-    // with each of the optional parameters provided. Simply use It.IsAny<> for each optional parameter
-    .Setup(x => x.CreateCheckStatusResponse(It.IsAny<HttpRequestMessage>(), instanceId, returnInternalServerErrorOnFailure: It.IsAny<bool>()))
-    .Returns(new HttpResponseMessage
+[Function(nameof(HelloCitiesOrchestration))]
+public static async Task<List<string>> HelloCities(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    var outputs = new List<string>
     {
-        StatusCode = HttpStatusCode.OK,
-        Content = new StringContent(string.Empty),
-        Headers =
+        await context.CallActivityAsync<string>(nameof(SayHello), "Tokyo"),
+        await context.CallActivityAsync<string>(nameof(SayHello), "Seattle"),
+        await context.CallActivityAsync<string>(nameof(SayHello), "London")
+    };
+
+    return outputs;
+}
+```
+
+Use Moq to mock `TaskOrchestrationContext` and set up expected return values for each activity call:
+
+```csharp
+[Fact]
+public async Task HelloCities_ReturnsExpectedGreetings()
+{
+    var contextMock = new Mock<TaskOrchestrationContext>();
+
+    contextMock.Setup(x => x.CallActivityAsync<string>(
+        It.Is<TaskName>(n => n.Name == nameof(SayHello)),
+        It.Is<string>(n => n == "Tokyo"),
+        It.IsAny<TaskOptions>())).ReturnsAsync("Hello Tokyo!");
+
+    contextMock.Setup(x => x.CallActivityAsync<string>(
+        It.Is<TaskName>(n => n.Name == nameof(SayHello)),
+        It.Is<string>(n => n == "Seattle"),
+        It.IsAny<TaskOptions>())).ReturnsAsync("Hello Seattle!");
+
+    contextMock.Setup(x => x.CallActivityAsync<string>(
+        It.Is<TaskName>(n => n.Name == nameof(SayHello)),
+        It.Is<string>(n => n == "London"),
+        It.IsAny<TaskOptions>())).ReturnsAsync("Hello London!");
+
+    var result = await HelloCitiesOrchestration.HelloCities(contextMock.Object);
+
+    Assert.Equal(3, result.Count);
+    Assert.Equal("Hello Tokyo!", result[0]);
+    Assert.Equal("Hello Seattle!", result[1]);
+    Assert.Equal("Hello London!", result[2]);
+}
+```
+
+# [Python](#tab/python)
+
+Consider this orchestrator that chains three activity calls:
+
+```python
+import azure.durable_functions as df
+
+def my_orchestrator(context: df.DurableOrchestrationContext):
+    result1 = yield context.call_activity("say_hello", "Tokyo")
+    result2 = yield context.call_activity("say_hello", "Seattle")
+    result3 = yield context.call_activity("say_hello", "London")
+    return [result1, result2, result3]
+```
+
+Mock the context and use `orchestrator_generator_wrapper` to process the generator. This utility simulates the Durable Functions replay mechanism:
+
+```python
+import unittest
+from unittest.mock import Mock, call
+from azure.durable_functions.testing import orchestrator_generator_wrapper
+
+from function_app import my_orchestrator
+
+
+def mock_activity(activity_name, input_value):
+    mock_task = Mock()
+    mock_task.result = f"Hello {input_value}!"
+    return mock_task
+
+
+class TestOrchestrator(unittest.TestCase):
+    def test_chaining_orchestrator(self):
+        func_call = my_orchestrator.build().get_user_function().orchestrator_function
+
+        context = Mock()
+        context.call_activity = Mock(side_effect=mock_activity)
+
+        user_orchestrator = func_call(context)
+        values = list(orchestrator_generator_wrapper(user_orchestrator))
+
+        expected_calls = [
+            call("say_hello", "Tokyo"),
+            call("say_hello", "Seattle"),
+            call("say_hello", "London"),
+        ]
+        self.assertEqual(context.call_activity.call_args_list, expected_calls)
+        self.assertEqual(values[-1], ["Hello Tokyo!", "Hello Seattle!", "Hello London!"])
+```
+
+# [JavaScript](#tab/javascript)
+
+JavaScript unit testing for Durable Functions isn't covered in this article.
+
+---
+
+::: zone-end
+
+::: zone pivot="durable-task-sdks"
+
+# [C#](#tab/csharp)
+
+Use `DurableTaskTestHost` to run orchestrations in-memory. Register your production orchestrator and activity classes, schedule an orchestration, and assert on the result.
+
+Given these production classes:
+
+```csharp
+class HelloCitiesOrchestrator : TaskOrchestrator<string, List<string>>
+{
+    public override async Task<List<string>> RunAsync(
+        TaskOrchestrationContext context, string input)
+    {
+        var outputs = new List<string>
         {
-            RetryAfter = new RetryConditionHeaderValue(TimeSpan.FromSeconds(10))
-        }
-    });
-```
+            await context.CallActivityAsync<string>(nameof(SayHelloActivity), "Tokyo"),
+            await context.CallActivityAsync<string>(nameof(SayHelloActivity), "Seattle"),
+            await context.CallActivityAsync<string>(nameof(SayHelloActivity), "London")
+        };
+        return outputs;
+    }
+}
 
-`ILogger` is also mocked:
-
-```csharp
-// Mock ILogger
-var loggerMock = new Mock<ILogger>();
-```
-
-Now the `Run` method is called from the unit test:
-
-```csharp
-// Call Orchestration trigger function
-var result = await HttpStart.Run(
-    new HttpRequestMessage()
+class SayHelloActivity : TaskActivity<string, string>
+{
+    public override Task<string> RunAsync(TaskActivityContext context, string name)
     {
-        Content = new StringContent("{}", Encoding.UTF8, "application/json"),
-        RequestUri = new Uri("http://localhost:7071/orchestrators/E1_HelloSequence"),
-    },
-    durableClientMock.Object,
-    functionName,
-    loggerMock.Object);
+        return Task.FromResult($"Hello {name}!");
+    }
+}
 ```
 
- The last step is to compare the output with the expected value:
+Register them directly in the test host:
 
 ```csharp
-// Validate that output is not null
-Assert.NotNull(result.Headers.RetryAfter);
+[Fact]
+public async Task HelloCities_ReturnsExpectedGreetings()
+{
+    await using var host = await DurableTaskTestHost.StartAsync(tasks =>
+    {
+        tasks.AddOrchestrator<HelloCitiesOrchestrator>();
+        tasks.AddActivity<SayHelloActivity>();
+    });
 
-// Validate output's Retry-After header value
-Assert.Equal(TimeSpan.FromSeconds(10), result.Headers.RetryAfter.Delta);
+    string instanceId = await host.Client.ScheduleNewOrchestrationInstanceAsync(
+        nameof(HelloCitiesOrchestrator));
+    OrchestrationMetadata result = await host.Client.WaitForInstanceCompletionAsync(
+        instanceId, getInputsAndOutputs: true);
+
+    Assert.Equal(OrchestrationRuntimeStatus.Completed, result.RuntimeStatus);
+
+    var output = result.ReadOutputAs<List<string>>();
+    Assert.Equal(3, output.Count);
+    Assert.Equal("Hello Tokyo!", output[0]);
+    Assert.Equal("Hello Seattle!", output[1]);
+    Assert.Equal("Hello London!", output[2]);
+}
 ```
 
-After you combine all these steps, the unit test has the following code:
+`DurableTaskTestHost` runs a complete in-memory orchestration engine. No external services or sidecar processes are required.
 
-[!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HttpStartTests.cs)]
+# [Python](#tab/python)
 
-## Unit testing orchestrator functions
+The Python Durable Task SDK doesn't yet provide a built-in test harness like C# and JavaScript. Use standard mocking to test orchestrator logic. Mock the `OrchestrationContext` and drive the generator by sending simulated activity results back for each `yield`:
 
-Orchestrator functions are even more interesting for unit testing since they usually have a lot more business logic.
+```python
+from unittest.mock import Mock, call
+from durabletask import task
 
-In this section, the unit tests validate the output of the `E1_HelloSequence` Orchestrator function:
 
-[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
+def hello(ctx: task.ActivityContext, name: str) -> str:
+    return f"Hello {name}!"
 
-The unit test code starts with creating a mock:
+
+def hello_cities(ctx: task.OrchestrationContext, _):
+    result1 = yield ctx.call_activity(hello, input="Tokyo")
+    result2 = yield ctx.call_activity(hello, input="Seattle")
+    result3 = yield ctx.call_activity(hello, input="London")
+    return [result1, result2, result3]
+
+
+def test_hello_cities():
+    ctx = Mock(spec=task.OrchestrationContext)
+
+    # Each call_activity returns a mock task; collect them to send results back
+    mock_tasks = []
+    def fake_call_activity(activity, *, input):
+        t = Mock()
+        t._input = input
+        mock_tasks.append(t)
+        return t
+
+    ctx.call_activity = Mock(side_effect=fake_call_activity)
+
+    # Start the generator
+    gen = hello_cities(ctx, None)
+    yielded = next(gen)  # first yield: call_activity(hello, input="Tokyo")
+
+    # Send simulated results back for each yield
+    try:
+        yielded = gen.send("Hello Tokyo!")
+        yielded = gen.send("Hello Seattle!")
+        gen.send("Hello London!")
+    except StopIteration as e:
+        result = e.value
+
+    # Verify the orchestrator called the right activities
+    assert ctx.call_activity.call_count == 3
+    assert result == ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
+```
+
+This approach tests the orchestrator's control flow without depending on SDK internals.
+
+# [JavaScript](#tab/javascript)
+
+Use `TestOrchestrationWorker` and `TestOrchestrationClient` to run orchestrations in-memory:
+
+```javascript
+const {
+    InMemoryOrchestrationBackend,
+    TestOrchestrationClient,
+    TestOrchestrationWorker,
+    OrchestrationStatus,
+} = require("@microsoft/durabletask-js");
+
+test("helloCities returns expected greetings", async () => {
+    const backend = new InMemoryOrchestrationBackend();
+    const client = new TestOrchestrationClient(backend);
+    const worker = new TestOrchestrationWorker(backend);
+
+    const sayHello = async (_, name) => `Hello ${name}!`;
+
+    const helloCities = async function* (ctx) {
+        const outputs = [];
+        outputs.push(yield ctx.callActivity(sayHello, "Tokyo"));
+        outputs.push(yield ctx.callActivity(sayHello, "Seattle"));
+        outputs.push(yield ctx.callActivity(sayHello, "London"));
+        return outputs;
+    };
+
+    worker.addOrchestrator(helloCities);
+    worker.addActivity(sayHello);
+    await worker.start();
+
+    const id = await client.scheduleNewOrchestration(helloCities);
+    const state = await client.waitForOrchestrationCompletion(id, true, 10);
+
+    expect(state.runtimeStatus).toEqual(OrchestrationStatus.COMPLETED);
+    expect(JSON.parse(state.serializedOutput)).toEqual([
+        "Hello Tokyo!",
+        "Hello Seattle!",
+        "Hello London!",
+    ]);
+
+    await worker.stop();
+});
+```
+
+The test infrastructure runs the full orchestration engine in-process. No sidecar or external services are required.
+
+---
+
+::: zone-end
+
+## Test activity functions
+
+Activity functions contain the actual work — calling APIs, processing data, or interacting with external systems. They're the simplest function type to test because they have no framework-specific replay behavior.
+
+::: zone pivot="durable-functions"
+
+# [C#](#tab/csharp)
+
+Activity functions in Azure Functions receive an input and optionally a `FunctionContext`. Test them like any other function:
 
 ```csharp
-var durableOrchestrationContextMock = new Mock<IDurableOrchestrationContext>();
+[Function(nameof(SayHello))]
+public static string SayHello(
+    [ActivityTrigger] string name, FunctionContext executionContext)
+{
+    return $"Hello {name}!";
+}
 ```
-
-Then the activity method calls are mocked:
 
 ```csharp
-durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "Tokyo")).ReturnsAsync("Hello Tokyo!");
-durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "Seattle")).ReturnsAsync("Hello Seattle!");
-durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "London")).ReturnsAsync("Hello London!");
+[Fact]
+public void SayHello_ReturnsExpectedGreeting()
+{
+    var result = HelloCitiesOrchestration.SayHello("Tokyo", Mock.Of<FunctionContext>());
+    Assert.Equal("Hello Tokyo!", result);
+}
 ```
 
-Next, the unit test calls the `HelloSequence.Run` method:
+# [Python](#tab/python)
+
+Activity functions in Azure Functions are regular Python functions. Test them directly. For more information, see [Azure Functions Python unit testing](../functions-reference-python.md#unit-testing).
+
+```python
+def say_hello(name: str) -> str:
+    return f"Hello {name}!"
+
+def test_say_hello():
+    result = say_hello("Tokyo")
+    assert result == "Hello Tokyo!"
+```
+
+# [JavaScript](#tab/javascript)
+
+JavaScript unit testing for Durable Functions isn't covered in this article.
+
+---
+
+::: zone-end
+
+::: zone pivot="durable-task-sdks"
+
+Activity functions receive a context object and an input. The context provides metadata like the orchestration ID and task ID, but most tests don't need it.
+
+# [C#](#tab/csharp)
+
+Using the `SayHelloActivity` class from the orchestrator example, call `RunAsync` directly with a mock context:
 
 ```csharp
-var result = await HelloSequence.Run(durableOrchestrationContextMock.Object);
+[Fact]
+public async Task SayHello_ReturnsExpectedGreeting()
+{
+    var activity = new SayHelloActivity();
+    var contextMock = new Mock<TaskActivityContext>();
+
+    var result = await activity.RunAsync(contextMock.Object, "Tokyo");
+
+    Assert.Equal("Hello Tokyo!", result);
+}
 ```
 
-And finally the output is validated:
+When you use `DurableTaskTestHost`, activities also run as part of the orchestration test. You don't need separate activity tests unless the activity has complex logic.
+
+# [Python](#tab/python)
+
+Test the activity function directly — no special setup is required:
+
+```python
+from durabletask import task
+
+
+def hello(ctx: task.ActivityContext, name: str) -> str:
+    return f"Hello {name}!"
+
+
+def test_hello():
+    result = hello(None, "Tokyo")
+    assert result == "Hello Tokyo!"
+```
+
+# [JavaScript](#tab/javascript)
+
+Test the activity function directly:
+
+```javascript
+const sayHello = async (_, name) => `Hello ${name}!`;
+
+test("sayHello returns expected greeting", async () => {
+    const result = await sayHello(undefined, "Tokyo");
+    expect(result).toBe("Hello Tokyo!");
+});
+```
+
+---
+
+::: zone-end
+
+::: zone pivot="durable-functions"
+
+## Test client functions
+
+Client functions (also called trigger functions) start orchestrations and manage instances. They use the durable client binding to interact with the orchestration engine.
+
+# [C#](#tab/csharp)
+
+Consider this HTTP trigger that starts an orchestration:
 
 ```csharp
-Assert.Equal(3, result.Count);
-Assert.Equal("Hello Tokyo!", result[0]);
-Assert.Equal("Hello Seattle!", result[1]);
-Assert.Equal("Hello London!", result[2]);
+[Function("HelloCitiesOrchestration_HttpStart")]
+public static async Task<HttpResponseData> HttpStart(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req,
+    [DurableClient] DurableTaskClient client,
+    FunctionContext executionContext)
+{
+    string instanceId = await client.ScheduleNewOrchestrationInstanceAsync(
+        nameof(HelloCitiesOrchestration));
+    return await client.CreateCheckStatusResponseAsync(req, instanceId);
+}
 ```
 
-After you combine the previous steps, the unit test has the following code:
+Mock `DurableTaskClient` to return a known instance ID:
 
-[!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceOrchestratorTests.cs)]
+```csharp
+[Fact]
+public async Task HttpStart_ReturnsAccepted()
+{
+    var durableClientMock = new Mock<DurableTaskClient>("testClient");
+    var functionContextMock = new Mock<FunctionContext>();
+    var instanceId = "test-instance-id";
 
-## Unit testing activity functions
+    durableClientMock
+        .Setup(x => x.ScheduleNewOrchestrationInstanceAsync(
+            It.IsAny<TaskName>(),
+            It.IsAny<object>(),
+            It.IsAny<StartOrchestrationOptions>(),
+            It.IsAny<CancellationToken>()))
+        .ReturnsAsync(instanceId);
 
-Activity functions are unit tested in the same way as nondurable functions.
+    var mockRequest = CreateMockHttpRequest(functionContextMock.Object);
 
-In this section the unit test validates the behavior of the `E1_SayHello` Activity function:
+    var responseMock = new Mock<HttpResponseData>(functionContextMock.Object);
+    responseMock.SetupGet(r => r.StatusCode).Returns(HttpStatusCode.Accepted);
 
-[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
+    durableClientMock
+        .Setup(x => x.CreateCheckStatusResponseAsync(
+            It.IsAny<HttpRequestData>(),
+            It.IsAny<string>(),
+            It.IsAny<CancellationToken>()))
+        .ReturnsAsync(responseMock.Object);
 
-And the unit tests verify the format of the output. These unit tests either use the parameter types directly or mock `IDurableActivityContext` class:
+    var result = await HelloCitiesOrchestration.HttpStart(
+        mockRequest, durableClientMock.Object, functionContextMock.Object);
 
-[!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceActivityTests.cs)]
+    Assert.Equal(HttpStatusCode.Accepted, result.StatusCode);
+}
+```
 
-## Next steps
+# [Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Learn more about xUnit](https://xunit.net/docs/getting-started/netcore/cmdline)
->
-> [Learn more about moq](https://github.com/Moq/moq4/wiki/Quickstart)
+Consider this HTTP trigger that starts an orchestration:
+
+```python
+@app.route(route="start")
+@app.durable_client_input(client_name="client")
+async def http_start(req: func.HttpRequest, client):
+    instance_id = await client.start_new("my_orchestrator")
+    return client.create_check_status_response(req, instance_id)
+```
+
+Mock the durable client:
+
+```python
+import asyncio
+import unittest
+import azure.functions as func
+from unittest.mock import AsyncMock, Mock
+
+from function_app import http_start
+
+
+class TestClientFunction(unittest.TestCase):
+    def test_http_start(self):
+        func_call = http_start.build().get_user_function().client_function
+
+        req = func.HttpRequest(
+            method="GET",
+            body=b"{}",
+            url="/api/start",
+        )
+
+        client = Mock()
+        client.start_new = AsyncMock(return_value="test-instance-id")
+        client.create_check_status_response = Mock(return_value="check_status_response")
+
+        result = asyncio.run(func_call(req, client))
+
+        client.start_new.assert_called_once_with("my_orchestrator")
+        client.create_check_status_response.assert_called_once_with(req, "test-instance-id")
+```
+
+# [JavaScript](#tab/javascript)
+
+JavaScript unit testing for Durable Functions isn't covered in this article.
+
+---
+
+::: zone-end
+
+## Related content
+
+::: zone pivot="durable-functions"
+
+- [Durable Functions overview](durable-functions-types-features-overview.md)
+- [Orchestrator function code constraints](durable-functions-code-constraints.md)
+
+::: zone-end
+
+::: zone pivot="durable-task-sdks"
+
+- [What is Durable Task?](what-is-durable-task.md)
+- [Orchestrator function code constraints](durable-functions-code-constraints.md)
+
+::: zone-end

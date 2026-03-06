@@ -6,23 +6,26 @@ services: api-center
 
 ms.service: azure-api-center
 ms.topic: include
-ms.date: 08/08/2025
+ms.date: 02/25/2026
 
 ms.custom: Include file
 ---
 
-First configure an app registration in your Microsoft Entra ID tenant. The app registration enables the API Center portal to access data from your API center on behalf of a signed-in user.
+To configure Microsoft Entra ID as an identity provider, first configure an app registration in your Microsoft Entra ID tenant. The app registration enables the API Center portal to access data from your API center on behalf of a signed-in user.
 
 API Center can set up the app registration automatically, or you can create the app registration manually. 
 
-#### Set up the app registration automatically
+#### Set up the app registration automatically (recommended)
 
 To set up the app registration automatically, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your API center.
-1. In the left-hand menu, select **API Center portal** > **Settings**.
-1. On the **Identity provider** tab, select **Start set up**.
-1. On the **Quick setup** tab, select **Save + publish**.
+1. In the [Azure portal](https://portal.azure.com), go to your API center.
+1. In the sidebar menu, select **API Center portal** > **Settings**.
+1. On the **Access** tab, select **Configure Entra ID**. 
+    :::image type="content" source="../media/set-up-api-center-portal/configure-access-entra-id.png" alt-text="Screenshot showing configuration of Entra ID in the portal.":::
+
+1. On the **Set up user sign-in with Microsoft Entra ID** page, select **Configure**.
+1. On the **Access** tab, select **Save + publish**.
 
 If you need to access the app registration later, you can find it in the portal under **App registrations**. The application is named with the following format: **\<api-center-name>-apic-aad**. 
 
@@ -30,7 +33,7 @@ If you need to access the app registration later, you can find it in the portal 
 
 If you want to create the app registration manually, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), navigate to **Microsoft Entra ID** > **Manage** > **App registrations**.
+1. In the [Azure portal](https://portal.azure.com), go to **Microsoft Entra ID** > **Manage** > **App registrations**.
 1. Select **+ New registration**. 
 1. On the **Register an application** page, set the values as follows:
     

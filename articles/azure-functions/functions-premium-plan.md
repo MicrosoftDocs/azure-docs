@@ -39,7 +39,7 @@ When you create a function app in the Azure portal, the Consumption plan is the 
 
 The following articles show you how to programmatically create a function app with a Premium plan:
 
-+ [Azure CLI](scripts/functions-cli-create-premium-plan.md)
++ [Azure CLI](functions-cli-samples.md#create)
 + [Azure Resource Manager template](functions-infrastructure-as-code.md?pivots=premium-plan)
 
 ## Eliminate cold starts

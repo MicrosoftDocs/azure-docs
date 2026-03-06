@@ -19,14 +19,25 @@ Azure provides you with two ways to save on your usage by committing for one or 
 
 When you opt for reservations, you're making a commitment to use a specific type of compute instance or instance family, in a specific Azure region, for a set period of time. For example, you might commit to using a D2v4 virtual machine in the Japan East region for one year. An Azure savings plan involves committing to a specific hourly expenditure on eligible compute services across all Azure regions for a certain period. For instance, you might commit to spending $5.00 per hour for three years. Reservations only apply to the specified compute service and region combination. Savings plan benefits are applicable to all usage from participating compute services across the globe, up to the hourly commitment.
 
-## Choose a reservation
+### Choose a reservation
 
 Opt for reservations when you have workloads that run continuously and are highly stable, with no anticipated changes to the instance type, instance family, or region. When fully utilized, reservations provide the greatest savings.
 
-## Choose a savings plan
+### Choose a savings plan
 
 Opt for savings plans when your workloads are dynamic or evolving, particularly if they use various instance families or compute services. Or when they're running in or shifting to different datacenter regions. Savings plans provide deep savings, flexible benefit application, and automatic optimization.
 
+## How to optimize cost savings using both reservations and savings plans
+To improve savings and limit wasted commitments, customers should consider following this sequence:
+ 
+1. Right‑size first – Remove unused or oversized resources before buying any discounts. Discounts reduce rates, not waste.
+2. Exchange underutilized reservations – If workloads changed, reassign existing reservations to better‑fit configurations instead of letting value go unused.
+3. Trade‑in underutilized reservations for savings plans – When usage is variable, convert rigid reservations into more flexible, spend‑based savings plans.
+4. Purchase new reservations – Commit only for stable, well‑understood workloads where usage and configuration are unlikely to change.
+5. Purchase new savings plans – Finally, add flexible, spend‑based commitments sized to a clean, optimized baseline.
+
+This sequence removes waste first, fixes existing commitments next, and only then adds new commitments - ensuring customers realize actual savings, not just theoretical discounts.
+
 ## Related content
 
-For general information about savings plans, see [What are Azure savings plans for compute?](savings-plan-compute-overview.md).
+For general information about savings plans, see [What are Azure savings plans for compute?](savings-plan-compute-overview.md)

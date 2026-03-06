@@ -17,28 +17,32 @@ items:
   items:
   - name: Compare Azure Data Factory to Data Factory in Fabric
     href: /fabric/data-factory/compare-fabric-data-factory-and-azure-data-factory?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
-  - name: Pipeline assessment tool
-    href: how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration.md
-  - name: Connector capability comparison
-    href: /fabric/data-factory/connector-parity?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
   - name: Migration planning
     href: /fabric/data-factory/migrate-planning-azure-data-factory?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+  - name: Upgrade pipelines to Fabric
+    items:
+    - name: Upgrade ADF pipelines to Fabric
+      href: how-to-upgrade-your-azure-data-factory-pipelines-to-fabric-data-factory.md
+    - name: Pipeline assessment tool
+      href: how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration.md
+    - name: Upgrade pipelines with PowerShell
+      items:
+      - name: Pipeline upgrade with PowerShell overview
+        href: /fabric/data-factory/migrate-pipelines-powershell-upgrade-module-for-azure-data-factory-to-fabric?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+      - name: Tutorial PowerShell pipeline upgrade
+        href: /fabric/data-factory/migrate-pipelines-powershell-upgrade-module-tutorial?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+      - name: Build your resolutions file
+        href: /fabric/data-factory/migrate-pipelines-how-to-add-connections-to-resolutions-file?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+      - name: Find your Fabric workspace ID
+        href: /fabric/data-factory/migrate-pipelines-how-to-find-your-fabric-workspace-id?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+  - name: Connector capability comparison
+    href: /fabric/data-factory/connector-parity?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
   - name: Migrate global parameters to variable libraries
     href: /fabric/data-factory/convert-global-parameters-to-variable-libraries?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
   - name: Migration best practices
     href: /fabric/data-factory/migration-best-practices?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
   - name: Bring your Azure Data Factory to Fabric
     href: /fabric/data-factory/migrate-pipelines-azure-data-factory-item?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json 
-  - name: Migrate pipelines with PowerShell
-    items:
-    - name: Pipeline migration with PowerShell overview
-      href: /fabric/data-factory/migrate-pipelines-powershell-upgrade-module-for-azure-data-factory-to-fabric?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
-    - name: Tutorial PowerShell pipeline migration
-      href: /fabric/data-factory/migrate-pipelines-powershell-upgrade-module-tutorial?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
-    - name: Build your resolutions file
-      href: /fabric/data-factory/migrate-pipelines-how-to-add-connections-to-resolutions-file?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
-    - name: Find your Fabric workspace ID
-      href: /fabric/data-factory/migrate-pipelines-how-to-find-your-fabric-workspace-id?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
   - name: How to ingest data from Azure Data Factory to Fabric
     href: how-to-ingest-data-into-fabric-from-azure-data-factory.md
   - name: Dataflows
@@ -95,12 +99,8 @@ items:
         href: tutorial-hybrid-copy-portal.md
       - name: Azure PowerShell
         href: tutorial-hybrid-copy-powershell.md
-    - name: From Amazon Web Services S3 to Azure Data Lake Storage
-      items:
-      - name: Azure Data Lake Storage Gen2
-        href: load-azure-data-lake-storage-gen2.md
-      - name: Azure Data Lake Storage Gen1
-        href: load-azure-data-lake-store.md
+    - name: Amazon Web Services S3 to Azure Data Lake Storage Gen2
+      href: load-azure-data-lake-storage-gen2.md
     - name: From Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2
       href: load-azure-data-lake-storage-gen2-from-gen1.md
     - name: From Azure SQL Database to Azure Synapse Analytics
@@ -187,12 +187,6 @@ items:
         items:
         - name: User interface (UI)
           href: transform-data-using-databricks-notebook.md
-      - name: Hive transformation in virtual network
-        items:
-        - name: User interface (UI)
-          href: tutorial-transform-data-hive-virtual-network-portal.md
-        - name: Azure PowerShell
-          href: tutorial-transform-data-hive-virtual-network.md
     - name: Build mapping dataflow pipeline using managed VNet and private endpoints
       href: tutorial-data-flow-private.md
   - name: Control Flow
@@ -746,9 +740,6 @@ items:
       href: copy-activity-data-consistency.md
     - name: Copy activity log
       href: copy-activity-log.md
-    - name: Format and compression support (legacy)
-      href: supported-file-formats-and-compression-codecs-legacy.md
-      displayName: zip
   - name: Transform data
     href: transform-data.md
     items:
@@ -791,10 +782,6 @@ items:
       href: transform-data-using-hadoop-streaming.md
     - name: Machine Learning Execute Pipeline activity
       href: transform-data-machine-learning-service.md
-    - name: Machine Learning Studio (classic) Batch Execution activity
-      href: transform-data-using-machine-learning.md
-    - name: Machine Learning Studio (classic) Update Resource activity
-      href: update-machine-learning-models.md
     - name: Mapping data flows
       href: tutorial-data-flow.md
     - name: Stored Procedure activity
@@ -1176,8 +1163,6 @@ items:
         href: how-to-sqldb-to-cosmosdb.md
       - name: Dedupe and null check with snippets
         href: how-to-data-flow-dedupe-nulls-snippets.md
-      - name: Process data from aml models using data flow
-        href: scenario-dataflow-process-data-aml-models.md
     - name: SSIS migration from on-premises
       items:
       - name: SSIS migration overview
@@ -1211,8 +1196,6 @@ items:
     - name: Transformation with Azure Databricks
       href: solution-template-databricks-notebook.md
       displayName: data bricks
-    - name: Call Synapse pipeline with a notebook activity
-      href: solution-template-synapse-notebook.md
   - name: Understanding pricing
     items:
     - name: Data flow reserved capacity overview
@@ -1226,27 +1209,6 @@ items:
       displayName: diu
     - name: FinOps in Azure Data Factory
       href: apply-finops.md
-    - name: Pricing examples
-      items:
-      - name: Pricing overview
-        href: pricing-concepts.md
-        displayName: diu
-      - name: Copy data from AWS S3 to Azure Blob storage
-        href: pricing-examples-s3-to-blob.md
-      - name: Copy data and transform with Azure Databricks
-        href: pricing-examples-copy-transform-azure-databricks.md
-      - name: Copy/transform data with dynamic parameters
-        href: pricing-examples-copy-transform-dynamic-parameters.md
-      - name: Run SSIS packages on Azure-SSIS integration runtime
-        href: pricing-examples-ssis-on-azure-ssis-integration-runtime.md
-      - name: Using mapping data flow debug for a workday
-        href: pricing-examples-mapping-data-flow-debug-workday.md
-      - name: Transform blob data with mapping data flows
-        href: pricing-examples-transform-mapping-data-flows.md
-      - name: Data integration with Managed VNET
-        href: pricing-examples-data-integration-managed-vnet.md
-      - name: Get delta data from SAP ECC via SAP CDC in mapping data flows
-        href: pricing-examples-get-delta-data-from-sap-ecc.md
   - name: Troubleshooting guides
     items:
     - name: Azure Data Factory Studio
@@ -1477,8 +1439,6 @@ items:
     href: policy-reference.md
   - name: Azure CLI
     href: /cli/azure/datafactory
-  - name: Compute optimized data flows retired
-    href: compute-optimized-data-flow-retire.md
   - name: Monitoring data reference
     href: monitor-data-factory-reference.md
 - name: Resources
@@ -1504,8 +1464,6 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Support options
     href: https://azure.microsoft.com/support/options/
-  - name: Request quota increases from support
-    href: quota-increase.md
   - name: Limits
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-data-factory-limits
 

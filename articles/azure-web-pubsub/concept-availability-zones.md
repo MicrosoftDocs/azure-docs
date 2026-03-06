@@ -3,7 +3,7 @@ title: Availability zones support in Azure  Service
 description: Azure availability zones and zone redundancy in Azure Web PubSub Service
 author: ArchangelSDY
 ms.service: azure-web-pubsub
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/06/2022
 ms.author: dayshen
 ---

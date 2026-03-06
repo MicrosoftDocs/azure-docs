@@ -11,6 +11,7 @@ metadata:
   ms.date: 07/22/2025
   adobe-target: true
   ms.collection: migration
+  ms.custom: migration-hub
 
 sections:
   - componentType: hero
@@ -38,7 +39,7 @@ sections:
       - componentType: card
         title: Amazon Web Services (AWS) to Azure
         summary: Compare AWS and Azure and review example scenarios to help integrate components for transition to Azure.
-        imageUrl: ./images/collection.png
+        imageUrl: ./images/aws-to-azure.png
         links:
           - componentType: link
             url: /azure/migration/migrate-from-aws
@@ -46,7 +47,7 @@ sections:
       - componentType: card
         title: Google Cloud to Azure
         summary: Compare Google Cloud and Azure and review example scenarios to help integrate components for transition to Azure.
-        imageUrl: ./images/collection.png
+        imageUrl: ./images/google-cloud.png
         links:
           - componentType: link
             url: /azure/migration/migrate-from-google-cloud
@@ -54,7 +55,7 @@ sections:
       - componentType: card
         title: On-premises to Azure
         summary: Review example scenarios to help integrate components for transition to Azure.
-        imageUrl: ./images/collection.png
+        imageUrl: ./images/on-premises.png
         links:
           - componentType: link
             url: /azure/migration/migrate-from-on-premises

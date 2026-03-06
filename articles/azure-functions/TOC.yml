@@ -36,6 +36,9 @@
       - name: Custom remote MCP server
         displayName: AI, agent, agentic, tools, trigger
         href: scenario-custom-remote-mcp-server.md
+      - name: MCP Apps
+        displayName: AI, agent, agentic, tools, MCP Apps, UI
+        href: scenario-mcp-apps.md
       - name: Host MCP server using SDKs
         displayName: AI, agent, agentic, tools, MCP SDKs
         href: scenario-host-mcp-server-sdks.md
@@ -177,31 +180,7 @@
     - name: TypeScript
       href: /samples/browse/?products=azure-functions&languages=typescript
   - name: Azure CLI
-    items:
-    - name: CLI sample index
-      href: functions-cli-samples.md
-    - name: Create function app
-      items:
-      - name: Serverless function app
-        href: ./scripts/functions-cli-create-serverless.md
-      - name: Serverless Python app
-        href: ./scripts/functions-cli-create-serverless-python.md
-      - name: Scalable Premium plan app
-        href: ./scripts/functions-cli-create-premium-plan.md
-      - name: Dedicated (App Service) plan app
-        href: ./scripts/functions-cli-create-app-service-plan.md
-    - name: Integrate services
-      items:
-      - name: Connect Azure Storage
-        href: ./scripts/functions-cli-create-function-app-connect-to-storage-account.md
-      - name: Connect Azure Cosmos DB
-        href: ./scripts/functions-cli-create-function-app-connect-to-cosmos-db.md
-      - name: Python mount Files share
-        href: ./scripts/functions-cli-mount-files-storage-linux.md
-    - name: Continuous deployment
-      items:
-      - name: GitHub deployment
-        href: ./scripts/functions-cli-create-function-app-github-continuous.md
+    href: functions-cli-samples.md
   - name: Azure PowerShell
     href: create-resources-azure-powershell.md
 - name: Concepts
@@ -390,7 +369,7 @@
         href: functions-create-function-app-portal.md
       - name: Azure CLI
         displayName: create function app
-        href: ./scripts/functions-cli-create-serverless.md
+        href: how-to-create-function-azure-cli.md
     - name: Create functions
       items:
       - name: HTTP trigger
@@ -399,10 +378,6 @@
           href: functions-create-http-endpoint.md
         - name: Kotlin using IntelliJ
           href: functions-create-maven-kotlin-intellij.md
-        - name: Consumption plan
-          href: ./scripts/functions-cli-create-app-service-plan.md
-        - name: Premium plan
-          href: ./scripts/functions-cli-create-premium-plan.md
         - name: Linux container (Premium)
           displayName: container, Docker, custom
           href: functions-deploy-container.md
@@ -630,6 +605,9 @@
     - name: MCP extension quickstart
       displayName: AI, agent, agentic, tools, trigger
       href: scenario-custom-remote-mcp-server.md
+    - name: MCP Apps quickstart
+      displayName: AI, agent, agentic, tools, MCP Apps, UI
+      href: scenario-mcp-apps.md
     - name: Custom remote MCP tutorial
       displayName: agent, agentic, Foundry
       href: functions-mcp-tutorial.md
@@ -693,27 +671,27 @@
     href: functions-app-settings.md
   - name: Triggers and bindings
     items:
-    - name: Azure Cache for Redis
+    - name: Azure Managed Redis
       items:
       - name: Overview
-        displayName: Azure Cache for Redis
+        displayName: Azure Managed Redis
         href: functions-bindings-cache.md
       - name: Trigger
         items:
         - name: Pub Sub
-          displayName: Azure Cache for Redis
+          displayName: Azure Managed Redis
           href: functions-bindings-cache-trigger-redispubsub.md
         - name: List
-          displayName: Azure Cache for Redis
+          displayName: Azure Managed Redis
           href: functions-bindings-cache-trigger-redislist.md
         - name: Stream
-          displayName: Azure Cache for Redis
+          displayName: Azure Managed Redis
           href: functions-bindings-cache-trigger-redisstream.md
       - name: Input
-        displayName: Azure Cache for Redis
+        displayName: Azure Managed Redis
         href: functions-bindings-cache-input.md
       - name: Output
-        displayName: Azure Cache for Redis
+        displayName: Azure Managed Redis
         href: functions-bindings-cache-output.md
     - name: Azure Cosmos DB
       items:
@@ -930,9 +908,12 @@
       - name: Overview
         displayName: MCP
         href: functions-bindings-mcp.md
-      - name: Trigger
+      - name: Tool trigger
         displayName: MCP tool
-        href: functions-bindings-mcp-trigger.md
+        href: functions-bindings-mcp-tool-trigger.md
+      - name: Resource trigger
+        displayName: MCP resource
+        href: functions-bindings-mcp-resource-trigger.md
     - name: Mobile Apps
       href: functions-bindings-mobile-apps.md
     - name: Notification Hubs
@@ -1060,6 +1041,8 @@
         href: errors-diagnostics/diagnostic-events/azfd0012.md
       - name: AZFD0013
         href: errors-diagnostics/diagnostic-events/azfd0013.md
+      - name: AZFD0015
+        href: errors-diagnostics/diagnostic-events/azfd0015.md
   - name: host.json 2.x reference
     href: functions-host-json.md
   - name: host.json 1.x reference

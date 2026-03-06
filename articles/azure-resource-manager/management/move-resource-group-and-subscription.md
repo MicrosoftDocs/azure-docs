@@ -466,7 +466,7 @@ Another common example involves moving a virtual network where you might have to
 
 Resource Manager validates your move request before attempting a move. This validation includes checking policies defined for the resources involved in the move. For example, the validation fails when you're attempting to move a key vault but your organization has a policy to deny creating a key vault in the target resource group. The returned error code is ### RequestDisallowedByPolicy**.
 
-For more information about policies, see [What is Azure Policy?](../../governance/policy/overview.md).
+For more information about policies, see [What is Azure Policy?](../../governance/policy/overview.md)
 
 ### Why can't I move some resources in Azure?
 

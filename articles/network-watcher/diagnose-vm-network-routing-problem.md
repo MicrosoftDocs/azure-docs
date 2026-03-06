@@ -1,15 +1,14 @@
 ---
-title: 'Tutorial: Diagnose a VM network routing problem - Azure portal'
+title: 'Tutorial: Diagnose a VM Network Routing Problem - Azure Portal'
 titleSuffix: Azure Network Watcher
 description: In this tutorial, you learn how to diagnose a virtual machine network routing problem using the next hop capability of Azure Network Watcher.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: tutorial
-ms.date: 10/29/2024
+ms.date: 02/25/2026
 ms.custom: sfi-image-nochange
 
-#CustomerIntent: As an Azure administrator, I want to diagnose virtual machine (VM) network routing problem that prevents it from communicating with the internet.
 # Customer intent: As an Azure administrator, I want to troubleshoot network routing issues for virtual machines using diagnostic tools, so that I can ensure proper communication between resources and identify potential routing problems effectively.
 ---
 

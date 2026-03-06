@@ -2,7 +2,7 @@
 title: Compute environments 
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about compute environments that can be used with Azure Data Factory and Synapse Analytics pipelines (such as Azure HDInsight) to transform or process data.
-ms.topic: conceptual
+ms.topic: concept-article
 author: nabhishek
 ms.author: abnarain
 ms.date: 10/23/2025

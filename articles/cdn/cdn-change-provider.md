@@ -8,7 +8,7 @@ ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/31/2025
+ms.date: 02/28/2026
 ROBOTS: NOINDEX
 # Customer intent: As a web administrator, I want to follow best practices for migrating between content delivery network providers, so that I can ensure a smooth transition while optimizing costs and performance for my web delivery requirements.
 ---

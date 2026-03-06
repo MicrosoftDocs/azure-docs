@@ -4,11 +4,10 @@ titleSuffix: Microsoft Security
 description: Exploring and interacting with the Microsoft Sentinel data lake using KQL
 author: EdB-MSFT  
 ms.service: microsoft-sentinel
+ms.subservice: sentinel-platform
 ms.topic: conceptual
-ms.subservice: sentinel-graph
 ms.date: 08/27/2025
 ms.author: edbaynash  
-
 ms.collection: ms-security  
 
 # Customer intent: As a security analyst, I want to understand how I can use KQL to explore and analyze data in the Microsoft Sentinel data lake, so that I can effectively investigate incidents and enhance my security operations.

@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 12/31/2025
+ms.date: 02/23/2026
 ms.custom: generated
 ---
 
@@ -342,6 +342,7 @@ Can approve private endpoint connections to Azure AI common dependency resources
 > | [Microsoft.DBforMySQL](../permissions/databases.md#microsoftdbformysql)/flexibleServers/privateLinkResources/read | Get the private link resources for the corresponding MySQL Server |
 > | [Microsoft.DBforMySQL](../permissions/databases.md#microsoftdbformysql)/flexibleServers/read | Returns the list of servers or gets the properties for the specified server. |
 > | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/privateEndpointConnectionsApproval/action | Manage a private endpoint connection of Database Account |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/privateEndpointConnections/operationResults/read | Read Status of privateEndpointConnections asynchronous operation |
 > | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/privateEndpointConnections/read | Read a private endpoint connection or list all the private endpoint connections of a Database Account |
 > | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/privateEndpointConnections/write | Create or update a private endpoint connection of a Database Account |
 > | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/privateLinkResources/read | Read a private link resource or list all the private link resources of a Database Account |
@@ -448,6 +449,7 @@ Can approve private endpoint connections to Azure AI common dependency resources
         "Microsoft.DBforMySQL/flexibleServers/privateLinkResources/read",
         "Microsoft.DBforMySQL/flexibleServers/read",
         "Microsoft.DocumentDB/databaseAccounts/privateEndpointConnectionsApproval/action",
+        "Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections/operationResults/read",
         "Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections/read",
         "Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections/write",
         "Microsoft.DocumentDB/databaseAccounts/privateLinkResources/read",
@@ -566,8 +568,16 @@ Grants full to manage AI project and accounts. Grants reader access to AI projec
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
+> | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/actionRules/* |  |
+> | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/alerts/* |  |
+> | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/issues/* |  |
+> | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/prometheusRuleGroups/* |  |
+> | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/smartDetectorAlertRules/* |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/* |  |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/activityLogAlerts/* |  |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metricalerts/* |  |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/scheduledqueryrules/* |  |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
@@ -594,8 +604,16 @@ Grants full to manage AI project and accounts. Grants reader access to AI projec
   "permissions": [
     {
       "actions": [
+        "Microsoft.AlertsManagement/actionRules/*",
+        "Microsoft.AlertsManagement/alerts/*",
+        "Microsoft.AlertsManagement/issues/*",
+        "Microsoft.AlertsManagement/prometheusRuleGroups/*",
+        "Microsoft.AlertsManagement/smartDetectorAlertRules/*",
         "Microsoft.Authorization/*/read",
         "Microsoft.CognitiveServices/*",
+        "Microsoft.Insights/activityLogAlerts/*",
+        "Microsoft.Insights/metricalerts/*",
+        "Microsoft.Insights/scheduledqueryrules/*",
         "Microsoft.ResourceHealth/availabilityStatuses/read",
         "Microsoft.Resources/deployments/*",
         "Microsoft.Resources/deployments/operations/read",
@@ -650,7 +668,7 @@ Lets you perform developer actions and management actions on Foundry Projects. I
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you perform developer actions and management actions on Microsoft Foundry Projects. Allows for making role assignments, but limited to Cognitive Service User role.",
+  "description": "Lets you perform developer actions and management actions on Azure AI Foundry Projects. Allows for making role assignments, but limited to Cognitive Service User role.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/eadc314b-1a2d-4efa-be10-5d325db5065e",
   "name": "eadc314b-1a2d-4efa-be10-5d325db5065e",
   "permissions": [
@@ -2710,6 +2728,7 @@ Grants full access to Azure Cognitive Search index data.
 > | *none* |  |
 > | **DataActions** |  |
 > | [Microsoft.Search](../permissions/ai-machine-learning.md#microsoftsearch)/searchServices/indexes/documents/* |  |
+> | [Microsoft.Search](../permissions/ai-machine-learning.md#microsoftsearch)/searchServices/indexes/contentSecurity/elevatedOperations/read | Enable the option to read all documents in an index regardless of permission filters. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -2726,7 +2745,8 @@ Grants full access to Azure Cognitive Search index data.
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.Search/searchServices/indexes/documents/*"
+        "Microsoft.Search/searchServices/indexes/documents/*",
+        "Microsoft.Search/searchServices/indexes/contentSecurity/elevatedOperations/read"
       ],
       "notDataActions": []
     }

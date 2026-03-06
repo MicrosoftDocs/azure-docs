@@ -2,8 +2,8 @@
 title: Quickstart - Add video calling to your app
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you learn how to add video calling capabilities to your app using Azure Communication Services.
-author: tophpalmer
-ms.author: chpalm
+author: sundiraman
+ms.author: sundraman
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services

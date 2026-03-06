@@ -3,14 +3,14 @@ title: Azure CLI samples for Azure Functions
 description: Find links to bash scripts for Azure Functions that use the Azure CLI. Learn how to create a function app that allows integration and deployment.
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
 ms.topic: sample
-ms.date: 04/21/2024
+ms.date: 02/27/2026
 ms.custom: mvc, devx-track-azurecli, seo-azure-cli
 keywords: functions, azure cli samples, azure cli examples, azure cli code samples
 ---
 
 # Azure CLI Samples
 
-These end-to-end Azure CLI scripts are provided to help you learn how to provision and managing the Azure resources required by Azure Functions. You must use the [Azure Functions Core Tools](functions-run-local.md) to create actual Azure Functions code projects from the command line on your local computer and deploy code to these Azure resources. For a complete end-to-end example of developing and deploying from the command line using both Core Tools and the Azure CLI, see one of these language-specific command line quickstarts: 
+These end-to-end Azure CLI scripts are provided to help you learn how to provision and manage the Azure resources required by Azure Functions. You must use the [Azure Functions Core Tools](functions-run-local.md) to create actual Azure Functions code projects from the command line on your local computer and deploy code to these Azure resources. For a complete end-to-end example of developing and deploying from the command line using both Core Tools and the Azure CLI, see one of these language-specific command line quickstarts: 
 
 + [C#](how-to-create-function-azure-cli.md?pivots=programming-language-csharp)
 + [Java](how-to-create-function-azure-cli.md?pivots=programming-language-java)
@@ -19,23 +19,24 @@ These end-to-end Azure CLI scripts are provided to help you learn how to provisi
 + [Python](how-to-create-function-azure-cli.md?pivots=programming-language-python)
 + [TypeScript](how-to-create-function-azure-cli.md?pivots=programming-language-typescript)
 
-The following table includes links to bash scripts that you can use to create and manage the Azure resources required by Azure Functions using the Azure CLI.
+The following table includes links to bash scripts that you can use to create and manage the Azure resources required by Azure Functions using the Azure CLI. These scripts are maintained in the [Azure-Samples/azure-cli-samples](https://github.com/Azure-Samples/azure-cli-samples/tree/master/azure-functions) GitHub repository.
 
 <a id="create"></a>
 
 | Create app | Description |
 |---|---|
-| [Create a function app for serverless execution](scripts/functions-cli-create-serverless.md) | Create a function app in a Consumption plan.  |
-| [Create a serverless Python function app](scripts/functions-cli-create-serverless-python.md) | Create a Python function app in a Consumption plan. |
-| [Create a function app in a scalable Premium plan](scripts/functions-cli-create-premium-plan.md) | Create a function app in a Premium plan. |
-| [Create a function app in a dedicated (App Service) plan](scripts/functions-cli-create-app-service-plan.md) | Create a function app in a dedicated App Service plan. |
+| [create-function-app-flex-consumption.sh](https://github.com/Azure-Samples/azure-cli-samples/tree/master/azure-functions/create-function-app-flex-consumption) | Creates a function app in a Flex Consumption plan with a user-assigned managed identity. **This is the recommended serverless hosting plan.** |
+| [create-function-app-consumption.sh](https://github.com/Azure-Samples/azure-cli-samples/tree/master/azure-functions/create-function-app-consumption) | Creates a function app in a Consumption plan. |
+| [create-function-app-premium-plan.sh](https://github.com/Azure-Samples/azure-cli-samples/tree/master/azure-functions/create-function-app-premium-plan) | Creates a function app in a Premium (Elastic Premium) plan. |
+| [create-function-app-app-service-plan.sh](https://github.com/Azure-Samples/azure-cli-samples/tree/master/azure-functions/create-function-app-app-service-plan) | Creates a function app in a dedicated App Service plan. |
 
-| Integrate | Description|
+| Connect to services | Description|
 |---|---|
-| [Create a function app and connect to a storage account](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Create a function app and connect it to a storage account. |
-| [Create a function app and connect to an Azure Cosmos DB](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Create a function app and connect it to an Azure Cosmos DB instance. |
-| [Create a Python function app and mount an Azure Files share](scripts/functions-cli-mount-files-storage-linux.md) | By mounting a share to your Linux function app, you can leverage existing machine learning models or other data in your functions. |
+| [create-function-app-connect-to-storage-account.sh](https://github.com/Azure-Samples/azure-cli-samples/tree/master/azure-functions/create-function-app-connect-to-storage) | Creates a function app in a Flex Consumption plan and connects it to a storage account using managed identity. |
+| [create-function-app-connect-to-cosmos-db.sh](https://github.com/Azure-Samples/azure-cli-samples/tree/master/azure-functions/create-function-app-connect-to-cosmos-db) | Creates a function app in a Flex Consumption plan and connects it to Azure Cosmos DB using managed identity and RBAC. |
+| [connect-azure-openai-resources.sh](https://github.com/Azure-Samples/azure-cli-samples/tree/master/azure-functions/connect-azure-openai-resources) | Creates a function app in a Flex Consumption plan and connects it to Azure OpenAI using managed identity. |
+| [functions-cli-mount-files-storage-linux.sh](https://github.com/Azure-Samples/azure-cli-samples/tree/master/azure-functions/functions-cli-mount-files-storage-linux) | Creates a Linux function app and mounts an Azure Files share, which lets you leverage existing data or machine learning models in your functions. |
 
-| Continuous deployment | Description|
+| Deploy code | Description|
 |---|---|
-| [Deploy from GitHub](scripts/functions-cli-create-function-app-github-continuous.md) | Create a function app that deploys from a GitHub repository.  |
+| [deploy-function-app-with-function-github-continuous.sh](https://github.com/Azure-Samples/azure-cli-samples/tree/master/azure-functions/deploy-function-app-with-function-github-continuous) | Creates a function app in a Consumption plan and deploys code from a public GitHub repository. |

@@ -4,7 +4,7 @@ description: Learn the different options available to using and managing secure 
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/26/2025
 ms.author: cshoe
 ---

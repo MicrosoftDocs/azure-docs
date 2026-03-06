@@ -1,11 +1,11 @@
 ---
-title: How to create Azure Health Data Services, workspaces, FHIR and DICOM service, and MedTech service using Azure Bicep
+title: How to create Azure Health Data Services, workspaces, and FHIR and DICOM services with BICEP
 description: This document describes how to deploy Azure Health Data Services using Azure Bicep.
 author: chachachachami
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 06/02/2025
+ms.date: 02/25/2026
 ms.author: chrupa
 ms.custom:
   - mode-api
@@ -15,7 +15,7 @@ ms.custom:
 
 # Deploy Azure Health Data Services using Azure Bicep
 
-In this article, you learn how to create Azure Health Data Services, including workspaces, Fast Healthcare Interoperability Resources (FHIR) services, Digital Imaging Communications in Medicine (DICOM) services, and MedTech service using Azure Bicep. You can view and download the Bicep scripts used in this article in [Azure Health Data Services samples](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/templates/ahds.bicep).
+In this article, you learn how to create Azure Health Data Services, including workspaces, Fast Healthcare Interoperability Resources (FHIR) services, and Digital Imaging Communications in Medicine (DICOM) services, using Azure Bicep. 
 
 ## What is Azure Bicep
 
@@ -30,7 +30,7 @@ You can continue to work with JSON ARM templates, or use Bicep to develop your A
 
 Using Bicep parameters and variables instead of hard coding names and other values allows you to debug and reuse your Bicep files.
 
-We first define parameters with the keyword *param* for workspace, FHIR service, DICOM service, MedTech service. Also, we define parameters for Azure subscription and Microsoft Entra tenant. They’re used in the CLI command line with the "--parameters" option.
+We first define parameters with the keyword *param* for workspace, FHIR service, and DICOM service. Also, we define parameters for Azure subscription and Microsoft Entra tenant. They’re used in the CLI command line with the "--parameters" option.
 
 We then define variables for resources with the keyword *var*. Also, we define variables for properties such as the authority and the audience for the FHIR service. They’re specified and used internally in the Bicep file and can be used in combination of parameters, Bicep functions, and other variables. Unlike parameters, they aren’t used in the CLI command line.
 
@@ -41,15 +41,13 @@ It's important to note that one Bicep function and environment are required to s
 param workspaceName string
 param fhirName string
 param dicomName string
-param medtechName string
 param tenantId string
 param location string
 
 //Define variables
 var fhirservicename = '${workspaceName}/${fhirName}'
 var dicomservicename = '${workspaceName}/${dicomName}'
-var medtechservicename = '${workspaceName}/${medtechName}'
-var medtechdestinationname = '${medtechservicename}/output1'
+
 var loginURL = environment().authentication.loginEndpoint
 var authority = '${loginURL}${tenantId}'
 var audience = 'https://${workspaceName}-${fhirName}.fhir.azurehealthcareapis.com'
@@ -141,109 +139,6 @@ Similarly, you can use or reference an existing DICOM service using the keyword 
 }
 ```
 
-## Create a MedTech service template
-
-For the MedTech service resource, the required properties include the MedTech service name, location, managed identity, and the dependency on the workspace. For the MedTech service itself, required properties include Azure Event Hubs namespace, Event Hubs, Event Hubs consumer group, and the device mapping. As an example, the heart rate device mapping is used in the template.
-
-```
-//Create IoT connector
-resource exampleIoT 'Microsoft.HealthcareApis/workspaces/iotconnectors@2021-11-01' = {
-  name: iotconnectorname
-  location: resourceGroup().location
-  identity: {
-    type: 'SystemAssigned'
-  }
-  dependsOn: [
-    exampleWorkspace
-    //exampleExistingWorkspace
-  ]
-  properties: {
-    ingestionEndpointConfiguration: {
-      eventHubName: 'eventhubnamexxx'
-      consumerGroup: 'eventhubconsumergroupxxx'
-      fullyQualifiedEventHubNamespace: 'eventhubnamespacexxx.servicebus.windows.net'
-            }
-    deviceMapping: {
-    content: {
-    templateType: 'CollectionContent'
-        template: [
-                    {
-                      templateType: 'JsonPathContent'
-                      template: {
-                              typeName: 'heartrate'
-                              typeMatchExpression: '$..[?(@heartrate)]'
-                              deviceIdExpression: '$.deviceid'
-                              timestampExpression: '$.measurementdatetime'
-                              values: [
-                                {
-                                      required: 'true'
-                                      valueExpression: '$.heartrate'
-                                      valueName: 'Heart rate'
-                                      }
-                                      ]
-                                }
-                    }
-                  ]
-            }
-          }
-      }
-    }
-```
-
-Similarly, you can use, or reference an existing MedTech service using the keyword *existing*.
-
-```
-//Use an existing IoT 
-resource exampleExistingIoT 'Microsoft.HealthcareApis/workspaces/iotconnectors/fhirdestinations@2021-11-01' existing = {
-    name: iotconnectorname
-}
-```
-
-The MedTech service requires a child resource, destination, and it currently supports the FHIR service destination only. For the MedTech service destination resource, the required properties include a name, location, and the dependency on the MedTech service. For the FHIR service destination, required properties include the resolution type, which takes a value of *Create* or *Lookup*, the FHIR service resource ID, and a FHIR resource type. For example, the heart rate mapping for the FHIR Observation resource is used in the template.
-
-```
-//Create IoT destination
-resource exampleIoTDestination 'Microsoft.HealthcareApis/workspaces/iotconnectors/fhirdestinations@2021-11-01'  = {
-  name:   iotdestinationname
-  location: resourceGroup().location
-  dependsOn: [
-    exampleIoT
-    //exampleExistingIoT
-  ]
-  properties: {
-    resourceIdentityResolutionType: 'Create'
-    fhirServiceResourceId: exampleFHIR.id //exampleExistingFHIR.id
-    fhirMapping: {
-                content: {
-                    templateType: 'CollectionFhirTemplate'
-                    template: [
-                        {
-                            templateType: 'CodeValueFhir'
-                            template: {
-                                codes: [
-                                    {
-                                        code: '8867-4'
-                                        system: 'http://loinc.org'
-                                        display: 'Heart rate'
-                                    }
-                                ]
-                                periodInterval: 60
-                                typeName: 'heartrate'
-                                value: {
-                                    defaultPeriod: 5000
-                                    unit: 'count/min'
-                                    valueName: 'hr'
-                                    valueType: 'SampledData'
-                                }
-                            }
-                        }
-                    ]
-                }
-            }
-        }
-}
-```
-
 ## Deploy Azure Health Data Services
 
 You can use the `az deployment group create` command to deploy individual Bicep file or combined templates, similar to the way you deploy Azure resources with JSON templates. Specify the resource group name, and include the parameters in the command line. With the "--parameters" option, specify the parameter and value pair as "parameter = value", and separate the parameter and value pairs by a space if more than one parameter is defined.
@@ -257,16 +152,15 @@ location=centralus
 workspacename=ws$deploymentname
 fhirname=fhir$deploymentname
 dicomname=dicom$deploymentname
-medtechname=medtech$deploymentname
 bicepfilename=ahds.bicep
 subscriptionid=$(az account show --query id --output tsv)
 tenantid=$(az account show --subscription $subscriptionid --query tenantId --output tsv)
 
 az group create --name $resourcegroupname --location $location
-az deployment group create --resource-group $resourcegroupname --template-file $bicepfilename --parameters workspaceName=$workspacename fhirName=$fhirname dicomName=$dicomname medtechName=$medtechname tenantId=$tenantid location=$location
+az deployment group create --resource-group $resourcegroupname --template-file $bicepfilename --parameters workspaceName=$workspacename fhirName=$fhirname dicomName=$dicomname tenantId=$tenantid location=$location
 ```
 
-Note that the child resource name such as the FHIR service includes the parent resource name, and the "dependsOn" property is required. However, when the child resource is created within the parent resource, its name doesn't need to include the parent resource name, and the "dependsOn" property isn't required. For more info on nested resources, see [Set name and type for child resources in Bicep](../azure-resource-manager/bicep/child-resource-name-type.md).
+The child resource name such as the FHIR service includes the parent resource name, and the "dependsOn" property is required. However, when the child resource is created within the parent resource, its name doesn't need to include the parent resource name, and the "dependsOn" property isn't required. For more info on nested resources, see [Set name and type for child resources in Bicep](../azure-resource-manager/bicep/child-resource-name-type.md).
 
 ## Debugging Bicep files
 
@@ -281,7 +175,7 @@ output stringOutput2 string = audience
 
 ## Next steps
 
-In this article, you learned how to create Azure Health Data Services, including workspaces, FHIR services, DICOM services, and MedTech services using Bicep. You also learned how to create and debug Bicep files. For more information about Azure Health Data Services, see:
+In this article, you learned how to create Azure Health Data Services, including workspaces, FHIR services, and DICOM services using Bicep. You also learned how to create and debug Bicep files. For more information about Azure Health Data Services, see:
 
 >[!div class="nextstepaction"]
 >[What is Azure Health Data Services?](healthcare-apis-overview.md)

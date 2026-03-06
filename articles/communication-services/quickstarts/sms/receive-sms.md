@@ -2,10 +2,10 @@
 title: Receive an SMS message
 titleSuffix: Azure Communication Services
 description: This article describes how to receive an SMS message by using Azure Communication Services.
-author: tophpalmer
+author: sundiraman
 manager: shahen
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 02/09/2023
 ms.topic: quickstart
 ms.service: azure-communication-services

@@ -3,7 +3,7 @@ title: "Quickstart: Create a C# Durable Functions app"
 description: Create and publish a C# Durable Functions app in Azure Functions by using Visual Studio or Visual Studio Code.
 author: lilyjma
 ms.topic: quickstart
-ms.date: 07/24/2024
+ms.date: 02/24/2026
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
 ms.devlang: csharp
@@ -43,7 +43,7 @@ To complete this quickstart, you need:
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-an-azure-functions-project"></a>Create an Azure Functions project
+## Create an Azure Functions project
 
 In Visual Studio Code, create a local Azure Functions project.
 
@@ -61,7 +61,7 @@ In Visual Studio Code, create a local Azure Functions project.
     | ------ | ----- | ----------- |
     | **Select a language for your function app project** | Select **C#**. | Creates a local C# Functions project. |
     | **Select a version** | Select **Azure Functions v4**. | You see this option only when Core Tools isn't already installed. Core Tools is installed the first time you run the app. |
-    | **Select a .NET runtime** | Select **.NET 8.0 isolated**. | Creates a Functions project that supports .NET 8 running in an isolated worker process and the Azure Functions Runtime 4.0. For more information, see [How to target Azure Functions runtime version](../functions-versions.md).  |
+    | **Select a .NET runtime** | Select **.NET 8.0 isolated**. | Creates a Functions project that supports .NET 8 running in an isolated worker process and the Azure Functions Runtime 4.0. For more information, see [How to target Azure Functions runtime version](../functions-versions.md). |
     | **Select a template for your project's first function** | Select **Durable Functions Orchestration**. | Creates a Durable Functions orchestration. |
     | **Choose a durable storage type** | Select **Azure Storage**. | The default storage provider for Durable Functions. For more information, see [Durable Functions storage providers](./durable-functions-storage-providers.md). |
     | **Provide a function name** | Enter **HelloOrchestration**. | A name for the orchestration function. |
@@ -73,12 +73,12 @@ Visual Studio Code installs Azure Functions Core Tools if it's required to creat
 Another file, *HelloOrchestration.cs*, contains the basic building blocks of a Durable Functions app:
 
 | Method | Description |
-| -----  | ----------- |
+| ----- | ----------- |
 | `HelloOrchestration` | Defines the Durable Functions app orchestration. In this case, the orchestration starts, creates a list, and then adds the result of three functions calls to the list. When the three function calls finish, it returns the list. |
 | `SayHello` | A simple function app that returns *hello*. This function contains the business logic that is orchestrated. |
 | `HelloOrchestration_HttpStart` | An [HTTP-triggered function](../functions-bindings-http-webhook.md) that starts an instance of the orchestration and returns a *check status* response. |
 
-For more information about these functions, see [Durable Functions types and features](./durable-functions-types-features-overview.md) or this [C# sample code for Durable Functions](./durable-functions-overview.md?pivots=csharp).
+For more information about these functions, see [Durable Functions types and features](./programming-model-overview.md).
 
 ## Configure storage
 
@@ -163,7 +163,7 @@ If you no longer need the resources that you created to complete the quickstart,
 
 ## Related content
 
-* Learn about [common Durable Functions app patterns](durable-functions-overview.md#application-patterns).
+* Learn about [common Durable Functions app patterns](durable-functions-sequence.md).
 
 ::: zone-end
 
@@ -201,9 +201,9 @@ The Azure Functions template creates a project that you can publish to a functio
 
     :::image type="content" source="./media/durable-functions-create-first-csharp/functions-isolated-vs-new-function.png" alt-text="Screenshot of the Create a new Azure Functions Application dialog in Visual Studio.":::
 
-    | Setting      | Action  | Description                      |
-    | ------------ |  ------- |----------------------------------------- |
-    | **Functions worker** | Select **.NET 8 Isolated (Long Term Support)**. | Creates an Azure Functions project that supports .NET 8 running in an isolated worker process and the Azure Functions Runtime 4.0. For more information, see [How to target the Azure Functions runtime version](../functions-versions.md).   |
+    | Setting | Action | Description |
+    | ------------ | ------- | ----------------------------------------- |
+    | **Functions worker** | Select **.NET 8 Isolated (Long Term Support)**. | Creates an Azure Functions project that supports .NET 8 running in an isolated worker process and the Azure Functions Runtime 4.0. For more information, see [How to target the Azure Functions runtime version](../functions-versions.md). |
     | **Function** | Enter **Durable Functions Orchestration**. | Creates a Durable Functions orchestration. |
 
    > [!NOTE]
@@ -217,12 +217,12 @@ The Azure Functions template creates a project that you can publish to a functio
 In your app folder, a file named *Function1.cs* contains three functions. The three functions are the basic building blocks of a Durable Functions app:
 
 | Method | Description |
-| -----  | ----------- |
+| ----- | ----------- |
 | `RunOrchestrator` | Defines the Durable Functions app orchestration. In this case, the orchestration starts, creates a list, and then adds the result of three functions calls to the list. When the three function calls finish, it returns the list. |
 | `SayHello` | A simple function app that returns *hello*. This function contains the business logic that is orchestrated. |
 | `HttpStart` | An [HTTP-triggered function](../functions-bindings-http-webhook.md) that starts an instance of the orchestration and returns a *check status* response. |
 
-For more information about these functions, see [Durable Functions types and features](./durable-functions-types-features-overview.md).
+For more information about these functions, see [Durable Functions types and features](./programming-model-overview.md).
 
 ## Test the function locally
 
@@ -293,6 +293,6 @@ If you no longer need the resources that you created to complete the quickstart,
 
 ## Related content
 
-* Learn about [common Durable Functions app patterns](durable-functions-overview.md#application-patterns).
+* Learn about [common Durable Functions app patterns](durable-functions-sequence.md).
 
 ::: zone-end

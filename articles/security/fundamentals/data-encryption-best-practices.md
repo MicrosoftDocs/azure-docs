@@ -17,6 +17,8 @@ This article describes best practices for data security and encryption.
 
 The best practices are based on a consensus of opinion, and they work with current Azure platform capabilities and feature sets. Opinions and technologies change over time and this article is updated on a regular basis to reflect those changes.
 
+This article aligns with Microsoft's [Zero Trust](/security/zero-trust/zero-trust-overview) security model, which treats data as one of the critical pillars requiring protection at all stages. For prescriptive security controls with Azure Policy enforcement, see [Microsoft Cloud Security Benchmark v2 - Data Protection](/security/benchmark/azure/mcsb-v2-data-protection).
+
 ## Protect data
 To help protect data in the cloud, you need to account for the possible states in which your data can occur, and what controls are available for that state. Best practices for Azure data security and encryption relate to the following data states:
 
@@ -37,23 +39,19 @@ Azure offers several different services to protect your cryptographic keys using
 
 Because the vast majority of attacks target the end user, the endpoint becomes one of the primary points of attack. An attacker who compromises the endpoint can use the user's credentials to gain access to the organization's data. Most endpoint attacks take advantage of the fact that users are administrators in their local workstations.
 
-**Best practice**: Use a secure management workstation to protect sensitive accounts, tasks, and data.
-**Detail**: Use a [privileged access workstation](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) to reduce the attack surface in workstations. These secure management workstations can help you mitigate some of these attacks and ensure that your data is safer.
+- **Use a secure management workstation to protect sensitive accounts, tasks, and data**: Use a [privileged access workstation](/security/privileged-access-workstations/overview) to reduce the attack surface in workstations. These secure management workstations can help you mitigate some of these attacks and ensure that your data is safer.
 
-**Best practice**: Ensure endpoint protection.
-**Detail**: Enforce security policies across all devices that are used to consume data, regardless of the data location (cloud or on-premises).
+- **Ensure endpoint protection**: Enforce security policies across all devices that are used to consume data, regardless of the data location (cloud or on-premises).
 
 ## Protect data at rest
 
 [Data encryption at rest](encryption-atrest.md) is a mandatory step toward data privacy, compliance, and data sovereignty.
 
-**Best practice**: Apply encryption at host to help safeguard your data.
-**Detail**: Use [Encryption at host - End-to-end encryption for your VM](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data). Encryption at host is a Virtual Machine option that enhances Azure Disk Storage Server-Side Encryption to ensure that all temp disks and disk caches are encrypted at rest and flow encrypted to the Storage clusters..
+- **Apply encryption at host to help safeguard your data**: Use [Encryption at host - End-to-end encryption for your VM](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data). Encryption at host is a Virtual Machine option that enhances Azure Disk Storage Server-Side Encryption to ensure that all temp disks and disk caches are encrypted at rest and flow encrypted to the Storage clusters.
 
 Most Azure services, such as Azure Storage and Azure SQL Database, encrypt data at rest by default. You can use Azure Key Vault to maintain control of keys that access and encrypt your data. See [Azure resource providers encryption model support to learn more](encryption-atrest.md#azure-resource-providers-encryption-model-support).
 
-**Best practices**: Use encryption to help mitigate risks related to unauthorized data access.
-**Detail**: Encrypt encryption on your services before you write sensitive data to them.
+- **Use encryption to help mitigate risks related to unauthorized data access**: Encrypt your services before you write sensitive data to them.
 
 Organizations that don't enforce data encryption are more exposed to data-confidentiality issues. Companies also must prove that they are diligent and using correct security controls to enhance their data security in order to comply with industry regulations.
 
@@ -65,17 +63,13 @@ For data moving between your on-premises infrastructure and Azure, consider appr
 
 Following are best practices specific to using Azure VPN Gateway, SSL/TLS, and HTTPS.
 
-**Best practice**: Secure access from multiple workstations located on-premises to an Azure virtual network.
-**Detail**: Use [site-to-site VPN](../../vpn-gateway/tutorial-site-to-site-portal.md).
+- **Secure access from multiple workstations located on-premises to an Azure virtual network**: Use [site-to-site VPN](../../vpn-gateway/tutorial-site-to-site-portal.md).
 
-**Best practice**: Secure access from an individual workstation located on-premises to an Azure virtual network.
-**Detail**: Use [point-to-site VPN](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md).
+- **Secure access from an individual workstation located on-premises to an Azure virtual network**: Use [point-to-site VPN](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md).
 
-**Best practice**: Move larger data sets over a dedicated high-speed WAN link.
-**Detail**: Use [ExpressRoute](../../expressroute/expressroute-introduction.md). If you choose to use ExpressRoute, you can also encrypt the data at the application level by using SSL/TLS or other protocols for added protection.
+- **Move larger data sets over a dedicated high-speed WAN link**: Use [ExpressRoute](../../expressroute/expressroute-introduction.md). If you choose to use ExpressRoute, you can also encrypt the data at the application level by using SSL/TLS or other protocols for added protection.
 
-**Best practice**: Interact with Azure Storage through the Azure portal.
-**Detail**: All transactions occur via HTTPS. You can also use [Storage REST API](/rest/api/storageservices/) over HTTPS to interact with [Azure Storage](../../storage/common/storage-introduction.md).
+- **Interact with Azure Storage through the Azure portal**: All transactions occur via HTTPS. You can also use [Storage REST API](/rest/api/storageservices/) over HTTPS to interact with [Azure Storage](../../storage/common/storage-introduction.md).
 
 Organizations that fail to protect data in transit are more susceptible to [man-in-the-middle attacks](/previous-versions/office/skype-server-2010/gg195821(v=ocs.14)), [eavesdropping](/previous-versions/office/skype-server-2010/gg195641(v=ocs.14)), and session hijacking. These attacks can be the first step in gaining access to confidential data.
 
@@ -119,8 +113,7 @@ Organizations that are weak on [data classification](https://download.microsoft.
 
 ## Next steps
 
-See [Azure security best practices and patterns](best-practices-and-patterns.md) for more security best practices to use when you're designing, deploying, and managing your cloud solutions by using Azure.
-
-The following resources are available to provide more general information about Azure security and related Microsoft services:
-* [Azure Security Team Blog](/archive/blogs/azuresecurity/) - for up to date information on the latest in Azure Security
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - where Microsoft security vulnerabilities, including issues with Azure, can be reported or via email to secure@microsoft.com
+- See [Azure security best practices and patterns](best-practices-and-patterns.md) for more security best practices to use when you're designing, deploying, and managing your cloud solutions by using Azure.
+- Review the [Microsoft Cloud Security Benchmark v2 - Data Protection](/security/benchmark/azure/mcsb-v2-data-protection) controls for comprehensive data security guidance with Azure Policy mappings.
+- Learn about the [Microsoft Secure Future Initiative (SFI)](/security/zero-trust/sfi/secure-future-initiative-overview), Microsoft's internal security best practices for protecting data that we also recommend to customers.
+- Explore [Zero Trust deployment for data](/security/zero-trust/deploy/data) for guidance on implementing Zero Trust principles for data protection.

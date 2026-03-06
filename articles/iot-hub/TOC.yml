@@ -1,28 +1,19 @@
 - name: IoT Hub documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
     - name: What is IoT Hub?
       href: iot-concepts-and-iot-hub.md
-- name: What's new (Preview)?
-  items:
-    - name: Overview
+    - name: What's new?
       href: iot-hub-what-is-new.md
     - name: Frequently asked questions
       href: iot-hub-faq.md
-    - name: Integration with Azure Device Registry (Preview)
-      href: iot-hub-device-registry-overview.md
-    - name: Certificate management (Preview)
-      items:
-        - name: Overview
-          href: iot-hub-certificate-management-overview.md
-        - name: Key concepts for certificate management
-          href: iot-hub-certificate-management-concepts.md
-    - name: Get started with IoT Hub (Preview)
-      href: iot-hub-device-registry-setup.md
-  expanded: true
 - name: Quickstarts
+  expanded: true
   items:
+    - name: Get started (ADR integration)
+      href: iot-hub-device-registry-setup.md
     - name: Create an IoT hub (no ADR integration)
       href: create-hub.md
       displayName: create IoT Hub, delete IoT hub, portal, CLI
@@ -30,7 +21,14 @@
       href: quickstart-send-telemetry-cli.md
       displayName: Azure CLI
 - name: Concepts
+  expanded: true
   items: 
+    - name: Azure Device Registry integration (preview)
+      href: iot-hub-device-registry-overview.md
+    - name: Certificate management (preview)
+      href: iot-hub-certificate-management-overview.md
+    - name: Key concepts for certificate management
+      href: iot-hub-certificate-management-concepts.md
     - name: Understand IoT Hub endpoints
       href: iot-hub-devguide-endpoints.md
       displayName: multitenant

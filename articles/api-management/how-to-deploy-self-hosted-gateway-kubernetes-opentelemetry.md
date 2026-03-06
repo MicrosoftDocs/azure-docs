@@ -147,6 +147,8 @@ With our OpenTelemetry Collector installed, we can now deploy the self-hosted ga
 
 In this section, we will deploy the self-hosted gateway to our cluster with Helm and configure it to send OpenTelemetry metrics to the OpenTelemetry Collector.
 
+[!INCLUDE [api-management-self-hosted-gateway-authentication](../../includes/api-management-self-hosted-gateway-authentication.md)]
+
 1. Install the Helm chart and configure it to use OpenTelemetry metrics:
 
    ```console

@@ -7,7 +7,7 @@ ms.author: onwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
-ms.topic: conceptual
+ms.topic: glossary
 ms.date: 01/08/2026
 ---
 

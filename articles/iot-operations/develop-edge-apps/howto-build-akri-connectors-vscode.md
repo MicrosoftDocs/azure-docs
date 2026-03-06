@@ -85,6 +85,9 @@ Next, build the project to confirm there are no errors. Use the VS Code command 
 
 In this example, you create an HTTP/REST connector using the Rust language, build a Docker image, and then run the connector application by using the VS Code extension:
 
+> [!IMPORTANT]
+> The following example code is meant for illustrative purposes only and is not intended to be used in production. In a production connector, you should implement robust error handling and retry logic, and ensure that any credentials used to connect to the asset are stored and used securely. A production quality connector must implement the contract described in the [Akri operator and connector contract](https://github.com/Azure/iot-operations-sdks/blob/main/doc/akri_connector/Akri%20operator%20and%20connector%20contract.md) document in the SDKs repository.
+
 1. Press `Ctrl+Shift+P` to open the command palette and search for the **Azure IoT Operations Akri Connectors: Create a New Akri Connector** command. Create a new folder called `my-connectors` and select it, select **Rust** as the language, and enter a name for the connector like `rest_connector`.
 
 1. The extension creates a new workspace named by using the connector name you chose in the previous step. The workspace includes the scaffolding for a connector written in the Rust language. There are `Implement` tags in the comments to help you write your own custom Akri connector. For testing purposes, you can try out the connector with just the scaffolding code. To see logs from your connector crate, replace the tag `sample_connector_scaffolding` with your connector name in the `DEFAULT_LOG_LEVEL` variable in the `main.rs` file.

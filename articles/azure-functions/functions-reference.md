@@ -2,7 +2,7 @@
 title: Guidance for developing Azure Functions
 description: Learn the Azure Functions concepts and techniques that you need to develop functions in Azure, across all programming languages and bindings.
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
-ms.topic: article
+ms.topic: reference
 ms.date: 12/03/2025
 ms.custom:
   - devx-track-extended-java
@@ -104,7 +104,7 @@ When the function app and any other required resources don't already exist in Az
 ::: zone-end
 + Using [Visual Studio Code](./functions-develop-vs-code.md#publish-to-azure)
 
-+ Programmatically using [Azure CLI](./scripts/functions-cli-create-serverless.md), [Azure PowerShell](./create-resources-azure-powershell.md#create-a-serverless-function-app-for-c), [ARM templates](functions-create-first-function-resource-manager.md), or [Bicep files](functions-create-first-function-bicep.md)
++ Programmatically using [Azure CLI](functions-cli-samples.md#create), [Azure PowerShell](./create-resources-azure-powershell.md#create-a-serverless-function-app-for-c), [ARM templates](functions-create-first-function-resource-manager.md), or [Bicep files](functions-create-first-function-bicep.md)
 
 + In the [Azure portal](functions-create-function-app-portal.md)
 
@@ -346,7 +346,7 @@ If you're configuring `AzureWebJobsStorage` using a storage account that uses th
 
 #### Connecting to a resource in another tenant
 
-If your function needs to connect to a resource in a different Microsoft Entra tenant, your connection needs to use a _federated identity credential_. This requires a user-assigned managed identity and a multi-tenant Entra ID app registration. You cannot use a system-assigned managed identity for cross-tenant connections.
+If your function needs to connect to a resource in a different Microsoft Entra tenant, your connection needs to use a _federated identity credential_. This requires a user-assigned managed identity and a multitenant Entra ID app registration. You cannot use a system-assigned managed identity for cross-tenant connections.
 
 > [!IMPORTANT]
 > When you configure a trigger for a cross-tenant connection in the Consumption or Flex Consumption plan types, the platform no longer scales the function app based on that trigger.
@@ -355,7 +355,7 @@ To configure a cross-tenant identity-based connection, you first need to set up 
 
 1. In the tenant where your function app is deployed, [create a new user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity).
 1. [Assign that identity](../app-service/overview-managed-identity.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json#add-a-user-assigned-identity) to the function app.
-1. In the same tenant, [create a multi-tenant Entra app registration](/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity#configure-a-multi-tenant-app-registration) that represents the cross-tenant resource you want to access.
+1. In the same tenant, [create a multitenant Entra app registration](/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity#configure-a-multi-tenant-app-registration) that represents the cross-tenant resource you want to access.
 1. [Add the managed identity as a federated identity credential for the app registration.](/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity)
 1. In the tenant where the resource is deployed, [create an enterprise application for the app registration](/entra/identity/enterprise-apps/create-service-principal-cross-tenant).
 1. Assign permissions for the enterprise application to access the resource.

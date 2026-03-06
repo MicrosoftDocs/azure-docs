@@ -100,7 +100,7 @@ Enable replication as follows:
     - **Availability Set**: Specify the Availability Set to use. 
     >[!Note] 
     > If you want to select a different availability option for a set of virtual machines, go to step 1 and repeat the steps by selecting different availability options after starting replication for one set of virtual machines. 
-1. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium-managed disks) in Azure. Then select **Next**. 
+1. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (Standard SSD/HDD or premium-managed disks) in Azure. Then select **Next**. 
 
 1. In **Tags**, add tags to your migrated virtual machines, disks, and NICs.
 

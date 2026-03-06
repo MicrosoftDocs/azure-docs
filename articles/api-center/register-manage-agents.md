@@ -5,7 +5,7 @@ description: "Learn how to update agent metadata, add skills, configure capabili
 
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 11/11/2025
+ms.date: 02/24/2026
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ---
@@ -22,14 +22,16 @@ This article shows you how to register A2A agents in API Center, and how to upda
 
 ## Register agent
 
-Enter required values from the agent's agent card. Optionally add skills and other metadata that define the capabilities and actions your A2A agent can perform.
+Enter required values from the agent's agent card. Optionally, add skills and other metadata that define the capabilities and actions your A2A agent can perform.
 
 > [!TIP]
 > For detailed skill schema information, see the [Agent2Agent (A2A) Protocol Official Specification](https://a2a-protocol.org/latest/specification/).
 
-1. Sign in to the [Azure portal](https://portal.azure.com), then navigate to your API center.
+1. Sign in to the [Azure portal](https://portal.azure.com), then go to your API center.
 
-1. In the sidebar menu, under **Assets**, select **APIs** > **+ Register an API**.
+1. In the sidebar menu, under **Inventory**, select **Assets**.
+
+1. Select **+ Register an asset** > **A2A agent**.
 
 1. In the **Register an API** page, fill in the [standard properties](tutorials/register-apis.md) to register an API and choose **A2A** as the agent type.
 
@@ -72,7 +74,7 @@ Enter required values from the agent's agent card. Optionally add skills and oth
 ## Update agent
 
 1. In the [Azure portal](https://azure.microsoft.com), go to your API center.
-1. In the sidebar menu, under **Assets**, select **APIs**.
+1. In the sidebar menu, under **Inventory**, select **Assets**.
 1. From the table, select your A2A agent by selecting the agent name in the **Title** column.
 1. Select the **Edit** button to open the **Edit** page in the working pane.
 
@@ -118,10 +120,6 @@ Agent capabilities describe what features your A2A agent supports.
     |State Transition History | Indicates if the agent provides a history of state transitions for a task              |
 
 1. Select **Save**.
-
-## Limitations
-
-Agent-to-Agent APIs in API Management don't synchronize with API Center.
 
 ## Related content
 

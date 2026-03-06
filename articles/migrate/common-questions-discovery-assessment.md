@@ -216,13 +216,13 @@ For Azure SQL Managed Instance, there's no storage cost added for the first 32 G
 - AVS assessment can be done on groups that have only VMware machines. Remove any non-VMware machine from the group if you intend to perform an AVS assessment.
 - If you're running AVS assessments in Azure Migrate for the first time, it's advisable to create a new group of VMware machines.
 
-## Queries regarding Ultra disks
+## Queries regarding Ultra Disks
 
-### Can I migrate my disks to Ultra disk using Azure Migrate?
+### Can I migrate my disks to Ultra Disk using Azure Migrate?
 
-No. Currently, both Azure Migrate and Azure Site Recovery don't support migration to Ultra disks. Find steps to deploy Ultra disk [here](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#deploy-an-ultra-disk)
+No. Currently, both Azure Migrate and Azure Site Recovery don't support migration to Ultra Disks. Find steps to deploy Ultra Disk [here](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#deploy-an-ultra-disk)
 
-### Why are the provisioned IOPS and throughput in my Ultra disk more than my on-premises IOPS and throughput?
+### Why are the provisioned IOPS and throughput in my Ultra Disk more than my on-premises IOPS and throughput?
 
 As per the [official pricing page](https://azure.microsoft.com/pricing/details/managed-disks/), Ultra Disk is billed based on the provisioned size, provisioned IOPS, and provisioned throughput. As per an example provided:
 
@@ -230,13 +230,13 @@ If you provisioned a 200 GiB Ultra Disk, with 20,000 IOPS and 1,000 MB/second an
 
 IOPS to be provisioned =  (Throughput discovered) *1024/256
 
-### Does the Ultra disk recommendation consider latency?
+### Does the Ultra Disk recommendation consider latency?
 
 No, currently only disk size, total throughput, and total IOPS are used for sizing and costing.
 
-### I can see M series supports Ultra disk, but in my assessment where Ultra disk was recommended, it says “No VM found for this location”?
+### I can see M series supports Ultra Disk, but in my assessment where Ultra Disk was recommended, it says “No VM found for this location”?
 
-This is possible as not all VM sizes that support Ultra disk are present in all Ultra disk supported regions. Change the target assessment region to get the VM size for this server.
+This is possible as not all VM sizes that support Ultra Disk are present in all Ultra Disk supported regions. Change the target assessment region to get the VM size for this server.
 
 ## I can't see some VM types and sizes in Azure Government
 
@@ -266,8 +266,8 @@ For example, if an on-premises server has 4 cores and 8 GB of memory at 50% CPU 
 
 Similarly, disk sizing depends on sizing criteria and storage type:
 
-- If the sizing criteria are "performance-based" and the storage type is automatic, Azure Migrate takes the IOPS and throughput values of the disk into account when it identifies the target disk type (Standard, Premium, or Ultra disk).
-- If the sizing criteria are "as on premises" and the storage type is Premium, Azure Migrate recommends a Premium disk SKU based on the size of the on-premises disk. The same logic is applied to disk sizing when the sizing is as-on-premises and the storage type is Standard, Premium, or Ultra disk.
+- If the sizing criteria are "performance-based" and the storage type is automatic, Azure Migrate takes the IOPS and throughput values of the disk into account when it identifies the target disk type (Standard, Premium, or Ultra Disk).
+- If the sizing criteria are "as on premises" and the storage type is Premium, Azure Migrate recommends a Premium disk SKU based on the size of the on-premises disk. The same logic is applied to disk sizing when the sizing is as-on-premises and the storage type is Standard, Premium, or Ultra Disk.
 
 ## Does performance history and utilization affect sizing in an Azure VM assessment?
 

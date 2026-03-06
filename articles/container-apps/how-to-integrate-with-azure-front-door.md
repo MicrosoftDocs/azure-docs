@@ -1,6 +1,6 @@
 ---
-title: Access an Azure container app using an Azure Front Door
-description: Learn how to access an Azure container app using an Azure Front Door.
+title: Access an Azure container app using an Azure Front Door with Private Link
+description: Learn how to access an Azure container app using an Azure Front Door with Private Link
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
@@ -17,7 +17,7 @@ zone_pivot_groups: azure-cli-or-portal
 
 # Create a private link to an Azure Container App with Azure Front Door
 
-In this article, you learn how to connect directly from Azure Front Door to your Azure Container Apps using a private link instead of the public internet. In this tutorial, you create an Azure Container Apps workload profiles environment, an Azure Front Door, and connect them securely through a private link. You then verify the connectivity between your container app and the Azure Front Door.
+In this article, you learn how to connect directly from Azure Front Door to your Azure Container Apps using a private link instead of the public internet. In this tutorial, you will create an Azure Container Apps workload profiles environment, an Azure Front Door, and connect them securely through a private link. You then verify the connectivity between your container app and the Azure Front Door.
 
 > [!IMPORTANT]
 > There are [additional charges](./private-endpoints-with-dns.md#billing) for enabling private endpoints in both the Dedicated and Consumption plans.
@@ -418,6 +418,9 @@ az group delete --name $RESOURCE_GROUP
 ```
 
 ::: zone-end
+
+> [!NOTE]
+> Zone-redundant Container Apps environments with an internal Virtual IP use internal load balancers (ILB) with IP-based backend pools. Because Private Link Service does not support ILBs with IP-based backend pools, a Front Door → Private Link Service → ILB topology is unavailable for zone-redundant environments. Instead use a private endpoint to connect Azure Front Door to your Container Apps environment like the method mentioned in this article. This method is compatible with both zone-redundant and non-zone-redundant configurations.
 
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).

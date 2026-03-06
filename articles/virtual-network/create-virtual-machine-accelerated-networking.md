@@ -5,7 +5,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 01/07/2025
+ms.date: 02/19/2026
 ms.custom: fasttrack-edit, devx-track-azurecli, linux-related-content, innovation-engine
 # Customer intent: "As a cloud engineer, I want to create Azure virtual machines with Accelerated Networking enabled, so that I can improve their network performance for resource-intensive applications."
 ---
@@ -40,11 +40,88 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ---
 
-## Create a virtual network
+## Create a resource group and virtual network
 
 ### [Portal](#tab/portal)
 
-[!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
+### Create a resource group
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search box at the top of the portal, enter **Resource group**. Select **Resource groups** in the search results.
+
+1. Select **+ Create**.
+
+1. In the **Basics** tab of **Create a resource group**, enter or select the following information:
+
+    | Setting | Value |
+    | --- | --- |
+    | **Subscription** | Select your subscription. |
+    | **Resource group** | Enter **test-rg**. |
+    | **Region** | Select **East US 2**. |
+
+1. Select **Review + create**.
+
+1. Select **Create**.
+
+### Create a virtual network
+
+1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+
+1. Select **+ Create**.
+
+1. On the **Basics** tab of **Create virtual network**, enter or select the following information:
+
+    | Setting | Value |
+    | --- | --- |
+    | **Subscription** | Select your subscription. |
+    | **Resource group** | Select **test-rg**. |
+    | **Name** | Enter **vnet-1**. |
+    | **Region** | Select **East US 2**. |
+
+1. Select **Next** to proceed to the **Security** tab.
+
+1. Select **Next** to proceed to the **IP Addresses** tab.
+
+1. In the address space box in **Subnets**, select the **default** subnet.
+
+1. In **Edit subnet**, enter or select the following information:
+
+    | Setting | Value |
+    | --- | --- |
+    | **Name** | Enter **subnet-1**. |
+    | **Starting address** | Enter **10.0.0.0**. |
+    | **Subnet size** | Leave the default of **/24 (256 addresses)**. |
+
+1. Select **Save**.
+
+1. Select **Review + create** at the bottom of the screen, and when validation passes, select **Create**.
+
+### Create Azure Bastion
+
+Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](/azure/bastion/bastion-overview).
+
+>[!NOTE]
+>[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
+
+1. In the search box at the top of the portal, enter **Bastion**. Select **Bastions** in the search results.
+
+1. Select **+ Create**.
+
+1. In the **Basics** tab of **Create a Bastion**, enter or select the following information:
+
+    | Setting | Value |
+    | --- | --- |
+    | **Subscription** | Select your subscription. |
+    | **Resource group** | Select **test-rg**. |
+    | **Name** | Enter **bastion**. |
+    | **Region** | Select **East US 2**. |
+    | **Tier** | Select **Developer**. |
+    | **Virtual network** | Select **vnet-1**. |
+
+1. Select **Review + create**.
+
+1. Select **Create**.
 
 ### [PowerShell](#tab/powershell)
 
@@ -123,6 +200,7 @@ $bastionParams = @{
     PublicIpAddressName = "public-ip-bastion"
     PublicIpAddressRgName = "test-rg"
     VirtualNetworkRgName = "test-rg"
+    Sku = "Basic"
 }
 New-AzBastion @bastionParams -AsJob
 ```
@@ -314,7 +392,8 @@ New-AzBastion @bastionParams -AsJob
       --name $BASTION_NAME \
       --vnet-name $VNET_NAME \
       --public-ip-address $PUBLIC_IP_NAME \
-      --location $LOCATION
+      --location $LOCATION \
+      --sku Basic
     ```
 
     Results:
@@ -473,37 +552,75 @@ $nic = New-AzNetworkInterface @nicParams
 
 ### [Portal](#tab/portal)
 
-[!INCLUDE [create-test-virtual-machine-linux.md](~/reusable-content/ce-skilling/azure/includes/create-test-virtual-machine-linux.md)]
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+
+1. Select **+ Create** then **Azure virtual machine**.
+
+1. In **Create a virtual machine** enter or select the following information in the **Basics** tab:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg**. |
+    | **Instance details** |   |
+    | Virtual machine name | Enter **vm-1**. |
+    | Region | Select **(US) East US 2**. |
+    | Availability options | Select **No infrastructure redundancy required**. |
+    | Security type | Select **Standard**. |
+    | Image | Select **Ubuntu Server 24.04 LTS - x64 Gen2**. |
+    | VM architecture | Leave the default of **x64**. |
+    | Size | Select a size. |
+    | **Administrator account** |   |
+    | Authentication type | Select **SSH public key**. |
+    | Username | Enter a username. |
+    | SSH public key source | Select **Generate new key pair**. |
+    | Key pair name | Enter **vm-1-key**. |
+    | **Inbound port rules** |  |
+    | Public inbound ports | Select **None**. |
+
+1. Select **Next: Disks** then **Next: Networking**.
+
+1. In the Networking tab, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Network interface** |   |
+    | Virtual network | Select **vnet-1**. |
+    | Subnet | Select **subnet-1 (10.0.0.0/24)**. |
+    | Public IP | Select **None**. |
+    | Network interface (NIC) network security group | Select **Advanced**. |
+    | Configure network security group | Select **Create new**.</br> In **Name** enter **nsg-1**.</br> Select **OK**. |
+
+1. Leave the rest of the options at the defaults and select **Review + create**.
+
+1. Select **Create**.
+
+1. When the **Generate new key pair** pop-up appears, select **Download private key and create resource**. The key file downloads as **vm-1-key.pem**. Make note of the download location for the `.pem` file. The private key is needed in later steps for connecting to the virtual machine with Azure Bastion.
 
 ### [PowerShell](#tab/powershell)
 
-Use [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) to set a user name and password for the VM and store them in the `$cred` variable.
-
-```azurepowershell
-$cred = Get-Credential
-```
-
-> [!NOTE]
-> A username is required for the VM. The password is optional and won't be used if set.  SSH key configuration is recommended for Linux VMs.
-
-Use [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) to define a VM with a VM size that supports accelerated networking, as listed in [Windows Accelerated Networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). For a list of all Windows VM sizes and characteristics, see [Windows VM sizes](/azure/virtual-machines/sizes).
+Use [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) to define a VM with a VM size that supports accelerated networking, as listed in [Windows Accelerated Networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). For a list of all VM sizes and characteristics, see [VM sizes](/azure/virtual-machines/sizes).
 
 ```azurepowershell
 $vmConfigParams = @{
     VMName = "vm-1"
     VMSize = "Standard_DS4_v2"
-    }
+}
 $vmConfig = New-AzVMConfig @vmConfigParams
 ```
 
-Use [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage) to create the rest of the VM configuration. The following example creates an Ubuntu Server virtual machine:
+Use [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage) to create the rest of the VM configuration. The following example creates an Ubuntu Server virtual machine with SSH key authentication:
 
 ```azurepowershell
+# Create a credential object with username
+$cred = Get-Credential
+
 $osParams = @{
     VM = $vmConfig
     ComputerName = "vm-1"
     Credential = $cred
-    }
+}
 $vmConfig = Set-AzVMOperatingSystem @osParams -Linux -DisablePasswordAuthentication
 
 $imageParams = @{
@@ -512,7 +629,7 @@ $imageParams = @{
     Offer = "ubuntu-24_04-lts"
     Skus = "server"
     Version = "latest"
-    }
+}
 $vmConfig = Set-AzVMSourceImage @imageParams
 ```
 
@@ -523,25 +640,25 @@ Use [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinte
 $nicParams = @{
     ResourceGroupName = "test-rg"
     Name = "nic-1"
-    }
+}
 $nic = Get-AzNetworkInterface @nicParams
 
 $vmConfigParams = @{
     VM = $vmConfig
     Id = $nic.Id
-    }
+}
 $vmConfig = Add-AzVMNetworkInterface @vmConfigParams
 ```
 
-Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the VM with Accelerated Networking enabled. The command will generate SSH keys for the virtual machine for login. Make note of the location of the private key. The private key is needed in later steps for connecting to the virtual machine with Azure Bastion.
+Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the VM with Accelerated Networking enabled. The command generates SSH keys for the virtual machine for login. Make note of the location of the private key. The private key is needed in later steps for connecting to the virtual machine with Azure Bastion.
 
 ```azurepowershell
 $vmParams = @{
     VM = $vmConfig
     ResourceGroupName = "test-rg"
     Location = "eastus2"
-    SshKeyName = "ssh-key"
-    }
+    SshKeyName = "vm-1-ssh-key"
+}
 New-AzVM @vmParams -GenerateSshKey
 ```
 

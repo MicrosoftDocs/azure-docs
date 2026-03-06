@@ -23,7 +23,7 @@ Firewall Manager can provide security management for two network architecture ty
 
    This is a standard Azure virtual network that you create and manage yourself. When security policies are associated with such a hub, it's referred to as a *hub virtual network*. At this time, only Azure Firewall Policy is supported. You can peer spoke virtual networks that contain your workload servers and services. You can also manage firewalls in standalone virtual networks that aren't peered to any spoke.
 
-For a detailed comparison of *secured virtual hub* and *hub virtual network* architectures, see [What are the Azure Firewall Manager architecture options?](vhubs-and-vnets.md).
+For a detailed comparison of *secured virtual hub* and *hub virtual network* architectures, see [What are the Azure Firewall Manager architecture options?](vhubs-and-vnets.md)
 
 ![firewall-manager](media/overview/trusted-security-partners.png)
 

@@ -5,7 +5,7 @@ author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/15/2026
 ms.author: primittal
 ms.custom: references_regions

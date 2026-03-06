@@ -14,7 +14,7 @@ You can use [Azure Data Explorer](https://azure.microsoft.com/services/data-expl
 
 Azure Data Explorer supports several ingestion methods, including connectors to common services like Azure Event Hubs, programmatic ingestion through SDKs such as .NET and Python, and direct access to the engine for exploration purposes. Azure Data Explorer integrates with analytics and modeling services for additional analysis and visualization of data.
 
-For more information about Azure Data Explorer, see [What is Azure Data Explorer?](/azure/data-explorer/data-explorer-overview/).
+For more information about Azure Data Explorer, see [What is Azure Data Explorer?](/azure/data-explorer/data-explorer-overview/)
 
 To learn more about how to create an Azure Data Explorer cluster by using the Azure portal, see [Quickstart: Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-database-portal/).
 

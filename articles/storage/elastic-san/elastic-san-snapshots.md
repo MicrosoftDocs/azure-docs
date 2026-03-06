@@ -152,6 +152,10 @@ az elastic-san volume snapshot delete -g "resourceGroupName" -e "san_name" -v "v
 
 Elastic SAN volume snapshots are automatically deleted when you delete the volume. To make your snapshot data persist beyond deletion, export the snapshots to managed disk snapshots. Exporting a volume snapshot to a managed disk snapshot takes time. How much time it takes depends on the size of the snapshot. You can check how much is left before completion by checking the `CompletionPercentage` property of the managed disk snapshot.
 
+### Limitations
+
+If you resize a volume that you are taking incremental snapshots of, the snapshot after the resize will not be incremental, and exports could fail. So, if you are trying to export a volume snapshot after resizing the volume, it could fail. 
+
 ### Billing implications
 
 Elastic SAN snapshots don't have any extra billing associated with them. They only consume your elastic SAN's capacity. Once you export an elastic SAN snapshot to a managed disk snapshot, the managed disk snapshot begins to incur billing charges.

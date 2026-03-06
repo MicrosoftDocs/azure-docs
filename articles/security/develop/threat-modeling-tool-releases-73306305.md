@@ -4,7 +4,7 @@ description: Documenting the release notes for the threat modeling tool release 
 author: myagley
 ms.author: miyagley
 ms.service: security
-ms.topic: article
+ms.topic: release-notes
 ms.date: 06/30/2023
 ---
 

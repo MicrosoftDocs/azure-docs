@@ -5,7 +5,7 @@ description: Learn how to copy data from Amazon Simple Storage Service (S3), and
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/13/2025
 ms.custom:
   - synapse

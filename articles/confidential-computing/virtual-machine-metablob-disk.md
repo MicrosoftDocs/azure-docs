@@ -248,5 +248,5 @@ For more, see our [confidential VM FAQ](/azure/confidential-computing/confidenti
 
 ## Related Articles
 
-* [Azure managed disks overview](/azure/virtual-machines/managed-disks-overview)
+* [Azure Managed Disks overview](/azure/virtual-machines/managed-disks-overview)
 * [Managed disk migration guide](/azure/virtual-machines/linux/convert-unmanaged-to-managed-disks) 

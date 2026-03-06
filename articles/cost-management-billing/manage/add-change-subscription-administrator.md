@@ -5,7 +5,7 @@ author: jkinma39
 ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/11/2025
 ms.author: jkinma
 

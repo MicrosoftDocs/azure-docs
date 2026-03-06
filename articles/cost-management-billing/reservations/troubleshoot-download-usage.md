@@ -32,4 +32,4 @@ We understand that customers want to download data for longer periods. However, 
 
 ## Next steps
 
-- For more information about reservations, see [What are Azure Reservations?](save-compute-costs-reservations.md).
+- For more information about reservations, see [What are Azure Reservations?](save-compute-costs-reservations.md)

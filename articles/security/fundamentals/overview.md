@@ -423,7 +423,7 @@ Microsoft Defender for Cloud offers comprehensive protection with workload-speci
 - **Defender for Containers** - Security for containerized applications and Kubernetes
 - **Defender for Storage** - Threat detection with malware scanning and sensitive data discovery
 - **Defender for Databases** - Protection for Azure SQL, Azure Database for MySQL, and PostgreSQL
-- **Defender for AI Services** - Runtime protection for Azure AI services against jailbreak attempts, data exposure, and suspicious access patterns
+- **Defender for Foundry Tools** - Runtime protection for Foundry Tools against jailbreak attempts, data exposure, and suspicious access patterns
 - **Defender CSPM** - Cloud Security Posture Management with attack path analysis, security governance, and AI security posture management
 
 In addition, Defender for Cloud helps with security operations by providing you with a single dashboard that surfaces alerts and recommendations that you can act on immediately. Security Copilot integration provides AI-generated summaries, remediation scripts, and delegation capabilities to accelerate risk remediation.

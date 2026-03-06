@@ -2,7 +2,7 @@
 title: Link to existing Datadog
 description: This article describes how to use the Azure portal to link to an existing instance of Datadog.
 ms.topic: quickstart
-ms.date: 12/11/2024
+ms.date: 1/29/2026
 ms.custom:
   - references_regions
   - sfi-image-nochange
@@ -14,12 +14,13 @@ ms.custom:
 
 In this quickstart, you link to an existing organization of Datadog.
 
-> [!NOTE] 
+> [!NOTE]
 > You can either [create a new Datadog organization](create.md) or link to an existing Datadog organization.
 
 ## Prerequisites
 
 [!INCLUDE [create-prerequisites-owner](../includes/create-prerequisites-owner.md)]
+
 - You must [configure your environment](prerequisites.md).
 - You must [subscribe to Datadog](overview.md#subscribe-to-datadog).
 
@@ -52,7 +53,7 @@ There are required fields (identified with a red asterisk) in the first two sect
     | Field               | Action                                                    |
     |---------------------|-----------------------------------------------------------|
     | Subscription        | Select a subscription from your existing subscriptions.   |
-    | Resource group      | Use an existing resource group or create a new one.       |
+    | Resource group      | Use an existing resource group, or create a new one.       |
 
 1. Enter the values for each required setting under *Azure Resource details*.
 
@@ -66,9 +67,9 @@ There are required fields (identified with a red asterisk) in the first two sect
     A new window appears for **Log in to Datadog**.
 
     > [!IMPORTANT]
-    > 
-    > - By default, Azure links your current Datadog organization to your Datadog resource. If you would like to link to a different organization, select the appropriate organization in the authentication window.
-    > - You can't link the subscription to the same organization through a different Datadog resource if the subscription is already linked to an organization to avoid duplicate logs and metrics being shipped to the same organization for the same subscription. 
+    >
+    > - By default, Azure links your current Datadog organization to your Datadog resource. If you'd like to link to a different organization, select the appropriate organization in the authentication window.
+    > - You can't link the subscription to the same organization through a different Datadog resource if the subscription is already linked to an organization. This is to avoid duplicate logs and metrics being shipped to the same organization for the same subscription.
 
     Once you finish authenticating, return to the Azure portal.
 
@@ -95,13 +96,13 @@ Select the **Next** button at the bottom of the page.
 
 ### Single sign-on tab (optional)
 
-If your organization uses Microsoft Entra ID as its identity provider, you can establish single sign-on from the Azure portal to Datadog. 
+If your organization uses Microsoft Entra ID as its identity provider, you can establish single sign-on from the Azure portal to Datadog.
 
 To establish single sign-on through Microsoft Entra ID:
 
 1. Select the checkbox.
 
-    The Azure portal retrieves the appropriate Datadog application from Microsoft Entra ID, which matches the Enterprise app you provided previously. 
+    The Azure portal retrieves the appropriate Datadog application from Microsoft Entra ID, which matches the Enterprise app you provided previously.
 
 1. Select the Datadog app name.
 
@@ -118,4 +119,3 @@ Select the **Next** button at the bottom of the page.
 ## Next steps
 
 - [Manage settings for your Datadog resource via Azure portal](manage.md)
-

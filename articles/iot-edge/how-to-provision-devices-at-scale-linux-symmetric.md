@@ -3,7 +3,7 @@ title: Create and provision Azure IoT Edge devices using symmetric keys on Linux
 description: 'Deploy IoT Edge at scale: Use symmetric keys to provision multiple Linux devices with Azure IoT Hub device provisioning service.'
 author: sethmanheim
 ms.author: sethm
-ms.date: 05/16/2025
+ms.date: 03/02/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 ms.custom:
@@ -55,7 +55,7 @@ Have the following information ready:
 
 * The DPS **ID Scope** value
 * The device **Registration ID** you created
-* Either the **Primary Key** from an individual enrollment, or a [derived key](#derive-a-device-key) for devices using a group enrollment.
+* Either the **Primary Key** from an individual enrollment, or a [derived key](/azure/iot-dps/concepts-symmetric-key-attestation#install-the-derived-device-key) for devices using a group enrollment.
 
 Create a configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
 
@@ -118,7 +118,7 @@ nano ~/config.toml
 
 1. Optionally, find the auto reprovisioning mode section of the file. Use the `auto_reprovisioning_mode` parameter to set your device's reprovisioning behavior. **Dynamic** - Reprovision when the device detects that it can be moved from one IoT Hub to another. This is the default. **AlwaysOnStartup** - Reprovision when the device is rebooted or a crash causes the daemons to restart. **OnErrorOnly** - Never trigger device reprovisioning automatically. Each mode has an implicit device reprovisioning fallback if the device can't connect to IoT Hub during identity provisioning because of connectivity errors. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
-1. Optionally, uncomment the `payload` parameter to specify the path to a local JSON file. The contents of the file are [sent to DPS as additional data](../iot-dps/how-to-send-additional-data.md#iot-edge-support) when the device registers. This is useful for [custom allocation](../iot-dps/how-to-use-custom-allocation-policies.md). For example, if you want to allocate your devices based on an IoT Plug and Play model ID without human intervention.
+1. Optionally, uncomment the `payload` parameter to specify the path to a local JSON file. The contents of the file are [sent to DPS as additional data](../iot-dps/how-to-send-additional-data.md#iot-edge-support) when the device registers. This is useful for [custom allocation](../iot-dps/tutorial-custom-allocation-policies.md). For example, if you want to allocate your devices based on an IoT Plug and Play model ID without human intervention.
 
 1. Save and close the file.
 

@@ -174,7 +174,7 @@ If you're using the **Medium (Nested Virtualization)** VM size for the lab, cons
 
 - Check if the host VM (lab VM) has the DHCP role installed if you're using Windows Server.
 
-  Running a lab VM as a DHCP server isn't supported. See [Can I deploy a DHCP server in a virtual network?](../virtual-network/virtual-networks-faq.md). Changing the settings of the lab VM can cause issues with other lab VMs.
+  Running a lab VM as a DHCP server isn't supported. See [Can I deploy a DHCP server in a virtual network?](../virtual-network/virtual-networks-faq.md) Changing the settings of the lab VM can cause issues with other lab VMs.
 
 - Check the network adapter settings for the Hyper-V VM.
 

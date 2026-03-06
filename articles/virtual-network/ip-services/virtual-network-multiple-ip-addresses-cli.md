@@ -3,7 +3,7 @@ title: Assign multiple IP addresses to VMs - Azure CLI
 titleSuffix: Azure Virtual Network
 description: Learn how to create a virtual machine with multiple IP addresses using the Azure CLI.
 services: virtual-network
-ms.date: 06/21/2024
+ms.date: 02/25/2026
 ms.author: mbender
 author: mbender-ms
 ms.service: azure-virtual-network
@@ -114,27 +114,9 @@ Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) to cre
     --name myNSG
 ```
 
-### Create network security group rules
+> [!NOTE]
+> The default rules of the network security group block all inbound access from the internet, including SSH. To connect to the virtual machine, use Azure Bastion. For more information, see [Quickstart: Deploy Azure Bastion with default settings](../../bastion/quickstart-host-portal.md).
 
-You create a rule to allow connections to the virtual machine on port 22 for SSH.
-
-Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) to create the network security group rules.
-
-```azurecli-interactive
-  az network nsg rule create \
-    --resource-group myResourceGroup \
-    --nsg-name myNSG \
-    --name myNSGRuleSSH \
-    --protocol '*' \
-    --direction inbound \
-    --source-address-prefix '*' \
-    --source-port-range '*' \
-    --destination-address-prefix '*' \
-    --destination-port-range 22 \
-    --access allow \
-    --priority 200
-
-```
 ## Create a network interface
 
 You use [az network nic create](/cli/azure/network/nic#az-network-nic-create) to create the network interface for the virtual machine. The public IP addresses and the NSG created previously are associated with the NIC. The network interface is attached to the virtual network you created previously.

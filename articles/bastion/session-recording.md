@@ -45,7 +45,7 @@ You can enable session recording when you create a new bastion host resource, or
 
 ### Steps for new Bastion deployments
 
-When you manually configure and deploy a bastion host, you can specify the SKU tier and features at the time of deployment. For comprehensive steps to deploy Bastion, see [Deploy Bastion from the Azure portal](quickstart-host-portal.md).
+When you manually configure and deploy a bastion host, you can specify the SKU and features at the time of deployment. For comprehensive steps to deploy Bastion, see [Deploy Bastion from the Azure portal](quickstart-host-portal.md).
 
 1. In the Azure portal, select **Create a Resource**.
 1. Search for **Azure Bastion** and select **Create**.  

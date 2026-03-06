@@ -49,7 +49,7 @@ Although Batch itself is a free service, many of the underlying resources that r
 
 - [Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
     - To learn more about the costs associated with virtual machines, see the [How you're charged for virtual machines section of Plan to manage costs for virtual machines](/azure/virtual-machines/cost-optimization-plan-to-manage-costs#how-youre-charged-for-virtual-machines).
-    - Each VM in a pool created with [Virtual Machine Configuration](nodes-and-pools.md#virtual-machine-configuration) has an associated OS disk that uses Azure-managed disks. Azure-managed disks have an additional cost, and other disk performance tiers have different costs as well.
+    - Each VM in a pool created with [Virtual Machine Configuration](nodes-and-pools.md#virtual-machine-configuration) has an associated OS disk that uses Azure Managed Disks. Azure Managed Disks have an additional cost, and other disk performance tiers have different costs as well.
 - Storage
     - When applications are deployed to Batch node virtual machines using [application packages](batch-application-packages.md), you're billed for the Azure Storage resources that your application packages consume. You're also billed for the storage of any input or output files, such as resource files and other log data.
     - In general, the cost of storage data associated with Batch is much lower than the cost of compute resources.

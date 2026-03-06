@@ -53,8 +53,7 @@ When upgrading your Azure WAF ruleset version, make sure to:
     -Name $wafPolicyName ` 
     -ResourceGroupName $resourceGroupName 
     $currentExclusions = $wafPolicy.ManagedRules.Exclusions 
-    $currentManagedRuleset = $wafPolicy.ManagedRules.ManagedRuleSets 
-    | Where-Object { $_.RuleSetType -eq "OWASP" } 
+    $currentManagedRuleset = $wafPolicy.ManagedRules.ManagedRuleSets | Where-Object { $_.RuleSetType -eq "OWASP" } 
     $currentVersion = $currentManagedRuleset.RuleSetVersion
     ```
 
@@ -121,14 +120,15 @@ groups:
         foreach ($existingRule in $group.Rules) { 
     if (-not (Test-RuleIsRemovedFromDRS21 $existingRule.RuleId $currentVersion)) 
       { 
-       `$existingGroup = $groupOverrides | 
-    Where-Object { $_.RuleGroupName -eq $mappedGroupName } 
+       $existingGroup = $groupOverrides | Where-Object { $_.RuleGroupName -eq $mappedGroupName } 
     if ($existingGroup) { 
-    if (-not ($existingGroup.Rules | 
-    Where-Object { $_.RuleId -eq $existingRule.RuleId })) { 
+    if (-not ($existingGroup.Rules | Where-Object { $_.RuleId -eq $existingRule.RuleId })) { 
     $existingGroup.Rules.Add($existingRule) } } 
     else { 
-      $newGroup = New-AzApplicationGatewayFirewallPolicyManagedRuleGroupOverride ` -RuleGroupName $mappedGroupName ` -Rule @($existingRule) $groupOverrides += $newGroup } } } }
+      $newGroup = New-AzApplicationGatewayFirewallPolicyManagedRuleGroupOverride ` 
+        -RuleGroupName $mappedGroupName ` 
+        -Rule @($existingRule) 
+      $groupOverrides += $newGroup } } } }
 
     ```
 

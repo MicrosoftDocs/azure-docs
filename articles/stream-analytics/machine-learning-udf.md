@@ -4,7 +4,7 @@ description: This article describes how to integrate an Azure Stream Analytics j
 author: ahartoon
 ms.author: anboisve
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/31/2022
 ---
 # Integrate Azure Stream Analytics with Azure Machine Learning

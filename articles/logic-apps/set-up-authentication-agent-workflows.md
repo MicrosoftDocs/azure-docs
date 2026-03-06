@@ -1,6 +1,6 @@
 ---
-title: Protect Agent Workflows with Easy Auth
-description: Learn to set up conversational agent workflows with App Service Authentication (Easy Auth) in Azure Logic Apps.
+title: Protect Agentic Workflows with Easy Auth
+description: Set up conversational agentic workflows with App Service Authentication (Easy Auth) in Azure Logic Apps.
 author: ecfan
 services: logic-apps
 ms.suite: integration
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 10/08/2025
 ms.update-cycle: 180-days
-#Customer intent: As an integration and AI developer working with Azure Logic Apps, I want to secure access to my conversational agent workflow and external chat client by authenticating and authorizing users through Easy Auth.
+#Customer intent: As an integration and AI developer working with Azure Logic Apps, I want to secure access to my conversational agentic workflow and external chat client by authenticating and authorizing users through Easy Auth.
 ---
 
-# Secure conversational agent workflows with Easy Auth (App Service Authentication) in Azure Logic Apps (Preview)
+# Secure conversational agentic workflows with Easy Auth (App Service Authentication) in Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -21,9 +21,9 @@ ms.update-cycle: 180-days
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Agent workflows expand integration options because they can exchange messages with more diverse callers, such as people, agents, Model Context Protocol (MCP) servers and clients, tool brokers, and external services. While nonagent workflows interact with a small, known, and fixed set of callers, agent callers can come from dynamic, unknown, and untrusted networks. As a result, you must authenticate and enforce permissions for each caller.
+Agentic workflows expand integration options because they can exchange messages with more diverse callers, such as people, agents, Model Context Protocol (MCP) servers and clients, tool brokers, and external services. While nonagentic workflows interact with a small, known, and fixed set of callers, clients that call agentic workflows can come from dynamic, unknown, and untrusted networks. As a result, you must authenticate and enforce permissions for each caller.
 
-To help protect conversational agent workflows in production, set up Easy Auth to authenticate and authorize callers or people who want to interact with your conversational agent. Easy Auth, also known as App Service Authentication, provides following capabilities for you to use:
+To help protect conversational agentic workflows in production, set up Easy Auth to authenticate and authorize callers or people who want to interact with your conversational agent. Easy Auth, also known as App Service Authentication, provides following capabilities for you to use:
 
 - Provide a validated identity for each caller request.
 - Assign connections to each user.
@@ -34,11 +34,11 @@ To help protect conversational agent workflows in production, set up Easy Auth t
 
 These measures let you authenticate and authorize each caller at a fine-grained level and revoke access quickly when needed. Without these controls, you risk uncontrolled access, leaked secrets such as shared access signature (SAS) URLs and access keys, weak audit trails, and other security hazards.
 
-Easy Auth works with Microsoft Entra ID as a separate security layer to provide built-in authentication and authorization capabilities that meet your needs. With security enforcement operating outside your workflow, you can focus more on developing the business logic instead. This separation of concerns makes agent workflows simpler and easier to build, debug, operate, monitor, maintain, govern, and audit.
+Easy Auth works with Microsoft Entra ID as a separate security layer to provide built-in authentication and authorization capabilities that meet your needs. With security enforcement operating outside your workflow, you can focus more on developing the business logic instead. This separation of concerns makes agentic workflows simpler and easier to build, debug, operate, monitor, maintain, govern, and audit.
 
-Nonagent workflow security usually involves static SAS, rotating secrets, and network boundary controls like access restrictions, IP allowlists, service tags, virtual network integration, and private endpoints. With agent workflows, you design authorization around end users, managed identities, service principals, and their scopes and roles. This approach enables safer global reach but still allows downstream workflow actions to respect fine-grained permissions.
+Nonagentic workflow security usually involves static SAS, rotating secrets, and network boundary controls like access restrictions, IP allowlists, service tags, virtual network integration, and private endpoints. With agentic workflows, you design authorization around end users, managed identities, service principals, and their scopes and roles. This approach enables safer global reach but still allows downstream workflow actions to respect fine-grained permissions.
 
-This guide shows how to create an app registration and then set up Easy Auth for your Standard logic app resource, which can contain agent and nonagent workflows.
+This guide shows how to create an app registration and then set up Easy Auth for your Standard logic app resource, which can contain agentic and nonagentic workflows.
 
 > [!IMPORTANT]
 >
@@ -48,7 +48,7 @@ This guide shows how to create an app registration and then set up Easy Auth for
 
 For more information, see the following articles:
 
-- [Built-in authentication and authorization with Easy Auth for agent workflows](agent-workflows-concepts.md#easy-auth)
+- [Built-in authentication and authorization with Easy Auth for agentic workflows](agent-workflows-concepts.md#easy-auth)
 - [Register an application in Microsoft Entra ID](/entra/identity-platform/quickstart-register-app)
 
 ## Prerequisites
@@ -57,9 +57,9 @@ For more information, see the following articles:
 
 - Microsoft Entra [**Application Developer** built-in role](/entra/identity/role-based-access-control/permissions-reference#application-developer) on your Azure account to create an app registration.
 
-- A deployed Standard logic app resource with a conversational agent workflow.
+- A deployed Standard logic app resource with a conversational agentic workflow.
 
-  For more information, see [Create conversational agent workflows for chat interactions in Azure Logic Apps](create-conversational-agent-workflows.md).
+  For more information, see [Create conversational agentic workflows for chat interactions in Azure Logic Apps](create-conversational-agent-workflows.md).
 
 - Azure [**Contributor** role](/azure/role-based-access-control/built-in-roles#contributor) or higher on the logic app resource with permission to create app registrations for the target tenant using Microsoft Entra.
 
@@ -277,7 +277,7 @@ If you have to reuse an existing app registration that is shared with another AP
 
 ## Test and validate Easy Auth setup
 
-After you set up Easy Auth, the internal chat interface on your workflow's **Chat** page in the Azure portal becomes unavailable. Instead, you must interact with your conversational agent by using the external chat client that is available outside the Azure portal. To confirm that Easy Auth works as expected, perform your testing in the external chat client by following these steps:
+After you set up Easy Auth, the internal chat interface on your workflow's **Chat** page in the Azure portal becomes unavailable. Instead, you must interact with your conversational agent loop by using the external chat client that is available outside the Azure portal. To confirm that Easy Auth works as expected, perform your testing in the external chat client by following these steps:
 
 1. On the designer toolbar or the workflow sidebar, select **Chat**.
 
@@ -327,4 +327,4 @@ For more information, see the following articles:
 
 ## Related content
 
-- [Authentication and authorization in AI agent workflows](agent-workflows-concepts.md#authentication-and-authorization)
+- [Authentication and authorization in AI agentic workflows](agent-workflows-concepts.md#authentication-and-authorization)

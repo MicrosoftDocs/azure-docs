@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 12/31/2025
+ms.date: 02/23/2026
 ms.custom: generated
 ---
 
@@ -29,6 +29,7 @@ Azure service: [Azure Cache for Redis](/azure/azure-cache-for-redis/)
 > | Microsoft.Cache/unregister/action | Unregisters the 'Microsoft.Cache' resource provider with a subscription |
 > | Microsoft.Cache/locations/checknameavailability/action | Checks if a name is available for use with a new Redis Enterprise cache |
 > | Microsoft.Cache/locations/asyncOperations/read | Read an Async Operation's Status |
+> | Microsoft.Cache/locations/migratedAcrDnsRecords/purge/action | Internal API, do not use. |
 > | Microsoft.Cache/locations/operationResults/read | Gets the result of a long running operation for which the 'Location' header was previously returned to the client |
 > | Microsoft.Cache/locations/operationsStatus/read | View the status of a long running operation for which the 'AzureAsync' header was previously returned to the client |
 > | Microsoft.Cache/operations/read | Lists the operations that 'Microsoft.Cache' provider supports. |
@@ -360,6 +361,12 @@ Azure service: [Azure Database for PostgreSQL](/azure/postgresql/)
 > | Microsoft.DBforPostgreSQL/register/action | Register PostgreSQL Resource Provider |
 > | Microsoft.DBforPostgreSQL/checkNameAvailability/action | Verify whether given server name is available for provisioning worldwide for a given subscription. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/migrateNetwork/action | Creates the migrate network operation with the specified parameters. |
+> | Microsoft.DBforPostgreSQL/flexibleServers/ltrBackupAccess/action | Start LTR backup access operation for a server |
+> | Microsoft.DBforPostgreSQL/flexibleServers/ltrBackup/action | Start LTR backup operation for a server |
+> | Microsoft.DBforPostgreSQL/flexibleServers/ltrBackupPreCheck/action | Start LTR backup pre-check operation for a server |
+> | Microsoft.DBforPostgreSQL/flexibleServers/ltrRestoreFinalize/action | Start LTR restore finalize operation for a server |
+> | Microsoft.DBforPostgreSQL/flexibleServers/ltrRestoreInitialize/action | Start LTR restore initialize operation for a server |
+> | Microsoft.DBforPostgreSQL/flexibleServers/ltrRestorePreCheck/action | Start LTR restore pre-check operation for a server |
 > | Microsoft.DBforPostgreSQL/flexibleServers/read | Return the list of servers or gets the properties for the specified server. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/write | Creates a server with the specified parameters or update the properties or tags for the specified server. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/delete | Deletes an existing server. |
@@ -857,6 +864,7 @@ Azure service: [Azure Cosmos DB](/azure/cosmos-db/)
 > | Microsoft.DocumentDB/mongoClusters/read | Reads a Mongo Cluster or list all Mongo Clusters. |
 > | Microsoft.DocumentDB/mongoClusters/write | Create or Update the properties or tags of the specified Mongo Cluster. |
 > | Microsoft.DocumentDB/mongoClusters/delete | Deletes the specified Mongo Cluster. |
+> | Microsoft.DocumentDB/mongoClusters/promote/action | Promotes the specified Mongo Cluster replica to be the primary cluster. |
 > | Microsoft.DocumentDB/mongoClusters/PrivateEndpointConnectionsApproval/action | Manage a private endpoint connection of Mongo Cluster |
 > | Microsoft.DocumentDB/mongoClusters/listConnectionStrings/action | List connection strings for a given Mongo Cluster |
 > | Microsoft.DocumentDB/mongoClusters/firewallRules/read | Reads a firewall rule or lists all firewall rules for the specified Mongo Cluster. |
@@ -1252,6 +1260,8 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/managedInstances/distributedAvailabilityGroups/delete | Deletes a distributed availability group. |
 > | Microsoft.Sql/managedInstances/distributedAvailabilityGroups/setRole/action | Set Role for Azure SQL Managed Instance Link to Primary or Secondary. |
 > | Microsoft.Sql/managedInstances/distributedAvailabilityGroups/failover/action | Performs requested failover type in this distributed availability group. |
+> | Microsoft.Sql/managedInstances/distributedAvailabilityGroups/addDatabases/action | Adds databases to an existing Azure SQL Managed Instance Link |
+> | Microsoft.Sql/managedInstances/distributedAvailabilityGroups/removeDatabases/action | Removes databases from an existing Azure SQL Managed Instance Link |
 > | Microsoft.Sql/managedInstances/dnsAliases/read | Return the list of Azure SQL Managed Instance Dns Aliases for the specified instance. |
 > | Microsoft.Sql/managedInstances/dnsAliases/write | Creates an Azure SQL Managed Instance Dns Alias with the specified parameters or updates the properties for the specified Azure SQL Managed Instance Dns Alias. |
 > | Microsoft.Sql/managedInstances/dnsAliases/delete | Deletes an existing Azure SQL Managed Instance Dns Alias. |
@@ -1374,6 +1384,7 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/servers/databases/dataMaskingPolicies/rules/write | Change data masking policy rule for a given database |
 > | Microsoft.Sql/servers/databases/dataWarehouseQueries/read | Returns the data warehouse distribution query information for selected query ID |
 > | Microsoft.Sql/servers/databases/dataWarehouseQueries/dataWarehouseQuerySteps/read | Returns the distributed query step information of data warehouse query for selected step ID |
+> | Microsoft.Sql/servers/databases/dataWarehouseQueries/steps/read | Returns the distributed query step information of data warehouse query for selected step ID |
 > | Microsoft.Sql/servers/databases/dataWarehouseUserActivities/read | Retrieves the user activities of a SQL Data Warehouse instance which includes running and suspended queries |
 > | Microsoft.Sql/servers/databases/encryptionProtector/revalidate/action | Revalidate the database encryption protector |
 > | Microsoft.Sql/servers/databases/encryptionProtector/revert/action | Revertthe database encryption protector |
@@ -1456,9 +1467,9 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/servers/databases/syncGroups/syncMembers/refreshSchema/action | Refresh sync member schema |
 > | Microsoft.Sql/servers/databases/syncGroups/syncMembers/refreshSchemaOperationResults/read | Retrieve result of the sync member schema refresh operation |
 > | Microsoft.Sql/servers/databases/syncGroups/syncMembers/schemas/read | Return the list of sync member database schemas |
-> | Microsoft.Sql/servers/databases/topQueries/queryText/read | Returns the Transact-SQL text for selected query ID |
-> | Microsoft.Sql/servers/databases/topQueries/read | Returns aggregated runtime statistics for selected query in selected time period |
-> | Microsoft.Sql/servers/databases/topQueries/statistics/read | Returns aggregated runtime statistics for selected query in selected time period |
+> | Microsoft.Sql/servers/databases/topQueries/read | Returns aggregated statistics for selected number of queries in selected time period |
+> | Microsoft.Sql/servers/databases/topQueries/queryText/read | Returns the text for selected query ID |
+> | Microsoft.Sql/servers/databases/topQueries/statistics/read | Returns aggregated statistics for selected query in selected time period |
 > | Microsoft.Sql/servers/databases/transparentDataEncryption/read | Retrieve details of the logical database Transparent Data Encryption on a given managed database |
 > | Microsoft.Sql/servers/databases/transparentDataEncryption/write | Change the database Transparent Data Encryption for a given logical database |
 > | Microsoft.Sql/servers/databases/transparentDataEncryption/suspend/action | Change the database Transparent Data Encryption for a given logical database |

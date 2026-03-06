@@ -40,7 +40,7 @@ IoT Hub supports two types of PKI providers for X.509 certificate authentication
 | Microsoft-managed PKI | No. Configure certificate authorities directly in Azure Device Registry (ADR).| Yes | Yes |
 | Third-party PKI (DigiCert, GlobalSign, etc.) | Yes. Manual integration required.  | No | No |
 
-This article focuses on third-party PKI providers. If you want to use Microsoft-managed PKI with X.509 certificates, see [What is certificate management?](iot-hub-certificate-management-overview.md).
+This article focuses on third-party PKI providers. If you want to use Microsoft-managed PKI with X.509 certificates, see [What is certificate management?](iot-hub-certificate-management-overview.md)
 
 ## Types of certificate authentication
 

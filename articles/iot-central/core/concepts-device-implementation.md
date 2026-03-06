@@ -79,7 +79,7 @@ To implement the code that runs on your device, you should use one of the [Azure
 - Synchronize property values between the device and IoT Central. The model specifies the property names and data types so that IoT Central can display the information.
 - Implement command handlers for the commands specified in the model. The model specifies the command names and parameters that the device should use.
 
-For more information about the role of device templates, see [What are device templates?](./concepts-device-templates.md).
+For more information about the role of device templates, see [What are device templates?](./concepts-device-templates.md)
 
 The following table summarizes how Azure IoT Central device features map on to IoT Hub features:
 

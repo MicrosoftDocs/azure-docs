@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 12/31/2025
+ms.date: 02/23/2026
 ms.custom: generated
 ---
 
@@ -1421,6 +1421,7 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/classifiers:classifybinary/action | Classify content with optional splitting. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/faces:compare/action | Compare the similarity between two faces. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/faces:detect/action | Detect faces in an image. |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects:migrate/action | Labeling - MigrateProject |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzerresults/read | Get the result of an analysis operation. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzerresults/delete | Delete the result of an analysis operation. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzerresults/files/read | Get a file associated with the result of an analysis operation. |
@@ -1456,6 +1457,7 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/labels/document/read | Labeling - Get document |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/labels/ocr/read | Labeling - Get OCR result |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/labels/operations/read | Labeling - List analyze document results Labeling - Get analyze document result |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/migration/operations/read | Labeling - ListMigrationOperations Labeling - GetMigrationOperation |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/reference/files:analyze/action | Labeling - StartGenerateResult |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/reference/files/read | Labeling - GetReferenceFile Labeling - ListReferenceFiles |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/reference/files/write | Labeling - CreateReferenceFile |
@@ -1632,6 +1634,9 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/Podcast/Generations/write | Create or update podcast generations. |
 > | Microsoft.CognitiveServices/accounts/Podcast/Generations/delete | Delete podcast generations. |
 > | Microsoft.CognitiveServices/accounts/Podcast/Operations/read | Read operation. |
+> | Microsoft.CognitiveServices/accounts/Podcast/TempFiles/read | Read temporary files. |
+> | Microsoft.CognitiveServices/accounts/Podcast/TempFiles/write | Create or update temporary files. |
+> | Microsoft.CognitiveServices/accounts/Podcast/TempFiles/delete | Delete temporary files. |
 > | Microsoft.CognitiveServices/accounts/QnAMaker/root/action | QnA Maker |
 > | Microsoft.CognitiveServices/accounts/QnAMaker.v2/root/action | QnA Maker |
 > | Microsoft.CognitiveServices/accounts/QnAMaker.v2/alterations/read | Download alterations from runtime. |
@@ -2314,8 +2319,8 @@ Azure service: [Azure AI Search](/azure/search/)
 > | Microsoft.Search/searchServices/debugSessions/delete | Delete a debug session. |
 > | Microsoft.Search/searchServices/debugSessions/execute/action | Use a debug session, get execution data, or evaluate expressions on it. |
 > | Microsoft.Search/searchServices/deleteQueryKey/delete | Deletes the query key. |
-> | Microsoft.Search/searchServices/diagnosticSettings/read | Gets the diganostic setting read for the resource |
-> | Microsoft.Search/searchServices/diagnosticSettings/write | Creates or updates the diganostic setting for the resource |
+> | Microsoft.Search/searchServices/diagnosticSettings/read | Gets the diagnostic setting read for the resource |
+> | Microsoft.Search/searchServices/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
 > | Microsoft.Search/searchServices/indexers/read | Return an indexer or its status, or return a list of indexers or their statuses. |
 > | Microsoft.Search/searchServices/indexers/write | Create an indexer, modify its properties, or manage its execution. |
 > | Microsoft.Search/searchServices/indexers/delete | Delete an indexer. |

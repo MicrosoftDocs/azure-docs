@@ -196,12 +196,12 @@ Alternate data streams are preserved on-premises when Azure File Sync is used.
 
     Azure Files on-premises AD DS authentication only integrates with the forest of the domain service that the storage account is registered to. To support authentication from another forest, your environment must have a forest trust configured correctly. For detailed instructions, see [Use Azure Files with multiple Active Directory forests](storage-files-identity-multiple-forests.md).
 
-   > [!Note]  
-   > In a multi-forest setup, don't use File Explorer to configure Windows ACLs/NTFS permissions at the root, directory, or file level. [Use icacls](storage-files-identity-configure-file-level-permissions.md#configure-windows-acls-with-icacls) instead.
+   > [!NOTE]  
+   > In a multi-forest setup, don't use File Explorer to configure Windows ACLs/NTFS permissions at the root, directory, or file level. [Use icacls](storage-files-identity-configure-file-level-permissions.md#configure-windows-acls-by-using-icacls) instead.
 
    
 * <a id="ad-aad-smb-files"></a>
-**Is there any difference in creating a computer account or service logon account to represent my storage account in AD?**
+**Is there any difference in creating a computer account or service logon account to represent my storage account in Active Directory?**
 
     Creating either a [computer account](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or a [service logon account](/windows/win32/ad/about-service-logon-accounts) has no difference on how authentication works with Azure Files. You can make your own choice on how to represent a storage account as an identity in your AD environment. The default DomainAccountType set in `Join-AzStorageAccountForAuth` cmdlet is computer account. However, the password expiration age configured in your AD environment can be different for computer or service logon accounts, and you need to take that into consideration to [Update the password of your storage account identity in AD](./storage-files-identity-ad-ds-update-password.md).
 

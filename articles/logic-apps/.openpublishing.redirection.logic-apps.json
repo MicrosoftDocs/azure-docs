@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/set-up-model-context-protocol-server-standard.md",
+            "redirect_url": "/azure/logic-apps/create-model-context-protocol-server-standard",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/azure-integration-services-choose-capabilities.md",
             "redirect_url": "/azure/logic-apps/biztalk-server-migration-approaches",
             "redirect_document_id": false

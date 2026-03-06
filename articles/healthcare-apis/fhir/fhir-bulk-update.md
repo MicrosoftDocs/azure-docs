@@ -42,7 +42,7 @@ To execute a bulk update, the application or user must be assigned one of the fo
 
 ## Request
 
-You can use FHIR search parameters in the request. The bulk update operation supports standard search filters, for example: address:contains=Meadow, or Patient.birthdate=1987-02-20. You can also use _include, _revinclude, and _not-referenced to extend search criteria.
+You can use FHIR search parameters in the request. The bulk update operation supports standard search filters, for example: address:contains=Meadow, or Patient.birthdate=1987-02-20. You can also use _include, _revinclude, and _not-referenced to extend search criteria, and _meta-history to configure versioning behavior for metadata-only updates. 
 
 ### Request examples
 
@@ -60,6 +60,10 @@ You can use FHIR search parameters in the request. The bulk update operation sup
  `PATCH {FHIR-SERVICE-HOST}/Patient/$bulk-update?_lastUpdated=lt2021-12-18&_revinclude=*`
  
  `PATCH {FHIR-SERVICE-HOST}/DiagnosticReport/$bulk-update?_lastUpdated=lt2021-12-12&_include=DiagnosticReport:based-on:ServiceRequest&_include:iterate=ServiceRequest:encounter`
+
+4. Metadata-only updates with `_meta-history` query parameter: When the FHIR server versioning policy is set to either `versioned` or `version-update`, the `_meta-history` parameter allows you to control whether metadata-only changes to a resource create a new historical version of the resource or not. By default, any change to a resource, including metadata-only changes, creates a new version and saves the previous version as a historical record. When you set the `_meta-history` parameter to false, metadata-only changes do not create a new version, and the previous version is not saved as a historical record. This feature is useful for scenarios where frequent metadata updates are made, and you want to avoid cluttering the resource history with numerous versions that only differ in metadata. For more information and examples, see [FHIR versioning policy and history management](fhir-versioning-policy-and-history-management.md#metadata-only-updates-and-versioning).  
+
+ `PATCH https://{FHIR-SERVICE-HOST}/$bulk-update?_meta-history=false`  
 
 When using bulk update with FHIR search parameters, consider using the same query in a FHIR search first, so that you can verify the data that you plan to update.
 

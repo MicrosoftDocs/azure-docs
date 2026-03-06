@@ -5,7 +5,7 @@ services: databox
 author: alkohli
 
 ms.service: azure-stack-edge
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/16/2024
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to deploy and manage GPU-accelerated VM workloads on my Azure Stack Edge Pro GPU devices.

@@ -33,7 +33,7 @@ Here are a couple example scenarios when you might invite users to your organiza
 
 ## Permission differences between member users and guest users
 
-Users of a directory with member type (member users) have different permissions by default than users invited from another directory as a B2B collaboration guest (guest users). For example, member users can read almost all directory information while guest users have restricted directory permissions. For more information about member users and guest users, see [What are the default user permissions in Microsoft Entra ID?](../active-directory/fundamentals/users-default-permissions.md).
+Users of a directory with member type (member users) have different permissions by default than users invited from another directory as a B2B collaboration guest (guest users). For example, member users can read almost all directory information while guest users have restricted directory permissions. For more information about member users and guest users, see [What are the default user permissions in Microsoft Entra ID?](../active-directory/fundamentals/users-default-permissions.md)
 
 ## Invite an external user to your directory
 
@@ -199,7 +199,7 @@ Before you remove an external user from a directory, you should first remove any
 
 ### External user cannot browse the directory
 
-External users have restricted directory permissions. For example, external users can't browse the directory and can't search for groups or applications. For more information, see [What are the default user permissions in Microsoft Entra ID?](../active-directory/fundamentals/users-default-permissions.md).
+External users have restricted directory permissions. For example, external users can't browse the directory and can't search for groups or applications. For more information, see [What are the default user permissions in Microsoft Entra ID?](../active-directory/fundamentals/users-default-permissions.md)
 
 :::image type="content" source="./media/role-assignments-external-users/directory-no-users.png" alt-text="Screenshot of external user can't browse users in a directory." lightbox="./media/role-assignments-external-users/directory-no-users.png":::
 

@@ -38,7 +38,7 @@ Assessments you create with Azure Migrate are a point-in-time snapshot of data. 
 
 **Assessment type** | **Details** | **Data**
 --- | --- | ---
-**Performance-based** | Assessments that make recommendations based on collected performance data | The VM size recommendation is based on CPU and RAM-utilization data.<br><br> The disk-type recommendation is based on the input/output operations per second (IOPS) and throughput of the on-premises disks. Disk types are Azure Standard HDD, Azure Standard SSD, Azure Premium disks, and Azure Ultra disks.
+**Performance-based** | Assessments that make recommendations based on collected performance data | The VM size recommendation is based on CPU and RAM-utilization data.<br><br> The disk-type recommendation is based on the input/output operations per second (IOPS) and throughput of the on-premises disks. Disk types are Azure Standard HDD, Azure Standard SSD, Azure Premium disks, and Azure Ultra Disks.
 **As-is on-premises** | Assessments that don't use performance data to make recommendations | The VM size recommendation is based on the on-premises server size.<br><br> The recommended disk type is based on the selected storage type for the assessment.
 
 ## How do I run an assessment?
@@ -119,8 +119,8 @@ Here's what's included in an Azure VM assessment:
 **Setting** | **Details**
 --- | ---
 **Target location** | The location to which you want to migrate. The assessment currently supports these target Azure regions:<br><br> Australia Central, Australia Central 2, Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central India, Central US, China East, China East 2,  China North, China North 2, East Asia, East US, East US 2, France Central, France South, Germany North, Germany West Central, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, Norway East, Norway West, South Africa North, South Africa West, South Central US, Southeast Asia, South India, Switzerland North, Switzerland West, UAE Central, UAE North, UK South, UK West, West Central US, West Europe, West India, West US, West US 2, JioIndiaCentral, JioIndiaWest, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia.
-**Target storage disk (as-is sizing)** | The type of disk to use for storage in Azure. <br><br> Specify the target storage disk as Premium-managed, Standard SSD-managed, Standard HDD-managed, or Ultra disk.
-**Target storage disk (performance-based sizing)** | Specifies the type of target storage disk as Premium-managed, Standard HDD-managed, Standard SSD-managed, or Ultra disk.<br><br> **Premium or Standard or Ultra disk**:  The assessment recommends a disk SKU within the storage type selected.<br><br> If you want a single-instance VM service-level agreement (SLA) of 99.9%, consider using Premium-managed disks. This use ensures that all disks in the assessment are recommended as Premium-managed disks.<br><br> If you're looking to run data-intensive workloads that need high throughput, high IOPS, and consistent low latency disk storage, consider using Ultra disks.<br><br> Azure Migrate supports only managed disks for migration assessment.
+**Target storage disk (as-is sizing)** | The type of disk to use for storage in Azure. <br><br> Specify the target storage disk as Premium-managed, Standard SSD-managed, Standard HDD-managed, or Ultra Disk.
+**Target storage disk (performance-based sizing)** | Specifies the type of target storage disk as Premium-managed, Standard HDD-managed, Standard SSD-managed, or Ultra Disk.<br><br> **Premium or Standard or Ultra Disk**:  The assessment recommends a disk SKU within the storage type selected.<br><br> If you want a single-instance VM service-level agreement (SLA) of 99.9%, consider using Premium-managed disks. This use ensures that all disks in the assessment are recommended as Premium-managed disks.<br><br> If you're looking to run data-intensive workloads that need high throughput, high IOPS, and consistent low latency disk storage, consider using Ultra Disks.<br><br> Azure Migrate supports only managed disks for migration assessment.
 **Savings options (compute)** | Specify the savings option that you want the assessment to consider to help optimize your Azure compute cost. <br><br> [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.<br><br> [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. <br><br> When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.<br><br> You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' and 'VM uptime' properties are not applicable. The monthly cost estimates are calculated by multiplying 744 hours in the VM uptime field with the hourly price of the recommended SKU.
 **Sizing criteria** | Used to rightsize the Azure VM.<br><br> Use as-is sizing or performance-based sizing.
 **Performance history** | Used with performance-based sizing. Performance history specifies the duration used when performance data is evaluated.
@@ -215,7 +215,7 @@ After the server is marked as ready for Azure, the assessment makes sizing recom
  If you use as-is on-premises sizing, the assessment doesn't consider the performance history of the VMs and disks in the Azure VM assessment.
 
 - **Compute sizing**: The assessment allocates an Azure VM SKU based on the size allocated on-premises.
-- **Storage and disk sizing**: The assessment looks at the storage type specified in assessment properties and recommends the appropriate disk type. Possible storage types are Standard HDD, Standard SSD, Premium, and Ultra disk. The default storage type is Premium.
+- **Storage and disk sizing**: The assessment looks at the storage type specified in assessment properties and recommends the appropriate disk type. Possible storage types are Standard HDD, Standard SSD, Premium, and Ultra Disk. The default storage type is Premium.
 - **Network sizing**: The assessment considers the network adapter on the on-premises server.
 
 ### Calculate sizing (performance-based)
@@ -246,22 +246,22 @@ Azure Migrate maps each disk attached to a server to an Azure disk. The sizing p
    - Among multiple eligible disks, the assessment selects the disk with the lowest cost.
    - If the performance data for any disk is unavailable, the configured disk size is used to find a disk based on your preference.
    > [!NOTE]
-   >- For all the new assessments if Premium disks are selected during assessment creation, we recommend using Premium managed disks for your OS disks and Premium V2 SSD (preview) for your data disks. 
-   >- If you don't see Premium V2 SSD (preview) recommendations for data disks, recalculate your assessment and check the assessment settings for Storage type. 
-   >- Currently, the Premium V2 SSD (preview) migration is applicable only for VMware environments even though, the assessments are previewed for all environments.
+   >- For all the new assessments if Premium disks are selected during assessment creation, we recommend using Premium managed disks for your OS disks and Premium SSD v2 (preview) for your data disks. 
+   >- If you don't see Premium SSD v2 (preview) recommendations for data disks, recalculate your assessment and check the assessment settings for Storage type. 
+   >- Currently, the Premium SSD v2 (preview) migration is applicable only for VMware environments even though, the assessments are previewed for all environments.
 
 
-##### Ultra disk sizing
+##### Ultra Disk sizing
 
-For Ultra disks, there is a range of IOPS and throughput that is allowed for a particular disk size, and thus the logic used in sizing is different from Standard and Premium disks:
-1. Three Ultra disk sizes are calculated: 
+For Ultra Disks, there is a range of IOPS and throughput that is allowed for a particular disk size, and thus the logic used in sizing is different from Standard and Premium disks:
+1. Three Ultra Disk sizes are calculated: 
     - One disk (Disk 1) is found that can satisfy the disk size requirement
     - One disk (Disk 2) is found that can satisfy total IOPS requirement
         - IOPS to be provisioned =  (source disk throughput) *1024/256
     - One disk (Disk 3) is found that can satisfy total throughput requirement
-1. Out of the three disks, one with the max disk size is found and is rounded up to the next available [Ultra disk offering](/azure/virtual-machines/disks-types#ultra-disks). This is the provisioned Ultra disk size.
+1. Out of the three disks, one with the max disk size is found and is rounded up to the next available [Ultra Disk offering](/azure/virtual-machines/disks-types#ultra-disks). This is the provisioned Ultra Disk size.
 1. Provisioned IOPS is calculated using the following logic:
-    - If source throughput discovered is in the allowable range for the Ultra disk size, provisioned IOPS is equal to source disk IOPS
+    - If source throughput discovered is in the allowable range for the Ultra Disk size, provisioned IOPS is equal to source disk IOPS
     - Else, provisioned IOPS is calculated using IOPS to be provisioned =  (source disk throughput) *1024/256
 1. Provisioned throughput range is dependent on provisioned IOPS
 
@@ -320,17 +320,17 @@ Here are a few reasons why an assessment could get a low performance coverage:
     - Outbound connections on ports 443 are allowed
     - For Hyper-V servers, dynamic memory is enabled 
     
-    Three Ultra disk sizes are calculated: 
+    Three Ultra Disk sizes are calculated: 
  
     - One disk (Disk 1) is found that can satisfy the disk size requirement.  
     - One disk (Disk 2) is found that can satisfy total IOPS requirement. IOPS to be provisioned = (source disk throughput) *1024/256. 
     - One disk (Disk 3) is found that can satisfy total throughput requirement/ 
  
-    Out of the three disks, one with the max disk size is found and is rounded up to the next available [Ultra disk offering (Azure managed disk types)](/azure/virtual-machines/disks-types#ultra-disks). This is the provisioned Ultra disk size.
+    Out of the three disks, one with the max disk size is found and is rounded up to the next available [Ultra Disk offering (Azure Managed Disk types)](/azure/virtual-machines/disks-types#ultra-disks). This is the provisioned Ultra Disk size.
  
     Provisioned IOPS are calculated using the following logic:  
  
-    - If source throughput discovered is in the allowable range for the Ultra disk size, provisioned IOPS are equal to source disk IOPS  
+    - If source throughput discovered is in the allowable range for the Ultra Disk size, provisioned IOPS are equal to source disk IOPS  
     - Else, provisioned IOPS are calculated using IOPS to be provisioned = (source disk throughput) *1024/256  
     - Provisioned throughput range is dependent on provisioned IOPS  
  
@@ -384,9 +384,9 @@ The monthly storage cost for a server is calculated by aggregating the monthly c
  
 The cost for Standard or Premium disks is calculated based on the selected/recommended disk size.  
  
-#### Ultra disk 
+#### Ultra Disk 
  
-The cost for Ultra disk is calculated based on the provisioned size, provisioned IOPS, and provisioned throughput. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/). 
+The cost for Ultra Disk is calculated based on the provisioned size, provisioned IOPS, and provisioned throughput. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/). 
  
 Cost is calculated using the following logic: 
  
@@ -396,7 +396,7 @@ Cost is calculated using the following logic:
  
 - Cost of provisioned throughput is calculated by multiplying provisioned throughput by hourly provisioned throughput price.  
  
-- The Ultra disk VM reservation fee isn.t added in the total cost. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/). 
+- The Ultra Disk VM reservation fee isn.t added in the total cost. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/). 
  
  
 #### Security cost 

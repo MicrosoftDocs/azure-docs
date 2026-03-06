@@ -4,7 +4,7 @@ description: Understand the unique qualities of Elastic zone-redundant storage, 
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: article
+ms.topic: concept-article
 ms.date: 02/04/2026
 ms.author: anfdocs
 ms.custom: references-regions 

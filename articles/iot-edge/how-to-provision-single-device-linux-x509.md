@@ -8,7 +8,7 @@ ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ms.topic: how-to
-ms.date: 05/15/2025
+ms.date: 02/24/2026
 ---
 
 # Create and provision an IoT Edge device on Linux using X.509 certificates
@@ -171,7 +171,7 @@ To deploy your IoT Edge modules, go to your IoT hub in the Azure portal, then:
 
 1. Since we want to deploy the IoT Edge default modules (edgeAgent and edgeHub), we don't need to add any modules to this pane, so select **Review + create** at the bottom.
 
-1. You see the JSON confirmation of your modules. Select **Create** to deploy the modules.<
+1. You see the JSON confirmation of your modules. Select **Create** to deploy the modules.
 
 For more information, see [Deploy a module](quickstart-linux.md#deploy-a-module).
 

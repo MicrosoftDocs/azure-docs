@@ -10,6 +10,7 @@ ms.service: azure
 ms.collection:
  - migration
  - aws-to-azure
+ms.custom: migration-hub
 ---
 
 # Migrate storage from Amazon Web Services (AWS) to Azure

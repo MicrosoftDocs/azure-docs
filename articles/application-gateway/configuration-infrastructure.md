@@ -82,12 +82,12 @@ You can use the built-in roles, such as [Network contributor](../role-based-acce
 ## Permissions
 Depending on whether you're creating new resources or using existing ones, add the appropriate permissions from the following list:
 
-|Resource | Resource status | Required Azure permissions |
-|---|---|---|
-| Subnet | Create new| `Microsoft.Network/virtualNetworks/subnets/write' <br> 'Microsoft.Network/virtualNetworks/subnets/join/action` |
-| Subnet | Use existing| `Microsoft.Network/virtualNetworks/subnets/read` <br> `Microsoft.Network/virtualNetworks/subnets/join/action` |
-| IP addresses| Create new| `Microsoft.Network/publicIPAddresses/write` <br> `Microsoft.Network/publicIPAddresses/join/action` |
-| IP addresses  | Use existing| `Microsoft.Network/publicIPAddresses/read` <br> `Microsoft.Network/publicIPAddresses/join/action` |
+| Resource | Resource status | Required Azure permissions |
+| --- | --- | --- |
+| Subnet | Create new | `Microsoft.Network/virtualNetworks/subnets/write` <br> 'Microsoft.Network/virtualNetworks/subnets/join/action` |
+| Subnet | Use existing | `Microsoft.Network/virtualNetworks/subnets/read` <br> `Microsoft.Network/virtualNetworks/subnets/join/action` |
+| IP addresses | Create new | `Microsoft.Network/publicIPAddresses/write` <br> `Microsoft.Network/publicIPAddresses/join/action` |
+| IP addresses | Use existing | `Microsoft.Network/publicIPAddresses/read` <br> `Microsoft.Network/publicIPAddresses/join/action` |
 | ApplicationGatewayWebApplicationFirewallPolicies | Create new / Update existing | `Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/write` <br> `Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/read` <br> `Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/join/action` |
 
 For more information, see [Azure permissions for Networking](../role-based-access-control/permissions/networking.md) and [Virtual network permissions](../virtual-network/virtual-network-manage-subnet.md#permissions).
@@ -148,33 +148,33 @@ To use an NSG with your application gateway, you need to create or retain some e
 
 **Client traffic**: Allow incoming traffic from the expected clients (as source IP or IP range), and for the destination as your application gateway's entire subnet IP prefix and inbound access ports. For example, if you have listeners configured for ports 80 and 443, you must allow these ports. You can also set this rule to `Any`.
 
-| Source  | Source ports | Destination | Destination ports | Protocol | Access |
-|---|---|---|---|---|---|
-|`<as per need>`|Any|`<Subnet IP Prefix>`|`<listener ports>`|TCP|Allow|
+| Source | Source ports | Destination | Destination ports | Protocol | Access |
+| --- | --- | --- | --- | --- | --- |
+| `<as per need>` | Any | `<Subnet IP Prefix>` | `<listener ports>` | TCP | Allow |
 
 After you configure *active public and private listeners* (with rules) *with the same port number*, your application gateway changes the **Destination** of all inbound flows to the frontend IPs of your gateway. This change occurs even for listeners that aren't sharing any port. You must include your gateway's frontend public and private IP addresses in the **Destination** of the inbound rule when you use the same port configuration.
 
-| Source  | Source ports | Destination | Destination ports | Protocol | Access |
-|---|---|---|---|---|---|
-|`<as per need>`|Any|`<Public and Private frontend IPs>`|`<listener ports>`|TCP|Allow|
+| Source | Source ports | Destination | Destination ports | Protocol | Access |
+| --- | --- | --- | --- | --- | --- |
+| `<as per need>` | Any | `<Public and Private frontend IPs>` | `<listener ports>` | TCP | Allow |
 
 **Infrastructure ports**: Allow incoming requests from the source as the **GatewayManager** service tag and **Any** destination. The destination port range differs based on SKU and is required for communicating the status of the backend health. These ports are protected/locked down by Azure certificates. External entities can't initiate changes on those endpoints without appropriate certificates in place.
 
 - **V2**: Ports 65200-65535
 - **V1**: Ports 65503-65534
 
-| Source  | Source ports | Destination | Destination ports | Protocol | Access |
-|---|---|---|---|---|---|
-|GatewayManager|Any|Any|`<as per SKU given above>`|TCP|Allow|
+| Source | Source ports | Destination | Destination ports | Protocol | Access |
+| --- | --- | --- | --- | --- | --- |
+| GatewayManager | Any | Any | `<as per SKU given above>` | TCP | Allow |
 
 > [!TIP]
 > The communication with Gateway Manager service is regional by default.
 
 **Azure Load Balancer probes**: Allow incoming traffic from the source as the **AzureLoadBalancer** service tag. This rule is created by default for [NSGs](../virtual-network/network-security-groups-overview.md). You must not override it with a manual **Deny** rule to ensure smooth operations of your application gateway.
 
-| Source  | Source ports | Destination | Destination ports | Protocol | Access |
-|---|---|---|---|---|---|
-|AzureLoadBalancer|Any|Any|Any|Any|Allow|
+| Source | Source ports | Destination | Destination ports | Protocol | Access |
+| --- | --- | --- | --- | --- | --- |
+| AzureLoadBalancer | Any | Any | Any | Any | Allow |
 
 You can block all other incoming traffic by using a **Deny All** rule.
 
@@ -182,9 +182,9 @@ You can block all other incoming traffic by using a **Deny All** rule.
 
 **Outbound to the internet**: Allow outbound traffic to the internet for all destinations. This rule is created by default for [NSGs](../virtual-network/network-security-groups-overview.md). You must not override it with a manual **Deny** rule to ensure smooth operations of your application gateway. Outbound NSG rules that deny any outbound connectivity must not be created.
 
-| Source  | Source ports | Destination | Destination ports | Protocol | Access |
-|---|---|---|---|---|---|
-|Any|Any|Internet|Any|Any|Allow|
+| Source | Source ports | Destination | Destination ports | Protocol | Access |
+| --- | --- | --- | --- | --- | --- |
+| Any | Any | Internet | Any | Any | Allow |
 
 > [!NOTE]
 > Application Gateways that don't have [Network Isolation](application-gateway-private-deployment.md#route-table-control) enabled don't allow traffic to be sent between peered VNets when **Allow traffic to remote virtual network** is disabled.

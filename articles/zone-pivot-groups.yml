@@ -187,6 +187,14 @@ groups:
     title: Visual Studio Code
 # Service-specific groups
 ##### Begin azure-functions
+- id: azure-durable-approach
+  title: Azure Durable approach
+  prompt: Choose whether to use Durable Functions or the Durable Task SDKs
+  pivots:
+  - id: durable-functions
+    title: Durable Functions
+  - id: durable-task-sdks
+    title: Durable Task SDKs
 - id: functions-nodejs-model
   title: Node.js Programming model
   prompt: Choose a programming model

@@ -1,223 +1,301 @@
 ---
-title: "Tutorial: Use an MCP server with shell sessions in Azure Container Apps (preview)"
-description: Learn to use dynamic sessions to run shell commands with MCP in Azure Container Apps.
-services: container-apps
-author: jefmarti
-ms.service: azure-container-apps
+title: 'Tutorial: Use MCP with dynamic sessions (shell)'
+description: Learn how to create a shell session pool with the platform-managed MCP server enabled and execute shell commands remotely using Azure Container Apps dynamic sessions.
+#customer intent: As a developer, I want to use the platform-managed MCP server with a shell session pool so that I can execute shell commands remotely from the CLI or GitHub Copilot.
 ms.topic: tutorial
-ms.date: 10/30/2025
-ms.author: jefmarti
+ms.service: azure-container-apps
+ms.collection: ce-skilling-ai-copilot
+ms.date: 02/18/2026
+author: craigshoemaker
+ms.author: cshoe
+ms.reviewer: cshoe
 ---
 
+# Tutorial: Use MCP with dynamic sessions (shell)
 
-# Tutorial: Use an MCP server with shell sessions in Azure Container Apps (preview)
+> [!IMPORTANT]
+> The platform-managed MCP server for dynamic sessions is in **preview**. The API version `2025-02-02-preview` and `mcpServerSettings` properties are subject to change.
 
-This tutorial demonstrates how to deploy and interact with a shell environment in Azure Container Apps dynamic sessions using the Model Context Protocol (MCP) server.
+This tutorial shows how to create a shell session pool with the platform-managed MCP server enabled, connect to it, and execute shell commands remotely - both from the CLI and from GitHub Copilot Chat in VS Code.
 
-In this tutorial you:
+Unlike the [standalone MCP server tutorials](mcp-overview.md#standalone-container-app), you don't write or deploy MCP server code. The platform provides built-in tools for shell session pools:
+
+| Tool | Description |
+|------|-------------|
+| `launchShell` | Creates a new shell environment and returns an `environmentId` |
+| `runShellCommandInRemoteEnvironment` | Executes a shell command in an existing environment |
+
+In this tutorial, you:
 
 > [!div class="checklist"]
->
-> * Create a shell session pool with MCP server enabled
-> * Set up the MCP server endpoint and credentials
-> * Execute shell commands remotely using JSON-RPC
+> - Create a shell session pool with MCP server enabled
+> - Retrieve the MCP endpoint and API key
+> - Initialize the MCP connection and run shell commands via JSON-RPC
+> - Connect the MCP server to GitHub Copilot in VS Code
 
 ## Prerequisites
 
-You need the following resources before you begin this tutorial.
-
 | Requirement | Description |
 |-------------|-------------|
-| Azure account | You need an Azure account with an active subscription. If you don't have one, you can [create one for free](https://azure.com/free). |
+| Azure account | An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/). |
 | Azure CLI | [Install the Azure CLI](/cli/azure/install-azure-cli). |
+| curl | [curl](https://curl.se/) (preinstalled on most Linux and macOS systems). |
+| jq | [jq](https://jqlang.github.io/jq/) JSON processor, used to parse API responses. |
+| VS Code | [Visual Studio Code](https://code.visualstudio.com/) with the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension (for the Copilot integration section). |
 
 ## Setup
 
-Begin by preparing the Azure CLI with the latest updates and signing in to Azure.
- 
-1. Update the Azure CLI to the latest version.
+1. Update the Azure CLI and install the Container Apps extension:
 
-   ```azurecli
-   az upgrade
-   ```
+    ```azurecli
+    az upgrade
+    az provider register --namespace Microsoft.App
+    az extension add --name containerapp --allow-preview true --upgrade
+    ```
 
-1. Register the `Microsoft.App` resource provider.
+1. Sign in and set your subscription:
 
-   ```azurecli
-   az provider register --namespace Microsoft.App
-   ```
+    ```azurecli
+    az login
+    SUBSCRIPTION_ID=$(az account show --query id --output tsv)
+    az account set -s $SUBSCRIPTION_ID
+    ```
 
-1. Install the latest version of the Azure Container Apps CLI extension.
+1. Set variables for this tutorial. Replace the placeholders with your values:
 
-   ```azurecli
-   az extension add --name containerapp --allow-preview true --upgrade
-   ```
+    ```azurecli
+    RESOURCE_GROUP=<RESOURCE_GROUP_NAME>
+    SESSION_POOL_NAME=<SESSION_POOL_NAME>
+    LOCATION=<LOCATION>
+    ```
 
-1. Sign in to Azure.
+    | Placeholder | Description |
+    |-------------|-------------|
+    | `<RESOURCE_GROUP_NAME>` | The name of the Azure resource group. |
+    | `<SESSION_POOL_NAME>` | The name for your session pool (for example, `my-shell-sessions`). |
+    | `<LOCATION>` | An Azure region that supports dynamic sessions (for example, `westus2`). |
 
-   ```azurecli
-   az login
-   ```
+1. Create a resource group:
 
-1. Query for your Azure subscription ID and set the value to a variable.
-
-   ```azurecli
-   SUBSCRIPTION_ID=$(az account show --query id --output tsv)
-   ```
-
-1. Set the variables used in this procedure.
-
-   Before you run the following command, make sure to replace the placeholders surrounded by `<>` with your own values.
-
-   ```azurecli
-   RESOURCE_GROUP=<RESOURCE_GROUP_NAME>
-   SESSION_POOL_NAME=<SESSION_POOL_NAME>
-   LOCATION=<LOCATION>
-   ```
-
-   You use these variables to create the resources in the following steps.
-
-1. Set the subscription you want to use for creating the resource group.
-
-   ```azurecli
-   az account set -s $SUBSCRIPTION_ID
-   ```
-
-1. Create a resource group.
-
-   ```azurecli
-   az group create --name $RESOURCE_GROUP --location $LOCATION
-   ```
+    ```azurecli
+    az group create --name $RESOURCE_GROUP --location $LOCATION
+    ```
 
 ## Create a shell session pool with MCP server
 
-Use an ARM template to create a shell session pool with MCP server enabled.
+Deploy a session pool by using an ARM template with the MCP server enabled.
 
-1. Create a deployment template file named `deploy.json`:
+1. Create a file named `deploy.json`:
 
-   ```json
-   {
-       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {
-           "name": { "type": "String" },
-           "location": { "type": "String" }
-       },
-       "resources": [
-           {
-               "type": "Microsoft.App/sessionPools",
-               "apiVersion": "2025-02-02-preview",
-               "name": "[parameters('name')]",
-               "location": "[parameters('location')]",
-               "properties": {
-                   "poolManagementType": "Dynamic",
-                   "containerType": "Shell", # Set the "containerType" property to "Shell"
-                   "scaleConfiguration": {
-                       "maxConcurrentSessions": 5
-                   },
-                   "sessionNetworkConfiguration": {
-                       "status": "EgressEnabled"
-                   },
-                   "dynamicPoolConfiguration": {
-                       "lifecycleConfiguration": {
-                           "lifecycleType": "Timed",
-                           "coolDownPeriodInSeconds": 300
-                       }
-                   },
-                   "mcpServerSettings": { 
-                       "isMCPServerEnabled": true # Add the "mcpServerSettings" section to enable the MCP server
-                   }
-               }
-           }
-       ]
-   }
-   ```
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "name": { "type": "String" },
+            "location": { "type": "String" }
+        },
+        "resources": [
+            {
+                "type": "Microsoft.App/sessionPools",
+                "apiVersion": "2025-02-02-preview",
+                "name": "[parameters('name')]",
+                "location": "[parameters('location')]",
+                "properties": {
+                    "poolManagementType": "Dynamic",
+                    "containerType": "Shell",
+                    "scaleConfiguration": {
+                        "maxConcurrentSessions": 5
+                    },
+                    "sessionNetworkConfiguration": {
+                        "status": "EgressEnabled"
+                    },
+                    "dynamicPoolConfiguration": {
+                        "lifecycleConfiguration": {
+                            "lifecycleType": "Timed",
+                            "coolDownPeriodInSeconds": 300
+                        }
+                    },
+                    "mcpServerSettings": {
+                        "isMCPServerEnabled": true
+                    }
+                }
+            }
+        ]
+    }
+    ```
 
-2. Deploy the ARM template.
+    > [!NOTE]
+    > Key properties in this template:
+    > - `containerType: "Shell"` — creates sessions with a Linux shell environment.
+    > - `mcpServerSettings.isMCPServerEnabled: true` — enables the platform-managed MCP endpoint.
+    > - `coolDownPeriodInSeconds: 300` — sessions are destroyed after 5 minutes of inactivity.
 
-   ```azurecli
-   az deployment group create \
-     --resource-group $RESOURCE_GROUP \
-     --template-file deploy.json \
-     --parameters name=$SESSION_POOL_NAME location=$LOCATION
-   ```
+1. Deploy the template:
+
+    ```azurecli
+    az deployment group create \
+        --resource-group $RESOURCE_GROUP \
+        --template-file deploy.json \
+        --parameters name=$SESSION_POOL_NAME location=$LOCATION
+    ```
 
 ## Get the MCP server endpoint
 
-Retrieve the MCP server endpoint from the deployed session pool.
+After deployment, retrieve the MCP endpoint URL for your session pool.
 
 ```azurecli
-MCP_ENDPOINT=$(az rest --method GET --uri "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.App/sessionPools/$SESSION_POOL_NAME?api-version=2025-02-02-preview" --query "properties.mcpServerSettings.mcpServerEndpoint" -o tsv)
+MCP_ENDPOINT=$(az rest --method GET \
+    --uri "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.App/sessionPools/$SESSION_POOL_NAME" \
+    --uri-parameters api-version=2025-02-02-preview \
+    --query "properties.mcpServerSettings.mcpServerEndpoint" -o tsv)
 ```
 
-## Get MCP server credentials
+## Get the MCP server credentials
 
-Request API credentials for the MCP server.
+The platform-managed MCP server uses API key authentication through the `x-ms-apikey` header. This approach is different from the bearer-token authentication that standard session pool management APIs use.
 
 ```azurecli
-API_KEY=$(az rest --method POST --uri "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.App/sessionPools/$SESSION_POOL_NAME/fetchMCPServerCredentials?api-version=2025-02-02-preview" --query "apiKey" -o tsv)
+API_KEY=$(az rest --method POST \
+    --uri "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.App/sessionPools/$SESSION_POOL_NAME/fetchMCPServerCredentials" \
+    --uri-parameters api-version=2025-02-02-preview \
+    --query "apiKey" -o tsv)
 ```
+
+> [!WARNING]
+> Treat the API key as a secret. Don't commit it to source control or share it publicly. The key authenticates all MCP tool invocations against your session pool.
 
 ## Initialize the MCP server
 
-Initialize the MCP server connection using JSON-RPC.
+Send the `initialize` JSON-RPC request to establish the MCP connection:
 
-```azurecli
+```bash
 curl -sS -X POST "$MCP_ENDPOINT" \
-  -H "Content-Type: application/json" \
-  -H "x-ms-apikey: $API_KEY" \
-  -d '{ "jsonrpc": "2.0", "id": "1", "method": "initialize" }'
+    -H "Content-Type: application/json" \
+    -H "x-ms-apikey: $API_KEY" \
+    -d '{ "jsonrpc": "2.0", "id": "1", "method": "initialize" }'
 ```
 
-You should see a response that includes `protocolVersion` and `serverInfo`.
+You should see a response that includes:
+
+- `protocolVersion`: `2025-03-26`
+- `serverInfo.name`: `Microsoft Container Apps MCP Server`
+- `capabilities.tools`: `{ "call": true, "list": true }`
 
 ## Launch a shell environment
 
-Create a new shell environment in the session pool.
+Create a new shell environment to run commands.
 
-```azurecli
+```bash
 ENVIRONMENT_RESPONSE=$(curl -sS -X POST "$MCP_ENDPOINT" \
-  -H "Content-Type: application/json" \
-  -H "x-ms-apikey: $API_KEY" \
-  -d '{ "jsonrpc": "2.0", "id": "2", "method": "tools/call", "params": { "name": "launchShell", "arguments": {} } }')
+    -H "Content-Type: application/json" \
+    -H "x-ms-apikey: $API_KEY" \
+    -d '{ "jsonrpc": "2.0", "id": "2", "method": "tools/call", "params": { "name": "launchShell", "arguments": {} } }')
 
 echo $ENVIRONMENT_RESPONSE
 ```
 
-Extract the environment ID from the response for use in subsequent commands.
+Extract the `environmentId` from the response for use in later commands.
+
+```bash
+ENVIRONMENT_ID=$(echo $ENVIRONMENT_RESPONSE | jq -r '.result.structuredContent.environmentId')
+echo $ENVIRONMENT_ID
+```
 
 ## Execute shell commands
 
-Run commands in your remote shell environment. Replace `<ENVIRONMENT_ID>` with the ID returned from the previous step.
+Use the `$ENVIRONMENT_ID` from the previous step to run commands in the remote shell environment.
 
-```azurecli
+```bash
 curl -sS -X POST "$MCP_ENDPOINT" \
-  -H "Content-Type: application/json" \
-  -H "x-ms-apikey: $API_KEY" \
-  -d '{
-    "jsonrpc": "2.0",
-    "id": "3",
-    "method": "tools/call",
-    "params": {
-      "name": "runShellCommandInRemoteEnvironment",
-      "arguments": {
-        "environmentId": "<ENVIRONMENT_ID>",
-        "shellCommand": "echo Hello from Azure Container Apps Shell Session!"
-      }
-    }
-  }'
+    -H "Content-Type: application/json" \
+    -H "x-ms-apikey: $API_KEY" \
+    -d '{
+        "jsonrpc": "2.0",
+        "id": "3",
+        "method": "tools/call",
+        "params": {
+            "name": "runShellCommandInRemoteEnvironment",
+            "arguments": {
+                "environmentId": "'"$ENVIRONMENT_ID"'",
+                "shellCommand": "echo Hello from Azure Container Apps Shell Session!"
+            }
+        }
+    }'
 ```
 
-You should see output that includes the command results in the `stdout` field.
+The response includes command results in the `stdout` field.
+
+Try additional commands:
+
+```bash
+# Check the operating system
+curl -sS -X POST "$MCP_ENDPOINT" \
+    -H "Content-Type: application/json" \
+    -H "x-ms-apikey: $API_KEY" \
+    -d '{
+        "jsonrpc": "2.0",
+        "id": "4",
+        "method": "tools/call",
+        "params": {
+            "name": "runShellCommandInRemoteEnvironment",
+            "arguments": {
+                "environmentId": "'"$ENVIRONMENT_ID"'",
+                "shellCommand": "cat /etc/os-release && uname -a"
+            }
+        }
+    }'
+```
+
+> [!NOTE]
+> The `runShellCommandInRemoteEnvironment` tool accepts either a `shellCommand` string or an `execCommandAndArgs` array for commands with arguments. Use `shellCommand` for simple commands and `execCommandAndArgs` when you need precise control over argument escaping.
+
+## Connect to GitHub Copilot in VS Code
+
+You can connect the session pool MCP server to GitHub Copilot for a natural-language interface to the shell execution environment.
+
+1. Create `.vscode/mcp.json` in your project:
+
+    ```json
+    {
+        "servers": {
+            "aca-shell-sessions": {
+                "type": "http",
+                "url": "<MCP_ENDPOINT>",
+                "headers": {
+                    "x-ms-apikey": "<API_KEY>"
+                }
+            }
+        }
+    }
+    ```
+
+    Replace `<MCP_ENDPOINT>` and `<API_KEY>` with the values from earlier steps.
+
+    > [!WARNING]
+    > Don't commit MCP API keys to source control. Use environment variables or a secrets manager in production. Add `.vscode/mcp.json` to your `.gitignore`.
+
+1. Open VS Code, then open **Copilot Chat** in **Agent** mode.
+
+1. Verify `aca-shell-sessions` appears in the Tools list.
+
+1. Test with prompts like:
+    - **"Launch a shell and show me the disk usage"**
+    - **"Run a shell command to list all environment variables"**
+    - **"Check what packages are installed in the shell environment"**
 
 ## Clean up resources
 
-The resources created in this tutorial have an effect on your Azure bill. If you aren't going to use these services long-term, run the following command to remove everything created in this tutorial.
+When you're finished with this tutorial, remove the resources you created to avoid incurring charges.
 
 ```azurecli
 az group delete --resource-group $RESOURCE_GROUP
 ```
 
-## Next steps
+## Related content
 
-- [Container Apps dynamic sessions overview](/azure/container-apps/sessions)
+- [MCP servers on Azure Container Apps — overview](mcp-overview.md)
+- [Use MCP with dynamic sessions — Python interpreter](sessions-tutorial-python-mcp.md)
+- [Dynamic sessions in Azure Container Apps](sessions.md)
+- [Secure MCP servers on Container Apps](mcp-authentication.md)
+- [Troubleshoot MCP servers on Container Apps](mcp-troubleshooting.md)

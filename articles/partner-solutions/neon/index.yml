@@ -1,14 +1,14 @@
 ### YamlMime:Landing
 
-title: Neon Serverless Postgres 
-summary: Neon in Microsoft Azure
+title: Neon Serverless Postgres (now retired)
+summary: Azure Native Integration of Neon is now deprecated
 
 metadata:
   title: Neon Serverless Postgres
-  description: Neon offers a serverless Postgres solution that leverages the principles of serverless computing to provide scalable and flexible database services.
+  description: Neon offers a serverless Postgres solution that uses the principles of serverless computing to provide scalable and flexible database services.
   ms.topic: landing-page
   ms.custom:
-  ms.date: 11/26/2024
+  ms.date: 02/10/2026
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -34,8 +34,8 @@ landingContent:
         links:
           - text: Connect to compute services
             url: create-service-connection.md
-          - text: Troubleshooting Neon Serverless Postgres
-            url: troubleshoot.md
+          - text: Neon Support
+            url: https://neon.com/docs/introduction/support
   
   - title: Tools
     linkLists:

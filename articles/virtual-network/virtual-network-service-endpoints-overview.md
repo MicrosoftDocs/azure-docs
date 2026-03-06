@@ -17,7 +17,7 @@ ms.custom: sfi-image-nochange
 Azure virtual network service endpoints provide secure and direct connectivity to Azure services over an optimized route through the Azure backbone network. These endpoints allow you to secure critical Azure service resources exclusively to your virtual networks, enabling private IP addresses to reach Azure services without requiring public IP addresses. This guide covers how to configure service endpoints, their benefits, and best practices for implementation.
 
 > [!NOTE]
-> Microsoft recommends use of Azure Private Link and private endpoints for secure and private access to services hosted on the Azure platform. Azure Private Link deploys a network interface into a virtual network of your choosing for Azure services such as Azure Storage or Azure SQL. For more information, see [Azure Private Link](../private-link/private-link-overview.md) and [What is a private endpoint?](../private-link/private-endpoint-overview.md).
+> Microsoft recommends use of Azure Private Link and private endpoints for secure and private access to services hosted on the Azure platform. Azure Private Link deploys a network interface into a virtual network of your choosing for Azure services such as Azure Storage or Azure SQL. For more information, see [Azure Private Link](../private-link/private-link-overview.md) and [What is a private endpoint?](../private-link/private-endpoint-overview.md)
 
 Service endpoints are available for the following Azure services and regions. The *Microsoft.\** resource is in parenthesis. Enable this resource from the subnet side while configuring service endpoints for your service:
 

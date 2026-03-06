@@ -628,7 +628,7 @@ When considering the costs of using Azure Backup, consider the following factors
 - **Azure Files costs.** Azure Backup increases the costs of Azure Files in the following ways:
     - **Differential costs from Azure file share snapshots.** Azure Backup automates taking Azure file share snapshots on an administrator-defined schedule. Snapshots are always differential; however, the added cost added depends on the length of time snapshots are kept and the amount of churn on the file share during that time. These factors dictate how different the snapshot is from the live file share and therefore how much extra data is stored by Azure Files.
 
-    - **Transaction costs from restore operations.** Restore operations from the snapshot to the live share incur transaction costs. For standard file shares, reads from snapshots/writes from restores are billed as normal file share transactions. For provisioned file shares, these operations count against the provisioned IOPS for the file share.
+    - **Transaction costs from restore operations.** Restore operations from the snapshot to the live share incur transaction costs. For pay-as-you-go file shares, reads from snapshots/writes from restores are billed as normal file share transactions. For provisioned file shares, these operations count against the provisioned IOPS for the file share.
 
 ### Microsoft Defender for Storage
 Microsoft Defender supports Azure Files as part of its Microsoft Defender for Storage product. Microsoft Defender for Storage detects unusual and potentially harmful attempts to access or exploit your Azure file shares over SMB or FileREST. Microsoft Defender for Storage is enabled on the subscription level for all file shares in storage accounts in that subscription.

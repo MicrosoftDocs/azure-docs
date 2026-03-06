@@ -41,7 +41,7 @@ highlightedContent:
       url: costs/understand-work-scopes.md
     - title: What is FinOps?
       itemType: concept
-      url: /cloud-computing/finops/overview-finops
+      url: /cloud-computing/finops/overview
 
 productDirectory:
   title: Cost Management

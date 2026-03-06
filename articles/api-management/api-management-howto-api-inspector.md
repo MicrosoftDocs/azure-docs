@@ -19,7 +19,7 @@ ms.custom:
 
 This tutorial describes how to inspect, or *trace*, request processing in Azure API Management. Tracing helps you debug and troubleshoot your API.
 
-[!INCLUDE [api-management-workspace-try-it](../../includes/api-management-workspace-try-it.md)]
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
 In this tutorial, you learn how to:
 

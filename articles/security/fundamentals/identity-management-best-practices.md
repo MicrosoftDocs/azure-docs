@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
 ms.service: security
 ms.subservice: security-fundamentals
-ms.topic: article
+ms.topic: best-practice
 ms.date: 05/28/2025
 ms.author: mbaldwin
 
@@ -16,13 +16,7 @@ ms.author: mbaldwin
 
 In this article, we discuss a collection of Azure identity management and access control security best practices. These best practices are derived from our experience with [Microsoft Entra ID](/entra/fundamentals/whatis) and the experiences of customers like yourself.
 
-For each best practice, we explain:
-
-* What the best practice is
-* Why you want to enable that best practice
-* What might be the result if you fail to enable the best practice
-* Possible alternatives to the best practice
-* How you can learn to enable the best practice
+This article aligns with Microsoft's [Zero Trust](/security/zero-trust/zero-trust-overview) security model, which treats identity as the primary security perimeter and requires explicit verification for every access request. For prescriptive security controls with Azure Policy enforcement, see [Microsoft Cloud Security Benchmark v2 - Identity Management](/security/benchmark/azure/mcsb-v2-identity-management).
 
 This Azure identity management and access control security best practices article is based on a consensus opinion and Azure platform capabilities and feature sets, as they exist at the time this article was written.
 
@@ -53,34 +47,28 @@ Many consider identity to be the primary perimeter for security. This is a shift
 
 The following sections list best practices for identity and access security using Microsoft Entra ID.
 
-**Best practice**: Center security controls and detections around user and service identities.
-**Detail**: Use Microsoft Entra ID to collocate controls and identities.
+- **Center security controls and detections around user and service identities.**: Use Microsoft Entra ID to collocate controls and identities.
 
 ## Centralize identity management
 
 In a hybrid identity scenario we recommend that you integrate your on-premises and cloud directories. Integration enables your IT team to manage accounts from one location, regardless of where an account is created. Integration also helps your users be more productive by providing a common identity for accessing both cloud and on-premises resources.
 
-**Best practice**: Establish a single Microsoft Entra instance. Consistency and a single authoritative source will increase clarity and reduce security risks from human errors and configuration complexity.  
-**Detail**: Designate a single Microsoft Entra directory as the authoritative source for corporate and organizational accounts.
+- **Establish a single Microsoft Entra instance. Consistency and a single authoritative source will increase clarity and reduce security risks from human errors and configuration complexity.**: Designate a single Microsoft Entra directory as the authoritative source for corporate and organizational accounts.
 
-**Best practice**: Integrate your on-premises directories with Microsoft Entra ID.  
-**Detail**: Use [Microsoft Entra Connect](/entra/identity/hybrid/connect/whatis-azure-ad-connect) to synchronize your on-premises directory with your cloud directory.
+- **Integrate your on-premises directories with Microsoft Entra ID.**: Use [Microsoft Entra Connect](/entra/identity/hybrid/connect/whatis-azure-ad-connect) to synchronize your on-premises directory with your cloud directory.
 
 > [!Note]
 > There are [factors that affect the performance of Microsoft Entra Connect](/entra/identity/hybrid/connect/plan-connect-performance-factors). Ensure Microsoft Entra Connect has enough capacity to keep underperforming systems from impeding security and productivity. Large or complex organizations (organizations provisioning more than 100,000 objects) should follow the [recommendations](/entra/identity/hybrid/connect/whatis-azure-ad-connect) to optimize their Microsoft Entra Connect implementation.
 
-**Best practice**: Don’t synchronize accounts to Microsoft Entra ID that have high privileges in your existing Active Directory instance.  
-**Detail**: Don't change the default [Microsoft Entra Connect configuration](/entra/identity/hybrid/connect/how-to-connect-sync-configure-filtering) that filters out these accounts. This configuration mitigates the risk of adversaries pivoting from cloud to on-premises assets (which could create a major incident).
+- **Don't synchronize accounts to Microsoft Entra ID that have high privileges in your existing Active Directory instance.**: The default [Microsoft Entra Connect configuration](/entra/identity/hybrid/connect/how-to-connect-sync-configure-filtering) only excludes the built-in Administrator account (RID 500). To protect other highly privileged accounts such as Domain Admins and Enterprise Admins, use [OU-based filtering](/entra/identity/hybrid/connect/how-to-connect-sync-configure-filtering#organizational-unitbased-filtering) or [attribute-based filtering](/entra/identity/hybrid/connect/how-to-connect-sync-configure-filtering#attribute-based-filtering) to exclude them from synchronization. This configuration mitigates the risk of adversaries pivoting from cloud to on-premises assets (which could create a major incident).
 
-**Best practice**: Turn on password hash synchronization.  
-**Detail**: Password hash synchronization is a feature used to synch user password hashes from an on-premises Active Directory instance to a cloud-based Microsoft Entra instance. This sync helps to protect against leaked credentials being replayed from previous attacks.
+- **Turn on password hash synchronization.**: Password hash synchronization is a feature used to synch user password hashes from an on-premises Active Directory instance to a cloud-based Microsoft Entra instance. This sync helps to protect against leaked credentials being replayed from previous attacks.
 
 Even if you decide to use federation with Active Directory Federation Services (AD FS) or other identity providers, you can optionally set up password hash synchronization as a backup in case your on-premises servers fail or become temporarily unavailable. This sync enables users to sign in to the service by using the same password that they use to sign in to their on-premises Active Directory instance. It also allows Identity Protection to detect compromised credentials by comparing synchronized password hashes with passwords known to be compromised, if a user has used the same email address and password on other services that aren't connected to Microsoft Entra ID.
 
 For more information, see [Implement password hash synchronization with Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-password-hash-synchronization).
 
-**Best practice**: For new application development, use Microsoft Entra ID for authentication.  
-**Detail**: Use the correct capabilities to support authentication:
+- **For new application development, use Microsoft Entra ID for authentication.**: Use the correct capabilities to support authentication:
 
   - Microsoft Entra ID for employees
   - [Microsoft Entra B2B](/entra/external-id/what-is-b2b) for guest users and external partners
@@ -102,8 +90,7 @@ In a mobile-first, cloud-first world, you want to enable single sign-on (SSO) to
 
 By using the same identity solution for all your apps and resources, you can achieve SSO. And your users can use the same set of credentials to sign in and access the resources that they need, whether the resources are located on-premises or in the cloud.
 
-**Best practice**: Enable SSO.  
-**Detail**: Microsoft Entra ID [extends on-premises Active Directory](/entra/identity/hybrid/whatis-hybrid-identity) to the cloud. Users can use their primary work or school account for their domain-joined devices, company resources, and all of the web and SaaS applications that they need to get their jobs done. Users don't have to remember multiple sets of usernames and passwords, and their application access can be automatically provisioned (or deprovisioned) based on their organization group memberships and their status as an employee. And you can control that access for gallery apps or for your own on-premises apps that you've developed and published through the [Microsoft Entra application proxy](/entra/identity/app-proxy/overview-what-is-app-proxy).
+- **Enable SSO.**: Microsoft Entra ID [extends on-premises Active Directory](/entra/identity/hybrid/whatis-hybrid-identity) to the cloud. Users can use their primary work or school account for their domain-joined devices, company resources, and all of the web and SaaS applications that they need to get their jobs done. Users don't have to remember multiple sets of usernames and passwords, and their application access can be automatically provisioned (or deprovisioned) based on their organization group memberships and their status as an employee. And you can control that access for gallery apps or for your own on-premises apps that you've developed and published through the [Microsoft Entra application proxy](/entra/identity/app-proxy/overview-what-is-app-proxy).
 
 Use SSO to enable users to access their [SaaS applications](/entra/identity/enterprise-apps/what-is-single-sign-on) based on their work or school account in Microsoft Entra ID. This is applicable not only for Microsoft SaaS apps, but also other apps, such as [Google Apps](/entra/identity/saas-apps/google-apps-tutorial) and [Salesforce](/entra/identity/saas-apps/salesforce-tutorial). You can configure your application to use Microsoft Entra ID as a [SAML-based identity](/entra/fundamentals/whatis) provider. As a security control, Microsoft Entra ID does not issue a token that allows users to sign in to the application unless they have been granted access through Microsoft Entra ID. You can grant access directly, or through a group that users are a member of.
 
@@ -115,33 +102,27 @@ Users can access your organization's resources by using a variety of devices and
 
 To balance security and productivity, you need to think about how a resource is accessed before you can make a decision about access control. With Microsoft Entra Conditional Access, you can address this requirement. With Conditional Access, you can make automated access control decisions based on conditions for accessing your cloud apps.
 
-**Best practice**: Manage and control access to corporate resources.  
-**Detail**: Configure common Microsoft Entra [Conditional Access policies](/entra/identity/conditional-access/concept-conditional-access-policy-common) based on a group, location, and application sensitivity for SaaS apps and Microsoft Entra ID–connected apps.
+- **Manage and control access to corporate resources.**: Configure common Microsoft Entra [Conditional Access policies](/entra/identity/conditional-access/concept-conditional-access-policy-common) based on a group, location, and application sensitivity for SaaS apps and Microsoft Entra ID–connected apps.
 
-**Best practice**: Block legacy authentication protocols.  
-**Detail**: Attackers exploit weaknesses in older protocols every day, particularly for password spray attacks. Configure Conditional Access to [block legacy protocols](/entra/identity/conditional-access/howto-conditional-access-policy-block-legacy).
+- **Block legacy authentication protocols.**: Attackers exploit weaknesses in older protocols every day, particularly for password spray attacks. Configure Conditional Access to [block legacy protocols](/entra/identity/conditional-access/howto-conditional-access-policy-block-legacy).
 
 ## Plan for routine security improvements
 
 Security is always evolving, and it is important to build into your cloud and identity management framework a way to regularly show growth and discover new ways to secure your environment.
 
-Identity Secure Score is a set of recommended security controls that Microsoft publishes that works to provide you a numerical score to objectively measure your security posture and help plan future security improvements. You can also view your score in comparison to those in other industries as well as your own trends over time.
+Identity Secure Score is a set of recommended security controls that Microsoft publishes that works to provide you with a numerical score to objectively measure your security posture and help plan future security improvements. You can also view your score in comparison to those in other industries as well as your own trends over time.
 
-**Best practice**: Plan routine security reviews and improvements based on best practices in your industry.  
-**Detail**: Use the Identity Secure Score feature to rank your improvements over time.
+- **Plan routine security reviews and improvements based on best practices in your industry.**: Use the Identity Secure Score feature to rank your improvements over time.
 
 ## Enable password management
 
 If you have multiple tenants or you want to enable users to [reset their own passwords](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e), it’s important that you use appropriate security policies to prevent abuse.
 
-**Best practice**: Set up self-service password reset (SSPR) for your users.  
-**Detail**: Use the Microsoft Entra ID [self-service password reset](/entra/identity/authentication/tutorial-enable-sspr) feature.  
+- **Set up self-service password reset (SSPR) for your users.**: Use the Microsoft Entra ID [self-service password reset](/entra/identity/authentication/tutorial-enable-sspr) feature.  
 
-**Best practice**: Monitor how or if SSPR is really being used.  
-**Detail**: Monitor the users who are registering by using the Microsoft Entra ID [Password Reset Registration Activity report](/entra/identity/authentication/howto-sspr-reporting). The reporting feature that Microsoft Entra ID provides helps you answer questions by using prebuilt reports. If you're appropriately licensed, you can also create custom queries.
+- **Monitor how or if SSPR is really being used.**: Monitor the users who are registering by using the Microsoft Entra ID [Password Reset Registration Activity report](/entra/identity/authentication/howto-sspr-reporting). The reporting feature that Microsoft Entra ID provides helps you answer questions by using prebuilt reports. If you're appropriately licensed, you can also create custom queries.
 
-**Best practice**: Extend cloud-based password policies to your on-premises infrastructure.  
-**Detail**: Enhance password policies in your organization by performing the same checks for on-premises password changes as you do for cloud-based password changes. Install [Microsoft Entra password protection](/entra/identity/authentication/concept-password-ban-bad) for Windows Server Active Directory agents on-premises to extend banned password lists to your existing infrastructure. Users and admins who change, set, or reset passwords on-premises are required to comply with the same password policy as cloud-only users.
+- **Extend cloud-based password policies to your on-premises infrastructure.**: Enhance password policies in your organization by performing the same checks for on-premises password changes as you do for cloud-based password changes. Install [Microsoft Entra password protection](/entra/identity/authentication/concept-password-ban-bad) for Windows Server Active Directory agents on-premises to extend banned password lists to your existing infrastructure. Users and admins who change, set, or reset passwords on-premises are required to comply with the same password policy as cloud-only users.
 
 <a name='enforce-multi-factor-verification-for-users'></a>
 
@@ -152,8 +133,7 @@ We recommend that you require multifactor authentication (MFA) for all of your u
 > [!IMPORTANT]
 > **Mandatory MFA Enforcement**: As of October 1, 2025, Azure has entered Phase 2 of mandatory MFA enforcement, requiring strong authentication for all Azure service users including Command Line Interface (CLI), PowerShell, Azure mobile app, Infrastructure as Code (IaC) tools, and REST API endpoints for Create, Update, or Delete operations. This enforcement significantly improves identity security by neutralizing stolen credentials at scale. Microsoft internal telemetry shows this implementation has blocked more than 99% of account compromise attempts. For more information, see [Planning for mandatory multifactor authentication for Azure](/entra/identity/authentication/concept-mandatory-multifactor-authentication).
 
-**Best practice**: Prioritize phishing-resistant MFA methods such as FIDO2 security keys, passkeys, Windows Hello for Business, and certificate-based authentication.  
-**Detail**: Phishing-resistant authentication methods provide the strongest protection against sophisticated attacks. These methods use hardware-backed cryptographic keys that cannot be intercepted or replayed by attackers. Microsoft recommends deploying phishing-resistant MFA as the baseline for identity security. For guidance, see [Plan a phishing-resistant passwordless authentication deployment](/entra/identity/authentication/how-to-plan-prerequisites-phishing-resistant-passwordless-authentication).
+- **Prioritize phishing-resistant MFA methods such as FIDO2 security keys, passkeys, Windows Hello for Business, and certificate-based authentication.**: Phishing-resistant authentication methods provide the strongest protection against sophisticated attacks. These methods use hardware-backed cryptographic keys that cannot be intercepted or replayed by attackers. Microsoft recommends deploying phishing-resistant MFA as the baseline for identity security. For guidance, see [Plan a phishing-resistant passwordless authentication deployment](/entra/identity/authentication/how-to-plan-prerequisites-phishing-resistant-passwordless-authentication).
 
 There are multiple options for requiring multifactor authentication. The best option for you depends on your goals, the Microsoft Entra edition you're running, and your licensing program. See [How to require two-step verification for a user](/entra/identity/authentication/howto-mfa-userstates) to determine the best option for you. See the [Microsoft Entra ID](https://www.microsoft.com/security/business/microsoft-entra-pricing) and [Microsoft Entra multifactor authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) pricing pages for more information about licenses and pricing.
 
@@ -169,9 +149,9 @@ Following are options and benefits for enabling multifactor authentication:
 This method is available to all licensing tiers but is not able to be mixed with existing Conditional Access policies. You can find more information in [Microsoft Entra Security Defaults](/entra/fundamentals/security-defaults)
 
 **Option 2**: [Enable multifactor authentication by changing user state](/entra/identity/authentication/howto-mfa-userstates).   
-**Benefit**: This is the traditional method for requiring two-step verification. It works with both [Microsoft Entra multifactor authentication in the cloud and Azure Multi-Factor Authentication Server](/entra/identity/authentication/concept-mfa-howitworks). Using this method requires users to perform two-step verification every time they sign in and overrides Conditional Access policies.
+**Benefit**: This is the traditional method for requiring two-step verification. It works with both [Microsoft Entra multifactor authentication in the cloud and Azure Multifactor Authentication server](/entra/identity/authentication/concept-mfa-howitworks). Using this method requires users to perform two-step verification every time they sign in and overrides Conditional Access policies.
 
-To determine where multifactor authentication needs to be enabled, see [Which version of Microsoft Entra multifactor authentication is right for my organization?](/entra/identity/authentication/concept-mfa-howitworks).
+To determine where multifactor authentication needs to be enabled, see [Which version of Microsoft Entra multifactor authentication is right for my organization?](/entra/identity/authentication/concept-mfa-howitworks)
 
 **Option 3**: [Enable multifactor authentication with Conditional Access policy](/entra/identity/authentication/howto-mfa-getstarted).  
 **Benefit**: This option allows you to prompt for two-step verification under specific conditions by using [Conditional Access](/entra/identity/conditional-access/concept-conditional-access-policy-common). Specific conditions can be user sign-in from different locations, untrusted devices, or applications that you consider risky. Defining specific conditions where you require two-step verification enables you to avoid constant prompting for your users, which can be an unpleasant user experience.
@@ -190,8 +170,7 @@ This method uses the Microsoft Entra ID Protection risk evaluation to determine 
 > [!Note]
 > Option 2, enabling multifactor authentication by changing the user state, overrides Conditional Access policies. Because options 3 and 4 use Conditional Access policies, you cannot use option 2 with them.
 
-**Best practice**: Migrate user-based service accounts to workload identities.  
-**Detail**: Some customers use user accounts in Microsoft Entra ID as service accounts for automation. With mandatory MFA enforcement, it's critical to migrate these user-based service accounts to [secure cloud-based service accounts with workload identities](/entra/workload-id/workload-identities-overview). Workload identities such as managed identities and service principals are designed for automation scenarios and don't require MFA, providing a more secure and manageable solution. For migration guidance, see [Sign in to Azure with a managed identity using the Azure CLI](/cli/azure/authenticate-azure-cli-managed-identity) and [Sign in to Azure PowerShell non-interactively for automation scenarios](/powershell/azure/authenticate-noninteractive).
+- **Migrate user-based service accounts to workload identities.**: Some customers use user accounts in Microsoft Entra ID as service accounts for automation. With mandatory MFA enforcement, it's critical to migrate these user-based service accounts to [secure cloud-based service accounts with workload identities](/entra/workload-id/workload-identities-overview). Workload identities such as managed identities and service principals are designed for automation scenarios and don't require MFA, providing a more secure and manageable solution. For migration guidance, see [Sign in to Azure with a managed identity using the Azure CLI](/cli/azure/authenticate-azure-cli-managed-identity) and [Sign in to Azure PowerShell non-interactively for automation scenarios](/powershell/azure/authenticate-noninteractive).
 
 Organizations that don't add extra layers of identity protection, such as multifactor authentication, are more susceptible for credential theft attack. A credential theft attack can lead to data compromise.
 
@@ -205,23 +184,19 @@ Your security team needs visibility into your Azure resources in order to assess
 
 You can use [Azure RBAC](../../role-based-access-control/overview.md) to assign permissions to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource.
 
-**Best practice**: Segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, allow only certain actions at a particular scope.  
-**Detail**: Use [Azure built-in roles](../../role-based-access-control/built-in-roles.md) in Azure to assign privileges to users.
+- **Segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, allow only certain actions at a particular scope.**: Use [Azure built-in roles](../../role-based-access-control/built-in-roles.md) in Azure to assign privileges to users.
 
 > [!Note]
 > Specific permissions create unneeded complexity and confusion, accumulating into a “legacy” configuration that’s difficult to fix without fear of breaking something. Avoid resource-specific permissions. Instead, use management groups for enterprise-wide permissions and resource groups for permissions within subscriptions. Avoid user-specific permissions. Instead, assign access to groups in Microsoft Entra ID.
 
-**Best practice**: Grant security teams with Azure responsibilities access to see Azure resources so they can assess and remediate risk.  
-**Detail**: Grant security teams the Azure RBAC [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader) role. You can use the root management group or the segment management group, depending on the scope of responsibilities:
+- **Grant security teams with Azure responsibilities access to see Azure resources so they can assess and remediate risk.**: Grant security teams the Azure RBAC [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader) role. You can use the root management group or the segment management group, depending on the scope of responsibilities:
 
 * **Root management group** for teams  responsible for all enterprise resources
 * **Segment management group** for teams with limited scope (commonly because of regulatory or other organizational boundaries)
 
-**Best practice**: Grant the appropriate permissions to security teams that have direct operational responsibilities.  
-**Detail**: Review the Azure built-in roles for the appropriate role assignment. If the built-in roles don't meet the specific needs of your organization, you can create [Azure custom roles](../../role-based-access-control/custom-roles.md). As with built-in roles, you can assign custom roles to users, groups, and service principals at subscription, resource group, and resource scopes.
+- **Grant the appropriate permissions to security teams that have direct operational responsibilities.**: Review the Azure built-in roles for the appropriate role assignment. If the built-in roles don't meet the specific needs of your organization, you can create [Azure custom roles](../../role-based-access-control/custom-roles.md). As with built-in roles, you can assign custom roles to users, groups, and service principals at subscription, resource group, and resource scopes.
 
-**Best practices**: Grant Microsoft Defender for Cloud access to security roles that need it. Defender for Cloud allows security teams to quickly identify and remediate risks.  
-**Detail**: Add security teams with these needs to the Azure RBAC [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin) role so they can view security policies, view security states, edit security policies, view alerts and recommendations, and dismiss alerts and recommendations. You can do this by using the root management group or the segment management group, depending on the scope of responsibilities.
+- **Grant Microsoft Defender for Cloud access to security roles that need it. Defender for Cloud allows security teams to quickly identify and remediate risks.**: Add security teams with these needs to the Azure RBAC [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin) role so they can view security policies, view security states, edit security policies, view alerts and recommendations, and dismiss alerts and recommendations. You can do this by using the root management group or the segment management group, depending on the scope of responsibilities.
 
 Organizations that don’t enforce data access control by using capabilities like Azure RBAC might be giving more privileges than necessary to their users. This can lead to data compromise by allowing users to access types of data (for example, high business impact) that they shouldn’t have.
 
@@ -235,59 +210,46 @@ We recommend that you develop and follow a roadmap to secure privileged access a
 
 The following summarizes the best practices found in [Securing privileged access for hybrid and cloud deployments in Microsoft Entra ID](/entra/identity/role-based-access-control/security-planning):
 
-**Best practice**: Manage, control, and monitor access to privileged accounts.   
-**Detail**: Turn on [Microsoft Entra Privileged Identity Management](/entra/identity/role-based-access-control/security-planning). After you turn on Privileged Identity Management, you’ll receive notification email messages for privileged access role changes. These notifications provide early warning when additional users are added to highly privileged roles in your directory.
+- **Manage, control, and monitor access to privileged accounts.**: Turn on [Microsoft Entra Privileged Identity Management](/entra/identity/role-based-access-control/security-planning). After you turn on Privileged Identity Management, you’ll receive notification email messages for privileged access role changes. These notifications provide early warning when additional users are added to highly privileged roles in your directory.
 
-**Best practice**: Ensure all critical admin accounts are managed Microsoft Entra accounts.
-**Detail**: Remove any consumer accounts from critical admin roles (for example, Microsoft accounts like hotmail.com, live.com, and outlook.com).
+- **Ensure all critical admin accounts are managed Microsoft Entra accounts.**: Remove any consumer accounts from critical admin roles (for example, Microsoft accounts like hotmail.com, live.com, and outlook.com).
 
-**Best practice**: Ensure all critical admin roles have a separate account for administrative tasks in order to avoid phishing and other attacks to compromise administrative privileges.  
-**Detail**: Create a separate admin account that’s assigned the privileges needed to perform the administrative tasks. Block the use of these administrative accounts for daily productivity tools like Microsoft 365 email or arbitrary web browsing.
+- **Ensure all critical admin roles have a separate account for administrative tasks in order to avoid phishing and other attacks to compromise administrative privileges.**: Create a separate admin account that’s assigned the privileges needed to perform the administrative tasks. Block the use of these administrative accounts for daily productivity tools like Microsoft 365 email or arbitrary web browsing.
 
-**Best practice**: Identify and categorize accounts that are in highly privileged roles.   
-**Detail**: After turning on Microsoft Entra Privileged Identity Management, view the users who are in the global administrator, privileged role administrator, and other highly privileged roles. Remove any accounts that are no longer needed in those roles, and categorize the remaining accounts that are assigned to admin roles:
+- **Identify and categorize accounts that are in highly privileged roles.**: After turning on Microsoft Entra Privileged Identity Management, view the users who are in the global administrator, privileged role administrator, and other highly privileged roles. Remove any accounts that are no longer needed in those roles, and categorize the remaining accounts that are assigned to admin roles:
 
-* Individually assigned to administrative users and can be used for non-administrative purposes (for example, personal email)
-* Individually assigned to administrative users and designated for administrative purposes only
-* Shared across multiple users
-* For emergency access scenarios
-* For automated scripts
-* For external users
+   * Individually assigned to administrative users and can be used for non-administrative purposes (for example, personal email)
+   * Individually assigned to administrative users and designated for administrative purposes only
+   * Shared across multiple users
+   * For emergency access scenarios
+   * For automated scripts
+   * For external users
 
-**Best practice**: Implement “just in time” (JIT) access to further lower the exposure time of privileges and increase your visibility into the use of privileged accounts.   
-**Detail**: Microsoft Entra Privileged Identity Management lets you:
+- **Implement “just in time” (JIT) access to further lower the exposure time of privileges and increase your visibility into the use of privileged accounts.**: Microsoft Entra Privileged Identity Management lets you:
 
 * Limit users to only taking on their privileges JIT.
 * Assign roles for a shortened duration with confidence that the privileges are revoked automatically.
 
-**Best practice**: Define at least two emergency access accounts.   
-**Detail**: Emergency access accounts help organizations restrict privileged access in an existing Microsoft Entra environment. These accounts are highly privileged and are not assigned to specific individuals. Emergency access accounts are limited to scenarios where normal administrative accounts can’t be used. Organizations must limit the emergency account's usage to only the necessary amount of time.
+- **Define at least two emergency access accounts.**: Emergency access accounts help organizations restrict privileged access in an existing Microsoft Entra environment. These accounts are highly privileged and are not assigned to specific individuals. Emergency access accounts are limited to scenarios where normal administrative accounts can’t be used. Organizations must limit the emergency account's usage to only the necessary amount of time.
 
 Evaluate the accounts that are assigned or eligible for the global admin role. If you don’t see any cloud-only accounts by using the `*.onmicrosoft.com` domain (intended for emergency access), create them. For more information, see [Managing emergency access administrative accounts in Microsoft Entra ID](/entra/identity/role-based-access-control/security-emergency-access).
 
-**Best practice**: Have a “break glass" process in place in case of an emergency.  
-**Detail**: Follow the steps in [Securing privileged access for hybrid and cloud deployments in Microsoft Entra ID](/entra/identity/role-based-access-control/security-planning).
+- **Have a “break glass" process in place in case of an emergency.**: Follow the steps in [Securing privileged access for hybrid and cloud deployments in Microsoft Entra ID](/entra/identity/role-based-access-control/security-planning).
 
-**Best practice**: Require all critical admin accounts to be password-less (preferred), or require multifactor authentication.  
-**Detail**: Use the [Microsoft Authenticator app](/entra/identity/authentication/howto-authentication-passwordless-phone) to sign in to any Microsoft Entra account without using a password. Like [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification), the Microsoft Authenticator uses key-based authentication to enable a user credential that’s tied to a device and uses biometric authentication or a PIN.
+- **Require all critical admin accounts to be password-less (preferred), or require multifactor authentication.**: Use the [Microsoft Authenticator app](/entra/identity/authentication/howto-authentication-passwordless-phone) to sign in to any Microsoft Entra account without using a password. Like [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification), the Microsoft Authenticator uses key-based authentication to enable a user credential that’s tied to a device and uses biometric authentication or a PIN.
 
 Require Microsoft Entra multifactor authentication at sign-in for all individual users who are permanently assigned to one or more of the Microsoft Entra admin roles: Global Administrator, Privileged Role Administrator, Exchange Online Administrator, and SharePoint Online Administrator. Enable [multifactor authentication for your admin accounts](/entra/identity/authentication/howto-mfa-userstates) and ensure that admin account users have registered.
 
-**Best practice**: For critical admin accounts, have an admin workstation where production tasks aren’t allowed (for example, browsing and email). This will protect your admin accounts from attack vectors that use browsing and email and significantly lower your risk of a major incident.  
-**Detail**: Use an admin workstation. Choose a level of workstation security:
+- **For critical admin accounts, have an admin workstation where production tasks aren’t allowed (for example, browsing and email). This will protect your admin accounts from attack vectors that use browsing and email and significantly lower your risk of a major incident.**: Use an admin workstation. Choose a level of workstation security:
 
 - Highly secure productivity devices provide advanced security for browsing and other productivity tasks.
-- [Privileged Access Workstations (PAWs)](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) provide a dedicated operating system that’s protected from internet attacks and threat vectors for sensitive tasks.
+- [Privileged Access Workstations (PAWs)](/security/privileged-access-workstations/privileged-access-devices) provide a dedicated operating system that's protected from internet attacks and threat vectors for sensitive tasks.
 
-**Best practice**: Deprovision admin accounts when employees leave your organization.  
-**Detail**: Have a process in place that disables or deletes admin accounts when employees leave your organization.
+- **Deprovision admin accounts when employees leave your organization.**: Have a process in place that disables or deletes admin accounts when employees leave your organization.
 
-**Best practice**: Regularly test admin accounts by using current attack techniques.  
-**Detail**: Use Microsoft 365 Attack Simulator or a third-party offering to run realistic attack scenarios in your organization. This can help you find vulnerable users before a real attack occurs.
+- **Regularly test admin accounts by using current attack techniques.**: Use Microsoft 365 Attack Simulator or a third-party offering to run realistic attack scenarios in your organization. This can help you find vulnerable users before a real attack occurs.
 
-**Best practice**: Take steps to mitigate the most frequently used attacked techniques.  
-**Detail**:
-[Identify Microsoft accounts in administrative roles that need to be switched to work or school accounts](/entra/identity/role-based-access-control/security-planning#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts)  
+- **Take steps to mitigate the most frequently used attacked techniques.**: [Identify Microsoft accounts in administrative roles that need to be switched to work or school accounts](/entra/identity/role-based-access-control/security-planning#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts)  
 
 [Ensure separate user accounts and mail forwarding for global administrator accounts](/entra/identity/role-based-access-control/security-planning)  
 
@@ -317,8 +279,6 @@ You can use [Azure Resource Manager](../../azure-resource-manager/management/ove
 
 > [!NOTE]
 > Security policies are not the same as Azure RBAC. They actually use Azure RBAC to authorize users to create those resources.
->
->
 
 Organizations that are not controlling how resources are created are more susceptible to users who might abuse the service by creating more resources than they need. Hardening the resource creation process is an important step to securing a multitenant scenario.
 
@@ -326,22 +286,11 @@ Organizations that are not controlling how resources are created are more suscep
 
 An active identity monitoring system can quickly detect suspicious behavior and trigger an alert for further investigation. The following table lists Microsoft Entra capabilities that can help organizations monitor their identities:
 
-**Best practice**: Have a method to identify:
+- **Have a method to identify suspicious sign-in activities**: Monitor for attempts to sign in [without being traced](/entra/identity/monitoring-health/howto-access-activity-logs), [brute force](/entra/identity/monitoring-health/howto-access-activity-logs) attacks against a particular account, attempts to sign in from multiple locations, sign-ins from [infected devices](/entra/identity/monitoring-health/howto-access-activity-logs), and suspicious IP addresses. Use Microsoft Entra ID P1 or P2 [anomaly reports](/entra/identity/monitoring-health/howto-access-activity-logs). Have processes and procedures in place for IT admins to run these reports on a daily basis or on demand (usually in an incident response scenario).
 
-- Attempts to sign in [without being traced](/entra/identity/monitoring-health/howto-access-activity-logs).
-- [Brute force](/entra/identity/monitoring-health/howto-access-activity-logs) attacks against a particular account.
-- Attempts to sign in from multiple locations.
-- Sign-ins from [infected devices](/entra/identity/monitoring-health/howto-access-activity-logs).
-- Suspicious IP addresses.
-
-**Detail**: Use Microsoft Entra ID P1 or P2 [anomaly reports](/entra/identity/monitoring-health/howto-access-activity-logs). Have processes and procedures in place for IT admins to run these reports on a daily basis or on demand (usually in an incident response scenario).
-
-**Best practice**: Have an active monitoring system that notifies you of risks and can adjust risk level (high, medium, or low) to your business requirements.   
-**Detail**: Use [Microsoft Entra ID Protection](/entra/id-protection/overview-identity-protection), which flags the current risks on its own dashboard and sends daily summary notifications via email. To help protect your organization's identities, you can configure risk-based policies that automatically respond to detected issues when a specified risk level is reached.
+- **Have an active monitoring system that notifies you of risks and can adjust risk level (high, medium, or low) to your business requirements.**: Use [Microsoft Entra ID Protection](/entra/id-protection/overview-identity-protection), which flags the current risks on its own dashboard and sends daily summary notifications via email. To help protect your organization's identities, you can configure risk-based policies that automatically respond to detected issues when a specified risk level is reached.
 
 Organizations that don’t actively monitor their identity systems are at risk of having user credentials compromised. Without knowledge that suspicious activities are taking place through these credentials, organizations can’t mitigate this type of threat.
-
-<a name='use-azure-ad-for-storage-authentication'></a>
 
 ## Use Microsoft Entra ID for storage authentication
 [Azure Storage](/azure/storage/blobs/authorize-access-azure-active-directory) supports authentication and authorization with Microsoft Entra ID for Blob storage and Queue storage. With Microsoft Entra authentication, you can use the Azure role-based access control to grant specific permissions to users, groups, and applications down to the scope of an individual blob container or queue.

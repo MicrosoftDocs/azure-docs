@@ -100,9 +100,9 @@ For example, suppose you want to create an MCP server with tools that manage con
 
       :::image type="content" source="media/create-mcp-server-api-center/mcp-information.png" alt-text="Screenshot shows MCP wizard and Project details section." lightbox="media/create-mcp-server-api-center/mcp-information.png":::
 
-   1. In the **Tools** section, under **Connectors*, select **Add connector** or **Add**.
+   1. In the **Tools** section, under **Connectors**, select **Add** or **Add new**.
 
-      :::image type="content" source="media/create-mcp-server-api-center/add-connector.png" alt-text="Screenshot shows Connections section with selected options for Add and Add connector." lightbox="media/create-mcp-server-api-center/add-connector.png":::
+      :::image type="content" source="media/create-mcp-server-api-center/add-connector.png" alt-text="Screenshot shows Connectors section with selected options for Add and Add connector." lightbox="media/create-mcp-server-api-center/add-connector.png":::
 
    1. On the **Add connector** pane and the **Choose connector** tab, find and select the connector for which you want to create a tool, for example:
 

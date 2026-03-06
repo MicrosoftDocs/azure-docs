@@ -23,9 +23,21 @@ This page is updated with the details about the upcoming release approximately a
 
 <hr width = 100%>
 
+## February 2026
+### OSDU&reg; Reservoir DMS - Generally Available
+OSDU&reg; Reservoir DMS is now generally available on Azure Data Manager for Energy.
+Reservoir DMS provides:
+- Standardized storage and management of reservoir engineering data—including models, grids, and simulation outputs—using OSDU-compliant schemas.
+- Consistent data quality, versioning, and traceability across workflows.
+- Seamless integration with simulation and analytics tools to support faster, more reliable reservoir decisions.
+Reservoir DMS is enabled on all partitions of existing and new Azure Data Manager for Energy instances. The feature is available in all regions where Azure Data Manager for Energy is offered, except Indonesia Central.
+
+### Well Delivery DMS - Deprecation Notice
+OSDU Well Delivery DMS will be deprecated on Azure Data Manager for Energy with the release in the month of March. This follows the decision to deprecate the DMS in OSDU with the M26 milestone release.
+ 
 ## January 2026
 ### External Data Service - Managed identity workflows
-Azure Data Manager for Energy now supports using managed identities for authentication in External Data Services (EDS) workflows. This enhancement allows you to securely connect to OSDU&reg; compliant external data sources without the need for hardcoding credentials, improving security and simplifying management of authentication in your data integration processes. You can use either system-assigned or user-assigned managed identities to authenticate EDS workflows with supported external data sources. For more information, see [How to enable External Data Services (EDS) Preview?](how-to-enable-external-data-services.md).
+Azure Data Manager for Energy now supports using managed identities for authentication in External Data Services (EDS) workflows. This enhancement allows you to securely connect to OSDU&reg; compliant external data sources without the need for hardcoding credentials, improving security and simplifying management of authentication in your data integration processes. You can use either system-assigned or user-assigned managed identities to authenticate EDS workflows with supported external data sources. For more information, see [How to enable External Data Services (EDS) Preview?](how-to-enable-external-data-services.md)
 
 ### Rock and Fluid Samples (RAFS) DDMS - Generally Available
 The Rock and Fluid Samples (RAFS) DDMS is now generally available in Azure Data Manager for Energy. RAFS provides a standardized, scalable foundation for storing, querying, and analyzing geological and engineering sample data from subsurface and surface locations. These insights are essential for key energy workflows, including reservoir modeling, drilling planning, and facility design.
@@ -80,7 +92,7 @@ Azure Data Manager for Energy is now available in two new regions: **Central Ind
 
 Central India is available for select customers and partners only. Reach out to your designated Microsoft account team member to unlock access. Once access is provided, you can select "Central India" as your preferred region when creating Azure Data Manager for Energy resource, using the Azure portal or your preferred provisioning method.
 
-For more information on region reliability, see [Azure Data Manager for Energy reliability](/azure/reliability/reliability-energy-data-services).
+For more information on region reliability, see [Azure Data Manager for Energy reliability](reliability-energy-data-services.md).
 
 ## April 2025
 ### Azure Data Manager for Energy available in four new regions

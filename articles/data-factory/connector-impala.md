@@ -4,7 +4,7 @@ description: Learn how to copy data from Impala to supported sink data stores us
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/16/2025
 ms.author: jianleishen
 ms.custom:

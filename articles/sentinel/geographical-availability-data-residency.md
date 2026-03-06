@@ -3,7 +3,7 @@ title: Geographical availability and data residency in Microsoft Sentinel
 description: In this article, you learn about geographical availability and data residency in Microsoft Sentinel.
 author: batamig
 ms.author: bagol
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/29/2024
 ms.custom: references_regions
 

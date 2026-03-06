@@ -177,7 +177,7 @@ For storage sizing, the assessment maps each of the instance disk to an Azure di
 
 - If the assessment can't find a disk for the required size, it marks the instance as unsuitable for migrating to SQL Server on Azure VM
 - If the assessment finds a set of suitable disks, it selects the disks that support the location specified in the assessment settings.
-- If the environment type is *Production*, the assessment tries to find Premium disks to map each of the disks, else it tries to find a suitable disk, which could either be Premium or Standard SSD disk.
+- If the environment type is *Production*, the assessment tries to find Premium disks to map each of the disks, else it tries to find a suitable disk, which could either be Premium or Standard SSD.
     - If there are multiple eligible disks, assessment selects the disk with the lowest cost.
 
 ##### Compute sizing
@@ -241,7 +241,7 @@ For storage sizing, the assessment maps each of the instance disk to an Azure di
 - If the assessment finds a set of suitable disks, it selects the disks that support the location specified in the assessment settings.
 - If the source is a SQL Server Always On Failover Cluster Instance, shared disk configuration is selected. 
  
-- If the environment type is _Production_, the assessment tries to find Premium disks to map each of the disks, else it tries to find a suitable disk, which could either be Premium or Standard SSD disk. If there are multiple eligible disks, assessment selects the disk with the lowest cost. 
+- If the environment type is _Production_, the assessment tries to find Premium disks to map each of the disks, else it tries to find a suitable disk, which could either be Premium or Standard SSD. If there are multiple eligible disks, assessment selects the disk with the lowest cost. 
  
 ### Compute sizing 
  

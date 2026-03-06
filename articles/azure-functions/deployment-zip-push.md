@@ -2,7 +2,7 @@
 title: Zip push deployment for Azure Functions 
 description: Use the .zip file deployment facilities of the Kudu deployment service to publish your Azure Functions.
 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/06/2025
 ms.custom:
   - devx-track-azurecli

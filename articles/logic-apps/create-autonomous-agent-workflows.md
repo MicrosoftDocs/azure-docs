@@ -1,31 +1,31 @@
 ---
-title: Create Autonomous AI Agent Workflows
-description: Learn to build intelligent automation workflows with AI agent loops and LLMs that automatically perform tasks without human interactions in Azure Logic Apps.
+title: Create Autonomous AI Agentic Workflows
+description: Build autonomous agentic workflows that use AI agent loops and LLMs to complete tasks without human interactions in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, divswa, krmitta, LogicApps
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 11/18/2025
+ms.date: 02/12/2026
 ms.update-cycle: 180-days
-# Customer intent: As an AI integration developer who uses Azure Logic Apps, I want to build workflows that complete tasks using AI agent loops, large language models (LLMs), natural language, and other AI capabilities that work without human intervention in my integration solutions.
+# Customer intent: As an AI integration developer who uses Azure Logic Apps, I want to build workflows that complete tasks using AI agent loops, large language models (LLMs), natural language, and other AI capabilities without human interactions in my integration solutions.
 ---
 
-# Create autonomous agent workflows without human interactions in Azure Logic Apps
+# Create autonomous agentic workflows without human interactions in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-When you need AI-powered automation that runs independently, create *autonomous agent* workflows in Azure Logic Apps. These workflows use agent *loops* and *large language models* (LLMs) to make decisions and complete tasks without human intervention. These workflows also work well for automation that might run a long time, require stronger governance, isolation, or support automated rollback or compensation strategies.
+When you need AI-powered automation that runs independently, create *autonomous agentic* workflows in Azure Logic Apps. These workflows use *agent loops* and *large language models* (LLMs) to iteratively process, make decisions, and complete tasks without human intervention. These workflows work well for automation that might run a long time, require stronger governance, isolation, or can support automated rollback or compensation strategies.
 
-The following example workflow uses an autonomous agent to get the current weather and send email notifications:
+The following example workflow uses an autonomous agent loop to get the current weather and send email notifications:
 
-:::image type="content" source="media/create-autonomous-agent-workflows/weather-example.png" alt-text="Screenshot shows Azure portal, workflow designer, and example autonomous agent workflow." lightbox="media/create-autonomous-agent-workflows/weather-example.png":::
+:::image type="content" source="media/create-autonomous-agent-workflows/weather-example.png" alt-text="Screenshot shows the Azure portal, workflow designer, and example autonomous agentic workflow." lightbox="media/create-autonomous-agent-workflows/weather-example.png":::
 
-This guide shows how to create a Consumption or Standard logic app that uses the **Autonomous Agents** workflow type. This workflow runs without human interaction and uses tools that you build to complete tasks. For a high-level overview about agentic workflows, see [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts).
+This guide shows how to create a Consumption or Standard logic app that uses the **Autonomous Agents** workflow type. This workflow runs without human interaction and uses tools that you build to complete tasks. For a high-level overview about agentic workflows, see [AI agentic workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts).
 
 > [!IMPORTANT]
 >
-> Consumption autonomous agent workflows are in preview and subject to the 
+> Consumption autonomous agentic workflows are in preview and subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
@@ -40,9 +40,9 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
 
   > [!NOTE]
   >
-  > You can use only the Azure portal to build autonomous agent workflows, not Visual Studio Code.
+  > You can use only the Azure portal to build autonomous agentic workflows, not Visual Studio Code.
 
-  Consumption autonomous agent workflows don't require that you manually set up a separate AI model. Your workflow automatically includes an agent action that uses an Azure OpenAI Service model hosted in Microsoft Foundry. Consumption autonomous workflows support only specific models, which depend on the region for your logic app. See [Supported models](#supported-models).
+  Consumption autonomous agentic workflows don't require that you manually set up a separate AI model. Your workflow automatically includes an **Agent** action that uses an Azure OpenAI Service model hosted in Microsoft Foundry. Consumption autonomous agentic workflows support only specific models, which depend on your logic app region. For more information, see [Supported models](#supported-models).
 
 ### [Standard](#tab/standard)
 
@@ -57,21 +57,21 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
 
   > [!NOTE]
   >
-  > The steps to set up autonomous agent workflows are mostly the same for both Azure portal and Visual Studio Code. The examples in this guide show the instructions for each experience where the process differs.
+  > The steps to set up autonomous agentic workflows are mostly the same for both Azure portal and Visual Studio Code. The examples in this guide show the instructions for each experience where the process differs.
 
 - One of the following AI model sources:
 
   > [!NOTE]
   >
-  > Agent workflows support only specific models. See [Supported models](#supported-models).
+  > Agentic workflows support only specific models. For more information, see [Supported models](#supported-models).
 
   | Model source | Description |
   |--------------|-------------|
-  | **Azure OpenAI** | An [Azure OpenAI Service resource](/azure/ai-services/openai/overview) with a deployed [Azure OpenAI Service model](/azure/ai-services/openai/concepts/models). <br><br>You need the resource name when you connect from the agent in your workflow to the deployed AI model in Azure OpenAI Service. <br><br>For more information, see: <br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) <br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) |
+  | **Azure OpenAI** | An [Azure OpenAI Service resource](/azure/ai-services/openai/overview) with a deployed [Azure OpenAI Service model](/azure/ai-services/openai/concepts/models). <br><br>You need the resource name when you connect from the **Agent** action in your workflow to the deployed AI model in Azure OpenAI Service. <br><br>For more information, see: <br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) <br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) |
   | **Foundry Agent Service** (Preview) | A [Foundry project](/azure/ai-foundry/what-is-azure-ai-foundry) connected to a deployed [Azure OpenAI model in Foundry](/azure/ai-foundry/openai/concepts/models) <br><br>**Note**: Make sure that you have a Foundry project, not a Hub based project. <br><br>For more information, see: <br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) <br>- [Create a project for Foundry](/azure/ai-foundry/how-to/create-projects?tabs=ai-foundry) <br>- [Connect Foundry Tools after you create a project](/azure/ai-services/connect-services-ai-foundry-portal#connect-azure-ai-services-after-you-create-a-project) <br>- [Create a new connection in Foundry portal](/azure/ai-foundry/how-to/connections-add?tabs=aoai%2Cblob%2Cserp&pivots=fdp-project#create-a-new-connection) <br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) |
   | **APIM Gen AI Gateway** (Preview) | An [Azure API Management account](/azure/api-management/genai-gateway-capabilities) with the LLM API to use. <br><br>For more information, see: <br>- [AI gateway in Azure API Management](/azure/api-management/genai-gateway-capabilities) <br>- [Import a Foundry API](/azure/api-management/azure-ai-foundry-api) <br>- [Import an Azure OpenAI API](/azure/api-management/azure-openai-api-from-specification) |
 
-- The authentication to use when you connect your agent to your AI model.
+- The authentication to use when you connect the **Agent** action to your AI model.
 
   Foundry projects require that you use managed identity authentication.
 
@@ -106,7 +106,7 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
     >
     > Use this authentication option only for the examples in this guide, exploratory scenarios, nonproduction scenarios, or if your organization's policy specifies that you can't use managed identity authentication.
     >
-    > In general, make sure that you secure and protect sensitive data and personal data, such as credentials, secrets, access keys, connection strings, certificates, thumbprints, and similar information with the highest available or supported level of security. Don't hardcode sensitive data, share with other users, or save in plain text anywhere that others can access. Set up a plan to rotate or revoke secrets in the case they become compromised.
+    > In general, make sure that you secure and protect sensitive data and personal data, such as credentials, secrets, access keys, connection strings, certificates, thumbprints, and similar information by using the highest available or supported level of security. Don't hardcode sensitive data, share with other users, or save in plain text anywhere that others can access. Set up a plan to rotate or revoke secrets if they become compromised.
     >
     > For more information, see:
     >
@@ -118,7 +118,7 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
 
 - To follow along with the examples, you need an email account to send email.
 
-  The examples in this guide use an Outlook.com account. For your own scenarios, you can use any supported email service or messaging app in Azure Logic Apps, such as Office 365 Outlook, Microsoft Teams, Slack, and so on. The setup for other email services or apps are similar to the examples, but have minor differences.
+  The examples in this guide use an Outlook.com account. For your own scenarios, you can use any supported email service or messaging app in Azure Logic Apps, such as Office 365 Outlook, Microsoft Teams, Slack, and so on. The setup for other email services or apps is similar to the examples, but has minor differences.
 
 [!INCLUDE [supported-models](includes/supported-models.md)]
 
@@ -126,17 +126,17 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
 
 ## Limitations and known issues
 
-The following table describes current limitations and any known issues in this release, based on your logic app resource type.
+The following table describes current limitations and known issues in this release, based on your logic app resource type.
 
 | Logic app | Limitations or known issues |
 |-----------|-----------------------------|
-| Both | To create tools for your agent, the following limitations apply: <br><br>- You can add only actions, not triggers. <br>- A tool must start with an action and always contains at least one action. <br>- A tool works only inside the agent where that tool exists. <br>- Control flow actions are unsupported. |
-| Consumption | - You can create Consumption agent workflows only in the Azure portal, not Visual Studio Code. <br>- The AI model that your agent uses can originate from any region, so data residency for a specific region isn't guaranteed for data that the model handles. <br>- The **Agent** action is throttled based on the number of tokens used. |
+| Both | To create tools for your agent, the following limitations apply: <br><br>- You can add only actions, not triggers. <br>- A tool must start with an action and always contains at least one action. <br>- A tool works only inside the agent loop where that tool exists. <br>- Control flow actions aren't supported. |
+| Consumption | - You can create Consumption agentic workflows only in the Azure portal, not Visual Studio Code. <br>- The AI model that your **Agent** action uses can come from any region, so data residency for a specific region isn't guaranteed for data that the model handles. <br>- The **Agent** action is throttled based on the number of tokens used. |
 | Standard | - Unsupported workflow types: **Stateless** <br><br>**Note**: Foundry projects require that you use managed identity authentication. <br><br>- For general limits in Azure OpenAI Service, Foundry, and Azure Logic Apps, see: <br><br>- [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits) <br>- [Azure OpenAI in Foundry Models quotas and limits](/azure/ai-foundry/openai/quotas-limits) <br>- [Azure Logic Apps limits and configuration](/azure/logic-apps/logic-apps-limits-and-config) |
 
-## Create an autonomous agent workflow
+## Create an autonomous agentic workflow
 
-The following section shows how to start creating your autonomous agent workflow.
+The following section shows how to start creating your autonomous agentic workflow.
 
 ### [Consumption (preview)](#tab/consumption)
 
@@ -152,15 +152,15 @@ To open this partial workflow, follow these steps:
 
    :::image type="content" source="media/create-autonomous-agent-workflows/agent-workflow-start-consumption.png" alt-text="Screenshot shows workflow designer with a Request trigger and an empty Default Agent action." lightbox="media/create-autonomous-agent-workflows/agent-workflow-start-consumption.png":::
 
-1. Continue to the next section to set up your agent.
+1. Continue to the next section to set up your agent loop.
 
 ### [Standard](#tab/standard)
 
 Based on the development experience that you use, start by creating a new workflow.
 
-#### Create agent workflow in Azure portal
+#### Create agentic workflow in Azure portal
 
-To create a workflow with an empty **Agent**, follow these steps:
+To create a workflow with an empty **Agent** action, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -170,7 +170,7 @@ To create a workflow with an empty **Agent**, follow these steps:
 
 1. On the **Create workflow** pane, complete the following steps:
 
-   1. For **Workflow name**, provide a name for your workflow.
+   1. For **Workflow name**, enter a name for your workflow.
 
    1. Select **Autonomous Agents** > **Create**.
 
@@ -182,9 +182,9 @@ To create a workflow with an empty **Agent**, follow these steps:
 
    Before you can save your workflow, you must complete the following setup tasks for the **Agent** action:
 
-   - Connect your agent to your AI model. You complete this task in a later section.
+   - Connect the **Agent** action loop to your AI model. You complete this task in a later section.
 
-   - Provide agent instructions that use natural language to describe the roles that the agent plays, the tasks that the agent can perform, and other information to help the agent better understand how to operate. You also complete this task in a later section.
+   - Provide instructions that use natural language to describe the roles that the agent loop plays, the tasks that the agent loop can perform, and other information to help the agent loop better understand how to operate. You also complete this task in a later section.
 
 1. Add a trigger to your workflow.
 
@@ -198,9 +198,9 @@ To create a workflow with an empty **Agent**, follow these steps:
 
       :::image type="content" source="media/create-autonomous-agent-workflows/request-trigger.png" alt-text="Screenshot shows workflow designer with Request trigger and Agent action." lightbox="media/create-autonomous-agent-workflows/request-trigger.png":::
 
-1. Skip the next section so you can set up your agent with an AI model.
+1. Skip the next section so you can set up your agent loop with an AI model.
 
-#### Create agent workflow in Visual Studio Code
+#### Create agentic workflow in Visual Studio Code
 
 1. In Visual Studio Code, open the workspace for your Standard logic app project.
 
@@ -210,7 +210,7 @@ To create a workflow with an empty **Agent**, follow these steps:
 
 1. Select the workflow template named **Autonomous agent**.
 
-1. Provide a name for your workflow, and press Enter.
+1. Enter a name for your workflow, and press Enter.
 
    A new workflow folder now appears in your project. This folder contains a *workflow.json* file, which contains the workflow's underlying JSON definition.
 
@@ -220,13 +220,13 @@ To create a workflow with an empty **Agent**, follow these steps:
 
    :::image type="content" source="media/create-autonomous-agent-workflows/workflow-start-standard-visual-studio-code.png" alt-text="Screenshot shows workflow designer with Add trigger prompt and an empty Default Agent action." lightbox="media/create-autonomous-agent-workflows/workflow-start-standard-visual-studio-code.png":::
 
-1. Continue to the next section to set up your agent.
+1. Continue to the next section to set up your agent loop.
 
 <a name="add-agent-nonagent-workflow"></a>
 
-#### Add an agent to a nonagent workflow
+#### Add an agent loop to a nonagentic workflow
 
-If you have an existing **Stateful** workflow, you can add an **Agent** action to include autonomous agent and LLM capabilities by following these steps:
+If you have an existing **Stateful** workflow, you can add an **Agent** action to include autonomous agentic loop and LLM capabilities by following these steps:
 
 1. In the designer, open your **Stateful** workflow.
 
@@ -236,7 +236,7 @@ If you have an existing **Stateful** workflow, you can add an **Agent** action t
 
    :::image type="content" source="media/create-autonomous-agent-workflows/add-agent.png" alt-text="Screenshot shows designer with classic stateful workflow, and option to add an agent." lightbox="media/create-autonomous-agent-workflows/add-agent.png":::
 
-1. Continue with the next section to set up your agent with an AI model.
+1. Continue with the next section to set up your agent loop with an AI model.
 
 ---
 
@@ -244,7 +244,7 @@ If you have an existing **Stateful** workflow, you can add an **Agent** action t
 >
 > If you try to save the workflow now, you get an error that workflow validation failed.
 >
-> In a Standard workflow, the designer toolbar also shows a red dot on the **Errors** button. The designer alerts you to this error condition because the agent requires setup before you can save any changes. However, you don't have to set up the agent now. You can continue to create your workflow. Just remember to set up the agent before you save your workflow.
+> In a Standard workflow, the designer toolbar also shows a red dot on the **Errors** button. The designer alerts you to this error condition because the agent loop requires setup before you can save any changes. However, you don't have to set up the agent loop now. You can continue to create your workflow. Just remember to set up the agent loop before you save your workflow.
 >
 > :::image type="content" source="media/create-autonomous-agent-workflows/error-missing-agent-settings.png" alt-text="Screenshot shows workflow designer toolbar and Errors button with red dot and error in the agent action information pane." lightbox="media/create-autonomous-agent-workflows/error-missing-agent-settings.png":::
 
@@ -252,21 +252,21 @@ If you have an existing **Stateful** workflow, you can add an **Agent** action t
 
 ## Set up or view the AI model
 
-To set up or view the AI model for your agent, follow the steps based on your logic app type:
+To set up or view the AI model for your agent loop, follow the steps based on your logic app type:
 
 ### [Consumption (preview)](#tab/consumption)
 
-By default, your agent automatically uses the Azure OpenAI model available in your logic app's region. Some regions support **gpt-4o-mini**, while others support **gpt-5o-mini**.
+By default, your agent loop automatically uses the Azure OpenAI model available in your logic app's region. Some regions support **gpt-4o-mini**, while others support **gpt-5o-mini**.
 
-To view the model that your agent uses, follow these steps:
+To view the model that your agent loop uses, follow these steps:
 
 1. On the designer, select the title bar on the **Default Agent** action to open the information pane.
 
 1. On the **Parameters** tab, the **Model Id** parameter shows the Azure OpenAI model that the workflow uses, for example:
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/connected-model-consumption.png" alt-text="Screenshot shows Consumption agent with Azure OpenAI model." lightbox="media/create-autonomous-agent-workflows/connected-model-consumption.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/connected-model-consumption.png" alt-text="Screenshot shows Consumption workflow and agent loop with Azure OpenAI model." lightbox="media/create-autonomous-agent-workflows/connected-model-consumption.png":::
 
-1. Continue to the next section to rename the agent.
+1. Continue to the next section to rename the agent loop.
 
 ### [Standard](#tab/standard)
 
@@ -299,7 +299,7 @@ To view the model that your agent uses, follow these steps:
 
 1. When you're done, select **Create new**.
 
-   The agent information pane now shows the connected AI model, for example:
+   The **Agent** action information pane now shows the connected AI model, for example:
 
    :::image type="content" source="media/create-autonomous-agent-workflows/connected-model-standard.png" alt-text="Screenshot shows example connected AI model." lightbox="media/create-autonomous-agent-workflows/connected-model-standard.png":::
 
@@ -313,21 +313,21 @@ To view the model that your agent uses, follow these steps:
 
 ---
 
-## Rename the agent
+## Rename the agent loop
 
-Update the agent name to clearly identify the agent's purpose by following these steps:
+Update the agent loop name to clearly identify the agent's purpose by following these steps:
 
-1. On the designer, select the agent title bar to open the agent information pane.
+1. On the designer, select the agent action title bar to open the information pane.
 
-1. On the information pane, select the agent name, and enter the new name, for example, `Weather agent`.
+1. On the information pane, select the agent loop name, and enter the new name, such as `Weather agent`.
 
    :::image type="content" source="media/create-autonomous-agent-workflows/rename-agent.png" alt-text="Screenshot shows workflow designer, workflow trigger, and renamed agent." lightbox="media/create-autonomous-agent-workflows/rename-agent.png":::
 
-1. Continue to the next section to provide agent instructions for the agent.
+1. Continue to the next section to provide instructions for the agent loop.
 
-## Set up agent instructions
+## Set up agent loop instructions
 
-The agent requires instructions that describe the roles that the agent can play and the tasks that the agent can perform. To help the agent learn and understand these responsibilities, you can also include the following information:
+The agent loop requires instructions that describe the roles that the agent loop can play and the tasks that the agent loop can perform. To help the agent loop learn and understand these responsibilities, you can also include the following information:
 
 - Workflow structure
 - Available actions
@@ -336,7 +336,7 @@ The agent requires instructions that describe the roles that the agent can play 
 
 For the best results, provide prescriptive instructions and be prepared to iteratively refine your instructions.
 
-1. In the **Instructions for agent** box, enter the instructions that the agent needs to understand its role and tasks.
+1. In the **Instructions for agent** box, enter the instructions that the agent loop needs to understand its role and tasks.
 
    For this example, the weather agent example uses the following sample instructions where you later provide a subscriber list with your own email address for testing:
 
@@ -348,21 +348,21 @@ For the best results, provide prescriptive instructions and be prepared to itera
 
    Here's an example:
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/weather-agent-instructions.png" alt-text="Screenshot shows workflow designer and agent instructions." lightbox="media/create-autonomous-agent-workflows/weather-agent-instructions.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/weather-agent-instructions.png" alt-text="Screenshot shows workflow designer and agent loop instructions." lightbox="media/create-autonomous-agent-workflows/weather-agent-instructions.png":::
 
-1. Optionally, you can provide user instructions that the agent uses as prompts.
+1. Optionally, provide user instructions that the agent loop uses as prompts.
 
    For the best results, make each user instruction focus on a specific task, for example:
 
-   1. On the agent information pane, under **User instructions** section, in the **User instructions Item - 1** box, enter the prompt for the agent.
+   1. On the agent loop information pane, under the **User instructions** section, in the **User instructions Item - 1** box, enter the prompt for the agent loop.
 
    1. To add another instruction, select **Add new item**.
 
-   1. In the **User instructions item - 2** box, enter another prompt for the agent.
+   1. In the **User instructions item - 2** box, enter another prompt for the agent loop.
 
    1. Repeat until you finish adding all the prompts that you want.
 
-1. Now, you can save your workflow. On the designer toolbar, select **Save**.
+1. On the designer toolbar, select **Save**.
 
 ## Check for errors
 
@@ -380,13 +380,13 @@ To make sure your workflow doesn't have errors at this stage, follow these steps
    >
    > If the page doesn't show any runs, on the toolbar, select **Refresh**.
    >
-   > If the **Status** column shows a **Running** status, the agent workflow is still working.
+   > If the **Status** column shows a **Running** status, the agentic workflow is still working.
 
-   The monitoring view opens and shows the workflow operations with their status. The **Agent log** pane is open and shows the agent instructions that you provided earlier. The pane also shows the agent's response.
+   The monitoring view opens and shows the workflow operations with their status. The **Agent log** pane is open and shows the agent loop instructions that you provided earlier. The pane also shows the agent loop's response.
 
    :::image type="content" source="media/create-autonomous-agent-workflows/agent-only-test-consumption.png" alt-text="Screenshot shows monitoring view for Consumption workflow, operation status, and agent log." lightbox="media/create-autonomous-agent-workflows/agent-only-test-consumption.png":::
 
-   The agent doesn't have any tools to use at this time, which means that the agent can't actually take any specific actions, such as send email to a subscriber list, until you create tools that the agent needs to complete tasks.
+   The agent loop doesn't have any tools to use at this time, which means that the agent loop can't actually take any specific actions, such as send email to a subscriber list, until you create tools that the agent loop needs to complete tasks.
 
 1. Return to the designer. On the monitoring view toolbar, select **Edit**.
 
@@ -404,13 +404,13 @@ To make sure your workflow doesn't have errors at this stage, follow these steps
    >
    > If the page doesn't show any runs, on the toolbar, select **Refresh**.
    >
-   > If the **Status** column shows a **Running** status, the agent workflow is still working.
+   > If the **Status** column shows a **Running** status, the agentic workflow is still working.
 
-   The monitoring view opens and shows the workflow operations with their status. The **Agent log** pane is open and shows the agent instructions that you provided earlier.
+   The monitoring view opens and shows the workflow operations with their status. The **Agent log** pane is open and shows the agent loop instructions that you provided earlier.
 
    :::image type="content" source="media/create-autonomous-agent-workflows/agent-only-test-standard.png" alt-text="Screenshot shows monitoring view for Standard workflow, operation status, and agent log." lightbox="media/create-autonomous-agent-workflows/agent-only-test-standard.png":::
 
-   The agent doesn't have any tools to use at this time, which means that the agent can't actually take any specific actions, such as send email to a subscriber list, until you create tools that the agent needs to complete tasks.
+   The agent loop doesn't have any tools to use at this time, which means that the agent loop can't actually take any specific actions, such as send email to a subscriber list, until you create tools that the agent loop needs to complete tasks.
 
 1. Return to the designer. On the monitoring view toolbar, select **Edit**.
 
@@ -426,11 +426,11 @@ To make sure your workflow doesn't have errors at this stage, follow these steps
    >
    > If the page doesn't show any runs, on the toolbar, select **Refresh**.
    >
-   > If the **Status** column shows a **Running** status, the agent workflow is still working.
+   > If the **Status** column shows a **Running** status, the agentic workflow is still working.
 
-   The monitoring view opens and shows the workflow operations with their status. The **Agent log** pane is open and shows the agent instructions that you provided earlier. The pane also shows the agent's response.
+   The monitoring view opens and shows the workflow operations with their status. The **Agent log** pane is open and shows the agent loop instructions that you provided earlier. The pane also shows the agent loop's response.
 
-   However, the agent doesn't have any tools to use at this time, which means that the agent can't actually take any specific actions, such as send email, until you create tools that the agent needs to complete their tasks. You might even get an email that your email server rejected the message.
+   However, the agent loop doesn't have any tools to use at this time, which means that the agent loop can't actually take any specific actions, such as send email, until you create tools that the agent loop needs to complete their tasks. You might even get an email that your email server rejected the message.
 
 1. On the debugging toolbar, select **Disconnect** to stop the debug session.
 
@@ -442,19 +442,19 @@ To make sure your workflow doesn't have errors at this stage, follow these steps
 
 ## Create a 'Get weather' tool
 
-For an agent to run prebuilt actions available in Azure Logic Apps, you must create one or more tools for the agent to use. A tool must contain at least one action and only actions. The agent calls the tool by using specific arguments.
+For an agent loop to run prebuilt actions available in Azure Logic Apps, you must create one or more tools for the agent loop to use. A tool must contain at least one action and only actions. The agent loop calls the tool by using specific arguments.
 
-In this example, the agent needs a tool that gets the weather forecast. You can build this tool by following these steps:
+In this example, the agent loop needs a tool that gets the weather forecast. You can build this tool by following these steps:
 
-1. On the designer, inside the agent and under **Add tool**, select the plus sign (**+**) to open the pane where you can browse available actions.
+1. On the designer, inside the agent loop and under **Add tool**, select the plus sign (**+**) to open the pane where you can browse available actions.
 
 1. On the **Add an action** pane, follow the [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action#add-action) for your logic app to add an action that's best for your scenario.
 
    This example uses the **MSN Weather** action named **Get current weather**.
 
-   After you select the action, both the **Tool** container and the selected action appear in the agent on the designer. Both information panes also open at the same time.
+   After you select the action, both the **Tool** container and the selected action appear in the agent action on the designer. Both information panes also open at the same time.
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/added-tool-get-current-weather.png" alt-text="Screenshot shows workflow designer with the renamed agent, which contains a tool that includes the action named Get current weather." lightbox="media/create-autonomous-agent-workflows/added-tool-get-current-weather.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/added-tool-get-current-weather.png" alt-text="Screenshot shows workflow designer with the renamed agent loop, which contains a tool that includes the action named Get current weather." lightbox="media/create-autonomous-agent-workflows/added-tool-get-current-weather.png":::
 
 1. On the tool information pane, rename the tool to describe its purpose. For this example, use `Get weather`.
 
@@ -470,7 +470,7 @@ In this example, the agent needs a tool that gets the weather forecast. You can 
 
 ## Create agent parameters for 'Get current weather' action
 
-Actions usually have parameters that require you to specify the values to use. Actions in tools are almost the same except for one difference. You can create agent parameters that the agent uses to specify the parameter values for actions in tools. You can specify model-generated outputs, values from nonmodel sources, or a combination. For more information, see [Agent parameters](agent-workflows-concepts.md#key-concepts).
+Actions usually have parameters that require you to specify the values to use. Actions in tools are almost the same except for one difference. You can create agent parameters that the agent loop uses to specify the parameter values for actions in tools. You can specify model-generated outputs, values from nonmodel sources, or a combination. For more information, see [Agent parameters](agent-workflows-concepts.md#key-concepts).
 
 The following table describes the use cases for creating agent parameters and where to create them, based on the use case:
 
@@ -508,7 +508,7 @@ For an action parameter that uses only model-generated outputs, create an agent 
 
    > [!NOTE]
    >
-   > Microsoft recommends that you follow the action's Swagger definition. For example, for the **Get current weather** action, which is from the **MSN Weather** "shared" connector hosted and managed by global, multitenant Azure, see the [**MSN Weather** connector technical reference article](/connectors/msnweather/#get-current-weather).
+   > Microsoft recommends that you follow the action's Swagger definition. For example, for the **Get current weather** action, which comes from the **MSN Weather** "shared" connector hosted and managed by global, multitenant Azure, see the [**MSN Weather** connector technical reference article](/connectors/msnweather/#get-current-weather).
 
 1. When you're ready, select **Create**.
 
@@ -584,17 +584,17 @@ For these scenarios, create the agent parameter on the tool by following these s
 
 ## Create a 'Send email' tool
 
-For many scenarios, an agent usually needs more than one tool. In this example, the agent needs a tool that sends the weather report in email.
+For many scenarios, an agent loop needs more than one tool. In this example, the agent loop needs a tool that sends the weather report in email.
 
 To build this tool, follow these steps:
 
-1. On the designer, in the agent, next to the existing tool, select the plus sign (**+**) to add an action.
+1. On the designer, in the agent action, next to the existing tool, select the plus sign (**+**) to add an action.
 
 1. On the **Add an action** pane, follow these [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action#add-action) to select another action for your new tool.
 
    This example uses the **Outlook.com** action named **Send an email (V2)**.
 
-   Like before, after you select the action, both the new **Tool** and action appear inside the agent on the designer. Both information panes open at the same time.
+   Like before, after you select the action, both the new **Tool** and action appear inside the agent action on the designer. Both information panes open at the same time.
 
    :::image type="content" source="media/create-autonomous-agent-workflows/added-tool-send-email.png" alt-text="Screenshot shows workflow designer with Weather agent, Get weather tool, and new tool with action named Send an email (V2)." lightbox="media/create-autonomous-agent-workflows/added-tool-send-email.png":::
 
@@ -614,7 +614,7 @@ Except for the different agent parameters to set up for the **Send an email (V2)
 
    The action needs three agent parameters named **To**, **Subject**, and **Body**. For the action's Swagger definition, see [**Send an email (V2)**](/connectors/outlook/#send-an-email-(v2)).
 
-   When you're done, the example action uses the previously defined agent parameters as shown here:
+   When you're done, the example action uses the previously defined agent parameters as shown in the following image:
 
    :::image type="content" source="media/create-autonomous-agent-workflows/send-email-action.png" alt-text="Screenshot shows the information pane for the action named Send an email V2, plus the previously defined agent parameters named To, Subject, and Body." lightbox="media/create-autonomous-agent-workflows/send-email-action.png":::
 
@@ -626,7 +626,7 @@ Except for the different agent parameters to set up for the **Send an email (V2)
 
 ## Create a subscriber list tool
 
-Finally, for this example, create a tool named **Get subscribers** to provide a subscriber list for the agent parameter values to use. This tool uses the **Compose** action to supply the subscriber name, email address, and location. Or, you might source these inputs from blob storage or a database. Azure Logic Apps offers many options that you can use as data sources.
+Finally, create a tool named **Get subscribers** to provide a subscriber list for the agent parameter values to use. This tool uses the **Compose** action to supply the subscriber name, email address, and location. Or, you might source these inputs from blob storage or a database. Azure Logic Apps offers many options that you can use as data sources.
 
 For this example, follow these steps:
 
@@ -636,7 +636,7 @@ For this example, follow these steps:
 
    `Get the list of subscribers, including their name, location, and email address. To generate the weather report, use the location for each subscriber. To send the weather report, use the email address for each subscriber.`
 
-1. Rename to **Compose** action to `Subscriber list`. In the **Input** box, use the following JSON array but replace the sample subscriber data with the data that you want to use for testing. For example, replace the email addresses with your own so you get the weather for different locations.
+1. Rename the **Compose** action to `Subscriber list`. In the **Input** box, use the following JSON array but replace the sample subscriber data with the data that you want to use for testing. For example, replace the email addresses with your own so you get the weather for different locations.
 
    ```json
    [
@@ -660,7 +660,7 @@ For this example, follow these steps:
 
    The finished **Get subscribers** tool looks like the following example:
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/get-subscribers-tool-complete.png" alt-text="Screenshot shows the agent and finished Get subscribers tool." lightbox="media/create-autonomous-agent-workflows/get-subscribers-tool-complete.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/get-subscribers-tool-complete.png" alt-text="Screenshot shows the agent action and finished Get subscribers tool." lightbox="media/create-autonomous-agent-workflows/get-subscribers-tool-complete.png":::
 
 1. Save your workflow, then test the workflow to make sure everything works the way that you expect.
 
@@ -674,7 +674,7 @@ For this example, follow these steps:
 
 ## Related content
 
-- [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts)
-- [Lab: Build your first autonomous agent workflow in Azure Logic Apps](https://azure.github.io/logicapps-labs/docs/logicapps-ai-course/build_autonomous_agents/create-first-autonomous-agent)
+- [AI agentic workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts)
+- [Lab: Build your first autonomous agentic workflow in Azure Logic Apps](https://azure.github.io/logicapps-labs/docs/logicapps-ai-course/build_autonomous_agents/create-first-autonomous-agent)
 - [Azure Logic Apps limits and configuration](/azure/logic-apps/logic-apps-limits-and-config)
 - [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits)

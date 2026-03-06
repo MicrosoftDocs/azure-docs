@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 12/31/2025
+ms.date: 02/23/2026
 ms.custom: generated
 ---
 
@@ -4868,6 +4868,7 @@ Grants Microsoft Defender for Cloud access to Azure Kubernetes Services
 > | [Microsoft.Features](../permissions/management-and-governance.md#microsoftfeatures)/providers/features/read | Gets the feature of a subscription in a given resource provider. |
 > | [Microsoft.Features](../permissions/management-and-governance.md#microsoftfeatures)/providers/features/register/action | Registers the feature for a subscription in a given resource provider. |
 > | [Microsoft.Security](../permissions/security.md#microsoftsecurity)/pricings/securityoperators/read | Gets the security operators for the scope |
+> | [Microsoft.Security](../permissions/security.md#microsoftsecurity)/securityOperators/read | Gets the securityoperators for the scope |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -4893,7 +4894,8 @@ Grants Microsoft Defender for Cloud access to Azure Kubernetes Services
         "Microsoft.Features/features/read",
         "Microsoft.Features/providers/features/read",
         "Microsoft.Features/providers/features/register/action",
-        "Microsoft.Security/pricings/securityoperators/read"
+        "Microsoft.Security/pricings/securityoperators/read",
+        "Microsoft.Security/securityOperators/read"
       ],
       "notActions": [],
       "dataActions": [],

@@ -14,13 +14,13 @@ ms.custom:
 
 Use Durable Functions, a feature of [Azure Functions](../functions-overview.md), to write stateful functions in a serverless environment. Durable Functions manages state, checkpoints, and restarts in your application.
 
-Durable Functions offers several [storage providers](durable-functions-storage-providers.md), also called *back ends*, for storing orchestration and entity runtime state. By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this quickstart, you configure a Durable Functions app to use the [Netherite storage provider](durable-functions-storage-providers.md#netherite).
+Durable Functions offers several [storage providers](durable-functions-storage-providers.md), also called *back ends*, for storing orchestration and entity runtime state. In this quickstart, you configure a Durable Functions app to use the [Netherite storage provider](durable-functions-storage-providers.md#netherite).
 
 > [!NOTE]
 >
 > - Support for using the Netherite storage backend with Durable Functions will end 31 March 2028. It is recommended that you start evaluating the Durable Task Scheduler for workloads that you're currently using Netherite for. See [end-of-support announcement](https://azure.microsoft.com/updates/?id=489009).
 >
-> - Netherite was designed and developed by [Microsoft Research](https://www.microsoft.com/research) for [high throughput](https://microsoft.github.io/durabletask-netherite/#/scenarios) scenarios. In some [benchmarks](https://microsoft.github.io/durabletask-netherite/#/throughput?id=multi-node-throughput), throughput increased by more than an order of magnitude compared to the default Azure Storage provider. To learn more about when to use the Netherite storage provider, see the [storage providers](durable-functions-storage-providers.md) documentation.
+> - Netherite was designed and developed by [Microsoft Research](https://www.microsoft.com/research) for [high throughput](https://microsoft.github.io/durabletask-netherite/#/scenarios) scenarios. In some [benchmarks](https://microsoft.github.io/durabletask-netherite/#/throughput?id=multi-node-throughput), throughput increased by more than an order of magnitude compared to the Azure Storage provider. To learn more about when to use the Netherite storage provider, see the [storage providers](durable-functions-storage-providers.md) documentation.
 >
 > - Migrating [task hub data](durable-functions-task-hubs.md) across storage providers currently isn't supported. Function apps that have existing runtime data start with a fresh, empty task hub after they switch to the Netherite back end. Similarly, the task hub contents that are created by using MSSQL can't be preserved if you switch to a different storage provider.
 >
@@ -103,7 +103,7 @@ This code snippet is a basic configuration. Later, you might want to [add parame
 
 Your app is now ready for local development. You can start the function app to test it. One way to start the app is to run `func host start` on your application's root, and then execute a basic orchestrator function.
 
-While the function app is running, Netherite publishes load information about its active partitions to an Azure Storage table named **DurableTaskPartitions**. You can use [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to verify that it's working as expected. If Netherite is running correctly, the table isn't empty. For an example, see the following screenshot.
+While the function app is running, Netherite publishes load information about its active partitions to an Azure Storage table named **DurableTaskPartitions**. You can use [Azure Storage Explorer](../../storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer.md) to verify that it's working as expected. If Netherite is running correctly, the table isn't empty. For an example, see the following screenshot.
 
 :::image type="content" source="media/quickstart-netherite/partition-table.png" alt-text="Screenshot that shows data in the DurableTaskPartitions table in Azure Storage Explorer.":::
 

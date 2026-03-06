@@ -1,7 +1,7 @@
 ---
 title: Manage Azure Managed Redis with Azure PowerShell
 description: Learn how to create and perform administrative tasks for Azure Managed Redis using Azure PowerShell.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/28/2026
 zone_pivot_groups: redis-type
 appliesto:

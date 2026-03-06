@@ -2,7 +2,7 @@
 title: Restore Azure Managed Disks
 description: Learn how to restore Azure Managed Disks from the Azure portal.
 ms.topic: how-to
-ms.date: 01/30/2026
+ms.date: 02/13/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to restore Azure Managed Disks using recovery points, so that I can recover lost or corrupted data while maintaining the integrity of the original disk.
@@ -20,10 +20,7 @@ Backup vault uses a system assigned managed identity, which is restricted to one
 >[!Note]
 >Currently, the Original-Location Recovery (OLR) option of restoring by replacing existing the source disk from where the backups were taken isn't supported. You can restore from a recovery point to create a new disk either in the same resource group as that of the source disk from where the backups were taken or in any other resource group. This is known as Alternate-Location Recovery (ALR) and this helps to keep both the source disk and the restored (new) disk.
 
-
-
-
-
+To view the supported Azure Disk backup and restore scenarios, region availability, and limitations, see the [support matrix](disk-backup-support-matrix.md). For common questions, see the [frequently asked questions](disk-backup-faq.yml).
 
 ## Restore a new disk from a recovery point
 
@@ -102,3 +99,4 @@ After you trigger the restore operation, the backup service creates a job for tr
 
 - [Azure Disk Backup FAQ](disk-backup-faq.yml).
 - [Manage Azure Managed Disks](manage-azure-managed-disks.md).
+- [Troubleshoot Azure Disk backup](disk-backup-troubleshoot.md).

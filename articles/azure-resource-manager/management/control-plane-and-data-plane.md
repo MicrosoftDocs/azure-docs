@@ -3,7 +3,7 @@ title: Control plane and data plane operations
 description: Describes the difference between control plane and data plane operations. Azure Resource Manager handles control plane operations. A service handles data plane operations.
 ms.topic: article
 ms.custom: devx-track-arm-template
-ms.date: 01/23/2025
+ms.date: 02/27/2026
 ---
 
 # Azure control plane and data plane

@@ -3,13 +3,13 @@ title: List of updates applied to the Azure Guest OS | Microsoft Docs
 description: This article lists the Microsoft Security Response Center updates applied to different Azure Guest OS. See if an update applies to your Guest OS.
 services: cloud-services
 ms.subservice: guest-os-patching
-author: jejackson
+author: srtiruma
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: azure-cloud-services-classic
 ms.topic: concept-article
-ms.date: 02/02/2026
+ms.date: 02/26/2026
 ms.update-cycle: 3650-days
-ms.author: jejackson
+ms.author: srtiruma
 ms.custom: compute-evergreen
 ---
 
@@ -19,6 +19,37 @@ ms.custom: compute-evergreen
 > As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to your Guest OS. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## January 2026 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 26-01 | [5073722] | Latest Cumulative Update(LCU) | [5.114] | 13-Jan-26 
+| Rel 26-01 | [5073723] | Latest Cumulative Update(LCU) | [6.90] | 13-Jan-26  
+| Rel 26-01 | [5073457] | Latest Cumulative Update(LCU) | [7.60] | 13-Jan-26  
+| Rel 26-01 | [5066136] | .NET Framework 4.8 Security and Quality Rollup LKG | [5.114] | 14-Oct-25 
+| Rel 26-01 | [5066143] | .NET Framework DotNet        | [6.90]  | 14-Oct-25  
+| Rel 26-01 | [5066139] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.60] | 14-Oct-25
+| Rel 26-01 | [5074428] | Servicing Stack Update       | [7.60]   | 13-Jan-26
+| Rel 26-01 | [4494175] | January '20 Microcode        | [5.114]  | 13-Jan-26  
+| Rel 26-01 | [4494175] | January '20 Microcode        | [6.90]   | 13-Jan-26 
+| Rel 26-01 | [5073447] | SSU LKG        | [5.114]   | 13-Jan-26 
+| Rel 26-01 | [4494175] | SSU LKG         | [6.90]   | 13-Jan-26 
+
+[5073722]: https://support.microsoft.com/kb/5073722
+[5073723]: https://support.microsoft.com/kb/5073723
+[5073457]: https://support.microsoft.com/kb/5073457
+[5066136]: https://support.microsoft.com/kb/5066136
+[5066143]: https://support.microsoft.com/kb/5066143
+[5066139]: https://support.microsoft.com/kb/5066139
+[5074428]: https://support.microsoft.com/kb/5074428
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494175]: https://support.microsoft.com/kb/4494175
+[5073447]: https://support.microsoft.com/kb/5073447
+[4494175]: https://support.microsoft.com/kb/4494175
+
+[5.114]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.90]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.60]: ./cloud-services-guestos-update-matrix.md#family-7-releases
 
 ## December 2025 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |

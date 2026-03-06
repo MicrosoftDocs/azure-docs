@@ -76,9 +76,9 @@ sections:
       - question: I have a lock at the resource group level that contains all the resources related to my virtual machine. Will my backup work?
         answer: Azure Backup creates a separate resource group in the format `AzureBackupRG_<geo>_<number>` to store ResourcePointCollections objects. Since this resource group is service owned, locking it will cause backups to fail. Locks can be only applied to customer-created resource groups.
 
-      - question: Does Azure Backup support standard SSD-managed disks?
+      - question: Does Azure Backup support Standard SSD-managed disks?
         answer: |
-          Yes, Azure Backup supports [standard SSD managed disks](/azure/virtual-machines/disks-types#standard-ssds).
+          Yes, Azure Backup supports [Standard SSD managed disks](/azure/virtual-machines/disks-types#standard-ssds).
 
       - question: Can we back up a VM with a Write Accelerator (WA)-enabled disk?
         answer: Snapshots can be taken on only data disks that are WA enabled and not OS disks. So, only data disks that are WA enabled can be protected.
@@ -510,12 +510,12 @@ sections:
         answer: |
           For Initial Replica, a full backup will be reinitiated in case of failure. However, for Incremental the snapshot from the last successful backup will be compared to the latest snapshot to copy the changed data into the vault.
 
-      - question: Why SSD V2 with GRS Vaults/Cross Region Restore is not supported?
+      - question: Why Premium SSD v2 with GRS Vaults/Cross Region Restore is not supported?
         answer: |
-          SSD V2/Ultra disks are currently not available in all regions, so Geo-Redundant Storage (GRS) can't be enabled.
+          Premium SSD v2/Ultra Disks are currently not available in all regions, so Geo-Redundant Storage (GRS) can't be enabled.
 
           >[!Note]
-          >GRS functions only when both paired regions support SSD V2/Ultra disks. 
+          >GRS functions only when both paired regions support Premium SSD v2/Ultra Disks. 
 
       - question: Why don’t I see the updated expiry time for my Recovery Points immediately after changing the backup policy?
         answer: |

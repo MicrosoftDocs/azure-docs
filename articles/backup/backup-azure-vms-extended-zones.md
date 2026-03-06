@@ -115,16 +115,15 @@ The initial backup runs in accordance with the schedule in the backup policy. To
 
 Monitor the portal notifications. To monitor the job progress, go to **Resiliency** > **Monitoring + Reporting** > **Jobs** and filter the list for **In progress** jobs. Depending on the size of your VM, creating the initial backup might take a while.
 
-Backup job details for each VM backup consist of the following phases:
-
-- **Snapshot**: Ensures that the availability of a recovery point is stored along with the disks for instant restores. They're available for a maximum of five days depending on the snapshot retention that the user configured.
-- **Transfer data to vault**: Creates a recovery point in the vault for long-term retention. This phase starts after the snapshot phase is finished.
+Backup job details show **Snapshot** and **Transfer data to vault** subtasks. **Snapshot** ensures availability of a recovery point for instant restores (up to 30 days, based on configured snapshot retention). **Transfer data to vault** creates a recovery point in the vault for long-term retention and starts after **Snapshot** completes.
 
    :::image type="content" source="./media/backup-azure-arm-vms-prepare/backup-job-status.png" alt-text="Screenshot that shows the backup job status." lightbox="./media/backup-azure-arm-vms-prepare/backup-job-status.png":::
 
 Two subtasks run at the back end. One is for the front-end backup job that you can check on the **Backup Job Details** pane.
 
    :::image type="content" source="./media/backup-azure-arm-vms-prepare/backup-job-phase.png" alt-text="Screenshot that shows backup job status subtasks." lightbox="./media/backup-azure-arm-vms-prepare/backup-job-phase.png":::
+
+For information on VM backup job phases and how to interpret the progress bar, see [Verify the backup job status](backup-azure-arm-vms-prepare.md#verify-the-backup-job-status).
 
 Transfer data to vault can take multiple days to complete depending on the size of the disks, churn per disk, and several other factors.
 
@@ -138,9 +137,7 @@ Completed | Completed | Completed
 Completed | Failed | Completed with warning
 Failed | Failed | Failed
 
-With this capability, for the same VM, two backups can run in parallel, but only one subtask can run at a time in either the snapshot phase or the transfer data to vault phase. This decoupling prevents next-day backups from failing because of a backup job already in progress. Subsequent days' backups can have the snapshot completed, while transfer data to vault is skipped if an earlier day's backup job is in an in-progress state.
-
-The incremental recovery point created in the vault captures all the churn from the most recent recovery point created in the vault. There's no cost impact on the user.
+For parallel backup behavior and incremental recovery-point guidance, see [VM backup job progress phases](backup-azure-arm-vms-prepare.md#verify-the-backup-job-status).
 
 ## Optional steps
 

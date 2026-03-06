@@ -4,7 +4,7 @@ description: Open-source projects coordinated for the Microsoft Azure Maps platf
 author: sinnypan
 ms.author: sipa
 ms.date: 01/11/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-maps
 ms.subservice: general
 ---

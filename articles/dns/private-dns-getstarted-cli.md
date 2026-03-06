@@ -5,7 +5,7 @@ services: dns
 author: asudbring
 ms.service: azure-dns
 ms.topic: quickstart
-ms.date: 11/30/2023
+ms.date: 07/11/2025
 ms.author: allensu
 ms.custom:
   - devx-track-azurecli
@@ -19,7 +19,7 @@ ms.custom:
 
 This quickstart walks you through the steps to create your first private DNS zone and record using the Azure CLI.
 
-A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone. To publish a private DNS zone to your virtual network, you specify the list of virtual networks that are allowed to resolve records within the zone.  These are called *linked* virtual networks. When autoregistration is enabled, Azure DNS also updates the zone records whenever a virtual machine is created, changes its' IP address, or is deleted.
+A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone. To publish a private DNS zone to your virtual network, you specify the list of virtual networks that are allowed to resolve records within the zone.  These are called *linked* virtual networks. When autoregistration is enabled, Azure DNS also updates the zone records whenever a virtual machine is created, changes its IP address, or is deleted.
 
 :::image type="content" source="media/private-dns-portal/private-dns-quickstart-summary.png" alt-text="Summary diagram of the quickstart setup." border="false" lightbox="media/private-dns-portal/private-dns-quickstart-summary.png":::
 
@@ -52,14 +52,25 @@ az network vnet create \
   --subnet-name backendSubnet \
   --subnet-prefixes 10.2.0.0/24
 
-az network private-dns zone create -g MyAzureResourceGroup \
-   -n private.contoso.com
+az network vnet subnet create \
+  --vnet-name myAzureVNet \
+  --resource-group MyAzureResourceGroup \
+  --name AzureBastionSubnet \
+  --address-prefix 10.2.1.0/26
 
-az network private-dns link vnet create -g MyAzureResourceGroup -n MyDNSLink \
-   -z private.contoso.com -v myAzureVNet -e true
+az network private-dns zone create \
+  --resource-group MyAzureResourceGroup \
+  --name private.contoso.com
+
+az network private-dns link vnet create \
+  --resource-group MyAzureResourceGroup \
+  --name MyDNSLink \
+  --zone-name private.contoso.com \
+  --virtual-network myAzureVNet \
+  --registration-enabled true
 ```
 
-If you want to create a zone just for name resolution (no automatic hostname registration), you could use the `-e false` parameter.
+If you want to create a zone just for name resolution (no automatic hostname registration), you could use the `--registration-enabled false` parameter.
 
 ### List DNS private zones
 
@@ -69,7 +80,7 @@ Specifying the resource group lists only those zones within the resource group:
 
 ```azurecli
 az network private-dns zone list \
-  -g MyAzureResourceGroup
+  --resource-group MyAzureResourceGroup
 ```
 
 Omitting the resource group lists all zones in the subscription:
@@ -78,34 +89,63 @@ Omitting the resource group lists all zones in the subscription:
 az network private-dns zone list 
 ```
 
+## Deploy Azure Bastion
+
+Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](/azure/bastion/bastion-overview).
+
+> [!NOTE]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
+
+Create a public IP address for the Azure Bastion host with [az network public-ip create](/cli/azure/network/public-ip).
+
+```azurecli
+az network public-ip create \
+  --resource-group MyAzureResourceGroup \
+  --name public-ip-bastion \
+  --location eastus \
+  --allocation-method Static \
+  --sku Standard
+```
+
+Create an Azure Bastion host with [az network bastion create](/cli/azure/network/bastion). Azure Bastion is used to securely connect to the virtual machines without exposing them to the public internet.
+
+```azurecli
+az network bastion create \
+  --resource-group MyAzureResourceGroup \
+  --name bastion \
+  --vnet-name myAzureVNet \
+  --public-ip-address public-ip-bastion \
+  --location eastus \
+  --sku Basic \
+  --no-wait
+```
+
 ## Create the test virtual machines
 
 Now, create two virtual machines so you can test your private DNS zone:
 
 ```azurecli
 az vm create \
- -n myVM01 \
- --admin-username AzureAdmin \
- -g MyAzureResourceGroup \
- -l eastus \
- --subnet backendSubnet \
- --vnet-name myAzureVnet \
- --nsg NSG01 \
- --nsg-rule RDP \
- --image win2016datacenter
+  --name myVM01 \
+  --admin-username AzureAdmin \
+  --resource-group MyAzureResourceGroup \
+  --location eastus \
+  --subnet backendSubnet \
+  --vnet-name myAzureVnet \
+  --image win2016datacenter \
+  --public-ip-address ""
 ```
 
 ```azurecli
 az vm create \
- -n myVM02 \
- --admin-username AzureAdmin \
- -g MyAzureResourceGroup \
- -l eastus \
- --subnet backendSubnet \
- --vnet-name myAzureVnet \
- --nsg NSG01 \
- --nsg-rule RDP \
- --image win2016datacenter
+  --name myVM02 \
+  --admin-username AzureAdmin \
+  --resource-group MyAzureResourceGroup \
+  --location eastus \
+  --subnet backendSubnet \
+  --vnet-name myAzureVnet \
+  --image win2016datacenter \
+  --public-ip-address ""
 ```
 
 Creating a virtual machine will take a few minutes to complete.
@@ -118,10 +158,10 @@ To create a DNS record, use the `az network private-dns record-set [record type]
 
 ```azurecli
 az network private-dns record-set a add-record \
-  -g MyAzureResourceGroup \
-  -z private.contoso.com \
-  -n db \
-  -a 10.2.0.4
+  --resource-group MyAzureResourceGroup \
+  --zone-name private.contoso.com \
+  --record-set-name db \
+  --ipv4-address 10.2.0.4
 ```
 
 ### View DNS records
@@ -130,8 +170,8 @@ To list the DNS records in your zone, run:
 
 ```azurecli
 az network private-dns record-set list \
-  -g MyAzureResourceGroup \
-  -z private.contoso.com
+  --resource-group MyAzureResourceGroup \
+  --zone-name private.contoso.com
 ```
 
 ## Test the private zone
@@ -142,18 +182,25 @@ Now you can test the name resolution for your **private.contoso.com** private zo
 
 You can use the ping command to test name resolution. So, configure the firewall on both virtual machines to allow inbound ICMP packets.
 
-1. Connect to myVM01, and open a Windows PowerShell window with administrator privileges.
-2. Run the following command:
+1. In the [Azure portal](https://portal.azure.com), search for and select **Virtual machines**.
+
+1. Select **myVM01**.
+
+1. In **Overview**, select **Connect** > **Connect via Bastion**.
+
+1. Enter the username and password you created when you deployed the virtual machine, then select **Connect**.
+
+1. Open a Windows PowerShell window and run the following command:
 
    ```powershell
    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
    ```
 
-Repeat for myVM02.
+1. Close the Bastion connection to **myVM01** and repeat the previous steps to connect to **myVM02**.
 
 ### Ping the VMs by name
 
-1. From the myVM02 Windows PowerShell command prompt, ping myVM01 using the automatically registered host name:
+1. From the **myVM02** Bastion connection, open a Windows PowerShell command prompt and ping myVM01 using the automatically registered host name:
 
    ```powershell
    ping myVM01.private.contoso.com

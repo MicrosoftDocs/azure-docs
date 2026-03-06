@@ -15,7 +15,7 @@ ms.custom:
 
 Zonal placement allows you to select the specific availability zone in which your Azure Files storage account resides. If desired, you can place your virtual machines (VMs) in the same zone to reduce latency between compute and storage.
 
-This feature is currently available only for premium storage accounts (SSD media tier) using [locally redundant storage (LRS)](files-redundancy.md#locally-redundant-storage) in [supported regions](#region-support).
+This feature is currently available only for SSD (premium) storage accounts using [locally redundant storage (LRS)](files-redundancy.md#locally-redundant-storage) in [supported regions](#region-support).
 
 > [!NOTE]
 > This article applies to classic Azure file shares only (Microsoft.Storage). Zonal placement isn't currently possible for file shares created with the Microsoft.FileShares resource provider (preview).
@@ -26,7 +26,7 @@ This article assumes that you have an Azure subscription. If you don't have an A
 
 ## Region support
 
-Zonal placement is supported for premium storage accounts with LRS redundancy in the following Azure regions:
+Zonal placement is supported for SSD storage accounts with LRS redundancy in the following Azure regions:
 
 - Asia East
 - Canada Central
@@ -51,7 +51,7 @@ Zonal placement is supported for premium storage accounts with LRS redundancy in
 
 ## How zonal placement works
 
-When creating a new premium storage account, you can create either a **regional** or **zonal** storage account. A zonal storage account is placed in a specific availability zone within a supported Azure region, offering guaranteed data locality. Zonal placement can also potentially reduce latency and improve performance for your workload if you place your compute resources (VMs) in the same zone as your storage account.
+When creating a new SSD storage account, you can create either a **regional** or **zonal** storage account. A zonal storage account is placed in a specific availability zone within a supported Azure region, offering guaranteed data locality. Zonal placement can also potentially reduce latency and improve performance for your workload if you place your compute resources (VMs) in the same zone as your storage account.
 
 You can only specify a specific zone when creating a new storage account. Existing storage accounts can only be pinned to a zone selected by Azure. Once a storage account is pinned to a zone, it can only be moved back to a regional configuration. For example, if your storage account is pinned to zone 1, you can't move it to zone 2 or zone 3.
 
@@ -126,7 +126,7 @@ New-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-
 
 ## Pin an existing storage account to an Azure-selected zone
 
-You can also pin an existing premium storage account to an Azure-selected availability zone by using the Azure portal or PowerShell. Once pinned, the storage account won't be moved.
+You can also pin an existing SSD storage account to an Azure-selected availability zone by using the Azure portal or PowerShell. Once pinned, the storage account won't be moved.
 
 > [!IMPORTANT]
 > Existing storage accounts can only be pinned to availability zones that are automatically selected by Azure. You can't choose a specific zone number.
@@ -135,7 +135,7 @@ You can also pin an existing premium storage account to an Azure-selected availa
 
 Follow these steps to pin an existing storage account to an Azure-selected zone using the Azure portal.
 
-1. Sign in to the Azure portal and navigate to the premium storage account that you want to pin.
+1. Sign in to the Azure portal and navigate to the SSD storage account that you want to pin.
 
 1. On the **Overview** tab, select **Availability**.
 

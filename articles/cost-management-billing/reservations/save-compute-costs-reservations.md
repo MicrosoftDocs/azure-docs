@@ -98,7 +98,7 @@ For more information, see [Self-service exchanges and refunds for Azure Reservat
 - **Azure Data Explorer** - A reservation covers the markup charges. A reservation doesn't apply to compute, networking, or storage charges associated with the clusters.
 - **Azure Cache for Redis** - Only the compute costs are included with a reservation. A reservation doesn't cover networking or storage charges associated with the Redis cache instances.
 - **Azure Dedicated Host** - Only the compute costs are included with the Dedicated host.
-- **Azure Disk Storage reservations** - A reservation only covers premium SSDs of P30 size or greater. It doesn't cover any other disk types or sizes smaller than P30.
+- **Azure Disk Storage reservations** - A reservation only covers Premium SSDs of P30 size or greater. It doesn't cover any other disk types or sizes smaller than P30.
 - **Azure Backup Storage reserved capacity** - A capacity reservation lowers storage costs of backup data in a Recovery Services Vault.
 - **Azure NetApp Files** - A capacity reservation covers matching capacity pools in the selected service level and region. When using capacity pools configured with [cool access](../../azure-netapp-files/manage-cool-access.md), only "hot" tier consumption is covered by the reservation benefit. 
 

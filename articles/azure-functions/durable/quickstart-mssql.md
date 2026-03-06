@@ -77,14 +77,14 @@ Another file, *HelloOrchestration.cs*, contains the basic building blocks of a D
 | `SayHello` | A simple function app that returns *hello*. This function contains the business logic that is orchestrated. |
 | `HelloOrchestration_HttpStart` | An [HTTP-triggered function](../functions-bindings-http-webhook.md) that starts an instance of the orchestration and returns a *check status* response. |
 
-For more information about these functions, see [Durable Functions types and features](./durable-functions-types-features-overview.md).
+For more information about these functions, see [Durable Functions types and features](./programming-model-overview.md).
 
 ## Set up your database
 
 > [!NOTE]
 > If you already have an MSSQL-compatible database, you can skip this section and skip the next section on setting up a Docker-based local database.
 
-Because the MSSQL backend is designed for portability, you have several options to set up your backing database. For example, you can set up an on-premises SQL Server instance, use a fully managed instance of [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), or use any other SQL Server-compatible hosting option.
+Because the MSSQL backend is designed for portability, you have several options to set up your backing database. For example, you can set up an on-premises SQL Server instance, use a fully managed instance of [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), or use any other SQL Server-compatible hosting model.
 
 You can also do local, offline development by using [SQL Server Express](https://www.microsoft.com/sql-server/sql-server-downloads) on your local Windows computer or use a [SQL Server Docker image](https://hub.docker.com/_/microsoft-mssql-server) running in a Docker container.
 
@@ -210,7 +210,7 @@ Open another terminal window in your app's root folder and start the Function ap
 
 ## Run your app in Azure
 
-To run your app in Azure, you need to create various resources. For convenient clean up later, create all the resources in the same resource group. 
+To run your app in Azure, you need to create various resources. For convenient cleanup later, create all the resources in the same resource group. 
 
 ### Create an Azure SQL database
 

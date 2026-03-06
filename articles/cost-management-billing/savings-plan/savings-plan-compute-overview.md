@@ -76,6 +76,9 @@ To understand which properties and settings of a savings plan can be modified af
 ## Cancellation and refund policy
 Savings plan purchases can't be canceled or refunded.
 
+## Changes to savings plans discounts
+Like the pay-as-you-go model, prices under savings plans are subject to change. All price changes take effect on the first day of the month. Regardless of when an active saving plan was purchased, current savings plan pricing is used when applying savings plan benefits.
+
 ## Charges covered by savings plan
 A savings plan covers compute charges from [savings plan-eligible products](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#Select-services). It doesn't cover software, networking, or storage charges. For Windows virtual machines and SQL Database, the savings plan discount doesn't apply to the software costs. You might be able to cover the licensing costs with [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 

@@ -1,8 +1,8 @@
-﻿---
+---
 title: Status of asynchronous operations
 description: Describes how to track asynchronous operations in Azure. It shows the values you use to get the status of a long-running operation.
 ms.topic: article
-ms.date: 01/22/2025
+ms.date: 02/27/2026
 ---
 
 # Track asynchronous Azure operations

@@ -120,8 +120,8 @@ The recommendations in this article help you meet the security obligations descr
 
 Microsoft Defender for IoT automatically monitors some of the recommendations in this article. Microsoft Defender for IoT periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities and then offers recommendations on how to address them. To learn more, see:
 
-- [What is Microsoft Defender for IoT for organizations?](../defender-for-iot/organizations/overview.md).
-- [What is Microsoft Defender for IoT for device builders?](../defender-for-iot/device-builders/overview.md).
+- [What is Microsoft Defender for IoT for organizations?](../defender-for-iot/organizations/overview.md)
+- [What is Microsoft Defender for IoT for device builders?](../defender-for-iot/device-builders/overview.md)
 - [Enhance security posture with security recommendations](../defender-for-iot/organizations/recommendations.md).
 
 ### Device security

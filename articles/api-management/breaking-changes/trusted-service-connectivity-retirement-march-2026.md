@@ -10,7 +10,6 @@ ms.service: azure-api-management
 ai-usage: ai-assisted
 ---
 
-
 # Trusted service connectivity retirement (March 2026)
 
 [!INCLUDE [api-management-availability-all-tiers](../../../includes/api-management-availability-all-tiers.md)]
@@ -59,6 +58,9 @@ APIs in workspaces aren't affect by this change, since they [do not support mana
 ### Step 1: Does my API Management gateway rely on trusted service connectivity? 
 
 Your API Management gateway should no longer rely on trusted service connectivity to Azure services. Instead, it should establish a networking line of sight.
+
+> [!TIP]
+> You can get a detailed overview through "Diagnose and solve problems > Availability and Performance" in the Azure Portal on your API Management instance to learn about outbound requests, Entra ID tokens required and if further action is required.
 
 To verify if your API Management gateway relies on trusted connectivity to Azure services, check the networking configuration of all Azure Storage, Key Vault, Key Vault Managed HSM, Service Bus, Event Hubs, and Container Registry resources that your API Management gateway connects to: 
 

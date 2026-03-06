@@ -1,0 +1,193 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Native New Relic Service frequently asked questions
+  description: Answers to common questions about using Azure Native New Relic Service including getting started, management, and billing.
+  ms.topic: faq 
+  ai-usage: ai-generated
+  ms.date: 12/17/2025
+
+title: Azure Native New Relic Service FAQ
+summary: |
+  Find answers to common questions about Azure Native New Relic Service, including setup, management, and billing.
+
+sections:
+  - name: General
+    questions:
+      - question: What is Azure Native New Relic Service?
+        answer: |
+          Azure Native New Relic Service is a fully integrated observability platform developed and managed jointly by Microsoft and New Relic. It provides a single source of truth for application performance, infrastructure monitoring, log management, error tracking, and real-user monitoring. The service is available through Azure Marketplace and the Azure portal, enabling you to monitor and optimize your Azure services and applications.
+      - question: What are the main capabilities of Azure Native New Relic Service?
+        answer: |
+          Azure Native New Relic Service provides the following capabilities:
+          
+          - Seamless onboarding and native integration with Azure
+          - Unified billing for all Azure resources and New Relic consumption
+          - Automatic monitoring of platform metrics, subscription activity logs, and resource logs
+          - Single experience to install and uninstall the New Relic agent on virtual machines and app services
+          - Monitoring across multiple Azure subscriptions through a single New Relic resource
+      - question: Where can I find Azure Native New Relic Service?
+        answer: |
+          You can find Azure Native New Relic Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NewRelic.Observability%2Fmonitors) or [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/newrelicinc1635200720692.newrelic_liftr_payg?tab=Overview).
+
+  - name: Getting started
+    questions:
+      - question: What are the prerequisites for creating an Azure Native New Relic Service resource?
+        answer: |
+          To create an Azure Native New Relic Service resource, you need:
+          
+          - An active Azure subscription with owner or contributor access.
+          - A New Relic subscription. You can subscribe from the Azure portal during resource creation. This isn't a mandatory pre-requisite because the New Relic environment is created at the time when the resource is created
+          - The `NewRelic.Observability` resource provider registered in your Azure subscription.
+      - question: How do I register the NewRelic.Observability resource provider?
+        answer: |
+          To register the resource provider using the Azure portal, follow the guidance in [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types).
+          
+          Alternatively, you can register it from the command line by running: `az provider register --namespace NewRelic.Observability --subscription <subscription-id>`.
+      - question: Can I link an existing New Relic resource to Azure?
+        answer: |
+          Yes. If you already created New Relic resources outside of Azure, you can link them to your Azure subscription. During resource creation, select the **Create** button under *Link an existing New Relic resource* to associate existing New Relic accounts with your Azure Native New Relic Service resource.
+
+  - name: Billing and subscription
+    questions:
+      - question: How is Azure Native New Relic Service billed?
+        answer: |
+          When using Azure Native New Relic Service, you receive a single bill for all resources you consume on Azure, including New Relic. An Azure Marketplace SaaS resource is created automatically based on the plan you select when you subscribe to the New Relic Marketplace offer listing. This resource is used for billing purposes.
+          
+          Note: If you created your New Relic organization directly from the New Relic portal, Azure Marketplace SaaS resource doesn't exist, and New Relic manages your billing separately.
+      - question: What billing plans are available?
+        answer: |
+          Azure Native New Relic Service offers multiple billing plans which you can select when you subscribe to the New Relic Marketplace offer listing. You can change your billing plan after creation by selecting the **Manage SaaS Subscriptions** link in the **Overview** pane.
+      - question: Do I need to subscribe to New Relic separately?
+        answer: |
+          You must have a New Relic subscription to use Azure Native New Relic Service. You can subscribe directly from the Azure portal during the resource creation process, or subscribe beforehand through Azure Marketplace.
+      - question: What happens if my Azure subscription is suspended or deleted?
+        answer: |
+          If your Azure subscription is suspended or deleted due to payment-related issues, resource monitoring in New Relic automatically stops. To resume monitoring, use a different Azure subscription or add or update your payment method. For more information, see [Add, update, or delete a payment method](/azure/cost-management-billing/manage/change-credit-card).
+
+  - name: Creation and configuration
+    questions:
+      - question: What settings do I configure when creating a New Relic resource?
+        answer: |
+          When creating an Azure Native New Relic Service resource, you configure:
+          
+          - **Project details**: Select your Azure subscription and resource group
+          - **Azure resource details**: Specify a unique resource name and select a deployment region
+          - **New Relic account details**: Create a new organization or associate with an existing one, and select a billing plan
+          - **Metrics and logs** (optional): Configure monitoring of platform metrics, subscription activity logs, and Azure resource logs
+          - **Tags** (optional): Add tags to organize your resource
+      - question: Can I configure metrics and logs collection?
+        answer: |
+          Yes. After creating your New Relic resource, you can configure metrics and logs collection:
+          
+          - **Enable metrics collection** to set up monitoring of platform metrics
+          - **Subscription activity logs** to send subscription-level logs to New Relic
+          - **Azure resource logs** to send Azure resource logs to New Relic
+          
+          You can also collect metrics for virtual machines and app services by installing the New Relic agent after creating the resource.
+      - question: Can I change my New Relic organization after creation?
+        answer: |
+          No. When you associate your Azure Native New Relic Service resource with a New Relic organization, that resource is billed to that organization's plan. If you need to change organizations, you need to create a new resource.
+
+  - name: Management and monitoring
+    questions:
+      - question: How do I manage my New Relic resource?
+        answer: |
+          You can manage your Azure Native New Relic Service resource from the Azure portal. Access the resource overview to view essentials like resource group, region, subscription, tags, and New Relic account information.
+
+          You can also navigate to specific tabs for:
+
+          **Get started**: Quick links to New Relic dashboards, logs, and alerts
+          **Monitoring**: Summary of resources sending logs and metrics to New Relic
+          **Connected New Relic resources**: View the details of the associated SaaS resource
+
+      - question: Can I monitor multiple Azure subscriptions with a single New Relic resource?
+        answer: |
+          Yes. You can monitor all your subscriptions through a single New Relic resource using the **Monitored Subscriptions** feature. Instead of creating a New Relic resource in every subscription, link multiple subscriptions to a single New Relic resource tied to a New Relic organization.
+      - question: How do I add more subscriptions to monitor?
+        answer: |
+          To add subscriptions for monitoring:
+          
+          1. Select **New Relic account config** > **Monitored Subscriptions** from the service menu.
+          2. Select **Add subscriptions**.
+          3. Select the subscriptions you want to monitor.
+          4. Select the **Add** button.
+          
+          The tag rules and logs you defined for the New Relic resource apply to all selected subscriptions.
+      - question: What should I do if I see duplicate data across subscriptions?
+        answer: |
+          If you have existing New Relic resources linked to the same New Relic organization, duplicate logs can result in unnecessary charges. To prevent this situation, delete redundant New Relic resources that are already linked to the account. We recommend consolidating subscriptions into the same New Relic resource where possible.
+      - question: Can I reconfigure metrics and logs rules after creation?
+        answer: |
+          Yes. To change the configuration rules for metrics and logs, select **New Relic account config** > **Metrics and logs** from the service menu. It takes up to one hour for modifications to tag rules to reflect in the log flow.
+      - question: How do I view which resources are sending data to New Relic?
+        answer: |
+          To see the list of resources sending metrics and logs to New Relic, select **New Relic account config** > **Monitored resources** from the service menu. You can filter by resource type, resource group name, region, and whether the resource is sending metrics and logs.
+
+  - name: Agents and extensions
+    questions:
+      - question: Which resources can I monitor with the New Relic agent?
+        answer: |
+          You can install and manage the New Relic agent on:
+          
+          - Virtual machines
+          - Virtual Machine Scale Sets
+          - App Services (Windows-based only. Linux App Services isn't supported.)
+          
+          Note: Function Apps aren't supported at this time.
+      - question: How do I install the New Relic agent?
+        answer: |
+          To install the New Relic agent:
+          
+          1. Navigate to **New Relic account config** and select the resource type: **Virtual Machines**, **Virtual Machine Scale Sets**, or **App Services**.
+          2. Select the resources where you want to install the agent.
+          3. Select **Install Extension** from the command bar.
+          
+          Note: The agent can only be installed on running resources. Stopped virtual machines can't have the agent installed.
+      - question: Why can't I install an agent on my virtual machine?
+        answer: |
+          The New Relic agent can only be installed on virtual machines that are currently running. If your virtual machine is stopped, the install option is disabled. Start the virtual machine first, then install the agent.
+      - question: Can I uninstall the New Relic agent?
+        answer: |
+          Yes. You can uninstall the New Relic agent extension by selecting resources that have the agent installed and selecting **Uninstall Extension** from the command bar. Only resources with the agent currently installed can be selected for uninstallation.
+      - question: What does "Agent status Partially Installed" mean for Virtual Machine Scale Sets?
+        answer: |
+          This status appears when you have Virtual Machine Scale Sets with manual upgrade policy where preexisting instances didn't receive the extension automatically. To resolve this situation, manually install the New Relic agent for each preexisting virtual machine.
+      - question: What is the difference between Web Apps and Function Apps?
+        answer: |
+          Azure Native New Relic Service supports Web App Services only. Function Apps aren't supported at this time. Additionally, extensions are only supported for App Services running on Windows operating systems; Linux App Services isn't displayed.
+
+  - name: Troubleshooting
+    questions:
+      - question: Why aren't logs being sent to New Relic?
+        answer: |
+          Only resource types in [supported categories](/azure/azure-monitor/essentials/resource-logs-categories) send logs to New Relic through the integration. To verify setup, go to the [Azure diagnostic settings](/azure/azure-monitor/platform/diagnostic-settings) for that resource and confirm a New Relic diagnostic setting exists.
+      - question: What should I do if resource monitoring stopped working?
+        answer: |
+          Resource monitoring is enabled through the ingest API key created during resource setup. If monitoring stopped:
+          
+          - Check that the ingest API key hasn't been revoked from the New Relic portal, because revoking it disrupts all monitoring.
+          - Verify your Azure subscription is active and not suspended due to payment issues.
+          - Contact New Relic support if the issue persists.
+      - question: Why are diagnostic settings still active after I disabled the New Relic resource?
+        answer: |
+          If diagnostic settings remain active after disabling the New Relic resource or applying tag rules, a delete lock might be applied to the resources or resource group. Delete locks prevent cleanup of diagnostic settings. Remove the lock from the resource or resource group to allow cleanup. If the lock is removed after the resource is deleted, you'll need to manually clean up the diagnostic settings to stop log forwarding.
+      - question: Why are logs still being forwarded after I deleted the New Relic resource?
+        answer: |
+          If logs continue after deletion, a resource lock might be present on monitored Azure resources. Log forwarding will stop after 24 hours for locked resources. To stop forwarding immediately, remove the resource locks.
+      - question: How long does it take for tag rule changes to take effect?
+        answer: |
+          It takes up to one hour for any modifications to tag rules to reflect in the log flow. For example, if you add a new resource to tag rules, it would take about one hour for log forwarding to start for that resource.
+      - question: How do I get support for Azure Native New Relic Service?
+        answer: |
+          You have two options for support:
+          
+          - Contact [New Relic support](https://support.newrelic.com/) directly.
+          - Request support in the Azure portal: Select **Support + Troubleshooting** from the service menu, then choose the link to [log a support request in the New Relic portal](https://support.newrelic.com/).
+
+additionalContent: |
+    ## Related content
+    
+    - [Quickstart: Get started with Azure Native New Relic Service](create.md)
+    - [Manage Azure Native New Relic Service](manage.md)
+    - [Azure Native New Relic Service overview](overview.md)
+    - [Troubleshoot Azure Native New Relic Service](troubleshoot.md)

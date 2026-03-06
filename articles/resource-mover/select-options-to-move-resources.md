@@ -6,7 +6,7 @@ ms.author: v-rochak2
 ms.date: 07/31/2025
 ms.service: azure-resource-mover
 ms.topic: overview
-ms.update-cycle: 180-days
+ms.update-cycle: 365-days
 ms.custom: mvc, engagement-fy23, UpdateFrequency.5
 # Customer intent: As an Azure administrator, I want to compare the available tools for moving resources across regions, so that I can select the most suitable option for efficiently relocating my Azure resources based on their dependencies and requirements.
 ---

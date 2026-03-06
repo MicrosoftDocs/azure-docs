@@ -17,7 +17,7 @@
     - name: Manage driver placement
       href: manage-local-container-storage-interface-driver-placement.md
     - name: Best practices for ephemeral NVMe data disks
-      href: /azure/aks/best-practices-storage-nvme?toc=/azure/storage/container-storage/toc.json
+      href: /azure/aks/best-practices-storage-nvme
   - name: Use with Elastic SAN
     items:
     - name: Configure Elastic SAN
@@ -46,6 +46,8 @@
     href: container-storage-billing.md 
   - name: Pricing for Azure Container Storage
     href: https://azure.microsoft.com/pricing/details/container-storage/
+  - name: Compare core storage services
+    href: /azure/storage/common/storage-introduction
 - name: Reference
   items:
   - name: Storage pool parameters (version 1.x.x)

@@ -14,12 +14,15 @@ metadata:
   ms.collection:
    - migration
    - aws-to-azure
+  ms.custom: migration-hub
 
 landingContent:
   - title: Migration strategy
     linkLists:
       - linkListType: concept
         links:
+          - text: Migrate a workload to Azure from Amazon Web Services (AWS)
+            url:  ./migrate-workload-from-aws-introduction.md
           - text: Migrate workloads to Azure from other cloud-based services
             url:  ./migrate-to-azure.md
 

@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 04/29/2025
+ms.date: 02/19/2026
 author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-edge
@@ -17,12 +17,12 @@ Run the following commands to add the package repository and then add the Micros
 > [!IMPORTANT]
 > On June 30, 2022, Raspberry Pi OS Stretch was retired from the Tier 1 OS support list. To avoid potential security vulnerabilities, update your host OS to Bullseye.
 >
-> For [tier 2 supported platform operating systems](../support.md#tier-2), installation packages are made available at [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). See the installation steps in [Offline or specific version installation (optional)](../how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
+> For [tier 2 supported platform operating systems](../support.md#tier-2), installation packages are available at [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). See the installation steps in [Offline or specific version installation (optional)](../how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
 
 
 # [Ubuntu](#tab/ubuntu)
 
-Installing can be done with a few commands. Open a terminal and run the following commands:
+You can install IoT Edge by using a few commands. Open a terminal and run the following commands:
 
 * **24.04**:
 
@@ -50,7 +50,7 @@ Installing can be done with a few commands. Open a terminal and run the followin
 
 # [Debian](#tab/debian)
 
-Installing with APT can be done with a few commands. Open a terminal and run the following commands:
+You can install it by using APT and running a few commands. Open a terminal and run the following commands:
 
 * **12 - Bookworm (arm32v7)**:
 
@@ -67,11 +67,11 @@ Installing with APT can be done with a few commands. Open a terminal and run the
     ```
 
 > [!TIP]
-> If you gave the "root" account a password during the OS install, you don't need 'sudo' and can run the previous command by starting with 'apt'.
+> If you set a password for the "root" account during the OS installation, you don't need `sudo`. You can run the previous command by starting with `apt`.
 
 # [Red Hat Enterprise Linux](#tab/rhel)
 
-Installing can be done with a few commands. Open a terminal and run the following commands:
+You can install IoT Edge by using a few commands. Open a terminal and run the following commands:
 
 * **9.x (amd64)**:
 
@@ -91,7 +91,7 @@ Installing can be done with a few commands. Open a terminal and run the followin
 
 # [Ubuntu Core snaps](#tab/snaps)
 
-You install IoT Edge runtime from the snap store in a later step. Continue to the next section.
+You install the IoT Edge runtime from the snap store in a later step. Continue to the next section.
 
 ---
 
@@ -102,7 +102,7 @@ For more information about operating system versions, see [Azure IoT Edge suppor
 
 ### Install a container engine
 
-Azure IoT Edge relies on an [OCI](https://opencontainers.org/)-compatible container runtime. For production scenarios, we recommend that you use the Moby engine. The Moby engine is the container engine officially supported with IoT Edge. Docker CE/EE container images are compatible with the Moby runtime. If you're using Ubuntu Core snaps, the Docker snap is serviced by Canonical and supported for production scenarios.
+Azure IoT Edge relies on an [OCI](https://opencontainers.org/)-compatible container runtime. For production scenarios, use the Moby engine. The Moby engine is the container engine officially supported with IoT Edge. Docker CE and Docker EE container images work with the Moby runtime. If you're using Ubuntu Core snaps, Canonical services the Docker snap and supports it for production scenarios.
 
 # [Ubuntu](#tab/ubuntu)
 
@@ -139,11 +139,11 @@ Install the Moby engine and CLI.
 >   ./check-config.sh
 >   ```
 >
-> In the output of the script, check that all items under `Generally Necessary` and `Network Drivers` are enabled. If you're missing features, enable them by rebuilding your kernel from source and selecting the associated modules for inclusion in the appropriate kernel .config. Similarly, if you're using a kernel configuration generator like `defconfig` or `menuconfig`, find and enable the respective features and rebuild your kernel accordingly. After you deploy your newly modified kernel, run the check-config script again to verify that all the required features were successfully enabled.
+> In the output of the script, check that all items under `Generally Necessary` and `Network Drivers` are enabled. If you're missing features, enable them by rebuilding your kernel from source and selecting the associated modules for inclusion in the appropriate kernel .config. Similarly, if you're using a kernel configuration generator like `defconfig` or `menuconfig`, find and enable the respective features and rebuild your kernel accordingly. After you deploy your newly modified kernel, run the check-config script again to verify that all the required features are successfully enabled.
 
 # [Ubuntu Core snaps](#tab/snaps)
 
-IoT Edge has dependencies on Docker and IoT Identity Service. Install the dependencies using the following commands:
+IoT Edge has dependencies on Docker and IoT Identity Service. Install the dependencies by using the following commands:
 
 ```bash
 sudo snap install docker
@@ -154,21 +154,21 @@ The Docker snap is serviced by Canonical and supported for production scenarios.
 
 ---
 
-By default, the container engine doesn't set container log size limits. Over time, this situation can lead to the device filling up with logs and running out of disk space. However, you can configure your log to show locally, though it's optional. To learn more about logging configuration, see [Prepare to deploy your IoT Edge solution in production](../production-checklist.md#set-up-default-logging-driver).
+By default, the container engine doesn't set container log size limits. Over time, this situation can lead to the device filling up with logs and running out of disk space. However, you can configure your log to show locally, though it's optional. For more information about logging configuration, see [Prepare to deploy your IoT Edge solution in production](../production-checklist.md#set-up-default-logging-driver).
 
-The following steps show you how to configure your container to use [`local` logging driver](https://docs.docker.com/config/containers/logging/local/) as the logging mechanism. 
+The following steps show you how to configure your container to use the [`local` logging driver](https://docs.docker.com/config/containers/logging/local/) as the logging mechanism. 
 
 # [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
 
-1. Create or edit the existing Docker [daemon's config file](https://docs.docker.com/config/daemon/)
+1. Create or edit the existing Docker [daemon's config file](https://docs.docker.com/config/daemon/):
 
     ```bash
     sudo nano /etc/docker/daemon.json
     ```
 
-1. Set the default logging driver to the `local` logging driver as shown in the example.
+1. Set the default logging driver to the `local` logging driver as shown in the example:
 
-    ```JSON
+    ```json
        {
           "log-driver": "local"
        }
@@ -182,7 +182,7 @@ The following steps show you how to configure your container to use [`local` log
 
 # [Ubuntu Core snaps](#tab/snaps)
 
-Currently, the `local` logging driver setting isn't supported for the Docker snap.
+Currently, the Docker snap doesn't support the `local` logging driver setting.
 
 ---
 
@@ -241,7 +241,7 @@ sudo snap install azure-iot-edge
 
 ### Connect snaps
 
-By default, snaps are dependency-free, untrusted, and strictly confined. Hence, snaps must be connected to other snaps and system resources after installation. Use the following commands to connect the IoT Identity Service and IoT Edge snaps to each other and to system resources. To get started, snaps need to be manually connected. For production deployments, they can be configured to automatically connect to reduce the provisioning workload.
+By default, snaps are dependency-free, untrusted, and strictly confined. Hence, you must connect snaps to other snaps and system resources after installation. Use the following commands to connect the IoT Identity Service and IoT Edge snaps to each other and to system resources. To get started, manually connect the snaps. For production deployments, you can configure them to automatically connect to reduce the provisioning workload.
 
 ```bash
 #------------------------

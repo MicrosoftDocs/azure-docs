@@ -58,4 +58,4 @@ For example, the current scope of the reserved instance is set to Single subscri
 
 ## Next steps
 
-- For more information about reservations, see [What are Azure Reservations?](save-compute-costs-reservations.md).
+- For more information about reservations, see [What are Azure Reservations?](save-compute-costs-reservations.md)

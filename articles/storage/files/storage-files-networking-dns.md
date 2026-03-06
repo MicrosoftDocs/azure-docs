@@ -12,19 +12,13 @@ ms.custom: sfi-image-nochange
 
 # Configure DNS forwarding for Azure Files using VMs or Azure DNS Private Resolver
 
+:heavy_check_mark: **Applies to:** All Azure file shares
+
 Azure Files enables you to create private endpoints for the storage accounts containing your file shares. Although useful for many different applications, private endpoints are especially useful for connecting to your Azure file shares from your on-premises network using a VPN or ExpressRoute connection using private-peering. 
 
 In order for connections to your storage account to go over your network tunnel, the fully qualified domain name (FQDN) of your storage account must resolve to your private endpoint's private IP address. To achieve this, you must forward the storage endpoint suffix (`core.windows.net` for public cloud regions) to the Azure private DNS service accessible from within your virtual network. This guide will show how to setup and configure DNS forwarding to properly resolve to your storage account's private endpoint IP address.
 
 We strongly recommend that you read [Planning for an Azure Files deployment](storage-files-planning.md) and [Azure Files networking considerations](storage-files-networking-overview.md) before you complete the steps described in this article.
-
-## Applies to
-
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
 ## Overview
 

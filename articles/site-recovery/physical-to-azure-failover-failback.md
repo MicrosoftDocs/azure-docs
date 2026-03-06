@@ -5,7 +5,7 @@ description: Learn how to fail over physical servers to Azure, and fail back to 
 services: site-recovery
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 02/12/2026
+ms.date: 02/27/2026
 ms.author: v-gajeronika
 author: Jeronika-MS
 # Customer intent: As a system administrator, I want to set up failover and failback for physical servers using cloud replication, so that I can ensure business continuity and disaster recovery in the event of an on-premises outage.
@@ -71,6 +71,8 @@ You might want to automate actions during failover. To do this, you can use scri
 After failover you need to [configure Azure settings](site-recovery-failover.md#prepare-in-azure-to-connect-after-failover) to connect to the replicated Azure VMs. In addition, set up [internal and public](site-recovery-failover.md#set-up-ip-addressing) IP addressing.
 
 ## Prepare for reprotection and failback
+
+[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
 
 After failing over to Azure, you reprotect Azure VMs by replicating them to the on-premises site. Then after they're replicating, you can fail them back to on-premises, by running a failover from Azure to your on-premises site.
 

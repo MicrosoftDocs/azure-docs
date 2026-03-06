@@ -2900,7 +2900,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | accounts | Yes | Yes |
+> | accounts | Yes | No |
 > | investigations | No | No |
 > | pipelineGroups | Yes | Yes |
 

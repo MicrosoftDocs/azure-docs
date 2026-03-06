@@ -1,7 +1,7 @@
 ---
 title: Azure Service Bus authentication and authorization
 description: Learn how to securely authenticate and authorize access to Azure Service Bus, including best practices for managing access keys and using Microsoft Entra ID.
-ms.topic: article
+ms.topic: concept-article
 ms.date: 03/21/2025
 ---
 

@@ -242,7 +242,7 @@ Provisioning Azure resources can take some time.
 Subscription: <subscription-name> (aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e)
 Location: East US 2
 
-  You can view detailed progress in the Azure Portal:
+  You can view detailed progress in the Azure portal:
   https://portal.azure.com/#view/HubsExtension/DeploymentDetailsBlade/~/overview/id/%2Fsubscriptions%2Faaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e%2Fproviders%2FMicrosoft.Resources%2Fdeployments%2F<environment-name>-1764784426
 
   (✓) Done: Resource group: rg-<environment-name> (2.805s)
@@ -587,7 +587,7 @@ Provisioning Azure resources can take some time.
 Subscription: <subscription-name> (aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e)
 Location: East US 2
 
-  You can view detailed progress in the Azure Portal:
+  You can view detailed progress in the Azure portal:
   https://portal.azure.com/#view/HubsExtension/DeploymentDetailsBlade/~/overview/id/%2Fsubscriptions%2Faaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e%2Fproviders%2FMicrosoft.Resources%2Fdeployments%2F<environment-name>-1764794886
 
   (✓) Done: Resource group: rg-<environment-name> (2.444s)
@@ -912,7 +912,7 @@ Provisioning Azure resources can take some time.
 Subscription: <subscription-name> (aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e)
 Location: East US 2
 
-  You can view detailed progress in the Azure Portal:
+  You can view detailed progress in the Azure portal:
   https://portal.azure.com/#view/HubsExtension/DeploymentDetailsBlade/~/overview/id/%2Fsubscriptions%2Faaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e%2Fproviders%2FMicrosoft.Resources%2Fdeployments%2F<environment-name>-1764796579
 
   (✓) Done: Resource group: rg-<environment-name> (1.727s)

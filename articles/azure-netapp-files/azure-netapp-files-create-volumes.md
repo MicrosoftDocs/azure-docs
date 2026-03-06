@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/07/2025
+ms.date: 02/05/2026
 ms.author: anfdocs
 # Customer intent: As a cloud architect, I want to create an NFS volume in Azure NetApp Files, so that I can support my application’s data management requirements and ensure optimized performance through proper version selection and configuration.
 ---
@@ -31,7 +31,9 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
     >[!NOTE]
     >[!INCLUDE [Note about Kerberos non-support for other LDAP services](includes/kerberos-other-servers.md)]
-
+    
+* You must ensure that the Active Directory connector has the required permissions to set the encryption style of the volume.
+  
 ## Considerations 
 
 * Deciding which NFS version to use  

@@ -49,7 +49,7 @@ An edge-based IoT solution can use the following components for asset management
 - *Schema registry* that lets you define and manage the schema for your assets. Data flows use schemas to deserialize and serialize messages.
 - *Akri services* that let you deploy and configure connectivity protocols, such as OPC UA and ONVIF, at the edge. The connector for ONVIF is a service that discovers and registers ONVIF assets such as cameras. The connector for OPC UA is a service that connects to OPC UA servers and registers assets such as robotic arms.
 - *Secret Store extension* to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets. Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud, and uses [Azure Key Vault Secret Store extension for Kubernetes](/azure/azure-arc/kubernetes/secret-store-extension) to sync the secrets.
-- *Sites* that group Azure IoT Operations instances by physical location and make it easier for OT users to locate and manage assets. Your IT administrator creates sites and assigns Azure IoT Operations instances to them. To learn more, see [What is Azure Arc site manager (preview)?](/azure/azure-arc/site-manager/overview).
+- *Sites* that group Azure IoT Operations instances by physical location and make it easier for OT users to locate and manage assets. Your IT administrator creates sites and assigns Azure IoT Operations instances to them. To learn more, see [What is Azure Arc site manager (preview)?](/azure/azure-arc/site-manager/overview)
 
 For more information, see [What is asset management in Azure IoT Operations](../iot-operations/discover-manage-assets/overview-manage-assets.md).
 
@@ -107,7 +107,7 @@ Currently, the southbound connectors available in Azure IoT Operations are the c
 - A device stores the information you need to connect to an OPC UA server.
 - A device stores the information you need to connect to a media source and ONVIF compliant source.
 
-For more information, see [What is the connector for OPC UA?](../iot-operations/discover-manage-assets/overview-opc-ua-connector.md).
+For more information, see [What is the connector for OPC UA?](../iot-operations/discover-manage-assets/overview-opc-ua-connector.md)
 
 ### Asset, data points, and events creation
 

@@ -7,7 +7,7 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.custom: linux-related-content
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/04/2026
 ms.author: bentrin
 # Customer intent: "As an IT administrator, I want to deploy SAP NetWeaver on Azure virtual machines, so that I can leverage cloud resources for improved reliability and integration with my existing on-premises infrastructure."
@@ -16,9 +16,9 @@ ms.author: bentrin
 
 ## Overview
 
-**Purpose**: Deploy SAP NetWeaver-based applications on Azure Virtual Machines  
-**Scope**: VM deployment, configuration, and troubleshooting for SAP workloads  
-**Target Audience**: IT administrators deploying SAP on Azure  
+**Purpose**: Deploy SAP NetWeaver-based applications on Azure Virtual Machines
+**Scope**: VM deployment, configuration, and troubleshooting for SAP workloads
+**Target Audience**: IT administrators deploying SAP on Azure
 **Prerequisites**: Planning phase must be completed first - see [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md)
 
 Azure Virtual Machines enables organizations to deploy SAP applications with minimal procurement cycles while extending reliability and availability. This guide covers deployment steps, alternate deployment options, and troubleshooting for SAP applications on Azure VMs.
@@ -109,9 +109,9 @@ Azure Virtual Machines enables organizations to deploy SAP applications with min
 
 ### Scenario 1: Azure Marketplace Deployment
 
-**Context**: Deploy VM using Microsoft or third-party images from Azure Marketplace  
-**Image Types**: Windows Server, Linux distributions, DBMS-included images (e.g., SQL Server)  
-**VM Agent**: Automatically installed  
+**Context**: Deploy VM using Microsoft or third-party images from Azure Marketplace
+**Image Types**: Windows Server, Linux distributions, DBMS-included images (e.g., SQL Server)
+**VM Agent**: Automatically installed
 **DBMS Reference**: [Azure Virtual Machines DBMS deployment for SAP NetWeaver][dbms-guide]
 
 #### Implementation Methods
@@ -193,9 +193,9 @@ Monitoring:
 
 **Storage Parameters**:
 - **Storage Type**: Premium Storage/Premium Storage v2 recommended for larger systems
-- **References**: 
+- **References**:
   - [SAP DBMS Premium SSD usage][2367194]
-  - [RDBMS Storage structure](./dbms-guide-general.md#65fa79d6-a85f-47ee-890b-22e794f51a64)
+  - [RDBMS Storage structure](./dbms-guide-general.md)
   - [Premium Storage guide][storage-premium-storage-portal]
   - [Azure Storage introduction][storage-introduction]
 
@@ -229,8 +229,8 @@ Monitoring:
 
 ### Scenario 2: Custom Image Deployment
 
-**Context**: Deploy VM using custom OS/DBMS VM image for standardized deployments  
-**Use Case**: Organizations with specific patch requirements or standardized configurations  
+**Context**: Deploy VM using custom OS/DBMS VM image for standardized deployments
+**Use Case**: Organizations with specific patch requirements or standardized configurations
 **Image Preparation**: Different processes for Linux vs. Windows
 
 #### Image Preparation Requirements
@@ -242,7 +242,7 @@ Monitoring:
 **Linux Image Preparation**:
 - **Tool**: `waagent -deprovision`
 - **Purpose**: Abstract Linux settings for multiple VM deployment
-- **References**: 
+- **References**:
   - [Linux VM capture][virtual-machines-linux-capture-image]
   - [Azure Linux agent guide][virtual-machines-linux-agent-user-guide-command-line-options]
 
@@ -257,7 +257,7 @@ Monitoring:
 
 **Method 1: Azure portal with Managed Disk Image**
 
-**Prerequisites**: 
+**Prerequisites**:
 - Managed Disk image available
 - **Reference**: [Capture managed image](/azure/virtual-machines/windows/capture-image-resource)
 
@@ -290,9 +290,9 @@ Monitoring:
 
 ### Scenario 3: Non-Generalized VHD Migration
 
-**Context**: Move specific SAP system from on-premises to Azure using non-generalized VHD  
-**Use Case**: Lift-and-shift migration maintaining existing configuration  
-**Key Characteristic**: Preserves hostname, SAP SID, and user accounts  
+**Context**: Move specific SAP system from on-premises to Azure using non-generalized VHD
+**Use Case**: Lift-and-shift migration maintaining existing configuration
+**Key Characteristic**: Preserves hostname, SAP SID, and user accounts
 **VM Agent Status**: Manual installation required
 
 #### Migration Process
@@ -324,7 +324,7 @@ Monitoring:
 
 ### Domain Integration (Windows Only)
 
-**Applicability**: Cross-premises scenarios with Active Directory/DNS extension to Azure  
+**Applicability**: Cross-premises scenarios with Active Directory/DNS extension to Azure
 **Requirements**: Additional software installation (anti-malware, backup, monitoring)
 
 **Proxy Configuration Considerations**:
@@ -370,7 +370,7 @@ sudo yum install WALinuxAgent
 
 #### Windows Proxy Setup
 
-**Configuration Scope**: Local System account  
+**Configuration Scope**: Local System account
 **Alternative Method**: Group Policy configuration
 
 **Manual Configuration Process**:
@@ -417,9 +417,9 @@ sudo service waagent restart
 
 ### Azure Extension for SAP
 
-**Support Channel**: SAP Support (not Microsoft)  
-**Installation Timing**: After VM preparation completion  
-**Availability**: Global Azure datacenters  
+**Support Channel**: SAP Support (not Microsoft)
+**Installation Timing**: After VM preparation completion
+**Availability**: Global Azure datacenters
 **Purpose**: Enable SAP support validation for Azure environment
 
 **Installation Reference**: [Configure the Azure Extension for SAP][deployment-guide-4.5]
@@ -586,7 +586,7 @@ The wizard guides you through setting the required parameters to create the virt
    * **Storage**
      * **Disk Type**: Select the disk type of the OS disk. If you want to use Premium Storage for your data disks, we recommend using Premium Storage for the OS disk as well.
      * **Use managed disks**: If you want to use Managed Disks, select Yes. For more information about Managed Disks, see chapter [Managed Disks](./planning-guide-storage.md#microsoft-azure-storage-resiliency) in the planning guide.
-     * **Storage account**: Select an existing storage account or create a new one. Not all storage types work for running SAP applications. For more information about storage types, see [Storage structure of a VM for RDBMS Deployments](./dbms-guide-general.md#65fa79d6-a85f-47ee-890b-22e794f51a64).
+     * **Storage account**: Select an existing storage account or create a new one. Not all storage types work for running SAP applications. For more information about storage types, see [Storage structure of a VM for RDBMS Deployments](./dbms-guide-general.md#storage-structure-of-a-vm-for-rdbms-deployments).
    * **Network**
      * **Virtual network** and **Subnet**: To integrate the virtual machine with your intranet, select the virtual network that is connected to your on-premises network.
      * **Public IP address**: Select the public IP address that you want to use, or enter parameters to create a new public IP address. You can use a public IP address to access your virtual machine over the Internet. Make sure that you also create a network security group to help secure access to your virtual machine.
@@ -642,7 +642,7 @@ In the Azure portal, enter the following parameters for the template:
 
      For larger systems, we highly recommend using Azure Premium Storage. For more information about storage types, see these resources:
       * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194]
-      * [Storage structure of a VM for RDBMS Deployments](./dbms-guide-general.md#65fa79d6-a85f-47ee-890b-22e794f51a64)
+      * [Storage structure of a VM for RDBMS Deployments](./dbms-guide-general.md#storage-structure-of-a-vm-for-rdbms-deployments)
       * [Premium Storage: High-performance storage for Azure Virtual Machine workloads][storage-premium-storage-preview-portal]
       * [Introduction to Microsoft Azure Storage][storage-introduction]
    * **Admin username** and **Admin password**: A username and password.
@@ -651,7 +651,7 @@ In the Azure portal, enter the following parameters for the template:
    * **Subnet ID**: If you want to deploy the VM into an existing VNet where you have a subnet defined the VM should be assigned to, name the ID of that specific subnet. The ID usually looks like this:
      /subscriptions/&lt;subscription id>/resourceGroups/&lt;resource group name>/providers/Microsoft.Network/virtualNetworks/&lt;virtual network name>/subnets/&lt;subnet name>
 
-1. **Terms and conditions**:  
+1. **Terms and conditions**:
     Review and accept the legal terms.
 
 1. Select **Purchase**.
@@ -668,7 +668,7 @@ If your Azure deployment is connected to an on-premises Active Directory or DNS 
 
 #### <a name="ec323ac3-1de9-4c3a-b770-4ff701def65b"></a>Configure VM Extension
 
-To be sure SAP supports your environment, set up the Azure Extension for SAP as described in [Configure the Azure Extension for SAP][deployment-guide-4.5]. 
+To be sure SAP supports your environment, set up the Azure Extension for SAP as described in [Configure the Azure Extension for SAP][deployment-guide-4.5].
 
 #### Post-deployment steps
 
@@ -773,7 +773,7 @@ In the Azure portal, enter the following parameters for the template:
 
      For larger systems, we highly recommend using Azure Premium Storage. For more information about storage types, see the following resources:
       * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194]
-      * [Storage structure of a VM for RDBMS Deployments](./dbms-guide-general.md#65fa79d6-a85f-47ee-890b-22e794f51a64)
+      * [Storage structure of a VM for RDBMS Deployments](./dbms-guide-general.md#storage-structure-of-a-vm-for-rdbms-deployments)
       * [Premium Storage: High-performance storage for Azure virtual machine workloads][storage-premium-storage-preview-portal]
       * [Introduction to Microsoft Azure Storage][storage-introduction]
    * **User image VHD URI** (unmanaged disk image template only): The URI of the private OS image VHD, for example, https://&lt;accountname>.blob.core.windows.net/vhds/userimage.vhd.
@@ -786,7 +786,7 @@ In the Azure portal, enter the following parameters for the template:
    * **Subnet ID**: If you want to deploy the VM into an existing VNet where you have a subnet defined the VM should be assigned to, name the ID of that specific subnet. The ID usually looks like this:
      /subscriptions/&lt;subscription id>/resourceGroups/&lt;resource group name>/providers/Microsoft.Network/virtualNetworks/&lt;virtual network name>/subnets/&lt;subnet name>
 
-1. **Terms and conditions**:  
+1. **Terms and conditions**:
     Review and accept the legal terms.
 
 1. Select **Purchase**.
@@ -805,7 +805,7 @@ Depending on how your on-premises network is configured, you might need to set u
 
 #### Configure Azure VM Extension for SAP
 
-To be sure SAP supports your environment, set up the Azure Extension for SAP as described in [Configure the Azure Extension for SAP][deployment-guide-4.5]. 
+To be sure SAP supports your environment, set up the Azure Extension for SAP as described in [Configure the Azure Extension for SAP][deployment-guide-4.5].
 
 ### <a name="a9a60133-a763-4de8-8986-ac0fa33aa8c1"></a>Scenario 3: Moving an on-premises VM by using a nongeneralized Azure VHD with SAP
 
@@ -859,7 +859,7 @@ In the Azure portal, enter the following parameters for the template:
 
      For larger systems, we highly recommend using Azure Premium Storage. For more information about storage types, see the following resources:
       * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194]
-      * [Storage structure of a VM for RDBMS Deployments](./dbms-guide-general.md#65fa79d6-a85f-47ee-890b-22e794f51a64)
+      * [Storage structure of a VM for RDBMS Deployments](./dbms-guide-general.md#storage-structure-of-a-vm-for-rdbms-deployments)
       * [Premium Storage: High-performance storage for Azure Virtual Machine workloads][storage-premium-storage-preview-portal]
       * [Introduction to Microsoft Azure Storage][storage-introduction]
    * **OS disk VHD URI** (unmanaged disk template only): The URI of the private OS disk, for example, https://&lt;accountname>.blob.core.windows.net/vhds/osdisk.vhd.
@@ -868,7 +868,7 @@ In the Azure portal, enter the following parameters for the template:
    * **Subnet ID**: If you want to deploy the VM into an existing VNet where you have a subnet defined the VM should be assigned to, name the ID of that specific subnet. The ID usually looks like this:
      /subscriptions/&lt;subscription id>/resourceGroups/&lt;resource group name>/providers/Microsoft.Network/virtualNetworks/&lt;virtual network name>/subnets/&lt;subnet name>
 
-1. **Terms and conditions**:  
+1. **Terms and conditions**:
     Review and accept the legal terms.
 
 1. Select **Purchase**.
@@ -889,7 +889,7 @@ Depending on how your on-premises network is configured, you might need to set u
 
 #### Configure Azure VM Extension for SAP
 
-To be sure SAP supports your environment, set up the Azure Extension for SAP as described in [Configure the Azure Extension for SAP][deployment-guide-4.5]. 
+To be sure SAP supports your environment, set up the Azure Extension for SAP as described in [Configure the Azure Extension for SAP][deployment-guide-4.5].
 
 ## Detailed tasks for SAP software deployment
 
@@ -1006,7 +1006,7 @@ For more information about user-defined routes, see [User-defined routes and IP 
 ### <a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Azure Extension for SAP
 
 > [!NOTE]
-> General Support Statement:  
+> General Support Statement:
 > Support for the Azure Extension for SAP is provided through SAP support channels. If you need assistance with the Azure Extension for SAP, please open a support case with [SAP Support](https://support.sap.com/).
 
 When you've prepared the VM as described in [Deployment scenarios of VMs for SAP on Azure][deployment-guide-3], the Azure VM Agent is installed on the virtual machine. The next step is to deploy the Azure Extension for SAP, which is available in the Azure Extension Repository in the global Azure datacenters. For more information, see [Configure the Azure Extension for SAP][deployment-guide-4.5].

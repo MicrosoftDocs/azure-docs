@@ -4,7 +4,7 @@ description: Build and deploy an image classifier with Azure IoT Edge and Custom
 services: iot-edge
 author: sethmanheim
 ms.author: sethm
-ms.date: 05/06/2025
+ms.date: 03/05/2026
 ms.topic: tutorial
 
 ms.service: azure-iot-edge
@@ -555,7 +555,6 @@ The final deployment manifest looks similar to the following:
       "properties.desired": {
         "schemaVersion": "1.2",
         "routes": {
-          "sensorToclassifier": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/classifier/inputs/input1\")",
           "classifierToIoTHub": "FROM /messages/modules/classifier/outputs/* INTO $upstream",
           "cameracaptureToIoTHub": "FROM /messages/modules/cameracapture/outputs/* INTO $upstream"
         },
@@ -636,4 +635,4 @@ In this tutorial, you trained a Custom Vision model and deployed it as a module 
 Continue to the next tutorials to learn about other ways that Azure IoT Edge can help you turn data into business insights at the edge.
 
 > [!div class="nextstepaction"]
-> [Store data at the edge with SQL Server databases](tutorial-store-data-sql-server.md)
+> [Develop Azure IoT Edge modules using Visual Studio Code](tutorial-develop-for-linux.md)

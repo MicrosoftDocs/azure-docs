@@ -3,7 +3,7 @@ title: Include file
 description: Include file with details of currently supported versions
 author: dominicbetts
 ms.topic: include
-ms.date: 12/15/2025
+ms.date: 02/18/2026
 ms.author: dobett
 ---
 
@@ -13,7 +13,7 @@ Currently, [Azure support](https://azure.microsoft.com/support/plans) is availab
 
 | Version | Type | Current patch <br/>release (YYMM) | Release notes | Current <br/>CLI version |
 |---------|------|---------------|---------------|-------------|
-| 1.2.x   | GA | 1.2.154 (2512) | [Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.2.154) | [2.1.0](https://github.com/Azure/azure-iot-ops-cli-extension/releases/tag/v2.1.0)   |
+| 1.2.x   | GA | 1.2.189 (2602) | [Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.2.189) | [2.3.0](https://github.com/Azure/azure-iot-ops-cli-extension/releases/tag/v2.3.0)   |
 | 1.1.x   | GA | 1.1.59 (2506) | [Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.1.59) | [1.7.0](https://github.com/Azure/azure-iot-ops-cli-extension/releases/tag/v1.7.0)     |
 | 1.0.x   | GA | 1.0.34 (2503)  | [Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.0.34) | [1.3.0](https://github.com/Azure/azure-iot-ops-cli-extension/releases/tag/v1.3.0)       |
 

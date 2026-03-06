@@ -1,16 +1,20 @@
 ---
-title: "Monitoring configuration"
-description: Learn how to configure monitoring during a migration of high performance computing architecture.
+title: Set up monitoring for Azure HPC with Azure Monitor and Grafana
+description: Configure Azure Monitor, Grafana dashboards, and Prometheus to monitor HPC cluster health, job performance, and resource utilization.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 04/10/2025
+ms.date: 02/19/2026
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+ms.collections:
+  - hpc-migration-content
+  - migration
+  - onprem-to-azure
 # Customer intent: "As an HPC administrator, I want to configure comprehensive monitoring for my cloud environment, so that I can ensure optimal performance, detect issues promptly, and optimize resource utilization during the migration process."
 ---
 
-# Monitoring configuration
+# Set up monitoring for Azure HPC with Azure Monitor and Grafana
 
 Monitoring is a crucial aspect of managing an HPC environment in the cloud, ensuring optimal performance, reliability, and security. Effective monitoring allows administrators to gain real-time insights into system performance, detect and address issues promptly, and make informed decisions to optimize resource utilization. Key metrics such as CPU and memory usage, job execution times, and network throughput provide valuable information about the health and efficiency of the infrastructure.
 

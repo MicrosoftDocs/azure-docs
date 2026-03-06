@@ -4,7 +4,7 @@ description: Learn about common solution patterns for Azure Stream Analytics, su
 author: ahartoon
 ms.author: anboisve
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/19/2025
 ---
 

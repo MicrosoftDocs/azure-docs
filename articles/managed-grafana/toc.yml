@@ -119,7 +119,7 @@ items:
   - name: Secure Azure Managed Grafana
     href: secure-azure-managed-grafana.md
   - name: Service reliability
-    href: high-availability.md
+    href: /azure/reliability/reliability-managed-grafana?toc=/azure/managed-grafana/toc.json&bc=/azure/managed-grafana/breadcrumb/toc.json
   - name: Encryption
     href: encryption.md
   

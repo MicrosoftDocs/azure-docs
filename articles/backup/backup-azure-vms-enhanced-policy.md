@@ -16,11 +16,11 @@ Azure Backup now supports the Enhanced policy for Azure virtual machine (VM) bac
 
 - Zone resiliency by using zone-redundant storage for Instant Restore snapshots.
 - Multiple backups per days. You can schedule backups as frequently as every 4 hours for Azure VMs.
-- Support for new Azure offerings, including Trusted Launch VMs, Premium solid-state drive (SSD) v2 and Ultra SSD disks, and multidisk crash-consistent snapshot support.
+- Support for new Azure offerings, including Trusted Launch VMs, Premium SSD v2 and Ultra Disks, and multidisk crash-consistent snapshot support.
 - Longer retention in snapshot (operational) tier up to 30 days.
 
 >[!Note]
->- The Standard policy doesn't support protecting newer Azure offerings, such as Ultra SSD and Premium SSD v2. Only the Azure CLI (version 2.73.0 and later), PowerShell (version Az 14.0.0 and later), and the REST API (version 2025-01-01 and later) support Trusted Launch VM backup with the Standard policy.
+>- The Standard policy doesn't support protecting newer Azure offerings, such as Ultra Disk and Premium SSD v2. Only the Azure CLI (version 2.73.0 and later), PowerShell (version Az 14.0.0 and later), and the REST API (version 2025-01-01 and later) support Trusted Launch VM backup with the Standard policy.
 >- Backups for VMs fail for disks enabled with data access authentication.
 >- Protection of a VM with an enhanced policy incurs more snapshot costs. [Learn more about cost impact](backup-instant-restore-capability.md#cost-impact).
 >- Backup doesn't allow changing the policy type to Standard after you enable a VM backup with the Enhanced policy.

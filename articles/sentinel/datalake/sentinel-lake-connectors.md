@@ -3,12 +3,11 @@ title: Set up connectors for the Microsoft Sentinel data lake
 titleSuffix: Microsoft Security  
 description: Set up and configuring connectors for Microsoft Sentinel data lake.
 author: EdB-MSFT  
-ms.service: microsoft-sentinel  
+ms.service: microsoft-sentinel
+ms.subservice: sentinel-platform  
 ms.topic: conceptual
-ms.subservice: sentinel-graph
 ms.date: 11/05/2025
 ms.author: edbaynash  
-
 ms.collection: ms-security  
 
 # Customer intent: As a security admin, I want to set up connectors for Microsoft Sentinel data lake so that I can mirror and retain security data for long-term analysis.

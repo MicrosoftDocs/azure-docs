@@ -1,0 +1,38 @@
+---
+title: Release Notes v8.8.2
+description: Product release notes for Azure CycleCloud v8.8.2
+author: bwatrous
+ms.date: 02/06/2026
+ms.author: bewatrou
+---
+
+# Azure CycleCloud version 8.8.2
+
+This release introduces highly requested new features, addresses several key issues, and improves overall performance. 
+
+## New Features
+
+- The basic Network File System (NFS) cluster type now includes a parameter option to enable the `/sched` and `/shared` exports. 
+
+## Resolved issues
+
+- Azure CycleCloud users using Microsoft Entra Authentication without the `/sso` RedirectURI configured in the App Registration would encounter an authentication failure in the browser UI after the page was idle for over 12 hours requiring sign-out and then sign-back-in to resolve. 
+- Slurm clusters running on Alma Linux 9 failed to set instance host names to the node name.
+- The `nfs-server` service occasionally failed on Alma Linux 8 due to a race condition in systemd service startup.
+- All nodes started the `nfs-server` system service even if no filesystem was exported.
+- Copy Row/Cell on the Activity Log table failed to copy the content. 
+- The azslurm CLI installation in Slurm clusters destructively modified the `PATH` environment variable for all cluster users when enabling tab-completion for the CLI. 
+- The Azure High-Performance Computing (HPC) images converged slowly due to the default udev rules installed by Jetpack. 
+- Modifying the `EncryptionAtHost` setting on a running cluster resulted in a "mismatched attributes" error even though it doesn't modify the Virtual Machine Scale Set model. 
+- Node configuration failed when using the CycleCloud orchestration Credentials rather than separate Managed Identity for the cluster's Storage Locker.
+- CycleCloud Slurm clusters failed installation on the most recent Alma 8 HPC image versions due to missing the python-yaml package.  
+- Sun GridEngine (SGE) clusters failed to converge due to python version issues on the latest Ubuntu HPC images.
+- Azure doesn't report GPU count for GB300 machine types. This caused CycleCloud to report zero GPUs (instead of four GPUs) to Slurm and other schedulers. 
+- In some Slurm cluster configurations, enroot installation could fail due to a missing newline at the end of the enroot.conf file.
+- The CycleCloud UI sometimes displayed an error saying `This installation of Azure CycleCloud has no subscriptions` when a user's login expired (rather than redirecting and refreshing the login).
+
+## Known Issues
+
+All tenants using Entra for CycleCloud Authentication should add a Redirect URI for the `/sso` endpoint (see [Step 2 in Configuring Redirect URIs for Entra App Registration](../how-to/create-app-registration.md)).    
+
+ 

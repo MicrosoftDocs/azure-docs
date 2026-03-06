@@ -6,7 +6,7 @@ ms.author: v-rochak2
 ms.date: 07/31/2025
 ms.service: azure-resource-mover
 ms.topic: how-to
-ms.update-cycle: 180-days
+ms.update-cycle: 365-days
 ms.custom: engagement-fy23, UpdateFrequency.5, linux-related-content
 # Customer intent: As a cloud administrator, I want to understand the prerequisites and supported configurations for moving Azure VMs between regions using Resource Mover, so that I can ensure a successful migration process without service interruptions.
 ---
@@ -28,11 +28,11 @@ Windows Server 2019 | Supported for Server Core, Server with Desktop Experience.
 Windows Server 2016  | Supported Server Core, Server with Desktop Experience.
 Windows Server 2012 R2 | Supported.
 Windows Server 2012 | Supported.
-Windows Server 2008 R2 with SP1/SP2 | Supported.<br/><br/> For machines running Windows Server 2008 R2 with SP1/SP2, you need to install a Windows [servicing stack update (SSU)](https://support.microsoft.com/help/4490628) and [SHA-2 update](https://support.microsoft.com/help/4474419).  SHA-1 isn't supported from September 2019, and if SHA-2 code signing isn't enabled the agent extension won't install/upgrade as expected. Learn more about [SHA-2 upgrade and requirements](https://aka.ms/SHA-2KB).
+Windows Server 2008 R2 with SP1/SP2 | Supported.<br/><br/> For machines running Windows Server 2008 R2 with SP1/SP2, you need to install a Windows [servicing stack update (SSU)](https://support.microsoft.com/help/4490628) and [SHA-2 update](https://support.microsoft.com/help/4474419). SHA-1 isn't supported from September 2019, and if SHA-2 code signing isn't enabled the agent extension won't install/upgrade as expected. Learn more about [SHA-2 upgrade and requirements](https://aka.ms/SHA-2KB).
 Windows 10 (x64) | Supported.
 Windows 8.1 (x64) | Supported.
 Windows 8 (x64) | Supported.
-Windows 7 (x64) with SP1 onwards | Install a Windows [servicing stack update (SSU)](https://support.microsoft.com/help/4490628) and [SHA-2 update](https://support.microsoft.com/help/4474419) on machines running Windows 7 with SP1.  SHA-1 isn't supported from September 2019, and if SHA-2 code signing isn't enabled the 'prepare' step won't succeed. Learn more about [SHA-2 upgrade and requirements](https://aka.ms/SHA-2KB).
+Windows 7 (x64) with SP1 onwards | Install a Windows [servicing stack update (SSU)](https://support.microsoft.com/help/4490628) and [SHA-2 update](https://support.microsoft.com/help/4474419) on machines running Windows 7 with SP1. SHA-1 isn't supported from September 2019, and if SHA-2 code signing isn't enabled the 'prepare' step won't succeed. Learn more about [SHA-2 upgrade and requirements](https://aka.ms/SHA-2KB).
 
 
 ## Linux VM support
@@ -119,12 +119,12 @@ This table summarized support for the Azure VM OS disk, data disk, and temporary
 
 **Component** | **Support** | **Details**
 --- | --- | ---
-OS disk maximum size | 2048 GB | [Learn more](/azure/virtual-machines/managed-disks-overview) about VM disks.
+OS disk maximum size | 2,048 GB | [Learn more](/azure/virtual-machines/managed-disks-overview) about VM disks.
 Temporary disk | Not supported | The temporary disk is always excluded from the prepare process.<br/><br/> Don't store any persistent data on the temporary disk. [Learn more](/azure/virtual-machines/managed-disks-overview#temporary-disk).
-Data disk maximum size | 8192 GB for managed disks
+Data disk maximum size | 8,192 GB for managed disks
 Data disk minimum size |  2 GB for managed disks |
 Data disk maximum number | Up to 64, in accordance with support for a specific Azure VM size | [Learn more](/azure/virtual-machines/sizes) about VM sizes.
-Data disk change rate | Maximum of 10 MBps per disk for premium storage. Maximum of 2 MBps per disk for Standard storage. | If the average data change rate on the disk is continuously higher than the maximum, the preparation won't catch up.<br/><br/>  However, if the maximum is exceeded sporadically, preparation can catch up, but you might see slightly delayed recovery points.
+Data disks change rate | Maximum of 10 MBps per disk for premium storage. Maximum of 2 MBps per disk for Standard storage. | If the average data change rate on the disk is continuously higher than the maximum, the preparation won't catch up.<br/><br/>  However, if the maximum is exceeded sporadically, preparation can catch up, but you might see slightly delayed recovery points.
 Data disk (Standard storage account) | Not supported. | Change the storage type to managed disk, and then try moving the VM.
 Data disk (Premium storage account) | Not supported | Change the storage type to managed disk, and then try moving the VM.
 Managed disk (Standard) | Supported  |
@@ -146,7 +146,7 @@ Premium P10 or P15 disk | 8 KB    | 2 MB/s | 168 GB per disk
 Premium P10 or P15 disk | 16 KB | 4 MB/s |    336 GB per disk
 Premium P10 or P15 disk | 32 KB or greater | 8 MB/s | 672 GB per disk
 Premium P20 or P30 or P40 or P50 disk | 8 KB    | 5 MB/s | 421 GB per disk
-Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |20 MB/s | 1684 GB per disk
+Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |20 MB/s | 1,684 GB per disk
 
 ## Supported VM networking settings
 
@@ -186,7 +186,7 @@ If you're using a network security group (NSG) rules to control outbound connect
     - **EventHub*
     - *AzureKeyVault*
     - *GuestAndHybridManagement*
-- We recommend you test rules in a non-production environment. [Review some examples](../site-recovery/azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
+- We recommend you test rules in a nonproduction environment. [Review some examples](../site-recovery/azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
 
 ## Next steps
 

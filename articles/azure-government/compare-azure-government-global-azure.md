@@ -313,6 +313,22 @@ Azure Active Directory B2C is **not available** in Azure Government.
 
 The Microsoft Authentication Library (MSAL) enables developers to acquire security tokens from the Microsoft identity platform to authenticate users and access secured web APIs. For feature variations and limitations, see [National clouds and MSAL](../active-directory/develop/msal-national-cloud.md).
 
+## Internet of Things
+
+This section outlines variations and considerations when using Internet of Things services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=notification-hubs,azure-maps,iot-hub,iot-central&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
+
+### [Azure IoT Hub](../iot-hub/index.yml)
+
+When you use Microsoft Entra ID to authenticate requests to IoT Hub service APIs in Azure Government, you need to use a different audience URI than in global Azure. The audience URI is the OAuth 2.0 resource endpoint that you use when requesting Microsoft Entra tokens for IoT Hub service APIs.
+
+For Azure Government, use the following audience URI when authenticating to IoT Hub service APIs:
+
+`https://iothubs.azure.us`
+
+In comparison, global Azure uses `https://iothubs.azure.net` as the audience URI.
+
+For more information about authenticating to IoT Hub with Microsoft Entra ID, see [Control access to IoT Hub by using Microsoft Entra ID](../iot-hub/authenticate-authorize-azure-ad.md).
+
 ## Management and governance
 
 This section outlines variations and considerations when using Management and Governance services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=managed-applications,azure-policy,network-watcher,monitor,traffic-manager,automation,scheduler,site-recovery,cost-management,backup,blueprints,advisor&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
@@ -410,7 +426,7 @@ This section outlines variations and considerations when using Networking servic
 
 ### [Azure ExpressRoute](../expressroute/index.yml)
 
-For an overview of ExpressRoute, see [What is Azure ExpressRoute?](../expressroute/expressroute-introduction.md). For an overview of how **BGP communities** are used with ExpressRoute in Azure Government, see [BGP community support in National Clouds](../expressroute/expressroute-routing.md#bgp-community-support-in-national-clouds).
+For an overview of ExpressRoute, see [What is Azure ExpressRoute?](../expressroute/expressroute-introduction.md) For an overview of how **BGP communities** are used with ExpressRoute in Azure Government, see [BGP community support in National Clouds](../expressroute/expressroute-routing.md#bgp-community-support-in-national-clouds).
 
 ### [Azure Front Door](../frontdoor/index.yml)
 

@@ -1,14 +1,13 @@
 ---
-title: Peering policy
+title: Peering Policy
 titleSuffix: Internet Peering
 description: Learn about Microsoft's peering policy.
 author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: concept-article
-ms.date: 04/21/2025
+ms.date: 02/25/2026
 
-#CustomerIntent: As a network architect, I want know Microsoft's peering policy and requirements so that I can design and create a peering with Microsoft.
 # Customer intent: "As a network architect, I want to understand Microsoft's peering policy and requirements so that I can establish efficient and compliant peering connections with Microsoft for improved network performance."
 ---
 

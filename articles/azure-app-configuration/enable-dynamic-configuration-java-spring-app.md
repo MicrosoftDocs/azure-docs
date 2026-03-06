@@ -74,7 +74,7 @@ App Configuration exposes `AppConfigurationRefresh`, which checks if the refresh
     spring.cloud.azure.appconfiguration.stores[0].monitoring.triggers[0].key=sentinel
     ```
 
-1. Open the **Azure Portal** and navigate to your App Configuration resource associated with your application. Select **Configuration Explorer** under **Operations** and create a new key-value pair by selecting **+ Create** > **Key-value** to add the following parameters:
+1. Open the **Azure portal** and navigate to your App Configuration resource associated with your application. Select **Configuration Explorer** under **Operations** and create a new key-value pair by selecting **+ Create** > **Key-value** to add the following parameters:
 
     | Key | Value |
     |---|---|
@@ -138,7 +138,7 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `spr
     spring.cloud.azure.appconfiguration.stores[0].monitoring.triggers[0].key=sentinel
     ```
 
-1. Open the **Azure Portal** and navigate to your App Configuration resource associated with your application. Select **Configuration Explorer** under **Operations** and create a new key-value pair by selecting **+ Create** > **Key-value** to add the following parameters:
+1. Open the **Azure portal** and navigate to your App Configuration resource associated with your application. Select **Configuration Explorer** under **Operations** and create a new key-value pair by selecting **+ Create** > **Key-value** to add the following parameters:
 
     | Key | Value |
     |---|---|

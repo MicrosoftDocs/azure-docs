@@ -352,6 +352,9 @@ items:
         - name: Configure TLS mutual authentication
           href: app-service-web-configure-tls-mutual-auth.md
           displayName: TLS
+        - name: Industry-wide certificate changes 
+          href: industry-wide-certificate-changes.md
+          displayName: 2026 certificate changes
 - name: Database and service connection
   items:
     - name: Connectivity scenarios overview
@@ -370,7 +373,7 @@ items:
                   href: tutorial-send-email.md
             - name: Secrets in Key Vault
               items:
-              - name: Connect to Azure AI services
+              - name: Connect to Foundry Tools
                 items: 
                 - name: Use .NET
                   href: tutorial-connect-msi-key-vault.md

@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 02/28/2024
+ms.date: 02/23/2026
 
 #customer intent: As a Network Administrator, I want to deploy a highly available DHCP server in Azure so that I can provide DHCP services to my on-premises network.
 
@@ -24,7 +24,73 @@ Learn how to deploy a highly available DHCP server in Azure on a virtual machine
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-[!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
+## Create a virtual network
+
+The following procedure creates a virtual network with a resource subnet.
+
+1. In the portal, search for and select **Virtual networks**.
+
+1. On the **Virtual networks** page, select **+ Create**.
+
+1. On the **Basics** tab of **Create virtual network**, enter, or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **Create new**. </br> Enter **test-rg** for the name. </br> Select **OK**. |
+    | **Instance details** |  |
+    | Name | Enter **vnet-1**. |
+    | Region | Select **East US 2**. |
+
+1. Select **Next** to proceed to the **Security** tab.
+
+1. Select **Next** to proceed to the **IP Addresses** tab.
+
+1. In the address space box in **Subnets**, select the **default** subnet.
+
+1. In **Edit subnet**, enter or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Subnet details** |  |
+    | Subnet template | Leave the default **Default**. |
+    | Name | Enter **subnet-1**. |
+    | Starting address | Leave the default of **10.0.0.0**. |
+    | Subnet size | Leave the default of **/24 (256 addresses)**. |
+
+1. Select **Save**.
+
+1. Select **Review + create** at the bottom of the screen, and when validation passes, select **Create**.
+
+## Deploy Azure Bastion
+
+Azure Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](/azure/bastion/bastion-overview).
+
+>[!NOTE]
+>[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
+
+1. In the search box at the top of the portal, enter **Bastion**. Select **Bastions** in the search results.
+
+1. Select **+ Create**.
+
+1. In the **Basics** tab of **Create a Bastion**, enter, or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg**. |
+    | **Instance details** |  |
+    | Name | Enter **bastion**. |
+    | Region | Select **East US 2**. |
+    | Tier | Select **Developer**. |
+    | **Configure virtual networks** |  |
+    | Virtual network | Select **vnet-1**. |
+
+1. Select **Review + create**.
+
+1. Select **Create**.
 
 ## Create virtual machines
 

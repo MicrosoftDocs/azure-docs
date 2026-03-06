@@ -3,7 +3,7 @@ title: PowerShell functions for Azure IoT Edge for Linux on Windows
 description: Reference information for Azure IoT Edge for Linux on Windows PowerShell functions to deploy, provision, and get status.
 author: sethmanheim
 ms.author: sethm
-ms.date: 01/16/2025
+ms.date: 02/20/2026
 ms.topic: reference
 ms.service: azure-iot-edge
 services: iot-edge
@@ -310,7 +310,7 @@ For more information, use the command `Get-Help Invoke-EflowVmCommand -full`.
 
 ## Provision-EflowVm
 
-The **Provision-EflowVm** command adds the provisioning information for your IoT Edge device to the virtual machine's IoT Edge `config.yaml` file.
+The **Provision-EflowVm** command adds the provisioning information for your IoT Edge device to the virtual machine's IoT Edge `config.toml` file.
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |

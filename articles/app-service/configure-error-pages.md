@@ -1,62 +1,70 @@
 ---
 title: Configure error pages on App Service
-description: Learn how to configure a custom error page on App Service
+description: Learn how to configure the custom error pages available on Azure App Service.
 author: jefmarti
 ms.topic: how-to
 ms.custom: linux-related-content
-ms.date: 10/14/2024
+ms.date: 02/19/2026
 ms.author: jefmarti
 ms.service: azure-app-service
+#customer intent: As a website owner and designer, I want to configure custom error pages for my App Service apps so that I can present customized error pages to my website users if they encounter errors.
+
 ---
 
 # Configure error pages on App Service
 
-This article explains how to configure custom error pages on your web app. With App Service you can configure an error page for specific errors that will be presented to users instead of the default error page. 
+Azure App Service lets you configure specific error pages to present to your web app users instead of the default error pages. This article explains how to configure these custom error pages for your web app.
 
-### Prerequisite
-In this tutorial, we're adding a custom 403 error page to our web app hosted on App Service and test it with an IP restriction. To do so, you need the following:
-- a web app hosted on App Service w/ a Premium SKU
-- an html file under 10 kb in size
+The three types of error code pages available for customization in App Service are *403 Access restrictions*, *502 Gateway errors*, and *503 Service unavailable*. This article walks through adding a custom 403 error page to a web app hosted on App Service, and testing it by using an IP restriction.
 
-## Upload an error page
-For this example, we're uploading and testing a 403 error page to present to the user. Name your html file to match the error code (for example, `403.html`). Once you have your html file prepared, you can upload it to your web app. In the configuration blade, you should see an **Error pages** tab. Click on this tab to view the error page options. If the options are greyed out, you need to upgrade to at least a Premium SKU to use this feature.
+## Prerequisites
 
-Select the error code that you'd like to upload an error page for and click **Edit**. On the next screen, click the folder icon to select your html file. The file must be in html format and within the 10 kb size limit. Find your .html file and click on the **Upload** button at the bottom of the screen. Notice the Status in the table updates from Not Configured to Configured. Then click **Save** to complete the upload. 
+- A web app hosted on an Azure App Service Premium SKU. You must have a Premium SKU to customize error pages.
+- An HTML file smaller than 10 kb that presents a 403 error message such as **Forbidden**. Name the HTML file to match the error code, in this case *403.html*.
 
-## Confirm error page
-Once the custom error page is uploaded and saved, we can trigger and view the page. In this example, we can trigger the 403 error by using an IP restriction however you can also trigger a 403 error page by stopping the site.
+## Configure the custom error page
 
-To set an IP restriction, go to the **Networking** blade and click the **Enabled with access restrictions** link under **Inbound traffic configuration**.
+Upload your custom error page and apply it to your web app.
 
-Under the **Site access and rules** section, select the **+Add** button to create an IP restriction.
+1. On the Azure portal page for your web app, select **Settings** > **Configuration (preview)** from the left navigation menu.
+1. Select the **Error pages** tab on the **Configuration** page.
+1. On the **Error pages** page, select the **Browse** button next to the error code you want to configure, in this case **403**.
+1. Browse to your custom *403.html* error page and select **Open**. The file uploads, and the filename appears in the field next to the error code.
+1. Select the checkbox next to **Apply to all requests**, and then select **Apply**.
 
-In the form that follows, you need to change the Action to **Deny** and fill out the **Priority** and **IP Address Block**. In this example, we use the **Inbound address** found on the Networking blade and we're setting it to /0 (for example, `12.123.12.123/0`). This disables all public access when visiting the site.
+>[!NOTE]
+>If the configuration options are greyed out, you need to upgrade to at least a Premium SKU to use this feature.
 
-Once the Add rule form is filled out, select the **Add rule** button. Then click **Save**.
+>[!NOTE]
+>If you're using the legacy, nonpreview **Configuration** > **Error codes** page, select **Edit** next to the error code you want to configure. On the **Add custom error page (.html)** pane, select the folder icon to browse to and select your custom *403.html* file. After the file loads, select **Upload**.
 
-Once saved, you need to restart the site for the changes to take effect. Go to your overview page and select **browse**. You should now see your custom error page load.
+## Confirm the error page
 
-## Error codes
-App Service currently supports three types of error codes that are available to customize:
+Once you upload and apply the custom error page, you can trigger and view the page. For this example, trigger the 403 error by using an IP restriction. You can also trigger a 403 error page by stopping the site.
 
-| Error code  | description |
-| ------------- | ------------- |
-| 403  | Access restrictions |
-| 502  | Gateway errors  |
-| 503  | Service unavailable  |
+1. On the Azure portal page for your web app, select **Settings** > **Networking** from the left navigation menu.
+1. Under **Inbound traffic configuration** on the **Networking** page, copy the IP address next to **IP Addresses** to use in a later step.
+1. Next to **Public access restrictions**, select the link for **Enabled with no access restrictions**.
+1. On the **Access Restrictions** page, under **Site access**, select **Enabled from select virtual networks and IP addresses**.
+1. At the bottom of the page under **Site access and rules**, select **Add** to add an IP restriction.
+1. On the **Add rule** pane, give the rule a **Name** like *Test403*, set **Action** to **Deny**, and set **Priority** to *300*.
+1. Paste the IP address you copied from the main **Networking** page into the **IP Address Block** field, followed by */0*, for example *203.0.113.254/0*.
+1. Select **Add rule**.
+1. On the **Access Restrictions** page, select **Save**. If necessary, confirm the action and select **Continue**. This action disables all public access to the site.
+
+Restart the site for the changes to take effect. Return to the **Overview** page for your site and select **Restart** from the top menu. When you select the URL to go to your site, you see your custom error page.
 
 ## FAQ
-1. I've uploaded my error page, why doesn't it show when the error is triggered?
 
-Custom error pages are triggered from front end failures. If the error is coming from the app level, it won't trigger or show the configured error page. If you want the error page to show for all requests, check the **Apply to all requests** box under the configured error code. This will show the error page for all requests matching the status code regardless of where it failed. Note, when this box is checked it will override any existing error pages that are configured for the app.
+### Why doesn't my uploaded error page show when the error is triggered?
 
-2. Why is the error page feature greyed out?
+Make sure you select **Apply to all requests** when you configure the error page. By default, custom error pages are triggered only from front-end failures. Errors from the app level don't trigger or show the custom error page. Selecting **Apply to all requests** for the configured error code shows the error page for all requests that match the status code, regardless of where they failed. Selecting this option overrides any existing error pages configured for the app.
 
-Error pages are currently a Premium feature. You need to use at least a Premium SKU to enable the feature. 
+### Why is the error page feature grayed out?
 
-3. How can I reference a single error page across multiple apps?
+You must use at least a Premium SKU to enable the error code feature.
 
-If you need to use the same error page across multiple apps, you can link to your error page hosted in a storage account in your uploaded html file. Upload your error page to a [storage account](/azure/storage/common/storage-account-overview) and add the provided storage URL for your page in an `<iframe>` tag located in the html file uploaded to the app. 
+### How can I use a custom error page across multiple apps?
 
-
+You can host your custom HTML error page in an [Azure Storage account](/azure/storage/common/storage-account-overview), and add the page's storage URL in an `<iframe>` tag in the HTML file you upload to the app.
 

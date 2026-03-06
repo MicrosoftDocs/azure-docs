@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: hangwan
 ms.service: azure-spring-apps
-ms.topic: conceptual
+ms.topic: whats-new
 ms.custom: devx-track-java
 ms.date: 08/19/2025
 ms.update-cycle: 1095-days

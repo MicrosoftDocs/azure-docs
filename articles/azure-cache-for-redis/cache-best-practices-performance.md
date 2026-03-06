@@ -4,7 +4,7 @@ titleSuffix: Azure Cache for Redis
 description: Learn how to test the performance of Azure Cache for Redis.
 
 
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - ignite-2024
 ms.date: 08/18/2025

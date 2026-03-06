@@ -360,7 +360,7 @@ When you're integrating with Azure services, errors might originate from the API
 - [Blob Storage](functions-bindings-storage-blob-output.md#exceptions-and-return-codes)
 - [Event Grid](../event-grid/troubleshoot-errors.md)
 - [Event Hubs](functions-bindings-event-hubs-output.md#exceptions-and-return-codes)
-- [IoT Hub](functions-bindings-event-iot-output.md#exceptions-and-return-codes)
+- [IoT Hub](functions-bindings-event-hubs-output.md#exceptions-and-return-codes)
 - [Notification Hubs](functions-bindings-notification-hubs.md#exceptions-and-return-codes)
 - [Queue Storage](functions-bindings-storage-queue-output.md#exceptions-and-return-codes)
 - [Service Bus](functions-bindings-service-bus-output.md#exceptions-and-return-codes)

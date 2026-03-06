@@ -43,6 +43,7 @@ Application rules allow or deny traffic based on the application layer. The foll
 | Managed Identity | `*.identity.azure.net`, `login.microsoftonline.com`, `*.login.microsoftonline.com`, `*.login.microsoft.com` | These FQDNs are required when using managed identity with Azure Firewall in Azure Container Apps. |
 | Aspire Dashboard | `https://<YOUR-CONTAINERAPP-REGION>.ext.azurecontainerapps.dev` | This FQDN is required when using Aspire dashboard in an environment configured with a virtual network. Please update the FQDN with your container app's region. |
 | Docker Hub Registry | `hub.docker.com`, `registry-1.docker.io`, `production.cloudflare.docker.com` | If you're using [Docker Hub registry](https://docs.docker.com/desktop/allow-list/) and want to access it through the firewall, you need to add these FQDNs to the firewall. |
+| Azure China | `mcr.azure.cn`, `*.data.mcr.azure.cn` | Azure Container Apps in the Azure China environment use these Microsoft Container Registry (MCR) endpoints to pull container images. When using Azure Firewall, you must allow either the corresponding application rules or network rules for MCR. This requirement applies only to the **Azure China environment**. |
 
 ## Network rules
 

@@ -96,6 +96,12 @@ sections:
           Does the WAF support air-gapped clouds?
         answer: |
           Yes, air-gapped clouds are supported. However, geo-filtering custom rules, bot protection rulesets and rate limiting custom rules are not supported on air-gapped clouds.
+    
+      - question: |
+          Can I disable request buffering on my Application Gateway running WAF?
+        answer: |
+          Request buffering can't be disabled if you're running the WAF SKU of Application Gateway. The WAF requires the full request to buffer as part of processing, therefore, even if you disable request buffering within Application Gateway the WAF still buffers the request. Response buffering isn't impacted by the WAF.
+
 
 additionalContent: |
 

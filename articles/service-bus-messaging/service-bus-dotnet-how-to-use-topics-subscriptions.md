@@ -1,9 +1,10 @@
 ---
-title: Get started with Azure Service Bus topics (.NET)
-description: This tutorial shows you how to send messages to Azure Service Bus topics and receive messages from topics' subscriptions using the .NET programming language.
+title: Azure Service Bus Topics Quickstart With .NET
+description: This tutorial shows you how to send messages to Azure Service Bus topics and receive messages from topics subscriptions using the .NET programming language.
+#customer intent: As a .NET developer, I want to learn how to send messages to an Azure Service Bus topic so that I can implement messaging in my application.
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.date: 01/16/2025
+ms.date: 02/13/2026
 ms.devlang: csharp
 ms.custom: mode-api, passwordless-dotnet, devx-track-dotnet
 # Customer intent: I want to learn how to send messages to an Azure Service Bus topic and receive messages from a subscription to the topic. 
@@ -16,10 +17,10 @@ This quickstart shows how to send messages to a Service Bus topic and receive me
 In this quickstart, you do the following steps:
 
 1. Create a Service Bus namespace, using the Azure portal.
-2. Create a Service Bus topic, using the Azure portal.
-3. Create a Service Bus subscription to that topic, using the Azure portal.
-4. Write a .NET console application to send a set of messages to the topic.
-5. Write a .NET console application to receive those messages from the subscription.
+1. Create a Service Bus topic, using the Azure portal.
+1. Create a Service Bus subscription to that topic, using the Azure portal.
+1. Write a .NET console application to send a set of messages to the topic.
+1. Write a .NET console application to receive those messages from the subscription.
 
 > [!NOTE]
 > This quickstart provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus topic and receiving those messages from a subscription of the topic. For more samples on other and advanced scenarios, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples). 
@@ -30,7 +31,7 @@ In this quickstart, you do the following steps:
 If you're new to the service, see [Service Bus overview](service-bus-messaging-overview.md) before you do this quickstart.
 
 - **Azure subscription**. To use Azure services, including Azure Service Bus, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- **Visual Studio 2022**. The sample application makes use of new features that were introduced in C# 10. You can still use the Service Bus client library with previous C# language versions, but the syntax might vary. To use the latest syntax, we recommend that you install .NET 6.0, or higher and set the language version to `latest`. If you're using Visual Studio, versions before Visual Studio 2022 aren't compatible with the tools needed to build C# 10 projects.
+- **Visual Studio 2022** or later. The sample application makes use of new features that were introduced in C# 10. You can still use the Service Bus client library with previous C# language versions, but the syntax might vary. To use the latest syntax, we recommend that you install .NET 6.0, or higher and set the language version to `latest`. If you're using Visual Studio, versions before Visual Studio 2022 aren't compatible with the tools needed to build C# 10 projects.
 
 [!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
 
@@ -47,11 +48,11 @@ You can authorize access to the service bus namespace using the following steps:
 1. Launch Visual Studio. If you see the **Get started** window, select the **Continue without code** link in the right pane.
 1. Select the **Sign in** button in the top right of Visual Studio.
 
-    :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/azure-sign-button-visual-studio.png" alt-text="Screenshot showing a button to sign in to Azure using Visual Studio.":::
+    :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/azure-sign-button-visual-studio.png" alt-text="Screenshot of the button to sign in to Azure using Visual Studio.":::
 
 1. Sign-in using the Microsoft Entra account you assigned a role to previously.
 
-    :::image type="content" source="..//storage/blobs/media/storage-quickstart-blobs-dotnet/sign-in-visual-studio-account-small.png" alt-text="Screenshot showing the account selection.":::
+    :::image type="content" source="..//storage/blobs/media/storage-quickstart-blobs-dotnet/sign-in-visual-studio-account-small.png" alt-text="Screenshot of the account selection dialog.":::
 
 ### [Connection String](#tab/connection-string)
 Launch Visual Studio. If you see the **Get started** window, select the **Continue without code** link in the right pane.
@@ -74,7 +75,7 @@ This section shows you how to create a .NET console application to send messages
     1. Select **Console App** from the results list.
     1. Then, select **Next**.
 
-        :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/new-send-project.png" alt-text="Image showing the Create a new project dialog box with C# and Console selected":::
+        :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/new-send-project.png" alt-text="Screenshot of the Create a new project dialog box with C# and Console selected.":::
 1. Enter **TopicSender** for the project name, **ServiceBusTopicQuickStart** for the solution name, and then select **Next**. 
 1. On the **Additional information** page, select **Create** to create the solution and the project.
 
@@ -252,15 +253,16 @@ This section shows you how to create a .NET console application to send messages
     1. Navigate to your Service Bus namespace. 
     1. On the **Overview** page, in the bottom-middle pane, switch to the **Topics** tab, and select the Service Bus topic. In the following example, it's `mytopic`.
     
-        :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/select-topic.png" alt-text="Select topic":::
+        :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/select-topic.png" alt-text="Screenshot of selecting a topic.":::
     1. On the **Service Bus Topic** page, In the **Messages** chart in the bottom **Metrics** section, you can see that there are three incoming messages for the topic. If you don't see the value, wait for a few minutes, and refresh the page to see the updated chart. 
 
-        :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/sent-messages-essentials.png" alt-text="Messages sent to the topic" lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/sent-messages-essentials.png":::
-    4. Select the subscription in the bottom pane. In the following example, it's **S1**. On the **Service Bus Subscription** page, you see the **Active message count** as **3**. The subscription has received the three messages that you sent to the topic, but no receiver has picked them yet. 
+        :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/sent-messages-essentials.png" alt-text="Screenshot of messages sent to the topic." lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/sent-messages-essentials.png":::
+    1. Select the subscription in the bottom pane. In the following example, it's **S1**. On the **Service Bus Subscription** page, you see the **Active message count** as **3**. The subscription has received the three messages that you sent to the topic, but no receiver has picked them yet. 
     
-        :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page.png" alt-text="Messages received at the subscription" lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page.png":::
+        :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page.png" alt-text="Screenshot of messages received at the subscription." lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page.png":::
     
 ## Receive messages from a subscription
+
 In this section, you create a .NET console application that receives messages from the subscription to the Service Bus topic. 
 
 > [!NOTE]
@@ -654,13 +656,11 @@ In this section, you add code to retrieve messages from the subscription.
 1. Check the portal again. 
     - On the **Service Bus Topic** page, in the **Messages** chart, you see three incoming messages and three outgoing messages. If you don't see these numbers, wait for a few minutes, and refresh the page to see the updated chart. 
     
-        :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/messages-size-final.png" alt-text="Messages sent and received" lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/messages-size-final.png":::
+        :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/messages-size-final.png" alt-text="Screenshot of messages sent and received." lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/messages-size-final.png":::
     - On the **Service Bus Subscription** page, you see the **Active message count** as zero. It's because a receiver has received messages from this subscription and completed the messages. 
     
-        :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page-final.png" alt-text="Active message count at the subscription at the end" lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page-final.png":::
+        :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page-final.png" alt-text="Screenshot of the active message count at the subscription at the end." lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page-final.png":::
         
-
-
 ## Related content
 See the following documentation and samples:
 

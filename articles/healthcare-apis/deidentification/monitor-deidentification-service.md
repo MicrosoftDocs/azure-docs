@@ -3,7 +3,7 @@ title: Monitor the De-identification service in Azure Health Data Services
 description: Start here to learn how to monitor De-identification service in Azure Health Data Services.
 ms.date: 06/16/2025
 ms.custom: horz-monitor
-ms.topic: conceptual
+ms.topic: concept-article
 author: jovinson-ms
 ms.author: jovinson
 ms.service: azure-health-data-services

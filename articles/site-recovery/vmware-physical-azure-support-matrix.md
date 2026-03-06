@@ -3,7 +3,7 @@ title: Support matrix for VMware/physical disaster recovery in Azure Site Recove
 description: Summarizes support for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
 ms.topic: concept-article
 ms.service: azure-site-recovery
-ms.date: 01/01/2026
+ms.date: 02/27/2026
 ms.author: v-gajeronika
 author: Jeronika-MS
 ms.custom: engagement-fy23, linux-related-content
@@ -46,6 +46,8 @@ The replication appliance is an on-premises machine that runs Site Recovery comp
 
 - For VMware VMs, you can create the replication appliance by downloading an OVF template to create a VMware VM.
 - For physical servers, you can set up the replication appliance manually by running our PowerShell script.
+
+[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
 
 **Component** | **Requirements**
 --- |---

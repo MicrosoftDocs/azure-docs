@@ -72,7 +72,7 @@ items:
     href: logic-apps-serverless-overview.md
   - name: AI playbook and solution development
     href: ai-resources.md
-  - name: AI agent workflows
+  - name: Agentic workflows
     href: agent-workflows-concepts.md
   - name: Business rules engine integration
     href: rules-engine/rules-engine-overview.md
@@ -135,9 +135,9 @@ items:
       items:
       - name: Get AI-powered help from the workflow assistant
         href: workflow-assistant-standard.md
-      - name: Create autonomous agent workflows
+      - name: Create autonomous agentic workflows
         href: create-autonomous-agent-workflows.md
-      - name: Create conversational agent workflows
+      - name: Create conversational agentic workflows
         href: create-conversational-agent-workflows.md
       - name: Add agent tools in Foundry backed by connectors
         href: add-agent-tools-connector-actions.md
@@ -145,21 +145,21 @@ items:
         href: add-agent-action-create-run-workflow.md
       - name: Create MCP servers and tools from connectors
         href: create-mcp-server-api-center.md
-      - name: Set up Standard logic apps as MCP servers
-        href: set-up-model-context-protocol-server-standard.md
+      - name: Create MCP servers from Standard workflows
+        href: create-model-context-protocol-server-standard.md
       - name: Run Python code in agent workflows
         href: connectors/code-interpreter-python-container-apps-session.md
       - name: Parse or chunk content
         href: parse-document-chunk-text.md
       - name: Create chat completions with prompt templates
         href: connectors/create-chat-completions-prompt-template.md
-      - name: Multiagent scenarios
+      - name: Multiagentic scenarios
         items:
-        - name: Single agent versus multiple agents
+        - name: Single agent loop versus multiple agent loops
           href: single-versus-multiple-agents.md
-        - name: Call AI agents sequentially
+        - name: Call AI agent loop sequentially
           href: set-up-prompt-chain-agent-workflow.md
-        - name: Hand off AI agent tasks with chat continuity
+        - name: Hand off AI agent loop tasks with chat continuity
           href: set-up-handoff-agent-workflow.md
     - name: Develop for rules engine integration
       items:
@@ -461,11 +461,11 @@ items:
     items:
     - name: Secure logic apps
       href: logic-apps-securing-a-logic-app.md
-    - name: Secure agent workflows with Easy Auth
+    - name: Secure agentic workflows with Easy Auth
       href: set-up-authentication-agent-workflows.md
     - name: Authenticate with managed identities
       href: authenticate-with-managed-identity.md
-    - name: Authorize agent access to resources with OBO
+    - name: Authorize agent loop access to resources with OBO
       href: set-up-on-behalf-of-user-flow.md
     - name: Block connector usage
       href: block-connections-connectors.md

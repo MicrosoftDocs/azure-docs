@@ -6,7 +6,7 @@ ms.author: joanpo
 ms.date: 09/13/2022
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: sfi-image-nochange
 ---
 

@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to 
-ms.date: 06/23/2022
+ms.date: 02/24/2026
 ms.custom:
   - devx-track-azurecli
   - sfi-image-nochange
@@ -107,6 +107,9 @@ It may take several minutes for the application gateway to be created. After the
 ## Create a virtual machine scale set
 
 In this example, you create a virtual machine scale set that provides two servers for the backend pool in the application gateway. The virtual machines in the scale set are associated with the *myBackendSubnet* subnet. To create the scale set, you can use [az vmss create](/cli/azure/vmss#az-vmss-create).
+
+> [!NOTE]
+> The virtual machine scale set instances in the backend pool don't have public IP addresses and aren't directly accessible from the internet. Management access to the instances, if needed, can be configured through [Azure Bastion](/azure/bastion/bastion-overview).
 
 Replace \<username> and \<password> with your values before you run this.
 

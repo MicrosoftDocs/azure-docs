@@ -78,6 +78,9 @@ There are two types of virtual WANs: Basic and Standard. The following table sho
 
 [!INCLUDE [Basic and Standard SKUs](../../includes/virtual-wan-standard-basic-include.md)]
 
+> [!NOTE]
+> Basic Virtual WAN doesn't support adjusting gateway scale units to increase throughput. If you need higher aggregate throughput, upgrade to Standard Virtual WAN. For more information about gateway scale units, see [About Virtual WAN gateway settings](gateway-settings.md).
+
 For steps to upgrade a virtual WAN, see [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md).
 
 ## <a name="connectivity"></a>Connectivity

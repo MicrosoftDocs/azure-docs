@@ -73,6 +73,7 @@ Key properties of virtual network flow logs include:
 - Logs are written in the JavaScript Object Notation (JSON) format.
 - Each log record contains the network interface that the flow applies to, 5-tuple information, traffic direction, flow state, encryption state, and throughput information.
 - All traffic flows in your network are evaluated through the applicable [network security group rules](../virtual-network/network-security-groups-overview.md) or [Azure Virtual Network Manager security admin rules](../virtual-network-manager/concept-security-admins.md).
+- Virtual Network flow logs operate at the virtual network level and therefore capture traffic for resources such as gateways by default. As a result, traffic passing through these gateways is included, which can lead to a higher volume of log data.
 
 ## Log format
 

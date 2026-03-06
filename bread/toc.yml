@@ -172,7 +172,7 @@ items:
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/
     items:
-    - name: Durable Functions
+    - name: Durable Task
       tocHref: /azure/azure-functions/durable/
       topicHref: /azure/azure-functions/durable/
   - name: Azure Australia
@@ -570,14 +570,14 @@ items:
     topicHref: /azure/logic-apps/
     items:
     - name: Connectors
-      tocHref: /azure/logic-apps/connectors/
-      topicHref: /azure/logic-apps/connectors/
+      tocHref: /connectors/connector-reference/connector-reference-logicapps-connectors
+      topicHref: /connectors/connector-reference/connector-reference-logicapps-connectors
     - name: B2B and EDI
-      tocHref: /azure/logic-apps/enterprise-integration/
-      topicHref: /azure/logic-apps/enterprise-integration/
+      tocHref: /azure/logic-apps/logic-apps-enterprise-integration-overview
+      topicHref: /azure/logic-apps/logic-apps-enterprise-integration-overview
     - name: Rules Engine
-      tocHref: /azure/logic-apps/rules-engine/
-      topicHref: /azure/logic-apps/rules-engine/
+      tocHref: /azure/logic-apps/rules-engine/rules-engine-overview
+      topicHref: /azure/logic-apps/rules-engine/rules-engine-overview
   - name: Machine Learning
     tocHref: /azure/machine-learning
     topicHref: /azure/machine-learning/
@@ -748,9 +748,6 @@ items:
   - name: Role-based access control
     tocHref: /azure/role-based-access-control/
     topicHref: /azure/role-based-access-control/
-  - name: Scheduler
-    tocHref: /azure/scheduler/
-    topicHref: /azure/scheduler/
   - name: Security
     tocHref: /azure/security/
     topicHref: /azure/security/

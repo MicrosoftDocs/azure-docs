@@ -5,7 +5,7 @@ services: synapse analytics
 author: ruixinxu 
 ms.service: azure-synapse-analytics
 ms.subservice: pipeline 
-ms.topic: conceptual 
+ms.topic: concept-article 
 ms.date: 12/11/2024
 ms.author: ruxu 
 ms.custom: sfi-image-nochange

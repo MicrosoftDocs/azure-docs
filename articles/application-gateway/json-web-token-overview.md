@@ -30,6 +30,8 @@ Application Gateway doesn't maintain any session or cookie-based state. This app
 - **Multitenant support**: Supports common organizations and consumers' tenant configurations.
 - **HTTPS only**: Requires HTTPS listeners. HTTP isn't supported.
 
+ :::image type="content" source="media/json-web-token-overview/jwt-validation.png" alt-text="Diagram showing JWT Validation for Application Gateway.":::
+
 ## Prerequisites
 
 - Application Gateway requirements:

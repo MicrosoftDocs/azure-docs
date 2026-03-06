@@ -1,11 +1,13 @@
 ---
-title: Set autopurge retention policies for Azure Functions Durable Task Scheduler
-description: Learn about how and why you'd want to configure autopurge retention policies for Durable Task Scheduler.
-ms.topic: conceptual
+title: Set autopurge retention policies for Durable Task Scheduler
+titleSuffix: Durable Task
+description: Learn how to configure autopurge retention policies for Durable Task Scheduler to manage orchestration data cleanup.
+ms.topic: concept-article
+ms.subservice: durable-task-scheduler
 ms.date: 10/02/2025
 ---
 
-# Set autopurge retention policies for Azure Functions Durable Task Scheduler
+# Set autopurge retention policies for Durable Task Scheduler
 
 To prevent reaching the memory limit of a capacity unit (CU), it's best practice to periodically purge orchestration history data. The Durable Task Scheduler offers a lightweight, configurable autopurge feature that helps you manage orchestration data clean-up without manual intervention.
 

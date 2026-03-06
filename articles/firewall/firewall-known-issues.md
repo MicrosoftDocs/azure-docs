@@ -31,6 +31,7 @@ The following zones are currently experiencing capacity constraints:
 | **_US Gov Virginia_** | Premium | - There's zero capacity for Azure Firewall Premium SKU in US Gov Virginia, both zonal and nonzonal deployments are blocked. | Deploy Azure Firewall Standard SKU or deploy Premium SKU to a different region. |
 | **Physical zone 3** in **_US Gov Virginia_** | Basic and Standard | - Zonal deployments are blocked in physical zone 3 in US Gov Virginia. </br></br>- You must manually select available zones for successful deployment, creating a suboptimal deployment experience. | Select zones 1 and 2 for zonal deployments or use a different region. |
 | **Physical zone 2** in **_West US 2_** | Basic, Standard, and Premium | - You can't deploy a new Azure Firewall in zone 2. | We recommend you deploy a new Azure Firewall to the remaining availability zones or use a different region. To configure an existing firewall, see [How can I configure availability zones after deployment?](firewall-faq.yml#how-can-i-configure-availability-zones-after-deployment) |
+| **Physical zone 1,2,3** in **Qatar Central** | Basic, Standard, and Premium | - New Azure Firewall deployments are blocked.</br></br>Estimated date available: December 31, 2026 | We recommend you deploy a new Azure Firewall in a different region.|
 
 > [!WARNING]
 > If you stop an existing Azure Firewall deployment in any of these capacity-restricted regions, you might not be able to start it again due to ongoing capacity limitations. Plan accordingly before stopping firewall instances in these regions.

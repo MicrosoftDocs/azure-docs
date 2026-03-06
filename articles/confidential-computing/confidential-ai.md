@@ -1,7 +1,7 @@
 ---
 title: Confidential AI
 titleSuffix: Azure Confidential Computing
-description: Confidential AI services and solutions
+description: Confidential Foundry Tools and solutions
 services: virtual-machines
 author: kapilv
 ms.service: azure-confidential-computing

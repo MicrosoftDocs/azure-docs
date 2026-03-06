@@ -30,6 +30,7 @@ In this article, you learn about virtual network flow logs filtering capability.
 | DstPort         | Destination port ranges and values     | 22, 8080-8090                                                             |
 | Protocol        | Protocol type                          | TCP, UDP                                                                  |
 | Encryption      | Encryption status                      | All supported encryption values and `NX_ALL` (not encrypted for any reason) |
+| RecordTypes     | State of Network Flow                  | B, E                                                                      |
 
 All the fields can take comma separate value as input. All are case-insensitive.
 

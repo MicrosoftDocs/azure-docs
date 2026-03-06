@@ -1,12 +1,14 @@
 ---
-title: "Quickstart: Configure a Durable Functions app to use Azure Functions Durable Task Scheduler"
-description: Learn how to configure an existing Durable Functions app to use Azure Functions Durable Task Scheduler.
+title: "Quickstart: Configure a Durable Functions app to use Durable Task Scheduler"
+titleSuffix: Durable Task
+description: Learn how to configure an existing Durable Functions app to use Durable Task Scheduler as a backend.
 ms.topic: how-to
+ms.subservice: durable-task-scheduler
 ms.date: 10/29/2025
-zone_pivot_groups: dts-runtime
+zone_pivot_groups: df-languages
 ---
 
-# Quickstart: Configure a Durable Functions app to use Azure Functions Durable Task Scheduler
+# Quickstart: Configure a Durable Functions app to use Durable Task Scheduler
 
 Write stateful functions in a serverless environment using Durable Functions, a feature of [Azure Functions](../../functions-overview.md). Scenarios where Durable Functions is useful include orchestrating microservices and workflows, stateful patterns like fan-out/fan-in, and long-running tasks.  
 
@@ -20,32 +22,42 @@ In this quickstart, you:
 > * Deploy your app to Azure on the App Service plan using Visual Studio Code.
 > * Monitor the status of your app and task hub on the Durable Task Scheduler dashboard. 
 
+For C#, this quickstart uses the .NET isolated worker model.
+
 ## Prerequisites
 
-This quickstart assumes you already have an Azure Functions project on your local computer with:
-- Durable functions added to your project including:
-  - An [orchestrator function](../durable-functions-bindings.md#orchestration-trigger). 
-  - A [client function](../durable-functions-bindings.md#orchestration-client) that triggers the Durable Functions app.
-- The project configured for local debugging.
-
-If you don't meet these prerequisites, we recommend that you begin with one of the following quickstarts to set up a local Functions project:
-
+- An existing Azure Functions project on your local computer:
 ::: zone pivot="csharp"  
 
-- [Create a Durable Functions app - C#](../durable-functions-isolated-create-first-csharp.md)
+   - [Create a Durable Functions app - C#](../durable-functions-isolated-create-first-csharp.md)
 
 ::: zone-end 
 
-::: zone pivot="other"  
+<!-- markdownlint-disable-next-line MD044 -->
+::: zone pivot="javascript"  
 
-- [Create a Durable Functions app - JavaScript](../quickstart-js-vscode.md)
-- [Create a Durable Functions app - Python](../quickstart-python-vscode.md)
-- [Create a Durable Functions app - PowerShell](../quickstart-powershell-vscode.md)
-- [Create a Durable Functions app - Java](../quickstart-java.md)
+   - [Create a Durable Functions app - JavaScript](../quickstart-js-vscode.md)
 
 ::: zone-end 
 
-You also need:
+::: zone pivot="python"  
+
+   - [Create a Durable Functions app - Python](../quickstart-python-vscode.md)
+
+::: zone-end 
+
+<!-- markdownlint-disable-next-line MD044 -->
+::: zone pivot="powershell"  
+
+   - [Create a Durable Functions app - PowerShell](../quickstart-powershell-vscode.md)
+
+::: zone-end 
+
+::: zone pivot="java"  
+
+   - [Create a Durable Functions app - Java](../quickstart-java.md)
+
+::: zone-end 
 - [Docker](https://docs.docker.com/engine/install/) installed to run the Durable Task Scheduler emulator. 
 - [Azurite](../../../storage/common/storage-install-azurite.md#install-azurite) installed.
 - An [HTTP test tool](../../functions-develop-local.md#http-test-tools) that keeps your data secure.
@@ -65,7 +77,8 @@ Install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.D
 
 ::: zone-end 
 
-::: zone pivot="other"  
+<!-- markdownlint-disable-next-line MD044 -->
+::: zone pivot="javascript,python,java,powershell"  
 
 In host.json, update the `extensionBundle` property to use the preview version that contains the Durable Task Scheduler package:
 
@@ -139,6 +152,8 @@ Add connection information for local development:
 
    :::image type="content" source="media/quickstart-durable-task-scheduler/docker-ports.png" alt-text="Screenshot of ports on Docker.":::
 
+> [!NOTE]
+> The [Durable Task Scheduler emulator](./durable-task-scheduler.md#emulator-for-local-development) stores orchestration data in memory, which means all data is lost when it shuts down.
 
 ## Test locally 
 
@@ -154,9 +169,7 @@ Add connection information for local development:
    func start
    ```
 
-   You should see a list of the functions in your app. If you created your app following one of the Durable Functions quickstarts, you should see something similar to the following output:
-
-   :::image type="content" source="media/quickstart-durable-task-scheduler/function-list.png" alt-text="Screenshot of functions listed when running app locally.":::
+   You should see a list of the functions in your app. 
 
 1. Start an orchestration instance by sending an HTTP `POST` request to the URL endpoint using the [HTTP test tool](../../functions-develop-local.md#http-test-tools) you chose. 
 
@@ -164,8 +177,8 @@ Add connection information for local development:
 
    ```json
      {
-       "name": "DurableFunctionsOrchestrationCSharp1",
-       "instanceId": "b50f8b723f2f44149ab9fd2e3790a0e8",
+       "name": "DurableFunctionsOrchestration",
+       "instanceId": "<instanceID>",
        "runtimeStatus": "Completed",
        "input": null,
        "customStatus": null,
@@ -179,16 +192,11 @@ Add connection information for local development:
      }
    ```
 
-1. To view more details about the orchestration instance, go to **http://localhost:8082/** access the Durable Task Scheduler dashboard. 
+1. To view more details about the orchestration instance, go to **http://localhost:8082/** access the [Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md). 
 
 1. Click on the *default* task hub to see its dashboard. 
 
-> [!NOTE] 
-> Learn more about the [Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md). 
->
-> The [Durable Task Scheduler emulator](./durable-task-scheduler.md#emulator-for-local-development) stores orchestration data in memory, which means all data is lost when it shuts down. 
->
-> Running into issues testing? [See the troubleshooting guide.](./troubleshoot-durable-task-scheduler.md)
+Running into issues testing? [See the troubleshooting guide.](./troubleshoot-durable-task-scheduler.md)
 
 ## Run your app in Azure 
 

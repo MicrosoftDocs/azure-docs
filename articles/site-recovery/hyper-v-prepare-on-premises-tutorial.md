@@ -3,9 +3,10 @@ title: Prepare on-premises Hyper-V servers for disaster recovery by using Azure 
 description: Learn how to prepare on-premises Hyper-V VMs for disaster recovery to Azure by using Azure Site Recovery.
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 05/23/2024
+ms.date: 02/13/2026
 ms.custom: MVC, engagement-fy23
 ms.author: v-gajeronika
+ms.reviewer: v-gajeronika
 author: Jeronika-MS
 
 # Customer intent: As an IT administrator, I want to prepare my on-premises Hyper-V servers for disaster recovery to Azure, so that I can ensure continuity of services in the event of a disaster.
@@ -27,11 +28,11 @@ In this tutorial, you learn how to:
 > - Prepare VMs so that you can access them after failover to Azure.
 
 > [!NOTE]
-> We design tutorials to show the simplest deployment path for a scenario. The tutorials use default options when possible, and they don't show all possible settings and paths. For more information about a scenario, see the *How-to Guides* section of the [Site Recovery documentation](./index.yml).
+> The tutorials show the simplest deployment path for a scenario. They use default options when possible, and they don't show all possible settings and paths. For more information about a scenario, see the *How-to Guides* section of the [Site Recovery documentation](./index.yml).
 
 ## Before you start
 
-Make sure that you've prepared Azure as described in the [first tutorial in this series](tutorial-prepare-azure.md).
+Make sure that you prepared Azure as described in the [first tutorial in this series](tutorial-prepare-azure.md).
 
 ## Review requirements and prerequisites
 
@@ -47,7 +48,7 @@ Make sure Hyper-V hosts and VMs comply with requirements.
 
 If Hyper-V hosts are managed by System Center Virtual Machine Manager, you need to prepare the on-premises Virtual Machine Manager server.
 
-- Make sure the Virtual Machine Manager server has a least one cloud, with one or more host groups. The Hyper-V host on which VMs are running should be located in the cloud.
+- Make sure the Virtual Machine Manager server has at least one cloud, with one or more host groups. The Hyper-V host on which VMs are running should be located in the cloud.
 - Prepare the Virtual Machine Manager server for network mapping.
 
 ### Prepare Virtual Machine Manager for network mapping
@@ -67,7 +68,7 @@ For this tutorial, the simplest configuration is for the Hyper-V hosts and the V
 1. Make sure that Hyper-V hosts and the Virtual Machine Manager server, if relevant, can access the required URLs listed in the following table.
 1. If you're controlling access by IP address, make sure that:
     - IP address-based firewall rules can connect to [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653) and the HTTPS port (443).
-    - Allow IP address ranges for the Azure region of your subscription.
+    - You allow IP address ranges for the Azure region of your subscription.
 
 ### Required URLs
 
@@ -79,10 +80,10 @@ During a failover scenario, you might want to connect to your replicated on-prem
 
 To connect to Windows VMs by using Remote Desktop Protocol (RDP) after failover, allow access as follows:
 
-1. To access to VMs over the internet, enable RDP on the on-premises VM before failover. Make sure that TCP and UDP rules are added for the **Public** profile, and that RDP is allowed in **Windows  Firewall** > **Allowed Apps** for all profiles.
-1. To access to VMs over site-to-site VPN, enable RDP on the on-premises machine. RDP should be allowed in **Windows Firewall** > **Allowed apps and features** for **Domain and Private** networks.
+1. To access VMs over the internet, enable RDP on the on-premises VM before failover. Make sure that TCP and UDP rules are added for the **Public** profile, and that RDP is allowed in **Windows  Firewall** > **Allowed Apps** for all profiles.
+1. To access VMs over site-to-site VPN, enable RDP on the on-premises machine. RDP should be allowed in **Windows Firewall** > **Allowed apps and features** for **Domain and Private** networks.
 
-   Check that the operating system's SAN policy is set to **OnlineAll**. [Learn more](https://support.microsoft.com/kb/3031135). No Windows updates should be pending on the VM when you initiate failover. If updates are pending, you won't be able to sign in to the VM until the update completes.
+   Check that the operating system's SAN policy is set to **OnlineAll**. [Learn more](https://support.microsoft.com/kb/3031135). No Windows updates should be pending on the VM when you initiate failover. If updates are pending, you can't sign in to the VM until the update completes.
 1. On the Windows Azure VM after failover, check **Boot diagnostics** to view a screenshot of the VM. If you can't connect, check that the VM is running and review these [troubleshooting tips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 After failover, you can access Azure VMs by using the same IP address as the replicated on-premises VM, or you can use a different IP address. [Learn more](concepts-on-premises-to-azure-networking.md) about setting up IP addresses for failover.
@@ -90,4 +91,4 @@ After failover, you can access Azure VMs by using the same IP address as the rep
 ## Next steps
 
 - [Set up disaster recovery to Azure for Hyper-V VMs](./hyper-v-azure-tutorial.md)
-- [Set up disaster recovery to Azure for Hyper-V VMs in Virtual Machine Manager clouds](./hyper-v-vmm-azure-tutorial.md).
+- [Set up disaster recovery to Azure for Hyper-V VMs in Virtual Machine Manager clouds](./hyper-v-vmm-azure-tutorial.md)

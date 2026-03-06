@@ -9,7 +9,7 @@ ms.devlang: csharp
 
 # Use ephemeral OS disk nodes for Azure Batch pools
 
-Some Azure virtual machine (VM) series support the use of [ephemeral OS disks](/azure/virtual-machines/ephemeral-os-disks), which create the OS disk on the node virtual machine local storage. The default Batch pool configuration uses [Azure managed disks](/azure/virtual-machines/managed-disks-overview) for the node OS disk, where the managed disk is like a physical disk, but virtualized and persisted in remote Azure Storage.
+Some Azure virtual machine (VM) series support the use of [ephemeral OS disks](/azure/virtual-machines/ephemeral-os-disks), which create the OS disk on the node virtual machine local storage. The default Batch pool configuration uses [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) for the node OS disk, where the managed disk is like a physical disk, but virtualized and persisted in remote Azure Storage.
 
 For Batch workloads, the main benefits of using ephemeral OS disks are reduced costs associated with pools, the potential for faster node start time, and improved application performance due to better OS disk performance. When choosing whether ephemeral OS disks should be used for your workload, consider the following impacts:
 

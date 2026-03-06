@@ -2,7 +2,7 @@
 title: Troubleshoot SSIS Integration Runtime management
 description: "This article provides troubleshooting guidance for management issues of SSIS Integration Runtime (SSIS IR)"
 ms.subservice: integration-services
-ms.topic: conceptual
+ms.topic: troubleshooting-general
 author: chinadragon0515
 ms.author: dashe
 ms.reviewer: chugugrace

@@ -5,7 +5,7 @@ author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.subservice: conditions
-ms.topic: conceptual
+ms.topic: faq
 ms.date: 02/26/2025
 ms.author: rolyon
 ---

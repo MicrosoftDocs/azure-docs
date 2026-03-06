@@ -2,7 +2,7 @@
 title: Back up an SAP HANA database to Azure with Azure Backup 
 description: In this article, learn how to back up an SAP HANA database to Azure virtual machines with the Azure Backup service.
 ms.topic: how-to
-ms.date: 01/29/2026
+ms.date: 02/16/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -13,10 +13,9 @@ ms.author: v-mallicka
 
 This article describes how to back up SAP HANA databases that are running on Azure VMs to an Azure Backup Recovery Services vault.
 
-SAP HANA databases are critical workloads that require a low recovery-point objective (RPO) and long-term retention. You can back up SAP HANA databases running on Azure virtual machines (VMs) by using [Azure Backup](backup-overview.md).
+SAP HANA databases are critical workloads that require a low recovery-point objective (RPO) and long-term retention. You can back up SAP HANA databases running on Azure virtual machines (VMs) by using [Azure Backup](backup-overview.md). You can also [back up SAP HANA System Replication databases on Azure VMs](sap-hana-database-with-hana-system-replication-backup.md) and [back up SAP HANA database instance snapshots on Azure VMs](sap-hana-database-instances-backup.md).
 
->[!NOTE]
->See the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md) to know more about the supported configurations and scenarios.
+To learn about the supported SAP HANA database backup and restore scenarios, region availability, and limitations, see the [support matrix](backup-azure-sql-database.md). For common questions, see the [frequently asked questions](sap-hana-faq-backup-azure-vm.yml).
 
 ## Prerequisites
 
@@ -250,7 +249,9 @@ Specify the policy settings as follows:
 1. After you finish defining the backup policy, select **OK**.
 
 > [!NOTE]
-> Each log backup is chained to the previous full backup to form a recovery chain. This full backup will be retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume a user has a weekly full backup, daily differential and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available, that is, after 30 + 7 days. For example, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
+> Log and incremental backups are chained to the full backup to form recovery chains. The full backup is retained until the retention of the last dependent backup (log or incremental) expires. This might mean that the full backup is retained for an extra period to make sure all dependent backups can be recovered. Let's assume a user has a weekly full backup, daily incremental and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available, that is, after 30 + 7 days. For example, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd. The same logic applies to incremental backups: if daily incrementals have a 30-day retention, the last incremental before the next full (Nov 22nd) expires on Dec 22nd, so the Nov 16th full is also retained until Dec 22nd.
+>
+> If backups are in a soft-deleted state, the same chaining and retention dependencies apply. The soft-deleted backups are also retained for 14 additional days beyond the policy retention period before being permanently deleted.
 
 ## Run an on-demand backup
 
@@ -286,7 +287,8 @@ If no data sync occurs to the Azure Backup service for more than *2 hours*, Azur
 
 ## Next steps
 
-* [Restore SAP HANA databases running on Azure VMs using Azure portal](./sap-hana-db-restore.md).
-* [Restore SAP HANA databases running on Azure VMs using Azure CLI](tutorial-sap-hana-restore-cli.md).
-* [Manage SAP HANA databases that are backed up by Azure Backup using Azure portal](./sap-hana-db-manage.md).
-* [Manage SAP HANA databases that are backed up by Azure Backup using Azure CLI](tutorial-sap-hana-manage-cli.md).
+- [Restore SAP HANA databases running on Azure VMs using Azure portal](./sap-hana-db-restore.md).
+- [Restore SAP HANA databases running on Azure VMs using Azure CLI](tutorial-sap-hana-restore-cli.md).
+- [Manage SAP HANA databases that are backed up by Azure Backup using Azure portal](./sap-hana-db-manage.md).
+- [Manage SAP HANA databases that are backed up by Azure Backup using Azure CLI](tutorial-sap-hana-manage-cli.md).
+

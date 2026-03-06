@@ -154,7 +154,7 @@ Select **Customer managed** to choose customer-managed key encryption. The key v
 
 Check the **Always use current key version** box if you want to use [automatic key rotation](/azure/virtual-machines/disk-encryption#automatic-key-rotation-of-customer-managed-keys).
 
-If you want to use a specific managed identity for this cache, configure it in the **Managed identities** section. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
+If you want to use a specific managed identity for this cache, configure it in the **Managed identities** section. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!NOTE]
 > You cannot change the assigned identity after you create the cache.

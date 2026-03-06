@@ -215,7 +215,7 @@
       href: api-management-howto-autoscale.md
     - name: Plan and manage costs
       href: plan-manage-costs.md
-    - name: Service limits
+    - name: Understand service limits
       href: service-limits.md
     - name: Use an external cache
       href: api-management-howto-cache-external.md
@@ -403,12 +403,20 @@
       href: how-to-configure-local-metrics-logs.md
     - name: Enable Dapr support on self-hosted gateway
       href: self-hosted-gateway-enable-dapr.md
-    - name: Use Microsoft Entra authentication on self-hosted gateway
-      href: self-hosted-gateway-enable-azure-ad.md
-  - name: Run self-hosted gateway in production
-    href: how-to-self-hosted-gateway-on-kubernetes-in-production.md
-  - name: Self-hosted gateway support policy
-    href: self-hosted-gateway-support-policies.md
+    - name: Configure authentication to cloud instance
+      items:
+        - name: Self-hosted gateway authentication options
+          href: self-hosted-gateway-authentication-options.md
+        - name: Authenticate with Microsoft Entra ID - workload identity
+          href: self-hosted-gateway-enable-workload-identity.md
+        - name: Authenticate with Microsoft Entra ID - client secret
+          href: self-hosted-gateway-enable-azure-ad.md
+        - name: Authenticate with an access token
+          href: self-hosted-gateway-default-authentication.md  
+    - name: Run self-hosted gateway in production
+      href: how-to-self-hosted-gateway-on-kubernetes-in-production.md
+    - name: Self-hosted gateway support policy
+      href: self-hosted-gateway-support-policies.md
 - name: Developer portal and publishing
   items:
   - name: Manage users, groups, and subscriptions

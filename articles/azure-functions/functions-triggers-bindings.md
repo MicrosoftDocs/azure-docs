@@ -2,7 +2,7 @@
 title: Triggers and Bindings in Azure Functions
 description: Learn how to use triggers and bindings to connect your Azure function to online events and cloud-based services.
 ms.topic: concept-article
-ms.date: 10/10/2025
+ms.date: 02/26/2026
 ms.custom: devdivchpfy22, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ai-usage: ai-assisted
@@ -46,7 +46,7 @@ For C# class library functions, you configure triggers and bindings by decoratin
 
 The HTTP trigger (`HttpTrigger`) is defined on the `Run` method for a function named `HttpExample` that returns a `MultiResponse` object:
 
-:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-isolated/HttpExample.cs" range="11-14":::
+:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-isolated/HttpExample.cs" range="17-18":::
 
 This example shows the `MultiResponse` object definition. The object definition returns `HttpResponse` to the HTTP request and writes a message to a storage queue by using a `QueueOutput` binding:
 
@@ -271,4 +271,4 @@ You can create custom input and output bindings. Bindings must be authored in .N
 - [Binding expressions and patterns](./functions-bindings-expressions-patterns.md)
 - [Register Azure Functions binding extensions](./functions-bindings-register.md)
 - [Manually run a non-HTTP-triggered function](functions-manually-run-non-http.md)
-- [Handling binding errors](./functions-bindings-errors.md)
+- [Handling binding errors](./functions-bindings-error-pages.md)

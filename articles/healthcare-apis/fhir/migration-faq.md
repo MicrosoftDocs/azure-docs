@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: evach
 author: evachen96
-ms.date: 10/10/2025
+ms.date: 02/25/2026
 ---
 
 # FAQ about migration from Azure API for FHIR
@@ -22,7 +22,7 @@ Due to the retirement of Azure API for FHIR after April 1, 2025 customers won't 
 
 ## Why is Microsoft retiring Azure API for FHIR?
 
-Azure API for FHIR is a service that was purpose built for protected health information (PHI), meeting regional compliance requirements. In March 2022, we announced the general availability of Azure Health Data Services, which enables quick deployment of managed, enterprise-grade FHIR, DICOM, and MedTech services for diverse health data integration. With this new experience, we’re retiring Azure API for FHIR.
+Azure API for FHIR is a service that was purpose built for protected health information (PHI), meeting regional compliance requirements. In March 2022, we announced the general availability of Azure Health Data Services, which enables quick deployment of managed, enterprise-grade FHIR and DICOM services for diverse health data integration. With this new experience, we’re retiring Azure API for FHIR.
 
 ## What are the benefits of migrating to Azure Health Data Services FHIR service?
 

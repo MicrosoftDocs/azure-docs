@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 12/31/2025
+ms.date: 02/23/2026
 ms.custom: generated
 ---
 
@@ -195,12 +195,44 @@ Azure service: [Azure NetApp Files](/azure/azure-netapp-files/)
 > | --- | --- |
 > | Microsoft.NetApp/register/action | Subscription Registration Action |
 > | Microsoft.NetApp/unregister/action | Unregisters Subscription with Microsoft.NetApp resource provider |
+> | Microsoft.NetApp/activeDirectoryConfigs/read | Returns the details of an active directory config resource(s). |
+> | Microsoft.NetApp/activeDirectoryConfigs/write | Creates or updates an active directory config resource. |
+> | Microsoft.NetApp/activeDirectoryConfigs/delete | Deletes an active directory config. |
+> | Microsoft.NetApp/elasticAccounts/read | Returns the details of elastic account resource(s). |
+> | Microsoft.NetApp/elasticAccounts/write | Creates or updates an elastic account resource. |
+> | Microsoft.NetApp/elasticAccounts/delete | Deletes an elastic account. |
+> | Microsoft.NetApp/elasticAccounts/elasticBackupPolicies/read | Returns the details of elastic backup policy resource(s). |
+> | Microsoft.NetApp/elasticAccounts/elasticBackupPolicies/write | Creates or updates an elastic backup policy resource. |
+> | Microsoft.NetApp/elasticAccounts/elasticBackupPolicies/delete | Deletes an elastic backup policy. |
+> | Microsoft.NetApp/elasticAccounts/elasticBackupVaults/read | Reads an elastic backup vault resource. |
+> | Microsoft.NetApp/elasticAccounts/elasticBackupVaults/write | Writes an elastic backup vault resource. |
+> | Microsoft.NetApp/elasticAccounts/elasticBackupVaults/delete | Deletes an elastic backup vault resource. |
+> | Microsoft.NetApp/elasticAccounts/elasticBackupVaults/elasticBackups/read | Reads an elastic backup resource. |
+> | Microsoft.NetApp/elasticAccounts/elasticBackupVaults/elasticBackups/write | Writes an elastic backup resource. |
+> | Microsoft.NetApp/elasticAccounts/elasticBackupVaults/elasticBackups/delete | Deletes an elastic backup resource. |
+> | Microsoft.NetApp/elasticAccounts/elasticCapacityPools/read | Returns the details of elastic capacity pool resource(s). |
+> | Microsoft.NetApp/elasticAccounts/elasticCapacityPools/write | Creates or updates an elastic capacity pool resource. |
+> | Microsoft.NetApp/elasticAccounts/elasticCapacityPools/delete | Deletes an elastic capacity pool. |
+> | Microsoft.NetApp/elasticAccounts/elasticCapacityPools/changeZone/action | Change logical availability zone for an elastic capacityPool in a zone aware region and storage. |
+> | Microsoft.NetApp/elasticAccounts/elasticCapacityPools/checkVolumeFilePathAvailability/action | Checks file path availability for an elastic capacity pool. |
+> | Microsoft.NetApp/elasticAccounts/elasticCapacityPools/elasticVolumes/read | Returns the details of elastic volume resource(s). |
+> | Microsoft.NetApp/elasticAccounts/elasticCapacityPools/elasticVolumes/write | Creates or updates an elastic volume resource. |
+> | Microsoft.NetApp/elasticAccounts/elasticCapacityPools/elasticVolumes/delete | Deletes an elastic volume. |
+> | Microsoft.NetApp/elasticAccounts/elasticCapacityPools/elasticVolumes/revert/action | Revert volume to specific snapshot |
+> | Microsoft.NetApp/elasticAccounts/elasticCapacityPools/elasticVolumes/elasticSnapshots/read | Returns the details of elastic snapshot resource(s). |
+> | Microsoft.NetApp/elasticAccounts/elasticCapacityPools/elasticVolumes/elasticSnapshots/write | Creates an elastic snapshot. |
+> | Microsoft.NetApp/elasticAccounts/elasticCapacityPools/elasticVolumes/elasticSnapshots/delete | Deletes an elastic snapshot. |
+> | Microsoft.NetApp/elasticAccounts/elasticSnapshotPolicies/read | Returns the details of elastic snapshot policy resource(s). |
+> | Microsoft.NetApp/elasticAccounts/elasticSnapshotPolicies/write | Creates or updates an elastic snapshot policy resource. |
+> | Microsoft.NetApp/elasticAccounts/elasticSnapshotPolicies/delete | Deletes an elastic snapshot policy. |
+> | Microsoft.NetApp/elasticAccounts/elasticSnapshotPolicies/elasticVolumes/read | List connected elastic volumes |
 > | Microsoft.NetApp/locations/read | Reads a location wide operation. |
 > | Microsoft.NetApp/locations/checknameavailability/action | Check if resource name is available |
 > | Microsoft.NetApp/locations/checkfilepathavailability/action | Check if file path is available |
 > | Microsoft.NetApp/locations/checkquotaavailability/action | Check if a quota is available. |
 > | Microsoft.NetApp/locations/queryNetworkSiblingSet/action | Query Network sibling set. |
 > | Microsoft.NetApp/locations/updateNetworkSiblingSet/action | Query Network sibling set. |
+> | Microsoft.NetApp/locations/elasticRegionInfos/read | Reads an elastic regionInfos resource |
 > | Microsoft.NetApp/locations/operationresults/read | Reads an operation result resource. |
 > | Microsoft.NetApp/locations/quotaLimits/read | Reads a Quotalimit resource type. |
 > | Microsoft.NetApp/locations/regionInfo/read | Reads a regionInfo resource. |
@@ -236,7 +268,8 @@ Azure service: [Azure NetApp Files](/azure/azure-netapp-files/)
 > | Microsoft.NetApp/netAppAccounts/capacityPools/caches/write | Creates or updates a cache resource |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/caches/delete | Deletes a cache resource |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/caches/listPeeringPassphrases/action | Lists the cluster peering command, cluster peering passphrase and the vserver peering command |
-> | Microsoft.NetApp/netAppAccounts/capacityPools/caches/poolChange/action | Moves volume to another pool. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/caches/poolChange/action | Moves a cache volume to another pool. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/caches/resetSmbPassword/action | Reset SMB password for account from specific cache volume. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/providers/Microsoft.Insights/logDefinitions/read | Gets the log definitions for the resource. |
@@ -270,6 +303,7 @@ Azure service: [Azure NetApp Files](/azure/azure-netapp-files/)
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/finalizeOnPremMigration/action | Finalize OnPrem migration by doing a final sync on the replication, break and release the replication and break cluster peering if no other migration is active. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/finalizeExternalReplication/action | Finalize OnPrem migration by doing a final sync on the replication, break and release the replication and break cluster peering if no other migration is active. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/listQuotaReport/action | List user/group quota report for the volume. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/updateAVSDataStoreInfo/action | Update AVS datastore information for a volume. Operation can only be called from Azure Vmware Solution |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups/read | Reads a backup resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups/write | Writes a backup resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups/delete | Deletes a backup resource. |

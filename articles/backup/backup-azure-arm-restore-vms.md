@@ -86,6 +86,7 @@ To select a restore point for a VM restore, follow these steps:
 
 >[!Note]
 >Use the **Replace existing** option only when the **Transfer Data to Vault** subtask in the job details shows successfully completed. Otherwise, use the **Create New** option for the latest recovery point restoration.
+>For more information about backup phases and progress interpretation, see [Verify the backup job status](backup-azure-arm-vms-prepare.md#verify-the-backup-job-status).
 
 ## Create a VM
 
@@ -227,7 +228,7 @@ To begin using the feature, read the [Before You Begin section](./backup-create-
 To see if CRR is enabled, follow the instructions in [Configure Cross Region Restore](backup-create-rs-vault.md#set-cross-region-restore).
 
 >[!Note]
->Cross-region restore is currently not supported for machines running on Ultra disks. [Learn more about Ultra disk backup supportability](backup-support-matrix-iaas.md#ultra-disk-backup).
+>Cross-region restore is currently not supported for machines running on Ultra Disks. [Learn more about Ultra Disk backup supportability](backup-support-matrix-iaas.md#ultra-disk-backup).
 
 ### View backup items in secondary region
 

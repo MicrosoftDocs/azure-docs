@@ -14,120 +14,89 @@ ms.custom: references_regions, ignite-2024
 
 Azure Container Apps dynamic sessions provide fast access to secure sandboxed environments that are ideal for running code or applications that require strong isolation from other workloads.
 
-Sessions operate within the context of a [session pool](session-pool.md) which mitigates cold start to ensure immediate availability of a session.
+Dynamic sessions offer prewarmed environments through a [session pools](./session-pool.md) that starts the container in milliseconds, scales on demand, and maintains strong isolation. This makes them ideal for interactive workloads, running LLM generated scripts, and secure execution of custom code.
 
+
+## Benefits
 With sessions, you get:
 
-* **Strong isolation**: Sessions are isolated from each other and from the host environment. Each session runs in its own Hyper-V sandbox, providing enterprise-grade security and isolation. Optionally, you can enable network isolation to further enhance security.
+- **Secure isolation**: Hyper-V isolation and optional network controls protect your environment. Sessions are isolated from each other and from the host environment, providing enterprise-grade security and isolation.  
+- **Sandboxed environments**: Each session runs in its own isolated environment, ensuring that workloads don't interfere with each other.
+- **Instant Startup**: Prewarmed pools enable subsecond launch times for interactive workloads. New sessions are allocated in milliseconds thanks to pools of ready but unallocated sessions.  
+- **Scalable by Design**: Handle hundreds or thousands of concurrent sessions without manual intervention. 
+- **Managed lifecycle**: Sessions are automatically deprovisioned after use or after a configurable cooldown period, ensuring efficient resource usage. 
 
-* **Simple access**: Sessions are accessed through a REST API. A unique identifier marks each session. If a session with a given identifier doesn't exist, a new session is automatically allocated.
 
-* **Fully managed**: Container Apps fully manages a session's lifecycle. Sessions are automatically cleaned up when no longer in use.
+## Common Scenarios
+Dynamic sessions are useful in a variety of situations, including:
+- **AI/LLM Workflows**: Safely execute AI-generated code in isolated environments without risking your production systems.
+- **Interactive Development**: Provide developers with fast, disposable environments for testing scripts or prototypes without provisioning full apps.
+- **Secure Code Execution**: Run untrusted or user-submitted code in a sandboxed environment with strong isolation.
+- **Custom Compute Tasks**: Execute short-lived jobs that require custom dependencies or runtime environments without long startup times.
+- **Burst Workloads**: Handle unpredictable spikes in demand by scaling sessions up and down automatically.
 
-* **Fast startup**: New sessions are allocated in milliseconds. Rapid start-ups are achieved by automatically maintaining a pool of ready but unallocated sessions.
 
-* **Scalable**: Sessions can run at a high scale. You can run hundreds or thousands of sessions concurrently.
+## Key Concepts
+- **Session Pool**: A session pool is the foundation for dynamic sessions. It contains a set of prewarmed, ready-to-use sessions that enable near instant startup. When a request comes in, the system allocates a session from the pool instead of creating one from scratch, which dramatically reduces latency.  
 
-* **API access**: Sessions are exposed to your application via a single HTTP endpoint.
+- **Session**: A session is the actual execution environment where your code or container runs. Sessions are ephemeral and isolated, designed for short-lived tasks. When you create a session, it's allocated from the session pool, ensuring fast startup. After the task completes or the cooldown period expires, the session is destroyed and resources are cleaned up.  
 
-## Session
+- **Session lifecycle**: When your application sends a request with a session identifier, the session pool allocates a session automatically. The session stays active as long as requests continue. Once the cooldown period expires with no activity, the session is destroyed and its resources are cleaned up automatically.
 
-A session is a sandboxed environment that runs untrusted code or your application.
+- **Request routing and identifiers**: Sessions are accessed through the session pool management endpoint. Requests include an `identifier` query parameter, and the pool routes the request to an existing session or allocates a new one if needed. The request path after the management endpoint is forwarded to the session container.
 
-Each session is isolated from all other sessions and from the host environment with a [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) sandbox. Hyper-V technology is at the foundation for session isolation, ensuring that different sessions operate independently with the necessary security boundaries in place. For enhanced network security, you can enable session network isolation on your session.
+- **Session pool types**
+  - **Code interpreter session pools**: These use platform built-in containers that provide preconfigured environments for running code, including AI-generated scripts. Ideal for scenarios like LLM-driven workflows or secure code execution.
+  - **Custom container session pools**: Bring-your-own-container for custom workloads that require specific dependencies or runtime environments.
 
-There are two different types of sessions.
 
-## Session types
+#### Session pool types comparison
 
-Azure Container Apps supports two types of sessions:
+| | **Code interpreter session pool** | **Custom container session pool** |
+|---------------|------------------------------|------------------------------|
+| **Best for** | Running AI‑generated code, user-submitted scripts, or quick secure code execution without managing a runtime environment. | Workloads requiring a custom runtime, libraries, binaries, or specialized tools not supported by built-in interpreters. |
+| **Environment** | Preconfigured with common runtimes and tools; no container build or image publishing required. | Fully customizable container image with your own dependencies, packages, and configuration. |
+| **When to choose** | Choose this for simplicity, fastest startup, and minimal setup. | Choose this when you need full control over the execution environment or rely on custom dependencies. |
+| **Ideal use cases** | LLM workflows, code interpretation, educational/sandbox scenarios, safe execution of user code. | Custom compute tasks, proprietary interpreters, specialized environments, or workloads with specific OS/library requirements. |
+| **Language and protocol** | Limited to the built-in runtimes and the REST API surface provided by the code interpreter. | Any language or stack supported by your container, with any TCP protocol you choose to expose. |
+| **Image requirement** | None—uses platform built‑in interpreter environments. | Required—supply your own container image URI. |
 
-| Type | Description | Billing model |
-|------|-------------|---------------|
-| [Code interpreter sessions](./sessions-code-interpreter.md) | Fully managed code interpreter which allows you to run code in a sandbox preinstalled with popular libraries.<br><br>Ideal for running untrusted code, such as code provided by users of your application or code generated by a large language model (LLM).<br><br>You can use the session out-of-the-box or with a [language model framework](./sessions-code-interpreter.md#llm-framework-integrations). | Per session (consumption) |
-| [Custom container sessions](./sessions-custom-container.md) | Bring-your-own-container option where you run your own container images in secure, isolated sandboxes.<br><br>This approach is a good option if you want to run a custom code interpreter for a language that isn't supported out of the box, or workloads that require strong isolation. | Container Apps Dedicated Plan |
+For more information, see [Usage](./sessions-usage.md).
 
-Each session, regardless of type, runs in the context of a session pool.
 
-## Session pools
+## Supported regions
 
-To provide subsecond session allocation times, Azure Container Apps maintains a pool of ready but unallocated sessions. When your application makes a request for a session that hasn't been used before, the pool automatically assigns a new session for you. As sessions are allocated, the pool is automatically replenished to maintain a constant number of ready sessions.
+Dynamic sessions are available in the following regions. Both code interpreter and custom container sessions are supported in all listed regions.
 
-Each session pool is available to your app through a [unique pool management endpoint location](sessions-usage.md).
+| Americas | Europe | Asia Pacific | Middle East & Africa |
+|----------|--------|--------------|----------------------|
+| Brazil South | France Central | Australia East | South Africa North |
+| Canada Central | France South | Australia Southeast | UAE North |
+| Canada East | Germany West Central | Central India | |
+| Central US | Italy North | East Asia | |
+| East US | North Europe | Japan East | |
+| East US 2 | Norway East | Japan West | |
+| North Central US | Poland Central | Korea Central | |
+| West Central US | Spain Central | South India | |
+| West US | Sweden Central | Southeast Asia | |
+| West US 2 | Switzerland North | | |
+| West US 3 | Switzerland West | | |
+| | UK South | | |
+| | UK West | | |
+| | West Europe | | |
 
-## Session lifecycle
-
-The Container Apps runtime automatically manages the lifecycle for each session in a pool. A session's life begins as the session starts and continues while the session is in use. After there are no requests to the session after the cool down time has elapsed, the session is destroyed.
-
-The following states define this lifecycle:
-
-1. **Pending**: When a session is starting up, it's in the pending state. The amount of time a session spends in this state depends on the container image and settings specified for the session pool. A session in this state isn't added to the pool of ready sessions.
-
-1. **Unallocated**: Once a session is done starting up, it's added to the pool and becomes available for allocation. For custom container sessions, you can specify how many ready sessions to maintain in the pool. This number should be increased if sessions are allocated faster than they're replenished.
-
-1. **Allocated**: When you send a request to a nonrunning session, the pool provides a new session and places it in an allocated state. Subsequent requests with the same session identifier are routed to the same session, allowing for efficient reuse without cold starts. Each allocated session is associated with a [session identifier](./sessions-usage.md#identifiers).
-
-1. **Destroyed**: If a session doesn't receive requests for a duration defined by the `cooldownPeriodInSeconds` setting, the session and its Hyper-V sandbox are securely deleted. This automatic cleanup setup enhances resource management and security.
-
-The Container Apps runtime automatically manages the lifecycle for each session in a session pool.
-
-## Region availability
-
-Dynamic sessions are available in the following regions:
-
-| Region | Code interpreter | Custom container |
-|--------|------------------|------------------|
-| Australia East | ✔ | ✔ |
-| Australia Southeast | ✔ | ✔ |
-| Brazil South | ✔ | ✔ |
-| Canada Central | ✔ | ✔ |
-| Canada East | ✔ | ✔ |
-| Central India | ✔ | ✔ |
-| Central US | ✔ | ✔ |
-| East Asia | ✔ | ✔ |
-| East US | ✔ | ✔ |
-| East US 2 | ✔ | ✔ |
-| France Central | ✔ | ✔ |
-| Germany West Central | ✔ | ✔ |
-| Italy North | ✔ | ✔ |
-| Japan East | ✔ | ✔ |
-| Japan West | ✔ | ✔ |
-| Korea Central | ✔ | ✔ |
-| North Central US | ✔ | ✔ |
-| North Europe | ✔ | ✔ |
-| Norway East | ✔ | ✔ |
-| Poland Central | ✔ | ✔ |
-| South Africa North | ✔ | ✔ |
-| South India | ✔ | ✔ |
-| Southeast Asia | ✔ | ✔ |
-| Sweden Central | ✔ | ✔ |
-| Switzerland North | ✔ | ✔ |
-| Switzerland West | ✔ | ✔ |
-| UAE North | ✔ | ✔ |
-| UK South | ✔ | ✔ |
-| UK West | ✔ | ✔ |
-| West Central US | ✔ | ✔ |
-| West Europe | ✔ | ✔ |
-| West US | ✔ | ✔ |
-| West US 2 | ✔ | ✔ |
-| West US 3 | ✔ | ✔ |
-
-## Billing
-
-Custom container sessions are billed based on the resources consumed by the session pool. For more information, see [Azure Container Apps billing](billing.md#custom-container).
+> [!NOTE]
+> Regional availability may change. To verify current availability, check the **Location** dropdown when creating a session pool in the Azure portal.
 
 ## Security
+Dynamic sessions are designed to run untrusted code in isolated environments. For information about securing your sessions, see [Security](./sessions-usage.md#security).
 
-Use the following methods to help harden the security of your dynamic sessions.
 
-* **Secure identifiers**: Use secure [session identifiers](sessions-usage.md#identifiers) at all times. Generate session identifiers using cryptographic methods to ensure unique and unpredictable values. Avoid using sequential IDs that could be guessed by an attacker.  
+## Billing
+Custom container sessions are billed based on the resources consumed by the session pool. For more information, see [Azure Container Apps billing](./billing.md#dynamic-sessions).
 
-* **Use HTTPS**: Always use HTTPS to encrypt data in transit. This protects session identifiers and any sensitive data exchanged between the client and server from being intercepted.
 
-* **Limit session lifetime**: Implement timeouts for sessions. For instance, allow a maximum of 15 minutes of inactivity before the session is automatically terminated. This helps mitigate risks due to a lost or unattended device.
+## Next steps
+- Learn how to configure [session pools](./session-pool.md) 
+- Learn how to use [dynamic sessions](./sessions-usage.md), including security and best practices
 
-* **Regular audits and monitoring**: Periodically review session management practices and logs. Implement monitoring tools to alert suspicious activities, such as repeated failed login attempts or abnormal session lengths.
-
-## Related content
-
-* [Session pools](./session-pool.md)

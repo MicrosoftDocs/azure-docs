@@ -6,7 +6,7 @@ metadata:
   author: nicholak
   ms.author: nicholak
   ms.reviewer: nicholak
-  ms.date: 12/29/2025
+  ms.date: 02/12/2026
   ms.service: cost-management-billing
   ms.subservice: billing
   ms.topic: how-to
@@ -29,8 +29,8 @@ procedureSection:
       When the request is approved, the CSP can then provide a combined invoice to their customers. To learn more about CSPs transferring subscriptions, see [Get billing ownership of Azure subscriptions for your Microsoft Partner Agreement (MPA) account](mpa-request-ownership.md).
 
       >[!IMPORTANT]
-      > After transferring an EA or MCA enterprise subscription to a CSP partner, any quota increases previously applied to the EA subscription will be reset to the default value. If more quota is required after the subscription transfer, have your CSP provider submit a [quota increase](/azure/azure-portal/supportability/regional-quota-requests) request. 
-    
+      > After transferring an EA or MCA enterprise subscription to a CSP partner, any previously applied quota increases will carry over to the CSP subscription. If no quota increases were previously applied, the quota will reset to the CSP default limits. If additional quota is required after the subscription transfer, please have your CSP provider submit a [quota increase](/azure/azure-portal/supportability/regional-quota-requests) request.
+          
       ## Other subscription transfers to a CSP partner
 
       For Azure subscriptions that aren't eligible for billing transfer to MPA, as outlined in the [Azure subscription transfer hub](subscription-transfer.md#product-transfer-support) article, the subscriber must transfer resources from these source subscriptions to CSP subscriptions. Use the following guidance to move resources between subscriptions.

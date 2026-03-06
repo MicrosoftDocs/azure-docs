@@ -27,7 +27,7 @@ Each Microsoft Entra directory is distinct and separate from other Microsoft Ent
 
 ### Azure tenancy
 
-Azure tenancy (Azure Subscription) refers to a customer and billing relationship and a unique [tenant](/entra/identity-platform/quickstart-create-new-tenant.md) in [Microsoft Entra ID](/entra/fundamentals/active-directory-whatis.md). Microsoft Entra ID and its [Azure role-based access control](../../role-based-access-control/overview.md) provide tenant level isolation in Microsoft Azure. Each Azure subscription is associated with one Microsoft Entra directory.
+Azure tenancy (Azure Subscription) refers to a customer and billing relationship and a unique [tenant](/entra/identity-platform/quickstart-create-new-tenant) in [Microsoft Entra ID](/entra/fundamentals/active-directory-whatis.md). Microsoft Entra ID and its [Azure role-based access control](../../role-based-access-control/overview.md) provide tenant level isolation in Microsoft Azure. Each Azure subscription is associated with one Microsoft Entra directory.
 
 Users, groups, and applications from that directory can manage resources in the Azure subscription. You can assign these access rights by using the Azure portal, Azure command-line tools, and Azure Management APIs. Security boundaries logically isolate a Microsoft Entra tenant so that no customer can access or compromise co-tenants, either maliciously or accidentally. Microsoft Entra ID runs on "bare metal" servers isolated on a segregated network segment, where host-level packet filtering and Windows Firewall block unwanted connections and traffic.
 
@@ -43,7 +43,7 @@ Users, groups, and applications from that directory can manage resources in the 
 
 - Microsoft Entra users have no access to physical assets or locations, and therefore they can't bypass the logical Azure RBAC policy checks stated following.
 
-For diagnostics and maintenance needs, use an operational model that employs a just-in-time privilege elevation system. Microsoft Entra Privileged Identity Management (PIM) introduces the concept of an eligible admin. [Eligible admins](/entra/id-governance/privileged-identity-management/pim-configure.md) are users that need privileged access now and then, but not every day. The role is inactive until the user needs access, then they complete an activation process and become an active admin for a predetermined amount of time.
+For diagnostics and maintenance needs, use an operational model that employs a just-in-time privilege elevation system. Microsoft Entra Privileged Identity Management (PIM) introduces the concept of an eligible admin. [Eligible admins](/entra/id-governance/privileged-identity-management/pim-configure) are users that need privileged access now and then, but not every day. The role is inactive until the user needs access, then they complete an activation process and become an active admin for a predetermined amount of time.
 
 ![Microsoft Entra Privileged Identity Management](./media/isolation-choices/azure-isolation-fig2.png)
 
@@ -77,11 +77,11 @@ Some other capabilities for Microsoft Entra ID include:
 
 - Microsoft Entra ID provides Identity as a Service through federation by using [Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs), synchronization, and replication with on-premises directories.
 
-- [Microsoft Entra multifactor authentication](/entra/identity/authentication/concept-mfa-howitworks.md) requires users to verify sign-ins by using a mobile app, phone call, or text message. It can be used with Microsoft Entra ID to help secure on-premises resources by using the Multi-Factor Authentication Server, and also with custom applications and directories by using the SDK.
+- [Microsoft Entra multifactor authentication](/entra/identity/authentication/concept-mfa-howitworks) requires users to verify sign-ins by using a mobile app, phone call, or text message. It can be used with Microsoft Entra ID to help secure on-premises resources by using the Multi-Factor Authentication Server, and also with custom applications and directories by using the SDK.
 
 - [Microsoft Entra Domain Services](https://azure.microsoft.com/products/microsoft-entra-ds/) lets you join Azure virtual machines to an Active Directory domain without deploying domain controllers. You can sign in to these virtual machines with your corporate Active Directory credentials and administer domain-joined virtual machines by using Group Policy to enforce security baselines on all your Azure virtual machines.
 
-- [Microsoft Entra External ID](/entra/external-id/external-identities-overview.md) provides a highly available global-identity management service for consumer-facing applications that scales to hundreds of millions of identities. It can be integrated across mobile and web platforms. Your consumers can sign in to all your applications through customizable experiences by using their existing social accounts or by creating credentials.
+- [Microsoft Entra External ID](/entra/external-id/external-identities-overview) provides a highly available global-identity management service for consumer-facing applications that scales to hundreds of millions of identities. It can be integrated across mobile and web platforms. Your consumers can sign in to all your applications through customizable experiences by using their existing social accounts or by creating credentials.
 
 ### Isolation from Microsoft administrators and data deletion
 

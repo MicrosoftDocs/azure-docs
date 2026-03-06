@@ -5,7 +5,7 @@ ms.topic: overview
 ms.author: v-gajeronika
 ms.service: azure-site-recovery
 author: Jeronika-MS
-ms.date: 12/22/2025
+ms.date: 02/24/2026
 ms.custom:
   - engagement-fy23
   - linux-related-content
@@ -25,6 +25,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 **Update** |  **Unified Setup / Configuration server** | **Replication appliance** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
+[Rollup 83](https://support.microsoft.com/en-us/topic/update-rollup-83-for-azure-site-recovery-a855fd73-e9f5-4339-adf7-d45b2dc9f4e3) | NA | NA | 9.66.7691.1 | NA | NA
 [Rollup 82](https://support.microsoft.com/en-us/topic/update-rollup-82-for-azure-site-recovery-df7f6773-43a1-4818-a5b1-20c62f60f195) | NA | NA | 9.66.7643.1 | NA | NA
 [Rollup 81](https://support.microsoft.com/en-us/topic/update-rollup-81-for-azure-site-recovery-fafaa6b3-2a55-4025-ab73-f14de258fdf2) | NA | NA | 9.66.7640.1 | NA | NA
 [Rollup 80](https://support.microsoft.com/en-us/topic/update-rollup-80-for-azure-site-recovery-2cbd2ed6-6935-4dbf-91d1-8fe04a97ada9) | 9.66.7567.1 | NA | 9.66.7567.1 | NA | NA
@@ -40,6 +41,18 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 
 [Learn more](service-updates-how-to.md) about update installation and support.
+
+## Updates (February 2026)
+
+### Update Rollup 83
+
+Update rollup 83 provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Azure VM disaster recovery** | Added kernel support for SLES 15, Debian 11, Debian 12, Ubuntu 18.04, Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04.
 
 ## Updates (December 2025)
 

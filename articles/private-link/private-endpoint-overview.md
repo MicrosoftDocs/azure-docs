@@ -230,6 +230,6 @@ The following information lists the known limitations to the use of private endp
 
 ## Next steps
 
-- For more information about private endpoints and Private Link, see [What is Azure Private Link?](private-link-overview.md).
+- For more information about private endpoints and Private Link, see [What is Azure Private Link?](private-link-overview.md)
 
 - To get started with creating a private endpoint for a web app, see [Quickstart: Create a private endpoint by using the Azure portal](create-private-endpoint-portal.md).

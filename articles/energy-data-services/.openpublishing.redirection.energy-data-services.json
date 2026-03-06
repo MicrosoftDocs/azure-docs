@@ -6,11 +6,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/energy-data-services/reliability-energy-data-services.md",
-            "redirect_url": "/azure/reliability/reliability-energy-data-services",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/energy-data-services/how-to-enable-external-data-sources.md",
             "redirect_url": "/azure/energy-data-services/how-to-enable-external-data-services",
             "redirect_document_id": false

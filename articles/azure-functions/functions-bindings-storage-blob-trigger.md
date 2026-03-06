@@ -263,7 +263,7 @@ For examples of using other SDK types, see the [`ContainerClient`](https://githu
 
 To learn more, including what other SDK type bindings are supported, see [SDK type bindings](functions-reference-python.md#sdk-type-bindings).
 
-This example logs information from the incoming blob metadata.
+This example logs the blob name and size from the incoming blob trigger.
 
 ```python
 import logging
@@ -273,8 +273,8 @@ app = func.FunctionApp()
 
 @app.function_name(name="BlobTrigger1")
 @app.blob_trigger(arg_name="myblob", 
-                  path="PATH/TO/BLOB",
-                  connection="CONNECTION_SETTING")
+                  path="samples-workitems/{name}",
+                  connection="MyStorageAccountAppSetting")
 def test_function(myblob: func.InputStream):
    logging.info(f"Python blob trigger function processed blob \n"
                 f"Name: {myblob.name}\n"

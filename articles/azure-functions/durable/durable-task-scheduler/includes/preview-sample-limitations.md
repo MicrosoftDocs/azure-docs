@@ -6,4 +6,4 @@ ms.date: 04/23/2025
 ---
 
 > [!IMPORTANT]
-> Currently, the Durable Task SDKs aren't available for JavaScript and PowerShell.
+> Currently, the PowerShell Durable Task SDK isn't available.

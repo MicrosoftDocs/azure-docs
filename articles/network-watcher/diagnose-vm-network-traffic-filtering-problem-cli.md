@@ -1,12 +1,12 @@
 ---
-title: 'Quickstart: Diagnose a VM traffic filter problem - Azure CLI'
+title: 'Quickstart: Diagnose a VM Traffic Filter Problem - Azure CLI'
 titleSuffix: Azure Network Watcher
 description: In this quickstart, you learn how to diagnose a virtual machine network traffic filter problem using Azure Network Watcher IP flow verify in Azure CLI.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: quickstart
-ms.date: 09/23/2025
+ms.date: 02/25/2026
 ms.custom: devx-track-azurecli, mode-api
 
 # Customer intent: As a system administrator, I want to diagnose network traffic filter issues on a virtual machine using an IP flow verification tool, so that I can identify and resolve security rules that are blocking communication.
@@ -55,11 +55,14 @@ In this section, you create a virtual network and a subnet in the East US region
     az network nsg create --name 'myVM-nsg' --resource-group 'myResourceGroup' --location 'eastus'
     ```
 
-1. Create a virtual machine using [az vm create](/cli/azure/vm#az-vm-create). When prompted, enter a username and password.
+    > [!NOTE]
+    > The default rules of the network security group block all inbound access from the internet, including SSH. To connect to the virtual machine, use Azure Bastion. For more information, see [Quickstart: Deploy Azure Bastion with default settings](../bastion/quickstart-host-portal.md).
+
+1. Create a virtual machine using [az vm create](/cli/azure/vm#az-vm-create).
 
     ```azurecli-interactive
     # Create a Linux virtual machine using the latest Ubuntu 20.04 LTS image.
-    az vm create --resource-group 'myResourceGroup' --name 'myVM' --location 'eastus' --vnet-name 'myVNet' --subnet 'mySubnet' --public-ip-address '' --nsg 'myVM-nsg' --image 'Canonical:0001-com-ubuntu-server-focal:20_04-lts-gen2:latest'
+    az vm create --resource-group 'myResourceGroup' --name 'myVM' --location 'eastus' --vnet-name 'myVNet' --subnet 'mySubnet' --public-ip-address '' --nsg 'myVM-nsg' --image 'Canonical:0001-com-ubuntu-server-focal:20_04-lts-gen2:latest' --generate-ssh-keys
     ```
 
 ## Test network communication using IP flow verify

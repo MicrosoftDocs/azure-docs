@@ -99,7 +99,7 @@ In the Azure portal, navigate to your Data Box Disk Order. Search for it by navi
 Depending on whether you are connected to a Windows or Linux client, the steps to unlock the disks are different.
 
 <!--
-### [Azure Portal](#tab/portal)
+### [Azure portal](#tab/portal)
 
 In the Azure portal, navigate to your Data Box Disk Order. Search for it by navigating to **General > All resources**, then select your Data Box Disk Order. Use the copy icon to copy the passkey. This passkey will be used to unlock the disks.
 

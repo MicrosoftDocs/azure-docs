@@ -5,7 +5,7 @@ description: This article explains how you get usage data with the Azure CLI.
 author: vikramdesai01
 ms.author: vikdesai
 ms.date: 06/26/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.custom: devx-track-azurecli

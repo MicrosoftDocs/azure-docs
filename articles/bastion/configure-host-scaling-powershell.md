@@ -34,8 +34,8 @@ This article helps you add more scale units (instances) to Azure Bastion to acco
 1. Confirm "Y" to overwrite the resource. After the resource is overwritten, the specified value is shown in the output for "Scale Units".
 
    >[!NOTE]
-   > Host scaling instance count requires Standard SKU tier or higher. Any changes to the host scale units will disrupt active bastion connections.
-   >s
+   > Host scaling instance count requires Standard SKU or higher. Any changes to the host scale units will disrupt active bastion connections.
+   >
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Restore Azure Managed Disks via Azure PowerShell
 description: Learn how to restore Azure Managed Disks using Azure PowerShell.
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 08/28/2025
+ms.date: 02/13/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to restore Azure Managed Disks using PowerShell, so that I can efficiently recover data from backup while ensuring minimal disruption to existing resources."
@@ -26,6 +26,8 @@ We will refer to an existing backup vault "TestBkpVault" under the resource grou
 ```azurepowershell-interactive
 $TestBkpVault = Get-AzDataProtectionBackupVault -VaultName TestBkpVault -ResourceGroupName "testBkpVaultRG"
 ```
+
+To view the supported Azure Disk backup and restore scenarios, region availability, and limitations, see the [support matrix](disk-backup-support-matrix.md). For common questions, see the [frequently asked questions](disk-backup-faq.yml).
 
 ## Restore to create a new disk
 
@@ -91,4 +93,5 @@ $job = Search-AzDataProtectionJobInAzGraph -Subscription $sub -ResourceGroupName
 
 ## Next steps
 
-- [Azure Disk Backup FAQ](disk-backup-faq.yml)
+- [Azure Disk Backup FAQ](disk-backup-faq.yml).
+- [Troubleshoot Azure Disk backup](disk-backup-troubleshoot.md).

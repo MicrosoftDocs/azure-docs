@@ -7,12 +7,12 @@ ms.custom: devx-track-azurecli
 ms.service: azure-app-service
 ---
 
-[Azure App Service](../../overview.md) can use [managed identities](../../overview-managed-identity.md) to connect to back-end services without a connection string, which eliminates connection secrets to manage and keeps your back-end connectivity secure in a production environment. For back-end services that don't support managed identities and still requires connection secrets, you can use Key Vault to manage connection secrets. This tutorial uses Azure AI services as an example to show you how it's done in practice. When you're finished, you have an app that makes programmatic calls to Azure AI services, without storing any connection secrets inside App Service.
+[Azure App Service](../../overview.md) can use [managed identities](../../overview-managed-identity.md) to connect to back-end services without a connection string, which eliminates connection secrets to manage and keeps your back-end connectivity secure in a production environment. For back-end services that don't support managed identities and still requires connection secrets, you can use Key Vault to manage connection secrets. This tutorial uses Foundry Tools as an example to show you how it's done in practice. When you're finished, you have an app that makes programmatic calls to Foundry Tools, without storing any connection secrets inside App Service.
 
 * [Sample application](https://github.com/Azure-Samples/app-service-language-detector)
 
 > [!TIP]
-> Azure AI services do [support authentication through managed identities](/azure/ai-services/authentication#authorize-access-to-managed-identities), but this tutorial uses the [subscription key authentication](/azure/ai-services/authentication#authenticate-with-a-single-service-resource-key) to demonstrate how you could connect to an Azure service that doesn't support managed identities from App Services.
+> Foundry Tools do [support authentication through managed identities](/azure/ai-services/authentication#authorize-access-to-managed-identities), but this tutorial uses the [subscription key authentication](/azure/ai-services/authentication#authenticate-with-a-single-service-resource-key) to demonstrate how you could connect to an Azure service that doesn't support managed identities from App Services.
 
 ![Architecture diagram for tutorial scenario.](../../media/tutorial-connect-msi-key-vault/architecture.png)
 
@@ -29,7 +29,7 @@ What you will learn:
 > * Enable managed identities
 > * Use managed identities to connect to Key Vault
 > * Use Key Vault references
-> * Access Azure AI services
+> * Access Foundry Tools
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ Prepare your environment for the Azure CLI.
 
 <a name='create-app-with-connectivity-to-cognitive-services'></a>
 
-## Create app with connectivity to Azure AI services
+## Create app with connectivity to Foundry Tools
 
 1. Create a resource group to contain all of your resources:
 

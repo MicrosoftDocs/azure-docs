@@ -6,7 +6,7 @@ author: msftrobiro
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.topic: article
+ms.topic: concept-article
 ms.tgt_pltfrm: vm-linux
 ms.date: 02/02/2026
 ms.author: robiro

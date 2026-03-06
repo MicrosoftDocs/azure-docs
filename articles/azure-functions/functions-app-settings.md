@@ -1,7 +1,7 @@
 ---
 title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables used to configure functions apps.
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 12/22/2025
 ms.custom:
   - devx-track-extended-java
@@ -973,6 +973,7 @@ In the [Flex Consumption plan](./flex-consumption-plan.md), these site propertie
 | `WEBSITE_VNET_ROUTE_ALL` |Not used for networking in Flex Consumption|
 | `properties.alwaysOn` |Not valid|
 | `properties.containerSize` |Renamed as `instanceMemoryMB`|
+| 'properties.dnsConfiguration.dnsServers'| DNS is inherited from the integrated virtual network in a Flex Consumption plan. |
 | `properties.ftpsState` | FTPS not supported | 
 | `properties.isReserved` |Not valid|
 | `properties.IsXenon` |Not valid|

@@ -4,7 +4,7 @@ titleSuffix: An Azure Communication Services concept document
 description: Conceptual information about playing audio in call using Call Automation.
 author: Kunaal
 ms.service: azure-communication-services
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/11/2023
 ms.author: kpunjabi
 ---

@@ -2,7 +2,7 @@
 title: Run your functions from a package file in Azure 
 description: Learn how to configure Azure Functions to run your function app from a deployment package file that contains your function app project.
 ms-service: azure-functions
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2024
 
 # Customer intent: As a function developer, I want to understand how to run my function app from a deployment package file, so I can make my function app run faster and easier to update.

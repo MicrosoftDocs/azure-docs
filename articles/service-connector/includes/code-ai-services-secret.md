@@ -6,7 +6,7 @@ ms.date: 06/19/2024
 ms.author: wchi
 ---
 
-You can use the Azure client library to access various cognitive APIs that Azure AI Services support. We use Azure AI Text Analytics as an example in this sample. Refer to [Authenticate requests to Azure AI services](/azure/ai-services/authentication#authenticate-with-a-multi-service-resource-key) to call the cognitive APIs directly.
+You can use the Azure client library to access various cognitive APIs that Foundry Tools support. We use Azure AI Text Analytics as an example in this sample. Refer to [Authenticate requests to Foundry Tools](/azure/ai-services/authentication#authenticate-with-a-multi-service-resource-key) to call the cognitive APIs directly.
 
 ### [.NET](#tab/dotnet)
 
@@ -91,4 +91,4 @@ You can use the Azure client library to access various cognitive APIs that Azure
     ```
 
 ### [Other](#tab/none)
-For other languages, you can use the connection information that Service Connector sets to the environment variables to connect to Azure AI Services. For environment variable details, see [Integrate Azure AI services with Service Connector](../how-to-integrate-ai-services.md).
+For other languages, you can use the connection information that Service Connector sets to the environment variables to connect to Foundry Tools. For environment variable details, see [Integrate Foundry Tools with Service Connector](../how-to-integrate-ai-services.md).

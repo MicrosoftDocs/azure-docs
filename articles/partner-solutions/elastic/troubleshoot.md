@@ -1,8 +1,8 @@
 ---
 title: Troubleshooting Elastic Cloud (Elasticsearch) - An Azure Native ISV Service
 description: This article provides information about troubleshooting Elastic integration with Azure
-ms.topic: conceptual
-ms.date: 10/06/2023
+ms.topic: troubleshooting-general
+ms.date: 02/03/2026
 
 
 ---
@@ -26,9 +26,9 @@ Only users who have *Owner* or *Contributor* access on the Azure subscription ca
 
 - Resource doesn't support sending logs. Only resource types with monitoring log categories can be configured to send logs. For more information, see [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
 
-- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
+- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal).
 
-- Export of Metrics data isn't supported currently by the partner solutions under Azure Monitor diagnostic settings.
+- The partner solutions under Azure Monitor diagnostic settings don't currently support export of Metrics data.
 
 ## Diagnostic settings are active even after disabling the Elastic resource or applying necessary tag rules
 
@@ -55,6 +55,6 @@ This link takes you to the **Developer community forum** where you can suggest a
 
     > [!div class="nextstepaction"]
     > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Elastic%2Fmonitors)
-
+    >
     > [!div class="nextstepaction"]
     > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp?tab=Overview)

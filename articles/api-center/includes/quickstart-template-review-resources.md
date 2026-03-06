@@ -6,7 +6,7 @@ services: api-center
 
 ms.service: azure-api-center
 ms.topic: include
-ms.date: 05/02/2024
+ms.date: 02/12/2026
 
 ms.custom: Include file
 ---
@@ -17,4 +17,4 @@ Use the Azure portal to check the deployed resources, or use tools such as the A
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **API Centers**, and select the API center that you created.
 1. Review the properties of your service on the **Overview** page.
-1. In the sidebar menu, under **Assets**, select **APIs** to see the API that you registered in the default workspace.
+1. In the sidebar menu, under **Inventory**, select **Assets** to see the API that you registered in the default workspace.

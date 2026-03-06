@@ -93,6 +93,22 @@ If you create a `RegistryEndpoint` resource using bicep and reference it in the 
 
 Workaround: Don't use `RegistryEndpoint` resources with Akri connectors. Instead, specify the registry information in the `ContainerRegistry` settings in the `ConnectorTemplate` resource.
 
+### Akri error when updating or deleting an Azure IoT Operations instance
+
+---
+
+Issue ID: 9347
+
+---
+
+Fixed in version 1.2.154 (2512) and later
+
+---
+
+Users may encounter an error regarding expired webhook certificates with Akri when deleting/upgrading instances of Azure IoT Operations or performing CRUD operations on Akri resources such as *Connector* and *ConnectorTemplates* instances. 
+
+Workaround: run `kubectl delete pod -n azure-iot-operations aio-akri-webhook-0 --ignore-not-found` to delete and restart the webhook pods to enable the pod to pick up the new certificate.
+
 ## Connector for OPC UA issues
 
 This section lists current known issues for the connector for OPC UA.
@@ -229,7 +245,7 @@ Data flow graphs (WASM) currently only support MQTT, Kafka, and OpenTelemetry (O
 To work around this issue, use one of the supported endpoint types:
 - [MQTT endpoints](../connect-to-cloud/howto-configure-mqtt-endpoint.md) for bi-directional messaging with MQTT brokers
 - [Kafka endpoints](../connect-to-cloud/howto-configure-kafka-endpoint.md) for bi-directional messaging with Kafka brokers, including Azure Event Hubs
-- [OpenTelemetry endpoints](../connect-to-cloud/howto-configure-opentelemetry-endpoint.md) for sending metrics and logs to observability platforms (destination only)
+- [OpenTelemetry endpoints](../connect-to-cloud/open-telemetry.md) for sending metrics and logs to observability platforms (destination only)
 
 For more information about data flow graphs, see [Use WebAssembly (WASM) with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md).
 

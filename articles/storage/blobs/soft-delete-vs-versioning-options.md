@@ -44,7 +44,8 @@ Enable soft delete if:
 * A soft-deleted blob is created for every delete operation. Each soft-deleted blob is billed at the full size of the blob at the time of the operation.
 * Avoid exceeding **1,000 soft-deleted snapshots per blob** during the retention period to prevent performance degradation during blob listing operations.
 * Retention is limited to **a maximum of 365 days**.
-* If soft delete is enabled, there is no way to permanently delete until the soft delete retention expires. All deletes are "soft" and when the retention period expires, the soft-deleted blob is permanently deleted.
+* If soft delete is enabled, deleted blobs, snapshots, and versions are retained for the configured soft delete retention period. If the Permanent Delete feature is enabled, soft-deleted snapshots and versions can be permanently deleted before the retention period ends. After the retention period expires, any remaining soft-deleted data is automatically and permanently deleted.
+
 * If soft delete is disabled, all deletes are permanent, but the existing soft-deleted data are retained until the retention period expires.
 * The contents of soft-deleted blobs are not accessible via Read APIs. To access the data, you must first undelete the blob.  
 
@@ -122,3 +123,4 @@ Enabling soft delete or versioning for frequently overwritten data might result 
 
 * [Blob versioning](versioning-overview.md)
 * [Soft delete for blobs](./soft-delete-blob-overview.md)
+

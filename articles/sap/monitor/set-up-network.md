@@ -91,15 +91,82 @@ You can use this option after you deploy an Azure Monitor for SAP solutions reso
     | Priority | Name                | Port | Protocol | Source | Destination      | Action |
     |--------------|--------------------------|----------|--------------|------------|----------------------|------------|
     | 450          | allow_monitor            | 443      | TCP          |  Azure Functions subnet           | Azure Monitor         | Allow      |
-    | 501          | allow_keyVault           | 443      | TCP          |  Azure Functions subnet           | Azure Key Vault        | Allow      |
-    | 550          | allow_storage            | 443      | TCP          |   Azure Functions subnet          | Storage              | Allow      |
-    | 600          | allow_azure_controlplane | 443      | Any          |   Azure Functions subnet          | Azure Resource Manager | Allow      |
-    | 650      | allow_ams_to_source_system | Any  | Any   |  Azure Functions subnet | Virtual network or comma-separated IP addresses of the source system | Allow      |
+    | 451          | allow_keyVault           | 443      | TCP          |  Azure Functions subnet           | Azure Key Vault        | Allow      |
+    | 452          | allow_storage            | 443      | TCP          |   Azure Functions subnet          | Storage              | Allow      |
+    | 453          | allow_azure_controlplane | 443      | Any          |   Azure Functions subnet          | Azure Resource Manager | Allow      |
+    | 454      | allow_ams_to_source_system | Any  | Any   |  Azure Functions subnet | Virtual network or comma-separated IP addresses of the source system | Allow      |
+    | 455          | allow_monitor_for_sap    | 443      | TCP          |  Azure Functions subnet           | AzureMonitorForSAP         | Allow      |
     | 660          | deny_internet            | Any      | Any          | Any        | Internet             | Deny       |
-    
+
 The Azure Monitor for SAP solution's subnet IP address refers to the IP of the subnet associated with your Azure Monitor for SAP solutions resource. To find the subnet, go to the Azure Monitor for SAP solutions resource in the Azure portal. On the **Overview** page, review the **vNet/subnet** value.
 
 For the rules that you create, **allow_vnet** must have a lower priority than **deny_internet**. All other rules also need to have a lower priority than **allow_vnet**. The remaining order of these other rules is interchangeable.
+
+## Troubleshooting Networking Issues
+
+When configuring providers in Azure Monitor for SAP solutions, you might encounter connectivity issues between Azure Monitor for SAP solutions and your SAP environment. In this section, we provide guidance on how to troubleshoot these networking issues.
+
+- [Hostname resolution issues](#hostname-resolution-issues)
+- [Check effective network rules](#check-effective-network-rules)
+
+### Hostname resolution issues
+
+When you add a provider in Azure Monitor for SAP solutions, it needs to resolve the hostname of the system that you want to monitor. For monitoring different systems, like SAP HANA or SAP NetWeaver, Azure Monitor for SAP solutions deploys Azure Function apps. These function apps make a connection to your source system and run the checks. In this section, we see how to check if the Azure function app is able to resolve the hostname for your SAP system. If your provider onboarding fails due to hostname resolution issues, you can follow these steps to troubleshoot:
+
+1. Go to the Azure portal and navigate to your Azure Monitor for SAP solutions resource.
+1. Now, open the managed resource group for your Azure Monitor for SAP solutions resource. You can find the name of the managed resource group in the **Overview** page of your Azure Monitor for SAP solutions resource.
+   :::image type="content" source="./media/set-up-network/managed-resource-group.png" alt-text="Screenshot showing the managed resource group." lightbox="./media/set-up-network/managed-resource-group.png":::
+1. In the managed resource group, find the Azure Function app that is associated with the provider that you're trying to onboard. The naming convention for the function app is **<provider_type>-<unique_identifier>**. For example, if you're trying to onboard an SAP HANA system, look for a function app with the name **saphana-<unique_identifier>**.
+   :::image type="content" source="./media/set-up-network/azure-function-apps.png" alt-text="Screenshot showing the Azure Function apps." lightbox="./media/set-up-network/azure-function-apps.png":::
+1. Open the function app and search for **Development Tools**.
+1. Open **Advanced Tools** in the left-hand menu then select **Go** to open Kudu.
+   :::image type="content" source="./media/set-up-network/open-advanced-tools.png" alt-text="Screenshot showing how to navigate to Advanced Tools." lightbox="./media/set-up-network/open-advanced-tools.png":::
+
+Now as we have access to Kudu, we run the following checks to troubleshoot hostname resolution issues:
+
+#### Check if Azure Function is integrated with virtual network
+
+Follow these steps to check if the Azure Function app is integrated with the virtual network:
+
+1. In Kudu, Select the **Environment** tab.
+1. Now, search for **WEBSITE_PRIVATE_IP** in the environment variables list.
+1. Verify that the value for **WEBSITE_PRIVATE_IP** is an IP address from the subnet that you configured for Azure Monitor for SAP solutions.
+   :::image type="content" source="./media/set-up-network/website-private-ip-address.png" alt-text="Screenshot showing the website private IP address." lightbox="./media/set-up-network/website-private-ip-address.png":::
+
+#### Check hostname resolution from Azure Function
+
+Follow these steps to check if the Azure Function app can resolve the hostname of your SAP system:
+
+1. In Kudu, Select the **SSH** tab.
+1. In the SSH to Kudu, click on the **Start Connection** button. This opens the debug console in a new tab. The debug console is a terminal where you can run commands to check connectivity and troubleshoot issues.
+   :::image type="content" source="./media/set-up-network/open-kudu-debug-console.png" alt-text="Screenshot showing the Kudu debug console." lightbox="./media/set-up-network/open-kudu-debug-console.png":::
+1. Now you have access to a terminal where you can run commands. Run the following command
+1. To check if the hostname of your SAP system is resolving correctly, run the following command in the terminal, replacing hostname with the actual hostname of your SAP system:
+
+   ```bash
+   nslookup hostname
+   ```
+
+1. To check if the Azure Function app can connect to your SAP system on the required port, run the following command in the terminal, replacing hostname with the actual **hostname** of your SAP system and port with the actual **port** number that your SAP system is listening on. To find the port number, refer to the documentation section on [Allow inbound traffic](#allow-inbound-traffic) and find the port number for your provider type:
+
+    ```bash
+    timeout 5 bash -c "</dev/tcp/hostname/port" && echo "Port Open" || echo "Port Closed"
+    curl -v telnet://hostname:port
+    ```
+
+1. If the hostname resolution is working correctly, you should see the IP address of your SAP system in the output of the nslookup command. If the connection to the required port is working correctly, you should see "Port Open" in the output of the timeout command and a successful connection message in the output of the curl command.
+1. If you see any errors in the output of these commands, it indicates that there's a connectivity issue between the Azure Function app and your SAP system. You can use the error messages to further troubleshoot and identify the root cause of the issue. Common issues include incorrect DNS configuration, NSG rules blocking traffic, or firewall rules blocking traffic.
+
+### Check effective network rules
+
+When trying to resolve connectivity issues, it's important to check the effective network rules for your Virtual Machine or subnet. Effective network rules include NSG rules, user-defined routes, and firewall rules that are applied to your resources. These rules can affect the connectivity between Azure Monitor for SAP solutions and your SAP environment. In this section, we see how to check the effective network rules for your Virtual Machine or subnet:
+
+1. Go to the Azure portal and navigate to your Virtual Machine that's hosting your SAP system.
+1. Search for **Network Settings** in the left-hand menu and select it.
+1. Open the **Network Interface** associated with your Virtual Machine.
+   :::image type="content" source="./media/set-up-network/vm-network-interface.png" alt-text="Screenshot showing the network interface of the Virtual Machine." lightbox="./media/set-up-network/vm-network-interface.png":::
+1. Search for **Effective routes** in the left-hand menu and select it. This shows you all the effective routes that are applied to your Virtual Machine. Review the routes to check if there are any routes that might be blocking traffic from Azure Monitor for SAP solutions.
+   :::image type="content" source="./media/set-up-network/effective-routes.png" alt-text="Screenshot showing the effective routes of the network interface." lightbox="./media/set-up-network/effective-routes.png":::
 
 ## Next steps
 

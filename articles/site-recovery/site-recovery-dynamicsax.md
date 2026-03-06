@@ -180,4 +180,4 @@ For more information on doing a failback, see [Failback VMware VMs from Azure to
 By using Site Recovery, you can create a complete automated disaster recovery plan for your Dynamics AX application. In the event of a disruption, you can initiate the failover within seconds from anywhere and get the application up and running in minutes.
 
 ## Next steps
-To learn more about protecting enterprise workloads with Site Recovery, see [What workloads can I protect?](site-recovery-workload.md).
+To learn more about protecting enterprise workloads with Site Recovery, see [What workloads can I protect?](site-recovery-workload.md)

@@ -1,7 +1,7 @@
 ---
 title: Capacity limits
 description: Learn about VM capacity limits in Azure Lab Services.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/28/2023
 ms.custom: devdivchpfy22
 ---

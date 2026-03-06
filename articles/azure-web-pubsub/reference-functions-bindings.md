@@ -4,7 +4,7 @@ description: The reference describes Azure Web PubSub trigger and bindings for A
 author: JialinXin
 ms.author: jixin
 ms.service: azure-web-pubsub
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/12/2024
 ms.custom: sfi-ropc-nochange
 ---

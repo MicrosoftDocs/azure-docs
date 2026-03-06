@@ -49,7 +49,7 @@ If you just created your free Azure account, you're the administrator of your su
 * Create a VM in the selected resource group.
 * Create a VM in the selected virtual network.
 * Write to an Azure storage account.
-* Write to an Azure managed disk.
+* Write to an Azure Managed Disk.
 
 To complete these tasks, your account should be assigned the Virtual Machine Contributor built-in role. In addition, to manage Site Recovery operations in a vault, your account should be assigned the Site Recovery Contributor built-in role.
 
@@ -77,7 +77,7 @@ The new vault appears on **Dashboard** > **All resources**, and on the main **Re
 
 ## Set up an Azure network
 
-Azure VMware Solution VMs replicate to Azure managed disks. When failover occurs, the service creates Azure VMs from these managed disks and joins them to the Azure network that you specify in this procedure.
+Azure VMware Solution VMs replicate to Azure Managed Disks. When failover occurs, the service creates Azure VMs from these managed disks and joins them to the Azure network that you specify in this procedure.
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource**.
 1. Under **Categories**, select **Networking** > **Virtual network**.

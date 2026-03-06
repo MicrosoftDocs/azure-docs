@@ -1,14 +1,13 @@
 ---
-title: Manage packet captures
+title: Manage Packet Captures
 titleSuffix: Azure Network Watcher
 description: Learn how to start, stop, download, and delete Azure virtual machines packet captures with the packet capture feature of Network Watcher.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 03/21/2025
+ms.date: 02/24/2026
 
-#CustomerIntent: As an administrator, I want to capture IP packets to and from a virtual machine (VM) so I can review and analyze the data to help diagnose and solve network problems.
 # Customer intent: As a network administrator, I want to manage packet captures on Azure virtual machines so that I can analyze network traffic and troubleshoot issues effectively.
 ---
 
@@ -97,18 +96,23 @@ To start a capture session, use the following steps:
     | Subscription | Select the Azure subscription of the virtual machine. |
     | Resource group | Select the resource group of the virtual machine. |
     | Target type | Select **Virtual machine** or **Virtual machine scale set**. |
+    | Target virtual machine | Select the virtual machine. <br> This option is available if you select **Virtual machine** as the target type. |
     | Target virtual machine scale set | Select the virtual machine scale set. <br> This option is available if you select **Virtual machine scale set** as the target type. |
-    | Target instance | Select the virtual machine or scale set instance. |
+    | Target instance | Select the virtual machine scale set instance. <br> This option is available if you select **Virtual machine scale set** as the target type. |
     | Packet capture name | Enter a name or leave the default name. |
+    | **Packet capture storage** |  |
+    | Capture location | Select **in storage account** (default option), **in local file storage**, or **Both**. |
+    | Storage accounts | Select your **Standard** storage account<sup>1</sup>. <br> This option is available if you select **in storage account** or **Both** as the capture location. <br> The storage account must be in the same region as the target instance. |
+    | Local file path | Enter a valid local file path where you want the capture to be saved in the target virtual machine. <br>If you're using a Linux machine, the path can start with `/var/captures`. <br>If you're using a Windows machine, the path can start with `C:\Captures`. <br> This option is available if you select **in local file storage** or **Both** as the capture location. |
     | **Packet capture configuration** |  |
-    | Capture location | Select **Storage account** (default option), **File**, or **Both**. |
-    | Storage account | Select your **Standard** storage account<sup>1</sup>. <br> This option is available if you select **Storage account** or **Both** as a capture location. <br> The storage account must be in the same region as the target instance. |
-    | Local file path | Enter a valid local file path where you want the capture to be saved in the target virtual machine. <br>If you're using a Linux machine, the path can start with `/var/captures`. <br>If you're using a Windows machine, the path can start with `C:\Captures`. <br> This option is available if you select **File** or **Both** as a capture location. |
+    | Enable continuous capture<sup>3</sup> | Check this checkbox if you want to enable continuous packet capture. For more information, see [Continuous packet capture](packet-capture-overview.md#continuous-packet-capture-preview). |
     | Maximum bytes per packet | Enter the maximum number of bytes to be captured per each packet. All bytes are captured if left blank or 0 entered. |
-    | Maximum bytes per session | Enter the total number of bytes that are captured. Once the value is reached the packet capture stops. Up to 1 GB is captured if left blank. |
-    | Time limit (seconds) | Enter the time limit of the packet capture session in seconds. Once the value is reached the packet capture stops. Up to 5 hours (18,000 seconds) is captured if left blank. |
-    | **Filtering (optional)** |  |   
-    | Add filter criteria | Select **Add filter criteria** to add a new filter. You can define as many filters as you need. |
+    | New files created<sup>3</sup> | Enter the maximum number of files created. The default value is 100 MB and the maximum value is 4 GB. <br> This option is available if you enable **continuous capture**. |
+    | Bytes per file<sup>3</sup> | Enter the number of bytes per file. Once the value is reached, a new file is created. |
+    | Time limit (seconds) | Enter the time limit of the packet capture session in seconds. Once the value is reached the packet capture stops. <br>If left blank: <br> - Up to 5 hours (18,000 seconds) is captured without enabling continuous capture. <br> - Up to 1 day (86,400 seconds) is captured if you enable continuous capture. The maximum value is 604,800 seconds (7 days). |
+    | **Packet filtering (optional)** |  |   
+    | Packet filtering | Select **Enable packet filtering** to enable packet filtering. |
+    | Add a filter | Select **Add filter criteria** to add a new filter. You can define as many filters as you need. |
     | Protocol | Filters the packet capture based on the selected protocol. Available values are **TCP**, **UDP**, or **Any**. |   
     | Local IP address<sup>2</sup> | Filters the packet capture for packets where the local IP address matches this value. |
     | Local port<sup>2</sup> | Filters the packet capture for packets where the local port matches this value. |
@@ -118,12 +122,14 @@ To start a capture session, use the following steps:
     <sup>1</sup> Premium storage accounts are currently not supported for storing packet captures.
     
     <sup>2</sup> Port and IP address values can be a single value, a range such as 80-1024, or multiple values such as 80, 443.
+    
+    <sup>3</sup> Continuous capture is currently in preview. For more information, see [Continuous packet capture](packet-capture-overview.md#continuous-packet-capture-preview).
 
 1. Select **Start packet capture**.
 
     :::image type="content" source="./media/packet-capture-manage/add-packet-capture.png" alt-text="Screenshot of Add packet capture in the Azure portal showing available options." lightbox="./media/packet-capture-manage/add-packet-capture.png":::
 
-1. The packet capture stops once the time limit or the file size (maximum bytes per session) is reached.
+1. The packet capture stops once the time limit is reached.
 
 # [**PowerShell**](#tab/powershell)
 

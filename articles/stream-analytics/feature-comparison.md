@@ -4,7 +4,7 @@ description: This article compares the features supported for Azure Stream Analy
 author: alexlzx
 ms.author: zhenxilin
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: product-comparison
 ms.date: 11/09/2022
 ---
 

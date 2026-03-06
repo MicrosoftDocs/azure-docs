@@ -68,7 +68,7 @@ There are four savings plan-specific RBAC roles:
 - **Savings plan contributor**: Allows management of one or more savings plans in a tenant but not delegation of RBAC roles to other users.
 - **Savings plan reader**: Allows read-only access to one or more savings plans in a tenant.
 
-These roles can be scoped to either a specific resource entity (for example, subscription or savings plan) or the Microsoft Entra tenant (directory). To learn more about Azure RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
+These roles can be scoped to either a specific resource entity (for example, subscription or savings plan) or the Microsoft Entra tenant (directory). To learn more about Azure RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 
 ### Savings plan RBAC roles required for savings plan actions
 

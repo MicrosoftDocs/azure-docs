@@ -79,7 +79,7 @@ Prepare Azure for migration with the Migration and modernization tool.
 Task | Details
 --- | ---
 Create an Azure Migrate project | Your Azure account needs Contributor or Owner permissions to [create a new project](./create-manage-projects.md).
-Verify permissions for your Azure account | Your Azure account needs permissions to create a VM and write to an Azure managed disk.
+Verify permissions for your Azure account | Your Azure account needs permissions to create a VM and write to an Azure Managed Disk.
 
 ### Assign permissions to create a project
 
@@ -95,7 +95,7 @@ Assign the VM Contributor role to the Azure account. This role provides permissi
 
 - Create a VM in the selected resource group.
 - Create a VM in the selected virtual network.
-- Write to an Azure managed disk.
+- Write to an Azure Managed Disk.
 
 ### Create an Azure network
 
@@ -256,7 +256,7 @@ A Mobility service agent must be preinstalled on the source AWS VMs to be migrat
     - **Availability Zone**: Specify the availability zone to use.
     - **Availability Set**: Specify the availability set to use.
 
-1. In **Disks**, specify whether the VM disks should be replicated to Azure and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.
+1. In **Disks**, specify whether the VM disks should be replicated to Azure and select the disk type (Standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.
     - You can exclude disks from replication.
     - If you exclude disks, they won't be present on the Azure VM after migration.
 

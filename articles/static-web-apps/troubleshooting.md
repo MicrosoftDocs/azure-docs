@@ -4,7 +4,7 @@ description: First steps for tracking down problems when using Azure Static Web 
 services: static-web-apps
 author: cjk7989
 ms.service: azure-static-web-apps
-ms.topic:  conceptual
+ms.topic:  troubleshooting-general
 ms.date: 06/25/2024
 ms.author: jikunchen
 ---

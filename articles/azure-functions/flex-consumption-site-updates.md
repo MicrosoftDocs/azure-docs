@@ -93,7 +93,7 @@ Keep these current behaviors and limitations in mind when using the rolling upda
 - **No real-time monitoring**: There's currently no visibility into how many instances are draining, how many batches remain, or current progress percentages.
 - **No completion signal**: However, you can monitor instance logs to estimate when an update completes.
 - **Single-instance scenarios**: Apps running on one instance experience brief downtime similar to recreate, though in-progress executions still complete.
-- **Durable Functions**: Because mixing versions during updates can cause unexpected behavior in a Durable orchestration, use an explicit [orchestration version match strategy](durable/durable-functions-orchestration-versioning.md).
+- **Durable Functions**: Because mixing versions during updates can cause unexpected behavior in a Durable orchestration, use an explicit [orchestration version match strategy](durable/durable-orchestration-versioning.md).
 - **Infrastructure as Code**: Deploying code and configuration changes together triggers multiple rolling updates that might overlap.
 - **Backward compatibility**: Make sure that your changes work with the previous version during the rolling update transition period.
 

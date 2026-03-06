@@ -4,7 +4,7 @@ description: Detailed explanation about how Fluid applications can be hosted on 
 author: sonalivdeshpande
 ms.author: sdeshpande
 ms.date: 07/18/2022
-ms.topic: article
+ms.topic: how-to
 ms.service: azure-fluid
 ---
 

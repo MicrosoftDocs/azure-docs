@@ -7,8 +7,7 @@ author: normesta
 ms.author: normesta
 ms.service: azure-storage
 ms.topic: concept-article
-ms.date: 11/21/2024
-ms.reviewer: dineshm
+ms.date: 02/27/2026
 ms.subservice: storage-common-concepts
 # Customer intent: As a cloud architect, I want to implement shared access signatures to securely delegate access to Azure Storage resources, so that I can maintain control over resource permissions and manage access efficiently across various client applications.
 ---
@@ -34,13 +33,13 @@ Azure Storage supports three types of shared access signatures:
 
 ### User delegation SAS
 
-A user delegation SAS is secured with Microsoft Entra credentials and also by the permissions specified for the SAS. A user delegation SAS is supported for Blob Storage and Data Lake Storage, and can be used for calls to `blob` endpoints and `dfs` endpoints. It's not currently supported for Queue Storage, Table Storage, or Azure Files.
+A user delegation SAS is secured with Microsoft Entra credentials and also by the permissions specified for the SAS. A user delegation SAS is supported for Blob Storage (including Data Lake Storage and `dfs` endpoints), Queue Storage, Table Storage, or Azure Files.
 
 For more information about the user delegation SAS, see [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
 
 ### Service SAS
 
-A service SAS is secured with the storage account key. A service SAS delegates access to a resource in only one of the Azure Storage services: Blob storage (including Data Lake Storage and `dfs` endpoints), Queue storage, Table storage, or Azure Files.
+A service SAS is secured with the storage account key. A service SAS delegates access to a resource in only one of the Azure Storage services: Blob Storage (including Data Lake Storage and `dfs` endpoints), Queue Storage, Table Storage, or Azure Files.
 
 For more information about the service SAS, see [Create a service SAS (REST API)](/rest/api/storageservices/create-service-sas).
 
@@ -90,7 +89,7 @@ The following table summarizes how each type of SAS token is authorized.
 
 | Type of SAS | Type of authorization |
 | --- | --- |
-| User delegation SAS (Blob Storage and Data Lake Storage only) | Microsoft Entra ID |
+| User delegation SAS | Microsoft Entra ID |
 | Service SAS | Shared Key |
 | Account SAS | Shared Key |
 

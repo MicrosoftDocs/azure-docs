@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 12/31/2025
+ms.date: 02/23/2026
 ms.custom: generated
 ---
 
@@ -577,6 +577,12 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/expressRouteCrossConnections/delete | Delete Express Route Cross Connection |
 > | Microsoft.Network/expressRouteCrossConnections/serviceProviders/action | Backfill Express Route Cross Connection |
 > | Microsoft.Network/expressRouteCrossConnections/join/action | Joins an Express Route Cross Connection. Not alertable. |
+> | Microsoft.Network/expressRouteCrossConnections/confirmActivationKey/action | Express Route Cross Connection Confirm Activation Key |
+> | Microsoft.Network/expressRouteCrossConnections/proposeInterconnect/action | Express Route Cross Connection operation to propose Interconnect |
+> | Microsoft.Network/expressRouteCrossConnections/notifyConnectionStatus/action | Express Route Notify Multi Cloud Connection Status |
+> | Microsoft.Network/expressRouteCrossConnections/features/read | Gets an Express Route Cross Connection Feature |
+> | Microsoft.Network/expressRouteCrossConnections/features/write | Creates or Updates an Express Route Cross Connection Feature |
+> | Microsoft.Network/expressRouteCrossConnections/features/delete | Deletes an Express Route Cross Connection Feature |
 > | Microsoft.Network/expressRouteCrossConnections/peerings/read | Gets an Express Route Cross Connection Peering |
 > | Microsoft.Network/expressRouteCrossConnections/peerings/write | Creates an Express Route Cross Connection Peering or Updates an existing Express Route Cross Connection Peering |
 > | Microsoft.Network/expressRouteCrossConnections/peerings/delete | Deletes an Express Route Cross Connection Peering |
@@ -591,6 +597,9 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/expressRouteGateways/expressRouteConnections/write | Creates an Express Route Connection or Updates an existing Express Route Connection |
 > | Microsoft.Network/expressRouteGateways/expressRouteConnections/delete | Deletes an Express Route Connection |
 > | Microsoft.Network/expressRouteGateways/providers/Microsoft.Insights/metricDefinitions/read | Gets the metric definitions for ExpressRoute Gateways |
+> | Microsoft.Network/expressRouteLags/read | Gets ExpressRouteLag |
+> | Microsoft.Network/expressRouteLags/write | Creates or updates ExpressRouteLag |
+> | Microsoft.Network/expressRouteLags/delete | Deletes ExpressRouteLag |
 > | Microsoft.Network/expressRoutePorts/read | Gets ExpressRoutePorts |
 > | Microsoft.Network/expressRoutePorts/write | Creates or updates ExpressRoutePorts |
 > | Microsoft.Network/expressRoutePorts/join/action | Joins Express Route ports. Not alertable. |
@@ -611,6 +620,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/firewallPolicies/write | Creates a Firewall Policy or Updates an existing Firewall Policy |
 > | Microsoft.Network/firewallPolicies/join/action | Joins a Firewall Policy. Not alertable. |
 > | Microsoft.Network/firewallPolicies/certificates/action | Generate Firewall Policy Certificates |
+> | Microsoft.Network/firewallPolicies/pacFile/action | Get Firewall Policy PacFile |
 > | Microsoft.Network/firewallPolicies/deploy/action | Deploy Firewall Policy Draft |
 > | Microsoft.Network/firewallPolicies/delete | Deletes a Firewall Policy |
 > | Microsoft.Network/firewallPolicies/firewallPolicyDrafts/read | Gets a Firewall Policy Draft |
@@ -662,6 +672,10 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/write | Creates or updates a Web Application Firewall Policy |
 > | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/delete | Deletes a Web Application Firewall Policy |
 > | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/join/action | Joins a Web Application Firewall Policy. Not Alertable. |
+> | Microsoft.Network/interconnectGroups/read | Get Interconnect Group |
+> | Microsoft.Network/interconnectGroups/write | Create or update Interconnect Group |
+> | Microsoft.Network/interconnectGroups/delete | Delete Interconnect Group |
+> | Microsoft.Network/interconnectGroups/subgroups/read | Get Interconnect Group Subgroup |
 > | Microsoft.Network/internalPublicIpAddresses/read | Returns internal public IP addresses in subscription |
 > | Microsoft.Network/ipAllocations/read | Get The IpAllocation |
 > | Microsoft.Network/ipAllocations/write | Creates A IpAllocation Or Updates An Existing IpAllocation |
@@ -722,6 +736,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/locations/publishResources/action | Publish Subscrioption Resources |
 > | Microsoft.Network/locations/PutResourcePubsubData/action | Put Resource PubSub Data |
 > | Microsoft.Network/locations/getAzureNetworkManagerConfiguration/action | Gets Azure Network Manager Configuration |
+> | Microsoft.Network/locations/setLbBackendAdminState/action | Sets admin state for load balancer backend addresses associated with the specified virtual machines or VM scale set instances |
 > | Microsoft.Network/locations/bareMetalTenants/action | Allocates or validates a Bare Metal Tenant |
 > | Microsoft.Network/locations/commitInternalAzureNetworkManagerConfiguration/action | Commits Internal AzureNetworkManager Configuration In ANM |
 > | Microsoft.Network/locations/internalAzureVirtualNetworkManagerOperation/action | Internal AzureVirtualNetworkManager Operation In ANM |
@@ -823,6 +838,10 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/networkManagers/ipamPools/allocateNonAzureResource/action | Allocate CIDR range for non Azure resource from Ipam Pool |
 > | Microsoft.Network/networkManagers/ipamPools/allocateResourcePrefixes/action | Allocate CIDR Range for Resource from Ipam Pool |
 > | Microsoft.Network/networkManagers/ipamPools/getPoolUsage/action | Get pool usage for a Ipam Pool |
+> | microsoft.network/networkmanagers/ipampools/listassociatedresources/action | Action permission for list Associated Resource To Ipam Pool |
+> | microsoft.network/networkmanagers/ipampools/staticcidrs/delete | Deletes a static CIDR from an Ipam Pool |
+> | microsoft.network/networkmanagers/ipampools/staticcidrs/read | Gets a static CIDR from an Ipam Pool |
+> | microsoft.network/networkmanagers/ipampools/staticcidrs/write | Creates or updates a static CIDR in an Ipam Pool |
 > | Microsoft.Network/networkManagers/listActiveConnectivityConfigurations/read | Permission for calling List Active Connectivity Configurations operation. This read permission, not listActiveConnectivityConfigurations/action, is required to call List Active Connectivity Configurations. |
 > | Microsoft.Network/networkManagers/listActiveSecurityAdminRules/read | Permission for calling List Active Security Admin Rules operation. This read permission, not listActiveSecurityAdminRules/action, is required to call List Active Security Admin Rules. |
 > | Microsoft.Network/networkManagers/listActiveSecurityUserRules/read | Permission for calling List Active Security User Rules operation. This read permission, not listActiveSecurityUserRules/action, is required to call List Active Security User Rules. |
@@ -955,6 +974,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/networkVirtualAppliances/write | Create or update a Network Virtual Appliance |
 > | Microsoft.Network/networkVirtualAppliances/getDelegatedSubnets/action | Get Network Virtual Appliance delegated subnets |
 > | Microsoft.Network/networkVirtualAppliances/restart/action | Restart Network Virtual Appliance |
+> | Microsoft.Network/networkVirtualAppliances/getVmssResourceId/action | Get VMSS Resource ID |
 > | Microsoft.Network/networkVirtualAppliances/getBootDiagnosticLogs/action | Get Network Virtual Appliance Boot Diagnostic Logs |
 > | Microsoft.Network/networkVirtualAppliances/reimage/action | Reimage Network Virtual Appliance |
 > | Microsoft.Network/networkVirtualAppliances/inboundSecurityRules/read | Get a InboundSecurityRule |
@@ -1222,6 +1242,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | microsoft.network/virtualnetworkgateways/getadvertisedroutes/action | Gets virtualNetworkGateway advertised routes |
 > | microsoft.network/virtualnetworkgateways/getbgppeerstatus/action | Gets virtualNetworkGateway bgp peer status |
 > | microsoft.network/virtualnetworkgateways/getlearnedroutes/action | Gets virtualnetworkgateway learned routes |
+> | microsoft.network/virtualnetworkgateways/geteffectiveroutes/action | Gets virtualnetworkgateway effective routes |
 > | microsoft.network/virtualnetworkgateways/startpacketcapture/action | Starts a Virtual Network Gateway Packet Capture. |
 > | microsoft.network/virtualnetworkgateways/stoppacketcapture/action | Stops a Virtual Network Gateway Packet Capture. |
 > | microsoft.network/virtualnetworkgateways/connections/read | Get VirtualNetworkGatewayConnection |

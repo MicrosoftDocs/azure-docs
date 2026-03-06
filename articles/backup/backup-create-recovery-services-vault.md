@@ -57,7 +57,7 @@ Before you begin, consider the following information:
 
 A vault created with GRS redundancy includes the option to configure Cross Region Restore. Every GRS vault has a banner that links to the documentation.
 
-Cross Region Restore is also supported for machines running on Ultra disks. [Learn more about Ultra disk backup supportability](backup-support-matrix-iaas.md#ultra-disk-backup).
+Cross Region Restore is also supported for machines running on Ultra Disks. [Learn more about Ultra Disk backup supportability](backup-support-matrix-iaas.md#ultra-disk-backup).
 
 ![Screenshot that shows the banner about backup configuration.](./media/backup-azure-arm-restore-vms/banner.png)
 

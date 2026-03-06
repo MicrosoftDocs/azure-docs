@@ -2,7 +2,7 @@
 title: Azure Backup architecture for SAP HANA Backup
 description: Learn about Azure Backup architecture for SAP HANA backup.
 ms.topic: overview
-ms.date: 01/09/2026
+ms.date: 02/16/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -11,6 +11,8 @@ ms.author: v-mallicka
 # Azure Backup architecture for SAP HANA backup
 
 [Azure Backup service](./backup-overview.md) allows you to back up data from SAP HANA databases in an application in consistent manner. This article describes the Azure Backup architecture components and processes.
+
+To learn about the supported SAP HANA database backup and restore scenarios, region availability, and limitations, see the [support matrix](backup-azure-sql-database.md). For common questions, see the [frequently asked questions](sap-hana-faq-backup-azure-vm.yml).
 
 ## How does Azure Backup work with SAP HANA databases?
 
@@ -71,7 +73,7 @@ This section provides you with an understanding about the backup process of an H
 
 1. Once SAP HANA Backup Engine/Backint receives the backup request, it prepares the SAP HANA database for a backup by creating a save point, and moving data to underlying storage volumes.
 
-1. Backint then executes the read operation from the underlying data volumes – the index server and XS engine for the Tenant database and name server for the SYSTEMDB. Premium SSD disks can provide optimal I/O throughput for the backup streaming operation. However, using uncached disks with M64Is can provide higher speeds.
+1. Backint then executes the read operation from the underlying data volumes – the index server and XS engine for the Tenant database and name server for the SYSTEMDB. Premium SSDs can provide optimal I/O throughput for the backup streaming operation. However, using uncached disks with M64Is can provide higher speeds.
 
 1. To stream the backup data, Backint creates up to three pipes, which directly write to Recovery Services vault of Azure Backup.
 
@@ -144,7 +146,7 @@ This section provides you with an understanding about the backup process of an H
 
 ### Backup architecture for database instance snapshot
 
-Azure Backup integrates Azure-managed disk full or incremental snapshots with HANA snapshot commands to deliver instant backup and recovery capabilities for HANA.
+Azure Backup integrates Azure Managed Disk full or incremental snapshots with HANA snapshot commands to deliver instant backup and recovery capabilities for HANA.
 
 **SAP HANA database instance snapshot backup**
 

@@ -8,7 +8,7 @@ manager: kumud
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
 ms.service: azure-cdn
 ms.topic: overview
-ms.date: 03/31/2025
+ms.date: 02/28/2026
 ms.custom: mvc
 ROBOTS: NOINDEX
 # Customer intent: "As a web developer, I want to implement a content delivery network, so that I can improve the performance and user experience of my applications by delivering high-bandwidth content efficiently to end users."

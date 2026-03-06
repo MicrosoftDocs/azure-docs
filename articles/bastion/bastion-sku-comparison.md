@@ -6,7 +6,7 @@ ms.author: abell
 ms.service: azure-bastion
 ms.topic: concept-article
 ms.date: 11/24/2025
-# Customer intent: As a cloud administrator, I want to compare Azure Bastion SKU tiers and understand their features, so that I can select the appropriate tier for my organization's secure remote access requirements.
+# Customer intent: As a cloud administrator, I want to compare Azure Bastion SKU tiers and understand their features, so that I can select the appropriate SKU for my organization's secure remote access requirements.
 ---
 
 # Choose the right Azure Bastion SKU to meet your needs
@@ -58,7 +58,7 @@ Compare the features across all four Azure Bastion SKU tiers:
 
 ## Performance and scalability
 
-The following table shows the capacity and scaling characteristics of each SKU tier:
+The following table shows the capacity and scaling characteristics of each SKU:
 
 | Metric | Developer | Basic | Standard | Premium |
 |--------|-----------|----------|---------|---------|
@@ -89,6 +89,8 @@ Developer SKU is available for development and test environments at no cost. Cho
 - You're working in dev/test environments
 - You don't require virtual network peering or concurrent connections
 - You're operating in a [supported region](quickstart-host-portal.md)
+
+For production-level workloads, choose Basic, Standard, or Premium SKU based on the capabilities you need.
 
 > [!WARNING]
 > Developer SKU isn't suitable for production workloads. It provides access to only one VM at a time and doesn't support virtual network peering.

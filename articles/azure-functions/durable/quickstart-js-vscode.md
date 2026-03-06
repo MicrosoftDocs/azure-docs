@@ -103,7 +103,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | ------ | ----- | ----------- |
     | **Select a language for your function app project** | Select **JavaScript**. | Creates a local Node.js Functions project. |
     | **Select a JavaScript programming model** | Select **Model V4**. | Choose the v4 programming model. |
-      | **Select a version** | Select **Azure Functions v4**. | You see this option only when Core Tools isn't already installed. In this case, Core Tools is installed the first time you run the app. |
+    | **Select a version** | Select **Azure Functions v4**. | You see this option only when Core Tools isn't already installed. In this case, Core Tools is installed the first time you run the app. |
     | **Select a template for your project's first function** | Select **Skip for now**. | |
     | **Select how you would like to open your project** | Select **Open in current window**. | Opens Visual Studio Code in the folder you selected. |
 
@@ -119,7 +119,7 @@ To work with Durable Functions in a Node.js function app, you use a library call
 
 ::: zone pivot="nodejs-model-v4"
 
-To use the v4 programming model, you install the preview v3.x version of the durable-functions library.
+To use the v4 programming model, you install the v3.x version of the durable-functions library.
 
 ::: zone-end
 
@@ -176,7 +176,7 @@ Next, add the referenced `Hello` activity function.
     | **Select a template for your function** | Select **Durable Functions activity**. | Creates an activity function. |
     | **Provide a function name** | Enter **Hello**. | A name for your durable function. |
 
-You added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/index.js* to see that it's taking a name as input and returning a greeting. An activity function is where you perform "the real work" in your workflow, such as making a database call or performing some nondeterministic computation.
+You added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/index.js* to see that it takes a name as input and returns a greeting. An activity function is where you perform "the real work" in your workflow, such as making a database call or performing some nondeterministic computation.
 
 Finally, add an HTTP-triggered function that starts the orchestration.
 
@@ -216,9 +216,9 @@ Open *src/functions/hello.js* to view the functions you created.
 
 You created an orchestrator called `helloOrchestrator` to coordinate activity functions. Each call to `context.df.callActivity` invokes an activity function called `hello`.
 
-You also added the `hello` activity function that is invoked by the orchestrator. In the same file, you can see that it's taking a name as input and returning a greeting. An activity function is where you perform "the real work" in your workflow, such as making a database call or performing some nondeterministic computation.
+You also added the `hello` activity function that is invoked by the orchestrator. In the same file, you can see that it takes a name as input and returns a greeting. An activity function is where you perform "the real work" in your workflow, such as making a database call or performing some nondeterministic computation.
 
-Finally, also added an HTTP-triggered function that starts an orchestration. In the same file, you can see that it uses `client.startNew` to start a new orchestration. Then it uses `client.createCheckStatusResponse` to return an HTTP response that contains URLs that you can use to monitor and manage the new orchestration.
+Finally, you also added an HTTP-triggered function that starts an orchestration. In the same file, you can see that it uses `client.startNew` to start a new orchestration. Then it uses `client.createCheckStatusResponse` to return an HTTP response that contains URLs that you can use to monitor and manage the new orchestration.
 
 You now have a Durable Functions app that you can run locally and deploy to Azure.
 
@@ -248,7 +248,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 2. Durable Functions requires an Azure Storage account to run. When Visual Studio Code prompts you to select a storage account, choose **Select storage account**.
 
-   ![Screenshot of a Visual Studio Code alert window. Select storage account is highlighted.](media/quickstart-js-vscode/functions-select-storage.png)
+    :::image type="content" source="media/quickstart-js-vscode/functions-select-storage.png" alt-text="Screenshot of a Visual Studio Code alert window. Select storage account is highlighted.":::
 
 3. At the prompts, provide the following information to create a new storage account in Azure:
 
@@ -262,7 +262,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 4. In the terminal panel, copy the URL endpoint of your HTTP-triggered function.
 
-    ![Screenshot of the Visual Studio code terminal panel. The terminal shows the output of running an Durable Functions app locally.](media/quickstart-js-vscode/functions-f5.png)
+    :::image type="content" source="media/quickstart-js-vscode/functions-f5.png" alt-text="Screenshot of the Visual Studio Code terminal panel. The terminal shows the output of running a Durable Functions app locally.":::
 
 ::: zone pivot="nodejs-model-v3"
 
@@ -332,7 +332,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
     }
     ```
 
-    ::: zone-end
+::: zone-end
 
 7. In Visual Studio Code, select Shift+F5 to stop debugging.
 
@@ -378,4 +378,4 @@ If you no longer need the resources that you created to complete the quickstart,
 
 ## Related content
 
-* Learn about [common Durable Functions app patterns](durable-functions-overview.md#application-patterns).
+* Learn about [common Durable Functions app patterns](durable-functions-sequence.md).

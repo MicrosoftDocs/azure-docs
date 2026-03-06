@@ -108,8 +108,8 @@ To add CA certificate details, follow these steps:
 1. In the **Authorization credentials** section of the backend configuration, select **CA Certificates**.
 1. Select **+ Add CA certificate details**.
 1. In the **Add CA certificate** pane, select one of the following options:
-    * **Certificate thumbprint** - Enter the thumbprint (a SHA-1, SHA-256, or SHA-512 hash) of a custom CA certificate.
-    * **Subject name and issuer thumbprint** - Enter the subject name that uniquely identifies the CA and the thumbprint of the CA.
+    * **Certificate thumbprint** - Enter the issuer thumbprint (a SHA-1, SHA-256, or SHA-512 hash) of a custom CA certificate. 
+    * **Subject name and issuer thumbprint** - In addition to the issuer thumbprint, enter the subject name (CN or common name of the leaf certificate) that identifies the hostname it secures (for example, `api.contoso.com` or `*.contoso.com`).
 1. Select **Add**.
 1. Select **Create**.
 

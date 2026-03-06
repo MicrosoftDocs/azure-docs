@@ -4,7 +4,7 @@ description: Learn how to build WebAssembly (WASM) modules for data flows using 
 author: dominicbetts 
 ms.author: dobett 
 ms.topic: how-to
-ms.date: 12/08/2025
+ms.date: 02/25/2026
 ms.service: azure-iot-operations
 
 # CustomerIntent: As a developer, I want to understand how to use the VS Code extension to build and deploy WASM modules to use in data flow graphs or the HTTP/REST connector.
@@ -26,7 +26,7 @@ The extension is supported on the following platforms:
 
 - Linux
 - Windows Subsystem for Linux (WSL)
-- Windows
+- Windows (be sure to use a Windows shell such as PowerShell or Command Prompt when you run the extension commands on Windows)
 
 To learn more about graphs and WASM in Azure IoT Operations, see:
 
@@ -48,8 +48,8 @@ Development environment:
 Docker images:
 
 ```bash
-docker pull mcr.microsoft.com/azureiotoperations/processor-app:1.1.4
-docker tag mcr.microsoft.com/azureiotoperations/processor-app:1.1.4 host-app
+docker pull mcr.microsoft.com/azureiotoperations/processor-app:1.1.5
+docker tag mcr.microsoft.com/azureiotoperations/processor-app:1.1.5 host-app
 
 docker pull mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.8
 docker tag mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.8 devx
@@ -78,7 +78,9 @@ This command builds all the operators in the workspace and creates `.wasm` files
 
 ### Run the graph application locally
 
-Press `Ctrl+Shift+P` to open the command palette and search for **Azure IoT Operations: Run Application Graph**. Select **release** as the run mode. This command runs the graph application locally by using the local execution environment with the `graph.dataflow.yaml` file in the workspace.
+To start the local execution environment, press `Ctrl+Shift+P` to open the command palette and search for **Azure IoT Operations: Start Development Environment**. Select **release** as the run mode.
+
+When the local execution environment is running, press `Ctrl+Shift+P` to open the command palette and search for **Azure IoT Operations: Run Application Graph**. Select **release** as the run mode. This command runs the graph application locally by using the local execution environment with the `graph.dataflow.yaml` file in the workspace.
 
 It also reads from `hostapp.env.list` to set the environment variable `TK_CONFIGURATION_PARAMETERS` for data flow operator configuration parameters.
 
@@ -291,6 +293,8 @@ connections:
 
 Copy the `data` folder that contains the sample data from the cloned samples repository `explore-iot-operations\samples\wasm\data` to the current workspace. The `data` folder contains three JSON files with sample input temperature data.
 
+If you previously stopped the local execution environment, press `Ctrl+Shift+P` to open the command palette and search for **Azure IoT Operations: Start Development Environment**. Select **release** as the run mode.
+
 Press `Ctrl+Shift+P` to open the command palette and search for **Azure IoT Operations: Run Application Graph**:
 
 1. Select the `graph.dataflow.yaml` graph file.
@@ -352,13 +356,11 @@ You can modify the test data in the `data/` folder to experiment with different 
 
 ### Build and run the state store scenario
 
-1. Press `Ctrl+Shift+P` to open the command palette and search for **Azure IoT Operations: Build All Data Flow Operators**.
+If you previously stopped the local execution environment, press `Ctrl+Shift+P` to open the command palette and search for **Azure IoT Operations: Start Development Environment**. Select **release** as the run mode.
 
-1. Select **release** as the build mode. Wait for the build to complete.
+1. Press `Ctrl+Shift+P` to open the command palette and search for **Azure IoT Operations: Build All Data Flow Operators**. Select **release** as the build mode. Wait for the build to complete.
 
-1. Press `Ctrl+Shift+P` again and search for **Azure IoT Operations: Run Application Graph**.
-
-1. Select **release** as the run mode.
+1. Press `Ctrl+Shift+P` again and search for **Azure IoT Operations: Run Application Graph**. Select **release** as the run mode.
 
 1. Select the `data` folder in your VS Code workspace for your input data. The DevX container launches to run the graph with the sample input.
 
@@ -429,11 +431,13 @@ To learn more, see [Azure IoT Operations schema registry concepts](../connect-to
 
 The `data/` folder contains three test files:
 
-- `temperature_humidity_payload_1.json` - Contains both temperature and humidity data and passes validation. However, the humidity value isn't an integer as specified in the schema, so the data is filtered out.
+- `temperature_humidity_payload_1.json` - Contains both temperature and humidity data. However, the humidity value (175.1) isn't an integer as specified in the schema, so the data fails schema validation and is filtered out.
 - `temperature_humidity_payload_2.json` - Contains only humidity data and is filtered out.
 - `temperature_humidity_payload_3.json` - Contains both temperature and humidity data and passes validation.
 
 ### Build and run the schema registry scenario
+
+If you previously stopped the local execution environment, press `Ctrl+Shift+P` to open the command palette and search for **Azure IoT Operations: Start Development Environment**. Select **release** as the run mode.
 
 1. Press `Ctrl+Shift+P` to open the command palette and search for **Azure IoT Operations: Build All Data Flow Operators**.
 
@@ -459,12 +463,13 @@ After processing completes:
 
 This example shows how the schema registry validates incoming messages and filters out messages that don't conform to the defined schema.
 
+Stop the local execution environment when you're done testing in release mode by pressing `Ctrl+Shift+P` and searching for **Azure IoT Operations: Stop Development Environment**.
+
 ## Debug WASM modules using the VS Code extension
 
 This example shows you how to debug WASM modules locally using breakpoints and the integrated debugger in VS Code.
 
 ### Prerequisites
-
 
 Complete the [Schema registry support for WASM modules](#schema-registry-support-for-wasm-modules) example to set up the sample workspace.
 
@@ -475,7 +480,7 @@ Complete the [Schema registry support for WASM modules](#schema-registry-support
 1. Locate the `filter` function and set a breakpoint by clicking in the margin next to the line number or by pressing `F9`.
 
     ```rust
-    fn filter(message: DataModel) -> Result<bool, Error> {
+    fn filter(input: DataModel) -> Result<bool, Error> {
         let DataModel::Message(message) = input else {
             return Err(Error {message: "Unexpected input type.".to_string()});
         };
@@ -491,6 +496,8 @@ Complete the [Schema registry support for WASM modules](#schema-registry-support
 
 ### Run with debugging enabled
 
+Press `Ctrl+Shift+P` to open the command palette and search for **Azure IoT Operations: Start Development Environment**. Select **debug** as the run mode.
+
 1. Press `Ctrl+Shift+P` and search for **Azure IoT Operations: Run Application Graph**.
 
 1. Select the `lldb-debug.graph.dataflow.yaml` graph file.
@@ -500,15 +507,6 @@ Complete the [Schema registry support for WASM modules](#schema-registry-support
 1. Select the `data` folder in your VS Code workspace for your input data. The DevX container launches to run the graph with the sample input.
 
 1. After the DevX container launches, you see the host-app container start with an `lldb-server` for debugging.
-
-You use a special debug graph file because the current debugger can attach to only one custom WASM operator in a debug session. The dedicated debug graph lets you keep your normal `graph.dataflow.yaml` and prevents the debugger from attaching unpredictably when multiple modules exist.
-
-To create your own debug graph file:
-
-1. Copy your regular `graph.dataflow.yaml` to a new file. Using the `lldb-` prefix is a convention but the name is arbitrary.
-1. Remove all other custom WASM operators except the one you want to debug.
-1. Rebuild the target operator in **debug** mode so the symbols are available.
-1. Run the debug graph with run mode set to **debug**. The extension launches an `lldb-server` and attaches VS Code automatically.
 
 ### Debug the WASM module
 
@@ -558,6 +556,8 @@ This debugging capability enables you to troubleshoot issues, understand data fl
 
 - **Host app stability**: The local execution environment might occasionally stop working and require restarting to recover.
 
+- **Remote debugging limitations**: Currently, you can't remotely debug WASM modules running in Azure Linux 3.0 due to incompatible LLDB versions.
+
 ## Troubleshooting
 
 ### Viewing logs
@@ -583,3 +583,10 @@ kubectl logs -n azure-iot-operations -l app.kubernetes.io/instance=aio-dataflow-
 ### Recovery procedures
 
 **VS Code extension reset**: If the VS Code extension behaves unexpectedly, try uninstalling and reinstalling it, then restart VS Code.
+## Related content
+
+- [Develop custom WASM modules](howto-develop-wasm-modules.md)
+- [Configure graph definitions](howto-configure-wasm-graph-definitions.md)
+- [Deploy graph definitions](howto-deploy-wasm-graph-definitions.md)
+- [ONNX inference in WASM modules](howto-wasm-onnx-inference.md)
+- [Use WASM in dataflow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md)

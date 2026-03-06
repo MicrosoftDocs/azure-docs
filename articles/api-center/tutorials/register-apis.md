@@ -4,7 +4,7 @@ description: Learn how to start the API inventory in your API center by register
 
 ms.service: azure-api-center
 ms.topic: tutorial
-ms.date: 10/20/2025
+ms.date: 02/12/2026
  
 #customer intent: As the owner of an Azure API center, I want a step by step introduction to adding APIs to the API inventory.
 ---
@@ -45,7 +45,11 @@ The following steps register two sample APIs: Swagger Petstore API and Conferenc
  
 1. Sign in to the [Azure portal](https://portal.azure.com), then navigate to your API center.
 
-1. In the sidebar menu, under **Assets**, select **APIs** > **+ Register an API**.
+1. In the sidebar menu, under **Inventory**, select **Assets**.
+
+1. Select **+ Register an asset** > **API**.
+
+    :::image type="content" source="./media/register-apis/register-asset.png" alt-text="Screenshot of the Assets page in the Azure portal with the Register an asset menu showing API, MCP server, and A2A agent options." lightbox="./media/register-apis/register-asset.png":::
 
 1. In the **Register an API** page, add the following information for the Swagger Petstore API. You should see the custom *Line of business* and *Public-facing* metadata that you defined in the previous tutorial at the bottom of the page.
 
@@ -53,20 +57,18 @@ The following steps register two sample APIs: Swagger Petstore API and Conferenc
     |-------|-----|-----------|
     |**API title**| Enter *Swagger Petstore API*.| Name you choose for the API  |
     |**Identification**|After you enter the preceding title, Azure API Center generates this identifier, which you can override.| Azure resource name for the API |
-    |**API type**| Select **REST** from the dropdown.| Type of API |
+    |**Asset type**| Select **REST** from the dropdown.| Type of API |
     | **Summary** | Optionally enter a summary. | Summary description of the API  |
     | **Description** | Optionally enter a description. | Description of the API |
     | **Version** | | |
     |**Version title**| Enter a version title of your choice, such as *v1*.|Name you choose for the API version |
     |**Version identification**|After you enter the preceding title, Azure API Center generates this identifier, which you can override.| Azure resource name for the version |
     |**Version lifecycle**  | Make a selection from the dropdown, for example, **Testing** or **Production**. | Lifecycle stage of the API version |
-    |**External documentation**     | Optionally add one or more links to external documentation.       | Name, description, and URL of documentation for the API     |
-    |**License**         |  Optionally add license information.       | Name, URL, and ID of a license for the API     |
-    |**Contact information**         |  Optionally add information for one or more contacts.       | Name, email, and URL of a contact for the API     |
+    |**License**         |  Optionally, add license information.       | Name, URL, and ID of a license for the API     |    
+    |**External documentation**     | Optionally, add one or more links to external documentation.       | Name, description, and URL of documentation for the API     |
+    |**Contact information**         |  Optionally. add information for one or more contacts.       | Name, email, and URL of a contact for the API     |
     | **Line of business** | If you added this metadata in the previous tutorial, make a selection from the dropdown, such as **Marketing**. | Custom metadata that identifies the business unit that owns the API  |
     | **Public-facing**  | If you added this metadata, select the checkbox.    |  Custom metadata that identifies whether the API is public-facing or internal only    |
-
-    :::image type="content" source="./media/register-apis/register-api.png" alt-text="Screenshot of the dialog box to register an API in the Azure portal." lightbox="./media/register-apis/register-api.png":::
 
 1. Select **Create** to register the API.
 
@@ -75,13 +77,11 @@ The following steps register two sample APIs: Swagger Petstore API and Conferenc
 > [!TIP]
 > When you register an API in the Azure portal, you can select any of the predefined API types or enter another type of your choice. 
 
-The APIs appear on the **APIs** page in the portal. If you add a large number of APIs to the API center, use the search box and filters on this page to find the APIs you want.
+The APIs appear on the **Assets** page in the portal. If you add a large number of APIs to the API center, use the search box and filters on this page to find the APIs you want.
 
-:::image type="content" source="./media/register-apis/apis-page.png" alt-text="Screenshot of the APIs page in the portal." lightbox="./media/register-apis/apis-page.png":::
+:::image type="content" source="./media/register-apis/apis-page.png" alt-text="Screenshot of the Assets page in the portal." lightbox="./media/register-apis/apis-page.png":::
 
-After registering an API, you can view or edit the API's properties. On the **APIs** page, select the API to see pages to manage the API registration. 
-
-<a id="add-a-definition-to-your-version"></a>
+After registering an API, you can view or edit the API's properties. On the **Assets** page, select the API to see pages to manage the API registration. 
 
 ## Add an API version
 
@@ -105,18 +105,20 @@ Here you add a version to one of your APIs:
     |**Version identification**|After you enter the preceding title, Azure API Center generates this identifier, which you can override.| Azure resource name for the version |
     |**Version lifecycle**  | Make a selection from the dropdown, such as **Production**. | Lifecycle stage of the API version |
 
-1. Azure API Center supports definitions in common text specification formats, such as OpenAPI 2 and 3 for REST APIs. To add an API definition, enter or select the following information under **Select a specification**:
+1. Under **Select a specification**, add an API definition by entering or selecting the following information. Azure API Center supports definitions in common text specification formats, such as OpenAPI 2 and 3 for REST APIs.
 
     |Setting|Value|Description|
     |-------|-----|-----------|
     |**Definition title**| Enter a title of your choice, such as *v2 Definition*.|Name you choose for the API definition|
     |**Definition identification**|After you enter the preceding title, Azure API Center generates this identifier, which you can override.| Azure resource name for the definition|
-    |**Description** | Optionally enter a description. | Description of the API definition |
+    |**Description** | Optionally, enter a description. | Description of the API definition |
     |**Specification format** | For the Petstore API, select **OpenAPI**. | Specification format for the API|
     |**Specification version** | Enter a version identifier of your choice, such as *3.0*. | Specification version |
     |**File** or **URL**   | Browse to a local definition file for the Petstore API, or enter a URL. Example URL: `https://raw.githubusercontent.com/swagger-api/swagger-petstore/refs/heads/master/src/main/resources/openapi.yaml`   |  API definition file   |
 
     :::image type="content" source="./media/register-apis/add-definition.png" alt-text="Screenshot of adding an API definition in the portal." lightbox="./media/register-apis/add-definition.png" :::
+
+1. Under **Add a deployment**, leave the setting unselected for now. You configure a deployment in the next tutorial, [Add environments and deployments for APIs](./configure-environments-deployments.md).
 
 1. Select **Create**.
 

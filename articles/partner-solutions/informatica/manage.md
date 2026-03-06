@@ -3,7 +3,7 @@ title: Manage an Informatica resource through the Azure portal
 description: This article describes the management functions for Informatica IDMC on the Azure portal. 
 
 ms.topic: how-to
-ms.date: 04/02/2024
+ms.date: 02/04/2026
 ---
 
 # Manage your Informatica organization through the portal
@@ -21,14 +21,14 @@ Single sign-on (SSO) is already enabled when you created your Informatica Organi
 1. The first time you access this Url, depending on your Azure tenant settings, you might see a request to grant permissions and User consent. This step is only needed the first time you access the SSO Url.
 
    > [!NOTE]
-   > If you are also seeing Admin consent screen then please check your [tenant consent settings](/azure/active-directory/manage-apps/configure-user-consent).
+   > If you're also seeing Admin consent screen, then check your [tenant consent settings](/azure/active-directory/manage-apps/configure-user-consent).
    >
 
-1. Choose a Microsoft Entra account for the Single Sign-on. Once consent is provided, you're redirected to the Informatica  portal.
+1. Choose a Microsoft Entra account for the Single Sign-on. Once consent is provided, you're redirected to the Informatica portal.
 
 ## Delete an Informatica deployment
 
-Once the Astro resource is deleted, all billing stops for that resource through Azure Marketplace. If you're done using your resource and would like to delete the same, follow these steps:
+Once the Azure resource is deleted, all billing stops for that resource through Azure Marketplace. If you're done using your resource and would like to delete the same, follow these steps:
 
 1. From the service menu, select the Informatica deployment you would like to delete.
 
@@ -46,11 +46,8 @@ Once the Astro resource is deleted, all billing stops for that resource through 
 
 ## Get support
 
-Contact [Informatica](https://support.informatica.com/) for customer support. 
+Contact [Informatica](https://support.informatica.com/) for customer support.
 
 You can also request support in the Azure portal from the resource overview.
 
-Select **Support + Troubleshooting** > **New support request** from the service menu, then choose the link to [Informatica support website](https://support.informatica.com/) for support
-
-
-
+Select **Support + Troubleshooting** > **New support request** from the service menu, then choose the link to [Informatica support website](https://support.informatica.com/) for support.

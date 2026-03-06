@@ -816,7 +816,7 @@ items:
       - name: Azure Cosmos DB FAQ
         href: /azure/cosmos-db/synapse-link-frequently-asked-questions?context=/azure/synapse-analytics/context/context
       - name: Synapse Link use cases
-        href: /azure/cosmos-db/synapse-link-use-cases?context=/azure/synapse-analytics/context/context
+        href: /azure/cosmos-db/synapse-link
     - name: SQL Database
       items:
       - name: Synapse Link for Azure SQL Database

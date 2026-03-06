@@ -3,12 +3,11 @@ title:  Run KQL queries against the Microsoft Sentinel data lake
 titleSuffix: Microsoft Security  
 description: Use the Defender portal's Data lake exploration KQL queries to query and interact with the Microsoft Sentinel data lake. Create, edit, and run KQL queries to explore your data lake resources
 author: EdB-MSFT  
-ms.service: microsoft-sentinel  
+ms.service: microsoft-sentinel
+ms.subservice: sentinel-platform  
 ms.topic: how-to
-ms.subservice: sentinel-graph
-ms.date: 12/10/2025
+ms.date: 03/04/2026
 ms.author: edbaynash  
-
 ms.collection: ms-security  
 ---  
  
@@ -108,7 +107,7 @@ Results are stored for 24 hours and can be accessed multiple times. You can expo
 
 :::image type="content" source="media/kql-queries/fetch-async-query-results.png" lightbox="media/kql-queries/fetch-async-query-results.png" alt-text="A screenshot showing the results of an async query in the KQL query editor.":::
 
-
+[!INCLUDE [Service limits for KQL async queries](../includes/service-limits-kql-async-queries.md)]
 
 ## Jobs
 
@@ -128,6 +127,7 @@ external_table("AADRiskyUsers")
 
 ## Query considerations and limitations
 
++ Querying legacy tables such as AzureDiagnostics is not supported.
 + Queries are run against the workspaces you selected. Make sure you select the correct workspaces before running a query.
 + Executing KQL queries on the Microsoft Sentinel data lake incurs charges based on query billing meters. For more information, see [Plan costs and understand Microsoft Sentinel pricing and billing](../billing.md#data-lake-tier).
 + Review data ingestion and table retention policy. Before setting query time range, be aware of data retention on your data lake tables and whether data is available for selected time range. For more information, see [Manage data tiers and retention in Microsoft Defender portal](https://aka.ms/manage-data-defender-portal-overview).

@@ -32,7 +32,21 @@ In the [Anomalies](/azure/azure-monitor/reference/tables/anomalies) table:
 > - Domain generation algorithm (DGA) on DNS domains
 > - Potential domain generation algorithm (DGA) on next-level DNS Domains
 
-[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+## Compare UEBA and machine learning-based anomalies
+
+UEBA and machine learning (ML) -based anomalies are complementary approaches to anomaly detection. Both populate the `Anomalies` table but serve different purposes:
+
+| Aspect | UEBA anomalies | ML anomaly detection rules |
+|--------|----------------|----------------------------|
+| **Focus** | *Who* is behaving unusually | *What* activity is unusual |
+| **Detection approach** | Entity-focused behavioral baselines compared against historical activity, peer behavior, and organization-wide patterns | Customizable rule templates using statistical and ML models trained on specific data patterns |
+| **Baseline source** | Each entity's own history, peer group, and organization | Training period (typically 7-21 days) on specific event types |
+| **Customization** | Enabled/disabled using UEBA settings | Tunable thresholds and parameters using the analytics rule UI |
+| **Examples** | Anomalous sign-in, anomalous account creation, anomalous privilege modification | Attempted brute force, excessive downloads, network beaconing |
+
+For more information, see:
+- [UEBA overview](identify-threats-with-entity-behavior-analytics.md)
+- [Customizable ML anomaly detection rules](soc-ml-anomalies.md)
 
 ## UEBA anomalies
 
@@ -46,23 +60,23 @@ UEBA detects anomalies based on these anomaly rules:
 - [UEBA Anomalous Account Creation](#ueba-anomalous-account-creation)
 - [UEBA Anomalous Account Deletion](#ueba-anomalous-account-deletion)
 - [UEBA Anomalous Account Manipulation](#ueba-anomalous-account-manipulation)
-- [UEBA Anomalous Activity in GCP Audit Logs (Preview)](#ueba-anomalous-activity-in-gcp-audit-logs-preview)
-- [UEBA Anomalous Activity in Okta_CL (Preview)](#ueba-anomalous-activity-in-okta_cl-preview)
-- [UEBA Anomalous Authentication (Preview)](#ueba-anomalous-authentication-preview)
+- [UEBA Anomalous Activity in GCP Audit Logs](#ueba-anomalous-activity-in-gcp-audit-logs)
+- [UEBA Anomalous Activity in Okta_CL](#ueba-anomalous-activity-in-okta_cl)
+- [UEBA Anomalous Authentication](#ueba-anomalous-authentication)
 - [UEBA Anomalous Code Execution](#ueba-anomalous-code-execution)
 - [UEBA Anomalous Data Destruction](#ueba-anomalous-data-destruction)
-- [UEBA Anomalous Data Transfer from Amazon S3 (Preview)](#ueba-anomalous-data-transfer-from-amazon-s3-preview)
+- [UEBA Anomalous Data Transfer from Amazon S3](#ueba-anomalous-data-transfer-from-amazon-s3)
 - [UEBA Anomalous Defensive Mechanism Modification](#ueba-anomalous-defensive-mechanism-modification)
 - [UEBA Anomalous Failed Sign-in](#ueba-anomalous-failed-sign-in)
-- [UEBA Anomalous Federated or SAML Identity Activity in AwsCloudTrail (Preview)](#ueba-anomalous-federated-or-saml-identity-activity-in-awscloudtrail-preview)
-- [UEBA Anomalous IAM Privilege Modification in AwsCloudTrail (Preview)](#ueba-anomalous-iam-privilege-modification-in-awscloudtrail-preview)
-- [UEBA Anomalous Logon in AwsCloudTrail (Preview)](#ueba-anomalous-logon-in-awscloudtrail-preview)
-- [UEBA Anomalous MFA Failures in Okta_CL (Preview)](#ueba-anomalous-mfa-failures-in-okta_cl-preview)
+- [UEBA Anomalous Federated or SAML Identity Activity in AwsCloudTrail](#ueba-anomalous-federated-or-saml-identity-activity-in-awscloudtrail)
+- [UEBA Anomalous IAM Privilege Modification in AwsCloudTrail](#ueba-anomalous-iam-privilege-modification-in-awscloudtrail)
+- [UEBA Anomalous Logon in AwsCloudTrail](#ueba-anomalous-logon-in-awscloudtrail)
+- [UEBA Anomalous MFA Failures in Okta_CL](#ueba-anomalous-mfa-failures-in-okta_cl)
 - [UEBA Anomalous Password Reset](#ueba-anomalous-password-reset)
 - [UEBA Anomalous Privilege Granted](#ueba-anomalous-privilege-granted)
-- [UEBA Anomalous Secret or KMS Key Access in AwsCloudTrail (Preview)](#ueba-anomalous-secret-or-kms-key-access-in-awscloudtrail-preview)
+- [UEBA Anomalous Secret or KMS Key Access in AwsCloudTrail](#ueba-anomalous-secret-or-kms-key-access-in-awscloudtrail)
 - [UEBA Anomalous Sign-in](#ueba-anomalous-sign-in)
-- [UEBA Anomalous STS AssumeRole Behavior in AwsCloudTrail (Preview)](#ueba-anomalous-sts-assumerole-behavior-in-awscloudtrail-preview)
+- [UEBA Anomalous STS AssumeRole Behavior in AwsCloudTrail](#ueba-anomalous-sts-assumerole-behavior-in-awscloudtrail)
 
 Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA anomalies with a confidence score specific to your tenant and source. 
 
@@ -123,7 +137,7 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### UEBA Anomalous Activity in GCP Audit Logs (Preview)
+### UEBA Anomalous Activity in GCP Audit Logs
 
 **Description:** Failed access attempts to Google Cloud Platform (GCP) resources based on IAM-related entries in GCP Audit Logs. These failures might reflect misconfigured permissions, attempts to access unauthorized services, or early-stage attacker behaviors like privilege probing or persistence through service accounts.
 
@@ -137,7 +151,7 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### UEBA Anomalous Activity in Okta_CL (Preview)
+### UEBA Anomalous Activity in Okta_CL
 
 **Description:** Unexpected authentication activity or security-related configuration changes in Okta, including modifications to sign-on rules, multifactor authentication (MFA) enforcement, or administrative privileges. Such activity might indicate attempts to alter identity security controls or maintain access through privileged changes.
 
@@ -152,7 +166,7 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 
-### UEBA Anomalous Authentication (Preview)
+### UEBA Anomalous Authentication
 
 **Description:** Unusual authentication activity across signals from Microsoft Defender for Endpoint and Microsoft Entra ID, including device logons, managed identity sign-ins, and service principal authentications from Microsoft Entra ID. These anomalies may suggest credential misuse, non-human identity abuse, or lateral movement attempts outside typical access patterns.
 
@@ -195,7 +209,7 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### UEBA Anomalous Data Transfer from Amazon S3 (Preview)
+### UEBA Anomalous Data Transfer from Amazon S3
 
 **Description:** Deviations in data access or download patterns from Amazon Simple Storage Service (S3). The anomaly is determined using behavioral baselines for each user, service, and resource, comparing data transfer volume, frequency, and accessed object count against historical norms. Significant deviations - such as first-time bulk access, unusually large data retrievals, or activity from new locations or applications - might indicate potential data exfiltration, policy violations, or misuse of compromised credentials.
 
@@ -238,7 +252,7 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### UEBA Anomalous Federated or SAML Identity Activity in AwsCloudTrail (Preview)
+### UEBA Anomalous Federated or SAML Identity Activity in AwsCloudTrail
 
 **Description:** Unusual activity by federated or Security Assertion Markup Language (SAML)-based identities involving first-time actions, unfamiliar geo-locations, or excessive API calls. Such anomalies can indicate session hijacking or misuse of federated credentials.
 
@@ -252,7 +266,7 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### UEBA Anomalous IAM Privilege Modification in AwsCloudTrail (Preview)
+### UEBA Anomalous IAM Privilege Modification in AwsCloudTrail
 
 **Description:** Deviations in Identity and Access Management (IAM) administrative behavior, such as first-time creation, modification, or deletion of roles, users, and groups, or attachment of new inline or managed policies. These might indicate privilege escalation or policy abuse.
 
@@ -266,7 +280,7 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### UEBA Anomalous Logon in AwsCloudTrail (Preview)
+### UEBA Anomalous Logon in AwsCloudTrail
 
 **Description:** Unusual logon activity in Amazon Web Services (AWS) services based on CloudTrail events such as ConsoleLogin and other authentication-related attributes. Anomalies are determined by deviations in user behavior based on attributes like geolocation, device fingerprint, ISP, and access method, and may indicate unauthorized access attempts or potential policy violations.
 
@@ -281,7 +295,7 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 
-### UEBA Anomalous MFA Failures in Okta_CL (Preview)
+### UEBA Anomalous MFA Failures in Okta_CL
 
 **Description:** Unusual patterns of failed MFA attempts in Okta. These anomalies might result from account misuse, credential stuffing, or improper use of trusted device mechanisms, and often reflect early-stage adversary behaviors, such as testing stolen credentials or probing identity safeguards.
 
@@ -324,7 +338,7 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### UEBA Anomalous Secret or KMS Key Access in AwsCloudTrail (Preview)
+### UEBA Anomalous Secret or KMS Key Access in AwsCloudTrail
 
 **Description:** Suspicious access to AWS Secrets Manager, or Key Management Service (KMS) resources. First-time access or unusually high access frequency might indicate credential harvesting or data exfiltration attempts.
 
@@ -352,7 +366,7 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### UEBA Anomalous STS AssumeRole Behavior in AwsCloudTrail (Preview)
+### UEBA Anomalous STS AssumeRole Behavior in AwsCloudTrail
 
 **Description:** Anomalous usage of AWS Security Token Service (STS) AssumeRole actions, especially involving privileged roles or cross-account access. Deviations from typical usage might indicate privilege escalation or identity compromise.
 
@@ -667,7 +681,5 @@ Microsoft Sentinel's customizable, machine learning-based anomalies can identify
 ## Next steps
 
 - Learn about [machine learning-generated anomalies](soc-ml-anomalies.md) in Microsoft Sentinel.
-
 - Learn how to [work with anomaly rules](work-with-anomaly-rules.md).
-
 - [Investigate incidents](investigate-cases.md) with Microsoft Sentinel.

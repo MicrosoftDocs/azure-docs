@@ -212,6 +212,8 @@
       href: howto-feature-filters.md
     - name: ASP.NET Core
       href: howto-feature-filters-aspnet-core.md
+    - name: Spring Boot
+      href: how-to-feature-filters-spring-boot.md
     - name: JavaScript
       href: howto-feature-filters-javascript.md
     - name: Python
@@ -248,6 +250,8 @@
       href: howto-variant-feature-flags.md
     - name: ASP.NET Core
       href: howto-variant-feature-flags-aspnet-core.md
+    - name: Spring Boot
+      href: how-to-variant-feature-flags-spring-boot.md
     - name: Python
       href: howto-variant-feature-flags-python.md
     - name: JavaScript

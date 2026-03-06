@@ -19,7 +19,7 @@ This article helps you add more scale units (instances) to Azure Bastion to acco
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the Azure portal, go to your Bastion host.
-1. Host scaling instance count requires Standard SKU tier or higher. On the **Configuration** page, for **Tier**, verify the tier is Standard or higher. If the SKU tier is Basic, select a higher SKU. To configure scaling, adjust the instance count. Each instance is a scale unit.
+1. Host scaling instance count requires Standard SKU or higher. On the **Configuration** page, for **SKU**, verify the SKU is Standard or higher. If the SKU is Basic, select a higher SKU. To configure scaling, adjust the instance count. Each instance is a scale unit.
 1. Select **Apply** to apply changes.
 
    >[!NOTE]

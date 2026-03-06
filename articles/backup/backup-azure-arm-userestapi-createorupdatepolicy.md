@@ -2,7 +2,7 @@
 title: Create backup policies via REST API in Azure Backup
 description: In this article, you'll learn how to create and manage backup policies (schedule and retention) using REST API.
 ms.topic: how-to
-ms.date: 02/25/2025
+ms.date: 02/16/2026
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.service: azure-backup
 ms.custom: engagement-fy24
@@ -16,7 +16,7 @@ This article describes how to create policies for the backup of Azure VM, SQL da
 
 Learn more about [creating or modifying a backup policy for an Azure Recovery Services vault by using REST API](/rest/api/backup/protection-policies/create-or-update). 
 
-## Create or update a policy
+## Create or update a policy in Azure Recovery Services vault
 
 To create or update an Azure Backup policy, use the following *PUT* operation.
 
@@ -26,7 +26,7 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 The `{policyName}` and `{vaultName}` are provided in the URI. Additional information is provided in the request body.
 
-## Create the request body
+## Create the request body for Azure VM backup policy
 
 If you want to create a policy for Azure VM backup, the request body needs to have the following components:
 
@@ -685,7 +685,7 @@ This policy:
 
 ---
 
-## Responses
+## Responses for backup policy creation or update
 
 The backup policy creation/update is a [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 

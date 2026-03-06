@@ -1,5 +1,5 @@
 ---
-title: Translate raw security logs to behavioral insights using UEBA behaviors in Microsoft Sentinel (Preview)
+title: Translate raw security logs to behavioral insights using UEBA behaviors in Microsoft Sentinel
 description: The Microsoft Sentinel UEBA behaviors layer translates security telemetry into normalized behavioral patterns for investigation, hunting, and detection engineering.
 author: guywi-ms
 ms.author: guywild
@@ -10,7 +10,7 @@ ms.service: microsoft-sentinel
 #Customer intent: As a security analyst, I want to use the UEBA behaviors layer to translate raw security telemetry into human-readable patterns with MITRE ATT&CK context for faster threat detection and investigation.
 ---
 
-# Translate raw security logs to behavioral insights using UEBA behaviors in Microsoft Sentinel (Preview)
+# Translate raw security logs to behavioral insights using UEBA behaviors in Microsoft Sentinel
 
 The User and Entity Behavior Analytics (UEBA) behavior layer in Microsoft Sentinel aggregates and summarizes high-volume raw logs into clear, plain-language patterns of security actions, explaining “who did what to whom” in a structured way.
 
@@ -24,6 +24,8 @@ Unlike alerts or anomalies, behaviors don’t necessarily indicate risk - they c
 This abstraction layer enables faster threat detection, investigation, and response across your security operations, without requiring deep familiarity with every log source. 
 
 This article explains how the UEBA behaviors layer works, how to enable the behaviors layer, and how to use behaviors to enhance security operations.  
+
+Watch the [UEBA behaviors webinar](https://www.youtube.com/watch?v=SqbxmGdMP7c) for a full overview and demo of the UEBA behaviors layer.
 
 ## How the UEBA behaviors layer works
 
@@ -189,7 +191,7 @@ Behaviors simplify rule logic by providing normalized, high‑quality signals wi
 The list of supported data sources and vendors or services that send logs to these data sources is evolving.
 The UEBA behaviors layer automatically aggregates insights for all supported vendors based on the logs you collect.
 
-During public preview, the UEBA behaviors layer focuses on these non-Microsoft data sources that traditionally lack easy behavioral context in Microsoft Sentinel: 
+The UEBA behaviors layer currently focuses on these non-Microsoft data sources that traditionally lack easy behavioral context in Microsoft Sentinel: 
 
 | Data source | Supported vendors, services, and logs | Connector | Supported behaviors |
 |-------------|---------------------------|-------|----------------|
@@ -241,13 +243,13 @@ To enable the UEBA behaviors layer in your workspace:
 1. Select **Connect**.
 
   > [!IMPORTANT]
-  > During public preview, you can only enable behaviors in a single workspace in your tenant.
+  > You can currently enable behaviors in a single workspace in your tenant.
 
 ## Pricing model
 
 Using the UEBA behaviors layer results in the following costs:
 
-- **No extra license cost:** Behaviors are included as part of Microsoft Sentinel (currently in preview). You don’t need a separate SKU, UEBA add‑on, or additional licensing. If your workspace is connected to Sentinel and onboarded to the Defender portal, you can use behaviors at no extra feature cost.
+- **No extra license cost:** Behaviors are included as part of Microsoft Sentinel. You don’t need a separate SKU, UEBA add‑on, or additional licensing. If your workspace is connected to Sentinel and onboarded to the Defender portal, you can use behaviors at no extra feature cost.
 
 - **Log data ingestion charges:** Behavior records are stored in the `SentinelBehaviorInfo` and `SentinelBehaviorEntities` tables in your Sentinel workspace. Each behavior contributes to your workspace’s data ingestion volume and is billed at your existing Log Analytics/Sentinel ingestion rate. Behaviors are additive - they don’t replace your existing raw logs.
 
@@ -323,9 +325,9 @@ For more information about Kusto Query Language (KQL), see [Kusto query language
 - **I see fewer behaviors than expected**: Our coverage of supported behavior types is partial and growing. For more information, see [Supported data sources and behaviors](#supported-data-sources-and-behaviors). The UEBA behaviors layer might also not be able to detect a behavior pattern if there are very few instances of a specific behavior type.
 - **Behavior counts**: A single behavior might represent tens or hundreds of raw events - this is designed to reduce noise.
      
-## Limitations in public preview 
+## Limitations 
 
-These limitations apply during the public preview of the UEBA behaviors layer:
+These limitations currently apply to the UEBA behaviors layer:
 
 - You can enable behaviors on a single Sentinel workspace per tenant.
 - The UEBA behaviors layer generates behaviors for a limited set of [supported data sources and vendors or services](#supported-data-sources-and-behaviors). 

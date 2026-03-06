@@ -1,6 +1,6 @@
 ---
 title: Use Customizations to Connect to Azure Resources or Clone Private Repositories
-description: Discover how to use fetch Azure Key Vault secrets by using team and user customization files to enhance security and simplify workflows.
+description: Learn how to fetch Azure Key Vault secrets in Dev Box team and user customizations to access private repositories and Azure resources.
 #customer intent: As a platform engineer, I want to configure Azure Key Vault secrets so that my development teams can securely access private repositories during Dev Box customization.
 author: RoseHJM
 ms.author: rosemalcolm
@@ -18,13 +18,37 @@ ms.date: 02/06/2026
 
 # Securely connect to Azure resources or clone private repositories
 
-When you access resources like repositories or Azure resources during the customization process, you need to authenticate securely. You can reference Azure Key Vault secrets in your customization files to avoid exposing sensitive information, and you can use service principals to authenticate to Azure for secure resource access. This article explains how to manage and access resources securely during dev box customization.
+When you access resources like repositories or Azure resources during the customization process, authenticate securely. To avoid storing secret values in customization files and source control, reference Azure Key Vault secrets in your customization files. Use service principals to authenticate to Azure for secure resource access. This article explains how to manage and access resources securely during dev box customization.
+
+## Prerequisites
+
+- A dev center and project configured for Dev Box. If you don't have one, see [Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md).
+- Permission to create a dev box in at least one project. For setup and access, see [Create a dev box](quickstart-create-dev-box.md).
+- Permissions required to configure customizations, Key Vault access, and catalogs. See [Permissions for customizations](concept-what-are-dev-box-customizations.md#permissions-for-customizations).
+- An Azure Key Vault that contains the secrets you want to use.
+- (Service principal examples) Azure CLI installed and signed in, and permission to create service principals. See [Install the Azure CLI](/cli/azure/install-azure-cli).
+
+## Security considerations
+
+Azure Key Vault integration helps you avoid storing secret values in customization files and source control. However, Dev Box resolves secret placeholders at customization time. Depending on how a task runs and what it writes to output, resolved secret values can appear in task output or logs.
+
+> [!IMPORTANT]
+> Don't assume secret values are masked in task output or logs. Validate your customization in a non-production project with non-production secrets.
+
+To reduce the chance of exposure:
+
+- Prefer identity-based or token-exchange approaches (for example, Azure DevOps token exchange) over long-lived personal access tokens (PATs) when possible.
+- Don't print secrets to output. Avoid verbose or debug modes that can echo credentials, URLs, or headers.
+- Avoid embedding secrets directly in command lines or URLs. If a secret appears in logs, revoke or rotate it and update your key vault.
 
 ## Use key vault secrets in customization files
 
 Use secrets from Azure Key Vault in your YAML customizations to clone private repositories or run tasks that require an access token. For example, in a customization file, use a personal access token (PAT) stored in Azure Key Vault to access a private repository.
 
-Both team and user customizations support fetching secrets from a key vault. Team customizations, which use image definition files, define the base image for the dev box with the `image` parameter, and list the tasks that run when a dev box is created. User customizations list the tasks that run when a dev box is created. 
+Both team and user customizations support fetching secrets from a key vault.
+
+- **Team customizations** use image definition files that define the base image for the dev box with the `image` parameter and list the tasks that run when a dev box is created.
+- **User customizations** list the tasks that run when a dev box is created.
 
 To use a secret, like a PAT, in your customization files, store it as a key vault secret. The following examples show how to reference a key vault secret in both types of customizations.
 
@@ -32,7 +56,7 @@ To use a secret, like a PAT, in your customization files, store it as a key vaul
 
 Your dev center needs access to your key vault. To configure key vault secrets for use in your team or user customizations, make sure the Dev Center project's managed identity has the Key Vault Secrets User role on your key vault.
 
-If your organization's policies require you to keep your Key Vault private from the internet, you can create a firewall rule to disable or limit public access. You will need to let trusted Microsoft services bypass the firewall because Dev Center doesn't support service tags. Key vaults with private endpoints or private link integration are not currently supported for this scenario.
+If your organization's policies require you to keep your Key Vault private from the internet, you can create a firewall rule to disable or limit public access. You need to let trusted Microsoft services bypass the firewall because Dev Center doesn't support service tags. Key vaults with private endpoints or private link integration aren't currently supported for this scenario.
 
 The following screenshot shows the option to allow trusted Microsoft services to bypass the firewall in Azure Key Vault settings.
 
@@ -49,7 +73,10 @@ To configure key vault secrets for user customizations, also:
 
 ### Team customizations example
 
-This syntax uses a key vault secret (PAT) in an image definition file. The `KEY_VAULT_SECRET_URI` is the URI of the secret in your key vault.
+This syntax uses a key vault secret (PAT) in an image definition file. The `KEY_VAULT_SECRET_URI` is the secret identifier (URI) for the secret in your key vault.
+
+> [!TIP]
+> Use the versionless secret identifier so Dev Box can fetch the latest version of the secret. For an example, see the "Secret identifier" guidance in [Add and manage catalogs in Microsoft Dev Box](how-to-configure-catalog.md).
 
 ```yaml
 $schema: "<SCHEMA_VERSION>"
@@ -101,7 +128,7 @@ tasks:
 
 ### User customizations example
 
-User customizations let you obtain an Azure DevOps token to clone private repositories without explicitly specifying a PAT from the key vault. The service automatically exchanges your Azure token for an Azure DevOps token at run time.
+User customizations let you obtain an Azure DevOps token to clone private repositories without explicitly specifying a PAT from the key vault. 
 
 This example shows the ADO shorthand (`{{ado://...}}`). The service exchanges your Azure token for an Azure DevOps token at runtime, so you don't need to store a PAT in Key Vault.
 
@@ -118,11 +145,11 @@ tasks:
 
 The Dev Box Visual Studio Code extension and Dev Box CLI don't support hydrating secrets in the inner-loop testing workflow for customizations.
 
-## Authenticate to Azure resources with service principals
+## Authenticate to Azure resources by using service principals
 
-Service principals let you securely authenticate to Azure resources without exposing user credentials. Create a service principal, assign the required roles, and use it to authenticate in a customization task. Hydrate its password from Key Vault at customization time using the existing secrets feature.
+By using service principals, you can authenticate to Azure resources without using user credentials. Create a service principal, assign the required roles, and use it to authenticate in a customization task. Hydrate its password from Key Vault at customization time by using the existing secrets feature.
 
-1. Create a service principal in Azure Active Directory (Azure AD), and assign it the necessary roles for the resources you want to use.
+1. Create a service principal in Microsoft Entra ID, and assign it the necessary roles for the resources you want to use.
 
    The output is a JSON object containing the service principal's *appId*, *displayName*, *password*, and *tenant*, which are used for authentication and authorization in Azure Automation scenarios.
 
@@ -139,22 +166,24 @@ Service principals let you securely authenticate to Azure resources without expo
    }
    ```
 
-1. Store the password returned above in a Key Vault secret, like this: `https://mykeyvault.vault.azure.net/secrets/password`
+1. Store the password returned in the previous step in a Key Vault secret, like this: `https://mykeyvault.vault.azure.net/secrets/password`
 
 1. On the Key Vault, grant the *Key Vault Secrets User* role to the project identity.
 
-Now you can authenticate in customization tasks, hydrating the service principal password from the Key Vault at customization time.
+Now you can authenticate in customization tasks by hydrating the service principal password from the Key Vault at customization time.
 
 ### Example: Download a file from Azure Storage
+
 The following example shows how to download a file from a storage account. The YAML snippet defines a Dev Box customization that performs two main tasks:
 
-1. Installs the Azure CLI using the winget package manager.
+1. Installs the Azure CLI by using the winget package manager.
 
 1. Runs a PowerShell script that:
-   - Logs in to Azure using a service principal, with the password securely retrieved from Azure Key Vault.
-   - Downloads a blob (file) from an Azure Storage account using the authenticated session.
 
-   Example: customization that hydrates a service principal password from Key Vault and uses it to authenticate and download a blob from Azure Storage. Store the service principal password in Key Vault and ensure the project identity has Key Vault Secrets User role.
+  - Authenticates to Azure by using a service principal, with the password retrieved from Azure Key Vault.
+  - Downloads a blob (file) from an Azure Storage account by using the authenticated session.
+
+  Example: customization that hydrates a service principal password from Key Vault and uses it to authenticate and download a blob from Azure Storage. Store the service principal password in Key Vault and ensure the project identity has Key Vault Secrets User role.
 
    ```yaml
    $schema: "1.0"
@@ -181,6 +210,7 @@ The following example shows how to download a file from a storage account. The Y
 This setup lets you automate secure use of Azure resources during Dev Box provisioning without exposing credentials in the script.
 
 ### Example: Download an artifact from Azure DevOps
+
 Download build artifacts from Azure DevOps (ADO) by using a service principal for authentication. Add the service principal's Application ID (appId) as a user in your Azure DevOps organization, then assign the principal to the **Readers** group. This step gives the necessary permissions to use build artifacts.
 
 After you configure these steps, use the service principal credentials in customization tasks to authenticate and download artifacts securely from Azure DevOps.
@@ -196,10 +226,10 @@ To add a service principal to your Azure DevOps organization:
 
    :::image type="content" source="media/how-to-customizations-connect-resource-repository/dev-box-customizations-devops-add-user.png" alt-text="Screenshot of the Add new users dialog in Azure DevOps, showing fields for user email, access level, project, and group assignment." lightbox="media/how-to-customizations-connect-resource-repository/dev-box-customizations-devops-add-user.png":::
 
-      - **Users**: Enter the service principal's Application ID (appId) as the user email.
-   - **Access Level**: Select **Basic**.
-   - **Add to project**: Select the project where you want to add the service principal.
-   - **Azure DevOps groups**: Assign the service principal to the **Readers** group.
+    - **Users**: Enter the service principal's Application ID (appId) as the user email.
+    - **Access Level**: Select **Basic**.
+    - **Add to project**: Select the project where you want to add the service principal.
+    - **Azure DevOps groups**: Assign the service principal to the **Readers** group.
 
 1. Complete the process to grant the necessary permissions.
 

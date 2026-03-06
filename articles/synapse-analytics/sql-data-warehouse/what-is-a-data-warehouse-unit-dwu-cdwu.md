@@ -6,7 +6,7 @@ ms.author: ajagadish
 ms.date: 04/17/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: best-practice
 ---
 
 # Data Warehouse Units (DWUs) for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics

@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
     * For the purposes of this article, the example virtual machine is named **vm-1**. The example public IP address is named **public-ip**.
 
 > [!NOTE]
-> Removal of the public IP address prevents direct connections to the virtual machine from the internet. RDP or SSH access won't function to the virtual machine after you complete this migration. To securely manage virtual machines in your subscription, use Azure Bastion. For more information on Azure Bastion, see [What is Azure Bastion?](../bastion/bastion-overview.md).
+> Removal of the public IP address prevents direct connections to the virtual machine from the internet. RDP or SSH access won't function to the virtual machine after you complete this migration. To securely manage virtual machines in your subscription, use Azure Bastion. For more information on Azure Bastion, see [What is Azure Bastion?](../bastion/bastion-overview.md)
 
 ## Remove public IP from virtual machine
 

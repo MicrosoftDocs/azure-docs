@@ -4,7 +4,7 @@ description: Learn how to use Azure Container Apps with Azure Static Web Apps
 services: static-web-apps
 author: cjk7989
 ms.service: azure-static-web-apps
-ms.topic:  conceptual
+ms.topic:  concept-article
 ms.date: 06/14/2022
 ms.author: jikunchen
 ---

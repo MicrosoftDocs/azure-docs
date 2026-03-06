@@ -4,7 +4,7 @@ description: Learn about the output error handling policies available in Azure S
 author: AliciaLiMicrosoft 
 ms.author: ali 
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/30/2021
 ---
 # Azure Stream Analytics output error policy

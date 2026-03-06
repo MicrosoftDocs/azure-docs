@@ -60,5 +60,3 @@ Learn more about monitoring Azure Functions and logic apps:
 * [How to configure monitoring for Azure Functions](../../azure-functions/configure-monitoring.md).
 
 * [Monitor logic apps](/azure/logic-apps/monitor-logic-apps-overview).
-
-* If you run into problems during deployment, you encounter an issue when using Start/Stop VMs v2, or if you have a related question, you can submit an issue on [GitHub](https://github.com/microsoft/startstopv2-deployments/issues). Filing an Azure support incident from the [Azure support site](https://azure.microsoft.com/support/options/) is also available for this version. 

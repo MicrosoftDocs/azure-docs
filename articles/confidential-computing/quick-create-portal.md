@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Create Intel SGX VM in the Azure Portal
-description: Get started with your deployments by learning how to quickly create an Intel SGX VM in the Azure Portal
+description: Get started with your deployments by learning how to quickly create an Intel SGX VM in the Azure portal
 author: cynthn
 ms.service: azure-confidential-computing
 ms.topic: quickstart
@@ -25,7 +25,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 
 ## Sign in to Azure
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. At the top, select **Create a resource**.
 

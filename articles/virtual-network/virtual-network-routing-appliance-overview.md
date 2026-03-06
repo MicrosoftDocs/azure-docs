@@ -1,8 +1,8 @@
 ---
-title: Virtual Network Routing Appliance Overview
+title: Overview of Routing Appliances
 titleSuffix: Azure Virtual Network
-description: Learn about virtual network routing appliance, a high-performance routing solution designed for low latency, high throughput, and seamless Azure-native management.
-#customer intent: As a network administrator, I want to understand what a virtual network routing appliance is so that I can determine its use cases for my organization.
+description: Learn about routing appliances, a high-performance routing solution for low latency, high throughput, and seamless Azure-native management of virtual networks.
+#customer intent: As a network administrator, I want to understand what a routing appliance is so that I can determine its use cases for my organization's virtual networks.
 author: asudbring
 ms.author: allensu
 ms.reviewer: allensu
@@ -11,55 +11,60 @@ ms.topic: concept-article
 ms.service: azure-virtual-network
 ---
 
-# Virtual network routing appliance overview
+# Overview of Azure Virtual Network routing appliances
 
-Azure Virtual Network routing appliance is a high-performance solution that provides a managed, scalable forwarding layer for your virtual networks. Unlike traditional hub-and-spoke architectures that rely on virtual machines for routing, virtual network routing appliance runs on specialized networking hardware to deliver low latency and high throughput for your traffic flows.
+An Azure Virtual Network routing appliance is a high-performance solution that provides a managed, scalable forwarding layer for your virtual networks. A routing appliance runs on specialized networking hardware to deliver low latency and high throughput for your traffic flows.
 
-As a top-level Azure resource, virtual network routing appliance integrates with Azure's management model, so you can deploy, configure, and govern it using familiar Azure tools and processes. You deploy the appliance in a dedicated subnet within your virtual network, where it acts as a high-bandwidth forwarding layer for routed traffic.
+As a top-level Azure resource, a routing appliance integrates with the Azure management model. You can deploy, configure, and govern it by using familiar Azure tools and processes. You deploy the appliance in a dedicated subnet within your virtual network, where it acts as a high-bandwidth forwarding layer for routed traffic.
 
-Virtual network routing appliance is ideal for organizations that need to:
+A routing appliance can help organizations that need to:
 
-- Scale routing capacity horizontally to meet growing bandwidth demands
-- Reduce latency for east-west traffic flows
-- Eliminate routing bottlenecks in hub-and-spoke network topologies
-- Maintain Azure-native management and governance
+- Scale routing capacity horizontally to meet growing bandwidth demands.
+- Reduce latency for east-to-west traffic flows.
+- Eliminate routing bottlenecks in network topologies.
+- Maintain Azure-native management and governance.
 
 > [!IMPORTANT]
-> Azure Virtual Network routing appliance is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Azure Virtual Network routing appliances are currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+A routing appliance is an Azure-managed network routing device that you deploy inside your virtual network. It acts as a high-bandwidth forwarding layer for routed traffic flows, so you don't need to run your own virtual machines as the forwarding layer.
 
-Virtual network routing appliance is an Azure-managed network routing device that you deploy inside your virtual network. It acts as a high-bandwidth forwarding layer for routed traffic flows, so you don't need to run your own virtual machines as the forwarding layer.
-
-:::image type="content" source="media/virtual-network-routing-appliance-overview/virtual-network-appliance-diagram.png" alt-text="Diagram showing Virtual network routing appliance architecture in Azure.":::
+:::image type="content" source="media/virtual-network-routing-appliance-overview/virtual-network-appliance-diagram.png" alt-text="Diagram that shows the architecture of routing appliances for virtual networks in Azure.":::
 
 Key characteristics:  
 
-- Azure resource model: You create and manage virtual network routing appliance as an Azure resource, similar to other networking resources.  
-- Dedicated subnet: You host the appliance in a dedicated subnet named "VirtualNetworkApplianceSubnet."  
-- In the data path: The appliance forwards traffic (data path).
+- You create and manage a routing appliance as an Azure resource, similar to other networking resources.  
+- You host a routing appliance in a dedicated subnet named `VirtualNetworkApplianceSubnet`.  
+- A routing appliance forwards traffic in the data path.
 
 ## Benefits
 
-### High throughput and low latency forwarding layer
+### High throughput and maximum connections
 
-Many hub and spoke designs rely on a centralized forwarder that can become a bottleneck. Virtual network routing appliance is a lightweight, high-performance forwarding layer that reduces the risk of the forwarding layer becoming the choke point for traffic flows.
+A routing appliance is a lightweight, high-performance forwarding layer. It reduces the risk of the forwarding layer becoming the choke point for traffic flows.
 
-### Purpose-built for horizontal scaling and accelerated east–west flows
+| Bandwidth tier | Maximum connections per second | Maximum concurrent flows |
+|----------------|--------------------------------|--------------------------|
+| 50 Gbps        | 250,000                        | 2,000,000                |
+| 100 Gbps       | 600,000                        | 4,000,000                |
+| 200 Gbps       | 1,500,000                      | 8,000,000                |
 
-Virtual network routing appliance is purpose-built for horizontal scaling, accelerated east–west flows, high throughput, and low latency to meet massive bandwidth demands.
+### Horizontal scaling and accelerated east-to-west flows
+
+A routing appliance is purpose built for horizontal scaling, accelerated east-to-west flows, and low latency to meet massive bandwidth demands.
 
 ### Azure-native management model
 
-Because Virtual network routing appliance is a top-level Azure resource, you can manage and govern it like other Azure networking resources.
+Because a routing appliance is a top-level Azure resource, you can manage and govern it like other Azure networking resources. In addition, it provides native support for virtual network features such as network security groups, admin rules, user-defined routes, and Azure NAT Gateway.
 
-## High Availability and Load Balancing Guidance
-Virtual network routing appliance provides built‑in high availability and is availability zone resilient by default. It also offers high bandwidth without requiring an additional load balancer in front of it.
-As such, you do not need to place a load balancer in front of the appliance. If you do so, the load balancer will not forward traffic to the appliance.
+## High-availability and load-balancing guidance
 
-## Preview region availability
+A routing appliance provides built-in high availability and is resilient to availability zones by default. It also offers high bandwidth without requiring an additional load balancer in front of it. If you place a load balancer in front of it, the load balancer won't forward traffic to it.
 
-During the public preview, virtual network routing appliance is available in a limited set of Azure regions. The current public preview regions include:  
+## Region availability
+
+During the preview, routing appliances are available in a limited set of Azure regions:  
+
 - East US  
 - East US 2  
 - West Central US  
@@ -69,34 +74,34 @@ During the public preview, virtual network routing appliance is available in a l
 - West Europe  
 - East Asia
 
-## Limitations (public preview)
+## Limitations
 
 - This preview is intended for testing, evaluation, and feedback purposes. Don't use the preview for production workloads.
 
-- Each subscription can have up to two virtual network routing appliance instances.
+- Each subscription can have up to two routing appliances. If you want more instances per subscription, request them in [this form](https://forms.office.com/r/kqEKRr5mpB).
 
-- During preview, each virtual network appliance supports up to 200 Gbps of configurable bandwidth.
+- During the preview, each routing appliance supports up to 200 Gbps of configurable bandwidth.
 
-- Select regions offer the preview: West US, East US, East Asia, North Europe, West Europe, East US 2, West Central US, and UK South.
+- Global and cross-region private endpoints aren't supported.
 
-- Traffic routed through a virtual network routing appliance can't reach destinations exposed via Azure Private Link/Private Link Service.
+- IPv4 is supported. IPv6 isn't in scope for this preview.
 
-- Global and cross-region Private Endpoint and peering aren't supported.
+- During the preview, a routing appliance doesn't provide metrics or logs.
 
-- IPv4 is supported. IPv6 isn't in scope for this public preview.
+- During the preview, client tools such as the Azure CLI, PowerShell, and Terraform aren't supported.
 
-- During preview, the virtual network appliance instance doesn't provide metrics or logs.
+## Cost
 
-- The preview is free. Advance notice is provided before billing is enabled.
+The preview is free. We'll provide advance notice before billing is enabled.
 
-- During preview, client tools such as Azure CLI, PowerShell, and Terraform aren't supported.
+## Registration
 
-## How to request support and provide feedback
+After you submit your Azure Feature Exposure Control (AFEC)  registration for `Microsoft.network/AllowVirtualNetworkAppliance`, finish the preview [sign-up form](https://forms.office.com/r/kqEKRr5mpB).
 
-### Support during public preview
+## Support
 
-During the public preview phase, the product group provides support services for the preview. To request support, fill out [this form](https://forms.office.com/r/pvamBMUx25).
+During the preview, the product group provides support services. To request support, fill out [this form](https://forms.office.com/r/pvamBMUx25).
 
-### Provide feedback
+## Feature feedback
 
 To provide feedback, fill out [this form](https://forms.office.com/r/pvamBMUx25).

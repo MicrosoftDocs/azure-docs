@@ -4,7 +4,7 @@ description: Call external custom endpoints for mapping data flows
 author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/05/2024
 ---
 

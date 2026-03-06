@@ -40,7 +40,8 @@ Before you begin this tutorial, you should:
 1. [Complete the first tutorial](./tutorial-discover-vmware.md) to prepare Azure and VMware for migration.
 2. We recommend that you complete the second tutorial to [assess VMware VMs](./tutorial-assess-vmware-azure-vm.md) before migrating them to Azure, but you don't have to.
 3. Go to the already created project or [create a new project](create-manage-projects.md)
-4. Verify permissions for your Azure account - Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
+4. Verify permissions for your Azure account - Your Azure account needs permissions to create a VM, and write to an Azure Managed Disk.
+5.  For the required Azure Migrate built‑in roles and permission details to create a project and run discovery, assessments, and migrations, see [Prepare Azure accounts for Azure Migrate](prepare-azure-accounts.md).
 
 > [!NOTE]
 > If you're planning to upgrade your Windows operating system, Azure Migrate may download the Windows SetupDiag for error details in case upgrade fails. Ensure the VM created in Azure post the migration has access to [SetupDiag](https://go.microsoft.com/fwlink/?linkid=870142). In case there's no access to SetupDiag, you may not be able to get detailed OS upgrade failure error codes but the upgrade can still proceed.
@@ -119,12 +120,12 @@ Enable replication as follows:
     > [!NOTE]
     > If you want to select a different availability option for a set of virtual machines, go to step 1 and repeat the steps by selecting different availability options after starting replication for one set of virtual machines.
 
-12. In **Disks**, indicate whether the VM disks should be replicated to Azure, and specify the disk type (Premium v2, Ultra SSD, Standard SSD, Standard HDD, or Premium Managed disks) in Azure. Then select **Next**.
+12. In **Disks**, indicate whether the VM disks should be replicated to Azure, and specify the disk type (Premium v2, Ultra Disk, Standard SSD, Standard HDD, or Premium Managed disks) in Azure. Then select **Next**.
 
     :::image type="content" source="./media/tutorial-migrate-vmware/disks-inline.png" alt-text="Screenshot shows the Disks tab of the Replicate dialog box." lightbox="./media/tutorial-migrate-vmware/disks-expanded.png":::
 
     > [!NOTE]
-    > To optimize costs and enhance performance, you can now migrate to Premium V2 SSD Disk as data disk.
+    > To optimize costs and enhance performance, you can now migrate to Premium SSD v2 as data disk.
 
 13. In **Tags**, choose to add tags to your Virtual machines, Disks, and NICs.
 

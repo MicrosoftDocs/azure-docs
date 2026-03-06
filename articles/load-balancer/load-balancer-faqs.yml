@@ -6,7 +6,7 @@ metadata:
   author: mbender-ms
   ms.service: azure-load-balancer
   ms.topic: faq
-  ms.date: 04/10/2024
+  ms.date: 02/23/2026
   ms.author: mbender
   ms.custom: engagement-fy23
 title: Load Balancer frequently asked questions
@@ -22,11 +22,17 @@ sections:
           
           External load balancers, which load balance external traffic to an internet connected endpoint. For more information, see [Azure Load Balancer Types](./load-balancer-overview.md). 
           
-          For both of the types, Azure offers a Basic SKU and Standard SKU that have different functional, performance, security and health tracking capabilities. For more information about the different load balancer SKUs, see [SKU Comparison](skus.md).
+          For both types, Azure offers a Standard SKU and a Gateway SKU that have different functional, performance, security, and health tracking capabilities. For more information about the different load balancer SKUs, see [SKU Comparison](skus.md).
+          
+          > [!IMPORTANT]
+          > Basic Load Balancer was retired on September 30, 2025. If you're still using Basic Load Balancer, upgrade to Standard Load Balancer as soon as possible. For upgrade guidance, see [Upgrade from Basic to Standard](upgrade-basic-standard.md).
           
       - question: |
           How can I upgrade from a basic to a standard load balancer?
         answer: |
+          > [!IMPORTANT]
+          > Basic Load Balancer was retired on September 30, 2025. Upgrade to Standard Load Balancer as soon as possible.
+          
           For more information about an automated script and guidance on upgrading a load balancer SKU, see [upgrade from Basic to Standard](upgrade-basic-standard.md).
           
       - question: |
@@ -52,7 +58,7 @@ sections:
       - question: |
           Can I use global virtual network peering with a basic load balancer?
         answer: |
-          No. Basic load balancer doesn't support global virtual network peering. You can use a standard load balancer instead. See the [upgrade from Basic to Standard](upgrade-basic-standard.md) article for information about the upgrade.
+          No. Basic Load Balancer doesn't support global virtual network peering. Basic Load Balancer was retired on September 30, 2025. Upgrade to Standard Load Balancer, which supports global virtual network peering. See the [upgrade from Basic to Standard](upgrade-basic-standard.md) article for information about the upgrade.
           
       - question: |
           How can I discover the public IP that an Azure VM uses?
@@ -114,8 +120,11 @@ sections:
       - question: |
           What are best practices with respect to outbound connectivity?
         answer: |
-          Standard load balancer and standard public IP introduce abilities and different behaviors to outbound connectivity. They aren't the same as basic SKUs. If you want outbound connectivity with standard SKUs, you must explicitly define it either with standard public IP addresses or a standard public load balancer. Standard internal load balancer must have outbound connectivity defined. It's recommended you always use outbound rules on a standard public load balancer. When an internal standard load balancer is used, you must take steps to create outbound connectivity for the VMs in the backend pool if outbound connectivity is desired. In the context of outbound connectivity, a single standalone VM, all the VMs in an Availability Set, all the instances in a Virtual Machine Scale Set behave as a group. If a single VM in an Availability Set is associated with a standard SKU, all VM instances within this Availability Set now behave by the same rules as if they're associated with standard SKU even if an individual instance isn't directly associated with it. This behavior is also observed in a standalone VM with multiple network interface cards attached to a load balancer. If one NIC is added as a standalone, it has the same behavior. Review this entire document to understand the overall concepts, review [Standard Load Balancer](./load-balancer-overview.md) for differences between SKUs, and review [outbound rules](load-balancer-outbound-connections.md#outboundrules).
+          Standard Load Balancer and standard public IP introduce abilities and different behaviors to outbound connectivity. If you want outbound connectivity with Standard SKUs, you must explicitly define it either with standard public IP addresses or a standard public load balancer. Standard internal load balancer must have outbound connectivity defined. It's recommended you always use outbound rules on a standard public load balancer. When an internal standard load balancer is used, you must take steps to create outbound connectivity for the VMs in the backend pool if outbound connectivity is desired. In the context of outbound connectivity, a single standalone VM, all the VMs in an Availability Set, all the instances in a Virtual Machine Scale Set behave as a group. If a single VM in an Availability Set is associated with a Standard SKU, all VM instances within this Availability Set now behave by the same rules as if they're associated with Standard SKU even if an individual instance isn't directly associated with it. This behavior is also observed in a standalone VM with multiple network interface cards attached to a load balancer. If one NIC is added as a standalone, it has the same behavior. Review this entire document to understand the overall concepts, review [Standard Load Balancer](./load-balancer-overview.md) for differences between SKUs, and review [outbound rules](load-balancer-outbound-connections.md#outboundrules).
            Using outbound rules allows you fine grained control over all aspects of outbound connectivity.
+           
+           > [!IMPORTANT]
+           > [Default outbound access](../virtual-network/ip-services/default-outbound-access.md) is being retired. After March 31, 2026, new virtual networks will default to using private subnets. You must define an explicit outbound connectivity method (NAT gateway, load balancer outbound rules, or instance-level public IP) for VMs to reach the internet.
            
       - question: |
           Is it expected for one frontend IP to be used when I have multiple frontend IP addresses or a prefix on my outbound rules?

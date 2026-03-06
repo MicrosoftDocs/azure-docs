@@ -5,7 +5,7 @@ services: static-web-apps
 author: cjk7989
 ms.author: jikunchen
 ms.service: azure-static-web-apps
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/28/2024
 ---
 

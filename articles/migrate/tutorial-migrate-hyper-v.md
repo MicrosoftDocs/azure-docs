@@ -42,7 +42,8 @@ Before you begin this tutorial, you should:
 1. [Review](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) the requirements for Hyper-V VMs that you want to migrate to Azure.
 1. We recommend that you [assess Hyper-V VMs](tutorial-assess-hyper-v.md) before you migrate them to Azure, but you don't have to.
 1. Go to the already created project or [create a new project](./create-manage-projects.md).
-1. Verify permissions for your Azure account. Your Azure account needs permissions to create a VM, write to an Azure managed disk, and manage failover operations for the Recovery Services vault associated with your Azure Migrate project.
+1. Verify permissions for your Azure account. Your Azure account needs permissions to create a VM, write to an Azure Managed Disk, and manage failover operations for the Recovery Services vault associated with your Azure Migrate project.
+1. For the required Azure Migrate built‑in roles and permission details to create a project and run discovery, assessments, and migrations, see [Prepare Azure accounts for Azure Migrate](prepare-azure-accounts.md).
 
 > [!NOTE]
 > If you're planning to upgrade your Windows operating system (OS), Azure Migrate and Modernize might download the Windows SetupDiag for error details in case upgrade fails. Ensure that the VM created in Azure after the migration has access to [SetupDiag](https://go.microsoft.com/fwlink/?linkid=870142). If there's no access to SetupDiag, you might not be able to get detailed OS upgrade failure error codes, but the upgrade can still proceed.
@@ -157,7 +158,7 @@ After discovery is finished, you can begin the replication of Hyper-V VMs to Azu
     
     :::image type="content" source="./media/tutorial-migrate-hyper-v/trusted-vm-migrate.png" alt-text="Screenshot showing standard or trusted launch virtual machines.":::    
 
-    - If you ran an assessment for the VMs, you can apply VM sizing and disk type (Premium v2, Ultra SSD, Standard SSD, Standard HDD, or Premium Managed disks) recommendations from the assessment results. To do this step, in **Import migration settings from an Azure Migrate assessment?**, select **Yes**.
+    - If you ran an assessment for the VMs, you can apply VM sizing and disk type (Premium v2, Ultra Disk, Standard SSD, Standard HDD, or Premium Managed disks) recommendations from the assessment results. To do this step, in **Import migration settings from an Azure Migrate assessment?**, select **Yes**.
     - You can choose to migrate the Standard SSD as a [ZRS Disk](/azure/virtual-machines/disks-deploy-zrs?tabs=portal).
     - If you didn't run an assessment, or you don't want to use the assessment settings, select **No**.
     - If you selected to use the assessment, select the VM group and assessment name.

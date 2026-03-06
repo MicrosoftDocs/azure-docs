@@ -139,7 +139,7 @@ The following table summarizes Site Recovery limits:
 
 #### Updated limits by Source disk size and IO size 
 
-Source Disk must be of Premium v1 SSD or Premium v2 or Ultra disk type.
+Source Disk must be of Premium v1 SSD or Premium v2 or Ultra Disk type.
 
 |**Source disk size (in GiB)**|**8 KB IO Size**|**16 KB IO Size**|**32 KB IO Size**|**64 KB IO Size**|**128KB IO Size**|**256 KB & More**|
 |---|---|---|---|---|---|---|

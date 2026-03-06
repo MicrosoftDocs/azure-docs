@@ -80,7 +80,7 @@ IBM Db2 LUW 11.5 released support for 4-KB sector size. Though you need to enabl
 * [Db1 11.5 performance variable](https://www.ibm.com/docs/en/db2/11.5?topic=variables-performance)
 * [Db2 registry and environment variables](https://www.ibm.com/docs/en/db2/11.5?topic=variables-registry-environment)
 
-For older Db2 versions, a 512-byte sector size must be used. Premium SSD disks are 4-KB native and have 512-byte emulation. Ultra disk uses 4-KB sector size by default. You can enable 512-byte sector size during creation of Ultra disk. Details are available [Using Azure ultra disks](/azure/virtual-machines/disks-enable-ultra-ssd#deploy-an-ultra-disk---512-byte-sector-size). This 512-byte sector size is a prerequisite for IBM Db2 LUW versions lower than 11.5.
+For older Db2 versions, a 512-byte sector size must be used. Premium SSDs are 4-KB native and have 512-byte emulation. Ultra Disk uses 4-KB sector size by default. You can enable 512-byte sector size during creation of Ultra Disk. Details are available [Using Azure Ultra Disks](/azure/virtual-machines/disks-enable-ultra-ssd#deploy-an-ultra-disk---512-byte-sector-size). This 512-byte sector size is a prerequisite for IBM Db2 LUW versions lower than 11.5.
 
 On Windows using Storage pools for Db2 storage paths for `log_dir`, `sapdata` and `saptmp` directories, you must specify a physical disk sector size of 512 bytes. When using Windows Storage Pools, you must create the storage pools manually via command line interface using the parameter `-LogicalSectorSizeDefault`. For more information, see [New-StoragePool](/powershell/module/storage/new-storagepool).
 
@@ -91,7 +91,7 @@ IBM Db2 for SAP NetWeaver Applications is supported on any VM type listed in SAP
 The following tables are a baseline configuration for various sizes and uses of SAP on Db2 deployments from extra small to extra large.
 
 > [!IMPORTANT]
-> The VM types listed are examples that meet the vCPU and memory criteria of each of the categories. The storage configuration is based on Azure premium storage v1. Premium SSD v2 and Azure Ultra disk are fully supported with IBM Db2 as well and can be used for deployments. Use the values for capacity, burst throughput, and burst IOPS to define the Ultra disk or Premium SSD v2 configuration. You can limit the IOPS for the /db2/`<SID>`/log_dir at around 5000 IOPS. Adjust the throughput and IOPS to the specific workload if these baseline recommendations don't meet the requirements
+> The VM types listed are examples that meet the vCPU and memory criteria of each of the categories. The storage configuration is based on Azure premium storage v1. Premium SSD v2 and Azure Ultra Disk are fully supported with IBM Db2 as well and can be used for deployments. Use the values for capacity, burst throughput, and burst IOPS to define the Ultra Disk or Premium SSD v2 configuration. You can limit the IOPS for the /db2/`<SID>`/log_dir at around 5000 IOPS. Adjust the throughput and IOPS to the specific workload if these baseline recommendations don't meet the requirements
 
 # [Extra small SAP system](#tab/extra-small)
 

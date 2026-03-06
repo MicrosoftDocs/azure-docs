@@ -245,7 +245,7 @@ Creating a compute gallery and attaching it to your lab plan is free. No cost is
 
 #### Storage charges
 
-To store image versions, a compute gallery uses standard hard disk drive (HDD) managed disks by default. We recommend using HDD-managed disks when you use compute gallery with Lab Services. The size of the HDD-managed disk that is used depends on the size of the image version that is being stored. Lab Services supports image and disk sizes up to 128 GB. To learn about pricing, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+To store image versions, a compute gallery uses Standard HDD managed disks by default. We recommend using HDD-managed disks when you use compute gallery with Lab Services. The size of the HDD-managed disk that is used depends on the size of the image version that is being stored. Lab Services supports image and disk sizes up to 128 GB. To learn about pricing, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 Azure Lab Services doesn't support attaching extra disks to a lab template or lab VM.
 

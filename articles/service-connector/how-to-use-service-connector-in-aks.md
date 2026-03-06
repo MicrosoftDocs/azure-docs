@@ -109,7 +109,7 @@ Service Connector retrieves the required connection configurations from the targ
 - For the `Workload Identity` authentication type, it usually contains the service endpoint.
 - For the `Service Principal` authentication type, it contains the service principal's tenant ID, client ID, and client secret. 
 
-For detailed information on specific target services, refer to the corresponding documentation, such as the [Azure AI services](/azure/service-connector/how-to-integrate-ai-services?tabs=dotnet#system-assigned-managed-identity-recommended) guide.
+For detailed information on specific target services, refer to the corresponding documentation, such as the [Foundry Tools](/azure/service-connector/how-to-integrate-ai-services?tabs=dotnet#system-assigned-managed-identity-recommended) guide.
 
 ### Create IP based firewall rules
 

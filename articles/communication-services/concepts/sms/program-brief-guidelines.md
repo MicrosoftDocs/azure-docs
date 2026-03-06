@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: prakulka
 ms.date: 2/15/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: sms
 ---

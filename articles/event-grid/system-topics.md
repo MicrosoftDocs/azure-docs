@@ -1,7 +1,7 @@
 ---
 title: System topics in Azure Event Grid
 description: Describes system topics in Azure Event Grid. 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/20/2025
 ---
 

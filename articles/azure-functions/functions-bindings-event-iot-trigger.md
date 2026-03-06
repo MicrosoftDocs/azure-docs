@@ -35,4 +35,4 @@ The [host.json](functions-host-json.md#eventhub) file contains settings that con
 
 ## Next steps
 
-- [Write events to an event stream (Output binding)](./functions-bindings-event-iot-output.md)
+- [Write events to an event stream (Output binding)](./functions-bindings-event-hubs-output.md)

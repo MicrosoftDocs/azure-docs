@@ -186,19 +186,19 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
 Azure VMs use disks to store their operating system, apps, and data. Each Azure VM has at least two disks: a disk for the operating system and a temporary disk. Azure VMs can also have data disks for app data. Disks are stored as VHDs.
 
 - VHDs are stored as page blobs in standard or premium storage accounts in Azure:
-  - **Standard storage:** Reliable, low-cost disk support for VMs running workloads that aren't sensitive to latency. Standard storage can use standard solid-state drive (SSD) disks or standard hard disk drive (HDD) disks.
-  - **Premium storage:** High-performance disk support. Uses premium SSD disks.
+  - **Standard storage:** Reliable, low-cost disk support for VMs running workloads that aren't sensitive to latency. Standard storage can use Standard SSDs or Standard HDDs.
+  - **Premium storage:** High-performance disk support. Uses Premium SSDs.
 - There are different performance tiers for disks:
-  - **Standard HDD disk:** Backed by HDDs, and used for cost-effective storage.
-  - **Standard SSD disk:** Combines elements of premium SSD disks and standard HDD disks. Offers more consistent performance and reliability than HDD, but still cost-effective.
-  - **Premium SSD disk:** Backed by SSDs, and provides high-performance and low-latency for VMs that are running I/O-intensive workloads.
+  - **Standard HDD:** Backed by HDDs, and used for cost-effective storage.
+  - **Standard SSD:** Combines elements of Premium SSDs and Standard HDDs. Offers more consistent performance and reliability than HDD, but still cost-effective.
+  - **Premium SSD:** Backed by SSDs, and provides high-performance and low-latency for VMs that are running I/O-intensive workloads.
 - Disks can be managed or unmanaged:
   - **Unmanaged disks:** Traditional type of disks used by VMs. For these disks, you create your own storage account and specify it when you create the disk. You then need to figure out how to maximize storage resources for your VMs.
   - **Managed disks:** Azure creates and manages the storage accounts for you. You specify the disk size and performance tier, and Azure creates managed disks for you. As you add disks and scale VMs, Azure handles the storage accounts.
 
 For more information about disk storage and the available disk types for VMs, see these articles:
 
-- [Azure managed disks for Linux VMs](/azure/virtual-machines/managed-disks-overview)
+- [Azure Managed Disks for Linux VMs](/azure/virtual-machines/managed-disks-overview)
 - [Available disk types for VMs](/azure/virtual-machines/disks-types)
 
 ### Back up and restore Azure VMs with premium storage

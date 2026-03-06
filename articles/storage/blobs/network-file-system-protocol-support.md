@@ -24,7 +24,7 @@ Blob Storage now supports a hierarchical namespace, and when combined with NFS 3
 
 The NFS 3.0 protocol feature is optimized for high-throughput, large-scale, read-heavy workloads with sequential I/O. It’s ideal for scenarios involving multiple readers and numerous threads where throughput is more critical than low latency. Common examples include:
 
-- **High-Performance Computing (HPC)** - HPC jobs often involve thousands of cores reading the same large datasets concurrently. The NFS 3.0 protocol feature uses object storage throughput to eliminate traditional file server bottlenecks. Examples:
+**High-Performance Computing (HPC)** - HPC jobs often involve thousands of cores reading the same large datasets concurrently. The NFS 3.0 protocol feature uses object storage throughput to eliminate traditional file server bottlenecks. Examples:
 
 - Genomics sequencing: Processing massive DNA datasets.
 
@@ -34,26 +34,26 @@ The NFS 3.0 protocol feature is optimized for high-throughput, large-scale, read
 
 - Weather forecasting: Modeling atmospheric data for climate and storm prediction.
 
-- **Big Data & Analytics (Data Lakes)** - Many analytics tools require hierarchical directories. BlobNFS (via Azure Data Lake Storage Gen2) delivers this structure while supporting standard file protocols. Examples:
+**Big Data & Analytics (Data Lakes)** - Many analytics tools require hierarchical directories. BlobNFS (via Azure Data Lake Storage Gen2) delivers this structure while supporting standard file protocols. Examples:
 
-  - Machine learning: Feeding training data to GPU clusters using standard file I/O.
-  
-  - Log analytics: Aggregating logs from thousands of sources.
-  
-- **Advanced Driver Assistance Systems (ADAS)** - ADAS workflows produce petabytes of sequential sensor data—such as LiDAR point clouds and high-resolution camera feeds—that must be ingested efficiently and analyzed at scale for simulation and model training. Example:
+- Machine learning: Feeding training data to GPU clusters using standard file I/O.
 
-  - Storing raw LiDAR scans and multi-camera video streams from autonomous test vehicles using NFS 3.0, then running large-scale replay simulations across thousands of compute nodes to validate perception algorithms.
-    
-- **Media & Entertainment** - Rendering farms need efficient access to large asset libraries. NFS 3.0 over blob provides a file interface for legacy rendering tools that expect file paths. Examples:
+- Log analytics: Aggregating logs from thousands of sources.
+
+**Advanced Driver Assistance Systems (ADAS)** - ADAS workflows produce petabytes of sequential sensor data—such as LiDAR point clouds and high-resolution camera feeds—that must be ingested efficiently and analyzed at scale for simulation and model training. Example:
+
+- Storing raw LiDAR scans and multi-camera video streams from autonomous test vehicles using NFS 3.0, then running large-scale replay simulations across thousands of compute nodes to validate perception algorithms.
+
+**Media & Entertainment** - Rendering farms need efficient access to large asset libraries. NFS 3.0 over blob provides a file interface for legacy rendering tools that expect file paths. Examples:
 
 - Video rendering: Distributed nodes reading source assets.
 
 - Transcoding: Converting large raw video files into streaming formats.
 
-- **Database Backup** - This feature offers a cost-effective, high-throughput NFS 3.0 target without complex connectors or expensive snapshots. Examples: 
+**Database Backup** - This feature offers a cost-effective, high-throughput NFS 3.0 target without complex connectors or expensive snapshots. Examples: 
 
-  - Oracle RMAN can write large backup pieces directly for long-term archival and enable direct restore from any NFS-mounted Linux VM.
-    
+- Oracle RMAN can write large backup pieces directly for long-term archival and enable direct restore from any NFS-mounted Linux VM.
+
 ### When not to use NFS 3.0 with Blob Storage
 
 Avoid for general-purpose file shares or transactional workloads due to object storage characteristics:
@@ -75,6 +75,41 @@ NFS 3.0 protocol support requires blobs to be organized into a hierarchical name
 When your application makes a request by using the NFS 3.0 protocol, that request is translated into combination of block blob operations. For example, NFS 3.0 read Remote Procedure Call (RPC) requests are translated into [Get Blob](/rest/api/storageservices/get-blob) operation. NFS 3.0 write RPC requests are translated into a combination of [Get Block List](/rest/api/storageservices/get-block-list), [Put Block](/rest/api/storageservices/put-block), and [Put Block List](/rest/api/storageservices/put-block-list).
 
 Block blobs are optimized to efficiently process large amounts of read-heavy data. Block blobs are composed of blocks. Each block is identified by a block ID. A block blob can include up to 50,000 blocks. Each block in a block blob can be a different size, up to the maximum size permitted for the service version that your account uses.
+
+| NFSv3 RPC      | REST API Operation |
+|---------------|--------------------|
+| **Metadata & Attributes** | |
+| Nfs3GetAttr   | Get Blob Properties |
+| Nfs3SetAttr   | Set Blob Properties (+ if file size is set, Nfs3Write is invoked) |
+| Nfs3Lookup    | Get Blob Properties |
+| Nfs3Access    | Get Blob Properties |
+| Nfs3Readlink  | Get Blob Properties |
+| Nfs3FsStat    | Get Blob Properties |
+| Nfs3Fsinfo    | Get Blob Properties |
+| Nfs3Pathconf  | Get Blob Properties |
+| **Directory Enumeration** | |
+| Nfs3ReadDir      | List Blobs |
+| Nfs3ReadDirPlus  | List Blobs |
+| **Read Operations** | |
+| Nfs3Read     | Get Blob |
+| Nfs3ReadLink | Get Blob Properties + Get Blob of underlying file |
+| **Write Operations** | |
+| NFs3Write    | Get Block List (1) + Put Block (x) + Put Block List (1) |
+| Nfs3Commit   | No Operation |
+| **File Lifecycle** | |
+| Nfs3Create   | Put Blob + Get Blob Properties |
+| Nfs3Remove   | Delete Blob |
+| Nfs3Rename   | Not supported (no 1-1 mapping) |
+| Nfs3Link     | Not supported |
+| **Directory Management** | |
+| Nfs3MkDir    | Put Blob + Get Blob Properties |
+| Nfs3RmDir    | Put Blob |
+| **Others** | |
+| Nfs3SymLink  | Put Blob + Get Blob Properties |
+| Nfs3MkNod    | Not supported |
+| Nfs3Null     | No Operation |
+
+Cache hit/miss outcomes may trigger additional Get Blob Properties requests to obtain pre-operation and post-operation attributes. Blob Storage transaction counts for end-to-end operations (for example, file reading or writing) are influenced by several variables and can differ across iterations. To estimate transaction counts for representative workloads, use the Blob Storage logs for sample scenarios.
 
 ## General workflow: Mounting a storage account container
 

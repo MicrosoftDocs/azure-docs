@@ -4,7 +4,7 @@ description: Learn about Azure role definitions in Azure role-based access contr
 author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 03/30/2025
 ms.author: rolyon
 ms.custom:

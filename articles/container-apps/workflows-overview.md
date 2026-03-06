@@ -57,7 +57,7 @@ To ensure durable execution, the Durable Task SDKs require a storage backend to 
 - Load balances orchestration execution at scale on your container app.
 
 > [!NOTE]
-> Currently, the Durable Task Python and Java SDKs are in preview. To learn which framework is recommended for production use, see [Choosing an orchestration framework](../azure-functions/durable/durable-task-scheduler/choose-orchestration-framework.md).
+> Currently, the Durable Task Python and Java SDKs are in preview. [Learn which framework is recommended for production use.](../azure-functions/durable/choose-orchestration-framework.md)
 
 #### Quickstarts
 
@@ -77,7 +77,7 @@ As a feature of Azure Functions, [Durable Functions](../azure-functions/durable/
 
 ## How to choose 
 
-Applications built using either the Durable Task SDKs or Durable Functions can be hosted in Azure Container Apps. To learn which framework works best for your scenario, see [Choosing an orchestration framework](../azure-functions/durable/durable-task-scheduler/choose-orchestration-framework.md). 
+Applications built using either the Durable Task SDKs or Durable Functions can be hosted in Azure Container Apps. [Learn which framework works best for your scenario](../azure-functions/durable/choose-orchestration-framework.md). 
 
 ## Next step
 

@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create Azure API Management instance - Bicep
+title: "Quickstart: Create Azure API Management instance by using Bicep"
 description: Use this quickstart to create an Azure API Management instance in the Developer tier by using Bicep.
 services: azure-resource-manager
 author: mumian
@@ -8,10 +8,10 @@ tags: azure-resource-manager, bicep
 ms.custom: devx-track-bicep, subject-bicepqs, devx-track-azurecli, devx-track-azurepowershell
 ms.topic: quickstart-bicep
 ms.author: jgao
-ms.date: 03/25/2024
+ms.date: 02/24/2026
 ---
 
-# Quickstart: Create a new Azure API Management service instance using Bicep
+# Quickstart: Create a new Azure API Management instance by using Bicep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
@@ -31,29 +31,31 @@ This quickstart describes how to use a Bicep file to create an Azure API Managem
 
 - For Azure PowerShell:
 
-
     [!INCLUDE [azure-powershell-requirements-no-header](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 ## Review the Bicep file
 
-The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-api-management-create/).
+The Bicep file used in this quickstart is from [Azure quickstart templates](/samples/azure/azure-quickstart-templates/azure-api-management-create/).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.apimanagement/azure-api-management-create/main.bicep":::
 
 The following resource is defined in the Bicep file:
 
-- **[Microsoft.ApiManagement/service](/azure/templates/microsoft.apimanagement/service)**
+- [Microsoft.ApiManagement/service](/azure/templates/microsoft.apimanagement/service)
 
 In this example, the Bicep file by default configures the API Management instance in the Developer tier, an economical option to evaluate Azure API Management. This tier isn't for production use.
 
-More Azure API Management Bicep samples can be found in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Apimanagement&pageNumber=1&sort=Popular).
+More Azure API Management Bicep samples can be found in [Azure quickstart templates](/samples/browse/?terms=api%20management&languages=bicep).
 
 ## Deploy the Bicep file
 
-You can use Azure CLI or Azure PowerShell to deploy the Bicep file.  For more information about deploying Bicep files, see [Deploy](../azure-resource-manager/bicep/deploy-cli.md).
+You can use Azure CLI or Azure PowerShell to deploy the Bicep file. For more information about deploying Bicep files, see [Deploy Bicep files with the Azure CLI](../azure-resource-manager/bicep/deploy-cli.md).
 
-1. Save the Bicep file as **main.bicep** to your local computer.
+1. Save the Bicep file as *main.bicep* to your local computer.
+
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
+
+    Replace *\<publisher-name\>* and *\<publisher-email\>* with your organization's name and your email address to receive notifications.
 
     # [CLI](#tab/CLI)
 
@@ -73,8 +75,6 @@ You can use Azure CLI or Azure PowerShell to deploy the Bicep file.  For more in
 
     ---
 
-    Replace **\<publisher-name\>** and **\<publisher-email\>** with the name of the API publisher's organization and the email address to receive notifications.
-
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
     > [!TIP]
@@ -82,7 +82,7 @@ You can use Azure CLI or Azure PowerShell to deploy the Bicep file.  For more in
 
 ## Review deployed resources
 
-Use the Azure portal, Azure CLI or Azure PowerShell to list the deployed App Configuration resource in the resource group.
+Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed App Configuration resource in the resource group.
 
 # [CLI](#tab/CLI)
 
@@ -118,7 +118,7 @@ Remove-AzResourceGroup -Name exampleRG
 
 ---
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Tutorial: Import and publish your first API](import-and-publish.md)

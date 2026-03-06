@@ -2,7 +2,7 @@
 title: Starter Prompts for Azure SRE Agent Preview
 description: Review prompts that you can use with Azure SRE Agent.
 author: craigshoemaker
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/24/2025
 ms.author: cshoe
 ms.service: azure-sre-agent

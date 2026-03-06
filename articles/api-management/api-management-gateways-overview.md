@@ -8,7 +8,7 @@ ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: concept-article
-ms.date: 11/21/2025
+ms.date: 02/17/2026
 ms.author: danlep
 ---
 
@@ -85,7 +85,7 @@ The following tables compare features available in the following API Management 
 | [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  ✔️ | ❌ | ✔️ | ❌ | ❌ |
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ | ✔️ | ❌ |
 | **HTTP/2** (Client-to-gateway) | ✔️<sup>4</sup> | ✔️<sup>4</sup> |❌ | ✔️ | ❌ |
-| **HTTP/2** (Gateway-to-backend) |  ❌ | ✔️<sup>5</sup> | ❌ | ✔️<sup>5</sup> | ❌ |
+| **HTTP/2** (Gateway-to-backend) |  ❌ | ❌ | ❌ | ✔️<sup>5</sup> | ❌ |
 | API threat detection with [Defender for APIs](protect-with-defender-for-apis.md) | ✔️ | ✔️ |  ❌ | ❌ | ❌ |
 
 <sup>1</sup> Depends on how the gateway is deployed, but is the responsibility of the customer.<br/>
@@ -110,7 +110,7 @@ The following tables compare features available in the following API Management 
 | [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ |✔️ | ✔️ | ✔️ |
 | [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️ | ✔️<sup>1</sup> | ✔️<sup>1</sup> | ❌ |
 | [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ✔️ | ❌ | ✔️ | ✔️ |
-| [Pass-through gRPC](grpc-api.md)  |  ❌ | ❌ | ❌ | ✔️ | ❌ |
+| [Pass-through gRPC](grpc-api.md)  |  ✔️ | ❌ | ❌ | ✔️ | ❌ |
 | [OData](import-api-from-odata.md)  |  ✔️ |  ✔️ | ✔️ | ✔️ | ✔️ |
 | [Azure OpenAI in Microsoft Foundry models and LLMs](azure-ai-foundry-api.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | [Pass-through MCP server](expose-existing-mcp-server.md) | ✔️  | ✔️ | ❌ | ✔️ | ❌ |
@@ -126,7 +126,7 @@ Managed and self-hosted gateways support all available [policies](api-management
 | Feature support  | Classic  |  V2  | Consumption | Self-hosted<sup>1</sup>  | Workspace |
 | --- | --- | ----- | ----- | ---------- | ----- |
 | [Dapr integration](api-management-policies.md#integration-and-external-communication) |  ❌ | ❌ |❌ | ✔️ | ❌ |
-| [Service Bus integration](send-service-bus-message-policy.md) (preview) |  ✔️ | ❌ | ❌ | ❌ | ❌ |
+| [Service Bus integration](send-service-bus-message-policy.md) (preview) |  ✔️ | ✔️ | ✔️ | ❌ | ❌ |
 | [GraphQL resolvers](api-management-policies.md#graphql-resolvers) and [GraphQL validation](api-management-policies.md#content-validation)|  ✔️ | ✔️ |✔️ | ❌ | ❌ |
 | [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ✔️ |✔️ | ❌ | ❌ |
 | [Authenticate with managed identity](authentication-managed-identity-policy.md) |  ✔️ |  ✔️ |✔️ | ✔️ | ❌ |
@@ -197,6 +197,13 @@ For estimated maximum gateway throughput in the API Management service tiers, se
 ### Workspace gateway
 
 Scale capacity by adding and removing scale [units](upgrade-and-scale.md) in the workspace gateway.
+
+## Gateway runtime limits
+
+The following table lists limits that apply to the API Management gateway when it handles API requests and responses.
+
+[!INCLUDE [api-management-gateway-constraints](../../includes/api-management-gateway-constraints.md)]
+
 
 ## Gateway health check endpoint
 

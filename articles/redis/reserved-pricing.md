@@ -35,31 +35,63 @@ The following Azure Managed Redis tiers currently support reservations:
 
 | Region Name         | Memory Optimized | Balanced | Compute Optimized | Flash Optimized |
 | ------------------- | ---------------- | -------- | ---------------- | --------------- |
-| UAE North           | Yes              | Yes      | Yes              | No              |
 | Australia Central   | Yes              | Yes      | Yes              | No              |
+| Australia Central 2 | Yes              | Yes      | Yes              | No              |
+| Australia East      | Yes              | Yes      | Yes              | No              |
 | Australia Southeast | Yes              | Yes      | Yes              | No              |
+| Austria East        | Yes              | Yes      | Yes              | No              |
+| Belgium Central     | Yes              | Yes      | Yes              | No              |
+| Brazil South        | Yes              | Yes      | Yes              | No              |
 | Brazil Southeast    | Yes              | Yes      | Yes              | No              |
+| Canada Central      | Yes              | Yes      | Yes              | No              |
 | Canada East         | Yes              | Yes      | Yes              | No              |
-| Switzerland West    | Yes              | Yes      | Yes              | No              |
-| Spain Central       | Yes              | Yes      | Yes              | No              |
+| Central US          | Yes              | Yes      | Yes              | No              |
+| Chile Central       | Yes              | Yes      | Yes              | No              |
+| East Asia           | Yes              | Yes      | Yes              | No              |
+| East US             | Yes              | No       | Yes              | No              |
+| East US 2           | Yes              | Yes      | Yes              | No              |
 | France Central      | Yes              | Yes      | Yes              | No              |
 | France South        | Yes              | Yes      | Yes              | No              |
-| Indonesia Central   | Yes              | Yes      | Yes              | No              |
-| Israel Central      | Yes              | Yes      | Yes              | No              |
-| Israel Northwest    | No               | Yes      | No               | No              |
+| Germany North       | Yes              | Yes      | Yes              | No              |
+| Germany West Central| Yes              | Yes      | Yes              | No              |
 | India Central       | Yes              | Yes      | Yes              | No              |
 | India South         | Yes              | Yes      | Yes              | No              |
 | India West          | Yes              | Yes      | Yes              | No              |
+| Indonesia Central   | Yes              | Yes      | Yes              | No              |
+| Israel Central      | Yes              | Yes      | Yes              | No              |
+| Israel Northwest    | No               | Yes      | Yes              | No              |
 | Italy North         | Yes              | Yes      | Yes              | No              |
 | Japan East          | Yes              | Yes      | Yes              | No              |
+| Japan West          | Yes              | Yes      | Yes              | No              |
 | Korea Central       | Yes              | Yes      | Yes              | No              |
 | Korea South         | Yes              | Yes      | Yes              | No              |
+| Malaysia West       | Yes              | Yes      | Yes              | No              |
+| Mexico Central      | Yes              | Yes      | Yes              | No              |
+| New Zealand North   | Yes              | Yes      | Yes              | No              |
+| North Europe        | Yes              | Yes      | Yes              | No              |
+| NorthCentral US     | Yes              | Yes      | Yes              | No              |
 | Norway East         | Yes              | Yes      | Yes              | No              |
+| Norway West         | Yes              | Yes      | Yes              | No              |
 | Poland Central      | Yes              | Yes      | Yes              | No              |
 | Qatar Central       | Yes              | Yes      | Yes              | No              |
-| UK West             | Yes              | Yes      | Yes              | No              |
-| US East             | Yes              | No       | Yes              | No              |
 | South Africa North  | Yes              | Yes      | Yes              | No              |
+| South Africa West   | Yes              | Yes      | Yes              | No              |
+| South Central US    | Yes              | Yes      | Yes              | No              |
+| SouthEast Asia      | Yes              | Yes      | Yes              | No              |
+| Spain Central       | Yes              | Yes      | Yes              | No              |
+| Sweden Central      | Yes              | Yes      | Yes              | No              |
+| Sweden South        | Yes              | Yes      | Yes              | No              |
+| Switzerland North   | Yes              | Yes      | Yes              | No              |
+| Switzerland West    | Yes              | Yes      | Yes              | No              |
+| UAE Central         | Yes              | Yes      | Yes              | No              |
+| UAE North           | Yes              | Yes      | Yes              | No              |
+| UK South            | Yes              | Yes      | Yes              | No              |
+| UK West             | Yes              | Yes      | Yes              | No              |
+| West Central US     | Yes              | Yes      | Yes              | No              |
+| West Europe         | Yes              | Yes      | Yes              | No              |
+| West US             | Yes              | Yes      | Yes              | No              |
+| West US 2           | Yes              | Yes      | Yes              | No              |
+| West US 3           | Yes              | Yes      | Yes              | No              |
 
 ## Buy Azure Managed Redis reservations
 
@@ -100,7 +132,9 @@ Existing or new caches that match the attributes you select get the reservation 
 
 - You can update the scope of the reservation through the Azure portal, PowerShell, Azure CLI, or the API.
 
-- You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+## Exchange existing Reservations with Azure Managed Redis
+
+You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
 
 ## Related content
 

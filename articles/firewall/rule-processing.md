@@ -92,7 +92,7 @@ Finally, in ChildRCG2, it locates ChAppRC2 (priority 2000) as the APPLICATION ru
 
 This process involves analyzing rule collection groups by priority, and within each group, ordering the rules according to their priorities for each rule type (DNAT, NETWORK, and APPLICATION).
 
-So first all the DNAT rules are processed from all the rule collection groups, analysing the rule collection groups by order of priority and ordering the DNAT rules within each rule collection group by order of priority. Then the same process for NETWORK rules, and finally for APPLICATION rules.
+First, all the DNAT rules are processed from all the rule collection groups, analyzing the rule collection groups by order of priority and ordering the DNAT rules within each rule collection group by order of priority. Then the same process for NETWORK rules, and finally for APPLICATION rules.
 
 For more information about Firewall Policy rule sets, see [Azure Firewall Policy rule sets](policy-rule-sets.md).
 
@@ -109,6 +109,12 @@ When IDPS is configured in *Alert and Deny* mode, the IDPS engine is inlin
 Session drops done by IDPS blocks the flow silently. So no RST is sent on the TCP level. Since IDPS inspects traffic always after the Network/Application rule has been matched (Allow/Deny) and marked in logs, another *Drop* message may be logged where IDPS decides to deny the session because of a signature match. 
 
 When TLS inspection is enabled both unencrypted and encrypted traffic is inspected.  
+
+### Implicit return traffic support (stateful TCP/UDP)
+ 
+User may configure firewall rules to allow traffic in one direction only. For example, Azure Firewall may allow connections initiated from an **on‑premises network** to an **Azure virtual network**, while requiring that new connections initiated from the **Azure virtual network** to **on‑premises** be blocked. To enforce this policy, user may add an **explicit Deny** rule for traffic from the **Azure virtual network** to the **on‑premises** network.
+ 
+Azure Firewall supports this configuration. Azure Firewall is stateful and return traffic for an established TCP/UDP connection (for example, the SYN‑ACK/ACK packets for a connection initiated from on‑premises) is allowed even when an explicit Deny rule exists in the reverse direction. The explicit Deny rule continues to block new connections initiated from the Azure virtual network to on‑premises.
 
 ## Outbound connectivity
 

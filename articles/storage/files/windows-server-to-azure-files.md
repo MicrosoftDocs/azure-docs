@@ -45,7 +45,7 @@ There's more to file share TCO than the price per GiB of storage. By centralizin
 
 - Differential snapshots and integration with Azure Backup offer economical data protection.  
 
-- Choose between multiple storage tiers, from low latency SSD to cost-effective HDD storage, allowing you to choose the tier that best fits your workload.  
+- Choose between multiple media tiers, from low latency SSD to cost-effective HDD storage, allowing you to choose the tier that best fits your workload.  
 
 - Azure Files Reservations discounts enable up to 36% savings for pre-committed storage.
 

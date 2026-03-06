@@ -3,7 +3,7 @@ title: Develop & configure Azure Functions app - Azure SignalR
 description: Details on how to develop and configure serverless real-time applications using Azure Functions and Azure SignalR Service
 author: vicancy
 ms.service: azure-signalr-service
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/02/2024
 ms.author: lianwei
 ms.devlang: csharp

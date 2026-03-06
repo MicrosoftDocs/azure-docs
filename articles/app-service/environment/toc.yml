@@ -69,14 +69,6 @@
     items:
     - name: Deployment Scripts
       href: ../../automation/automation-runbook-gallery.md
-  - name: Troubleshooting
-    items:
-    - name: Troubleshoot Node.js app
-      href: ../app-service-web-nodejs-best-practices-and-troubleshoot-guide.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-    - name: Troubleshoot HTTP 502 & 503
-      href: ../troubleshoot-http-502-http-503.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-    - name: Troubleshoot performance issues
-      href: ../troubleshoot-performance-degradation.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
     - name: FAQ
       items:
       - name: Availability, performance, and application FAQ

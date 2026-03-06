@@ -37,7 +37,7 @@ Azure Bastion offers four SKU tiers:
 * **Premium**: Includes all Standard features plus session recording for compliance and private-only deployment.
 * **Standard**: Includes all Basic features plus scalability and advanced features (native client, shareable links, IP-based connections, custom ports, file transfer).
 * **Basic**: Dedicated deployment with fixed capacity for production environments with moderate connection requirements.
-* **Developer**: Free tier using shared infrastructure recommended for development and testing. Supports one VM at a time. Available in select regions.
+* **Developer**: Free SKU using shared infrastructure recommended for development and testing. Supports one VM at a time. Available in select regions.
 
 For a complete feature comparison and capacity details, see [Choose the right Azure Bastion SKU](bastion-sku-comparison.md).
 

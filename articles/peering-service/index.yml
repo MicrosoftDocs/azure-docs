@@ -4,13 +4,13 @@ title: Azure Peering Service documentation
 summary: Learn about Azure Peering Service
 
 metadata:
-  title: Azure Peering Service documentation
+  title: Azure Peering Service Documentation
   description: Learn how to deploy and manage Azure Peering Service connections.
-  ms.service: azure-peering-service
-  ms.topic: landing-page
   author: halkazwini
   ms.author: halkazwini
-  ms.date: 10/08/2024
+  ms.service: azure-peering-service
+  ms.topic: landing-page
+  ms.date: 02/25/2026
   
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 

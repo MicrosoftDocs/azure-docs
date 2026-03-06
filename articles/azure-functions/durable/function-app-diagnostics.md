@@ -2,7 +2,7 @@
 title: Azure Functions app diagnostics 
 description: Learn how to use Azure Functions diagnostic feature on Azure portal to diagnose problems with Durable Functions.
 author: bachuv
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/15/2023
 ms.author: azfuncdf
 ---

@@ -24,6 +24,7 @@ These best practices are intended to be a resource for IT pros. IT pros include 
 * [Azure identity management and access control security best practices](identity-management-best-practices.md)
 * [Azure network security best practices](network-best-practices.md)
 * [Azure operational security best practices](operational-best-practices.md)
+* [Azure AI security best practices](ai-security-best-practices.md)
 * [Azure PaaS Best Practices](paas-deployments.md)
 * [Azure Service Fabric security best practices](service-fabric-best-practices.md)
 * [Best practices for IaaS workloads in Azure](iaas.md)

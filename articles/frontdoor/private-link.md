@@ -72,7 +72,12 @@ Azure Front Door private link is available in the following regions:
 | US Sec East | | | | |
 | US Sec West | | | | |
 
-The Azure Front Door Private Link feature is region agnostic but for the best latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint. If your origin's region isn't supported in the list of regions Front Door Private Link supports, pick the next nearest region. You can use [Azure network round-trip latency statistics](../networking/azure-network-latency.md) to determine the next nearest region in terms of latency. We are in the process of enabling support for more regions. Once a new region is supported, you can follow these [instructions](blue-green-deployment.md) to gradually shift traffic to the new region.
+> [!NOTE]
+> Azure Front Door Private Link is only available in regions with Availability Zone support. This is to ensure zonal resiliency for region based feature like Private link.
+
+The Azure Front Door Private Link feature is region agnostic but for the best latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint. If your origin's region isn't supported in the list of regions Front Door Private Link supports, pick the next nearest region. Traffic flows from the client to the Azure Front Door Private Link endpoint in the supported region, then traverses the Microsoft backbone network to your origin, maintaining private connectivity. Be aware that this configuration introduces additional latency due to the extra network hop between regions.
+
+You can use [Azure network round-trip latency statistics](../networking/azure-network-latency.md) to determine the additional latency due to choosing the next nearest region.  Once a new region is supported, you can follow these [instructions](blue-green-deployment.md) to gradually shift traffic to the new region.
 
 ## Association of a private endpoint with an Azure Front Door profile
 

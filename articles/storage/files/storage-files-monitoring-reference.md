@@ -52,7 +52,7 @@ The following table lists the metrics available for the Microsoft.Storage/storag
 [!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
 > [!NOTE] 
-> The File Share dimension is not available for standard file shares (only premium file shares). When using standard file shares, the metrics provided are for all files shares in the storage account. To get per-share metrics for standard file shares, create one file share per storage account.
+> The File Share dimension is not available for HDD pay-as-you-go file shares (only provisioned file shares). When using HDD pay-as-you-go file shares, the metrics provided are for all file shares in the storage account. To get per-share metrics for HDD pay-as-you-go file shares, create one file share per storage account.
 
 [!INCLUDE [Metrics dimensions](../../../includes/azure-storage-account-metrics-dimensions.md)]
 

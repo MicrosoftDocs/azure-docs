@@ -7,7 +7,7 @@ ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: concept-article
-ms.date: 03/31/2025
+ms.date: 02/28/2026
 ms.custom: mvc
 ROBOTS: NOINDEX
 # Customer intent: As a content manager targeting users in China, I want to understand the differences between global and China-specific content delivery networks, so that I can choose the optimal solution for fast and compliant content delivery to my audience.

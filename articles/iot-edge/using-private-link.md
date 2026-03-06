@@ -22,15 +22,15 @@ In the preceding diagram, the network for the IoT Edge device and the PaaS servi
 
 ### ExpressRoute
 
-ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection with a connectivity provider. In IIoT, connection reliability for devices at the edge to the cloud can be important, and ExpressRoute meets this need with a connection uptime SLA (service level agreement). To learn more about how Azure ExpressRoute provides secure connectivity for edge devices in a private network, see [What is Azure ExpressRoute?](../expressroute/expressroute-introduction.md).
+ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection with a connectivity provider. In IIoT, connection reliability for devices at the edge to the cloud can be important, and ExpressRoute meets this need with a connection uptime SLA (service level agreement). To learn more about how Azure ExpressRoute provides secure connectivity for edge devices in a private network, see [What is Azure ExpressRoute?](../expressroute/expressroute-introduction.md)
 
 ### Azure Private Link
 
-Azure Private Link lets you use Azure PaaS services and Azure-hosted customer-owned or partner services over a [private endpoint](../private-link/private-endpoint-overview.md) in your virtual network. You can use your services running in Azure over ExpressRoute private peering, [Site-to-Site (S2S) VPN](../vpn-gateway/tutorial-site-to-site-portal.md), and peered virtual networks. In IIoT, private links give you flexibility to connect devices in different regions. With a private endpoint, you can disable access to the external PaaS resource and configure to send your traffic through the firewall. To learn more about Azure Private Link, see [What is Azure Private Link?](../private-link/private-link-overview.md).
+Azure Private Link lets you use Azure PaaS services and Azure-hosted customer-owned or partner services over a [private endpoint](../private-link/private-endpoint-overview.md) in your virtual network. You can use your services running in Azure over ExpressRoute private peering, [Site-to-Site (S2S) VPN](../vpn-gateway/tutorial-site-to-site-portal.md), and peered virtual networks. In IIoT, private links give you flexibility to connect devices in different regions. With a private endpoint, you can disable access to the external PaaS resource and configure to send your traffic through the firewall. To learn more about Azure Private Link, see [What is Azure Private Link?](../private-link/private-link-overview.md)
 
 ### Azure DNS Private Resolver
 
-Azure DNS Private Resolver lets you query Azure DNS private zones from an on-premises environment and the other way around without deploying VM-based DNS servers. Azure DNS Private Resolver makes it easier to manage both private and public IPs. The DNS forwarding ruleset feature in Azure DNS Private Resolver helps an IoT admin easily configure rules and manage which address an endpoint should resolve. To learn more about Azure DNS Private Resolver, see [What is Azure DNS Private Resolver?](../dns/dns-private-resolver-overview.md).
+Azure DNS Private Resolver lets you query Azure DNS private zones from an on-premises environment and the other way around without deploying VM-based DNS servers. Azure DNS Private Resolver makes it easier to manage both private and public IPs. The DNS forwarding ruleset feature in Azure DNS Private Resolver helps an IoT admin easily configure rules and manage which address an endpoint should resolve. To learn more about Azure DNS Private Resolver, see [What is Azure DNS Private Resolver?](../dns/dns-private-resolver-overview.md)
 
 ### Configure IoT Edge endpoints when using Private Link
 
@@ -45,17 +45,32 @@ When Private Link is enabled, you must configure IoT Edge to use the **private e
 | Azure Container Registry (ACR) | `<registry>.azurecr.io` | `<registry>.privatelink.azurecr.io` | Use Private Link FQDN |
 | Storage (Blob) | `<account>.blob.core.windows.net` | `<account>.privatelink.blob.core.windows.net` | Use Private Link FQDN |
 
-#### Example IoT Edge `config.yaml`
+#### Example IoT Edge `config.toml` (DPS provisioning)
 
-```yaml
-provisioning:
-  source: "dps"
-  global_endpoint: "global.privatelink.azure-devices-provisioning.net"
-  scope_id: "<scope-id>"
+```toml
+# DPS provisioning with symmetric key
+[provisioning]
+source = "dps"
+global_endpoint = "https://global.privatelink.azure-devices-provisioning.net"
+id_scope = "<scope-id>"
 
-agent:
-  env:
-    IOTEDGE_IOTHUBHOSTNAME: "<hubname>.privatelink.azure-devices.net"
+[provisioning.attestation]
+method = "symmetric_key"
+registration_id = "<registration-id>"
+symmetric_key = { value = "<symmetric-key>" }
+```
+
+#### Example IoT Edge `config.toml` (manual provisioning)
+
+```toml
+[provisioning]
+source = "manual"
+iothub_hostname = "<hubname>.privatelink.azure-devices.net"
+device_id = "<device-id>"
+
+[provisioning.authentication]
+method = "sas"
+device_id_pk = { value = "<shared-access-key>" }
 ```
 
 #### DNS requirement

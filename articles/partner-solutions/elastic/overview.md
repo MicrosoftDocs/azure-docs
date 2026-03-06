@@ -24,7 +24,7 @@ Microsoft and [Elastic](https://www.elastic.co/) developed these services and ma
 
 You can provision the Elastic resources through a resource provider named **Microsoft.Elastic**. Elastic owns and runs the SaaS application including the Elastic accounts created. Data is stored in the Azure region where the service is deployed.
 
-You can find Elastic offerings in the [Azure portal](https://portal.azure.com/) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/).
+You can find Elastic offerings in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Elastic%2Fmonitors) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp?tab=Overview).
 
 ## Key features
 

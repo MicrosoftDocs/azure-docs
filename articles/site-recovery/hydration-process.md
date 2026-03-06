@@ -5,7 +5,7 @@ author: Jeronika-MS
 ms.author: v-gajeronika
 ms.topic: concept-article
 ms.service: azure-site-recovery
-ms.date: 09/18/2025
+ms.date: 02/27/2026
 ---
 
 # Configure on-premise disks for Azure through Hydration
@@ -98,6 +98,8 @@ The preparation script executes the following changes based on the OS type of th
    >To connect to Windows Server 2003 VMs, Hyper-V Integration Services must be installed on the Azure VM. Windows Server 2003 machines don't have this installed by default. See this [article](/azure/migrate/prepare-windows-server-2003-migration?view=migrate-classic) to install and prepare for failover.
 
 1. **Install the Windows Azure Guest Agent**.
+
+    [!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
 
     Azure Site Recovery will attempt to install the Microsoft Azure Virtual Machine Agent (VM Agent), a secure, lightweight process that manages virtual machine (VM) interaction with the Azure Fabric Controller. The VM Agent has a primary role in enabling and executing Azure virtual machine extensions that enable post-deployment configuration of VM, such as installing and configuring software. Azure Site Recovery automatically installs the Windows VM agent on Windows Server 2008 R2 and higher versions.
 

@@ -55,7 +55,7 @@ Yes. We recommend that you update your DPDK-based applications to support MANA. 
 Visit [Microsoft Azure Network Adapter (MANA) and DPDK on Linux](/azure/virtual-network/setup-dpdk-mana) for the minimum requirements to support MANA and DPDK. 
 
 ### Are Network Virtual Appliances (NVAs) impacted by this change? 
-NVAs based on the VM Sizes listed above may also be deployed on MANA capable hardware. Visit [NVA Support insert link to NVA doc page][def] for more information about MANA support for NVAs. 
+NVAs based on the VM Sizes listed above may also be deployed on MANA capable hardware. Visit [the NVA support page](https://aka.ms/NVAOnMANAExistingVMSKUs) for more information about MANA support for NVAs. 
 
 ### Where can I find more information about MANA? 
 To learn more about MANA, visit [Microsoft Azure Network Adapter](/azure/virtual-network/accelerated-networking-mana-overview). On this page you can learn more about operating system support for MANA, installing MANA device drivers (Windows), and more information about MANA capabilities.  

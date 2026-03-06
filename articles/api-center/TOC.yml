@@ -86,10 +86,8 @@
     href: set-up-notification-workflow.md
 - name: API discovery and consumption
   items:
-  - name: Enable API Center portal
+  - name: Enable and customize API Center portal
     href: set-up-api-center-portal.md
-  - name: Customize API Center portal
-    href: customize-api-center-portal.md
   - name: Enable API Center portal view - VS Code extension
     href: enable-api-center-portal-vs-code-extension.md
   - name: Self-host Azure API Center portal

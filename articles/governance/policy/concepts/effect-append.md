@@ -2,7 +2,7 @@
 title: Azure Policy definitions append effect
 description: Azure Policy definitions append effect determines how compliance is managed and reported.
 ms.date: 03/04/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Azure Policy definitions append effect

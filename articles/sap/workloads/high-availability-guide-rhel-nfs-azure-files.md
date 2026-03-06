@@ -6,7 +6,7 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
-ms.date: 04/29/2025
+ms.date: 02/20/2026
 ms.author: radeltch
 ms.custom:
   - devx-track-azurecli
@@ -179,7 +179,7 @@ Next, deploy the NFS shares in the storage account you created. In this example,
    1. Select **No root Squash**. Otherwise, when you mount the shares on your VMs, you can't see the file owner or group.
 
 > [!IMPORTANT]
-> The preceding share size is only an example. Make sure to size your shares appropriately. Size is not only based on the size of the of data stored on the share but also based on the requirements for IOPS and throughput. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md).  
+> The preceding share size is only an example. Make sure to size your shares appropriately. Size is not only based on the size of data stored on the share but also based on the requirements for IOPS and throughput. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md).  
 
 The SAP file systems that don't need to be mounted via NFS can also be deployed on [Azure disk storage](/azure/virtual-machines/disks-types#premium-ssds). In this example, you can deploy `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` on Azure disk storage.
 
@@ -236,7 +236,7 @@ The following items are prefixed with:
      # IP address of cluster node 1
      10.90.90.7    sap-cl1
      # IP address of cluster node 2
-     10.90.90.8     sap-cl2
+     10.90.90.8    sap-cl2
      # IP address of the load balancer frontend configuration for SAP Netweaver ASCS
      10.90.90.10   sapascs
      # IP address of the load balancer frontend configuration for SAP Netweaver ERS
@@ -353,15 +353,14 @@ The following items are prefixed with:
    
     sudo pcs resource create fs_NW1_ASCS Filesystem device='sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1ascs' \
       directory='/usr/sap/NW1/ASCS00' fstype='nfs' force_unmount=safe options='noresvport,vers=4,minorversion=1,sec=sys' \
-      fast_stop=no op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
-      --group g-NW1_ASCS
+      fast_stop=no op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40
    
     sudo pcs resource create vip_NW1_ASCS IPaddr2 \
-      ip=10.90.90.10 \
-      --group g-NW1_ASCS
+      ip=10.90.90.10
    
-    sudo pcs resource create nc_NW1_ASCS azure-lb port=62000 \
-      --group g-NW1_ASCS
+    sudo pcs resource create nc_NW1_ASCS azure-lb port=62000
+ 
+    sudo pcs resource group add g-NW1_ASCS fs_NW1_ASCS vip_NW1_ASCS nc_NW1_ASCS
     ```
 
    > [!Note]
@@ -412,15 +411,14 @@ The following items are prefixed with:
     
     sudo pcs resource create fs_NW1_AERS Filesystem device='sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1ers' \
       directory='/usr/sap/NW1/ERS01' fstype='nfs' force_unmount=safe options='noresvport,vers=4,minorversion=1,sec=sys' \
-      fast_stop=no op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
-     --group g-NW1_AERS
+      fast_stop=no op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40
    
     sudo pcs resource create vip_NW1_AERS IPaddr2 \
-      ip=10.90.90.9 \
-     --group g-NW1_AERS
+      ip=10.90.90.9
    
-    sudo pcs resource create nc_NW1_AERS azure-lb port=62101 \
-     --group g-NW1_AERS
+    sudo pcs resource create nc_NW1_AERS azure-lb port=62101
+
+    sudo pcs resource group add g-NW1_AERS fs_NW1_AERS vip_NW1_AERS nc_NW1_AERS
     ```
 
    > [!Note]
@@ -525,7 +523,7 @@ The following items are prefixed with:
    > [!IMPORTANT]
    > With the systemd based SAP Startup Framework, SAP instances can now be managed by systemd. The minimum required Red Hat Enterprise Linux (RHEL) version is RHEL 8 for SAP. As described in SAP Note [3115048](https://me.sap.com/notes/3115048), a fresh installation of a SAP kernel with integrated systemd based SAP Startup Framework support will always result in a systemd controlled SAP instance. After an SAP kernel upgrade of an existing SAP installation to a kernel which has systemd based SAP Startup Framework support, however, some manual steps have to be performed as documented in SAP Note [3115048](https://me.sap.com/notes/3115048) to convert the existing SAP startup environment to one which is systemd controlled.
    >
-   > When utilizing Red Hat HA services for SAP (cluster configuration) to manage SAP application server instances such as SAP ASCS and SAP ERS, additional modifications will be necessary to ensure compatibility between the SAPInstance resource agent and the new systemd-based SAP startup framework. So once the SAP application server instances has been installed or switched to a systemd enabled SAP Kernel as per SAP Note [3115048](https://me.sap.com/notes/3115048), the steps mentioned in [Red Hat KBA 6884531](https://access.redhat.com/articles/6884531) must be completed successfully on all cluster nodes.
+   > When utilizing Red Hat HA services for SAP (cluster configuration) to manage SAP application server instances such as SAP ASCS and SAP ERS, additional modifications will be necessary to ensure compatibility between the SAPInstance resource agent and the new systemd-based SAP startup framework. So once the SAP application server instances have been installed or switched to a systemd enabled SAP Kernel as per SAP Note [3115048](https://me.sap.com/notes/3115048), the steps mentioned in [Red Hat KBA 6884531](https://access.redhat.com/articles/6884531) must be completed successfully on all cluster nodes.
 
 9. **[1]** Create the SAP cluster resources.
 
@@ -543,20 +541,24 @@ The following items are prefixed with:
      AUTOMATIC_RECOVER=false \
      meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
      op monitor interval=20 on-fail=restart timeout=60 \
-     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-     --group g-NW1_ASCS
+     op start interval=0 timeout=600 op stop interval=0 timeout=600
     
+    sudo pcs resource group add g-NW1_ASCS rsc_sap_NW1_ASCS00
     sudo pcs resource meta g-NW1_ASCS resource-stickiness=3000
 
     sudo pcs resource create rsc_sap_NW1_ERS01 SAPInstance \
      InstanceName=NW1_ERS01_sapers START_PROFILE="/sapmnt/NW1/profile/NW1_ERS01_sapers" \
      AUTOMATIC_RECOVER=false IS_ERS=true \
-     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-     --group g-NW1_AERS
-     
-    sudo pcs constraint colocation add g-NW1_AERS with g-NW1_ASCS -5000
-    sudo pcs constraint location rsc_sap_NW1_ASCS00 rule score=2000 runs_ers_NW1 eq 1
+     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600
+    
+    sudo pcs resource group add g-NW1_AERS rsc_sap_NW1_ERS01
+
     sudo pcs constraint order start g-NW1_ASCS then stop g-NW1_AERS kind=Optional symmetrical=false
+    sudo pcs constraint colocation add g-NW1_AERS with g-NW1_ASCS score=-5000
+    # On RHEL 7.x, 8.x, 9.x
+    sudo pcs constraint location rsc_sap_NW1_ASCS00 rule score=2000 runs_ers_NW1 eq 1
+    # On RHEL 10.x
+    sudo pcs constraint location rsc_sap_NW1_ASCS00 rule score=2000 "runs_ers_NW1 eq 1"
     
     sudo pcs node unstandby sap-cl1
     sudo pcs property set maintenance-mode=false
@@ -572,22 +574,22 @@ The following items are prefixed with:
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 \
     op monitor interval=20 on-fail=restart timeout=60 \
-    op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-NW1_ASCS
-   
+    op start interval=0 timeout=600 op stop interval=0 timeout=600
+
+    sudo pcs resource group add g-NW1_ASCS rsc_sap_NW1_ASCS00
     sudo pcs resource meta g-NW1_ASCS resource-stickiness=3000
 
     sudo pcs resource create rsc_sap_NW1_ERS01 SAPInstance \
     InstanceName=NW1_ERS01_sapers START_PROFILE="/sapmnt/NW1/profile/NW1_ERS01_sapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
-    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-NW1_AERS
-      
-    sudo pcs resource meta rsc_sap_NW1_ERS01  resource-stickiness=3000
+    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600
+    
+    sudo pcs resource group add g-NW1_AERS rsc_sap_NW1_ERS01 
+    sudo pcs resource meta rsc_sap_NW1_ERS01 resource-stickiness=3000
 
-    sudo pcs constraint colocation add g-NW1_AERS with g-NW1_ASCS -5000
     sudo pcs constraint order start g-NW1_ASCS then stop g-NW1_AERS kind=Optional symmetrical=false
-   
+    sudo pcs constraint colocation add g-NW1_AERS with g-NW1_ASCS score=-5000
+
     sudo pcs node unstandby sap-cl1
     sudo pcs property set maintenance-mode=false
     ```
@@ -624,7 +626,7 @@ The following items are prefixed with:
 10. **[1]** Run the following step to configure `priority-fencing-delay` (applicable only as of pacemaker-2.0.4-6.el8 or higher).
 
     > [!NOTE]
-    > If you have a two-node cluster, you have the option to configure the `priority-fencing-delay` cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [Can Pacemaker fence the cluster node with the fewest running resources?](https://access.redhat.com/solutions/5110521).
+    > If you have a two-node cluster, you have the option to configure the `priority-fencing-delay` cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [Can Pacemaker fence the cluster node with the fewest running resources?](https://access.redhat.com/solutions/5110521)
     >
     > The property `priority-fencing-delay` is applicable for pacemaker-2.0.4-6.el8 version or higher. If you set up `priority-fencing-delay` on an existing cluster, make sure to clear the `pcmk_delay_max` setting in the fencing device.  
 

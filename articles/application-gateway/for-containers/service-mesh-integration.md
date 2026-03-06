@@ -5,7 +5,7 @@ services: application-gateway
 author: JackStromberg
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 1/28/2026
+ms.date: 2/23/2026
 ms.author: jstrom
 ---
 
@@ -48,7 +48,7 @@ az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
 
 helm install alb-controller-servicemesh-extension oci://mcr.microsoft.com/application-lb/charts/alb-controller-servicemesh-extension \
      --namespace $HELM_NAMESPACE \
-     --version 1.9.11
+     --version 1.9.13
 ```
 
 ### Verify the ALB Controller installation
@@ -347,5 +347,4 @@ There's no extra price to enable service mesh integration.
 
 ## Limitations
 
-- Application Gateway for Containers only supports the community/open source version of Istio today. Istio-based service mesh add-on for AKS isn't supported at this time.
 - Ingress API isn't supported; consider migrating to Gateway API.

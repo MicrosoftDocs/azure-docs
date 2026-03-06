@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 12/31/2025
+ms.date: 02/23/2026
 ms.custom: generated
 ---
 
@@ -604,7 +604,7 @@ Has read-only access to entities in the workspace. This role should be assigned 
 
 ## App Configuration Contributor
 
-Grants permission for all management operations, except purge, for App Configuration resources.
+Grants permission for all management operations, except purge, for App Configuration resources. This role does not grant access to data plane resources such as key-values, snapshots, and feature flags.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -626,7 +626,7 @@ Grants permission for all management operations, except purge, for App Configura
   "assignableScopes": [
     "/"
   ],
-  "description": "Grants permission for all management operations, except purge, for App Configuration resources.",
+  "description": "Grants permission for all management operations, except purge, for App Configuration resources. This role does not grant access to data plane resources such as key-values, snapshots, and feature flags.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/fe86443c-f201-4fc4-9d2a-ac61149fbda0",
   "name": "fe86443c-f201-4fc4-9d2a-ac61149fbda0",
   "permissions": [
@@ -743,7 +743,7 @@ Allows read access to App Configuration data.
 
 ## App Configuration Reader
 
-Grants permission for read operations for App Configuration resources.
+Grants permission for read operations for App Configuration resources. This role does not grant access to data plane resources such as key-values, snapshots, and feature flags.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -765,7 +765,7 @@ Grants permission for read operations for App Configuration resources.
   "assignableScopes": [
     "/"
   ],
-  "description": "Grants permission for read operations for App Configuration resources.",
+  "description": "Grants permission for read operations for App Configuration resources. This role does not grant access to data plane resources such as key-values, snapshots, and feature flags.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/175b81b9-6e0d-490a-85e4-0d422273c10c",
   "name": "175b81b9-6e0d-490a-85e4-0d422273c10c",
   "permissions": [

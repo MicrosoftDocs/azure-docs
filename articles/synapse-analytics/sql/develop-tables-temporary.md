@@ -6,7 +6,7 @@ ms.author: stefanazaric
 ms.date: 11/02/2021
 ms.service: azure-synapse-analytics
 ms.subservice: sql
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Temporary tables in Synapse SQL

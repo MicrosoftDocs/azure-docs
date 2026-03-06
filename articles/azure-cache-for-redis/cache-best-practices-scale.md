@@ -3,7 +3,7 @@ title: Best practices for scaling
 description: Learn how to scale your Azure Cache for Redis.
 
 
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom:
   - ignite-2024
 ms.date: 04/12/2024

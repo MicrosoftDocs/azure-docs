@@ -1,8 +1,8 @@
 ---
 title: Use Microsoft Entra for cache authentication with Azure Managed Redis
 description: Learn how to use Microsoft Entra with Azure Managed Redis.
-ms.date: 11/05/2025
-ms.topic: conceptual
+ms.date: 02/12/2026
+ms.topic: how-to
 ms.custom:
   - references_regions
   - ignite-2024
@@ -66,13 +66,37 @@ If you have used access keys in the past for authentication, you need to update 
 
 ## Troubleshooting Microsoft Entra ID and your cache
 
-If your application fails to access the Azure Managed Redis instance through Microsoft Entra ID, use this PowerShell script:
+If you encounter authentication issues with Microsoft Entra ID on your Azure Managed Redis instance, you can use the Azure CLI to test connectivity or validate your tokens using a PowerShell script.
+
+### Test connectivity with Azure CLI
+
+You can use the Azure CLI to quickly test if you can connect to your Redis cluster. The [az redisenterprise test-connection](/cli/azure/redisenterprise#az_redisenterprise_test_connection) command is helpful for debugging connection issues and verifies end-to-end connectivity by sending a `ping` command. 
+
+For prerequisites to use the Azure CLI with Azure Managed Redis, see [Manage an Azure Managed Redis cache using the Azure CLI](scripts/create-manage-cache.md).
+
+
+To test connection with Microsoft Entra ID authentication (the default), run the following command:
+
+```azurecli
+az redisenterprise test-connection --name <cache-name> --resource-group <resource-group-name>
+```
+
+Or explicitly specify Entra authentication:
+
+```azurecli
+az redisenterprise test-connection --name <cache-name> --resource-group <resource-group-name> --auth entra
+```
+
+> [!NOTE]
+> This command uses the credential established through `az login`, which supports user accounts, managed identities, or service principals.
+
+### Validate Microsoft Entra tokens
+
+If your application fails to access the Azure Managed Redis instance through Microsoft Entra ID, you can also use the following PowerShell script:
 
 [EntraTokenValidation](https://github.com/AzureManagedRedis/DiagnosticTools/tree/main/EntraTokenValidation)
 
-Use this PowerShell script to validate Microsoft Entra ID tokens for Azure Managed Redis Cache resources. The script validates tokens and verifies access policies to help you diagnose authentication issues.
-
-If you're having trouble using Microsoft Entra ID to authenticate Redis connections, run this script to analyze your Microsoft Entra token and identify any issues.
+This PowerShell script validates Microsoft Entra ID tokens for Azure Managed Redis Cache resources. The script checks tokens and verifies access policies to help you diagnose authentication issues.
 
 ## Client library support
 

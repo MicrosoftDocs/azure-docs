@@ -4,9 +4,10 @@ titleSuffix: Microsoft Security
 description: Learn about the different tools available in the Data exploration collection in Microsoft Sentinel 
 author: poliveria
 ms.topic: how-to
-ms.date: 12/12/2025
+ms.date: 02/16/2026
 ms.author: pauloliveria
 ms.service: microsoft-sentinel
+ms.subservice: sentinel-platform
 
 #customer intent: As a security analyst, I want to know the different tools available to explore security data in Microsoft Sentinel data lake
 ---
@@ -75,7 +76,7 @@ Entity analysis tools might require a few minutes to generate results, so there 
 
 | Parameters | Required? | Description | 
 |----------|----------|----------|
-| Microsoft Entra object ID or URL| Yes |This parameter takes in the user or URL you want to analyze. |
+| Microsoft Entra object ID, User Principal Name (UPN), or URL| Yes |This parameter takes in the user or URL you want to analyze. |
 | `startTime`| Yes |This parameter takes in the start time of the analysis window.  |
 | `endTime`| Yes |This parameter takes in the end time of the analysis window.  |
 | `workspaceId`| No |This parameter takes in a workspace identifier to limit the search to a single connected Microsoft Sentinel data lake workspace. |
@@ -95,10 +96,10 @@ While this tool automatically polls for a few minutes until results are ready, i
 
 #### Additional information
 - `analyze_user_entity` supports a maximum time window of seven days to maximize accuracy of the results. 
+- `analyze_user_entity` only works for users with a Microsoft Entra object ID (cloud users). On-premises Active Directory-only users aren't supported for user analysis.
 - `analyze_user_entity` requires the following tables to be present in the data lake to ensure accuracy of the analysis:
     - [AlertEvidence](../connect-microsoft-365-defender.md)
     - [SigninLogs](../connect-azure-active-directory.md)
-    - [BehaviorAnalytics](../enable-entity-behavior-analytics.md)
     - [CloudAppEvents](../connect-microsoft-365-defender.md)
     - [IdentityInfo](/defender-xdr/advanced-hunting-identityinfo-table) (Available only for tenants with Microsoft Defender for Identity, Microsoft Defender for Cloud Apps, or Microsoft Defender for Endpoint P2 licensing)
 
@@ -106,7 +107,8 @@ While this tool automatically polls for a few minutes until results are ready, i
 
 - `analyze_user_entity` works best when the following table is also present in the data lake, but continues to work and assess risk, even if the said table is unavailable:
     - [AADNonInteractiveUserSignInLogs](../connect-azure-active-directory.md)
-
+    - [BehaviorAnalytics](../enable-entity-behavior-analytics.md)
+    
 - `analyze_url_entity` works best when the following tables are present in the data lake, but continues to work and assess risk, even if the said tables are unavailable:
     - [EmailUrlInfo](../connect-microsoft-365-defender.md)
     - [UrlClickEvents](../connect-microsoft-365-defender.md)
@@ -116,7 +118,7 @@ While this tool automatically polls for a few minutes until results are ready, i
 
     If you don't have any of these tables, `analyze_url_entity` generates a response with a disclaimer that lists the tables you didn't onboard, along with links to their corresponding onboarding documentation.
 
-- Running multiple instances of the entity analyzer at the same time can increase latency for each run. To prevent timeouts, start by running a maximum of five analyses at once and then adjust this number as needed based on how the analyzer runs in your organization.
+- Running multiple instances of the entity analyzer at the same time can increase latency for each run. To prevent timeouts and avoid hitting the entity analyzer's [preview thresholds](sentinel-mcp-billing.md#microsoft-sentinel-entity-analyzer-tool-1), start by running a maximum of five analyses at once and then adjust it as needed based on how often the logic app is triggered in your organization. 
 
 ## Sample prompts
 

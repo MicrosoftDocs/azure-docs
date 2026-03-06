@@ -191,7 +191,7 @@ You might have a situation where you know that you cannot set a bandwidth of mor
 
 **Virtual machine Name**: The virtual machine name or IP address that's used in the VMListFile when a report is generated. This column also lists the disks (VMDKs) that are attached to the virtual machines. To distinguish vCenter virtual machines with duplicate names or IP addresses, the names include the ESXi host name. The listed ESXi host is the one where the virtual machine was placed when the tool discovered during the profiling period.
 
-**Virtual machine Compatibility**: Values are **Yes** and **Yes\***. **Yes**\* is for instances in which the virtual machine is a fit for [premium SSDs](/azure/virtual-machines/disks-types). Here, the profiled high-churn or Input/output operations per second (IOPS) disk fits in the P20 or P30 category, but the size of the disk causes it to be mapped down to a P10 or P20. The storage account decides which premium storage disk type to map a disk to, based on its size. For example:
+**Virtual machine Compatibility**: Values are **Yes** and **Yes\***. **Yes**\* is for instances in which the virtual machine is a fit for [Premium SSDs](/azure/virtual-machines/disks-types). Here, the profiled high-churn or Input/output operations per second (IOPS) disk fits in the P20 or P30 category, but the size of the disk causes it to be mapped down to a P10 or P20. The storage account decides which premium storage disk type to map a disk to, based on its size. For example:
 * <128 GB is a P10.
 * 128 GB to 256 GB is a P15
 * 256 GB to 512 GB is a P20.

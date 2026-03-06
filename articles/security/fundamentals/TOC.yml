@@ -15,6 +15,11 @@
   - name: AI shared responsibility model
     href: shared-responsibility-ai.md
 
+- name: AI security
+  items:
+  - name: Best practices
+    href: ai-security-best-practices.md
+
 - name: Security posture management
   items:
   - name: Zero Trust
@@ -38,7 +43,8 @@
         href: ransomware-protection-with-azure-firewall.md
   - name: Threat protection
     href: threat-detection.md
-
+  - name: Incident response
+    href: incident-response-overview.md
 
 - name: Azure platform and infrastructure
   items:

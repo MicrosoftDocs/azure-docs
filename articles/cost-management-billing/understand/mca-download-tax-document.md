@@ -4,7 +4,7 @@ description: Learn how to view and download tax receipts for your billing profil
 author: jkinma39
 ms.reviewer: jkinma
 ms.service: cost-management-billing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/03/2025
 ms.subservice: billing
 ms.author: jkinma

@@ -29,7 +29,12 @@
             "source_path_from_root": "/articles/azure-functions/durable/durable-functions-configure-durable-functions-with-credentials.md",
             "redirect_url": "/azure/azure-functions/durable/durable-functions-configure-managed-identity",
             "redirect_document_id": false
-        },        
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable/durable-functions-types-features-overview.md",
+            "redirect_url": "/azure/azure-functions/durable/programming-model-overview",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/azure-functions/start-stop-vms/deploy.md",
             "redirect_url": "/previous-versions/azure/functions/start-stop-vms/deploy",
@@ -93,6 +98,66 @@
         {
             "source_path_from_root": "/articles/azure-functions/create-first-function-vs-code-other.md",
             "redirect_url": "/azure/azure-functions/how-to-create-function-vs-code?pivots=programming-language-other",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable/durable-functions-best-practice-reference.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-perf-and-scale",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable/durable-task-scheduler/choose-orchestration-framework.md",
+            "redirect_url": "/azure/azure-functions/durable/choose-orchestration-framework",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/scripts/functions-cli-create-serverless.md",
+            "redirect_url": "/azure/azure-functions/functions-cli-samples",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/scripts/functions-cli-create-serverless-python.md",
+            "redirect_url": "/azure/azure-functions/functions-cli-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/scripts/functions-cli-create-premium-plan.md",
+            "redirect_url": "/azure/azure-functions/functions-cli-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/scripts/functions-cli-create-app-service-plan.md",
+            "redirect_url": "/azure/azure-functions/functions-cli-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/scripts/functions-cli-create-function-app-connect-to-storage-account.md",
+            "redirect_url": "/azure/azure-functions/functions-cli-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/scripts/functions-cli-create-function-app-connect-to-cosmos-db.md",
+            "redirect_url": "/azure/azure-functions/functions-cli-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/scripts/functions-cli-mount-files-storage-linux.md",
+            "redirect_url": "/azure/azure-functions/functions-cli-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/scripts/functions-cli-create-function-app-github-continuous.md",
+            "redirect_url": "/azure/azure-functions/functions-cli-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable/durable-functions-unit-testing-dotnet-isolated.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-unit-testing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable/durable-functions-unit-testing-python.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-unit-testing",
             "redirect_document_id": false
         } 
     ]

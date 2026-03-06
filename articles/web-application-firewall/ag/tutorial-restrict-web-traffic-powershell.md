@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to 
-ms.date: 03/26/2021
+ms.date: 02/24/2026
 ms.custom: devx-track-azurepowershell
 # Customer intent: "As a cloud engineer, I want to set up a Web Application Firewall using PowerShell on an application gateway, so that I can secure my application against web exploits and attacks effectively."
 ---
@@ -176,6 +176,9 @@ $appgw = New-AzApplicationGateway `
 ## Create a virtual machine scale set
 
 In this example, you create a virtual machine scale set to provide servers for the backend pool in the application gateway. You assign the scale set to the backend pool when you configure the IP settings. 
+
+> [!NOTE]
+> The virtual machine scale set instances in the backend pool don't have public IP addresses and aren't directly accessible from the internet. Management access to the instances, if needed, can be configured through [Azure Bastion](/azure/bastion/bastion-overview).
 
 Replace *\<username>* and *\<password>* with your values before you run this script.
 

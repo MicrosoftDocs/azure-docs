@@ -3,7 +3,7 @@ title: Troubleshoot Azure Native New Relic Service
 description: Learn about troubleshooting Azure Native New Relic Service.
 ms.topic: conceptual
 
-ms.date: 01/16/2023
+ms.date: 02/12/2026
 
 ---
 
@@ -36,9 +36,9 @@ Only virtual machines that currently have the New Relic agent installed should b
 
 Resource monitoring in New Relic is enabled through the *ingest API key*, which you set up at the time of resource creation. Revoking the ingest API key from the New Relic portal disrupts monitoring of logs and metrics for all resources, including virtual machines and app services. You shouldn't revoke the ingest API key. If the API key is already revoked, contact New Relic support.
 
-If your Azure subscription is suspended or deleted because of payment-related issues, resource monitoring in New Relic automatically stops. Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [Add, update, or delete a payment method](../../cost-management-billing/manage/change-credit-card.md).
+If your Azure subscription is suspended or deleted because of payment-related issues, resource monitoring in New Relic automatically stops. Use a different Azure subscription. Alternatively, add or update the credit card or payment method for the subscription. For more information, see [Add, update, or delete a payment method](../../cost-management-billing/manage/change-credit-card.md).
 
-New Relic manages the APIs for creating and managing resources, and for the storage and processing of customer telemetry data. The New Relic APIs might be on or outside Azure. If your Azure subscription and resource are working correctly but the New Relic portal shows problems with monitoring data, contact New Relic support.
+New Relic manages the APIs for creating and managing resources and for the storage and processing of customer telemetry data. The New Relic APIs might be on or outside Azure. If your Azure subscription and resource are working correctly but the New Relic portal shows problems with monitoring data, contact New Relic support.
 
 ## Diagnostic settings are active even after disabling the New Relic resource or applying necessary tag rules
 
@@ -48,8 +48,8 @@ If logs are being emitted and diagnostic settings remain active on monitored res
 
 ## Logs are being forwarded even after the Azure Native New Relic resource is deleted
 
-If logs are being emitted even after the Azure Native New Relic resource is deleted, it could be because there is a resource lock present on one of the Azure resources being monitored. It will take 24 hours for the log forwarding to stop for the resources where the resource lock is present. 
+If logs are being emitted even after the Azure Native New Relic resource is deleted, it could be because there's a resource lock present on one of the Azure resources being monitored. It takes 24 hours for the log forwarding to stop for the resources where the resource lock is present.
 
-## Updates made to the tag rules within the Azure Native New Relic resource don't change the log flow immediately 
+## Updates made to the tag rules within the Azure Native New Relic resource don't change the log flow immediately
 
-It takes an hour for any modification of the tag rules to reflect in the log flow. For example, if a new resource is added in tag rules, it would take an hour for the log forwarding to start for that particular resource  
+It takes an hour for any modification of the tag rules to reflect in the log flow. For example, if a new resource is added in tag rules, it would take an hour for the log forwarding to start for that particular resource.

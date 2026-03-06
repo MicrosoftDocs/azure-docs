@@ -6,7 +6,7 @@ ms.author: v-rochak2
 ms.service: azure-resource-mover
 ms.topic: overview
 ms.date: 07/31/2025
-ms.update-cycle: 180-days
+ms.update-cycle: 365-days
 ms.custom: UpdateFrequency.5
 # Customer intent: "As an Azure administrator, I want to understand the process of moving resources across regions, so that I can effectively manage dependencies and minimize downtime during the transition."
 ---

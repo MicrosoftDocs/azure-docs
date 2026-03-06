@@ -19,7 +19,7 @@ IP-based connection lets you connect to your on-premises, non-Azure, and Azure v
 :::image type="content" source="./media/connect-ip-address/architecture.png" alt-text="Diagram that shows the Azure Bastion architecture." lightbox="./media/connect-ip-address/architecture.png":::
 
 > [!NOTE]
-> This configuration requires the Standard SKU tier or higher for Azure Bastion. To upgrade, see [Upgrade a SKU](upgrade-sku.md).
+> This configuration requires the Standard SKU or higher for Azure Bastion. To upgrade, see [Upgrade a SKU](upgrade-sku.md).
 >
 
 **Limitations**
@@ -49,7 +49,7 @@ Before you begin these steps, verify that you have the following environment set
 
 1. In the Azure portal, go to your Bastion deployment.
 
-1. IP based connection requires the Standard SKU tier or higher. On the **Configuration** page, for **Tier**, verify the tier is set to the **Standard** SKU or higher. If the tier is set to the Basic SKU, select a higher SKU from the dropdown.
+1. IP based connection requires the Standard SKU or higher. On the **Configuration** page, for **SKU**, verify the SKU is set to the **Standard** SKU or higher. If the SKU is set to the Basic SKU, select a higher SKU from the dropdown.
 
 1. To enable **IP based connection**, select **IP based connection**.
 

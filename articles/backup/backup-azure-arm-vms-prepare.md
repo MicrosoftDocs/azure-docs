@@ -147,16 +147,25 @@ The initial backup runs based on the schedule, but you can also run it immediate
 
 ## Verify the backup job status
 
-The backup job details for each VM backup consist of two phases: **Snapshot** is followed by **Transfer data to vault**.
+The backup job details for each VM backup include the following phases:
 
-- **Snapshot**: Ensures that the availability of a recovery point is stored along with the disks for Instant Restore and is available for a maximum of five days depending on the snapshot retention configured by the user.
-- **Transfer data to vault**: Creates a recovery point in the vault for long-term retention. **Transfer data to vault** starts only after **Snapshot** is finished.
+- **Snapshot**: Azure Backup takes a snapshot of the VM disks. This phase ensures a recovery point is available for Instant Restore for up to 30 days, depending on the configured policy type and snapshot retention.
+- **Transfer data to vault**: Data is copied from the VM to the Recovery Services vault to create a recovery point for long-term retention. This phase starts after **Snapshot** finishes.
+- **Validate backup**: Azure Backup performs an integrity check to verify transferred data and confirm that the recovery point is usable.
 
   ![Screenshot that shows backup job status.](./media/backup-azure-arm-vms-prepare/backup-job-status.png)
 
-Two subtasks run at the back end. One is for the front-end backup job that you can check on the **Backup** pane under **Job Details**.
+In job details, the subtasks provide visibility into the backup job phases.
 
   ![Screenshot that shows backup job status subtasks.](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
+
+The progress bar tracks only **Transfer data to vault** and shows the proportion of data transferred. **Snapshot** and **Validate backup** durations aren't represented on the progress bar. Use the progress bar as a transfer indicator, not as an estimate of total backup completion time.
+
+> [!IMPORTANT]
+> - Completion of **Transfer data to vault** doesn't confirm a restorable recovery point. The backup is considered restorable only after **Validate backup** succeeds.
+> - **Snapshot** and **Validate backup** durations are excluded from the progress bar because they're not predictably time-bound.
+> - The progress bar doesn't represent total time remaining or estimated timeline.
+> - This progress experience improves visibility only. It doesn't change the underlying backup workflow.
 
 **Transfer data to vault** can take multiple days to finish depending on the size of the disks, the churn per disk, and other factors.
 

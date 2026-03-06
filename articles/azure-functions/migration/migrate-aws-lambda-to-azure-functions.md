@@ -736,11 +736,3 @@ Enable [Application Insights](/azure/azure-functions/functions-monitoring) f
 
    - Set up budgeting and cost alerts to manage and predict expenses effectively.
 
-<!--
-## Next step
-
-Start the pre-migration evaluation with:
-
-> [!div class="nextstepaction"]
-> [Article name](file-name.md)
--->

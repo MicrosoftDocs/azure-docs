@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 03/06/2024
+ms.date: 02/26/2026
 ms.author: glenga
 ---
 
@@ -13,8 +13,7 @@ Because an HTTP triggered function also returns an HTTP response, the function r
 
 ```csharp
 [Function("HttpExample")]
-public static MultiResponse Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequest req,
-    FunctionContext executionContext)
+public MultiResponse Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequest req)
 {
 ```
 
@@ -29,7 +28,7 @@ public class MultiResponse
 }
 ```
 
-When applying that example to your own project, you might need to change `HttpRequest` to `HttpRequestData` and `IActionResult` to `HttpResponseData`, depending on if you are using [ASP.NET Core integration](../articles/azure-functions/dotnet-isolated-process-guide.md#aspnet-core-integration) or not.
+This example uses [ASP.NET Core integration](../articles/azure-functions/dotnet-isolated-process-guide.md#aspnet-core-integration). If you aren't using ASP.NET Core integration, you need to change `HttpRequest` to `HttpRequestData` and `IActionResult` to `HttpResponseData`.
 
 ### [In-process](#tab/in-process)
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="14-18" highlight="4":::

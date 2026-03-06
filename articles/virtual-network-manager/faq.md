@@ -5,7 +5,7 @@ services: virtual-network-manager
 author: mbender-ms
 ms.service: azure-virtual-network-manager
 ms.topic: faq
-ms.date: 07/11/2025
+ms.date: 02/24/2026
 ms.author: mbender
 ms.custom:
   - references_regions
@@ -23,7 +23,7 @@ This article answers frequently asked questions about Azure Virtual Network Mana
 For current information about region support, refer to [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=virtual-network-manager).
 
 > [!NOTE]
-> All regions have [availability zones](/azure/reliability/availability-zones-region-support).
+> Many Azure regions support [availability zones](/azure/reliability/availability-zones-region-support). To see which regions support availability zones, see the [Azure regions list](/azure/reliability/regions-list).
 
 ### What are common use cases for Azure Virtual Network Manager?
 
@@ -39,11 +39,11 @@ For current information about region support, refer to [Products available by re
 
 ### What's the cost of using Azure Virtual Network Manager?
 
-Azure Virtual Network Manager charges are based on the number of virtual networks with an active Virtual Network Manager configuration deployed onto it. For example, if a Virtual Network Manager scope contains 100 virtual networks but configurations have only been deployed onto 5 of those virtual networks, you will be charged for those 5 virtual networks (not all 100). Also note that a charge for peering applies to the traffic volume of virtual networks that are managed by a deployed connectivity configuration (either mesh or hub-and-spoke).
+Azure Virtual Network Manager charges are based on the number of virtual networks with an active Virtual Network Manager configuration deployed onto it. For example, if a Virtual Network Manager scope contains 100 virtual networks but configurations have only been deployed onto five of those virtual networks, you'll be charged for those five virtual networks (not all 100). Also note that a charge for peering applies to the traffic volume of virtual networks that are managed by a deployed connectivity configuration (either mesh or hub-and-spoke).
 
-If a virtual network has multiple configurations deployed onto it by the same Virtual Network Manager instance, that virtual network only incurs a single charge rate; it will not duplicate charges. For example, if a Virtual Network Manager deploys both a connectivity configuration and a security admin configuration onto the same set of 5 virtual networks, you will be charged for those 5 virtual networks, but not charged twice. This cost does not account for multiple configurations unless the configurations originate from different Virtual Network Manager instances. 
+If a virtual network has multiple configurations deployed onto it by the same Virtual Network Manager instance, that virtual network only incurs a single charge rate; it will not duplicate charges. For example, if a Virtual Network Manager deploys both a connectivity configuration and a security admin configuration onto the same set of five virtual networks, you'll be charged for those five virtual networks, but not charged twice. This cost doesn't account for multiple configurations unless the configurations originate from different Virtual Network Manager instances. 
 
-Before March 2025, Azure Virtual Network Manager charges were based by default on the number of subscriptions that contained a virtual network with an active Virtual Network Manager configuration deployed onto it. If you created your Virtual Network Manager instance prior to March 2025, you may choose to [switch your pricing to the virtual network-based pricing](overview.md#pricing).
+Before February 2025, Azure Virtual Network Manager charges were based by default on the number of subscriptions that contained a virtual network with an active Virtual Network Manager configuration deployed onto it. If you created your Virtual Network Manager instance prior to February 2025, you can choose to [switch your pricing to the virtual network-based pricing](overview.md#pricing).
 
 Azure Virtual Network Manager's [**network verifier**](concept-virtual-network-verifier.md) tool charges per reachability analysis run in an Azure Virtual Network Manager verifier workspace. This charge is separate from Azure Virtual Network Manager charges. 
 
@@ -118,9 +118,7 @@ No. Azure Virtual Network Manager doesn't currently support the ability to move 
 
 ### Can I move a subscription with an Azure Virtual Network Manager to another tenant?
 
-Yes, but there are some considerations to keep in mind:
-- The target tenant can't have an Azure Virtual Network Manager created.
-- The spoke virtual networks in the network group can lose their reference when changing tenants, thus losing connectivity to the hub virtual network. To resolve this, after moving the subscription to another tenant, you must manually add the spoke virtual networks to the network group of Azure Virtual Network Manager.
+No, moving the subscription where the Azure Virtual Network Manager instance exists to another tenant isn't supported. For more information, see [Limitations with Azure Virtual Network Manager](concept-limitations.md).
 
 ### How can I see what configurations are applied to help me troubleshoot?
 
@@ -148,7 +146,7 @@ The effect of each method is the same, where bi-directional connectivity is esta
 
 ### When managing virtual networks using virtual network peering, does this result in paying virtual network peering charges twice with Azure Virtual Network Manager?
 
-There's no second or double charge for peering. Your virtual network manager respects all previously created virtual network peerings, and migrates those connections. All peering resources, whether created inside a virtual network manager or outside, with incur a single peering charge.
+There's no second or double charge for peering. Your virtual network manager respects all previously created virtual network peerings, and migrates those connections. All peering resources, whether created inside a virtual network manager or outside, incur a single peering charge.
 
 ### Can I create exceptions to security admin rules?
 
@@ -156,18 +154,11 @@ Normally, security admin rules are defined to block traffic across virtual netwo
 
 ### How can I deploy multiple security admin configurations to a region?
 
-You can deploy only one security admin configuration to a region. However, multiple connectivity configurations can exist in a region if you [create multiple rule collections](how-to-block-network-traffic-portal.md#add-a-rule-collection-and-security-rule) in a security admin configuration.
+You can deploy only one security admin configuration to a region. However, multiple connectivity configurations can exist in a region. To deploy multiple security admin rule sets to a region, [create multiple rule collections](how-to-block-network-traffic-portal.md#add-a-rule-collection-and-security-rule) in a security admin configuration.
 
 ### Do security admin rules apply to Azure private endpoints?
 
 Currently, security admin rules don't apply to Azure private endpoints that fall under the scope of a virtual network managed by Azure Virtual Network Manager.
-
-#### Outbound rules
-
-| Port | Protocol | Source | Destination | Action |
-| ---- | -------- | ------ | ----------- | ------ |
-| 443, 12000 | TCP  | `VirtualNetwork` | `AzureCloud` | Allow |
-| Any | Any | `VirtualNetwork` | `VirtualNetwork` | Allow |
 
 ### Can an Azure Virtual WAN hub be part of a network group?
 
@@ -195,7 +186,7 @@ Azure SQL Managed Instance has some network requirements. These requirements are
 
 #### Are you applying security rules to a virtual network or subnet that contains services that block security configuration rules?
 
-Certain services require specific network requirements to function properly. These services include Azure SQL Managed Instance, Azure Databricks, and Azure Application Gateway. By default, application of security admin rules is skipped on [virtual networks and subnets that contain any of these services](./concept-security-admins.md#nonapplication-of-security-admin-rules). Because **Allow** rules pose no risk of conflict, you can opt to apply **Allow Only** rules by setting the security configurations' `AllowRulesOnly` field on the `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices` .NET class.
+Certain services require specific network requirements to function properly. By default, security admin rules aren't applied to virtual networks containing Azure SQL Managed Instance or Azure Databricks. Additionally, security admin rules aren't applied at the subnet level for services such as Azure Application Gateway, Azure Bastion, Azure Firewall, Azure Route Server, Azure VPN Gateway, Azure Virtual WAN, and Azure ExpressRoute Gateway. For the full list, see [Nonapplication of security admin rules](./concept-security-admins.md#nonapplication-of-security-admin-rules). For virtual network-level nonapplication, because **Allow** rules pose no risk of conflict, you can opt to apply **Allow Only** rules by setting the security configurations' `AllowRulesOnly` field on the `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices` .NET class.
 
 ## Limits
 

@@ -4,7 +4,7 @@ description: Monitor your running app in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/06/2025
 ms.author: cshoe
 ---

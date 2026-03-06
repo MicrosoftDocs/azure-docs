@@ -1,9 +1,9 @@
 ---
-author: xixian73
+author: sundiraman
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 12/06/2021
-ms.author: xixian
+ms.author: sundraman
 ---
 ## Install the SDK
 

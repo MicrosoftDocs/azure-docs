@@ -387,7 +387,7 @@
         displayName: shell, login, cli, command-line, commands, users, user
         href: references-work-with-defender-for-iot-cli-commands.md
       - name: OT sensor CLI reference
-        displayName: shell, login, cli, command-line, commands, users, user
+        displayName: shell, login, cli, command-line, commands, users, user, capture filter, capture filters
         href: cli-ot-sensor.md
   - name: API reference
     items:

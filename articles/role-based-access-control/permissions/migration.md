@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 12/31/2025
+ms.date: 02/23/2026
 ms.custom: generated
 ---
 
@@ -323,6 +323,7 @@ Azure service: [Azure Migrate](/azure/migrate/migrate-services-overview)
 > | Microsoft.Migrate/assessmentProjects/heterogeneousAssessments/write | Gets the properties of the heterogeneous Assessment |
 > | Microsoft.Migrate/assessmentProjects/heterogeneousAssessments/delete | Gets the properties of the heterogeneous Assessment |
 > | Microsoft.Migrate/assessmentProjects/heterogeneousAssessments/downloadurl/action | Get Blob SAS URI for the heterogeneous AssessmentReport |
+> | Microsoft.Migrate/assessmentProjects/heterogeneousAssessments/generateReport/action | Generate the heterogeneous AssessmentReport |
 > | Microsoft.Migrate/assessmentProjects/heterogeneousAssessments/summaries/read | Get Blob SAS URI for the heterogeneous AssessmentReport |
 > | Microsoft.Migrate/assessmentProjects/hypervcollectors/read | Gets the properties of HyperV collector |
 > | Microsoft.Migrate/assessmentProjects/hypervcollectors/write | Creates a new HyperV collector or updates an existing HyperV collector |
@@ -333,18 +334,18 @@ Azure service: [Azure Migrate](/azure/migrate/migrate-services-overview)
 > | Microsoft.Migrate/assessmentProjects/machineOnPremSettings/read | Get the properties of an OnPremSettings |
 > | Microsoft.Migrate/assessmentProjects/machineOnPremSettings/write | updates an existing onpremsettings |
 > | Microsoft.Migrate/assessmentProjects/machines/read | Gets the properties of a machine |
-> | Microsoft.Migrate/assessmentProjects/mongodbAssessmentOptions/read | Gets the properties of the mongodb AssessmentOptions |
-> | Microsoft.Migrate/assessmentProjects/mongodbAssessments/read | Gets the properties of the mongodb Assessment |
-> | Microsoft.Migrate/assessmentProjects/mongodbAssessments/write | Creates a mongodb Assessment or updates an existing mongodb Assessment |
-> | Microsoft.Migrate/assessmentProjects/mongodbAssessments/delete | Deletes the mongodb Assessment which are available in the given location |
-> | Microsoft.Migrate/assessmentProjects/mongodbAssessments/downloadurl/action | Get Blob SAS URI for the mongodb AssessmentReport |
-> | Microsoft.Migrate/assessmentProjects/mongodbAssessments/recalculateSummaries/action | Recalculate summaries for an assessments |
-> | Microsoft.Migrate/assessmentProjects/mongodbAssessments/assessedInstances/read | Gets the properties of the assessedInstances  |
-> | Microsoft.Migrate/assessmentProjects/mongodbAssessments/assessedInstances/write | Patch assessed entities |
-> | Microsoft.Migrate/assessmentProjects/mongodbAssessments/summaries/read | Gets the properties of the mongodb AssessmentSummary |
-> | Microsoft.Migrate/assessmentProjects/mongodbcollectors/read | Gets the properties of the mongodb Collector |
-> | Microsoft.Migrate/assessmentProjects/mongodbcollectors/write | Creates a mongodb Collector or updates an existing mongodb Collector |
-> | Microsoft.Migrate/assessmentProjects/mongodbcollectors/delete | Deletes the mongodb Collector which are available in the given location |
+> | Microsoft.Migrate/assessmentProjects/mongoAssessmentOptions/read | Gets the properties of the mongo AssessmentOptions |
+> | Microsoft.Migrate/assessmentProjects/mongoAssessments/read | Gets the properties of the mongo Assessment |
+> | Microsoft.Migrate/assessmentProjects/mongoAssessments/write | Creates a mongo Assessment or updates an existing mongo Assessment |
+> | Microsoft.Migrate/assessmentProjects/mongoAssessments/delete | Deletes the mongo Assessment which are available in the given location |
+> | Microsoft.Migrate/assessmentProjects/mongoAssessments/downloadurl/action | Get Blob SAS URI for the mongo AssessmentReport |
+> | Microsoft.Migrate/assessmentProjects/mongoAssessments/recalculateSummaries/action | Recalculate summaries for an assessments |
+> | Microsoft.Migrate/assessmentProjects/mongoAssessments/assessedInstances/read | Gets the properties of the assessedInstances  |
+> | Microsoft.Migrate/assessmentProjects/mongoAssessments/assessedInstances/write | Patch assessed entities |
+> | Microsoft.Migrate/assessmentProjects/mongoAssessments/summaries/read | Gets the properties of the mongo AssessmentSummary |
+> | Microsoft.Migrate/assessmentProjects/mongocollectors/read | Gets the properties of the mongo Collector |
+> | Microsoft.Migrate/assessmentProjects/mongocollectors/write | Creates a mongo Collector or updates an existing mongo Collector |
+> | Microsoft.Migrate/assessmentProjects/mongocollectors/delete | Deletes the mongo Collector which are available in the given location |
 > | Microsoft.Migrate/assessmentProjects/mysqlAssessmentOptions/read | Gets the properties of the mysql AssessmentOptions |
 > | Microsoft.Migrate/assessmentProjects/mysqlAssessments/read | Gets the properties of the mysql Assessment |
 > | Microsoft.Migrate/assessmentProjects/mysqlAssessments/write | Creates a mysql Assessment or updates an existing mysql Assessment |
@@ -466,7 +467,7 @@ Azure service: [Azure Migrate](/azure/migrate/migrate-services-overview)
 > | Microsoft.Migrate/castScanReports/codeScanIssues/read | Get the cast scan issues |
 > | Microsoft.Migrate/locations/operationResults/read | Locations Operation Results |
 > | Microsoft.Migrate/locations/operationStatuses/read | Get Operation Status |
-> | Microsoft.Migrate/locations/operationStatuses/write | Update Operation Status |
+> | Microsoft.Migrate/locations/operationStatuses/read | Update Operation Status |
 > | Microsoft.Migrate/locations/rmsOperationResults/read | Gets the status of the subscription wide location based operation |
 > | Microsoft.Migrate/migrateProjects/read | Gets the properties of migrate project |
 > | Microsoft.Migrate/migrateProjects/write | Creates a new migrate project or updates an existing migrate project |
@@ -495,6 +496,10 @@ Azure service: [Azure Migrate](/azure/migrate/migrate-services-overview)
 > | Microsoft.Migrate/migrateProjects/privateEndpointConnections/write | Update a Private Endpoint Connection |
 > | Microsoft.Migrate/migrateProjects/privateEndpointConnections/delete | Delete a Private Endpoint Connection |
 > | Microsoft.Migrate/migrateProjects/privateLinkResources/read | Get Private Link Resource |
+> | Microsoft.Migrate/migrateProjects/reports/read | Get Report |
+> | Microsoft.Migrate/migrateProjects/reports/write | Create or Update Report |
+> | Microsoft.Migrate/migrateProjects/reports/delete | Delete Report |
+> | Microsoft.Migrate/migrateProjects/reports/download/action | Get Blob SAS URI for the Report |
 > | Microsoft.Migrate/migrateProjects/solutions/read | Gets the properties of migrate project solution |
 > | Microsoft.Migrate/migrateProjects/solutions/write | Creates a new migrate project solution or updates an existing migrate project solution |
 > | Microsoft.Migrate/migrateProjects/solutions/Delete | Deletes a  migrate project solution |
@@ -587,6 +592,8 @@ Azure service: [Azure Migrate](/azure/migrate/migrate-services-overview)
 > | Microsoft.OffAzure/masterSites/delete | Deletes the Master site |
 > | Microsoft.OffAzure/masterSites/applianceRegistrationInfo/action | Register an Appliances Under A Master Site |
 > | Microsoft.OffAzure/masterSites/errorSummary/action | Retrieves Error Summary For Resources Under A Given Master Site |
+> | Microsoft.OffAzure/masterSites/import/action | Imports data into the Master site |
+> | Microsoft.OffAzure/masterSites/jobs/read | Gets the properties of jobs under Master site |
 > | Microsoft.OffAzure/masterSites/operationsstatus/read | Gets the properties of a Master site operation status |
 > | Microsoft.OffAzure/masterSites/OracleErrorSummaries/read | Gets the error summaries of all the Partner Site resource inventory |
 > | Microsoft.OffAzure/masterSites/OracleExtendedMachines/read | Gets the extended machines relative to all the Partner Site resource inventory |
@@ -616,6 +623,7 @@ Azure service: [Azure Migrate](/azure/migrate/migrate-services-overview)
 > | Microsoft.OffAzure/masterSites/sqlSites/errorDetailedSummary/action | Retrieves Sql Error detailed summary for a resource under a given Sql Site |
 > | Microsoft.OffAzure/masterSites/sqlSites/discoverySiteDataSources/read | Gets the Sql Discovery Site Data Source |
 > | Microsoft.OffAzure/masterSites/sqlSites/discoverySiteDataSources/write | Creates or Updates the Sql Discovery Site Data Source |
+> | Microsoft.OffAzure/masterSites/sqlSites/discoverySiteDataSources/operationsStatus/read | Gets the Sql Discovery Site Data Source Operation Status |
 > | Microsoft.OffAzure/masterSites/sqlSites/operationsStatus/read | Gets Sql Operation Status |
 > | Microsoft.OffAzure/masterSites/sqlSites/runAsAccounts/read | Gets Sql Run as Accounts for a given site |
 > | Microsoft.OffAzure/masterSites/sqlSites/sqlAvailabilityGroups/read | Gets Sql Availability Groups for a given site |

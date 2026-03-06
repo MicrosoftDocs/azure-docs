@@ -23,7 +23,7 @@ Use the following table to choose the endpoint type to configure:
 |---------------|-------------|-------------------------|------------------------------|---------------------------|
 | [MQTT](howto-configure-mqtt-endpoint.md) | For bi-directional messaging with MQTT brokers, including the one built-in to Azure IoT Operations and Event Grid. | Yes | Yes | Source and destination |
 | [Kafka](howto-configure-kafka-endpoint.md) | For bi-directional messaging with Kafka brokers, including Azure Event Hubs. | Yes | Yes | Source and destination |
-| [OpenTelemetry](howto-configure-opentelemetry-endpoint.md) | For sending metrics and logs to OpenTelemetry collectors and observability platforms like Grafana and Azure Monitor. | No | Yes | Destination only |
+| [OpenTelemetry](open-telemetry.md) | For sending metrics and logs to OpenTelemetry collectors and observability platforms like Grafana and Azure Monitor. | No | Yes | Destination only |
 | [Data Lake](howto-configure-adlsv2-endpoint.md) | For uploading data to Azure Data Lake Gen2 storage accounts. | No | Yes | Not supported |
 | [Microsoft Fabric OneLake](howto-configure-fabric-endpoint.md) | For uploading data to Microsoft Fabric OneLake lakehouses. | No | Yes | Not supported |
 | [Azure Data Explorer](howto-configure-adx-endpoint.md) | For uploading data to Azure Data Explorer databases. | No | Yes | Not supported |
@@ -272,7 +272,7 @@ Create a data flow endpoint:
 
 - [MQTT or Event Grid](howto-configure-mqtt-endpoint.md)
 - [Kafka or Event Hubs](howto-configure-kafka-endpoint.md)
-- [OpenTelemetry](howto-configure-opentelemetry-endpoint.md)
+- [OpenTelemetry](open-telemetry.md)
 - [Data Lake](howto-configure-adlsv2-endpoint.md)
 - [Microsoft Fabric OneLake](howto-configure-fabric-endpoint.md)
 - [Local storage](howto-configure-local-storage-endpoint.md)

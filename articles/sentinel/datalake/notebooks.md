@@ -6,9 +6,8 @@ author: EdB-MSFT
 ms.author: edbaynash 
 ms.topic: how-to  
 ms.service: microsoft-sentinel
-ms.subservice: sentinel-graph
-ms.date: 07/16/2025
- 
+ms.subservice: sentinel-platform
+ms.date: 03/04/2026
 
 # Customer intent: As a security engineer or data scientist, I want to explore and analyze security data in the Microsoft Sentinel data lake using Jupyter notebooks, so that I can gain insights and build advanced analytics solutions.
 ---
@@ -76,6 +75,14 @@ After installing the Microsoft Sentinel extension, you can start exploring data 
 1. Select your account name to complete the sign in.
  
    :::image type="content" source="./media/notebooks/select-account.png" lightbox="./media/notebooks/select-account.png" alt-text="A screenshot showing the account selection list at the top of the page."::: 
+
+    If you have multiple guest accounts associated with your login, you can seamlessly switch between accounts. To switch between accounts, select the account name at the bottom left of the Visual Studio Code window. Only one account can be selected at a time.
+
+    :::image type="content" source="./media/notebooks/account-picker.png" lightbox="./media/notebooks/account-picker.png" alt-text="A screenshot showing how to switch accounts in Visual Studio Code.":::
+  
+   > [!IMPORTANT] 
+   > Switching between accounts disconnects any active pyspark sessions. 
+
 
 ### View data lake tables and jobs
 
@@ -247,6 +254,8 @@ InputError|MissingTableSuffixLake|2603|Invalid custom table name. All names of c
 InputError|MissingTableSuffixLA|2604|Invalid custom table name. All names of custom analytics tables must end with _SPRK_CL. |Add _SPRK_CL as a suffix to the table name before writing it to analytics storage.|
 UnknownError|InternalServerError|2901|Something went wrong. Restart the session and try again.|This problem is transient and can be resolved by restarting the session and trying again. If this problem persists, contact support.|
 
+> [!NOTE]
+> Querying legacy tables such as AzureDiagnostics is not supported.
 
 
 ## Related content

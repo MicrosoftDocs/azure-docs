@@ -2,7 +2,7 @@
 title: Azure Disk Backup support matrix
 description: Provides a summary of support settings and limitations Azure Disk Backup.
 ms.topic: reference
-ms.date: 08/25/2025
+ms.date: 02/13/2026
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -14,13 +14,15 @@ ms.author: v-mallicka
 
 You can use [Azure Backup](./backup-overview.md) to protect Azure Disks. This article summarizes region availability, supported scenarios, and limitations.
 
+For common questions, see the [frequently asked questions](disk-backup-faq.yml).
+
 ## Supported regions
 
 Azure Disk Backup is available in all public cloud and Sovereign cloud regions.
 
 ## Limitations
 
-- Azure Disk Backup is supported for Azure Managed Disks (Standard HDD, Standard SSD and Premium SSD, Premium SSD v2 disks, and Ultra-disks), including shared disks (Shared premium SSDs). Unmanaged disks aren't supported. 
+- Azure Disk Backup is supported for Azure Managed Disks (Standard HDD, Standard SSD and Premium SSD, Premium SSD v2 disks, and Ultra Disks), including shared disks (Shared Premium SSDs). Unmanaged disks aren't supported. 
 
   >[!Note]
   >- For Azure Disks belonging to Standard HDD, Standard SSD, and Premium SSD SKUs, you can define the backup schedule with *Hourly* frequency (of 1, 2, 4, 6, 8, or 12 hours) and *Daily* frequency. 
@@ -31,7 +33,7 @@ Azure Disk Backup is available in all public cloud and Sovereign cloud regions.
 
 - Azure Disk Backup supports backup of Write Accelerator disk. However, during restore the disk would be restored as a normal disk. Write Accelerated cache can be enabled on the disk after mounting it to a VM.
 
-- Azure Backup provides operational (snapshot) tier backup of Azure managed disks with support for multiple backups per day. The backups aren't copied to the backup vault.
+- Azure Backup provides operational (snapshot) tier backup of Azure Managed Disks with support for multiple backups per day. The backups aren't copied to the backup vault.
 
 - Currently, the Original-Location Recovery (OLR) option to restore by replacing existing source disks from where the backups were taken isn't supported. You can restore from recovery point to create a new disk either in the same resource group as that of the source disk from where the backups were taken or in any other resource group. This is known as Alternate-Location Recovery (ALR).
 

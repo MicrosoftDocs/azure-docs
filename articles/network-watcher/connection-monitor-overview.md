@@ -1,15 +1,14 @@
 ---
-title: Connection monitor overview
+title: Connection Monitor Overview
 titleSuffix: Azure Network Watcher
 description: Learn about Azure Network Watcher connection monitor and how to use it to monitor network communication in a distributed environment.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 12/29/2024
+ms.date: 02/25/2026
 ms.custom: sfi-image-nochange
 
-#CustomerIntent: As an Azure administrator, I need to monitor communication between one VM and another. If the communication fails, I need to know why so that I can resolve the problem. 
 # Customer intent: "As an Azure administrator, I want to use a connectivity monitoring tool across Azure and hybrid environments, so that I can diagnose network issues, measure performance metrics, and ensure reliable communication between my virtual machines and endpoints."
 ---
 

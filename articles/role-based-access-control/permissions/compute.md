@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 12/31/2025
+ms.date: 02/23/2026
 ms.custom: generated
 ---
 
@@ -1065,9 +1065,8 @@ Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/overview)
 > | Microsoft.ComputeSchedule/locations/virtualMachinesSubmitDeallocate/action | VirtualMachinesSubmitDeallocate: Schedule deallocate operation for a batch of virtual machines at datetime in future. |
 > | Microsoft.ComputeSchedule/locations/virtualMachinesSubmitHibernate/action | VirtualMachinesSubmitHibernate: Schedule hibernate operation for a batch of virtual machines at datetime in future. |
 > | Microsoft.ComputeSchedule/locations/virtualMachinesSubmitStart/action | VirtualMachinesSubmitStart: Schedule start operation for a batch of virtual machines at datetime in future. |
-> | Microsoft.ComputeSchedule/locations/virtualMachinesGetOperationErrors/action | VirtualMachinesGetOperationErrors: Get error details on operation errors (like transient errors encountered, additional logs) if they exist. |
-> | Microsoft.ComputeSchedule/locations/virtualMachinesExecuteDelete/action | VirtualMachinesExecuteDelete: Execute delete operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
 > | Microsoft.ComputeSchedule/locations/virtualMachinesExecuteCreate/action | VirtualMachinesExecuteCreate: Execute create operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesGetOperationErrors/action | VirtualMachinesGetOperationErrors: Get error details on operation errors (like transient errors encountered, additional logs) if they exist. |
 > | Microsoft.ComputeSchedule/locations/OperationStatuses/read | read OperationStatuses |
 > | Microsoft.ComputeSchedule/locations/OperationStatuses/write | write OperationStatuses |
 > | Microsoft.ComputeSchedule/Operations/read | read Operations |

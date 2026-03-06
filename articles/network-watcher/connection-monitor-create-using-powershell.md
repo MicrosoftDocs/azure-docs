@@ -1,5 +1,5 @@
 ---
-title: Create a connection monitor - PowerShell
+title: Create a Connection Monitor - PowerShell
 titleSuffix: Azure Network Watcher
 description: Learn how to create an Azure Network Watcher connection monitor using Azure PowerShell.
 author: halkazwini
@@ -9,7 +9,6 @@ ms.topic: how-to
 ms.date: 01/07/2021
 ms.custom: devx-track-azurepowershell
 
-#CustomerIntent: I need to create an Azure Network Watcher connection monitor using PowerShell to monitor communication between one VM and another.
 # Customer intent: As a network administrator, I want to create a connection monitor using PowerShell, so that I can effectively monitor connectivity between my virtual machines and endpoints.
 ---
 

@@ -2,6 +2,7 @@
 title: Host servers built with MCP SDKs on Azure Functions
 description: "Learn how to host servers built with Anthropic MCP SDKs on Azure Functions. This quickstart shows how to deploy MCP SDK based servers as custom handlers in Azure Functions, using serverless scale and security features."
 ms.date: 12/02/2025
+ms.update-cycle: 180-days
 ms.topic: quickstart
 ai-usage: ai-assisted
 ms.collection: 
@@ -79,7 +80,7 @@ The easiest way to get started is to clone an MCP server sample project built wi
 ::: zone-end  
 <!---replace when Java is supported:
 ::: zone pivot="programming-language-java"  
-2. In the Terminal, run this command to initialize the .NET sample:
+2. In the Terminal, run this command to initialize the Java sample:
  
     ```bash
     azd init --template mcp-sdk-functions-hosting-java -e mcpsdkserver-java
@@ -91,10 +92,10 @@ The easiest way to get started is to clone an MCP server sample project built wi
 2. In the Terminal, run this command to initialize the TypeScript sample:
  
     ```bash
-    azd init --template mcp-sdk-functions-hosting-node  -e mcpsdkserver-node
+    azd init --template mcp-sdk-functions-hosting-node -e mcpsdkserver-node
     ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node    ) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure.  
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure.  
 ::: zone-end
 ::: zone pivot="programming-language-python"  
 2. In the Terminal, run this command to initialize the Python sample:
@@ -103,7 +104,7 @@ The easiest way to get started is to clone an MCP server sample project built wi
     azd init --template mcp-sdk-functions-hosting-python -e mcpsdkserver-python
     ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-java) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure.  
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-python) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure.  
 ::: zone-end
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 
@@ -153,7 +154,7 @@ This project is configured to use the `azd up` command to deploy this project to
 1. Sign in to Azure:
 
     ```bash
-    azd login
+    azd auth login
     ```
 
 1. Configure Visual Studio Code as a preauthorized client application:
@@ -164,7 +165,11 @@ This project is configured to use the `azd up` command to deploy this project to
 
     A preauthorized application can authenticate to and access your MCP server without requiring more consent prompts.
 
-1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. Search for and run the command `Azure Developer CLI (azd): Package, Provision and Deploy (up)`. Then, sign in by using your Azure account.
+1. Run `azd up` to deploy the project to Azure:
+
+    ```bash
+    azd up
+    ```
 
 1. When prompted, provide these required deployment parameters:
 

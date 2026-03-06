@@ -12,6 +12,10 @@ recommendations: false
 
 # Use DataBox to migrate from Network Attached Storage (NAS) to Azure file shares
 
+:heavy_check_mark: **Applies to:** Classic SMB file shares created with the Microsoft.Storage resource provider
+
+:heavy_multiplication_x: **Doesn't apply to:** All NFS file shares including file shares created with the Microsoft.FileShares resource provider (preview) or classic file shares created with the Microsoft.Storage resource provider
+
 This migration article is one of several involving the keywords NAS and Azure DataBox. Check if this article applies to your scenario:
 
 > [!div class="checklist"]
@@ -22,13 +26,6 @@ This migration article is one of several involving the keywords NAS and Azure Da
 If your scenario is different, look through the [table of migration guides](storage-files-migration-overview.md#migration-guides).
 
 This article guides you end-to-end through the planning, deployment, and networking configurations needed to migrate from your NAS appliance to functional Azure file shares. This guide uses Azure DataBox for bulk data transport (offline data transport).
-
-## Applies to
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Migration goals
 
@@ -57,9 +54,9 @@ If you have a large number of file shares, consider share grouping. For example,
 
 In this phase, you'll provision the Azure storage accounts and the file shares within them.
 
-Remember that an Azure file share is deployed in the cloud in an Azure storage account. For standard file shares, that arrangement makes the storage account a scale target for performance numbers like IOPS and throughput. If you place multiple file shares in a single storage account, you're creating a shared pool of IOPS and throughput for these shares. 
+Remember that an Azure file share is deployed in the cloud in an Azure storage account. For HDD (standard) file shares, that arrangement makes the storage account a scale target for performance numbers like IOPS and throughput. If you place multiple file shares in a single storage account, you're creating a shared pool of IOPS and throughput for these shares. 
 
-As a general rule, you can pool multiple Azure file shares into the same storage account if you have archival shares or you expect low day-to-day activity in them. However, if you have highly active shares (shares used by many users and/or applications), you'll want to deploy storage accounts with one file share each. These limitations don't apply to FileStorage (premium) storage accounts, where performance is explicitly provisioned and guaranteed for each share.
+As a general rule, you can pool multiple Azure file shares into the same storage account if you have archival shares or you expect low day-to-day activity in them. However, if you have highly active shares (shares used by many users and/or applications), you'll want to deploy storage accounts with one file share each. These limitations don't apply to FileStorage (SSD) storage accounts, where performance is explicitly provisioned and guaranteed for each share.
 
 > [!NOTE]
 > There's a limit of 250 storage accounts per subscription per Azure region. With a quota increase, you can create up to 500 storage accounts per region. For more information, see [Increase Azure Storage account quotas](/azure/quotas/storage-account-quota-requests).
@@ -153,8 +150,8 @@ Depending on the DataBox type, there maybe DataBox copy tools available to you. 
 
 When your DataBox arrives, it will have pre-provisioned SMB shares available for each storage account you specified at the time of ordering it.
 
-* If your files go into a premium Azure file share, there will be one SMB share per premium "File storage" storage account.
-* If your files go into a standard storage account, there will be three SMB shares per standard (GPv1 and GPv2) storage account. Only the file shares ending with `_AzFiles` are relevant for your migration. Ignore any block and page blob shares.
+* If your files go into an SSD Azure file share, there will be one SMB share per SSD "File storage" storage account.
+* If your files go into an HDD storage account, there will be three SMB shares per HDD pay-as-you-go storage account. Only the file shares ending with `_AzFiles` are relevant for your migration. Ignore any block and page blob shares.
 
 Follow the steps in the Azure DataBox documentation:
 

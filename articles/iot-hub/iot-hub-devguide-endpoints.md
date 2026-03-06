@@ -5,7 +5,8 @@ author: cwatson-cat
 ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 12/03/2024
+ms.date: 02/19/2026
+ai-usage: ai-assisted
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: System Architecture']
 ---
 
@@ -17,7 +18,7 @@ Azure IoT Hub exposes various endpoints to support the devices and services that
 
 ## IoT Hub names
 
-You can find the hostname of an IoT hub in the Azure portal, on your IoT hub's **Overview** working pane. By default, the DNS name of an IoT hub looks like the following example:
+You can find the hostname of an IoT hub in the Azure portal, on your IoT hub's **Overview** pane. By default, the DNS name of an IoT hub looks like the following example:
 
 `{your iot hub name}.azure-devices.net`
 
@@ -61,7 +62,7 @@ The following list describes the endpoints:
 
 The [Azure IoT Hub SDKs](iot-hub-devguide-sdks.md) article describes the various ways to access these endpoints.
 
-All IoT Hub endpoints use the [TLS](https://tools.ietf.org/html/rfc5246) protocol, and no endpoint is ever exposed on unencrypted/unsecured channels.
+All IoT Hub endpoints use the [TLS](https://tools.ietf.org/html/rfc5246) protocol, and no endpoint is ever exposed on unencrypted or unsecured channels.
 
 
 ## Custom endpoints for message routing
@@ -80,19 +81,25 @@ For the limits on endpoints per hub, see [Quotas and throttling](iot-hub-devguid
 
 ### Built-in endpoint
 
-You can use standard [Event Hubs integration and SDKs](iot-hub-devguide-messages-read-builtin.md) to receive device-to-cloud messages from the built-in endpoint (**messages/events**). Once any route is created, data stops flowing to the built-in endpoint unless a route is created to the built-in endpoint. Even if no routes are created, a fallback route must be enabled to route messages to the built-in endpoint. The fallback is enabled by default if you create your hub using the portal or the CLI.
+You can use standard [Event Hubs integration and SDKs](iot-hub-devguide-messages-read-builtin.md) to receive device-to-cloud messages from the built-in endpoint (**messages/events**). Once you create any route, data stops flowing to the built-in endpoint unless a route is created to that endpoint. Even if you don't create any routes, you must enable a fallback route to route messages to the built-in endpoint. The fallback is enabled by default if you create your hub by using the portal or the CLI.
+
+The message payload isn't base64 encoded at the built-in endpoint.
 
 ### Azure Storage as a routing endpoint
 
-There are two storage services IoT Hub can route messages to: [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) and [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (ADLS Gen2) accounts. Both of these use blobs for their storage. To use Azure Data Lake Gen2, your storage account must have hierarchical namespaces enabled. For more information, see [Create a storage account to use with Azure Data Lake Storage](../storage/blobs/create-data-lake-storage-account.md).
+IoT Hub can route messages to two storage services: [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) and [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (ADLS Gen2) accounts. Both of these services use blobs for their storage. To use Azure Data Lake Gen2, your storage account must have hierarchical namespaces enabled. For more information, see [Create a storage account to use with Azure Data Lake Storage](../storage/blobs/create-data-lake-storage-account.md).
 
-IoT Hub supports writing data to Azure Storage in the [Apache Avro](https://avro.apache.org/) format and the JSON format. The default is AVRO. To use JSON encoding, set the contentType property to **application/json** and contentEncoding property to **UTF-8** in the message [system properties](iot-hub-devguide-routing-query-syntax.md#system-properties). Both of these values are case-insensitive. If the content encoding isn't set, then IoT Hub writes the messages in base 64 encoded format.
+IoT Hub supports writing data to Azure Storage in the [Apache Avro](https://avro.apache.org/) format and the JSON format. The default format is Avro. To use JSON encoding, set the `contentType` property to **application/json** and the `contentEncoding` property to **UTF-8** in the message [system properties](iot-hub-devguide-routing-query-syntax.md#system-properties). Both of these values are case-insensitive. 
 
-The encoding format can be set only when the blob storage endpoint is configured; it can't be edited for an existing endpoint.
+If you don't set the necessary system properties, IoT Hub applies base64 encoding. To avoid base64 encoding, set both the `contentType` property to **application/json** and the `contentEncoding` property to **UTF-8** in the message system properties. If these properties aren't set, IoT Hub writes the messages in base64 encoded format.
 
-IoT Hub batches messages and writes data to storage whenever the batch reaches a certain size or a certain amount of time elapses. IoT Hub defaults to the following file naming convention: `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`. You can use any file naming convention, but you must use all listed tokens. IoT Hub writes to an empty blob if there's no data to write.
+You can set the encoding format only when you configure the blob storage endpoint. You can't edit the encoding format for an existing endpoint.
 
-We recommend listing the blobs or files and then iterating over them, to ensure that all blobs or files are read without making any assumptions of partition. The partition range could potentially change during a Microsoft-initiated failover or IoT Hub manual failover. You can use the [List Blobs API](/rest/api/storageservices/list-blobs) to enumerate the list of blobs or [List ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path) for the list of files. For example:
+IoT Hub batches messages and writes data to storage whenever the batch reaches a certain size or a certain amount of time elapses. IoT Hub defaults to the following file naming convention: `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
+
+You can use any file naming convention, but you must use all listed tokens. IoT Hub writes to an empty blob if there's no data to write.
+
+To ensure that all blobs or files are read without making any assumptions about partition, list the blobs or files and then iterate over them. The partition range could potentially change during a Microsoft-initiated failover or IoT Hub manual failover. You can use the [List Blobs API](/rest/api/storageservices/list-blobs) to enumerate the list of blobs or [List ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path) for the list of files. For example:
 
 ```csharp
 public void ListBlobsInContainer(string containerName, string iothub)
@@ -112,15 +119,21 @@ public void ListBlobsInContainer(string containerName, string iothub)
 
 ### Service Bus queues and Service Bus topics as a routing endpoint
 
-Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions** or **Duplicate Detection** enabled. If either of those options are enabled, the endpoint appears as **Unreachable** in the Azure portal.
+Service Bus queues and topics that you use as IoT Hub endpoints must not have **Sessions** or **Duplicate Detection** enabled. If you enable either of those options, the endpoint appears as **Unreachable** in the Azure portal.
+
+Base64 encoding never happens when routing to Service Bus queues or topics. Messages are written as-is to the endpoint.
 
 ### Event Hubs as a routing endpoint
 
-Apart from the built-in-Event Hubs compatible endpoint, you can also route data to custom endpoints of type Event Hubs.
+Apart from the built-in Event Hubs compatible endpoint, you can also route data to custom endpoints of type Event Hubs.
+
+Base64 encoding never happens when routing to custom Event Hubs endpoints. Messages are written as-is to the endpoint.
 
 ### Azure Cosmos DB as a routing endpoint
 
-You can send data directly to Azure Cosmos DB from IoT Hub. IoT Hub supports writing to Cosmos DB in JSON (if specified in the message content-type) or as base 64 encoded binary.
+You can send data directly to Azure Cosmos DB from IoT Hub. IoT Hub supports writing to Cosmos DB in JSON (if specified in the message content-type) or as base64 encoded binary.
+
+Base64 encoding is applied if the necessary system properties aren't set. To write as JSON, set the `contentType` property to **application/json** and the `contentEncoding` property to **UTF-8** in the message system properties. If these properties aren't set, data is base64 encoded when written to Cosmos DB.
 
 To support high-scale scenarios, you can enable [synthetic partition keys](/azure/cosmos-db/synthetic-partition-keys) for the Cosmos DB endpoint. As Cosmos DB is a hyperscale data store, all data/documents written to it must contain a field that represents a logical partition. Each logical partition has a maximum size of 20 GB. You can specify the partition key property name in **Partition key name**. The partition key property name is defined at the container level and can't be updated.  
 

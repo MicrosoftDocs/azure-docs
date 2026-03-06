@@ -41,7 +41,7 @@ To better understand PIM, you should review the following terms.
 | just-in-time (JIT) access |  | A model in which users receive temporary permissions to perform privileged tasks, which prevents malicious or unauthorized users from gaining access after the permissions have expired. Access is granted only when users need it. |
 | principle of least privilege access |  | A recommended security practice in which every user is provided with only the minimum privileges needed to accomplish the tasks they're authorized to perform. This practice minimizes the number of Global Administrators and instead uses specific administrator roles for certain scenarios. |
 
-For more information, see [What is Microsoft Entra Privileged Identity Management?](/entra/id-governance/privileged-identity-management/pim-configure).
+For more information, see [What is Microsoft Entra Privileged Identity Management?](/entra/id-governance/privileged-identity-management/pim-configure)
 
 ## How to list eligible and time-bound role assignments
 
@@ -141,7 +141,7 @@ There isn't a command or API to directly convert role assignments to a different
 
 ## How to limit the creation of eligible or time-bound role assignments
 
-If your organization has process or compliance reasons to limit the use of PIM, you can use Azure Policy to limit the creation of eligible or time-bound role assignments. For more information, see [What is Azure Policy?](/azure/governance/policy/overview).
+If your organization has process or compliance reasons to limit the use of PIM, you can use Azure Policy to limit the creation of eligible or time-bound role assignments. For more information, see [What is Azure Policy?](/azure/governance/policy/overview)
 
 Here's an example policy that limits the creation of eligible and time-bound role assignments except for a specific list of identities. Additional parameters and checks can be added for other allow conditions.
 

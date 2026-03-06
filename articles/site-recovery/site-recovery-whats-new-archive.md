@@ -4,7 +4,7 @@ description: An archive for features and updates in the Azure Site Recovery serv
 ms.topic: overview
 ms.author: v-gajeronika
 ms.service: azure-site-recovery
-ms.date: 09/22/2025
+ms.date: 02/27/2026
 author: Jeronika-MS
 
 # Customer intent: "As a system administrator, I want to review the latest updates and feature enhancements for the disaster recovery service, so that I can optimize our organization's backup strategy and ensure compatibility with our systems."
@@ -370,6 +370,8 @@ For disaster recovery of Azure VMs to a secondary region, or on-premises VMware 
 - Install the update and SHA-2 in accordance with the linked KB. SHA-1 isn't supported from September 2019, and if SHA-2 code signing isn't enabled the agent extension won't install/upgrade as expected.
 - Learn more about [SHA-2 upgrade and requirements](https://aka.ms/SHA-2KB).
 
+[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+
 **Operating system** | **Azure VM** | **VMware VM/physical machine**
 --- | --- | ---
 **Windows 2008 R2 SP1** | [Servicing stack update](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Servicing stack update](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)
@@ -596,7 +598,7 @@ Features added this month are summarized in the table.
 **Feature** | **Details**
 --- | ---
 **Network mapping** | For Azure VM disaster recovery, you can now use any available target network when you enable replication.
-**Standard SSD** | You can now set up disaster recovery for Azure VMs using [Standard SSD disks](/azure/virtual-machines/disks-types#standard-ssds).
+**Standard SSD** | You can now set up disaster recovery for Azure VMs using [Standard SSDs](/azure/virtual-machines/disks-types#standard-ssds).
 **Storage Spaces Direct** | You can set up disaster recovery for apps running on Azure VM apps by using [Storage Spaces Direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) for high availability.  Using Storage Spaces Direct (S2D) together with Site Recovery provides comprehensive protection of Azure VM workloads. S2D lets you host a guest cluster in Azure. This is especially useful when a VM hosts a critical application, such as SAP ASCS layer, SQL Server, or scale-out file server.
 
 
@@ -689,7 +691,7 @@ Updates don't require a VM restart, and don't affect replication. [Learn more](a
 
 ### Pricing calculator for Azure VM disaster recovery
 
-Disaster Recovery of Azure VMs incurs VM licensing costs, and network and storage costs. Azure provides a [pricing calculator](https://aka.ms/a2a-cost-estimator) to help you figure out these costs. Site Recovery now provides an [example pricing estimate](https://aka.ms/a2a-cost-estimator) that prices a sample deployment based on a three-tier app using six VMs with 12 Standard HDD disks and 6 Premium SSD disks.
+Disaster Recovery of Azure VMs incurs VM licensing costs, and network and storage costs. Azure provides a [pricing calculator](https://aka.ms/a2a-cost-estimator) to help you figure out these costs. Site Recovery now provides an [example pricing estimate](https://aka.ms/a2a-cost-estimator) that prices a sample deployment based on a three-tier app using six VMs with 12 Standard HDDs and 6 Premium SSDs.
 
 - The sample presumes a data change of 10 GB a day for standard, and 20 GB for premium.
 - For your particular deployment, you can change the variables to estimate costs.

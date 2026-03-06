@@ -72,7 +72,7 @@ This section helps you deploy Azure Bastion using Azure CLI.
 
 1. Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create a new Azure Bastion resource for your virtual network. It takes about 10 minutes for the Bastion resource to create and deploy.
 
-   The following example deploys Bastion using the **Basic** SKU tier. You can also deploy using other SKUs. The SKU determines the features that your Bastion deployment supports. If you don't specify a SKU in your command, the SKU defaults to Standard. For more information, see [Bastion SKUs](bastion-sku-comparison.md).
+   The following example deploys Bastion using the **Basic** SKU. You can also deploy using other SKUs. The SKU determines the features that your Bastion deployment supports. If you don't specify a SKU in your command, the SKU defaults to Standard. For more information, see [Bastion SKUs](bastion-sku-comparison.md).
 
    ```azurecli-interactive
    az network bastion create --name VNet1-bastion --public-ip-address VNet1-ip --resource-group TestRG1 --vnet-name VNet1 --location eastus --sku Basic

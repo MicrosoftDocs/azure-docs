@@ -7,7 +7,7 @@ ms.service: azure-ddos-protection
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.author: abell
-ms.date: 03/17/2025
+ms.date: 03/05/2026
 # Customer intent: As a cloud infrastructure engineer, I want to create and configure an Azure DDoS protection plan using Bicep, so that I can effectively safeguard my virtual networks against DDoS attacks across multiple subscriptions.
 ---
 

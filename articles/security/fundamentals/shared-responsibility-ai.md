@@ -77,6 +77,9 @@ To help bring AI to the world, Microsoft is developing Copilot solutions for eac
 Microsoft ensures that every Copilot solution is engineered following our strong principles for [AI governance](https://blogs.microsoft.com/on-the-issues/2023/05/25/how-do-we-best-govern-ai/).
 
 ## Next steps
+
+Learn more about [Azure AI security best practices](ai-security-best-practices.md).
+
 Learn more about Microsoft's product development requirements for responsible AI in the [Microsoft Responsible AI Standard](https://www.microsoft.com/ai/principles-and-approach/).
 
 Learn about [shared responsibilities for cloud computing](shared-responsibility.md).

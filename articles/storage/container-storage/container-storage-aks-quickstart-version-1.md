@@ -207,7 +207,7 @@ az aks update -n <cluster-name> -g <resource-group> --disable-azure-container-st
 
 To create volumes, select the link for the backing storage type you selected.
 
-- [Create persistent volume with Azure managed disks](use-container-storage-with-managed-disks.md#3-create-a-persistent-volume-claim)
+- [Create persistent volume with Azure Managed Disks](use-container-storage-with-managed-disks.md#3-create-a-persistent-volume-claim)
 - [Create persistent volume with Azure Elastic SAN](use-container-storage-with-elastic-san-version-1.md#3-create-a-persistent-volume-claim)
 - [Create generic ephemeral volume with local NVMe](use-container-storage-with-local-disk-version-1.md#create-and-attach-generic-ephemeral-volumes)
 - [Create generic ephemeral volume with temp SSD](use-container-storage-with-temp-ssd.md#create-and-attach-generic-ephemeral-volumes)

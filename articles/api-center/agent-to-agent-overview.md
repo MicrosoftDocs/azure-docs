@@ -5,7 +5,7 @@ description: "Overview of the agent registry for discovering, registering, and m
 
 ms.service: azure-api-center
 ms.topic: overview
-ms.date: 11/03/2025
+ms.date: 02/24/2026
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 
@@ -31,7 +31,7 @@ Azure API Center provides a centralized platform for discovering, registering, a
 
 ## Register an AI agent
 
-You can register AI agents in API Center similar to how you register other APIs. During registration, specify the API type as **A2A** and fill in details for **Agent Card**, **Agent Skills**, and **Agent Capabilities**.  
+You can register AI agents in API Center similar to how you register other assets such as APIs and MCP servers. During registration, fill in details for **Agent Card**, **Agent Skills**, and **Agent Capabilities**.  
 
 For detailed steps, see [Register agent](register-manage-agents.md#register-agent).
 

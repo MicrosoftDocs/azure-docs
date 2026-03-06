@@ -24,7 +24,7 @@ In most infrastructure as a service (IaaS) scenarios, [Azure virtual machines (V
 To protect your VMs, ensure that only authorized users can set up new VMs and access existing VMs.
 
 > [!NOTE]
-> To improve the security of Linux VMs on Azure, you can integrate with Microsoft Entra authentication. When you use [Microsoft Entra authentication for Linux VMs](/entra/identity/devices/howto-vm-sign-in-azure-ad-linux.md), you centrally control and enforce policies that allow or deny access to the VMs.
+> To improve the security of Linux VMs on Azure, you can integrate with Microsoft Entra authentication. When you use [Microsoft Entra authentication for Linux VMs](/entra/identity/devices/howto-vm-sign-in-azure-ad-linux), you centrally control and enforce policies that allow or deny access to the VMs.
 
 **Best practice**: Control VM access.
 **Detail**: Use [Azure policies](../../governance/policy/overview.md) to establish conventions for resources in your organization and create customized policies. Apply these policies to resources, such as [resource groups](../../azure-resource-manager/management/overview.md). VMs that belong to a resource group inherit its policies.

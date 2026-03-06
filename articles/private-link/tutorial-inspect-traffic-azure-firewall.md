@@ -6,7 +6,7 @@ ms.author: abell
 ms.service: azure-private-link
 ms.topic: tutorial
 ms.custom: mvc, linux-related-content
-ms.date: 02/18/2025
+ms.date: 02/23/2026
 # Customer intent: "As a network administrator, I want to configure Azure Firewall to inspect traffic to private endpoints, so that I can enhance security and ensure only authorized access to Azure resources."
 ---
 # Tutorial: Inspect private endpoint traffic with Azure Firewall
@@ -48,11 +48,147 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-[!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
+## Create a resource group
+
+A resource group is a logical container for Azure resources. This procedure creates a resource group for all resources used in this tutorial.
+
+1. In the portal, search for and select **Resource groups**.
+
+1. On the **Resource groups** page, select **+ Create**.
+
+1. On the **Basics** tab, enter or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Enter **test-rg**. |
+    | **Resource details** |  |
+    | Region | Select **East US 2**. |
+
+1. Select **Review + create**, and then select **Create**.
+
+## Create a virtual network
+
+The following procedure creates a virtual network with a resource subnet.
+
+1. In the portal, search for and select **Virtual networks**.
+
+1. On the **Virtual networks** page, select **+ Create**.
+
+1. On the **Basics** tab of **Create virtual network**, enter, or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg**. |
+    | **Instance details** |  |
+    | Name | Enter **vnet-1**. |
+    | Region | Select **East US 2**. |
+
+1. Select **Next** to proceed to the **Security** tab.
+
+1. Select **Next** to proceed to the **IP Addresses** tab.
+
+1. In the address space box in **Subnets**, select the **default** subnet.
+
+1. In **Edit subnet**, enter or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Subnet details** |  |
+    | Subnet template | Leave the default **Default**. |
+    | Name | Enter **subnet-1**. |
+    | Starting address | Leave the default of **10.0.0.0**. |
+    | Subnet size | Leave the default of **/24 (256 addresses)**. |
+
+1. Select **Save**.
+
+1. Select **Review + create** at the bottom of the screen, and when validation passes, select **Create**.
+
+## Deploy Azure Bastion
+
+Azure Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](/azure/bastion/bastion-overview).
+
+>[!NOTE]
+>[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
+
+1. In the search box at the top of the portal, enter **Bastion**. Select **Bastions** in the search results.
+
+1. Select **+ Create**.
+
+1. In the **Basics** tab of **Create a Bastion**, enter, or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg**. |
+    | **Instance details** |  |
+    | Name | Enter **bastion**. |
+    | Region | Select **East US 2**. |
+    | Tier | Select **Developer**. |
+    | **Configure virtual networks** |  |
+    | Virtual network | Select **vnet-1**. |
+
+1. Select **Review + create**.
+
+1. Select **Create**.
 
 [!INCLUDE [virtual-network-create-private-endpoint.md](../../includes/virtual-network-create-private-endpoint.md)]
 
-[!INCLUDE [create-test-virtual-machine-linux.md](~/reusable-content/ce-skilling/azure/includes/create-test-virtual-machine-linux.md)]
+## Create a test virtual machine
+
+The following procedure creates a test virtual machine (VM) named **vm-1** in the virtual network.
+
+1. In the portal, search for and select **Virtual machines**.
+
+1. In **Virtual machines**, select **+ Create**, then select **Azure virtual machine**.
+
+1. On the **Basics** tab of **Create a virtual machine**, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg**. |
+    | **Instance details** |   |
+    | Virtual machine name | Enter **vm-1**. |
+    | Region | Select **(US) East US 2**. |
+    | Availability options | Select **No infrastructure redundancy required**. |
+    | Security type | Select **Standard**. |
+    | Image | Select **Ubuntu Server 24.04 LTS - x64 Gen2**. |
+    | VM architecture | Leave the default of **x64**. |
+    | Size | Select a size. |
+    | **Administrator account** |   |
+    | Authentication type | Select **SSH public key**. |
+    | Username | Enter a username. |
+    | SSH public key source | Select **Generate new key pair**. |
+    | Key pair name | Enter **vm-1-key**. |
+    | **Inbound port rules** |  |
+    | Public inbound ports | Select **None**. |
+
+1. Select **Next: Disks** then **Next: Networking**.
+
+1. In the Networking tab, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Network interface** |   |
+    | Virtual network | Select **vnet-1**. |
+    | Subnet | Select **subnet-1 (10.0.0.0/24)**. |
+    | Public IP | Select **None**. |
+    | Network interface (NIC) network security group | Select **Advanced**. |
+    | Configure network security group | Select **Create new**.</br> In **Name** enter **nsg-1**.</br> Select **OK**. |
+
+1. Leave the rest of the options at the defaults and select **Review + create**.
+
+1. Select **Create**.
+
+1. A **Generate new key pair** pop-up opens. Select **Download private key and create resource**.
+
+1. The private key file is downloaded as **vm-1-key.pem**. Make sure you know where this file is downloaded so you can use it to sign in to the virtual machine in the next steps.
 
 ## Deploy Azure Firewall
 
@@ -358,9 +494,15 @@ Create an application rule to allow communication from **vnet-1** to the private
 
 1. Select **vm-1**.
 
-1. In **Operations** select **Bastion**.
+1. Select **Connect** then **Connect via Bastion** in the **Overview** section.
 
-1. Enter the username and password for the virtual machine.
+1. In the **Bastion** connection page, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Authentication Type | Select **SSH Private Key from Local File**. |
+    | Username | Enter the username you created. |
+    | Local File | Select the **vm-1-key** private key file you downloaded. |
 
 1. Select **Connect**.
 

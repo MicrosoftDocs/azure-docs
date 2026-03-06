@@ -59,8 +59,12 @@ You can use system-assigned managed identity (SAMI) authentication in two ways:
 - For secure environments where you don't want to use anonymous authentication, configure a Service Principal Name (SPN) as the Resource ID. The SPN must be configured correctly on the Function App:
     1. Create a [new app registration as a service principal identity.](/entra/identity-platform/howto-create-service-principal-portal)
     1. In your function app, go to the **Authentication** section under **Settings** and create an **Identity provider**.
-    1. Add the application ID of the service principal in the **Allowed client application**, and the object ID of the service principal in the **Allowed object applications**. If the requests are only allowed from specific tenants, add the Tenant ID of the managed identity in the last box.
-
+    1. Add the ADF _Application ID_ in the **Allowed requests from Specific Client Applications** section and the _Object ID_ in the **Allow requests from specific identifies** section. The application ID and Object ID can be found by following these steps:
+        1. Open the [Azure portal](https://portal.azure.com)
+        1. Navigate to **Enterprise applications**
+        1. Search for your Azure Data Factory/Managed identity name.
+        1. Copy the object and application IDs found on the table.
+    
        :::image type="content" source="media/control-flow-azure-function-activity/service-principal-authentication.png" alt-text="Screenshot of the app registration, showing which boxes to fill out with the application ID and the object ID.":::
 
 ## Azure Function activity

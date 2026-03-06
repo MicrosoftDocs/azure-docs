@@ -5,7 +5,7 @@ author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-operations
 ms.topic: how-to
-ms.date: 12/16/2025
+ms.date: 02/20/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure registry endpoints in Azure IoT Operations so that I can pull custom connectors, WASM modules, and graph definitions from container registries for use in data flow graphs and connectors.
@@ -18,90 +18,53 @@ ai-usage: ai-assisted
 Data flow graphs and the HTTP/REST connector use registry endpoints to pull WebAssembly (WASM) modules and graph definitions from container registries. Azure IoT Operations pulls any custom connector templates you develop from container registries. You can configure the endpoint settings, authentication, and other settings to connect to Azure Container Registry (ACR) or other OCI-compatible registries such as:
 
 - Docker Hub
+- GitHub Container Registry (ghcr.io)
 - Harbor
 - AWS Elastic Container Registry
 - Google Container Registry
-
-The examples in this article show how to configure a registry endpoint using ACR.
 
 ## Prerequisites
 
 - An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md), version 1.2 or later.
 - Access to a container registry, such as ACR.
 
-## Registry endpoint overview
-
-A registry endpoint defines the connection details and authentication method for accessing a container registry. Registry endpoints are used by:
-
-- **Data flow graphs**: To pull WASM modules and graph definitions for custom processing
-- **HTTP/REST connector**: To pull WASM modules and graph definitions for custom processing
-- **Akri connectors**: To pull custom connector templates
-
-Registry endpoints support authentication through:
-- System-assigned managed identity
-- User-assigned managed identity
-- Artifact pull secrets (username and password)
-- Anonymous access (for public registries)
-
 ## Create a registry endpoint
 
-A registry endpoint defines the connection to your container registry. Data flow graphs use registry endpoints to pull WASM modules and graph definitions from container registries. Azure IoT Operations uses registry endpoints to pull custom connector templates from container registries. You can create a registry endpoint using the Azure portal, Azure CLI, Bicep, or Kubernetes. After you create a registry endpoint:
+A registry endpoint defines the connection to your container registry. Data flow graphs use registry endpoints to pull WASM modules and graph definitions. Azure IoT Operations uses registry endpoints to pull custom connector templates. After you create a registry endpoint:
 
 - You can use any graphs you [pushed to your container registry](howto-deploy-wasm-graph-definitions.md#push-modules-to-your-registry) in the operations experience in data flow graphs.
 - You can use any [custom connectors you pushed](howto-build-akri-connectors-vscode.md#publish-a-connector-image) to your container registry in the operations experience to create device inbound endpoints.
 
 # [Azure portal](#tab/portal)
 
-Use the Azure portal to create registry endpoints. The portal experience prompts you to specify and provide host details of an ACR, and optionally provide credentials. Before you begin, make sure you have the following information:
+1. In the [Azure portal](https://portal.azure.com), go to your Azure IoT Operations instance.
 
-- Registry endpoint name.
-- A host name for the ACR.
-- Four types of authentication are supported:
-  - Anonymous
-  - System managed identity
-  - User managed identity
-  - Artifact secret
+1. Under **Components**, select **Registry endpoints**.
 
-To create a registry endpoint in the Azure portal, follow these steps.
+    :::image type="content" source="media/howto-configure-registry-endpoint/registry-endpoints-portal.png" alt-text="Screenshot of the Azure portal showing the Registry endpoints page under Components for an Azure IoT Operations instance." lightbox="media/howto-configure-registry-endpoint/registry-endpoints-portal.png":::
 
-### Create registry endpoints with anonymous authentication
+1. Select **+ Create a registry endpoint**.
 
-Create a new registry endpoint by specifying the host details of an ACR. Enable anonymous access for public image retrieval, and store the configuration for reuse. First, select the type of authentication you want to use. In this example, use anonymous authentication:
+1. Enter the following settings:
 
-:::image type="content" source="media/howto-configure-registry-endpoint/select-authentication.png" alt-text="Screenshot of the select authentication form." lightbox="media/howto-configure-registry-endpoint/select-authentication.png":::
+    | Setting | Description |
+    |---------|-------------|
+    | **Registry endpoint name** | A unique name for the registry endpoint. |
+    | **Hostname** | The hostname of the container registry. For ACR, use the format `<registry-name>.azurecr.io`. For MCR, use `mcr.microsoft.com`. For details about the hostname format, see [Host](#host). |
+    | **Authentication** | The authentication method. Choose from: [Anonymous](#anonymous-authentication), [Artifact secret](#artifact-pull-secret), [System managed identity](#system-assigned-managed-identity), or [User managed identity](#user-assigned-managed-identity). |
 
-:::image type="content" source="media/howto-configure-registry-endpoint/authentication-anonymous.png" alt-text="Screenshot of the completed anonymous authentication configuration for registry endpoint." lightbox="media/howto-configure-registry-endpoint/authentication-anonymous.png":::
+    > [!NOTE]
+    > The Azure portal currently only accepts hostnames in the format `<your-registry-name>.azurecr.io` or `mcr.microsoft.com`. To use other registries like GitHub Container Registry (ghcr.io) or Docker Hub, use Bicep or Kubernetes to create the registry endpoint instead.
 
-### Create registry endpoints with system managed identity authentication
+    :::image type="content" source="media/howto-configure-registry-endpoint/select-authentication.png" alt-text="Screenshot of the registry endpoint creation form showing name, host, and authentication options." lightbox="media/howto-configure-registry-endpoint/select-authentication.png":::
 
-Create a new registry endpoint by specifying the host details of an ACR. Authenticate by using a system-assigned managed identity for secure access, and store the configuration for reuse.
+1. Configure the authentication settings for your selected method. For information about each method, see [Authentication methods](#authentication-methods).
 
-:::image type="content" source="media/howto-configure-registry-endpoint/system-managed-identity.png" alt-text="Screenshot of the completed system managed identity authentication configuration for registry endpoint." lightbox="media/howto-configure-registry-endpoint/system-managed-identity.png":::
-
-### Create registry endpoints with user managed identity
-
-Create a new registry endpoint by specifying the host details of an ACR. Authenticate by using a user-assigned managed identity for secure access. Store the configuration for reuse.
-
-> [!NOTE]
-> The client and tenant IDs are required to enable user managed identity. 
-
-:::image type="content" source="media/howto-configure-registry-endpoint/user-managed-identity.png" alt-text="Screenshot of the completed user managed identity authentication configuration for registry endpoint." lightbox="media/howto-configure-registry-endpoint/user-managed-identity.png":::
-
-### Create registry endpoints with artifact secrets
-
-Use artifact secrets to authenticate with private container registries like ACR, Docker Hub, or MCR when pulling container images. Secrets are essential when the registry requires credentials and the image isn't publicly accessible. This scenario enables you to manage data flow graphs across Azure IoT Operations and the operations experience. You can set up artifact secrets from Microsoft Azure Key Vault by selecting existing secrets.
-
-Create a new registry endpoint by specifying the host details of an ACR. Authenticate by using artifact secrets for secure access and store the configuration for reuse:
-
-:::image type="content" source="media/howto-configure-registry-endpoint/secrets.png" alt-text="Screenshot of the Azure Key Vault secret selection interface for artifact secrets." lightbox="media/howto-configure-registry-endpoint/secrets.png":::
-
-Set up artifact secrets from Azure Key Vault by creating new secrets and storing them in Azure Key Vault:
-
-:::image type="content" source="media/howto-configure-registry-endpoint/secret-form.png" alt-text="Screenshot of the create new secret form in Azure Key Vault for artifact secrets." lightbox="media/howto-configure-registry-endpoint/secret-form.png":::
+1. Select **Create**.
 
 # [Bicep](#tab/bicep)
 
-Create a Bicep `.bicep` file with the following content:
+Create a Bicep `.bicep` file with the following content. This example uses system-assigned managed identity authentication with ACR:
 
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
@@ -142,9 +105,11 @@ Deploy the Bicep file by using Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+For other authentication methods, see [Authentication methods](#authentication-methods). To use a public registry like ghcr.io, see [Use a public registry](#use-a-public-registry).
 
-Create a Kubernetes manifest `.yaml` file with the following content:
+# [Kubernetes (preview)](#tab/kubernetes)
+
+Create a Kubernetes manifest `.yaml` file with the following content. This example uses system-assigned managed identity authentication with ACR:
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -166,32 +131,36 @@ Apply the manifest file to the Kubernetes cluster:
 kubectl apply -f <FILE>.yaml
 ```
 
-> [!NOTE]
-> You can reuse registry endpoints across multiple data flow graphs and other Azure IoT Operations components, like Akri connectors.
+For other authentication methods, see [Authentication methods](#authentication-methods). To use a public registry like ghcr.io, see [Use a public registry](#use-a-public-registry).
 
 ---
 
-## Configuration options
+> [!NOTE]
+> You can reuse registry endpoints across multiple data flow graphs and other Azure IoT Operations components, like Akri connectors.
 
-This section describes the configuration options available for registry endpoints.
+## Configuration options
 
 ### Host
 
-The `host` property specifies the container registry hostname. For ACR, use the format `<registry-name>.azurecr.io`. The host property supports HTTPS URLs or just the hostname.
+The `host` property specifies the container registry hostname and optional path prefix. For ACR, use the format `<registry-name>.azurecr.io`.
+
+> [!IMPORTANT]
+> The `host` field must include the full path prefix that matches your artifact references. For example, if your artifacts are at `ghcr.io/azure-samples/explore-iot-operations/temperature:1.0.0`, set `host` to `ghcr.io/azure-samples/explore-iot-operations` (not just `ghcr.io`). The runtime matches the host as a prefix against the artifact reference. If the host doesn't match, you see "No valid registry endpoint configuration found" in the WASM graph controller logs.
 
 **Examples**:
-- `myregistry.azurecr.io`
-- `https://myregistry.azurecr.io`
 
-**Pattern**: Must match the pattern `^(https:\/\/)?[a-zA-Z0-9\-]+\.azurecr\.io$` for ACR.
+- `myregistry.azurecr.io` (Azure Container Registry)
+- `mcr.microsoft.com` (Microsoft Container Registry)
+- `ghcr.io/azure-samples/explore-iot-operations` (GitHub Container Registry with path)
+- `docker.io/myorg` (Docker Hub)
 
 ### Authentication methods
 
-Registry endpoints support several authentication methods to securely access container registries.
+Registry endpoints support several authentication methods. The method you choose depends on your container registry and security requirements.
 
 #### System-assigned managed identity
 
-System-assigned managed identity uses the Azure IoT Operations instance's built-in identity to authenticate with the registry. Use this approach for ACR as it eliminates the need for managing credentials.
+System-assigned managed identity uses the Azure IoT Operations instance's built-in identity to authenticate with the registry. Use this approach for ACR, because it eliminates the need for managing credentials.
 
 Before configuring the registry endpoint, ensure the Azure IoT Operations system-assigned managed identity has the necessary permissions:
 
@@ -202,37 +171,57 @@ Before configuring the registry endpoint, ensure the Azure IoT Operations system
 1. On the **Members** tab, for **Assign access to**, select **User, group, or service principal**, then select **+ Select members** and search for the Azure IoT Operations Arc extension name. Choose the extension and select **Select**.
 1. Select **Review + assign** to complete the role assignment.
 
+# [Azure portal](#tab/portal)
 
-The following snippet shows how to configure system-assigned managed identity authentication in the Bicep file that configures the registry endpoint:
+In the Azure portal, select **System managed identity** as the authentication method when creating the registry endpoint.
+
+:::image type="content" source="media/howto-configure-registry-endpoint/system-managed-identity.png" alt-text="Screenshot of the completed system managed identity authentication configuration for registry endpoint." lightbox="media/howto-configure-registry-endpoint/system-managed-identity.png":::
+
+# [Bicep](#tab/bicep)
 
 ```bicep
 authentication: {
   method: 'SystemAssignedManagedIdentity'
   systemAssignedManagedIdentitySettings: {
     audience: 'https://management.azure.com/'
-    extensionName: null  // Optional: specific extension name
-    tenantId: null       // Optional: specific tenant ID
   }
 }
 ```
 
-**System-assigned managed identity settings**:
+# [Kubernetes (preview)](#tab/kubernetes)
 
-| Property | Description | Required | Type |
-|----------|-------------|----------|------|
-| `audience` | Audience of the service to authenticate against. | No | String |
-| `extensionName` | Specific extension name to use. | No | String |
-| `tenantId` | Tenant ID for authentication. | No | String |
+```yaml
+spec:
+  authentication:
+    method: SystemAssignedManagedIdentity
+    systemAssignedManagedIdentitySettings:
+      audience: https://management.azure.com/
+```
+
+---
+
+| Property | Description | Required |
+|----------|-------------|----------|
+| `audience` | Audience of the service to authenticate against. | No |
+| `extensionName` | Specific extension name to use. | No |
+| `tenantId` | Tenant ID for authentication. | No |
 
 The operator attempts to infer the audience from the endpoint if you don't provide it. For ACR, the audience is typically `https://management.azure.com/`.
 
 #### User-assigned managed identity
 
-User-assigned managed identity allows you to use a specific managed identity that you create and configure with the necessary permissions.
+User-assigned managed identity allows you to use a specific managed identity that you create and configure with the necessary permissions. Before configuring the registry endpoint, ensure the user-assigned managed identity has the `AcrPull` role on your container registry.
 
-Before configuring the registry endpoint, ensure the user-assigned managed identity has the `AcrPull` role on your container registry.
+# [Azure portal](#tab/portal)
 
-The following snippet shows how to configure user-assigned managed identity authentication in the Bicep file that configures the registry endpoint:
+In the Azure portal, select **User managed identity** as the authentication method and enter the client ID and tenant ID.
+
+> [!NOTE]
+> The client and tenant IDs are required to enable user managed identity.
+
+:::image type="content" source="media/howto-configure-registry-endpoint/user-managed-identity.png" alt-text="Screenshot of the completed user managed identity authentication configuration for registry endpoint." lightbox="media/howto-configure-registry-endpoint/user-managed-identity.png":::
+
+# [Bicep](#tab/bicep)
 
 ```bicep
 authentication: {
@@ -240,18 +229,28 @@ authentication: {
   userAssignedManagedIdentitySettings: {
     clientId: '<CLIENT_ID>'
     tenantId: '<TENANT_ID>'
-    scope: null  // Optional: specific scope
   }
 }
 ```
 
-**User-assigned managed identity settings**:
+# [Kubernetes (preview)](#tab/kubernetes)
 
-| Property | Description | Required | Type |
-|----------|-------------|----------|------|
-| `clientId` | Client ID for the user-assigned managed identity. | Yes | String |
-| `tenantId` | Tenant ID where the managed identity is located. | Yes | String |
-| `scope` | Scope of the resource with `.default` suffix. | No | String |
+```yaml
+spec:
+  authentication:
+    method: UserAssignedManagedIdentity
+    userAssignedManagedIdentitySettings:
+      clientId: <CLIENT_ID>
+      tenantId: <TENANT_ID>
+```
+
+---
+
+| Property | Description | Required |
+|----------|-------------|----------|
+| `clientId` | Client ID for the user-assigned managed identity. | Yes |
+| `tenantId` | Tenant ID where the managed identity is located. | Yes |
+| `scope` | Scope of the resource with `.default` suffix. | No |
 
 The operator attempts to infer the scope from the endpoint if you don't provide it.
 
@@ -269,7 +268,17 @@ kubectl create secret docker-registry my-registry-secret \
   -n azure-iot-operations
 ```
 
-The following snippet shows how to configure artifact pull secret authentication in the Bicep file that configures the registry endpoint:
+# [Azure portal](#tab/portal)
+
+In the Azure portal, select **Artifact secret** as the authentication method. You can select existing secrets from Azure Key Vault or create new ones.
+
+:::image type="content" source="media/howto-configure-registry-endpoint/secrets.png" alt-text="Screenshot of the Azure Key Vault secret selection interface for artifact secrets." lightbox="media/howto-configure-registry-endpoint/secrets.png":::
+
+To create new secrets and store them in Azure Key Vault:
+
+:::image type="content" source="media/howto-configure-registry-endpoint/secret-form.png" alt-text="Screenshot of the create new secret form in Azure Key Vault for artifact secrets." lightbox="media/howto-configure-registry-endpoint/secret-form.png":::
+
+# [Bicep](#tab/bicep)
 
 ```bicep
 authentication: {
@@ -280,11 +289,29 @@ authentication: {
 }
 ```
 
+# [Kubernetes (preview)](#tab/kubernetes)
+
+```yaml
+spec:
+  authentication:
+    method: ArtifactPullSecret
+    artifactPullSecretSettings:
+      secretRef: my-registry-secret
+```
+
+---
+
 #### Anonymous authentication
 
-Anonymous authentication is used for public registries that don't require authentication.
+Anonymous authentication is used for public registries that don't require credentials.
 
-The following snippet shows how to configure anonymous authentication in the Bicep file that configures the registry endpoint:
+# [Azure portal](#tab/portal)
+
+In the Azure portal, select **Anonymous** as the authentication method.
+
+:::image type="content" source="media/howto-configure-registry-endpoint/authentication-anonymous.png" alt-text="Screenshot of the completed anonymous authentication configuration for registry endpoint." lightbox="media/howto-configure-registry-endpoint/authentication-anonymous.png":::
+
+# [Bicep](#tab/bicep)
 
 ```bicep
 authentication: {
@@ -293,9 +320,20 @@ authentication: {
 }
 ```
 
+# [Kubernetes (preview)](#tab/kubernetes)
+
+```yaml
+spec:
+  authentication:
+    method: Anonymous
+    anonymousSettings: {}
+```
+
+---
+
 ## Azure Container Registry integration
 
-ACR is the recommended container registry for Azure IoT Operations. ACR provides secure, private Docker container registries with integrated authentication through Microsoft Entra ID (Entra ID).
+ACR is the recommended container registry for Azure IoT Operations. ACR provides secure, private Docker container registries with integrated authentication through Microsoft Entra ID.
 
 ### Prerequisites for ACR
 
@@ -303,16 +341,64 @@ ACR is the recommended container registry for Azure IoT Operations. ACR provides
 1. **Configure permissions**: Ensure the Azure IoT Operations managed identity has `AcrPull` permissions on the registry.
 1. **Push artifacts**: Upload your WASM modules and graph definitions to the registry using tools like ORAS CLI.
 
+## Use a public registry
+
+You can configure a registry endpoint to point directly at a public OCI-compatible registry. This approach lets you use prebuilt WASM modules and graph definitions without setting up your own private registry, which is ideal for getting started quickly or for evaluation.
+
+> [!NOTE]
+> The Azure portal currently only supports ACR and MCR hostnames when creating registry endpoints. To configure a registry endpoint for a public registry like ghcr.io, use Bicep or Kubernetes instead.
+
+For example, the Azure IoT Operations sample WASM modules and graph definitions are published at `ghcr.io/azure-samples/explore-iot-operations`. You can create a registry endpoint that points directly to this public registry by using anonymous authentication.
+
+# [Azure portal](#tab/portal)
+
+The Azure portal doesn't currently support creating registry endpoints for public registries other than MCR. Use the Bicep or Kubernetes tab instead.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+resource publicRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2025-10-01-preview' = {
+  parent: aioInstance
+  name: 'public-ghcr'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    host: 'ghcr.io/azure-samples/explore-iot-operations'
+    authentication: {
+      method: 'Anonymous'
+      anonymousSettings: {}
+    }
+  }
+}
+```
+
+# [Kubernetes (preview)](#tab/kubernetes)
+
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1beta1
+kind: RegistryEndpoint
+metadata:
+  name: public-ghcr
+  namespace: azure-iot-operations
+spec:
+  host: ghcr.io/azure-samples/explore-iot-operations
+  authentication:
+    method: Anonymous
+    anonymousSettings: {}
+```
+
+---
+
+After you create this registry endpoint, you can reference it in your data flow graph as `registryEndpointRef: public-ghcr`. No ORAS pull/push steps are needed because the runtime pulls the artifacts directly from the public registry.
+
+> [!NOTE]
+> Public registries don't require authentication, but they may have rate limits. For production workloads, consider using a private registry like Azure Container Registry.
+
 ## Other container registries
 
-Registry endpoints also support other OCI-compatible container registries such as:
-
-- Docker Hub
-- Harbor
-- AWS Elastic Container Registry (ECR)
-- Google Container Registry (GCR)
-
-For these registries, you typically use artifact pull secrets for authentication, unless they support Azure managed identity.
+Registry endpoints support any OCI-compatible container registry, including Docker Hub, GitHub Container Registry (ghcr.io), Harbor, AWS Elastic Container Registry (ECR), and Google Container Registry (GCR). For public registries, use [anonymous authentication](#anonymous-authentication). For private registries, use [artifact pull secrets](#artifact-pull-secret) or managed identity authentication as appropriate.
 
 ## Next steps
 

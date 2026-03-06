@@ -1,16 +1,20 @@
 ---
-title: "Network access configuration"
-description: Learn how to configure network access during a migration of high performance computing architecture.
+title: Configure networking and security for Azure HPC clusters
+description: Set up virtual networks, subnets, NSGs, Azure Bastion, and VPN Gateway for secure HPC cluster access on Azure.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 04/10/2025
+ms.date: 02/19/2026
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+ms.collections:
+  - hpc-migration-content
+  - migration
+  - onprem-to-azure
 # Customer intent: As an IT administrator managing high performance computing resources, I want to configure network access during migration so that I can ensure secure and efficient communication between computational resources while maintaining proper security protocols.
 ---
 
-# Network access configuration
+# Configure networking and security for Azure HPC clusters
 
 A key aspect of your high performance computing migration is the configuration of network access. Proper network access configuration ensures secure, efficient, and uninterrupted communication between computational resources. This part of the guide covers the needs, tools, services, and best practices associated with your network access configuration.
 

@@ -30,7 +30,7 @@ If you don't have an Azure account with an active subscription, [create one for 
 
 - An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-### [Powershell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 
 - An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
@@ -75,15 +75,157 @@ If you're running Azure CLI locally, use Azure CLI version 2.0.31 or later.
 
 ### [Portal](#tab/portal)
 
-## <a name="create-a-virtual-network"></a> Sign in to Azure
+## Create a resource group
 
-Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
+1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
-[!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
+1. In the search box at the top of the portal, enter **Resource group**. Select **Resource groups** in the search results.
 
-[!INCLUDE [create-two-virtual-machines.md](../../includes/create-two-virtual-machines.md)]
+1. Select **+ Create**.
 
-### [Powershell](#tab/powershell)
+1. In the **Basics** tab of **Create a resource group**, enter, or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Subscription | Select your subscription. |
+    | Resource group | Enter **test-rg**. |
+    | Region | Select **East US 2**. |
+
+1. Select **Review + create**.
+
+1. Select **Create**.
+
+## <a name="create-a-virtual-network"></a> Create a virtual network
+
+1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+
+1. Select **+ Create**.
+
+1. On the **Basics** tab of **Create virtual network**, enter, or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg**. |
+    | **Instance details** |  |
+    | Name | Enter **vnet-1**. |
+    | Region | Select **East US 2**. |
+
+1. Select **Next** to proceed to the **Security** tab.
+
+1. Select **Next** to proceed to the **IP Addresses** tab.
+
+1. In the address space box in **Subnets**, select the **default** subnet.
+
+1. In **Edit subnet**, enter, or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Subnet details** |  |
+    | Subnet template | Leave the default **Default**. |
+    | Name | Enter **subnet-1**. |
+    | Starting address | Leave the default of **10.0.0.0**. |
+    | Subnet size | Leave the default of **/24 (256 addresses)**. |
+
+1. Select **Save**.
+
+1. Select **Review + create** at the bottom of the screen, and when validation passes, select **Create**.
+
+## Deploy Azure Bastion
+
+Azure Bastion uses your browser to connect to virtual machines (VMs) in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The virtual machines don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](/azure/bastion/bastion-overview).
+
+>[!NOTE]
+>[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
+
+1. In the search box at the top of the portal, enter **Bastion**. Select **Bastions** in the search results.
+
+1. Select **+ Create**.
+
+1. In the **Basics** tab of **Create a Bastion**, enter, or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg**. |
+    | **Instance details** |  |
+    | Name | Enter **bastion**. |
+    | Region | Select **East US 2**. |
+    | Tier | Select **Developer**. |
+    | **Configure virtual networks** |  |
+    | Virtual network | Select **vnet-1**. |
+
+1. Select **Review + create**.
+
+1. Select **Create**.
+
+## Create virtual machines
+
+The following procedure creates two VMs named **vm-1** and **vm-2** in the virtual network:
+
+1. In the portal, search for and select **Virtual machines**.
+
+1. In **Virtual machines**, select **+ Create**, and then select **Azure virtual machine**.
+
+1. On the **Basics** tab of **Create a virtual machine**, enter or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg**. |
+    | **Instance details** |  |
+    | Virtual machine name | Enter **vm-1**. |
+    | Region | Select **East US 2**. |
+    | Availability options | Select **No infrastructure redundancy required**. |
+    | Security type | Leave the default of **Standard**. |
+    | Image | Select **Ubuntu Server 22.04 LTS - x64 Gen2**. |
+    | VM architecture | Leave the default of **x64**. |
+    | Size | Select a size. |
+    | **Administrator account** |  |
+    | Authentication type | Select **SSH public key**. |
+    | Username | Enter **azureuser**. |
+    | SSH public key source | Select **Generate new key pair**. |
+    | Key pair name | Enter **vm-1-key**. |
+    | **Inbound port rules** |  |
+    | Public inbound ports | Select **None**. |
+
+1. Select the **Networking** tab. Enter or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Network interface** |  |
+    | Virtual network | Select **vnet-1**. |
+    | Subnet | Select **subnet-1 (10.0.0.0/24)**. |
+    | Public IP | Select **None**. |
+    | NIC network security group | Select **Advanced**. |
+    | Configure network security group | Select **Create new**. </br> Enter **nsg-1** for the name. </br> Leave the rest at the defaults and select **OK**. |
+
+1. Leave the rest of the settings at the defaults and select **Review + create**.
+
+1. Review the settings and select **Create**.
+
+1. Wait for the first virtual machine to deploy then repeat the previous steps to create a second virtual machine with the following settings:
+
+    | Setting | Value |
+    |---|---|
+    | Virtual machine name | Enter **vm-2**. |
+    | SSH public key source | Select **Generate new key pair**. |
+    | Key pair name | Enter **vm-2-key**. |
+    | Virtual network | Select **vnet-1**. |
+    | Subnet | Select **subnet-1 (10.0.0.0/24)**. |
+    | Public IP | Select **None**. |
+    | NIC network security group | Select **Advanced**. |
+    | Configure network security group | Select **nsg-1**. |
+
+> [!NOTE]
+> Virtual machines in a virtual network with an Azure Bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
+
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
+
+### [PowerShell](#tab/powershell)
 
 ## Create a resource group
 
@@ -165,7 +307,7 @@ Azure Bastion uses your browser to connect to virtual machines in your virtual n
     New-AzPublicIpAddress @ip
     ```
 
-1. Use the [New-AzBastion](/powershell/module/az.network/new-azbastion) command to create a new Standard SKU Bastion host in **AzureBastionSubnet**:
+1. Use the [New-AzBastion](/powershell/module/az.network/new-azbastion) command to create a new Basic SKU Bastion host in **AzureBastionSubnet**:
 
     ```azurepowershell-interactive
     $bastion = @{
@@ -184,110 +326,57 @@ It takes about 10 minutes to deploy the Bastion resources. You can create virtua
 
 ## Create virtual machines
 
-Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create two virtual machines named **vm-1** and **vm-2** in the **subnet-1** subnet of the virtual network. When you're prompted for credentials, enter usernames and passwords for the virtual machines.
+### Create the first virtual machine
 
-1. To create the first virtual machine, use the following code:
+Create a virtual machine with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a virtual machine named **vm-1** in the **vnet-1** virtual network.
 
-    ```azurepowershell-interactive
-    # Set the administrator and password for the virtual machine. ##
-    $cred = Get-Credential
+```azurepowershell-interactive
+# Create a credential object
+$cred = Get-Credential
 
-    ## Place the virtual network into a variable. ##
-    $vnet = Get-AzVirtualNetwork -Name 'vnet-1' -ResourceGroupName 'test-rg'
+# Define the virtual machine parameters
+$vmParams = @{
+    ResourceGroupName = "test-rg"
+    Location = "eastus2"
+    Name = "vm-1"
+    Image = "Ubuntu2204"
+    Size = "Standard_DS1_v2"
+    Credential = $cred
+    VirtualNetworkName = "vnet-1"
+    SubnetName = "subnet-1"
+    PublicIpAddressName = ""  # No public IP address
+    SshKeyName = "vm-1-ssh-key"
+    GenerateSshKey = $true
+}
 
-    ## Create a network interface for the virtual machine. ##
-    $nic = @{
-        Name = "nic-1"
-        ResourceGroupName = 'test-rg'
-        Location = 'eastus2'
-        Subnet = $vnet.Subnets[0]
-    }
-    $nicVM = New-AzNetworkInterface @nic
+# Create the virtual machine
+New-AzVM @vmParams
+```
 
-    ## Create a virtual machine configuration. ##
-    $vmsz = @{
-        VMName = "vm-1"
-        VMSize = 'Standard_DS1_v2'  
-    }
-    $vmos = @{
-        ComputerName = "vm-1"
-        Credential = $cred
-    }
-    $vmimage = @{
-        PublisherName = 'Canonical'
-        Offer = '0001-com-ubuntu-server-jammy'
-        Skus = '22_04-lts-gen2'
-        Version = 'latest'    
-    }
-    $vmConfig = New-AzVMConfig @vmsz `
-        | Set-AzVMOperatingSystem @vmos -Linux `
-        | Set-AzVMSourceImage @vmimage `
-        | Add-AzVMNetworkInterface -Id $nicVM.Id
+### Create the second virtual machine
 
-    ## Create the virtual machine. ##
-    $vm = @{
-        ResourceGroupName = 'test-rg'
-        Location = 'eastus2'
-        VM = $vmConfig
-    }
-    New-AzVM @vm
-    ```
+```azurepowershell-interactive
+# Create a credential object
+$cred = Get-Credential
 
-1. To create the second virtual machine, use the following code:
+# Define the virtual machine parameters
+$vmParams = @{
+    ResourceGroupName = "test-rg"
+    Location = "eastus2"
+    Name = "vm-2"
+    Image = "Ubuntu2204"
+    Size = "Standard_DS1_v2"
+    Credential = $cred
+    VirtualNetworkName = "vnet-1"
+    SubnetName = "subnet-1"
+    PublicIpAddressName = ""  # No public IP address
+    SshKeyName = "vm-2-ssh-key"
+    GenerateSshKey = $true
+}
 
-    ```azurepowershell-interactive
-    # Set the administrator and password for the virtual machine. ##
-    $cred = Get-Credential
-
-    ## Place the virtual network into a variable. ##
-    $vnet = Get-AzVirtualNetwork -Name 'vnet-1' -ResourceGroupName 'test-rg'
-
-    ## Create a network interface for the virtual machine. ##
-    $nic = @{
-        Name = "nic-2"
-        ResourceGroupName = 'test-rg'
-        Location = 'eastus2'
-        Subnet = $vnet.Subnets[0]
-    }
-    $nicVM = New-AzNetworkInterface @nic
-
-    ## Create a virtual machine configuration. ##
-    $vmsz = @{
-        VMName = "vm-2"
-        VMSize = 'Standard_DS1_v2'  
-    }
-    $vmos = @{
-        ComputerName = "vm-2"
-        Credential = $cred
-    }
-    $vmimage = @{
-        PublisherName = 'Canonical'
-        Offer = '0001-com-ubuntu-server-jammy'
-        Skus = '22_04-lts-gen2'
-        Version = 'latest'    
-    }
-    $vmConfig = New-AzVMConfig @vmsz `
-        | Set-AzVMOperatingSystem @vmos -Linux `
-        | Set-AzVMSourceImage @vmimage `
-        | Add-AzVMNetworkInterface -Id $nicVM.Id
-
-    ## Create the virtual machine. ##
-    $vm = @{
-        ResourceGroupName = 'test-rg'
-        Location = 'eastus2'
-        VM = $vmConfig
-    }
-    New-AzVM @vm
-    ```
-
-> [!TIP]
-> You can use the `-AsJob` option to create a virtual machine in the background while you continue with other tasks. For example, run `New-AzVM @vm1 -AsJob`. When Azure starts creating the virtual machine in the background, you get something like the following output:
->
-> ```powershell
-> Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
-> --     ----            -------------   -----         -----------     --------             -------
-> 1      Long Running... AzureLongRun... Running       True            localhost            New-AzVM
-> ```
+# Create the virtual machine
+New-AzVM @vmParams
+```
 
 Azure takes a few minutes to create the virtual machines. When Azure finishes creating the virtual machines, it returns the output to PowerShell.
 
@@ -356,57 +445,48 @@ Azure Bastion uses your browser to connect to virtual machines in your virtual n
         --public-ip-address public-ip \
         --resource-group test-rg \
         --vnet-name vnet-1 \
-        --location eastus2
+        --location eastus2 \
+        --sku Basic
     ```
 
 It takes about 10 minutes to deploy the Bastion resources. You can create virtual machines in the next section while Bastion deploys to your virtual network.
 
 ## Create virtual machines
 
-Use [az vm create](/cli/azure/vm#az-vm-create) to create two virtual machines named **vm-1** and **vm-2** in the **subnet-1** subnet of the virtual network. When you're prompted for credentials, enter usernames and passwords for the virtual machines.
+### Create the first virtual machine
 
-1. To create the first virtual machine, use the following command:
+Create a virtual machine with [az vm create](/cli/azure/vm#az-vm-create). The following example creates a virtual machine named **vm-1** in the **vnet-1** virtual network. If SSH keys don't already exist in a default key location, the command creates them. The `--no-wait` option creates the virtual machine in the background, so you can continue to the next step.
 
-    ```azurecli-interactive
-    az vm create \
-        --resource-group test-rg \
-        --admin-username azureuser \
-        --authentication-type password \
-        --name vm-1 \
-        --image Ubuntu2204 \
-        --public-ip-address ""
-    ```
-
-1. To create the second virtual machine, use the following command:
-
-    ```azurecli-interactive
-    az vm create \
-        --resource-group test-rg \
-        --admin-username azureuser \
-        --authentication-type password \
-        --name vm-2 \
-        --image Ubuntu2204 \
-        --public-ip-address ""
-    ```
-
-> [!TIP]
-> You can also use the `--no-wait` option to create a virtual machine in the background while you continue with other tasks.
-
-The virtual machines take a few minutes to create. After Azure creates each virtual machine, the Azure CLI returns an output similar to the following message:
-
-```output
-    {
-      "fqdns": "",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Compute/virtualMachines/vm-2",
-      "location": "eastus2",
-      "macAddress": "00-0D-3A-23-9A-49",
-      "powerState": "VM running",
-      "privateIpAddress": "10.0.0.5",
-      "publicIpAddress": "",
-      "resourceGroup": "test-rg"
-      "zones": ""
-    }
+```azurecli-interactive
+az vm create \
+    --resource-group test-rg \
+    --name vm-1 \
+    --image Ubuntu2204 \
+    --vnet-name vnet-1 \
+    --subnet subnet-1 \
+    --public-ip-address "" \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --no-wait
 ```
+
+### Create the second virtual machine
+
+Create a virtual machine named **vm-2** in the **vnet-1** virtual network.
+
+```azurecli-interactive
+az vm create \
+    --resource-group test-rg \
+    --name vm-2 \
+    --image Ubuntu2204 \
+    --vnet-name vnet-1 \
+    --subnet subnet-1 \
+    --public-ip-address "" \
+    --admin-username azureuser \
+    --generate-ssh-keys
+```
+
+The virtual machine takes a few minutes to create.
 
 > [!NOTE]
 > Virtual machines in a virtual network with a Bastion host don't need public IP addresses. Bastion provides the public IP, and the virtual machines use private IPs to communicate within the network. You can remove the public IPs from any virtual machines in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
@@ -505,7 +585,7 @@ When the deployment finishes, a message indicates the deployment succeeded.
 
 ## Deploy Azure Bastion
 
-Bastion uses your browser to connect to virtual machines in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The virtual machines don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [What is Azure Bastion?](~/articles/bastion/bastion-overview.md).
+Bastion uses your browser to connect to virtual machines in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The virtual machines don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [What is Azure Bastion?](~/articles/bastion/bastion-overview.md)
 
 > [!NOTE]
 > [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
@@ -690,23 +770,27 @@ For information about troubleshooting Terraform, see [Troubleshoot common proble
 
 ## Connect to a virtual machine
 
-1. In the portal, search for and select **Virtual machines**.
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-1. On the **Virtual machines** page, select **vm-1**.
+1. In **Virtual machines**, select **vm-1**.
 
-1. In the **Overview** information for **vm-1**, select **Connect**.
+1. Select **Connect** then **Connect via Bastion** in the **Overview** section.
 
-1. On the **Connect to virtual machine** page, select the **Bastion** tab.
+1. In the **Bastion** connection page, enter or select the following information:
 
-1. Select **Use Bastion**.
+    | Setting | Value |
+    | ------- | ----- |
+    | **Authentication Type** | Select **SSH Private Key from Local File**. |
+    | **Username** | Enter **azureuser**. |
+    | **Local File** | Select the private key file you downloaded or created. |
 
-1. Enter the username and password that you created when you created the virtual machine, and then select **Connect**.
+1. Select **Connect**.
 
 ## Start communication between virtual machines
 
 1. At the bash prompt for **vm-1**, enter `ping -c 4 vm-2`.
 
-   You see a reply similar to the following message:
+   You get a reply similar to the following message:
 
     ```output
     azureuser@vm-1:~$ ping -c 4 vm-2
@@ -717,13 +801,27 @@ For information about troubleshooting Terraform, see [Troubleshoot common proble
     64 bytes from vm-2.internal.cloudapp.net (10.0.0.5): icmp_seq=4 ttl=64 time=0.890 ms
     ```
 
-1. Close the Bastion connection to **vm-1**.
+1. Close the Bastion session.
 
-1. Repeat the steps in [Connect to a virtual machine](#connect-to-a-virtual-machine) to connect to **vm-2**.
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+
+1. In **Virtual machines**, select **vm-2**.
+
+1. Select **Connect** then **Connect via Bastion** in the **Overview** section.
+
+1. In the **Bastion** connection page, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Authentication Type** | Select **SSH Private Key from Local File**. |
+    | **Username** | Enter **azureuser**. |
+    | **Local File** | Select the private key file you downloaded or created. |
+
+1. Select **Connect**.
 
 1. At the bash prompt for **vm-2**, enter `ping -c 4 vm-1`.
 
-   You see a reply similar to the following message:
+   You get a reply similar to the following message:
 
     ```output
     azureuser@vm-2:~$ ping -c 4 vm-1
@@ -734,7 +832,7 @@ For information about troubleshooting Terraform, see [Troubleshoot common proble
     64 bytes from vm-1.internal.cloudapp.net (10.0.0.4): icmp_seq=4 ttl=64 time=0.780 ms
     ```
 
-1. Close the Bastion connection to **vm-2**.
+1. Close the Bastion session.
 
 ## Clean up resources
 

@@ -237,7 +237,7 @@ The following examples assume that you install the SAP HANA system with SID *HN1
 * *ah1-ascs* for SAP NetWeaver ASCS
 * *ah1-di-0* for the first SAP NetWeaver application server
 
-#### Install SAP NetWeaver ASCS for SAP HANA by using Azure managed disks
+#### Install SAP NetWeaver ASCS for SAP HANA by using Azure Managed Disks
 
 Before you start the SAP Software Provisioning Manager (SWPM), you need to mount the IP address of the virtual host name of ASCS. The recommended way is to use SAPACEXT. If you mount the IP address by using SAPACEXT, be sure to remount the IP address after a reboot.
 

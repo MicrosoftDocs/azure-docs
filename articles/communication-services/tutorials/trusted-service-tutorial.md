@@ -2,10 +2,10 @@
 title: Build an authentication service using Azure Functions
 titleSuffix: An Azure Communication Services article
 description: This article describes how to create a trusted user access service for Azure Communication Services using Azure Functions.
-author: tophpalmer
+author: sundiraman
 manager: chpalm
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 06/30/2021
 ms.topic: tutorial
 ms.service: azure-communication-services

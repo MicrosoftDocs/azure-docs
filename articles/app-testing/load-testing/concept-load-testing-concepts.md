@@ -5,7 +5,7 @@ services: load-testing
 ms.service: azure-load-testing
 author: ninallam
 ms.author: ninallam
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/24/2023
 ms.custom: template-concept, build-2024
 ---

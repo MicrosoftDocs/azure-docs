@@ -5,7 +5,7 @@ author: svaldesgzz
 ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: concept-article
-ms.date: 11/19/2024
+ms.date: 02/25/2026
 ---
 
 # Azure Extended Zones frequently asked questions (FAQ)

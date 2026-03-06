@@ -43,8 +43,6 @@
     href: arc-enabled-workloads-arc-enabled-aks-cluster.md
   - name: ContainerApps
     href: arc-enabled-workloads-container-apps.md
-  - name: PostgreSQL
-    href: arc-enabled-workloads-postgre-sql.md
   - name: ManagedSQL
     href: arc-enabled-workloads-managed-sql.md
 - name: Security

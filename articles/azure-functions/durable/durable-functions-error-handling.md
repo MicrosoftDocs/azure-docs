@@ -1,71 +1,44 @@
 ---
-title: Handling errors in Durable Functions - Azure
-description: Learn how to handle errors in the Durable Functions extension for Azure Functions.
+title: Handling errors and Retries
+description: Learn how to handle errors in the Durable Functions extension for Azure Functions and Durable Task SDKs.
 ms.topic: conceptual
-ms.date: 02/14/2023
+ms.date: 02/04/2026
 ms.author: azfuncdf
 ms.devlang: csharp
 # ms.devlang: csharp, javascript, powershell, python, java
 ms.custom: devx-track-js
+zone_pivot_groups: azure-durable-approach
 ---
 
-# Handling errors in Durable Functions (Azure Functions)
+# Handling errors in orchestrations
 
-Durable Function orchestrations are implemented in code and can use the programming language's built-in error-handling features. There really aren't any new concepts you need to learn to add error handling and compensation into your orchestrations. However, there are a few behaviors that you should be aware of.
+::: zone pivot="durable-functions"
+
+You implement Durable Functions orchestrations in code, so you use your language's built-in error handling features. Error handling and compensation don't require new concepts, but a few orchestration behaviors are worth knowing about.
 
 [!INCLUDE [functions-nodejs-durable-model-description](../../../includes/functions-nodejs-durable-model-description.md)]
 
+::: zone-end
+
+::: zone pivot="durable-task-sdks"
+
+Apps that use cloud services need to handle failures, and client side retries are an important part of the design. The Durable Task SDKs include support for error handling, retries, and timeouts to help you build robust workflows.
+
+::: zone-end
+
+
 ## Errors in activity functions and sub-orchestrations
+
+::: zone pivot="durable-functions"
 
 In Durable Functions, unhandled exceptions thrown within activity functions or sub-orchestrations are marshaled back to the orchestrator function using standardized exception types.
 
-For example, consider the following orchestrator function that performs a fund transfer between two accounts:
+The following orchestrator function transfers funds between two accounts:
 
-# [C# (InProc)](#tab/csharp-inproc)
-In Durable Functions C# in-process, unhandled exceptions are thrown as [FunctionFailedException](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.functionfailedexception).
+# [C#](#tab/csharp)
 
-The exception message typically identifies which activity functions or sub-orchestrations caused the failure. To access more detailed error information, inspect the `InnerException` property.
-
-```csharp
-[FunctionName("TransferFunds")]
-public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
-{
-    var transferDetails = context.GetInput<TransferOperation>();
-
-    await context.CallActivityAsync("DebitAccount",
-        new
-        {
-            Account = transferDetails.SourceAccount,
-            Amount = transferDetails.Amount
-        });
-
-    try
-    {
-        await context.CallActivityAsync("CreditAccount",
-            new
-            {
-                Account = transferDetails.DestinationAccount,
-                Amount = transferDetails.Amount
-            });
-    }
-    catch (FunctionFailedException)
-    {
-        // Refund the source account.
-        // Another try/catch could be used here based on the needs of the application.
-        await context.CallActivityAsync("CreditAccount",
-            new
-            {
-                Account = transferDetails.SourceAccount,
-                Amount = transferDetails.Amount
-            });
-    }
-}
-```
-
-> [!NOTE]
-> The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
-
-# [C# (Isolated)](#tab/csharp-isolated)
+<details>
+<summary><b>Isolated worker model</b></summary>
 
 In Durable Functions C# Isolated, unhandled exceptions are surfaced as [TaskFailedException](/dotnet/api/microsoft.durabletask.taskfailedexception).
 
@@ -108,9 +81,63 @@ public static async Task Run(
 
 > [!NOTE]  
 > - The exception message typically identifies which activity functions or sub-orchestrations caused the failure. To access more detailed error information, inspect the [`FailureDetails`](/dotnet/api/microsoft.durabletask.taskfailuredetails) property.  
-> - By default, `FailureDetails` includes the **error type**, **error message**, **stack trace**, and any **nested inner exceptions** (each represented as a recursive `FailureDetails` object).  If you want to include additional exception properties in the failure output, see [Include Custom Exception Properties for FailureDetails (.NET Isolated)](#include-custom-exception-properties-for-failuredetails-net-isolated).  
+> - By default, `FailureDetails` includes the **error type**, **error message**, **stack trace**, and any **nested inner exceptions** (each represented as a recursive `FailureDetails` object). To include additional exception properties in the failure output, see [Include Custom Exception Properties for FailureDetails (.NET Isolated)](#include-custom-exception-properties-for-failuredetails-net-isolated).  
 
-# [JavaScript (PM3)](#tab/javascript-v3)
+</details>
+<br>
+<details>
+<summary><b>In-process model</b></summary>
+
+In Durable Functions C# in-process, unhandled exceptions are thrown as [FunctionFailedException](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.functionfailedexception).
+
+The exception message usually includes the activity function or sub-orchestration that failed. For details, inspect `InnerException`.
+
+```csharp
+[FunctionName("TransferFunds")]
+public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    var transferDetails = context.GetInput<TransferOperation>();
+
+    await context.CallActivityAsync("DebitAccount",
+        new
+        {
+            Account = transferDetails.SourceAccount,
+            Amount = transferDetails.Amount
+        });
+
+    try
+    {
+        await context.CallActivityAsync("CreditAccount",
+            new
+            {
+                Account = transferDetails.DestinationAccount,
+                Amount = transferDetails.Amount
+            });
+    }
+    catch (FunctionFailedException)
+    {
+        // Refund the source account.
+        // Another try/catch could be used here based on the needs of the application.
+        await context.CallActivityAsync("CreditAccount",
+            new
+            {
+                Account = transferDetails.SourceAccount,
+                Amount = transferDetails.Amount
+            });
+    }
+}
+```
+
+> [!NOTE]
+> The previous C# examples use Durable Functions 2.x. For Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For version differences, see the [Durable Functions versions](durable-functions-versions.md) article.
+
+</details>
+
+
+# [JavaScript](#tab/javascript)
+
+<details>
+<summary><b>V3 programming model</b></summary>
 
 ```javascript
 const df = require("durable-functions");
@@ -138,7 +165,11 @@ module.exports = df.orchestrator(function* (context) {
     }
 })
 ```
-# [JavaScript (PM4)](#tab/javascript-v4)
+
+</details>
+<br>
+<details>
+<summary><b>V4 programming model</b></summary>
 
 ```javascript
 const df = require("durable-functions");
@@ -167,6 +198,8 @@ df.app.orchestration("transferFunds", function* (context) {
 });
 ```
 
+</details>
+
 # [Python](#tab/python)
 
 ```python
@@ -186,7 +219,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
                 'account': transfer_details['destinationAccount'],
                 'amount': transfer_details['amount'],
             })
-    except:
+    except Exception:
         yield context.call_activity('CreditAccount', {
             'account': transfer_details['sourceAccount'],
             'amount': transfer_details['amount']
@@ -208,12 +241,12 @@ $ErrorActionPreference = "Stop"
 
 $transferDetails = $Context.Input
 
-Invoke-DurableActivity -FunctionName 'DebitAccount' -Input @{ account = transferDetails.sourceAccount; amount = transferDetails.amount }
+Invoke-DurableActivity -FunctionName 'DebitAccount' -Input @{ account = $transferDetails.sourceAccount; amount = $transferDetails.amount }
 
 try {
-    Invoke-DurableActivity -FunctionName 'CreditAccount' -Input @{ account = transferDetails.destinationAccount; amount = transferDetails.amount }
+    Invoke-DurableActivity -FunctionName 'CreditAccount' -Input @{ account = $transferDetails.destinationAccount; amount = $transferDetails.amount }
 } catch {
-    Invoke-DurableActivity -FunctionName 'CreditAccount' -Input @{ account = transferDetails.sourceAccount; amount = transferDetails.amount }
+    Invoke-DurableActivity -FunctionName 'CreditAccount' -Input @{ account = $transferDetails.sourceAccount; amount = $transferDetails.amount }
 }
 ```
 
@@ -246,47 +279,174 @@ public void transferFunds(
 
 If the first **CreditAccount** function call fails, the orchestrator function compensates by crediting the funds back to the source account.
 
-## Errors in entity functions
-Exception handling behavior for entity functions differs based on the Durable Functions hosting model:
+::: zone-end
 
-# [C# (InProc)](#tab/csharp-inproc)
+::: zone pivot="durable-task-sdks"
 
-In Durable Functions using C# in-process, original exception types thrown by entity functions are directly returned to the orchestrator.
+In the Durable Task SDKs, unhandled exceptions thrown within activities or sub-orchestrations are marshaled back to the orchestrator using the `TaskFailedException` type. The exception's `FailureDetails` property provides detailed information about the failure.
+
+# [C#](#tab/csharp)
 
 ```csharp
-[FunctionName("Function1")]
-public static async Task<string> RunOrchestrator(
-    [OrchestrationTrigger] IDurableOrchestrationContext context)
-{
-    try
-    {
-        var entityId = new EntityId(nameof(Counter), "myCounter");
-        await context.CallEntityAsync(entityId, "Add", 1);
-    }
-    catch (Exception ex)
-    {
-        // The exception type will be InvalidOperationException with the message "this is an entity exception".
-    }
-    return string.Empty;
-}
+using Microsoft.DurableTask;
 
-[FunctionName("Counter")]
-public static void Counter([EntityTrigger] IDurableEntityContext ctx)
+[DurableTask(nameof(TransferFundsOrchestration))]
+public class TransferFundsOrchestration : TaskOrchestrator<TransferOperation, string>
 {
-    switch (ctx.OperationName.ToLowerInvariant())
+    public override async Task<string> RunAsync(
+        TaskOrchestrationContext context, TransferOperation transfer)
     {
-        case "add":
-            throw new InvalidOperationException("this is an entity exception");
-        case "get":
-            ctx.Return(ctx.GetState<int>());
-            break;
+        await context.CallActivityAsync(
+            nameof(DebitAccountActivity),
+            new AccountOperation { Account = transfer.SourceAccount, Amount = transfer.Amount });
+
+        try
+        {
+            await context.CallActivityAsync(
+                nameof(CreditAccountActivity),
+                new AccountOperation { Account = transfer.DestinationAccount, Amount = transfer.Amount });
+        }
+        catch (TaskFailedException ex)
+        {
+            // Log the failure details
+            var details = ex.FailureDetails;
+
+            // Compensate by refunding the source account
+            await context.CallActivityAsync(
+                nameof(CreditAccountActivity),
+                new AccountOperation { Account = transfer.SourceAccount, Amount = transfer.Amount });
+
+            return $"Transfer failed: {details.ErrorMessage}. Compensation completed.";
+        }
+
+        return "Transfer completed successfully";
     }
 }
 ```
 
-# [C# (Isolated)](#tab/csharp-isolated)
+# [JavaScript](#tab/javascript)
 
-In Durable Functions C# Isolated, exceptions are surfaced to the orchestrator as an `EntityOperationFailedException`. To access the original exception details, inspect its `FailureDetails` property.
+```typescript
+import { OrchestrationContext, TOrchestrator } from "@microsoft/durabletask-js";
+
+const transferFundsOrchestrator: TOrchestrator = async function* (
+  ctx: OrchestrationContext
+): any {
+  const transfer = ctx.getInput() as {
+    sourceAccount: string;
+    destinationAccount: string;
+    amount: number;
+  };
+
+  yield ctx.callActivity(debitAccount, {
+    account: transfer.sourceAccount,
+    amount: transfer.amount,
+  });
+
+  try {
+    yield ctx.callActivity(creditAccount, {
+      account: transfer.destinationAccount,
+      amount: transfer.amount,
+    });
+  } catch (error) {
+    // Compensate by refunding the source account
+    yield ctx.callActivity(creditAccount, {
+      account: transfer.sourceAccount,
+      amount: transfer.amount,
+    });
+    return `Transfer failed. Compensation completed.`;
+  }
+
+  return "Transfer completed successfully";
+};
+```
+
+# [Python](#tab/python)
+
+```python
+from durabletask import task
+
+def transfer_funds_orchestrator(ctx: task.OrchestrationContext, transfer: dict) -> str:
+    """
+    Orchestrator that demonstrates error handling with compensation.
+    """
+    source_account = transfer.get("source_account")
+    destination_account = transfer.get("destination_account")
+    amount = transfer.get("amount")
+
+    # Debit the source account
+    yield ctx.call_activity("debit_account", input={
+        "account": source_account,
+        "amount": amount
+    })
+
+    try:
+        # Credit the destination account
+        yield ctx.call_activity("credit_account", input={
+            "account": destination_account,
+            "amount": amount
+        })
+    except task.TaskFailedError as ex:
+        # Compensate by refunding the source account
+        yield ctx.call_activity("credit_account", input={
+            "account": source_account,
+            "amount": amount
+        })
+        return f"Transfer failed: {ex}. Compensation completed."
+
+    return "Transfer completed successfully"
+```
+
+# [PowerShell](#tab/powershell)
+
+No PowerShell sample is available. Use the .NET, JavaScript, Java, or Python sample.
+
+# [Java](#tab/java)
+
+```java
+import com.microsoft.durabletask.*;
+
+public TaskOrchestration createTransferOrchestration() {
+    return ctx -> {
+        TransferOperation transfer = ctx.getInput(TransferOperation.class);
+
+        ctx.callActivity("DebitAccount",
+            new AccountOperation(transfer.sourceAccount, transfer.amount)).await();
+
+        try {
+            ctx.callActivity("CreditAccount",
+                new AccountOperation(transfer.destinationAccount, transfer.amount)).await();
+        } catch (TaskFailedException ex) {
+            // Compensate by refunding the source account
+            ctx.callActivity("CreditAccount",
+                new AccountOperation(transfer.sourceAccount, transfer.amount)).await();
+
+            ctx.complete("Transfer failed: " + ex.getMessage() + ". Compensation completed.");
+            return;
+        }
+
+        ctx.complete("Transfer completed successfully");
+    };
+}
+```
+
+---
+
+If the **CreditAccount** activity fails, the orchestrator catches the exception and compensates by crediting the funds back to the source account.
+
+::: zone-end
+
+::: zone pivot="durable-functions"
+
+## Errors in entity functions
+Exception handling in entity functions depends on the Durable Functions hosting model:
+
+# [C#](#tab/csharp)
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+In Durable Functions C# isolated, the runtime wraps entity function exceptions in an `EntityOperationFailedException`. To get the original exception details, inspect the `FailureDetails` property.
 
 ```csharp
 [Function(nameof(MyOrchestrator))]
@@ -306,24 +466,48 @@ public static async Task<List<string>> MyOrchestrator(
     return new List<string>();
 }
 ```
-# [JavaScript (PM3)](#tab/javascript-v3)
 
-```javascript
-df.app.orchestration("counterOrchestration", function* (context) {
-    const entityId = new df.EntityId(counterEntityName, "myCounter");
+</details>
+<br>
+<details>
+<summary><b>In-process model</b></summary>
 
-    try {
-        const currentValue = yield context.df.callEntity(entityId, "get");
-        if (currentValue < 10) {
-            yield context.df.callEntity(entityId, "add", 1);
-        }
-    } catch (err) {
-        context.log(`Entity call failed: ${err.message ?? err}`);
+In Durable Functions with C# in-process, entity functions return their original exception types to the orchestrator.
+
+```csharp
+[FunctionName("Function1")]
+public static async Task<string> RunOrchestrator(
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    try
+    {
+        var entityId = new EntityId(nameof(Counter), "myCounter");
+        await context.CallEntityAsync(entityId, "Add", 1);
     }
-});
+    catch (Exception ex)
+    {
+        // The exception type is InvalidOperationException with the message "this is an entity exception".
+    }
+    return string.Empty;
+}
+
+[FunctionName("Counter")]
+public static void Counter([EntityTrigger] IDurableEntityContext ctx)
+{
+    switch (ctx.OperationName.ToLowerInvariant())
+    {
+        case "add":
+            throw new InvalidOperationException("this is an entity exception");
+        case "get":
+            ctx.Return(ctx.GetState<int>());
+            break;
+    }
+}
 ```
 
-# [JavaScript (PM4)](#tab/javascript-v4)
+</details>
+
+# [JavaScript](#tab/javascript)
 
 ```javascript
 df.app.orchestration("counterOrchestration", function* (context) {
@@ -354,19 +538,45 @@ def run_orchestrator(context):
 ```
 # [PowerShell](#tab/powershell)
 
-Entity functions aren't currently not supported in PowerShell.
+PowerShell doesn't support entity functions.
 
 # [Java](#tab/java)
 
-Entity functions aren't currently not supported in Java.
+Java doesn't support entity functions.
 
 ---
 
+::: zone-end
+
 ## Automatic retry on failure
 
-When you call activity functions or sub-orchestration functions, you can specify an automatic retry policy. The following example attempts to call a function up to three times and waits 5 seconds between each retry:
+::: zone pivot="durable-functions"
 
-# [C# (InProc)](#tab/csharp-inproc)
+When you call activity functions or sub-orchestration functions, specify an automatic retry policy. The following example calls a function up to three times and waits five seconds between retries:
+
+# [C#](#tab/csharp)
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[FunctionName("TimerOrchestratorWithRetry")]
+public static async Task Run([OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    var options = TaskOptions.FromRetryPolicy(new RetryPolicy(
+        maxNumberOfAttempts: 3,
+        firstRetryInterval: TimeSpan.FromSeconds(5)));
+
+    await context.CallActivityAsync("FlakyFunction", options: options);
+
+    // ...
+}
+```
+
+</details>
+<br>
+<details>
+<summary><b>In-process model</b></summary>
 
 ```csharp
 [FunctionName("TimerOrchestratorWithRetry")]
@@ -385,23 +595,12 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 > [!NOTE]
 > The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-# [C# (Isolated)](#tab/csharp-isolated)
+</details>
 
-```csharp
-[FunctionName("TimerOrchestratorWithRetry")]
-public static async Task Run([OrchestrationTrigger] TaskOrchestrationContext context)
-{
-    var options = TaskOptions.FromRetryPolicy(new RetryPolicy(
-        maxNumberOfAttempts: 3,
-        firstRetryInterval: TimeSpan.FromSeconds(5)));
+# [JavaScript](#tab/javascript)
 
-    await context.CallActivityAsync("FlakyFunction", options: options);
-
-    // ...
-}
-```
-
-# [JavaScript (PM3)](#tab/javascript-v3)
+<details>
+<summary><b>V3 programming model</b></summary>
 
 ```javascript
 const df = require("durable-functions");
@@ -419,7 +618,10 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-# [JavaScript (PM4)](#tab/javascript-v4)
+</details>
+<br>
+<details>
+<summary><b>V4 programming model</b></summary>
 
 ```javascript
 const df = require("durable-functions");
@@ -430,11 +632,13 @@ df.app.orchestration("callActivityWithRetry", function* (context) {
 
     const retryOptions = new df.RetryOptions(firstRetryIntervalInMilliseconds, maxNumberOfAttempts);
 
-    yield context.df.callActivityWithRetry("flakyFunction", retryOptions);
+    yield context.df.callActivityWithRetry("FlakyFunction", retryOptions);
 
     // ...
 });
 ```
+
+</details>
 
 # [Python](#tab/python)
 
@@ -475,49 +679,171 @@ public void timerOrchestratorWithRetry(
     final Duration firstRetryInterval = Duration.ofSeconds(5);
     RetryPolicy policy = new RetryPolicy(maxAttempts, firstRetryInterval);
     TaskOptions options = new TaskOptions(policy);
-    ctx.callActivity("FlakeyFunction", options).await();
+    ctx.callActivity("FlakyFunction", options).await();
     // ...
 }
 ```
 
 ---
 
-The activity function call in the previous example takes a parameter for configuring an automatic retry policy. There are several options for customizing the automatic retry policy:
+The activity function call in the previous example uses a parameter to configure an automatic retry policy. Customize the policy with these options:
 
-* **Max number of attempts**: The maximum number of attempts. If set to 1, there will be no retry.
+* **Max number of attempts**: The maximum number of attempts. If set to 1, no retries occur.
 * **First retry interval**: The amount of time to wait before the first retry attempt.
 * **Backoff coefficient**: The coefficient used to determine rate of increase of backoff. Defaults to 1.
-* **Max retry interval**: The maximum amount of time to wait in between retry attempts.
-* **Retry timeout**: The maximum amount of time to spend doing retries. The default behavior is to retry indefinitely.
+* **Max retry interval**: The maximum amount of time to wait between retry attempts.
+* **Retry timeout**: The maximum amount of time to spend retrying. By default, retries continue indefinitely.
+
+::: zone-end
+
+::: zone pivot="durable-task-sdks"
+
+The Durable Task SDKs include alternative scheduling methods that retry failed activities based on a supplied policy. These methods are useful for activities that read data from web services or perform idempotent writes to a database.
+
+# [C#](#tab/csharp)
+
+```csharp
+using Microsoft.DurableTask;
+
+[DurableTask(nameof(OrchestratorWithRetry))]
+public class OrchestratorWithRetry : TaskOrchestrator<string, string>
+{
+    public override async Task<string> RunAsync(
+        TaskOrchestrationContext context, string input)
+    {
+        // Configure retry policy
+        var retryPolicy = new RetryPolicy(
+            maxNumberOfAttempts: 3,
+            firstRetryInterval: TimeSpan.FromSeconds(5),
+            backoffCoefficient: 2.0,
+            maxRetryInterval: TimeSpan.FromMinutes(1),
+            retryTimeout: TimeSpan.FromMinutes(5));
+
+        var options = TaskOptions.FromRetryPolicy(retryPolicy);
+
+        // Call activity with automatic retry
+        string result = await context.CallActivityAsync<string>(
+            nameof(UnreliableActivity), input, options);
+
+        return result;
+    }
+}
+```
+
+# [JavaScript](#tab/javascript)
+
+```typescript
+import {
+  OrchestrationContext,
+  TOrchestrator,
+  RetryPolicy,
+} from "@microsoft/durabletask-js";
+
+const retryPolicyOrchestrator: TOrchestrator = async function* (
+  ctx: OrchestrationContext
+): any {
+  const retryPolicy = new RetryPolicy({
+    maxNumberOfAttempts: 3,
+    firstRetryIntervalInMilliseconds: 5000,
+    backoffCoefficient: 2.0,
+    maxRetryIntervalInMilliseconds: 60000,
+  });
+
+  const result: string = yield ctx.callActivity(
+    unreliableActivity,
+    ctx.getInput(),
+    { retry: retryPolicy }
+  );
+
+  return result;
+};
+```
+
+# [Python](#tab/python)
+
+```python
+from durabletask import task
+from durabletask.task import RetryPolicy
+
+def orchestrator_with_retry(ctx: task.OrchestrationContext, input_data: str) -> str:
+    """
+    Orchestrator that demonstrates automatic retry on activity failure.
+    """
+    # Configure retry policy
+    retry_policy = RetryPolicy(
+        first_retry_interval=5,        # seconds
+        max_number_of_attempts=3,
+        backoff_coefficient=2.0,
+        max_retry_interval=60,         # seconds
+        retry_timeout=300              # seconds
+    )
+
+    # Call activity with automatic retry
+    result = yield ctx.call_activity(
+        "unreliable_activity",
+        input=input_data,
+        retry_policy=retry_policy
+    )
+
+    return result
+```
+
+# [PowerShell](#tab/powershell)
+
+This sample is shown for .NET, JavaScript, Java, and Python.
+
+# [Java](#tab/java)
+
+```java
+import com.microsoft.durabletask.*;
+import java.time.Duration;
+
+public TaskOrchestration createOrchestratorWithRetry() {
+    return ctx -> {
+        String input = ctx.getInput(String.class);
+
+        // Configure retry policy
+        RetryPolicy retryPolicy = new RetryPolicy(
+            3,                              // maxNumberOfAttempts
+            Duration.ofSeconds(5),          // firstRetryInterval
+            2.0,                            // backoffCoefficient
+            Duration.ofMinutes(1),          // maxRetryInterval
+            Duration.ofMinutes(5)           // retryTimeout
+        );
+
+        TaskOptions options = new TaskOptions(retryPolicy);
+
+        // Call activity with automatic retry
+        String result = ctx.callActivity(
+            "UnreliableActivity", input, options, String.class).await();
+
+        ctx.complete(result);
+    };
+}
+```
+
+---
+
+The retry policy options are:
+
+* **Max number of attempts**: The maximum number of retry attempts. If set to 1, no retries occur.
+* **First retry interval**: The amount of time to wait before the first retry attempt.
+* **Backoff coefficient**: The coefficient used to determine rate of increase of backoff. Defaults to 1.
+* **Max retry interval**: The maximum amount of time to wait between retry attempts.
+* **Retry timeout**: The maximum amount of time to spend doing retries.
+
+::: zone-end
+
+::: zone pivot="durable-functions"
 
 ## Custom retry handlers
 
-When using the .NET or Java, you also have the option to implement retry handlers in code. This is useful when declarative retry policies aren't expressive enough. For languages that don't support custom retry handlers, you still have the option of implementing retry policies using loops, exception handling, and timers for injecting delays between retries.
+In .NET and Java, implement retry handlers in code when declarative retry policies aren't expressive enough. In other languages, implement retry logic by using loops, exception handling, and timers to delay between retries.
 
-# [C# (InProc)](#tab/csharp-inproc)
+# [C#](#tab/csharp)
 
-```csharp
-RetryOptions retryOptions = new RetryOptions(
-    firstRetryInterval: TimeSpan.FromSeconds(5),
-    maxNumberOfAttempts: int.MaxValue)
-    {
-        Handle = exception =>
-        {
-            // True to handle and try again, false to not handle and throw.
-            if (exception is TaskFailedException failure)
-            {
-                // Exceptions from TaskActivities are always this type. Inspect the
-                // inner Exception to get more details.
-            }
-
-            return false;
-        };
-    }
-
-await ctx.CallActivityWithRetryAsync("FlakeyActivity", retryOptions, null);
-```
-
-# [C# (Isolated)](#tab/csharp-isolated)
+<details>
+<summary><b>Isolated worker model</b></summary>
 
 ```csharp
 TaskOptions retryOptions = TaskOptions.FromRetryHandler(retryContext =>
@@ -542,21 +868,45 @@ catch (TaskFailedException)
 }
 ```
 
-# [JavaScript (PM3)](#tab/javascript-v3)
+</details>
+<br>
+<details>
+<summary><b>In-process model</b></summary>
 
-JavaScript doesn't currently support custom retry handlers. However, you still have the option of implementing retry logic directly in the orchestrator function using loops, exception handling, and timers for injecting delays between retries.
+```csharp
+RetryOptions retryOptions = new RetryOptions(
+    firstRetryInterval: TimeSpan.FromSeconds(5),
+    maxNumberOfAttempts: int.MaxValue)
+{
+    Handle = exception =>
+    {
+        // Return true to handle and retry, or false to throw.
+        if (exception is TaskFailedException failure)
+        {
+            // Exceptions from task activities are always this type. Inspect the
+            // inner exception for more details.
+        }
 
-# [JavaScript (PM4)](#tab/javascript-v4)
+        return false;
+    }
+};
 
-JavaScript doesn't currently support custom retry handlers. However, you still have the option of implementing retry logic directly in the orchestrator function using loops, exception handling, and timers for injecting delays between retries.
+await ctx.CallActivityWithRetryAsync("FlakeyActivity", retryOptions, null);
+```
+
+</details>
+
+# [JavaScript](#tab/javascript)
+
+JavaScript doesn't support custom retry handlers in Durable Functions. Implement retry logic in the orchestrator function by using loops, exception handling, and timers to delay between retries.
 
 # [Python](#tab/python)
 
-Python doesn't currently support custom retry handlers. However, you still have the option of implementing retry logic directly in the orchestrator function using loops, exception handling, and timers for injecting delays between retries.
+Python doesn't support custom retry handlers. Implement retry logic in the orchestrator function by using loops, exception handling, and timers to delay between retries.
 
 # [PowerShell](#tab/powershell)
 
-PowerShell doesn't currently support custom retry handlers. However, you still have the option of implementing retry logic directly in the orchestrator function using loops, exception handling, and timers for injecting delays between retries.
+PowerShell doesn't support custom retry handlers. Implement retry logic in the orchestrator function by using loops, exception handling, and timers to delay between retries.
 
 # [Java](#tab/java)
 
@@ -581,11 +931,201 @@ try {
 
 ---
 
+::: zone-end
+
+::: zone pivot="durable-task-sdks"
+
+## Custom retry handlers
+
+In .NET and Java, implement retry handlers in code to control retry logic. This approach is useful when declarative retry policies aren't expressive enough.
+
+# [C#](#tab/csharp)
+
+```csharp
+using Microsoft.DurableTask;
+
+[DurableTask(nameof(OrchestratorWithCustomRetry))]
+public class OrchestratorWithCustomRetry : TaskOrchestrator<string, string>
+{
+    public override async Task<string> RunAsync(
+        TaskOrchestrationContext context, string input)
+    {
+        // Custom retry handler with conditional logic
+        TaskOptions retryOptions = TaskOptions.FromRetryHandler(retryContext =>
+        {
+            // Don't retry if it's a validation error
+            if (retryContext.LastFailure.IsCausedBy<ArgumentException>())
+            {
+                return false;
+            }
+
+            // Retry up to 5 times for transient errors
+            return retryContext.LastAttemptNumber < 5;
+        });
+
+        try
+        {
+            return await context.CallActivityAsync<string>(
+                nameof(UnreliableActivity), input, retryOptions);
+        }
+        catch (TaskFailedException)
+        {
+            // All retries exhausted
+            return "Operation failed after all retries";
+        }
+    }
+}
+```
+
+# [JavaScript](#tab/javascript)
+
+```typescript
+import {
+  OrchestrationContext,
+  TOrchestrator,
+} from "@microsoft/durabletask-js";
+import type { RetryHandler, RetryContext } from "@microsoft/durabletask-js";
+
+const customRetryHandlerOrchestrator: TOrchestrator = async function* (
+  ctx: OrchestrationContext
+): any {
+  const maxAttempts = 4;
+
+  const customRetryHandler: RetryHandler = (retryCtx: RetryContext) => {
+    if (retryCtx.lastAttemptNumber >= maxAttempts) {
+      return false; // give up
+    }
+    // Only retry transient errors
+    if (!retryCtx.lastFailure.message?.includes("TransientError")) {
+      return false;
+    }
+    return true; // retry immediately
+  };
+
+  const result: string = yield ctx.callActivity(
+    unreliableActivity,
+    ctx.getInput(),
+    { retry: customRetryHandler }
+  );
+
+  return result;
+};
+```
+
+# [Python](#tab/python)
+
+Custom retry handlers aren't supported in Python. Implement custom retry logic by using loops, exception handling, and timers:
+
+```python
+import datetime
+from durabletask import task
+
+def orchestrator_with_custom_retry(ctx: task.OrchestrationContext, input_data: str) -> str:
+    """
+    Orchestrator that demonstrates custom retry logic.
+    """
+    max_attempts = 5
+    retry_interval_seconds = 5
+
+    for attempt in range(1, max_attempts + 1):
+        try:
+            result = yield ctx.call_activity("unreliable_activity", input=input_data)
+            return result
+        except task.TaskFailedError as ex:
+            if attempt >= max_attempts:
+                return f"Operation failed after {max_attempts} attempts"
+
+            # Wait before retrying
+            next_retry = ctx.current_utc_datetime + datetime.timedelta(seconds=retry_interval_seconds)
+            yield ctx.create_timer(next_retry)
+
+    return "Unexpected error"
+```
+
+# [PowerShell](#tab/powershell)
+
+Custom retry handlers aren't supported in PowerShell. Implement custom retry logic by using loops, exception handling, and timers.
+
+# [Java](#tab/java)
+
+```java
+import com.microsoft.durabletask.*;
+
+public TaskOrchestration createOrchestratorWithCustomRetry() {
+    return ctx -> {
+        String input = ctx.getInput(String.class);
+
+        // Custom retry handler with conditional logic
+        RetryHandler retryHandler = retryContext -> {
+            // Don't retry validation errors
+            if (retryContext.getLastFailure().isCausedBy(IllegalArgumentException.class)) {
+                return false;
+            }
+
+            // Retry up to 5 times for transient errors
+            return retryContext.getLastAttemptNumber() < 5;
+        };
+
+        TaskOptions options = new TaskOptions(retryHandler);
+
+        try {
+            String result = ctx.callActivity("UnreliableActivity", input, options, String.class).await();
+            ctx.complete(result);
+        } catch (TaskFailedException ex) {
+            // All retries exhausted
+            ctx.complete("Operation failed after all retries");
+        }
+    };
+}
+```
+
+---
+
+::: zone-end
+
+::: zone pivot="durable-functions"
+
 ## Function timeouts
 
-You might want to abandon a function call within an orchestrator function if it's taking too long to complete. The proper way to do this today is by creating a [durable timer](durable-functions-timers.md) with an "any" task selector, as in the following example:
+If a function call takes too long, time it out in the orchestrator function. Create a [durable timer](durable-functions-timers.md) with an `any` task selector, as in the following example:
 
-# [C# (InProc)](#tab/csharp-inproc)
+# [C#](#tab/csharp)
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("TimerOrchestrator")]
+public static async Task<bool> Run([OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    TimeSpan timeout = TimeSpan.FromSeconds(30);
+    DateTime deadline = context.CurrentUtcDateTime.Add(timeout);
+
+    using (var cts = new CancellationTokenSource())
+    {
+        Task activityTask = context.CallActivityAsync("FlakyFunction");
+        Task timeoutTask = context.CreateTimer(deadline, cts.Token);
+
+        Task winner = await Task.WhenAny(activityTask, timeoutTask);
+        if (winner == activityTask)
+        {
+            // success case
+            cts.Cancel();
+            return true;
+        }
+        else
+        {
+            // timeout case
+            return false;
+        }
+    }
+}
+```
+
+</details>
+<br>
+<details>
+<summary><b>In-process model</b></summary>
 
 ```csharp
 [FunctionName("TimerOrchestrator")]
@@ -618,37 +1158,12 @@ public static async Task<bool> Run([OrchestrationTrigger] IDurableOrchestrationC
 > [!NOTE]
 > The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-# [C# (Isolated)](#tab/csharp-isolated)
+</details>
 
-```csharp
-[Function("TimerOrchestrator")]
-public static async Task<bool> Run([OrchestrationTrigger] TaskOrchestrationContext context)
-{
-    TimeSpan timeout = TimeSpan.FromSeconds(30);
-    DateTime deadline = context.CurrentUtcDateTime.Add(timeout);
+# [JavaScript](#tab/javascript)
 
-    using (var cts = new CancellationTokenSource())
-    {
-        Task activityTask = context.CallActivityAsync("FlakyFunction");
-        Task timeoutTask = context.CreateTimer(deadline, cts.Token);
-
-        Task winner = await Task.WhenAny(activityTask, timeoutTask);
-        if (winner == activityTask)
-        {
-            // success case
-            cts.Cancel();
-            return true;
-        }
-        else
-        {
-            // timeout case
-            return false;
-        }
-    }
-}
-```
-
-# [JavaScript (PM3)](#tab/javascript-v3)
+<details>
+<summary><b>V3 programming model</b></summary>
 
 ```javascript
 const df = require("durable-functions");
@@ -672,7 +1187,10 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-# [JavaScript (PM4)](#tab/javascript-v4)
+</details>
+<br>
+<details>
+<summary><b>V4 programming model</b></summary>
 
 ```javascript
 const df = require("durable-functions");
@@ -681,7 +1199,7 @@ const { DateTime } = require("luxon");
 df.app.orchestration("timerOrchestrator", function* (context) {
     const deadline = DateTime.fromJSDate(context.df.currentUtcDateTime).plus({ seconds: 30 });
 
-    const activityTask = context.df.callActivity("flakyFunction");
+    const activityTask = context.df.callActivity("FlakyFunction");
     const timeoutTask = context.df.createTimer(deadline.toJSDate());
 
     const winner = yield context.df.Task.any([activityTask, timeoutTask]);
@@ -695,6 +1213,8 @@ df.app.orchestration("timerOrchestrator", function* (context) {
     }
 });
 ```
+
+</details>
 
 # [Python](#tab/python)
 
@@ -726,7 +1246,7 @@ param($Context)
 
 $expiryTime = New-TimeSpan -Seconds 30
 
-$activityTask = Invoke-DurableActivity -FunctionName 'FlakyFunction'-NoWait
+$activityTask = Invoke-DurableActivity -FunctionName 'FlakyFunction' -NoWait
 $timerTask = Start-DurableTimer -Duration $expiryTime -NoWait
 
 $winner = Wait-DurableTask -Task @($activityTask, $timerTask) -NoWait
@@ -746,8 +1266,8 @@ else {
 @FunctionName("TimerOrchestrator")
 public boolean timerOrchestrator(
         @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
-    Task<Void> activityTask = ctx.callActivity("SlowFunction");
-    Task<Void> timeoutTask = ctx.createTimer(Duration.ofMinutes(30));
+    Task<Void> activityTask = ctx.callActivity("FlakyFunction");
+    Task<Void> timeoutTask = ctx.createTimer(Duration.ofSeconds(30));
 
     Task<?> winner = ctx.anyOf(activityTask, timeoutTask).await();
     if (winner == activityTask) {
@@ -763,29 +1283,175 @@ public boolean timerOrchestrator(
 ---
 
 > [!NOTE]
-> This mechanism doesn't actually terminate in-progress activity function execution. Rather, it simply allows the orchestrator function to ignore the result and move on. For more information, see the [Timers](durable-functions-timers.md#usage-for-timeout) documentation.
+> This mechanism doesn't end activity function execution that's already in progress. It lets the orchestrator function ignore the result and move on. For more information, see [Timers](durable-functions-timers.md#usage-for-timeouts).
+
+::: zone-end
+
+::: zone pivot="durable-task-sdks"
+
+## Activity timeouts
+
+If an activity call takes too long, you can stop waiting for it. Create a durable timer and race it against the activity task.
+
+# [C#](#tab/csharp)
+
+```csharp
+using Microsoft.DurableTask;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+
+[DurableTask(nameof(OrchestratorWithTimeout))]
+public class OrchestratorWithTimeout : TaskOrchestrator<string, bool>
+{
+    public override async Task<bool> RunAsync(
+        TaskOrchestrationContext context, string input)
+    {
+        TimeSpan timeout = TimeSpan.FromSeconds(30);
+        DateTime deadline = context.CurrentUtcDateTime.Add(timeout);
+
+        using var cts = new CancellationTokenSource();
+        Task activityTask = context.CallActivityAsync(nameof(SlowActivity), input);
+        Task timeoutTask = context.CreateTimer(deadline, cts.Token);
+
+        Task winner = await Task.WhenAny(activityTask, timeoutTask);
+        if (winner == activityTask)
+        {
+            // Activity completed in time - cancel the timer
+            cts.Cancel();
+            return true;
+        }
+        else
+        {
+            // Timeout occurred
+            return false;
+        }
+    }
+}
+```
+
+# [JavaScript](#tab/javascript)
+
+```typescript
+import {
+  OrchestrationContext,
+  TOrchestrator,
+} from "@microsoft/durabletask-js";
+
+const orchestratorWithTimeout: TOrchestrator = async function* (
+  ctx: OrchestrationContext
+): any {
+  const timeoutSeconds = 30;
+
+  // Start both the activity and a timeout timer
+  const activityTask = ctx.callActivity(slowActivity, ctx.getInput());
+  const timeoutTask = ctx.createTimer(timeoutSeconds);
+
+  // Wait for whichever completes first
+  const winner = yield ctx.whenAny([activityTask, timeoutTask]);
+
+  if (winner === activityTask) {
+    // Activity completed in time
+    return true;
+  } else {
+    // Timeout occurred
+    return false;
+  }
+};
+```
+
+# [Python](#tab/python)
+
+```python
+import datetime
+from durabletask import task
+
+def orchestrator_with_timeout(ctx: task.OrchestrationContext, input_data: str) -> bool:
+    """
+    Orchestrator that demonstrates activity timeout using a timer.
+    """
+    timeout_seconds = 30
+    deadline = ctx.current_utc_datetime + datetime.timedelta(seconds=timeout_seconds)
+
+    # Create both tasks
+    activity_task = ctx.call_activity("slow_activity", input=input_data)
+    timeout_task = ctx.create_timer(deadline)
+
+    # Wait for whichever completes first
+    winner = yield task.when_any([activity_task, timeout_task])
+
+    if winner == activity_task:
+        # Activity completed in time
+        return True
+    else:
+        # Timeout occurred
+        return False
+```
+
+# [PowerShell](#tab/powershell)
+
+This sample is shown for .NET, JavaScript, Java, and Python.
+
+# [Java](#tab/java)
+
+```java
+import com.microsoft.durabletask.*;
+import java.time.Duration;
+
+public TaskOrchestration createOrchestratorWithTimeout() {
+    return ctx -> {
+        String input = ctx.getInput(String.class);
+
+        // Create activity task
+        Task<String> activityTask = ctx.callActivity("SlowActivity", input, String.class);
+
+        // Create timeout timer (30 seconds)
+        Task<Void> timeoutTask = ctx.createTimer(Duration.ofSeconds(30));
+
+        // Wait for whichever completes first
+        Task<?> winner = ctx.anyOf(activityTask, timeoutTask).await();
+
+        if (winner == activityTask) {
+            // Activity completed in time
+            ctx.complete(true);
+        } else {
+            // Timeout occurred
+            ctx.complete(false);
+        }
+    };
+}
+```
+
+---
+
+> [!NOTE]
+> This mechanism doesn't end activity execution that's already in progress. It lets the orchestrator ignore the result and move on. For more information, see the [Timers](durable-functions-timers.md#usage-for-timeouts) documentation.
+
+::: zone-end
+
+::: zone pivot="durable-functions"
 
 ## Unhandled exceptions
 
-If an orchestrator function fails with an unhandled exception, the details of the exception are logged and the instance completes with a `Failed` status.
+If an orchestrator function fails with an unhandled exception, the runtime logs the exception details, and the instance completes with a `Failed` status.
 
-## Include Custom Exception Properties for FailureDetails (.NET Isolated)
+## Include custom exception properties for FailureDetails (.NET Isolated)
 
-When running Durable Task workflows in the .NET Isolated model, task failures are automatically serialized into a FailureDetails object. By default, this object includes standard fields such as:
-- ErrorType — the exception type name
-- Message — the exception message
-- StackTrace — the serialized stack trace
-- InnerFailure – a nested FailureDetails object for recursive inner exceptions
+In Durable Task workflows that use the .NET Isolated model, task failures are serialized to a `FailureDetails` object. By default, the object includes these fields:
+- `ErrorType`—Exception type name
+- `Message`—Exception message
+- `StackTrace`—Serialized stack trace
+- `InnerFailure`—Nested `FailureDetails` object for inner exceptions
 
-Starting with Microsoft.Azure.Functions.Worker.Extensions.DurableTask [v1.9.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.9.0), You can extend this behavior by implementing an IExceptionPropertiesProvider (defined in the Microsoft.DurableTask.Worker starting from [v1.16.1](https://www.nuget.org/packages/Microsoft.DurableTask.Worker/1.16.1)package). This provider defines which exception types and which of their properties should be included in the FailureDetails.Properties dictionary.
+Starting with Microsoft.Azure.Functions.Worker.Extensions.DurableTask [v1.9.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.9.0), you can extend this behavior by implementing `IExceptionPropertiesProvider` (defined in the `Microsoft.DurableTask.Worker` package starting in [v1.16.1](https://www.nuget.org/packages/Microsoft.DurableTask.Worker/1.16.1)). This provider defines which exception types and properties to include in the `FailureDetails.Properties` dictionary.
 
 > [!NOTE]  
-> - This feature is available in **.NET Isolated** only. Support for Java will be added in a future release.  
+> - This feature is available in **.NET Isolated** only. Support for Java isn't available yet.  
 > - Make sure you're using **Microsoft.Azure.Functions.Worker.Extensions.DurableTask v1.9.0** or later.  
 > - Make sure you're using **Microsoft.DurableTask.Worker v1.16.1** or later.
 
-### Implement an Exception Properties Provider
-Implement a custom IExceptionPropertiesProvider to extract and return selected properties for the exceptions you care about. The returned dictionary will be serialized into the Properties field of FailureDetails when a matching exception type is thrown.
+### Implement an exception properties provider
+Implement a custom `IExceptionPropertiesProvider` to extract and return selected properties for the exceptions you care about. The returned dictionary is serialized to the `Properties` field of `FailureDetails` when a matching exception type is thrown.
 
 ```csharp
 using Microsoft.DurableTask.Worker;
@@ -812,8 +1478,8 @@ public class CustomExceptionPropertiesProvider : IExceptionPropertiesProvider
 }
 ```
 
-### Register the Provider
-Register your custom IExceptionPropertiesProvider in your .NET Isolated worker host, typically in Program.cs:
+### Register the provider
+In *Program.cs*, register your custom `IExceptionPropertiesProvider` in your .NET Isolated worker host:
 ```csharp
 using Microsoft.DurableTask.Worker;
 using Microsoft.Extensions.DependencyInjection;
@@ -828,10 +1494,10 @@ var host = new HostBuilder()
 
 host.Run();
 ```
-Once registered, any exception that matches one of the handled types will automatically include the configured properties in its FailureDetails.
+After you register the provider, any exception that matches a handled type automatically includes the configured properties in its `FailureDetails`.
 
-### Sample FailureDetails Output
-When an exception occurs that matches your provider’s configuration, the orchestration receives a serialized FailureDetails structure like this:
+### Sample FailureDetails output
+When an exception occurs that matches your provider’s configuration, the orchestration receives a serialized `FailureDetails` object like this:
 ```json
 {
   "errorType": "TaskFailedException",
@@ -848,10 +1514,33 @@ When an exception occurs that matches your provider’s configuration, the orche
 }
 ```
 
+::: zone-end
+
+::: zone pivot="durable-task-sdks"
+
+## Unhandled exceptions
+
+If an orchestrator fails because of an unhandled exception, the runtime logs the exception details, and the instance completes with a `Failed` status. The `TaskFailedException` has a `FailureDetails` property that includes the error type, message, and stack trace.
+
+::: zone-end
+
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn about eternal orchestrations](durable-functions-eternal-orchestrations.md)
+::: zone pivot="durable-functions"
 
 > [!div class="nextstepaction"]
-> [Learn how to diagnose problems](durable-functions-diagnostics.md)
+> [Eternal orchestrations](durable-functions-eternal-orchestrations.md)
+
+> [!div class="nextstepaction"]
+> [Diagnose problems](durable-functions-diagnostics.md)
+
+::: zone-end
+
+::: zone pivot="durable-task-sdks"
+
+> [!div class="nextstepaction"]
+> [Get started with Durable Task SDKs](durable-task-scheduler/quickstart-portable-durable-task-sdks.md)
+
+- [JavaScript SDK samples on GitHub](https://github.com/microsoft/durabletask-js/tree/main/examples/azure-managed)
+
+::: zone-end

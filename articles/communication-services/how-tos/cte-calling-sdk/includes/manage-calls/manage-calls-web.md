@@ -1,9 +1,9 @@
 ---
-author: xixian73
+author: sundiraman
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 12/02/2021
-ms.author: xixian
+ms.author: sundraman
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 

@@ -6,7 +6,7 @@ metadata:
   ms.author: halkazwini
   ms.service: azure-frontdoor
   ms.topic: faq
-  ms.date: 11/05/2025
+  ms.date: 02/24/2026
 title: Azure Front Door frequently asked questions (FAQ) 
 summary : |
   This article provides answers to the most frequently asked questions about Azure Front Door features and functionality. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
@@ -128,6 +128,10 @@ sections:
         answer:  |
           Yes. For more information, see [Microsoft response to DDoS attacks against HTTP/2](front-door-ddos.md).
       - question: |
+          Can I force traffic from one country/region to use a specific Azure Front Door POP in another country/region?
+        answer:  |
+          No. Azure Front Door can't force client traffic to a specific POP. Requests are routed to the nearest available edge location for performance and reliability. If you need to restrict access by geography, use Azure Web Application Firewall (WAF) custom rules with `GeoMatch` conditions. This approach allows or blocks requests based on client country/region, but it doesn't reroute those clients to a different POP in another country/region. For example, if you block country/region A, requests from clients in country/region A are blocked regardless of which POP would have served them. For more information, see [Geo-filtering in Azure WAF for Azure Front Door](../web-application-firewall/afds/waf-front-door-geo-filtering.md).
+      - question: |
           Does Azure Front Door preserve `x-forwarded-for` headers?
         answer: |
           Azure Front Door supports the X-Forwarded-For, X-Forwarded-Host, and X-Forwarded-Proto headers. These headers help Front Door identify the original client IP and protocol. If X-Forwarded-For is already present, Front Door adds the client socket IP to the end of the list. Otherwise, it creates the header with the client socket IP as the value. For X-Forwarded-Host and X-Forwarded-Proto, Front Door replaces the existing values with its own.
@@ -137,6 +141,21 @@ sections:
           Does Azure Front Door have the capability to load balance or route traffic within a virtual network?
         answer:  |
           To use Azure Front Door Standard, or (classic) tier, you need a public IP or a DNS name that can be resolved publicly. This requirement of a public IP or a DNS name that can be resolved publicly allows Azure Front Door to route traffic to your backend resources. You can use Azure resources like Application Gateways or Azure Load Balancers to route traffic to resources in a virtual network. If you use Front Door Premium tier, you can use Private Link to connect to origins behind an internal load balancer with a private endpoint. For more information, see [Secure origins with Private Link](private-link.md).
+
+      - question: |
+          Can I use Private Link to connect Azure Front Door to Azure Key Vault?
+        answer: |
+          No. For security, Azure Front Door supports only managed identity-based authentication when accessing certificates in Key Vault. For more information, see [Use managed identities in Azure Front Door](managed-identity.md).
+
+      - question: |
+          Does Azure Front Door support managed identity with Azure Event Hubs?
+        answer: |
+          No. Azure Front Door doesn't currently support managed identity integration with Azure Event Hubs.
+
+      - question: |
+          Does Azure Front Door support custom error pages?
+        answer: |
+          No. Azure Front Door doesn't currently support custom error pages.
 
   - name: Deploying Front Door with other services
     questions:
@@ -176,13 +195,13 @@ sections:
   - name: Front Door IP addresses and service tags
     questions:
       - question: |
-          Does the anycast IP of my Front Door remain the same throughout its lifetime?
+          What name resolution and routing method does Azure Front Door use?
         answer:  |
-          The IP address of your Front Door's frontend anycast is fixed and might not change as long as you use the Front Door. However, the fixed IP address of your Front Door's frontend anycast isn't a guarantee. Avoid relying on the IP directly. To stay informed and take appropriate action during any changes to IP addresses, develop automation to regularly fetch the latest IP addresses using [the Service Tag Discovery API or JSON file](../virtual-network/service-tags-overview.md#service-tags-on-premises).
+          Azure Front Door is in the process of switching from Anycast to unicast routing for name resolution and routing the requests to the optimal [PoP](/azure/frontdoor/edge-locations-by-region) location. This switch will happen through March - April 2026. Once the switch is complete, Unicast will replace Anycast for the entire Front Door infrastructure.
       - question: |
-          Does Azure Front Door offer static or dedicated IPs?
+          How does Azure Front Door use unicast routing?
         answer:  |
-          Azure Front Door is a dynamic service that routes traffic to the best available backend. It doesn't offer static or dedicated frontend anycast IPs at this time.
+          A name resolution request for an origin behind Azure Front Door lands on Front Door's Traffic Manager endpoint. Front Door's Traffic Manager profiles consume numerous health and availability signals from the [PoPs](/azure/frontdoor/edge-locations-by-region) worldwide. Based on these signals, the unicast IP address of the optimal Front Door PoP is returned. The request is then made directly to the IP address returned, which follows the Front Door [routing architecture](/azure/frontdoor/front-door-routing-architecture?pivots=front-door-standard-premium) to return the response back to the user or application.
       - question: |
           What are the network service tags that Front Door supports?
         answer:  |
@@ -244,7 +263,7 @@ sections:
       - question: |
            Azure Front Door Privatelink integration is not supported in the region where my origin is located. What do I do?
         answer:  |   
-           Azure Front Door Private Link feature is region agnostic and will work even if you choose a region that is different from the region where your origin is located. In such cases, to ensure lower latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint. We are in the process of enabling support for more regions. Once a new region is supported, you can follow these [instructions](blue-green-deployment.md) to gradually shift traffic to the new region.
+          The Azure Front Door Private Link feature is region agnostic but for the best latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint. If your origin's region isn't supported in the list of regions Front Door Private Link supports, pick the next nearest region. Traffic flows from the client to the Azure Front Door Private Link endpoint in the supported region, then traverses the Microsoft backbone network to your origin, maintaining private connectivity. Be aware that this configuration introduces additional latency due to the extra network hop between regions. You can use [Azure network round-trip latency statistics](../networking/azure-network-latency.md) to determine the additional latency due to choosing the next nearest region.  Once a new region is supported, you can follow these [instructions](blue-green-deployment.md) to gradually shift traffic to the new region.
 
   - name: Performance
     questions:

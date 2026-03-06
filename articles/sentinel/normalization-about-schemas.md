@@ -13,11 +13,13 @@ ms.author: ofshezaf
 
 # Advanced Security Information Model (ASIM) schemas
 
-An Advanced Security Information Model ([ASIM](normalization.md)) schema is a set of fields that represent an activity. Using the fields from a normalized schema in a query ensures that the query will work with every normalized source.
+An Advanced Security Information Model ([ASIM](normalization.md)) schema is a set of fields that represent an activity or entity. Using the fields from a normalized schema in a query ensures that the query will work with every normalized source.
 
 To understand how schemas fit within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
 
-Schema references outline the fields that comprise each schema. ASIM currently defines the following schemas:
+## Activity/Event Schemas
+
+Schema references outline the fields that comprise each schema. ASIM currently defines the following schemas for events:
 
 | Schema | Version | Status |
 | ------ | ------- | ------ |
@@ -33,13 +35,21 @@ Schema references outline the fields that comprise each schema. ASIM currently d
 | [User Management](normalization-schema-user-management.md) | 0.1.2 | GA |
 | [Web Session](normalization-schema-web.md) | 0.2.7 | GA |
 
+## Entity Schemas
+
+ASIM currently defines the following schemas for entities:
+
+| Schema | Version | Status |
+| ------ | ------- | ------ |
+| [Asset Entity](normalization-schema-asset.md) | 0.1.0 | GA |
+
 ## Field naming
 
 At the core of each schema are its field names. Field names belong to the following groups:
 
 - Fields common to all schemas.
 - Fields specific to a schema.
-- Fields that represent entities, such as users, which take part in the schema. Fields that represent entities [are similar across schemas](#entities).
+- Fields that represent entities, such as users, which take part in the schema. Fields that represent entities [are similar across schemas](#event-entities).
 
 When sources have fields that aren't presented in the documented schema, they're normalized to maintain consistency. If the extra fields represent an entity, they'll be normalized based on the entity field guidelines. Otherwise, the schemas strive to keep consistency across all schemas.<br><br> For example, while DNS server activity logs don't provide user information, DNS activity logs from an endpoint might include user information, which can be normalized according to the user entity guidelines.
 
@@ -57,11 +67,11 @@ Fields might have several classes, which define when the fields should be implem
 - **Conditional** fields are mandatory if the field they follow is populated. Conditional fields are typically used to describe the value in another field. For example, the common field [DvcIdType](normalization-common-fields.md#dvcidtype) describes the value int the common field [DvcId](normalization-common-fields.md#dvcid) and is therefore mandatory if the latter is populated.
 - **Alias** is a special type of a conditional field, and is mandatory if the aliased field is populated.
 
-## Entities
+## Event Entities
 
 Events evolve around entities, such as users, hosts, processes, or files. Each entity might require several fields to describe it. For example, a host might have a name and an IP address.
 
-A single record might include multiple entities of the same type, such as both a source and destination host. <br><br>ASIM defines how to describe entities consistently, and entities allow for extending the schemas. <br><br>For example, while the Network Session schema doesn't include process information, some event sources do provide process information that can be added. For more information, see [Entities](#entities). 
+A single record might include multiple entities of the same type, such as both a source and destination host. <br><br>ASIM defines how to describe entities consistently, and entities allow for extending the schemas. <br><br>For example, while the Network Session schema doesn't include process information, some event sources do provide process information that can be added. For more information, see [Entities](#event-entities). 
 
 To enable entity functionality, entity representation has the following guidelines:
 

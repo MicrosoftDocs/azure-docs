@@ -4,7 +4,7 @@ description: Augment the API inventory in your API center by adding information 
 
 ms.service: azure-api-center
 ms.topic: tutorial
-ms.date: 10/20/2025
+ms.date: 02/24/2026
  
 #customer intent: As the owner of an Azure API center, I want a step by step introduction to adding API environments and deployments to my inventory.
 ---
@@ -34,9 +34,9 @@ Use your API center to keep track of your real-world API environments. For examp
 
 Here you add information about a fictitious Azure API Management environment to your API center. If you prefer, add information about one of your existing environments. Configure both your built-in metadata and any custom metadata that you defined in a [previous tutorial](add-metadata-properties.md).
 
-1. Sign in to the [Azure portal](https://portal.azure.com), then navigate to your API center.
+1. Sign in to the [Azure portal](https://portal.azure.com), then go to your API center.
 
-1. In the sidebar menu, under **Assets**, select **Environments** > **+ New environment**.
+1. In the sidebar menu, under **Inventory**, select **Environments** > **+ New environment**.
 
 1. On the **New environment** page, add the following information. If you previously defined the custom *Line of business* metadata or other metadata assigned to environments, you see them at the bottom of the page.
 
@@ -64,13 +64,13 @@ API center can also help you catalog your API deployments, the runtime environme
 
 Here you add a deployment by associating one of your APIs with the environment you created in the previous section. You configure both built-in metadata and any custom metadata that you defined.
 
-1. In the Azure portal, navigate to your API center.
+1. In the Azure portal, go to your API center.
 
-1. In the sidebar menu, under **Assets**, select **APIs**.
+1. In the sidebar menu, under **Inventory**, select **Assets**.
 
 1. Select an API, for example, the *Conference API*.
 
-1. On the **Conference API** page, under **Details**, select **Deployments** > **+ Add deployment**.
+1. On the **Conference API** page, in the sidebar menu, select **Deployments** > **+ Add deployment**.
 
 1. In the **Add deployment** page, add the following information. If you previously defined the custom *Line of business* metadata or other metadata assigned to environments, you can see them at the bottom of the page.
 

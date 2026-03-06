@@ -592,6 +592,6 @@ The job status indicates that the restore job is complete.
 
 ## Related content
 
-- [What is Azure Database for PostgreSQL backup?](backup-azure-database-postgresql-overview.md).
+- [What is Azure Database for PostgreSQL backup?](backup-azure-database-postgresql-overview.md)
 - [Track  backup and restore jobs by using the REST API in Azure Backup](backup-azure-arm-userestapi-managejobs.md).
 - [Manage an Azure Database for PostgreSQL server by using the Azure portal](manage-azure-database-postgresql.md).

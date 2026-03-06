@@ -3,10 +3,14 @@ title: "Production level environment migration overview"
 description: Learn what a high performance computing production-level environment migration entails.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 04/10/2025
+ms.date: 02/19/2026
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+ms.collections:
+  - hpc-migration-content
+  - migration
+  - onprem-to-azure
 # Customer intent: "As an IT administrator, I want to migrate my high-performance computing environment to the cloud, so that I can enhance performance, scalability, and efficiency while managing component dependencies effectively during the deployment process."
 ---
 

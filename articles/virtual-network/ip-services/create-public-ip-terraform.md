@@ -77,7 +77,7 @@ To create an IPv6 address, set the `ip_version` value to **IPv6**.
 :::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip/main.tf" range="35-45":::
 
 >[!NOTE]
->For more information about availability zones, see [What are availability zones?](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+>For more information about availability zones, see [What are availability zones?](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ---
 
@@ -91,7 +91,7 @@ By default, the routing preference for public IP addresses is set to **Microsoft
 
 The selection of **Internet** minimizes travel on Microsoft's network, instead using the transit ISP network to deliver traffic at a cost-optimized rate. 
 
-For more information on routing preference, see [What is routing preference (preview)?](routing-preference-overview.md).
+For more information on routing preference, see [What is routing preference (preview)?](routing-preference-overview.md)
 
 The following code snippet creates a new standard zone-redundant public IPv4 address with a routing preference of type **Internet**:
 

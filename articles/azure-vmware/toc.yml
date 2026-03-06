@@ -111,6 +111,8 @@ items:
       href: native-create-azure-vmware-virtual-network-private-cloud.md
   - name: Architecture
     items:
+    - name: Reliability in Azure VMware Solution
+      href: /azure/reliability/reliability-vmware-solution?pivots=avs-gen1
     - name: Design considerations for Gen 2
       href: native-network-design-consideration.md
   - name: Security

@@ -4,7 +4,7 @@ description: This article explains how the SQL Server HADR Software Assurance be
 author: pri-mittal
 ms.author: primittal
 ms.date: 01/15/2026
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: cost-management-billing
 ms.subservice: ahb
 ms.reviewer: primittal

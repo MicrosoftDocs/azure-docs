@@ -6,6 +6,7 @@ ms.date: 09/12/2025
 author: karengu0
 ms.author: karenguo
 ms.service: azure
+ms.subservice: azure-firmware-analysis
 #Customer intent: As a device builder, I want to understand how firmware analysis can help secure my IoT/OT devices and products.
 ---
 

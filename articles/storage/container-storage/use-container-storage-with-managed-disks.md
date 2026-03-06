@@ -1,18 +1,18 @@
 ---
-title: Use Azure Container Storage (version 1.x.x) with Azure managed disks
-description: Configure Azure Container Storage (version 1.x.x) for use with Azure managed disks. Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
+title: Use Azure Container Storage (version 1.x.x) with Azure Managed Disks
+description: Configure Azure Container Storage (version 1.x.x) for use with Azure Managed Disks. Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
 ms.date: 09/03/2025
 ms.author: kendownie
 ms.custom: references_regions
-# Customer intent: "As a Kubernetes administrator, I want to configure Azure Container Storage (version 1.x.x) with Azure managed disks, so that I can efficiently manage persistent storage for my container workloads."
+# Customer intent: "As a Kubernetes administrator, I want to configure Azure Container Storage (version 1.x.x) with Azure Managed Disks, so that I can efficiently manage persistent storage for my container workloads."
 ---
 
-# Use Azure Container Storage (version 1.x.x) with Azure managed disks
+# Use Azure Container Storage (version 1.x.x) with Azure Managed Disks
 
-Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage (version 1.x.x) to use Azure managed disks as backend storage for your Kubernetes workloads. At the end, you have a pod that's using Azure managed disks as its storage.
+Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage (version 1.x.x) to use Azure Managed Disks as backend storage for your Kubernetes workloads. At the end, you have a pod that's using Azure Managed Disks as its storage.
 
 > [!IMPORTANT]
 > This article covers features and capabilities available in Azure Container Storage (version 1.x.x). [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available and supports local NVMe and Azure Elastic SAN for backing storage.
@@ -21,7 +21,7 @@ Azure Container Storage is a cloud-based volume management, deployment, and orch
 
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 
-- To use Azure Container Storage with Azure managed disks, your AKS cluster must have a node pool of at least three [general purpose VMs](/azure/virtual-machines/sizes-general) such as **standard_d4s_v5** for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
+- To use Azure Container Storage with Azure Managed Disks, your AKS cluster must have a node pool of at least three [general purpose VMs](/azure/virtual-machines/sizes-general) such as **standard_d4s_v5** for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
 
 ## Create and attach persistent volumes
 
@@ -34,7 +34,7 @@ First, create a storage pool, which is a logical grouping of storage for your Ku
 You have the following options for creating a storage pool:
 
 - [Create a dynamic storage pool](#create-a-dynamic-storage-pool)
-- [Create a pre-provisioned storage pool](#create-a-pre-provisioned-storage-pool) using pre-provisioned Azure managed disks
+- [Create a pre-provisioned storage pool](#create-a-pre-provisioned-storage-pool) using pre-provisioned Azure Managed Disks
 - [Create a dynamic storage pool using your own encryption key (optional)](#create-a-dynamic-storage-pool-using-your-own-encryption-key-optional)
 
 If you enabled Azure Container Storage using `az aks create` or `az aks update` commands, you might already have a storage pool. Use `kubectl get sp -n acstor` to get the list of storage pools. If you have a storage pool already available that you want to use, you can skip this step and proceed to [Display the available storage classes](#2-display-the-available-storage-classes).
@@ -64,9 +64,9 @@ Follow these steps to create a dynamic storage pool for Azure Disks.
 
    If you're using UltraSSD_LRS or PremiumV2_LRS disks, you can set IOPS and throughput using the `IOPSReadWrite` and `MBpsReadWrite` parameters in your storage pool definition.
 
-   `IOPSReadWrite` refers to the number of IOPS allowed for Ultra SSD and Premium v2 LRS disks. For more information, see [Ultra Disk IOPS](/azure/virtual-machines/disks-types#ultra-disk-iops) and [Premium SSD v2 IOPS](/azure/virtual-machines/disks-types#premium-ssd-v2-iops).
+   `IOPSReadWrite` refers to the number of IOPS allowed for Ultra Disk and Premium v2 LRS disks. For more information, see [Ultra Disk IOPS](/azure/virtual-machines/disks-types#ultra-disk-iops) and [Premium SSD v2 IOPS](/azure/virtual-machines/disks-types#premium-ssd-v2-iops).
 
-   `MBpsReadWrite` refers to the bandwidth allowed for Ultra SSD and Premium v2 LRS disks. MBps refers to millions of bytes per second (MB/s = 10^6 Bytes per second). For more information, see [Ultra Disk throughput](/azure/virtual-machines/disks-types#ultra-disk-throughput) and [Premium SSD v2 throughput](/azure/virtual-machines/disks-types#premium-ssd-v2-throughput).
+   `MBpsReadWrite` refers to the bandwidth allowed for Ultra Disk and Premium v2 LRS disks. MBps refers to millions of bytes per second (MB/s = 10^6 Bytes per second). For more information, see [Ultra Disk throughput](/azure/virtual-machines/disks-types#ultra-disk-throughput) and [Premium SSD v2 throughput](/azure/virtual-machines/disks-types#premium-ssd-v2-throughput).
 
    ```yml
    apiVersion: containerstorage.azure.com/v1
@@ -107,11 +107,11 @@ When the storage pool is created, Azure Container Storage creates a storage clas
 
 #### Create a pre-provisioned storage pool
 
-If you have Azure managed disks that are already provisioned, you can create a pre-provisioned storage pool using those disks. Because the disks are already provisioned, you don't need to specify the skuName or storage capacity when creating the storage pool.
+If you have Azure Managed Disks that are already provisioned, you can create a pre-provisioned storage pool using those disks. Because the disks are already provisioned, you don't need to specify the skuName or storage capacity when creating the storage pool.
 
 Follow these steps to prepare before creating a pre-provisioned storage pool for Azure Disks. 
 
-1. Pre-provisioned Azure managed disks need to be in the same zone of the system node pool. Follow these steps to check zones of disks and system node pool. 
+1. Pre-provisioned Azure Managed Disks need to be in the same zone of the system node pool. Follow these steps to check zones of disks and system node pool. 
 
    ```bash 
    $ systemNodepoolName=$(az aks nodepool list -g <resourceGroup> --cluster-name <clusterName> --query "[?mode=='System'].name" -o tsv)  
@@ -145,7 +145,7 @@ Follow these steps to create a pre-provisioned storage pool for Azure Disks.
 
 1. Sign in to the Azure portal.
 
-1. For each disk that you want to use, navigate to the Azure managed disk and select **Settings** > **Properties**. Copy the entire string under **Resource ID** and put it in a text file.
+1. For each disk that you want to use, navigate to the Azure Managed Disk and select **Settings** > **Properties**. Copy the entire string under **Resource ID** and put it in a text file.
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool.yaml`.
 

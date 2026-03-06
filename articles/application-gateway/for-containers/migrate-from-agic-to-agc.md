@@ -65,7 +65,7 @@ Here's a summarized list of AGIC annotations and whether Application Gateway for
 | [Private frontend](migrate-from-agic-to-agc.md#private-frontend) | appgw.ingress.kubernetes.io/use-private-ip | Not supported | Not supported |
 | [Web Application Firewall (WAF)](migrate-from-agic-to-agc.md#waf) | appgw.ingress.kubernetes.io/waf-policy-for-path | [Web Application Firewall (WAF)](web-application-firewall.md) | Not supported |
 | [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-hostname | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) |
-| [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-port |  [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) |
+| [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-port | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) |
 | [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-path | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) |
 | [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-status-codes | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) |
 | [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-interval | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) |
@@ -227,6 +227,11 @@ Direct certificate upload and reference to a certificate in Azure Key Vault isn'
 
 Secrets should be stored in [AKS Secret Store](/azure/aks/concepts-security#kubernetes-secrets) and referenced by name.
 
+> [!IMPORTANT]
+> Application Gateway for Containers requires certificates to be local to the AKS cluster and cannot mount them from external volumes. As a result, using [Azure Key Vault with the Secrets Store CSI driver](/azure/aks/csi-secrets-store-driver) is not supported for Application Gateway for Containers certificates.
+>
+> To use certificates from Azure Key Vault, you must first sync them to Kubernetes secrets. Consider using [cert-manager](how-to-cert-manager-lets-encrypt-gateway-api.md) with Let's Encrypt for automated certificate management, or manually import certificates from Key Vault into Kubernetes secrets.
+
 ### Establishing backend certificate chain trust
 
 AGIC annotation
@@ -249,7 +254,7 @@ Application Gateway for Containers allows customers to reference prebuild TLS po
 
 #### Frontend TLS Policy in Gateway API
 
-To use this feature, you must use Gateway API. More details on TLS Policy are found [here](tls-policy.md).
+To use this feature, you must use Gateway API. More details on TLS Policy are found in the [TLS Policy documentation](tls-policy.md).
 
 >[!Note]
 >The Predefined policy names and cipher suites are different from Application Gateway Ingress Controller. Please refer to the [predefined TLS policy table](tls-policy.md#predefined-tls-policy).
@@ -361,7 +366,7 @@ AGIC annotation
 
 Application Gateway for Containers implementation
 
-Request timeouts are nonconfigurable in Application Gateway for Containers. A list of default timeout values are documented [here](application-gateway-for-containers-components.md#request-timeouts).
+Request timeouts are nonconfigurable in Application Gateway for Containers. A list of default timeout values are documented in [default timeout values](application-gateway-for-containers-components.md#request-timeouts).
 
 ### Frontend port override
 

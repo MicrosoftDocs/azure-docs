@@ -6,7 +6,7 @@ author: AbdullahBell
 ms.service: azure-ddos-protection
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.date: 03/17/2025
+ms.date: 01/26/2026
 ms.author: abell
 # Customer intent: As a network administrator, I want to create and configure a DDoS protection plan using Azure CLI, so that I can enhance the security of my virtual networks against DDoS attacks.
 ---
@@ -51,9 +51,11 @@ az network ddos-protection create \
 
 ## Enable DDoS protection for a virtual network
 
-### Enable DDoS protection for a new virtual network
+You can enable DDoS protection when creating a new virtual network or for an existing virtual network. Select the tab for your scenario.
 
-You can enable DDoS protection when creating a virtual network. In this example, we'll name our virtual network _MyVnet_: 
+# [New virtual network](#tab/new-vnet)
+
+In this example, we'll name our virtual network _MyVnet_: 
 
 ```azurecli-interactive
 az network vnet create \
@@ -66,7 +68,7 @@ az network vnet create \
 
 [!INCLUDE [DDoS-Protection-virtual-network-relocate-note.md](../../includes/DDoS-Protection-virtual-network-relocate-note.md)]
 
-### Enable DDoS protection for an existing virtual network
+# [Existing virtual network](#tab/existing-vnet)
 
 When [creating a DDoS protection plan](#create-a-ddos-protection-plan), you can associate one or more virtual networks to the plan. To add more than one virtual network, list the names or IDs, space-separated. In this example, we'll add _MyVnet_:
 
@@ -91,7 +93,9 @@ az network vnet update \
     --ddos-protection true
 ```
 
-### Disable DDoS protection for a virtual network
+---
+
+## Disable DDoS protection for a virtual network
 
 Update a given virtual network to disable DDoS protection:
 

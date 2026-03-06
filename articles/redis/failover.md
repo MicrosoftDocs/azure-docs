@@ -1,7 +1,7 @@
 ---
 title: Failover and patching - Azure Managed Redis
 description: Learn about failover, patching, and the update process for Azure Managed Redis.
-ms.date: 05/18/2025
+ms.date: 02/26/2026
 ms.topic: conceptual
 ms.custom:
   - engagement-fy23
@@ -87,9 +87,13 @@ Maintenance includes these updates:
 - Redis Server updates: Any update or patch of the Redis server binaries.
 - Virtual machine (VM) updates: Any updates of the virtual machine hosting the Redis service. VM updates include patching software components in the hosting environment to upgrading networking components or decommissioning.
 
-### Does maintenance appear in the service health in the Azure portal before a patch?
+### Does maintenance history appear in the Azure portal?
 
-No, maintenance doesn't appear under [service health](/azure/service-health/) in the portal or any other place.
+To learn about maintenance history in the Azure portal, check the Azure [Activity log](/azure/azure-monitor/essentials/activity-log) for your cache instance. The "healthevent" event is emitted when maintenance begins.
+
+:::image type="content" source="media/failover/activity-log-event.png" alt-text="Screenshot of maintenance event in Activity log in the portal.":::
+
+To receive notifications automatically, [set up an alert](/azure/azure-monitor/alerts/alerts-activity-log) on the Activity log.
 
 ### Client network-configuration changes
 

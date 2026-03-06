@@ -168,7 +168,7 @@ To restore a database included in a custom backup:
 1. Follow the steps in [Restore a backup](#restore-a-backup).
 1. In **Advanced options**, select **Include database**.
 
-For troubleshooting information, see [Why is my linked database not backed up?](#why-is-my-linked-database-not-backed-up).
+For troubleshooting information, see [Why is my linked database not backed up?](#why-is-my-linked-database-not-backed-up)
 
 ## Deprecation of linked database backups
 Starting **3/31/2028**, Azure App Service custom backups will **no longer support backing up linked databases**. We recommend using the native backup and restore tools provided by each database service instead.

@@ -62,7 +62,7 @@ The following list of capabilities is supported for scenarios where at least one
 | | Cancel all Media Operations | ❌ | ✔️ |
 | | Start continuous DTMF Recognition from end user | N/A  | ✔️ |
 | | Stream real-time transcript of the call to a WebSocket | N/A | ✔️ |
-| | Mute other VoIP participants (such as other agents) | ✔️ | ✔️ |
+| | Mute other VoIP participants (such as other agents) | ✔️ | ❌ |
 | | Mute other PSTN users | ❌ | ❌ |
 | | [Dial-pad commands](/microsoftteams/audio-conferencing-common-questions#what-in-meeting-dial-pad-commands-are-supported) for PSTN users | ❌ | ❌ |
 | | Place call on hold and take call off hold (1:1 call only) | ✔️ | ❌ |

@@ -1,17 +1,17 @@
 ---
-title: Call AI Agents Sequentially
-description: Learn how to break a complex workflow into sequential subtasks so that different AI agents and models handle each subtask in Azure Logic Apps. In this "prompt chaining" pattern, each agent use output from the previous agent.
+title: Call Agent Loops Sequentially
+description: Break a complex agentic workflow into sequential subtasks so that different AI agents and models handle each subtask in Azure Logic Apps. In this "prompt chaining" pattern, each agent loop uses output from the previous agent loop.
 services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, divswa, krmitta, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 09/17/2025
+ms.date: 02/18/2026
 ms.update-cycle: 180-days
-# Customer intent: As an AI developer, I want to break down a complex workflow into sequential subtasks for AI agents to complete by using a large language model (LLM) and Azure Logic Apps.
+# Customer intent: As an AI developer who works with Azure Logic Apps, I want to break down a complex workflow into sequential subtasks for agent loops to complete by using a large language model (LLM) and Azure Logic Apps.
 ---
 
-# Call AI agents sequentially to complete subtasks in Azure Logic Apps (preview)
+# Call agent loops sequentially to complete subtasks in Azure Logic Apps (preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -20,9 +20,9 @@ ms.update-cycle: 180-days
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-When your workflow needs to handle a complex business process or integration scenario, consider whether you can break the workload into smaller sequential tasks, especially when the output from one task flows to the next task. To improve performance, management, scalability, you can set up multiple AI agents that use large language model (LLM) capabilities to complete each subtask. Each agent or model uses outputs from the previous agent or model. This behavior is known as the [*prompt chaining* pattern](single-versus-multiple-agents.md#prompt-chaining-pattern).
+When your workflow needs to handle a complex business process or integration scenario, consider whether you can break the workload into smaller sequential tasks, especially when the output from one task flows to the next task. To improve performance, management, scalability, you can set up multiple agent loops that use large language model (LLM) capabilities to complete each subtask. Each agent loop or model uses outputs from the previous agent loop or model. This behavior is known as the [*prompt chaining* pattern](single-versus-multiple-agents.md#prompt-chaining-pattern).
 
-This guide describes how to set up sequential AI agents that follow the prompt chaining pattern in your workflow. The example sets up a business report processing chain that transforms raw performance data into a formatted executive summary.
+This guide describes how to set up sequential agent loops that follow the prompt chaining pattern in your workflow. The example sets up a business report processing chain that transforms raw performance data into a formatted executive summary.
 
 The following table lists the inputs, tasks, and outputs:
 
@@ -36,9 +36,9 @@ The following table lists the inputs, tasks, and outputs:
 
 ## Prerequisites
 
-Same requirements as [Create autonomous agent workflows](create-autonomous-agent-workflows.md#prerequisites).
+Same requirements as [Create autonomous agentic workflows](create-autonomous-agent-workflows.md#prerequisites).
 
-The autonomous agent workflow with an empty agent requires that you add a trigger that best matches your scenario. The example in this guide uses the **Request** trigger named **When an HTTP request is received**.
+The autonomous agentic workflow with an empty agent loop requires that you add a trigger that best matches your scenario. The example in this guide uses the **Request** trigger named **When an HTTP request is received**.
 
 If you use the same trigger for this example, in the **Request Body JSON Schema** parameter, enter the following schema:
 
@@ -59,20 +59,20 @@ The following table describes best practices for the prompt chaining pattern:
 
 | Practice | Description |
 |----------|-------------|
-| Keep steps focused | Each agent has a single, clear responsibility. |
+| Keep steps focused | Each agent loop has a single, clear responsibility. |
 | Add validation gates | Implement checks between steps to catch errors early. |
 | Design for recovery | Plan how to handle failures at each step. |
 | Monitor performance | Track execution time and success rates. |
-| Optimize prompts | Refine agent instructions based on results. |
+| Optimize prompts | Refine agent loop instructions based on results. |
 | Test edge cases | Validate behavior with unusual or malformed inputs. |
 
-## Set up the data extraction agent
+## Set up the data extraction agent loop
 
-Follow these steps to set up the default empty agent:
+Follow these steps to set up the default empty agent action:
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. Open your autonomous agent workflow in the designer.
+1. Open your autonomous agentic workflow in the designer.
 
 1. On the designer, select the empty **Agent** action.
 
@@ -97,19 +97,19 @@ Follow these steps to set up the default empty agent:
 
    1. From the options that appear when the cursor appears in an edit box, select the dynamic content list (lightning icon).
 
-      :::image type="content" source="media/set-up-prompt-chain-agent-workflow/open-dynamic-content.png" alt-text="Screenshot shows data extraction agent, user instructions, example text, and selected lightning icon to open dynamic content list." lightbox="media/set-up-prompt-chain-agent-workflow/open-dynamic-content.png":::
+      :::image type="content" source="media/set-up-prompt-chain-agent-workflow/open-dynamic-content.png" alt-text="Screenshot shows data extraction agent loop, user instructions, example text, and selected lightning icon to open dynamic content list." lightbox="media/set-up-prompt-chain-agent-workflow/open-dynamic-content.png":::
 
    1. From the dynamic content list, under **When an HTTP request is received**, select **report**.
 
-      :::image type="content" source="media/set-up-prompt-chain-agent-workflow/select-report.png" alt-text="Screenshot shows data extraction agent, user instructions, and dynamic content list with selected trigger output." lightbox="media/set-up-prompt-chain-agent-workflow/select-report.png":::
+      :::image type="content" source="media/set-up-prompt-chain-agent-workflow/select-report.png" alt-text="Screenshot shows data extraction agent loop, user instructions, and dynamic content list with selected trigger output." lightbox="media/set-up-prompt-chain-agent-workflow/select-report.png":::
 
       When you're done, the **User instructions** box looks like the following example:
 
-      :::image type="content" source="media/set-up-prompt-chain-agent-workflow/data-extraction-user-instructions.png" alt-text="Screenshot shows data extraction agent, user instructions, and resolved trigger output." lightbox="media/set-up-prompt-chain-agent-workflow/data-extraction-user-instructions.png":::
+      :::image type="content" source="media/set-up-prompt-chain-agent-workflow/data-extraction-user-instructions.png" alt-text="Screenshot shows data extraction agent loop, user instructions, and resolved trigger output." lightbox="media/set-up-prompt-chain-agent-workflow/data-extraction-user-instructions.png":::
 
-## Set up the data conversion agent
+## Set up the data conversion agent loop
 
-Follow these steps to set up the next agent, which receives output from the data extraction agent.
+Follow these steps to set up the next agent loop, which receives output from the data extraction agent loop.
 
 1. Under **Data extraction agent**, select the plus sign (**+**), and then select **Add an agent**.
 
@@ -126,7 +126,7 @@ Follow these steps to set up the next agent, which receives output from the data
 
    The completed **Data conversion agent** looks like the following example:
 
-   :::image type="content" source="media/set-up-prompt-chain-agent-workflow/data-conversion-agent.png" alt-text="Screenshot shows the finished data conversion agent." lightbox="media/set-up-prompt-chain-agent-workflow/data-conversion-agent.png":::
+   :::image type="content" source="media/set-up-prompt-chain-agent-workflow/data-conversion-agent.png" alt-text="Screenshot shows the finished data conversion agent loop." lightbox="media/set-up-prompt-chain-agent-workflow/data-conversion-agent.png":::
 
    Optionally, you can select the output from the **Data extraction agent** in the dynamic content list, which creates the correct expression and includes the **`lastAssistantMessage`** output from the **Data extraction agent**.
 
@@ -136,23 +136,23 @@ Follow these steps to set up the next agent, which receives output from the data
 
    1. From the options that appear when the cursor appears in an edit box, select the expression editor this time (function icon).
 
-      :::image type="content" source="media/set-up-prompt-chain-agent-workflow/open-expression-editor.png" alt-text="Screenshot shows data extraction agent, user instructions, example text, and selected function icon to open expression editor." lightbox="media/set-up-prompt-chain-agent-workflow/open-expression-editor.png":::
+      :::image type="content" source="media/set-up-prompt-chain-agent-workflow/open-expression-editor.png" alt-text="Screenshot shows data extraction agent loop, user instructions, example text, and selected function icon to open expression editor." lightbox="media/set-up-prompt-chain-agent-workflow/open-expression-editor.png":::
 
    1. In the expression list, select **Dynamic content**.
 
    1. From the dynamic content list, under **Data extraction agent**, select **Last Assistant Message**, and then select **Add**.
 
-      :::image type="content" source="media/set-up-prompt-chain-agent-workflow/select-last-assistant-message-extraction.png" alt-text="Screenshot shows data conversion agent, user instructions, and dynamic content list with selected extraction agent output." lightbox="media/set-up-prompt-chain-agent-workflow/select-last-assistant-message-extraction.png":::
+      :::image type="content" source="media/set-up-prompt-chain-agent-workflow/select-last-assistant-message-extraction.png" alt-text="Screenshot shows data conversion agent loop, user instructions, and dynamic content list with selected extraction agent output." lightbox="media/set-up-prompt-chain-agent-workflow/select-last-assistant-message-extraction.png":::
 
       When you're done, the **User instructions** box looks like the following example:
 
-      :::image type="content" source="media/set-up-prompt-chain-agent-workflow/data-conversion-user-instructions.png" alt-text="Screenshot shows data conversion agent, user instructions, and resolved extraction agent output." lightbox="media/set-up-prompt-chain-agent-workflow/data-conversion-user-instructions.png":::
+      :::image type="content" source="media/set-up-prompt-chain-agent-workflow/data-conversion-user-instructions.png" alt-text="Screenshot shows data conversion agent loop, user instructions, and resolved extraction agent loop output." lightbox="media/set-up-prompt-chain-agent-workflow/data-conversion-user-instructions.png":::
 
-## Set up the data sorting agent
+## Set up the data sorting agent loop
 
-Follow these steps to set up the next agent, which receives the formatted table from the data conversion agent.
+Follow these steps to set up the next agent loop, which receives the formatted table from the data conversion agent loop.
 
-1. Under **Data conversion agent**, add a new agent.
+1. Under **Data conversion agent**, add a new agent loop.
 
 1. On the designer, select the new empty **Agent** action.
 
@@ -167,7 +167,7 @@ Follow these steps to set up the next agent, which receives the formatted table 
 
    The completed **Data sorting agent** looks like the following example:
 
-   :::image type="content" source="media/set-up-prompt-chain-agent-workflow/data-sorting-agent.png" alt-text="Screenshot shows the finished data sorting agent." lightbox="media/set-up-prompt-chain-agent-workflow/data-sorting-agent.png":::
+   :::image type="content" source="media/set-up-prompt-chain-agent-workflow/data-sorting-agent.png" alt-text="Screenshot shows the finished data sorting agent loop." lightbox="media/set-up-prompt-chain-agent-workflow/data-sorting-agent.png":::
 
    Optionally, you can select the output from the **Data conversion agent** in the dynamic content list, which creates the correct expression and includes the **`lastAssistantMessage`** output from the **Data conversion agent**.
 
@@ -181,11 +181,11 @@ Follow these steps to set up the next agent, which receives the formatted table 
 
    1. From the dynamic content list, under **Data conversion agent**, select **Last Assistant Message**, and then select **Add**.
 
-      :::image type="content" source="media/set-up-prompt-chain-agent-workflow/select-last-assistant-message-conversion.png" alt-text="Screenshot shows data sorting agent, user instructions, and dynamic content list with selected conversion agent output." lightbox="media/set-up-prompt-chain-agent-workflow/select-last-assistant-message-conversion.png":::
+      :::image type="content" source="media/set-up-prompt-chain-agent-workflow/select-last-assistant-message-conversion.png" alt-text="Screenshot shows data sorting agent loop, user instructions, and dynamic content list with selected conversion agent output." lightbox="media/set-up-prompt-chain-agent-workflow/select-last-assistant-message-conversion.png":::
 
       When you're done, the **User instructions** box looks like the following example:
 
-      :::image type="content" source="media/set-up-prompt-chain-agent-workflow/data-sorting-user-instructions.png" alt-text="Screenshot shows data sorting agent, user instructions, and resolved conversion agent output." lightbox="media/set-up-prompt-chain-agent-workflow/data-sorting-user-instructions.png":::
+      :::image type="content" source="media/set-up-prompt-chain-agent-workflow/data-sorting-user-instructions.png" alt-text="Screenshot shows data sorting agent loop, user instructions, and resolved conversion agent loop output." lightbox="media/set-up-prompt-chain-agent-workflow/data-sorting-user-instructions.png":::
 
 ## Set up the Response action
 
@@ -214,7 +214,7 @@ This example started the workflow with the **When an HTTP request is received** 
 
    :::image type="content" source="media/set-up-prompt-chain-agent-workflow/response-action.png" alt-text="Screenshot shows Response action, which returns output from the data sorting agent to the workflow caller." lightbox="media/set-up-prompt-chain-agent-workflow/response-action.png":::
 
-## Test your agent workflow
+## Test your agentic workflow
 
 1. On the designer toolbar, select **Run** **>** **Run with payload**, and provide the following sample input as the "report":
 
@@ -242,7 +242,7 @@ This example started the workflow with the **When an HTTP request is received** 
 
 1. On the **Run history** tab, select the most recent workflow run.
 
-   1. In the **Agent log**, review the responses from each agent for the system instructions that you specified.
+   1. In the **Agent log**, review the responses from each agent loop for the system instructions that you specified.
 
    1. To review the status, inputs, and outputs for each operation, select that operation in the monitoring view window.
 
@@ -250,5 +250,5 @@ This example started the workflow with the **When an HTTP request is received** 
 
 ## Related content
 
-- [Single agent versus multiple agents](single-versus-multiple-agents.md)
-- [Create autonomous agent workflows](create-autonomous-agent-workflows.md)
+- [Single agent loop versus multiple agent loops](single-versus-multiple-agents.md)
+- [Create autonomous agentic workflows](create-autonomous-agent-workflows.md)

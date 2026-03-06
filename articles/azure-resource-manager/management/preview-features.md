@@ -2,7 +2,7 @@
 title: Set up preview features in Azure subscription
 description: Describes how to list, register, or unregister preview features in your Azure subscription for a resource provider.
 ms.topic: how-to
-ms.date: 02/12/2025
+ms.date: 02/27/2026
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 # Customer intent: As an Azure user, I want to use preview features in my subscription so that I can expose a resource provider's preview functionality.
 ---

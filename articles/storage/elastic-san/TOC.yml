@@ -20,6 +20,9 @@ items:
     href: elastic-san-best-practices.md
   - name: Performance
     href: elastic-san-performance.md
+  - name: Performance on Azure VMware Solution
+    href: elastic-san-performance-on-azure-vmware-solutions.md
+    displayname: Performance, Azure VMware Solutions, Azure Elastic SAN
   - name: Clustered applications
     href: elastic-san-shared-volumes.md
   - name: Encryption

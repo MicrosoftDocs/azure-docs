@@ -1,8 +1,8 @@
-﻿---
+---
 title: Understand how Azure Resource Manager throttles requests
 description: Learn how Azure Resource Manager throttles requests when subscription limits are reached and how to respond.
 ms.topic: article
-ms.date: 05/28/2025
+ms.date: 02/27/2026
 ms.custom: devx-track-arm-template
 ---
 

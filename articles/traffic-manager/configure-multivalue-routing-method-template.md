@@ -14,9 +14,9 @@ ms.custom:
 # Customer intent: As a cloud engineer, I want to configure a Multivalue routing method with nested endpoints using an ARM template, so that I can efficiently manage traffic distribution in my Azure environment.
 ---
 
-# Configure the Multivalue routing method using an ARM Template
+# Configure the Multivalue routing method using an ARM template
 
-This article describes how to use an Azure Resource Manager template (ARM Template) to create a nested, Multivalue profile with the min-child feature.
+This article describes how to use an Azure Resource Manager template (ARM template) to create a nested, Multivalue profile with the min-child feature.
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
@@ -69,7 +69,7 @@ To find more templates that are related to Azure Traffic Manager, see [Azure Qui
     The resource group name is the existing resource group that contains the existing profiles.
 
     > [!NOTE]
-    > **existingTMProfileName1**, **existingTMProfileName2**,**TMProfileDNS1**, and **TMProfileDNS2** must match your existing Traffic Manager profiles in order for the template to deploy successfully. If deployment fails, start over with Step 1.
+    > **existingTMProfileName1**, **existingTMProfileName2**, **TMProfileDNS1**, and **TMProfileDNS2** must match your existing Traffic Manager profiles in order for the template to deploy successfully. If deployment fails, start over with Step 1.
 
     It takes a few minutes to deploy the template. When completed, the output is similar to:
 

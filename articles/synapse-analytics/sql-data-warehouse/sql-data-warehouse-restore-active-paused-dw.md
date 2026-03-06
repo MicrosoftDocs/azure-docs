@@ -6,7 +6,7 @@ ms.author: fresantos
 ms.date: 02/10/2025
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - devx-track-azurepowershell
 ---

@@ -62,4 +62,6 @@ The following system error or warning messages appear while trying to reschedule
 - Critical maintenance or fixes for critical security vulnerabilities may have the reschedule option disabled.
 - You can reschedule maintenance up to 24 hours before the start of the maintenance.
 
+- Weekend scheduling is not currently supported through the portal. For urgent or specific weekend requirements, please raise a support request.
+
 - This feature is enabled only for specific maintenance activities. As a result, not all Azure VMware Solution maintenance tasks appear in this section or have the option to reschedule.

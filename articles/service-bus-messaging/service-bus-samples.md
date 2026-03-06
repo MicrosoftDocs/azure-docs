@@ -30,9 +30,9 @@ The Service Bus messaging samples demonstrate key features in [Service Bus messa
 ## Spring samples
 | Package                                           | Samples location                                                                                                                                                          | 
 |---------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
-| `spring-cloud-azure-starter-servicebus-jms`         | [GitHub location](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.3.0/servicebus/spring-cloud-azure-starter-servicebus-jms)         |
-| `spring-cloud-azure-starter-integration-servicebus` | [GitHub location](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.3.0/servicebus/spring-cloud-azure-starter-integration-servicebus) |
-| `spring-cloud-azure-stream-binder-servicebus`       | [GitHub location](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.3.0/servicebus/spring-cloud-azure-stream-binder-servicebus)       |
+| `spring-cloud-azure-starter-servicebus-jms`         | [GitHub location](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/servicebus/spring-cloud-azure-starter-servicebus-jms)         |
+| `spring-cloud-azure-starter-integration-servicebus` | [GitHub location](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/servicebus/spring-cloud-azure-starter-integration-servicebus) |
+| `spring-cloud-azure-stream-binder-servicebus`       | [GitHub location](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/servicebus/spring-cloud-azure-stream-binder-servicebus)       |
 
 ## Python samples
 | Package | Samples location |

@@ -68,7 +68,7 @@ For example, to onboard a model deployed in Microsoft Foundry or another provide
 
 More information:
 
-* [Import an Microsoft Foundry API](azure-ai-foundry-api.md)
+* [Import a Microsoft Foundry API](azure-ai-foundry-api.md)
 * [Import a language model API](openai-compatible-llm-api.md)
 * [Expose a REST API as an MCP server](export-rest-mcp-server.md)
 * [Expose and govern an existing MCP server](expose-existing-mcp-server.md)
@@ -130,7 +130,7 @@ More information:
 
 An AI gateway secures and controls access to your AI APIs. By using the AI gateway, you can:
 
-* Use managed identities to authenticate to Azure AI services, so you don't need API keys for authentication
+* Use managed identities to authenticate to AI services in Azure, so you don't need API keys for authentication
 * Configure OAuth authorization for AI apps and agents to access APIs or MCP servers by using API Management's credential manager
 * Apply policies to automatically moderate LLM prompts by using [Azure AI Content Safety](/azure/ai-services/content-safety/overview)
 
@@ -248,6 +248,7 @@ More information:
 * [AI gateway workshop](https://aka.ms/ai-gateway/workshop)
 * [Azure OpenAI with API Management (Node.js)](https://github.com/Azure-Samples/genai-gateway-apim)
 * [Python sample code](https://github.com/Azure-Samples/openai-apim-lb/blob/main/docs/sample-code.md)
+* [Unified AI gateway design pattern](https://github.com/Azure-Samples/APIM-Unified-AI-Gateway-Sample)
 
 ## Architecture and design
 

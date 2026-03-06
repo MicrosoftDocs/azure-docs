@@ -61,7 +61,7 @@ Public IP addresses can be created with an IPv4 or IPv6 address. You may be give
 >[!Important]
 >On September 30, 2025, Basic SKU public IPs were retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you are currently using Basic SKU public IPs, make sure to upgrade to Standard SKU as soon as possible. For guidance on upgrading, visit [Upgrading a basic public IP address to Standard SKU - Guidance](public-ip-basic-upgrade-guidance.md).
 
-Public IP addresses are created with a SKU of **Standard** or **Basic**. The SKU determines their functionality including allocation method, feature support, and resources they can be associated with.
+Public IP addresses can created with a SKU of **Standard (v1 or v2)** or **Basic**. The SKU determines their functionality including allocation method, feature support, and resources they can be associated with.
 
 Full details are listed in the table below:
 
@@ -70,14 +70,14 @@ Full details are listed in the table below:
 | Allocation method| Static | For IPv4: Dynamic or Static; For IPv6: Dynamic.| 
 | Idle Timeout | Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.|Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.|
 | Security | Secure by default model and be closed to inbound traffic when used as a frontend. Allow traffic with [network security group (NSG)](../../virtual-network/network-security-groups-overview.md#network-security-groups) is required (for example, on the NIC of a virtual machine with a Standard SKU Public IP attached).| Open by default. Network security groups are recommended but optional for restricting inbound or outbound traffic.| 
-| [Availability zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json) | Supported. Standard IPs can be non-zonal, zonal, or zone-redundant. Standard v2 IPs can be zone-redundant. **Zone redundant IPs can only be created in [regions where 3 availability zones](/azure/reliability/availability-zones-region-support) are live.** | Not supported. | 
+| [Availability zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json) | Supported. Standard IPs can be non-zonal, zonal, or zone-redundant. Standard v2 IPs can only be zone-redundant. **Zone redundant IPs can only be created in [regions where 3 availability zones](/azure/reliability/availability-zones-region-support) are live.** | Not supported. | 
 | [Routing preference Internet](routing-preference-overview.md)| Standard: Supported for use with [specific resource types](routing-preference-overview.md#supported-services) for more granular control on how traffic is routed between Azure and the Internet.<br>Standardv2: Not supported| Not supported.| 
 | Global tier | Standard: Supported for use with [cross-region load balancers](../../load-balancer/cross-region-overview.md).<br>Standardv2: Not yet supported| Not supported. |
 
 Virtual machines attached to a backend pool don't need a public IP address to be attached to a public load balancer. But if they do, matching SKUs are required for load balancer and public IP resources. You can't have a mixture of basic SKU resources and standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously. New designs should consider using Standard SKU resources. For more information about a standard load balancer, see [Standard Load Balancer](../../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
->[!Note]
->Standard v2 IPs can only be utilized with the Standard v2 NAT GW at this time.  Standard IPs can't be used with the Standard v2 NAT GW.
+>[!Important]
+>Standard v2 IPs can only be utilized with the Standard v2 NAT GW product at this time. **It cannot be used with any other product or component.**
 
 ## IP address assignment
 
@@ -105,7 +105,9 @@ Static public IP addresses are commonly used in the following scenarios:
 > All formerly Standard non-zonal IPs [are now zone-redundant](https://azure.microsoft.com/blog/azure-public-ips-are-now-zone-redundant-by-default/) in all regions that support availability zones. The means that IPs that show as either "zones 1 2 3" or have no zones are equivalently zone-redundant.
 > 
 
-Standard SKU Public IPs can be created as zonal or zone-redundant in [regions that support availability zones](/azure/reliability/availability-zones-region-support). Basic SKU Public IPs don't have any zones and are created as non-zonal. Once created, a public IP address can't change its availability zone.
+Standard v2 SKU Public IPs are always created as zone-redundant in [regions that support availability zones](/azure/reliability/availability-zones-region-support).
+Standard SKU Public IPs can be created as zonal or zone-redundant in [regions that support availability zones](/azure/reliability/availability-zones-region-support).
+Basic SKU Public IPs don't have any zones and are created as non-zonal. Once created, a public IP address can't change its availability zone.
 
 In regions without availability zones, all public IP addresses are created as non-zonal. Public IP addresses created in a region that is later upgraded to have availability zones will be made zone-redundant once the region is in general availability status with multiple availability zones.
 

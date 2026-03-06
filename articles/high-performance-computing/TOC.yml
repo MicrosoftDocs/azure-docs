@@ -1,72 +1,112 @@
-- name: High-Performance Computing on-premises to cloud lift and shift
+- name: High-Performance Computing on Azure
   href: index.yml
-- name: Get started
+############################
+# SECTION 1: HPC MIGRATION
+############################
+- name: Migrate HPC workloads to Azure
   expanded: true
   items:
-  - name: Overview
-    href: lift-and-shift-overview.md
-- name: Migration guide
-  expanded: true
-  items:
-  - name: Proof-of-concept migration guide
-    href: lift-and-shift-proof-of-concept.md
-  - name: Production-level environment migration guide
-    expanded: true
+
+  - name: Get started
     items:
-    - name: Overview
-      href: lift-and-shift-production-level-overview.md
-    - name: Deployment step 1 - Basic infrastructure
+    - name: Plan your on-premises HPC migration to Azure
+      href: lift-and-shift-overview.md
+
+  - name: Migration guide
+    items:
+    - name: Build a proof-of-concept HPC cluster on Azure
+      href: lift-and-shift-proof-of-concept.md
+
+    - name: Production deployment guide
       items:
       - name: Overview
         href: lift-and-shift-step-1-overview.md
-      - name: Resource group
-        href: lift-and-shift-step-1-resource-group.md
-      - name: Network access
-        href: lift-and-shift-step-1-networking.md
-      - name: Storage
-        href: lift-and-shift-step-1-storage.md
-    - name: Deployment step 2 - Base services
-      items:
-      - name: Overview
-        href: lift-and-shift-step-2-overview.md
-      - name: Job scheduler
-        href: lift-and-shift-step-2-job-scheduler.md
-      - name: Resource orchestrator
-        href: lift-and-shift-step-2-resource-orchestrator.md
-      - name: Identity management
-        href: lift-and-shift-step-2-identity.md
-      - name: Accounting
-        href: lift-and-shift-step-2-accounting.md
-      - name: Monitoring
-        href: lift-and-shift-step-2-monitor.md
-    - name: Deployment step 3 - Storage
-      items:
-      - name: Overview
-        href: lift-and-shift-step-3-overview.md
-      - name: Storage
-        href: lift-and-shift-step-3-storage.md
-      - name: Data migration
-        href: lift-and-shift-step-3-data-migration.md
-    - name: Deployment step 4 - Compute nodes
-      items:
-      - name: Overview
-        href: lift-and-shift-step-4-overview.md
-      - name: VM images
-        href: lift-and-shift-step-4-vm-images.md
-    - name: Deployment step 5 - End user entry point
-      items:
-      - name: Overview
-        href: lift-and-shift-step-5-overview.md
-      - name: End-user entry point
-        href: lift-and-shift-step-5-end-user-entry-point.md
-- name: HPC Performance and Benchmarking
+
+      - name: Set up resource groups, networking, and foundational storage
+        displayName: resource groups, VNet, NSG, Bastion, basic storage
+        items:
+        - name: Resource group configuration
+          href: lift-and-shift-step-1-resource-group.md
+          
+        - name: Network access and security configuration
+          href: lift-and-shift-step-1-networking.md
+          
+        - name: Basic storage account setup
+          href: lift-and-shift-step-1-storage.md
+
+      - name: Configure CycleCloud, schedulers, identity, and monitoring
+        displayName: CycleCloud, Slurm, PBS, LSF, Azure AD, Grafana, cost management
+        items:
+        - name: Resource orchestration with Azure CycleCloud
+          href: lift-and-shift-step-2-resource-orchestrator.md
+          
+        - name: Job scheduler deployment and migration
+          href: lift-and-shift-step-2-job-scheduler.md
+          
+        - name: Identity management and user authentication
+          href: lift-and-shift-step-2-identity.md
+          
+        - name: Monitoring with Azure Monitor and Grafana
+          href: lift-and-shift-step-2-monitor.md
+          
+        - name: Cost accounting and budget tracking
+          href: lift-and-shift-step-2-accounting.md
+
+      - name: Configure HPC storage and migrate data
+        displayName: Lustre, ANF, Azure NetApp Files, Blob, AzCopy, rsync, Data Box
+        items:
+        - name: Choose the right storage for your HPC workload
+          href: /azure/virtual-machines/workload-guidelines-best-practices-storage.md 
+          
+        - name: HPC storage options (Lustre, ANF, Blob, Azure Files)
+          href: lift-and-shift-step-3-storage.md
+          
+        - name: Migrate data to Azure (Data Box, AzCopy, rsync)
+          href: lift-and-shift-step-3-data-migration.md
+
+      - name: Provision HPC and GPU compute nodes
+        displayName: VM SKUs, HPC images, AlmaLinux, Ubuntu, CUDA, InfiniBand
+        items:
+        - name: Compute node selection and quota planning
+          href: lift-and-shift-step-4-overview.md
+          
+        - name: VM image configuration (Azure HPC images)
+          href: lift-and-shift-step-4-vm-images.md
+
+      - name: Enable user access and job submission
+        displayName: VPN, Bastion, VDI, web portal, SSH, remote visualization
+        items:
+        - name: End user entry access
+          href: lift-and-shift-step-5-overview.md
+          
+        - name: User entry access configuration and job submission  
+          href: lift-and-shift-step-5-end-user-entry-point.md
+
+
+###########################################
+# SECTION 2: HPC PERFORMANCE & BENCHMARKING
+###########################################
+- name: HPC and AI performance and benchmarking
   expanded: true
   items:
-  - name: Performance and benchmarking overview
-    href: ./performance-benchmarking/overview.md
-  - name: HPC workload best practices and storage solutions
-    href: ./performance-benchmarking/hpc-storage-options.md    
-  - name: HPC performance and benchmarking applications
-    href: ./performance-benchmarking/high-performance-computing-performance-benchmarking-applications.md
-  - name: Performance optimization for HPC and AI VMs
-    href: ./performance-benchmarking/optimize-performance.md
+
+  - name: HPC and AI benchmarking overview
+    href: performance-benchmarking/overview.md
+
+  - name: Best practices for HPC workloads and storage performance
+    href: performance-benchmarking/hpc-storage-options.md
+
+  - name: HPC and AI benchmarking applications reference
+    href: performance-benchmarking/high-performance-computing-performance-benchmarking-applications.md
+
+  - name: Optimize performance for HPC and AI virtual machines
+    href: performance-benchmarking/optimize-performance.md
+
+  - name: Run your first benchmark using STREAM
+    href: performance-benchmarking/stream-benchmark.md   
+
+- name: AI training
+  items:
+      
+  - name: Choose your platform for AI training and fine-tuning
+    href: performance-benchmarking/platform-selection-best-practices-for-hpc-ai-models.md

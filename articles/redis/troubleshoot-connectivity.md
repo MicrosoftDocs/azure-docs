@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot connectivity in Azure Managed Redis
 description: Learn how to resolve connectivity problems when creating clients with Azure Managed Redis.
-ms.date: 05/18/2025
+ms.date: 02/12/2026
 ms.topic: conceptual
 ms.custom:
   - template-concept
@@ -21,6 +21,7 @@ In this article, we provide troubleshooting help for connecting your client appl
   - [Kubernetes hosted applications](#kubernetes-hosted-applications)
   - [Linux-based client application](#linux-based-client-application)
 - [Continuous connectivity issues](#continuous-connectivity)
+  - [Test connectivity using Azure CLI](#test-connectivity-using-azure-cli)
   - [Test connectivity using _redis-cli_](#test-connectivity-using-redis-cli)
   - [Test connectivity using PSPING](#test-connectivity-using-psping)
   - [Private endpoint configuration](#private-endpoint-configuration)
@@ -49,6 +50,34 @@ Using optimistic TCP settings in Linux might cause client applications to experi
 ## Continuous connectivity
 
 If your application can't connect to your Azure Managed Redis instance, it's possible some configuration on the cache isn't set up correctly. The following sections offer suggestions on how to make sure your cache is configured correctly.
+
+### Test connectivity using Azure CLI
+
+You can use the Azure CLI to quickly test if you can connect to your Redis cluster. The [az redisenterprise test-connection](/cli/azure/redisenterprise#az_redisenterprise_test_connection) command is helpful for debugging connection issues and verifies end-to-end connectivity by sending a `ping` command. 
+
+For prerequisites to use the Azure CLI with Azure Managed Redis, see [Manage an Azure Managed Redis cache using the Azure CLI](scripts/create-manage-cache.md).
+
+
+To test connection with Microsoft Entra ID authentication (the default), run the following command:
+
+```azurecli
+az redisenterprise test-connection --name <cache-name> --resource-group <resource-group-name>
+```
+
+Or explicitly specify Entra authentication:
+
+```azurecli
+az redisenterprise test-connection --name <cache-name> --resource-group <resource-group-name> --auth entra
+```
+
+> [!NOTE]
+> This command uses the credential established through `az login`, which supports user accounts, managed identities, or service principals.
+
+To test connection with access key authentication, run the following command:
+
+```azurecli
+az redisenterprise test-connection --name <cache-name> --resource-group <resource-group-name> --auth accesskey --access-key <access-key-value>
+```
 
 ### Test connectivity using _redis-cli_
 

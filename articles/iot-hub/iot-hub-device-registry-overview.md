@@ -53,3 +53,9 @@ See [IoT Hub preview resource limits](../azure-resource-manager/management/azure
 
 For Azure subscription and service limits for Azure Device Registry in GA, see [Azure Device Registry limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-device-registry-limits).
 
+## Related content
+
+- [FAQ: What is new in Azure IoT Hub?](iot-hub-faq.md)
+- [Get started with ADR and certificate management in IoT Hub](iot-hub-device-registry-setup.md)
+- [What is Microsoft-backed X.509 certificate management?](iot-hub-certificate-management-overview.md)
+- [Key concepts for certificate management](iot-hub-certificate-management-concepts.md)

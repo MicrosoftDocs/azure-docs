@@ -33,7 +33,7 @@ Follow these steps to activate SMTP settings, enable email notifications and con
 
 ### [Portal](#tab/azure-portal)
 
-  1. In the Azure portal, open your Grafana workspace and under **Settings**, select **Configuration**.
+1. In the Azure portal, open your Grafana workspace and under **Settings**, select **Configuration**.
   1. Select the **Email Settings** tab.
          :::image type="content" source="media/smtp-settings/find-settings.png" alt-text="Screenshot of the Azure platform. Selecting the SMTP settings tab.":::
   1. Toggle **SMTP Settings** on, so that **Enable** is displayed.
@@ -53,7 +53,12 @@ Follow these steps to activate SMTP settings, enable email notifications and con
 
        :::image type="content" source="media/smtp-settings/save-updated-settings.png" alt-text="Screenshot of the Azure platform. Email Settings tab with new data.":::
 
-  1. Once the process is complete, the message "Updating the selections. Update successful" is displayed in the Azure **Notifications**. In the **Overview** page, the provisioning state of the workspace turns to **Updating**, and then **Succeeded** once the update is complete.
+> [!NOTE]
+>**Exchange Online** no longer permits Basic Authorization, see [Deprecation of Basic authentication](/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online#what-we-are-changing). Do not use Exchange Online as SMTP relay as you will receive an error message that it failed to send. 
+
+ 
+
+1. Once the process is complete, the message "Updating the selections. Update successful" is displayed in the Azure **Notifications**. In the **Overview** page, the provisioning state of the workspace turns to **Updating**, and then **Succeeded** once the update is complete.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -122,7 +127,7 @@ Follow these steps to activate SMTP settings, enable email notifications and con
 
 Configuring Grafana contact points is done in the Grafana portal:
 
-  1. In your Azure Managed Grafana workspace, in **Overview**, select the **Endpoint** URL.
+1. In your Azure Managed Grafana workspace, in **Overview**, select the **Endpoint** URL.
   1. Go to **Alerting > Contact points**.
   1. Select **New contact point** or **Edit contact point** to update an existing contact point.
 

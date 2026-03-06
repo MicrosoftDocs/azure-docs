@@ -105,6 +105,70 @@ builder.AddAzureAppConfiguration(o =>
     });
 ```
 
+### [Java](#tab/java)
+
+The Audience for the target cloud must be configured for the following packages.
+
+- Azure SDK for Java: azure-data-appconfiguration >= 1.8.0
+- Java configuration provider: spring-cloud-azure-appconfiguration-config >= 5.22.0
+
+In the **Azure SDK for Java**, audience is configured by passing the `audience` option to the `ConfigurationClientBuilder` when building a `ConfigurationClient`.
+
+The following code snippet demonstrates how to instantiate a configuration client with a cloud-specific audience.
+
+```java
+ConfigurationClient configurationClient = new ConfigurationClientBuilder()
+    .endpoint(myStoreEndpoint)
+    .credential(new DefaultAzureCredentialBuilder().build())
+    .audience(ConfigurationAudience.fromString("{Cloud specific audience here}"))
+    .buildClient();
+```
+
+In the **Spring configuration provider**, audience is configured by customizing the `ConfigurationClientBuilder` through the `ConfigurationClientCustomizer` interface, then adding it to the bootstrap registry.
+
+The following code snippet demonstrates how to add the Azure App Configuration provider into a Spring Boot application with a cloud-specific audience.
+
+```java
+import com.azure.data.appconfiguration.ConfigurationClientBuilder;
+import com.azure.data.appconfiguration.models.ConfigurationAudience;
+import com.azure.spring.cloud.appconfiguration.config.ConfigurationClientCustomizer;
+
+public class CustomClient implements ConfigurationClientCustomizer {
+
+    @Override
+    public void customize(ConfigurationClientBuilder builder, String endpoint) {
+        builder.audience(ConfigurationAudience.fromString("{Cloud specific audience here}"));
+    }
+}
+```
+
+Then, register the `CustomClient` in the bootstrap registry.
+
+```java
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import hello.impl.AppConfigClientImpl;
+
+@SpringBootApplication
+@AutoConfiguration
+public class Application {
+
+	public static void main(String[] args) {
+		SpringApplication app = new SpringApplication(Application.class);
+		
+		// Register the ConfigurationClientCustomizer in the bootstrap context
+		app.addBootstrapRegistryInitializer(registry -> {
+			registry.register(CustomClient.class, context -> new CustomClient());
+		});
+		
+		app.run(args);
+	}
+
+}
+```
+
 ### [JavaScript](#tab/javascript)
 
 The Audience for the target cloud must be configured for the following packages.

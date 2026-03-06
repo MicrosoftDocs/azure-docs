@@ -28,52 +28,71 @@ In this section, you learn how to use the Azure portal to disable local authenti
 
       :::image type="content" source="./media/disable-local-authentication/select-disabled.png" alt-text="Screenshot that shows the selection of Disabled option on the Local Authentication page.":::
 
-## Use Resource Manager template to disable local auth
-You can disable local authentication for a Service Bus namespace by setting `disableLocalAuth` property to `true` as shown in the following Azure Resource Manager template.
+## Use a template to disable local auth
+You can disable local authentication for a Service Bus namespace by setting `disableLocalAuth` property to `true` as shown in the following templates.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+@description('Name of the Service Bus namespace')
+param namespaceName string
+
+@description('Location for all resources.')
+param location string = resourceGroup().location
+
+resource serviceBusNamespace 'Microsoft.ServiceBus/namespaces@2024-01-01' = {
+  name: namespaceName
+  location: location
+  sku: {
+    name: 'Standard'
+    tier: 'Standard'
+  }
+  properties: {
+    disableLocalAuth: true
+  }
+}
+```
+
+# [ARM template](#tab/arm)
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "namespace_name": {
-            "defaultValue": "spcontososbusns",
-            "type": "String"
+        "namespaceName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the Service Bus namespace"
+            }
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+                "description": "Location for all resources."
+            }
         }
     },
-    "variables": {},
     "resources": [
         {
             "type": "Microsoft.ServiceBus/namespaces",
-            "apiVersion": "2021-06-01-preview",
-            "name": "[parameters('namespace_name')]",
-            "location": "East US",
+            "apiVersion": "2024-01-01",
+            "name": "[parameters('namespaceName')]",
+            "location": "[parameters('location')]",
             "sku": {
                 "name": "Standard",
                 "tier": "Standard"
             },
             "properties": {
-                "disableLocalAuth": true,
-                "zoneRedundant": false
+                "disableLocalAuth": true
             }
         }
     ]
 }
-``` 
-
-### Parameters.json
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "namespace_name": {
-            "value": null
-        }
-    }
-}
 ```
+
+---
 
 ## Azure policy
 You can assign the [disable local auth](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcfb11c26-f069-4c14-8e36-56c394dae5af) Azure policy to an Azure subscription or a resource group to enforce disabling of local authentication for all Service Bus namespaces in the subscription or the resource group.

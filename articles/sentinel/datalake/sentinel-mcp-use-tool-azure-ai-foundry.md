@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 01/30/2026
 ms.author: pauloliveria
 ms.service: microsoft-sentinel
+ms.subservice: sentinel-platform
 
 #customer intent: As a security analyst, I want to add Sentinel MCP tools in Microsoft Foundry.
 ---

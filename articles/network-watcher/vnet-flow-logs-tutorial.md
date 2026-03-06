@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Log network traffic'
+title: 'Tutorial: Log Network Traffic'
 titleSuffix: Azure Network Watcher
 description: In this tutorial, you learn how to log network traffic flow to and from a virtual network (VNet) using Network Watcher virtual network flow logs.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: tutorial
-ms.date: 08/06/2025
+ms.date: 02/25/2026
 
 # CustomerIntent: As an Azure administrator, I need to log the network traffic to and from a virtual network so I can analyze the data for anomalies.
 ---
@@ -58,6 +58,35 @@ In this section, you create **myVNet** virtual network with one subnet for the v
 
 1. Review the settings, and then select **Create**. 
 
+## Deploy Azure Bastion
+
+Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](../bastion/bastion-overview.md).
+
+> [!NOTE]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
+
+1. In the search box at the top of the portal, enter ***Bastion***. Select **Bastions** from the search results.
+
+1. Select **+ Create**.
+
+1. In the **Basics** tab of **Create a Bastion**, enter or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Project details** |  |
+    | Subscription | Select your Azure subscription. |
+    | Resource group | Select **myResourceGroup**. |
+    | **Instance details** |  |
+    | Name | Enter ***bastion***. |
+    | Region | Select **(US) East US**. |
+    | Tier | Select **Developer**. |
+    | **Configure virtual networks** |  |
+    | Virtual network | Select **myVNet**. |
+
+1. Select **Review + create**.
+
+1. Select **Create**.
+
 ## Create a virtual machine
 
 In this section, you create **myVM** virtual machine.
@@ -94,13 +123,9 @@ In this section, you create **myVM** virtual machine.
     | **Network interface** |  |
     | Virtual network | Select **myVNet**. |
     | Subnet | Select **mySubnet**. |
-    | Public IP | Select **(new) myVM-ip**. |
+    | Public IP | Select **None**. |
     | NIC network security group | Select **Basic**. |
-    | Public inbound ports | Select **Allow selected ports**. |
-    | Select inbound ports | Select **RDP (3389)**. |
-
-    > [!CAUTION]
-    > Leaving the RDP port open to the internet is only recommended for testing. For production environments, it's recommended to restrict access to the RDP port to a specific IP address or range of IP addresses. You can also block internet access to the RDP port and use [Azure Bastion](../bastion/bastion-overview.md) to securely connect to your virtual machine from the Azure portal. 
+    | Public inbound ports | Select **None**. |
 
 1. Select **Review + create**.
 
@@ -108,11 +133,17 @@ In this section, you create **myVM** virtual machine.
 
 1. Once the deployment is complete, select **Go to resource** to go to the **Overview** page of **myVM**.  
 
-1. Select **Connect** then select **RDP**.
+1. Select **Connect** then select **Connect via Bastion**.
 
-1. Select **Download RDP File** and open the downloaded file.
+1. In the **Bastion** connection page, enter or select the following information:
 
-1. Select **Connect** and then enter the username and password that you created in the previous steps. Accept the certificate if prompted.
+    | Setting | Value |
+    | ------- | ----- |
+    | Authentication Type | Select **Password**. |
+    | Username | Enter the username you created. |
+    | Password | Enter the password you created. |
+
+1. Select **Connect**.
 
 ## Register Insights provider
 
@@ -193,7 +224,7 @@ In this section, you create a virtual network flow log that's saved into the sto
 
     :::image type="content" source="./media/vnet-flow-logs-tutorial/flow-logs-list.png" alt-text="Screenshot of Flow logs page in the Azure portal showing the newly created flow log." lightbox="./media/vnet-flow-logs-tutorial/flow-logs-list.png":::
 
-1. Go back to your RDP session with **myVM** virtual machine.
+1. Go back to your Bastion session with **myVM** virtual machine.
 
 1. Open Microsoft Edge and go to `www.bing.com`.
 

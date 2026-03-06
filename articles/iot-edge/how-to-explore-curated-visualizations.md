@@ -3,7 +3,7 @@ title: Explore curated visualizations in Azure IoT Edge
 description: Use Azure workbooks to visualize and explore IoT Edge built-in metrics
 author: sethmanheim
 ms.author: sethm
-ms.date: 05/08/2025
+ms.date: 03/03/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -13,35 +13,33 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-Visually explore metrics collected from IoT Edge devices using Azure Monitor workbooks. Curated monitoring workbooks for IoT Edge devices are available as public templates:
+You can visually explore metrics collected from IoT Edge devices by using Azure Monitor workbooks. Curated monitoring workbooks for IoT Edge devices are available as public templates:
 
-* For devices connected to IoT Hub, from the **IoT Hub** page in the Azure portal, navigate to the **Workbooks** page in the **Monitoring** section.
-* For devices connected to IoT Central, from the **IoT Central** page in the Azure portal, navigate to the **Workbooks** page in the **Monitoring** section.
+* For devices connected to IoT Hub, from the **IoT Hub** page in the Azure portal, go to the **Workbooks** page in the **Monitoring** section.
+* For devices connected to IoT Central, from the **IoT Central** page in the Azure portal, go to the **Workbooks** page in the **Monitoring** section.
 
-Curated workbooks use [built-in metrics](how-to-access-built-in-metrics.md) from IoT Edge runtime. Metrics must first be [ingested](how-to-collect-and-transport-metrics.md) into a Log Analytics workspace. These views don't require metrics instrumentation from workload modules.
+Curated workbooks use [built-in metrics](how-to-access-built-in-metrics.md) from the IoT Edge runtime. You must first [ingest](how-to-collect-and-transport-metrics.md) metrics into a Log Analytics workspace. These views don't require metrics instrumentation from workload modules.
 
 ## Access curated workbooks
 
-Azure Monitor workbooks for IoT are templates that let you visualize device metrics. You can customize them to fit your solution.
+Azure Monitor workbooks for IoT are templates that you use to visualize device metrics. You can customize them to fit your solution.
 
 Follow these steps to access the curated workbooks:
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and go to your IoT Hub or IoT Central application.
-
 1. Select **Workbooks** from the **Monitoring** section of the menu.
-
 1. Choose a workbook to explore from the list of public templates:
 
-  * **Fleet View**: Monitor your fleet of devices across multiple IoT Hubs or Central Apps, and drill into specific devices for a health snapshot.
+   * **Fleet View**: Monitor your fleet of devices across multiple IoT Hubs or Central Apps, and drill into specific devices for a health snapshot.
 
-  * **Device Details**: Visualize device details around messaging, modules, and host components on an IoT Edge device.
+   * **Device Details**: Visualize device details around messaging, modules, and host components on an IoT Edge device.
 
-  * **Alerts**: View triggered [alerts](how-to-create-alerts.md) for devices across multiple IoT resources.
+   * **Alerts**: View triggered [alerts](how-to-create-alerts.md) for devices across multiple IoT resources.
 
-See the following sections for a preview of the data and visualizations each workbook offers.
+For a preview of the data and visualizations each workbook offers, see the following sections.
 
->[!NOTE]
-> The screen captures that follow may not reflect the latest workbook design.
+> [!NOTE]
+> The screen captures that follow might not reflect the latest workbook design.
 
 ## Fleet view workbook
 
@@ -63,7 +61,7 @@ The device details workbook has three views:
 
 Switch between views by selecting the tabs at the top of the workbook.
 
-The device details workbook also integrates with the IoT Edge portal-based troubleshooting experience. You can pull **Live logs** from your device using this feature. Access this experience by selecting the **Troubleshoot \<device name> live** button above the workbook.
+The device details workbook also integrates with the IoT Edge portal-based troubleshooting experience. You can pull **Live logs** from your device by using this feature. Access this experience by selecting the **Troubleshoot \<device name\> live** button above the workbook.
 
 # [Messaging](#tab/messaging)
 
@@ -92,11 +90,11 @@ The **Modules** view shows metrics collected from the edgeAgent module, which re
 
 :::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-explore-host-details.gif" alt-text="The host section of the device details workbook." lightbox="./media/how-to-explore-curated-visualizations/how-to-explore-host-details.gif":::
 
-The **Host** view shows metrics from the edgeAgent module. It includes information like:
+The **Host** view shows metrics from the **edgeAgent** module. It includes information like:
 
 * Host component version information
 * Uptime
-* CPU, memory, and disk space use at the host-level
+* CPU, memory, and disk space use at the host level
 
 # [Live logs](#tab/livelogs)
 
@@ -116,12 +114,11 @@ Select a severity row to view alert details. The **Alert rule** link opens the a
 
 ## Customize workbooks
 
-[Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview) are customizable. You can edit the public templates to suit your requirements. All the visualizations are driven by resource-centric [Kusto Query Language](/azure/data-explorer/kusto/query/) queries on the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table. 
+You can customize [Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview). Edit the public templates to suit your requirements. All the visualizations come from resource-centric [Kusto Query Language](/azure/data-explorer/kusto/query/) queries on the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table. 
 
 To customize a workbook, enter editing mode. Select the **Edit** button in the workbook's menu bar. Curated workbooks use workbook groups extensively. You might need to select **Edit** on several nested groups to view a visualization query.
 
 Save your changes as a new workbook. You can [share](/azure/azure-monitor/visualize/workbooks-overview#access-control) the saved workbook with your team or [deploy them programmatically](/azure/azure-monitor/visualize/workbooks-automate) as part of your organization's resource deployments.
-
 
 ## Next steps
 

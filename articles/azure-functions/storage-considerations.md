@@ -224,7 +224,7 @@ You can use the following command to mount an existing share to your Linux funct
 
 In this command, `share-name` is the name of the existing Azure Files share. `custom-id` can be any string that uniquely defines the share when mounted to the function app. Also, `mount-path` is the path from which the share is accessed in your function app. `mount-path` must be in the format `/dir-name`, and it can't start with `/home`.
 
-For a complete example, see [Create a Python function app and mount an Azure Files share](scripts/functions-cli-mount-files-storage-linux.md). 
+For a complete example, see [Create a Python function app and mount an Azure Files share](https://github.com/Azure-Samples/azure-cli-samples/tree/master/azure-functions/functions-cli-mount-files-storage-linux). 
 
 # [Azure PowerShell](#tab/azure-powershell)
 
