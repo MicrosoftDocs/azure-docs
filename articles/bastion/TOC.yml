@@ -33,6 +33,8 @@
     items:
     - name: Configure Kerberos authentication
       href: kerberos-authentication-portal.md
+    - name: Configure Microsoft Entra ID authentication
+      href: bastion-entra-id-authentication.md
     - name: Connect to a virtual machine
       items:
       - name: Windows VM

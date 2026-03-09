@@ -1,12 +1,12 @@
 ---
-title: Tutorial - Publish versions of an API using Azure API Management 
+title: "Tutorial: Publish Multiple Versions of your API" 
 description: Learn how to publish multiple API versions in API Management.
 author: dlepow
 
 ms.service: azure-api-management
 ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
-ms.date: 03/26/2025
+ms.date: 03/04/2026
 ms.author: danlep
 
 #customer intent: As a developer, I want to publish multiple versions of an API so that all callers to the API don't need to use the same version.
@@ -18,7 +18,7 @@ ms.author: danlep
 
 There are situations where it's impractical for all API consumers to use the same version. When consumers are ready to upgrade to a newer version, they prefer a simple and understandable approach. As demonstrated in this tutorial, Azure API Management supports exposing multiple API versions to meet this need.
 
-For background, see [Versions](api-management-versions.md) and [Revisions](api-management-revisions.md).
+For background information, see [Versions](api-management-versions.md) and [Revisions](api-management-revisions.md).
 
 [!INCLUDE [api-management-workspace-try-it](../../includes/api-management-workspace-try-it.md)]
 
@@ -34,17 +34,19 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-+ Learn  [Azure API Management terminology](api-management-terminology.md).
++ Learn [Azure API Management terminology](api-management-terminology.md).
 + Complete the quickstart [Create an Azure API Management instance](get-started-create-service-instance.md).
 + Complete the tutorial [Import and publish your first API](import-and-publish.md).
 
 ## Add a new version
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. In the left menu, in the **APIs** section, select **APIs**.
+
+1. Under **APIs** in the sidebar menu, select **APIs**.
+
 1. Locate **Swagger Petstore - OpenAPI 3.0** in the API list. Select the ellipsis (**...**) next to **Swagger Petstore - OpenAPI 3.0** and then select **Add version**. You'll add values to the resulting window in the next section.
 
-:::image type="content" source="media/api-management-get-started-publish-versions/add-version-menu.png" alt-text="Screenshot showing the steps for adding a version." lightbox="media/api-management-get-started-publish-versions/add-version-menu.png":::
+    :::image type="content" source="media/api-management-get-started-publish-versions/add-version-menu.png" alt-text="Screenshot showing the steps to add a version." lightbox="media/api-management-get-started-publish-versions/add-version-menu.png":::
 
 > [!TIP]
 > You can also enable versions when you create a new API. On the **Add API** screen, select **Version this API?**.
@@ -82,13 +84,18 @@ For callers to see the new version, it must be added to a *product*. If you didn
 To add the version to a product:
 
 1. In the Azure portal, navigate to your API Management instance.
-1. Under **APIs** in the left pane, select **Products**. 
-1. Select the product, and then select **APIs** in the left pane. 
-1. Select **+ Add**. 
-1. Select the API.
-1. Click **Select**. 
 
-:::image type="content" source="media/api-management-get-started-publish-versions/08-add-multiple-versions-03-add-version-product.png" alt-text="Screenshot that shows the APIs - Product window." lightbox="media/api-management-get-started-publish-versions/08-add-multiple-versions-03-add-version-product.png":::
+1. Under **APIs** in the sidebar menu, select **Products**. 
+
+1. Select the product, and then select **APIs**. 
+
+1. Select **+ Add**. 
+
+1. Select the API.
+
+1. Choose **Select**. 
+
+    :::image type="content" source="media/api-management-get-started-publish-versions/08-add-multiple-versions-03-add-version-product.png" alt-text="Screenshot that shows the APIs Product window." lightbox="media/api-management-get-started-publish-versions/08-add-multiple-versions-03-add-version-product.png":::
 
 ## Use version sets
 
@@ -102,7 +109,7 @@ To see all your version sets, run the [az apim api versionset list](/cli/azure/a
 
 ```azurecli
 az apim api versionset list --resource-group <resource-group-name> \
-    --service-name <API-Management-service-name> --output table
+    --service-name <API-management-service-name> --output table
 ```
 
 When the Azure portal creates a version set for you, it assigns an alphanumeric name, which appears in the **Name** column of the list. Use this name in other Azure CLI commands.
@@ -111,7 +118,7 @@ To see details about a version set, run the [az apim api versionset show](/cli/a
 
 ```azurecli
 az apim api versionset show --resource-group <resource-group-name> \
-    --service-name <API-Management-service-name> --version-set-id <ID from the Name column>
+    --service-name <API-management-service-name> --version-set-id <ID-from-the-name-column>
 ```
 
 For more information about version sets, see [Versions in Azure API Management](api-management-versions.md#how-versions-are-represented).
@@ -121,14 +128,16 @@ For more information about version sets, see [Versions in Azure API Management](
 If you use the [developer portal](api-management-howto-developer-portal-customize.md), you can see API versions there.
 
 1. Select **Developer portal** at the top of the window.
+
 1. Select **APIs**, and then select **Swagger Petstore**.
+
 1. You should see a dropdown that lists multiple versions next to the API name.
+
 1. Select **v1**.
+
 1. Notice the **Request URL** of the first operation in the list. It shows that the API URL path includes **v1**.
 
 ## Next step
 
-Go to the next tutorial:
-
 > [!div class="nextstepaction"]
-> [Customize the style of the Developer portal pages](api-management-howto-developer-portal-customize.md)
+> [Access and customize the developer portal](api-management-howto-developer-portal-customize.md)

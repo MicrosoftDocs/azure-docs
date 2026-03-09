@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 06/06/2023
 ---
 
-[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples/pnp-device-sample)
+[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples)
 
 [!INCLUDE [iot-authentication-device-connection-string](iot-authentication-device-connection-string.md)]
 

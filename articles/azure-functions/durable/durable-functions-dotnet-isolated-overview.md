@@ -56,32 +56,18 @@ public static class MyFunctions
 #### Class-based example
 
 ```csharp
-[DurableTask(nameof(MyActivity))]
-public class MyActivity : TaskActivity<string, string>
+[Function(nameof(MyOrchestration))]
+public static async Task<string> MyOrchestration(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
 {
-    private readonly ILogger logger;
-
-    public MyActivity(ILogger<MyActivity> logger) // activities have access to DI.
-    {
-        this.logger = logger;
-    }
-
-    public async override Task<string> RunAsync(TaskActivityContext context, string input)
-    {
-        // implementation
-    }
+    string input = context.GetInput<string>()!;
+    return await context.CallActivityAsync<string>(nameof(MyActivity), input);
 }
 
-[DurableTask(nameof(MyOrchestration))]
-public class MyOrchestration : TaskOrchestrator<string, string>
+[Function(nameof(MyActivity))]
+public static string MyActivity([ActivityTrigger] string input)
 {
-    public async override Task<string> RunAsync(TaskOrchestrationContext context, string input)
-    {
-        ILogger logger = context.CreateReplaySafeLogger<MyOrchestration>(); // orchestrations do NOT have access to DI.
-
-        // An extension method was generated for directly invoking "MyActivity".
-        return await context.CallMyActivityAsync(input);
-    }
+    return $"Processed: {input}";
 }
 ```
 

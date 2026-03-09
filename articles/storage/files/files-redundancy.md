@@ -23,22 +23,6 @@ Azure classic file shares created with the Microsoft.Storage resource provider a
 
 When you create a storage account, you choose a redundancy setting for the storage account that's shared for all storage services exposed by that account. Therefore, all file shares deployed in the same storage account have the same redundancy setting. You might want to isolate file shares in separate storage accounts if they have different redundancy requirements.
 
-## Applies to
-| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
-|-|-|-|-|:-:|:-:|
-| Microsoft.Storage | Provisioned v2 | SSD (premium) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v2 | SSD (premium) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-
 ## Redundancy in the primary region
 
 Data in an Azure storage account is always replicated three times in the primary region. Azure Files offers two options for how your data is replicated in the primary region:
@@ -208,11 +192,9 @@ You can verify region supportability for various billing models using the follow
 
 To view region supportability based on different billing models, use Azure PowerShell or Azure CLI.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```powershell
-Powershell: 
-
 # Login
 Connect-AzAccount
 # (Optional but recommended if you have multiple subs)
@@ -220,8 +202,8 @@ Connect-AzAccount
 
 $subscriptionID = "your-subscription-id-number"
 
-# Get token (now SecureString by default)
-$secureToken = (Get-AzAccessToken).Token  # SecureString now [1](/powershell/module/az.accounts/get-azaccesstoken?view=azps-15.3.0)
+# Get token (output is now SecureString by default, see https://learn.microsoft.com/powershell/module/az.accounts/get-azaccesstoken)
+$secureToken = (Get-AzAccessToken).Token  # SecureString now
 
 # Convert SecureString -> plaintext (Az 14 migration pattern)
 $ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secureToken)
@@ -242,11 +224,11 @@ $filteredResult = $result | `
     Select-Object -ExpandProperty value | `
     Where-Object {
         $_.resourceType -eq "storageAccounts" -and
-        # Filter based on your needs. FileStorage kind includes pv2, and pv1 file share, where StorageV2 kind include PayGO file shares.
+        # Filter based on your needs. FileStorage account kind includes Pv2 and Pv1 file share, where StorageV2 kind includes PayGO file shares.
         $_.kind -in @("FileStorage", "StorageV2") -and
-        # Filter based on your needs. "Standard_" for PayGO file share, "StandardV2_" for Pv2 file share, "Premium_" for pv1 file shares.
+        # Filter based on your needs. "Standard_" for PayGO file share, "StandardV2_" for Pv2 file share, "Premium_" for Pv1 file shares.
         # $_.name.StartsWith("StandardV2_") -and
-        # Change region based on your need to see if we currently support the region (all small cases, no space in between).
+        # Change region based on your need to see if the region is currently supported (all lowercase, no space in between).
         # $_.locations -eq "italynorth" -and
         $_.name -notin @("Standard_RAGRS", "Standard_RAGZRS")
     }

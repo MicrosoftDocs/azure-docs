@@ -10,7 +10,7 @@
   - name: Instance size flexibility
     href: instance-size-flexibility.md
   - name: VM instance size flexibility (Virtual Machines)
-    href: instance-size-flexibility.md#virtual-machine-example
+    href: /azure/virtual-machines/reserved-vm-instance-size-flexibility?toc=/azure/cost-management-billing/reservations/toc.json
   - name: Reservation recommendations
     href: reserved-instance-purchase-recommendations.md
   - name: How discount is applied
