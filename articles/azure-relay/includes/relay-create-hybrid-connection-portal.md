@@ -2,7 +2,7 @@
 author: spelluru
 ms.service: azure-relay
 ms.topic: include
-ms.date: 01/04/2024
+ms.date: 01/24/2026
 ms.author: spelluru
 ---
 On the **Relay** page for your namespace, follow these steps to create a hybrid connection.

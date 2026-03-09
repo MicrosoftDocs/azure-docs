@@ -9,8 +9,9 @@ ms.custom:
   - ai-gen-docs-bap
   - ai-gen-description
   - ai-seo-date:04/18/2025
+  - ai-usage: ai-assisted
 ms.topic: how-to
-ms.date: 08/14/2025
+ms.date: 02/11/2026
 
 #customer intent: As a Dev Center admin or project admin, I want to create image definition files so that my development teams can create customized dev boxes.
 ---
@@ -172,45 +173,26 @@ Once you have an image definition file that you want to use, upload it to a cata
 
 Projects help you manage Dev Box resources efficiently. You can assign each developer team its own project to organize resources effectively. Create multiple image definitions in your catalog repository, each in its own folder to target different developer teams under your project.
 
-### Enable project-level catalogs
+### Enable project-level catalogs and sync settings
 
-Enable project-level catalogs at the dev center level before you add a catalog to a project.
-To enable project-level catalogs at the dev center level:
+Before you can use image definitions from a catalog, you must enable project-level catalogs at the dev center level and configure sync settings for image definitions.
 
-1. In the [Azure portal](https://portal.azure.com/), go to your dev center.
-1. In the left menu, under **Settings**, select **Dev center settings**.
-1. Under **Project level catalogs**, select **Enable catalogs per project**, and then select **Apply**.
-
-   
-   :::image type="content" source="media/how-to-configure-team-customizations/dev-center-settings-project-catalog.png" alt-text="Screenshot of the Dev center settings page with the Project level catalogs pane open and the Enable catalogs per project option selected.":::
-
-For more information about how to add catalogs to projects, see [Add and configure a catalog from GitHub or Azure Repos](./how-to-configure-catalog.md).
-
-### Configure catalog sync settings for the project
-
-Set up your project to sync image definitions from the catalog. This setting lets you use the image definitions in the catalog to create dev box pools.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the search box, enter *projects*. From the list of results, select **Projects**.
-1. Open the Dev Box project where you want to set up catalog sync settings.
-1. Select **Catalogs**.
-1. Select **Sync settings**.
-   
-   :::image type="content" source="./media/how-to-configure-team-customizations/customizations-project-sync-settings-small.png" alt-text="Screenshot of the Catalogs pane in the Azure portal, with the button for sync settings highlighted.":::
- 
-1. On the **Sync settings** pane, select **Image definitions**, then select **Save**.
-  
-   :::image type="content" source="./media/how-to-configure-team-customizations/customizations-project-sync-image-definitions.png" alt-text="Screenshot of the sync settings pane in the Azure portal, with the checkbox for image definitions highlighted.":::   
+For detailed steps, see [Configure project-level catalogs](./how-to-configure-catalog.md#configure-project-level-catalogs).   
 
 ### Attach the catalog that contains the image definition file
 
-To use an image definition file, attach the catalog containing the file to your project. This makes the image definition available for selection when configuring your dev box pools.
+To use an image definition file, attach the catalog containing the file to your project. For detailed steps on attaching catalogs using GitHub or Azure Repos, see [Add a catalog](./how-to-configure-catalog.md#add-a-catalog).
 
-The **Image definitions** pane shows the image definitions your project can use.
+After you attach the catalog, verify the image definitions synced successfully:
+
+> [!NOTE]
+> Image definitions are only supported at the project level. You must attach catalogs containing image definitions to a project, not to a dev center.
+
+1. In the Azure portal, navigate to your project.
+1. In the left menu, select **Manage** > **Image definitions**.
+1. Verify your image definitions appear in the list.
 
 :::image type="content" source="media/how-to-configure-team-customizations/team-customizations-image-definitions-small.png" alt-text="Screenshot of the Azure portal pane showing image definitions available for a project.":::
-
-To learn how to attach catalogs, see [Add and configure a catalog from GitHub or Azure Repos](./how-to-configure-catalog.md).
 
 ## Configure a dev box pool to use an image definition
 
@@ -241,11 +223,38 @@ Follow these steps to create a dev box pool and specify an image definition:
 1. Select **Create**.
 1. Check that the new dev box pool appears in the list. You might need to refresh the screen.
 
-## Create a dev box using the developer portal
+## Create a dev box and verify customizations
 
-To check that customizations from the image definition file are applied, create a dev box in the Dev Box developer portal. Follow the steps in [Quickstart: Create and connect to a dev box by using the Dev Box developer portal](quickstart-create-dev-box.md). Then connect to the new dev box and check that the customizations work as you expect.
+To verify that customizations from the image definition file are applied correctly, create a dev box and check the results.
 
-Make changes to the image definition file and create a new dev box to test them. When you're sure the customizations are correct, build a reusable image.
+### Create a dev box in the developer portal
+
+1. Sign in to the [Microsoft Dev Box developer portal](https://aka.ms/devbox-portal).
+
+1. Select **New** > **New dev box**.
+
+1. In **Add a dev box**, enter the following values:
+
+   | Setting | Value |
+   |---|---|
+   | **Name** | Enter a name for your dev box. Dev box names must be unique within a project. |
+   | **Project** | Select the project that contains your customized pool. |
+   | **Dev box pool** | Select the pool that uses your image definition. Choose a pool near you for the lowest latency. |
+   | **Apply customizations** | Leave this checkbox cleared. Team customizations are applied automatically from the pool's image definition. |
+
+1. Select **Create** to begin creating your dev box.
+
+1. Track the progress on the dev box tile in the developer portal. Dev box creation can take 25 minutes or longer.
+
+### Verify customizations are applied
+
+Dev Box applies customizations as the final stage of creation. You receive an email when the dev box is ready.
+
+1. In the developer portal, on the dev box tile, select **Actions** > **Customizations**.
+
+1. On the **Customization details** pane, confirm the customizations that were applied to the dev box.
+
+If the customizations aren't applied as expected, make changes to your image definition file and create a new dev box to test them. When the customizations are correct, [build a reusable image](how-to-configure-dev-center-imaging.md) to optimize dev box creation time.
 
 [!INCLUDE [customizations-modular-scripts](includes/customizations-modular-scripts.md)]
 

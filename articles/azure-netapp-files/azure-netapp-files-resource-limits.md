@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 11/11/2025
+ms.date: 01/29/2026
 ms.author: anfdocs
 # Customer intent: As an IT administrator managing Azure NetApp Files, I want to understand the resource limits and how to request limit increases, so that I can effectively plan and allocate storage resources for my organization’s needs.
 ---
@@ -15,7 +15,11 @@ Understanding resource limits for Azure NetApp Files helps you manage your volum
 
 ## Resource limits
 
-The following table describes resource limits for Azure NetApp Files:
+Resources limits differ depending on the service level you are using. Ensure you are reviewing limits for the correct service level. 
+
+# [Flexible, Standard, Premium, Ultra](#tab/regular)
+
+The following table describes resource limits for the Flexible, Standard, Premium, and Ultra service levels of Azure NetApp Files:
 
 |  Resource  |  Default limit  |  Adjustable via support request  |
 |----------------|---------------------|--------------------------------------|
@@ -63,7 +67,26 @@ The following table describes resource limits for Azure NetApp Files:
 
 For more information, see [Capacity management FAQs](faq-capacity-management.md).
 
-For limits and constraints related to Azure NetApp Files network features, see [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#considerations).
+# [Elastic](#tab/elastic)
+
+The following table describes resource limits for the Elastic zone-redundant service level of Azure NetApp Files:
+
+| Resource | Default limit | Adjustable via support request? |
+| ---- | -- | - |
+| Maximum number of Elastic NetApp accounts per subscription | 10 | Yes | 
+| Number of Elastic capacity pools per subscription  | 5 | Yes | 
+| Number of volumes per capacity pool | 50 | No |
+| Minimum size of a capacity pool | 1 TiB | No | 
+| Maximum size of a capacity pool | 128 TiB | No | 
+| Minimum size of a volume | 1 GiB | No | 
+| Maximum size of a volume | 16 TiB | No |
+| Maximum number of snapshots per volume | 255 | No | 
+| Maximum number of export policy rules per volume | 5 | No | 
+| Maximum number of quota rules per volume | 1,000| No | 
+
+<!-- maxfiles -->
+<!-- file, throughput, regional capacity per subscription, number of IPs / VNet, backups per day, backups, snapshots, |  # of CRR/CZR DP volumes, # volumes per subscription --> 
+---
 
 ## Request limit increase
 

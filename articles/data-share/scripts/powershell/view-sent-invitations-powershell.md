@@ -1,11 +1,11 @@
 ---
 title: "PowerShell script: List Azure Data Share invitations sent to a consumer"
 description: Learn how this PowerShell script gets invitations sent to a consumer and see an example of the script that you can use.
-author: sidontha
-ms.author: sidontha
+author: chvukosw
+ms.author: chvukosw
 ms.service: azure-data-share
 ms.topic: article
-ms.date: 02/12/2025
+ms.date: 01/23/2026
 ---
 
 # Use PowerShell to get a data share invitation

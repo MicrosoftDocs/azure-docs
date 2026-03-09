@@ -7,7 +7,7 @@ services: azure-communication-services
 
 ms.author: mkhribech
 ms.date: 06/21/2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
@@ -29,11 +29,11 @@ To access telemetry for Azure Communication Services Voice & Video resources, fo
 
 To access your logs, go to the storage account you designated in Step 3 above by navigating to [Storage Accounts](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts) in the Azure portal. 
 
-:::image type="content" source="media\call-logs-images\call-logs-access-storage.png" alt-text="Azure Portal Storage":::
+:::image type="content" source="media\call-logs-images\call-logs-access-storage.png" alt-text="Azure portal Storage":::
 
 From there, you can download all logs or individual logs.
 
-:::image type="content" source="media\call-logs-images\call-logs-access-storage-resource.png" alt-text="Azure Portal Storage Download":::
+:::image type="content" source="media\call-logs-images\call-logs-access-storage-resource.png" alt-text="Azure portal Storage Download":::
 
 ## Next steps
 

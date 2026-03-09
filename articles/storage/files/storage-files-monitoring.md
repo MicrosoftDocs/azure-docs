@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Files using Azure Monitor
 description: Learn how to monitor Azure Files and analyze metrics and logs using Azure Monitor. 
-ms.date: 05/10/2024
+ms.date: 02/03/2026
 ms.custom: horz-monitor
 ms.topic: concept-article
 author: khdownie
@@ -15,11 +15,22 @@ ms.service: azure-file-storage
 [!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
 ## Applies to
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Management model  | Billing model  | Media tier     | Redundancy     |                 SMB                 |                 NFS                 |
+| ----------------- | -------------- | -------------- | -------------- | :---------------------------------: | :---------------------------------: |
+| Microsoft.FileShares | Provisioned v2 | SSD (premium)  | Local (LRS)    | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.FileShares | Provisioned v2 | SSD (premium)  | Zone (ZRS)     | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | SSD (premium)  | Local (LRS)    |  ![Yes](../media/icons/yes-icon.png)  | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v2 | SSD (premium)  | Zone (ZRS)     |  ![Yes](../media/icons/yes-icon.png)  | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS)    | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS)     | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS)      | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage | Provisioned v1 | SSD (premium)  | Local (LRS)    | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium)  | Zone (ZRS)     | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Pay-as-you-go  | HDD (standard) | Local (LRS)    | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage | Pay-as-you-go  | HDD (standard) | Zone (ZRS)     | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage | Pay-as-you-go  | HDD (standard) | Geo (GRS)      | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage | Pay-as-you-go  | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
 
 >[!IMPORTANT]
 >Metrics and logs in Azure Monitor support only Azure Resource Manager storage accounts. Azure Monitor doesn't support classic storage accounts. If you want to use metrics or logs on a classic storage account, you need to migrate to an Azure Resource Manager storage account. For more information, see [Migrate to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-overview).
@@ -93,6 +104,23 @@ Log entries are created only if there are requests made against the service endp
 
 Requests made by the Azure Files service itself, such as log creation or deletion, aren't logged. 
 
+#### Configure Azure Files monitoring data collection
+
+Azure Files integrates with Azure Monitor, but metrics and logs aren't sent to a Log Analytics workspace by default. To query Azure Files telemetry using Kusto Query Language (KQL), you must first configure diagnostic settings on the storage account.
+
+Follow these steps to create a diagnostic setting and send Azure Files logs and metrics to an existing Log Analytics workspace. If you don't already have a Log Analytics workspace in your Azure subscription, you'll need to [create one](/azure/azure-monitor/logs/quick-create-workspace) first.
+
+1. Sign into the Azure portal and navigate to your storage account.
+1. From the service menu, under **Monitoring**, select **Diagnostic settings**.
+1. Select the **file** resource, then select **+ Add diagnostic setting**.
+1. Provide a name for the new diagnostic setting.
+1. Select the relevant Azure Files log and metrics categories.
+1. Under **Destination details**, select **Send to Log Analytics workspace**.
+1. Select a subscription and Log Analytics workspace.
+1. Select **Save** from the top menu.
+
+Once enabled, Azure Files logs and metrics will begin flowing into the selected workspace, and you can query them using KQL.
+
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
 Here are some queries that you can enter in the **Log search** bar to help you monitor your Azure file shares. These queries work with the [new language](/azure/azure-monitor/logs/log-query-overview).
@@ -146,11 +174,11 @@ The following table lists common and recommended alert rules for Azure Files and
 
 | Alert type | Condition | Description |
 |-|-|-|
-|Metric | File share is throttled. | Transactions<br>Dimension name: Response type <br>Dimension name: FileShare (premium file share only) |
-|Metric | File share size is 80% of capacity. | File Capacity<br>Dimension name: FileShare (premium file share only) |
-|Metric | File share egress exceeds 500 GiB in one day. | Egress<br>Dimension name: FileShare (premium file share only) |
+|Metric | File share is throttled. | Transactions<br>Dimension name: Response type <br>Dimension name: FileShare (not available for pay-as-you-go file shares) |
+|Metric | File share size is 80% of capacity. | File Capacity<br>Dimension name: FileShare (not available for pay-as-you-go file shares) |
+|Metric | File share egress exceeds 500 GiB in one day. | Egress<br>Dimension name: FileShare (not available for pay-as-you-go file shares) |
 |Metric | High server latency. | Success Server Latency<br>Dimension name: API Name, for example Read and Write API|
-|Metric | File share availability is less than 99.9%. | Availability<br>Dimension name: FileShare (premium file share only) |
+|Metric | File share availability is less than 99.9%. | Availability<br>Dimension name: FileShare (not available for pay-as-you-go file shares) |
 
 For instructions on how to create alerts on throttling, capacity, egress, and high server latency, see [Create monitoring alerts for Azure Files](files-monitoring-alerts.md).
 

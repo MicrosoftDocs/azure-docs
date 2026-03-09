@@ -1,16 +1,16 @@
 ### YamlMime:Landing
 
-title: Azure Durable Functions documentation # <60 chars
-summary: Durable Functions is an extension of Azure Functions that lets you write stateful functions in a serverless compute environment. # < 160 chars
+title: Durable Task documentation # <60 chars
+summary: Durable Task automatically handles retries, state persistence, and crash recovery so you can focus on your business logic. # < 160 chars
 
 metadata:
-  title: Azure Durable Functions documentation
-  description: Durable Functions is an extension of Azure Functions that lets you write stateful functions in a serverless compute environment.
-  ms.service: azure-functions 
+  title: Durable Task documentation
+  description: Durable Task is Microsoft's technology for building workflows and orchestrations as ordinary code that automatically survives failures. Instead of managing complex retry logic, state machines, or message queues, you express your business logic as straightforward functions - Durable Task handles state persistence, automatic recovery, and distributed coordination for you. Workflows can run for hours, days, or even months, reliably resuming from the last completed step after any crash, restart, or redeployment. Common use cases include distributed transactions, multi-agent AI orchestration, data processing pipelines, and infrastructure management. Durable Task encompasses the **[Durable Task SDKs](./choose-orchestration-framework.md)** for self-hosted applications, **[Durable Functions](durable-functions-overview.md)** for serverless hosting on Azure Functions, and the **[Durable Task Scheduler](./durable-task-scheduler/durable-task-scheduler.md)** - a fully managed backend service purpose-built for durable workloads.
+  ms.service: azure-functions
   ms.topic: landing-page
-  author: ggailey777 
-  ms.author: glenga 
-  ms.date: 10/04/2019 
+  author: hhunter-ms 
+  ms.author: hannahhunter 
+  ms.date: 12/02/2025 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -18,22 +18,24 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About Durable Functions
+  - title: About Durable Task
     linkLists:
       - linkListType: overview
         links:
-          - text: What are Durable Functions?
+          - text: What is Durable Task?
+            url: what-is-durable-task.md
+          - text: Durable Functions overview
             url: durable-functions-overview.md
-          - text: Compare serverless options
-            url: ../functions-compare-logic-apps-ms-flow-webjobs.md  
-          - text: Usage scenarios
-            url: ../functions-scenarios.md#build-a-serverless-workflow
+          - text: Durable Task SDKs overview
+            url: ./durable-task-scheduler/durable-task-overview.md
       - linkListType: concept
         links:
-          - text: Durable function types
-            url: durable-functions-types-features-overview.md
-          - text: Durable Functions storage providers
-            url: durable-functions-storage-providers.md
+          - text: Choose your hosting model
+            url: choose-orchestration-framework.md
+          - text: Programming model
+            url: programming-model-overview.md
+          - text: Durable Task Scheduler storage provider
+            url: ./durable-task-scheduler/durable-task-scheduler.md
 
   # Card (optional)
   - title: Get started
@@ -42,14 +44,12 @@ landingContent:
         links:
           - text: Create a Durable Functions app (C#)
             url: durable-functions-isolated-create-first-csharp.md
-          - text: Create a Durable Functions app (JavaScript)
-            url: quickstart-js-vscode.md
-          - text: Create a Durable Functions app (Python)
-            url: quickstart-python-vscode.md
-      - linkListType: learn
-        links:
-          - text: Create a long-running serverless workflow
-            url: /training/modules/create-long-running-serverless-workflow-with-durable-functions/
+          - text: Create an app with the Durable Task SDKs
+            url: ./durable-task-scheduler/quickstart-durable-task-scheduler.md
+          - text: Create a portable app with the Durable Task SDKs
+            url: ./durable-task-scheduler/quickstart-portable-durable-task-sdks.md
+          - text: Create a Container Apps app with the Durable Task SDKs
+            url: ./durable-task-scheduler/quickstart-container-apps-durable-task-sdk.md
         
   # Card
   - title: Application patterns
@@ -61,10 +61,10 @@ landingContent:
           - text: Async HTTP APIs
             url: durable-functions-isolated-create-first-csharp.md
           - text: Fan-out/fan-in
-            url: durable-functions-cloud-backup.md
+            url: durable-functions-fan-in-fan-out.md
           - text: Monitors
             url: durable-functions-monitor.md
           - text: Human interaction
-            url: durable-functions-phone-verification.md
+            url: durable-functions-human-interaction.md
           - text: Aggregator
             url: durable-functions-entities.md

@@ -2,7 +2,7 @@
 title: Overview of security features
 description: Learn about security capabilities in Azure Backup that help you protect your backup data and meet the security needs of your business.
 ms.topic: overview
-ms.date: 02/24/2025
+ms.date: 01/30/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a security manager, I want to understand the security features of Azure Backup, so that I can ensure our backup data is protected against unauthorized access and comply with industry regulations.
@@ -105,7 +105,7 @@ Security levels for Azure Backup vaults are categorized as follows:
 
 - **Poor (Bad/None)**: This indicates a deficiency in security measures, which is less suitable for data protection. In this level, neither advanced protective features nor solely reversible capabilities are in place. The None level security gives protection primarily from accidental deletions only.
 
-You can [view and manage the security levels across all datasources in their respective vaults through Azure Business Continuity Center](../business-continuity-center/security-levels-concept.md).
+You can [view and manage the security levels across all datasources in their respective vaults through Resiliency](../resiliency/security-levels-concept.md).
 
 ## Compliance with standardized security requirements
 

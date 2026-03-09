@@ -56,7 +56,7 @@ In this section, you create a virtual network by using the following values:
 
 [!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-After you create your virtual network, you can optionally configure Azure DDoS Protection. Azure DDoS Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes. For more information about Azure DDoS Protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md).
+After you create your virtual network, you can optionally configure Azure DDoS Protection. Azure DDoS Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes. For more information about Azure DDoS Protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md)
 
 ## Create a gateway subnet
 

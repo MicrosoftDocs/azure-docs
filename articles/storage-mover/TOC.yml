@@ -14,6 +14,8 @@ items:
     href: resource-hierarchy.md
   - name: Migration costs
     href: billing.md
+  - name: Migrate data using private connections
+    href: migrations-requiring-private-connections.md
 - name: How-To
   items: 
   - name: Plan
@@ -24,6 +26,8 @@ items:
       href: service-prerequisites.md
     - name: Network prerequisites
       href: network-prerequisites.md
+    - name: Planning your Private Networking for cloud to cloud migrations
+      href: cloud-to-cloud-private-network-configs.md
     - name: Performance targets
       href: performance-targets.md
   - name: Deploy and execute
@@ -32,6 +36,8 @@ items:
       href: storage-mover-create.md
     - name: Migrate from Amazon S3 to Azure
       href: cloud-to-cloud-migration.md
+    - name: Transfer from Azure Blob to Blob
+      href: azure-to-azure-migration.md
     - name: Deploy a storage mover agent
       href: agent-deploy.md
     - name: Register an agent

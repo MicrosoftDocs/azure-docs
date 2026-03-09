@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Text Analytics with Azure AI services'
+title: 'Tutorial: Text Analytics with Foundry Tools'
 description: Learn how to use text analytics in Azure Synapse Analytics.
 ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/19/2024
 author: ruixinxu
 ms.author: ruxu
-# customer intent: As a Synapse Analytics user, I want to be able to analyze my text using Azure AI services.
+# customer intent: As a Synapse Analytics user, I want to be able to analyze my text using Foundry Tools.
 ---
 
-# Tutorial: Text Analytics with Azure AI services
+# Tutorial: Text Analytics with Foundry Tools
 
-In this tutorial, you learn how to use [Text Analytics](/azure/ai-services/language-service/) to analyze unstructured text on Azure Synapse Analytics. [Text Analytics](/azure/ai-services/language-service/) is an [Azure AI services](/azure/ai-services/) that enables you to perform  text mining and text analysis with Natural Language Processing (NLP) features.
+In this tutorial, you learn how to use [Text Analytics](/azure/ai-services/language-service/) to analyze unstructured text on Azure Synapse Analytics. [Text Analytics](/azure/ai-services/language-service/) is a [Foundry Tool](/azure/ai-services/) that enables you to perform  text mining and text analysis with Natural Language Processing (NLP) features.
 
 This tutorial demonstrates using text analytics with [SynapseML](https://github.com/microsoft/SynapseML) to:
 
@@ -30,7 +30,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 - [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
 - Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../quickstart-create-sql-pool-studio.md).
-- Preconfiguration steps described in the tutorial [Configure Azure AI services in Azure Synapse](tutorial-configure-cognitive-services-synapse.md).
+- Preconfiguration steps described in the tutorial [Configure Foundry Tools in Azure Synapse](tutorial-configure-cognitive-services-synapse.md).
 
 ## Get started
 
@@ -60,7 +60,7 @@ The Text Sentiment Analysis provides a way for detecting the sentiment labels (s
 df = spark.createDataFrame([
   ("I am so happy today, it's sunny!", "en-US"),
   ("I am frustrated by this rush hour traffic", "en-US"),
-  ("The Azure AI services on spark aint bad", "en-US"),
+  ("The Foundry Tools on spark aint bad", "en-US"),
 ], ["text", "language"])
 
 # Run the Text Analytics service with options
@@ -86,7 +86,7 @@ display(results
 |---|---|
 |I'm so happy today, it's sunny!|positive|
 |I'm frustrated by this rush hour traffic|negative|
-|The Azure AI services on spark aint bad|neutral|
+|The Foundry Tools on spark aint bad|neutral|
 
 ---
 

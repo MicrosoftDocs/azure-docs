@@ -2,7 +2,7 @@
 title: Azure Backup release notes - Archive
 description: Learn about past features releases in Azure Backup.
 ms.topic: release-notes
-ms.date: 09/25/2025
+ms.date: 01/09/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -466,7 +466,7 @@ For more information, see [Azure Resource Manager templates for Azure Backup](ba
 
 Azure Backup now supports incremental backups for SAP HANA databases hosted on Azure VMs. This allows for faster and more cost-efficient backups of your SAP HANA data.
 
-For more information, see [various options available during creation of a backup policy](./sap-hana-faq-backup-azure-vm.yml) and [how to create a backup policy for SAP HANA databases](tutorial-backup-sap-hana-db.md#creating-a-backup-policy).
+For more information, see [various options available during creation of a backup policy](./sap-hana-faq-backup-azure-vm.yml) and [how to create a backup policy for SAP HANA databases](tutorial-backup-sap-hana-db.md#create-a-backup-policy-for-sap-hana-databases).
 
 ## Backup Center (in preview)
 

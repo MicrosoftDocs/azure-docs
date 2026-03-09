@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Vision with Azure AI services'
-description: Learn how to use Azure AI Vision in Azure Synapse Analytics.
+title: 'Tutorial: Azure Vision in Foundry Tools'
+description: Learn how to use Azure Vision in Foundry Tools in Azure Synapse Analytics.
 ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
@@ -9,9 +9,9 @@ author: ruixinxu
 ms.author: ruxu
 ---
 
-# Tutorial: Vision with Azure AI services
+# Tutorial: Azure Vision in Foundry Tools
 
-[Azure AI Vision](/azure/ai-services/computer-vision/) is an [Azure AI service](/azure/ai-services/) that enables you to process images and return information based on the visual features. In this tutorial, you'll learn how to use [Azure AI Vision](/azure/ai-services/computer-vision/) to analyze images on Azure Synapse Analytics.
+[Azure Vision in Foundry Tools](/azure/ai-services/computer-vision/) is a [Foundry Tool](/azure/ai-services/) that enables you to process images and return information based on the visual features. In this tutorial, you'll learn how to use [Vision](/azure/ai-services/computer-vision/) to analyze images on Azure Synapse Analytics.
 
 This tutorial demonstrates using text analytics with [SynapseML](https://github.com/microsoft/SynapseML) to:
 
@@ -35,7 +35,7 @@ df = spark.createDataFrame([
         ("<replace with your file path>/dog.jpg", )
     ], ["image", ])
 
-# Run the Azure AI Vision service. Analyze Image extracts information from/about the images.
+# Run the Vision service. Analyze Image extracts information from/about the images.
 analysis = (AnalyzeImage()
     .setLinkedService(ai_service_name)
     .setVisualFeatures(["Categories","Color","Description","Faces","Objects","Tags"])

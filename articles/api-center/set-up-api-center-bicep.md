@@ -1,12 +1,12 @@
 ---
 title: Quickstart - Create Your Azure API Center - Bicep
 description: Learn how to use Bicep to set up an API center for API discovery, reuse, and governance. 
-author: dlepow
+
 ms.service: azure-api-center
 ms.custom: devx-track-azurepowershell, devx-track-bicep
 ms.topic: quickstart
 ms.date: 10/17/2025
-ms.author: danlep 
+ 
 ---
 
 # Quickstart: Create your API center - Bicep

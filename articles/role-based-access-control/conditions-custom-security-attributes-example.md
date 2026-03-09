@@ -5,7 +5,7 @@ author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.subservice: conditions
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/15/2023
 ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to
@@ -123,7 +123,7 @@ There are several attributes you could use in your condition, such as the follow
 
 You can also define your own custom security attributes for users, enterprise applications, and managed identities.
 
-For more information, see [Azure role assignment condition format and syntax](conditions-format.md#attributes) and [What are custom security attributes in Microsoft Entra ID?](../active-directory/fundamentals/custom-security-attributes-overview.md).
+For more information, see [Azure role assignment condition format and syntax](conditions-format.md#attributes) and [What are custom security attributes in Microsoft Entra ID?](../active-directory/fundamentals/custom-security-attributes-overview.md)
 
 #### Step 3: Create a condition at a higher scope
 

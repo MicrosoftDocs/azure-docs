@@ -6,7 +6,7 @@ author: chachachachami
 ms.service: azure-health-data-services
 ms.subservice: events
 ms.topic: how-to
-ms.date: 11/26/2024
+ms.date: 02/25/2026
 ms.author: chrupa
 ---
 
@@ -41,7 +41,7 @@ To disable events from sending notifications for an **Event Subscription**, you 
 
 To delete events-enabled workspaces without errors, do these steps in this exact order:
 
-1. Delete all child resources associated with the workspace (for example, FHIR services, DICOM services, and MedTech services).
+1. Delete all child resources associated with the workspace (for example, FHIR and DICOM services).
 
 1. [Delete all event subscriptions](#disable-events) associated with the workspace.
 

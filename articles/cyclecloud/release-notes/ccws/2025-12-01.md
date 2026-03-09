@@ -1,0 +1,51 @@
+---
+title: CycleCloud Workspace for Slurm - Release Notes 2025.12.01
+description: These release notes for Azure CycleCloud Workspace for Slurm 2025.12.01 summarize new features and bug fixes included in the release. 
+author: abatallas
+ms.date: 12/18/2025
+ms.author: padmalathas
+---
+
+# CycleCloud Workspace for Slurm version 2025.12.01
+
+Azure CycleCloud Workspace for Slurm 2025.12.01 was released as General Audience. This article provides you with information about:
+
+* Recent releases
+* Previews underway with known limitations (if applicable)
+* Known issues
+* Deprecated functionality (if applicable)
+
+The following release notes identify the new features and the open issues for the 2025.09.15 release of Azure CycleCloud Workspace for Slurm.
+
+The release notes are continuously updated. Open known issues that require a workaround are added when they're discovered. Carefully review the information in the release notes before deploying Azure CycleCloud Workspace for Slurm.
+
+This release corresponds to the software version:
+
+- **CycleCloud Workspace for Slurm version 2025.12.01** 
+
+## What's new in CycleCloud Workspace for Slurm version 2025.12.01?
+
+Azure CycleCloud Workspace for Slurm is updated regularly. Stay up to date with the latest announcements. 
+
+This release contains the following new features:
+
+* Use of CycleCloud Marketplace Image 8.8.1
+    * Removal of all NVMe and Pyxis-related cluster-init scripts (now native to CycleCloud)
+* Microsoft Entra ID single sign-on
+    * Support for Microsoft Entra ID for single sign-on
+    * Utility script for creating a Microsoft Entra ID application registration for use with CCW
+    * Utility script for updating an existing application registration following a successful CCW deployment
+* Open OnDemand
+    * Support for Open OnDemand 4.0.8
+    * Inclusion of Open OnDemand cluster template in CycleCloud for possible future use
+    * Admin user owns copy of Open OnDemand cluster parameters found in home directory if applicable
+    * Support for multiple user domains
+* Support for monitoring with existing instances of Azure Monitor workspaces
+* Larger subnet sizes in auto-created virtual networks when using Azure Managed Lustre
+* Support for Ubuntu 24.04 and Alma Linux 9 on all cluster nodes
+* Support for Slurm 25.05.2, deprecation of support for 23.11.10 and 24.05.4
+
+## Known issues in this release
+
+- **Open OnDemand**: IP addresses are erroneously marked as invalid input in the FQDN field of the Open OnDemand section of the Marketplace UI. To work around this issue, leave the FQDN field blank, uncheck "Start Cluster," and then add the desired IP in the FQDN field of the Open OnDemand cluster's settings in the CycleCloud web UI.
+- **Azure US Gov Only**: Marketplace deployment validation fails due to an incorrect API version. To mitigate this issue, refer: [How to deploy a CycleCloud Workspace for Slurm environment using the CLI](../../how-to/ccws/deploy-with-cli.md).

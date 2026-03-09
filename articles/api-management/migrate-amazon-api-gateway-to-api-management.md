@@ -142,7 +142,7 @@ As part of the assessment, consider whether to retain or replace existing servic
 - *OpenAPI specifications* exported from an Amazon API Gateway REST API contain details specific to the frontend implementation in Amazon API Gateway, not the backend service. You need to remove AWS-specific tags and configure details in the specification (such as the backend service URL) before import to Azure API Management or during the migration process. 
 - *Kubernetes microservices* backends, such as gRPC APIs, are handled differently:
   - Amazon API Gateway connects to the application load balancer in VPC, which in turn provides ingress to AWS EKS.
-  - Azure API Management supports gRPC APIs on Kubernetes clusters accessed only through the self-hosted gateway.
+  - Azure API Management typically supports gRPC and other microservice APIs on Kubernetes clusters through the self-hosted gateway.
   - Use of gRPC prevents the use of Application Gateway as a WAF.
 
 ### Compare API configurations

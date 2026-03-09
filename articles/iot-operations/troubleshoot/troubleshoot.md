@@ -79,6 +79,28 @@ A deployment might fail if the cluster doesn't have sufficient resources for the
 
 To learn more about how to choose suitable values for these parameters, see [Configure broker settings for high availability, scaling, and memory usage](../manage-mqtt-broker/howto-configure-availability-scale.md).
 
+## Troubleshoot Azure IoT Operations uninstall
+
+To uninstall Azure IoT Operations, always use `az iot ops delete`, which handles the proper sequencing automatically and avoids the following issues:
+
+### Namespace stuck in "Terminating" status
+
+If you try to delete the namespace directly, finalizers on Azure IoT Operations resources such as the `Instance` custom resource block the deletion. The namespace gets stuck in a permanent "Terminating" state, leaving the cluster in a deadlock that's difficult to recover from without manual intervention.
+
+To resolve this issue, use `az iot ops delete` to delete an Azure IoT Operations instance.
+
+### Orphaned cluster-scoped resources
+
+If you force-delete the namespace by manually removing finalizers, cluster-scoped resources such as `ClusterRoles`, `ClusterRoleBindings`, `ValidatingWebhookConfigurations`, and `MutatingWebhookConfigurations` remain behind. These orphaned resources can block future Azure IoT Operations installations, requiring you to either clean up each resource manually or reset the entire cluster.
+
+To resolve this issue, use `az iot ops delete` to delete an Azure IoT Operations instance.
+
+### You see an "Instance must be deleted first" error message
+
+If you try to delete the Arc extension directly using `az k8s-extension delete`, a validation blocks the operation with a message saying the `Instance` must be deleted first. Don't try to manually delete the `Instance` custom resource.
+
+To resolve this issue, use `az iot ops delete` to delete an Azure IoT Operations instance and handle the proper sequencing automatically.
+
 ## Troubleshoot Azure Key Vault secret management
 
 If you see the following error message related to secret management, update your Azure Key Vault contents:

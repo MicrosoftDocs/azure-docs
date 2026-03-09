@@ -24,7 +24,7 @@ Serverless GPUs are supported only for Consumption workload profiles. The featur
 
 ## Benefits
 
-Serverless GPUs accelerate AI development by allowing you to focus on your core AI code and less on managing infrastructure when using GPUs. This feature provides a middle layer option between the [Azure AI model catalog](/azure/machine-learning/concept-model-catalog)'s serverless APIs and hosting models on managed compute.
+Serverless GPUs accelerate AI development by allowing you to focus on your core AI code and less on managing infrastructure when using GPUs. This feature provides a middle layer option between the [Foundry model catalog](/azure/machine-learning/concept-model-catalog)'s serverless APIs and hosting models on managed compute.
 
 The Container Apps serverless GPU support provides full data governance as your data never leaves the boundaries of your container while still providing a managed, serverless platform from which to build your applications.
 
@@ -77,6 +77,7 @@ Serverless GPUs are available in the following regions:
 | Australia East | Yes | Yes |
 | Brazil South | Yes | Yes |
 | Central India | No | Yes |
+| Canada Central | Yes | Yes |
 | East US | Yes | Yes |
 | France Central | No | Yes |
 | Italy North | Yes | Yes |
@@ -152,7 +153,7 @@ You can significantly improve cold start times by enabling artifact streaming an
 
 ## Deploy Foundry models to serverless GPUs (preview)
 
-Azure Container Apps serverless GPUs now support Azure AI Foundry models in public preview. Azure AI Foundry Models have two deployment options:
+Azure Container Apps serverless GPUs now support Microsoft Foundry models in public preview. Foundry Models have two deployment options:
 
 - [**Serverless APIs**](/azure/ai-foundry/how-to/deploy-models-serverless?tabs=azure-ai-studio) which provide pay-as-you-go billing for some of the most popular models.
 

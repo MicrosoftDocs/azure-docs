@@ -119,4 +119,4 @@ To enable this feature, use the Azure portal or an ARM template:
 - [Use the Azure portal to enable Event Hubs Capture](event-hubs-capture-enable-through-portal.md)
 - [Use an ARM template to enable Event Hubs Capture](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 
-For more information about data redundancy options for your Capture destination storage account, see [Reliability in Blob Storage](../reliability/reliability-storage-blob.md).
+For more information about data redundancy options for your Capture destination storage account, see [Reliability in Blob Storage](/azure/reliability/reliability-storage-blob).

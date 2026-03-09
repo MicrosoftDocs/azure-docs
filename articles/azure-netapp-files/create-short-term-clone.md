@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/09/2025
+ms.date: 01/08/2026
 ms.author: anfdocs
 ---
 # Create a short-term clone volume in Azure NetApp Files 
@@ -35,26 +35,6 @@ By default, short-term clones convert to regular volumes after 32 days.
 * If a short-term clone exists on a volume, you can't delete the parent volume. You must first delete the clone or convert it to a regular volume, then you can delete the parent volume. 
 * During the clone operation, the parent volume is accessible; you can capture new snapshots of the parent volume. 
 * You can create five short-term clones per regular volume.
-
-## Register the feature
-
-To take advantage of the feature, you must first register it. 
-
-1. Register the feature:
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFShortTermClone
-    ```
-
-1. Registration for short-term clones isn't automatic and may take up to a week. Check the registration status with the command: 
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFShortTermClone
-    ```
-
-    When the `RegistrationState` field output displays "Registered", you can create a short-term clone. 
-
-    You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Create a short-term clone
 

@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2025
+ms.date: 02/23/2026
 ms.custom: generated
 ---
 
@@ -199,6 +199,7 @@ Azure service: [Data Factory](/azure/data-factory/)
 > | Microsoft.DataFactory/factories/linkedServices/read | Reads Linked Service. |
 > | Microsoft.DataFactory/factories/linkedServices/delete | Deletes Linked Service. |
 > | Microsoft.DataFactory/factories/linkedServices/write | Create or Update Linked Service |
+> | Microsoft.DataFactory/factories/linkedServices/upgrade/action | Creates a fabric connection using the linked service. |
 > | Microsoft.DataFactory/factories/managedVirtualNetworks/read | Read Managed Virtual Network. |
 > | Microsoft.DataFactory/factories/managedVirtualNetworks/write | Create or Update Managed Virtual Network. |
 > | Microsoft.DataFactory/factories/managedVirtualNetworks/managedPrivateEndpoints/read | Read Managed Private Endpoint. |
@@ -543,7 +544,7 @@ Azure service: [Power BI Embedded](/azure/power-bi-embedded/)
 > | --- | --- |
 > | Microsoft.PowerBIDedicated/register/action | Registers Power BI Dedicated resource provider. |
 > | Microsoft.PowerBIDedicated/register/action | Registers Power BI Dedicated resource provider. |
-> | Microsoft.PowerBIDedicated/autoScaleVCores/read | Retrieves the information of the specificed Power BI Auto Scale V-Core. |
+> | Microsoft.PowerBIDedicated/autoScaleVCores/read | Retrieves the information of the specified Power BI Auto Scale V-Core. |
 > | Microsoft.PowerBIDedicated/autoScaleVCores/write | Creates or updates the specified Power BI Auto Scale V-Core. |
 > | Microsoft.PowerBIDedicated/autoScaleVCores/delete | Deletes the Power BI Auto Scale V-Core. |
 > | Microsoft.PowerBIDedicated/capacities/read | Retrieves the information of the specified Power BI capacity. |
@@ -639,8 +640,6 @@ Azure service: [Azure Synapse Analytics](/azure/synapse-analytics/)
 > | Microsoft.Synapse/checkNameAvailability/action | Checks Workspace name availability. |
 > | Microsoft.Synapse/register/action | Registers the Azure Synapse Analytics (workspaces) Resource Provider and enables the creation of Workspaces. |
 > | Microsoft.Synapse/unregister/action | Unregisters the Azure Synapse Analytics (workspaces) Resource Provider and disables the creation of Workspaces. |
-> | Microsoft.Synapse/Locations/KustoPoolCheckNameAvailability/action | Checks resource name availability. |
-> | Microsoft.Synapse/locations/kustoPoolOperationResults/read | Reads operations resources |
 > | Microsoft.Synapse/locations/operationResults/read | Read any Async Operation Result. |
 > | Microsoft.Synapse/locations/operationStatuses/read | Read any Async Operation Status. |
 > | Microsoft.Synapse/locations/usages/read | Get all uasage and quota information |
@@ -660,7 +659,6 @@ Azure service: [Azure Synapse Analytics](/azure/synapse-analytics/)
 > | Microsoft.Synapse/privateLinkHubs/privateEndpointConnections/delete | Delete Private Endpoint Connection for PrivateLinkHub |
 > | Microsoft.Synapse/privateLinkHubs/privateLinkResources/read | Get a list of Private Link Resources |
 > | Microsoft.Synapse/resourceGroups/operationStatuses/read | Read any Async Operation Status. |
-> | Microsoft.Synapse/SKUs/read | Reads a SKU resource. |
 > | Microsoft.Synapse/userAssignedIdentities/notify/action | Notify user assigned identity deletion |
 > | Microsoft.Synapse/workspaces/replaceAllIpFirewallRules/action | Replaces all Ip Firewall Rules for the Workspace. |
 > | Microsoft.Synapse/workspaces/write | Create or Update any Workspaces. |
@@ -715,49 +713,6 @@ Azure service: [Azure Synapse Analytics](/azure/synapse-analytics/)
 > | Microsoft.Synapse/workspaces/keys/write | Create or Update Workspace Keys |
 > | Microsoft.Synapse/workspaces/keys/read | Read any Workspace Key Definition. |
 > | Microsoft.Synapse/workspaces/keys/delete | Delete any Workspace Key. |
-> | Microsoft.Synapse/workspaces/kustoPools/read | Reads a cluster resource. |
-> | Microsoft.Synapse/workspaces/kustoPools/write | Writes a cluster resource. |
-> | Microsoft.Synapse/workspaces/kustoPools/delete | Deletes a cluster resource. |
-> | Microsoft.Synapse/workspaces/kustoPools/Start/action | Starts the cluster. |
-> | Microsoft.Synapse/workspaces/kustoPools/Stop/action | Stops the cluster. |
-> | Microsoft.Synapse/workspaces/kustoPools/CheckNameAvailability/action | Checks the cluster name availability. |
-> | Microsoft.Synapse/workspaces/kustoPools/Migrate/action | Migrates the cluster data to another cluster. |
-> | Microsoft.Synapse/workspaces/kustoPools/ListLanguageExtensions/action | Lists language extensions. |
-> | Microsoft.Synapse/workspaces/kustoPools/AddLanguageExtensions/action | Add language extensions. |
-> | Microsoft.Synapse/workspaces/kustoPools/RemoveLanguageExtensions/action | Remove language extensions. |
-> | Microsoft.Synapse/workspaces/kustoPools/DetachFollowerDatabases/action | Detaches follower's databases. |
-> | Microsoft.Synapse/workspaces/kustoPools/ListFollowerDatabases/action | Lists the follower's databases. |
-> | Microsoft.Synapse/workspaces/kustoPools/AttachedDatabaseConfigurations/read | Reads an attached database configuration resource. |
-> | Microsoft.Synapse/workspaces/kustoPools/AttachedDatabaseConfigurations/write | Writes an attached database configuration resource. |
-> | Microsoft.Synapse/workspaces/kustoPools/AttachedDatabaseConfigurations/delete | Deletes an attached database configuration resource. |
-> | Microsoft.Synapse/workspaces/kustoPools/Databases/read | Reads a database resource. |
-> | Microsoft.Synapse/workspaces/kustoPools/Databases/write | Writes a database resource. |
-> | Microsoft.Synapse/workspaces/kustoPools/Databases/delete | Deletes a database resource. |
-> | Microsoft.Synapse/workspaces/kustoPools/Databases/DataConnectionValidation/action | Validates database data connection. |
-> | Microsoft.Synapse/workspaces/kustoPools/Databases/CheckNameAvailability/action | Checks name availability for a given type. |
-> | Microsoft.Synapse/workspaces/kustoPools/Databases/InviteFollower/action |  |
-> | Microsoft.Synapse/workspaces/kustoPools/Databases/DataConnections/read | Reads a data connections resource. |
-> | Microsoft.Synapse/workspaces/kustoPools/Databases/DataConnections/write | Writes a data connections resource. |
-> | Microsoft.Synapse/workspaces/kustoPools/Databases/DataConnections/delete | Deletes a data connections resource. |
-> | Microsoft.Synapse/workspaces/kustoPools/Databases/PrincipalAssignments/read | Reads a database principal assignments resource. |
-> | Microsoft.Synapse/workspaces/kustoPools/Databases/PrincipalAssignments/write | Writes a database principal assignments resource. |
-> | Microsoft.Synapse/workspaces/kustoPools/Databases/PrincipalAssignments/delete | Deletes a database principal assignments resource. |
-> | Microsoft.Synapse/workspaces/kustoPools/PrincipalAssignments/read | Reads a Cluster principal assignments resource. |
-> | Microsoft.Synapse/workspaces/kustoPools/PrincipalAssignments/write | Writes a Cluster principal assignments resource. |
-> | Microsoft.Synapse/workspaces/kustoPools/PrincipalAssignments/delete | Deletes a Cluster principal assignments resource. |
-> | Microsoft.Synapse/workspaces/kustoPools/PrivateEndpointConnectionProxies/read | Reads a private endpoint connection proxy |
-> | Microsoft.Synapse/workspaces/kustoPools/PrivateEndpointConnectionProxies/write | Writes a private endpoint connection proxy |
-> | Microsoft.Synapse/workspaces/kustoPools/PrivateEndpointConnectionProxies/delete | Deletes a private endpoint connection proxy |
-> | Microsoft.Synapse/workspaces/kustoPools/PrivateEndpointConnectionProxies/Validate/action | Validates a private endpoint connection proxy |
-> | Microsoft.Synapse/workspaces/kustoPools/PrivateEndpointConnections/read | Reads a private endpoint connection |
-> | Microsoft.Synapse/workspaces/kustoPools/PrivateEndpointConnections/write | Writes a private endpoint connection |
-> | Microsoft.Synapse/workspaces/kustoPools/PrivateEndpointConnections/delete | Deletes a private endpoint connection |
-> | Microsoft.Synapse/workspaces/kustoPools/PrivateLinkResources/read | Reads private link resources |
-> | Microsoft.Synapse/workspaces/kustoPools/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic settings for the resource |
-> | Microsoft.Synapse/workspaces/kustoPools/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
-> | Microsoft.Synapse/workspaces/kustoPools/providers/Microsoft.Insights/logDefinitions/read | Gets the diagnostic logs settings for the resource |
-> | Microsoft.Synapse/workspaces/kustoPools/providers/Microsoft.Insights/metricDefinitions/read | Gets the metric definitions of the resource |
-> | Microsoft.Synapse/workspaces/kustoPools/SKUs/read | Reads a cluster SKU resource. |
 > | Microsoft.Synapse/workspaces/libraries/read | Read Library Artifacts |
 > | Microsoft.Synapse/workspaces/managedIdentitySqlControlSettings/write | Update Managed Identity SQL Control Settings on the workspace |
 > | Microsoft.Synapse/workspaces/managedIdentitySqlControlSettings/read | Get Managed Identity SQL Control Settings |
@@ -869,9 +824,9 @@ Azure service: [Azure Synapse Analytics](/azure/synapse-analytics/)
 > | Microsoft.Synapse/workspaces/sqlUsages/read | Gets usage limits available for SQL Analytics Pools |
 > | Microsoft.Synapse/workspaces/trustedServiceBypassConfiguration/write | Update Trusted Service Bypass configuration for workspace. |
 > | Microsoft.Synapse/workspaces/usages/read | Get all uasage and quota information |
-> | Microsoft.Synapse/workspaces/vulnerabilityAssessments/write | Create or Update SQL server vulnerability assement report. |
-> | Microsoft.Synapse/workspaces/vulnerabilityAssessments/read | Read default SQL server vulnerability assement report. |
-> | Microsoft.Synapse/workspaces/vulnerabilityAssessments/delete | Delete SQL server vulnerability assement report. |
+> | Microsoft.Synapse/workspaces/vulnerabilityAssessments/write | Create or Update SQL server vulnerability assessment report. |
+> | Microsoft.Synapse/workspaces/vulnerabilityAssessments/read | Read default SQL server vulnerability assessment report. |
+> | Microsoft.Synapse/workspaces/vulnerabilityAssessments/delete | Delete SQL server vulnerability assessment report. |
 
 ## Next steps
 

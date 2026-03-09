@@ -2,7 +2,7 @@
 title: Back Up an Azure Database for MySQL Flexible Server by Using Azure Backup
 description: Learn how to back up an Azure Database for MySQL flexible server.
 ms.topic: how-to
-ms.date: 11/18/2025
+ms.date: 01/30/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to configure and manage backup policies for Azure Database for MySQL Flexible Server, so that I can ensure data protection and meet compliance requirements through scheduled and on-demand backups."
@@ -72,7 +72,7 @@ To configure a backup, follow these steps:
 
    :::image type="content" source="./media/backup-azure-mysql-flexible-server/configure-backup-basic.png" alt-text="Screenshot that shows the Basics tab on the pane for configuring a backup." lightbox="./media/backup-azure-mysql-flexible-server/configure-backup-basic.png":::
 
-   Alternatively, go to **Business Continuity Center** >  **+Backup**.
+   Alternatively, go to **Resiliency** >  **+Backup**.
 
 2. Select the backup policy that you created, which defines the backup schedule and the retention duration.
 

@@ -349,6 +349,66 @@
            "source_path_from_root": "/articles/application-gateway/classic-to-resource-manager.md",
            "redirect_url": "/azure/virtual-machines/migration/migration-classic-resource-manager-faq",
            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/create-gateway-internal-load-balancer-app-service-environment.md",
+            "redirect_url": "/troubleshoot/azure/application-gateway/create-gateway-internal-load-balancer-app-service-environment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/troubleshoot-app-service-redirection-app-service-url.md",
+            "redirect_url": "/troubleshoot/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/how-to-troubleshoot-application-gateway-session-affinity-issues.md",
+            "redirect_url": "/troubleshoot/azure/application-gateway/how-to-troubleshoot-application-gateway-session-affinity-issues",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-troubleshooting-502.md",
+            "redirect_url": "/troubleshoot/azure/application-gateway/application-gateway-troubleshooting-502",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/http-response-codes.md",
+            "redirect_url": "/troubleshoot/azure/application-gateway/http-response-codes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/mutual-authentication-troubleshooting.md",
+            "redirect_url": "/troubleshoot/azure/application-gateway/mutual-authentication-troubleshooting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/ingress-controller-troubleshoot.md",
+            "redirect_url": "/troubleshoot/azure/application-gateway/ingress-controller-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/resource-health-overview.md",
+            "redirect_url": "/troubleshoot/azure/application-gateway/resource-health-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/log-analytics.md",
+            "redirect_url": "/troubleshoot/azure/application-gateway/log-analytics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-backend-health-troubleshooting.md",
+            "redirect_url": "/troubleshoot/azure/application-gateway/application-gateway-backend-health-troubleshooting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/application-gateway-key-vault-common-errors.md",
+            "redirect_url": "/troubleshoot/azure/application-gateway/application-gateway-key-vault-common-errors",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/disabled-listeners.md",
+            "redirect_url": "/troubleshoot/azure/application-gateway/disabled-listeners",
+            "redirect_document_id": false
         }
     ]
 }

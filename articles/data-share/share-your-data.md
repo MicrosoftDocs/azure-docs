@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Share outside your org - Azure Data Share'
 description: Tutorial - Share data with customers and partners using Azure Data Share  
-author:  sidontha
-ms.author: sidontha
+author:  chvukosw
+ms.author: chvukosw
 ms.service: azure-data-share
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
-ms.date: 02/12/2025
+ms.date: 01/21/2026
 ---
 
 # Tutorial: Share data using Azure Data Share  
 
-In this tutorial, you'll learn how to set up a new Azure Data Share and start sharing your data with customers and partners outside of your Azure organization. 
+In this tutorial, you learn how to set up a new Azure Data Share and start sharing your data with customers and partners outside of your Azure organization. 
 
-In this tutorial, you'll learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a Data Share.
@@ -210,7 +210,7 @@ Use these commands to create the resource:
 
    :::image type="content" source="./media/datasets.png" alt-text="Screenshot of the datasets page in share creation, the add datasets button is highlighted.":::
 
-1. Select the dataset type that you would like to add. You'll see a different list of dataset types depending on the share type (snapshot or in-place) you've selected in the previous step. If sharing from an Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), you'll be prompted for authentication method to list tables. Select Microsoft Entra authentication, and check the checkbox **Allow Data Share to run the above 'create user' script on my behalf**.
+1. Select the dataset type that you would like to add. You see a different list of dataset types depending on the share type (snapshot or in-place) you've selected in the previous step. If sharing from an Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), you are prompted for authentication method to list tables. Select Microsoft Entra authentication, and check the checkbox **Allow Data Share to run the above 'create user' script on my behalf**.
 
    :::image type="content" source="./media/add-datasets.png" alt-text="Screenshot showing the available dataset types.":::
 

@@ -2,7 +2,7 @@
 title: Data persistence and serialization in Durable Functions - Azure
 description: Learn how the Durable Functions extension for Azure Functions persists data
 author: cgillum
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/18/2022
 ms.author: azfuncdf
 ms.devlang: csharp
@@ -41,7 +41,30 @@ The following list shows the different types of data that will be serialized and
 - Entity call and signal payloads
 - Entity state payloads
 
+### Keep inputs and outputs small
+
+You can run into memory issues if you provide large inputs and outputs to and from Durable Functions APIs. Inputs and outputs are serialized into the orchestration history, which means that large payloads can, over time, greatly contribute to unbounded history growth. This growth risks causing memory exceptions during [replay](durable-functions-orchestrations.md#reliability).
+
+To mitigate the impact of large inputs and outputs, you can:
+
+- Delegate work to sub-orchestrators to load balance the history memory burden across multiple orchestrators, keeping the memory footprint of individual histories small.
+- Store large data in external storage (such as Azure Blob Storage) and pass lightweight identifiers that allow you to retrieve that data inside activity functions when needed.
+
+> [!TIP]
+> The best practice for dealing with large data is to keep it in external storage and materialize that data only inside activities, when needed.
+
 ### Working with sensitive data
+
+Inputs and outputs (including exceptions) to and from Durable Functions APIs are durably persisted in your [storage provider of choice](./durable-functions-storage-providers.md). If those inputs, outputs, or exceptions contain sensitive data (such as secrets, connection strings, or personally identifiable information), anyone with read access to your storage provider's resources could obtain them.
+
+To safely handle sensitive data, fetch that data within activity functions from either Azure Key Vault or environment variables, and never communicate that data directly to or from orchestrators or entities. This approach helps prevent sensitive data from leaking into your storage resources.
+
+> [!TIP]
+> This guidance also applies to the `CallHttp` orchestrator API, which persists its request and response payloads in storage. If your target HTTP endpoints require authentication, implement the HTTP call inside an activity, or use the [built-in managed identity support offered by CallHttp](./durable-functions-http-features.md#managed-identities), which doesn't persist credentials to storage.
+
+> [!NOTE]
+> Avoid logging data containing secrets as anyone with read access to your logs (for example in Application Insights) could obtain those secrets.
+
 When using the Azure Storage provider, all data is automatically encrypted at rest. However, anyone with access to the storage account can read the data in its unencrypted form. If you need stronger protection for sensitive data, consider first encrypting the data using your own encryption keys so that the data is persisted in its pre-encrypted form.
 
 Alternatively, .NET users have the option of implementing custom serialization providers that provide automatic encryption. An example of custom serialization with encryption can be found in [this GitHub sample](https://github.com/charleszipp/azure-durable-entities-encryption).

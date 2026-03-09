@@ -3,7 +3,7 @@ title: Discover your Microsoft cloud footprint FAQ
 description: This article helps to answer frequently asked questions that customers have about their Microsoft cloud footprint.
 author: KennyDay
 ms.author: nicholak
-ms.date: 08/26/2025
+ms.date: 12/29/2025
 ms.topic: concept-article
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -12,6 +12,7 @@ ms.reviewer: nicholak
 
 stid: stid-goes-here
 ms.custom: sfi-ga-nochange
+service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
 
 # Discover your Microsoft cloud footprint FAQ

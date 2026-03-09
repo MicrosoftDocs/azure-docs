@@ -1,11 +1,13 @@
 ---
-title: Troubleshoot the Azure Functions durable task scheduler
-description: Learn how to troubleshoot error messages and issues you encounter while using the Azure Functions durable task scheduler.
-ms.topic: conceptual
+title: Troubleshoot errors in Durable Task Scheduler
+titleSuffix: Durable Task
+description: Learn how to troubleshoot error messages and issues you encounter while using Durable Task Scheduler.
+ms.topic: troubleshooting-general
+ms.subservice: durable-task-scheduler
 ms.date: 05/06/2025
 ---
 
-# Troubleshoot the Azure Functions durable task scheduler
+# Troubleshoot errors in Durable Task Scheduler
 
 > [!NOTE]
 > Microsoft support engineers are available to help diagnose issues with your application. If you're not able to diagnose your problem after going through this article, you can file a support ticket by going the **Help** > **Support + troubleshooting** section of durable task scheduler resource on Azure portal.

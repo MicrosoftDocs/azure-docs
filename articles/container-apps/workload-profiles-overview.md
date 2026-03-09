@@ -29,12 +29,12 @@ Each profile type determines how your apps scale, the level of resource isolatio
 
 - **Dedicated profiles** run on reserved compute resources in your own dedicated pool. You select the size and type of virtual machine, deploy multiple apps per profile, and pay per-profile instance. Dedicated profiles can be more cost-effective for steady workloads and support general purpose, memory-optimized, and GPU use cases.
 
-- **Flexible profile** (preview) blends the billing and setup simplicity of the *Consumption* profile with many of the performance characteristics of the Dedicated profiles. Flexible profiles are billed like a Consumption profile plus the dedicated management fee, run in a single‑tenant compute pool, offer planned maintenance windows, and dedicated networking and access to larger replica sizes. Flexible profiles require a subnet of at least `/25`.
+- **Flexible profile** (preview) blends the billing and setup simplicity of the *Consumption* profile with many of the performance characteristics of the Dedicated profiles. Flexible profiles are billed like a Consumption profile plus the dedicated management fee, run in a single‑tenant compute pool, offer planned maintenance windows, and dedicated networking and access to larger replica sizes. Flexible profiles require a subnet of at least `/25`. Apps running on the Flexible profile are not able to scale to zero.
 
 Each Container Apps environment includes a default Consumption profile. You can add Dedicated or Consumption GPU profiles and, when available, Flexible profiles to meet your application's needs.
 
 > [!NOTE]
-> The Flexible profile is currently only available in the following regions: Central US EUAP, East US2 EUAP, East Asia, and West Central US.
+> The Flexible profile is currently only available in the following regions: Australia East, Brazil South, Canada Central, Canada East, Central India, East Asia, Germany West Central, Korea Central, North Europe, Southeast Asia, Sweden Central, UK West, West Central US, and West US 3.
 
 ## Workload profile form factors
 
@@ -80,7 +80,7 @@ All Consumption profiles support serverless scaling and are billed based on per�
 
 | Profile names | vCPU range | Memory range | Regions | Allocation |
 |--|--|--|--|--|
-| **Flexible** | 0.25-4 | 0.5-16 GiB | Central US (EUAP), East US2 (EUAP), East Asia, West Central US | per replica |
+| **Flexible** | 0.25-4 | 0.5-16 GiB | Australia East, Brazil South, Canada Central, Canada East, Central India, East Asia, Germany West Central, Korea Central, North Europe, Southeast Asia, Sweden Central, UK West, West Central US, West US 3 | per replica |
 
 ## Resource consumption and scaling
 

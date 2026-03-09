@@ -20,7 +20,7 @@ Azure Route Server is a fully managed service that allows you to easily manage r
 
 ### Is Azure Route Server just a virtual machine?
 
-No. Azure Route Server is a service designed with high availability. Your Route Server has zone-level redundancy if you deploy it in an Azure region that supports [Availability Zones](../reliability/availability-zones-overview.md).
+No. Azure Route Server is a service designed with high availability. Your Route Server has zone-level redundancy if you deploy it in an Azure region that supports [Availability Zones](/azure/reliability/availability-zones-overview).
 
 ### Do I need to peer each NVA with both Azure Route Server instances?
 Yes, you must peer each NVA instance with both instances of Route Server to ensure that Route Server successfully receives routes and to configure high availability. You must also advertise the same routes to both instances. We also recommend that you peer at least two NVA instances with both instances of Route Server.

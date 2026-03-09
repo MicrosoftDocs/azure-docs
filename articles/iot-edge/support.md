@@ -3,7 +3,7 @@ title: IoT Edge supported platforms
 description: Azure IoT Edge supported operating systems, runtimes, and container engines.
 author: sethmanheim
 ms.author: sethm
-ms.date: 08/28/2025
+ms.date: 02/26/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -67,6 +67,9 @@ Modules built as Linux containers can be deployed to either Linux or Windows dev
 <sup>1</sup> Ubuntu Core is fully supported but the automated testing of Snaps currently happens on Ubuntu 22.04 Server LTS. 
 
 > [!NOTE]
+> Some operating systems appear in both Tier 1 and Tier 2 tables because different CPU architectures have different support levels. For example, Debian 11 is Tier 1 for ARM32v7 but Tier 2 for AMD64 and ARM64. Check both tables and match your target architecture to find the correct support tier.
+
+> [!NOTE]
 > When a Tier 1 operating system reaches its end of standard support date, it's removed from the Tier 1 supported platform list. If you take no action, IoT Edge devices running on the unsupported operating system continue to work but ongoing security patches and bug fixes in the host packages for the operating system won't be available after the end of support date. To continue to receive support and security updates, we recommend that you update your host OS to a Tier 1 supported platform.
 
 #### Windows containers
@@ -78,7 +81,7 @@ We no longer support Windows containers. [IoT Edge for Linux on Windows](iot-edg
 The systems listed in the following table are considered compatible with Azure IoT Edge, but aren't actively tested or maintained by Microsoft.
 
 > [!IMPORTANT]
-> Support for these systems is best effort and may require you reproduce the issue on a Tier 1 supported system.
+> Tier 2 systems are community-supported. Microsoft validates basic functionality on these platforms but doesn't run full CI/CD testing on them. Support for these systems is best effort and may require you reproduce the issue on a Tier 1 supported system.
 >
 > Installation packages are made available on the [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). See the installation steps in [Offline or specific version installation](how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
 
@@ -124,6 +127,16 @@ Azure IoT Edge can be run in virtual machines, such as an [Azure Virtual Machine
 ## Minimum system requirements
 
 Azure IoT Edge runs well on devices as small as a Raspberry Pi3 to server grade hardware. Choosing the right hardware for your scenario depends on the workloads that you want to run. Making the final device decision can be complicated; however, you can easily start prototyping a solution on traditional laptops or desktops.
+
+The following table provides general guidance for hardware requirements:
+
+| Configuration | RAM | Storage | CPU |
+| ------------- | --- | ------- | --- |
+| Minimum (edgeAgent only, no custom modules) | 256 MB | 2 GB | 1 core |
+| Typical (edgeAgent + edgeHub + a few modules) | 1 GB | 8 GB | 2 cores |
+| Production (many modules, message buffering) | 2+ GB | 16+ GB | 4+ cores |
+
+Actual requirements depend on your workload. Modules that process images or run machine learning models need significantly more resources than modules that filter telemetry.
 
 Experience while prototyping will help guide your final device selection. Questions you should consider include:
 

@@ -1,34 +1,37 @@
 ---
-title: Run the Deployment Planner for VMware disaster recovery with Azure Site Recovery
+title: Run the deployment Planner for VMware disaster recovery with Azure Site Recovery
 description: This article describes how to run Azure Site Recovery Deployment Planner for VMware disaster recovery to Azure.
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: overview
 ms.author: v-gajeronika
-ms.date: 12/15/2023
+ms.date: 01/12/2026
 
 # Customer intent: "As a disaster recovery planner, I want to run the Deployment Planner for VMware disaster recovery to Azure, so that I can assess network bandwidth, storage requirements, and cost for effective virtual machine replication."
 ---
-# Run the Deployment Planner for VMware disaster recovery
-This article is the Azure Site Recovery Deployment Planner user guide for VMware-to-Azure production deployments.
+# Run the deployment Planner and generate a cost report for VMware disaster recovery
 
+This article is the Azure Site Recovery deployment Planner user guide for VMware-to-Azure production deployments.
 
 ## Modes of running deployment planner
+
 You can run the command-line tool (ASRDeploymentPlanner.exe) in any of the following three modes:
 
 1.	[Profiling](#profile-vmware-virtual-machines)
-2.	[Report generation](#generate-report)
+2.	[Generate a cost report](#generate-a-cost-report)
 3.	[Get throughput](#get-throughput)
 
 First, run the tool in profiling mode to gather virtual machine data churn and IOPS. Next, run the tool to generate the report to find the network bandwidth, storage requirements and DR cost.
 
 ## Profile VMware virtual machines
+
 In profiling mode, the deployment planner tool connects to the vCenter server/vSphere ESXi host to collect performance data about the virtual machine.
 
 * Profiling doesn't affect the performance of the production virtual machines, because no direct connection is made to them. All performance data is collected from the vCenter server/vSphere ESXi host.
 * To ensure that there is a negligible impact on the server because of profiling, the tool queries the vCenter server/vSphere ESXi host once every 15 minutes. This query interval doesn't compromise profiling accuracy, because the tool stores every minute’s performance counter data.
 
 ### Create a list of virtual machines to profile
+
 First, you need a list of the virtual machines to be profiled. You can get all the names of virtual machines on a vCenter server/vSphere ESXi host by using the VMware vSphere PowerCLI commands in the following procedure. Alternatively, you can list in a file the friendly names or IP addresses of the virtual machines that you want to profile manually.
 
 1. Sign in to the virtual machine that VMware vSphere PowerCLI is installed in.
@@ -60,6 +63,7 @@ Replace &lsaquo;server name&rsaquo;, &lsaquo;user name&rsaquo;, &lsaquo;password
 ](media/site-recovery-vmware-deployment-planner-run/profile-vm-list-v2a.png)
 
 ### Start profiling
+
 After you have the list of virtual machines to be profiled, you can run the tool in profiling mode. Here is the list of mandatory and optional parameters of the tool to run in profiling mode.
 
 ```
@@ -83,7 +87,6 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -StorageAccountName | (Optional) The storage-account name that's used to find the throughput achievable for replication of data from on-premises to Azure. The tool uploads test data to this storage account to calculate throughput. The storage account must be General-purpose v1 (GPv1) type. |
 | -StorageAccountKey | (Optional) The storage-account key that's used to access the storage account. Go to the Azure portal > Storage accounts > <*Storage account name*> > Settings > Access Keys > Key1. |
 | -Environment | (optional) This is your target Azure Storage account environment. This can be one of three values - AzureCloud, AzureUSGovernment, AzureChinaCloud. Default is AzureCloud. Use the parameter when your target Azure region is either Azure US Government or Microsoft Azure operated by 21Vianet. |
-
 
 We recommend that you profile your virtual machines for more than 7 days. If churn pattern varies in a month, we recommend profiling during the week when you see the maximum churn. The best way is to profile for 31 days to get better recommendation. During the profiling period, ASRDeploymentPlanner.exe keeps running. The tool takes profiling time input in days. For a quick test of the tool or for proof of concept you can profile for few hours or minutes. The minimum allowed profiling time is 30 minutes.
 
@@ -110,6 +113,7 @@ Virtual machine configurations are captured once at the beginning of the profili
 The profiling command generates several files in the profiling directory. Don't delete any of the files, because doing so affects report generation.
 
 #### Example 1: Profile virtual machines for 30 days, and find the throughput from on-premises to Azure
+
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  30  -User vCenterUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
@@ -121,11 +125,13 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 ```
 
 #### Example 3: Profile virtual machines for 60 minutes for a quick test of the tool
+
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -virtual machineListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfMinutesToProfile 60  -User vCenterUser1
 ```
 
 #### Example 4: Profile virtual machines for 2 hours for a proof of concept
+
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -NoOfHoursToProfile 2 -User vCenterUser1
 ```
@@ -135,8 +141,8 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 >* If the server that the tool is running on is rebooted or has crashed, or if you close the tool by using Ctrl + C, the profiled data is preserved. However, there is a chance of missing the last 15 minutes of profiled data. In such an instance, rerun the tool in profiling mode after the server restarts.
 >* When the storage-account name and key are passed, the tool measures the throughput at the last step of profiling. If the tool is closed before profiling is completed, the throughput isn't calculated. To find the throughput before generating the report, you can run the GetThroughput operation from the command-line console. Otherwise, the generated report won't contain the throughput information.
 
+## Generate a cost report
 
-## Generate report
 The tool generates a macro-enabled Microsoft Excel file (XLSM file) as the report output, which summarizes all the deployment recommendations. The report is named `DeploymentPlannerReport_<unique numeric identifier>.xlsm` and placed in the specified directory.
 
 >[!NOTE]
@@ -176,33 +182,39 @@ By default, the tool is configured to profile and generate report up to 1000 vir
 ```
 
 #### Example 1: Generate a report with default values when the profiled data is on the local drive
+
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
 #### Example 2: Generate a report when the profiled data is on a remote server
+
 You should have read/write access on the remote directory.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “\\PS1-W2K12R2\vCenter1_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
 #### Example 3: Generate a report with a specific bandwidth and goal to complete IR within specified time
+
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -Bandwidth 100 -GoalToCompleteIR 24
 ```
 
 #### Example 4: Generate a report with a 5 percent growth factor instead of the default 30 percent
+
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
 ```
 
 #### Example 5: Generate a report with a subset of profiled data
+
 For example, you have 30 days of profiled data and want to generate a report for only 20 days.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -StartDate  01-10-2017:12:30 -EndDate 01-19-2017:12:30
 ```
 
 #### Example 6: Generate a report for 5-minute RPO
+
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -DesiredRPO 5
 ```
@@ -215,6 +227,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 ```
 
 ## Percentile value used for the calculation
+
 **What default percentile value of the performance metrics collected during profiling does the tool use when it generates a report?**
 
 The tool defaults to the 95th percentile values of read/write IOPS, write IOPS, and data churn that are collected during profiling of all the virtual machines. This metric ensures that the 100th percentile spike your virtual machines might see because of temporary events aren't used to determine your target storage-account and source-bandwidth requirements. For example, a temporary event might be a backup job running once a day, a periodic database indexing or analytics report-generation activity, or other similar short-lived, point-in-time events.
@@ -227,6 +240,7 @@ Using 95th percentile values gives a true picture of real workload characteristi
 ```
 
 ## Growth-factor considerations
+
 **Why should I consider growth factor when I plan deployments?**
 
 It's critical to account for growth in your workload characteristics, assuming a potential increase in usage over time. After protection is in place, if your workload characteristics change, you can't switch to a different storage account for protection without disabling and re-enabling the protection.
@@ -248,7 +262,7 @@ The generated Microsoft Excel report contains the following information:
 * [Incompatible VMs](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-virtual-machines)
 * [Cost Estimation](site-recovery-vmware-deployment-planner-cost-estimation.md)
 
-![Deployment planner](media/site-recovery-vmware-deployment-planner-analyze-report/Recommendations-v2a.png)
+:::image type="content" source="media/site-recovery-vmware-deployment-planner-analyze-report/recommendations-v2a.png" alt-text="Screenshot of Deployment planner.":::
 
 ## Get throughput
 
@@ -273,6 +287,7 @@ The tool creates several 64-MB asrvhdfile<#>.vhd files (where "#" is the number 
 The throughput is measured at a specified point in time, and it's the maximum throughput that Site Recovery can achieve during replication, if all other factors remain the same. For example, if any application starts consuming more bandwidth on the same network, the actual throughput varies during replication. If you're running the GetThroughput command from a configuration server, the tool is unaware of any protected virtual machines and ongoing replication. The result of the measured throughput is different if the GetThroughput operation is run when the protected virtual machines have high data churn. We recommend that you run the tool at various points in time during profiling to understand what throughput levels can be achieved at various times. In the report, the tool shows the last measured throughput.
 
 ### Example
+
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_ProfiledData -Virtualization VMware -VMListFile E:\vCenter1_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
@@ -292,4 +307,5 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 >  4. Change the Site Recovery settings in the process server to [increase the amount of network bandwidth used for replication](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 
 ## Next steps
+
 * [Analyze the generated report](site-recovery-vmware-deployment-planner-analyze-report.md).

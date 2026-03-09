@@ -206,6 +206,50 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-troubleshoot.md",
+            "redirect_url": "/troubleshoot/azure/vpn-gateway/vpn-gateway-troubleshoot"
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/troubleshoot-digital-certificate-authentication.md",
+            "redirect_url": "/troubleshoot/azure/vpn-gateway/troubleshoot-digital-certificate-authentication"
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/troubleshoot-vpn-with-azure-diagnostics.md",
+            "redirect_url": "/troubleshoot/azure/vpn-gateway/troubleshoot-vpn-with-azure-diagnostics"
+        },
+        {   
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md",
+            "redirect_url": "/troubleshoot/azure/vpn-gateway/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems"
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md",
+            "redirect_url": "/troubleshoot/azure/vpn-gateway/vpn-gateway-troubleshoot-point-to-site-osx-ikev2"
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/troubleshoot-azure-vpn-client.md",
+            "redirect_url": "/troubleshoot/azure/vpn-gateway/troubleshoot-azure-vpn-client"
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/feedback-hub-azure-vpn-client.md",
+            "redirect_url": "/troubleshoot/azure/vpn-gateway/feedback-hub-azure-vpn-client"
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-troubleshoot-site-to-site-cannot-connect.md",
+            "redirect_url": "/troubleshoot/azure/vpn-gateway/vpn-gateway-troubleshoot-site-to-site-cannot-connect"
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-troubleshoot-site-to-site-error-codes.md",
+            "redirect_url": "/troubleshoot/azure/vpn-gateway/vpn-gateway-troubleshoot-site-to-site-error-codes"
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md",
+            "redirect_url": "/troubleshoot/azure/vpn-gateway/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently"
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-validate-throughput-to-vnet.md",
+            "redirect_url": "/troubleshoot/azure/vpn-gateway/vpn-gateway-validate-throughput-to-vnet"
+        },
+        {
             "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md",
             "redirect_url": "/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell",
             "redirect_document_id": false

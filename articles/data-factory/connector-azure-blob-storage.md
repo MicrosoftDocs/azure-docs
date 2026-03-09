@@ -125,7 +125,7 @@ The following properties are supported for storage account key authentication in
 
 **Examples UI**:
 
-The UI experience is as described in the following image. This sample uses the Azure open dataset as the source. If you want to get the open [dataset bing_covid-19_data.csv](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.csv), you just need to choose **Authentication type** as **Anonymous** and fill in Container URI with `https://pandemicdatalake.blob.core.windows.net/public`.
+The UI experience is as described in the following image. This sample used an Azure open dataset as the source.
 
 :::image type="content" source="media/connector-azure-blob-storage/anonymous-ui.png" alt-text="Screenshot of configuration for Anonymous examples UI.":::
 

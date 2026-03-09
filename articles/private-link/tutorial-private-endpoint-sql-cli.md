@@ -123,6 +123,7 @@ az network bastion create \
     --name myBastionHost \
     --public-ip-address myBastionIP \
     --vnet-name myVNet \
+    --sku Basic \
     --location eastus
 ```
 

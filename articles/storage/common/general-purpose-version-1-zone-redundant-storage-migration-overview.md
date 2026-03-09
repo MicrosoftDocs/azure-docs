@@ -3,10 +3,10 @@ title: General Purpose v1 (GPv1) with ZRS redundancy retirement overview
 titleSuffix: Azure Storage
 description: Learn what the retirement of Azure General Purpose v1 (GPv1) with ZRS redundancy accounts means and how to prepare for a smooth migration to GPv2.
 services: storage
-author: gtrossell
+author: gtrossell-eng
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 08/19/2025
+ms.date: 12/15/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: references_regions
@@ -41,7 +41,7 @@ The table below summarizes the key differences most customers care about:
 | Area | General purpose v1 (GPv1) with ZRS redundancy | GPv2 (StorageV2) with ZRS |
 |---|---|---|
 | Replication model | Legacy topology; not synchronous across 3 zones; may require platform failover | **Synchronous across three availability zones** in the region; no failover required during a single‑zone event |
-| Availability during zonal outage | Access may be interrupted until failover | Remains online for reads/writes through a single‑zone outage |
+| Availability during zone outage | Access may be interrupted until failover | Remains online for reads/writes through a single‑zone outage |
 | Access tiers & lifecycle | Limited; no per‑blob tiering | **per‑blob tiering** (hot/cool/archive) + **lifecycle management** |
 | Security & governance | General purpose v1 (GPv1) with ZRS redundancy/GPv1 control plane | ARM‑based; Azure AD RBAC, tags, Azure Policy |
 | Data services | Blobs, Files, Queues, Tables | Blobs, Files, Queues, Tables **+** ADLS Gen2 (hierarchical namespace) |

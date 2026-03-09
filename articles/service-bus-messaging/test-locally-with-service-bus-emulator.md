@@ -226,11 +226,12 @@ When you use Docker, the service bus emulator is fetched from the [Microsoft Con
         - "${CONFIG_PATH}:/ServiceBus_Emulator/ConfigFiles/Config.json"
       ports:
         - "5672:5672"
-        - "5300:5300"
+        - "5300:${EMULATOR_HTTP_PORT:-5300}"
       environment:
         SQL_SERVER: mssql
         MSSQL_SA_PASSWORD: "${MSSQL_SA_PASSWORD}"  # Password should be same as what is set for SQL Server Linux 
         ACCEPT_EULA: ${ACCEPT_EULA}
+        EMULATOR_HTTP_PORT: ${EMULATOR_HTTP_PORT:-5300}
         SQL_WAIT_INTERVAL: ${SQL_WAIT_INTERVAL} # Optional: Time in seconds to wait for SQL to be ready (default is 15 seconds)
       depends_on:
         - mssql
@@ -269,6 +270,9 @@ When you use Docker, the service bus emulator is fetched from the [Microsoft Con
     
     # 3. MSSQL_SA_PASSWORD to be filled by user as per policy
     MSSQL_SA_PASSWORD=""
+
+    # 4. Port on which emulator will expose Management & Health-check APIs
+    EMULATOR_HTTP_PORT=5300
     ```
     
     > [!IMPORTANT]
@@ -304,9 +308,11 @@ You can verify the containers are running by checking Docker Desktop or using th
 
 ## Interact with the emulator
 
-By default, emulator uses [config.json](https://github.com/Azure/azure-service-bus-emulator-installer/blob/main/ServiceBus-Emulator/Config/Config.json) configuration file. You can configure entities by making changes to configuration file. To know more, visit [make configuration changes](overview-emulator.md#quota-configuration-changes)
+You can create and manage Service Bus entities—such as queues and topics—using the Service Bus [Administration Client](service-bus-management-libraries.md). By default, emulator uses [config.json](https://github.com/Azure/azure-service-bus-emulator-installer/blob/main/ServiceBus-Emulator/Config/Config.json) configuration file. You can also configure entities by making declarative changes to configuration file. To know more, visit [create and manage entities within Service Bus emulator](overview-emulator.md#create-and-manage-entities-within-service-bus-emulator) 
 
-You can use the following connection string to connect to the Service Bus emulator:
+### Choosing the right connection string
+
+The Service Bus emulator uses a static connection string, but the host value varies depending on how your application is deployed relative to the emulator. Use the appropriate connection string for your setup:
 
  - When the emulator container and interacting application are running natively on local machine, use following connection string:
 
@@ -332,6 +338,16 @@ You can use the following connection string to connect to the Service Bus emulat
     "Endpoint=sb://host.docker.internal;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
     ```
 
+> [!IMPORTANT]
+> By default, management operations using the Service Bus Administration Client require appending the **port number** to the emulator connection string. For example, when both the emulator and the application are running on the same machine, use the following connection string for administration operations:
+>  ```
+> "Endpoint=sb://localhost:5300;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;";
+>  ```
+> For management operations, the emulator uses port 5300 by default. You can configure the emulator to use a different port if required. Refer to know [more](https://github.com/Azure/azure-service-bus-emulator-installer?tab=readme-ov-file#interacting-with-the-emulator).
+> 
+> For the Service Bus Emulator, creating and managing entities via the Service Bus Administration client is natively supported only in .NET.
+>
+> 
 You can use the latest client SDKs to interact with the Service Bus emulator across various programming languages. To get started, refer to the [Service Bus emulator samples on GitHub](https://github.com/Azure/azure-service-bus-emulator-installer/tree/main/Sample-Code-Snippets/NET/ServiceBus.Emulator.Console.Sample).
 
 ## Related content

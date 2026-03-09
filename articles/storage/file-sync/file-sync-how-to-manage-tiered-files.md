@@ -76,9 +76,9 @@ To exclude files or folders from cloud tiering, follow these steps:
    To exclude all files under a folder from tiering (for example, D:\ShareRoot\Folder\SubFolder), run the following command:
    **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d D:\\\\ShareRoot\\\\Folder\\\\SubFolder /f**
 
-   To exclude all files under a folder having one or more of these characters from tiering (for example, D:\ShareRoot\+$Folder\() SubFolder), run the following command: 
-   **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList /t REG_SZ /d D:\\ShareRoot\\\+\$Folder\\\(\)SubFolder /f**
-
+   To exclude all files under a folder path that contains one or more special characters (see note below regarding escaping), (for example, D:\\+\$Folder\SubFolder), run the following command:
+   **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList /t REG_SZ /d D:\\\\\\+\\\$Folder\\\\SubFolder /f****
+  
    To exclude a combination of file names, file extensions and folders from tiering (for example, D:\ShareRoot\Folder1\SubFolder1,FileName.log,.txt), run the following command:  
    **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d D:\\\\ShareRoot\\\\Folder1\\\\SubFolder1|FileName.log|.txt /f**
 
@@ -86,6 +86,13 @@ To exclude files or folders from cloud tiering, follow these steps:
 
 	**net stop filesyncsvc**  
 	**net start filesyncsvc**
+
+> [!NOTE]
+> When specifying folder paths that include special characters, you must prefix each instance of the following characters with an escape character (`\`):
+>
+> `^ $ ( ) [ ] { } +`
+>
+> If you don't escape these characters, the exclusion policy won't work correctly for any folder path that contains them.
 
 ### Tiered downloads
 

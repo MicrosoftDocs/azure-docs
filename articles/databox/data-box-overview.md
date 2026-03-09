@@ -18,7 +18,16 @@ ms.custom:
 # What is Azure Data Box?
 
 :::zone pivot="dbx-ng"
-The Microsoft Azure Data Box cloud solution lets you send terabytes of data into and out of Azure in a quick, inexpensive, and reliable way. The secure data transfer is accelerated by shipping you a proprietary Data Box storage device. These storage devices come in two variations having a maximum usable storage capacity of 120 TB and 525 TB respectively. These are transported to your data center through a regional carrier. These devices have a rugged casing to protect and secure data during the transit. 
+
+:::row:::
+    :::column:::
+        [![2-Minute demonstration video introducing Azure Data Box - click to play!](media/data-box-overview/video-background.png)](https://youtu.be/trBZN7hVeOE)
+    :::column-end:::
+    :::column:::
+        The Microsoft Azure Data Box cloud solution lets you send terabytes of data into and out of Azure in a quick, inexpensive, and reliable way. The secure data transfer is accelerated by shipping you a proprietary Data Box storage device.         
+    :::column-end:::
+:::row-end:::
+These storage devices come in two variations having a maximum usable storage capacity of 120 TB and 525 TB respectively. These are transported to your data center through a regional carrier. These devices have a rugged casing to protect and secure data during the transit. 
 :::zone-end
 
 :::zone pivot="dbx"

@@ -4,7 +4,7 @@
  services: batch
  ms.service: azure-batch
  ms.topic: include
- ms.date: 11/17/2022
+ ms.date: 01/05/2026
  ms.custom: include file
 ---
 
@@ -13,7 +13,7 @@
 | Azure Batch accounts per region per subscription | 1-3 | 50 |
 | Dedicated cores per Batch account | 0-900<sup>1</sup> | Contact support |
 | Low-priority cores per Batch account | 0-100<sup>1</sup> | Contact support |
-| **[Active](/rest/api/batchservice/job/get#jobstate)** jobs and job schedules per Batch account (**completed** jobs have no limit) | 100-300 | 1,000<sup>2</sup> |
+| **[Active](/rest/api/batchservice/jobs/get-job)** jobs and job schedules per Batch account (**completed** jobs have no limit) | 100-300 | 1,000<sup>2</sup> |
 | Pools per Batch account | 0-100<sup>1</sup> | 500<sup>2</sup> |
 | Private endpoint connections per Batch account | 100 | 100 |
 

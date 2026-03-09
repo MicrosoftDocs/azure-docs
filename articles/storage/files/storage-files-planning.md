@@ -1,5 +1,5 @@
 ---
-title: Plan for an Azure Files deployment
+title: Plan for an Azure Files Deployment
 description: Understand how to plan for an Azure Files deployment. You can either direct mount an SMB or NFS file share, or cache SMB file shares on-premises with Azure File Sync.
 author: khdownie
 ms.service: azure-file-storage
@@ -11,20 +11,22 @@ ms.custom: references_regions
 ---
 
 # Plan to deploy Azure Files
+
 You can deploy [Azure Files](storage-files-introduction.md) in two main ways: by directly mounting the serverless Azure file shares or by caching file shares on-premises using Azure File Sync. Deployment considerations differ based on which option you choose.
 
 - **Direct mount of an Azure file share**: Because Azure Files provides either Server Message Block (SMB) or Network File System (NFS) access, you can mount Azure file shares on-premises or in the cloud using the standard SMB or NFS clients available in your OS. Because Azure file shares are serverless, deploying for production scenarios doesn't require managing a file server or NAS device. This means you don't have to apply software patches or swap out physical disks. You can either choose to use Azure classic file shares or Microsoft.FileShares (preview) as your management model.
 
-- **Cache Azure file shares on-premises with Azure File Sync**: [Azure File Sync](../file-sync/file-sync-introduction.md) enables you to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms an on-premises (or cloud) Windows Server into a quick cache of your SMB Azure file share.
+- **Cache Azure file shares on-premises with Azure File Sync** (SMB only): [Azure File Sync](../file-sync/file-sync-introduction.md) enables you to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms an on-premises (or cloud) Windows Server into a quick cache of your SMB Azure file share.
 
 This article primarily addresses deployment considerations for deploying an Azure file share to be directly mounted by an on-premises or cloud client. To plan for an Azure File Sync deployment, see [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md).
 
 ## Management concepts
+
 In Azure, a *resource* is a manageable item that you create and configure within your Azure subscriptions and resource groups. Resources are offered by *resource providers*, which are management services that deliver specific types of resources. While you may work with many resources to deploy a workload in Azure, Azure Files centers on two key resources:
 
 - **Storage accounts**, offered by the `Microsoft.Storage` resource provider. Storage accounts are top-level resources that represent a shared pool of storage, IOPS, and throughput in which you can deploy **classic file shares** or other storage resources, depending on the storage account kind. All storage resources that are deployed into a storage account share the limits that apply to that storage account. Classic file shares support both the SMB and NFS file sharing protocols.
 
-- **File shares** (preview), offered by the `Microsoft.FileShares` resource provider. File shares are a new top-level resource that simplify the deployment of Azure Files by eliminating the storage account. Unlike classic file shares, which must be deployed into a storage account, file shares are deployed directly into the resource group like storage accounts themselves, or other Azure resources you may be familiar with like virtual machines, disks, or virtual networks. File shares support the NFS file sharing protocol - if you require SMB, choose classic file shares for your deployment.
+- **File shares** (preview), offered by the `Microsoft.FileShares` resource provider. File shares are a new top-level resource that simplify the deployment of Azure Files by eliminating the need for a storage account. Unlike classic file shares, which must be deployed into a storage account, file shares are deployed directly into the resource group like storage accounts themselves, or other Azure resources like virtual machines, disks, or virtual networks. Currently, `Microsoft.FileShares` only supports the NFS file sharing protocol. If you require SMB, choose classic file shares.
 
 ![Image comparing file shares and classic Azure file shares](./media/storage-files-planning/file-share-comparison.png)
 
@@ -34,33 +36,36 @@ This video provides a comprehensive overview of the differences between the stor
 
 
 ### Classic file shares (Microsoft.Storage)
+
 Classic file shares, or file shares deployed in storage accounts, are the traditional way to deploy file shares for Azure Files. They support all of the key features that Azure Files supports including SMB and NFS, SSD and HDD media tiers, every redundancy type, and in every region. While classic file shares support the entire breadth of Azure Files features, they have important key limitations:
 
-- **Capacity planning**: Classic file shares, and the child objects for other storage services like blob containers, that live within the same storage account share a common pool of storage, IOPS, and throughput. This means placing multiple classic file shares in a storage account requires planning to avoid capacity bottlenecks. When capacity planning for classic file shares, you need to consider both the current and future needs of each classic file share placed in a storage account since the growth of one classic file share can crowd out other file shares.
+- **Capacity planning**: Classic file shares, as well as the child objects like blob containers that live within the same storage account, share a common pool of storage, IOPS, and throughput. This means placing multiple classic file shares in a storage account requires planning to avoid capacity bottlenecks. When planning for classic file shares, you need to consider both the current and future needs of each classic file share placed in a storage account, since the growth of one classic file share can crowd out other file shares.
 
-- **Shared settings**: Many important settings, such as network and security rules, are applied at the storage account level, so as a result, placing classic file shares in the same storage account requires careful consideration. You should consider the storage account to be a trust boundary and only place classic file shares in the same storage account if you're ok with them having the same security settings.
+- **Shared settings**: Many important settings, such as network and security rules, are applied at the storage account level. As a result, placing classic file shares in the same storage account requires careful consideration. You should consider the storage account to be a trust boundary and only place classic file shares in the same storage account if you're ok with them having the same security settings.
 
-- **Scaling complexity**: Large scale deployments of Azure Files can require managing many Azure subscriptions due the constraints on storage accounts from the `Microsoft.Storage` resource provider. See [storage account limits](./storage-files-scale-targets.md#storage-account-data-plane-limits) for more information.
+- **Scaling complexity**: Large scale Azure Files deployments can require managing many Azure subscriptions due the constraints on storage accounts from the `Microsoft.Storage` resource provider. See [storage account limits](./storage-files-scale-targets.md#storage-account-data-plane-limits) for more information.
 
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 
 To learn more, see [Create a classic file share](./create-classic-file-share.md).
 
 ### File shares (Microsoft.FileShares)
-File shares (preview) are a new top-level Azure resource provided by the `Microsoft.FileShares` resource provider. File shares offer the following advantages over classic file shares:
 
-- **Simplified management**: File shares are created directly as top-level resources in the portal or through management APIs. This removes the requirement to manage a storage account and streamlines the deployment experience.
+File shares (preview) are a new top-level Azure resource provided by the `Microsoft.FileShares` resource provider. These file shares offer the following advantages over classic file shares:
 
-- **Independent capacity and performance**: Each file share has it's own dedicated storage, IOPS, and throughput. This avoids the need to do capacity planning against your storage accounts limited resources and enables file shares to freely grow as workload demands grow.
+- **Simplified management**: File shares are created directly as top-level resources in the Azure portal or through management APIs. This removes the requirement to manage a storage account and streamlines the deployment experience.
+
+- **Independent capacity and performance**: Each file share has its own dedicated storage, IOPS, and throughput. This avoids the need to do capacity planning against your storage account's limited resources and enables file shares to freely grow as workload demands grow.
 
 - **Granular configuration**: Networking and security settings are applied at the file share level, giving you precise control of access boundaries and isolation. This makes it easier to enforce security policies for specific apps, teams, or environments.
 
-- **Predictable, flexible billing**: File shares use the provisioned v2 billing model, which enables you to independently provision storage, IOPS, and throughput per share. Because billing in Azure is done per top-level Azure resource, using file shares enables you to easily track the costs of each individual share for cost attribution back to the project, team, or customer that is using the file share.
+- **Predictable, flexible billing**: File shares use the provisioned v2 billing model, which enables you to independently provision storage, IOPS, and throughput per share. Because billing in Azure is done per top-level Azure resource, this enables you to easily track the costs of each individual share for cost attribution back to the project, team, or customer that is using the file share.
 
 - **Improved scale and performance**: File shares support higher limits and lower deployment times than classic file shares. For more information, see [Azure Files scalability and performance targets](./storage-files-scale-targets.md).
 
 #### Regional availability
-Currently, creating a file share with Microsoft.FileShares (preview) is available in the following regions:
+
+Currently, creating a file share with Microsoft.FileShares (preview) is available in the following regions. Private endpoint support for file share with Microsoft.FileShares (preview) is available in all Azure public cloud regions.
 
 - Australia East
 - Australia Central
@@ -74,10 +79,6 @@ Currently, creating a file share with Microsoft.FileShares (preview) is availabl
 - South Africa West
 - South India
 - UAE Central
-
-Currently, private endpoint support for file share with Microsoft.FileShares (preview) is available in a limited subset of regions:
-
-- All Azure public cloud regions.
 
 #### Comparing resource providers: Microsoft.Storage versus Microsoft.FileShares
 
@@ -105,6 +106,7 @@ Currently, private endpoint support for file share with Microsoft.FileShares (pr
 | Data plane REST APIs | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Available protocols
+
 Azure Files offers two industry-standard file system protocols for mounting Azure file shares: the [Server Message Block (SMB)](files-smb-protocol.md) protocol and the [Network File System (NFS)](files-nfs-protocol.md) protocol, allowing you to choose the protocol that is the best fit for your workload. Azure file shares don't support both the SMB and NFS protocols on the same file share, although you can create SMB and NFS Azure file shares within the same storage account.
 
 With both SMB and NFS file shares, Azure Files offers enterprise-grade file shares that can scale up to meet your storage needs and can be accessed concurrently by thousands of clients.
@@ -113,7 +115,7 @@ With both SMB and NFS file shares, Azure Files offers enterprise-grade file shar
 |-|-|-|
 | Supported protocol versions | SMB 3.1.1, SMB 3.0, SMB 2.1 | NFS 4.1 |
 | Recommended OS | <ul><li>Windows 11, version 21H2+</li><li>Windows 10, version 21H1+</li><li>Windows Server 2019+</li><li>Linux kernel version 5.3+</li></ul> | Linux kernel version 4.3+ |
-| [Available tiers](storage-files-planning.md#storage-tiers) | SSD and HDD | SSD only |
+| [Available media tiers](storage-files-planning.md#storage-tiers) | SSD and HDD | SSD only |
 | [Redundancy](storage-files-planning.md#redundancy) | <ul><li>Local (LRS)</li><li>Zone (ZRS)</li><li>Geo (GRS)</li><li>GeoZone (GZRS)</li></ul> | <ul><li>Local (LRS)</li><li>Zone (ZRS)</li></ul> |
 | File system semantics | Win32 | POSIX |
 | Authentication | Identity-based authentication (Kerberos), shared key authentication (NTLMv2) | Host-based authentication |
@@ -141,15 +143,18 @@ With both SMB and NFS file shares, Azure Files offers enterprise-grade file shar
 | File system transactions (TxF) | Not supported | N/A |
 
 ## Identity
-To access an Azure file share, the user of the file share must be authenticated and authorized to access the share. This is done based on the identity of the user accessing the file share. Azure Files supports the following methods of authentication:
+
+To access an Azure file share, the user must be authenticated and authorized to access the share. In nearly all cases, we recommend using [identity-based authentication](storage-files-active-directory-overview.md) instead of the storage account key to access SMB Azure file shares.
+
+Azure Files supports the following methods of authentication for SMB shares:
 
 - **On-premises Active Directory Domain Services (AD DS, or on-premises AD DS)**: Azure storage accounts can be domain joined to a customer-owned Active Directory Domain Services, just like a Windows Server file server or NAS device. You can deploy a domain controller on-premises, in an Azure VM, or even as a VM in another cloud provider; Azure Files is agnostic to where your domain controller is hosted. Once a storage account is domain-joined, the end user can mount a file share with the user account they signed into their PC with. AD-based authentication uses the Kerberos authentication protocol.
 - **Microsoft Entra Domain Services**: Microsoft Entra Domain Services provides a Microsoft-managed domain controller that can be used for Azure resources. Domain joining your storage account to Microsoft Entra Domain Services provides similar benefits to domain joining it to a customer-owned AD DS. This deployment option is most useful for application lift-and-shift scenarios that require AD-based permissions. Because Microsoft Entra Domain Services provides AD-based authentication, this option also uses the Kerberos authentication protocol.
 - **Microsoft Entra Kerberos**: Microsoft Entra Kerberos allows you to use Microsoft Entra ID to authenticate [hybrid](../../active-directory/hybrid/whatis-hybrid-identity.md) or cloud-only identities (preview). This configuration uses Microsoft Entra ID to issue Kerberos tickets to access the file share with the SMB protocol. This means your end users can access Azure file shares over the internet from Microsoft Entra hybrid joined and Microsoft Entra joined VMs.
 - **Active Directory authentication over SMB for Linux clients**: Azure Files supports identity-based authentication over SMB for Linux clients using the Kerberos authentication protocol through either AD DS or Microsoft Entra Domain Services.
-- **Azure storage account key**: Although it's not recommended for security reasons, you can also mount Azure file shares using an Azure storage account key instead of using an identity. To mount a file share using the storage account key, the storage account name is used as the username and the storage account key is used as a password. Using the storage account key to mount the Azure file share is effectively an administrator operation, because the mounted file share has full permissions to all of the files and folders on the share, even if they have ACLs. When using the storage account key to mount over SMB, the NTLMv2 authentication protocol is used. In nearly all cases, we recommend using [identity-based authentication](storage-files-active-directory-overview.md) instead of the storage account key to access SMB Azure file shares. However, if you must use the storage account key, we recommend using private endpoints or service endpoints as described in the [Networking](#networking) section.
+- **Azure storage account key**: Although it's not recommended for security reasons, you can also mount Azure file shares using an Azure storage account key instead of using an identity. To mount a file share using the storage account key, the storage account name is used as the username and the storage account key is used as a password. Using the storage account key to mount the Azure file share is effectively an administrator operation, because the mounted file share has full permissions to all of the files and folders on the share, even if they have ACLs. When using the storage account key to mount over SMB, the NTLMv2 authentication protocol is used. If you must use the storage account key, we recommend using private endpoints or service endpoints as described in the [Networking](#networking) section.
 
-For customers migrating from on-premises file servers or creating new file shares in Azure Files intended to behave like Windows file servers or NAS appliances, domain joining your storage account to **Customer-owned AD DS** is recommended. To learn more about domain joining your storage account to a customer-owned AD DS, see [Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares](storage-files-identity-ad-ds-overview.md).
+For customers migrating from on-premises file servers or creating new file shares in Azure Files intended to behave like Windows file servers or NAS appliances, we recommend domain joining your storage account to the customer-owned AD DS. To learn more, see [Overview - on-premises AD DS authentication over SMB for Azure file shares](storage-files-identity-ad-ds-overview.md).
 
 ## Networking
 
@@ -164,7 +169,7 @@ This means you'll need to consider the following network configurations:
 
 - If the required protocol is SMB and all access over SMB is from clients in Azure, no special networking configuration is required.
 - If the required protocol is SMB and the access is from clients on-premises, then a VPN or ExpressRoute connection from on-premises to your Azure network is required, with Azure Files exposed on your internal network using private endpoints.
-- If the required protocol is NFS, you can use either service endpoints or private endpoints to restrict the network to specified virtual networks. If you need a static IP address and/or your workload requires high availability, use a private endpoint. With service endpoints, a rare event such as a zonal outage could cause the underlying IP address of the storage account to change. While the data is still available on the file share, the client would require a remount of the share.
+- If the required protocol is NFS, you can use either service endpoints or private endpoints to restrict the network to specified virtual networks. If you need a static IP address and/or your workload requires high availability, use a private endpoint. With service endpoints, a rare event such as a zone outage could cause the underlying IP address of the storage account to change. While the data is still available on the file share, the client would require a remount of the share.
 
 To learn more about how to configure networking for Azure Files, see [Azure Files networking considerations](storage-files-networking-overview.md).
 
@@ -241,17 +246,16 @@ In the case of an unplanned regional service outage, you should have a disaster 
 
 ## Migration
 
-In many cases, you won't be establishing a net new file share for your organization, but instead migrating an existing file share from an on-premises file server or NAS device to Azure Files. Picking the right migration strategy and tool for your scenario is important for the success of your migration.
+In many cases, you won't be establishing a net new file share for your organization, but instead migrating an existing file share from an on-premises file server or NAS device to Azure Files. Picking the right migration strategy and tool is important for the success of your migration.
 
-The [migration overview article](storage-files-migration-overview.md) briefly covers the basics and contains a table that leads you to migration guides that likely cover your scenario.
+For SMB migrations, see [SMB migration overview](storage-files-migration-overview.md) which contains a table that leads you to migration guides that likely cover your scenario.
+
+For NFS migrations, see [Migrate to NFS Azure file shares](storage-files-migration-nfs.md).
 
 ## Next steps
 
 - [Planning for an Azure File Sync Deployment](../file-sync/file-sync-planning.md)
 - [Deploying Azure Files](./storage-how-to-create-file-share.md)
 - [Deploying Azure File Sync](../file-sync/file-sync-deployment-guide.md)
-- [Check out the migration overview article to find the migration guide for your scenario](storage-files-migration-overview.md)
-
-
 
 

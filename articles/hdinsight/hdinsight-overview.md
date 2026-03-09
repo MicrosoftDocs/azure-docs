@@ -41,7 +41,7 @@ HDInsight includes specific cluster types and cluster customization capabilities
 |Cluster Type | Description | Get Started |
 |---|---|---|
 |[Apache Hadoop](./hadoop/apache-hadoop-introduction.md)|A framework that uses HDFS, YARN resource management, and a simple MapReduce programming model to process and analyze batch data in parallel.| [Create an Apache Hadoop cluster](hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md)
-|[Apache Spark](./spark/apache-spark-overview.md)|An open-source, parallel-processing framework that supports in-memory processing to boost the performance of big-data analysis applications. See [What is Apache Spark in HDInsight?](./spark/apache-spark-overview.md).|[Create an Apache Spark cluster](spark/apache-spark-jupyter-spark-sql-use-portal.md)
+|[Apache Spark](./spark/apache-spark-overview.md)|An open-source, parallel-processing framework that supports in-memory processing to boost the performance of big-data analysis applications. See [What is Apache Spark in HDInsight?](./spark/apache-spark-overview.md)|[Create an Apache Spark cluster](spark/apache-spark-jupyter-spark-sql-use-portal.md)
 |[Apache HBase](./hbase/apache-hbase-overview.md)|A NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semi-structured data--potentially billions of rows times millions of columns. See [What is HBase on HDInsight?](./hbase/apache-hbase-overview.md)|[Create an Apache HBase cluster](hbase/quickstart-resource-manager-template.md)
 |[Apache Interactive Query](./interactive-query/apache-interactive-query-get-started.md)|In-memory caching for interactive and faster Hive queries. See [Use Interactive Query in HDInsight](./interactive-query/apache-interactive-query-get-started.md).|[Create an Interactive Query cluster](interactive-query/quickstart-resource-manager-template.md)
 |[Apache Kafka](./kafka/apache-kafka-introduction.md)|An open-source platform is used for building streaming data pipelines and applications. Kafka also provides message-queue functionality that allows you to publish and subscribe to data streams. See [Introduction to Apache Kafka on HDInsight](./kafka/apache-kafka-introduction.md).|[Create an Apache Kafka cluster](kafka/apache-kafka-get-started.md)
@@ -62,7 +62,7 @@ You can use HDInsight to perform interactive queries at petabyte scales over str
 
 ### Internet of Things (IoT)
 
-You can use HDInsight to process streaming data that is received in real time from different kinds of devices. For more information, [read this blog post from Azure that announces the public preview of Apache Kafka on HDInsight with Azure Managed disks](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/).
+You can use HDInsight to process streaming data that is received in real time from different kinds of devices. For more information, [read this blog post from Azure that announces the public preview of Apache Kafka on HDInsight with Azure Managed Disks](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/).
 
 :::image type="content" source="./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-iot-new.png" alt-text="Screenshot of the HDInsight architecture: Internet of Things.":::
 

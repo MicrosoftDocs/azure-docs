@@ -23,7 +23,7 @@ Before you begin, it's a good idea to read the conceptual overview information a
 ### Check if you are using the desired state configuration extension
 
 To verify if you’re using the desired state configuration extension on virtual machines,
-in the Azure Portal open “Virtual machines”, select the name of each virtual machine, then
+in the Azure portal open “Virtual machines”, select the name of each virtual machine, then
 “Settings” in the table of contents, and finally “Extensions + Applications”.
 There you will see a list of extensions assigned.
 
@@ -42,10 +42,15 @@ resources
     | where type == 'microsoft.compute/virtualmachines/extensions'
     | extend 
         VMId = toupper(substring(id, 0, indexof(id, '/extensions'))),
-        ExtensionName = tolower(name)
-    | where ExtensionName == 'microsoft.powershell.dsc'
+        ExtensionName = tolower(name),
+        ExtensionType = tolower(tostring(properties.type)),
+        ExtensionPublisher = tolower(tostring(properties.publisher)),
+        ExtensionVersion = tostring(properties.typeHandlerVersion),
+        ExtensionState = tolower(tostring(properties.provisioningState))
+    | where ExtensionPublisher == 'microsoft.powershell'
+    | where ExtensionType == 'dsc'
 ) on $left.JoinID == $right.VMId
-| project OSName, OSType, ExtensionName, ['id']
+| project OSName, OSType, ExtensionName, ExtensionType, ExtensionPublisher, ExtensionVersion, ExtensionState, ['id']
 | order by tolower(OSName) asc
 ```
 
@@ -154,7 +159,7 @@ Use the `Remove-DscConfigurationDocument` command as documented in
 - [Assign your custom policy definition][11] using Azure portal.
 
 <!-- Reference link definitions -->
-[01]: ../overview.md
+[01]: ../overview/01-overview-concepts.md
 [02]: /powershell/module/microsoft.powershell.core/about/about_windows_powershell_compatibility
 [03]: ../how-to/develop-custom-package/2-create-package.md
 [04]: ../how-to/develop-custom-package/2-create-package.md#author-a-configuration

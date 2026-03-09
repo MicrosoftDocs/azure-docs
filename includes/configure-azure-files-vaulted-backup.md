@@ -1,7 +1,7 @@
 ---
 author: jyothisuri
 ms.author: jsuri
-ms.date: 03/05/2025
+ms.date: 01/29/2026
 ms.topic: include
 ms.service: azure-backup
 ---
@@ -13,7 +13,7 @@ Azure Backup allows you to use a single backup policy to back up one or more Azu
 
 To configure backup for Azure Files, follow these steps:
 
-1. Go to **Business Continuity Center** > **Overview**, and then select **+ Configure protection**.
+1. Go to **Resiliency** > **Overview**, and then select **+ Configure protection**.
 
    :::image type="content" source="./media/configure-azure-files-vaulted-backup/start-protection.png" alt-text="Screenshot shows how to start protecting Azure Files." lightbox="./media/configure-azure-files-vaulted-backup/start-protection.png":::
 

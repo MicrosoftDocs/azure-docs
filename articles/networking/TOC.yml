@@ -23,9 +23,9 @@
     - name: Reliability
       items:
       - name: Reliability in Azure DNS
-        href: ../reliability/reliability-dns.md?toc=%2fazure%2fnetworking%2ftoc.json
+        href: /azure/reliability/reliability-dns?toc=%2fazure%2fnetworking%2ftoc.json
       - name: Reliability in Traffic Manager
-        href: ../reliability/reliability-traffic-manager.md?toc=%2fazure%2fnetworking%2ftoc.json
+        href: /azure/reliability/reliability-traffic-manager?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Choose a secure network topology
       href: secure-network-topology.md
     - name: Choose a secure application delivery service

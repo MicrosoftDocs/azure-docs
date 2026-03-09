@@ -1,10 +1,11 @@
 ---
 title: Monitoring data reference for Azure Site Recovery
 description: This article contains important reference material you need when you monitor Azure Site Recovery.
-ms.date: 03/21/2024
+ms.date: 02/12/2026
 ms.custom: horz-monitor
 ms.topic: reference
 ms.author: v-gajeronika
+ms.reviewer: v-gajeronika
 author: Jeronika-MS
 ms.service: azure-site-recovery
 # Customer intent: As an IT administrator, I want to access monitoring data for Azure Site Recovery, so that I can effectively track replication status, job details, and performance metrics to ensure reliable disaster recovery processes.
@@ -14,17 +15,17 @@ ms.service: azure-site-recovery
 
 [!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-See [Monitor Azure Site Recovery](monitor-site-recovery.md) for details on the data you can collect for Azure Site Recovery and how to use it.
+For details on the data you can collect for Azure Site Recovery and how to use it, see [Monitor Azure Site Recovery](monitor-site-recovery.md).
 
 ## Metrics
 
-There are no automatically collected metrics for Azure Site Recovery. All the automatically collected metrics for the `Microsoft.RecoveryServices/Vaults` namespace are for the Azure Backup service. For information about Azure Backup metrics, see [Monitor Azure Backup](/azure/backup/backup-azure-monitoring-built-in-monitor).
+Azure Site Recovery doesn't automatically collect any metrics. All the automatically collected metrics for the `Microsoft.RecoveryServices/Vaults` namespace are for the Azure Backup service. For information about Azure Backup metrics, see [Monitor Azure Backup](/azure/backup/backup-azure-monitoring-built-in-monitor).
 
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.RecoveryServices/Vaults
 
-Note that some of the following logs apply to Azure Backup and others apply to Azure Site Recovery, as noted in the **Category display name** column.
+Some of the following logs apply to Azure Backup. Others apply to Azure Site Recovery. The **Category display name** column notes which service each log applies to.
 
 [!INCLUDE [Microsoft.RecoveryServices/Vaults](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-recoveryservices-vaults-logs-include.md)]
 
@@ -60,7 +61,7 @@ Azure Site Recovery provides the following resource-specific and legacy tables. 
 
 ## Log Analytics data model
 
-This section describes the Log Analytics data model for Azure Site Recover that's added to the Azure Diagnostics table (if your vaults are configured with diagnostics settings to send data to a Log Analytics workspace in Azure Diagnostics mode). You can use this data model to write queries on Log Analytics data to create custom alerts or reporting dashboards.
+This section describes the Log Analytics data model for Azure Site Recover that's added to the Azure Diagnostics table if you configure your vaults with diagnostics settings to send data to a Log Analytics workspace in Azure Diagnostics mode. Use this data model to write queries on Log Analytics data to create custom alerts or reporting dashboards.
 
 To understand the fields of each Site Recovery table in Log Analytics, review the details for the Azure Site Recovery Replicated Item Details and Azure Site Recovery Jobs tables. You can find information about the [diagnostic tables](/azure/azure-monitor/reference/tables/azurediagnostics).
 
@@ -69,8 +70,8 @@ To understand the fields of each Site Recovery table in Log Analytics, review th
 
 | Category | Category Display Name | Log Table | [Supports basic log plan](/azure/azure-monitor/logs/data-platform-logs#table-plans) | [Supports ingestion-time transformation](/azure/azure-monitor/essentials/data-collection-transformations) | Example queries | Costs to export |
 | --- | --- | --- | --- | --- | --- | --- |
-| *ASRReplicatedItems* | Azure Site Recovery Replicated Item Details | [ASRReplicatedItems](/azure/azure-monitor/reference/tables/asrreplicateditems) <br> This table contains details of Azure Site Recovery replicated items, such as associated vault, policy, replication health, failover readiness. etc. Data is pushed once a day to this table for all replicated items, to provide the latest information for each item. | No | No | [Queries](/azure/azure-monitor/reference/queries/asrreplicateditems) | Yes | 
-| *AzureSiteRecoveryJobs* | Azure Site Recovery Jobs | [ASRJobs](/azure/azure-monitor/reference/tables/asrjobs) <br> This table contains records of Azure Site Recovery jobs such as failover, test failover, reprotection etc., with key details for monitoring and diagnostics, such as the replicated item information, duration, status, description, and so on. Whenever an Azure Site Recovery job is completed (that is, succeeded or failed), a corresponding record for the job is sent to this table. You can view history of Azure Site Recovery jobs by querying this table over a larger time range, provided your workspace has the required retention configured. | No | No | [Queries](/azure/azure-monitor/reference/queries/asrjobs) | No |
+| *ASRReplicatedItems* | Azure Site Recovery Replicated Item Details | [ASRReplicatedItems](/azure/azure-monitor/reference/tables/asrreplicateditems) <br> This table contains details of Azure Site Recovery replicated items, such as associated vault, policy, replication health, failover readiness, and more. Data is pushed once a day to this table for all replicated items, to provide the latest information for each item. | No | No | [Queries](/azure/azure-monitor/reference/queries/asrreplicateditems) | Yes | 
+| *AzureSiteRecoveryJobs* | Azure Site Recovery Jobs | [ASRJobs](/azure/azure-monitor/reference/tables/asrjobs) <br> This table contains records of Azure Site Recovery jobs such as failover, test failover, reprotection, and more, with key details for monitoring and diagnostics. These details include the replicated item information, duration, status, description, and so on. Whenever an Azure Site Recovery job completes (that is, succeeds or fails), the process sends a corresponding record for the job to this table. You can view history of Azure Site Recovery jobs by querying this table over a larger time range, provided your workspace has the required retention configured. | No | No | [Queries](/azure/azure-monitor/reference/queries/asrjobs) | No |
 | *AzureSiteRecoveryEvents* | Azure Site Recovery Events | [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) <br> Logs from multiple Azure resources. | No | No | [Queries](/azure/azure-monitor/reference/queries/azurediagnostics) | No |
 | *AzureSiteRecoveryProtectedDiskDataChurn* | Azure Site Recovery Protected Disk Data Churn | [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) <br> Logs from multiple Azure resources. | No | No | [Queries](/azure/azure-monitor/reference/queries/azurediagnostics#queries-for-microsoftrecoveryservices) | No | 
 | *AzureSiteRecoveryRecoveryPoints* | Azure Site Recovery Points | [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) <br> Logs from multiple Azure resources. | No | No | [Queries](/azure/azure-monitor/reference/queries/azurediagnostics#queries-for-microsoftrecoveryservices) | No |
@@ -80,7 +81,7 @@ To understand the fields of each Site Recovery table in Log Analytics, review th
 
 ### ASRReplicatedItems
 
-This is a resource specific table that contains details of Azure Site Recovery replicated items, such as associated vault, policy, replication health, failover readiness. etc. Data is pushed once a day to this table for all replicated items, to provide the latest information for each item.
+This resource-specific table contains details of Azure Site Recovery replicated items, such as associated vault, policy, replication health, and failover readiness. Data is pushed once a day to this table for all replicated items, so you get the latest information for each item.
 
 #### Fields
 
@@ -97,7 +98,7 @@ This is a resource specific table that contains details of Azure Site Recovery r
 
 | Column Name |  Type | Description |
 |----|----|----|
-| ActiveLocation | string | Current active location for the replicated item. If the item is in failed over state, the active location is the secondary (target) region. Otherwise, it is the primary region. |
+| ActiveLocation | string | Current active location for the replicated item. If the item is in failed over state, the active location is the secondary (target) region. Otherwise, it's the primary region. |
 | BilledSize | real | The record size in bytes |
 | Category | string | The category of the log. |
 | DatasourceFriendlyName | string | Friendly name of the datasource being replicated. |
@@ -105,7 +106,7 @@ This is a resource specific table that contains details of Azure Site Recovery r
 | DatasourceUniqueId | string | Unique ID of the datasource being replicated. |
 | FailoverReadiness | string | Denotes whether there are any configuration issues that could affect the failover operation success for the Azure Site Recovery  replicated item. |
 | IRProgressPercentage | int | Progress percentage of the initial replication phase for the replicated item. |
-| IsBillable | string | Specifies whether ingesting the data is billable. When _IsBillable is false ingestion isn't billed to your Azure account |
+| IsBillable | string | Specifies whether ingesting the data is billable. When _IsBillable is false, ingestion isn't billed to your Azure account |
 | LastHeartbeat | datetime | Time at which the Azure Site Recovery  agent associated with the replicated item last made a call to the Azure Site Recovery  service. Useful for debugging error scenarios where you wish to identify the time at which issues started arising. |
 | LastRpoCalculatedTime | datetime | Time at which the RPO was last calculated by the Azure Site Recovery  service for the replicated item. |
 | LastSuccessfulTestFailoverTime | datetime | Time of the last successful failover performed on the replicated item. |
@@ -115,11 +116,11 @@ This is a resource specific table that contains details of Azure Site Recovery r
 | PolicyFriendlyName | string | Friendly name of the replication policy applied to the replicated item. |
 | PolicyId | string | ARM ID of the replication policy applied to the replicated item. |
 | PolicyUniqueId | string | Unique ID of the replication policy applied for the replicated item. |
-| PrimaryFabricName | string | Represents the source region of the replicated item. By default, the value is the name of the source region, however if you have specified a custom name for the primary fabric while enabling replication, then that custom name shows up under this field. |
-| PrimaryFabricType | string | Fabric type associated with the source region of the replicated item. Depending on whether the replicated item is an Azure virtual machine, Hyper-V virtual machine or VMware virtual machine, the value for this field varies. |
+| PrimaryFabricName | string | Represents the source region of the replicated item. By default, the value is the name of the source region, but if you specify a custom name for the primary fabric while enabling replication, the custom name appears. |
+| PrimaryFabricType | string | Fabric type associated with the source region of the replicated item. Depending on whether the replicated item is an Azure virtual machine, Hyper-V virtual machine, or VMware virtual machine, the value for this field varies. |
 | ProtectionInfo | string | Protection status of the replicated item. |
-| RecoveryFabricName | string | Represents the target region of the replicated item. By default, the value is the name of the target region. However, if you specify a custom name for the recovery fabric while enabling replication, then that custom name shows up under this field. |
-| RecoveryFabricType | string | Fabric type associated with the target region of the replicated item. Depending on whether the replicated item is an Azure virtual machine, Hyper-V virtual machine or VMware virtual machine, the value for this field varies. |
+| RecoveryFabricName | string | Represents the target region of the replicated item. By default, the value is the name of the target region. However, if you specify a custom name for the recovery fabric while enabling replication, the custom name appears. |
+| RecoveryFabricType | string | Fabric type associated with the target region of the replicated item. Depending on whether the replicated item is an Azure virtual machine, Hyper-V virtual machine, or VMware virtual machine, the value for this field varies. |
 | RecoveryRegion | string | Target region to which the resource is replicated. |
 | ReplicatedItemFriendlyName | string | Friendly name of the resource being replicated. |
 | ReplicatedItemId | string | ARM ID of the replicated item. |
@@ -162,7 +163,7 @@ This table contains records of Azure Site Recovery jobs such as failover, test f
 | CorrelationId | string | Correlation ID associated with the Azure Site Recovery  job for debugging purposes. |
 | DurationMs | int | Duration of the Azure Site Recovery  job. |
 | EndTime | datetime | End time of the Azure Site Recovery  job. |
-| _IsBillable | string | Specifies whether ingesting the data is billable. When _IsBillable is false ingestion isn't billed to your Azure account |
+| _IsBillable | string | Specifies whether ingesting the data is billable. When _IsBillable is false, ingestion isn't billed to your Azure account |
 | JobUniqueId | string | Unique ID of the Azure Site Recovery  job. |
 | OperationName | string | Type of Azure Site Recovery  job, for example, Test failover. |
 | PolicyFriendlyName | string | Friendly name of the replication policy applied to the replicated item (if applicable). |
@@ -195,5 +196,5 @@ This table contains records of Azure Site Recovery jobs such as failover, test f
 
 ## Related content
 
-- See [Monitor Site Recovery](monitor-site-recovery.md) for a description of monitoring Site Recovery.
-- See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
+- For a description of monitoring Site Recovery, see [Monitor Site Recovery](monitor-site-recovery.md).
+- For details on monitoring Azure resources, see [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource).

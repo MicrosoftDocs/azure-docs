@@ -6,6 +6,7 @@ ms.date: 09/09/2025
 author: karengu0
 ms.author: karenguo
 ms.service: azure
+ms.subservice: azure-firmware-analysis
 ms.custom: subject-armqs
 
 ---

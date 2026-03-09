@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 08/30/2024
+ms.date: 02/23/2026
 ms.author: danlep
 ---
 
@@ -14,7 +14,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-The `validate-content` policy validates the size or content of a request or response body against one or more [supported schemas](#schemas-for-content-validation).
+The `validate-content` policy validates the size or content (or both) of a request or response body against one or more [supported schemas](#schemas-for-content-validation).
 
 The following table shows the schema formats and request or response content types that the policy supports. Content type values are case insensitive. 
 
@@ -159,6 +159,74 @@ In the following example, API Management interprets any request as a request wit
     <content-type-map any-content-type-value="application/soap+xml" />
     <content type="application/soap+xml" validate-as="soap" schema-id="myschema" action="prevent" /> 
 </validate-content>
+```
+
+### Complete policy example with content validation
+
+The following example shows a complete policy document for a customer order API that uses `validate-content` to validate incoming requests and outgoing responses. The policy validates that customer order payloads conform to the `customer-order-schema` (added to API Management) before forwarding them to the backend, and also validates that the backend's order confirmation matches the expected schema, but only detects issues rather than blocking them.
+
+
+```xml
+<policies>
+    <inbound>
+        <base />
+        <!-- Authenticate the request -->
+        <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized">
+            <openid-config url="https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration" />
+            <audiences>
+                <audience>api://customer-orders</audience>
+            </audiences>
+        </validate-jwt>
+        
+        <!-- Rate limit per subscription -->
+        <rate-limit-by-key calls="100" renewal-period="60" counter-key="@(context.Subscription.Id)" />
+        
+        <!-- Validate incoming order request -->
+        <validate-content unspecified-content-type-action="prevent" max-size="524288" size-exceeded-action="prevent" errors-variable-name="requestValidationErrors">
+            <content type="application/json" validate-as="json" schema-id="customer-order-schema" action="prevent" allow-additional-properties="false" />
+        </validate-content>
+        
+        <!-- Set backend URL -->
+        <set-backend-service base-url="https://orders-backend.contoso.com/api" />
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound>
+        <base />
+        
+        <!-- Validate backend response -->
+        <validate-content unspecified-content-type-action="detect" max-size="1048576" size-exceeded-action="detect" errors-variable-name="responseValidationErrors">
+            <content type="application/json" validate-as="json" schema-id="order-confirmation-schema" action="detect" />
+        </validate-content>
+        
+        <!-- Add custom header to indicate validation passed -->
+        <set-header name="X-Content-Validated" exists-action="override">
+            <value>true</value>
+        </set-header>
+    </outbound>
+    <on-error>
+        <base />
+        <!-- Return validation errors in a structured format -->
+        <choose>
+            <when condition="@(context.Variables.ContainsKey("requestValidationErrors"))">
+                <return-response>
+                    <set-status code="400" reason="Bad Request" />
+                    <set-header name="Content-Type" exists-action="override">
+                        <value>application/json</value>
+                    </set-header>
+                    <set-body>@{
+                        var errors = (IEnumerable<object>)context.Variables["requestValidationErrors"];
+                        return JsonConvert.SerializeObject(new {
+                            error = "Request validation failed",
+                            details = errors
+                        });
+                    }</set-body>
+                </return-response>
+            </when>
+        </choose>
+    </on-error>
+</policies>
 ```
 
 [!INCLUDE [api-management-validation-policy-error-reference](../../includes/api-management-validation-policy-error-reference.md)]

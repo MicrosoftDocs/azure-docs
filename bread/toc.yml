@@ -172,7 +172,7 @@ items:
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/
     items:
-    - name: Durable Functions
+    - name: Durable Task
       tocHref: /azure/azure-functions/durable/
       topicHref: /azure/azure-functions/durable/
   - name: Azure Australia
@@ -218,9 +218,6 @@ items:
     - name: IoT Hub Device Provisioning Service
       tocHref: /azure/iot-dps/
       topicHref: /azure/iot-dps/
-    - name: Time Series Insights
-      tocHref: /azure/time-series-insights/
-      topicHref: /azure/time-series-insights/
     - name: Azure Maps
       tocHref: /azure/azure-maps/
       topicHref: /azure/azure-maps/
@@ -425,6 +422,9 @@ items:
     - name: Kubernetes
       tocHref: /azure/container-service/kubernetes/
       topicHref: /azure/container-service/kubernetes/
+  - name: Container Apps
+    tocHref: /azure/container-apps/
+    topicHref: /azure/container-apps/
   - name: CycleCloud
     tocHref: /azure/cyclecloud/
     topicHref: /azure/cyclecloud/index/
@@ -570,14 +570,14 @@ items:
     topicHref: /azure/logic-apps/
     items:
     - name: Connectors
-      tocHref: /azure/logic-apps/connectors/
-      topicHref: /azure/logic-apps/connectors/
+      tocHref: /connectors/connector-reference/connector-reference-logicapps-connectors
+      topicHref: /connectors/connector-reference/connector-reference-logicapps-connectors
     - name: B2B and EDI
-      tocHref: /azure/logic-apps/enterprise-integration/
-      topicHref: /azure/logic-apps/enterprise-integration/
+      tocHref: /azure/logic-apps/logic-apps-enterprise-integration-overview
+      topicHref: /azure/logic-apps/logic-apps-enterprise-integration-overview
     - name: Rules Engine
-      tocHref: /azure/logic-apps/rules-engine/
-      topicHref: /azure/logic-apps/rules-engine/
+      tocHref: /azure/logic-apps/rules-engine/rules-engine-overview
+      topicHref: /azure/logic-apps/rules-engine/rules-engine-overview
   - name: Machine Learning
     tocHref: /azure/machine-learning
     topicHref: /azure/machine-learning/
@@ -745,15 +745,9 @@ items:
   - name: Remoteapp
     tocHref: /azure/remoteapp/
     topicHref: /azure/remoteapp/
-  - name: Reliability
-    tocHref: /azure/reliability/
-    topicHref: /azure/reliability
   - name: Role-based access control
     tocHref: /azure/role-based-access-control/
     topicHref: /azure/role-based-access-control/
-  - name: Scheduler
-    tocHref: /azure/scheduler/
-    topicHref: /azure/scheduler/
   - name: Security
     tocHref: /azure/security/
     topicHref: /azure/security/
@@ -817,6 +811,9 @@ items:
   - name: SQL Server Stretch Database
     tocHref: /azure/sql-server-stretch-database/
     topicHref: /azure/sql-server-stretch-database/
+  - name: SRE Agent
+    tocHref: /azure/sre-agent/
+    topicHref: /azure/sre-agent/
   - name: Storage
     tocHref: /azure/storage/
     topicHref: /azure/storage/
@@ -966,4 +963,3 @@ items:
     - name: Azure Cache for Redis
       tocHref: /azure/azure-cache-for-redis/
       topicHref: /azure/azure-cache-for-redis/index
-

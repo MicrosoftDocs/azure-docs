@@ -5,7 +5,7 @@ services: databox
 author: alkohli
  
 ms.service: azure-stack-edge
-ms.topic: article
+ms.topic: release-notes
 ms.date: 05/27/2021
 ms.author: alkohli
 ---

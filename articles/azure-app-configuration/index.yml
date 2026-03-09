@@ -71,6 +71,8 @@ landingContent:
           url: quickstart-azure-app-configuration-create.md
         - text: Code an ASP.NET Core app
           url: quickstart-aspnet-core-app.md
+        - text: Code an Aspire project
+          url: quickstart-aspire.md
         - text: Code a .NET app
           url: quickstart-dotnet-core-app.md
         - text: Code a .NET Framework app
@@ -85,14 +87,14 @@ landingContent:
           url: quickstart-javascript-provider.md
         - text: Code a Go app
           url: quickstart-go-console-app.md
-        - text: Code a Go web app using Gin
-          url: quickstart-go-web-app.md
       - linkListType: tutorial
         links:  
         - text: Use dynamic config in ASP.NET Core
           url: enable-dynamic-configuration-aspnet-core.md
         - text: Use dynamic config in ASP.NET (.NET Framework)
           url: enable-dynamic-configuration-aspnet-netfx.md
+        - text: Use dynamic config in Aspire
+          url: enable-dynamic-configuration-aspire.md
         - text: Use dynamic config in .NET
           url: enable-dynamic-configuration-dotnet-core.md
         - text: Use dynamic config in .NET Framework
@@ -143,6 +145,8 @@ landingContent:
           url: manage-feature-flags.md
         - text: ASP.NET Core app
           url: quickstart-feature-flag-aspnet-core.md
+        - text: Aspire app
+          url: quickstart-feature-flag-aspire.md
         - text: .NET/.NET Framework app
           url: quickstart-feature-flag-dotnet.md
         - text: Spring Boot app

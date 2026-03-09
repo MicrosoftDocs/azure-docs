@@ -7,7 +7,7 @@ ms.author: stefanazaric
 ms.topic: troubleshooting-known-issue
 ms.service: azure-synapse-analytics
 ms.subservice: sql
-ms.date: 09/26/2024
+ms.date: 02/04/2026
 ---
 
 # Troubleshoot serverless SQL pool in Azure Synapse Analytics
@@ -34,7 +34,7 @@ Usually, this problem occurs for one of two reasons:
 Your query might fail with the error message `Websocket connection was closed unexpectedly.` This message means that your browser connection to Synapse Studio was interrupted, for example, because of a network issue.
 
 - To resolve this issue, rerun your query. 
-- Try [Azure Data Studio](/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) for the same queries instead of Synapse Studio for further investigation.
+- Try the [MSSQL extension for Visual Studio Code](/sql/tools/visual-studio-code-extensions/mssql/mssql-extension-visual-studio-code) or [SQL Server Management Studio](/ssms/sql-server-management-studio-ssms) for the same queries instead of Synapse Studio for further investigation.
 - If this message occurs often in your environment, get help from your network administrator. You can also check firewall settings, and check the [Troubleshooting guide](../troubleshoot/troubleshoot-synapse-studio.md).
 - If the issue continues, create a [support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) through the Azure portal. 
 
@@ -187,7 +187,7 @@ The error `Query timeout expired` is returned if the query executed more than 30
 
 The error `Invalid object name 'table name'` indicates that you're using an object, such as a table or view, that doesn't exist in the serverless SQL pool database. Try these options:
 
-- List the tables or views and check if the object exists. Use SQL Server Management Studio or Azure Data Studio because Synapse Studio might show some tables that aren't available in serverless SQL pool.
+- List the tables or views and check if the object exists. Use SQL Server Management Studio or Visual Studio Code, because Synapse Studio might show some tables that aren't available in serverless SQL pool.
 - If you see the object, check that you're using some case-sensitive/binary database collation. Maybe the object name doesn't match the name that you used in the query. With a binary database collation, `Employee` and `employee` are two different objects.
 - If you don't see the object, maybe you're trying to query a table from a lake or Spark database. The table might not be available in the serverless SQL pool because:
 
@@ -1004,13 +1004,13 @@ Serverless SQL pool assigns the resources to the queries based on the size of th
 
 If you have queries with a query duration longer than 30 minutes, the query slowly returning results to the client are slow. Serverless SQL pool has a 30-minute limit for execution. Any more time is spent on result streaming. Try the following workarounds:
 
-- If you use [Synapse Studio](#query-is-slow-when-executed-by-using-synapse-studio), try to reproduce the issues with some other application like SQL Server Management Studio or Azure Data Studio.
-- If your query is slow when executed by using [SQL Server Management Studio, Azure Data Studio, Power BI, or some other application](#query-is-slow-when-executed-by-using-an-application), check networking issues and best practices.
+- If you use [Synapse Studio](#query-is-slow-when-executed-by-using-synapse-studio), try to reproduce the issues with some other application like SQL Server Management Studio or Visual Studio Code.
+- If your query is slow when executed by using [SQL Server Management Studio, Visual Studio Code, Power BI, or some other application](#query-is-slow-when-executed-by-using-an-application), check networking issues and best practices.
 - Put the query in the CETAS command and measure the query duration. The CETAS command stores the results to Azure Data Lake Storage and doesn't depend on the client connection. If the CETAS command finishes faster than the original query, check the network bandwidth between the client and serverless SQL pool.
 
 #### Query is slow when executed by using Synapse Studio
 
-If you use Synapse Studio, try using a desktop client such as SQL Server Management Studio or Azure Data Studio. Synapse Studio is a web client that connects to serverless SQL pool by using the HTTP protocol, which is generally slower than the native SQL connections used in SQL Server Management Studio or Azure Data Studio.
+If you use Synapse Studio, try using a desktop client such as SQL Server Management Studio or Visual Studio Code. Synapse Studio is a web client that connects to serverless SQL pool by using the HTTP protocol, which is generally slower than the native SQL connections used in SQL Server Management Studio or Visual Studio Code.
 
 #### Query is slow when executed by using an application
 

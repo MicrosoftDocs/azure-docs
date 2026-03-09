@@ -5,7 +5,7 @@ ms.devlang: azurecli
 ms.custom:
   - ignite-2024
 ms.topic: tutorial
-ms.date: 05/22/2025
+ms.date: 01/29/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka

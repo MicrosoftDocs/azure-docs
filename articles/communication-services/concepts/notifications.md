@@ -2,11 +2,11 @@
 title: Push notifications overview
 titleSuffix: An Azure Communication Services article
 description: This article describes how to send notifications to users of apps built on Azure Communication Services.
-author: tophpalmer
+author: sundiraman
 manager: chpalm
 services: azure-communication-services
 
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 06/27/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -134,5 +134,5 @@ If you regenerated the connection string of your linked Azure Notification Hub, 
 
 ## Next steps
 
-* For an introduction to Azure Event Grid, see [What is Event Grid?](../../event-grid/overview.md).
+* For an introduction to Azure Event Grid, see [What is Event Grid?](../../event-grid/overview.md)
 * To learn more on the Azure Notification Hub concepts, see [Azure Notification Hubs documentation](../../notification-hubs/index.yml).

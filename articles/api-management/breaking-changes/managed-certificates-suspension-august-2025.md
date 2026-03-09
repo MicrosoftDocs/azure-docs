@@ -6,7 +6,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.topic: reference
 ai-usage: ai-assisted
-ms.date: 07/18/2025
+ms.date: 02/06/2026
 ms.author: danlep
 ---
 
@@ -14,7 +14,7 @@ ms.author: danlep
 
 [!INCLUDE [premium-dev-standard-basic.md](../../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-Creation of Azure-managed certificates for custom domains in API Management will be temporarily turned off from August 15, 2025 to March 15, 2026. Existing managed certificates will be autorenewed and remain unaffected.
+Creation of Azure-managed certificates for custom domains in API Management will be temporarily turned off from August 15, 2025 to March 15, 2026. Existing managed certificates will be autorenewed as long as your API Management service allows inbound traffic from DigiCert IP addresses on port 80 and DNS is properly configured.
 
 In the classic service tiers, Azure API Management offers [free, managed TLS certificates for custom domains](../configure-custom-domain.md#domain-certificate-options) (preview), allowing customers to secure their endpoints without purchasing and managing their own certificates. Because of an industry-wide deprecation of CNAME-based Domain Control Validation (DCV), our Certificate Authority (CA), DigiCert, is moving to a new open-source software (OSS) domain control validation (DCV) platform that provides transparency and accountability increasing the trustworthiness of domain validation. As part of this transition, DigiCert will deprecate support for the legacy CNAME Delegation DCV workflow. This migration requires us to temporarily suspend the creation of managed certificates for custom domains.
 
@@ -22,7 +22,9 @@ Note that this does not impact the standard CNAME DCV workflow (where DigiCert v
 
 ## Is my service affected by this?
 
-You're affected if you plan to create new managed certificates for custom domains in Azure API Management between August 15, 2025 and March 15, 2026. Existing managed certificates will be autorenewed before August 15, 2025 and will continue to function normally. There's no impact to existing managed certificates or custom domains already using them.
+You're affected if you plan to create new managed certificates for custom domains in Azure API Management between August 15, 2025 and March 15, 2026. 
+
+As part of this change, starting January 2026, for Azure API Management to be able to renew (rotate) your existing managed certificate, inbound access is required on port 80 to allow [specific DigiCert IP addresses](https://knowledge.digicert.com/alerts/ip-address-domain-validation?utm_medium=organic&utm_source=docs-digicert&referrer=https://docs.digicert.com/en/certcentral/manage-certificates/domain-control-validation-methods/automatic-domain-control-validation-check.html). 
 
 ## What is the deadline for the change?
 
@@ -30,7 +32,40 @@ The suspension of managed certificates for custom domains will be enforced from 
 
 ## What do I need to do?
 
-No action is required if you already have managed certificates for your custom domains. If you need to add new managed certificates, plan to do so before August 15, 2025 or after March 15, 2026. During the suspension period, you can still configure custom domains with certificates you manage from other sources.
+If you need to add new managed certificates, plan to do so before August 15, 2025 or after March 15, 2026. During the suspension period, you can still configure custom domains with certificates you manage from other sources.
+
+If you already have managed certificates for your custom domains, do the following to ensure continued access:
+
+1. Ensure that your API Management service [allows inbound traffic from DigiCert IP addresses on port 80](#step-1-allow-access-to-digicert-ip-addresses). This access is now required for the certificate autorenewal process.
+1. [Configure DNS records](#step-2-configure-dns-records) to resolve your custom domain name.
+1. [Allow API Management service access to port 80](#step-3-allow-api-management-service-access-to-port-80) if you have inbound network restrictions in place.
+
+### Step 1: Allow access to DigiCert IP addresses
+
+[!INCLUDE [api-management-managed-certificate-ip-access.md](../../../includes/api-management-managed-certificate-ip-access.md)]
+
+### Step 2: Configure DNS records
+
+Configure DNS records for your custom domain to point to your API Management gateway. The type of DNS record you need to add depends on your API Management tier.
+
+#### DNS records for Developer, Basic, Standard, or Premium tier
+
+1. Add either a [CNAME](/azure/api-management/configure-custom-domain?tabs=custom#cname-record) or A-record with your DNS provider. 
+
+1. Add DigiCert as an authorized certificate authority (CA) in Azure DNS. For this, create a specific CAA record set within your domain's DNS zone using the Azure portal or other management tools.
+
+#### DNS records for Consumption tier
+
+1. Add either a [CNAME](/azure/api-management/configure-custom-domain?tabs=custom#cname-record) or [TXT](/azure/api-management/configure-custom-domain?tabs=managed#txt-record) record with your DNS provider. If you configure both, the TXT record takes precedence.
+1. Add DigiCert as an authorized certificate authority (CA) in Azure DNS. For this, you need to create a specific CAA record set within your domain's DNS zone using the Azure portal or other management tools
+
+### Step 3: Allow API Management service access to port 80
+
+If you have inbound network restrictions configured for your API Management service, allow the Azure API Management resource provider access on port 80. This is required to allow inbound traffic to support certificate revocation list (CRL) checks, certificate renewal, and management communication. 
+
+1. In the Azure portal, go to **Network security groups**.
+1. Select the network security group associated with your API Management subnet.
+1. Under **Settings** > **Inbound security rules**, add a new rule allowing traffic on port 80 from the **ApiManagement** service tag to the API Management instance.
 
 ## Help and support
 

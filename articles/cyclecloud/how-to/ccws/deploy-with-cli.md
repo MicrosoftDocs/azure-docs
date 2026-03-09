@@ -47,6 +47,6 @@ Prerequisites: Install the Azure CLI and Git, and then sign in or set your Azure
 ## Resources
 
 * [Configure Open OnDemand with CycleCloud](./configure-open-ondemand.md)
-* [Add users for Open OnDemand](./open-ondemand-add-users.md)
+* [Add users to your registered Microsoft Entra ID application](../create-app-registration.md#permissioning-users-for-cyclecloud)
 * [How to connect to the CycleCloud portal through Bastion](/azure/cyclecloud/how-to/ccws/connect-to-portal-with-bastion)
 * [How to connect to a Login Node through Bastion](/azure/cyclecloud/how-to/ccws/connect-to-login-node-with-bastion)

@@ -5,7 +5,7 @@ author: prasadko
 ms.author: prasadkomma
 ms.service: planetary-computer-pro
 ms.topic: how-to
-ms.date: 10/15/2025
+ms.date: 02/12/2026
 
 # customer intent: As a GeoCatalog user, I want to configure and authenticate QGIS to operate with Microsoft Planetary Computer Pro so that I can view imagery stored in my GeoCatalog within the QGIS tool.
 ---
@@ -32,9 +32,7 @@ Registering the Microsoft Entra application is a one-time task for your tenant. 
 - Azure subscription where your identity has one of these roles: Application Developer, Cloud Application Administrator, or Application Administrator.
 
 ### QGIS STAC connection
-- Download and install [QGIS Developer](https://qgis.org/download/) (`qgis-dev`) on your desktop machine<br>
-	> [!NOTE] 
-	> This feature is available only in the QGIS nightly builds until the release of QGIS 4.0
+- Download and install [QGIS 4.0+](https://qgis.org/download/)
 - GeoCatalog Reader or GeoCatalog Administrator [role-based access controls](./manage-access.md).
 - Microsoft Planetary Computer Pro GeoCatalog deployment that contains at least one collection.
 
@@ -153,8 +151,10 @@ If you want to search for data or run a STAC filter in your catalog, the STAC AP
 
 ## Related content
 
+- [Connect and build applications with your data](./build-applications-with-planetary-computer-pro.md)
+- [Configure application authentication for Microsoft Planetary Computer Pro](./application-authentication.md)
+- [Configure ArcGIS Pro to access a GeoCatalog](./create-connection-arc-gis-pro.md)
 - [Configure the Planetary Computer collection web interface](./configure-collection-web-interface.md)
-- [Create a connection from ArcGIS Pro to the STAC API](./create-connection-arc-gis-pro.md)
 - [Use the Planetary Computer Explorer](./use-explorer.md)
 - [Manage access to Planetary Computer resources](./manage-access.md)
 - [Visualize assets in Planetary Computer](./visualize-assets.md)

@@ -4,7 +4,7 @@ description: Learn the prerequisites and steps to get started with Business Proc
 author: mohitmakhija1
 ms.service: sap-on-azure
 ms.custom: how-to, references_regions
-ms.subservice:
+ms.subservice: center-sap-solutions
 ms.topic: how-to
 ms.date: 11/07/2025
 ms.author: momakhij

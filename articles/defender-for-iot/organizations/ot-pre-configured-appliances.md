@@ -32,7 +32,7 @@ You can [order](mailto:hardware.sales@arrow.com?cc=DIoTHardwarePurchase@microsof
 |**C5600**   | [HPE ProLiant DL360 Gen 11](appliance-catalog/hpe-proliant-dl360-gen11.md)   <br><br><br><br> [Dell PowerEdge R660](appliance-catalog/dell-poweredge-r660.md)       |
 |**E1800**    | [HPE ProLiant DL20 Gen11](appliance-catalog/hpe-proliant-dl20-gen-11.md) <br>(4SFF)<br><br><br>  [Dell PowerEdge R360](appliance-catalog/dell-poweredge-r360-e1800.md)  |
 |**E500**    |  [Dell Edge 5200](appliance-catalog/dell-edge-5200.md) <br> (Rugged MIL-STD-810G)     |
-|**L500**    |  [HPE ProLiant DL20 Gen11 Plus](appliance-catalog/hpe-proliant-dl20-gen-11-nhp-2lff.md)<br> (NHP 2LFF) <br><br><br><br> [DELL XE4 Small Form Factor (SFF)](appliance-catalog/dell-xe4-sff.md)|
+|**L500**    |  [HPE ProLiant DL20 Gen11 Plus](appliance-catalog/hpe-proliant-dl20-gen-11-nhp-2lff.md)<br> (NHP 2LFF)|
 |**L100**     |  [YS-Techsystems YS-FIT2 ](appliance-catalog/ys-techsystems-ys-fit2.md)<br>(Rugged MIL-STD-810G) <br><br><br> [Dell Edge Gateway 3200](appliance-catalog/dell-edge-3200.md)      |
 
 > [!NOTE]

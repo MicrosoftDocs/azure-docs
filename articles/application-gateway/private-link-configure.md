@@ -52,6 +52,9 @@ To enable Private Link configuration, you must have a dedicated subnet that's se
 
 To create a dedicated subnet for Private Link, see [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md).
 
+> [!NOTE]
+> If your client application connects to App Gateway via a private IP, requires an idle timeout greater > than 4 minutes, and the client application does not send TCP keep-alive packets, contact agprivateip-keepalive@microsoft.com to request initiation of keep‑alive from Application Gateway.
+
 # [Azure portal](#tab/portal)
 
 ## Disable network policies on the Private Link subnet

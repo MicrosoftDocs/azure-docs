@@ -93,12 +93,12 @@ Stream processors can be chained to upstream processors or downstream processors
   * Source processors - These processors don't have any upstream processors and read from one or more streams directly. They can then be chained to downstream processors. 
   * Sink processors - These processors don't have any downstream processors and must write directly to a stream.
 
-Stream processing topology can be defined either with the [Kafka Streams DSL](https://kafka.apache.org/37/documentation/streams/developer-guide/dsl-api.html) or with the lower-level [Processor API](https://kafka.apache.org/37/documentation/streams/developer-guide/processor-api.html).
+Stream processing topology can be defined either with the [Kafka Streams DSL](https://kafka.apache.org/37/streams/developer-guide/dsl-api/) or with the lower-level [Processor API](https://kafka.apache.org/37/streams/developer-guide/processor-api/).
 
 
 ### Stream and Table duality
 
-Streams and tables are 2 different but useful abstractions provided by the [Kafka Streams DSL](https://kafka.apache.org/37/documentation/streams/developer-guide/dsl-api.html), modeling both time series and relational data formats that must coexist for stream processing use-cases. 
+Streams and tables are 2 different but useful abstractions provided by the [Kafka Streams DSL](https://kafka.apache.org/37/streams/developer-guide/dsl-api/), modeling both time series and relational data formats that must coexist for stream processing use-cases. 
 
 Kafka extends it further and introduces a duality between streams and tables, where a
   * A **stream** can be considered as a changelog of a **table**, and
@@ -124,17 +124,17 @@ Kafka Streams allows windowing and grace functions to allow for out of order dat
 
 ### Stateful operations
 
-State management enables sophisticated stream processing applications like joining and aggregating data from different streams. This is achieved with state stores provided by Kafka Streams and accessed using [stateful operators in the Kafka Streams DSL](https://kafka.apache.org/37/documentation/streams/developer-guide/dsl-api.html#stateful-transformations).
+State management enables sophisticated stream processing applications like joining and aggregating data from different streams. This is achieved with state stores provided by Kafka Streams and accessed using [stateful operators in the Kafka Streams DSL](https://kafka.apache.org/37/streams/developer-guide/dsl-api/#stateful-transformations).
 
 Stateful transformations in the DSL include:
-  * [Aggregating](https://kafka.apache.org/37/documentation/streams/developer-guide/dsl-api.html#streams-developer-guide-dsl-aggregating)
-  * [Joining](https://kafka.apache.org/37/documentation/streams/developer-guide/dsl-api.html#streams-developer-guide-dsl-joins)
-  * [Windowing (as part of aggregations and joins)](https://kafka.apache.org/37/documentation/streams/developer-guide/dsl-api.html#streams-developer-guide-dsl-windowing)
-  * [Applying custom processors and transformers](https://kafka.apache.org/37/documentation/streams/developer-guide/dsl-api.html#streams-developer-guide-dsl-process), which can be stateful, for Processor API integration
+  * [Aggregating](https://kafka.apache.org/37/streams/developer-guide/dsl-api/#aggregating)
+  * [Joining](https://kafka.apache.org/37/streams/developer-guide/dsl-api/#joining)
+  * [Windowing (as part of aggregations and joins)](https://kafka.apache.org/37/streams/developer-guide/dsl-api/#windowing)
+  * [Applying custom processors and transformers](https://kafka.apache.org/37/streams/developer-guide/dsl-api/#applying-processors-and-transformers-processor-api-integration), which can be stateful, for Processor API integration
 
 ### Window and grace
 
-Windowing operations in the  [Kafka Streams DSL](https://kafka.apache.org/37/documentation/streams/developer-guide/dsl-api.html) allow developers to control how records are grouped for a given key for [stateful operations like aggregations and joins](#stateful-operations).
+Windowing operations in the  [Kafka Streams DSL](https://kafka.apache.org/37/streams/developer-guide/dsl-api/) allow developers to control how records are grouped for a given key for [stateful operations like aggregations and joins](#stateful-operations).
 
 Windowing operations also permit the specification of a **grace period** to provide some flexibility for out-of-order records for a given window. A record that is meant for a given window and arrives after the given window but within the grace period is accepted. Records arriving after the grace period is over are discarded. 
 

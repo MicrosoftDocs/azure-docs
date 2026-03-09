@@ -39,7 +39,7 @@ Service Connector offers the following authentication options:
 
 | Target resource                               | System assigned managed identity | User assigned managed identity (Workload identity) | Connection string | Service principal |
 |-----------------------------------------------|----------------------------------|--------------------------------|-------------------|-------------------|
-| Azure AI services                             | Yes                              | Yes                            | Yes               | Yes               |
+| Foundry Tools                                 | Yes                              | Yes                            | Yes               | Yes               |
 | Azure App Configuration                       | Yes                              | Yes                            | Yes               | Yes               |
 | Azure Blob Storage                            | Yes                              | Yes                            | Yes               | Yes               |
 | Azure Cache for Redis                         | No                               | No                             | Yes               | No                |

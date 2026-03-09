@@ -4,13 +4,13 @@ title: Azure API Center documentation
 summary: Azure API Center helps you develop and maintain a structured inventory of your organization's APIs. Azure API Center enables API discovery, reuse, and governance at scale.
 
 metadata: 
-  title: Azure API Center documentation | Microsoft Docs
+  title: Azure API Center Documentation
   description: Azure API Center helps you develop and maintain a structured inventory of your organization's APIs. API Center enables API discovery, reuse, and governance at scale.
   ms.service: azure-api-center
   ms.topic: landing-page
-  author: dlepow
-  ms.author: danlep
-  ms.date: 05/24/2023
+  ms.author: kkendrick
+  
+  ms.date: 01/28/2026
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 

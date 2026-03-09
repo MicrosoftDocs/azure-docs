@@ -253,7 +253,7 @@ If you download, install, and configure Self-Hosted IR (SHIR) as a proxy for you
 
 #### VALIDATE VNET / SUBNET tile
 
-If you join your Azure-SSIS IR to a VNet, you'll see the **VALIDATE VNET / SUBNET** tile on your Azure-SSIS IR monitoring page (see [Joining your Azure-SSIS IR to a VNet](./join-azure-ssis-integration-runtime-virtual-network.md)). On this tile, you can select a link designating your VNet and subnet to pop up a window, where you can copy your VNet resource ID (`/subscriptions/YourAzureSubscription/resourceGroups/YourResourceGroup/providers/Microsoft.Network/virtualNetworks/YourARMVNet`) and subnet name from text boxes, as well as validate your VNet and subnet configurations to ensure that the required inbound/outbound network traffics and management of your Azure-SSIS IR aren't obstructed.
+If you join your Azure-SSIS IR to a VNet, you'll see the **VALIDATE VNET / SUBNET** tile on your Azure-SSIS IR monitoring page (see [Joining your Azure-SSIS IR to a VNet](./join-azure-ssis-integration-runtime-virtual-network.md)). On this tile, you can select a link designating your VNet and subnet to pop up a window, where you can copy your VNet resource ID (`/subscriptions/YourAzureSubscription/resourceGroups/YourResourceGroup/providers/Microsoft.Network/virtualNetworks/YourARMVNet`) and subnet name from text boxes, as well as validate your VNet and subnet configurations to ensure that the required inbound/outbound network traffic and management of your Azure-SSIS IR aren't obstructed.
 
 :::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-validate.png" alt-text="Monitor your Azure-SSIS IR - VALIDATE tile":::
 

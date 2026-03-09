@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 05/15/2025
+ms.date: 02/10/2026
 ms.author: danlep
 
 #customer intent: As an API developer, I want to learn how to create and manage policy fragments so that I can reuse policy configurations.
@@ -112,5 +112,23 @@ After you create a policy fragment, you can view and update its properties or de
 1. In the left pane of your API Management instance, under **APIs**, select **Policy fragments**. Select the name of your fragment.
 1. Review **Policy document references** for policy definitions that include the fragment. Before you delete a fragment, you must remove the fragment references from all policy definitions.
 1. After all references are removed, select **Delete**.
+
+## Build advanced pipelines with policy fragments
+
+Fragments can be used to build advanced pipeline scenarios with custom behavior executed throughout the request and response lifecycle. Key recommendations for fragment-based pipelines include:
+
+* **Modularity** - Design each fragment with a single, well-defined responsibility focused on one specific concern.
+* **Data sharing** - Use context variables and central metadata caching for data sharing between fragments.
+* **Fragment execution behavior** - Define execution behavior by inserting fragments sequentially in [product and API policy](api-management-howto-policies.md#scopes) definitions based on scope.
+* **Performance optimization** - Follow performance guidelines for maximum efficiency.
+
+### Advanced pipeline guidance
+
+For complete guidance on building advanced policy fragment designs, see these articles:
+
+* **[Architecture for building advanced execution pipelines with policy fragments](fragment-pipeline-architecture.md)** - Foundational patterns for designing modular, scalable policy fragments with clear separation of concerns
+* **[Variable management for policy fragments](fragment-variable-management.md)** - Comprehensive guidance on context variable handling, safe access patterns, and data sharing between fragments
+* **[Central metadata cache for policy fragments](fragment-metadata-cache.md)** - Implementation guidance for shared metadata caching pattern across fragments
+* **[Policy insertion and fragment execution](fragment-policy-coordination.md)** - Fragment execution via product-scoped and API-scoped policies
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

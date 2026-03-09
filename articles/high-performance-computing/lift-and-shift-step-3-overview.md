@@ -3,10 +3,14 @@ title: "Storage migration overview"
 description: Get a high level idea of the steps involved when migrating storage components during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 04/10/2025
+ms.date: 02/23/2026
 ms.topic: how-to
-ms.service: azure
-services: 
+ms.service: azure-virtual-machines
+ms.subservice: hpc
+ms.collections:
+  - hpc-migration-content
+  - migration
+  - onprem-to-azure 
 # Customer intent: As a cloud architect, I want to understand the steps for migrating storage resources in high-performance computing environments so that I can optimize data management, ensure cost efficiency, and effectively support the scalability of cloud infrastructure.
 ---
 

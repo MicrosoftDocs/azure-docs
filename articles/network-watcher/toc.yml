@@ -116,9 +116,9 @@
       - name: Proactive network monitoring with Azure Functions
         href: packet-capture-alert-triggered.md
       - name: Perform intrusion detection using open source tools
-        href: network-watcher-intrusion-detection-open-source-tools.md
+        href: /previous-versions/azure/network-watcher/network-watcher-intrusion-detection-open-source-tools?toc=/azure/network-watcher/toc.json
       - name: Visualize network traffic patterns using open source tools
-        href: network-watcher-using-open-source-tools.md
+        href: /previous-versions/azure/network-watcher/network-watcher-using-open-source-tools?toc=/azure/network-watcher/toc.json
   - name: Connection troubleshoot
     items:
     - name: Overview
@@ -184,7 +184,7 @@
   - name: Use queries in traffic analytics
     href: traffic-analytics-queries.md
   - name: Apply Zero Trust principles to segment Azure network
-    href: traffic-analytics-zero-trust.md    
+    href: traffic-analytics-zero-trust.md
   - name: Enable traffic analytics using Azure policy
     href: traffic-analytics-policy-portal.md
 - name: Security

@@ -7,8 +7,8 @@ ms.service: azure-automation
 ms.subservice: desired-state-config
 ms.date: 11/17/2025
 ms.topic: overview
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Azure Automation State Configuration overview

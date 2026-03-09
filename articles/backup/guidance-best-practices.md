@@ -2,7 +2,7 @@
 title: Guidance and best practices
 description: Discover the best practices and guidance for backing up cloud and on-premises workload to the cloud
 ms.topic: overview
-ms.date: 11/26/2025
+ms.date: 01/30/2026
 ms.reviewer: dapatil
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -86,7 +86,7 @@ Azure Backup enables data protection for various workloads (on-premises and clou
 
 ### Management plane
 
-* **Access control**: Vaults (Recovery Services and Backup vaults) provide the management capabilities and are accessible via the Azure portal, Backup Center, Vault dashboards, SDK, CLI, and even REST APIs. It's also an Azure role-based access control boundary, providing you with the option to restrict access to backups only to authorized Backup Admins.
+* **Access control**: Vaults (Recovery Services and Backup vaults) provide the management capabilities and are accessible via the Azure portal, Resiliency, Vault dashboards, SDK, CLI, and even REST APIs. It's also an Azure role-based access control boundary, providing you with the option to restrict access to backups only to authorized Backup Admins.
 
 * **Policy management**: Azure Backup Policies within each vault define when the backups should be triggered and the duration they need to be retained. You can also manage these policies and apply them across multiple items.
 
@@ -118,7 +118,7 @@ To use a single vault or multiple vaults to organize and manage your backup, see
 
 - You can manage them with:
 
-  - Backup center allows you to have a single pane to manage all Backup tasks. [Learn more here]().
+  - Resiliency allows you to have a single pane to manage all Backup tasks. [Learn more here]().
   - If you need consistent policy across vaults, then you can use Azure Policy to propagate backup policy across multiple vaults. You can write a custom [Azure Policy definition](../governance/policy/concepts/definition-structure.md) that uses the [‘deployifnotexists’](../governance/policy/concepts/effects.md#deployifnotexists) effect to propagate a backup policy across multiple vaults. You can also [assign](../governance/policy/assign-policy-portal.md) this Azure Policy definition to a particular scope (subscription or RG), so that it deploys a 'backup policy' resource to all Recovery Services vaults in the scope of the Azure Policy assignment. The settings of the backup policy (such as backup frequency, retention, and so on) should be specified by the user as parameters in the Azure Policy assignment.
 
 * As your organizational footprint grows, you might want to move workloads across subscriptions for the following reasons: align by backup policy, consolidate vaults, trade-off on lower redundancy to save on cost (move from GRS to LRS).  Azure Backup supports moving a Recovery Services vault across Azure subscriptions, or to another resource group within the same subscription. [Learn more here](backup-azure-move-recovery-services-vault.md).

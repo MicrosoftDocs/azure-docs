@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 12/01/2025
 ms.author: pauloliveria
 ms.service: microsoft-sentinel
+ms.subservice: sentinel-platform
 
 #customer intent: As a security analyst, I want to understand how to troubleshoot issues when using Microsoft Sentinel's collection of MCP tools 
 ---

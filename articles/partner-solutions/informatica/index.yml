@@ -7,7 +7,7 @@ metadata:
   title: Informatica 
   description: Informatica integrates with Azure to combine the benefits of Informatica Intelligent Data Management Cloud and the Azure cloud.
   ms.topic: landing-page
-  ms.date: 04/05/2024
+  ms.date: 02/04/2026
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -37,8 +37,6 @@ landingContent:
             url: informatica-create-advanced-serverless.md
       - linkListType: how-to-guide
         links:
-          - text: Troubleshoot
-            url: /troubleshoot/azure/partner-solutions/welcome-native-integrations
           - text: Get support
             url: https://support.informatica.com/
   

@@ -30,8 +30,31 @@ For the list of the file activity parsers Microsoft Sentinel provides out-of-the
 
 When implementing custom parsers for the File Event information model, name your KQL functions using the following syntax: `imFileEvent<vendor><Product`.
 
-Refer to the article [Managing ASIM parsers](normalization-manage-parsers.md) to learn how to add your custom parsers to the file activity  unifying parser.
+Refer to the article [Managing ASIM parsers](normalization-manage-parsers.md) to learn how to add your custom parsers to the file activity unifying parser.
 
+### Filtering parser parameters
+
+The File Event parsers support [filtering parameters](normalization-about-parsers.md#optimizing-parsing-using-parameters). While these parameters are optional, they can improve your query performance.
+
+The following filtering parameters are available:
+
+| Name     | Type      | Description |
+|----------|-----------|-------------|
+| **starttime** | datetime | Filter only file events that occurred at or after this time. This parameter filters on the `TimeGenerated` field, which is the standard designator for the time of the event, regardless of the parser-specific mapping of the EventStartTime and EventEndTime fields. |
+| **endtime** | datetime | Filter only file events that occurred at or before this time. This parameter filters on the `TimeGenerated` field, which is the standard designator for the time of the event, regardless of the parser-specific mapping of the EventStartTime and EventEndTime fields. |
+| **eventtype_in** | dynamic | Filter only file events where the event type is one of the values listed, such as `FileCreated`, `FileModified`, `FileDeleted`, `FileRenamed`, or `FileCopied`. |
+| **srcipaddr_has_any_prefix** | dynamic | Filter only file events where the source IP address prefix matches any of the listed values. Prefixes should end with a `.`, for example: `10.0.`. |
+| **actorusername_has_any** | dynamic | Filter only file events where the actor username has any of the listed values. |
+| **targetfilepath_has_any** | dynamic | Filter only file events where the target file path has any of the listed values. |
+| **srcfilepath_has_any** | dynamic | Filter only file events where the source file path has any of the listed values. |
+| **hashes_has_any** | dynamic | Filter only file events where the file hash matches any of the listed values. |
+| **dvchostname_has_any** | dynamic | Filter only file events where the device hostname has any of the listed values. |
+
+For example, to filter only file creation and modification events from the last day, use:
+
+```kusto
+_Im_FileEvent (eventtype_in=dynamic(['FileCreated','FileModified']), starttime = ago(1d), endtime=now())
+```
 
 ## Normalized content
 
@@ -70,7 +93,7 @@ The following list mentions fields that have specific guidelines for File activi
 | <a name='eventtype'></a>**EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. <br><br>Supported values include: <br><br>- `FileAccessed`<br>- `FileCreated`<br>- `FileModified`<br>- `FileDeleted`<br>- `FileRenamed`<br>- `FileCopied`<br>- `FileMoved`<br>- `FolderCreated`<br>- `FolderDeleted`<br>- `FolderMoved`<br>- `FolderModified`<br>- `FileCreatedOrModified` |
 | **EventSubType**           | Optional   | Enumerated |    Describes details about the operation reported in [EventType](#eventtype). Supported values per event type include:<br>- `FileCreated` -  `Upload`, `Checkin`<br>- `FileModified` - `Checkin`<br>- `FileCreatedOrModified` - `Checkin`    <br>- `FileAccessed` - `Download`, `Preview`, `Checkout`, `Extended`<br>- `FileDeleted` - `Recycled`, `Versions`, `Site` |
 | **EventSchema** | Mandatory | Enumerated | The name of the schema documented here is **FileEvent**. |
-| **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.2.2`         |
+| **EventSchemaVersion**  | Mandatory   | SchemaVersion (String) | The version of the schema. The version of the schema documented here is `0.2.2`         |
 | **Dvc** fields| -      | -    | For File activity events, device fields refer to the system on which the file activity occurred. |
 
 
@@ -97,7 +120,7 @@ The following fields represent information about the target file in a file opera
 |**TargetFileCreationTime** | Optional|Date/Time |The time at which the target file was created. |
 |**TargetFileDirectory** | Optional|String |The target file folder or location. This field should be similar to the [TargetFilePath](#targetfilepath) field, without the final element. <br><br>**Note**:  A parser can provide this value if the value available in the log source and does not need to be extracted from the full path.|
 |**TargetFileExtension** |Optional |String | The target file extension.<br><br>**Note**:  A parser can provide this value if the value available in the log source and does not need to be extracted from the full path.|
-| **TargetFileMimeType**|Optional | Enumerated| The Mime, or Media, type of the target file. Allowed values are listed in the [IANA Media Types](https://www.iana.org/assignments/media-types/media-types.xhtml) repository.|
+| **TargetFileMimeType**|Optional | String | The Mime, or Media, type of the target file. Allowed values are listed in the [IANA Media Types](https://www.iana.org/assignments/media-types/media-types.xhtml) repository.|
 | <a name='targetfilename'></a>**TargetFileName**|Recommended |String |The name of the target file, without a path or a location, but with an extension if relevant. This field should be similar to the final element in the [TargetFilePath](#targetfilepath) field.|
 |**FileName** |Alias | | Alias to the [TargetFileName](#targetfilename) field.|
 |<a name="targetfilepath"></a>**TargetFilePath** | Mandatory| String| The full, normalized path of the target file, including the folder or location, the file name, and the extension. For more information, see [Path structure](#path-structure). <br><br>**Note**: If the record does not include folder or location information, store the filename only here. <br><br>Example: `C:\Windows\System32\notepad.exe`|
@@ -108,7 +131,7 @@ The following fields represent information about the target file in a file opera
 | **TargetFileSHA256** | Optional|SHA256 |The SHA-256 hash of the target file. <br><br>Example:<br> `e81bb824c4a09a811af17deae22f22dd`<br>`2e1ec8cbb00b22629d2899f7c68da274`  |
 | **TargetFileSHA512**| Optional| SHA512|The SHA-512 hash of the source file. |
 | **Hash** | Alias | |Alias to the best available Target File hash. |
-| **HashType** | Recommended | Enumerated | The type of hash stored in the HASH alias field, allowed values are `MD5`, `SHA`, `SHA256`, `SHA512` and `IMPHASH`. Mandatory if `Hash` is populated. |  
+| **HashType** | Conditional | Enumerated | The type of hash stored in the HASH alias field, allowed values are `MD5`, `SHA`, `SHA256`, `SHA512` and `IMPHASH`. Mandatory if `Hash` is populated. |  
 | **TargetFileSize** |Optional | Long |The size of the target file in bytes. |
 
 ### Source file fields
@@ -120,7 +143,7 @@ The following fields represent information about the source file in a file opera
 | **SrcFileCreationTime**|Optional |Date/Time |The time at which the source file was created. |
 |**SrcFileDirectory** | Optional| String| The source file folder or location. This field should be similar to the [SrcFilePath](#srcfilepath) field, without the final element. <br><br>**Note**: A parser can provide this value if the value is available in the log source, and does not need to be extracted from the full path.|
 | **SrcFileExtension**|Optional | String|The source file extension. <br><br>**Note**: A parser can provide this value the value is available in the log source, and does not need to be extracted from the full path.|
-|**SrcFileMimeType** |Optional |Enumerated |	The Mime or Media type of the source file. Supported values are listed in the [IANA Media Types](https://www.iana.org/assignments/media-types/media-types.xhtml) repository. |
+|**SrcFileMimeType** |Optional |String |	The Mime or Media type of the source file. Supported values are listed in the [IANA Media Types](https://www.iana.org/assignments/media-types/media-types.xhtml) repository. |
 |**SrcFileName** |Recommended |String | The name of the source file, without a path or a location, but with an extension if relevant. This field should be similar to the last element in the [SrcFilePath](#srcfilepath) field. |
 | <a name="srcfilepath"></a>**SrcFilePath**| Recommended |String |The full, normalized path of the source file, including the folder or location, the file name, and the extension. <br><br>For more information, see [Path structure](#path-structure).<br><br>Example: `/etc/init.d/networking` |
 |**SrcFilePathType** | Recommended | Enumerated| The type of [SrcFilePath](#srcfilepath). For more information, see [Path structure](#path-structure).|
@@ -137,9 +160,9 @@ The following fields represent information about the source file in a file opera
 |---------------|--------------|------------|-----------------|
 | <a name="actoruserid"></a>**ActorUserId**    | Recommended  | String     |   A machine-readable, alphanumeric, unique representation of the Actor. For the supported format for different ID types, refer to [the User entity](normalization-entity-user.md). <br><br>Example: `S-1-12` |
 | **ActorScope** | Optional | String | The scope, such as Microsoft Entra tenant, in which [ActorUserId](#actoruserid) and [ActorUsername](#actorusername) are defined. or more information and list of allowed values, see [UserScope](normalization-entity-user.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).|
- **ActorScopeId** | Optional | String | The scope ID, such as Microsoft Entra Directory ID, in which [ActorUserId](#actoruserid) and [ActorUsername](#actorusername) are defined. or more information and list of allowed values, see [UserScopeId](normalization-entity-user.md#userscopeid) in the [Schema Overview article](normalization-about-schemas.md).|
+| **ActorScopeId** | Optional | String | The scope ID, such as Microsoft Entra Directory ID, in which [ActorUserId](#actoruserid) and [ActorUsername](#actorusername) are defined. or more information and list of allowed values, see [UserScopeId](normalization-entity-user.md#userscopeid) in the [Schema Overview article](normalization-about-schemas.md).|
 | **ActorUserIdType**| Conditional  | Enumerated     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For a list of allowed values and further information, refer to [UserIdType](normalization-entity-user.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md). |
-| <a name="actorusername"></a>**ActorUsername**  | Mandatory    | String     | The Actor username, including domain information when available. For the supported format for different ID types, refer to [the User entity](normalization-entity-user.md). Use the simple form only if domain information isn't available.<br><br>Store the Username type in the [ActorUsernameType](#actorusernametype) field. If other username formats are available, store them in the fields `ActorUsername<UsernameType>`.<br><br>Example: `AlbertE`   |
+| <a name="actorusername"></a>**ActorUsername**  | Mandatory    | Username (String)     | The Actor username, including domain information when available. For the supported format for different ID types, refer to [the User entity](normalization-entity-user.md). Use the simple form only if domain information isn't available.<br><br>Store the Username type in the [ActorUsernameType](#actorusernametype) field. If other username formats are available, store them in the fields `ActorUsername<UsernameType>`.<br><br>Example: `AlbertE`   |
 |**User** | Alias| | Alias to the [ActorUsername](#actorusername) field. <br><br>Example: `CONTOSO\dadmin`|
 | <a name="actorusernametype"></a>**ActorUsernameType**              | Conditional    | Enumerated |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For a list of allowed values and further information, refer to [UsernameType](normalization-entity-user.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Example: `Windows`       |
 | **ActorSessionId** | Optional     | String     |   The unique ID of the login session of the Actor.  <br><br>Example: `999`<br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows this value must be numeric. <br><br>If you are using a Windows machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.   |
@@ -167,10 +190,10 @@ The following fields represent information about the system initiating the file 
 | **IpAddr** | Alias | | Alias to [SrcIpAddr](#srcipaddr) | 
 | **Src** | Alias | | Alias to [SrcIpAddr](#srcipaddr) | 
 | **SrcPortNumber** | Optional | Integer | When the operation is initiated by a remote system, the port number from which the connection was initiated.<br><br>Example: `2335` |
-| <a name="srchostname"></a> **SrcHostname** | Optional | Hostname | The source device hostname, excluding domain information. If no device name is available, store the relevant IP address in this field.<br><br>Example: `DESKTOP-1282V4D` |
-|<a name="srcdomain"></a> **SrcDomain** | Optional | String | The domain of the source device.<br><br>Example: `Contoso` |
+| <a name="srchostname"></a> **SrcHostname** | Optional | Hostname (String) | The source device hostname, excluding domain information. If no device name is available, store the relevant IP address in this field.<br><br>Example: `DESKTOP-1282V4D` |
+|<a name="srcdomain"></a> **SrcDomain** | Optional | Domain (String) | The domain of the source device.<br><br>Example: `Contoso` |
 | <a name="srcdomaintype"></a>**SrcDomainType** | Conditional | DomainType | The type of [SrcDomain](#srcdomain). For a list of allowed values and further information, refer to [DomainType](normalization-entity-device.md#domaintype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Required if [SrcDomain](#srcdomain) is used. |
-| **SrcFQDN** | Optional | String | The source device hostname, including domain information when available. <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The [SrcDomainType](#srcdomaintype) field reflects the format used. <br><br>Example: `Contoso\DESKTOP-1282V4D` |
+| **SrcFQDN** | Optional | FQDN (String) | The source device hostname, including domain information when available. <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The [SrcDomainType](#srcdomaintype) field reflects the format used. <br><br>Example: `Contoso\DESKTOP-1282V4D` |
 | <a name = "srcdescription"></a>**SrcDescription** | Optional | String | A descriptive text associated with the device. For example: `Primary Domain Controller`. |
 | <a name="srcdvcid"></a>**SrcDvcId** | Optional | String |  The ID of the source device. If multiple IDs are available, use the most important one, and store the others in the fields `SrcDvc<DvcIdType>`.<br><br>Example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
 | <a name="srcdvcscopeid"></a>**SrcDvcScopeId** | Optional | String | The cloud platform scope ID the device belongs to. **SrcDvcScopeId** map to a subscription ID on Azure and to an account ID on AWS. | 
@@ -193,7 +216,7 @@ The following fields represent information about a local application that commun
 | <a name="actingappid"></a>**ActingAppId** | Optional | String | The ID of the acting application, as reported by the reporting device. |
 | <a name="actingapptype"></a>**ActingAppType** | Optional | AppType | The type of the destination application. For a list of allowed values and further information, refer to [AppType](normalization-about-schemas.md#apptype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>This field is mandatory if [TargetAppName](#targetappname) or [TargetAppId](#targetappid) are used. |
 |**HttpUserAgent** |Optional | String |When the operation is initiated by a remote system using HTTP or HTTPS, the user agent used.<br><br>For example:<br>`Mozilla/5.0 (Windows NT 10.0; Win64; x64)`<br>`AppleWebKit/537.36 (KHTML, like Gecko)`<br>` Chrome/42.0.2311.135`<br>`Safari/537.36 Edge/12.246`|
-| **NetworkApplicationProtocol**| Optional|String | When the operation is initiated by a remote system, this value is the application layer protocol used in the OSI model. <br><br>While this field is not enumerated, and any value is accepted, preferable values include: `HTTP`, `HTTPS`, `SMB`,`FTP`, and `SSH`<br><br>Example: `SMB`|
+| **NetworkApplicationProtocol**| Optional| String | When the operation is initiated by a remote system, this value is the application layer protocol used in the OSI model. <br><br>While this field is not enumerated, and any value is accepted, preferable values include: `HTTP`, `HTTPS`, `SMB`,`FTP`, and `SSH`<br><br>Example: `SMB`|
 
 ### Target application fields
 
@@ -204,9 +227,9 @@ The following fields represent information about the destination application per
 | <a name="targetappname"></a>**TargetAppName** | Optional | String | The name of the destination application.<br><br>Example: `Facebook` |
 | <a name="application"></a>**Application** | Alias | | Alias to [TargetAppName](#targetappname). |
 | <a name="targetappid"></a>**TargetAppId** | Optional | String | The ID of the destination application, as reported by the reporting device. |
-| <a name="targetapptype"></a>**TargetAppType** | Optional | AppType | The type of the destination application. For a list of allowed values and further information, refer to [AppType](normalization-about-schemas.md#apptype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>This field is mandatory if [TargetAppName](#targetappname) or [TargetAppId](#targetappid) are used. |
+| <a name="targetapptype"></a>**TargetAppType** | Conditional | AppType | The type of the destination application. For a list of allowed values and further information, refer to [AppType](normalization-about-schemas.md#apptype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>This field is mandatory if [TargetAppName](#targetappname) or [TargetAppId](#targetappid) are used. |
 | <a name="targetoriginalapptype"></a>**TargetOriginalAppType** | Optional | String | The type of the destination application as reported by the reporting device. |
-| <a name="targeturl"></a>**TargetUrl**| Optional | String| When the operation is initiated using HTTP or HTTPS, the URL used. <br><br>Example: `https://onedrive.live.com/?authkey=...` |
+| <a name="targeturl"></a>**TargetUrl**| Optional | URL (String) | When the operation is initiated using HTTP or HTTPS, the URL used. <br><br>Example: `https://onedrive.live.com/?authkey=...` |
 | **Url** | Alias | | Alias to [TargetUrl](#targeturl) |
 
 
@@ -222,11 +245,11 @@ The following fields are used to represent that inspection performed by a securi
 | **ThreatId** | Optional | String | The ID of the threat or malware identified in the file activity. |
 | **ThreatName** | Optional | String | The name of the threat or malware identified in the file activity.<br><br>Example: `EICAR Test File` |
 | **ThreatCategory** | Optional | String | The category of the threat or malware identified in the file activity.<br><br>Example: `Trojan` |
-| **ThreatRiskLevel** | Optional | Integer | The risk level associated with the identified threat. The level should be a number between **0** and **100**.<br><br>**Note**: The value might be provided in the source record by using a different scale, which should be normalized to this scale. The original value should be stored in [ThreatOriginalRiskLevel](#threatoriginalrisklevel). |
+| **ThreatRiskLevel** | Optional | RiskLevel (Integer) | The risk level associated with the identified threat. The level should be a number between **0** and **100**.<br><br>**Note**: The value might be provided in the source record by using a different scale, which should be normalized to this scale. The original value should be stored in [ThreatOriginalRiskLevel](#threatoriginalrisklevel). |
 | <a name="threatoriginalrisklevel"></a>**ThreatOriginalRiskLevel** | Optional | String | The risk level as reported by the reporting device. |
 | **ThreatFilePath** | Optional | String | A file path for which a threat was identified. The field [ThreatField](#threatfield) contains the name of the field **ThreatFilePath** represents. |
-| <a name="threatfield"></a>**ThreatField** | Optional | Enumerated | The field for which a threat was identified. The value is either `SrcFilePath` or `DstFilePath`. |
-| **ThreatConfidence** | Optional | Integer | The confidence level of the threat identified, normalized to a value between 0 and a 100.| 
+| <a name="threatfield"></a>**ThreatField** | Conditional | Enumerated | The field for which a threat was identified. The value is either `SrcFilePath` or `DstFilePath`. |
+| **ThreatConfidence** | Optional | ConfidenceLevel (Integer) | The confidence level of the threat identified, normalized to a value between 0 and a 100.| 
 | **ThreatOriginalConfidence** | Optional | String |  The original confidence level of the threat identified, as reported by the reporting device.| 
 | **ThreatIsActive** | Optional | Boolean | True if the threat identified is considered an active threat. | 
 | **ThreatFirstReportedTime** | Optional | datetime | The first time the IP address or domain were identified as a threat.  | 

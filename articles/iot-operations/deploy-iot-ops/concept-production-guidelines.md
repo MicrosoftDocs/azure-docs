@@ -33,7 +33,7 @@ Create an Arc-enabled K3s cluster that meets the system requirements.
 * If you expect intermittent connectivity for your cluster, ensure that you allocate enough disk space to the cluster cache data and messages while the cluster is offline. Azure IoT Operations can operate offline for a maximum of 72 hours.
 * If possible, have a second cluster as a staging area for testing new changes before deploying to the primary production cluster.
 * [Turn off autoupgrade for Azure Arc](/azure/azure-arc/kubernetes/agent-upgrade#toggle-automatic-upgrade-on-or-off-when-connecting-a-cluster-to-azure-arc) to have complete control over when new updates are applied to your cluster. Instead, [manually upgrade agents](/azure/azure-arc/kubernetes/agent-upgrade#manually-upgrade-agents) as needed.
-* *For multi-node clusters*: [Configure clusters with Edge Volumes](./howto-prepare-cluster.md#configure-multi-node-clusters-for-azure-container-storage) to prepare for enabling fault tolerance during deployment.
+* *For multi-node clusters*: [Configure clusters with Edge Volumes](./howto-prepare-cluster.md#configure-multi-node-clusters-for-azure-container-storage-enabled-by-azure-arc) to prepare for enabling fault tolerance during deployment.
 
 ### Security
 
@@ -45,9 +45,11 @@ Consider the following measures to ensure your cluster setup is secure before de
 * Use [user-assigned managed identities](./howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections) for cloud connections.
 * Keep your cluster and Azure IoT Operations deployment up to date with the latest patches and minor releases to get all available security and bug fixes.
 
+[!INCLUDE [aks-imds-restriction](../includes/aks-imds-restriction.md)]
+
 ### Networking
 
-If you use enterprise firewalls or proxies, add the [Azure IoT Operations endpoints](./overview-deploy.md#azure-iot-operations-endpoints) to your allowlist.
+If you use enterprise firewalls or proxies, add the [Azure IoT Operations endpoints](./overview-deploy.md#azure-iot-operations-endpoints) to your allow list.
 
 ### Observability
 
@@ -71,6 +73,9 @@ In the Azure portal deployment wizard, the broker resource is set up in the **Co
   | **backendWorkers** | 1 | 4 |
   | **backendPartitions** | 1 | 5 |
   | [Memory profile](../manage-mqtt-broker/howto-configure-availability-scale.md#configure-memory-profile) | Low | High |
+
+  > [!NOTE]
+  > The backend redundancy factor must be **2 or greater**. The broker requires at least two backend replicas per partition for high availability and rolling upgrade support.
 
 * [Encrypt internal traffic](../manage-mqtt-broker/howto-encrypt-internal-traffic.md).
 

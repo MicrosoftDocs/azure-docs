@@ -75,7 +75,7 @@ CCaaS developers can use Call Automation to implement simple AI-powered tools to
 - Recognize conversational voice inputs to gather information on contextual questions to drive a more self-service model with customers.
 - Use sentiment analysis to improve customer service overall.
 
-These content specific APIs can be orchestrated through Azure AI Services. Content specific APIs enable you to customize AI models without terminating media streams in your services to stream back to Azure for AI functionality.
+These content specific APIs can be orchestrated through Foundry Tools. Content specific APIs enable you to customize AI models without terminating media streams in your services to stream back to Azure for AI functionality.
 
 This seamless integration also enables CCaaS ISVs to use Teams Phone and Azure Communication Services SDKs to build Conversational AI solutions, enhance customer interactions, and efficiently route calls based on context and user preferences.
 
@@ -213,13 +213,13 @@ Value added services include audio insights and call recording.
 
 Azure Communication Services Audio Streaming APIs enable developers to analyze audio streams in real-time to deliver enhanced interaction experience for all participants in a call using their own AI models.
 
-Azure also provides AI services and tools for developers and organizations to rapidly create intelligent applications with prebuilt and customizable APIs and models. These solutions cover a wide range of functionalities such as natural language processing, search, monitoring, translation, speech, vision, and decision-making.
+Azure also provides Foundry Tools and tools for developers and organizations to rapidly create intelligent applications with prebuilt and customizable APIs and models. These solutions cover a wide range of functionalities such as natural language processing, search, monitoring, translation, speech, vision, and decision-making.
 
 By using Azure AI capabilities, companies can enhance their call automation workflows with advanced features like speech-to-text (STT), text-to-speech (TTS), and natural language understanding (NLU). These advanced AI features are crucial for developing sophisticated IVR systems and other customer engagement solutions.
 
 Azure Communication Services Call Automation, combined with Azure AI, is a powerful duo that enables businesses to create intelligent, automated communication workflows. This integration enables you to add speech capabilities and enhance customer service experience with features like real-time transcription of conversations.
 
-For instance, it enables developers to implement custom play functionality, using [Text-to-Speech](/azure/cognitive-services/speech-service/text-to-speech) and [Speech Synthesis Markup Language (SSML)](/azure/cognitive-services/speech-service/speech-synthesis-markup) configuration, to play more customized and natural sounding audio to users. For more information, see [Connect Azure Communication Services to Azure AI services](/azure/communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration).
+For instance, it enables developers to implement custom play functionality, using [Text-to-Speech](/azure/cognitive-services/speech-service/text-to-speech) and [Speech Synthesis Markup Language (SSML)](/azure/cognitive-services/speech-service/speech-synthesis-markup) configuration, to play more customized and natural sounding audio to users. For more information, see [Connect Azure Communication Services to Foundry Tools](/azure/communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration).
 
 The following diagram shows the audio insights call transcription flow.
 

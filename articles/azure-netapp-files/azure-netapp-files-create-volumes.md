@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/07/2025
+ms.date: 02/05/2026
 ms.author: anfdocs
 # Customer intent: As a cloud architect, I want to create an NFS volume in Azure NetApp Files, so that I can support my application’s data management requirements and ensure optimized performance through proper version selection and configuration.
 ---
@@ -14,6 +14,9 @@ ms.author: anfdocs
 Azure NetApp Files supports creating volumes using NFS (NFSv3 or NFSv4.1), SMB3, or dual protocol (NFSv3 and SMB, or NFSv4.1 and SMB). A volume's capacity consumption counts against its pool's provisioned capacity. 
 
 This article shows you how to create an NFS volume. For SMB volumes, see [Create an SMB volume](azure-netapp-files-create-volumes-smb.md). For dual-protocol volumes, see [Create a dual-protocol volume](create-volumes-dual-protocol.md).
+
+>[!IMPORTANT]
+>For Elastic zone-redundant storage, see [Create an Elastic zone-redundant NFS volume](elastic-volume.md).
 
 ## Before you begin 
 
@@ -28,7 +31,9 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
     >[!NOTE]
     >[!INCLUDE [Note about Kerberos non-support for other LDAP services](includes/kerberos-other-servers.md)]
-
+    
+* You must ensure that the Active Directory connector has the required permissions to set the encryption style of the volume.
+  
 ## Considerations 
 
 * Deciding which NFS version to use  
@@ -83,13 +88,13 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
     * **Virtual network**  
         Specify the Microsoft Azure Virtual Network from which you want to access the volume.  
 
-        The Virtual Network you specify must have a subnet delegated to Azure NetApp Files. The Azure NetApp Files service can be accessed only from the same Virtual Network or from a virtual network that's in the same region as the volume through virtual network peering. You can also access the volume from your on-premises network through Express Route.   
+        The Virtual Network you specify must have a subnet delegated to Azure NetApp Files. The Azure NetApp Files service can be accessed only from the same Virtual Network or from a virtual network that's in the same region as the volume through virtual network peering. You can also access the volume from your on-premises network through Express Route.  
 
     * **Subnet**  
         Specify the subnet that you want to use for the volume.  
         The subnet you specify must be delegated to Azure NetApp Files. 
         
-        If you have not delegated a subnet, you can click **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each VNet, only one subnet can be delegated to Azure NetApp Files.   
+        If you have not delegated a subnet, select **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each VNet, only one subnet can be delegated to Azure NetApp Files.   
  
         :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-new-volume.png" alt-text="Screenshot of create new volume interface." lightbox="../media/azure-netapp-files/azure-netapp-files-new-volume.png":::
     
@@ -98,11 +103,14 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
     * **Network features**  
         In supported regions, you can specify whether you want to use **Basic** or **Standard** network features for the volume. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
 
+    * **Availability zone**   
+        This option lets you deploy the new volume in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
+
     * **Encryption key source** 
         You can select Microsoft Managed Key or Customer Managed Key. See [Configure customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) and [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) about using this field. 
 
-    * **Availability zone**   
-        This option lets you deploy the new volume in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
+    * **Advanced Ransomware Protection**
+        Select **Enabled** to configure ransomware threat detection alerts for your volumes. For more information, see [Configure advanced ransomware protection](ransomware-configure.md). 
 
     * If you want to apply an existing snapshot policy to the volume, select **Show advanced section** to expand it, specify whether you want to hide the snapshot path, and select a snapshot policy in the pull-down menu. 
 

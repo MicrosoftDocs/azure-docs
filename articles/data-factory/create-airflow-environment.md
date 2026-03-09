@@ -1,7 +1,7 @@
 ---
 title: Create an Airflow environment in Workflow Orchestration Manager
 description: Learn how to create an Airflow environment in Workflow Orchestration Manager.
-ms.topic: conceptual
+ms.topic: article
 author: nabhishek
 ms.author: abnarain
 ms.date: 10/20/2023
@@ -9,8 +9,7 @@ ms.date: 10/20/2023
 
 # Create an Airflow environment in Workflow Orchestration Manager
 
-> [!NOTE]
-> Workflow Orchestration Manager is powered by Apache Airflow.
+[!INCLUDE[apache-airflow-notification](includes/apache-airflow-notification.md)]
 
 This article describes how to set up and configure an Airflow environment in Workflow Orchestration Manager.
 

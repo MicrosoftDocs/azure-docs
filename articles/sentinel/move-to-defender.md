@@ -1,10 +1,10 @@
 ---
 title: Transition Your Microsoft Sentinel Environment to the Defender Portal
 description: Move Microsoft Sentinel operations from the Azure portal to the Microsoft Defender portal.
-author: batamig
-ms.author: bagol
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to #Required; leave this attribute/value as-is
-ms.date: 07/29/2025
+ms.date: 02/09/2026
 ms.collection: usx-security
 
 #Customer intent: As a security operations team member, I want to understand the process involved in moving our Microsoft Sentinel experience from the Azure portal to the Defender portal so that I can benefit from unified security operations across my entire environment.
@@ -106,6 +106,9 @@ When Microsoft Sentinel is integrated with Microsoft Defender, the fundamental a
 From a Log Analytics perspective, Microsoft Sentinel’s integration into Microsoft Defender introduces no change to the underlying ingestion pipeline or data schema. Despite the front-end unification, the Microsoft Sentinel backend remains fully integrated with Log Analytics for data storage, search, and correlation.
 
 Alerts related to Defender products are streamed directly from the [Microsoft Defender XDR connector](/azure/sentinel/connect-microsoft-365-defender) to ensure consistency. Make sure that you have incidents and alerts from this connector turned on in your workspace. Once you have this data connector configured in your workspace, [offboarding the workspace from Microsoft Defender](/unified-secops/microsoft-sentinel-onboard#offboard-microsoft-sentinel) also disconnects the Microsoft Defender XDR connector.
+
+> [!NOTE]
+> This change in connectors results in schema differences for some alerts. For a detailed comparison, see [Alert schema differences: Standalone vs. XDR connector](security-alert-schema-differences.md).
 
 For more information, see [Connect data from Microsoft Defender XDR to Microsoft Sentinel](connect-microsoft-365-defender.md).
 
@@ -258,7 +261,10 @@ Most functionalities of User and Entity Behavior Analytics (UEBA) remain the sam
 
 - Adding entities to threat intelligence from incidents is supported only in the Azure portal. For more information, see [Add entity to threat indicators](add-entity-to-threat-intelligence.md).
 
-- After onboarding Microsoft Sentinel to the Defender portal, the `IdentityInfo` table used in the Defender portal includes unified fields from both Defender XDR and Microsoft Sentinel. Some fields that existed when used in the Azure portal are either renamed in the Defender portal, or aren't supported at all. We recommend that you check your queries for any references to these fields and update them as needed. For more information, see [IdentityInfo table](ueba-reference.md?tabs=unified-table#identityinfo-table).
+- When you onboard Microsoft Sentinel to the Microsoft Defender portal, the `IdentityInfo` table is available both in the Microsoft Defender Advanced Hunting experience and in your Sentinel Log Analytics workspace. The `IdentityInfo` table used in Advanced Hunting includes unified fields from both Defender XDR and Microsoft Sentinel. Some fields that exist in the Sentinel Log Analytics workspace table are either renamed or aren't supported in the Advanced Hunting table. Be sure to review and update any queries that run in Microsoft Defender, such as Advanced Hunting queries or custom detections. Microsoft Sentinel analytic rules, workbooks, and other Sentinel queries continue to use the `IdentityInfo` table in the Log Analytics workspace and aren’t affected. For more information and a comparison of the table schemas in Advanced Hunting experience and Log Analytics, see [IdentityInfo table](ueba-reference.md?tabs=unified-table#identityinfo-table).
+
+> [!IMPORTANT]
+> When you transition to the Defender portal, the `IdentityInfo` table becomes a native Defender table that doesn't support table-level role-based access control (RBAC). If your organization uses table-level RBAC to restrict access to the `IdentityInfo` table in the Azure portal, this access control will no longer be available after you transition to the Defender portal.
 
 ### Update investigation processes to use Microsoft Defender threat intelligence
 
@@ -299,4 +305,4 @@ The Microsoft Sentinel [similar incidents](investigate-cases.md#similar-incident
 - [The Best of Microsoft Sentinel - now in Microsoft Defender](https://techcommunity.microsoft.com/blog/MicrosoftThreatProtectionBlog/the-best-of-microsoft-sentinel-%E2%80%94-now-in-microsoft-defender/4415822) (blog)
 - Watch the webinar: [Transition to the Unified SOC Platform: Deep Dive and Interactive Q&A for SOC Professionals](https://www.youtube.com/watch?v=WIM6fbJDkK4).
 - See frequently asked questions in the [TechCommunity blog](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/unified-security-operations-platform---technical-faq/4189136) or the [Microsoft Community Hub](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/frequently-asked-questions-about-the-unified-security-operations-platform/4212048).
-
+- Review [alert schema differences between Standalone and XDR connectors](security-alert-schema-differences.md)

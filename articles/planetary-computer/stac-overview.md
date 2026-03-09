@@ -6,7 +6,7 @@ ms.author: brentharris
 ms.service: planetary-computer-pro
 ms.topic: concept-article
 ms.date: 12/01/2025
-#customer intent: As an Microsoft Planetary Computer Pro user, I want to understand the STAC Specification.
+#customer intent: As a Microsoft Planetary Computer Pro user, I want to understand the STAC Specification.
 ms.custom: references_regions
 ---
 

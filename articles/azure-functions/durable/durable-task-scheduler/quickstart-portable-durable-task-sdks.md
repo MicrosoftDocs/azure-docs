@@ -1,8 +1,10 @@
 ---
 title: "Quickstart: Create an app with Durable Task SDKs and Durable Task Scheduler"
-description: Learn how to configure an existing app for the Durable Task Scheduler using the Durable Task SDKs.
+titleSuffix: Durable Task
+description: Learn how to configure an app for the Durable Task Scheduler using the Durable Task SDKs.
 ms.topic: how-to
-ms.date: 05/06/2025
+ms.subservice: durable-task-scheduler
+ms.date: 02/25/2026
 zone_pivot_groups: df-languages
 ms.custom:
   - build-2025
@@ -10,13 +12,7 @@ ms.custom:
 
 # Quickstart: Create an app with Durable Task SDKs and Durable Task Scheduler
 
-The Durable Task SDKs provide a lightweight client library for the Durable Task Scheduler. In this quickstart, you learn how to create orchestrations that use [the fan-out/fan-in application pattern](../durable-functions-overview.md#fan-in-out) to perform parallel processing. 
-
-::: zone pivot="javascript"
-
-[!INCLUDE [preview-sample-limitations](./includes/preview-sample-limitations.md)]
-
-::: zone-end
+The Durable Task SDKs provide a lightweight client library for the Durable Task Scheduler. In this quickstart, you learn how to create orchestrations that use [the fan-out/fan-in application pattern](../durable-functions-fan-in-fan-out.md) to perform parallel processing. 
 
 ::: zone pivot="powershell"
 
@@ -24,7 +20,7 @@ The Durable Task SDKs provide a lightweight client library for the Durable Task 
 
 ::: zone-end
 
-::: zone pivot="csharp,python,java"
+::: zone pivot="csharp,python,java,javascript"
 
 > [!div class="checklist"]
 >
@@ -63,7 +59,15 @@ Before you begin:
 
 ::: zone-end
 
-::: zone pivot="csharp,python,java"
+::: zone pivot="javascript"
+
+- Make sure you have [Node.js 22](https://nodejs.org/) or later.
+- Install [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator.
+- Clone the [Durable Task Scheduler GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler) to use the quickstart sample.
+
+::: zone-end
+
+::: zone pivot="csharp,python,java,javascript"
 
 ## Set up the Durable Task Scheduler emulator
 
@@ -150,7 +154,33 @@ Since the example code automatically uses the default emulator settings, you don
 
 ::: zone-end
 
-::: zone pivot="csharp,python,java"
+::: zone pivot="javascript"
+
+1. From the `Azure-Samples/Durable-Task-Scheduler` root directory, navigate to the JavaScript SDK sample directory.
+
+     ```bash
+     cd samples/durable-task-sdks/javascript/fan-out-fan-in
+     ```
+
+1. Pull the Docker image for the emulator.
+
+     ```bash
+     docker pull mcr.microsoft.com/dts/dts-emulator:latest
+     ```
+
+1. Run the emulator. The container may take a few seconds to be ready.
+
+     ```bash
+     docker run --name dtsemulator -d -p 8080:8080 -p 8082:8082 mcr.microsoft.com/dts/dts-emulator:latest
+     ```
+
+Since the example code automatically uses the default emulator settings, you don't need to set any environment variables. The default emulator settings for this quickstart are:
+- Endpoint: `http://localhost:8080`
+- Task hub: `default`
+
+::: zone-end
+
+::: zone pivot="csharp,python,java,javascript"
 
 ## Run the quickstart
 
@@ -379,7 +409,90 @@ Output: 60
 
 ::: zone-end
 
-::: zone pivot="csharp,python,java"
+::: zone pivot="javascript"
+
+1. Install the required npm packages.
+
+     ```bash
+     npm install
+     ```
+
+1. Start the worker.
+
+     ```bash
+     npm run worker
+     ```
+
+     **Expected output**
+
+     You can see output indicating that the worker started and is waiting for work items.
+
+     ```
+     Using local emulator with no authentication
+     Starting worker...
+     Worker is ready and listening for tasks.
+     ```
+
+1. In a new terminal, from the `fan-out-fan-in` directory, run the client.
+
+     ```bash
+     npm run client
+     ```
+
+     You can provide the number of work items as an argument. If no argument is provided, the example runs 10 items by default.
+
+     ```bash
+     npm run client -- 15
+     ```
+
+### Understanding the output
+
+When you run this sample, you receive output from both the worker and client processes. [Unpack what happened in the code when you ran the project.](#understanding-the-code-structure)
+
+#### Worker output
+
+The worker output shows:
+
+- Status messages when processing each work item in parallel, showing that they're executing concurrently.
+- Random delays for each work item (between 0.5 and 2 seconds) to simulate varying processing times.
+- A final message showing the aggregation of results.
+
+#### Client output
+
+The client output shows:
+
+- The orchestration starting with the specified number of work items.
+- The unique orchestration instance ID.
+- The final aggregated result, which includes:
+   - The total number of items processed
+   - The sum of all results (each item result is the square of its value)
+   - The average of all results
+
+#### Example output
+
+```
+Using local emulator with no authentication
+Starting fan out/fan in orchestration with 10 items
+Started orchestration with ID: abc123-def456-ghi789
+Waiting for orchestration to complete...
+Processing work item 1 (delay 823ms)
+Processing work item 2 (delay 1205ms)
+Processing work item 3 (delay 512ms)
+Processing work item 4 (delay 1890ms)
+Processing work item 5 (delay 645ms)
+Processing work item 6 (delay 1102ms)
+Processing work item 7 (delay 933ms)
+Processing work item 8 (delay 1567ms)
+Processing work item 9 (delay 701ms)
+Processing work item 10 (delay 1344ms)
+Aggregating 10 results...
+Orchestration completed with status: COMPLETED
+Result: {"totalItems":10,"sum":385,"average":38.5,"results":[...]}
+```
+
+::: zone-end
+
+::: zone pivot="csharp,python,java,javascript"
 
 Now that you ran the project locally, you can now learn how to [deploy to Azure hosted in Azure Container Apps](#next-steps). 
 
@@ -415,7 +528,13 @@ You can view the orchestration status and history via the [Durable Task Schedule
 
 ::: zone-end
 
-::: zone pivot="csharp,python,java"
+::: zone pivot="javascript"
+
+:::image type="content" source="./media/quickstart-portable-durable-task-sdks/review-dashboard-javascript.png" alt-text="Screenshot showing the orchestration instance's details for the JavaScript sample.":::
+
+::: zone-end
+
+::: zone pivot="csharp,python,java,javascript"
 
 ## Understanding the code structure
 
@@ -425,7 +544,7 @@ You can view the orchestration status and history via the [Durable Task Schedule
 
 ### The worker project
 
-To demonstrate [the fan-out/fan-in pattern](../durable-functions-overview.md#fan-in-out), the worker project orchestration creates parallel activity tasks and waits for all to complete. The orchestrator:
+To demonstrate [the fan-out/fan-in pattern](../durable-functions-fan-in-fan-out.md), the worker project orchestration creates parallel activity tasks and waits for all to complete. The orchestrator:
 
 1. Takes a list of work items as input.
 1. Fans out by creating a separate task for each work item using `ProcessWorkItemActivity`.
@@ -540,7 +659,7 @@ var instance = await client.WaitForInstanceCompletionAsync(
 
 ### `worker.py`
 
-To demonstrate [the fan-out/fan-in pattern](../durable-functions-overview.md#fan-in-out), the worker project orchestration creates parallel activity tasks and waits for all to complete. The orchestrator:
+To demonstrate [the fan-out/fan-in pattern](../durable-functions-fan-in-fan-out.md), the worker project orchestration creates parallel activity tasks and waits for all to complete. The orchestrator:
 
 1. Receives a list of work items as input.
 1. It "fans out" by creating parallel tasks for each work item (calling `process_work_item` for each one).
@@ -608,7 +727,7 @@ result = client.wait_for_orchestration_completion(
 
 ::: zone pivot="java"
 
-To demonstrate [the fan-out/fan-in pattern](../durable-functions-overview.md#fan-in-out), the `FanOutFanInPattern` project orchestration creates parallel activity tasks and waits for all to complete. The orchestrator:
+To demonstrate [the fan-out/fan-in pattern](../durable-functions-fan-in-fan-out.md), the `FanOutFanInPattern` project orchestration creates parallel activity tasks and waits for all to complete. The orchestrator:
 
 1. Takes a list of work items as input.
 1. Fans out by creating a separate task for each work item using ``.
@@ -698,6 +817,123 @@ OrchestrationMetadata completedInstance = client.waitForInstanceCompletion(
         true);
 logger.info("Orchestration completed: {}", completedInstance);
 logger.info("Output: {}", completedInstance.readOutputAs(int.class));
+```
+
+::: zone-end
+
+::: zone pivot="javascript"
+
+To demonstrate [the fan-out/fan-in pattern](../durable-functions-fan-in-fan-out.md), the sample orchestration creates parallel activity tasks and waits for all to complete. The orchestrator:
+
+1. Receives a list of work items as input.
+2. Fans out by creating parallel tasks for each work item (calling `processWorkItem` for each one).
+3. Waits for all tasks to complete using `whenAll`.
+4. Fans in by aggregating the results with the `aggregateResults` activity.
+5. Returns the final aggregated result to the client.
+
+The project contains:
+
+- **`worker.mjs`**: Defines the orchestrator and activity functions.
+- **`client.mjs`**: Schedules orchestrations and waits for completion.
+
+### `worker.mjs`
+
+Using fan-out/fan-in, the orchestration creates parallel activity tasks and waits for all to complete.
+
+```javascript
+import { whenAll } from "@microsoft/durabletask-js";
+import { createAzureManagedWorkerBuilder } from "@microsoft/durabletask-js-azuremanaged";
+
+// Orchestrator function using generator syntax
+const fanOutFanInOrchestrator = async function* (ctx, workItems) {
+  const items = Array.isArray(workItems) ? workItems : [];
+
+  // Fan out: schedule parallel activity calls
+  const tasks = items.map((item) => ctx.callActivity(processWorkItem, item));
+
+  // Wait for all tasks using whenAll
+  const processedResults = yield whenAll(tasks);
+
+  // Fan in: aggregate results
+  const finalResult = yield ctx.callActivity(aggregateResults, processedResults);
+
+  return finalResult;
+};
+
+// Activity that processes a single work item
+const processWorkItem = async (_ctx, workItem) => {
+  const normalizedItem = Number(workItem);
+  const delayMs = 500 + Math.floor(Math.random() * 1500);
+  console.log(`Processing work item ${normalizedItem} (delay ${delayMs}ms)`);
+
+  await new Promise((resolve) => setTimeout(resolve, delayMs));
+
+  return {
+    item: normalizedItem,
+    result: normalizedItem * normalizedItem,
+  };
+};
+
+// Activity that aggregates results
+const aggregateResults = async (_ctx, results) => {
+  const sum = results.reduce((acc, curr) => acc + curr.result, 0);
+
+  return {
+    totalItems: results.length,
+    sum,
+    average: results.length ? sum / results.length : 0,
+    results,
+  };
+};
+
+// Build and start worker
+const connectionString = `Endpoint=http://localhost:8080;Authentication=None;TaskHub=default`;
+const worker = createAzureManagedWorkerBuilder(connectionString)
+  .addOrchestrator(fanOutFanInOrchestrator)
+  .addActivity(processWorkItem)
+  .addActivity(aggregateResults)
+  .build();
+
+await worker.start();
+```
+
+### `client.mjs`
+
+The client project:
+
+- Uses the same connection string logic as the worker.
+- Creates a list of work items to be processed in parallel.
+- Schedules an orchestration instance with the list as input.
+- Waits for the orchestration to complete and displays the aggregated results.
+- Uses `waitForOrchestrationCompletion` for efficient polling.
+
+```javascript
+import { OrchestrationStatus } from "@microsoft/durabletask-js";
+import { createAzureManagedClient } from "@microsoft/durabletask-js-azuremanaged";
+
+// Create work items array
+const count = 10;
+const workItems = Array.from({ length: count }, (_unused, index) => index + 1);
+
+const connectionString = `Endpoint=http://localhost:8080;Authentication=None;TaskHub=default`;
+const client = createAzureManagedClient(connectionString);
+
+// Schedule orchestration
+const instanceId = await client.scheduleNewOrchestration(
+  "fanOutFanInOrchestrator",
+  workItems
+);
+
+console.log(`Started orchestration with ID: ${instanceId}`);
+
+// Wait for completion
+const state = await client.waitForOrchestrationCompletion(instanceId, true, 120);
+
+if (state.runtimeStatus === OrchestrationStatus.COMPLETED) {
+  console.log(`Result: ${state.serializedOutput}`);
+}
+
+await client.stop();
 ```
 
 ::: zone-end

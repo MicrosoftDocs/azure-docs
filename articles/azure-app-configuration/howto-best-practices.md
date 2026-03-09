@@ -288,9 +288,21 @@ Applications often rely on configuration to start, making Azure App Configuratio
 
 When you use App Configuration in client applications, ensure that you consider two major factors. First, if you're using the connection string in a client application, you risk exposing the access key of your App Configuration store to the public. Second, the typical scale of a client application might cause excessive requests to your App Configuration store, which can result in overage charges or throttling. For more information about throttling, see the [FAQ](./faq.yml#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).
 
-To address these concerns, we recommend that you use a proxy service between your client applications and your App Configuration store. The proxy service can securely authenticate with your App Configuration store without a security issue of leaking authentication information. You can build a proxy service by using one of the [App Configuration provider libraries](./configuration-provider-overview.md), so you can take advantage of built-in caching and refresh capabilities for optimizing the volume of requests sent to App Configuration. For more information about using App Configuration providers, see articles in Get started. The proxy service serves the configuration from its cache to your client applications, and you avoid the two potential issues that are discussed in this section.
+### Recommended approach: Azure Front Door integration
 
-It is important to consider that, when surfacing configuration to client applications, configuration values will be visible to end users. Care should be taken to avoid unintended exposure of sensitive data. For example, user and group names in feature flag targeting settings may be considered EUII (End User Identifiable Information). To mitigate this risk, consider using a separate App Configuration store resource dedicated to client application configuration, or segment configuration using filtering mechanisms such as key prefixes, labels, or tags and filter in the proxy server accordingly.
+App Configuration can be integrated with Azure Front Door to provide secure, scalable configuration delivery through Azure's global CDN network. Azure Front Door uses Managed Identity to authenticate with App Configuration, while millions of client application instances retrieve settings anonymously through edge servers. CDN caching reduces direct requests to App Configuration, helping prevent throttling and overage charges. It also adds resilience with automatic failover and geo-redundancy through Azure Front Door’s infrastructure. To implement this approach, see [Load Configuration from Azure Front Door in Client Applications](./concept-hyperscale-client-configuration.md).
+
+### Alternative approach: Custom proxy service
+
+If Azure Front Door integration doesn't meet your requirements, you can build a custom proxy service between your client applications and your App Configuration store. The proxy service can securely authenticate with your App Configuration store without a security issue of leaking authentication information. You can build a proxy service by using one of the [App Configuration provider libraries](./configuration-provider-overview.md), so you can take advantage of built-in caching and refresh capabilities for optimizing the volume of requests sent to App Configuration. For more information about using App Configuration providers, see articles in Get started. The proxy service serves the configuration from its cache to your client applications, and you avoid the two potential issues that are discussed in this section.
+
+### Security considerations
+
+When surfacing configuration to client applications, configuration values will be visible to end users. Care should be taken to avoid unintended exposure of sensitive data. For example, user and group names in feature flag targeting settings may be considered EUII (End User Identifiable Information). To mitigate this risk:
+
+- Use a separate App Configuration store dedicated to client application configuration.
+- Store only non-sensitive settings in the client-facing store.
+- Segment configuration using strict filtering mechanisms like key prefixes, labels, or tags to limit exposed configuration.
 
 ## Multitenant applications in App Configuration
 

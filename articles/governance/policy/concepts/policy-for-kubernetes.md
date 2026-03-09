@@ -319,7 +319,7 @@ As part of the _details.templateInfo_ or _details.constraintInfo_ properties in 
 the Kubernetes cluster. By supporting an existing standard for Kubernetes management, Azure Policy
 makes it possible to reuse existing rules and pair them with Azure Policy for a unified cloud
 compliance reporting experience. For more information, see
-[What is Rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego).
+[What is Rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)
 
 ## Assign a policy definition
 
@@ -610,8 +610,14 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 
 ### Add-on versions available per each AKS cluster version
 
+#### 1.15.4
+Patch CVE-2025-61727
+- Released Dec 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.20.1-2
+
 #### 1.15.3
-Patch CVE-2025-47914, CVE-2025-58181, CVE-2025-58187, CVE-2025-22872, CVE-2025-61727
+Patch CVE-2025-47914, CVE-2025-58181, CVE-2025-58187, CVE-2025-22872
 - Released Dec 2025
 - Kubernetes 1.27+
 - Gatekeeper 3.20.1-2

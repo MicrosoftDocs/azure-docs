@@ -97,7 +97,7 @@ App Service Environment v3 differs from earlier versions in the following ways:
   - To make plans zone redundant, the App Service Environment must have zone redundancy enabled.
   - You can scale non-zone-redundant plans down to a single instance.
   
-  For more information, see [Reliability in App Service Environment](../../reliability/reliability-app-service-environment.md).
+  For more information, see [Reliability in App Service Environment](/azure/reliability/reliability-app-service-environment).
 
 - You can deploy an App Service Environment v3 on a dedicated host group. Host group deployments aren't zone redundant.
 

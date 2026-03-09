@@ -12,11 +12,28 @@ ms.custom: engagement-fy24
 
 # Discovery methods in Azure Migrate 
 
-This article explains the different discovery methods in Azure Migrate and gives guidance to choose the most suitable approach based on your requirements.
- 
-## Prerequisites
+Azure Migrate supports the following modes of discovery.
+- Discovery using appliance 
+- Discovery using collector
+- Discovery using import 
+- Discovery of Arc enabled servers and SQL instances. 
 
-Before you begin, ensure you create an Azure Migrate project by following the steps in [Quickstart: Create an Azure Migrate project using portal](quickstart-create-project.md).
+This article explains the different discovery methods in Azure Migrate and gives guidance to choose the most suitable approach based on your requirements. Refer to this decision making table to decide on which discovery method to use. 
+
+| | Azure Migrate appliance | Azure Migrate collector | Import (CSV or RVTools upload) |
+|---|---|---|---|
+| Description | Continuous discovery of IT estate to generate lift and shift or modernize TCO benchmark reports, map server dependencies, and execute migrations. | Quick offline snapshot of IT estate to generate lift and shift or modernize TCO benchmark reports. | Upload inventory via CSV or RVTools to generate lift and shift TCO benchmark reports. |
+| Mode of Discovery | Continuous data collection | One-time data collection, manually upload the collected data to Azure | Upload pre-existing inventory files |
+| Time to Discover | Requires setup time | Quick to set up | Instant (reuse existing inventory data) |
+| Assessment Types | Lift and Shift, Modernize | Lift and Shift, Modernize | Lift and Shift |
+| Performance based Assessment | Yes | Yes | No |
+| Guest Discovery (installed software, security insights, database instances) | Yes | Yes | No |
+| Security insights | Yes | Yes | No |
+| Workload Discovery (Webapps, SQL, PostgreSQL, MySQL) | Yes | Yes | No |
+| Hypervisor Support | VMware, Hyper-V, Physical (hypervisor-agnostic) | VMware, Physical (hypervisor-agnostic) | CSV (hypervisor-agnostic), RVTools (VMware) |
+| Migration Execution | Yes | No | No |
+| Identify server dependencies | Yes | No | No |
+| Connectivity | Requires Azure connection for discovery | Offline discovery | NA |
 
 ## Appliance-based discovery
 
@@ -24,9 +41,10 @@ The appliance-based discovery method involves deploying a virtual appliance that
 
 ### Key features
 
-- Continuous collection of configuration and performance data.  
-- Supports discovering workloads such as SQL databases, webapps, PostgreSQL and MySQL. 
-- Discover software inventory and enable dependency analysis.  
+- Continuous collection of configuration data.
+- Real time collection of performance data.
+- Supports discovering workloads such as SQL databases, webapps, PostgreSQL and MySQL.
+- Discover software inventory and enable dependency analysis.
 
 ### Guidance to choose the right appliance
 
@@ -36,7 +54,7 @@ The appliance-based discovery method involves deploying a virtual appliance that
 
 **Physical & public Cloud servers**: To discover and assess physical servers and servers running in any public cloud, we recommend setting up a [physical stack of appliance](tutorial-discover-physical.md). To migrate physical servers, install a secondary [replication appliance](tutorial-migrate-physical-virtual-machines.md).
 
-## Supported workloads for appliance-based discovery 
+### Supported workloads for appliance-based discovery 
 
 Ensure that software inventory is enabled before initiating workload discovery. Azure Migrate supports the following workloads with appliance-based discovery:
 
@@ -45,16 +63,27 @@ Ensure that software inventory is enabled before initiating workload discovery. 
 - Discovery of MySQL database instances.
 - Discovery of PostgreSQL instances and databases.
 
-## Import-based discovery 
+## Collector-based discovery
 
-Import-based discovery is a simpler and faster alternative, relying on manual upload of inventory data in a structured format.  
+Azure Migrate collector enables offline discovery of IT estate. Using this lightweight tool, you can collect server configuration, performance, software inventory, and workload metadata without requiring connectivity to Azure during discovery. You can securely upload the collected data back to the Azure Migrate project you created. This approach is ideal for scenarios where quick discovery of your IT estate is required. It supports the discovery of VMware environments and physical or virtual servers in a hypervisor-agnostic approach.
 
 ### Key features
 
-- Manual data entry via CSV file uploads. 
-- Add output inventory from CMDB tools to CSV templates. 
-- Supports VMware inventory exported from RVTools XLSX file. 
-- Build a quick business case using the servers discovered via import. 
+- Captures a one-time snapshot of server configuration data.
+- Collects historical performance data.
+- Discovers installed software.
+- Discovers workloads such as SQL Server, web apps, PostgreSQL, and MySQL.
+
+## Import-based discovery
+
+Import-based discovery is a simpler and faster alternative, relying on manual upload of inventory data in a structured format.
+
+### Key features
+
+- Manual data entry via CSV file uploads.
+- Add inventory output from CMDB tools using provided CSV templates.
+- Import VMware inventory exported from RVTools.
+- Build a quick business case using the servers discovered via import.
 
 ## Arc-based discovery (Preview)
 
@@ -71,6 +100,6 @@ Learn more about [Arc-based discovery (Preview)](concepts-arc-resource-discovery
 
 ## Next steps
 
-- Learn more about [Appliance requirements](migrate-appliance.md).  
+- Learn more about [Appliance requirements](migrate-appliance.md).
 - Learn more about creating a [business case using import](tutorial-discover-import.md).
 - Learn more about [Arc-based discovery for migration](concepts-arc-resource-discovery.md).

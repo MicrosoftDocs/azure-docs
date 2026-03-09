@@ -267,7 +267,7 @@ using '<BICEP_TEMPLATE_FILE>'
 param datadogapikey = az.getSecret('<SUBSCRIPTION_ID>', '<RESOURCE_GROUP_NAME>', '<KEY_VAULT_NAME>', '<SECRET_NAME>', '<SECRET_VERSION_ID>')
 ```
 
-The subscription ID has the form `123e4567-e89b-12d3-a456-426614174000`. The secret version ID has the form `123e4567e89b12d3a456426614174000`.
+The subscription ID has the form `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e`. The secret version ID has the form `123e4567e89b12d3a456426614174000`.
 
 You can now reference the `datadogapikey` parameter in your Bicep file.
 

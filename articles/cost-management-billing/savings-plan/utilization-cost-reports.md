@@ -1,13 +1,13 @@
 ---
 title: View Azure savings plan cost and usage
 titleSuffix: Microsoft Cost Management
-description: Learn how to view saving plan cost and usage details.
+description: Learn how to view savings plan cost and usage details.
 author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 07/09/2025
+ms.date: 01/08/2026
 ms.author: onwokolo
 ---
 
@@ -27,11 +27,11 @@ In Cost Management, cost details provide savings plan cost in two separate data 
 
 **Actual Cost** - Provides data to reconcile with your monthly bill. The data has savings plan purchase costs and savings plan application details. With the data, you can know which subscription or resource group, or resource received the savings plan discount on a particular day. The EffectivePrice for the usage that receives the savings plan discount is zero.
 
-**Amortized Cost** - The dataset is like the Actual Cost dataset except that - the EffectivePrice for the usage that gets savings plan discount is the prorated cost of the savings plan (instead of being zero). It helps you know the monetary value of savings plan consumption by a subscription, resource group or a resource, and can help you charge back for the savings plan utilization internally. The dataset also has unused hours in the savings plan that have been charged for the hourly commitment amount. The dataset doesn't have savings plan purchase records.
+**Amortized Cost** - The dataset is like the Actual Cost dataset except that the EffectivePrice for the usage that gets savings plan discount is the prorated cost of the savings plan (instead of being zero). It helps you know the monetary value of savings plan consumption by a subscription, resource group or a resource, and can help you charge back for the savings plan utilization internally. The dataset also has unused hours in the savings plan that have been charged for the hourly commitment amount. The dataset doesn't have savings plan purchase records.
 
 The following fields in the Azure cost data that are relevant to savings plan scenarios.
 
-- `BenefitId` and `BenefitName` - They are their own fields in the data and correspond to the Savings Plan ID and Savings Plan name associated with your purchase.
+- `BenefitId` and `BenefitName` - These are their own fields in the data and correspond to the Savings Plan ID and Savings Plan name associated with your purchase.
 - `PricingModel` - The field will be `SavingsPlan` for purchase and usage cost records that are relevant to a Savings Plan.
 - `ProductOrderId` - The savings plan order ID, added as its own field.
 - `ProductOrderName` - The product name of the purchased savings plan.
@@ -53,20 +53,19 @@ You can get the data using the API or download it from Azure portal. Call the [C
 
 Information in the following table about metrics and filters can help solve for common savings plan problems.
 
-| Type of API data  | API call action  |
+| Type of API data | API call action |
 | --- | --- |
-| All Charges (usage and purchases)  | Request for an ActualCost report.  |
-| Usage that got savings plan discount  | Request for an ActualCost report.
- Once you've ingested all the usage, look for records with ChargeType = `Usage` and `PricingModel` = `SavingsPlan`. |
-| Usage that didn't get savings plan discount  | Request for an ActualCost report. <br><br> Once you've ingested all the usage, filter for usage records with `PricingModel` = `OnDemand`. |
-| Amortized charges (usage and purchases)  | Request for an AmortizedCost report.  |
-| Unused savings plan report  | Request for an AmortizedCost report.<br><br> Once you've ingested all of the usage, filter for usage records with ChargeType = `UnusedSavingsPlan` and `PricingModel` =`SavingsPlan`. |
-| Savings plan purchases  | Request for an ActualCost report. <br><br> Once you've ingested all the usage, filter for usage records with `ChargeType` = `Purchase` and `PricingModel` = `SavingsPlan`. |
-| Refunds  | Request for an ActualCost report. <br><br> Once you've ingested all the usage, filter for usage records with `ChargeType` = `Refund`. |
+| All Charges (usage and purchases) | Request for an ActualCost report. |
+| Usage that got savings plan discount | Request for an ActualCost report. Once you've ingested all the usage, look for records with ChargeType = `Usage` and `PricingModel` = `SavingsPlan`. |
+| Usage that didn't get savings plan discount | Request for an ActualCost report. <br><br> Once you've ingested all the usage, filter for usage records with `PricingModel` = `OnDemand`. |
+| Amortized charges (usage and purchases) | Request for an AmortizedCost report. |
+| Unused savings plan report | Request for an AmortizedCost report.<br><br> Once you've ingested all of the usage, filter for usage records with ChargeType = `UnusedSavingsPlan` and `PricingModel` =`SavingsPlan`. |
+| Savings plan purchases | Request for an ActualCost report. <br><br> Once you've ingested all the usage, filter for usage records with `ChargeType` = `Purchase` and `PricingModel` = `SavingsPlan`. |
+| Refunds | Request for an ActualCost report. <br><br> Once you've ingested all the usage, filter for usage records with `ChargeType` = `Refund`. |
 
 ## Download the cost CSV file with new data
 
-To download your saving plan cost and usage file, use the information in the following sections.
+To download your savings plan cost and usage file, use the information in the following sections.
 
 ### EA customers
 
@@ -149,4 +148,4 @@ Group by **Charge Type** to see a breakdown of usage, purchases, and refunds; or
 
 ## Next steps
 
-- Learn more about how to [Charge back Azure saving plan costs](charge-back-costs.md).
+- Learn more about how to [Charge back Azure savings plan costs](charge-back-costs.md).

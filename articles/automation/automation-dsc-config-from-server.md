@@ -8,8 +8,8 @@ ms.date: 11/17/2025
 ms.custom: engagement-fy23
 ms.topic: how-to
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Create configurations from existing servers

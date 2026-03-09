@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 06/18/2025
+ms.date: 02/25/2026
 ---
 
 # Receive and respond to inbound HTTPS calls sent to workflows in Azure Logic Apps
@@ -30,7 +30,7 @@ To run your workflow by sending an outgoing or outbound request instead, use the
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, you can [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - The logic app resource with the workflow where you want to receive the inbound HTTPS request.
 
@@ -373,9 +373,10 @@ Now, continue building your workflow by adding another action as the next step. 
 > [!NOTE]
 >
 > Your workflow keeps an inbound request open only for a [limited time](../logic-apps/logic-apps-limits-and-config.md#http-limits). 
-> Assuming that your workflow also includes a Response action, if your workflow doesn't return a response to the caller 
-> after this time expires, your workflow returns the **504 GATEWAY TIMEOUT** status to the caller. If your workflow 
-> doesn't include a Response action, your workflow immediately returns the **202 ACCEPTED** status to the caller.
+> Assuming that your workflow includes a **Response** action with the **Asynchronous response** setting turned off (default), if your workflow 
+> doesn't return a response to the caller within the time limit, your workflow returns the **504 GATEWAY TIMEOUT** status to the caller. 
+> If the **Response** action has the **Asynchronous response** setting turned on, or if your workflow doesn't include a **Response** action, your workflow 
+> immediately returns the **202 ACCEPTED** status to the caller.
 
 For information about security, authentication, and encryption for inbound calls to your workflow, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), [OAuth with Microsoft Entra ID](/entra/architecture/auth-oauth2), [Shared Access Signatures (SAS)](../logic-apps/logic-apps-securing-a-logic-app.md#sas), exposing your logic app resource with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 

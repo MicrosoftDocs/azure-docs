@@ -32,7 +32,7 @@ landingContent:
             url: ../connectors/introduction.md
           - text: Single-tenant versus multitenant
             url: single-tenant-overview-compare.md
-          - text: AI agent workflows
+          - text: Agentic workflows
             url: agent-workflows-concepts.md
           - text: Business rules engine Integration
             url: rules-engine/rules-engine-overview.md
@@ -62,9 +62,9 @@ landingContent:
             url: create-single-tenant-workflows-azure-portal.md
           - text: Create Standard workflow from template - Portal
             url: create-single-tenant-workflows-templates.md
-          - text: Create autonomous agent workflows - Portal
+          - text: Create autonomous agentic workflows - Portal
             url: create-autonomous-agent-workflows.md
-          - text: Create conversational agent workflows - Portal
+          - text: Create conversational agentic workflows - Portal
             url: create-conversational-agent-workflows.md
       - linkListType: tutorial
         links:

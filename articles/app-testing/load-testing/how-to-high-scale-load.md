@@ -229,6 +229,7 @@ For CI/CD workflows, you configure the number of engine instances in the [YAML t
 
 1. Save the YAML configuration file, and commit the changes to source control.
 
+---
 
 ## Monitor engine instance metrics
 

@@ -21,12 +21,12 @@ When you use Azure Bastion, your VMs don't require a client or an agent. However
 
 ## Prerequisites and limitations
 
-Make sure you've configured an Azure Bastion host for the virtual network in which the VM resides. For more information, see [Create an Azure Bastion host](./tutorial-create-host-portal.md). Once the Bastion service is provisioned and deployed in your virtual network, you can use it to connect to any VM in this virtual network.
+Make sure you've configured an Azure Bastion host for the virtual network in which the VM resides. For more information, see [Create an Azure Bastion host](./quickstart-host-portal.md). Once the Bastion service is provisioned and deployed in your virtual network, you can use it to connect to any VM in this virtual network.
 
 * The connection settings and features that are available depend on the Bastion SKU you're using.
 
-  * RDP to a Linux VM is only available for the Standard SKU or higher. To check your SKU or upgrade to a higher SKU tier, see [Upgrade the SKU](upgrade-sku.md).
-  * To see the available features and settings per SKU tier, see the [SKUs and features](bastion-overview.md#sku) section of the Bastion overview article.  
+  * RDP to a Linux VM is only available for the Standard SKU or higher. To check your SKU or upgrade to a higher SKU, see [Upgrade the SKU](upgrade-sku.md).
+  * To see the available features and settings per SKU, see the [SKUs and features](bastion-overview.md#sku) section of the Bastion overview article.  
 
 * To use RDP with a Linux virtual machine, you must also ensure that you have xrdp installed and configured on the Linux VM. To learn how to do this, see [Use xrdp with Linux](/azure/virtual-machines/linux/use-remote-desktop).
 

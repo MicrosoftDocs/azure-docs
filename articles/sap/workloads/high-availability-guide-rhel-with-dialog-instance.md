@@ -7,7 +7,7 @@ manager: rdeltcheva
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
-ms.date: 06/19/2024
+ms.date: 02/20/2026
 ms.author: depadia
 ms.custom: sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to deploy SAP dialog instances on high-availability VMs running Red Hat Enterprise Linux so that I can optimize resource usage and ensure continuous service availability for my SAP environment.
@@ -262,32 +262,31 @@ When steps in this document are marked with the following prefixes, they mean:
 
    ```bash
    sudo pcs node standby sap-cl2
-   sudo pcs resource create vip_NW1_PAS IPaddr2 ip=10.90.90.30 --group g-NW1_PAS
-   sudo pcs resource create nc_NW1_PAS azure-lb port=62002 --group g-NW1_PAS
+   sudo pcs resource create vip_NW1_PAS IPaddr2 ip=10.90.90.30
+   sudo pcs resource create nc_NW1_PAS azure-lb port=62002
    
    # If using NFS on Azure files
    sudo pcs resource create fs_NW1_PAS Filesystem device='sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1D02' \
      directory='/usr/sap/NW1/D02' fstype='nfs' force_unmount=safe options='noresvport,vers=4,minorversion=1,sec=sys' \
      fast_stop=no op start interval=0 timeout=60 \
      op stop interval=0 timeout=120 \
-     op monitor interval=200 timeout=40 \
-     --group g-NW1_PAS
+     op monitor interval=200 timeout=40
     
    # If using NFsv3 on Azure NetApp Files
    sudo pcs resource create fs_NW1_PAS Filesystem device='10.90.91.5:/sapnw1/usrsapNW1D02' \
      directory='/usr/sap/NW1/D02' fstype='nfs' force_unmount=safe \
      fast_stop=no op start interval=0 timeout=60 \
      op stop interval=0 timeout=120 \ 
-     op monitor interval=200 timeout=40 \
-     --group g-NW1_PAS
+     op monitor interval=200 timeout=40
    
    # If using NFSv4.1 on Azure NetApp Files
    sudo pcs resource create fs_NW1_PAS Filesystem device='10.90.91.5:/sapnw1/usrsapNW1D02' \
      directory='/usr/sap/NW1/D02' fstype='nfs' force_unmount=safe options='sec=sys,vers=4.1' \
      fast_stop=no op start interval=0 timeout=60 \
      op stop interval=0 timeout=120 \
-     op monitor interval=200 timeout=105 \
-     --group g-NW1_PAS
+     op monitor interval=200 timeout=105
+
+   sudo pcs resource group add g-NW1_PAS vip_NW1_PAS nc_NW1_PAS fs_NW1_PAS
    ```
 
    Make sure that the cluster status is okay and that all resources are started. It isn't important on which node the resources are running.
@@ -354,14 +353,14 @@ When steps in this document are marked with the following prefixes, they mean:
    # If using NFS on Azure Files or NFSv3 on Azure NetApp Files
    pcs resource create rsc_sap_NW1_PAS02 SAPInstance InstanceName="NW1_D02_sappas" \
     START_PROFILE=/sapmnt/NW1/profile/NW1_D02_sappas \
-    op monitor interval=20 timeout=60 \
-    --group g-NW1_PAS
+    op monitor interval=20 timeout=60
     
    # If using NFSv4.1 on Azure NetApp Files
    pcs resource create rsc_sap_NW1_PAS02 SAPInstance InstanceName="NW1_D02_sappas" \
     START_PROFILE=/sapmnt/NW1/profile/NW1_D02_sappas \
-    op monitor interval=20 timeout=105 \
-    --group g-NW1_PAS
+    op monitor interval=20 timeout=105
+
+   sudo pcs resource group add g-NW1_PAS rsc_sap_NW1_PAS02
    ```
 
    Check the status of the cluster.
@@ -440,32 +439,31 @@ When steps in this document are marked with the following prefixes, they mean:
    # Execute below command to cleanup resource, if required
    pcs resource cleanup rsc_sap_NW1_ERS01
    
-   sudo pcs resource create vip_NW1_AAS IPaddr2 ip=10.90.90.31 --group g-NW1_AAS
-   sudo pcs resource create nc_NW1_AAS azure-lb port=62003 --group g-NW1_AAS
+   sudo pcs resource create vip_NW1_AAS IPaddr2 ip=10.90.90.31
+   sudo pcs resource create nc_NW1_AAS azure-lb port=62003
    
    # If using NFS on Azure files
    sudo pcs resource create fs_NW1_AAS Filesystem device='sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1D03' \
      directory='/usr/sap/NW1/D03' fstype='nfs' force_unmount=safe options='noresvport,vers=4,minorversion=1,sec=sys' \
      fast_stop=no op start interval=0 timeout=60 \
      op stop interval=0 timeout=120 \
-     op monitor interval=200 timeout=40 \
-     --group g-NW1_AAS
+     op monitor interval=200 timeout=40
     
    # If using NFsv3 on Azure NetApp Files
    sudo pcs resource create fs_NW1_AAS Filesystem device='10.90.91.5:/sapnw1/usrsapNW1D03' \
      directory='/usr/sap/NW1/D03' fstype='nfs' force_unmount=safe \
      fast_stop=no op start interval=0 timeout=60 \
      op stop interval=0 timeout=120 \ 
-     op monitor interval=200 timeout=40 \
-     --group g-NW1_AAS
+     op monitor interval=200 timeout=40
    
    # If using NFSv4.1 on Azure NetApp Files
    sudo pcs resource create fs_NW1_AAS Filesystem device='10.90.91.5:/sapnw1/usrsapNW1D03' \
      directory='/usr/sap/NW1/D03' fstype='nfs' force_unmount=safe options='sec=sys,vers=4.1' \
      fast_stop=no op start interval=0 timeout=60 \
      op stop interval=0 timeout=120 \
-     op monitor interval=200 timeout=105 \
-     --group g-NW1_AAS
+     op monitor interval=200 timeout=105
+
+   sudo pcs resource group add g-NW1_AAS vip_NW1_AAS nc_NW1_AAS fs_NW1_AAS
    ```
 
    Make sure that the cluster status is okay and that all resources are started. It isn't important on which node the resources are running. Because the g-NW1_PAS resource group is stopped, all the PAS resources are stopped in the (disabled) state.
@@ -537,14 +535,14 @@ When steps in this document are marked with the following prefixes, they mean:
    # If using NFS on Azure Files or NFSv3 on Azure NetApp Files
    pcs resource create rsc_sap_NW1_AAS03 SAPInstance InstanceName="NW1_D03_sapaas" \
     START_PROFILE=/sapmnt/NW1/profile/NW1_D03_sapaas \
-    op monitor interval=120 timeout=60 \
-    --group g-NW1_AAS
+    op monitor interval=120 timeout=60
     
    # If using NFSv4.1 on Azure NetApp Files
    pcs resource create rsc_sap_NW1_AAS03 SAPInstance InstanceName="NW1_D03_sapaas" \
     START_PROFILE=/sapmnt/NW1/profile/NW1_D03_sapaas \
-    op monitor interval=120 timeout=105 \
-    --group g-NW1_AAS
+    op monitor interval=120 timeout=105
+
+   sudo pcs resource group add g-NW1_AAS rsc_sap_NW1_AAS03
    ```
 
    Check the status of the cluster.

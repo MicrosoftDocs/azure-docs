@@ -18,6 +18,9 @@ This article summarizes the prerequisites for Azure Update Manager, the extensio
 
 Before you start using this service on Linux machines, you must install Python version 2.7 or later.
 
+Update Manager requires high level permissions because it can update multiple system components, including kernel drivers and operating system security patches.
+On Linux machines, the Update Manager extensions run operations as the root user. To ensure that assessment and patching operations succeed, grant sudo privileges by adding the root account to the /etc/sudoers file.
+
 ## Azure Arc-enabled servers
 
 To use Update Manager for Azure Arc-enabled servers, you must connect those servers to Azure Arc. For more information, see the [overview of Azure Arc-enabled servers](/azure/azure-arc/servers/overview).

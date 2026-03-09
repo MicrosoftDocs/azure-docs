@@ -5,13 +5,24 @@ author: padmalathas
 ms.author: padmalathas
 ms.service: azure-batch
 ms.topic: how-to
-ms.date: 11/20/2025
-# Customer intent: As an Azure Batch user, I want to migrate my low-priority VMs to Spot VMs before the retirement deadline, so that I can continue to benefit from cost-effective compute resources without service disruption.
+ms.date: 02/23/2026
 ---
 
 # Migrate Batch low-priority VMs to Spot VMs
 
 The ability to allocate low-priority compute nodes in Azure Batch pools is being retired on *September 30, 2025*. Learn how to migrate your Batch pools with low-priority compute nodes to compute nodes based on Spot instances.
+
+> [!IMPORTANT]
+> Azure Batch, in coordination with the Commerce team, will begin a system-initiated migration of all existing Low-priority compute nodes to Spot-based compute nodes
+> in early March 2026. The transition will be executed in a controlled manner and is expected to be completed within several days. As part of this migration:
+> - No customer action is required prior to migration.
+> - The migration process will be fully transparent and won't disrupt or interrupt any workloads currently running on Low-priority compute nodes.
+> - Upon completion, all active Low-priority compute nodes will be converted to Spot-based compute nodes and will continue to operate under Batch managed pool allocation mode.
+> - Active Spot-based compute nodes previously provisioned via Azure Batch API or SDK within User Subscription pool allocation mode will remain unchanged.
+> - As Spot-based compute nodes use a different pricing and discount model, customers should expect to see corresponding billing changes beginning with the March invoice.
+>
+> After migration, any use of Low-priority properties in the Azure Batch API or SDK will automatically translate into Spot-based compute node allocations. You don't
+> need to change your existing code or configuration; Batch-managed pool allocation will handle this transition seamlessly.
 
 ## About the feature
 
@@ -21,7 +32,10 @@ The amount of unused capacity that's available varies depending on factors such 
 
 ## Feature end of support
 
-Only low-priority compute nodes in Batch are being retired. Spot compute nodes will continue to be supported, is a GA offering, and not affected by this deprecation. On September 30, 2025, we'll retire low-priority compute nodes. After that date, existing low-priority pools in Batch may no longer be usable, attempts to seek back to target low-priority node counts will fail, and you'll no longer be able to provision new pools with low-priority compute nodes.
+Only low-priority compute nodes in Batch are being retired. Spot compute nodes will continue to be supported, is a GA offering, and not affected by this deprecation.
+
+Beginning in March 2026, low-priority compute nodes will be migrated to spot and will no longer be allocatable. Batch pool creation or scale out with non-zero target low
+priority compute nodes will automatically allocate spot instances instead. Low priority compute nodes won't be available after the migration completes.
 
 ## Alternative: Use Azure Spot-based compute nodes in Batch pools
 
@@ -31,10 +45,10 @@ As of December 2021, Azure Batch began offering Spot-based compute nodes in Batc
 
 When migrating from low-priority to Spot VMs, the following pool configuration properties are affected:
 
-- **Pool allocation mode**: Must be `UserSubscription` (Spot VMs are not available in `BatchService` mode)
-- **VM configuration**: Must be `VirtualMachineConfiguration` (not supported in `CloudServiceConfiguration`)
+- **Pool allocation mode**: May be either `UserSubscription` or `BatchService` mode (after the March 2026 migration)
+- **VM configuration**: Must be `VirtualMachineConfiguration`
 - **Target node properties**: 
-  - `targetLowPriorityNodes` → `targetSpotNodes` 
+  - `targetLowPriorityNodes` → `targetSpotNodes`. `targetLowPriorityNodes` will always translate as `targetSpotNodes` after the March 2026 migration.
   - Pool pricing model changes from low-priority to Spot pricing
   - Eviction policy becomes configurable (delete or deallocate)
 
@@ -42,11 +56,7 @@ See the [detailed breakdown](batch-spot-vms.md) between the low-priority and spo
 
 ## Migrate a Batch pool with low-priority compute nodes or create a Batch pool with Spot instances
 
-### Prerequisites
-1. Ensure that you're using a [user subscription pool allocation mode Batch account](batch-account-create-portal.md).
-1. Verify your pool uses `VirtualMachineConfiguration` (Spot VMs are not supported in `CloudServiceConfiguration`).
-
-### Option 1: Azure CLI Migration (Recommended for automation)
+### Option 1: Azure CLI Migration
 
 #### Create a new pool with Spot instances:
 ```azurecli-interactive
@@ -55,8 +65,8 @@ az batch pool create \
   --vm-size "Standard_D2s_v3" \
   --target-low-priority-nodes 5 \
   --enable-inter-node-communication false \
-  --image "Canonical:0001-com-ubuntu-server-focal:20_04-lts-gen2" \
-  --node-agent-sku-id "batch.node.ubuntu 20.04" \
+  --image "Canonical:ubuntu-24_04-lts:server" \
+  --node-agent-sku-id "batch.node.ubuntu 24.04" \
   --account-name <your-batch-account-name> \
   --account-endpoint "https://<your-batch-account-name>.<region>.batch.azure.com"
 ```
@@ -71,7 +81,7 @@ az batch pool resize \
   --account-endpoint "https://<your-batch-account-name>.<region>.batch.azure.com"
 ```
 
-### Option 2: Azure PowerShell (Alternative automation method)
+### Option 2: Azure PowerShell
 
 #### Create pool with Spot instances:
 ```powershell
@@ -89,7 +99,7 @@ $pool = Get-AzBatchPool -Id "spot-pool-001" -BatchContext $context
 $pool | Select-Object Id, VmSize, @{Name="SpotNodes";Expression={$_.TargetLowPriorityComputeNodes}}, State
 ```
 
-### Option 3: Azure portal (UI method)
+### Option 3: Azure portal
 
 1. In the Azure portal, select the Batch account and view an existing pool or create a new pool.
 1. Under **Scale**, select either **Target dedicated nodes** or **Target Spot/low-priority nodes**.
@@ -116,7 +126,7 @@ az batch pool show \
   "AllocationMode": "UserSubscription",
   "PoolID": "spot-pool-001",
   "SpotNodes": 5,
-  "VMConfig": "batch.node.ubuntu 20.04",
+  "VMConfig": "batch.node.ubuntu 24.04",
   "VMSize": "Standard_D2s_v3"
 }
 ```
@@ -195,7 +205,7 @@ resource "azurerm_batch_pool" "spot_pool" {
 
 - Are Spot VMs available in Batch managed pool allocation accounts?
 
-  No. Spot VMs are available only in user subscription pool allocation Batch accounts.
+  Eventually, yes. Spot VMs are available now in user subscription pool allocation Batch accounts and will be available after the March 2026 migration for Batch managed pool allocation accounts.
   
 - Are spot instances available for `CloudServiceConfiguration` Pools?
 

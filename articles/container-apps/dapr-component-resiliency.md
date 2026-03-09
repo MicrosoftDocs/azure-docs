@@ -1,13 +1,15 @@
 ---
-title: Dapr component resiliency (preview)
+title: Dapr Component Resiliency (Preview)
 titleSuffix: Azure Container Apps
 description: Learn how to make your Dapr components resilient in Azure Container Apps.
 services: container-apps
-author: hhunter-ms
+author: greenie-msft
 ms.service: azure-container-apps
-ms.topic: conceptual
-ms.date: 11/19/2024
-ms.author: hannahhunter
+ms.subservice: dapr
+ms.topic: concept-article
+ms.date: 02/02/2026
+ms.author: nigreenf
+ms.reviewer: hannahhunter
 ms.custom:
   - ignite-fall-2023
   - ignite-2023
@@ -20,7 +22,7 @@ ms.custom:
 
 Resiliency policies proactively prevent, detect, and recover from your container app failures. In this article, you learn how to apply resiliency policies for applications that use Dapr to integrate with different cloud services, like state stores, pub/sub message brokers, secret stores, and more. 
 
-You can configure resiliency policies like retries, timeouts, and circuit breakers for the following outbound and inbound operation directions via a Dapr component: 
+You can configure resiliency policies like retries, timeouts, and circuit breakers for the following outbound and inbound operation directions by using a Dapr component: 
 
 - **Outbound operations:** Calls from the Dapr sidecar to a component, such as:
    - Persisting or retrieving state
@@ -32,7 +34,7 @@ You can configure resiliency policies like retries, timeouts, and circuit breake
 
 The following screenshot shows how an application uses a retry policy to attempt to recover from failed requests. 
 
-:::image type="content" source="media/dapr-component-resiliency/dapr-component-resiliency.png" alt-text="Diagram demonstrating resiliency for container apps with Dapr components.":::
+:::image type="content" source="media/dapr-component-resiliency/dapr-component-resiliency.png" alt-text="Diagram demonstrating resiliency for container apps with Dapr components." lightbox="media/dapr-component-resiliency/dapr-component-resiliency.png":::
 
 ## Supported resiliency policies
 
@@ -42,7 +44,7 @@ The following screenshot shows how an application uses a retry policy to attempt
 
 ## Configure resiliency policies
 
-You can choose whether to create resiliency policies using Bicep, the CLI, or the Azure portal.  
+You can choose whether to create resiliency policies by using Bicep, the Azure CLI, or the Azure portal.  
 
 # [Bicep](#tab/bicep)
 
@@ -95,7 +97,7 @@ resource myPolicyDoc 'Microsoft.App/managedEnvironments/daprComponents/resilienc
 
 ### Before you begin
 
-Log in to the Azure CLI:
+Sign in to the Azure CLI.
 
 ```azurecli
 az login
@@ -111,22 +113,22 @@ az extension update --name containerapp
 ### Create specific policies
 
 > [!NOTE]
-> If all properties within a policy are not set during create or update, the CLI automatically applies the recommended default settings. [Set specific policies using flags.](#create-specific-policies)
+> If all properties within a policy aren't set during create or update, the CLI automatically applies the recommended default settings. To learn how to set specific policies using flags, see [Create specific policies](#create-specific-policies).
 
 Create resiliency policies by targeting an individual policy. For example, to create the `Outbound Timeout` policy, run the following command.
 
 ```azurecli
-az containerapp env dapr-component resiliency create --group MyResourceGroup --name MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName --out-timeout 20
+az containerapp env dapr-component resiliency create --group <your-resource-group> --name <your-resiliency-name> --environment <your-environment> --dapr-component-name <your-component> --out-timeout 20
 ```
 
-[For a full list of parameters, see the CLI reference guide.](/cli/azure/containerapp/resiliency#az-containerapp-resiliency-create-optional-parameters)
+For a full list of parameters, see the [CLI reference guide](/cli/azure/containerapp/resiliency#az-containerapp-resiliency-create-optional-parameters).
 
 ### Create policies with resiliency YAML
 
 To apply the resiliency policies from a YAML file, run the following command:
 
 ```azurecli
-az containerapp env dapr-component resiliency create --group MyResourceGroup --name MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName --yaml <MY_YAML_FILE>
+az containerapp env dapr-component resiliency create --group <your-resource-group> --name <your-resiliency-name> --environment <your-environment> --dapr-component-name <your-component> --yaml <your-YAML-file>
 ```
 
 This command passes the resiliency policy YAML file, which might look similar to the following example:
@@ -161,7 +163,7 @@ inboundPolicy:
 Update your resiliency policies by targeting an individual policy. For example, to update the response timeout of the `Outbound Timeout` policy, run the following command.
 
 ```azurecli
-az containerapp env dapr-component resiliency update --group MyResourceGroup --name MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName --out-timeout 20
+az containerapp env dapr-component resiliency update --group <your-resource-group> --name <your-resiliency-name> --environment <your-environment> --dapr-component-name <your-component> --out-timeout 20
 ```
 
 ### Update policies with resiliency YAML
@@ -169,7 +171,7 @@ az containerapp env dapr-component resiliency update --group MyResourceGroup --n
 You can also update existing resiliency policies by updating the resiliency YAML you created earlier.
 
 ```azurecli
-az containerapp env dapr-component resiliency update --group MyResourceGroup --name MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName --yaml <MY_YAML_FILE>
+az containerapp env dapr-component resiliency update --group <your-resource-group> --name <your-resiliency-name> --environment <your-environment> --dapr-component-name <your-component> --yaml <your-YAML-file>
 ```
 
 ### View policies
@@ -177,13 +179,13 @@ az containerapp env dapr-component resiliency update --group MyResourceGroup --n
 Use the `resiliency list` command to list all the resiliency policies attached to a container app.
 
 ```azurecli
-az containerapp env dapr-component resiliency list --group MyResourceGroup --environment MyEnvironment --dapr-component-name MyDaprComponentName
+az containerapp env dapr-component resiliency list --group <your-resource-group> --environment <your-environment> --dapr-component-name <your-component>
 ```
 
-Use `resiliency show` command to show a single policy by name.
+Use the `resiliency show` command to show a single policy by name.
 
 ```azurecli
-az containerapp env dapr-component resiliency show --group MyResourceGroup --name MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName
+az containerapp env dapr-component resiliency show --group <your-resource-group> --name <your-resiliency-name> --environment <your-environment> --dapr-component-name <your-component>
 ```
 
 ### Delete policies
@@ -191,24 +193,24 @@ az containerapp env dapr-component resiliency show --group MyResourceGroup --nam
 To delete resiliency policies, run the following command. 
 
 ```azurecli
-az containerapp env dapr-component resiliency delete --group MyResourceGroup --name MyDaprResiliency --environment MyEnvironment --dapr-component-name MyDaprComponentName
+az containerapp env dapr-component resiliency delete --group <your-resource-group> --name <your-resiliency-name> --environment <your-environment> --dapr-component-name <your-component>
 ```
 
 # [Azure portal](#tab/portal)
 
-Navigate into your container app environment in the Azure portal. In the left side menu under **Settings**, select **Dapr components** to open the Dapr component pane.
+Navigate into your container app environment in the Azure portal. In the sidebar menu under **Settings**, select **Dapr components** to open the Dapr component pane.
 
-:::image type="content" source="media/dapr-component-resiliency/dapr-component-pane.png" alt-text="Screenshot showing where to access the Dapr components associated with your container app.":::
+:::image type="content" source="media/dapr-component-resiliency/dapr-component-pane.png" alt-text="Screenshot showing where to access the Dapr components associated with your container app." lightbox="media/dapr-component-resiliency/dapr-component-pane.png":::
 
 You can add resiliency policies to an existing Dapr component by selecting **Add resiliency** for that component. 
 
-:::image type="content" source="media/dapr-component-resiliency/add-dapr-component-resiliency.png" alt-text="Screenshot showing where to click to add a resiliency policy to a Dapr component.":::
+:::image type="content" source="media/dapr-component-resiliency/add-dapr-component-resiliency.png" alt-text="Screenshot showing the link to add a resiliency policy to a Dapr component." lightbox="media/dapr-component-resiliency/add-dapr-component-resiliency.png":::
 
 In the resiliency policy pane, select **Outbound** or **Inbound** to set policies for outbound or inbound operations. For example, for outbound operations, you can set timeout and HTTP retry policies similar to the following. 
 
 :::image type="content" source="media/dapr-component-resiliency/outbound-dapr-resiliency.png" alt-text="Screenshot demonstrating how to set timeout or retry policies for an outbound operation.":::
 
-Click **Save** to save the resiliency policies.
+Select **Save** to save the resiliency policies.
 
 > [!NOTE]
 > Currently, you can only set timeout and retry policies via the Azure portal.
@@ -220,7 +222,7 @@ You can edit or remove the resiliency policies by selecting **Edit resiliency**.
 ---
 
 > [!IMPORTANT]
-> Once you've applied all the resiliency policies, you need to restart your Dapr applications.
+> After you apply all the resiliency policies, you need to restart your Dapr applications.
 
 ## Policy specifications
 
@@ -251,7 +253,6 @@ properties: {
 
 Define an `httpRetryPolicy` strategy for failed operations. The retry policy includes the following configurations.
 
-
 ```bicep
 properties: {
   outbound: {
@@ -277,8 +278,8 @@ properties: {
 
 | Metadata | Required | Description | Example |
 | -------- | --------- | ----------- | ------- |
-| `maxRetries` | Yes | Maximum retries to be executed for a failed http-request. | `5` |
-| `retryBackOff` | Yes | Monitor the requests and shut off all traffic to the impacted service when timeout and retry criteria are met. | N/A |
+| `maxRetries` | Yes | Maximum retries to be executed for a failed http request. | `5` |
+| `retryBackOff` | Yes | Monitors the requests and shut off all traffic to the impacted service when timeout and retry criteria are met. | N/A |
 | `retryBackOff.initialDelayInMilliseconds` | Yes | Delay between first error and first retry. | `1000` |
 | `retryBackOff.maxIntervalInMilliseconds` | Yes | Maximum delay between retries. | `10000` |
 
@@ -313,14 +314,13 @@ properties: {
 
 #### Circuit breaker process
 
-Specifying `consecutiveErrors` (the circuit trip condition as
-`consecutiveFailures > $(consecutiveErrors)-1`) sets the number of errors allowed to occur before the circuit trips and opens halfway. 
+Specifying `consecutiveErrors` (the circuit trip condition as `consecutiveFailures > $(consecutiveErrors)-1`) sets the number of errors allowed to occur before the circuit trips and opens halfway. 
 
 The circuit waits half-open for the `timeoutInSeconds` amount of time, during which the `consecutiveErrors` number of requests must consecutively succeed. 
 - _If the requests succeed,_ the circuit closes. 
 - _If the requests fail,_ the circuit remains in a half-opened state.
 
-If you didn't set any `intervalInSeconds` value, the circuit resets to a closed state after the amount of time you set for `timeoutInSeconds`, regardless of consecutive request success or failure. If you set `intervalInSeconds` to `0`, the circuit never automatically resets, only moving from half-open to closed state by successfully completing `consecutiveErrors` requests in a row.
+If you didn't set any `intervalInSeconds` value, the circuit resets to a closed state after the amount of time you set for `timeoutInSeconds`, regardless of consecutive request success or failure. If you set `intervalInSeconds` to *0*, the circuit never automatically resets, only moving from half-open to closed state by successfully completing `consecutiveErrors` requests in a row.
 
 If you did set an `intervalInSeconds` value, that determines the amount of time before the circuit is reset to closed state, independent of whether the requests sent in half-opened state succeeded or not.
 
@@ -340,13 +340,13 @@ ContainerAppConsoleLogs_CL
 | order by time_t desc
 ```
 
-Click **Run** to run the query and view the result with the log message indicating the policy is loading.
+Select **Run** to run the query and view the result with the log message indicating the policy is loading.
 
-:::image type="content" source="media/dapr-component-resiliency/dapr-resiliency-query-results-loading.png" alt-text="Screenshot showing resiliency query results based on provided query example for checking if resiliency policy has loaded.":::
+:::image type="content" source="media/dapr-component-resiliency/dapr-resiliency-query-results-loading.png" alt-text="Screenshot showing resiliency query results based on provided query example for checking if resiliency policy has loaded." lightbox="media/dapr-component-resiliency/dapr-resiliency-query-results-loading.png":::
 
-Or, you can find the actual resiliency policy by enabling debug logs on your container app and querying to see if a resiliency resource is loaded. 
+You can also find the actual resiliency policy by enabling debug logs on your container app and querying to see if a resiliency resource is loaded. 
 
-:::image type="content" source="media/dapr-component-resiliency/dapr-debug-logs.png" alt-text="Screenshot demonstrating how to enable debug logs on your container app via the portal.":::
+:::image type="content" source="media/dapr-component-resiliency/dapr-debug-logs.png" alt-text="Screenshot demonstrating how to enable debug logs on your container app via the portal." lightbox="media/dapr-component-resiliency/dapr-debug-logs.png":::
 
 Once debug logs are enabled, use a query similar to the following:
 
@@ -358,10 +358,10 @@ ContainerAppConsoleLogs_CL
 | order by time_t desc
 ```
 
-Click **Run** to run the query and view the resulting log message with the policy configuration. 
+Select **Run** to run the query and view the resulting log message with the policy configuration. 
 
-:::image type="content" source="media/dapr-component-resiliency/dapr-resiliency-query-results-policy.png" alt-text="Screenshot showing resiliency query results based on provided query example for finding the actual resiliency policy.":::
+:::image type="content" source="media/dapr-component-resiliency/dapr-resiliency-query-results-policy.png" alt-text="Screenshot showing resiliency query results based on provided query example for finding the actual resiliency policy." lightbox="media/dapr-component-resiliency/dapr-resiliency-query-results-policy.png":::
 
 ## Related content
 
-See how resiliency works for [Service to service communication using Azure Container Apps built in service discovery](./service-discovery-resiliency.md)
+- [Service discovery resiliency (preview)](./service-discovery-resiliency.md)

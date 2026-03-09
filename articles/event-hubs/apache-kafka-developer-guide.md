@@ -1,81 +1,147 @@
 ---
 title: Apache Kafka developer guide for Event Hubs
-description: This article provides links to articles that describe how to integrate your Kafka applications with Azure Event Hubs.
-ms.date: 03/06/2025
+description: A comprehensive guide for Kafka developers building applications with Azure Event Hubs, including quickstarts, tutorials, and integration patterns.
+ms.date: 12/17/2025
 ms.subservice: kafka
 ms.topic: article
 ---
 
 # Apache Kafka developer guide for Azure Event Hubs
-This article provides links to articles that describe how to integrate your Apache Kafka applications with Azure Event Hubs. 
 
-## Overview
-Event Hubs provides a Kafka endpoint that your existing Kafka based applications can use as an alternative to running your own Kafka cluster. Event Hubs works with many of your existing Kafka applications. For more information, see [Event Hubs for Apache Kafka](azure-event-hubs-apache-kafka-overview.md)
+This guide helps Kafka developers build and migrate applications to Azure Event Hubs. Whether you're connecting an existing Kafka application or building a new streaming solution, you'll find quickstarts, tutorials, and integration patterns organized by your development journey.
 
-## Quickstarts
-You can find quickstarts in GitHub and in this content set that helps you quickly ramp up on Event Hubs for Kafka.
+## Prerequisites
 
-### Quickstarts in GitHub
-See the following quickstarts in the **azure-event-hubs-for-kafka** repo: 
+Before you start developing, ensure you have:
 
-| Client language/framework | Description | 
-| ------------------------- | ----------- | 
-| [.NET](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/dotnet) | <p>This quickstart shows how to create and connect to an Event Hubs Kafka endpoint using an example producer and consumer written in C# using .NET Core 2.0.</p><p>This sample is based on [Confluent's Apache Kafka .NET client](https://github.com/confluentinc/confluent-kafka-dotnet), modified for use with Event Hubs for Kafka.</p> | 
-| [Java](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/java) | This quickstart shows how to create and connect to an Event Hubs Kafka endpoint using an example producer and consumer written in Java. |
-| [Node.js](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/node) | <p>This quickstart shows how to create and connect to an Event Hubs Kafka endpoint using an example producer and consumer written in Node.</p><p>This sample uses the [node-rdkafka](https://github.com/Blizzard/node-rdkafka) library. </p>| 
-| [Python](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/python) | <p>This quickstart shows how to create and connect to an Event Hubs Kafka endpoint using an example producer and consumer written in python.</p><p>This sample is based on [Confluent's Apache Kafka Python client](https://github.com/confluentinc/confluent-kafka-python), modified for use with Event Hubs for Kafka.</p>|
-| [Go](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/go) | <p>This quickstart shows how to create and connect to an Event Hubs Kafka endpoint using an example producer and consumer written in Go.</p><p>This sample is based on [Confluent's Apache Kafka Golang client](https://github.com/confluentinc/confluent-kafka-go), modified for use with Event Hubs for Kafka.</p>| 
-| [Sarama kafka Go](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/go-sarama-client) | This quickstart shows how to create and connect to an Event Hubs Kafka endpoint using an example producer and consumer written in Go using the [Sarama Kafka client](https://github.com/Shopify/sarama) library. |
-| [Kafka](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/kafka-cli) | This quickstart shows how to create and connect to an Event Hubs Kafka endpoint using the CLI that comes bundled with the Apache Kafka distribution.| 
-| [kcat](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/kafkacat) | kcat is a non-JVM command-line consumer and producer based on librdkafka, popular due to its speed and small footprint. This quickstart contains a sample configuration and several simple sample kafkacat commands. | 
- 
-### Quickstarts in DOCS
-See the quickstart: [Data streaming with Event Hubs using the Kafka protocol](event-hubs-quickstart-kafka-enabled-event-hubs.md) in this content set, which provides step-by-step instructions on how to stream into Event Hubs. You learn how to use your producers and consumers to talk to Event Hubs with just a configuration change in your applications. 
+- An Azure Event Hubs namespace with Kafka enabled (Standard tier or higher)
+- Your preferred Kafka client library installed
+- Connection string or Microsoft Entra credentials for authentication
 
+For an overview of how Event Hubs works with Kafka, see [Event Hubs for Apache Kafka](azure-event-hubs-apache-kafka-overview.md).
 
-## Tutorials 
+## Get started in 5 minutes
 
-### Tutorials in GitHub
-See the following tutorials on GitHub:
+The fastest way to connect to Event Hubs is to modify your existing Kafka client configuration. No code changes required—just update your connection settings.
 
-| Tutorial | Description | 
-| ------------------------- | ----------- | 
-| [Akka](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/akka/java) | This tutorial shows how to connect Akka Streams to Kafka-enabled Event Hubs without changing your protocol clients or running your own clusters. There are two separate tutorials using **Java** and **Scala** programming languages. | 
-| [Connect](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect) | This document walks you through integrating Kafka Connect with Azure Event Hubs and deploying basic FileStreamSource and FileStreamSink connectors. While these connectors aren't meant for production use, they demonstrate an end-to-end Kafka Connect Scenario where Azure Event Hubs masquerades as a Kafka broker.| 
-| [Filebeat](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/filebeat) | This document walks you through integrating Filebeat and Event Hubs via Filebeat's Kafka output. | 
-| [Flink](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/flink) | This tutorial shows how to connect Apache Flink to Kafka-enabled Event Hubs without changing your protocol clients or running your own clusters. | 
-| [FluentD](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/fluentd) | This document walks you through integrating Fluentd and Event Hubs using the `out_kafka` output plugin for Fluentd. |
-| [Interop](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/interop) | This tutorial shows you how to exchange events between consumers and producers using different protocols. |
-| [Logstash](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/logstash) | This tutorial walks you through integrating Logstash with Kafka-enabled Event Hubs using Logstash Kafka input/output plugins. | 
-| [MirrorMaker](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker) | This tutorial shows how an event hub and Kafka MirrorMaker can integrate an existing Kafka pipeline into Azure by mirroring the Kafka input stream in the Event Hubs service. |
-| [NiFi](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/nifi) | This tutorial shows how to connect Apache NiFi to an Event Hubs namespace. | 
-| [OAuth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth) | Quickstarts show you how to create and connect to an Event Hubs Kafka endpoint using an example producer and consumer written in Go and Java programming languages. |
-| [Confluent's Schema Registry](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/schema-registry) | This tutorial walks you through integrating Schema Registry and Event Hubs for Kafka. | 
-| [Spark](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/spark) | This tutorial shows how to connect your Spark application to an event hub without changing your protocol clients or running your own Kafka clusters. | 
+**Quick start**: [Data streaming with Event Hubs using the Kafka protocol](event-hubs-quickstart-kafka-enabled-event-hubs.md) walks you through connecting producers and consumers with just a configuration change.
 
-### Tutorials in DOCS
-Also, see the tutorial: [Process Apache Kafka for Event Hubs events using Stream analytics](event-hubs-kafka-stream-analytics.md) in this content set, which shows how to stream data into Event Hubs and process it with Azure Stream Analytics.
+### Language-specific quickstarts
 
-## How-to guides
-See the following How-to guides in our documentation:
+Choose your language to get a working producer and consumer sample:
 
-| Article | Description | 
-| ------- | ----------- | 
-| [Mirror a Kafka broker in an event hub](event-hubs-kafka-mirror-maker-tutorial.md) | Shows how to mirror a Kafka broker in an event hub using Kafka MirrorMaker. |
-| [Connect Apache Spark to an event hub](event-hubs-kafka-spark-tutorial.md) | Walks you through connecting your Spark application to Event Hubs for real-time streaming. |
-| [Connect Apache Flink to an event hub](event-hubs-kafka-flink-tutorial.md) | Shows you how to connect Apache Flink to an event hub without changing your protocol clients or running your own clusters. |
-| [Integrate Apache Kafka Connect with a event hub (Preview)](event-hubs-kafka-connect-tutorial.md) | Walks you through integrating Kafka Connect with an event hub and deploying basic FileStreamSource and FileStreamSink connectors. |
-| [Connect Akka Streams to an event hub](event-hubs-kafka-akka-streams-tutorial.md) | Shows you how to connect Akka Streams to an event hub without changing your protocol clients or running your own clusters. |
-| [Use the Spring Boot Starter for Apache Kafka with Azure Event Hubs](/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub) | Demonstrates how to configure a Java-based Spring Cloud Stream Binder created with the Spring Boot Initializer to use Apache Kafka with Azure Event Hubs. |
+| Language | Sample | Client library |
+|----------|--------|----------------|
+| **Java** | [Quickstart](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/java) | Apache Kafka client |
+| **C# / .NET** | [Quickstart](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/dotnet) | Confluent .NET client |
+| **Python** | [Quickstart](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/python) | Confluent Python client |
+| **Node.js** | [Quickstart](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/node) | node-rdkafka |
+| **Go** | [Quickstart](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/go) | Confluent Go client |
+| **Go (Sarama)** | [Quickstart](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/go-sarama-client) | Sarama client |
 
-## Next steps
-Review samples in the GitHub repo [azure-event-hubs-for-kafka](https://github.com/Azure/azure-event-hubs-for-kafka) under quickstart and tutorials folders.
+### Command-line tools
 
-Also, see the following articles:
+For testing and debugging, use these CLI tools:
+
+| Tool | Sample | Use case |
+|------|--------|----------|
+| **Kafka CLI** | [Quickstart](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/kafka-cli) | Bundled with Apache Kafka distribution |
+| **kcat** | [Quickstart](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/kafkacat) | Lightweight, fast CLI based on librdkafka |
+
+## Build streaming pipelines
+
+Once you've connected your application, you can build more sophisticated streaming pipelines. This section covers integrations with popular stream processing frameworks and data integration tools.
+
+### Stream processing frameworks
+
+Connect your stream processing applications to Event Hubs:
+
+| Framework | Tutorial | Description |
+|-----------|----------|-------------|
+| **Apache Spark** | [Tutorial](event-hubs-kafka-spark-tutorial.md) | Real-time streaming with Spark Structured Streaming |
+| **Apache Flink** | [Tutorial](event-hubs-kafka-flink-tutorial.md) | Stateful stream processing with exactly-once semantics |
+| **Akka Streams** | [Tutorial](event-hubs-kafka-akka-streams-tutorial.md) | Reactive stream processing for Scala and Java |
+| **Azure Stream Analytics** | [Tutorial](event-hubs-kafka-stream-analytics.md) | No-code stream processing with SQL-like queries |
+| **Spring Cloud Stream** | [Tutorial](/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub) | Spring Boot integration using Kafka binder |
+
+### Data integration with Kafka Connect
+
+Kafka Connect enables you to stream data between Event Hubs and external systems using pre-built connectors:
+
+| Resource | Description |
+|----------|-------------|
+| [Kafka Connect integration](event-hubs-kafka-connect-tutorial.md) | Deploy and configure Kafka Connect with Event Hubs |
+| [Kafka Connect tutorial (GitHub)](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect) | End-to-end example with FileStreamSource and FileStreamSink |
+
+### Log aggregation and observability
+
+Centralize logs from your infrastructure into Event Hubs:
+
+| Tool | Tutorial | Description |
+|------|----------|-------------|
+| **Logstash** | [Tutorial](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/logstash) | Elastic Stack log pipeline |
+| **Filebeat** | [Tutorial](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/filebeat) | Lightweight log shipper |
+| **FluentD** | [Tutorial](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/fluentd) | Unified logging layer |
+| **Apache NiFi** | [Tutorial](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/nifi) | Visual dataflow management |
+
+## Migrate existing Kafka workloads
+
+If you're migrating from an existing Kafka cluster, Event Hubs supports replication and hybrid scenarios.
+
+### Replicate data with MirrorMaker
+
+Use Kafka MirrorMaker to replicate data from an existing Kafka cluster to Event Hubs:
+
+| Resource | Description |
+|----------|-------------|
+| [Mirror a Kafka broker to Event Hubs](event-hubs-kafka-mirror-maker-tutorial.md) | Step-by-step guide for MirrorMaker setup |
+| [MirrorMaker tutorial (GitHub)](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker) | Sample configurations and scripts |
+
+### Migration planning
+
+For a complete migration guide, including configuration mapping and feature differences, see [Apache Kafka migration guide for Event Hubs](apache-kafka-migration-guide.md).
+
+## Advanced scenarios
+
+### Schema management
+
+Manage schemas for your Kafka applications:
+
+| Resource | Description |
+|----------|-------------|
+| [Azure Schema Registry](schema-registry-overview.md) | Native schema registry built into Event Hubs |
+| [Confluent Schema Registry integration](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/schema-registry) | Use Confluent Schema Registry with Event Hubs |
+
+### Authentication with OAuth / Microsoft Entra ID
+
+For production workloads, use Microsoft Entra ID instead of connection strings:
+
+| Resource | Description |
+|----------|-------------|
+| [OAuth tutorial (GitHub)](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth) | Java and Go samples for OAuth authentication |
+
+### Protocol interoperability
+
+Event Hubs supports multiple protocols. Learn how to exchange events between Kafka and AMQP clients:
+
+| Resource | Description |
+|----------|-------------|
+| [Interop tutorial (GitHub)](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/interop) | Exchange events between different protocols |
+
+## Configuration reference
+
+For recommended Kafka client configurations when using Event Hubs, see [Apache Kafka client configurations](apache-kafka-configurations.md). This guide covers:
+
+- Required connection settings
+- Configurations that differ from Kafka defaults
+- Event Hubs-specific constraints
+- Troubleshooting common configuration issues
+
+## Get help
 
 - [Apache Kafka troubleshooting guide for Event Hubs](apache-kafka-troubleshooting-guide.md)
 - [Frequently asked questions - Event Hubs for Apache Kafka](apache-kafka-frequently-asked-questions.yml)
-- [Apache Kafka migration guide for Event Hubs](apache-kafka-migration-guide.md)
+- [GitHub samples repository](https://github.com/Azure/azure-event-hubs-for-kafka)
 
 
 

@@ -2,7 +2,7 @@
 title: Using and using none statements
 description: Learn how to use the `using` and `using none` statements in Bicep.
 ms.topic: article
-ms.date: 06/30/2025
+ms.date: 12/22/2025
 ms.custom: devx-track-bicep
 ---
 
@@ -135,4 +135,3 @@ When `using none` is specified in a Bicep parameter file, the compiler doesn't v
 
 - Learn about Bicep parameters files in [Create parameters files for Bicep deployment](./parameter-files.md).
 - Learn about configuring aliases in _bicepconfig.json_ files in [Configure your Bicep environment](./bicep-config.md).
-

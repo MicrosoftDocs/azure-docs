@@ -77,7 +77,7 @@ Follow these basic steps to decommission and re-create the HPC Cache in a differ
 
 ## Verify
 
-Use the Azure Portal to inspect the new cache and storage resources in the new region. Verify that all items from the list in [Prerequisites](#prerequisites) have been created.
+Use the Azure portal to inspect the new cache and storage resources in the new region. Verify that all items from the list in [Prerequisites](#prerequisites) have been created.
 
 ## Clean up source resources
 

@@ -6,7 +6,7 @@ services: storage
 author: normesta
 
 ms.service: azure-storage-actions
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/05/2025
 ms.author: normesta
 
@@ -14,9 +14,9 @@ ms.author: normesta
 
 # Storage task conditions
 
-A storage task contains a set of conditions and operations. This article describes the JSON format of a condition.  Understanding that format is important if you plan to create a storage task by using a tool other than the Azure portal (For example: Azure PowerShell, or Azure CLI). This article also lists the properties and operators that you can use to compose the clauses of a condition. 
+A storage task contains a set of conditions and operations. This article describes the JSON format of a condition.  Understanding that format is important if you plan to create a storage task by using a tool other than the Azure portal (For example: Azure PowerShell, or Azure CLI). This article also lists the properties and operators that you can use to compose the clauses of a condition.
 
-This article focuses on **conditions**. To learn more about **operations**, see [Storage task operations](storage-task-operations.md). 
+This article focuses on **conditions**. To learn more about **operations**, see [Storage task operations](storage-task-operations.md).
 
 ## Condition format
 
@@ -25,7 +25,7 @@ A condition a collection of one or more _clauses_. Each clause contains a _prope
 > [!div class="mx-imgBorder"]
 > ![Diagram that shows the format of a simple condition with an operator, property, and value.](../media/storage-tasks/storage-task-conditions/storage-task-conditions-condition-format-basic.png)
 
-The following clause allows operations only on Microsoft Word documents. This clause targets all documents that end with the file extension `.docx`. Therefore, the operator is `endsWith`, the property is `Name`, and the value is `.docx`. 
+The following clause allows operations only on Microsoft Word documents. This clause targets all documents that end with the file extension `.docx`. Therefore, the operator is `endsWith`, the property is `Name`, and the value is `.docx`.
 
 ```json
 {
@@ -33,7 +33,7 @@ The following clause allows operations only on Microsoft Word documents. This cl
 }
 ```
 
-You can also apply a _not_ operator before the operator in a condition clause. The _not_ operator is a special operator that you can position before any operator to give the opposite result of a clause. The following clause allows operations on any blob that **is not** a Microsoft Word document.   
+You can also apply a _not_ operator before the operator in a condition clause. The _not_ operator is a special operator that you can position before any operator to give the opposite result of a clause. The following clause allows operations on any blob that **is not** a Microsoft Word document.
 
 ```json
 {
@@ -50,7 +50,7 @@ A condition can contain multiple clauses separated by a comma along with either 
 > [!div class="mx-imgBorder"]
 > ![Diagram that shows the format of a condition that contains two clauses.](../media/storage-tasks/storage-task-conditions/storage-task-conditions-condition-format-multiple.png)
 
-The following JSON shows a condition that contains two clauses. Because the `and` string is used in this expression, both clauses must evaluate to `true` before an operation is performed on the object. 
+The following JSON shows a condition that contains two clauses. Because the `and` string is used in this expression, both clauses must evaluate to `true` before an operation is performed on the object.
 
 ```json
 {
@@ -96,9 +96,9 @@ To learn more about the visual editor, see [Define storage task conditions and o
 
 You can view a list of blobs that would be impacted by the conditions that you've defined. That way, you can find issues and optimize conditions before applying them to production data. A preview doesn't make changes to the objects in a target storage account so it's safe to apply to test against production data.
 
-While condition preview is available in PowerShell, Azure CLI, and SDK environments, the easiest way to preview the effect of conditions is by using the **Preview Conditions** window in the Azure portal. You can open this window was you define conditions and as you assign storage tasks. 
+While condition preview is available in PowerShell, Azure CLI, and SDK environments, the easiest way to preview the effect of conditions is by using the **Preview Conditions** window in the Azure portal. You can open this window was you define conditions and as you assign storage tasks.
 
-To preview the effect of conditions, you must specify a target subscription, storage account, and container. Because a can only show up to 5,000 blobs, you can also specify a prefix to narrow the list. 
+To preview the effect of conditions, you must specify a target subscription, storage account, and container. Because a can only show up to 5,000 blobs, you can also specify a prefix to narrow the list.
 
 > [!NOTE]
 > You can't use wildcard characters in the blob prefix.
@@ -110,7 +110,7 @@ The following image shows an example of a preview result in the Azure portal.
 
 The preview result appears in a table that shows objects which meet the condition along with objects that didn't meet the condition. You can sort by field that appears in the table.
 
-If conditions refer to properties that don't exist in the target storage account, an error appears. For example, blob index tags aren't available for accounts that have a hierarchical namespace. If a clause in a condition refers to blob index tags, a validation error appears. 
+If conditions refer to properties that don't exist in the target storage account, an error appears. For example, blob index tags aren't available for accounts that have a hierarchical namespace. If a clause in a condition refers to blob index tags, a validation error appears.
 
 
 ## Supported properties
@@ -120,17 +120,14 @@ The following table shows the properties that you can use to compose each clause
 | String                         | Date and time<sup>3</sup> | Numeric        | Boolean          |
 |--------------------------------|---------------------------|----------------|------------------|
 | AccessTier<sup>1</sup>         | AccessTierChangeTime      | Content-Length | Deleted          |
-| Metadata.Value                 | Creation-Time             | TagCount       | IsCurrentVersion |
-| Name                           | DeletedTime               |                |                  |
-| BlobType<sup>2</sup>           | LastAccessTime            |                |                  |
-| Container.Metadata.Value[Name] | Last-Modified             |                |                  |
-| Container.Name                 |                           |                |                  |
-| Container.Metadata.Value[Name] |                           |                |                  |
-| Container.Name                 |                           |                |                  |
+| BlobType<sup>2</sup>           | Creation-Time             | TagCount       | IsCurrentVersion |
+| Container.Metadata.Value[Name] | DeletedTime               |                |                  |
+| Container.Name                 | LastAccessTime            |                |                  |
+| Metadata.Value[Name]           | Last-Modified             |                |                  |
+| Name                           |                           |                |                  |
 | Tags.Value[Name]               |                           |                |                  |
-| VersionId                      |                           |                |                  |
 
-<sup>1</sup>    Allowed values are `Hot`, `Cool`, or `Archive`.
+<sup>1</sup>    Allowed values are `Hot`, `Cool`, `Cold` or `Archive`.
 
 <sup>2</sup>    Allowed values are `BlockBlob`, `PageBlob`, or `AppendBlob`
 
@@ -144,11 +141,12 @@ The following table shows the operators that you can use in a clause to evaluate
 |---|---|---|---|
 | contains | equals |equals | equals |
 | empty | greater | greater |  |
-| equals | greaterOrEquals |greaterOrEquals ||
-| endsWith | less | less ||
-| length | lessOrEquals | lessOrEquals ||
-| startsWith | addToTime | ||
-| Matches |  | || 
+| endsWith | greaterOrEquals |greaterOrEquals ||
+| equals | less | less ||
+| matches<sup>4</sup> | lessOrEquals | lessOrEquals ||
+| startsWith | | ||
+
+<sup>4</sup>    The `matches` operator is not supported for `Metadata.Value[Name]` and `Tags.Value[Name]` properties.
 
 The **not** operator is a special operator that you can position before any of the operators that appear in this table to give the opposite result of conditional clause, also called the negative result.
 

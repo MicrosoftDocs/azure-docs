@@ -6,20 +6,17 @@ author: azaricstefan
 ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 02/04/2026
 ms.author: stefanazaric 
 ---
 
 # Connect to Synapse SQL with Visual Studio and SSDT
 
 > [!div class="op_single_selector"]
-> * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
 > * [Visual Studio](get-started-visual-studio.md)
 > * [sqlcmd](get-started-connect-sqlcmd.md) 
 > * [SSMS](get-started-ssms.md)
-> 
-> 
 
 Use Visual Studio to query dedicated SQL pool using Azure Synapse Analytics. This method uses the SQL Server Data Tools (SSDT) extension in Visual Studio 2019. 
 

@@ -387,6 +387,8 @@
     href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Monitoring & maintenance
   items:
+  - name: Getting Started with Troubleshooting Virtual WAN 
+    href: virtual-wan-troubleshooting-overview.md
   - name: Monitor Virtual WAN
     href: monitor-virtual-wan.md
   - name: Azure Monitor Insights
@@ -405,6 +407,10 @@
     href: monitor-point-to-site-connections.md
   - name: Configure customer-controlled gateway maintenance
     href: customer-controlled-gateway-maintenance.md
+- name: Troubleshoot
+  items:
+  - name: Troubleshooting for Virtual WAN - Getting started
+    href: virtual-wan-troubleshooting-overview.md
 - name: Reference
   items:
   - name: Azure PowerShell

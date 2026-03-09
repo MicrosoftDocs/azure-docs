@@ -5,7 +5,7 @@ services: security
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: concept-article
-ms.date: 08/26/2025
+ms.date: 02/06/2026
 
 ms.author: sarahlipsey
 author: shlipsey3
@@ -29,8 +29,9 @@ Starting in late 2025, Azure began updating its managed TLS solution to align wi
 - Azure App Service
 - Azure Container Apps
 - Azure Static Web Apps
+- Azure Storage (Azure Blobs, Azure Files, Azure Tables, Azure Queues, Static Website, and Azure Data Lake Storage)
 
-## Key Changes
+## Key changes
 
 This update includes two key changes:
 
@@ -42,7 +43,7 @@ This update includes two key changes:
     - These new CAs will not support client authentication in accordance with browser trusted root program requirements.
     All managed TLS certificates under the new CAs will only include the Server Authentication Extended Key Usage (EKU).
 
-## Potential Customer impact
+## Potential customer impact
 
 To prepare for the change, it's important to know how the changes could potentially affect customers.
 
@@ -96,3 +97,5 @@ This change aligns with industry standards and upcoming browser requirements. On
 ### Q: Why is the Client Authentication EKU being removed?
 
 This is an industry-wide change driven by the Chrome Trusted Root Program. Chrome is restricting TLS certificates to server authentication to improve security and compliance. For more information, see [Sunsetting the client authentication EKU from DigiCert public TLS certificates](https://knowledge.digicert.com/alerts/sunsetting-client-authentication-eku-from-digicert-public-tls-certificates).
+
+

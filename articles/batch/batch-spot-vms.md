@@ -2,7 +2,7 @@
 title: Run Batch workloads on cost-effective Spot VMs
 description: Learn how to provision Spot VMs to reduce the cost of Azure Batch workloads.
 ms.topic: how-to
-ms.date: 04/02/2025
+ms.date: 02/23/2026
 ms.custom:
 # Customer intent: "As a cloud solutions architect, I want to deploy Batch workloads using Spot VMs, so that I can reduce costs while managing jobs with flexible completion times and efficient resource allocation."
 ---
@@ -24,23 +24,26 @@ Batch offers two types of low-cost preemptible VMs:
 - [Spot VMs](/azure/virtual-machines/spot-vms), a modern Azure-wide offering also available as single-instance VMs or Virtual Machine Scale Sets.
 - Low-priority VMs, a legacy offering only available through Azure Batch.
 
-The type of node you get depends on your Batch account's pool allocation mode, which can be set during account creation. Batch accounts that use the **user subscription** pool allocation mode always get Spot VMs. Batch accounts that use the **Batch managed** pool allocation mode always get low-priority VMs.
+> [!IMPORTANT]
+> Until the low priority to spot VM migration takes place in March 2026, the type of node you get depends on your Batch account's pool allocation mode, which can be set during
+> account creation. Batch accounts that use the **user subscription** pool allocation mode always get Spot VMs. Batch accounts that use the **Batch managed** pool allocation mode
+> always get low-priority VMs. After the low priority migration in March 2026, spot VMs will be allocated regardless of account type. For more information about the migration,
+> see [migrate to Spot VMs in Batch](low-priority-vms-retirement-migration-guide.md).
 
-> [!WARNING]
-> Low-priority VMs will be retired after **30 September 2025**. Please [migrate to Spot VMs in Batch](low-priority-vms-retirement-migration-guide.md) before then.
-
-Azure Spot VMs and Batch low-priority VMs are similar but have a few differences in behavior.
+Azure Spot VMs and Batch low-priority VMs are similar but have a few differences in behavior. Until the migration even in March 2026, the differences are:
 
 | | Spot VMs | Low-priority VMs |
 |-|-|-|
 | **Supported Batch accounts** | User-subscription Batch accounts | Batch-managed Batch accounts |
-| **Supported Batch pool configurations** | Virtual Machine Configuration | Virtual Machine Configuration and Cloud Service Configuration (deprecated) |
 | **Available regions** | All regions that support [Spot VMs](/azure/virtual-machines/spot-vms) | All regions except Microsoft Azure operated by 21Vianet |
 | **Customer eligibility** | Not available for some subscription offer types. See more about [Spot limitations](/azure/virtual-machines/spot-vms#limitations). | Available for all Batch customers |
 | **Possible reasons for eviction** | Capacity | Capacity |
 | **Pricing Model** | Variable discounts relative to standard VM prices | Fixed discounts relative to standard VM prices |
 | **Quota model** | Subject to core quotas on your subscription | Subject to core quotas on your Batch account |
 | **Availability SLA** | None | None |
+
+> [!WARNING]
+> After the migration in March 2026, Low priority VMs in Batch will be retired and no longer available.
 
 ## Batch support for Spot VMs
 
@@ -84,19 +87,19 @@ The following example creates a pool using Azure virtual machines, in this case 
 ```csharp
 ImageReference imageRef = new ImageReference(
     publisher: "Canonical",
-    offer: "UbuntuServer",
-    sku: "20.04-LTS",
+    offer: "ubuntu-24_04-lts",
+    sku: "server",
     version: "latest");
 
 // Create the pool
 VirtualMachineConfiguration virtualMachineConfiguration =
-    new VirtualMachineConfiguration("batch.node.ubuntu 20.04", imageRef);
+    new VirtualMachineConfiguration("batch.node.ubuntu 24.04", imageRef);
 
 pool = batchClient.PoolOperations.CreatePool(
     poolId: "vmpool",
     targetDedicatedComputeNodes: 5,
     targetLowPriorityComputeNodes: 20,
-    virtualMachineSize: "Standard_D2_v2",
+    virtualMachineSize: "Standard_D4s_v3",
     virtualMachineConfiguration: virtualMachineConfiguration);
 ```
 

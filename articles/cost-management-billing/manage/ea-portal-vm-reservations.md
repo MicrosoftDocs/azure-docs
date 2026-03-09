@@ -13,7 +13,7 @@ service.tree.id: 9aca7c0a-9d64-4346-a8f6-50141d9c9d5c
 
 # Azure EA VM reserved instances
 
-This article summaries how Azure reservations for VM reserved instances can help you save your money with your enterprise enrollment. For more information about reservations, see [What are Azure Reservations?](../reservations/save-compute-costs-reservations.md).
+This article summaries how Azure reservations for VM reserved instances can help you save your money with your enterprise enrollment. For more information about reservations, see [What are Azure Reservations?](../reservations/save-compute-costs-reservations.md)
 
 ## Reservation exchanges and refunds
 
@@ -109,6 +109,6 @@ You'll receive email notifications, first one 30 days prior to reservation expir
 
 ## Related content
 
-- For more information about Azure reservations, see [What are Azure Reservations?](../reservations/save-compute-costs-reservations.md).
+- For more information about Azure reservations, see [What are Azure Reservations?](../reservations/save-compute-costs-reservations.md)
 - To learn more about enterprise reservation costs and usage, see [Get Enterprise Agreement reservation costs and usage](../reservations/understand-reserved-instance-usage-ea.md).
 - For information about pricing, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) or [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).

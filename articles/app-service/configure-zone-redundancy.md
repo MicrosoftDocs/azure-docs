@@ -10,7 +10,7 @@ ms.author: anaharris
 ---
 # Configure App Service plans for zone redundancy
 
-Azure App Service provides built-in reliability features to help ensure that your applications remain available and resilient. This article describes how to create an App Service plan that includes zone redundancy. It also covers how to disable and enable zone redundancy on existing plans and how to check for zone redundancy support. For more information about zone redundancy, see [Reliability in App Service](../reliability/reliability-app-service.md).
+Azure App Service provides built-in reliability features to help ensure that your applications remain available and resilient. This article describes how to create an App Service plan that includes zone redundancy. It also covers how to disable and enable zone redundancy on existing plans and how to check for zone redundancy support. For more information about zone redundancy, see [Reliability in App Service](/azure/reliability/reliability-app-service).
 
 ## Create a new zone-redundant App Service plan
 
@@ -178,7 +178,7 @@ To check whether an existing App Service plan supports zone redundancy, do the f
 
 ## View physical zones for an App Service plan
 
-When you have a zone-redundant App Service plan, the platform automatically places the instances across [physical availability zones](../reliability/availability-zones-overview.md#physical-and-logical-availability-zones). To verify that your instances are spread across zones, use the Azure portal or the Azure CLI to check which physical availability zones your plan's instances use.
+When you have a zone-redundant App Service plan, the platform automatically places the instances across [physical availability zones](/azure/reliability/availability-zones-overview#physical-and-logical-availability-zones). To verify that your instances are spread across zones, use the Azure portal or the Azure CLI to check which physical availability zones your plan's instances use.
 
 # [Azure portal](#tab/portal)
 
@@ -205,5 +205,5 @@ Bicep doesn't support this operation. Use the Azure CLI or the Azure portal inst
 ---
 
 ## Related content
-- [Reliability in App Service](../reliability/reliability-app-service.md)
+- [Reliability in App Service](/azure/reliability/reliability-app-service)
 - [Configure an App Service Environment for zone redundancy](../app-service/environment/configure-zone-redundancy-environment.md)

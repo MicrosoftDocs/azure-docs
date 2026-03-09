@@ -1,16 +1,20 @@
 ---
-title: "End-user entry point migration overview"
-description: Get a high level idea of the steps involved when migrating end-user entry point components during a migration of high performance computing architecture.
+title: Enable user access and job submission for Azure HPC
+description: Configure end-user entry points including VPN, Bastion, web portals, and remote visualization for HPC job submission on Azure.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 04/10/2025
+ms.date: 02/19/2026
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+ms.collections:
+  - hpc-migration-content
+  - migration
+  - onprem-to-azure
 # Customer intent: "As an HPC architect, I want to migrate end-user entry points to the cloud, so that I can ensure a seamless user experience while minimizing latency disruptions during the transition from on-premises infrastructure."
 ---
 
-# End-user entry point migration overview
+# Enable user access and job submission for Azure HPC
 
 Providing a consistent end-user entry point is crucial for ensuring a smooth transition from on-premises to the cloud in an HPC environment. Whether users access resources through an SSH sign-in node or a web portal, maintaining a familiar experience helps minimize disruptions.
 

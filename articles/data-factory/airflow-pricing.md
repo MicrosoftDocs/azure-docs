@@ -3,7 +3,7 @@ title: Workflow Orchestration Manager pricing
 description: This article describes the pricing for Workflow Orchestration Manager.
 author: nabhishek
 ms.subservice: pricing
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/13/2025
 ms.author: abnarain
 ---
@@ -12,10 +12,9 @@ ms.author: abnarain
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-> [!NOTE]
-> This feature is in public preview. Workflow Orchestration Manager is powered by Apache Airflow.
+[!INCLUDE[apache-airflow-notification](includes/apache-airflow-notification.md)]
 
-This article describes the pricing for Workflow Orchestration Manager usage within data factory.
+This article describes the pricing for Workflow Orchestration Manager usage within Azure Data Factory.
 
 ## Pricing details
 

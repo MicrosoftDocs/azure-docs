@@ -44,7 +44,7 @@ Need to go beyond the basics with Power BI? The Cost Management connector for Po
 
 ## Cost and Usage Details and Exports
 
-If you're looking for raw data to automate business processes or integrate with other systems, start by exporting data to a storage account. Scheduled exports allow you to automatically publish your raw cost data to a storage account on a daily, weekly, or monthly basis. With special handling for large datasets, scheduled exports are the most scalable option for building first-class cost data integration. For more information, see [Create and manage exported data](tutorial-improved-exports.md).
+If you're looking for raw data to automate business processes or integrate with other systems, start by exporting data to a storage account. Scheduled exports allow you to automatically publish your raw cost data to a storage account on a daily, or monthly basis. With special handling for large datasets, scheduled exports are the most scalable option for building first-class cost data integration. For more information, see [Create and manage exported data](tutorial-improved-exports.md).
 
 :::image type="content" source="./media/reporting-get-started/exports.png" alt-text="Screenshot showing the list of exports." lightbox="./media/reporting-get-started/exports.png" :::
 
@@ -60,7 +60,7 @@ Here's an example that shows credits on the Credits tab on the Credits + Commitm
 
 For more information about your invoice, see [View and download your Microsoft Azure invoice](../understand/download-azure-invoice.md)
 
-For more information about credits, see [Track Microsoft Customer Agreement Azure credit balance](../manage/mca-check-azure-credits-balance.md).
+For more information about credits, see [Track Microsoft Customer Agreement Azure credit balance](../benefits/credits/mca-check-azure-credits-balance.md).
 
 ## Microsoft Azure mobile app
 

@@ -34,7 +34,7 @@ Azure provides comprehensive insights into the health of your cloud resources, i
 
 Service Health offers a personalized view of the Azure services and regions you use, making it the best source for service-impacting communications such as outages, planned maintenance, and other health advisories. By setting up Service Health alerts, you can be notified via your preferred communication channels about any issues or changes affecting your services.
 
-To set up a service health alert for planned maintenance, navigate to the Azure Portal and access the **Service Health** section. Select the **Alerts** tab and create a new alert by specifying the service type as **Azure Synapse Analytics or (and) SQL Data Warehouse**, based on your pool type. Choose **Maintenance** as the event type, define the scope and notification settings according to your preferences, and save the alert configuration. For detailed instructions, refer to the following resources:
+To set up a service health alert for planned maintenance, navigate to the Azure portal and access the **Service Health** section. Select the **Alerts** tab and create a new alert by specifying the service type as **Azure Synapse Analytics or (and) SQL Data Warehouse**, based on your pool type. Choose **Maintenance** as the event type, define the scope and notification settings according to your preferences, and save the alert configuration. For detailed instructions, refer to the following resources:
 
 - [Service Health alerts](/azure/service-health/service-health-overview).
 - [How to create a service health alert](/azure/service-health/alerts-activity-log-service-notifications-portal#create-a-service-health-alert-using-the-azure-portal).

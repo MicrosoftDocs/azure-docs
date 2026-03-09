@@ -2,8 +2,8 @@
 title: Roles and operations for Azure DPS
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Conceptual overview of the roles and operations involved when developing and IoT solution using the IoT Device Provisioning Service (DPS).
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 08/07/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub

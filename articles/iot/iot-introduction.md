@@ -157,7 +157,7 @@ IoT devices have different characteristics when compared to other clients such a
 
 - Are often embedded systems with no human operator.
 - Can be deployed in remote locations, where physical access is expensive.
-- Might only be reachable through the solution back end.
+- Might only be reachable through your cloud services.
 - Might have limited power and processing resources.
 - Might have intermittent, slow, or expensive network connectivity.
 - Might need to use proprietary, custom, or industry-specific application protocols.

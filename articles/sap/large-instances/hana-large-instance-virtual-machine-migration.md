@@ -152,8 +152,8 @@ The authors like to call out the difference of availability SLA between HLI and 
 ## Migration strategy
 In this document, we cover only the HANA System Replication approach for the migration from HLI to Azure VM.  Depends on the target storage solution deployed, the process differs slightly. The high-level steps are described below.
 
-### VM with premium/ultra-disks for data
-For VMs deployed with premium or ultra-disks, the standard SAP HANA system replication configuration is applicable for setting up HSR. For an overview of steps in setting up system replication, see the [SAP help article](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/099caa1959ce4b3fa1144562fa09e163.html). The article also covers taking over a secondary system, failing back to the primary, and disabling system replication. For migration, we'll only need the setup, taking over, and disabling replication steps.  
+### VM with premium/Ultra Disks for data
+For VMs deployed with premium or Ultra Disks, the standard SAP HANA system replication configuration is applicable for setting up HSR. For an overview of steps in setting up system replication, see the [SAP help article](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/099caa1959ce4b3fa1144562fa09e163.html). The article also covers taking over a secondary system, failing back to the primary, and disabling system replication. For migration, we'll only need the setup, taking over, and disabling replication steps.  
 
 ### VM with ANF for data and log volumes
 At a high level, the latest HLI storage snapshots of the full data and log volumes need to be copied to Azure storage. From there they're accessible and recoverable by the target HANA VM.  The copy process can be done with any native Linux copy tools.  

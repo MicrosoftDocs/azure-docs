@@ -71,3 +71,4 @@ See the following articles:
 - [Azure Resource Notifications - Health Resources events in Azure Event Grid](event-schema-health-resources.md).
 - [Azure Resource Notifications - Azure Resource Manager events in Azure Event Grid](event-schema-resources.md).
 - [Azure Resource Notifications - Container Service events in Azure Event Grid](event-schema-containerservice-resources.md).
+- [Azure Resource Notifications - AKS events in Azure Event Grid](event-schema-aks-resources.md).

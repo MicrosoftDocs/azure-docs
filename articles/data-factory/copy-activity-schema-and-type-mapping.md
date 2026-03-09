@@ -5,7 +5,7 @@ description: Learn about how copy activity in Azure Data Factory and Azure Synap
 author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/21/2025
 ms.author: jianleishen
 ---

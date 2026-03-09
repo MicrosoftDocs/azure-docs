@@ -22,7 +22,7 @@ Once you deploy Bastion to your virtual network, you can connect to your VMs via
 
 In this article, you create a virtual network (if you don't already have one), deploy Azure Bastion using CLI, and connect to a VM. You can also deploy Bastion by using the following other methods:
 
-* [Azure portal](./tutorial-create-host-portal.md)
+* [Azure portal](./quickstart-host-portal.md)
 * [Azure PowerShell](bastion-create-host-powershell.md)
 * [Quickstart - Deploy Bastion with default settings and the Standard SKU](quickstart-host-portal.md)
 
@@ -72,7 +72,7 @@ This section helps you deploy Azure Bastion using Azure CLI.
 
 1. Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create a new Azure Bastion resource for your virtual network. It takes about 10 minutes for the Bastion resource to create and deploy.
 
-   The following example deploys Bastion using the **Basic** SKU tier. You can also deploy using other SKUs. The SKU determines the features that your Bastion deployment supports. If you don't specify a SKU in your command, the SKU defaults to Standard. For more information, see [Bastion SKUs](configuration-settings.md#skus).
+   The following example deploys Bastion using the **Basic** SKU. You can also deploy using other SKUs. The SKU determines the features that your Bastion deployment supports. If you don't specify a SKU in your command, the SKU defaults to Standard. For more information, see [Bastion SKUs](bastion-sku-comparison.md).
 
    ```azurecli-interactive
    az network bastion create --name VNet1-bastion --public-ip-address VNet1-ip --resource-group TestRG1 --vnet-name VNet1 --location eastus --sku Basic
@@ -82,7 +82,7 @@ This section helps you deploy Azure Bastion using Azure CLI.
 
 If you don't already have VMs in your virtual network, you can create a VM using [Quickstart: Create a Windows VM](/azure/virtual-machines/windows/quick-create-portal), or [Quickstart: Create a Linux VM](/azure/virtual-machines/linux/quick-create-portal) 
 
-You can use any of the following articles, or the steps in the following section, to help you connect to a VM. Some connection types require the Bastion [Standard SKU or higher](configuration-settings.md#skus).
+You can use any of the following articles, or the steps in the following section, to help you connect to a VM. Some connection types require the Bastion [Standard SKU or higher](bastion-sku-comparison.md).
 
 [!INCLUDE [Links to Connect to VM articles](../../includes/bastion-vm-connect-article-list.md)]
 

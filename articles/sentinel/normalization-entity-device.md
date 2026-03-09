@@ -8,7 +8,7 @@ ms.author: ofshezaf
 
 
 
-#Customer intent: As a security analyst, I want to understand the ASIM Device Entity so that I can accurately understand user information captured in normalized events, enabling consistent and comprehensive monitoring across security platforms and improving threat detection and response efforts.
+#Customer intent: As a security analyst, I want to understand the ASIM Device Entity so that I can accurately understand device information captured in normalized events, enabling consistent and comprehensive monitoring across security platforms and improving threat detection and response efforts.
 
 ---
 

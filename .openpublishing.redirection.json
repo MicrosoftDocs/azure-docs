@@ -1,6 +1,385 @@
 {
   "redirections": [
     {
+      "source_path": "articles/azure-functions/durable/durable-task-scheduler/durable-task-scheduler-dedicated-sku.md",
+      "redirect_url": "/azure/azure-functions/durable/durable-task-scheduler/durable-task-scheduler-billing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/durable/durable-functions-cloud-backup.md",
+      "redirect_url": "/azure/azure-functions/durable/durable-functions-fan-in-fan-out",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/durable/durable-functions-monitor-python.md",
+      "redirect_url": "/azure/azure-functions/durable/durable-functions-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/durable/durable-functions-phone-verification.md",
+      "redirect_url": "/azure/azure-functions/durable/durable-functions-human-interaction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-troubleshooting-arp-resource-manager.md",
+      "redirect_url": "/troubleshoot/azure/expressroute/expressroute-troubleshooting-arp-resource-manager",
+    },
+    {
+      "source_path": "articles/expressroute/get-correlation-id.md",
+      "redirect_url": "/troubleshoot/azure/expressroute/get-correlation-id",
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-troubleshooting-expressroute-overview.md",
+      "redirect_url": "/troubleshoot/azure/expressroute/expressroute-troubleshooting-expressroute-overview",
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-troubleshooting-network-performance.md",
+      "redirect_url": "/troubleshoot/azure/expressroute/expressroute-troubleshooting-network-performance",
+    },
+    {
+      "source_path": "articles/expressroute/gateway-migration-error-messaging.md",
+      "redirect_url": "/troubleshoot/azure/expressroute/gateway-migration-error-messaging",
+    },
+    {
+      "source_path": "articles/expressroute/reset-circuit.md",
+      "redirect_url": "/troubleshoot/azure/expressroute/reset-circuit",
+    },
+    {
+      "source_path": "articles/extended-zones/arc-enabled-workloads-postgre-sql.md",
+      "redirect_url": "/azure/extended-zones/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/avere-vfxt/avere-vfxt-add-storage.md",
+      "redirect_url": "/previous-versions/azure/avere-vfxt/avere-vfxt-add-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/avere-vfxt/avere-vfxt-additional-resources.md",
+      "redirect_url": "/previous-versions/azure/avere-vfxt/avere-vfxt-additional-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/avere-vfxt/avere-vfxt-cluster-gui.md",
+      "redirect_url": "/previous-versions/azure/avere-vfxt/avere-vfxt-cluster-gui",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/avere-vfxt/avere-vfxt-configure-dns.md",
+      "redirect_url": "/previous-versions/azure/avere-vfxt/avere-vfxt-configure-dns",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/avere-vfxt/avere-vfxt-data-ingest.md",
+      "redirect_url": "/previous-versions/azure/avere-vfxt/avere-vfxt-data-ingest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/avere-vfxt/avere-vfxt-demo-links.md",
+      "redirect_url": "/previous-versions/azure/avere-vfxt/avere-vfxt-demo-links",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/avere-vfxt/avere-vfxt-deploy-overview.md",
+      "redirect_url": "/previous-versions/azure/avere-vfxt/avere-vfxt-deploy-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/avere-vfxt/avere-vfxt-deploy-plan.md",
+      "redirect_url": "/previous-versions/azure/avere-vfxt/avere-vfxt-deploy-plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/avere-vfxt/avere-vfxt-deploy.md",
+      "redirect_url": "/previous-versions/azure/avere-vfxt/avere-vfxt-deploy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/avere-vfxt/avere-vfxt-enable-support.md",
+      "redirect_url": "/previous-versions/azure/avere-vfxt/avere-vfxt-enable-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/avere-vfxt/avere-vfxt-faq.yml",
+      "redirect_url": "/previous-versions/azure/avere-vfxt/avere-vfxt-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/avere-vfxt/avere-vfxt-manage-cluster.md",
+      "redirect_url": "/previous-versions/azure/avere-vfxt/avere-vfxt-manage-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/avere-vfxt/avere-vfxt-mount-clients.md",
+      "redirect_url": "/previous-versions/azure/avere-vfxt/avere-vfxt-mount-clients",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/avere-vfxt/avere-vfxt-non-owner.md",
+      "redirect_url": "/previous-versions/azure/avere-vfxt/avere-vfxt-non-owner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/avere-vfxt/avere-vfxt-open-ticket.md",
+      "redirect_url": "/previous-versions/azure/avere-vfxt/avere-vfxt-open-ticket",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/avere-vfxt/avere-vfxt-overview.md",
+      "redirect_url": "/previous-versions/azure/avere-vfxt/avere-vfxt-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/avere-vfxt/avere-vfxt-prereqs.md",
+      "redirect_url": "/previous-versions/azure/avere-vfxt/avere-vfxt-prereqs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/avere-vfxt/avere-vfxt-tuning.md",
+      "redirect_url": "/previous-versions/azure/avere-vfxt/avere-vfxt-tuning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/avere-vfxt/avere-vfxt-whitepapers.md",
+      "redirect_url": "/previous-versions/azure/avere-vfxt/avere-vfxt-whitepapers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/avere-vfxt/disaster-recovery.md",
+      "redirect_url": "/previous-versions/azure/avere-vfxt/disaster-recovery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/avere-vfxt/index.yml",
+      "redirect_url": "/previous-versions/azure/avere-vfxt/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/configure-containers.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/configure-containers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/deploy-portal.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/deploy-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/get-started-cli.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/get-started-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/get-started-powershell.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/get-started-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/index.yml",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/overview.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/reliability-health-insights.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/reliability-health-insights",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/use-containers.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/use-containers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/age-mismatch-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/age-mismatch-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/communication-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/communication-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/complete-order-discrepancy-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/complete-order-discrepancy-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/critical-result-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/critical-result-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/faq.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/finding-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/finding-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/get-started.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/guidance-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/guidance-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/index.yml",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/inferences.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/inferences",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/laterality-mismatch-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/laterality-mismatch-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/limited-order-discrepancy-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/limited-order-discrepancy-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/model-configuration.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/model-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/overview.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/quality-measure-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/quality-measure-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/radiology-procedure-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/radiology-procedure-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/recommendation-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/recommendation-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/scoring-and-assessment-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/scoring-and-assessment-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/sex-mismatch-inference.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/sex-mismatch-inference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/support-and-help.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/support-and-help",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/transparency-note.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/transparency-note",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/radiology-insights/tutorial.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/radiology-insights/tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/responsible-ai/data-privacy-security.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/responsible-ai/data-privacy-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/trial-matcher/faq.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/trial-matcher/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/trial-matcher/get-started.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/trial-matcher/get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/trial-matcher/index.yml",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/trial-matcher/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/trial-matcher/inferences.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/trial-matcher/inferences",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/trial-matcher/integration-and-responsible-use.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/trial-matcher/integration-and-responsible-use",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/trial-matcher/model-configuration.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/trial-matcher/model-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/trial-matcher/overview.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/trial-matcher/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/trial-matcher/patient-info.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/trial-matcher/patient-info",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/trial-matcher/support-and-help.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/trial-matcher/support-and-help",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/trial-matcher/transparency-note.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/trial-matcher/transparency-note",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-health-insights/trial-matcher/trial-matcher-modes.md",
+      "redirect_url": "/previous-versions/azure/azure-health-insights/trial-matcher/trial-matcher-modes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/network-watcher-using-open-source-tools.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-using-open-source-tools",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/network-watcher-intrusion-detection-open-source-tools.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-intrusion-detection-open-source-tools",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/migrate-cdn-to-front-door.md",
+      "redirect_url": "/previous-versions/azure/frontdoor/migrate-cdn-to-front-door",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/synapse-analytics/data-explorer/data-explorer-compare.md",
       "redirect_url": "/previous-versions/azure/synapse-analytics/data-explorer/data-explorer-compare",
       "redirect_document_id": false
@@ -230,7 +609,7 @@
       "redirect_url": "/azure/resiliency/quick-understand-protection-estate",
       "redirect_document_id": false
     },
-      {
+    {
       "source_path": "articles/business-continuity-center/business-continuity-center-support-matrix.md",
       "redirect_url": "/azure/resiliency/resiliency-support-matrix",
       "redirect_document_id": false
@@ -258,42 +637,27 @@
     {
       "source_path": "articles/migrate/concepts-azure-spring-apps-assessment-calculation.md",
       "redirect_url": "/azure/migrate",
-      "redirect_document_id": false,
-      "monikers": [
-        "migrate"
-      ]
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/migrate/how-to-create-azure-spring-apps-assessment.md",
       "redirect_url": "/azure/migrate",
-      "redirect_document_id": false,
-      "monikers": [
-        "migrate"
-      ]
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/migrate/troubleshoot-spring-boot-discovery.md",
       "redirect_url": "/azure/migrate",
-      "redirect_document_id": false,
-      "monikers": [
-        "migrate"
-      ]
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/migrate/tutorial-assess-spring-boot.md",
       "redirect_url": "/azure/migrate",
-      "redirect_document_id": false,
-      "monikers": [
-        "migrate"
-      ]
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/migrate/tutorial-discover-spring-boot.md",
       "redirect_url": "/azure/migrate",
-      "redirect_document_id": false,
-      "monikers": [
-        "migrate"
-      ]
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-functions/functions-proxies.md",
@@ -563,6 +927,81 @@
     {
       "source_path": "articles/storage/files/storage-files-quick-create-use-linux.md",
       "redirect_url": "/azure/storage/files/create-file-share",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/overview.md",
+      "redirect_url": "/azure/artifact-signing/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/how-to-sign-ci-policy.md",
+      "redirect_url": "/azure/artifact-signing/how-to-sign-ci-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/quickstart.md",
+      "redirect_url": "/azure/artifact-signing/quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/tutorial-assign-roles.md",
+      "redirect_url": "/azure/artifact-signing/tutorial-assign-roles",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/how-to-signing-integrations.md",
+      "redirect_url": "/azure/artifact-signing/how-to-signing-integrations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/how-to-sign-history.md",
+      "redirect_url": "/azure/artifact-signing/how-to-sign-history",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/how-to-renew-identity-validation.md",
+      "redirect_url": "/azure/artifact-signing/how-to-renew-identity-validation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/how-to-device-guard-signing-service-migration.md",
+      "redirect_url": "/azure/artifact-signing/how-to-device-guard-signing-service-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/how-to-change-sku.md",
+      "redirect_url": "/azure/artifact-signing/how-to-change-sku",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/how-to-cert-revocation.md",
+      "redirect_url": "/azure/artifact-signing/how-to-cert-revocation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/concept-trust-models.md",
+      "redirect_url": "/azure/artifact-signing/concept-trust-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/concept-resources-roles.md",
+      "redirect_url": "/azure/artifact-signing/concept-resources-roles",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/concept-cert-management.md",
+      "redirect_url": "/azure/artifact-signing/concept-certificate-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/index.yml",
+      "redirect_url": "/azure/artifact-signing/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/trusted-signing/faq.yml",
+      "redirect_url": "/azure/artifact-signing/faq",
       "redirect_document_id": false
     },
     {
@@ -1152,7 +1591,8 @@
     },
     {
       "source_path": "articles/databox-online/azure-stack-edge-2301-release-notes.md",
-      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-2301-release-notes"
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-2301-release-notes",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/network-watcher/nsg-flow-logs-rest.md",
@@ -2470,6 +2910,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/bicep/deploy-vscode.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/deploy-visual-studio-code",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/management/control-plane-metrics.md",
       "redirect_url": "/azure/azure-resource-manager/management/monitor-resource-manager",
       "redirect_document_id": false
@@ -2816,7 +3261,12 @@
     },
     {
       "source_path_from_root": "/articles/bastion/quickstart-developer-sku.md",
-      "redirect_url": "/azure/bastion/quickstart-developer",
+      "redirect_url": "/azure/bastion/quickstart-host-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/bastion/quickstart-developer.md",
+      "redirect_url": "/azure/bastion/quickstart-host-portal",
       "redirect_document_id": false
     },
     {
@@ -2831,7 +3281,12 @@
     },
     {
       "source_path_from_root": "/articles/bastion/bastion-create-host-portal.md",
-      "redirect_url": "/azure/bastion/tutorial-create-host-portal",
+      "redirect_url": "/azure/bastion/quickstart-host-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/bastion/tutorial-create-host-portal.md",
+      "redirect_url": "/azure/bastion/quickstart-host-portal",
       "redirect_document_id": false
     },
     {
@@ -5065,48 +5520,13 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/scheduler/get-started-portal.md",
-      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
+      "source_path_from_root": "/articles/role-based-access-control/built-in-roles/mixed-reality.md",
+      "redirect_url": "/azure/role-based-access-control/built-in-roles",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/scheduler/scheduler-advanced-complexity.md",
-      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/scheduler/scheduler-concepts-terms.md",
-      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/scheduler/scheduler-high-availability-reliability.md",
-      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/scheduler/scheduler-intro.md",
-      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/scheduler/scheduler-limits-defaults-errors.md",
-      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/scheduler/scheduler-outbound-authentication.md",
-      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/scheduler/scheduler-plans-billing.md",
-      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/scheduler/scheduler-powershell-reference.md",
-      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
+      "source_path_from_root": "/articles/role-based-access-control/permissions/mixed-reality.md",
+      "redirect_url": "/azure/role-based-access-control/resource-provider-operations",
       "redirect_document_id": false
     },
     {
@@ -6294,8 +6714,22 @@
       "redirect_url": "/azure/cyclecloud/release-notes/ccws/2025-02-06",
       "redirect_document_id": false
     },
-
-    {  
+    {
+      "source_path_from_root": "/articles/app-service/app-service-web-nodejs-best-practices-and-troubleshoot-guide.md",
+      "redirect_url": "/troubleshoot/azure/app-service/app-service-web-nodejs-best-practices-troubleshoot-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/troubleshoot-http-502-http-503.md",
+      "redirect_url": "/troubleshoot/azure/app-service/troubleshoot-http-502-http-503",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/troubleshoot-performance-degradation.md",
+      "redirect_url": "/troubleshoot/azure/app-service/troubleshoot-performance-degradation",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/app-service/sre-agent-overview.md",
       "redirect_url": "/azure/sre-agent/overview",
       "redirect_document_id": false
@@ -6346,18 +6780,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/reliability/reliability-azure-container-apps.md",
-      "redirect_url": "/azure/reliability/reliability-container-apps",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/storage/container-storage/container-storage-aks-quickstart.md",
       "redirect_url": "/azure/storage/container-storage/install-container-storage-aks",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/reliability/reliability-cosmos-mongodb.md",
-      "redirect_url": "/azure/reliability/reliability-documentdb",
       "redirect_document_id": true
     },
     {
@@ -6549,17 +6973,94 @@
       "source_path": "articles/communications-gateway/whats-new.md",
       "redirect_url": "/previous-versions/azure/communications-gateway/whats-new",
       "redirect_document_id": false
-      },
+    },
     {
       "source_path": "articles/vpn-gateway/about-zone-redundant-vnet-gateways.md",
       "redirect_url": "/azure/reliability/reliability-virtual-network-gateway",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/dns/dns-sdk.md",
       "redirect_url": "https://learn.microsoft.com/dotnet/api/overview/azure/resourcemanager.dns-readme",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/oracle/oracle-db/exadata-vm-clusters.md",
+      "redirect_url": "/azure/oracle/oracle-db/database-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cyclecloud/how-to/ccws/register-entra-id-app.md",
+      "redirect_url": "/azure/cyclecloud/how-to/create-app-registration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cyclecloud/how-to/ccws/open-ondemand-add-users.md",
+      "redirect_url": "/azure/cyclecloud/how-to/ccws/configure-open-ondemand",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/reliability-health-insights.md",
+      "redirect_url": "/azure/azure-health-insights/reliability-health-insights",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/migrate-load-balancer.md",
+      "redirect_url": "/azure/reliability/reliability-load-balancer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/nat-gateway/nat-availability-zones.md",
+      "redirect_url": "/azure/reliability/reliability-nat-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-operations/connect-to-cloud/howto-configure-opentelemetry-endpoint.md",
+      "redirect_url": "/azure/iot-operations/connect-to-cloud/open-telemetry",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/synapse-analytics/sql/get-started-azure-data-studio.md",
+      "redirect_url": "/azure/synapse-analytics/sql/get-started-ssms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cyclecloud/how-to/collect-custom-metrics-gpu-infiniband-telegraf.md",
+      "redirect_url": "/azure/cyclecloud/how-to/monitor-cyclecloud-cluster-using-prometheus-grafana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/for-containers/quickstart-deploy-application-gateway-for-containers-alb-controller.md",
+      "redirect_url": "/azure/application-gateway/for-containers/quickstart-deploy-application-gateway-for-containers-alb-controller-addon",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-network-test-latency.md",
+      "redirect_url": "/troubleshoot/azure/virtual-network/virtual-network-test-latency"
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-network-bandwidth-testing.md",
+      "redirect_url": "/troubleshoot/azure/virtual-network/virtual-network-bandwidth-testing"
+    },
+    {
+      "source_path": "articles/virtual-network/troubleshoot-vm-connectivity.md",
+      "redirect_url": "/troubleshoot/azure/virtual-network/troubleshoot-vm-connectivity"
+    },
+    {
+      "source_path": "articles/virtual-network/troubleshoot-outbound-smtp-connectivity.md",
+      "redirect_url": "/troubleshoot/azure/virtual-network/troubleshoot-outbound-smtp-connectivity"
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-network-troubleshoot-peering-issues.md",
+      "redirect_url": "/troubleshoot/azure/virtual-network/virtual-network-troubleshoot-peering-issues"
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-network-troubleshoot-connectivity-problem-between-vms.md",
+      "redirect_url": "/troubleshoot/azure/virtual-network/virtual-network-troubleshoot-connectivity-problem-between-vms"
+    },
+    {
+      "source_path": "articles/virtual-network/virtual-network-troubleshoot-cannot-delete-vnet.md",
+      "redirect_url": "/troubleshoot/azure/virtual-network/virtual-network-troubleshoot-cannot-delete-vnet"
     }
-    
   ]
 }

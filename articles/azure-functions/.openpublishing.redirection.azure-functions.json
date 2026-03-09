@@ -1,35 +1,55 @@
 {
     "redirections": [
         {
-          "source_path": "articles/azure=functions/durable/durable-task-scheduler/develop-with-durable-task-scheduler.md",
-          "redirect_url": "/azure/durable-task-scheduler/develop-with-durable-task-scheduler",
-          "redirect_document_id": false
+            "source_path": "articles/azure-functions/durable/durable-functions-create-portal.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-isolated-create-first-csharp",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/azure=functions/durable/durable-task-scheduler/troubleshoot-durable-task-scheduler.md",
-          "redirect_url": "/azure/durable-task-scheduler/troubleshoot-durable-task-scheduler",
-          "redirect_document_id": false
+            "source_path": "articles/azure-functions/durable/durable-functions-cloud-backup.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-fan-in-fan-out",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/azure=functions/durable/durable-task-scheduler/quickstart-durable-task-scheduler.md",
-          "redirect_url": "/azure/durable-task-scheduler/quickstart-durable-task-scheduler",
-          "redirect_document_id": false
+            "source_path": "articles/azure-functions/durable/durable-functions-monitor-python.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-monitor",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/azure=functions/durable/durable-task-scheduler/durable-task-scheduler.md",
-          "redirect_url": "/azure/durable-task-scheduler/durable-task-scheduler",
-          "redirect_document_id": false
+            "source_path": "articles/azure-functions/durable/durable-functions-phone-verification.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-human-interaction",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/azure=functions/durable/durable-task-scheduler/durable-task-scheduler-dedicated-sku.md",
-          "redirect_url": "/azure/durable-task-scheduler/durable-task-scheduler-dedicated-sku",
-          "redirect_document_id": false
+            "source_path": "articles/azure-functions/durable/durable-task-scheduler/develop-with-durable-task-scheduler-functions.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-task-scheduler/develop-with-durable-task-scheduler",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/azure=functions/durable/durable-task-scheduler/durable-task-scheduler-dashboard.md",
-          "redirect_url": "/azure/durable-task-scheduler/durable-task-scheduler-dashboard",
-          "redirect_document_id": false
-        },      
+            "source_path": "articles/azure-functions/durable/durable-task-scheduler/troubleshoot-durable-task-scheduler.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-task-scheduler/troubleshoot-durable-task-scheduler",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable/durable-task-scheduler/quickstart-durable-task-scheduler.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-task-scheduler/quickstart-durable-task-scheduler",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable/durable-task-scheduler/durable-task-scheduler.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-task-scheduler/durable-task-scheduler",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable/durable-task-scheduler/durable-task-scheduler-dedicated-sku.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-task-scheduler/durable-task-scheduler-billing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/durable/durable-task-scheduler/durable-task-scheduler-dashboard.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-task-scheduler/durable-task-scheduler-dashboard",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/azure-functions/create-first-function-vs-code-node_uiex.md",
             "redirect_url": "/azure/azure-functions/create-first-function-vs-code-node",
@@ -97,12 +117,12 @@
         },
         {
             "source_path_from_root": "/articles/azure-functions/durable-functions-cloud-backup.md",
-            "redirect_url": "/azure/azure-functions/durable/durable-functions-cloud-backup",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-fan-in-fan-out",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-functions/durable-functions-install.md",
-            "redirect_url": "/azure/azure-functions/durable/durable-functions-create-portal",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-isolated-create-first-csharp",
             "redirect_document_id": false
         },
         {
@@ -182,7 +202,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-functions/durable-functions-phone-verification.md",
-            "redirect_url": "/azure/azure-functions/durable/durable-functions-phone-verification",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-human-interaction",
             "redirect_document_id": false
         },
         {
@@ -212,7 +232,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-functions/durable-functions-types-features-overview.md",
-            "redirect_url": "/azure/azure-functions/durable/durable-functions-types-features-overview",
+            "redirect_url": "/azure/azure-functions/durable/programming-model-overview",
             "redirect_document_id": false
         },
         {
@@ -232,7 +252,12 @@
         },
         {
             "source_path_from_root": "/articles/azure-functions/durable-functions-webjobs-sdk.md",
-            "redirect_url": "/azure/azure-functions/durable/durable-functions-webjobs-sdk",
+            "redirect_url": "/azure/azure-functions/durable/durable-task-scheduler/durable-task-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable/durable-functions-webjobs-sdk.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-task-scheduler/durable-task-overview",
             "redirect_document_id": false
         },
         {
@@ -661,6 +686,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-functions/python-313-changes.md",
+            "redirect_url": "/azure/azure-functions/functions-reference-python#python-313-updates",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-functions/functions-bindings-mongodb-vcore-input.md",
             "redirect_url": "/azure/azure-functions/functions-bindings-documentdb-input",
             "redirect_document_id": true
@@ -679,6 +709,16 @@
             "source_path_from_root": "/articles/azure-functions/functions-bindings-mongodb-vcore.md",
             "redirect_url": "/azure/azure-functions/functions-bindings-documentdb",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable/durable-functions-orchestration-versioning.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-orchestration-versioning",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable/durable-task-scheduler/durable-task-scheduler-versioning.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-orchestration-versioning",
+            "redirect_document_id": false
         }
     ]
 }

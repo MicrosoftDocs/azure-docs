@@ -2,8 +2,8 @@
 title: Terminology and glossary for Azure DPS
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: This article describes common terminology used with the Device Provisioning Service (DPS) and IoT Hub.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 08/07/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub

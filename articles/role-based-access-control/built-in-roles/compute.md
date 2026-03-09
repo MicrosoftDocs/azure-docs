@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 09/03/2025
+ms.date: 03/08/2026
 ms.custom: generated
 ---
 
@@ -166,6 +166,7 @@ Arc VMware VM Contributor has permissions to perform all VM actions.
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
+
 ## Azure Batch Account Contributor
 
 Grants full access to manage all Batch resources, including Batch accounts, pools and jobs.
@@ -640,6 +641,63 @@ This role allows user to share gallery to another subscription/tenant or share i
     }
   ],
   "roleName": "Compute Gallery Sharing Admin",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Compute Limit Operator
+
+Read and manage compute limits using compute limit operations.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ComputeLimit](../permissions/compute.md#microsoftcomputelimit)/locations/guestSubscriptions/read | Reads guest subscriptions for a given host subscription within a location. |
+> | [Microsoft.ComputeLimit](../permissions/compute.md#microsoftcomputelimit)/locations/guestSubscriptions/write | Adds a subscription as a guest to consume a host subscription's shared compute limits. |
+> | [Microsoft.ComputeLimit](../permissions/compute.md#microsoftcomputelimit)/locations/guestSubscriptions/delete | Removes a subscription as a guest preventing it from consuming the host subscription's shared compute limits. |
+> | [Microsoft.ComputeLimit](../permissions/compute.md#microsoftcomputelimit)/locations/sharedLimits/read | Lists all compute shared limits a host subscription shares with its guest subscriptions. |
+> | [Microsoft.ComputeLimit](../permissions/compute.md#microsoftcomputelimit)/locations/sharedLimits/write | Enables sharing of a compute limit by a host subscription with its guest subscriptions. |
+> | [Microsoft.ComputeLimit](../permissions/compute.md#microsoftcomputelimit)/locations/sharedLimits/delete | Disables sharing of a compute limit by a host subscription with its guest subscriptions. |
+> | [Microsoft.ComputeLimit](../permissions/compute.md#microsoftcomputelimit)/register/action | Registers the subscription for the Compute Limit resource provider and enables the management of compute limit resources. |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read and manage compute limits using compute limit operations.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/980cf6f7-edec-4fd1-8e9e-28f70b1d5258",
+  "name": "980cf6f7-edec-4fd1-8e9e-28f70b1d5258",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ComputeLimit/locations/guestSubscriptions/read",
+        "Microsoft.ComputeLimit/locations/guestSubscriptions/write",
+        "Microsoft.ComputeLimit/locations/guestSubscriptions/delete",
+        "Microsoft.ComputeLimit/locations/sharedLimits/read",
+        "Microsoft.ComputeLimit/locations/sharedLimits/write",
+        "Microsoft.ComputeLimit/locations/sharedLimits/delete",
+        "Microsoft.ComputeLimit/register/action",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Compute Limit Operator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -1709,6 +1767,8 @@ Provides permission to backup vault to perform disk restore.
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/write | Creates a new Disk or updates an existing one |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/read | Get the properties of a Disk |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/beginGetAccess/action | Get the SAS URI of the Disk for blob access |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/endGetAccess/action | Revoke the SAS URI of the Disk |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1730,7 +1790,9 @@ Provides permission to backup vault to perform disk restore.
         "Microsoft.Authorization/*/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Compute/disks/write",
-        "Microsoft.Compute/disks/read"
+        "Microsoft.Compute/disks/read",
+        "Microsoft.Compute/disks/beginGetAccess/action",
+        "Microsoft.Compute/disks/endGetAccess/action"
       ],
       "notActions": [],
       "dataActions": [],

@@ -40,7 +40,7 @@ After the migration is successful and the VM restarts in Azure, ensure that you 
 > Be sure to check for any existing snapshots on the VM from earlier replication attempts, partner apps, or active backup tools (e.g., VEEAM), as this will block agentless replication setup in Azure Migrate.
 > Snapshot-based backups conflict with Azure Migrate’s agentless change tracking and replication process and should not be used concurrently.
 
-A replication cycle is the periodic process of transferring data from an on-premises environment to Azure managed disks. A full replication cycle consists of the following steps:
+A replication cycle is the periodic process of transferring data from an on-premises environment to Azure Managed Disks. A full replication cycle consists of the following steps:
 
 1. Create a VMware snapshot for each disk associated with the VM.
 2. Upload data to a log storage account in Azure.

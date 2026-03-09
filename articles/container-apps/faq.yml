@@ -43,7 +43,7 @@ sections:
       - question: |
           How is Azure Container Apps billed?
         answer: |
-          Billing is based on resource consumption, including CPU, memory, and request count. For more information, refer to the [billing](billing.md) page.
+          Billing is based on resource consumption, including CPU, memory, and request count. For more information, see the [billing](billing.md) page.
 
   - name: Configuration
     questions:
@@ -83,7 +83,7 @@ sections:
         answer: |
           [Request a quota increase in the Azure portal](https://learn.microsoft.com/azure/quotas/quickstart-increase-quota-portal) with **Azure Container Apps** selected as the provider.
 
-          Consider the following when submitting a quota increase request: 
+          Consider the following details when submitting a quota increase request: 
 
           - **Scaling apps vs environments**: There are many different quotas available to increase. Use these descriptions to help identify your needs:
             - **Increase apps and cores per environment**: Allows you to run more apps within an environment and/or more intensive apps. Recommended if your workloads can deploy within the same network and security boundaries.
@@ -134,6 +134,8 @@ sections:
         answer:
           Custom version selection is **not supported**. Instead, your environment is automatically upgraded, maintaining the integrity of Dapr's fully managed and serverless offering in Azure Container Apps.
 
+          You can control autoupgrades by [configuring the planned maintenance feature on your container apps environment](./planned-maintenance.md).
+
   - name: Dockerless deployments
     questions:
      - question: |
@@ -143,7 +145,7 @@ sections:
      - question: |
          During the deployment of my Docker-less application, messages about "ImagePullBackOff on legion", "Kubernetes error" or "Gateway error" appear and my application doesn't deploy successfully.
        answer: |
-         You're experiencing a known issue with Docker-less deployments. Retrying might resolve this for you. If you run into this issue, open a [GitHub issue](https://github.com/microsoft/azure-container-apps/issues) so our team can investigate.
+         You're experiencing a known issue with Docker-less deployments. Retrying might resolve this issue for you. If you run into this issue, open a [GitHub issue](https://github.com/microsoft/azure-container-apps/issues) so our team can investigate.
 
   - name: Deploy .NET applications
     questions:
@@ -157,7 +159,7 @@ sections:
       - question: |
           Which JDK versions are supported and how can I configure the JDK version?
         answer: |
-          Container Apps supports four LTS JDK versions: JDK 8, JDK 11, JDK 17 and JDK 21. 
+          Container Apps supports four LTS JDK versions: JDK 8, JDK 11, JDK 17, and JDK 21. 
           For source code build, the default version is JDK 17.
           For a JAR file build, the JDK version is read from the file location *META-INF\MANIFEST.MF* in the JAR, but uses the default JDK version 17 if the specified version isn't available.
 

@@ -5,8 +5,8 @@ keywords: external Hive Metastore,share,Synapse
 ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
-author: jejiang
-ms.author: jejiang
+author: konjac
+ms.author: kuhuan
 ms.date: 11/15/2024
 ---
 # Use external Hive Metastore for Synapse Spark Pool
@@ -32,7 +32,7 @@ The feature works with Spark 3.3. The following table shows the supported Hive M
 
 Follow below steps to set up a linked service to the external Hive Metastore in Synapse workspace.
 
-### [Azure SQL Database](#tab/azure-sql-database)
+### Linked Service for Azure SQL Database
 
 1. Open Synapse Studio, go to **Manage > Linked services** at left, click **New** to create a new linked service.
 
@@ -52,7 +52,7 @@ Follow below steps to set up a linked service to the external Hive Metastore in 
 
 8. Click **Create** to create the linked service. 
 
-### [Azure Database for MySQL](#tab/azure-database-for-mysql)
+### Linked Service for Azure Database for MySQL
 
 1. Open Synapse Studio, go to **Manage > Linked services** at left, click **New** to create a new linked service.
 
@@ -71,7 +71,10 @@ Follow below steps to set up a linked service to the external Hive Metastore in 
 7. Click **Create** to create the linked service.
 
 
-### Test connection and get the metastore version in notebook
+### (Optional)Test connection and get the metastore version in notebook
+
+> [!NOTE]
+> The following testing code pieces only apply to user/password auth.
 
 Some network security rule settings could block access from Spark pool to the external Hive Metastore DB. Before you configure the Spark pool, run below code in any Spark pool notebook to test connection to the external Hive Metastore DB.
 

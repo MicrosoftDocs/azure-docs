@@ -2,12 +2,12 @@
 title: Include file
 description: Include file
 services: api-center
-author: dlepow
+
 
 ms.service: azure-api-center
 ms.topic: include
 ms.date: 01/08/2025
-ms.author: danlep
+
 ms.custom: Include file
 ---
 You can add or update metadata properties and documentation to the synchronized APIs in your API center to help stakeholders discover, understand, and consume the APIs. Learn more about Azure API Center's [built-in and custom metadata properties](.././tutorials/add-metadata-properties.md).

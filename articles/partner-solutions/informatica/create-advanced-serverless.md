@@ -1,11 +1,11 @@
 ---
 title: "Quickstart: Create an advanced serverless deployment using Informatica Intelligent Data Management Cloud"
-description: This article describes setup a serverless runtime environment using the Azure portal and an Informatica IDMC organization.
+description: This article describes how to set up a serverless runtime environment using the Azure portal and an Informatica IDMC organization.
 
 ms.topic: quickstart  
-ms.date: 04/02/2024
+ms.date: 02/04/2026
 
-#customer intent: As a developer, I want an instance of the Informatica data management cloud  so that I can use it with other Azure resources.
+#customer intent: As a developer, I want an instance of the Informatica data management cloud so that I can use it with other Azure resources.
 ---
 # Quickstart: Create an advanced serverless deployment using Informatica Intelligent Data Management Cloud
 
@@ -15,7 +15,7 @@ In this quickstart, you use the Azure portal to create advanced serverless runti
 
 - An Informatica Organization. If you don't have an Informatica Organization. Refer to [Get started with Informatica – An Azure Native ISV Service](create.md)
 
-- After an Organization is created, make sure to sign in to the Informatica Portal from Overview tab of the Organization. Creating a serverless runtime environment fails if you don't first sign in to Informatica portal at least once.
+- After an Organization is created, make sure to sign in to the Informatica Portal from Overview tab of the Organization. Creating a serverless runtime environment fails if you don't first sign in to the Informatica portal at least once.
 
 - A subnet used in serverless runtime environment must be delegated to _Informatica.DataManagement/organizations_.
 
@@ -41,13 +41,13 @@ Set the following values in the _Basics_ pane.
 
   :::image type="content" source="media/informatica-create-advanced-serverless/informatica-serverless-workflow.png" alt-text="Screenshot of Workflow to create serverless runtime environment.":::
 
-  | Property  | Description |
-  |---------|---------|
-  | **Name**  | Name of the serverless runtime environment. |
-  | **Description**     | Description of the serverless runtime environment. |
-  | **Task Type**  | Type of tasks that run in the serverless runtime environment. Select **Data Integration** to run mappings outside of advanced mode. Select **Advanced Data Integration** to run mappings in advanced mode. |
+  | Property | Description |
+  | --------- | --------- |
+  | **Name** | Name of the serverless runtime environment. |
+  | **Description** | Description of the serverless runtime environment. |
+  | **Task Type** | Type of tasks that run in the serverless runtime environment. Select **Data Integration** to run mappings outside of advanced mode. Select **Advanced Data Integration** to run mappings in advanced mode. |
   | **Maximum Compute Units per Task** | Maximum number of serverless compute units corresponding to machine resources that a task can use. |
-  | **Task Timeout (Minutes)** | By default, the timeout is 2,880 minutes (48 hours). You can set the timeout to a value that is less than 2880 minutes. |
+  | **Task Timeout (Minutes)** | By default, the timeout is 2,880 minutes (48 hours). You can set the timeout to a value that's less than 2880 minutes. |
 
 ### Platform Detail
 
@@ -55,12 +55,12 @@ Set the following values in the _Platform Detail_ pane.
 
   :::image type="content" source="media/informatica-create-advanced-serverless/informatica-serverless-platform-detail.png" alt-text="Screenshot of platform details in serverless creation flow.":::
 
-  | Property  | Description |
-  |---------|---------|
-  | **Region**  | Select the region where the serverless runtime environment is hosted.|
-  | **Virtual network**     | Select a virtual network to use. |
-  | **Subnet**  | Select a subnet within the virtual network to use. |
-  | **Supplementary file Location** | Location of any supplementary files. Use the following format:`abfs://<file_system>@<account_name>.dfs.core.windows.net/<path>` For example, to use a JDBC connection, you place the JDBC JAR files in the supplementary file location and then enter this location:`abfs://discaleqa@serverlessadlsgen2acct.dfs.core.windows.net/serverless`. |
+  | Property | Description |
+  | --------- | --------- |
+  | **Region** | Select the region where the serverless runtime environment is hosted. |
+  | **Virtual network** | Select a virtual network to use. |
+  | **Subnet** | Select a subnet within the virtual network to use. |
+  | **Supplementary file Location** | Location of any supplementary files. Use the following format:`abfs://<file_system>@<account_name>.dfs.core.windows.net/<path>` For example, to use a JDBC connection, you place the JDBC JAR files in the supplementary file location. Then enter this location:`abfs://discaleqa@serverlessadlsgen2acct.dfs.core.windows.net/serverless`. |
   | **Custom Properties** | Specific properties that might be required for the virtual network. Use custom properties only as directed by Informatica Global Customer Support. |
 
 ### RunTime Configuration
@@ -76,13 +76,13 @@ You can specify custom tags for the new Informatica organization by adding custo
   :::image type="content" source="media/informatica-create-advanced-serverless/informatica-serverless-tags.png" alt-text="Screenshot showing the tags pane in the Informatica create experience.":::
 
   | Property | Description |
-  |----------| -------------|
-  |**Name** | Name of the tag corresponding to the Azure Native Informatica resource. |
+  | ---------- | ------------- |
+  | **Name** | Name of the tag corresponding to the Azure Native Informatica resource. |
   | **Value** | Value of the tag corresponding to the Azure Native Informatica resource. |
 
 ### Review and create
 
-1. Select  **Next: Review + Create** to navigate to the final step for serverless creation. When you get to the **Review + Create** pane, validations are run. Review all the selections made in the _Basics_, and optionally the _Tags_ panes..Review the Informatica and Azure Marketplace terms and conditions.  
+1. Select **Next: Review + Create** to navigate to the final step for serverless creation. When you get to the **Review + Create** pane, validations are run. Review all the selections made in the _Basics_, and optionally the _Tags_ panes. Review the Informatica and Azure Marketplace terms and conditions.  
 
     :::image type="content" source="media/informatica-create-advanced-serverless/informatica-serverless-review-create.png" alt-text="Screenshot of the review and create Informatica resource tab.":::
 
@@ -93,4 +93,3 @@ You can specify custom tags for the new Informatica organization by adding custo
 ## Next steps
 
 - [Manage the Informatica resource](manage.md)
-

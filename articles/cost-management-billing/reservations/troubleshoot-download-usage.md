@@ -7,7 +7,7 @@ ms.subservice: reservations
 ms.author: primittal
 ms.reviewer: primittal
 ms.topic: troubleshooting
-ms.date: 10/28/2025
+ms.date: 01/15/2026
 ---
 
 # Troubleshoot Azure reservation download usage details
@@ -32,4 +32,4 @@ We understand that customers want to download data for longer periods. However, 
 
 ## Next steps
 
-- For more information about reservations, see [What are Azure Reservations?](save-compute-costs-reservations.md).
+- For more information about reservations, see [What are Azure Reservations?](save-compute-costs-reservations.md)

@@ -28,7 +28,7 @@ The Jetpack installer:
 * Installs the [Jetpack Command Line Tool](#jetpack-command-line-tool) to:
   * Windows: _C:\cycle\jetpack\bin\jetpack_
   * Linux: _/opt/cycle/jetpack/bin/jetpack_
-* Creates [udev](https://www.freedesktop.org/wiki/Software/systemd/) rules on Linux
+* Creates [udev](https://systemd.io/) rules on Linux
 * Sets the environment variable `CYCLECLOUD_HOME`
 
 > [!NOTE] 

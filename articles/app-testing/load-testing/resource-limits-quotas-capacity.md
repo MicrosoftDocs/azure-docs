@@ -50,11 +50,13 @@ The following limits apply on a per-region, per-subscription basis.
 <sup>2</sup> If you aren't already at the maximum limit, you can request an increase. We aren't currently able to approve increase requests past our maximum limitations stated above. To request an increase for your default limit, contact Azure Support. Default limits vary by offer category type.
 
 ### Notifications
+
 The following limits apply on a per-region, per-subscription basis.
+
 | Resource  | Default limit |
-|---------| ---------: | 
-|Tests per notification rule  | 20 |
-|Action groups per notification rule| 5| 
+|---------- | ------------: | 
+| Tests per notification rule  | 20 |
+| Action groups per notification rule | 5 | 
 
 ### Data retention
 

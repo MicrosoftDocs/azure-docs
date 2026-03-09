@@ -1,12 +1,13 @@
 ---
-title: Web application firewall exclusion lists in Azure Application Gateway - Azure portal
+title: WAF Exclusion Lists in Azure Application Gateway
 description: This article provides information on Web Application Firewall exclusion lists configuration in Application Gateway with the Azure portal.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 01/13/2025
+ms.date: 02/25/2026
 ms.custom: devx-track-azurepowershell
+
 # Customer intent: As a web application administrator, I want to configure exclusion lists for my Web Application Firewall, so that I can prevent false positives and ensure legitimate traffic is not blocked by security rules.
 ---
 
@@ -523,12 +524,12 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
 }
 ```
 
-
 ---
 
 So if the URL `http://www.contoso.com/?user%3c%3e=joe` is scanned by the WAF, it doesn't evaluate the string **joe**, but it still evaluates the parameter name **user%3c%3e**. 
 
-## Next steps
+## Related content
 
-- After you configure your WAF settings, you can learn how to view your WAF logs. For more information, see [Application Gateway diagnostics](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
-- [Learn more about Azure network security](../../networking/security/index.yml)
+- [WAF DRS and CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md)
+- [Application Gateway diagnostics](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
+- [Upgrade CRS or DRS ruleset version](upgrade-ruleset-version.md)

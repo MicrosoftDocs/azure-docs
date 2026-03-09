@@ -10,6 +10,7 @@ ms.topic: troubleshooting
 ms.date: 11/04/2025
 ms.custom:
 - build-2025
+service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
 # Troubleshoot EA billing issues with usage file pivot tables

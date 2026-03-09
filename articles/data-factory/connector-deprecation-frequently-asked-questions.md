@@ -6,7 +6,7 @@ ms.author: krirukm
 ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
-ms.date: 11/07/2025
+ms.date: 02/25/2026
 ms.custom:
   - build-2025
   - sfi-image-nochange
@@ -106,7 +106,7 @@ There are no plans to disable workloads that have been automatically upgraded. H
 
 ## <a name="what-should-i-do-if-i-encounter-the-feature-gaps-and-errors-bugs-that-are-preventing-me-from-migrating-to-the-new-connectors"></a> What should I do if I encounter the feature gaps and errors/ bugs that are preventing me from upgrading to the latest connector version?
 
-If you encounter any feature gaps while upgrading the connector to latest versions, please review our connector documentation to check if it’s a known limitation. Additionally, send us an email at **dfconnectorupgrade@microsoft.com** with a description of the feature gap. 
+If you encounter any feature gaps while upgrading the connector to latest versions, please review our connector documentation to check if it’s a known limitation. 
 
 If you encounter any errors or bugs while upgrading to the latest connector versions, please contact our Microsoft support team and open a support ticket. Be sure to include detailed information about the connector, the error encountered, and your use case.
 

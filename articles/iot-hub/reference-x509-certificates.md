@@ -1,13 +1,13 @@
 ---
 title: X.509 certificates | Microsoft Docs
 description: Reference documentation containing information about X.509 certificates, including certificate fields, certificate extensions, and certificate formats.
-author: SoniaLopezBravo
+author: cwatson-cat
 
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: reference
 ms.date: 02/03/2022
-ms.author: sonialopez
+ms.author: cwatson
 ms.custom:
   - mvc
   - 'Role: Cloud Development'

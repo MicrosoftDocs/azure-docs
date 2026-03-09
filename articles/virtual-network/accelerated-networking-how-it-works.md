@@ -246,6 +246,10 @@ Disabling Accelerated Networking that's enabled in the guest VM produces a `dmes
 
 You can use these Azure CLI commands to simulate Azure host servicing. You can then verify that your applications don't incorrectly depend on direct interaction with the VF interface.
 
+> [!NOTE]
+> Disabling Accelerated Networking on VM sizes where Accelerated Networking is listed as 'required' does not have any effect. These sizes will receive the VF interface regardless of the state of Accelerated Networking associated with the virtual NIC. 
+
+
 ## Next steps
 
 * Learn how to [create a VM with Accelerated Networking in PowerShell](../virtual-network/create-vm-accelerated-networking-powershell.md).

@@ -297,7 +297,7 @@ This section describes additional considerations and recommendations for modelin
 
 An *ontology* is a set of models that comprehensively describe a given domain, like manufacturing, building structures, IoT systems, smart cities, energy grids, web content, and more.
 
-If your solution is for a certain industry that uses any sort of modeling standard, consider starting with a pre-existing set of models designed for your industry instead of designing your models from scratch. Microsoft has partnered with domain experts to create DTDL model ontologies based on industry standards, to help minimize reinvention and encourage consistency and simplicity across industry solutions. You can read more about these ontologies, including how to use them and what ontologies are available now, in [What is an ontology?](concepts-ontologies.md).
+If your solution is for a certain industry that uses any sort of modeling standard, consider starting with a pre-existing set of models designed for your industry instead of designing your models from scratch. Microsoft has partnered with domain experts to create DTDL model ontologies based on industry standards, to help minimize reinvention and encourage consistency and simplicity across industry solutions. You can read more about these ontologies, including how to use them and what ontologies are available now, in [What is an ontology?](concepts-ontologies.md)
 
 ### Consider query implications
 

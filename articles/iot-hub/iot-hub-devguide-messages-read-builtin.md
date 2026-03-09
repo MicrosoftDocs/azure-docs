@@ -2,8 +2,8 @@
 title: Understand the built-in endpoint
 titleSuffix: Azure IoT Hub
 description: This article describes how to use the built-in, Event Hubs-compatible endpoint to read device-to-cloud messages.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 05/22/2025
@@ -83,9 +83,6 @@ The product integrations you can use with the built-in Event Hubs-compatible end
 * [Azure Stream Analytics](../stream-analytics/index.yml)
 
     For more information, see [Stream data as input into Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
-* [Azure Time Series Insights](../time-series-insights/index.yml)
-
-    For more information, see [Add an IoT hub event source to your Azure Time Series Insight environment](../time-series-insights/how-to-ingest-data-iot-hub.md).
 * [Apache Spark integration](../hdinsight/spark/apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Kafka](https://kafka.apache.org/)
 

@@ -1,7 +1,7 @@
 ---
 title: Configure your environment for Datadog
 description: This article describes how to configure your Azure environment to create an instance of Datadog.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/10/2025
 ms.custom: sfi-image-nochange
 ---

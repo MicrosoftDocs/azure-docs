@@ -43,7 +43,7 @@ You can connect to Azure Cosmos DB from both Consumption and Standard logic app 
 
 In Azure Logic Apps, every workflow must start with a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), which fires when a specific event happens or when a specific condition is met.
 
-If you're working with a Standard workflow, the built-in trigger named **When an item is created or modified** is available and is based on the [Azure Cosmos DB change feed design pattern](/azure/cosmos-db/sql/change-feed-design-patterns). This trigger is unavailable for Consumption workflows.
+If you're working with a Standard workflow, the built-in trigger named **When an item is created or modified** is available and is based on the [Azure Cosmos DB change feed design pattern](/azure/cosmos-db/change-feed-design-patterns). This trigger is unavailable for Consumption workflows.
 
 ### [Consumption](#tab/consumption)
 

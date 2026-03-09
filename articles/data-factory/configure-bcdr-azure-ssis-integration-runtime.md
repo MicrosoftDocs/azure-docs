@@ -21,7 +21,7 @@ For business continuity and disaster recovery (BCDR), Azure SQL Database/Managed
 
 For BCDR, you can also configure a dual standby Azure SSIS IR pair that works in sync with Azure SQL Database/Managed Instance failover group. This allows you to have a pair of running Azure-SSIS IRs that at any given time, only one can access the primary SSISDB to fetch and execute packages, as well as write package execution logs (primary role), while the other can only do the same for packages deployed somewhere else, for example in Azure Files (secondary role). When SSISDB failover occurs, the primary and secondary Azure-SSIS IRs will also swap roles and if both are running, there'll be a near-zero downtime.
 
-This approach can be used with any regions supported by Azure SQL. It isn't restricted to [paired Azure regions](../reliability/regions-paired.md).
+This approach can be used with any regions supported by Azure SQL. It isn't restricted to [paired Azure regions](/azure/reliability/regions-paired).
 
 This article describes how to configure Azure-SSIS IR with Azure SQL Database/Managed Instance failover group for BCDR.
 

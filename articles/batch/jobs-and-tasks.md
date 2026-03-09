@@ -19,7 +19,7 @@ A job specifies the [pool](nodes-and-pools.md#pools) in which the work is to be 
 
 You can assign an optional job priority to jobs that you create. The Batch service uses the priority value of the job to determine the order of scheduling (for all tasks within the job) within each pool.
 
-To update the priority of a job, call the [Update the properties of a job](/rest/api/batchservice/job/update) operation (Batch REST), or modify the [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob.priority) (Batch .NET). Priority values range from -1000 (lowest priority) to +1000 (highest priority).
+To update the priority of a job, call the [Update the properties of a job](/rest/api/batchservice/jobs/update-job) operation (Batch REST), or modify the [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob.priority) (Batch .NET). Priority values range from -1000 (lowest priority) to +1000 (highest priority).
 
 Within the same pool, higher-priority jobs have scheduling precedence over lower-priority jobs. Tasks in lower-priority jobs that are already running won't be preempted by tasks in a higher-priority job. Jobs with the same priority level have an equal chance of being scheduled, and ordering of task execution isn't defined.
 
@@ -151,9 +151,9 @@ For more information, see [Task dependencies in Azure Batch](batch-task-dependen
 
 Each task executed by the Batch service has access to environment variables that it sets on compute nodes. This includes [environment variables defined by the Batch service](./batch-compute-node-environment-variables.md) and custom environment variables that you can define for your tasks. Applications and scripts that your tasks execute have access to these environment variables during execution.
 
-You can set custom environment variables at the task or job level by populating the *environment settings* property for these entities. For more information, see the [Add a task to a job](/rest/api/batchservice/task/add?) operation (Batch REST), or the [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask.environmentsettings) and [CloudJob.CommonEnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudjob.commonenvironmentsettings) properties in Batch .NET.
+You can set custom environment variables at the task or job level by populating the *environment settings* property for these entities. For more information, see the [Add a task to a job](/rest/api/batchservice/tasks/create-task) operation (Batch REST), or the [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask.environmentsettings) and [CloudJob.CommonEnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudjob.commonenvironmentsettings) properties in Batch .NET.
 
-Your client application or service can obtain a task's environment variables, both service-defined and custom, by using the [Get information about a task](/rest/api/batchservice/task/get) operation (Batch REST) or by accessing the [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask.environmentsettings) property (Batch .NET). Processes executing on a compute node can access these and other environment variables on the node, for example, by using the familiar `%VARIABLE_NAME%` (Windows) or `$VARIABLE_NAME` (Linux) syntax.
+Your client application or service can obtain a task's environment variables, both service-defined and custom, by using the [Get information about a task](/rest/api/batchservice/tasks/get-task) operation (Batch REST) or by accessing the [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask.environmentsettings) property (Batch .NET). Processes executing on a compute node can access these and other environment variables on the node, for example, by using the familiar `%VARIABLE_NAME%` (Windows) or `$VARIABLE_NAME` (Linux) syntax.
 
 You can find a list of all service-defined environment variables in [Compute node environment variables](batch-compute-node-environment-variables.md).
 

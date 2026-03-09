@@ -18,7 +18,7 @@ In this quickstart, you use the Durable Functions extension in Visual Studio Cod
 
 [!INCLUDE [functions-nodejs-model-pivot-description](../../../includes/functions-nodejs-model-pivot-description.md)]
 
-![Screenshot of an Edge window. The window shows the output of invoking a simple Durable Functions app in Azure.](./media/quickstart-js-vscode/functions-vs-code-complete.png)
+:::image type="content" source="./media/quickstart-js-vscode/functions-vs-code-complete.png" alt-text="Screenshot of an Edge window. The window shows the output of invoking a simple Durable Functions app in Azure.":::
 
 ## Prerequisites
 
@@ -117,7 +117,7 @@ To work with Durable Functions in a Node.js function app, you use a library call
 
 ::: zone pivot="nodejs-model-v4"
 
-To use the v4 programming model, you need to install the preview v3.x version of the durable-functions library.
+To use the v4 programming model, you need to install the v3.x version of the durable-functions library.
 
 ::: zone-end
 
@@ -174,7 +174,7 @@ Next, you add the referenced `Hello` activity function.
     | **Select a template for your function** | Select **Durable Functions activity**. | Creates an activity function. |
     | **Provide a function name** | Enter **Hello**. | A name for your activity function. |
 
-You added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/index.ts* to see that it's taking a name as input and returning a greeting. An activity function is where you perform "the real work" in your workflow, such as making a database call or performing some nondeterministic computation.
+You added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/index.ts* to see that it takes a name as input and returns a greeting. An activity function is where you perform "the real work" in your workflow, such as making a database call or performing some nondeterministic computation.
 
 Finally, you add an HTTP-triggered function that starts the orchestration.
 
@@ -214,7 +214,7 @@ Open *src/functions/hello.ts* to view the functions you created.
 
 You created an orchestrator called `helloOrchestrator` to coordinate activity functions. Each call to `context.df.callActivity` invokes an activity function called `hello`.
 
-You also added the `hello` activity function that is invoked by the orchestrator. In the same file, you can see that it's taking a name as input and returning a greeting. An activity function is where you perform "the real work" in your workflow, such as making a database call or performing some nondeterministic computation.
+You also added the `hello` activity function that is invoked by the orchestrator. In the same file, you can see that it takes a name as input and returns a greeting. An activity function is where you perform "the real work" in your workflow, such as making a database call or performing some nondeterministic computation.
 
 Finally, you added an HTTP-triggered function that starts an orchestration. In the same file, you can see that it uses `client.startNew` to start a new orchestration. Then it uses `client.createCheckStatusResponse` to return an HTTP response containing URLs that can be used to monitor and manage the new orchestration.
 
@@ -246,7 +246,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 2. Durable Functions requires an Azure Storage account to run. When Visual Studio Code prompts you to select a storage account, select **Select storage account**.
 
-    ![Screenshot of a Visual Studio Code alert window. Select storage account is highlighted.](media/quickstart-js-vscode/functions-select-storage.png)
+    :::image type="content" source="media/quickstart-js-vscode/functions-select-storage.png" alt-text="Screenshot of a Visual Studio Code alert window. Select storage account is highlighted.":::
 
 3. At the prompts, provide the following information to create a new storage account in Azure.
 
@@ -375,4 +375,4 @@ If you no longer need the resources that you created to complete the quickstart,
 
 ## Related content
 
-* Learn about [common Durable Functions app patterns](durable-functions-overview.md#application-patterns).
+* Learn about [common Durable Functions app patterns](durable-functions-sequence.md).

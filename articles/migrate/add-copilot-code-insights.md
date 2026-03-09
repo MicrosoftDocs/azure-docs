@@ -1,5 +1,5 @@
 ---
-title: Enhancing Web App Assessment With Code Scan Reports for Azure Migration
+title: Enhancing Web App Assessment with Code Scan Reports for Azure Migration
 description: Learn how to install AppCat and run the quickstart to assess and migrate .NET and Java applications using Azure Migrate. Step-by-step guide included.
 ms.topic: how-to
 author: sudesai
@@ -12,7 +12,7 @@ ms.custom: engagement-fy24
 ---
 
 
-#  Add GitHub Copilot Code insights to Web App Assessments (preview)
+#  Add GitHub Copilot Code insights to web app assessments (preview)
 
 This article describes how to enhance web app assessments by adding code scan insights using GitHub Copilot assessment when modernizing applications for Azure Kubernetes Service (AKS) or Azure App Service. Adding code insights helps you better assess migration readiness and get recommendations for migration strategies based on the code changes identified during the scan.
 
@@ -29,7 +29,7 @@ You can add code insights to web app assessment using either of the following tw
 
 ##  Manually upload code scan reports using a Zip File
 
-With this approach, you must generate the code scan report manually and upload it as a Zip file. 
+With this approach, you must generate the code scan report manually and upload it as a .zip file. 
 
 ### Prerequisites
 
@@ -41,17 +41,25 @@ With this approach, you must generate the code scan report manually and upload i
 To generate report, complete the following steps:
 
 >[!Note]
->  To upload an assessment report as a ZIP file, use reports from AppCAT CLI. Support for GitHub Copilot App Mod reports will be added soon. 
+>  To upload an assessment report as a ZIP file, use reports from GitHub Copilot App Modernization extension or AppCAT CLI.
+
+**GitHub Copilot App Modernization extension**
+1. Install [GitHub Copilot app modernization extension](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure) in Visual Studio Code.
+2. Open the source code of your Web application from GitHub repository.
+3. On the sidebar, select the GitHub Copilot app modernization pane, where you can select **Migrate to Azure** or **Run Assessment** in the **ASSESSMENT** section.
+4. Upon completion of assessment, you can download **report.json** file at the location of your choice.
+5. Create a .zip file for all the reports you want to add to assessment.
+
+**AppCAT CLI**
 
 1. Install AppCAT:
-
     - For .NET use the below command
     `dotnet tool install --global Microsoft.AppCAT.Tool` For detailed instructions, see [Install the .NET global tool](/dotnet/azure/migration/appcat/install#install-the-net-global-tool).
     - For guidance on assessing Java projects, see [Assess a Java project using AppCAT 7](/azure/migrate/appcat/appcat-7-quickstart?tabs=windows#download-and-install).
-1. Generate AppCAT Reports
+2. Generate AppCAT Reports
    - After installing AppCAT, generate reports for all assessed web apps: For .NET applications, use the .NET CLI to analyze applications. For more details, see [Analyze applications with the .NET CLI](/dotnet/azure/migration/appcat/dotnet-cli). 
     - For Java applications: To run AppCAT against a sample Java project, see [Run AppCAT against a sample Java project](/azure/migrate/appcat/appcat-7-quickstart?tabs=windows#run-appcat-against-a-sample-java-project).
-1. Create a ZIP file for all the reports you want to add to assessment. 
+3. Create a ZIP file for all the reports you want to add to assessment. 
 
 ### Upload a ZIP file 
 
@@ -123,8 +131,9 @@ Create a new **GitHub App** by following these steps:
 
 9. Under **Permissions**, select **Repository permissions** and then select the following permissions for the app. 
   
-  | Issues  | Read and write  | 
+  | Resource  | Permissions  | 
   | --- | --- | 
+  | Issues  | Read and write  | 
   | Metadata  | Read-only  |
   | Webhook   | Read and write  |
 

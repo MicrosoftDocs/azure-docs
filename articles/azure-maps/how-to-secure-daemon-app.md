@@ -39,7 +39,7 @@ Applications that use Shared Key authentication, should store the keys in a secu
 The following steps outline this process:
 
 1. [Create an Azure Key Vault](/azure/key-vault/general/quick-create-portal).
-2. Create an [Microsoft Entra service principal](../active-directory/fundamentals/service-accounts-principal.md) by creating an App registration or managed identity. The created principal is responsible for accessing the Azure Key Vault.
+2. Create a [Microsoft Entra service principal](../active-directory/fundamentals/service-accounts-principal.md) by creating an App registration or managed identity. The created principal is responsible for accessing the Azure Key Vault.
 3. Assign the service principal access to Azure Key secrets `get` permission. For details about how to set permissions, see [Assign a Key Vault access policy using the Azure portal](/azure/key-vault/general/assign-access-policy-portal).
 4. Temporarily assign access to secrets `set` permission for you as the developer.
 5. Set the shared key in the Key Vault secrets and reference the secret ID as configuration for the daemon application.

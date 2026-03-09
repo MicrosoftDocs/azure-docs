@@ -6,8 +6,8 @@ ms.subservice:
 ms.topic: overview
 ms.date: 08/12/2025
 ms.custom: references_regions
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # What's new in Azure Automation?
@@ -174,7 +174,7 @@ Set up disaster recovery for your Automation accounts to handle a region-wide or
 
 ### Availability zones support for Azure Automation
 
-Azure Automation now supports [Azure availability zones](../reliability/availability-zones-overview.md#zonal-and-zone-redundant-services) to provide improved resiliency and reliability by providing high availability to the service, runbooks, and other Automation assets. [Learn more](automation-availability-zones.md).
+Azure Automation now supports [Azure availability zones](/azure/reliability/availability-zones-overview#zonal-and-zone-redundant-services) to provide improved resiliency and reliability by providing high availability to the service, runbooks, and other Automation assets. [Learn more](automation-availability-zones.md).
 
 
 ## July 2022

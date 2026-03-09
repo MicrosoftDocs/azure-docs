@@ -1,8 +1,8 @@
 ---
 title: How to programmatically create an Azure Device Provisioning Service enrollment group for X.509 certificate attestation
 description: This article shows you how to programmatically create an enrollment group to enroll a group of devices that use intermediate or root CA X.509 certificate attestation.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 08/12/2025
 ms.topic: how-to
 ms.service: azure-iot-hub

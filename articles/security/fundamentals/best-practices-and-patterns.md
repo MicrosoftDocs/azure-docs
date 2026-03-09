@@ -24,6 +24,7 @@ These best practices are intended to be a resource for IT pros. IT pros include 
 * [Azure identity management and access control security best practices](identity-management-best-practices.md)
 * [Azure network security best practices](network-best-practices.md)
 * [Azure operational security best practices](operational-best-practices.md)
+* [Azure AI security best practices](ai-security-best-practices.md)
 * [Azure PaaS Best Practices](paas-deployments.md)
 * [Azure Service Fabric security best practices](service-fabric-best-practices.md)
 * [Best practices for IaaS workloads in Azure](iaas.md)
@@ -55,3 +56,16 @@ The [Microsoft cloud security benchmark (MCSB)](/security/benchmark/azure/introd
 - **Assess AI workloads**: Review the new Artificial Intelligence Security controls in Microsoft Cloud Security Benchmark v2 (preview) if deploying AI/ML workloads to ensure proper platform, application, and monitoring security
 
 For a complete collection of high-impact security recommendations, see the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction).
+
+### Microsoft Secure Future Initiative (SFI)
+
+The [Microsoft Secure Future Initiative (SFI)](/security/zero-trust/sfi/secure-future-initiative-overview) is a multiyear initiative that advances the way Microsoft designs, builds, tests, and operates its technology. SFI provides security best practices based on six engineering pillars aligned with Zero Trust principles and the NIST Cybersecurity Framework 2.0:
+
+- **Protect identities and secrets**: Phishing-resistant MFA, managed identities, and centralized secrets management
+- **Protect tenants and isolate systems**: Strong tenant isolation and configuration governance
+- **Protect networks**: Granular network segmentation and identity-aware connectivity
+- **Protect engineering systems**: Secure software development lifecycle and supply chain protection
+- **Monitor and detect threats**: Unified telemetry and threat analytics
+- **Accelerate response and remediation**: Automated incident response and continuous learning
+
+For guidance on adopting SFI best practices in your organization, see [Adopt Secure Future Initiative best practices](/security/zero-trust/sfi/secure-future-initiative-adoption).

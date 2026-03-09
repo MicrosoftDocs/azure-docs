@@ -4,7 +4,7 @@ description: Learn how to deploy Azure IoT Operations observability resources, c
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
-ms.date: 11/20/2025
+ms.date: 01/27/2026
 
 # CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data on the health of my industrial assets and edge environment.
 ---
@@ -97,62 +97,56 @@ Define and deploy an [OpenTelemetry (OTel) Collector](https://opentelemetry.io/d
    fullnameOverride: aio-otel-collector
    image:
      repository: otel/opentelemetry-collector
-     tag: 0.107.0
+     tag: 0.143.0
+
    config:
      processors:
        memory_limiter:
          limit_percentage: 80
          spike_limit_percentage: 10
-         check_interval: '60s'
+         check_interval: 60s
+
      receivers:
-       jaeger: null
-       prometheus: null
-       zipkin: null
        otlp:
          protocols:
            grpc:
-             endpoint: ':4317'
+             endpoint: ":4317"
            http:
-             endpoint: ':4318'
+             endpoint: ":4318"
+
      exporters:
        prometheus:
-         endpoint: ':8889'
+         endpoint: ":8889"
          resource_to_telemetry_conversion:
            enabled: true
          add_metric_suffixes: false
+
      service:
        extensions:
          - health_check
+
+       telemetry:
+         metrics:
+           level: none
+
        pipelines:
          metrics:
            receivers:
              - otlp
            exporters:
              - prometheus
-         logs: null
-         traces: null
-       telemetry: null
-     extensions:
-       memory_ballast:
-         size_mib: 0
+
    resources:
      limits:
-       cpu: '100m'
-       memory: '512Mi'
+       cpu: "100m"
+       memory: "512Mi"
+
    ports:
      metrics:
        enabled: true
        containerPort: 8889
        servicePort: 8889
-       protocol: 'TCP'
-     jaeger-compact:
-       enabled: false
-     jaeger-grpc:
-       enabled: false
-     jaeger-thrift:
-       enabled: false
-     zipkin:
-       enabled: false
+       protocol: TCP
    ```
 
 1. In the `otel-collector-values.yaml` file, make a note of the following values that you use in the `az iot ops create` command when you deploy Azure IoT Operations on the cluster:
@@ -248,11 +242,11 @@ az iot ops upgrade --resource-group <rg name> -n <instance name> --ops-config ob
 
 ## Deploy dashboards to Grafana
 
-Azure IoT Operations provides a [sample dashboard](https://github.com/Azure/azure-iot-operations/tree/main/samples/grafana-dashboard) designed to give you many of the visualizations you need to understand the health and performance of your Azure IoT Operations deployment.
+Azure IoT Operations provides a [sample dashboard](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/observability), designed to give you many of the visualizations you need to understand the health and performance of your Azure IoT Operations deployment.
 
 Complete the following steps to install the Azure IoT Operations curated Grafana dashboards:
 
-1. Clone or download the **azure-iot-operations** repository to get the sample Grafana Dashboard json file locally: [https://github.com/Azure/azure-iot-operations](https://github.com/Azure/azure-iot-operations).
+1. Clone or download the **explore-iot-operations** repository to get the sample Grafana Dashboard json file locally: [https://github.com/Azure-Samples/explore-iot-operations](https://github.com/Azure-Samples/explore-iot-operations).
 1. Sign in to the Grafana console. You can access the console through the Azure portal or use the `az grafana show` command to retrieve the URL.
 
    ```azurecli
@@ -261,9 +255,12 @@ Complete the following steps to install the Azure IoT Operations curated Grafana
 
 1. On the Grafana landing page, select the **Create your first dashboard** tile.
 1. Select **Import Dashboard**.
-1. Browse to the sample dashboard directory in your local copy of the Azure IoT Operations repository, **azure-iot-operations > samples > grafana-dashboard**, then select the  **aio.sample.json** dashboard file.
+1. Browse to the sample dashboard directory in your local copy of the Azure IoT Operations repository, **explore-iot-operations > samples > observability > grafana-dashboard**, then select the  **aio-observability.json** dashboard file.
 1. When the application prompts, select your managed Prometheus data source.
 1. Select **Import**.
+
+> [!NOTE]
+> In the **aio-observability.json** file, make sure to configure both the Prometheus and Azure Monitor datasources, and set the `subscriptionId` variable to your Azure subscription ID, for log queries.
 
 ## Next steps
 

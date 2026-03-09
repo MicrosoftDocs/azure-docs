@@ -109,9 +109,6 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
 ## Related content
 
 - [Create an open-source Redis cache](quickstart-create-redis.md)
-- [Use Azure Cache for Redis in an ASP.NET web app](../redis/web-app-cache-howto.md)
-- [Use Azure Cache for Redis in .NET Core](../redis/dotnet-core-quickstart.md)
-- [Use Azure Cache for Redis in .NET Framework](../redis/dotnet-how-to-use-azure-redis-cache.md)
 - [Use Azure Cache for Redis in Node.js](../redis/nodejs-get-started.md)
 - [Use Azure Cache for Redis in Java](../redis/java-get-started.md)
 - [Use Azure Cache for Redis in Python](../redis/python-get-started.md)

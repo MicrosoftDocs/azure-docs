@@ -51,7 +51,7 @@ You can use the following example values when creating this configuration, or yo
 |Name | Value |
 | --- | --- |
 | **Name** | **VNet1-bastion** |
-| **Tier/SKU** | **Premium** |
+| **SKU** | **Premium** |
 | **Instance count (host scaling)**| **2** or greater |
 | **Assignment**  | **Static** |
 
@@ -66,7 +66,7 @@ This section helps you deploy Bastion as private-only to your virtual network.
 
 1. Create the subnet to which your Bastion resources will be deployed. In the left pane, select **Subnets  -> +Subnet** to add the *AzureBastionSubnet*.
 
-   * The subnet must be **/26** or larger (for example, **/26**, **/25**, or **/24**) to accommodate features available with the Premium SKU Tier.
+   * The subnet must be **/26** or larger (for example, **/26**, **/25**, or **/24**) to accommodate features available with the Premium SKU.
    * The subnet must be named **AzureBastionSubnet**.
 
 1. Select **Save** at the bottom of the pane to save your values.

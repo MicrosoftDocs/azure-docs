@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2025
+ms.date: 02/23/2026
 ms.custom: generated
 ---
 
@@ -119,6 +119,10 @@ Azure service: [Azure Local](/azure-stack/hci/)
 > | Microsoft.AzureStackHCI/GalleryImages/Write | Creates/Updates gallery images resource |
 > | Microsoft.AzureStackHCI/GalleryImages/Read | Gets/Lists gallery images resource |
 > | Microsoft.AzureStackHCI/GalleryImages/deploy/action | Deploys gallery images resource |
+> | Microsoft.AzureStackHCI/loadBalancers/Write | Creates/Updates loadBalancers resource |
+> | Microsoft.AzureStackHCI/loadBalancers/Read | Gets/Lists loadBalancers resource |
+> | Microsoft.AzureStackHCI/loadBalancers/Delete | Delete loadBalancers resource |
+> | Microsoft.AzureStackHCI/Locations/ValidateOwnershipVouchers/Action | Validates ownership vouchers for Azure Stack HCI resources |
 > | Microsoft.AzureStackHCI/LogicalNetworks/Delete | Deletes logical networks resource |
 > | Microsoft.AzureStackHCI/LogicalNetworks/Write | Creates/Updates logical networks resource |
 > | Microsoft.AzureStackHCI/LogicalNetworks/Read | Gets/Lists logical networks resource |
@@ -127,6 +131,11 @@ Azure service: [Azure Local](/azure-stack/hci/)
 > | Microsoft.AzureStackHCI/MarketPlaceGalleryImages/Write | Creates/Updates market place gallery images resource |
 > | Microsoft.AzureStackHCI/MarketPlaceGalleryImages/Read | Gets/Lists market place gallery images resource |
 > | Microsoft.AzureStackHCI/MarketPlaceGalleryImages/deploy/action | Deploys market place gallery images resource |
+> | Microsoft.AzureStackHCI/natGateways/Write | Creates/Updates natGateways resource |
+> | Microsoft.AzureStackHCI/natGateways/Read | Gets/Lists natGateways resource |
+> | Microsoft.AzureStackHCI/natGateways/Delete | Delete natGateways resource |
+> | Microsoft.AzureStackHCI/natGateways/join/action | Joins natGateway resource |
+> | Microsoft.AzureStackHCI/NetworkInterfaces/join/action | Joins the network interfaces resource |
 > | Microsoft.AzureStackHCI/NetworkInterfaces/Delete | Deletes network interfaces resource |
 > | Microsoft.AzureStackHCI/NetworkInterfaces/Write | Creates/Updates network interfaces resource |
 > | Microsoft.AzureStackHCI/NetworkInterfaces/Read | Gets/Lists network interfaces resource |
@@ -138,11 +147,20 @@ Azure service: [Azure Local](/azure-stack/hci/)
 > | Microsoft.AzureStackHCI/NetworkSecurityGroups/SecurityRules/Write | Creates/Updates security rule resource |
 > | Microsoft.AzureStackHCI/NetworkSecurityGroups/SecurityRules/Read | Gets/Lists security rule resource |
 > | Microsoft.AzureStackHCI/Operations/Read | Gets operations |
+> | Microsoft.AzureStackHCI/publicIPAddresses/Write | Creates/Updates publicIPAddresses resource |
+> | Microsoft.AzureStackHCI/publicIPAddresses/Read | Gets/Lists publicIPAddresses resource |
+> | Microsoft.AzureStackHCI/publicIPAddresses/Delete | Delete publicIPAddresses resource |
+> | Microsoft.AzureStackHCI/publicIPAddresses/join/action | Joins publicIPAddresses resource |
 > | Microsoft.AzureStackHCI/RegisteredSubscriptions/read | Reads registered subscriptions |
+> | Microsoft.AzureStackHCI/Snapshots/join/action | Joins snapshot resource |
+> | Microsoft.AzureStackHCI/Snapshots/Delete | Deletes snapshot resource |
+> | Microsoft.AzureStackHCI/Snapshots/Write | Creates/Updates snapshot resource |
+> | Microsoft.AzureStackHCI/Snapshots/Read | Gets/Lists snapshot resource |
 > | Microsoft.AzureStackHCI/StorageContainers/Delete | Deletes storage containers resource |
 > | Microsoft.AzureStackHCI/StorageContainers/Write | Creates/Updates storage containers resource |
 > | Microsoft.AzureStackHCI/StorageContainers/Read | Gets/Lists storage containers resource |
 > | Microsoft.AzureStackHCI/StorageContainers/deploy/action | Deploys storage containers resource |
+> | Microsoft.AzureStackHCI/VirtualHardDisks/join/action | Joins virtual hard disk resource |
 > | Microsoft.AzureStackHCI/VirtualHardDisks/Delete | Deletes virtual hard disk resource |
 > | Microsoft.AzureStackHCI/VirtualHardDisks/Write | Creates/Updates virtual hard disk resource |
 > | Microsoft.AzureStackHCI/VirtualHardDisks/Read | Gets/Lists virtual hard disk resource |
@@ -171,6 +189,9 @@ Azure service: [Azure Local](/azure-stack/hci/)
 > | Microsoft.AzureStackHCI/VirtualNetworks/Write | Creates/Updates virtual networks resource |
 > | Microsoft.AzureStackHCI/VirtualNetworks/Read | Gets/Lists virtual networks resource |
 > | Microsoft.AzureStackHCI/VirtualNetworks/join/action | Joins virtual networks resource |
+> | Microsoft.AzureStackHCI/virtualNetworks/subnets/Write | Creates/Updates subnet resource |
+> | Microsoft.AzureStackHCI/virtualNetworks/subnets/Read | Gets/List subnet resource |
+> | Microsoft.AzureStackHCI/virtualNetworks/subnets/Delete | Deletes subnet resource |
 > | **DataAction** | **Description** |
 > | Microsoft.AzureStackHCI/Clusters/WACloginAsAdmin/Action | Manage OS of Azure Local resource via Windows Admin Center as an administrator |
 > | Microsoft.AzureStackHCI/VirtualMachineInstances/WACloginAsAdmin/Action | Manage ARC enabled VM resources on HCI via Windows Admin Center as an administrator |
@@ -282,9 +303,10 @@ Azure service: Microsoft.HybridConnectivity
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
-> | Microsoft.HybridConnectivity/generateAwsTemplate/action | Retrieve AWS Cloud Formation template |
 > | Microsoft.HybridConnectivity/register/action | Register the subscription for Microsoft.HybridConnectivity |
 > | Microsoft.HybridConnectivity/unregister/action | Unregister the subscription for Microsoft.HybridConnectivity |
+> | Microsoft.HybridConnectivity/generateAwsTemplate/action | Retrieve AWS Cloud Formation template |
+> | Microsoft.HybridConnectivity/generateGcpTemplate/action | Retrieve GCP Access Configuration Script |
 > | Microsoft.HybridConnectivity/endpoints/read | Get or list of endpoints to the target resource. |
 > | Microsoft.HybridConnectivity/endpoints/write | Create or update the endpoint to the target resource. |
 > | Microsoft.HybridConnectivity/endpoints/delete | Deletes the endpoint access to the target resource. |

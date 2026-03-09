@@ -2,7 +2,7 @@
 title: Zip push deployment for Azure Functions 
 description: Use the .zip file deployment facilities of the Kudu deployment service to publish your Azure Functions.
 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/06/2025
 ms.custom:
   - devx-track-azurecli
@@ -25,10 +25,10 @@ To speed up development, you might find it easier to deploy your function app pr
 - Deployment logs.
 - Syncing function triggers in a [Consumption plan](functions-scale.md) function app.
 
-For more information, see the [.zip deployment reference](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
+For more information, see the [.zip deployment reference](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
 >[!IMPORTANT]
-> When you use .zip deployment, any files from an existing deployment that aren't found in the .zip file are deleted from your function app.  
+> When you use .zip deployment, any files from the previous deployment are either deleted or updated during a subsequent deployment to your function app. Other files and directories in your function app that weren't part of the previous deployment are maintained.
 
 ## Deployment .zip file requirements
 
@@ -146,5 +146,3 @@ You can also download a .zip file from a GitHub repository. When you download a 
 
 > [!div class="nextstepaction"]
 > [Run your functions from a package file in Azure](run-functions-from-deployment-package.md)
-
-[.zip push deployment reference topic]: https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file

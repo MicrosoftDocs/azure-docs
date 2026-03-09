@@ -98,7 +98,7 @@ When you configure public IP address prefixes to advertise over BGP, Microsoft v
     ```bash
     # Generate a private key using openssl:
 
-    openssl.exe genpkey -algorithm rsa -out privkey.pem -pkeyopt rsa_keygen_bits:4096
+    openssl genpkey -algorithm rsa -out privkey.pem -pkeyopt rsa_keygen_bits:4096
 
     # Generate the corresponding public key:
 

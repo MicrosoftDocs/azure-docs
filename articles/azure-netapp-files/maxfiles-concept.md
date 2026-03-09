@@ -5,13 +5,15 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 10/13/2025
+ms.date: 01/27/2025
 ms.author: anfdocs
 # Customer intent: "As a cloud storage administrator, I want to understand the `maxfiles` limits for Azure NetApp Files, so that I can effectively manage volume capacity and avoid 'out of space' errors when creating new files."
 ---
 # Understand `maxfiles` limits in Azure NetApp Files
 
 Azure NetApp Files volumes have a value called `maxfiles` that refers to the maximum number of files and folders (also known as inodes) a volume can contain. The `maxfiles` limit for an Azure NetApp Files volume is based on the size (quota) of the volume. The service dynamically adjusts the `maxfiles` limit for a volume based on its provisioned size and uses the following guidelines.
+
+## `maxfiles` limits for the Flexible, Premium, Standard, and Ultra service levels
 
 - For regular volumes less than or equal to 683 GiB, the default `maxfiles` limit is 21,251,126.
 - For regular volumes greater than 683 GiB, the default `maxfiles` limit is approximately one file (or inode) per 32 KiB of allocated volume capacity up to a maximum of 2,147,483,632.
@@ -48,6 +50,24 @@ To see the `maxfiles` allocation for a specific volume size, check the **Maximum
 
 >[!NOTE]
 >The maximum number of files metric is reported against the `maxfiles` account quota limit. The metric in Azure Monitor might reflect fewer files than metrics provided by the operating system mounting the volume. This behavior is expected. 
+
+
+## `maxfiles` limits for Elastic zone-redundant storage 
+
+
+There is a default maximum number of inodes per volume based on the volume size. Every inode requires 32KB of space 
+
+
+| Volume size | Estimated `maxfiles` limit |
+| - | - |
+| 100 GiB | 3,100,000 | 
+| 500 GiB | 15,500,000 | 
+| 1 TiB | 31,800,000 | 
+| 5 TiB | 159,300,000 | 
+| 10 TiB | 318,700,000 | 
+
+
+## Out of space errors
 
 When the `maxfiles` limit is reached, clients receive "out of space" messages when attempting to create new files or folders. Adjusting your quota based on this information can create greater inode availability. 
 

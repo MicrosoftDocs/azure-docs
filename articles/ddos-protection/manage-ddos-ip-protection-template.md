@@ -7,7 +7,7 @@ ms.service: azure-ddos-protection
 ms.topic: quickstart
 ms.custom: mode-arm, devx-track-arm-template
 ms.author: abell
-ms.date: 03/17/2025
+ms.date: 03/05/2026
 # Customer intent: As a network administrator, I want to deploy a DDoS IP Protection using an ARM template, so that I can safeguard my public IP addresses against distributed denial-of-service attacks.
 ---
 

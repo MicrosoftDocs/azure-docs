@@ -4,7 +4,7 @@ description: Learn how to create a resource for LambdaTest using the Azure porta
 author: ProfessorKendrick
 ms.author: kkendrick
 ms.topic: quickstart
-ms.date: 10/29/2024
+ms.date: 02/10/2026
 ms.custom:
   - build-2025
 ---
@@ -15,6 +15,7 @@ This quickstart shows you how to create a LambdaTest - HyperExecute resource usi
 ## Prerequisites
 
 [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
+
 - You must [Subscribe to LambdaTest - HyperExecute](overview.md#subscribe-to-lambdatest---hyperexecute)
 
 ## Create a resource

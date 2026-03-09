@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions for Azure Container Storage
+title: Frequently asked questions about Azure Container Storage
 description: Get answers to Azure Container Storage frequently asked questions (FAQ).
 author: khdownie
 ms.service: azure-container-storage
@@ -18,7 +18,106 @@ Azure Container Storage is a cloud-based volume management, deployment, and orch
 
 * <a id="azure-container-storage-versions"></a>
   **What's the difference between Azure Container Storage version 2.x.x and version 1.x.x?**
-  Azure Container Storage (version 2.x.x) features a lighter weight, on-demand installation and optimized resource utilization. However, version 2.x.x currently only supports Ephemeral Disk (Local NVMe) as backing storage, whereas version 1.x.x supports Azure Disks, Ephemeral Disk, and Azure Elastic SAN.
+  Azure Container Storage (version 2.x.x) features a lighter weight, on-demand installation, and optimized resource utilization. However, version 2.x.x currently supports local NVMe and Azure Elastic SAN as backing storage, whereas version 1.x.x supports Azure Disks, Ephemeral Disk (local NVMe and temp SSD), and Azure Elastic SAN.
+
+* <a id="azure-container-storage-applicability"></a>
+  **What changes between Azure Container Storage versions 2.0.x and 2.1.x+?**
+  If you use Azure Container Storage version 2.0.x and disable autoupgrade, use this table to understand what gets installed on your AKS cluster.
+
+  | Azure Container Storage version | Storage types supported | Installer present | Driver installation trigger |
+  |---|---|---|---|
+  | 2.0.x | Local NVMe | No | Installed during `--enable-azure-container-storage` |
+  | 2.1.x and later | Local NVMe and Elastic SAN | Yes | Via storage type selection during enable or by creating a storage class (installer-only flow) |
+
+* <a id="azure-container-storage-install-models"></a>
+  **What installation models are available in version 2.1.x and later?**
+  Azure Container Storage supports two installation flows.
+
+  **Installer-only (choose storage later)**  
+  Use this option when you want Azure Container Storage installed but plan to decide the storage backend later.
+
+  ```azurecli-interactive
+  az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-storage
+  ```
+
+  **Behavior:**
+  - Installs only the installer.
+  - No storage-specific driver or node agent is installed initially.
+  - Creating a storage class later triggers the correct CSI driver installation.
+
+  **Installer + storage type(s)**  
+  Use this option when you know the backend(s) required.
+
+  ```azurecli
+  az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-storage <storage-types>
+  ```
+
+  Example:
+
+  ```azurecli
+  az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-storage ephemeralDisk,elasticSan
+  ```
+
+  **Behavior:**
+  - Installs the installer plus the selected CSI driver(s).
+  - Creates default storage class objects if none exists.
+  - Supports comma-separated storage types.
+
+  Supported storage types for version 2.1.0 and later: `ephemeralDisk` (local NVMe) and `elasticSan` (Azure Elastic SAN).
+
+* <a id="azure-container-storage-install-models-terraform"></a>
+  **How do installation models work with Terraform?**
+  The extension configuration supports the same flows as Azure CLI:
+
+  - **Installer-only (choose storage later):** Set `enable-azure-container-storage` to `true`. Create a storage class later to trigger driver installation.
+  - **Installer + storage type(s):** Set `enable-azure-container-storage` to a storage type value such as `ephemeralDisk`, `elasticSan`, or a comma-separated list like `ephemeralDisk,elasticSan`. This installs the installer and the selected CSI drivers.
+
+  Supported storage types for version 2.1.0 and later: `ephemeralDisk` (local NVMe) and `elasticSan` (Azure Elastic SAN).
+
+* <a id="azure-container-storage-components"></a>
+  **What components are installed in installer-only mode?**
+  Installer-only mode creates the installer and telemetry deployments in the `kube-system` namespace, but doesn't install any CSI drivers or node agents until you enable a storage type or create a storage class.
+
+  | Component | Resource type | Name | Description |
+  |---|---|---|---|
+  | Installer | Deployment | acstor-cluster-manager | Core controller that watches storage class objects and orchestrates CSI driver lifecycle |
+  | Telemetry | Deployment | acstor-geneva | Internal monitoring and telemetry containers |
+
+* <a id="azure-container-storage-driver-install"></a>
+  **When are CSI drivers installed?**
+  If you enable a storage type during installation, the driver installs immediately and default storage class objects are created if missing. If you choose installer-only, the driver installs when you create a storage class (or if a storage class already exists).
+
+* <a id="azure-container-storage-driver-components"></a>
+  **What gets installed when a CSI driver is enabled?**
+  When you enable a storage type or create a storage class, Azure Container Storage installs the storage-specific CSI driver plus supporting components.
+
+  | Component | Resource type | Name | Description |
+  |---|---|---|---|
+  | CSI driver | HelmRelease | acstor-local-csi-driver or acstor-azuresan-csi-driver | The storage-specific CSI driver |
+  | Node agent | DaemonSet | acstor-node-agent | Runs on storage nodes for metrics collection |
+  | OpenTelemetry (OTel) collector | DaemonSet | acstor-otel-collector | Collects logs and metrics from nodes |
+
+* <a id="azure-container-storage-driver-resources"></a>
+  **What Kubernetes resources do the Elastic SAN and local NVMe CSI drivers create?**
+
+  Elastic SAN CSI driver:
+
+  | Resource | Name | Purpose |
+  |---|---|---|
+  | DaemonSet | azuresan-csi-driver | Runs CSI pods on each node |
+
+  Local NVMe CSI driver:
+
+  | Resource | Name | Purpose |
+  |---|---|---|
+  | DaemonSet | csi-local-node | Runs CSI driver pods on each node |
+  | Deployment | csi-local-manager | Webhook and PV cleanup controller |
+
+  The `csi-local-manager` deployment prefers the system node pool.
+
+* <a id="azure-container-storage-node-scheduling"></a>
+  **How are Azure Container Storage components scheduled?**
+  CSI drivers run according to storage class affinity. The node agent runs wherever a driver is present, and the installer prefers system node pools.
 
 * <a id="azure-container-storage-vs-csi-drivers"></a>
   **What's the difference between Azure Container Storage and Azure CSI (Container Storage Interface) drivers?**  
@@ -32,7 +131,7 @@ Azure Container Storage is a cloud-based volume management, deployment, and orch
   **If I already have Azure Container Storage preview installed on my AKS cluster, how can I update to the latest GA version?**  
   If you have autoupgrade turned on, Azure Container Storage updates to the latest version automatically. If you don't have autoupgrade turned on, we recommend updating to the latest generally available (GA) version by running the following command. Remember to replace `<cluster-name>` and `<resource-group>` with your own values.
 
-  ```azurecli-interactive
+  ```azurecli
   az k8s-extension update --cluster-type managedClusters --cluster-name <cluster-name> --resource-group <resource-group> --name azurecontainerstorage --version 1.1.0 --auto-upgrade false --release-train stable
   ```
 
@@ -50,7 +149,7 @@ Azure Container Storage is a cloud-based volume management, deployment, and orch
 
 * <a id="azure-container-storage-rwx"></a>
   **Does Azure Container Storage support read-write-many (RWX) workloads?**  
-  Azure Container Storage doesn't support RWX workloads. However, Azure's first-party Files and Blob CSI drivers are great alternatives and fully supported.
+  Azure Container Storage doesn't support read-write-many (RWX) workloads. However, Azure's first-party Files and Blob CSI drivers are great alternatives and fully supported.
 
 * <a id="azure-container-storage-remove"></a>
   **How do I remove Azure Container Storage?**  
@@ -94,7 +193,7 @@ Azure Container Storage is a cloud-based volume management, deployment, and orch
 * <a id="azure-container-storage-sla"></a>
   **Is there a service-level agreement (SLA) for Azure Container Storage?**
 
-  Azure Container Storage is an orchestration solution of underlying storage options including Ephemeral Disks, Azure Elastic SAN, and Azure Disks. Azure Container Storage doesn't provide an SLA. However an SLA is offered for each storage option. See [Microsoft Service Level Agreements for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+  Azure Container Storage is an orchestration solution of underlying storage options including Ephemeral Disks, Azure Elastic SAN, and Azure Disks. Azure Container Storage doesn't provide a service-level agreement (SLA). However an SLA is offered for each storage option. See [Microsoft Service Level Agreements for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 ## See also
 

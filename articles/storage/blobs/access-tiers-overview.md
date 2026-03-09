@@ -90,7 +90,7 @@ Only storage accounts that are configured for LRS, GRS, or RA-GRS support moving
 
 To change the redundancy configuration for a storage account that contains blobs in the archive tier, you must first rehydrate all archived blobs to the hot, cool, or cold tier. Because rehydration operations can be costly and time-consuming, Microsoft recommends that you avoid changing the redundancy configuration of a storage account that contains archived blobs.
 
-Migrating a storage account from LRS to GRS is supported as long as no blobs were moved to the archive tier while the account was configured for LRS. An account can be moved back to GRS if the update is performed less than 14 days from the time the account became LRS, and no blobs were moved to the archive tier while the account was set to LRS.
+Migrating a storage account from LRS to GRS is supported as long as no blobs were moved to the archive tier while the account was configured for LRS. 
 
 ## Default account access tier setting
 
@@ -136,7 +136,7 @@ You can't rehydrate an archived blob to an online tier by using lifecycle manage
 
 ## Storage Actions
 
-While lifecycle management helps you move data between tiers in a single account, you can use a _storage task_ to accomplish this task at scale across multiple accounts. A storage task is a resource available in _Azure Storage Actions_; a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. To learn more, see [What is Azure Storage Actions?](../../storage-actions/overview.md).
+While lifecycle management helps you move data between tiers in a single account, you can use a _storage task_ to accomplish this task at scale across multiple accounts. A storage task is a resource available in _Azure Storage Actions_; a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. To learn more, see [What is Azure Storage Actions?](../../storage-actions/overview.md)
 
 ## Summary of access tier options
 

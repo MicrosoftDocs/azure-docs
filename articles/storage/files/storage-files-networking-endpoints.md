@@ -12,6 +12,10 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Configure network endpoints for accessing Azure file shares
 
+:heavy_check_mark: **Applies to:** Classic file shares created with the Microsoft.Storage resource provider
+
+:heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider (preview)
+
 Azure Files provides two main types of endpoints for accessing Azure file shares:
 
 - Public endpoints, which have a public IP address and can be accessed from anywhere in the world.
@@ -22,14 +26,6 @@ Public and private endpoints exist on the Azure storage account. A storage accou
 This article focuses on how to configure a storage account's endpoints for accessing the Azure file share directly. Much of this article also applies to how Azure File Sync interoperates with public and private endpoints for the storage account. For more information about networking considerations for Azure File Sync, see [configuring Azure File Sync proxy and firewall settings](../file-sync/file-sync-firewall-and-proxy.md).
 
 We recommend reading [Azure Files networking considerations](storage-files-networking-overview.md) before reading this guide.
-
-## Applies to
-
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
 ## Prerequisites
 

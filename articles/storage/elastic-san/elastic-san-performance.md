@@ -1,23 +1,23 @@
 ---
 title: Learn about Azure Elastic SAN and VM performance
-description: Learn how your workload's performance is handled by Azure Elastic SAN and Azure Virtual Machines.
+description: Learn how your workload's performance is handled by Azure Elastic SAN and Azure Virtual Machines. Understand IOPS, throughput allocation, and throttling scenarios.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.custom:
   - ignite-2023-elastic-SAN
 ms.topic: concept-article
-ms.date: 05/31/2024
+ms.date: 01/08/2026
 ms.author: rogarana
 # Customer intent: As a cloud architect, I want to understand how Azure Elastic SAN performance metrics interact with virtual machine limits, so that I can optimize workload performance and prevent throttling during peak usage.
 ---
 
-# How performance works when virtual machines are connected to Elastic SAN volumes
+# How performance works when VMs connect to Elastic SAN volumes
 
-This article clarifies how Elastic SAN performance works, and how the combination of Elastic SAN limits and Azure Virtual Machines (VM) limits can affect the performance of your workloads.
+This article explains how Elastic SAN performance works, and how the combination of Elastic SAN limits and Azure Virtual Machines (VM) limits can affect the performance of your workloads.
 
-## How performance works
+## Elastic SAN and VM performance allocation
 
-Azure VMs have input/output operations per second (IOPS) and throughput performance limits based on the [type and size of the VM](/azure/virtual-machines/sizes). An Elastic SAN has a pool of performance that it allocates to each of its volumes. Elastic SAN volumes can be attached to VMs and each volume has its own IOPS and throughput limits.
+Azure VMs have input/output operations per second (IOPS) and throughput performance limits based on the [type and size of the VM](/azure/virtual-machines/sizes). An Elastic SAN has a pool of performance that it allocates to each of its volumes. You can attach Elastic SAN volumes to VMs, and each volume has its own IOPS and throughput limits.
 
 Your application's performance gets throttled when it requests more IOPS or throughput than what is allotted for the VM or attached volumes. When throttled, the application has suboptimal performance, and can experience negative consequences like increased latency. One of the main benefits of an Elastic SAN is its ability to provision IOPS automatically, based on demand. Your SAN's IOPS are shared amongst all its volumes, so when a workload peaks, it can be handled without throttling or extra cost. This article shows how this provisioning works.
 
@@ -27,15 +27,15 @@ An Elastic SAN has three attributes that determine its performance: total capaci
 
 ### Capacity
 
-The total capacity of your Elastic SAN is determined by two different capacities, the base capacity and the additional capacity. Increasing the base capacity also increases the SAN's IOPS and throughput but is more costly than increasing the additional capacity. Increasing additional capacity doesn't increase IOPS or throughput.
+The total capacity of your Elastic SAN is determined by two different capacities: the base capacity and the additional capacity. Increasing the base capacity also increases the SAN's IOPS and throughput but costs more than increasing the additional capacity. Increasing the additional capacity doesn't increase IOPS or throughput.
 
 ### IOPS
 
-The IOPS of an Elastic SAN increases by 5,000 per base TiB. So if you had an Elastic SAN that has 6 TiB of base capacity, that SAN could still provide up to 30,000 IOPS. That same SAN would still provide 30,000 IOPS whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The IOPS of an Elastic SAN are distributed among all its volumes.
+The IOPS of an Elastic SAN increases by 5,000 per base TiB. So if you had an Elastic SAN that has 6 TiB of base capacity, that SAN could provide up to 30,000 IOPS. That same SAN provides 30,000 IOPS whether it has 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The IOPS of an Elastic SAN are distributed among all its volumes.
 
 ### Throughput
 
-The throughput of an Elastic SAN increases by 200 MB/s per base TiB. So if you had an Elastic SAN that has 6 TiB of base capacity, that SAN could still provide up to 1200 MB/s. That same SAN would provide 1200-MB/s throughput whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an Elastic SAN is distributed among all its volumes.
+The throughput of an Elastic SAN increases by 200 MB/s per base TiB. So if you had an Elastic SAN that has 6 TiB of base capacity, that SAN could provide up to 1,200 MB/s. That same SAN provides 1,200-MB/s throughput whether it has 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an Elastic SAN is distributed among all its volumes.
 
 ### Elastic SAN volumes
 
@@ -43,7 +43,7 @@ The performance of an individual volume is determined by its capacity. The maxim
 
 ## Example configuration
 
-Each of the example scenarios in this article uses the following configuration for the Elastic SAN:
+Each example scenario in this article uses the following configuration for the Elastic SAN:
 
 
 |Resource  |Capacity  |IOPS  |
@@ -57,7 +57,7 @@ Each of the example scenarios in this article uses the following configuration f
 
 ## Example scenarios
 
-The following example scenarios depict how your Elastic SAN handles performance allocation. For best performance, both the VMs and the SAN need to be in the same zone.
+The following example scenarios show how your Elastic SAN handles performance allocation. For the best performance, both the VMs and the SAN need to be in the same zone.
 
 ### Typical workload
 
@@ -68,7 +68,7 @@ The following example scenarios depict how your Elastic SAN handles performance 
 |Workload 2     |8,000         |8,000         |
 |Workload 3     |20,000         |20,000         |
 
-In this scenario, no throttling occurs at either the VM or SAN level. The SAN itself has 135,000 IOPS, each volume is large enough to serve up to 80,000 IOPS, enough IOPS are available from the SAN, none of the VM's IOPS limits have been surpassed, and the total IOPS requested is 41,000. So the workloads all execute without any throttling.
+In this scenario, no throttling occurs at either the VM or SAN level. The SAN itself has 135,000 IOPS, each volume is large enough to serve up to 80,000 IOPS, enough IOPS are available from the SAN, none of the VMs IOPS limits are surpassed, and the total IOPS requested is 41,000. So the workloads all execute without any throttling.
 
 :::image type="content" source="media/elastic-san-performance/typical-workload.png" alt-text="Average scenario example diagram." lightbox="media/elastic-san-performance/typical-workload.png":::
 
@@ -82,9 +82,9 @@ In this scenario, no throttling occurs at either the VM or SAN level. The SAN it
 |Workload 2     |10,000         |10,000         |N/A         |
 |Workload 3     |80,000         |80,000         |9:00 am         |
 
-In this scenario, no throttling occurs. Workload 3 spiked at 9am, requesting 80,000 IOPS. None of the other workloads spiked and the SAN had enough free IOPS to distribute to the workload, so there was no throttling. 
+In this scenario, no throttling occurs. Workload 3 spikes at 9 AM, requesting 80,000 IOPS. None of the other workloads spike and the SAN has enough free IOPS to distribute to the workload, so there's no throttling. 
 
-Generally, this is the ideal configuration for a SAN sharing workloads. It's best to have enough performance to handle the normal operations of workloads, and occasional peaks.
+Generally, this configuration is ideal for a SAN sharing workloads. It's best to have enough performance to handle the normal operations of workloads, and occasional peaks.
 
 :::image type="content" source="media/elastic-san-performance/one-workload-spike.png" alt-text="Single workload spike example diagram." lightbox="media/elastic-san-performance/one-workload-spike.png":::
 
@@ -99,9 +99,9 @@ Generally, this is the ideal configuration for a SAN sharing workloads. It's bes
 |Workload 3     |64,000         |64,000         |9:00 am         |
 
 
-It's important to know the behavior of a SAN in the worst case scenario, where each workload peaks at the same time.
+You should understand the behavior of a SAN in the worst case scenario, where each workload peaks at the same time.
 
-In this scenario, all the workloads hit their spike at almost the same time. At this point, the total IOPS required by all the workloads combined (64,000 + 45,000 + 40,000 + 5,000) is more than the IOPS provisioned at the SAN level (135,000). So the workloads are throttled. Throttling happens on a first-come, first-served basis, so whichever workloads request IOPS after the max capacity has been reached doesn't get more performance. In this case, workload 1 requested 40,000 IOPS after the other workloads, the SAN had already allocated most of its available IOPS, so only the remaining IOPS was provided.
+In this scenario, all the workloads spike at almost the same time. At this point, the total IOPS required by all the workloads combined (64,000 + 45,000 + 40,000 + 5,000) is more than the IOPS provisioned at the SAN level (135,000). So, the system throttles the workloads. Throttling happens on a first-come, first-served basis, so whichever workloads request IOPS after the max capacity is reached doesn't get more performance. In this case, workload 1 requests 40,000 IOPS after the other workloads, the SAN already allocated most of its available IOPS, so it only provides the remaining IOPS.
 
 :::image type="content" source="media/elastic-san-performance/all-workload-spike.png" alt-text="All workloads spiking example diagram." lightbox="media/elastic-san-performance/all-workload-spike.png":::
 

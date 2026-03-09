@@ -3,7 +3,7 @@ title: Tutorial - Create a hierarchy of IoT Edge devices - Azure IoT Edge for Li
 description: This tutorial shows you how to create a hierarchical structure of IoT Edge for Linux on Windows devices.
 author: sethmanheim
 ms.author: sethm
-ms.date: 07/22/2025
+ms.date: 03/09/2026
 ms.topic: tutorial
 ms.service: azure-iot-edge
 ms.custom: devx-track-azurecli, linux-related-content
@@ -26,7 +26,7 @@ This tutorial shows you how to create a hierarchy of IoT Edge devices using IoT 
 > * Configure the IoT Edge runtime on the devices in your hierarchy.
 > * Install consistent certificates across your device hierarchy.
 > * Add workloads to the devices in your hierarchy.
-> * Use the [IoT Edge API Proxy module](https://mcr.microsoft.com/en-us/artifact/mar/azureiotedge-api-proxy/) to securely route HTTP traffic over a single port from your lower layer devices.
+> * Use the [IoT Edge API Proxy module](https://mcr.microsoft.com/artifact/mar/azureiotedge-api-proxy/) to securely route HTTP traffic over a single port from your lower layer devices.
 
 >[!TIP]
 >This tutorial includes a mixture of manual and automated steps to provide a showcase of nested IoT Edge features.
@@ -162,20 +162,20 @@ In addition to the provisioning of your devices, the configuration steps establi
 
 To configure the IoT Edge runtime, you need to apply the configuration bundles to your devices. The configurations differ between the *top layer device* and a *lower layer device*, so be mindful of the device configuration file you're applying to each device.
 
-Each device needs its corresponding configuration bundle. You can use a USB drive or [secure file copy](https://www.ssh.com/ssh/scp/) to move the configuration bundles to each device. You need to copy the configuration bundle to the Windows host OS of each EFLOW device and then copy it to the EFLOW VM. 
+Each device needs its corresponding configuration bundle. You can use a USB drive or [secure file copy](https://www.ssh.com/academy/ssh/scp) to move the configuration bundles to each device. You need to copy the configuration bundle to the Windows host OS of each EFLOW device and then copy it to the EFLOW VM. 
 
 > [!WARNING]
 > Be sure to send the correct configuration bundle to each device. 
 
 #### Top-layer device configuration
 
-1. Connect to your *top level* Windows host device and copy the **parent-1.tzg** file to the device.
+1. Connect to your *top level* Windows host device and copy the **parent-1.tgz** file to the device.
 
 1. Start an elevated *PowerShell* session using **Run as Administrator**.
 
-1.  Copy **parent-1.tzg** into the EFLOW VM.
+1.  Copy **parent-1.tgz** into the EFLOW VM.
     ```powershell
-    Copy-EflowVmFile -fromFile parent-1.tzg -toFile ~/ -pushFile
+    Copy-EflowVmFile -fromFile parent-1.tgz -toFile ~/ -pushFile
     ```
 
 1. Connect to your EFLOW virtual machine
@@ -234,14 +234,14 @@ If you want a closer look at what modifications are being made to your device's 
 
 #### Lower-layer device configuration
 
-1. Connect to your *lower level* Windows host device and copy the **child-1.tzg** file to the device.
+1. Connect to your *lower level* Windows host device and copy the **child-1.tgz** file to the device.
 
 1. Start an elevated *PowerShell* session using **Run as Administrator**.
 
-1.  Copy **child-1.tzg** into the EFLOW VM.
+1.  Copy **child-1.tgz** into the EFLOW VM.
 
     ```powershell
-    Copy-EflowVmFile -fromFile child-1.tzg -toFile ~/ -pushFile
+    Copy-EflowVmFile -fromFile child-1.tgz -toFile ~/ -pushFile
     ```
 
 1. Connect to your EFLOW virtual machine
@@ -280,7 +280,7 @@ If you want a closer look at what modifications are being made to your device's 
 1. Run the configuration and connectivity checks on your devices. For the **lower layer device**, the diagnostics image needs to be manually passed in the command:
 
     ```bash
-    sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:443/azureiotedge-diagnostics:1.2
+    sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:443/azureiotedge-diagnostics:1.5
     ```
 
 If you completed the earlier steps correctly, you can verify your devices are configured correctly. Once you're satisfied your configurations are correct on each device, you're ready to proceed.
@@ -346,7 +346,7 @@ You can run `iotedge check` in a nested hierarchy, even if the downstream device
 When you run `iotedge check` from the lower layer, the program tries to pull the image from the parent through port 443.
 
 ```bash
-sudo iotedge check --diagnostics-image-name $upstream:443/azureiotedge-diagnostics:1.2
+sudo iotedge check --diagnostics-image-name $upstream:443/azureiotedge-diagnostics:1.5
 ```
 
 The `azureiotedge-diagnostics` value is pulled from the container registry that's linked with the registry module. This tutorial sets it by default to https://mcr.microsoft.com:

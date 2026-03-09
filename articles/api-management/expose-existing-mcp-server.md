@@ -37,7 +37,7 @@ Learn more about:
     * Either no authorization, or authorization protocols that comply with the following standards: [https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#standards-compliance](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#standards-compliance).
     * Streamable HTTP or SSE transport types.
   
-* API Management currently supports MCP server tools, but it doesn't support MCP resources or prompts.
+* For external MCP servers, API Management currently supports MCP server tools and resources, but it doesn't support MCP prompts.
 * API Management currently doesn't support MCP server capabilities in [workspaces](workspaces-overview.md).
 
 ## Prerequisites

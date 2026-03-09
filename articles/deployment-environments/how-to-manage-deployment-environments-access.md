@@ -23,6 +23,9 @@ The following built-in roles are commonly used with Azure Deployment Environment
 | **Deployment Environments User** | Allows users to create, start, stop, and manage their own environments within a project. Intended for developers who need to provision and work with environments. |
 | **Deployment Environments Reader** | Read-only access to environment and project resources. Use this role to grant users or service principals visibility into environments without modification rights. |
 
+> [!NOTE]
+> To delegate administration of a dev center that hosts your Deployment Environments projects, you can use the DevCenter Owner role at the dev center scope. DevCenter Owner can manage Microsoft.DevCenter resources for that dev center and manage access to those resources by assigning or removing the DevCenter Project Admin and DevCenter Dev Box roles. For details about dev center permissions, see [Manage a dev center for Dev Box](../dev-box/how-to-manage-dev-center.md#assign-dev-center-permissions-to-users).
+
 You can create multiple projects that are associated with your dev center to align with each team's requirements. By using the built-in DevCenter Project Admin role, you can delegate project administration to a member of a team. DevCenter Project Admin users can configure project environment types to enable developers to create various types of environments. They can also apply settings to each environment type.
 
 ## Prerequisites

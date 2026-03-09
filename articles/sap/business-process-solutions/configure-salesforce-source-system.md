@@ -3,7 +3,7 @@ title: Configure Salesforce source system
 description: Learn how to configure Salesforce as a source system in Business Process Solutions, including prerequisites, creating a Salesforce connection, and setting up the source system.
 author: mohitmakhija1
 ms.service: sap-on-azure
-ms.subservice:
+ms.subservice: center-sap-solutions
 ms.topic: how-to
 ms.date: 11/07/2025
 ms.author: momakhij

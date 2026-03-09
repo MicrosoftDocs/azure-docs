@@ -1,86 +1,135 @@
 ---
-title: Azure SRE Agent Preview frequently asked questions
-description: Frequently asked questions in Azure SRE Agent.
+title: Azure SRE Agent Preview general FAQ
+description: General frequently asked questions about Azure SRE Agent service overview, pricing, and availability.
+#customer intent: As a Site Reliability Engineer, I want to understand what Azure SRE Agent is so that I can evaluate its relevance to my team's operations.
 author: craigshoemaker
 ms.author: cshoe
-ms.topic: concept-article
-ms.date: 10/13/2025
+ms.reviewer: cshoe
+ms.topic: faq
+ms.date: 02/06/2026
 ms.service: azure-sre-agent
+ms.custom: references_regions
 ---
 
-# Azure SRE Agent Preview frequently asked questions
+# Azure SRE Agent Preview general FAQ
 
-This article covers common problems that you might face when you're working with Azure SRE Agent, along with practical solutions to resolve them. The problems are typically related to permissions, regional availability, and administrative access requirements.
+This article answers general questions about Azure SRE Agent service overview, licensing, regional availability, and core capabilities.
 
-## Common troubleshooting scenarios
+## Service overview
 
-The following table outlines common problems and their solutions. For more information about how roles and permissions are applied to an agent, see [Security contexts in Azure SRE Agent](./access-management.md).
+### What is Azure SRE Agent?
 
-| Scenario | Reason | Remarks |
-|---|---|---|
-| The agent shows a permissions error in the chat and knowledge graph. | The agent is created with *Contributor* access, and an account with only *Reader* permissions attempts to interact with the agent. | Deny assignments, or Azure Policy blocks identity assignment to the agent resource group.  |
-| The location dropdown list is blank. | A non-US region policy blocks access to Sweden Central. | If your subscription or management group is limited to US-only deployments, the creation step fails. |
-| The **Create** button is unavailable. | The user account lacks administrative permissions. | Agent identity assignments fail if the user account lacks *Owner* or *User Access Administrator* permissions. |
+Azure SRE Agent is an AI-powered service that helps Site Reliability Engineers and operations teams investigate incidents, troubleshoot problems, and automate remediation tasks across Azure resources. The agent uses large language models to understand natural language queries and can take actions on your behalf.
 
-## Deployment not found
+### What can Azure SRE Agent do?
 
-There are few reasons why you might encounter an error that says the deployment isn't found. First, make sure that you're naming your agent correctly, and that you have the proper firewall rules in place:
+Azure SRE Agent can:
+- Investigate incidents across Azure resources.
+- Query logs and metrics from Azure Monitor and Application Insights.
+- Analyze error patterns and suggest solutions.
+- Create incident response plans.
+- Build custom subagents for specialized scenarios.
+- Connect to external services through integrations.
+- Take remediation actions when configured in privileged mode.
 
-* Ensure that the agent's name is unique across the subscription.
-* Check for geo-blocking or firewall rules that can prevent access to the agent endpoint.
+### How is Azure SRE Agent different from other AI assistants?
 
-If your naming and your network configuration are correct, use the following steps to resolve the agent "DeploymentNotFound" error.
+Azure SRE Agent is specifically designed for operations and reliability scenarios with:
+- Deep integration with Azure monitoring and observability tools.
+- Understanding of SRE methodologies and incident response patterns.
+- Ability to take actions on Azure resources (when authorized).
+- Context retention across investigation sessions.
+- Specialized knowledge of Azure services and common failure patterns.
 
-:::image type="content" source="media/troubleshoot/sre-agent-failure-notification.png" alt-text="Screenshot that shows a notification of provisioning failure in Azure SRE Agent.":::
+## Pricing and licensing
 
-1. Confirm that your user account has owner or admin permissions, along with permissions to create resources in the *Sweden Central*, *East US 2*, or *Australia East* regions (depending on your deployment).
+### How is Azure SRE Agent priced?
 
-1. Check whether the subscription is in the allow list for SRE Agent. Run the following command:
+For current pricing information, see [Azure SRE Agent pricing](billing.md).
 
-    ```azurecli
-    az provider show -n Microsoft.App | grep -C 15 agents
-    ```
+### Is there a free tier?
 
-    If your subscription is in the allow list, you get output similar to the following message.
+Azure SRE Agent is currently in preview. Pricing details for the general availability release will be announced before the preview period ends.
 
-    :::image type="content" source="media/troubleshoot/sre-agent-verify-access.png" alt-text="Screenshot of a console response that verifies user access to agents.":::
+### What costs are included?
 
-    Look specifically for `"resourcetype : agents"` and `"defaultApiVersion : 2025-05-01-preview"`.
+Pricing includes:
+- Agent compute and orchestration
+- Data storage (conversations, knowledge base)
+- AI model usage
+- Integration with Azure services
 
-    If running this command doesn't return the expected result, you need to register your subscription.
+Separate charges might apply for:
+- Azure Monitor logs and metrics consumption
+- Third-party integrations
+- Data egress charges
 
-1. To re-register your subscription, run the `az provider register` command in Azure Cloud Shell via the Azure portal:
+## Regional availability
 
-    ```azurecli
-    az provider register --namespace "Microsoft.App"
-    ```
+### Where is Azure SRE Agent available?
 
-    Then try creating the agent again.
+Azure SRE Agent Preview is currently available in:
+- Sweden Central
+- East US 2
+- Australia East
 
-## Permission errors
+### Can I deploy in other regions?
 
-If you can't chat or interact with the agent, the problem might be related to a 403 Forbidden error or a cross-origin resource sharing (CORS) policy error. The following screenshot shows an example of the error message.
+Additional regions will be supported as the service expands. For the latest regional availability, check the Azure portal during agent creation.
 
-:::image type="content" source="media/troubleshoot/sre-agent-permission-errors.png" alt-text="Screenshot of errors that result from incorrect permissions.":::
+### Does the agent work with resources in other regions?
 
-Or, you might get the following output in your network trace.
+Yes, once deployed, Azure SRE Agent can manage and investigate resources across all Azure regions, regardless of where the agent itself is hosted.
 
-:::image type="content" source="media/troubleshoot/sre-agent-network-trace-error.png" alt-text="Screenshot of a browser network trace when the agent encounters a permissions error.":::
+## Getting started
 
-To resolve the problem:
+### What permissions do I need to create an agent?
 
-* Ensure that you have Contributor or Owner access to the resource group that hosts the agent.
+To create an Azure SRE Agent, you need:
+- Owner or User Access Administrator permissions on the subscription
+- Permissions to create resources in supported regions
+- Subscription must be registered for the Microsoft.App resource provider
 
-* Avoid relying solely on group-based role assignments. Assign roles directly to your account if problems persist.
+### How do I get started?
 
-* Use the **Check Access** feature in the Azure portal to verify that you have the right permissions.
+See [Diagnose your first incident](usage.md) for a step-by-step walkthrough.
 
-## Portal becomes unresponsive
+### Can I try the agent without affecting production systems?
 
-If the Azure portal becomes unresponsive as you try to use SRE Agent, your firewall rules might be blocking access to an Azure domain.
+Yes, Azure SRE Agent starts in **Reader mode** by default, which provides read-only access to investigate and analyze resources without making any changes.
 
-To grant access to the proper domain, add `*.azuresre.ai` to the allow list in your firewall settings. Zscaler might block access to `*.azuresre.ai` domain by default.
+## Integration capabilities
+
+### What Azure services does SRE Agent integrate with?
+
+SRE Agent integrates with:
+- Azure Monitor (logs, metrics, alerts)
+- Application Insights
+- Log Analytics
+- Azure Resource Manager
+- Azure Data Explorer
+- Azure DevOps
+- GitHub
+
+For a complete list, see [Connect to external services](connectors.md).
+
+### Can I connect custom tools or APIs?
+
+Yes, you can connect custom tools or APIs through Model Context Protocol (MCP) servers. For more information, see [Connect to custom MCP server](custom-mcp-server.md).
+
+## Data and privacy
+
+### Where is my data stored?
+
+The agent stores data in the same Azure region where you deploy it. For detailed information, see [Data residency and privacy](data-privacy.md).
+
+### Is my data used to train AI models?
+
+No, Azure SRE Agent doesn't use your data to train AI models. Azure SRE Agent uses enterprise-grade AI services that follow strict data handling policies.
 
 ## Related content
 
-* [Security contexts in Azure SRE Agent](./access-management.md)
+- [Operations troubleshooting FAQ](faq-troubleshooting.md)
+- [Security and compliance FAQ](faq-security-compliance.md)
+- [Azure SRE Agent overview](overview.md)
+- [Billing](billing.md)

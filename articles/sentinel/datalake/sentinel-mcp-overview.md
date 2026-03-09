@@ -7,6 +7,7 @@ ms.topic: overview
 ms.date: 12/01/2025
 ms.author: monaberdugo
 ms.service: microsoft-sentinel
+ms.subservice: sentinel-platform
 
 #customer intent: As a security analyst, I want to understand Microsoft Sentinel’s support for Model Context Protocol (MCP)
 ---

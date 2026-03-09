@@ -25,15 +25,20 @@ You must delegate a subnet to Azure NetApp Files. When you create a volume, you 
     
     Once the delegated network is created, its network mask cannot be altered. Thus it's essential to thoughtfully plan your virtual network (VNet) and delegated subnet sizes with an eye toward the future.
   
-* When creating the delegated subnet, an specific route will be programmed for the subnet range, apart from the route for the entire Virtual Network space.
+* When creating the delegated subnet, a specific route will be programmed for the subnet range, apart from the route for the entire Virtual Network space.
 
 * In each VNet, only one subnet can be delegated to Azure NetApp Files.   
-   Azure enables you to create multiple delegated subnets in a VNet.  However, any attempts to create a new volume would fail if you use more than one delegated subnet.  
+   Azure enables you to create multiple delegated subnets in a VNet. However, any attempts to create a new volume would fail if you use more than one delegated subnet.  
    You can have only a single delegated subnet in a VNet. A NetApp account can deploy volumes into multiple VNets, each having its own delegated subnet.  
 * If you're using Basic network features, you can't designate a network security group (NSG) or service endpoint in the delegated subnet. Doing so causes the subnet delegation to fail. To designate an NSG or service endpoint, [upgrade to Standard network features](configure-network-features.md).
 * Access to a volume from a globally peered virtual network isn't currently supported using Basic networks features. Global VNet peering is supported with Standard network features. For more information, see [Supported network topologies](azure-netapp-files-network-topologies.md#supported-network-topologies).
 * For Azure NetApp Files support of [User-defined routes](../virtual-network/virtual-networks-udr-overview.md#custom-routes) (UDRs) and Network security groups (NSGs), see [Constraints in Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#constraints).   
    To establish routing or access control ***to*** the Azure NetApp Files delegated subnet, you can apply UDRs and NSGs to other subnets, even within the same VNet as the subnet delegated to Azure NetApp Files.  
+
+### Considerations for Elastic zone-redundant storage 
+<!-- ZRS --> 
+* The subnet size should be large enough to accommodate placement of all your resources; in most cases, /24 works, however you should assess based on your specific needs. You can't update the subnet after creating the capacity pool.  
+* The subnet must be delegated to the `Microsoft.NetApp/elasticVolumes` service.
 
 ## Steps
 

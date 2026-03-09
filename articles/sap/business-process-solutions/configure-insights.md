@@ -3,7 +3,7 @@ title: Configure Insights in Business Process Solutions
 description: Learn how to configure insights in Business Process Solutions, including setting up semantic models, deploying Power BI report templates, and establishing connections to refresh reports and models.
 author: mohitmakhija1
 ms.service: sap-on-azure
-ms.subservice:
+ms.subservice: center-sap-solutions
 ms.topic: how-to
 ms.date: 11/07/2025
 ms.author: momakhij

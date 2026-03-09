@@ -32,8 +32,8 @@ The following operators are listed in descending order of precedence (the higher
 | `==` `!=` `=~` `!~` | Equality | Left to right |
 | `&&` | Logical AND | Left to right |
 | `||` | Logical OR | Left to right |
-| `??` | Coalesce | Left to right
-| `?` `:` | Conditional expression (ternary) | Right to left
+| `??` | Coalesce | Left to right |
+| `?` `:` | Conditional expression (ternary) | Right to left |
 
 ## Parentheses
 

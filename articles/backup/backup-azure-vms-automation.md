@@ -591,7 +591,7 @@ If cross-region restore is enabled on the vault with which you've protected your
 
 #### Cross-zonal restore
 
-You can restore [Azure zone pinned VMs](/azure/virtual-machines/windows/create-portal-availability-zone) in any [availability zones](../reliability/availability-zones-overview.md) of the same region.
+You can restore [Azure zone pinned VMs](/azure/virtual-machines/windows/create-portal-availability-zone) in any [availability zones](/azure/reliability/availability-zones-overview) of the same region.
 
 To restore a VM to another zone, specify the `TargetZoneNumber` parameter in the [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) cmdlet.
 

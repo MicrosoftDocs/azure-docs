@@ -2,7 +2,7 @@
 title: Environment Variables and App Settings Reference
 description: This article describes the commonly used environment variables in Azure App Service, and which ones can be modified with app settings.
 ms.topic: conceptual
-ms.date: 03/28/2025
+ms.date: 02/26/2026
 author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service
@@ -48,11 +48,12 @@ The following environment variables are related to the app environment in genera
 | `REMOTEDEBUGGINGVERSION` | Remote debugging version. |
 | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` | By default, App Service creates a shared storage for you at app creation. To use a custom storage account instead, set to the connection string of your storage account. For functions, see [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md#website_contentazurefileconnectionstring).<br/><br/>Example: `DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>` |
 | `WEBSITE_CONTENTSHARE` | When you use specify a custom storage account with `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, App Service creates a file share in that storage account for your app. To use a custom name, set this variable to the name that you want. If a file share with the specified name doesn't exist, App Service creates it for you.<br/><br/>Example: `myapp123` |
+| `WEBSITE_BYOS_BLOB_DIRECT_IO` | Set to `false` by default. If enabled, all transactions will query the remote storage directly and caching will be bypassed. This setting is applied at the application level and therefore affects all blob shares mounted by the application.<br/><br/> Only relevant when using custom-mounted Azure Blob Storage. Applicable to Linux containers only (not applicable to Windows). |
 | `WEBSITE_SCM_ALWAYS_ON_ENABLED` | Read-only. Shows whether Always On is enabled (`1`) or not (`0`). |
 | `WEBSITE_SCM_SEPARATE_STATUS` | Read-only. Shows whether the Kudu app is running in a separate process (`1`) or not (`0`). |
 | `WEBSITE_DNS_ATTEMPTS` | Number of times to try name resolution. |
 | `WEBSITE_DNS_TIMEOUT` | Number of seconds to wait for name resolution. |
-| `WEBSITES_CONTAINER_START_TIME_LIMIT` | Amount of time (in seconds) that the platform waits for a container to become ready on startup. This setting applies to both code-based and container-based apps on App Service for Linux. The default value is `230`.<br/><br/>When a container starts up, repeated pings are made against the container to gauge its readiness to serve organic traffic. (See `WEBSITE_WARMUP_PATH` and `WEBSITE_WARMUP_STATUSES`.) These pings are continuously made until either a successful response is received or the start time limit is reached. If the container isn't deemed ready within the configured timeout, the platform fails the startup attempt and retries, which results in 503 errors.<br/><br/>For App Service for Windows containers, the default start time limit is `10 mins`. You can change the start time limit by specifying a time span. For example, `00:05:00` indicates 5 minutes. |
+| `WEBSITES_CONTAINER_START_TIME_LIMIT` | Amount of time (in seconds) that the platform waits for a container to become ready on startup. This setting applies to both code-based and container-based apps on App Service for Linux. The default value is `230`. For Linux, the startup time limit must be between a minimum of `10` seconds, and a maximum of `1800` seconds. <br/><br/>When a container starts up, repeated pings are made against the container to gauge its readiness to serve organic traffic. (See `WEBSITE_WARMUP_PATH` and `WEBSITE_WARMUP_STATUSES`.) These pings are continuously made until either a successful response is received or the start time limit is reached. If the container isn't deemed ready within the configured timeout, the platform fails the startup attempt and retries, which results in 503 errors.<br/><br/>For App Service for Windows containers, the default start time limit is `10 mins`. You can change the start time limit by specifying a time span. For example, `00:05:00` indicates 5 minutes. The time span for Windows Containers must be between a minimum of `00:01:00` - 1 minute, and maximum of `00:15:00` - 15 minutes. |
 
 <!-- 
 WEBSITE_PROACTIVE_STACKTRACING_ENABLED

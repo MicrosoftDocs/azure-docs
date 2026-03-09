@@ -76,7 +76,7 @@ The following diagram illustrates the implementation.
 
 ## Configure an application with Asignio
 
-Configurating an application with Asignio is with the Asignio Partner Administration site. 
+Configuring an application with Asignio is with the Asignio Partner Administration site. 
 
 1. To request access for your organization, go to asignio.com [Asignio Partner Administration](https://partner.asignio.com) page. 
 2. With credentials, sign into Asignio Partner Administration.

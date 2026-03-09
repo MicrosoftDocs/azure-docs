@@ -1,6 +1,11 @@
 {
   "redirections": [
-     {
+    {
+      "source_path_from_root": "/articles/api-management/api-management-authenticate-authorize-azure-openai.md",
+      "redirect_url": "/azure/api-management/api-management-authenticate-authorize-ai-apis",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/api-management/api-management-configuration-repository-git.md",
       "redirect_url": "/azure/api-management/breaking-changes/git-configuration-retirement-march-2025",
       "redirect_document_id": false
@@ -13,11 +18,6 @@
     {
       "source_path_from_root": "/articles/api-management/diagnostic-logs-reference.md",
       "redirect_url": "/rest/api/apimanagement/diagnostic/create-or-update",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/reliability/migrate-api-mgt.md",
-      "redirect_url": "/azure/api-management/enable-availability-zone-support",
       "redirect_document_id": false
     },
     {
@@ -35,7 +35,7 @@
       "redirect_url": "/azure/api-management/configure-service-update-settings",
       "redirect_document_id": false
     },
-   {
+    {
       "source_path_from_root": "/articles/api-management/api-management-in-workspace.md",
       "redirect_url": "/azure/api-management/how-to-create-workspace",
       "redirect_document_id": false

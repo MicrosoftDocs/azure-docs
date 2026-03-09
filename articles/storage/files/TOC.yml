@@ -5,7 +5,7 @@
   items:
   - name: What is Azure Files?
     href: storage-files-introduction.md
-  - name: Planning for an Azure Files deployment
+  - name: Plan for an Azure Files deployment
     href: storage-files-planning.md
   - name: SMB file shares
     href: files-smb-protocol.md
@@ -29,48 +29,46 @@
   items:
   - name: Overview of identity-based authentication
     href: storage-files-active-directory-overview.md
-  - name: Overview of authorization and access control
-    href: storage-files-authorization-overview.md    
-  - name: Windows identity-based authentication (SMB)
+  - name: Change the identity source for authentication
+    href: change-identity-source.md
+  - name: On-premises AD DS authentication
     items:
-    - name: Enable an AD source
-      items:
-      - name: On-premises AD DS authentication
-        items:
-        - name: AD DS overview
-          href: storage-files-identity-ad-ds-overview.md
-        - name: Enable AD DS authentication
-          href: storage-files-identity-ad-ds-enable.md
-        - name: Use Azure Files with multiple AD DS forests
-          href: storage-files-identity-multiple-forests.md
-        - name: Update password
-          href: storage-files-identity-ad-ds-update-password.md
-      - name: Microsoft Entra Domain Services authentication
-        items:
-        - name: Enable Microsoft Entra Domain Services
-          href: storage-files-identity-auth-domain-services-enable.md
-      - name: Microsoft Entra Kerberos authentication
-        items:
-        - name: Enable authentication for hybrid or cloud-only identities
-          href: storage-files-identity-auth-hybrid-identities-enable.md
-        - name: Enable authentication for hybrid identities on legacy clients
-          href: storage-files-identity-auth-hybrid-cloud-trust.md
-    - name: Assign and manage permissions
-      items:
-      - name: Assign share-level permissions
-        href: storage-files-identity-assign-share-level-permissions.md
-      - name: Configure directory/file-level permissions
-        href: storage-files-identity-configure-file-level-permissions.md
-  - name: Linux identity-based authentication (SMB)
-    href: storage-files-identity-auth-linux-kerberos-enable.md
-  - name: Managed identities with Microsoft Entra ID
-    href: files-managed-identities.md
-  - name: Authorize access to file data
+    - name: AD DS overview
+      href: storage-files-identity-ad-ds-overview.md
+    - name: Enable AD DS authentication
+      href: storage-files-identity-ad-ds-enable.md
+    - name: Use Azure Files with multiple AD DS forests
+      href: storage-files-identity-multiple-forests.md
+    - name: Configure Linux clients
+      href: storage-files-identity-auth-linux-kerberos-enable.md
+    - name: Update password
+      href: storage-files-identity-ad-ds-update-password.md
+  - name: Microsoft Entra Domain Services authentication
     items:
-    - name: Choose how to authorize access to file data
+    - name: Enable Microsoft Entra Domain Services
+      href: storage-files-identity-auth-domain-services-enable.md
+    - name: Configure Linux clients
+      href: storage-files-identity-auth-linux-kerberos-enable.md      
+  - name: Microsoft Entra Kerberos authentication
+    items:
+    - name: Enable authentication for hybrid or cloud-only identities
+      href: storage-files-identity-auth-hybrid-identities-enable.md
+    - name: Enable authentication for hybrid identities on legacy clients
+      href: storage-files-identity-auth-hybrid-cloud-trust.md
+  - name: Authorization and access control
+    items:
+    - name: Overview of authorization and access control
+      href: storage-files-authorization-overview.md
+    - name: Assign share-level permissions
+      href: storage-files-identity-assign-share-level-permissions.md
+    - name: Configure directory/file-level permissions
+      href: storage-files-identity-configure-file-level-permissions.md
+    - name: Choose how to authorize access to file data in the Azure portal
       href: authorize-data-operations-portal.md
-    - name: Authorize access with Microsoft Entra ID using OAuth over REST
+    - name: Authorize access using Microsoft Entra ID with OAuth over REST
       href: authorize-oauth-rest.md
+    - name: Managed identities with Microsoft Entra ID
+      href: files-managed-identities.md
 - name: Mount file shares
   items:
   - name: Mount SMB file share on Windows
@@ -91,7 +89,7 @@
     href: migrate-files-between-shares.md
   - name: Target a cloud-only deployment
     items:
-    - name: Use Azure Storage Mover to migrate to SMB Azure file shares
+    - name: Use Azure Storage Mover to migrate to Azure file shares
       href: migrate-files-storage-mover.md
     - name: Use Robocopy to migrate to SMB Azure file shares
       href: storage-files-migration-robocopy.md
@@ -143,6 +141,8 @@
       href: /windows-server/storage/file-server/troubleshoot/detect-enable-and-disable-smbv1-v2-v3?toc=/azure/storage/files/toc.json
     - name: Disable SMB on the Linux SMB client
       href: files-remove-smb1-linux.md
+    - name: Network security perimeter
+      href: files-network-security-perimeter.md
   - name: Encryption
     items:
     - name: Encryption at rest
@@ -223,8 +223,10 @@
       href: ../../backup/manage-afs-powershell.md?toc=/azure/storage/files/toc.json
     - name: REST API
       href: ../../backup/manage-azure-file-share-rest-api.md?toc=/azure/storage/files/toc.json
-- name: Availability and disaster recovery
+- name: Reliability
   items:
+  - name: Reliability in Azure Files
+    href: /azure/reliability/reliability-storage-files?toc=/azure/storage/files/toc.json
   - name: Storage redundancy
     href: files-redundancy.md
   - name: Disaster recovery and failover
@@ -237,7 +239,7 @@
     href: redundancy-premium-file-shares.md   
 - name: Performance, scale, and cost
   items:
-  - name: Understanding performance
+  - name: Understand performance
     href: understand-performance.md
   - name: SMB performance
     href: smb-performance.md
@@ -247,7 +249,7 @@
     href: nfs-large-directories.md
   - name: Scalability and performance targets
     href: storage-files-scale-targets.md
-  - name: Understanding billing
+  - name: Understand billing
     href: understanding-billing.md
   - name: Cost estimation examples
     href: file-estimate-cost.md

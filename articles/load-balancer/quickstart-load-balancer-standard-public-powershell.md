@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a load balancer using Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
-ms.date: 07/23/2024
+ms.date: 01/28/2026
 ms.topic: quickstart
 ms.service: azure-load-balancer
 ms.custom: devx-track-azurepowershell, mode-api, template-quickstart, engagement-fy23
@@ -433,7 +433,7 @@ In this quickstart, you:
 
 * Created an Azure Load Balancer
 
-* Attached 2 VMs to the load balancer
+* Attached two VMs to the load balancer
 
 * Tested the load balancer
 

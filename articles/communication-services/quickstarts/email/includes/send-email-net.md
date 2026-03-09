@@ -131,7 +131,7 @@ To authenticate using [Microsoft Entra ID](https://github.com/Azure/azure-sdk-fo
 ```console
 dotnet add package Azure.Identity
 ```
-Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `EmailClient` using [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity#defaultazurecredential). The Azure Identity SDK reads values from three environment variables at runtime to authenticate the application. Learn how to [create an Microsoft Entra ID Registered Application and set the environment variables](../../identity/service-principal.md?pivots=platform-azcli).
+Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `EmailClient` using [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity#defaultazurecredential). The Azure Identity SDK reads values from three environment variables at runtime to authenticate the application. Learn how to [create a Microsoft Entra ID Registered Application and set the environment variables](../../identity/service-principal.md?pivots=platform-azcli).
 
 ```csharp
 // This code demonstrates how to authenticate to your Communication Service resource using

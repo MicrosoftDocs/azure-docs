@@ -2,7 +2,7 @@
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
 ms.topic: reference
-ms.date: 12/12/2025
+ms.date: 01/29/2026
 ms.custom: references_regions, linux-related-content
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -32,7 +32,7 @@ The following table describes the features of Recovery Services vaults:
 
 **Feature** | **Details**
 --- | ---
-**Vaults in subscription** | Up to 500 Recovery Services vaults or Backup vaults in a single subscription.
+**Vaults in subscription** | Up to 500 Recovery Services vaults or Backup vaults in a single subscription.<br><br>Up to 5000 Backup Policies for each Data Source under Recovery Services Vault or Backup Vault.
 **Machines in a vault** | Up to 2000 datasources across all workloads (like Azure VMs, SQL Server VM, MABS Servers, and so on) can be protected in a single vault.<br><br>Up to 1,000 Azure VMs in a single vault, but due to security constraints only 250 VM registrations are allowed per day.<br/><br/> Up to 50 MABS servers can be registered in a single vault.<br><br>Up to 100 VM’s can be protected in a single policy.
 **Data sources** | Maximum size of an individual [data source](./backup-azure-backup-faq.yml#how-is-the-data-source-size-determined-) is 54,400 GB. This limit doesn't apply to Azure VM backups. No limits apply to the total amount of data you can back up to the vault.
 **Backups to vault** | **Azure VMs:** Once a day.<br/><br/>**Machines protected by DPM/MABS:** Twice a day.<br/><br/> **Machines backed up directly by using the MARS agent:** Three times a day.
@@ -212,7 +212,7 @@ The following table lists the workload specific operations supported even if zon
 Azure Backup provides the following monitoring and reporting capabilities on backup operations:
 
 - Backup Alerts are available for all workloads in both Recovery Services vault and Backup vault.
-- Backup Alerts view and manage capabilities are available on Azure Monitor, Business Continuity Center, Recovery Services vault, Backup vault.
+- Backup Alerts view and manage capabilities are available on Azure Monitor, Resiliency, Recovery Services vault, Backup vault.
 
 Learn [about the different backup alerts currently available via Azure Monitor and the supported workload/vault types](monitoring-and-alerts-overview.md#azure-monitor-alerts-for-azure-backup).
 

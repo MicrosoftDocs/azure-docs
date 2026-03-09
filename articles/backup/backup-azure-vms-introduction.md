@@ -2,7 +2,7 @@
 title: About Azure VM backup
 description: In this article, learn how the Azure Backup service backs up Azure Virtual machines, and how to follow best practices.
 ms.topic: overview
-ms.date: 07/25/2025
+ms.date: 01/08/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As an IT admin managing Azure VMs, I want to implement effective backup strategies using Azure Backup, so that I can ensure data protection and quick recovery for my virtual machines while minimizing downtime and costs."
@@ -54,6 +54,14 @@ If you have opted for application or file-system-consistent backups, the VM need
   - Azure Backup invokes only the pre/post scripts written by you.
   - If the pre-scripts and post-scripts execute successfully, Azure Backup marks the recovery point as application-consistent. However, when you're using custom scripts, you're ultimately responsible for the application consistency.
   - [Learn more](backup-azure-linux-app-consistent.md) about how to configure scripts.
+
+- **FSFreeze and safeFreezelockFile**: **Fsfreeze** is a utility used to freeze and thaw the *filesystem* to make their state on consistent during VM backups.
+
+  - **Freeze**: When you freeze a filesystem, the currently running operations are allowed to complete. However, new write system operations and the operations that modify the filesystem are stopped.
+
+  - **Thawing**:  This operation reverses the freeze operation. When you thaw a filesystem, the previously stopped operations continue to run effectively, unblocking any modifications.
+
+  During the *Freeze* operation, Azure Backup invokes a file safeFreezelockFile. This prevents the other process to invoke the similar operation so that backup process isn't interrupted. Once the operation is complete, the lock is released.
 
 >[!Note]
 >The snapshot process starts with invoking the backup extension (agent-based), using tools such as VSS for Windows or freeze for Linux to ensure data consistency. When consistent, the Restore Point Collection monitors the extension and initiates snapshot creation. Afterward, metadata is updated with restore point paths and commit details to finalize the backup for restoration.

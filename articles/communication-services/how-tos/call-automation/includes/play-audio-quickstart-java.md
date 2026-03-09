@@ -20,7 +20,7 @@ ms.author: kpunjabi
 - [Apache Maven](https://maven.apache.org/download.cgi).
   
 ### For AI features
-- Create and connect [Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
+- Create and connect [Foundry Tools to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 - Create a [custom subdomain](/azure/ai-services/cognitive-services-custom-subdomains) for your Azure AI services resource. 
 
 
@@ -111,7 +111,7 @@ playSources.add(p2);
 
 ### Play source - Text-To-Speech
 
-To play audio using Text-To-Speech through Azure AI services, you need to provide the text you wish to play, as well either the SourceLocale, and VoiceKind or the VoiceName you wish to use. We support all voice names supported by Azure AI services, full list [here](/azure/ai-services/speech-service/language-support?tabs=tts).
+To play audio using Text-To-Speech through Foundry Tools, you need to provide the text you wish to play, as well either the SourceLocale, and VoiceKind or the VoiceName you wish to use. We support all voice names supported by Foundry Tools, full list [here](/azure/ai-services/speech-service/language-support?tabs=tts).
 
 ``` java
 // Provide SourceLocale and VoiceKind to select an appropriate voice.

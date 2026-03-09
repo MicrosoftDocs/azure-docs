@@ -69,7 +69,7 @@ In this tutorial, you learn how to:
 
 - A code editor, such as [Visual Studio Code](https://code.visualstudio.com/).
 
-- [Python](https://www.python.org/downloads/) (v3.7+). See [supported Python versions](../azure-functions/functions-reference-python.md#python-version).
+- [Python](https://www.python.org/downloads/) (v3.7+). See [supported Python versions](../azure-functions/functions-reference-python.md#supported-python-versions).
 
 - [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v4 or higher preferred) to run Azure Function apps locally and deploy to Azure.
 
@@ -793,7 +793,7 @@ Use the following commands to create these items.
 
    [!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
 
-   First, find your Web PubSub resource from **Azure Portal** and copy out the connection string under **Keys**. Then, navigate to Function App settings in **Azure Portal** -> **Settings** -> **Environment variables**. And add a new item under **App settings**, with name equals `WebPubSubConnectionString` and value is your Web PubSub resource connection string.
+   First, find your Web PubSub resource from **Azure portal** and copy out the connection string under **Keys**. Then, navigate to Function App settings in **Azure portal** -> **Settings** -> **Environment variables**. And add a new item under **App settings**, with name equals `WebPubSubConnectionString` and value is your Web PubSub resource connection string.
 
 ## Configure the Web PubSub service `Event Handler`
 

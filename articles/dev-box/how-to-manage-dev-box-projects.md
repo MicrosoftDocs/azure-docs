@@ -1,14 +1,15 @@
 ---
 title: Manage a Dev Box Project
 titleSuffix: Microsoft Dev Box
-description: Create and delete Microsoft Dev Box projects and give developers access to create their dev boxes. 
+description: Create and configure Microsoft Dev Box projects to support your team’s workloads. Learn how to manage dev box pools and control costs effectively.
+#customer intent: As a platform engineer, I want to create a Microsoft Dev Box project so that my development team can access and use dev boxes.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 09/18/2025
+ms.reviewer: rosemalcolm
+ms.date: 12/29/2025
 ms.topic: how-to
-#Customer intent: As a platform engineer, I want to create and manage dev box projects so I can provide appropriate dev boxes to my users.
 ---
 
 # Manage a Microsoft Dev Box project
@@ -36,10 +37,10 @@ To learn how to add a user to the Project Admin role, see [Assign DevCenter Proj
 To manage a dev box project, you need the following permissions:
 
 | Action | Permission required |
-|---|---|
-| _Create or delete dev box project_ | - Owner, Contributor, or Write permissions on the dev center in which you want to create the project. |
+| --- | --- |
+| _Create or delete dev box project_ | - Owner, Contributor, DevCenter Owner, or Write permissions on the dev center in which you want to create the project. |
 | _Update a dev box project_ | - Owner, Contributor, or Write permissions on the project. |
-| _Create, delete, and update dev box pools in the project_ |- Owner, Contributor permissions on an Azure subscription or a specific resource group. </br>- DevCenter Project Admin permissions for the project. |
+| _Create, delete, and update dev box pools in the project_ | - Owner, Contributor permissions on an Azure subscription or a specific resource group. </br>- DevCenter Owner permissions on the dev center. </br>- DevCenter Project Admin permissions for the project. |
 | _Manage a dev box within the project_ | - DevCenter Project Admin. |
 | _Add a dev box user to the project_ | - Owner permissions on the project. |
 

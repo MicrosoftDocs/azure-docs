@@ -2,7 +2,7 @@
 title: Back up Azure Managed Disks
 description: Learn how to back up Azure Managed Disks from the Azure portal.
 ms.topic: how-to
-ms.date: 08/26/2025
+ms.date: 02/13/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -13,7 +13,7 @@ ms.author: v-mallicka
 
 This article describes how to back up [Azure Disk](/azure/virtual-machines/managed-disks-overview) using the Azure portal. You can also use REST API to [create a Backup policy](backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md) and [configure backup](backup-azure-dataprotection-use-rest-api-backup-disks.md) for Azure Managed Disk.
 
-Learn about the [Azure Disk backup region availability, supported scenarios, and limitations](disk-backup-support-matrix.md).
+To view the supported Azure Disk backup and restore scenarios, region availability, and limitations, see the [support matrix](disk-backup-support-matrix.md). For common questions, see the [frequently asked questions](disk-backup-faq.yml).
 
 >[!Note]
 >If the target disk is attached as a Persistent Volume to an AKS cluster, choose [Azure Backup for AKS](./azure-kubernetes-service-cluster-backup.md) over the standalone Disk Backup solution. It enables backing up the disk as snapshots along with the containerized application in a Kubernetes-aware manner, all as a single unit.  Additionally, you get Cross Region Restore and ransomware protection capabilities with AKS Backup.
@@ -28,7 +28,7 @@ Learn how to [create a Backup vault](create-manage-backup-vault.md#create-a-back
 
 To create a backup policy for Azure Disks, follow these steps:
 
-1. Go to **Business Continuity Center**, and then select **Manage** > **Protection policies**.
+1. Go to **Resiliency**, and then select **Manage** > **Protection policies**.
 
    :::image type="content" source="./media/backup-managed-disks/create-policy.png" alt-text="Screenshot shows how to start creating a backup policy." lightbox="./media/backup-managed-disks/create-policy.png":::
 
@@ -72,7 +72,7 @@ To create a backup policy for Azure Disks, follow these steps:
 
 ## Configure Azure Disk backup
 
-- Azure Disk backup supports only the operational tier backup. Copying of backups to the vault storage tier is currently not supported. The Backup vault storage redundancy setting (LRS/GRS) doesn’t apply to the backups stored in the operational tier.              <br>         Incremental snapshots are stored in a Standard Hard Disk Drive (HDD) storage, irrespective of the selected storage type of the parent disk. For more reliability, incremental snapshots are stored on [Zone Redundant Storage (ZRS)](/azure/storage/common/storage-redundancy#zone-redundant-storage) by default in ZRS supported regions.
+- Azure Disk backup supports only the operational tier backup. Copying of backups to the vault storage tier is currently not supported. The Backup vault storage redundancy setting (LRS/GRS) doesn’t apply to the backups stored in the operational tier.              <br>         Incremental snapshots are stored in a Standard HDD storage, irrespective of the selected storage type of the parent disk. For more reliability, incremental snapshots are stored on [Zone Redundant Storage (ZRS)](/azure/storage/common/storage-redundancy#zone-redundant-storage) by default in ZRS supported regions.
 
 - Azure Disk backup supports cross-subscription (backup vault in one subscription and the source disk in another) backup and restore. Currently, cross-region backup and restore aren't supported by Azure Disk backup, that is, the backup vault and disk to back up are in different regions.      <br>        So, to use Azure Disk backup, ensure that the backup vault and disk to back up are in the same region.
 
@@ -80,7 +80,7 @@ To create a backup policy for Azure Disks, follow these steps:
 
 To configure Azure Disk backup, follow these steps:
 
-1. Go to **Business Continuity Center**, and then select **+ Configure protection**.
+1. Go to **Resiliency**, and then select **+ Configure protection**.
 
 1. On the **Configure protection** pane, select **Resource managed by** as **Azure**, **Datasource type** as **Azure Disks**, **Solution** as **Azure Backup**, and then select **Continue**.
 
@@ -208,8 +208,8 @@ The Azure Backup service creates a job for scheduled backups or if you trigger o
 
 ## Next steps
 
-Restore Managed Disk using [Azure portal](restore-managed-disks.md), [Azure PowerShell](restore-managed-disks-ps.md), [Azure CLI](restore-managed-disks-cli.md).
-
+- Restore Managed Disk using [Azure portal](restore-managed-disks.md), [Azure PowerShell](restore-managed-disks-ps.md), [Azure CLI](restore-managed-disks-cli.md).
+- [Troubleshoot Azure Disk backup](disk-backup-troubleshoot.md).
 ## Related content
 
 - [Create a backup policy to protect Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md).

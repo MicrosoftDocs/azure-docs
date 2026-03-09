@@ -4,7 +4,7 @@ description: This article guides you through the process of creating and publish
 author: anilgodavarthy
 ms.author: angodavarthy
 ms.service: microsoft-sentinel
-ms.topic: conceptual 
+ms.topic: how-to
 ms.date: 7/04/2025
 
 #CustomerIntent: As an ISV partner, I want to create and publish summary rules to my Microsoft Sentinel solution so that I can provide inbuilt data summarization that customers can use to speed up query execution and save costs.

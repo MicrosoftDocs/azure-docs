@@ -15,7 +15,7 @@ Create a resource group to organize the services related to your container app d
 ```azurecli
 az group create \
   --name $RESOURCE_GROUP \
-  --location "$LOCATION"
+  --location $LOCATION
 ```
 
 # [PowerShell](#tab/powershell)

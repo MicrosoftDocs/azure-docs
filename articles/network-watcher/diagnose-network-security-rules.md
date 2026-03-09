@@ -1,16 +1,17 @@
 ---
-title: Check security rules using NSG diagnostics
+title: Check Security Rules Using NSG Diagnostics
 titleSuffix: Azure Network Watcher
 description: Use NSG diagnostics to check if traffic is allowed or denied by network security group rules or Azure Virtual Network Manager security admin rules. 
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 10/30/2024
+ms.date: 02/19/2026
 ms.custom:
   - devx-track-azurepowershell
   - devx-track-azurecli
   - sfi-image-nochange
+
 # Customer intent: As a network administrator, I want to use NSG diagnostics to verify security rules on my virtual machine, so that I can troubleshoot traffic access issues effectively.
 ---
 
@@ -50,9 +51,51 @@ The example in this article shows you how a misconfigured network security group
 
 ---
 
-## Create a virtual network and a Bastion host
+## Create a resource group
 
-In this section, you create a virtual network with two subnets and an Azure Bastion host. The first subnet is used for the virtual machine, and the second subnet is used for the Bastion host. You also create a network security group and apply it to the first subnet.
+# [**Portal**](#tab/portal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search box at the top of the portal, enter **Resource group**. Select **Resource groups** in the search results.
+
+1. Select **+ Create**.
+
+1. In the **Basics** tab of **Create a resource group**, enter, or select the following information:
+
+    | Setting | Value |
+    | --- | --- |
+    | Subscription | Select your subscription. |
+    | Resource group | Enter **myResourceGroup**. |
+    | Region | Select **East US**. |
+
+1. Select **Review + create**.
+
+1. Select **Create**.
+
+# [**PowerShell**](#tab/powershell)
+
+Create a resource group using [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). An Azure resource group is a logical container into which Azure resources are deployed and managed.
+
+```azurepowershell-interactive
+# Create a resource group.
+New-AzResourceGroup -Name 'myResourceGroup' -Location 'eastus'
+```
+
+# [**Azure CLI**](#tab/cli)
+
+Create a resource group using [az group create](/cli/azure/group#az-group-create). An Azure resource group is a logical container into which Azure resources are deployed and managed.
+
+```azurecli-interactive
+# Create a resource group.
+az group create --name 'myResourceGroup' --location 'eastus'
+```
+
+---
+
+## Create a virtual network
+
+In this section, you create a virtual network with a subnet and a network security group applied to the subnet.
 
 # [**Portal**](#tab/portal)
 
@@ -66,21 +109,14 @@ In this section, you create a virtual network with two subnets and an Azure Bast
     | --- | --- |
     | **Project Details** |  |
     | Subscription | Select your Azure subscription. |
-    | Resource Group | Select **Create new**. </br> Enter ***myResourceGroup*** in **Name**. </br> Select **OK**. |
+    | Resource Group | Select **myResourceGroup**. |
     | **Instance details** |  |
     | Virtual network name | Enter ***myVNet***. |
     | Region | Select **(US) East US**. |
 
-1. Select the **Security** tab, or select the **Next** button at the bottom of the page. 
+1. Select **Next** to proceed to the **Security** tab.
 
-1. Under **Azure Bastion**, select **Enable Azure Bastion** and accept the default values:
-
-    | Setting | Value |
-    | --- | --- |
-    | Azure Bastion host name | **myVNet-Bastion**. |
-    | Azure Bastion public IP Address | **(New) myVNet-bastion-publicIpAddress**. |
-
-1. Select the **IP Addresses** tab, or select **Next** button at the bottom of the page.
+1. Select **Next** to proceed to the **IP Addresses** tab.
 
 1. Accept the default IP address space **10.0.0.0/16** and edit the default subnet by selecting the pencil icon. In the **Edit subnet** page, enter the following values:
 
@@ -91,18 +127,11 @@ In this section, you create a virtual network with two subnets and an Azure Bast
     | **Security** | |
     | Network security group | Select **Create new**. </br> Enter ***mySubnet-nsg*** in **Name**. </br> Select **OK**. |
 
-1. Select the **Review + create**.
+1. Select **Save**.
 
-1. Review the settings, and then select **Create**. 
+1. Select **Review + create** at the bottom of the screen, and when validation passes, select **Create**.
 
 # [**PowerShell**](#tab/powershell)
-
-1. Create a resource group using [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). An Azure resource group is a logical container into which Azure resources are deployed and managed.
-
-    ```azurepowershell-interactive
-    # Create a resource group.
-    New-AzResourceGroup -Name 'myResourceGroup' -Location 'eastus'
-    ```
 
 1. Create a default network security group using [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
 
@@ -111,43 +140,22 @@ In this section, you create a virtual network with two subnets and an Azure Bast
     $networkSecurityGroup = New-AzNetworkSecurityGroup -Name 'mySubnet-nsg' -ResourceGroupName 'myResourceGroup' -Location 'eastus'
     ```
 
-1. Create a subnet configuration for the virtual machine subnet and the Bastion host subnet using [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig).
+1. Create subnet configurations for the virtual machine subnet and Azure Bastion subnet using [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig).
 
     ```azurepowershell-interactive
-    # Create subnets configuration.
+    # Create subnet configurations.
     $firstSubnet = New-AzVirtualNetworkSubnetConfig -Name 'mySubnet' -AddressPrefix '10.0.0.0/24' -NetworkSecurityGroup $networkSecurityGroup
-    $secondSubnet  = New-AzVirtualNetworkSubnetConfig -Name 'AzureBastionSubnet'  -AddressPrefix '10.0.1.0/26'
+    $secondSubnet = New-AzVirtualNetworkSubnetConfig -Name 'AzureBastionSubnet' -AddressPrefix '10.0.1.0/26'
     ```
 
 1. Create a virtual network using [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork).
 
     ```azurepowershell-interactive
     # Create a virtual network.
-    $vnet = New-AzVirtualNetwork -Name 'myVNet' -ResourceGroupName 'myResourceGroup' -Location 'eastus' -AddressPrefix '10.0.0.0/16' -Subnet $firstSubnet, $secondSubnet
-    ```
-
-1.  Create the public IP address resource required for the Bastion host using [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). 
-
-    ```azurepowershell-interactive
-    # Create a public IP address for Azure Bastion.
-    New-AzPublicIpAddress -ResourceGroupName 'myResourceGroup' -Name 'myBastionIp' -Location 'eastus' -AllocationMethod 'Static' -Sku 'Standard'
-    ```
-
-1.  Create the Bastion host using [New-AzBastion](/powershell/module/az.network/new-azbastion). 
-
-    ```azurepowershell-interactive
-    # Create an Azure Bastion host.
-    New-AzBastion -ResourceGroupName 'myResourceGroup' -Name 'myVNet-Bastion' -PublicIpAddressRgName 'myResourceGroup' -PublicIpAddressName 'myBastionIp' -VirtualNetwork $vnet
+    $vnet = New-AzVirtualNetwork -Name 'myVNet' -ResourceGroupName 'myResourceGroup' -Location 'eastus' -AddressPrefix '10.0.0.0/16' -Subnet $firstSubnet,$secondSubnet
     ```
 
 # [**Azure CLI**](#tab/cli)
-
-1. Create a resource group using [az group create](/cli/azure/group#az-group-create). An Azure resource group is a logical container into which Azure resources are deployed and managed.
-
-    ```azurecli-interactive
-    # Create a resource group.
-    az group create --name 'myResourceGroup' --location 'eastus'
-    ```
 
 1. Create a default network security group using [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create).
 
@@ -162,24 +170,74 @@ In this section, you create a virtual network with two subnets and an Azure Bast
     az network vnet create --resource-group 'myResourceGroup' --name 'myVNet' --subnet-name 'mySubnet' --subnet-prefixes 10.0.0.0/24 --network-security-group 'mySubnet-nsg' 
     ```
 
-1. Create a subnet for Azure Bastion using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create).
+1. Create an Azure Bastion subnet using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create).
 
     ```azurecli-interactive
-    # Create AzureBastionSubnet.
-    az network vnet subnet create --name 'AzureBastionSubnet' --resource-group 'myResourceGroup' --vnet-name 'myVNet' --address-prefixes '10.0.1.0/26'
+    az network vnet subnet create --resource-group 'myResourceGroup' --vnet-name 'myVNet' --name 'AzureBastionSubnet' --address-prefixes 10.0.1.0/26
     ```
 
-1. Create a public IP address for the Bastion host using [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create).
+---
 
-    ```azurecli-interactive
-    # Create a public IP address resource.
-    az network public-ip create --resource-group 'myResourceGroup' --name 'myBastionIp' --sku Standard
+## Deploy Azure Bastion
+
+Azure Bastion uses your browser to connect to virtual machines (VMs) in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The virtual machines don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](/azure/bastion/bastion-overview).
+
+>[!NOTE]
+>[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
+
+# [**Portal**](#tab/portal)
+
+1. In the search box at the top of the portal, enter **Bastion**. Select **Bastions** in the search results.
+
+1. Select **+ Create**.
+
+1. In the **Basics** tab of **Create a Bastion**, enter, or select the following information:
+
+    | Setting | Value |
+    | --- | --- |
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **myResourceGroup**. |
+    | **Instance details** |  |
+    | Name | Enter **myVNet-Bastion**. |
+    | Region | Select **East US**. |
+    | Tier | Select **Developer**. |
+    | **Configure virtual networks** |  |
+    | Virtual network | Select **myVNet**. |
+    | Subnet | The **AzureBastionSubnet** is created automatically with an address space of **/26** or larger. |
+
+1. Select **Review + create**.
+
+1. Select **Create**.
+
+# [**PowerShell**](#tab/powershell)
+
+1. Create a public IP address for Azure Bastion using [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress).
+
+    ```azurepowershell-interactive
+    # Create a public IP address for Azure Bastion.
+    $bastionIp = New-AzPublicIpAddress -ResourceGroupName 'myResourceGroup' -Name 'myBastionIp' -Location 'eastus' -Sku 'Standard' -AllocationMethod 'Static'
     ```
 
-1. Create a Bastion host using [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create). 
+1. Create a Basic SKU Bastion host using [New-AzBastion](/powershell/module/az.network/new-azbastion).
+
+    ```azurepowershell-interactive
+    # Create an Azure Bastion host.
+    New-AzBastion -ResourceGroupName 'myResourceGroup' -Name 'myVNet-Bastion' -PublicIpAddressRgName 'myResourceGroup' -PublicIpAddressName 'myBastionIp' -VirtualNetworkRgName 'myResourceGroup' -VirtualNetworkName 'myVNet' -Sku 'Basic'
+    ```
+
+# [**Azure CLI**](#tab/cli)
+
+1. Create a public IP address for Azure Bastion using [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create).
 
     ```azurecli-interactive
-    az network bastion create --name 'myVNet-Bastion' --public-ip-address 'myBastionIp' --resource-group 'myResourceGroup' --vnet-name 'myVNet'
+    az network public-ip create --resource-group 'myResourceGroup' --name 'myBastionIp' --sku 'Standard' --location 'eastus'
+    ```
+
+1. Create a Basic SKU Bastion host using [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create).
+
+    ```azurecli-interactive
+    az network bastion create --name 'myVNet-Bastion' --resource-group 'myResourceGroup' --vnet-name 'myVNet' --public-ip-address 'myBastionIp' --sku 'Basic' --location 'eastus'
     ```
 
 ---
@@ -224,7 +282,7 @@ In this section, you create a virtual machine and a network security group appli
     | --- | --- |
     | **Network interface** |  |
     | Virtual network | Select **myVNet**. |
-    | Subnet | Select **default**. |
+    | Subnet | Select **mySubnet**. |
     | Public IP | Select **None**. |
     | NIC network security group | Select **Basic**. |
     | Public inbound ports | Select **None**. |

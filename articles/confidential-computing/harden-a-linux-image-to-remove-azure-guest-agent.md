@@ -2,8 +2,7 @@
 title: Harden a Linux image to remove Azure guest agent
 description: Learn how to use the Azure CLI to harden a linux image to remove Azure guest agent.
 author: vvenug
-ms.service: azure-virtual-machines
-mms.subservice: confidential-computing
+ms.service: azure-confidential-computing
 ms.topic: how-to
 ms.date: 8/03/2023
 ms.author: mattmcinnes

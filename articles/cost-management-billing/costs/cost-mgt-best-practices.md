@@ -209,7 +209,7 @@ Emphasize the use of tags, management groups, and custom dimensions for cost all
 Take advantage of Azure's cost-saving programs and recommendations:
 
 - **Azure Savings Plans for Compute**: The most flexible savings plan, applying to a broad range of compute services. See [Azure savings plans for compute](../savings-plan/savings-plan-compute-overview.md).
-- **Azure Reservations**: Prepay for one- or three-year terms for VMs or databases to receive significant discounts. See [What are Azure Reservations?](../reservations/save-compute-costs-reservations.md).
+- **Azure Reservations**: Prepay for one- or three-year terms for VMs or databases to receive significant discounts. See [What are Azure Reservations?](../reservations/save-compute-costs-reservations.md)
 - **Azure Hybrid Benefit**: Use existing Windows Server or SQL Server licenses to save on Azure. See [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 - **Benefit Recommendations API**: Use the [Benefit Recommendations API](/rest/api/cost-management/benefit-recommendations) and [Azure Advisor](/azure/advisor/advisor-overview) to proactively identify savings opportunities, such as reserved instances or savings plans, based on your usage patterns.
 
@@ -250,7 +250,7 @@ For more information, see [Azure savings plan for compute](../savings-plan/savin
 
 Azure Reservations allow you to prepay for one-year or three-years of virtual machine or SQL Database compute capacity. Prepaying will allow you to get a discount on the resources you use. Azure reservations can significantly reduce your virtual machine or SQL database compute costs — up to 72 percent on pay-as-you-go prices with one-year or three-year upfront commitment. Reservations provide a billing discount and don't affect the runtime state of your virtual machines or SQL databases.
 
-For more information, see [What are Azure Reservations?](../reservations/save-compute-costs-reservations.md).
+For more information, see [What are Azure Reservations?](../reservations/save-compute-costs-reservations.md)
 
 #### Use Azure Hybrid Benefit
 

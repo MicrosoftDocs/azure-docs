@@ -2,8 +2,8 @@
 title: Best practices for large-scale IoT deployments
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Best practices, patterns, and sample code you can use to help with large-scale deployments of Azure IoT Hub and Device Provisioning Service.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 08/07/2025
@@ -41,14 +41,18 @@ With this logic, devices delay reconnecting for a random amount of time, between
 
 For more information on the timing of retry operations, see [Retry timing](https://github.com/Azure/azure-sdk-for-c/blob/main/sdk/docs/iot/mqtt_state_machine.md#retry-timing).
 
-## Reprovision devices
+## Reconnect vs reprovision a device
 
-Reprovisioning is the process where a device needs to be provisioned to an IoT hub after having been successfully connected previously. There can be many reasons that result in a need for a device to reconnect to an IoT hub, such as:
+Reconnect is the process where a device needs to reconnect to an IoT hub after it was successfully connected previously through DPS and was disconnected for some reason. Reprovisioning is the process where a device needs to be provisioned to a new IoT hub. For example, the device needs to be reprovisioned because it's being moved to a hub on a different region, moved from development to a test hub, or it needs to be reinitialized in the previously allocated hub. 
 
-* A device could reboot due to power outage, loss in network connectivity, geo-relocation, firmware updates, factory reset, or certificate key rotation.
-* The IoT Hub instance could be unavailable due to an unplanned IoT Hub outage.
+There can be many reasons that result in a need for a device to reconnect to an IoT hub, such as:
+
+* A device reboots due to power outage, loss in network connectivity, geo-relocation, firmware updates, factory reset, or certificate key rotation.
+* The IoT Hub instance is temporarily unavailable due to an unplanned IoT Hub outage.
 
 You shouldn't need to go through the provisioning process every time a device reboots. Most devices that are reprovisioned end up connected to the same IoT hub. Instead, a device should attempt to connect to its IoT hub directly using the information that was cached from a previous successful connection.
+
+When you consider reprovisioning a device, assign devices to a different IoT hub by using a [custom allocation policy](tutorial-custom-allocation-policies.md).
 
 ### Devices that can store a connection string
 
@@ -180,14 +184,7 @@ When devices connect to IoT Hub via DPS, they should use the following logic in 
 
 At any time, devices should be capable of responding to a user-initiated reprovisioning command.
 
-If devices get disconnected from IoT Hub, devices should try to reconnect directly to the same IoT hub for 15-30 minutes before attempting to go back to DPS.  
-
-Other IoT Hub scenarios when using DPS:
-
-* IoT Hub failover: Devices should continue to work as connection information shouldn't change and logic is in place to retry the connection once the hub is available again.
-* Change of IoT Hub: Assigning devices to a different IoT hub should be done by using a [custom allocation policy](tutorial-custom-allocation-policies.md).
-* Retry IoT Hub connection: You shouldn't use an aggressive retry strategy. Instead, allow a gap of at least a minute before a retry.
-* IoT Hub partitions: If your device strategy leans heavily on telemetry, the number of device-to-cloud partitions should be increased.
+If devices get disconnected from IoT Hub, they try to reconnect directly to the same IoT hub for 15-30 minutes before attempting to go back to DPS to reallocate to a new IoT hub. In this scenario, if the hub is down and the IoT hub isn't removed from the DPS enrollment, devices attempt to reconnect to the same hub that's out. This process causes provisioning to fail to connect to the hub and an exponential effect of failures. Make sure that the IoT hubs aren't removed from your environment and are available. 
 
 ## Monitor devices
 

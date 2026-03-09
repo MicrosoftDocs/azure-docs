@@ -1,7 +1,7 @@
 ---
 title: Azure Event Grid namespaces - Set custom headers on delivered events
 description: Describes how you can set custom headers (or delivery properties) for events delivered using namespaces.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom:
   - ignite-2023
 ms.date: 11/15/2023

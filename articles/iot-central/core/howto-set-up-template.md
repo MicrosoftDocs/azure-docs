@@ -15,7 +15,7 @@ ms.custom: device-developer
 
 # Create a device template in your Azure IoT Central application
 
-A device template is a blueprint that defines the characteristics and behaviors of a type of device that connects to an Azure IoT Central application. For example, you can create a device template for a sensor that sends telemetry, such as temperature and properties, such as location. To learn more, see [What are device templates?](concepts-device-templates.md).
+A device template is a blueprint that defines the characteristics and behaviors of a type of device that connects to an Azure IoT Central application. For example, you can create a device template for a sensor that sends telemetry, such as temperature and properties, such as location. To learn more, see [What are device templates?](concepts-device-templates.md)
 
 This article describes some of the ways to create a device template in IoT Central such as [autogenerating a device template from a telemetry message](#autogenerate-a-device-template) or defining one in the [IoT Central UI](#create-a-device-template-in-your-azure-iot-central-application).
 

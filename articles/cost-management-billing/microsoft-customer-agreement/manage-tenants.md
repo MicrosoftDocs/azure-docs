@@ -67,11 +67,11 @@ There are three ways users with billing owner access can assign roles to users t
 - Assign billing roles to external users (outside of your primary tenant) if they are part of an associated tenant 
 - If tenants are not associated, [create guest users in primary tenant and assign roles](#add-guest-users-to-your-microsoft-customer-agreement-tenant). 
 
-## Understanding Guest Users in Azure Portal
+## Understanding Guest Users in Azure portal
 
 A guest user (also known as guested user or B2B user) is an external user who has been invited to access resources within an Azure Active Directory (Azure AD) tenant. Typically, this user has a primary identity in another Azure AD tenant or identity provider and receives access via Azure AD B2B (business-to-business) collaboration features. Once invited, the guest user appears in the inviting organization’s directory and can be assigned roles and permissions just like any other user.
 
-### Accessing the Azure Portal
+### Accessing the Azure portal
 
 The guest user must sign in to the [Azure portal](https://portal.azure.com/) using their own organization’s credentials. Upon successful authentication, they should select the host directory (the client organization) from the top-right user menu in the Azure portal if they are members of multiple tenants.
 
@@ -117,7 +117,7 @@ Authorization to invite guest users is controlled by your Microsoft Entra settin
 ## Troubleshooting Common Issues for Guest Users
 
 - Access Denied Errors: Ensure correct roles are assigned and the guest has accepted the invitation. 
-- Directory Not Found: Instruct the user to switch directories in the Azure Portal. 
+- Directory Not Found: Instruct the user to switch directories in the Azure portal. 
 - Resource Visibility: Confirm that the user’s roles map to the correct billing profiles or invoice sections. 
 
 ## Manage multiple Microsoft cloud services under a Microsoft Entra tenant

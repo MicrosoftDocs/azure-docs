@@ -97,7 +97,7 @@ Several Microsoft Entra roles span Microsoft Entra ID and Microsoft 365, such as
 ## Classic subscription administrator roles
 
 > [!IMPORTANT]
-> As of **August 31, 2024**, Azure classic administrator roles (along with Azure classic resources and Azure Service Manager) are retired and no longer supported. If you still have active Co-Administrator or Service Administrator role assignments, convert these role assignments to Azure RBAC immediately. Starting in **December 2025**, Azure will begin to automatically assign the Owner role at subscription scope to users who are still assigned the Co-Administrator or Service Administrator role.
+> As of **August 31, 2024**, Azure classic administrator roles (along with Azure classic resources and Azure Service Manager) are retired and no longer supported. If you still have active Co-Administrator or Service Administrator role assignments, convert these role assignments to Azure RBAC immediately. Starting in **December 2025**, Azure will begin to automatically assign the Owner role at subscription scope to users in the public cloud who are still assigned the Co-Administrator or Service Administrator role.
 >
 > For more information, see [Azure classic subscription administrators](classic-administrators.md).
 

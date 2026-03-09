@@ -2,8 +2,8 @@
 title: Integrate your app with an Azure virtual network
 description: Integrate your app in Azure App Service with Azure virtual networks.
 author: seligj95
-ms.topic: conceptual
-ms.date: 09/03/2025
+ms.topic: concept-article
+ms.date: 02/25/2026
 ms.update-cycle: 1095-days
 ms.author: jordanselig
 ms.custom:
@@ -92,7 +92,7 @@ For each App Service plan instance, you need:
 For 10 instances:
 5 x 10 = 50 IP addresses per App Service plan
 
-Since you have 1 App Service plan, 1 x 50 = 50 IP addresses.
+Since you have 1 App Service plan, 1 x 50 = 50 IP addresses
 
 You are in addition limited by the number of cores available in the worker tier used. Each core adds three networking units. The worker itself uses one unit and each virtual network connection uses one unit. The remaining units can be used for apps.
 
@@ -150,6 +150,10 @@ When using custom containers, you can pull the container over the virtual networ
 #### Backup/restore
 
 App Service has built-in backup/restore, but if you want to back up to your own storage account, you can use the custom backup/restore feature. If you want to route the traffic to the storage account through the virtual network integration, you must configure the route setting. Database backup isn't supported over the virtual network integration.
+
+#### Managed identity
+
+By default, managed identity token acquisition traffic goes over the public route. You can route this traffic through the virtual network integration so that token requests to Microsoft Entra ID are sent through the virtual network. Learn [how to configure managed identity routing](./configure-vnet-integration-routing.md#managed-identity).
 
 #### App settings using Key Vault references
 

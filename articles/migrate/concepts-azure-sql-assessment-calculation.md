@@ -97,7 +97,7 @@ Azure SQL Database sizing | **Service Tier** | Choose the most appropriate servi
 Azure SQL Database sizing | **Instance type** | Defaulted to *Single database*.
 Azure SQL Database sizing | **Purchase model** | Defaulted to *vCore*.
 Azure SQL Database sizing | **Compute tier** | Defaulted to *Provisioned*.
-High availability and disaster recovery properties | **Disaster recovery region** | Defaulted to the [cross-region replication pair](../reliability/cross-region-replication-azure.md#azure-paired-regions) of the Target location. In an unlikely event when the chosen Target location doesn't yet have such a pair, the specified Target location itself is chosen as the default disaster recovery region.
+High availability and disaster recovery properties | **Disaster recovery region** | Defaulted to the [cross-region replication pair](/azure/reliability/cross-region-replication-azure#azure-paired-regions) of the Target location. In an unlikely event when the chosen Target location doesn't yet have such a pair, the specified Target location itself is chosen as the default disaster recovery region.
 High availability and disaster recovery properties | **Multi-subnet intent** | Defaulted to Disaster recovery. <br/><br/> Select **Disaster recovery** if you want asynchronous data replication where some replication delays are tolerable. This allows higher durability using geo-redundancy. In the event of failover, data that hasn't yet been replicated might be lost. <br/><br/> Select **High availability** if you desire the data replication to be synchronous and no data loss due to replication delay is allowable. This setting allows assessment to leverage built-in high availability options in Azure SQL Databases and Azure SQL Managed Instances, and availability zones and zone-redundancy in Azure Virtual Machines to provide higher availability. In the event of failover, no data is lost.  
 High availability and disaster recovery properties | **Internet Access** | Defaulted to Available.<br/><br/> Select **Available** if you allow outbound Internet access from Azure VMs. This allows the use of [Cloud Witness](/azure/azure-sql/virtual-machines/windows/hadr-cluster-quorum-configure-how-to?tabs=powershell) which is the recommended approach for Windows Server Failover Clusters in Azure Virtual Machines. <br/><br/> Select **Not available** if the Azure VMs have no outbound Internet access. This requires the use of a Shared Disk as a witness for Windows Server Failover Clusters in Azure Virtual Machines. 
 High availability and disaster recovery properties | **Async commit mode intent** | Defaulted to Disaster recovery. <br/><br/> Select **Disaster recovery** if you're using asynchronous commit availability mode to enable higher durability for the data without affecting performance. In the event of failover, data that hasn't yet been replicated might be lost. <br/><br/> Select **High availability** if you're using asynchronous commit data availability mode to improve availability and scale out read traffic. This setting allows assessment to leverage built-in high availability features in Azure SQL Databases, Azure SQL Managed Instances, and Azure Virtual Machines to provide higher availability and scale out.  
@@ -177,7 +177,7 @@ For storage sizing, the assessment maps each of the instance disk to an Azure di
 
 - If the assessment can't find a disk for the required size, it marks the instance as unsuitable for migrating to SQL Server on Azure VM
 - If the assessment finds a set of suitable disks, it selects the disks that support the location specified in the assessment settings.
-- If the environment type is *Production*, the assessment tries to find Premium disks to map each of the disks, else it tries to find a suitable disk, which could either be Premium or Standard SSD disk.
+- If the environment type is *Production*, the assessment tries to find Premium disks to map each of the disks, else it tries to find a suitable disk, which could either be Premium or Standard SSD.
     - If there are multiple eligible disks, assessment selects the disk with the lowest cost.
 
 ##### Compute sizing
@@ -241,7 +241,7 @@ For storage sizing, the assessment maps each of the instance disk to an Azure di
 - If the assessment finds a set of suitable disks, it selects the disks that support the location specified in the assessment settings.
 - If the source is a SQL Server Always On Failover Cluster Instance, shared disk configuration is selected. 
  
-- If the environment type is _Production_, the assessment tries to find Premium disks to map each of the disks, else it tries to find a suitable disk, which could either be Premium or Standard SSD disk. If there are multiple eligible disks, assessment selects the disk with the lowest cost. 
+- If the environment type is _Production_, the assessment tries to find Premium disks to map each of the disks, else it tries to find a suitable disk, which could either be Premium or Standard SSD. If there are multiple eligible disks, assessment selects the disk with the lowest cost. 
  
 ### Compute sizing 
  

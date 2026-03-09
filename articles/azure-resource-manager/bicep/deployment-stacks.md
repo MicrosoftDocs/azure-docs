@@ -3,7 +3,7 @@ title: Create and deploy Azure deployment stacks in Bicep
 description: Understand how to create deployment stacks in Bicep.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 06/09/2025
+ms.date: 12/22/2025
 ---
 
 # Create and deploy Azure deployment stacks in Bicep

@@ -7,7 +7,7 @@ ms.author: xiaoyul
 ms.date: 08/29/2018
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Design decisions and coding techniques for a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics 

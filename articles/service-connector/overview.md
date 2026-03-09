@@ -48,7 +48,7 @@ Compute services:
 
 Target services:
 
-* Azure AI services
+* Foundry Tools
 * Azure App Configuration
 * Azure Cache for Redis (Basic, Standard, Premium and Enterprise tiers)
 * Azure Cosmos DB (NoSQL, MongoDB, Gremlin, Cassandra, Table)

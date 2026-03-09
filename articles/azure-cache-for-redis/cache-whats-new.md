@@ -155,7 +155,7 @@ For more information, see [How to configure CMK encryption on Enterprise caches]
 
 All tiers of Azure Cache for Redis now support TLS 1.3.
 
-For more information, see [What are the configuration settings for the TLS protocol?](cache-tls-configuration.md).
+For more information, see [What are the configuration settings for the TLS protocol?](cache-tls-configuration.md)
 
 ## October 2023
 

@@ -2,8 +2,8 @@
 title: High availability and disaster recovery with DPS
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Describes the Azure and Device Provisioning Service features that help you to build highly available Azure IoT solutions with disaster recovery capabilities.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 08/11/2025
@@ -21,7 +21,7 @@ Device Provisioning Service (DPS) is a helper service for IoT Hub that enables z
 
 DPS is a highly available service; for details, see the [SLA for Azure IoT Hub](https://azure.microsoft.com/support/legal/sla/iot-hub/). The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/) explains the guaranteed availability of Azure as a whole.
 
-DPS also supports [Availability Zones](../reliability/availability-zones-overview.md). An Availability Zone is a high-availability offering that protects your applications and data from datacenter failures. A region with Availability Zone support is composed of a minimum of three zones supporting that region. Each zone provides one or more datacenters, each in a unique physical location with independent power, cooling, and networking. The datacenters provide replication and redundancy within the region. Availability Zone support for DPS is enabled automatically for DPS resources in the following Azure regions:
+DPS also supports [Availability Zones](/azure/reliability/availability-zones-overview). An Availability Zone is a high-availability offering that protects your applications and data from datacenter failures. A region with Availability Zone support is composed of a minimum of three zones supporting that region. Each zone provides one or more datacenters, each in a unique physical location with independent power, cooling, and networking. The datacenters provide replication and redundancy within the region. Availability Zone support for DPS is enabled automatically for DPS resources in the following Azure regions:
 
 * Australia East
 * Brazil South
@@ -42,13 +42,13 @@ You don't need to take any action to use availability zones in supported regions
 
 Device Provisioning Service stores customer data in the region where you deployed the service instance, and replicates data to a secondary region to support disaster recovery scenarios.
 
-By default, DPS uses [cross-region replication](../reliability/regions-paired.md) to enable automatic failover. Microsoft exercises Microsoft-initiated failover in rare situations when an entire region goes down to fail over all the DPS instances from the affected region to its corresponding secondary region. Microsoft reserves the right to determine when this option is exercised. This mechanism doesn't involve user consent before the user's DPS instance is failed over.
+By default, DPS uses [cross-region replication](/azure/reliability/regions-paired) to enable automatic failover. Microsoft exercises Microsoft-initiated failover in rare situations when an entire region goes down to fail over all the DPS instances from the affected region to its corresponding secondary region. Microsoft reserves the right to determine when this option is exercised. This mechanism doesn't involve user consent before the user's DPS instance is failed over.
 
 Customers that have DPS deployed in Southeast Asia and Brazil South can opt out of automatic failover, in which case the customer data stays in the primary region and isn't replicated to a secondary region.
 
 ## Disable disaster recovery
 
-By default, DPS provides automatic failover by replicating data to a [secondary region](../reliability/regions-paired.md#paired-regions) for a DPS instance. For some regions, you can avoid data replication outside of the region by disabling disaster recovery when creating a DPS instance. The following regions support this feature:
+By default, DPS provides automatic failover by replicating data to a [secondary region](/azure/reliability/regions-paired#paired-regions) for a DPS instance. For some regions, you can avoid data replication outside of the region by disabling disaster recovery when creating a DPS instance. The following regions support this feature:
 
 * **Brazil South**: paired region, South Central US.
 * **Southeast Asia (Singapore)**: paired region, East Asia (Hong Kong Special Administrative Region).

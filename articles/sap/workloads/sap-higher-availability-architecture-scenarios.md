@@ -214,7 +214,7 @@ Another important infrastructure element for high availability is storage. For e
 
 Instead of putting all VMs into a single Azure storage account, you can use dedicated storage accounts for each VM. By using multiple independent Azure storage accounts, you increase overall VM and SAP application availability.
 
-Azure managed disks are automatically placed in the fault domain of the virtual machine they are attached to. If you place two virtual machines in an availability set and use managed disks, the platform takes care of distributing the managed disks into different fault domains as well. If you plan to use a premium storage account, we highly recommend using managed disks.
+Azure Managed Disks are automatically placed in the fault domain of the virtual machine they are attached to. If you place two virtual machines in an availability set and use managed disks, the platform takes care of distributing the managed disks into different fault domains as well. If you plan to use a premium storage account, we highly recommend using managed disks.
 
 A sample architecture of an SAP NetWeaver system that uses Azure infrastructure high availability and storage accounts might look like this:
 

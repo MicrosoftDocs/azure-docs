@@ -1,13 +1,13 @@
 ---
 title: View Azure savings plan utilization
 titleSuffix: Microsoft Cost Management
-description: Learn how to view saving plan utilization in the Azure portal.
+description: Learn how to view savings plan utilization in the Azure portal.
 author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 07/09/2025
+ms.date: 01/08/2026
 ms.author: onwokolo
 ---
 
@@ -16,23 +16,23 @@ ms.author: onwokolo
 You can view savings plan utilization percentage in the Azure portal.
 
 > [!NOTE]
-> It can take up to 48 hours for initial savings plan purchase utilization data to appear in utilization reports and to get shown in cost analysis. Afterward, you can expect usage data show to appear within 2 to 24 hours.
+> It can take up to 48 hours for initial savings plan purchase utilization data to appear in utilization reports and to get shown in cost analysis. Afterward, you can expect usage data to appear within 2 to 24 hours.
 
 ## View utilization in the Azure portal with Azure RBAC access
 
 To view savings plan utilization, you must have Azure RBAC access to the savings plan or you must have elevated access to manage all Azure subscriptions and management groups.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Search for **Savings plans** and the select it.
+2. Search for **Savings plans** and then select it.
 3. The list shows all the savings plans where you have the Owner or Reader role. Each savings plan shows the last known utilization percentage for both the last day and the last seven days in the list view.
 4. Select the utilization percentage to see the utilization history.
 
 ## View utilization as billing administrator
 
-An Enterprise Agreement (EA) administrator or a Microsoft Customer Agreement (MCA) billing administrator can view the utilization from  **Cost Management + Billing**.
+An Enterprise Agreement (EA) administrator or a Microsoft Customer Agreement (MCA) billing administrator can view the utilization from **Cost Management + Billing**.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Go to  **Cost Management + Billing** > **Savings plans**.
+2. Go to **Cost Management + Billing** > **Savings plans**.
 3. Select the utilization percentage to see the utilization history.
 
 ## Get Savings plan utilization with the API

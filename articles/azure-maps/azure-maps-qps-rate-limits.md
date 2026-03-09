@@ -35,6 +35,7 @@ The following list shows the QPS usage limits for each Azure Maps service by Pri
 | Search service - Batch | 10 | 10 | Not Available |
 | Search service - single request | 500 | 500 | 50 |
 | Search service - single request reverse | 250 | 250 | 50 |
+| Search service - single request geocode autocomplete | 100 | Not Applicable | Not Applicable |
 | Timezone service | 50 | 50 | 50 |
 | Traffic service | 50 | 50 | 50 |
 | Weather service | 50 | 50 | 50 |

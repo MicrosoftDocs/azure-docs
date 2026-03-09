@@ -149,7 +149,7 @@ report on compliance status and allow drift or to automatically correct.
 - Learn how to view [compliance details for machine configuration][14] policy assignments.
 
 <!-- Reference link definitions -->
-[01]: ../overview.md
+[01]: ../overview/01-overview-concepts.md
 [02]: ../../policy/concepts/effects.md#deployifnotexists
 [03]: ../../policy/concepts/effects.md#deployifnotexists-evaluation
 [04]: https://youtu.be/rjAk1eNmDLk

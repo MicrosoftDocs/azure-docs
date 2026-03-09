@@ -100,7 +100,7 @@ Use the following steps to configure your web app to pull from Azure Container R
    - *\<principal-id>* with the service principal ID from the `az webapp identity assign` command
    - *\<registry-resource-id>* with the ID of your container registry from the `az acr show` command
 
-   For more information about these permissions, see [What is Azure role-based access control?](../role-based-access-control/overview.md).
+   For more information about these permissions, see [What is Azure role-based access control?](../role-based-access-control/overview.md)
 
 1. Configure your app to use the managed identity to pull from Azure Container Registry.
 

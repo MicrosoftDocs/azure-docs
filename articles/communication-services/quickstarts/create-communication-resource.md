@@ -2,10 +2,10 @@
 title: Create a Communication Services resource in Azure Communication Services
 titleSuffix: An Azure Communication Services article
 description: This article describes how to create and manage your first Azure Communication Services resource.
-author: tophpalmer
+author: sundiraman
 manager: chpalm
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services

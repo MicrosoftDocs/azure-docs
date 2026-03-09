@@ -6,7 +6,7 @@ ms.author: stefanazaric
 ms.date: 10/18/2021
 ms.service: azure-synapse-analytics
 ms.subservice: sql
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: azure-synapse
 ---
 

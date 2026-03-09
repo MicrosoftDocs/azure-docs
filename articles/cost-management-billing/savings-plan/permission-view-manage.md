@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 07/09/2025
+ms.date: 01/08/2026
 ms.author: onwokolo
 ---
 
@@ -68,7 +68,7 @@ There are four savings plan-specific RBAC roles:
 - **Savings plan contributor**: Allows management of one or more savings plans in a tenant but not delegation of RBAC roles to other users.
 - **Savings plan reader**: Allows read-only access to one or more savings plans in a tenant.
 
-These roles can be scoped to either a specific resource entity (for example, subscription or savings plan) or the Microsoft Entra tenant (directory). To learn more about Azure RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
+These roles can be scoped to either a specific resource entity (for example, subscription or savings plan) or the Microsoft Entra tenant (directory). To learn more about Azure RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 
 ### Savings plan RBAC roles required for savings plan actions
 
@@ -148,7 +148,7 @@ To add a savings plan administrator role at the tenant level with PowerShell, us
 Import-Module Az.Accounts
 Import-Module Az.Resources
 Connect-AzAccount -Tenant <TenantId>
-New-AzRoleAssignment -Scope "/providers/Microsoft.BillingBenefits" -PrincipalId <ObjectId> -RoleDefinitionName "Savings plan Administrator"
+New-AzRoleAssignment -Scope "/providers/Microsoft.BillingBenefits" -PrincipalId <ObjectId> -RoleDefinitionName "Savings plan administrator"
 ```
 
 #### Parameters
@@ -175,7 +175,7 @@ To assign the savings plan contributor role at the tenant level with PowerShell,
 Import-Module Az.Accounts
 Import-Module Az.Resources
 Connect-AzAccount -Tenant <TenantId>
-New-AzRoleAssignment -Scope "/providers/Microsoft.BillingBenefits" -PrincipalId <ObjectId> -RoleDefinitionName "Savings plan Contributor"
+New-AzRoleAssignment -Scope "/providers/Microsoft.BillingBenefits" -PrincipalId <ObjectId> -RoleDefinitionName "Savings plan contributor"
 ```
 
 #### Parameters
@@ -202,7 +202,7 @@ To assign the savings plan reader role at the tenant level with PowerShell, use 
 Import-Module Az.Accounts
 Import-Module Az.Resources
 Connect-AzAccount -Tenant <TenantId>
-New-AzRoleAssignment -Scope "/providers/Microsoft.BillingBenefits" -PrincipalId <ObjectId> -RoleDefinitionName "Savings plan Reader"
+New-AzRoleAssignment -Scope "/providers/Microsoft.BillingBenefits" -PrincipalId <ObjectId> -RoleDefinitionName "Savings plan reader"
 ```
 
 #### Parameters

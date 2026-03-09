@@ -58,7 +58,7 @@ Once you mark a job as completed, the job release task runs on each node in the 
 > [!NOTE]
 > Deleting a job also executes the job release task. However, if a job is already terminated, the release task doesn't run a second time if the job is later deleted.
 
-Job release tasks can run for a maximum of 15 minutes before the Batch service terminates them. For more information, see the [REST API reference documentation](/rest/api/batchservice/job/add#jobreleasetask).
+Job release tasks can run for a maximum of 15 minutes before the Batch service terminates them. For more information, see the [REST API reference documentation](/rest/api/batchservice/jobs/create-job).
 
 ## Job preparation and release tasks with Batch .NET
 

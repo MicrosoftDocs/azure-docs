@@ -479,6 +479,11 @@
             "source_path_from_root": "/articles/azure-maps/how-to-use-indoor-module-ios.md",
             "redirect_url": "/azure/azure-maps/ios-sdk-migration-guide",
             "redirect_document_id": false
-        }   
+       },
+        {
+            "source_path_from_root": "/articles/azure-maps/power-bi-visual-add-bubble-layer.md",
+            "redirect_url": "/azure/azure-maps/power-bi-visual-add-marker-layer",
+            "redirect_document_id": false
+        }
     ]
 }

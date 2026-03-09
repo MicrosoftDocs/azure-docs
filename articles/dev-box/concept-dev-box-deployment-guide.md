@@ -7,7 +7,9 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: concept-article
 ms.date: 08/22/2025
-ms.custom: template-concept
+ms.custom:
+  - template-concept
+  - copilot-scenario-highlight
 #Customer intent: As a platform engineer, I want to understand the process, considerations, and configuration options so that I can successfully plan and implement a Microsoft Dev Box deployment.
 ---
 
@@ -88,10 +90,52 @@ The following table lists requirements that could influence your Microsoft Dev B
 
 See also: [Microsoft Dev Box customizations](./concept-what-are-dev-box-customizations.md).
 
+## Use AI to plan your deployment
+
+You can use AI assistants like GitHub Copilot to help analyze your organizational requirements and generate a tailored Dev Box deployment plan. This is especially useful when you need to make decisions across networking, identity, image strategy, and cost controls.
+
+Here's an example prompt you can adapt for your scenario:
+
+```copilot-prompt
+Help me plan a Microsoft Dev Box deployment based on these requirements:
+
+Organization details:
+- 50 developers across 3 teams (frontend, backend, data science)
+- Teams located in US West and Europe
+- Using Microsoft Entra ID (cloud-only, no on-premises Active Directory)
+- Need access to Azure SQL Database and Azure Kubernetes Service
+
+Requirements:
+- Frontend team: Visual Studio Code, Node.js, needs 8 GB RAM
+- Backend team: Visual Studio 2022, .NET 8, SQL Server tools, needs 16 GB RAM
+- Data science team: Python, Jupyter, GPU access, needs 32 GB RAM
+- Must auto-shutdown dev boxes at 7 PM local time
+- Limit developers to 2 dev boxes each
+
+Generate a deployment plan that includes:
+1. Recommended number of dev centers and projects
+2. Network connection strategy (Microsoft-hosted vs Azure network connection)
+3. Image strategy (marketplace images, custom images, or image definitions)
+4. Dev box pool configuration for each team and region
+5. Cost optimization recommendations
+```
+
+You can customize this prompt to include your specific requirements, such as:
+
+- Hybrid connectivity needs for on-premises resources
+- Compliance or security policies (firewalls, NSGs)
+- Existing Azure Compute Gallery images
+- Microsoft Intune conditional access requirements
+
+> [!NOTE]
+> AI-generated content can contain errors. Always validate the deployment plan against your organization's policies and the [Microsoft Dev Box architecture](./concept-dev-box-architecture.md) before implementation.
+
+For step-by-step guidance on implementing your plan, see the [deployment steps](#deploy-microsoft-dev-box) later in this article.
+
 ## Prerequisites
 
 - An Azure subscription linked to your Microsoft Entra tenant. Dev Box resources and Microsoft Intune must be in the same tenant.
-- One Microsoft Intune license per Dev Box user.
+- One Microsoft Intune license per Dev Box user. 
 - Azure RBAC groups/roles for access: Project Admin and Dev Box User assigned via Microsoft Entra groups.
 - Networking prerequisites as required (for example, connectivity to on-premises resources for hybrid scenarios).
 
@@ -107,7 +151,7 @@ Subscriptions are a unit of management, billing, and scale within Azure.  You ca
 
 Each Azure subscription is linked to a single Microsoft Entra tenant, which acts as an identity provider (IdP) for your Azure subscription. The Microsoft Entra tenant is used to authenticate users, services, and devices.
 
-Each Dev Box user needs a Microsoft Intune license. The Azure subscription that contains your Dev Box Azure resources (dev center, project, and more) needs to be in the same tenant as Microsoft Intune.
+Each Dev Box user needs a Microsoft Intune license. The Azure subscription that contains your Dev Box Azure resources (dev center, project, and more) needs to be in the same tenant as Microsoft Intune. To assign licenses to users, see [Assign Microsoft 365 licenses to users](/microsoft-365/admin/manage/assign-licenses-to-users).
 
 ### Step 2: Configure network components
 

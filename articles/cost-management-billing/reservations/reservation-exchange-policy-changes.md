@@ -6,8 +6,8 @@ ms.author: primittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.topic: conceptual
-ms.date: 10/28/2025
+ms.topic: concept-article
+ms.date: 01/15/2026
 ---
 
 # Changes to the Azure reservation exchange policy

@@ -2,7 +2,7 @@
 title: PowerShell developer reference for Azure Functions
 description: Understand how to develop functions by using PowerShell.
 author: eamonoreilly
-ms.topic: conceptual
+ms.topic: concept-article
 ms.devlang: powershell
 ms.custom:
   - devx-track-dotnet
@@ -636,7 +636,7 @@ There are a few concurrency models that you could explore depending on the type 
 
 You set these environment variables in the [app settings](functions-app-settings.md) of your function app.
 
-Depending on your use case, Durable Functions might significantly improve scalability. To learn more, see [Durable Functions application patterns](./durable/durable-functions-overview.md?tabs=powershell#application-patterns).
+Depending on your use case, Durable Functions might significantly improve scalability. To learn more, see [Durable Functions application patterns](./durable-functions-sequence.md).
 
 >[!NOTE]
 > You might get "requests are being queued due to no available runspaces" warnings. This message isn't an error. The message is telling you that requests are being queued. They're handled when the previous requests are completed.

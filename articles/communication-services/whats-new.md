@@ -53,7 +53,7 @@ Teams Phone extensibility, which is powered by Azure Communication Services, ena
 - **Billing:** The Teams Phone extensibility business model charges CCaaS vendors for using Azure Communication Services SDKs, including Calling SDK, VoIP consumption, Audio Insights, and Call Recording, while end users must use Teams Calling Plans and enable necessary Teams licenses for agents and resource accounts. For more information, see [Azure Communication Services pricing](https://azure.microsoft.com/pricing/details/communication-services/?msockid=29591b22ce2367e3338a0afdcfe86647).
 - **Telemetry:** Developers and CCaaS providers can access calling details and logging tools as part of the Teams Phone extensibility. Telemetry enables developers and system admins to monitor call use and debug call quality from the Azure portal either. They can do this by analyzing the Call Summary and Call Diagnostic Logs with a clear Team Phone Extensibility identifier or using the [Call Diagnostic Center](concepts/voice-video-calling/call-diagnostics.md).
 
-:::image type="content" source="media/whats-new-images/teams-phone-extensibility-using-call-automation.png" alt-text="A diagram showing the Azure Communication Services Call automation API enabling your application to integrate Teams Phone and Azure AI Speech.":::
+:::image type="content" source="media/whats-new-images/teams-phone-extensibility-using-call-automation.png" alt-text="A diagram showing the Azure Communication Services Call automation API enabling your application to integrate Teams Phone and Azure Speech in Foundry Tools.":::
 
 #### Join the Azure Communication Services Technology Adoption Program (TAP)
 

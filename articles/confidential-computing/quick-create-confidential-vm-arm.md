@@ -2,8 +2,7 @@
 title: Create an Azure confidential VM with ARM template
 description: Learn how to quickly create and deploy an Azure confidential virtual machine (confidential VM) using an ARM template.
 author: RunCai
-ms.service: azure-virtual-machines
-ms.subservice: azure-confidential-computing
+ms.service: azure-confidential-computing
 ms.topic: quickstart
 ms.date: 12/01/2023
 ms.author: RunCai
@@ -222,7 +221,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
 
 1. Create a new key using Azure Key Vault. For how to use an Azure Managed HSM instead, see the next step.
 
-   1. Create a new key with [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create)
+   1. Create a new key with [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create)
 
       ```
       $KeyName = <name of key>
@@ -266,7 +265,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
 
  1. (Optional) Create a new key from an Azure Managed HSM.
     
-    1. Create a new key with [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create)
+    1. Create a new key with [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create)
           ```
           $KeyName = <name of key>
           $KeySize = 3072

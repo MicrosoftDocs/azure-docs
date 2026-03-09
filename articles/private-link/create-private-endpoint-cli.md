@@ -5,7 +5,7 @@ services: private-link
 author: abell
 ms.service: azure-private-link
 ms.topic: quickstart
-ms.date: 03/25/2025
+ms.date: 02/20/2026
 ms.author: abell
 ms.custom: mode-api, devx-track-azurecli, template-quickstart
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint by using the Azure CLI.
@@ -93,7 +93,8 @@ az network bastion create \
     --name bastion \
     --public-ip-address public-ip \
     --vnet-name vnet-1 \
-    --location eastus2
+    --location eastus2 \
+    --sku Basic
 ```
 
 It can take a few minutes for the Azure Bastion host to deploy.

@@ -1,10 +1,10 @@
 ---
 title: Developer tools - Network Diagnostics Tool for Azure Communication Services
 description: Conceptual documentation outlining the capabilities provided by the Network Test Tool.
-author: tophpalmer
+author: sundiraman
 manager: chpalm
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 11/16/2022
 ms.topic: conceptual
 ms.service: azure-communication-services

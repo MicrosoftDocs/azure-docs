@@ -103,7 +103,7 @@ Routing preference choices include:
 
 * **Public Internet (ISP network)** - The new routing choice Internet routing minimizes travel on the Microsoft global network, and uses the transit ISP network to route your traffic. This routing is also known as *hot potato* routing.
 
-For more information about routing preference, see [What is routing preference?](./routing-preference-overview.md).
+For more information about routing preference, see [What is routing preference?](./routing-preference-overview.md)
 
 ## Routing preference unmetered
 

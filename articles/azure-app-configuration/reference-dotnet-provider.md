@@ -138,10 +138,10 @@ public class WeatherService
 }
 ```
 
-#### 3. Options pattern for strongly-typed configuration
+#### 3. Options pattern for strongly typed configuration
 
 ```csharp
-// Define a strongly-typed settings class
+// Define a strongly typed settings class
 public class Settings
 {
     public string BackgroundColor { get; set; }
@@ -651,6 +651,8 @@ For information about using snapshots, go to [Create and use snapshots](./howto-
 
 A snapshot reference is a configuration setting that references a snapshot in the same App Configuration store. When loaded, the provider resolves it and adds all key-values from that snapshot. Using snapshot references enables switching between snapshots at runtime, unlike `SelectSnapshot("...")`, which requires code changes and/or restarts to switch to a new snapshot.
 
+For more information about creating a snapshot reference, go to [snapshot reference concept](./concept-snapshot-references.md).
+
 > [!NOTE] 
 > To use snapshot references, use the version *8.4.0* or later of `Microsoft.Extensions.Configuration.AzureAppConfiguration`.
 
@@ -708,6 +710,27 @@ builder.Services.AddHealthChecks()
 The .NET provider will be considered as unhealthy when the last load or refresh attempt failed.
 
 For more information about health checks in .NET, see the [.NET health monitoring documentation](/dotnet/architecture/microservices/implement-resilient-applications/monitor-app-health).
+
+## Connect to Azure Front Door
+
+The Azure Front Door integration allows client applications to fetch configuration from edge-cached endpoints rather than directly from App Configuration. This architecture delivers secure, scalable configuration access with the performance benefits of global CDN distribution.
+
+The following example demonstrates how to load configuration settings from Azure Front Door:
+
+```csharp
+builder.Configuration.AddAzureAppConfiguration(options =>
+{
+    options.ConnectAzureFrontDoor(new Uri("{YOUR-AFD-ENDPOINT}"))
+            .Select("TestApp:*")
+            .ConfigureRefresh(refreshOptions =>
+            {
+                refreshOptions.RegisterAll()
+                    .SetRefreshInterval(TimeSpan.FromMinutes(1));
+            });
+});
+```
+
+For more information about Azure Front Door, see [Load Configuration from Azure Front Door in Client Applications](./how-to-load-azure-front-door-configuration-provider.md).
 
 ## Next steps
 

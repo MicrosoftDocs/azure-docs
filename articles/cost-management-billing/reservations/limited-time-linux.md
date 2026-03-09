@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/28/2025
+ms.date: 01/15/2026
 ms.author: primittal
 ms.custom: references_regions
 #customer intent: I want to learn how to save money with reservations and buy one.

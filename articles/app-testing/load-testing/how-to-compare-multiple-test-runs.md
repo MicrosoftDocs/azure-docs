@@ -12,13 +12,13 @@ ms.topic: how-to
 
 # Compare load test runs in Azure Load Testing
 
-In this article, you learn how you can compare test runs in Azure Load Testing. You can view trends across the last 10 test runs, or you can select and compare up to ten individual test runs. Optionally, you can mark a test run as a baseline to compare against.
+In this article, you learn how you can compare test runs in Azure Load Testing. You can view trends across the last few test runs, or you can select and compare up to 10 individual test runs. Optionally, you can mark a test run as a baseline to compare against.
 
-To identify regressions over time, you can use the client-side metrics trends of the last 10 test runs, such as the response time, error rate, and more. In combination with [CI/CD integration](./quickstart-add-load-test-cicd.md), the trends data might help you identify which application build introduced a performance issue.
+To identify regressions over time, you can use the client-side metrics trends of the previous test runs, such as the response time, error rate, and more. In combination with [CI/CD integration](./quickstart-add-load-test-cicd.md), the trends data might help you identify which application build introduced a performance issue.
 
 When you want to compare the client-side metrics trends against a specific reference test run, you can mark that test run as your baseline. For example, before you implement performance optimizations in your application, you might first create a baseline load test run, and then validate the effects of your optimizations against your baseline.
 
-To compare both client-side and server-side metrics, you can select up to ten test runs, and compare them in the Azure Load Testing dashboard. The dashboard overlays the client-side and server-side metric graphs for each test run. By also comparing server-side application metrics in the dashboard, you can identify which application component was the root cause for a sudden performance degradation.
+To compare both client-side and server-side metrics, you can select up to 10 test runs, and compare them in the Azure Load Testing dashboard. The dashboard overlays the client-side and server-side metric graphs for each test run. By also comparing server-side application metrics in the dashboard, you can identify which application component was the root cause for a sudden performance degradation.
 
 ## Prerequisites
 
@@ -28,9 +28,9 @@ To compare both client-side and server-side metrics, you can select up to ten te
 
 ## Compare multiple load test runs
 
-To compare test runs in Azure Load Testing, you first have to select up to ten runs within a load test. You can only compare runs that belong to the same load test. After you select the test runs you want to compare, you can visually compare the client-side and server-side metrics for each test run in the load test dashboard.
+To compare test runs in Azure Load Testing, you first have to select up to 10 runs. These test runs can be from the same load test or from another load test. After you select the test runs you want to compare, you can visually compare the client-side and server-side metrics for each test run in the load test dashboard.
 
-A test run needs to be in the *Done*, *Stopped*, or *Failed* state to compare it.
+A test run needs to be in the *Passed*, *Failed*, *Completed*, or *Stopped* state to compare it.
 
 Use the following steps to select the test runs:
 
@@ -45,7 +45,7 @@ Use the following steps to select the test runs:
 
 1. Select two or more test runs, and then select **Compare** to compare test runs.
 
-    You can choose a maximum of ten test runs to compare.
+    You can choose a maximum of 10 test runs to compare.
 
     :::image type="content" source="media/how-to-compare-multiple-test-runs/compare-test-results-from-list.png" alt-text="Screenshot that shows a list of test runs and the 'Compare' button in the Azure portal." lightbox="media/how-to-compare-multiple-test-runs/compare-test-results-from-list.png":::
 
@@ -58,9 +58,11 @@ Use the following steps to select the test runs:
 
     :::image type="content" source="media/how-to-compare-multiple-test-runs/load-test-dashboard-compare-runs.png" alt-text="Screenshot of the load testing dashboard in the Azure portal, comparing two test runs." lightbox="media/how-to-compare-multiple-test-runs/load-test-dashboard-compare-runs.png":::
 
+1. Optionally, you can change the test runs selected for comparison by selecting 'Update selection'. You can select test runs from the same load test or from a different one.
+
 ## View metrics trends across load test runs
 
-To view metrics trends across test runs in Azure Load Testing, you need to have at least two test runs in the *Done*, or *Stopped* state. You can only view trends from runs that belong to the same load test.
+To view metrics trends across test runs in Azure Load Testing, you need to have at least two test runs in *Passed*, *Failed*, *Completed*, or *Stopped* state. You can only view trends from runs that belong to the same load test.
 
 Use the following steps to view metrics trends across test runs:
 

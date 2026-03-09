@@ -316,6 +316,19 @@
               href: /defender-xdr/custom-detection-rules?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
             - name: Manage detection rules
               href: /defender-xdr/custom-detection-manage?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+        - name: User and Entity Behavior Analytics (UEBA)
+          items:
+            - name: UEBA overview
+              href: identify-threats-with-entity-behavior-analytics.md
+              displayName: User and Entity Behavior Analytics
+            - name: Enable UEBA
+              href: enable-entity-behavior-analytics.md
+            - name: UEBA investigation examples
+              href: investigate-with-ueba.md
+            - name: Aggregate behavioral insights from raw logs
+              href: entity-behaviors-layer.md
+            - name: UEBA data sources and table schemas
+              href: ueba-reference.md
         - name: Data classification with entities
           items:
             - name: Overview
@@ -323,14 +336,12 @@
               displayName: data classification, entities
             - name: Entity pages
               href: entity-pages.md
-            - name: User and entity behavior analytics (UEBA)
-              href: identify-threats-with-entity-behavior-analytics.md
             - name: Create custom entity activities
               href: customize-entity-activities.md
         - name: Watchlists
           items:
             - name: Overview
-              href: watchlists.md
+              href: watchlists.md 
             - name: Create watchlists
               href: watchlists-create.md
             - name: Build queries or rules
@@ -410,8 +421,6 @@
               displayName: close incidents, search incidents, comment on incidents
             - name: Investigate incidents in depth
               href: investigate-incidents.md
-            - name: Tutorial - Investigate with UEBA
-              href: investigate-with-ueba.md
             - name: Relate alerts to incidents
               href: relate-alerts-to-incidents.md
             - name: Create incidents manually
@@ -513,6 +522,8 @@
               href: automation/use-playbook-templates.md
             - name: Create and manage playbooks
               href: automation/create-playbooks.md
+            - name: Generate playbooks using AI
+              href: automation/generate-playbook.md
             - name: Supported triggers and actions in playbooks
               href: automation/playbook-triggers-actions.md
             - name: Azure Logic Apps for Microsoft Sentinel playbooks
@@ -624,6 +635,8 @@
             href: datalake/sentinel-mcp-triage-tool.md
           - name: Create your own custom tool
             href: datalake/sentinel-mcp-create-custom-tool.md
+        - name: Build logic apps with Microsoft Sentinel MCP
+          href: datalake/sentinel-mcp-logic-apps.md
         - name: Troubleshooting
           href: datalake/troubleshoot-sentinel-mcp.md
         - name: Billing, limits, and availability
@@ -714,10 +727,12 @@
               href: cef-syslog-ama-overview.md
             - name: CEF and Syslog via AMA
               href: connect-cef-syslog-ama.md
-            - name: CEF - configure security device
+            - name: Device configuration for CEF via AMA
               href: unified-connector-cef-device.md
             - name: Syslog - configure security device
               href: unified-connector-syslog-device.md
+            - name: Troubleshoot CEF and Syslog via AMA
+              href: cef-syslog-ama-troubleshooting.md  
         - name: Custom log sources (text files)
           items:
             - name: Collect logs from text files via AMA
@@ -738,8 +753,10 @@
               href: connect-aws.md
             - name: AWS S3 WAF logs
               href: connect-aws-s3-waf.md
-        - name: Troubleshoot AWS S3 connector issues
-          href: aws-s3-troubleshoot.md
+            - name: Enable attack disruption actions on AWS
+              href: aws-disruption.md
+            - name: Troubleshoot AWS S3 connector issues
+              href: aws-s3-troubleshoot.md
         - name: Cisco firewalls
           href: cisco-ftd-firewall.md
         - name: Google Cloud Platform connectors
@@ -778,8 +795,12 @@
           href: normalization-ingest-time.md
         - name: Use ASIM
           href: normalization-about-parsers.md
+        - name: Workspace deployed parsers
+          href: normalization-about-workspace-parsers.md
         - name: Manage ASIM parsers
           href: normalization-manage-parsers.md
+        - name: Develop ASIM parsers
+          href: normalization-develop-parsers.md
         - name: Modify content to use ASIM
           href: normalization-modify-content.md
     - name: Aggregate data
@@ -876,6 +897,8 @@
       items:
       - name: Creating codeless data connectors (CCF)
         href: create-codeless-connector.md
+      - name: Creating push codeless data connectors (CCF)
+        href: create-push-codeless-connector.md
       - name: Creating analytics rules
         href: sentinel-analytic-rules-creation.md
       - name: Creating hunting queries
@@ -888,6 +911,7 @@
         href: sentinel-playbook-creation.md
       - name: Creating ASIM parsers
         href: normalization-develop-parsers.md
+        displayName: Build solutions
     - name: Publish solutions
       href: publish-sentinel-solutions.md
     - name: Sentinel SIEM solution lifecycle post publish
@@ -952,10 +976,14 @@
               href: normalization-entity-user.md
             - name: ASIM device entity
               href: normalization-entity-device.md
+            - name: ASIM application entity
+              href: normalization-entity-application.md
         - name: ASIM schemas
           items:
             - name: ASIM alert event schema
               href: normalization-schema-alert.md
+            - name: ASIM asset entity schema
+              href: normalization-schema-asset.md
             - name: ASIM audit event schema
               href: normalization-schema-audit.md
             - name: ASIM authentication schema
@@ -988,8 +1016,12 @@
       items:
         - name: Data source schema reference
           href: data-source-schema-reference.md
+        - name: Sentinel tables and connectors
+          href: sentinel-tables-connectors-reference.md
         - name: Security alert schema reference
           href: security-alert-schema.md
+        - name: Standalone vs XDR alert schema reference
+          href: security-alert-schema-differences.md
         - name: CEF log field mapping
           href: cef-name-mapping.md
         - name: Windows security event sets
@@ -1030,6 +1062,12 @@
           href: stix-objects-api.md
         - name: Legacy upload indicator API reference
           href: upload-indicators-api.md
+- name: Responsible AI
+  items:
+    - name: Responsible AI FAQ for UEBA behaviors layer
+      href: entity-behaviors-layer-rai-faqs.md
+    - name: Responsible AI FAQ for Microsoft Sentinel MCP
+      href: datalake/sentinel-mcp-responsible-ai-faq.md
 - name: Microsoft Sentinel blog
   href: https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/bg-p/MicrosoftSentinelBlog
 - name: Pricing

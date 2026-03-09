@@ -2,7 +2,7 @@
 title: Plan for CycleCloud Production Deployment
 description: A checklist to help plan for your CycleCloud production deployment
 author: adriankjohnson
-ms.date: 07/01/2025
+ms.date: 01/23/2026
 ms.author: adjohnso
 ---
 
@@ -13,13 +13,12 @@ Before you deploy Azure CycleCloud in a production environment, you need to care
 ## Azure CycleCloud deployment
 
 * Choose the version of CycleCloud to deploy:
-  * [Azure CycleCloud 8.2 - Current Release](../release-notes.md)
-  * [Azure CycleCloud 7.9 - Previous Release](../release-notes-previous.md)
+  * [Azure CycleCloud 8.8 - Current Release](../release-notes.md)
+  * [Azure CycleCloud Workspace for Slurm](../release-notes/ccws/release-notes.md)
 * [Prepare your Azure subscription](./configuration.md) by choosing the subscription, virtual network, subnet, and resource group for the CycleCloud server deployment
 * Choose the [resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal) to host clusters or let CycleCloud create the resource group (default setting)
 * Create a storage account for [locker access](./storage-blobs.md)
 * Decide if you want to use SSH keys, Microsoft Entra ID, or LDAP for [authentication](./user-access.md)
-* Decide if CycleCloud should use a Service Principal or a Managed Identity (recommended with a single subscription) [Choosing between a Service Principal and a Managed Identity](./service-principals.md#using-service-principal)
 * Confirm which SKU to use for CycleCloud: [CycleCloud System Requirements](./install-manual.md#system-requirements)
 * Decide if you want to deploy the environment in a locked down network. If so, consider the following requirements: [Operating in a locked down network](./running-in-locked-down-network.md)
 * [Deploy the CycleCloud server](../qs-install-marketplace.md)
@@ -36,12 +35,12 @@ Before you deploy Azure CycleCloud in a production environment, you need to care
 ## Azure CycleCloud cluster configuration
 
 * Define user access to the clusters [Cluster User Management](./user-access.md)
-* Choose the scheduler to use
-* Choose the version for the scheduler and head node
+* Choose the scheduler to use.
+* Choose the version for the scheduler and head node.
 * Choose the versions for the compute and execute nodes. This choice depends entirely on the application you're running.
 * Decide whether to deploy clusters using a template or manually:
-  * Define and upload cluster templates to the locker: [Cluster Template Reference](../cluster-references/cluster-reference.md)
-  * Manually create a cluster: [Create a New Cluster](./create-cluster.md)
+  * Define and upload cluster templates to the locker: [Cluster Template Reference](../cluster-references/cluster-reference.md).
+  * Manually create a cluster: [Create a New Cluster](./create-cluster.md).
 * Decide if you need to run any scripts on the scheduler or execute nodes once deployed:
   * [Cluster-Init](../cluster-references/cluster-init-reference.md)
   * [Cloud-Init](./cloud-init.md)
@@ -58,7 +57,8 @@ Before you deploy Azure CycleCloud in a production environment, you need to care
   * Using a marketplace image
   * From an NFS share, blob storage, Azure NetApp Files
 * Is there a specific VM version you need to use for the applications to run on? Is MPI a requirement? If it is, you'll need a different family of machines, like the H series.
-  * [Azure VM sizes - HPC](/azure/virtual-machines/sizes-hpc)
+  * [Azure H* series VM sizes - HPC](/azure/virtual-machines/sizes-hpc)
+  * [Azure ND* series VM sizes - HPC](/azure/virtual-machines/sizes-gpu)
   * [HB/HC Cluster Best Practices](./hb-hc-best-practices.md)
 * What's the best number of cores per job for each application?
 * Can you use spot VMs? [Using Spot VMs in CycleCloud](./use-spot-instances.md)

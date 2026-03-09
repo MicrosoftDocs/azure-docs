@@ -44,7 +44,7 @@ Oracle versions supported on Oracle Cloud Infrastructure (OCI) are supported on 
 
 ### Do you have any documented latency benchmark between Azure resources and Oracle Database@Azure?
 
-Latency between Azure resources and Oracle Database@Azure is within the Azure regional latency envelope because the Exadata infrastructure is inside Azure datacenters. Latency can be further fine-tuned dependent on colocation within availability zones. For more information, see [What are availability zones?](/azure/reliability/availability-zones-overview?tabs=azure-cli).
+Latency between Azure resources and Oracle Database@Azure is within the Azure regional latency envelope because the Exadata infrastructure is inside Azure datacenters. Latency can be further fine-tuned dependent on colocation within availability zones. For more information, see [What are availability zones?](/azure/reliability/availability-zones-overview?tabs=azure-cli)
 
 ### Does Oracle Database@Azure support deploying Oracle Base Database, or do I need to migrate to the Autonomous Database service?
 
@@ -105,7 +105,7 @@ This section includes questions related to onboarding, provisioning, and migrati
 
 ### Can a CSP, reseller, or an outsourcer use Oracle Database@Azure?
 
-Oracle Database@Azure doesn't support Outsourcer Channel Agreements (OCAs). However, Oracle Database@Azure supports multiparty private offers (MPO) and cloud service providers (CSPs). Multiparty private offers are supported in US, UK, and Canada. For more information on MPO, refer to the [Azure Marketplace documentation](/partner-center/marketplace-offers/multiparty-private-offers-for-channel-partners). For more details on CSP, refer to the [CSP documentation](/partner-center/marketplace-offers/isv-csp-reseller).
+Oracle Database@Azure doesn't support Outsourcer Channel Agreements (OCAs) and Cloud Solution Providers (CSPs) . However, Oracle Database@Azure supports multiparty private offers (MPO). Multiparty private offers are supported in US, UK, and Canada. For more information on MPO, refer to the [Azure Marketplace documentation](/partner-center/marketplace-offers/multiparty-private-offers-for-channel-partners). For more details on CSP, refer to the [CSP documentation](/partner-center/marketplace-offers/isv-csp-reseller).
 
 ### To set up Oracle Database@Azure, what role assignments does the Azure user need?
 
@@ -141,9 +141,9 @@ This section includes questions related to networking for Oracle Database@Azure.
 
 We support a comprehensive list of connectivity patterns and network features for Oracle Database@Azure. The list evolves as we continuously release new features and capabilities. For more information, see [Network planning for Oracle Database@Azure](oracle-database-network-plan.md).
 
-### How does Data Guard route traffic between availability zones in the same Azure region work?
+### How does Data Guard route traffic between availability zones in the same Azure region or in cross region work?
 
-You can configure an Oracle Data Guard network path when you set up your deployment. You can configure *cross-zone* Data Guard traffic to traverse only the Azure backbone. However, *cross-region* traffic must traverse the Azure and OCI network backbones.
+While configuring Oracle Data Guard, you can route network traffic through either the Azure or OCI backbone including cross-zone and cross-region connectivity. For cross-region configurations, enable advanced networking features and utilize cross-region VNet peering to ensure that Data Guard traffic exclusively traverses the Azure backbone.
 
 ### What is the latency impact of using OCI connections?
 

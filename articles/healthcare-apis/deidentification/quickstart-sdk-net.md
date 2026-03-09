@@ -83,9 +83,9 @@ The client library is available through NuGet, as the `Azure.Health.Deidentifica
 ## Object model
 
 - [DeidentificationClient](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/healthdataaiservices/Azure.Health.Deidentification/src/Generated/DeidentificationClient.cs) is responsible for the communication between the SDK and our De-identification Service Endpoint.
-- [DeidentificationContent](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/healthdataaiservices/Azure.Health.Deidentification/src/Generated/DeidentificationContent.cs) is used for string de-identification.
-- [DeidentificationJob](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/healthdataaiservices/Azure.Health.Deidentification/src/Generated/DeidentificationJob.cs) is used to create jobs to de-identify documents in an Azure Storage Account.
-- [PhiEntity](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/healthdataaiservices/Azure.Health.Deidentification/src/Generated/PhiEntity.cs) is the span and category of a single PHI entity detected via a Tag OperationType.
+- [DeidentificationContent](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/healthdataaiservices/Azure.Health.Deidentification/src/Generated/Models/DeidentificationContent.cs) is used for string de-identification.
+- [DeidentificationJob](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/healthdataaiservices/Azure.Health.Deidentification/src/Generated/Models/DeidentificationJob.cs) is used to create jobs to de-identify documents in an Azure Storage Account.
+- [PhiEntity](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/healthdataaiservices/Azure.Health.Deidentification/src/Generated/Models/PhiEntity.cs) is the span and category of a single PHI entity detected via a Tag OperationType.
 
 
 ## Code examples

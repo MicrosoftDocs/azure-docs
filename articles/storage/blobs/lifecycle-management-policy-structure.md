@@ -105,7 +105,9 @@ A lifecycle management policy will not delete the current version of a blob unti
 
 All run conditions are time-based. If the number of days that have transpired exceeds the number specified for the condition, then the associated action can execute. Policy conditions are assessed on each object only once during a policy run. In some cases, an object might meet the condition after it was already assessed by a run. Such objects are processed in subsequent runs.
 
-Current versions use the last modified time or last access time, previous versions use the version creation time, and blob snapshots use the snapshot creation time to track age. 
+Lifecycle policies evaluate a rule based on properties of that individual version only. They do not have the ability to examine properties of other versions of that blob to act upon the target blob. 
+
+Current versions use the last modified time or last access time of that version. Rules for previous versions use the creation time of that version when the blob was first written (not when the version became a previous version). Rules for blob snapshots use the time at which the snapshot was created.  
 
 The following table describes each action run condition.
 
@@ -120,7 +122,7 @@ The following table describes each action run condition.
 
 You can enable access time tracking to keep a record of when your blob is last read or written and as a filter to manage tiering and retention of your blob data. 
 
-When you enable access time tracking, a blob property called `LastAccessTime` is updated when a blob is read or written. The [Get Blob](/rest/api/storageservices/get-blob) and [Put Blob](/rest/api/storageservices/put-blob) operations are access operations and will update the access time of a blob. However, the [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), and [Get Blob Tags](/rest/api/storageservices/get-blob-tags) aren't access operations. Those operations won't update the access time of a blob. 
+When you enable access time tracking, a blob property called `LastAccessTime` is updated when a blob is read or written. For example, [Get Blob](/rest/api/storageservices/get-blob) and [Put Blob](/rest/api/storageservices/put-blob) are access operations that will update the last access time of a blob. However, the [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), and [Get Blob Tags](/rest/api/storageservices/get-blob-tags) aren't access operations. Those operations won't update the access time of a blob. 
 
 If you apply the **daysAfterLastAccessTimeGreaterThan** run condition to a policy, then the `LastAccessTime` is used to determine whether that condition is met. 
 

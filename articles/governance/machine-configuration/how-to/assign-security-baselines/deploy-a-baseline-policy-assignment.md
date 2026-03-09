@@ -124,7 +124,7 @@ This view lists all baseline policy assignments, including their policy definiti
 
 <!-- Link reference definitions -->
 [01]: /azure/azure-arc/servers/overview
-[02]: ../../overview.md
+[02]: ../../overview/01-overview-concepts.md
 [03]: ../../../policy/assign-policy-portal.md
 [04]: ../../../policy/assign-policy-azurecli.md
 [05]: ../view-compliance.md

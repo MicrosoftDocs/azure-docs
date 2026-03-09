@@ -260,7 +260,7 @@ You can review the code that defines the Event Grid blob trigger in the [Process
 - Process blob content and copy it to another container by using streams
 ::: zone-end
 ::: zone pivot="programming-language-python"
-You can review the code that defines the Event Grid blob trigger in the [function_app.py project file](https://github.com/Azure-Samples/functions-quickstart-python-azd-eventgrid-blob/blob/main/function_app.py). The function demonstrates how to:
+You can review the code that defines the Event Grid blob trigger in the [function_app.py project file](https://github.com/Azure-Samples/functions-quickstart-python-azd-eventgrid-blob/blob/main/src/function_app.py). The function demonstrates how to:
 
 - Use `@app.blob_trigger` with `source="EventGrid"` for near real-time processing
 - Access blob content using the `InputStream` parameter
@@ -274,14 +274,14 @@ You can review the code that defines the Event Grid blob trigger in the [process
 - Process and copy files to the destination container asynchronously
 ::: zone-end
 ::: zone pivot="programming-language-java"
-You can review the code that defines the Event Grid blob trigger in the [ProcessBlobUpload.java project file](https://github.com/Azure-Samples/functions-quickstart-java-azd-eventgrid-blob/blob/main/src/main/java/com/contoso/ProcessBlobUpload.java). The function demonstrates how to:
+You can review the code that defines the Event Grid blob trigger in the [ProcessBlobUpload.java project file](https://github.com/Azure-Samples/functions-quickstart-java-azd-eventgrid-blob/blob/main/src/src/main/java/com/microsoft/azure/samples/ProcessBlobUpload.java). The function demonstrates how to:
 
 - Use `@BlobTrigger` with `source = "EventGrid"` for near real-time processing
 - Access blob content using `BlobInputStream` parameter
 - Copy processed files to the destination container using Azure Storage SDK for Java
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
-You can review the code that defines the Event Grid blob trigger in the [ProcessBlobUpload/run.ps1 project file](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-eventgrid-blob/blob/main/ProcessBlobUpload/run.ps1) and the corresponding [function.json](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-eventgrid-blob/blob/main/ProcessBlobUpload/function.json). The function demonstrates how to:
+You can review the code that defines the Event Grid blob trigger in the [ProcessBlobUpload/run.ps1 project file](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-eventgrid-blob/blob/main/src/processBlobUpload/run.ps1) and the corresponding [function.json](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-eventgrid-blob/blob/main/src/processBlobUpload/function.json). The function demonstrates how to:
 
 - Configure blob trigger with `"source": "EventGrid"` in function.json for near real-time processing
 - Access blob content using PowerShell Azure Storage cmdlets

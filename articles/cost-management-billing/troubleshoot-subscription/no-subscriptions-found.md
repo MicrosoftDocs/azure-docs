@@ -6,9 +6,10 @@ ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 08/14/2025
+ms.date: 12/29/2025
 ms.author: nicholak
 ms.custom: sfi-image-nochange
+service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
 
 # No subscriptions found sign in error for Azure portal

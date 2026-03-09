@@ -5,7 +5,7 @@ author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.topic: article
+ms.topic: concept-article
 ms.tgt_pltfrm: vm-windows
 ms.date: 06/02/2023
 ms.author: radeltch
@@ -80,7 +80,7 @@ For more information, see [manage the availability of virtual machines in Azure 
 
 ### Azure Availability Zones
 
-Azure is in process of rolling out a concept of [Azure Availability Zones](../../reliability/availability-zones-overview.md) throughout different [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/). In Azure regions where Availability Zones are offered, the Azure regions have multiple data centers, which are independent in supply of power source, cooling, and network. Reason for offering different zones within a single Azure region is to enable you to deploy applications across two or three Availability Zones offered. Assuming that issues in power sources and/or network would affect one Availability Zone infrastructure only, your application deployment within an Azure region is still fully functional. Eventually with some reduced capacity since some VMs in one zone might be lost. But VMs in the other two zones are still up and running. The Azure regions that offer zones are listed in [Azure Availability Zones](../../reliability/availability-zones-overview.md).
+Azure is in process of rolling out a concept of [Azure Availability Zones](/azure/reliability/availability-zones-overview) throughout different [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/). In Azure regions where Availability Zones are offered, the Azure regions have multiple data centers, which are independent in supply of power source, cooling, and network. Reason for offering different zones within a single Azure region is to enable you to deploy applications across two or three Availability Zones offered. Assuming that issues in power sources and/or network would affect one Availability Zone infrastructure only, your application deployment within an Azure region is still fully functional. Eventually with some reduced capacity since some VMs in one zone might be lost. But VMs in the other two zones are still up and running. The Azure regions that offer zones are listed in [Azure Availability Zones](/azure/reliability/availability-zones-overview).
 
 On using Availability Zones, there are some things to consider. The considerations list like:
 
@@ -88,7 +88,7 @@ On using Availability Zones, there are some things to consider. The consideratio
 * You can't use the [Basic Load Balancer](../../load-balancer/load-balancer-overview.md) to create failover cluster solutions based on Windows Failover Cluster Services or Linux Pacemaker. Instead you need to use the [Azure Standard Load Balancer SKU](../../load-balancer/load-balancer-standard-availability-zones.md).
 * Azure Availability Zones aren't giving any guarantees of certain distance between the different zones within one region.
 * The network latency between different Azure Availability Zones within the different Azure regions might be different from Azure region to region. There would be cases, where you as a customer can reasonably run the SAP application layer deployed across different zones since the network latency from one zone to the active DBMS VM is still acceptable from a business process impact. Whereas there could be customer scenarios where the latency between the active DBMS VM in one zone and an SAP application instance in a VM in another zone can be too intrusive and not acceptable for the SAP business processes. As a result, the deployment architectures need to be different with an active/active architecture for the application or active/passive architecture if latency is too high.
-* Using [Azure managed disks](https://azure.microsoft.com/services/managed-disks/) is mandatory for deploying into Azure Availability Zones.
+* Using [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/) is mandatory for deploying into Azure Availability Zones.
 
 ### Virtual Machine Scale Set with Flexible Orchestration
 
@@ -140,7 +140,7 @@ Here's a quick summary of the various deployment types that are available for SA
 > [!NOTE]
 >
 > * Update domains have been deprecated in Flexible Orchestration mode. For more information, see [Migrate deployments and resources to Virtual Machine Scale Sets in Flexible orchestration](/azure/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-migration-resources)
-> * For more information on compute to storage fault domain alignment, see [Choosing the right number of fault domains for Virtual Machine Scale Set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains) and [How do availability sets work?](/azure/virtual-machines/availability-set-overview#how-do-availability-sets-work).
+> * For more information on compute to storage fault domain alignment, see [Choosing the right number of fault domains for Virtual Machine Scale Set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains) and [How do availability sets work?](/azure/virtual-machines/availability-set-overview#how-do-availability-sets-work)
 > * To enable capacity reservation, it is important to check the capacity reservation's [limitations and restrictions](/azure/virtual-machines/capacity-reservation-overview#limitations-and-restrictions).
 
 ## High availability deployment options for SAP workload
@@ -191,7 +191,7 @@ Depending on the deployment type (flexible scale set with FD=1, availability zon
 **Unmanaged disks only:** When using unmanaged disks with availability set, it's important to recognize that the Azure storage account becomes a single point of failure. Therefore, it's imperative to posses a minimum of two Azure storage accounts, in which at least two virtual machines are distributed. In an ideal setup, the disks of each virtual machine that is running an SAP dialog instance would be deployed in a different storage account.
 
 > [!IMPORTANT]
-> We strongly recommend that you use Azure managed disks for your SAP high-availability installations. Because managed disks automatically align with the availability set of the virtual machine they are attached to, they increase the availability of your virtual machine and the services that are running on it.  
+> We strongly recommend that you use Azure Managed Disks for your SAP high-availability installations. Because managed disks automatically align with the availability set of the virtual machine they are attached to, they increase the availability of your virtual machine and the services that are running on it.  
 
 ### High-availability architecture for an SAP ASCS/SCS instance on Windows
 

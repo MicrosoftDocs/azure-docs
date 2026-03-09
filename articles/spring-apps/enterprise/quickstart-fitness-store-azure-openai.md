@@ -82,7 +82,7 @@ To add AI to the application, create an Azure OpenAI account and deploy language
 
 Use the following steps to create, configure, and deploy the Assist Service application to Azure Spring Apps.
 
-1. Use the following command to create the new AI service, `assist-service`:
+1. Use the following command to create the new Foundry Tool, `assist-service`:
 
    ```azurecli
    az spring app create \

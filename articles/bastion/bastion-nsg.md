@@ -105,7 +105,7 @@ $rules = @(
         SourcePortRange = "*"
         DestinationAddressPrefix = "VirtualNetwork"
         DestinationPortRange = 8080,5701
-        Protocol = "Ah"
+        Protocol = "Tcp"
     }
     @{
         Name = "AllowSshRdpOutbound"
@@ -116,7 +116,7 @@ $rules = @(
         SourcePortRange = "*"
         DestinationAddressPrefix = "VirtualNetwork"
         DestinationPortRange = 22,3389
-        Protocol = "Ah"
+        Protocol = "Tcp"
     },
     @{
         Name = "AllowAzureCloudOutbound"
@@ -138,7 +138,7 @@ $rules = @(
         SourcePortRange = "*"
         DestinationAddressPrefix = "VirtualNetwork"
         DestinationPortRange = 8080,5701
-        Protocol = "Ah"
+        Protocol = "Tcp"
     },
     @{
         Name = "AllowHttpOutbound"
@@ -149,7 +149,7 @@ $rules = @(
         SourcePortRange = "*"
         DestinationAddressPrefix = "Internet"
         DestinationPortRange = "80"
-        Protocol = "Ah"
+        Protocol = "Tcp"
     }
  )
 foreach ($rule in $rules) {

@@ -72,9 +72,9 @@ Go to the management hub in the Azure Data Factory Studio. Select **Git configur
 When creating a new data factory in the Azure portal, you can configure Git repository information in the **Git configuration** tab.
 
 > [!NOTE]
-> When configuring git in the Azure Portal, settings like project name and repo name have to be manually entered instead of being part of a dropdown.
+> When configuring git in the Azure portal, settings like project name and repo name have to be manually entered instead of being part of a dropdown.
 
-:::image type="content" source="media/author-visually/configure-repo-4.png" alt-text="Configure the code repository settings from Azure Portal":::
+:::image type="content" source="media/author-visually/configure-repo-4.png" alt-text="Configure the code repository settings from Azure portal":::
 
 ## Author with Azure Repos Git integration
 
@@ -84,8 +84,6 @@ Visual authoring with Azure Repos Git integration supports source control and co
 > You can store script and data files in an Azure Repos Git repository. However, you have to upload the files manually to Azure Storage. A data factory pipeline doesn't automatically upload script or data files stored in an Azure Repos Git repository to Azure Storage. Additional files such as ARM templates, scripts, or configuration files, can be stored in the repository outside of the mapped folder. If you do this, keep in mind that an additional task is required to build/deploy and interact with the files stored outside of the mapped Azure DevOps folder.
 
 ### Azure Repos settings
-
-:::image type="content" source="media/author-visually/repo-settings.png" alt-text="Screenshot showing the Configure a repository settings.":::
 
 The configuration pane walks you step-by-step through configuring each of the following code repository settings:
 

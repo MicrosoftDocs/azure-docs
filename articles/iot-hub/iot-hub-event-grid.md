@@ -2,13 +2,13 @@
 title: Azure IoT Hub and Event Grid
 titleSuffix: Azure IoT Hub
 description: Use Azure Event Grid to send notifications and trigger processes based on actions that happen in IoT Hub.  
-author: SoniaLopezBravo
+author: cwatson-cat
 
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/28/2025
-ms.author: sonialopez
+ms.author: cwatson
 ms.custom: [amqp, mqtt, 'Role: Cloud Development']
 ---
 
@@ -16,7 +16,7 @@ ms.custom: [amqp, mqtt, 'Role: Cloud Development']
 
 Azure IoT Hub integrates with Azure Event Grid so that you can send event notifications to other services and trigger downstream processes. Configure your business applications to listen for IoT Hub events so that you can react to critical events in a reliable, scalable, and secure manner. For example, build an application that updates a database, creates a work ticket, and delivers an email notification every time a new IoT device is registered to your IoT hub.
 
-[Azure Event Grid](../event-grid/overview.md) is a fully managed event routing service that uses a publish-subscribe model. Event Grid has built-in support for Azure services like [Azure Functions](../azure-functions/functions-overview.md) and [Azure Logic Apps](../logic-apps/logic-apps-overview.md), and can deliver event alerts to non-Azure services using webhooks. For a complete list of the event handlers that Event Grid supports, see [What is Azure Event Grid?](../event-grid/overview.md).
+[Azure Event Grid](../event-grid/overview.md) is a fully managed event routing service that uses a publish-subscribe model. Event Grid has built-in support for Azure services like [Azure Functions](../azure-functions/functions-overview.md) and [Azure Logic Apps](../logic-apps/logic-apps-overview.md), and can deliver event alerts to non-Azure services using webhooks. For a complete list of the event handlers that Event Grid supports, see [What is Azure Event Grid?](../event-grid/overview.md)
 
 To watch a video discussing this integration, see [Azure IoT Hub integration with Azure Event Grid](/shows/internet-of-things-show/iot-devices-and-event-grid).
 

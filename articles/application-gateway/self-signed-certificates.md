@@ -6,7 +6,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 01/17/2024
+ms.date: 12/09/2025
 ms.author: mbender
 ms.custom:
   - devx-track-azurepowershell
@@ -16,19 +16,19 @@ ms.custom:
 
 # Generate an Azure Application Gateway self-signed certificate with a custom root CA
 
-The Application Gateway v2 SKU introduces the use of Trusted Root Certificates to allow TLS connections with the backend servers. This provision removes the use of authentication certificates (individual Leaf certificates) that were required in the v1 SKU. The *root certificate* is a Base-64 encoded X.509(.CER) format root certificate from the backend certificate server. It identifies the root certificate authority (CA) that issued the server certificate and the server certificate is then used for the TLS/SSL communication.
+The Application Gateway v2 SKU introduces the use of Trusted Root Certificates to allow TLS connections with the backend servers. This feature removes the use of authentication certificates (individual Leaf certificates) that were required in the v1 SKU. The *root certificate* is a Base-64 encoded X.509(.CER) format root certificate from the backend certificate server. It identifies the root certificate authority (CA) that issued the server certificate and the server certificate is then used for the TLS/SSL communication.
 
-Application Gateway trusts your website's certificate by default if it's signed by a well-known CA (for example, GoDaddy or DigiCert). You don't need to explicitly upload the root certificate in that case. For more information, see [Overview of TLS termination and end to end TLS with Application Gateway](ssl-overview.md). However, if you have a dev/test environment and don't want to purchase a verified CA signed certificate, you can create your own custom Root CA and a leaf certificate signed by that Root CA.
+Application Gateway trusts your website's certificate by default if a well-known CA (for example, GoDaddy or DigiCert) signs it. Explicitly uploading the root certificate isn't required in that case. For more information, see [Overview of TLS termination and end to end TLS with Application Gateway](ssl-overview.md). However, if you have a dev/test environment and don't want to purchase a verified CA signed certificate, you can create your own custom Root CA and a leaf certificate signed by that Root CA.
 
 > [!NOTE]
-> Self-generated certificates aren't trusted by default and can be difficult to maintain. Also, they may use outdated hash and cipher suites that may not be strong. For better security, purchase a certificate signed by a well-known certificate authority.
+> Self-generated certificates aren't trusted by default and can be difficult to maintain. Also, they can use outdated hash and cipher suites that aren't strong. For better security, purchase a certificate signed by a well-known certificate authority.
 
-**You can use the following options to generate your private certificate for backend TLS connections.**
-1. Use the one-click private [**certificate generator tool**](https://appgwbackendcertgenerator.azurewebsites.net/). Using the domain name (Common Name) that you provide, this tool performs the same steps as documented in this article to generate Root and Server certificates. With the generated certificate files, you can immediately upload the Root certificate (.CER) file to the Backend Setting of your gateway and the corresponding certificate chain (.PFX) to the backend server. The password for the PFX file is also supplied in the downloaded ZIP file.
+**Use the following options to generate your private certificate for backend TLS connections.**
+1. Use the [**private certificate generator tool**](https://appgwbackendcertgenerator.azurewebsites.net/). By using the domain name (Common Name) that you provide, this tool performs the same steps as documented in this article to generate Root and Server certificates. With the generated certificate files, you can immediately upload the Root certificate (.CER) file to the Backend Setting of your gateway and the corresponding certificate chain (.PFX) to the backend server. The password for the PFX file is also supplied in the downloaded ZIP file.
 
-2. Use OpenSSL commands to customize and generate certificates as per your needs. Continue to follow the instructions in this article if you wish to do this entirely on your own.
+1. Use OpenSSL commands to customize and generate certificates as per your needs. Continue to follow the instructions in this article if you want to do this process entirely on your own.
 
-In this article, you will learn how to:
+In this article, you learn how to:
 
 - Create your own custom Certificate Authority
 - Create a self-signed certificate signed by your custom CA
@@ -38,7 +38,7 @@ In this article, you will learn how to:
 
 - **[OpenSSL](https://www.openssl.org/) on a computer running Windows or Linux**
 
-   While there could be other tools available for certificate management, this tutorial uses OpenSSL. You can find OpenSSL bundled with many Linux distributions, such as Ubuntu.
+   While other tools might be available for certificate management, this tutorial uses OpenSSL. You can find OpenSSL bundled with many Linux distributions, such as Ubuntu.
 - **A web server**
 
    For example, Apache, IIS, or NGINX to test the certificates.
@@ -49,17 +49,17 @@ In this article, you will learn how to:
 
 ## Create a root CA certificate
 
-Create your root CA certificate using OpenSSL.
+Create your root CA certificate by using OpenSSL.
 
 ### Create the root key
 
-1. Sign in to your computer where OpenSSL is installed and run the following command. This creates an encrypted key.
+1. Sign in to your computer where OpenSSL is installed and run the following command. This command creates an encrypted key.
 
    ```
    openssl ecparam -out contoso.key -name prime256v1 -genkey
    ```
 
-### Create a Root Certificate and self-sign it
+### Create a root certificate and self-sign it
 
 1. Use the following command to generate the Certificate Signing Request (CSR).
 
@@ -67,20 +67,20 @@ Create your root CA certificate using OpenSSL.
    openssl req -new -sha256 -key contoso.key -out contoso.csr
    ```
 
-1. When prompted, type the password for the root key, and the organizational information for the custom CA such as Country/Region, State, Org, OU, and the fully qualified domain name (this is the domain of the issuer).
+1. When prompted, type the password for the root key, and the organizational information for the custom CA such as country/region, state, org, OU, and the fully qualified domain name (this domain is the issuer).
 
-   ![create root certificate](media/self-signed-certificates/root-cert.png)
+   :::image type="content" source="media/self-signed-certificates/root-cert.png" alt-text="Screenshot of create root certificate.":::
 
-1. Use the following command to generate the Root Certificate.
+1. Use the following command to generate the root certificate.
 
    ```
    openssl x509 -req -sha256 -days 365 -in contoso.csr -signkey contoso.key -out contoso.crt
    ```
-   The previous commands create the root certificate. You'll use this to sign your server certificate.
+   The previous commands create the root certificate. You use this certificate to sign your server certificate.
 
 ## Create a server certificate
 
-Next, you'll create a server certificate using OpenSSL.
+Next, you create a server certificate by using OpenSSL.
 
 ### Create the certificate's key
 
@@ -92,7 +92,7 @@ Use the following command to generate the key for the server certificate.
 
 ### Create the CSR (Certificate Signing Request)
 
-The CSR is a public key that is given to a CA when requesting a certificate. The CA issues the certificate for this specific request.
+The CSR is a public key that you give to a CA when requesting a certificate. The CA issues the certificate for this specific request.
 
 > [!NOTE]
 > The CN (Common Name) for the server certificate must be different from the issuer's domain. For example, in this case, the CN for the issuer is `www.contoso.com` and the server certificate's CN is `www.fabrikam.com`.
@@ -104,9 +104,9 @@ The CSR is a public key that is given to a CA when requesting a certificate. The
    openssl req -new -sha256 -key fabrikam.key -out fabrikam.csr
    ```
 
-1. When prompted, type the password for the root key, and the organizational information for the custom CA: Country/Region, State, Org, OU, and the fully qualified domain name. This is the domain of the website and it should be different from the issuer.
+1. When prompted, type the password for the root key, and the organizational information for the custom CA: Country/Region, State, Org, OU, and the fully qualified domain name. This domain is the website's domain and it should be different from the issuer.
 
-   ![Server certificate](media/self-signed-certificates/server-cert.png)
+   :::image type="content" source="media/self-signed-certificates/server-cert.png" alt-text="Screenshot of server certificate.":::
 
 ### Generate the certificate with the CSR and the key and sign it with the CA's root key
 
@@ -123,7 +123,7 @@ The CSR is a public key that is given to a CA when requesting a certificate. The
    openssl x509 -in fabrikam.crt -text -noout
    ```
 
-   ![Certificate verification](media/self-signed-certificates/verify-cert.png)
+   :::image type="content" source="media/self-signed-certificates/verify-cert.png" alt-text="Screenshot of certificate verification.":::
 
 1. Verify the files in your directory, and ensure you have the following files:
 
@@ -134,7 +134,7 @@ The CSR is a public key that is given to a CA when requesting a certificate. The
 
 ## Configure the certificate in your web server's TLS settings
 
-In your web server, configure TLS using the fabrikam.crt and fabrikam.key files. If your web server can't take two files, you can combine them to a single .pem or .pfx file using OpenSSL commands.
+In your web server, configure TLS by using the fabrikam.crt and fabrikam.key files. If your web server can't take two files, you can combine them into a single .pem or .pfx file by using OpenSSL commands.
 
 ### IIS
 
@@ -160,16 +160,16 @@ The following configuration is an example [virtual host configured for SSL](http
 
 The following configuration is an example [NGINX server block](https://nginx.org/docs/http/configuring_https_servers.html) with TLS configuration:
 
-![NGINX with TLS](media/self-signed-certificates/nginx-ssl.png)
+:::image type="content" source="media/self-signed-certificates/nginx-ssl.png" alt-text="Screenshot of NGINX with TLS.":::
 
-## Access the server to verify the configuration
+## Access the server with the self-signed certificate
 
 1. Add the root certificate to your machine's trusted root store. When you access the website, ensure the entire certificate chain is seen in the browser.
 
-   ![Trusted root certificates](media/self-signed-certificates/trusted-root-cert.png)
+   :::image type="content" source="media/self-signed-certificates/trusted-root-cert.png" alt-text="Screenshot of trusted root certificates.":::
 
    > [!NOTE]
-   > It's assumed that DNS has been configured to point the web server name (in this example, `www.fabrikam.com`) to your web server's IP address. If not, you can edit the [hosts file](/answers/questions/4310469/host-file) to resolve the name.
+   > DNS should be configured to point the web server name (in this example, `www.fabrikam.com`) to your web server's IP address. If not, you can edit the [hosts file](/answers/questions/4310469/host-file) to resolve the name.
 1. Browse to your website, and click the lock icon on your browser's address box to verify the site and certificate information.
 
 ## Verify the configuration with OpenSSL
@@ -180,7 +180,7 @@ Or, you can use OpenSSL to verify the certificate.
 openssl s_client -connect localhost:443 -servername www.fabrikam.com -showcerts
 ```
 
-![OpenSSL certificate verification](media/self-signed-certificates/openssl-verify.png)
+:::image type="content" source="media/self-signed-certificates/openssl-verify.png" alt-text="Screenshot of OpenSSL certificate verification.":::
 
 ## Upload the root certificate to Application Gateway's HTTP Settings
 
@@ -188,15 +188,15 @@ To upload the certificate in Application Gateway, you must export the .crt certi
 
 ### Azure portal
 
-To upload the trusted root certificate from the portal, select the **Backend Settings** and select **HTTPS**  in the **Backend protocol**.
+To upload the trusted root certificate from the portal, select the **Backend Settings** and select **HTTPS** in the **Backend protocol**.
 
 :::image type="content" source="./media/self-signed-certificates/portal-cert.png" alt-text="Screenshot of adding a certificate using the portal.":::
 ### Azure PowerShell
 
-Or, you can use Azure CLI or Azure PowerShell to upload the root certificate. The following code is an Azure PowerShell sample.
+Or, use Azure CLI or Azure PowerShell to upload the root certificate. The following code is an Azure PowerShell sample.
 
 > [!NOTE]
-> The following sample adds a trusted root certificate to the application gateway, creates a new HTTP setting and adds a new rule, assuming the backend pool and the listener exist already.
+> The following sample adds a trusted root certificate to the application gateway, creates a new HTTP setting, and adds a new rule, assuming the backend pool and the listener already exist.
 
 ```azurepowershell
 ## Add the trusted root certificate to the Application Gateway
@@ -271,10 +271,10 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ### Verify the application gateway backend health
 
-1. Click the **Backend Health** view of your application gateway to check if the probe is healthy.
+1. Select the **Backend Health** view of your application gateway to check if the probe is healthy.
 1. You should see that the Status is **Healthy** for the HTTPS probe.
 
-![HTTPS probe](media/self-signed-certificates/https-probe.png)
+:::image type="content" source="media/self-signed-certificates/https-probe.png" alt-text="Screenshot of HTTPS probe.":::
 
 ## Next steps
 

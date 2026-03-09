@@ -32,7 +32,7 @@ Feature Supportability with Interactive Query(LLAP) Autoscale
 ### **Interactive Query Cluster setup for Autoscale**
 
 1. [Create an HDInsight Interactive Query Cluster.](../hdinsight-hadoop-provision-linux-clusters.md)
-2. Post successful creation of cluster, navigate to **Azure Portal** and apply the recommended Script Action
+2. Post successful creation of cluster, navigate to **Azure portal** and apply the recommended Script Action
 
 ```
 - Script Action: https://hdiconfigactions2.blob.core.windows.net/update-ambari-configs-for-llap-autoscale/update_ambari_configs.sh

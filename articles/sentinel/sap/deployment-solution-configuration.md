@@ -42,6 +42,9 @@ Before configuring the settings described in this article, you must have a Micro
 
 For more information, see [Deploy the Microsoft Sentinel solution for SAP applications from the content hub](deploy-sap-security-content.md) and [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md).
 
+> [!TIP]
+> Use the blog series "[How to successfully evaluate the SAP for Sentinel solution and implement it in production](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/how-to-successfully-evaluate-the-sap-for-sentinel-solution-and-implement-it-in-p/4357962)" for a detailed walk through with best practices.
+
 ## Start enabling analytics rules
 
 By default, all analytics rules in the Microsoft Sentinel solution for SAP applications are provided as [alert rule templates](../manage-analytics-rule-templates.md#manage-template-versions-for-your-scheduled-analytics-rules-in-microsoft-sentinel). We recommend a staged approach, where you use the templates to create a few rules at a time, allowing time for fine-tuning each scenario.

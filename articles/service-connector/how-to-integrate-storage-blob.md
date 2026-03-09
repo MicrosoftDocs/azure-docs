@@ -1,16 +1,16 @@
 ---
 title: Integrate Azure Blob Storage with Service Connector
-description: Integrate Azure Blob Storage into your application with Service Connector
+description: Learn how to integrate Azure Blob Storage into your application with Service Connector by using the supported authentication methods and clients.
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 03/14/2025
+ms.date: 02/03/2026
 ---
 
 # Integrate Azure Blob Storage with Service Connector
 
-This article covers supported authentication methods, clients, and sample code you can use to connect your apps to Azure Blob Storage using Service Connector. In this article, you'll also find default environment variable names, values, and configuration obtained when creating service connections.
+In this article, we cover the supported authentication methods and clients that you can use to connect your apps to Azure Blob Storage using Service Connector. For each supported method, we provide sample code and describe the default environment variable names, values, and configuration obtained when creating a service connection.
 
 ## Supported compute services
 
@@ -24,7 +24,7 @@ Service Connector can be used to connect the following compute services to Azure
 
 ## Supported authentication types and client types
 
-The table below shows which combinations of authentication methods and clients are supported for connecting your compute services to Azure Blob Storage using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
+The following table shows which combinations of authentication methods and clients are supported for connecting your compute services to Azure Blob Storage using Service Connector. A *Yes* indicates that the combination is supported, while a *No* indicates that it isn't supported.
 
 | Client type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string | Service principal |
 |--------------------|----------------------------------|--------------------------------|----------------------------|-------------------|
@@ -60,7 +60,7 @@ Authenticating with a system-assigned managed identity is only available for Spr
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Blob Storage using a system-assigned managed identity.
+To connect to Azure Blob Storage using a system-assigned managed identity, refer to the following steps and sample code.
 [!INCLUDE [code sample for blob](./includes/code-blob-me-id.md)]
 
 ### User-assigned managed identity
@@ -85,13 +85,14 @@ Authenticating with a user-assigned managed identity is only available for Sprin
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Blob Storage using a user-assigned managed identity.
+To connect to Azure Blob Storage using a user-assigned managed identity, refer to the following steps and example code.
+
 [!INCLUDE [code sample for blob](./includes/code-blob-me-id.md)]
 
 ### Connection string
 
 > [!WARNING]
-> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a high degree of trust in the application, and carries risks that aren't present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
 #### SpringBoot client
 
@@ -112,7 +113,7 @@ Refer to the steps and code below to connect to Azure Blob Storage using a user-
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Blob Storage using a connection string.
+To connect to Azure Blob Storage using a connection string, refer to the following steps and sample code.
 [!INCLUDE [code sample for blob](./includes/code-blob-secret.md)]
 
 ### Service principal
@@ -139,7 +140,8 @@ Authenticating with a service principal is only available for Spring Cloud Azure
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Blob Storage using a service principal.
+To connect to Azure Blob Storage using a service principal, refer to the following steps and sample code.
+
 [!INCLUDE [code sample for blob](./includes/code-blob-me-id.md)]
 
 ## Next steps

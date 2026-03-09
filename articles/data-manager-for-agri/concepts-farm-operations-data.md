@@ -21,7 +21,7 @@ New operation data can be pushed into the service via the APIs for operation and
 
 [!INCLUDE [public-preview-notice.md](includes/public-preview-notice.md)]
 
-Azure Data Manager for Agriculture supports a range of data about farm activities. For more information, see [What is Azure Data Manager for Agriculture?](/rest/api/data-manager-for-agri).
+Azure Data Manager for Agriculture supports a range of data about farm activities. For more information, see [What is Azure Data Manager for Agriculture?](/rest/api/data-manager-for-agri)
 
 ## Integration with manufacturers of farm equipment
 

@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/28/2025
+ms.date: 01/15/2026
 ms.author: primittal
 # customer intent: As a reservation purchaser, I want learn how to exchange or refund Azure reservations.
 ---
@@ -16,7 +16,7 @@ ms.author: primittal
 Azure Reservations help you save money by committing to one- or three-year plans for Azure services. We understand that your business needs can change, so Azure Reservations are designed with flexibility in mind.
 You can exchange reservations within the same product family to better align with your evolving workloads. For example:
 
-- If you have compute reservations, you can exchange between Azure Virtual Machines, Azure Dedicated Host, and Azure VMware Solution.
+- If you have compute reservations, you can exchange between Azure Virtual Machines, Azure Dedicated Host, Azure VMware Solution, and Nutanix on Azure BareMetal
 - If you have SQL-related reservations, you can exchange between SQL Managed Instance, SQL Database, and Elastic Pool.
 
 These exchanges can be done in bulk and are especially helpful when you're scaling up, moving to a different region, different term, or changing deployment strategies. For example, you can exchange a reservation that's in West US 2 region for one that's in West Europe region or exchange 1 year to 3 year or vice-versa given you adhere to exchange policy.

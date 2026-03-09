@@ -7,8 +7,7 @@ ms.topic: how-to
 ms.date: 08/27/2025
 ms.author: edbaynash  
 ms.service: microsoft-sentinel
-ms.subservice: sentinel-graph
-
+ms.subservice: sentinel-platform
 
 # Customer intent: As a security engineer or data scientist, I want to see examples of how to query the Microsoft Sentinel data lake using Jupyter notebooks, so I can analyze security data effectively.
 ---

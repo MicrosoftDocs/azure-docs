@@ -35,7 +35,7 @@ After the server is marked as ready for Azure, the assessment makes sizing recom
 
 **Assessment type** | **Details** | **Data** 
 --- | --- | --- 
-**Performance-based** | Assessments that make recommendations based on collected performance data. |  The compute recommendation is based on CPU and memory utilization data.<br/><br/> The storage recommendation is based on the input/output operations per second (IOPS) and throughput of the on-premises disks. Disk types are Azure Standard HDD, Azure Standard SSD, Azure Premium disks, and Azure Ultra disks. 
+**Performance-based** | Assessments that make recommendations based on collected performance data. |  The compute recommendation is based on CPU and memory utilization data.<br/><br/> The storage recommendation is based on the input/output operations per second (IOPS) and throughput of the on-premises disks. Disk types are Azure Standard HDD, Azure Standard SSD, Azure Premium disks, and Azure Ultra Disks. 
 **As-is on-premises** | Assessments that don't use performance data to make recommendations. |  The compute recommendation is based on the on-premises server size.<br/><br/> The recommended storage is based on the selected storage type for the assessment. 
 
 In performance-based assessment the assessment identifies the appropriate data point to use for right-sizing. Identification is based on the percentile values for performance history and percentile utilization taken as input as assessment setting.   

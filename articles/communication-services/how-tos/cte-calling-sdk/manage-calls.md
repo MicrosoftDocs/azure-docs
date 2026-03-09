@@ -2,8 +2,8 @@
 title: Manage calls for Teams users
 titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services SDKs to manage calls for Teams users
-author: xixian73
-ms.author: xixian
+author: sundiraman
+ms.author: sundraman
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ms.topic: how-to 

@@ -2,8 +2,8 @@
 title: Roll X.509 certificates in DPS
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: How to update or replace X.509 certificates with your Azure IoT Hub Device Provisioning Service (DPS) instance
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 08/11/2025
 ms.topic: how-to
 ms.service: azure-iot-hub
@@ -45,9 +45,9 @@ The mechanics of installing a new certificate on a device often involve one of t
 
 ## Roll the certificate in DPS
 
-The device certificate can be manually added to an IoT hub. The certificate can also be automated using a Device Provisioning Service instance. In this article, we assume a Device Provisioning Service instance is being used to support auto-provisioning.
+The device certificate can be manually added to an IoT hub. The certificate can also be automated using a Device Provisioning Service instance. In this article, we assume a Device Provisioning Service instance is being used to support autoprovisioning.
 
-When a device is initially provisioned through auto-provisioning, it boots-up, and contacts the provisioning service. The provisioning service responds by performing an identity check before creating a device identity in an IoT hub using the device’s leaf certificate as the credential. The provisioning service then tells the device which IoT hub it's assigned to, and the device then uses its leaf certificate to authenticate and connect to the IoT hub.
+When a device is initially provisioned through autoprovisioning, it boots-up, and contacts the provisioning service. The provisioning service responds by performing an identity check before creating a device identity in an IoT hub using the device’s leaf certificate as the credential. The provisioning service then tells the device which IoT hub it's assigned to, and the device then uses its leaf certificate to authenticate and connect to the IoT hub.
 
 Once a new leaf certificate is rolled to the device, it can no longer connect to the IoT hub because it’s using a new certificate to connect. The IoT hub only recognizes the device with the old certificate. The result of the device's connection attempt is an "unauthorized" connection error. To resolve this error, you must update the enrollment entry for the device to account for the device's new leaf certificate. Then the provisioning service can update the IoT Hub device registry information as needed when the device is reprovisioned.
 

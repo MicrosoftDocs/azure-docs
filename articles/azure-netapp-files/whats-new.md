@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: overview
-ms.date: 12/09/2025
+ms.date: 01/29/2026
 ms.author: anfdocs
 # Customer intent: As a cloud administrator, I want to learn about the latest enhancements in Azure NetApp Files, so that I can effectively utilize new features for improved data security, resilience, and operational efficiency in my organization's cloud storage solutions.
 ---
@@ -17,8 +17,26 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## January 2026
+
+* [Elastic zone-redundant storage service level](elastic-zone-redundant-concept.md) (preview)
+
+    Azure NetApp Files Elastic zone-redundant storage service level is an advanced high-availability service level for Azure NetApp Files that provides continuous data access with zero data loss, even if an entire Azure Availability Zone goes offline. Built on Azure’s Zone-redundant storage (ZRS) architecture and compute infrastructure, Azure NetApp Files Elastic zone-redundant storage synchronously replicates file data across availability zones within one region. By eliminating single points of failure, it ensures mission-critical workloads remain online and protected without requiring special configuration or manual intervention. This makes it ideal for applications that demand uncompromising resilience and in-region data protection. 
+    
+    As a modern data platform, Azure NetApp Files Elastic zone-redundant storage provides consistent performance for metadata-heavy workloads across VMs and containers, making it well suited for AI, analytics, and Kubernetes/OpenShift environments. Whether you're running AKS and containerized apps, cloud‑native applications, or general file shares, Azure NetApp Files Elastic zone-redundant storage delivers continuity without compromise, cost‑effective scalability, and operational simplicity. You can create volumes as small as 1 GiB, giving you the flexibility to optimize storage for workloads of any size. 
+
+* [Application volume group for Oracle](configure-application-volume-oracle-api.md#replication) support for cross-zone and cross-region replication is now generally available (GA)
+
+    [Application volume group for Oracle](application-volume-group-oracle-introduction.md) now supports [cross-region](replication.md) and [cross-zone replication](replication.md) to improve the resilience and data protection of your Oracle deployments. With cross-zone and cross-region replication, Azure NetApp Files only replicates changed blocks across regions or zones, enabling a lower restore point objective. To understand more of the benefits of each option, see [Understand data protection and disaster recovery options in Azure NetApp Files](data-protection-disaster-recovery-options.md).
+
+    Cross-zone and cross-region replication for application volume group for Oracle is currently only supported in the REST API.
+
 ## December 2025
 
+* [Advanced ransomware protection](ransomware-configure.md) (preview)
+
+    Azure NetApp Files advanced ransomware protection is designed to help organizations proactively detect, respond to, and recover from ransomware threats on cloud volumes. Advanced ransomware protection monitors Azure NetApp Files volumes for suspicious activity using file extension profiling, entropy, and I/OPS patterns. When a threat is detected, the system creates a point-in-time snapshot, enabling rapid evaluation and recovery. Notifications are sent through the Azure Activity log, and attack reports are retained for 30 days. Advanced ransomware protection is currently in preview. 
+    
 * [Cross-zone-region replication](cross-zone-region-replication-configure.md) is now generally available (GA)
 
     [Cross-zone-region replication](replication.md#cross-zone-region-replication) builds on the existing capabilities of cross-region replication and cross-zone replication. It enables you to replicate volumes across regions and across availability zones within the same region, combining disaster recovery and business continuance capabilities for volumes. To establish two protection volumes, you can create a cross-zone replication relationship and a cross-region replication relationship _or_ two cross-region replication relationships _or_ two cross-zone replication relationships. The source volume must in an availability zone for the cross-zone replication relationship. Cross-zone-region replication is now generally available.
@@ -75,7 +93,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Object REST API](object-rest-api-access-configure.md) (preview)
 
-    The [Object REST API (an S3-compatible REST API)](object-rest-api-introduction.md) on Azure NetApp Files bridges the gap between traditional file-based storage and modern cloud services, enabling you to use your existing data in new ways. With the Object REST API, you can seamlessly integrate Azure NetApp Files data with Microsoft Fabric, Azure AI services, and other Azure offerings without the need to move or replicate data. This unlocks new use cases such as advanced analytics, machine learning, and real-time business intelligence, while reducing costs and accelerating innovation.
+    The [Object REST API (an S3-compatible REST API)](object-rest-api-introduction.md) on Azure NetApp Files bridges the gap between traditional file-based storage and modern cloud services, enabling you to use your existing data in new ways. With the Object REST API, you can seamlessly integrate Azure NetApp Files data with Microsoft Fabric, Foundry Tools, and other Azure offerings without the need to move or replicate data. This unlocks new use cases such as advanced analytics, machine learning, and real-time business intelligence, while reducing costs and accelerating innovation.
 
     The Object REST API introduces native S3-compatible read/write access, allowing modern applications to interact with your data directly and efficiently. Enterprises benefit from simplified integration, enhanced productivity, and improved data security, as data remains in place and protected by Azure NetApp Files' robust security measures. This feature is ideal for organizations looking to leverage AI-driven insights, streamline workflows, and maintain compliance with industry standards. This feature is currently in preview.
 
@@ -190,7 +208,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Cross-subscription replication](cross-region-replication-create-peering.md)
 
-    Azure NetApp Files cross-subscription replication enables replication across different subscriptions under the same tenant. This feature enhances disaster recovery and operational agility by leveraging NetApp SnapMirror technology, which ensures efficient data transfer by sending only changed blocks in a compressed format. The feature is supported with both [cross-zone replication](replication.md) in all Azure NetApp Files regions with [availability zones](../reliability/regions-list.md) and [cross-region replication](replication.md) in all supported regions.
+    Azure NetApp Files cross-subscription replication enables replication across different subscriptions under the same tenant. This feature enhances disaster recovery and operational agility by leveraging NetApp SnapMirror technology, which ensures efficient data transfer by sending only changed blocks in a compressed format. The feature is supported with both [cross-zone replication](replication.md) in all Azure NetApp Files regions with [availability zones](/azure/reliability/regions-list) and [cross-region replication](replication.md) in all supported regions.
     
     You must [register the feature](cross-region-replication-create-peering.md#register-for-cross-subscription-replication) before using it for the first time. 
 
@@ -336,7 +354,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Cross-zone replication allows you to replicate your Azure NetApp Files volumes asynchronously from one Azure availability zone (AZ) to another within the same region. Using technology similar to the cross-region replication feature and Azure NetApp Files availability zone volume placement feature, cross-zone replication replicates data in-region across different zones; only changed blocks are sent over the network in a compressed, efficient format. It helps you protect your data from unforeseeable zone failures without the need for host-based data replication. This feature minimizes the amount of data required to replicate across the zones, limiting data transfers required and shortens the replication time so you can achieve a smaller Restore Point Objective (RPO). Cross-zone replication doesn't involve any network transfer costs and is highly cost-effective. 
     
-    Cross-zone replication is available in all [regions with availability zones](../reliability/availability-zones-region-support.md) and with [Azure NetApp Files presence](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
+    Cross-zone replication is available in all [regions with availability zones](/azure/reliability/availability-zones-region-support) and with [Azure NetApp Files presence](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
     
 * [Transition a volume to customer-managed keys](configure-customer-managed-keys.md#transition) (preview)
 
@@ -675,7 +693,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     The public preview of the feature is currently available in the following regions: Australia East, Brazil South, Canada Central, Central US, East Asia, East US, East US 2, France Central, Germany West Central, Japan East, North Europe, Norway East, Southeast Asia, South Central US, UK South, West Europe, West US 2, and West US 3.
 
-    In the future, cross-zone replication is planned for all [AZ-enabled regions](../reliability/availability-zones-region-support.md) with [Azure NetApp Files presence](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
+    In the future, cross-zone replication is planned for all [AZ-enabled regions](/azure/reliability/availability-zones-region-support) with [Azure NetApp Files presence](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
 
 * [Azure Virtual WAN](configure-virtual-wan.md) (preview)
 
@@ -693,7 +711,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Availability zone volume placement](manage-availability-zone-volume-placement.md) (preview)
 
-    Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Using Azure availability zones lets you design and operate applications and databases that automatically transition between zones without interruption. Azure NetApp Files lets you deploy new volumes in the logical availability zone of your choice to support enterprise, mission-critical HA deployments across multiple AZs. Azure's push towards the use of [availability zones (AZs)](../reliability/availability-zones-overview.md) has increased, and the use of high availability (HA) deployments with availability zones are now a default and best practice recommendation in Azure's [Well-Architected Framework](/azure/architecture/framework/resiliency/design-best-practices#use-zone-aware-services).
+    Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Using Azure availability zones lets you design and operate applications and databases that automatically transition between zones without interruption. Azure NetApp Files lets you deploy new volumes in the logical availability zone of your choice to support enterprise, mission-critical HA deployments across multiple AZs. Azure's push towards the use of [availability zones (AZs)](/azure/reliability/availability-zones-overview) has increased, and the use of high availability (HA) deployments with availability zones are now a default and best practice recommendation in Azure's [Well-Architected Framework](/azure/architecture/framework/resiliency/design-best-practices#use-zone-aware-services).
 
 * [Application volume group for SAP HANA](application-volume-group-introduction.md) now generally available (GA)
 

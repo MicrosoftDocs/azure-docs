@@ -198,3 +198,4 @@ Improve reliability after migration:
 ## Related content
 
 - [Functions on Azure Container Apps overview](/azure/container-apps/functions-usage)
+- [Heroku to Azure Container Apps migration overview](migrate-heroku-overview.md)

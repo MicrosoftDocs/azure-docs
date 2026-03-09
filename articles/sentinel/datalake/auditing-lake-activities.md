@@ -2,7 +2,7 @@
 title: Audit log for Microsoft Sentinel data lake and graph in Microsoft Purview portal
 description: Learn how to use the audit log to search for Microsoft Sentinel data lake activities to help with investigation.
 ms.service: microsoft-sentinel
-ms.subservice: sentinel-graph
+ms.subservice: sentinel-platform
 ms.author: edbaynash
 author: EdB-MSFT
 ms.topic: how-to

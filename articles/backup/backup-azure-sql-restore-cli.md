@@ -2,7 +2,7 @@
 title: Restore SQL server databases in Azure VMs using Azure Backup via CLI
 description: Learn how to use CLI to restore SQL server databases in Azure VMs in the Recovery Services vault.
 ms.topic: how-to
-ms.date: 07/28/2025
+ms.date: 02/13/2026
 ms.service: azure-backup
 ms.custom: devx-track-azurecli, engagement-fy24
 author: AbhishekMallick-MS
@@ -24,8 +24,7 @@ This article assumes you've an SQL database running on Azure VM that's backed-up
 * Backed-up database/item named `sqldatabase;mssqlserver;master`.
 * Resources in the `westus` region.
 
->[!Note]
->See the [SQL backup support matrix](sql-support-matrix.md) to know more about the supported configurations and scenarios.
+To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support). For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
 
 ## View restore points for a backed-up database
 

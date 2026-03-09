@@ -5,7 +5,7 @@ description: Learn how to copy data from SAP Business Warehouse (BW) via Open Hu
 author: jianleishen
 ms.author: ulrichchrist
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: synapse
 ms.date: 10/20/2023
 ---

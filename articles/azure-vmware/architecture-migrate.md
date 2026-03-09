@@ -5,7 +5,7 @@ author: rvandenbedem
 ms.author: rvandenbedem
 ms.topic: concept-article
 ms.service: azure-vmware
-ms.date: 3/22/2024
+ms.date: 1/15/2026
 ms.custom: engagement-fy24
 # Customer intent: As a cloud architect, I want to understand the VMware HCX migration options for Azure VMware Solution, so that I can choose the most suitable migration method that balances downtime and scale for our virtual machine migration.
 ---
@@ -36,7 +36,7 @@ Each of these options has different advantages and disadvantages when used. You 
 
 ## VMware HCX architecture
 
-The Azure VMware Solution deploys VMware HCX as an Add-On. A VMware HCX Service Mesh is used to connect two sites together, including a Layer 2 network extension. This allows VMware vSphere virtual machines to be migrated from the on-premises site to the Azure VMware Solution private cloud.
+The Azure VMware Solution deploys VMware HCX as an Add-On. A VMware HCX Service Mesh is used to connect two sites together, including a Layer 2 network extension, which allows VMware vSphere virtual machines to be migrated from the on-premises site to the Azure VMware Solution private cloud.
 
 :::image type="content" source="media/concepts/vmware-hcx-migration-concepts.png" alt-text="Diagram showing the architecture of VMware HCX with the Azure VMware Solution." border="false" lightbox="media/concepts/vmware-hcx-migration-concepts.png":::
 

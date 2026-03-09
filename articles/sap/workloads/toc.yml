@@ -69,7 +69,7 @@ items:
         href: hana-vm-premium-ssd-v1.md
       - name: Premium SSD v2 for HANA
         href: hana-vm-premium-ssd-v2.md
-      - name: Ultra disk for HANA
+      - name: Ultra Disk for HANA
         href: hana-vm-ultra-disk.md
       - name: SAP HANA with Azure NetApp Files
         href: hana-vm-operations-netapp.md
@@ -260,7 +260,7 @@ items:
     - name: REST API
       href: /rest/api/
     - name: Azure CLI
-      href: /cli/azure/hanainstance
+      href: /cli/azure
     - name: Azure PowerShell
       href: /powershell/module/az.hanaonazure/#sap-hana-on-azure
     - name: Power BI

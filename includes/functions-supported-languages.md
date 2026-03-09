@@ -60,6 +60,9 @@ For more information, see [Develop C# class library functions using Azure Functi
 
 <sup>1</sup> .NET 9 previously had an expected end-of-support date of May 12, 2026. During the .NET 9 service window, the .NET team extended support for STS versions to 24 months, starting with .NET 9. For more information, see [the blog post](https://devblogs.microsoft.com/dotnet/dotnet-sts-releases-supported-for-24-months/).
 
+> [!NOTE]
+> .NET 9 is the last .NET version supported for Linux Consumption plan apps. Newer .NET versions aren't added to Linux Consumption. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](../articles/azure-functions/migration/migrate-plan-consumption-to-flex.md).
+
 [dotnet-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle
 [dotnet-framework-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-framework
 
@@ -89,6 +92,9 @@ The following table shows the language versions supported for Java function apps
 
 <sup>*</sup>The end-of-support date for Java 25 is determined when general availability (GA) is declared.
 
+> [!NOTE]
+> Java 21 is the last Java version supported for Linux Consumption plan apps. Newer Java versions aren't added to Linux Consumption. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](../articles/azure-functions/migration/migrate-plan-consumption-to-flex.md).
+
 For more information on developing and running Java function apps, see [Azure Functions Java developer guide](../articles/azure-functions/functions-reference-java.md).
 
 ::: zone-end
@@ -102,6 +108,10 @@ The following table shows the language versions supported for Node.js function a
 | [Node.js 20](https://endoflife.date/nodejs) | GA | April 30, 2026 |
 
 TypeScript is supported through transpiling to JavaScript. For more information, see [Azure Functions Node.js developer guide](../articles/azure-functions/functions-reference-node.md#supported-versions).
+
+> [!NOTE]
+> Node.js 22 is the last Node.js version supported for Linux Consumption plan apps. Newer Node.js versions aren't added to Linux Consumption. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](../articles/azure-functions/migration/migrate-plan-consumption-to-flex.md).
+
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 The following table shows the language version supported for PowerShell function apps:
@@ -110,6 +120,9 @@ The following table shows the language version supported for PowerShell function
 | ---- | ---- |--- |
 | [PowerShell 7.4](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | GA | November 10, 2026 |
 
+> [!NOTE]
+> PowerShell 7.4 is the last PowerShell version supported for Linux Consumption plan apps. Newer PowerShell versions aren't added to Linux Consumption. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](../articles/azure-functions/migration/migrate-plan-consumption-to-flex.md).
+
 For more information, see [Azure Functions PowerShell developer guide](../articles/azure-functions/functions-reference-powershell.md).
 ::: zone-end
 ::: zone pivot="programming-language-python"
@@ -117,10 +130,17 @@ The following table shows the language versions supported for Python function ap
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
+| Python 3.14<sup>2</sup> | Preview | Pending<sup>1</sup> |
 | Python 3.13 | GA | October 2029 |
 | Python 3.12 | GA | October 2028 |
 | Python 3.11 | GA | October 2027 |
 | Python 3.10 | GA | October 2026 |
+
+1. The end-of-support date for Python 3.14 is determined when general availability (GA) is declared.
+2. Remote build support for Python 3.14 isn't yet available when running in a Flex Consumption plan.
+
+> [!NOTE]
+> Python 3.12 is the last Python version supported for Linux Consumption plan apps. Newer Python versions aren't added to Linux Consumption. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](../articles/azure-functions/migration/migrate-plan-consumption-to-flex.md).
 
 For more information, see [Azure Functions Python developer guide](../articles/azure-functions/functions-reference-python.md).
 ::: zone-end

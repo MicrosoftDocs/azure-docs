@@ -77,7 +77,7 @@ These decisions—cloud-only versus hybrid storage, one-time versus repetitive t
 
 In certain scenarios, data migration can be effectively managed using replication tools. These tools continuously copy data from a source environment to Azure, ensuring that the destination remains synchronized throughout the migration process. 
 
-For example, Azure Migrate supports replication of on-premises physical and virtual machines, including their disks and embedded data, to Azure virtual machines. It offers a comprehensive solution that includes planning, monitoring replication health, managing cutover, and orchestrating the entire migration workflow. During the process, on-premises disks are converted into Azure-managed disks, streamlining integration with cloud infrastructure.
+For example, Azure Migrate supports replication of on-premises physical and virtual machines, including their disks and embedded data, to Azure virtual machines. It offers a comprehensive solution that includes planning, monitoring replication health, managing cutover, and orchestrating the entire migration workflow. During the process, on-premises disks are converted into Azure Managed Disks, streamlining integration with cloud infrastructure.
 
 Independent software vendor (ISV) solutions such as *Carbonite Migrate* and *Veeam Backup and Replication* also rely on replication technologies to transfer large volumes of data. These tools often require separate deployment and configuration but offer advanced capabilities such as premigration testing, real-time synchronization, and reduced downtime during cutover.
 

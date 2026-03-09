@@ -19,7 +19,7 @@ Core Tools commands are organized into the following contexts, each providing a 
 | [`func`](#func-init) | Commands used to create and run functions on your local computer. |
 | [`func azure`](#func-azure-functionapp-fetch-app-settings) | Commands for working with Azure resources, including publishing. |
 | [`func azurecontainerapps`](#func-azurecontainerapps-deploy) | Deploy containerized function app to Azure Container Apps. |
-| [`func durable`](#func-durable-delete-task-hub)    | Commands for working with [Durable Functions](./durable/durable-functions-overview.md). |
+| [`func durable`](#func-durable-delete-task-hub)    | Commands for working with [Durable Functions](./durable/what-is-durable-task.md). |
 | [`func extensions`](#func-extensions-install) | Commands for installing and managing extensions. |
 | [`func kubernetes`](#func-kubernetes-deploy) | Commands for working with Kubernetes and Azure Functions. |
 | [`func settings`](#func-settings-decrypt)   | Commands for managing environment settings for the local Functions host. |
@@ -253,7 +253,7 @@ The following publish options apply, based on version:
 |**`--list-ignored-files`** | Displays a list of files that are ignored during publishing, which is based on the `.funcignore` file. |
 | **`--list-included-files`** | Displays a list of files that are published, which is based on the `.funcignore` file. |
 | **`--no-build`** | Project isn't built during publishing. For Python, `pip install` isn't performed. |
-| **`--nozip`** | Turns the default `Run-From-Package` mode off. |
+| **`--nozip`** | Turns the default `Run-From-Package` mode off. Files are extracted to the `wwwroot` folder on the server instead of running directly from the deployment package. |
 | **`--overwrite-settings -y`** | Suppress the prompt to overwrite app settings when `--publish-local-settings -i` is used.|
 | **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists. If you're using a [local storage emulator](functions-develop-local.md#local-storage-emulator), first change the app setting to an [actual storage connection](#func-azure-storage-fetch-connection-string). |
 | **`--publish-settings-only`**, **`-o`** |  Only publish settings and skip the content. Default is prompt. |
@@ -325,7 +325,7 @@ The `delete-task-hub` action supports the following options:
 | **`--connection-string-setting`** | Optional name of the setting containing the storage connection string to use. |
 | **`--task-hub-name`** |             Optional name of the Durable Task Hub to use. |
 
-To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#delete-a-task-hub).
+To learn more, see the [Durable Functions documentation](./durable/durable-functions-task-hubs.md).
 
 ## `func durable get-history`
 
@@ -343,7 +343,7 @@ The `get-history` action supports the following options:
 | **`--connection-string-setting`** | Optional name of the setting containing the storage connection string to use. |
 | **`--task-hub-name`** |             Optional name of the Durable Task Hub to use. |
 
-To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#azure-functions-core-tools-1).
+To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#query-instances).
 
 ## `func durable get-instances`
 
@@ -365,7 +365,7 @@ The `get-instances` action supports the following options:
 | **`--top`** | Optionally limit the number of records returned in a given request. |
 | **`--task-hub-name`** | Optional name of the Durable Functions task hub to use. |
 
-To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#azure-functions-core-tools-2).
+To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#query-all-instances).
 
 ## `func durable get-runtime-status`
 
@@ -385,7 +385,7 @@ The `get-runtime-status` action supports the following options:
 | **`--show-output`** | When set, the response contains the execution history. |
 | **`--task-hub-name`** | Optional name of the Durable Functions task hub to use. |
 
-To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#azure-functions-core-tools-1).
+To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#query-instances).
 
 ## `func durable purge-history`
 
@@ -405,7 +405,7 @@ The `purge-history` action supports the following options:
 | **`--runtime-status`** | Optionally delete the history of instances whose status match a specific status, including `completed`, `terminated`, `canceled`, and `failed`. You can provide one or more space-separated statues. If you don't include `--runtime-status`, instance history is deleted regardless of status.|
 | **`--task-hub-name`** | Optional name of the Durable Functions task hub to use. |
 
-To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#azure-functions-core-tools-7).
+To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#purge-instance-history).
 
 ## `func durable raise-event`
 
@@ -425,7 +425,7 @@ The `raise-event` action supports the following options:
 | **`--id`** | Specifies the ID of an orchestration instance (required). |
 | **`--task-hub-name`** | Optional name of the Durable Functions task hub to use. |
 
-To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#azure-functions-core-tools-5).
+To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#send-events-to-instances).
 
 ## `func durable rewind`
 
@@ -444,7 +444,7 @@ The `rewind` action supports the following options:
 | **`--reason`** | Reason for rewinding the orchestration (required).|
 | **`--task-hub-name`** | Optional name of the Durable Functions task hub to use. |
 
-To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#azure-functions-core-tools-6).
+To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#rewind-instances).
 
 ## `func durable start-new`
 
@@ -464,7 +464,7 @@ The `start-new` action supports the following options:
 | **`--input`** | Input to the orchestrator function, either inline or from a JSON file (required). For files, prefix the path to the file with an ampersand (`@`), such as `@path/to/file.json`. |
 | **`--task-hub-name`** | Optional name of the Durable Functions task hub to use. |
 
-To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#azure-functions-core-tools).
+To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#start-instances).
 
 ## `func durable terminate`
 
@@ -483,7 +483,7 @@ The `terminate` action supports the following options:
 | **`--reason`** | Reason for stopping the orchestration (required). |
 | **`--task-hub-name`** | Optional name of the Durable Functions task hub to use. |
 
-To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#azure-functions-core-tools-4).
+To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#terminate-instances).
 
 ## `func extensions install`
 

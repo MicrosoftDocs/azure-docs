@@ -1,15 +1,14 @@
 ---
-title: Enable Azure Peering Service on a Direct peering - Azure portal
+title: Enable Azure Peering Service on a Direct Peering - Azure Portal
 titleSuffix: Internet Peering
 description: Learn how to enable Azure Peering Service on a Direct peering using the Azure portal.
 author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 03/03/2025
+ms.date: 02/25/2026
 ms.custom: sfi-image-nochange
 
-#CustomerIntent: As an administrator, I want to learn how to enable Azure Peering Service on a Direct peering using the Azure portal so I can manage my Direct peerings.
 # Customer intent: As an administrator, I want to enable Azure Peering Service on a Direct peering, so that I can configure and manage my peering connections effectively through the portal.
 ---
 

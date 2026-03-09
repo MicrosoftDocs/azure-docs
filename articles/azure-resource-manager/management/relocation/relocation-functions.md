@@ -59,7 +59,7 @@ If your application persists data to the app's shared storage path, make sure to
 
 ### Connected services
 
-Your functions might connect to Azure Services and other resources using either a service SDK or triggers and bindings. Any connected service might be negatively impacted when the app moves to a new region. If latency or throughout are issues, consider moving any connected service to the new region as well. To learn how to move those resources across regions, see the documentation for the respective services. When moving an app with connected services, you might want to consider a [cross-region disaster recovery and business continuity](../../../reliability/reliability-functions.md#cross-region-disaster-recovery-and-business-continuity) strategy during the move.
+Your functions might connect to Azure Services and other resources using either a service SDK or triggers and bindings. Any connected service might be negatively impacted when the app moves to a new region. If latency or throughout are issues, consider moving any connected service to the new region as well. To learn how to move those resources across regions, see the documentation for the respective services. When moving an app with connected services, you might want to consider a [cross-region disaster recovery and business continuity](/azure/reliability/reliability-functions#cross-region-disaster-recovery-and-business-continuity) strategy during the move.
 
 Changes to connected services might require you to update the values stored in your application settings, which are used to connect to those services.
 
@@ -83,7 +83,7 @@ Functions uses access keys to make it more difficult to access HTTP endpoints in
 
 ### Downtime
 
-If minimal downtime is a requirement, consider running your function app in both regions as recommended to implement a disaster recovery architecture. The specific architecture you implement depends on the trigger types in your function app. For more information, see [Reliability in Azure Functions](../../../reliability/reliability-functions.md#cross-region-disaster-recovery-and-business-continuity).
+If minimal downtime is a requirement, consider running your function app in both regions as recommended to implement a disaster recovery architecture. The specific architecture you implement depends on the trigger types in your function app. For more information, see [Reliability in Azure Functions](/azure/reliability/reliability-functions#cross-region-disaster-recovery-and-business-continuity).
 
 ### Durable Functions
 

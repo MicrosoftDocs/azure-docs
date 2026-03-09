@@ -4,7 +4,7 @@ description: Learn how to use Azure Monitor Dashboards with Grafana in Azure Con
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/16/2025
 ms.author: cshoe
 ---

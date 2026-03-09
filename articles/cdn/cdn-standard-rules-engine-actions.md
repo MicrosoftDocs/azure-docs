@@ -7,7 +7,7 @@ ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: concept-article
-ms.date: 03/31/2025
+ms.date: 02/28/2026
 ROBOTS: NOINDEX
 # Customer intent: "As a CDN administrator, I want to configure actions in the Standard rules engine, so that I can optimize request handling and caching behaviors for improved content delivery performance."
 ---

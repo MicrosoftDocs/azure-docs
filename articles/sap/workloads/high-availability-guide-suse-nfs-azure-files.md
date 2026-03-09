@@ -125,7 +125,7 @@ While setting up the VM, you can either create a new load balancer or choose an 
 > [!IMPORTANT]
 >
 > * Don't enable TCP time stamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps cause the health probes to fail. Set the `net.ipv4.tcp_timestamps` parameter to `0`. For details, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
-> * To prevent Saptune from changing the manually set `net.ipv4.tcp_timestamps` value from `0` back to `1`, you should update Saptune version to 3.1.1 or higher. For more information, see [Saptune 3.1.1 � Do I Need to Update?](https://www.suse.com/c/saptune-3-1-1-do-i-need-to-update/).
+> * To prevent Saptune from changing the manually set `net.ipv4.tcp_timestamps` value from `0` back to `1`, you should update Saptune version to 3.1.1 or higher. For more information, see [Saptune 3.1.1 � Do I Need to Update?](https://www.suse.com/c/saptune-3-1-1-do-i-need-to-update/)
 
 ### Deploy Azure Files storage account and NFS shares
 
@@ -134,7 +134,7 @@ NFS on Azure Files, runs on top of [Azure Files Premium storage][afs-azure-doc].
 There are two options for redundancy within an Azure region:
 
 * [Locally redundant storage (LRS)](../../storage/common/storage-redundancy.md#locally-redundant-storage), which offers local, in-zone synchronous data replication.
-* [Zone redundant storage (ZRS)](../../storage/common/storage-redundancy.md#zone-redundant-storage), which replicates your data synchronously across the three [availability zones](../../reliability/availability-zones-overview.md) in the region.
+* [Zone redundant storage (ZRS)](../../storage/common/storage-redundancy.md#zone-redundant-storage), which replicates your data synchronously across the three [availability zones](/azure/reliability/availability-zones-overview) in the region.
 
 Check if your selected Azure region offers NFS 4.1 on Azure Files with the appropriate redundancy. Review the [availability of Azure Files by Azure region][afs-avail-matrix] under **Premium Files Storage**. If your scenario benefits from ZRS,  [verify that Premium File shares with ZRS are supported in your Azure region](../../storage/common/storage-redundancy.md#zone-redundant-storage).
 

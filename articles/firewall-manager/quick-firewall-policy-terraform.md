@@ -20,9 +20,9 @@ Also, IP Groups are used in the rules to define the **Source** IP addresses.
 
 [Hashicorp Terraform](https://www.terraform.io/) is an open-source IaC (Infrastructure-as-Code) tool for provisioning and managing cloud infrastructure. It codifies infrastructure in configuration files that describe the desired state for your topology. Terraform enables the management of any infrastructure - such as public clouds, private clouds, and SaaS services - by using [Terraform providers](https://www.terraform.io/language/providers).  
 
-For information about Azure Firewall Manager, see [What is Azure Firewall Manager?](overview.md).
+For information about Azure Firewall Manager, see [What is Azure Firewall Manager?](overview.md)
 
-For information about Azure Firewall, see [What is Azure Firewall?](../firewall/overview.md).
+For information about Azure Firewall, see [What is Azure Firewall?](../firewall/overview.md)
 
 For information about IP Groups, see [IP Groups in Azure Firewall](../firewall/ip-groups.md).
 

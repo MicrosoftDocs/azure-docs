@@ -6,7 +6,7 @@ ms.date: 07/10/2024
 author: yeturis
 ms.author: sairamyeturi
 ms.reviewer: nijelsf
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # What are preview features? 

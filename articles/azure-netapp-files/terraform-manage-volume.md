@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: devx-track-terraform
 ms.topic: how-to
-ms.date: 08/10/2025
+ms.date: 02/04/2026
 ms.author: anfdocs
 # Customer intent: As a cloud engineer, I want to update Terraform-managed Azure resources safely, so that I can prevent data loss while modifying essential features outside of Terraform.
 ---
@@ -44,7 +44,11 @@ The following instructions are a high-level overview of the steps required to up
 1. Run `terraform plan` to confirm that no changes will be made to your volume. The CLI output should display: `No changes. Your infrastructure matches the configuration.`
     >[!NOTE]
     > The `terraform plan` command creates a plan file with the changes to the remote resource, allowing you to ensure the safety of your resource before applying any changes. 
-1. Run `terraform apply` to apply the changes. You should see the same CLI output as in the previous step. 
+1. Run `terraform apply` to apply the changes. You should see the same CLI output as in the previous step.
+
+   >[!NOTE]
+   > To re-establish the state, you should update the Terraform module's configuration file to reflect the changes made outside of Terraform. This change should be made to all Terraform-managed ANF resource that were modified out-of-band.
+   
 
 ## Next steps 
 

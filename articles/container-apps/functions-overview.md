@@ -102,6 +102,8 @@ Azure Functions on Container Apps support all major [language runtimes available
 
 Azure Functions running on Azure Container Apps **automatically configure scaling rules** based on the event source, eliminating the need for manual KEDA scale rule definitions. That’s why the "Add scale rules" button on the Azure portal is disabled for Functions on Container Apps. However, you can still define minimum and maximum replica counts to establish scaling boundaries and maintain control over resource allocation.
 
+The platform automatically translates your Functions trigger parameters (from `host.json` configuration or trigger attributes) into appropriate KEDA scaler parameters. For a detailed reference of how Functions trigger configurations map to KEDA scaling parameters, see [Azure Functions KEDA scaling mappings](functions-keda-mappings.md).
+
 **All standard Azure Functions triggers and bindings are supported** in Container Apps with following **exceptions**:
 - Blob Storage Trigger auto scaling: Only works when using Event Grid as the source. Learn more about [Triggering Azure Functions on blob containers using an event subscription](../azure-functions/functions-event-grid-blob-trigger.md)
 - Durable Functions auto scaling: Only supports MSSQL (Microsoft SQL Server) and DTS (Durable Task Scheduler) storage providers. See more guidance on deploying [Durable functions with MSSQL](../azure-functions/durable/durable-functions-mssql-container-apps-hosting.md)

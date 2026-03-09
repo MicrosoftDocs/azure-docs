@@ -13,7 +13,7 @@ ms.author: kesheth
 
 # Availability Zones for Azure Health Data Services
 
-The goal of high availability in Azure Health Data Services is to minimize impact on customer workloads from service maintenance operations and outages. Azure Health Data Services provides zone redundant availability using availability zones (AZs) for high availability and business continuity. To understand more about availability zones, visit [What are Azure availability zones?](/azure/reliability/availability-zones-overview?tabs=azure-cli).
+The goal of high availability in Azure Health Data Services is to minimize impact on customer workloads from service maintenance operations and outages. Azure Health Data Services provides zone redundant availability using availability zones (AZs) for high availability and business continuity. To understand more about availability zones, visit [What are Azure availability zones?](/azure/reliability/availability-zones-overview?tabs=azure-cli)
 
 Zone redundant availability provides resiliency by protecting against outages within a region. This is achieved using zone-redundant storage (ZRS), which replicates your data across three availability zones in the primary region. Each availability zone is a separate physical location with independent power, cooling, and networking. Zone redundant availability minimizes the risk of data loss if there are zone failures within the primary region.<br>
 For information on regions, see [Products availability by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).

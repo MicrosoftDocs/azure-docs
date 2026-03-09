@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create and run load tests from Visual Studio Code'
 titleSuffix: Azure Load Testing
-description: 'This quickstart shows how to create and run load tests using the Visual Studio Code extension for Azure Load Testing. Azure Load Testing is a managed, cloud-based load testing tool.'
+description: Create and run load tests using the Visual Studio Code extension and GitHub Copilot with Azure App Testing.
 services: load-testing
 ms.service: azure-load-testing
 ms.topic: quickstart
@@ -15,6 +15,8 @@ ms.date: 04/04/2024
 Learn how to use the Azure Load Testing extension for Visual Studio Code to easily create Locust load tests using Copilot, iterate locally, and scale effortlessly in Azure. Whether you're new to Locust or a performance testing expert, the Azure Load Testing extension streamlines test creation, iteration, and scaling, right from your VS Code environment. Azure Load Testing is a managed service that lets you run a load test at cloud scale. [Locust](https://locust.io/) is an open source load testing tool that enables you to write all your tests in Python code.
 
 This quickstart guides you through generating, refining, and running realistic load tests. By the end, you have a fully functional load test script generated from a **Postman collection**, **Insomnia collection**, or **.http file**, enhanced with Copilot-powered improvements, and ready to scale in **Azure Load Testing**.
+
+> [!VIDEO e9b19925-4680-4d60-8d3e-930c1fedd932]
 
 ## Prerequisites
 

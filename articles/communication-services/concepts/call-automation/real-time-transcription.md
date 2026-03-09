@@ -13,7 +13,7 @@ services: azure-communication-services
 
 # Generating real-time transcripts
 
-Real-time transcriptions are a crucial component in any major business for driving improved customer service experience. Powered by Azure Communication Services and Azure AI Services integration, developers can now use real-time transcriptions through Call Automation SDKs. 
+Real-time transcriptions are a crucial component in any major business for driving improved customer service experience. Powered by Azure Communication Services and Foundry Tools integration, developers can now use real-time transcriptions through Call Automation SDKs. 
 
 Using the Azure Communication Services real-time transcription, you can easily integrate your Azure AI Services resource with Azure Communication Services to generate transcripts directly during the call. This capability eliminates the need for developers to extract audio content and deal with the overhead of converting audio into text on your side. You can store the contents of this transcript to use later on for creating a history of the call, summarizing the call to save an agent's time, and even feeding it into your training/learning modules to help improve your contact center agents' customer interactions.
 

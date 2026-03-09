@@ -164,7 +164,7 @@ The **Usage** page provides you with entry points to relevant cost tracking capa
 + **Cost forecast** - Leads you to a forecast report in the **Cost Management + Billing** blade in the Azure portal. For more information on how to use the forecast functionality, see [View forecast costs](/azure/cost-management-billing/costs/cost-analysis-common-uses#view-forecast-costs).
 + **Microsoft Sentinel settings** - Opens the Microsoft Sentinel settings to show your relevant billing information, such as subscription and resource group selected for the data lake.
 
-:::image type="content" source="media/billing-monitor-costs/usage-page.png" alt-text="Screenshot of the Usage page in the Microsoft Sentienl cost management experience in the Microsoft Defender portal." lightbox="media/billing-monitor-costs/usage-page.png":::
+:::image type="content" source="media/billing-monitor-costs/usage-page.png" alt-text="Screenshot of the Usage page in the Microsoft Sentinel cost management experience in the Microsoft Defender portal." lightbox="media/billing-monitor-costs/usage-page.png":::
 
 When you select one of the capabilities under **Usage reports**, you can view any of the following reports:
 

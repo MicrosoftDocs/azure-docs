@@ -1,5 +1,5 @@
 ---
-title: Connection troubleshoot overview
+title: Connection Troubleshoot Overview
 titleSuffix: Azure Network Watcher
 description: Learn about Azure Network Watcher connection troubleshoot tool, the issues it can detect, and the responses it gives.
 author: halkazwini

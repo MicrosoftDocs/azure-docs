@@ -18,36 +18,30 @@ For more information, see [Understand sensor health](how-to-manage-sensors-on-th
 |**Disconnected**     |   This sensor isn't communicating with Azure     |   Try signing into the sensor to check for errors or networking failures. <br><br> We also recommend reviewing the sensor networking configuration and verifying the sensor’s ability to communicate with Azure.      |
 |**Sanity failed**     |    This sensor failed an internal consistency check     |       The sensor is in a degraded state. <br><br> Check the sensor for hardware failures and try restarting the sensor.  If the issue isn't resolved, open a support ticket.  |
 |**No traffic detected**     |   No traffic detected on the monitored network interfaces      |  Check that the monitoring ports are connected to SPAN/monitor ports on the adjacent switch and that traffic is active on the link. At least one link with network traffic should be connected to the monitor ports.       |
+|**No connection to NTP** |Failed to connect to the NTP server. |Contact your network team to confirm that the NTP server is reachable, or replace the NTP server with an accessible alternative. |
+|**No connection to Active Directory** |Failed to connect to any of the following Active Directory servers: <list of servers>. |Check with your network team if the Domain Controller server is reachable. |
+|**Traffic bandwidth exceeded its limit** |The sensor exceeded its network bandwidth limit. The current bandwidth is <current_bandwidth>, which exceeds the maximum supported limit of <max_bandwidth>.<br><br>**Note**: This error is only displayed if none of the configured active directories are reachable. |Connect the sensor to a more accurate switch location or purchase a sensor with enhanced hardware specifications. |
+|**Number of monitored devices exceeded its limit** |The sensor exceeded its monitored devices limit. The current number of monitored devices is <current_devices>, which exceeds the maximum supported limit of <max_devices>. |Connect the sensor to a more accurate switch location or purchase a sensor with enhanced hardware specifications.|
 
 ## Warning messages
 
 |Title  |Message  |Recommendation  |
 |---------|---------|---------|
-|**Failed to send update** |There was an error uploading the file to the sensor |Verify the sensor’s ability to communicate with download.microsoft.com and retry. <br><br> If the problem persists, open a support ticket.|
-|**Sensor update failed** | There was an error installing the update.|Open a support ticket. |
+|**Package upload failed** |There was an error uploading the file to the sensor |Verify the sensor’s ability to communicate with download.microsoft.com and retry. <br><br> If the problem persists,  open a support ticket.|
+|**Sensor update failed** | There was an error installing the update.| Open a support ticket. |
 | **Unstable traffic to Azure**|Sensor’s connection to Azure is unstable | We recommend that you check the sensor WAN connection, the BW limit settings, and validate network equipment that might be on the route between the sensor and the cloud.|
-| **Unsupported**|Outdated software may result in a non-optimal experience |Upgrade your sensor software to the latest version to use the most recently available Defender for IoT features.|
-|**Sensor is partially connected** |See [Sensor partially connected messages](#sensor-partially-connected-messages) | |
-|**Backup error** |Failed to backup to Azure storage. |The primary causes of backup failures are issues with the sensor's network connectivity or an overly large backup file. Please verify the sensor's network connection and ensure it is not overloaded. |
-
-### Sensor partially connected messages
-
-The "Sensor is partially connected" message includes one of the following endpoint errors:
-
-|Title  |Message  |Recommendation  |
-|---------|---------|---------|
-|**General endpoint error** | Failed to establish a connection with the endpoint/endpoints (specifying the domain name).|Verify that all the required endpoints are allowed in the firewall with your network team. |
-|**DNS endpoint error** | Failed to resolve the DNS name of the endpoint/endpoints (specifying the domain name).|If the DNS server is reachable, verify the DNS server configured on the sensor is correct. If it is, reach out to your DNS administrator. |
-|**SSL endpoint error** |Failed to establish a secure connection with the endpoint/endpoints (specifying the domain name). The presented certificate is not trusted.|- Make sure the time is configured correctly.<br>- Check if you are using SSL inspection service (usually in the proxy). If so, make sure to upload the relevant certificate in the System Settings screen. | 
-|**Proxy authentication endpoint error** |- For one endpoint: The proxy requires authentication but none or incorrect credentials were provided.<br>- For multiple endpoints: Verify the authentication credentials with your proxy administrator. Provide the required credentials in the System Settings screen.|Verify the authentication credentials with your proxy administrator. Provide the required credentials in the System Settings screen. | 
-|**Proxy unnecessary endpoint error** |- For one endpoint: Unnecessary credentials were provided to the proxy.<br>- For multiple endpoints: Remove the username and password provided in the proxy configuration. |Remove the username and password provided in the proxy configuration. |
+| **Outdated**|Outdated software may result in a non-optimal experience | Upgrade your sensor software to the latest version to use the most recently available Defender for IoT features.|
+| **NTP server not configured**|No NTP server is configured on the sensor | For accurate time synchronization, configure an NTP server in the **Sensor settings** page.|
+| **Traffic bandwidth is close to its limit** |The sensor is close to exceeding its network traffic bandwidth limit. The current bandwidth is <current_bandwidth>, which exceeds <percentage> of the maximum supported limit of <max_bandwidth>. | We recommend that you connect the sensor to a more accurate switch location or purchase a sensor with enhanced hardware specifications.|
+|**Number of monitored devices is close to its limit** |The sensor is close to exceeding its monitored devices limit. The current number of monitored devices is <current_devices>, which exceeds <percentage> of the maximum supported limit of <max_devices>. | We recommend that you connect the sensor to a more accurate switch location or purchase a sensor with enhanced hardware specifications.|
+|**Disk is almost full** |The sensor hard disk is close to reaching its capacity. <partition> has reached <storage>, which exceeds <percentage> of <max_storage>.<br><br>**Note**: This error is displayed when either the root or the data partition runs low on space. The message specifies the relevant partition. | Open a support ticket. |
 
 ## Healthy messages
 
 |Title  |Message  |Recommendation  |
 |---------|---------|---------|
 |**Pending activation** |Waiting for sensor to connect for the first time | Upload the activation file to the sensor. If this doesn't resolve the problem, verify the sensor’s ability to communicate with Azure.|
-|**Pending reactivation** |Waiting for reactivation with new license |Upload the new activation file to the sensor. If this doesn't resolve the problem, verify the sensor’s ability to communicate with Azure. |
+|**Pending reactivation** |Waiting for reactivation with new license | Upload the new activation file to the sensor. If this doesn't resolve the problem, verify the sensor’s ability to communicate with Azure. |
 
 ## Next steps
 

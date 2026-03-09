@@ -7,7 +7,7 @@ author: abell
 ms.author: abell
 ms.service: azure-private-link
 ms.topic: tutorial
-ms.date: 03/25/2025
+ms.date: 02/23/2026
 ms.custom: template-tutorial
 # Customer intent: "As a cloud architect, I want to securely connect to a storage account using a private endpoint, so that I can ensure private and secure communication within my Azure resources."
 ---
@@ -35,7 +35,93 @@ In this tutorial, you learn how to:
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-[!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
+## Create a resource group
+
+A resource group is a logical container for Azure resources. This procedure creates a resource group for all resources used in this tutorial.
+
+1. In the portal, search for and select **Resource groups**.
+
+1. On the **Resource groups** page, select **+ Create**.
+
+1. On the **Basics** tab, enter or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Enter **test-rg**. |
+    | **Resource details** |  |
+    | Region | Select **East US 2**. |
+
+1. Select **Review + create**, and then select **Create**.
+
+## Create a virtual network
+
+The following procedure creates a virtual network with a resource subnet.
+
+1. In the portal, search for and select **Virtual networks**.
+
+1. On the **Virtual networks** page, select **+ Create**.
+
+1. On the **Basics** tab of **Create virtual network**, enter, or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg**. |
+    | **Instance details** |  |
+    | Name | Enter **vnet-1**. |
+    | Region | Select **East US 2**. |
+
+1. Select **Next** to proceed to the **Security** tab.
+
+1. Select **Next** to proceed to the **IP Addresses** tab.
+
+1. In the address space box in **Subnets**, select the **default** subnet.
+
+1. In **Edit subnet**, enter or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Subnet details** |  |
+    | Subnet template | Leave the default **Default**. |
+    | Name | Enter **subnet-1**. |
+    | Starting address | Leave the default of **10.0.0.0**. |
+    | Subnet size | Leave the default of **/24 (256 addresses)**. |
+
+1. Select **Save**.
+
+1. Select **Review + create** at the bottom of the screen, and when validation passes, select **Create**.
+
+## Deploy Azure Bastion
+
+Azure Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](/azure/bastion/bastion-overview).
+
+>[!NOTE]
+>[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
+
+1. In the search box at the top of the portal, enter **Bastion**. Select **Bastions** in the search results.
+
+1. Select **+ Create**.
+
+1. In the **Basics** tab of **Create a Bastion**, enter, or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg**. |
+    | **Instance details** |  |
+    | Name | Enter **bastion**. |
+    | Region | Select **East US 2**. |
+    | Tier | Select **Developer**. |
+    | **Configure virtual networks** |  |
+    | Virtual network | Select **vnet-1**. |
+
+1. Select **Review + create**.
+
+1. Select **Create**.
 
 [!INCLUDE [create-storage-account.md](~/reusable-content/ce-skilling/azure/includes/create-storage-account.md)]
 

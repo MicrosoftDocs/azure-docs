@@ -50,14 +50,14 @@ The external metadata feature allows users to store metadata or additional infor
 ### Store (STOW-RS)
 
 The [Store (STOW-RS)](dicom-services-conformance-statement-v2.md#store-stow-rs) transaction allows storing external metadata as customer headers.
-In order to store external metadata as part of the store transaction, specify the tag key in the format `msdicom-meta-{VR}-{TagPath}`. An example request follows.
+In order to store external metadata as part of the store transaction, specify the tag key in the format `msdicom-meta-{TagPath}`. An example request follows.
 
 ```http 
 POST {dicom-service-url}/{version}/studies
 Accept: multipart/related; type="application/dicom+json";
-msdicom-meta-CS-001912FF: CS
-msdicom-meta-PN-00191100: PersonName
-msdicom-meta-DA-001900FF: 20241231
+msdicom-meta-001912FF: vr=CS;value=CS
+msdicom-meta-00191100: vr=PN;value=PersonName
+msdicom-meta-001900FF: vr=DA;value=20241231
 
 Body:
 {DICOM FILE}

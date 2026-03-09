@@ -161,7 +161,7 @@ If using Microsoft managed shipping, follow these steps.
 5. If you encounter pickup issues:
    * Contact Azure Data Box Operations at adbops@microsoft.com for assistance.
    * Include the Order Name and a description of the issue in the subject line.
-6. Once the device is picked up and scanned by the carrier, the order status in the Azure Portal will update to "Picked Up" and you can contact adbops@microsoft.com for the tracking status. 
+6. Once the device is picked up and scanned by the carrier, the order status in the Azure portal will update to "Picked Up" and you can contact adbops@microsoft.com for the tracking status. 
 
 ### [Korea](#tab/in-korea)
 
@@ -184,7 +184,7 @@ If using Microsoft managed shipping, follow these steps.
 5. If you encounter pickup issues:
    * Contact Azure Data Box Operations at adbops@microsoft.com for assistance.
    * Include the Order Name and a description of the issue in the subject line.
-6. Once the device is picked up and scanned by the carrier, the order status in the Azure Portal will update to "Picked Up" and you can contact adbops@microsoft.com for the tracking status. 
+6. Once the device is picked up and scanned by the carrier, the order status in the Azure portal will update to "Picked Up" and you can contact adbops@microsoft.com for the tracking status. 
 
 
 ### [Singapore](#tab/in-singapore)
@@ -208,7 +208,7 @@ If using Microsoft managed shipping, follow these steps.
 5. If you encounter pickup issues:
    * Contact Azure Data Box Operations at adbops@microsoft.com for assistance.
    * Include the Order Name and a description of the issue in the subject line.
-6. Once the device is picked up and scanned by the carrier, the order status in the Azure Portal will update to "Picked Up" and you can contact adbops@microsoft.com for the tracking status. 
+6. Once the device is picked up and scanned by the carrier, the order status in the Azure portal will update to "Picked Up" and you can contact adbops@microsoft.com for the tracking status. 
 
 ### [China](#tab/in-china)
 

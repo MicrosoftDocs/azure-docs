@@ -2,8 +2,7 @@
 title: Secure Key Release with Azure Key Vault and application on Confidential VMs with AMD SEV-SNP
 description: Learn how to build an application that securely gets the key from AKV to a Confidential VM attested environment and in an Azure Kubernetes Service cluster
 author: ThomVanL
-ms.service: azure-virtual-machines
-ms.subservice: azure-confidential-computing
+ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 2/2/2023
 ms.author: simranparkhe

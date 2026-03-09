@@ -71,7 +71,7 @@ For more information about paying overages with Azure Prepayment, see [Pay your 
 
 ## View Microsoft Azure Consumption Commitment (MACC)
 
-You view and track your Microsoft Azure Consumption Commitment (MACC) in the Azure portal. If your organization has a MACC for an EA billing account, you can check important aspects of your commitment, including start and end dates, remaining commitment, and eligible spend in the Azure portal. For more information, see [MACC overview](track-consumption-commitment.md?tabs=portal.md#track-your-macc-commitment).
+You view and track your Microsoft Azure Consumption Commitment (MACC) in the Azure portal. If your organization has a MACC for an EA billing account, you can check important aspects of your commitment, including start and end dates, remaining commitment, and eligible spend in the Azure portal. For more information, see [MACC overview](../benefits/macc/track-consumption-commitment.md?tabs=portal.md#track-your-macc-commitment).
 
 ## Now that you're familiar with the basics, here are some more links to help you get onboarded
 

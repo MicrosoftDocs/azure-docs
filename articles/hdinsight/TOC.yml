@@ -76,7 +76,7 @@ items:
     - name: Reliability and Business continuity
       items:
         - name: Reliability in HDInsight
-          href: ../reliability/reliability-hdinsight.md?toc=/azure/hdinsight/toc.json&bc=/azure/hdinsight/breadcrumb/toc.json
+          href: /azure/reliability/reliability-hdinsight?toc=/azure/hdinsight/toc.json&bc=/azure/hdinsight/breadcrumb/toc.json
         - name: Business continuity architecture
           href: ./hdinsight-business-continuity-architecture.md
         - name: High availability case study
@@ -333,6 +333,12 @@ items:
           href: ./component-version-validation-error-arm-templates.md
         - name: Switch Users in Ambari UI
           href: ./hdinsight-known-issues-ambari-users-cache.md
+        - name: Azure HDInsight Ambari access broken due to certificate issues post certification rotation
+          href: ./hdinsight-known-issues-ambari-access-certificate-issue.md
+        - name: Azure HDInsight headnode goes to unresponsive state
+          href: ./hdinsight-known-issues-cluster-head-node-unresponsive.md
+        - name: Azure HDInsight ESP cluster creation issues due to Ranger service startup
+          href: ./hdinsight-known-issues-ranger-cluster-create-failure.md
       - name: Request increase for CPU core quota
         href: ./quota-increase-request.md
       - name: Troubleshoot Apache Ambari Metrics Collector
@@ -651,8 +657,6 @@ items:
           href: ./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
         - name: Connect Power BI to Apache Hadoop
           href: ./hadoop/apache-hadoop-connect-hive-power-bi.md
-        - name: Connect Excel to Apache Hadoop
-          href: ./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md
         - name: Connect using the Apache Hive JDBC driver
           href: ./hadoop/apache-hadoop-connect-hive-jdbc-driver.md
         - name: Analyze stored tweets
@@ -953,8 +957,6 @@ items:
         href: ./hadoop/apache-hadoop-use-hive-visual-studio.md
       - name: Use a Java UDF with Apache Hive
         href: ./hadoop/apache-hadoop-hive-java-udf.md
-      - name: Query Hive with PowerShell and ODBC
-        href: ./interactive-query/apache-hive-query-odbc-driver-powershell.md
       - name: Enable Hive LLAP Workload Management feature
         href: ./interactive-query/hive-workload-management.md
     - name: Manage

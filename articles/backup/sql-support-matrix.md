@@ -2,7 +2,7 @@
 title: Azure Backup support matrix for SQL Server Backup in Azure VMs 
 description: Provides a summary of support settings and limitations when backing up SQL Server in Azure VMs with the Azure Backup service.
 ms.topic: reference
-ms.date: 12/09/2025
+ms.date: 02/13/2026
 ms.custom: references_regions 
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -12,7 +12,7 @@ ms.author: v-mallicka
 
 # Support matrix for SQL Server Backup in Azure VMs
 
-You can use Azure Backup to back up SQL Server databases in Azure VMs hosted on the Microsoft Azure cloud platform. This article summarizes the general support settings and limitations for scenarios and deployments of SQL Server Backup in Azure VMs.
+You can use Azure Backup to back up SQL Server databases in Azure VMs hosted on the Microsoft Azure cloud platform. This article summarizes the general support settings and limitations for scenarios and deployments of SQL Server Backup in Azure VMs. For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
 
 ## Scenario support
 
@@ -21,7 +21,7 @@ You can use Azure Backup to back up SQL Server databases in Azure VMs hosted on 
 **Supported deployments** | SQL Marketplace Azure VMs and non-Marketplace (SQL Server manually installed) VMs are supported.
 **Supported regions** | Azure Backup for SQL Server databases is available in all regions, except France South (FRS).
 **Supported operating systems** | Windows Server 2022, Windows Server 2019, Windows Server 2016, Windows Server 2012 (all versions), Windows Server 2008 R2 SP1 <br/><br/> Additional configuration is required for Windows Server 2008 and 2008 R2. Learn how to [set VM permission](backup-azure-sql-database.md#set-vm-permissions). <br><br> Linux isn't currently supported. 
-**Supported SQL Server versions** | SQL Server 2022 Express, SQL Server 2022, SQL Server 2019, SQL Server 2017 as detailed on the [Search product lifecycle page](/lifecycle/products/sql-server-2017), SQL Server 2016 and SPs as detailed on the [Search product lifecycle page](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012. <br/><br/> Enterprise, Standard, Web, Developer, Express.<br><br>Express Local DB versions aren't supported.
+**Supported SQL Server versions** | SQL Server 2022 Express, SQL Server 2022, SQL Server 2019, SQL Server 2017 as detailed on the [Search product lifecycle page](/lifecycle/products/sql-server-2017), SQL Server 2016 and SPs as detailed on the [Search product lifecycle page](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012. <br/><br/> Enterprise, Standard, Web, Developer, Express.<br><br>Express Local DB versions aren't supported.<br><br>Limited support is available for SQL Server versions that are currently in "End of life", "Extended Security Updates" or any other limited support phases.
 **Supported .NET versions** | .NET Framework 4.6.2 or later installed on the VM
 **Supported deployments** | SQL Marketplace Azure VMs and non-Marketplace (SQL Server that is manually installed) VMs are supported. Support for standalone instances is always on [availability groups](backup-sql-server-on-availability-groups.md). <br><br>  Note that the SQL databases that are part of a AlwaysOn AG and are synced from SQL Managed Instance aren't supported.
 **Cross Region Restore** | Supported for databases protected as a standalone instance and/or as part of a SQL availability group . [Learn more](restore-sql-database-azure-vm.md#cross-region-restore).
@@ -74,4 +74,6 @@ Azure Backup supports a consistent data transfer rate of 350 MBps for full and d
 
 ## Next steps
 
-Learn how to [back up a SQL Server database](backup-azure-sql-database.md) that's running on an Azure VM.
+- [Back up a SQL Server database running on an Azure VM](backup-azure-sql-database.md).
+- [Restore backed up SQL Server databases](restore-sql-database-azure-vm.md).
+- [Manage and monitor backed up SQL Server databases using Azure portal](manage-monitor-sql-database-backup.md).

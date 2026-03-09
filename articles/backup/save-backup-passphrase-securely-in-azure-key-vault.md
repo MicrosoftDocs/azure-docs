@@ -2,7 +2,7 @@
 title: Save and manage MARS agent passphrase securely in Azure Key Vault
 description: Learn how to save MARS agent passphrase securely in Azure Key Vault and retrieve them during restore.
 ms.topic: how-to
-ms.date: 10/10/2025
+ms.date: 02/05/2026
 ms.reviewer: sooryar
 ms.service: azure-backup
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -125,7 +125,7 @@ To assign the permissions, follow these steps:
 
 3. The Recovery Services vault identity requires the **Set permission on Secret** to create and add the passphrase as a Secret to the Key Vault. 
 
-   You can select a *built-in role* such as **Key Vault Secrets Officer** that has the permission (along with other permissions not required for this feature) or [create a custom role](/azure/key-vault/general/rbac-guide?tabs=azurepowershell#creating-custom-roles) with only Set permission on Secret. 
+   You can select a *built-in role* such as [**Key Vault Secrets Officer**](/azure/role-based-access-control/built-in-roles/security#key-vault-secrets-officer) that has the permission (along with other permissions not required for this feature) or [create a custom role](/azure/key-vault/general/rbac-guide?tabs=azurepowershell#creating-custom-roles) with only Set permission on Secret. 
 
    Under **Details**, select **View** to view the permissions granted by the role and ensure *Set* permission on *Secret* is available.
  

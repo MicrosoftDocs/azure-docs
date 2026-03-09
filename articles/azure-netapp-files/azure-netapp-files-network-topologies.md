@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: ram-kakani
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 04/03/2025
+ms.date: 03/03/2026
 ms.author: ramakk
 ms.custom: references_regions
 # Customer intent: "As a network architect, I want to design a network architecture for Azure NetApp Files, so that I can ensure effective connectivity and optimal performance for my workloads in both cloud-native and hybrid environments."
@@ -52,6 +52,7 @@ The following table describes what’s supported for each network features confi
 |     Load balancers for Azure   NetApp Files traffic    |     No    |     No    |
 |     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only supported)    |     No <br> (IPv4 only supported)   |
 |    Traffic routed via NVA from peered VNet | Yes    | No |
+|    Standard V2 NAT GW support | No    | No |
 
 ### Supported network topologies
 

@@ -17,7 +17,7 @@ ms.author: sanathr
   ```
 
 > [!IMPORTANT]
-> On June 20, 2023, Google announced that it [deprecated sending messages by using the FCM legacy APIs](https://firebase.google.com/docs/cloud-messaging) and would start removing the legacy FCM from service in June 2024. Google recommends [migrating from legacy FCM APIs to FCM HTTP v1](https://firebase.google.com/docs/cloud-messaging/migrate-v1).
+> On June 20, 2023, Google announced that it [deprecated sending messages by using the FCM legacy APIs](https://firebase.google.com/docs/cloud-messaging) and would start removing the legacy FCM from service in June 2024. Google recommends [migrating from legacy FCM APIs to FCM HTTP v1](https://firebase.google.com/docs/cloud-messaging/).
 >
 > If your Communication Services resource is still using the FCM legacy APIs, follow [this migration guide](/azure/communication-services/tutorials/call-chat-migrate-android-push-fcm-v1).
 

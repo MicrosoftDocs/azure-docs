@@ -3,8 +3,8 @@ title: Move resources across regions using PowerShell in Azure Resource Mover
 description: Learn how to move resources across regions using PowerShell in Azure Resource Mover.
 ms.service: azure-resource-mover
 ms.topic: tutorial
-author: jasminemehndir
-ms.author: v-jasmineme
+author: RochakSingh-blr
+ms.author: v-rochak2
 ms.date: 07/31/2025
 ms.custom:
   - devx-track-azurepowershell

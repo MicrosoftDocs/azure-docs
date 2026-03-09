@@ -645,7 +645,7 @@ To retrieve a list of the available versions for a specific VM extension, use th
 Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT
 ```
 
-To get a list of publishers, use the [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) command. To request type, use the [Get-AzureRmVMExtensionImageType](/powershell/module/az.compute/get-azvmextensionimagetype) commend.
+To get a list of publishers, use the [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) command. To request type, use the [Get-AzureRmVMExtensionImageType](/powershell/module/az.compute/get-azvmextensionimagetype) command.
 
 ## Tips for testing and automation
 

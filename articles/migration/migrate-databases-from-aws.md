@@ -10,6 +10,7 @@ ms.service: azure
 ms.collection:
  - migration
  - aws-to-azure
+ms.custom: migration-hub
 ---
 
 # Migrate databases from Amazon Web Services (AWS) to Azure
@@ -40,7 +41,7 @@ Use the following scenarios as examples for your migration process.
 | [Amazon SQL Server to Azure SQL Database](/data-migration/sql-server/database/guide) | Amazon RDS for SQL Server to Azure SQL Database | This scenario describes an Amazon RDS instance to Azure SQL Database migration. It helps ensure data integrity preservation and minimal downtime. |
 | [Amazon DynamoDB application to Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/dynamo-to-cosmos) | Amazon DynamoDB application to Azure Cosmos DB for NoSQL | This scenario describes an Amazon DynamoDB application to Azure Cosmos DB migration. It helps ensure data integrity preservation and minimal downtime. |
 | [Amazon DynamoDB data to Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/dynamodb-data-migration-cosmos-db) | Amazon DynamoDB data to Azure Cosmos DB for NoSQL | This scenario describes an Amazon DynamoDB data to Azure Cosmos DB migration. It helps ensure data integrity preservation and minimal downtime. |
-| [Amazon ElastiCache to Azure Cache for Redis](/azure/azure-cache-for-redis/cache-migration-guide) | Amazon ElastiCache to Azure Cache for Redis | This scenario describes an Amazon ElastiCache to Azure Cache for Redis migration. It helps ensure data integrity preservation and minimal downtime. |
+| [Amazon ElastiCache to Azure Managed Redis](/azure/redis/migrate/migration-guide) | Amazon ElastiCache to Azure Managed Redis | This scenario describes an Amazon ElastiCache to Azure Managed Redis migration. It helps ensure data integrity preservation and minimal downtime. |
 | [Couchbase on AWS to Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/couchbase-cosmos-migration) | Couchbase on AWS to Azure Cosmos DB for NoSQL | This scenario describes the migration of Java applications that are connected to Couchbase on AWS to an API for NoSQL account in Azure Cosmos DB. It helps ensure data integrity preservation and minimal downtime. |
 
 ## Related workload components

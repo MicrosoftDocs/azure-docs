@@ -3,7 +3,7 @@ title: Back up Azure NetApp Files datastores and VMs using Cloud Backup
 description: Learn how to back up datastores and Virtual Machines to the cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/03/2024
+ms.date: 1/30/2026
 ms.author: anfdocs
 ms.custom: engagement-fy23
 # Customer intent: "As an IT administrator, I want to back up Azure NetApp Files datastores and Virtual Machines to the cloud, so that I can ensure data protection and quick recovery in case of data loss or system failures."
@@ -112,7 +112,7 @@ You can add or remove resources from a resource group at any time.
     When you select **Next**, the system first checks that Cloud Backup for Virtual Machines manages and is compatible with the storage on which the selected resources are located.
     
     >[!IMPORTANT]
-    >If you receive the message `selected <resource-name> is not Cloud Backup for Virtual Machines compatible` then a selected resource is not compatible with Cloud Backup for Virtual Machines. 
+    >If you receive the message `selected <resource-name> is not Cloud Backup for Virtual Machines compatible` that means that a selected resource isn't compatible with Cloud Backup for virtual machines. 
 
 1. On the **Spanning disks** page, select an option for VMs with multiple VMDKs across multiple datastores:
     * Always exclude all spanning datastores 
@@ -153,7 +153,7 @@ Backup operations are performed on all the resources defined in a resource group
 
 * You must have a resource group created with a policy attached.
     >[!NOTE]
-    > Do not start an on-demand backup job when a job to back up the Cloud Backup for Virtual Machines MySQL database is already running. Use the maintenance console to see the configured backup schedule for the MySQL database.
+    > Don't start an on-demand backup job when a job to back up the Cloud Backup for Virtual Machines MySQL database is already running. Use the maintenance console to see the configured backup schedule for the MySQL database.
 
 ### Back up resource groups on demand
 
@@ -165,9 +165,9 @@ Backup operations are performed on all the resources defined in a resource group
     
 1. Select **OK** to initiate the backup.
     >[!NOTE]
-    >You can't rename a backup once it's created. 
+    >After a backup is created, you can't rename it. 
 1. **Optional:** Monitor the operation progress by selecting **Recent Tasks** at the bottom of the window or on the dashboard Job Monitor for more details.
-    If the pause operation fails for any of the VMs in the backup, then the backup completes with a warning. It's marked as not VM-consistent even if the selected policy has VM consistency selected. In this case, it's possible that some of the VMs were successfully paused. In the job monitor, the failed VM details show the pause operation as failed.
+    If the pause operation fails for any of the VMs in the backup, then the backup completes with a warning. It gets marked as not VM-consistent even if the selected policy has VM consistency selected. In this case, it's possible that some of the VMs were successfully paused. In the job monitor, the failed VM details show the pause operation as failed.
 
 ## Next steps
 

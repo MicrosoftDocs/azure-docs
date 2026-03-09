@@ -6,12 +6,12 @@ manager: bburns
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 11/19/2024
+ms.date: 02/02/2026
 ms.author: juergent
 # Customer intent: "As an SAP solutions architect, I want to utilize a detailed checklist for deploying SAP workloads to Azure, so that I can ensure a smooth migration and optimize system performance throughout each project phase."
 ---
 
-# SAP workloads on Azure: planning and deployment checklist
+# SAP workload planning and deployment checklist
 
 This checklist is designed for customers moving SAP applications to Azure infrastructure as a service. SAP applications in this document represent SAP products running the SAP kernel, including SAP NetWeaver, S/4HANA, BW and BW/4 and others. Throughout the duration of the project, a customer and/or SAP partner should review the checklist. It's important to note that many of the checks are completed at the beginning of the project and during the planning phase. After the deployment is done, straightforward changes on deployed Azure infrastructure or SAP software releases can become complex.
 
@@ -45,7 +45,7 @@ This document should contain:
 - The current inventory of SAP components and applications, and a target application inventory for Azure.
 - A responsibility assignment matrix (RACI) that defines the responsibilities and assignments of the parties involved. Start at a high level, and work to more granular levels throughout planning and the first deployments.
 - A high-level solution architecture. Best practices and example architectures from [Azure Architecture Center](/azure/architecture/reference-architectures/sap/sap-overview) should be consulted.
-- A decision about which Azure regions to deploy to. See the [list of Azure regions](https://azure.microsoft.com/global-infrastructure/regions/), and list of [regions with availability zone support](../../reliability/availability-zones-region-support.md). To learn which services are available in each region, see [products available by region](https://azure.microsoft.com/global-infrastructure/services/).
+- A decision about which Azure regions to deploy to. See the [list of Azure regions](https://azure.microsoft.com/global-infrastructure/regions/), and list of [regions with availability zone support](/azure/reliability/availability-zones-region-support). To learn which services are available in each region, see [products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 - A networking architecture to connect from on-premises to Azure. Start to familiarize yourself with the [Azure enterprise scale landing zone](/azure/cloud-adoption-framework/ready/enterprise-scale/) concept.
 - Security principles for running high-impact business data in Azure. To learn about data security, start with the Azure security documentation.
 - Storage strategy to cover block devices (Managed Disk) and shared filesystems (such as Azure Files or Azure NetApp Files) that should be further refined to file-system sizes and layouts in the technical design document.
@@ -92,7 +92,7 @@ Further included in same technical document(s) should be:
   - Azure resource naming strategy
   - Security operations for Azure resources and workloads within
 - Security concept for protecting your SAP workload. This should include all aspects – networking and perimeter monitoring, application and database security, operating systems securing, and any infrastructure measures required, such as encryption. Identify the requirements with your compliance and security teams.
-- Microsoft recommends either Professional Direct, Premier or Unified Support contract. Identify your escalation paths and contacts for support with Microsoft. For SAP support requirements, see [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553).
+- Identify your escalation paths and contacts for support with Microsoft. Consult [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553) for the required Microsoft support contract to run SAP workloads in Azure.
 - The number of Azure subscriptions and core quota for the subscriptions. [Open support requests to increase quotas of Azure subscriptions](/azure/azure-portal/supportability/regional-quota-requests) as needed.
 - Data reduction and data migration plan for migrating SAP data into Azure. For SAP NetWeaver systems, SAP has guidelines on how to limit the volume of large amounts of data. See [this SAP guide](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2) about data management in SAP ERP systems. Some of the content also applies to NetWeaver and S/4HANA systems in general.
 - An automated deployment approach. Many customers start with scripts, using a combination of PowerShell, CLI, Ansible and Terraform. 
@@ -116,7 +116,7 @@ We recommend that you set up and validate a full HADR solution and security desi
    [Migrate very large databases (VLDB) to Azure for SAP](/training/modules/migrate-very-large-databases-to-azure/)  
 
 ### Technical validation
-
+In the pilot phase, validate the following technical aspects of your planned deployment:
 - **Compute / VM types**
   - Review the resources in SAP support notes, in the SAP HANA hardware directory, and in the SAP PAM again. Make sure to match supported VMs for Azure, supported OS releases for those VM types, and supported SAP and DBMS releases.
   - Validate again the sizing of your application and the infrastructure you deploy on Azure. If you're moving existing applications, you can often derive the necessary SAPS from the infrastructure you use and the [SAP benchmark webpage](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) and compare it to the SAPS numbers listed in [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533). Also keep [this article on SAPS ratings](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAPS-ratings-on-Azure-VMs-8211-where-to-look-and-where-you-can/ba-p/368208) in mind.
@@ -134,8 +134,8 @@ We recommend that you set up and validate a full HADR solution and security desi
 - **Storage**
   - Read the document [Azure storage types for SAP workload](./planning-guide-storage.md)
   - Use [Azure premium storage](/azure/virtual-machines/disks-types#premium-ssds), [premium storage v2](/azure/virtual-machines/disks-types#premium-ssd-v2) for all production grade SAP environments and when ensuring high SLA. For some DBMS, Azure NetApp Files can be used for [large parts of the overall storage requirements](planning-guide-storage.md#azure-netapp-files).
-  - At a minimum, use [Azure standard SSD](/azure/virtual-machines/disks-types#standard-ssds) storage for VMs that represent SAP application layers and for deployment of DBMSs that aren't performance sensitive. Keep in mind different Azure storage types influence the [single VM availability SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines).
-  - In general, we don't recommend the use of [Azure standard HDD](./planning-guide-storage.md#azure-standard-hdd-storage) disks for SAP.
+  - At a minimum, use [Azure Standard SSD](/azure/virtual-machines/disks-types#standard-ssds) storage for VMs that represent SAP application layers and for deployment of DBMSs that aren't performance sensitive. Keep in mind different Azure storage types influence the [single VM availability SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines).
+  - In general, we don't recommend the use of [Azure Standard HDD](./planning-guide-storage.md#azure-standard-hdd-storage) disks for SAP.
   - For the different DBMS types, check the [generic SAP-related DBMS documentation](./dbms-guide-general.md) and DBMS-specific documentation that the first document points to. Use disk striping over multiple disks with premium storage (v1 or v2) for database data and log area. Verify lvm disk striping is active and with correct stripe size with command 'lvs -a -o+lv_layout,lv_role,stripes,stripe_size,devices' on Linux, see storage spaces properties on Windows. 
   - For optimal storage configuration with SAP HANA, see [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md).
   - Use LVM for all disks on Linux VMs, as it allows easier management and online expansion. This includes volumes on single disks, for example /usr/sap.
@@ -305,7 +305,7 @@ After deploying infrastructure and applications and before each migration starts
    - Make sure that only disks holding DBMS online logs are cached with None+ Write Accelerator.  
    - Other disks with premium storage are using cache settings none or ReadOnly, depending on use  
    - Check the [configuration of LVM on Linux VMs in Azure](/azure/virtual-machines/linux/configure-lvm).  
-10. [Azure managed disks](https://azure.microsoft.com/services/managed-disks/) or [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-solution-architectures.md#sap-on-azure-solutions) NFS volumes are used exclusively for DBMS VMs.
+10. [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/) or [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-solution-architectures.md#sap-on-azure-solutions) NFS volumes are used exclusively for DBMS VMs.
 11. For Azure NetApp Files, [correct mount options are used](../../azure-netapp-files/performance-linux-mount-options.md) and volumes are sized appropriately on correct storage tier.
 12. Using Azure services – Azure Files or Azure NetApp Files – for any SMB or NFS volumes or shares. NFS volumes or SMB shares are reachable by the respective SAP environment or individual SAP system(s). Network routing to the NFS/SMB server goes through private network address space, using private endpoint if needed.
 13. [Azure accelerated networking](../../virtual-network/accelerated-networking-overview.md) is enabled on every network interface for all SAP VMs.

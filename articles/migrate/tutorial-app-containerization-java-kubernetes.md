@@ -87,7 +87,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 1. Select **Access control (IAM)**.
 
-1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
+1. Select **Add** > **Add role assignment** to go to the **Add role assignment** page.
 
 1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
@@ -153,7 +153,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 Select **Sign in** to log in to your Azure account.
 
 1. You'll need a device code to authenticate with Azure. Selecting on sign in will open a modal with the device code.
-2. Select **Copy code & sign in** to copy the device code and open an Azure sign in prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
+2. Select **Copy code & sign in** to copy the device code and go to an Azure sign in prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
 
     ![Modal showing device code.](./media/tutorial-containerize-apps-aks/login-modal.png)
 
@@ -290,4 +290,4 @@ To troubleshoot any issues with the tool, you can look at the log files on the W
 - Containerizing ASP.NET web apps and deploying them on Windows containers on AKS. [Learn more](./tutorial-app-containerization-aspnet-kubernetes.md)
 - Containerizing ASP.NET web apps and deploying them on Windows containers on Azure App Service. [Learn more](./tutorial-app-containerization-aspnet-app-service.md)
 - What are solutions for running Oracle WebLogic Server on the Azure Kubernetes Service? [Learn more](/azure/virtual-machines/workloads/oracle/weblogic-aks)
-- Open Liberty and WebSphere Liberty on AKS. [Learn more](/azure/developer/java/ee/websphere-family#open-liberty-and-websphere-liberty-on-aks)
+- Go to Liberty and WebSphere Liberty on AKS. [Learn more](/azure/developer/java/ee/websphere-family#open-liberty-and-websphere-liberty-on-aks)

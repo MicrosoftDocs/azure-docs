@@ -127,8 +127,7 @@ Next you create a container app with the NVIDIA GPU Cloud API key.
     az containerapp env create \
       --name $CONTAINERAPPS_ENVIRONMENT \
       --resource-group $RESOURCE_GROUP \
-      --location $LOCATION \
-      --enable-workload-profiles
+      --location $LOCATION
     ```
 
 1. Add the GPU workload profile to your environment.

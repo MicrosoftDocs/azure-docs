@@ -4,7 +4,7 @@ titleSuffix: Azure IoT Edge
 description: How to install and manage certificates on an Azure IoT Edge device to prepare for production deployment. 
 author: sethmanheim
 ms.author: sethm
-ms.date: 05/07/2025
+ms.date: 03/02/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -13,14 +13,14 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-All IoT Edge devices use certificates to create secure connections between the runtime and any modules running on the device. IoT Edge devices functioning as gateways use these same certificates to connect to their downstream devices, too. 
+All IoT Edge devices use certificates to create secure connections between the runtime and any modules running on the device. IoT Edge devices functioning as gateways use these same certificates to connect to their downstream devices as well. 
 
 > [!NOTE]
 > The term *root CA* used throughout this article refers to the topmost authority's certificate in the certificate chain for your IoT solution. You don't need to use the certificate root of a syndicated certificate authority, or the root of your organization's certificate authority. Often, it's actually an intermediate CA certificate.
 
 ## Prerequisites
 
-* You should be familiar with the concepts in [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md), in particular how IoT Edge uses certificates.
+* Familiarity with the concepts in [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md), in particular how IoT Edge uses certificates.
 
 * An IoT Edge device.
   
@@ -107,7 +107,7 @@ sudo ls -Rla /var/aziot
 
 The output of the list with the correct ownership and permission is similar to the following output:
 
-```Output
+```output
 azureUser@vm:/var/aziot$ sudo ls -Rla /var/aziot
 /var/aziot:
 total 16
@@ -132,13 +132,13 @@ drwxr-xr-x 4 root    root    4096 Dec 14 00:16 ..
 
 ## Manage trusted root CA (trust bundle)
 
-Using a self-signed certificate authority (CA) certificate as a root of trust with IoT Edge and modules is known as *trust bundle*. The trust bundle is available for IoT Edge and modules to communicate with servers. To configure the trust bundle, specify its file path in the IoT Edge configuration file.
+A *trust bundle* is a self-signed certificate authority (CA) certificate that acts as a root of trust for IoT Edge and modules. IoT Edge and modules use the trust bundle to communicate with servers. To configure the trust bundle, specify its file path in the IoT Edge configuration file.
 
 1. Get the root CA certificate from a PKI provider.
 
 1. Check that the certificate meets the [format requirements](#format-requirements).
 
-1. Copy the PEM file and give IoT Edge's certificate service access. For example, with `/var/aziot/certs` directory:
+1. Copy the PEM file and give IoT Edge's certificate service access. For example, using the `/var/aziot/certs` directory:
 
    ```bash
    # Make the directory if doesn't exist
@@ -159,7 +159,7 @@ Using a self-signed certificate authority (CA) certificate as a root of trust wi
 1. In the IoT Edge configuration file `config.toml`, find the **Trust bundle cert** section. If the section is missing, you can copy it from the configuration template file.
 
    >[!TIP]
-   >If the config file doesn't exist on your device yet, then use `/etc/aziot/config.toml.edge.template` as a template to create one.
+   >If the config file doesn't exist on your device yet, use `/etc/aziot/config.toml.edge.template` as a template to create one.
 
 1. Set the `trust_bundle_cert` key to the certificate file location.
 
@@ -174,7 +174,7 @@ Using a self-signed certificate authority (CA) certificate as a root of trust wi
    ```
 ### Install root CA to OS certificate store
 
-Installing the certificate to the trust bundle file makes it available to container modules but not to host modules like Azure Device Update or Defender. If you use host level components or run into other TLS issues, also install the root CA certificate to the operating system certificate store:
+If you install the certificate to the trust bundle file, container modules can use it but host modules like Azure Device Update or Defender can't. If you use host level components or run into other TLS issues, also install the root CA certificate to the operating system certificate store:
 
 # [Debian / Ubuntu](#tab/ubuntu)
 
@@ -200,7 +200,7 @@ IoT Edge can use existing certificates and private key files to authenticate or 
 
 1. Check the certificate and private key files meet the [format requirements](#format-requirements).
 
-1. Copy the PEM file to the IoT Edge device where IoT Edge modules can have access. For example, the  `/var/aziot/` directory.
+1. Copy the PEM file to the IoT Edge device where IoT Edge modules can access it. For example, use the `/var/aziot/` directory.
 
    ```bash
    # If the certificate and keys directories don't exist, create, set ownership, and set permissions
@@ -231,7 +231,7 @@ IoT Edge can use existing certificates and private key files to authenticate or 
    sudo chmod 600 /var/aziot/secrets/my-private-key.pem
    ```
 
-1. In `config.toml`, find the relevant section for the type of the certificate to configure. For example, you can search for the keyword `cert`.
+1. In `config.toml`, find the relevant section for the type of the certificate to configure. For example, search for the keyword `cert`.
 
 1. Using the example from the configuration template, configure the device identity certificate or Edge CA files. The example pattern is:
 
@@ -246,7 +246,7 @@ IoT Edge can use existing certificates and private key files to authenticate or 
    sudo iotedge config apply
    ```
 
-To prevent errors when certificates expire, remember to manually update the files and configuration before certificate expiration.
+To prevent errors when certificates expire, manually update the files and configuration before certificate expiration.
 
 ### Example: Use device identity certificate files from PKI provider
 
@@ -339,25 +339,25 @@ identity_cert = "file:///var/aziot/device-id.pem"
 identity_pk = "file:///var/aziot/device-id.key.pem"
 ```
 
-Overhead with manual certificate management can be risky and error-prone. For production, using IoT Edge with automatic certificate management is recommended.
+Overhead with manual certificate management can be risky and error prone. For production, use IoT Edge with automatic certificate management.
 
 ## Manage Edge CA
 
 Edge CA has two different modes:
 
-* *Quickstart* is the default behavior. Quickstart is for testing and **not** suitable for production.
-* *Production* mode requires you provide your own source for Edge CA certificate and private key.
+* **Quickstart** is the default behavior. Use Quickstart for testing and not for production.
+* **Production** mode requires you to provide your own source for the Edge CA certificate and private key.
 
 ### Quickstart Edge CA
 
-To help with getting started, IoT Edge automatically generates an **Edge CA certificate** when started for the first time by default. This self-signed certificate is only meant for development and testing scenarios, not production. By default, the certificate expires after 90 days. Expiration can be configured. This behavior is referred to as *quickstart Edge CA*.
+To help you get started, IoT Edge automatically generates an **Edge CA certificate** when it starts for the first time. This self-signed certificate is only meant for development and testing scenarios, not production. By default, the certificate expires after 90 days, but you can configure the expiration. This behavior is referred to as *quickstart Edge CA*.
 
-*Quickstart Edge CA* enables `edgeHub` and other IoT Edge modules to have a valid server certificate when IoT Edge is first installed with no configuration. The `edgehub` module needs the certificate because modules or downstream devices [need to establish secure communication channels](iot-edge-certs.md#device-verifies-gateway-identity). Without the quickstart Edge CA, getting started would be harder because you'd need to provide a valid server certificate from a PKI provider or with tools like `openssl`.
+Quickstart Edge CA enables `edgeHub` and other IoT Edge modules to have a valid server certificate when IoT Edge is first installed with no configuration. The `edgehub` module needs the certificate because modules or downstream devices [need to establish secure communication channels](iot-edge-certs.md#device-verifies-gateway-identity). Without the quickstart Edge CA, getting started would be harder because you'd need to provide a valid server certificate from a PKI provider or with tools like `openssl`.
 
 > [!IMPORTANT]
-> Never use the quickstart Edge CA for production because the locally generated certificate in it isn't connected to a PKI.
+> Never use the quickstart Edge CA for production because the locally generated certificate isn't connected to a PKI.
 >
-> The security of a certificates-based identity derives from a well-operated PKI (the infrastructure) in which the certificate (a document) is only a component. A well-operated PKI enables definition, application, management, and enforcements of security policies to include but not limited to certificates issuance, revocation, and lifecycle management.
+> The security of a certificates-based identity comes from a well-operated PKI (the infrastructure) in which the certificate (a document) is only a component. A well-operated PKI enables definition, application, management, and enforcement of security policies that include but aren't limited to certificate issuance, revocation, and lifecycle management.
 
 #### Customize lifetime for quickstart Edge CA
 
@@ -368,11 +368,11 @@ To configure the certificate expiration to something other than the default 90 d
 auto_generated_edge_ca_expiry_days = 180
 ```
 
-To remove any previously generated certificates then apply the configuration, delete the contents of the `/var/lib/aziot/certd/certs` and `/var/lib/aziot/keyd/keys` folders.
+To remove any previously generated certificates and apply the configuration, delete the contents of the `/var/lib/aziot/certd/certs` and `/var/lib/aziot/keyd/keys` folders.
 
 #### Renew quickstart Edge CA
 
-By default, IoT Edge automatically renews the quickstart Edge CA certificate when at 80% of the certificate lifetime. For example, if a certificate has a 90 day lifetime, IoT Edge automatically regenerates the Edge CA certificate at 72 days from issuance.
+By default, IoT Edge automatically renews the quickstart Edge CA certificate when it reaches 80% of the certificate lifetime. For example, if a certificate has a 90-day lifetime, IoT Edge automatically regenerates the Edge CA certificate at 72 days from issuance.
 
 To change the autorenewal logic, add the following settings to the *Edge CA certificate* section in `config.toml`. For example:
 
@@ -385,25 +385,25 @@ retry = "2%"
 
 ### Edge CA in production
 
-Once you move into a production scenario, or you want to create a gateway device, you can no longer use the quickstart Edge CA.
+When you use a production scenario or want to create a gateway device, don't use the quickstart Edge CA.
 
-One option is to provide your own certificates and manage them manually. However, to avoid the risky and error-prone manual certificate management process, use an EST server whenever possible.
+You can provide your own certificates and manage them manually. However, to avoid the risky and error-prone manual certificate management process, use an EST server whenever possible.
 
 > [!CAUTION]
 > The common name (CN) of Edge CA certificate can't match device hostname parameter defined in the device's configuration file *config.toml* or the device ID registered in IoT Hub.
 
 ### Plan for Edge CA renewal
 
-When the Edge CA certificate renews, all the certificates it issued like module server certificates are regenerated. To give the modules new server certificates, IoT Edge restarts all modules when Edge CA certificate renews.
+When the Edge CA certificate renews, it regenerates all the certificates it issued, like module server certificates. To give the modules new server certificates, IoT Edge restarts all modules when the Edge CA certificate renews.
 
-To minimize potential negative effects of module restarts, plan to renew the Edge CA certificate at a specific time (for example, `threshold = "10d"`) and notify dependents of the solution about the downtime.
+To minimize the potential negative effects of module restarts, plan to renew the Edge CA certificate at a specific time (for example, `threshold = "10d"`) and notify dependents of the solution about the downtime.
 
 ### Example: use Edge CA certificate files from PKI provider
 
 Request the following files from your PKI provider:
 
 * The PKI's root CA certificate
-* An issuing/CA certificate and associated private key
+* An issuing CA certificate and associated private key
 
 For the issuing CA certificate to become Edge CA, it must have these extensions:
 
@@ -480,11 +480,11 @@ If you previously used any other certificates for IoT Edge on the device, delete
 
 This approach requires you to manually update the files as certificate expires. To avoid this issue, consider using EST for automatic management.
 
-## Automatic certificate management with EST server
+## Automatic certificate management using EST server
 
-IoT Edge can interface with an [Enrollment over Secure Transport (EST) server](https://wikipedia.org/wiki/Enrollment_over_Secure_Transport) for automatic certificate issuance and renewal. Using EST is recommended for production as it replaces the need for manual certificate management, which can be risky and error-prone. It can be configured globally and overridden for each certificate type.
+IoT Edge can interface with an [Enrollment over Secure Transport (EST) server)](https://wikipedia.org/wiki/Enrollment_over_Secure_Transport) for automatic certificate issuance and renewal. Using EST is recommended for production as it replaces the need for manual certificate management, which can be risky and error-prone. You can configure it globally and override it for each certificate type.
 
-In this scenario, the bootstrap certificate and private key are expected to be long-lived and potentially installed on the device during manufacturing. IoT Edge uses the bootstrap credentials to authenticate to the EST server for the initial request to issue an identity certificate for subsequent requests and for authentication to DPS or IoT Hub.
+In this scenario, the bootstrap certificate and private key are long-lived and potentially installed on the device during manufacturing. IoT Edge uses the bootstrap credentials to authenticate to the EST server for the initial request to issue an identity certificate for subsequent requests and for authentication to DPS or IoT Hub.
 
 1. Get access to an EST server. If you don't have an EST server, use one of the following options to start testing:
 
@@ -531,7 +531,7 @@ The settings in `[cert_issuance.est.identity_auto_renew]` are covered in the nex
 
 ### Username and password authentication
 
-If authentication to EST server using certificate isn't possible, you can use a shared secret or username and password instead.
+If you can't authenticate to the EST server using a certificate, use a shared secret or username and password instead.
 
 ```toml
 [cert_issuance.est.auth]
@@ -562,7 +562,7 @@ Instead of manually managing the certificate files, IoT Edge has the built-in ab
 1. Apply the configuration
 
    ```bash
-   sudo iotege config apply
+   sudo iotedge config apply
    ```
 
 The following table lists what each option in `auto_renew` does:
@@ -570,8 +570,8 @@ The following table lists what each option in `auto_renew` does:
 | Parameter | Description |
 |---------|---------|
 |`rotate_key`| Controls if the private key should be rotated when IoT Edge renews the certificate.|
-|`threshold`| Sets when IoT Edge should start renewing the certificate. It can be specified as: <br> - Percentage: integer between `0` and `100` followed by `%`. Renewal starts relative to the certificate lifetime. For example, when set to `80%`, a certificate that is valid for 100 days begins renewal at 20 days before its expiry. <br> - Absolute time: integer followed by `min` (minutes) or `day` (days). Renewal starts relative to the certificate expiration time. For example, when set to `4day` for four days or `10min` for 10 minutes, the certificate begins renewing at that time before expiry. To avoid unintentional misconfiguration where the `threshold` is bigger than the certificate lifetime, we recommend using *percentage* instead whenever possible.|
-|`retry`| controls how often renewal should be retried on failure. Like `threshold`, it can similarly be specified as a *percentage* or *absolute time* using the same format.|
+|`threshold`| Sets when IoT Edge should start renewing the certificate. Specify this value as: <br> - Percentage: integer between `0` and `100` followed by `%`. Renewal starts relative to the certificate lifetime. For example, when set to `80%`, a certificate that is valid for 100 days begins renewal at 20 days before its expiry. <br> - Absolute time: integer followed by `min` (minutes) or `day` (days). Renewal starts relative to the certificate expiration time. For example, when set to `4day` for four days or `10min` for 10 minutes, the certificate begins renewing at that time before expiry. To avoid unintentional misconfiguration where the `threshold` is bigger than the certificate lifetime, use *percentage* instead whenever possible.|
+|`retry`| Controls how often renewal should be retried on failure. Like `threshold`, it can similarly be specified as a *percentage* or *absolute time* using the same format.|
 
 ### Example: renew device identity certificate automatically with EST
 
@@ -596,7 +596,7 @@ threshold = "80%"
 retry = "4%"
 ```
 
-Automatic renewal for Edge CA must be enabled when issuance method is set to EST. Edge CA expiration must be avoided as it breaks many IoT Edge functionalities. If a situation requires total control over Edge CA certificate lifecycle, use the [manual Edge CA management method](#example-use-edge-ca-certificate-files-from-pki-provider) instead.
+Automatic renewal for Edge CA must be enabled when issuance method is set to EST. Avoid Edge CA expiration, as it breaks some IoT Edge functionality. If you need total control over the Edge CA certificate lifecycle, use the [manual Edge CA management method](#example-use-edge-ca-certificate-files-from-pki-provider) instead.
 
 Don't use EST or `auto_renew` with other methods of provisioning, including manual X.509 provisioning with IoT Hub and DPS with individual enrollment. IoT Edge can't update certificate thumbprints in Azure when a certificate is renewed, which prevents IoT Edge from reconnecting.
 
@@ -637,10 +637,10 @@ For more information about the environment variables, see [Edge Hub and Edge Age
 
 ## Changes in 1.2 and later
 
-* The **Device CA certificate** was renamed as **Edge CA certificate**.
-* The **workload CA certificate** was deprecated. Now the IoT Edge security manager generates the IoT Edge hub `edgeHub` server certificate directly from the Edge CA certificate, without the intermediate workload CA certificate between them.
-* The default config file has a new name and location, from `/etc/iotedge/config.yaml` to `/etc/aziot/config.toml` by default. The `iotedge config import` command can be used to help migrate configuration information from the old location and syntax to the new one.
+* The **Device CA certificate** is now the **Edge CA certificate**.
+* The **workload CA certificate** is deprecated. The IoT Edge security manager now generates the IoT Edge hub `edgeHub` server certificate directly from the Edge CA certificate, without the intermediate workload CA certificate between them.
+* The default config file has a new name and location. It changed from `/etc/iotedge/config.yaml` to `/etc/aziot/config.toml` by default. Use the `iotedge config import` command to help migrate configuration information from the old location and syntax to the new one.
 
 ## Next steps
 
-Installing certificates on an IoT Edge device is a necessary step before deploying your solution in production. Learn more about how to [Prepare to deploy your IoT Edge solution in production](production-checklist.md).
+You must install certificates on an IoT Edge device before deploying your solution in production. For more information, see [Prepare to deploy your IoT Edge solution in production](production-checklist.md).

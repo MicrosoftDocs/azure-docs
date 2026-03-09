@@ -4,7 +4,7 @@ description: This guide describes how to integrate your IoT Central application 
 author: dominicbetts
 ms.author: dobett
 ms.date: 04/15/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-central
 services: iot-central
 ms.custom: [mvc, iot-central-frontdoor]

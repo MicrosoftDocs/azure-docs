@@ -3,7 +3,7 @@ title: Managed Instance on App Service overview (preview)
 description: Managed Instance on Azure App Service is a specialized hosting option that provides isolation, customization, and secure integration with Azure resources, ideal for legacy, and infrastructure-dependent web apps.
 keywords: app service, azure app service, managed instance, isolation, vnet integration, registry, COM, RDP, installation scripts, key vault, pv4, pmv4, windows services, GAC, third-party dependencies
 ms.topic: overview
-ms.date: 11/08/2025
+ms.date: 01/09/2026
 ms.author: msangapu
 author: msangapu-msft
 ms.service: azure-app-service
@@ -95,7 +95,7 @@ Managed Instance provides plan-level configuration through:
 |-----------|---------|
 | **Platform** | • Windows only (no Linux/containers)<br>• Not available in ASE |
 | **SKUs** | Pv4 and Pmv4 only |
-| **Regions** | East Asia, West Central US, North Europe, East US |
+| **Regions** | East Asia, West Central US, North Europe, East US, Australia East |
 | **Authentication** | Entra ID and Managed Identity only (no domain join/NTLM/Kerberos) |
 | **Workloads** | Web apps only (no WebJobs, TCP/NetPipes) |
 | **Configuration** | Persistent changes require scripts (RDP is diagnostics-only) |

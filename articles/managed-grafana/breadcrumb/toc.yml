@@ -1,0 +1,12 @@
+items:
+- name: Azure
+  tocHref: /azure
+  topicHref: /azure/index
+  items:
+  - name: Azure Managed Grafana
+    tocHref: /azure/managed-grafana/
+    topicHref: /azure/managed-grafana/index
+    items:
+    - name: Azure Managed Grafana
+      tocHref: /azure/reliability/
+      topicHref: /azure/managed-grafana/index

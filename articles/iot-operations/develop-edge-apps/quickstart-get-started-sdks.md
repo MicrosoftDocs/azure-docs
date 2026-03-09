@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Start developing with the Azure IoT Operations SDKs (preview)"
+title: "Quickstart: Start developing with the Azure IoT Operations SDKs"
 description: Setup up a development environment for building and running the samples, as well as creating and testing your own Azure IoT Operations highly available edge applications.
 author: dominicbetts
 ms.author: dobett
@@ -7,7 +7,7 @@ ms.topic: quickstart-sdk
 ms.date: 05/08/2025
 ---
 
-# Quickstart: Start developing with the Azure IoT Operations SDKs (preview)
+# Quickstart: Start developing with the Azure IoT Operations SDKs
 
 Get started developing with the Azure IoT Operations SDKs. Follow these steps to set up your development environment for building and running the samples, as well as creating and testing your own highly available edge applications.
 
@@ -208,7 +208,7 @@ This sample demonstrates a simple communication between a client and a server us
 
 1. Install the [.NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
 
-1. The samples within [Azure IoT Operations SDKs GitHub repository](https://github.com/Azure/iot-operations-sdks) read configuration from environment variables. We provide an `.env` file in the repository root that exports the variables used by the samples to connect to the MQTT Broker. Edit the `.env` file to set the values for your environment, or use the default values provided in the file.
+1. The samples within [Azure IoT Operations SDKs GitHub repository](https://github.com/Azure/iot-operations-sdks) read configuration from environment variables. We provide an `.env` file in the repository root that exports the variables used by the samples to connect to the MQTT broker. Edit the `.env` file to set the values for your environment, or use the default values provided in the file.
 
 1. Navigate to the `CounterServer` sample directory:
 
@@ -282,8 +282,8 @@ This sample demonstrates a simple communication between a client and a server us
 | Component Type | Name | Description |
 |-|-|-|
 | `Broker` | default | The MQTT broker |
-| `BrokerListener` | default | Provides **cluster access** to the MQTT Broker |
-| `BrokerListener` | default-external | Provides **off-cluster access** to the MQTT Broker |
+| `BrokerListener` | default | Provides **cluster access** to the MQTT broker |
+| `BrokerListener` | default-external | Provides **off-cluster access** to the MQTT broker |
 | `BrokerAuthentication` | default | SAT authentication definition |
 | `BrokerAuthentication` | default-x509 | An x509 authentication definition |
 

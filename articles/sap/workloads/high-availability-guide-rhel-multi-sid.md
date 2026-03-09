@@ -7,7 +7,7 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: how-to
-ms.date: 04/29/2025
+ms.date: 02/23/2026
 ms.author: radeltch
 ms.custom:
   - linux-related-content
@@ -165,7 +165,7 @@ This article assumes that:
 
 2. **[A]** Set up name resolution for the more SAP systems. You can either use DNS server or modify */etc/hosts* on all nodes. This example shows how to use the */etc/hosts* file.  Adapt the IP addresses and the host names to your environment.
 
-    ```cmd
+    ```bash
     sudo vi /etc/hosts
     # IP address of the load balancer frontend configuration for NW2 ASCS
     10.3.1.52 msnw2ascs
@@ -179,7 +179,7 @@ This article assumes that:
 
 3. **[A]** Create the shared directories for the `NW2` and `NW3` SAP systems to deploy to the cluster.
 
-    ```cmd
+    ```bash
     sudo mkdir -p /sapmnt/NW2
     sudo mkdir -p /usr/sap/NW2/SYS
     sudo mkdir -p /usr/sap/NW2/ASCS10
@@ -211,30 +211,28 @@ This article assumes that:
 
 1. Create the virtual IP and health probe cluster resources for the ASCS instances of the other SAP systems you're deploying to the cluster. This example uses `NW2` and `NW3` ASCS, using NFS on Azure NetApp Files volumes with NFSv3 protocol.  
 
-    ```cmd
+    ```bash
     sudo pcs resource create fs_NW2_ASCS Filesystem device='10.42.0.4:/sapMSIDR/usrsapNW2ascs' \
     directory='/usr/sap/NW2/ASCS10' fstype='nfs' force_unmount=safe fast_stop=no \
-    op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
-     --group g-NW2_ASCS
+    op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40
 
     sudo pcs resource create vip_NW2_ASCS IPaddr2 \
-    ip=10.3.1.52 \
-     --group g-NW2_ASCS
+    ip=10.3.1.52
     
-    sudo pcs resource create nc_NW2_ASCS azure-lb port=62010 \
-     --group g-NW2_ASCS
+    sudo pcs resource create nc_NW2_ASCS azure-lb port=62010
+
+    sudo pcs resource group add g-NW2_ASCS fs_NW2_ASCS vip_NW2_ASCS nc_NW2_ASCS
 
     sudo pcs resource create fs_NW3_ASCS Filesystem device='10.42.0.4:/sapMSIDR/usrsapNW3ascs' \
     directory='/usr/sap/NW3/ASCS20' fstype='nfs' force_unmount=safe fast_stop=no \
-    op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
-    --group g-NW3_ASCS
+    op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40
 
     sudo pcs resource create vip_NW3_ASCS IPaddr2 \
-    ip=10.3.1.54 \
-    --group g-NW3_ASCS
+    ip=10.3.1.54
 
-    sudo pcs resource create nc_NW3_ASCS azure-lb port=62020 \
-    --group g-NW3_ASCS
+    sudo pcs resource create nc_NW3_ASCS azure-lb port=62020
+
+    sudo pcs resource group add g-NW3_ASCS fs_NW3_ASCS vip_NW3_ASCS nc_NW3_ASCS
     ```
 
    Make sure the cluster status is ok and that all resources are started. It's not important on which node the resources are running.  
@@ -245,7 +243,7 @@ This article assumes that:
 
    You can use the `sapinst` parameter `SAPINST_REMOTE_ACCESS_USER` to allow a non-root user to connect to sapinst. You can use parameter `SAPINST_USE_HOSTNAME` to install SAP, using virtual host name.  
 
-    ```cmd
+    ```bash
     # Allow access to SWPM. This rule is not permanent. If you reboot the machine, you have to run the command again
     sudo firewall-cmd --zone=public --add-port=4237/tcp
     sudo swpm/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
@@ -255,37 +253,35 @@ This article assumes that:
 
 3. **[1]** Create a virtual IP and health-probe cluster resources for the ERS instance of the other SAP system you're deploying to the cluster. This example is for `NW2` and `NW3` ERS, using NFS on Azure NetApp Files volumes with NFSv3 protocol.  
 
-    ```cmd
+    ```bash
     sudo pcs resource create fs_NW2_AERS Filesystem device='10.42.0.4:/sapMSIDR/usrsapNW2ers' \
     directory='/usr/sap/NW2/ERS12' fstype='nfs' force_unmount=safe fast_stop=no \
-    op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
-     --group g-NW2_AERS
+    op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40
 
     sudo pcs resource create vip_NW2_AERS IPaddr2 \
-    ip=10.3.1.53 \
-     --group g-NW2_AERS
+    ip=10.3.1.53
 
-    sudo pcs resource create nc_NW2_AERS azure-lb port=62112 \
-     --group g-NW2_AERS
+    sudo pcs resource create nc_NW2_AERS azure-lb port=62112
+
+    sudo pcs resource group add g-NW2_AERS fs_NW2_AERS vip_NW2_AERS nc_NW2_AERS
 
     sudo pcs resource create fs_NW3_AERS Filesystem device='10.42.0.4:/sapMSIDR/usrsapNW3ers' \
     directory='/usr/sap/NW3/ERS22' fstype='nfs' force_unmount=safe fast_stop=no \
-    op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
-     --group g-NW3_AERS
+    op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40
 
     sudo pcs resource create vip_NW3_AERS IPaddr2 \
-    ip=10.3.1.55 \
-     --group g-NW3_AERS
+    ip=10.3.1.55
 
-    sudo pcs resource create nc_NW3_AERS azure-lb port=62122 \
-     --group g-NW3_AERS
+    sudo pcs resource create nc_NW3_AERS azure-lb port=62122
+
+    sudo pcs resource group add g-NW3_AERS fs_NW3_AERS vip_NW3_AERS nc_NW3_AERS
    ```
 
    Make sure the cluster status is ok and that all resources are started.  
 
    Next, make sure that the resources of the newly created ERS group are running on the cluster node, opposite to the cluster node where the ASCS instance for the same SAP system was installed. For example, if NW2 ASCS was installed on `rhelmsscl1`, then make sure the NW2 ERS group is running on `rhelmsscl2`. You can migrate the  NW2 ERS group to `rhelmsscl2` by running the following command for one of the cluster resources in the group:
 
-    ```cmd
+    ```bash
     pcs resource move fs_NW2_AERS rhelmsscl2
     ```
 
@@ -295,7 +291,7 @@ This article assumes that:
 
    You can use the `sapinst` parameter `SAPINST_REMOTE_ACCESS_USER` to allow a non-root user to connect to sapinst. You can use parameter `SAPINST_USE_HOSTNAME` to install SAP, using virtual host name.  
 
-    ```cmd
+    ```bash
     # Allow access to SWPM. This rule is not permanent. If you reboot the machine, you have to run the command again
     sudo firewall-cmd --zone=public --add-port=4237/tcp
     sudo swpm/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
@@ -308,7 +304,7 @@ This article assumes that:
 
    If it was necessary for you to migrate the ERS group of the newly deployed SAP system to a different cluster node, don't forget to remove the location constraint for the ERS group. You can remove the constraint by running the following command. This example is given for SAP systems `NW2` and `NW3`. Make sure to remove the temporary constraints for the same resource you used in the command to move the ERS cluster group.
 
-    ```cmd
+    ```bash
     pcs resource clear fs_NW2_AERS
     pcs resource clear fs_NW3_AERS
     ```
@@ -317,7 +313,7 @@ This article assumes that:
 
    * ASCS/SCS profile
 
-     ```cmd
+     ```bash
      sudo vi /sapmnt/NW2/profile/NW2_ASCS10_msnw2ascs
    
      # Change the restart command to a start command
@@ -332,7 +328,7 @@ This article assumes that:
 
    * ERS profile
 
-     ```cmd
+     ```bash
      sudo vi /sapmnt/NW2/profile/NW2_ERS12_msnw2ers
      
      # Change the restart command to a start command
@@ -347,7 +343,7 @@ This article assumes that:
 
    To prevent the start of the instances by the *sapinit* startup script, all instances managed by Pacemaker must be commented out from */usr/sap/sapservices* file. The example shown below is for SAP systems `NW2` and `NW3`.  
 
-   ```cmd
+   ```bash
    # Depending on whether the SAP Startup framework is integrated with systemd, you may observe below entries on the node for ASCS instances. You should comment out the line(s). 
    # LD_LIBRARY_PATH=/usr/sap/NW2/ASCS10/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/NW2/ASCS10/exe/sapstartsrv pf=/usr/sap/NW2/SYS/profile/NW2_ASCS10_msnw2ascs -D -u nw2adm
    # LD_LIBRARY_PATH=/usr/sap/NW3/ASCS20/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/NW3/ASCS20/exe/sapstartsrv pf=/usr/sap/NW3/SYS/profile/NW3_ASCS20_msnw3ascs -D -u nw3adm
@@ -364,7 +360,7 @@ This article assumes that:
    > [!IMPORTANT]
    > With the systemd based SAP Startup Framework, SAP instances can now be managed by systemd. The minimum required Red Hat Enterprise Linux (RHEL) version is RHEL 8 for SAP. As described in SAP Note [3115048](https://me.sap.com/notes/3115048), a fresh installation of a SAP kernel with integrated systemd based SAP Startup Framework support will always result in a systemd controlled SAP instance. After an SAP kernel upgrade of an existing SAP installation to a kernel which has systemd based SAP Startup Framework support, however, some manual steps have to be performed as documented in SAP Note [3115048](https://me.sap.com/notes/3115048) to convert the existing SAP startup environment to one which is systemd controlled.
    >
-   > When utilizing Red Hat HA services for SAP (cluster configuration) to manage SAP application server instances such as SAP ASCS and SAP ERS, additional modifications will be necessary to ensure compatibility between the SAPInstance resource agent and the new systemd-based SAP startup framework. So once the SAP application server instances has been installed or switched to a systemd enabled SAP Kernel as per SAP Note [3115048](https://me.sap.com/notes/3115048), the steps mentioned in [Red Hat KBA 6884531](https://access.redhat.com/articles/6884531) must be completed successfully on all cluster nodes.
+   > When utilizing Red Hat HA services for SAP (cluster configuration) to manage SAP application server instances such as SAP ASCS and SAP ERS, additional modifications will be necessary to ensure compatibility between the SAPInstance resource agent and the new systemd-based SAP startup framework. So once the SAP application server instances have been installed or switched to a "systemd" enabled SAP Kernel as per SAP Note [3115048](https://me.sap.com/notes/3115048), the steps mentioned in [Red Hat KBA 6884531](https://access.redhat.com/articles/6884531) must be completed successfully on all cluster nodes.
 
 7. **[1]** Create the SAP cluster resources for the newly installed SAP system.
 
@@ -382,40 +378,48 @@ This article assumes that:
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
     op monitor interval=20 on-fail=restart timeout=60 \
-    op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-NW2_ASCS
+    op start interval=0 timeout=600 op stop interval=0 timeout=600
 
+    sudo pcs resource group add g-NW2_ASCS rsc_sap_NW2_ASCS10
     sudo pcs resource meta g-NW2_ASCS resource-stickiness=3000
 
     sudo pcs resource create rsc_sap_NW2_ERS12 SAPInstance \
     InstanceName=NW2_ERS12_msnw2ers START_PROFILE="/sapmnt/NW2/profile/NW2_ERS12_msnw2ers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
-    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-NW2_AERS
+    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600
 
-    sudo pcs constraint colocation add g-NW2_AERS with g-NW2_ASCS -5000
-    sudo pcs constraint location rsc_sap_NW2_ASCS10 rule score=2000 runs_ers_NW2 eq 1
+    sudo pcs resource group add g-NW2_AERS rsc_sap_NW2_ERS12
+
     sudo pcs constraint order start g-NW2_ASCS then stop g-NW2_AERS kind=Optional symmetrical=false
+    sudo pcs constraint colocation add g-NW2_AERS with g-NW2_ASCS score=-5000
+    # On RHEL 7.x, 8.x, 9.x
+    sudo pcs constraint location rsc_sap_NW2_ASCS10 rule score=2000 runs_ers_NW2 eq 1
+    # On RHEL 10.x
+    sudo pcs constraint location rsc_sap_NW2_ASCS10 rule score=2000 "runs_ers_NW2 eq 1"
 
     sudo pcs resource create rsc_sap_NW3_ASCS20 SAPInstance \
     InstanceName=NW3_ASCS20_msnw3ascs START_PROFILE="/sapmnt/NW3/profile/NW3_ASCS20_msnw3ascs" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
     op monitor interval=20 on-fail=restart timeout=60 \
-    op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-NW3_ASCS
+    op start interval=0 timeout=600 op stop interval=0 timeout=600
 
+    sudo pcs resource group add g-NW3_ASCS rsc_sap_NW3_ASCS20
     sudo pcs resource meta g-NW3_ASCS resource-stickiness=3000
 
     sudo pcs resource create rsc_sap_NW3_ERS22 SAPInstance \
     InstanceName=NW3_ERS22_msnw3ers START_PROFILE="/sapmnt/NW3/profile/NW2_ERS22_msnw3ers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
-    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-NW3_AERS
+    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600
 
-    sudo pcs constraint colocation add g-NW3_AERS with g-NW3_ASCS -5000
-    sudo pcs constraint location rsc_sap_NW3_ASCS20 rule score=2000 runs_ers_NW3 eq 1
+    sudo pcs resource group add g-NW3_AERS rsc_sap_NW3_ERS22
+
     sudo pcs constraint order start g-NW3_ASCS then stop g-NW3_AERS kind=Optional symmetrical=false
+    sudo pcs constraint colocation add g-NW3_AERS with g-NW3_ASCS score=-5000
+    # On RHEL 7.x, 8.x, 9.x
+    sudo pcs constraint location rsc_sap_NW3_ASCS20 rule score=2000 runs_ers_NW3 eq 1
+    # On RHEL 10.x
+    sudo pcs constraint location rsc_sap_NW3_ASCS20 rule score=2000 "runs_ers_NW3 eq 1"
 
     sudo pcs property set maintenance-mode=false
     ```
@@ -430,42 +434,42 @@ This article assumes that:
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 \
     op monitor interval=20 on-fail=restart timeout=60 \
-    op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-NW2_ASCS
+    op start interval=0 timeout=600 op stop interval=0 timeout=600
 
+    sudo pcs resource group add g-NW2_ASCS rsc_sap_NW2_ASCS10
     sudo pcs resource meta g-NW2_ASCS resource-stickiness=3000
 
     sudo pcs resource create rsc_sap_NW2_ERS12 SAPInstance \
     InstanceName=NW2_ERS12_msnw2ers START_PROFILE="/sapmnt/NW2/profile/NW2_ERS12_msnw2ers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
-    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-NW2_AERS
+    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600
 
-    sudo pcs resource meta rsc_sap_NW2_ERS12  resource-stickiness=3000
+    sudo pcs resource group add g-NW2_AERS rsc_sap_NW2_ERS12
+    sudo pcs resource meta rsc_sap_NW2_ERS12 resource-stickiness=3000
 
-    sudo pcs constraint colocation add g-NW2_AERS with g-NW2_ASCS -5000
     sudo pcs constraint order start g-NW2_ASCS then stop g-NW2_AERS kind=Optional symmetrical=false
+    sudo pcs constraint colocation add g-NW2_AERS with g-NW2_ASCS score=-5000
 
     sudo pcs resource create rsc_sap_NW3_ASCS20 SAPInstance \
     InstanceName=NW3_ASCS20_msnw3ascs START_PROFILE="/sapmnt/NW3/profile/NW3_ASCS20_msnw3ascs" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 \
     op monitor interval=20 on-fail=restart timeout=60 \
-    op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-NW3_ASCS
+    op start interval=0 timeout=600 op stop interval=0 timeout=600
 
+    sudo pcs resource group add g-NW3_ASCS rsc_sap_NW3_ASCS20
     sudo pcs resource meta g-NW3_ASCS resource-stickiness=3000
 
     sudo pcs resource create rsc_sap_NW3_ERS22 SAPInstance \
     InstanceName=NW3_ERS22_msnw3ers START_PROFILE="/sapmnt/NW3/profile/NW2_ERS22_msnw3ers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
-    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-NW3_AERS
+    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600
 
-    sudo pcs resource meta rsc_sap_NW3_ERS22  resource-stickiness=3000
+    sudo pcs resource group add g-NW3_AERS rsc_sap_NW3_ERS22
+    sudo pcs resource meta rsc_sap_NW3_ERS22 resource-stickiness=3000
 
-    sudo pcs constraint colocation add g-NW3_AERS with g-NW3_ASCS -5000
     sudo pcs constraint order start g-NW3_ASCS then stop g-NW3_AERS kind=Optional symmetrical=false
+    sudo pcs constraint colocation add g-NW3_AERS with g-NW3_ASCS score=-5000
 
     sudo pcs property set maintenance-mode=false
     ```
@@ -559,7 +563,7 @@ Always read the Red Hat best practices guides and perform all other tests that m
 
    Resource state before starting the test:
 
-   ```cmd
+   ```bash
    Online: [ rhelmsscl1 rhelmsscl2 ]
 
    Full list of resources:
@@ -599,7 +603,7 @@ Always read the Red Hat best practices guides and perform all other tests that m
 
    Run the following commands as root to migrate the NW3 ASCS instance.
 
-   ```cmd
+   ```bash
    pcs resource move rsc_sap_NW3_ASCS200
    # Clear temporary migration constraints
    pcs resource clear rsc_sap_NW3_ASCS20
@@ -610,7 +614,7 @@ Always read the Red Hat best practices guides and perform all other tests that m
 
    Resource state after the test:
 
-   ```cmd
+   ```bash
    Online: [ rhelmsscl1 rhelmsscl2 ]
 
    Full list of resources:
@@ -652,7 +656,7 @@ Always read the Red Hat best practices guides and perform all other tests that m
 
    Resource state before starting the test:
 
-   ```cmd
+   ```bash
    Online: [ rhelmsscl1 rhelmsscl2 ]
    
    Full list of resources:
@@ -692,13 +696,13 @@ Always read the Red Hat best practices guides and perform all other tests that m
 
    Run the following command as root on a node where at least one ASCS instance is running. This example runs the command on `rhelmsscl1`, where the ASCS instances for `NW1`, `NW2`, and `NW3` are running.  
 
-   ```cmd
+   ```bash
    echo c > /proc/sysrq-trigger
    ```
 
    The status after the test and after the node that was crashed has started again, should look like these results:
 
-   ```cmd
+   ```Output
    Full list of resources:
    
    rsc_st_azure    (stonith:fence_azure_arm):      Started rhelmsscl2
@@ -736,7 +740,7 @@ Always read the Red Hat best practices guides and perform all other tests that m
 
    If there are messages for failed resources, clean the status of the failed resources. For example:
 
-   ```cmd
+   ```bash
    pcs resource cleanup rsc_sap_NW1_ERS02
    ```
 

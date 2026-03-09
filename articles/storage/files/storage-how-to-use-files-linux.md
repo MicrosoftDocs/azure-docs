@@ -458,6 +458,7 @@ You can use the following mount options when mounting SMB Azure file shares on L
 | `file_mode=` | n/a | Optional. If the server doesn't support the CIFS Unix extensions, this overrides the default file mode. |
 | `dir_mode=` | n/a | Optional. If the server doesn't support the CIFS Unix extensions, this overrides the default mode for directories. |
 | `handletimeout=` | n/a | Optional. The time (in milliseconds) for which the server should reserve the file handle after a failover waiting for the client to reconnect. |
+| `max_channels=` | 4 | Enables SMB Multichannel on Linux CIFS mounts. Customers should always use the recommended value (4) of SMB Multichannel connections when accessing Azure Files from Linux clients. |
 
 ## Next step
 

@@ -27,6 +27,8 @@ You can upgrade your gateway to a higher-capacity SKU within the same SKU family
 - Upgrade from one availability zone-enabled SKU to another availability zone-enabled SKU
 
 For all other scenarios, including downgrades or switching between availability zone types, you must delete and recreate the gateway. This process incurs downtime.
+> [!NOTE]
+> If the gateway is connected to a Private Link, customers should expect up to 2 hours of downtime during the upgrade.
 
 ## Gateway subnet
 
@@ -122,6 +124,7 @@ The ExpressRoute virtual network gateway facilitates connectivity to private end
 > [!IMPORTANT]
 > * The throughput and control plane capacity for connectivity to private endpoint resources might be reduced by half compared to connectivity to non-private endpoint resources.
 > * During a maintenance period, you might experience intermittent connectivity problems to private endpoint resources.
+> * During Gateway SKU upgrade, you might experience intermittent connectivity problems to private endpoint resources.
 > * You need to ensure that on-premises configuration, including router and firewall settings, are correctly set up to ensure that packets for the IP 5-tuple transits use a single next hop (Microsoft Enterprise Edge router) unless there's a maintenance event. If your on-premises firewall or router configuration is causing the same IP 5-tuple to frequently switch next hops, you experience connectivity problems.
 > * Ensure that [network policies](../private-link/disable-private-endpoint-network-policy.md) (at a minimum, for UDR support) are enabled on the subnet(s) where private endpoints are deployed
 
@@ -137,7 +140,7 @@ For technical resources and specific syntax requirements when using REST APIs an
 
 | Classic | Resource Manager |
 | --- | --- |
-| [PowerShell](/powershell/module/servicemanagement/azure) |[PowerShell](/powershell/module/az.network#networking) |
+| [PowerShell](https://www.powershellgallery.com/packages/Azure/) |[PowerShell](/powershell/module/az.network#networking) |
 | [REST API](/previous-versions/azure/reference/jj154113(v=azure.100)) |[REST API](/rest/api/virtual-network/) |
 
 ## Virtual network-to-virtual network connectivity

@@ -1,5 +1,5 @@
 ---
-title: Create a File Share (Microsoft.FileShares)
+title: Create a file share (Microsoft.FileShares)
 description: Learn to use the Azure portal to deploy an NFS file share with Microsoft.FileShares resource provider (preview).
 author: khdownie
 ms.service: azure-file-storage
@@ -12,6 +12,10 @@ ms.author: kendownie
 
 # Create an Azure file share with Microsoft.FileShares (preview)
 
+:heavy_check_mark: **Applies to:** File shares created with the Microsoft.FileShares resource provider (preview)
+
+:heavy_multiplication_x: **Doesn't apply to:** Classic file shares created with the Microsoft.Storage resource provider
+
 The new Microsoft.FileShares resource provider (preview) and management model allows you to deploy file shares without creating an Azure storage account. Before you create an Azure file share with the Microsoft.FileShares resource provider, review the following to decide if it's the right fit for your needs. If you need all the features that Azure Files offers, or you need to use the SMB protocol, or want HDD (standard) performance, use a [classic file share](create-classic-file-share.md) instead.
 
 - The Microsoft.FileShares resource provider and management model is current only available for NFS file shares, which require SSD (premium) storage. SSD media provides consistent high performance and low latency, within single-digit milliseconds for most IO operations.
@@ -22,28 +26,11 @@ The new Microsoft.FileShares resource provider (preview) and management model al
 
 For more information on Azure Files management concepts, see [Plan for an Azure Files deployment](storage-files-planning.md#management-concepts).
 
-## Applies to
-
-| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
-|-|-|-|-|:-:|:-:|
-| Microsoft.FileShares | Provisioned v2 | SSD (premium) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.FileShares | Provisioned v2 | SSD (premium) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-
 ## Prerequisites
 
 This article assumes that you have an Azure subscription. If you don't have an Azure subscription, then create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
-Make sure both "Microsoft.FileShares" and "Microsoft.Storage" resource providers are registered for the subscription. To register a resource provider, follow these steps.
+Make sure both Microsoft.FileShares and Microsoft.Storage resource providers are registered for the subscription. To register a resource provider, follow these steps.
 
 1. Sign in to Azure portal.
 1. In the search box, enter *subscriptions*.
@@ -55,6 +42,8 @@ Make sure both "Microsoft.FileShares" and "Microsoft.Storage" resource providers
 
 > [!NOTE]
 > File share with Microsoft.FileShares is currently in preview. You may use the Azure portal, or you can use generic PowerShell or Azure CLI commands to work with file shares. If you want to try the CLI private package for Microsoft.FileShares resource provider, fill out this [survey](https://forms.microsoft.com/r/nEGcB0ccaD).
+
+You can also create a file share with Microsoft.FileShares using Azure MCP Server. To learn more, see [Azure Files tools for the Azure MCP Server overview](/azure/developer/azure-mcp-server/tools/azure-file-shares). 
 
 # [Portal](#tab/azure-portal)
 
@@ -73,17 +62,17 @@ The first tab to complete creating a file share is labeled **Basics**, which con
 ![A screenshot of the Azure portal for create flow 1 for file share.](./media/storage-how-to-create-microsoft-fileshares/file-share-create-flow-basic.png)
 
 
-| **Field name**                  | **Input type**         | **Values**                                                                                                                                                                                                                   | **Meaning**                                                                                                                                                                                                                                                                       |
-|--------------------------------|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Subscription                   | Drop-down list         | *Available Azure subscriptions*                                                                                                                                                                                              | The selected subscription in which to deploy the storage account.                                                                                                                                                                                                                 |
-| Resource group                 | Drop-down list         | *Available resource groups in selected subscription*                                                                                                                                                                         | The resource group in which to deploy the file share. A resource group is a logical container for organizing Azure resources, including file shares.                                                                                                                  |
-| file share name          | Text box               | --                                                                                                                                                                                                                            | The name of the file share must be unique across all existing file share names in Microsoft Azure. It must be 3 to 63 characters long and can contain only lowercase letters, numbers, and hyphens. The name must start and end with a letter or number.              |
-| Tier                           | N/A                    | --                                                                                                                                                                                                                            | Premium file shares are backed by solid-state drives (SSD) for better performance. Currently, the Microsoft.FileShares preview only supports SSD.                                                                                                                           |
-| Protocol                       | N/A                    | --                                                                                                                                                                                                                            | file shares support a multitude of access protocols. If you need the SMB protocol, deploy your file share within a storage account. Currently, the Microsoft.FileShares preview only supports NFS protocol.                                                          |
-| Region                         | Drop-down list         | *Available Azure regions*                                                                                                                                                                                                    | The region for the file share to be deployed into. This can be the region associated with the resource group, or any other available region.                                                                                                                               |
-| Provisioned capacity (GiB)     | Text box         | Integer                                                                                                                                                                                                                       | Provisioned capacity for the file share, ranging from 32 GiB to 262144 GiB.                                                                                                                                                                                                 |
-| Redundancy                     | Drop-down list         | - Locally redundant storage (LRS)  <br> - Geo-redundant storage (GRS)                                                                                                                                                         | The redundancy choice for the file share. See [Azure Files redundancy](files-redundancy.md) for more information.                                                                                                                                                         |
-| Provisioned IOPS and throughput| Radio button group     | - Recommended provisioning  <br> - Manually specify IOPS and throughput:  <br> &nbsp;&nbsp;&nbsp;&nbsp;- Provisioned IOPS  <br> &nbsp;&nbsp;&nbsp;&nbsp;- Provisioned throughput (MiB/sec)                                   | The Microsoft.FileShares preview only uses the [provisioned v2 billing model](understanding-billing.md#provisioned-v2-model).  |
+| Field name | Input type | Values | Meaning |
+|-|-|-|-|
+| Subscription | Drop-down list | *Available Azure subscriptions* | The selected subscription in which to deploy the storage account. |
+| Resource group | Drop-down list | *Available resource groups in selected subscription* | The resource group in which to deploy the file share. A resource group is a logical container for organizing Azure resources, including file shares. |
+| File share name | Text box | -- | The name of the file share must be unique across all existing file share names in Microsoft Azure. It must be 3 to 63 characters long and can contain only lowercase letters, numbers, and hyphens. The name must start and end with a letter or number. |
+| Tier | N/A | -- | The media tier for the file share. The Microsoft.FileShares preview only supports the SSD media tier. |
+| Protocol | N/A | -- | File shares support a multitude of access protocols. If you need the SMB protocol, deploy your file share within a storage account. Currently, the Microsoft.FileShares preview only supports NFS protocol. |
+| Region | Drop-down list | *Available Azure regions* | The region for the file share to be deployed into. This can be the region associated with the resource group, or any other available region. |
+| Provisioned capacity (GiB) | Text box | Integer  | Provisioned capacity for the file share, ranging from 32 GiB to 262,144 GiB. |
+| Redundancy | Drop-down list | <ul><li>Locally redundant storage (LRS)</li><li>Zone redundant storage (ZRS)</li></ul> | The redundancy choice for the file share. See [Azure Files redundancy](files-redundancy.md) for more information. |
+| Provisioned IOPS and throughput | Radio button group | <ul><li>Recommended provisioning</li><li>Manually specify IOPS and throughput:<ul><li>Provisioned IOPS</li><li>Provisioned throughput (MiB/sec)</li></ul></li></ul> | The Microsoft.FileShares preview only uses the [provisioned v2 billing model](understanding-billing.md#provisioned-v2-model). |
 
 ### Advanced
 

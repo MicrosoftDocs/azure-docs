@@ -5,7 +5,7 @@ author: johndowns
 ms.author: jodowns
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 02/13/2023
+ms.date: 03/02/2026
 ---
 
 # Accelerate and secure your web application with Azure Front Door
@@ -46,7 +46,7 @@ When you have strict network security requirements, you can use Azure Front Door
 By using Front Door, you can create resilient, highly available solutions.
 
 - **Load balancing and failover:** Front Door is a global load balancer. Front Door monitors the health of your origin servers, and if an origin becomes unavailable, [Front Door can route requests to an alternative origin](routing-methods.md). You can also use Front Door to spread traffic across your origins to reduce the load on any one origin server.
-- **Anycast routing:** Front Door itself has a [large number of PoPs](edge-locations-by-region.md), each of which can serve traffic for any request. [Anycast routing](front-door-traffic-acceleration.md#select-the-front-door-edge-location-for-the-request-anycast) steers traffic to the closest available Front Door PoP, and if a PoP is unavailable, clients are automatically routed to the next closest PoP.
+- **Automatic routing:** Front Door itself has a [large number of PoPs](edge-locations-by-region.md), each of which can serve traffic for any request. [Azure Front Door's routing architecture](front-door-traffic-acceleration.md) automatically steers traffic to the closest available Front Door PoP, and if a PoP is unavailable, clients are automatically routed to the next closest PoP.
 - **Caching:** By using the Front Door cache, you reduce the load on your application servers. If your servers are unavailable, Front Door might be able to continue to serve cached responses until your application recovers.
 
 ### Cost optimization
@@ -78,7 +78,7 @@ The following diagram illustrates a generic solution architecture using Front Do
 
 ### Client to Front Door
 
-Traffic from the client first arrives at a Front Door PoP. Front Door has a [large number of PoPs](edge-locations-by-region.md) distributed worldwide, and [Anycast](front-door-traffic-acceleration.md#select-the-front-door-edge-location-for-the-request-anycast) routes the clients to their closest PoP.
+Traffic from the client first arrives at a Front Door PoP. Front Door has a [large number of PoPs](edge-locations-by-region.md) distributed worldwide, and [Azure Front Door's routing architecture](front-door-traffic-acceleration.md) automatically routes traffic to the closest available Front Door PoP.
 
 When the request is received by Front Door's PoP, Front Door uses your [custom domain name](front-door-custom-domain.md) to serve the request. Front Door performs [TLS offload](end-to-end-tls.md) by using either a Front Door-managed TLS certificate or a custom TLS certificate.
 

@@ -262,7 +262,7 @@ Microsoft Sentinel provides handy functions for common lookup values. For exampl
 | invoke _ASIM_ResolveDnsResponseCode('DnsResponseCode')
 ```
 
-The first option accepts as a parameter the value to lookup and let you choose the output field and therefore useful as a general lookup function. The second option is more geared towards parsers, takes as input the name of the source field, and updates the needed ASIM field, in this case `DnsResponseCodeName`.
+The first option accepts as a parameter the value to look up and let you choose the output field and therefore useful as a general lookup function. The second option is more geared towards parsers, takes as input the name of the source field, and updates the needed ASIM field, in this case `DnsResponseCodeName`.
 
 For a full list of ASIM help functions, refer to [ASIM functions](normalization-functions.md)
 
@@ -280,7 +280,7 @@ In addition to the fields available from the source, a resulting ASIM event incl
      EventSchema = 'ProcessEvent'
 ```
 
-Another type of enrichment fields that your parsers should set are type fields, which designate the type of the value stored in a related field. For example, the `SrcUsernameType` field designates the type of value stored in the `SrcUsername` field. You can find more information about type fields in the [entities description](normalization-about-schemas.md#entities).
+Another type of enrichment fields that your parsers should set are type fields, which designate the type of the value stored in a related field. For example, the `SrcUsernameType` field designates the type of value stored in the `SrcUsername` field. You can find more information about type fields in the [entities description](normalization-about-schemas.md#event-entities).
 
 In most cases, types are also assigned a constant value. However, in some cases the type has to be determined based on the actual value, for example:
 
@@ -327,7 +327,7 @@ For example, when parsing a custom log table, use the following to remove the re
 >[!IMPORTANT]
 > The different variants represent *different* event types, commonly mapped to different schemas, develop separate parsers
 
-In many cases, events in an event stream include variants that require different parsing logic. To parse different variants in a single parser either use conditional statements such as `iff` and `case`, or use a union structure.
+In many cases, events in an eventstream include variants that require different parsing logic. To parse different variants in a single parser either use conditional statements such as `iff` and `case`, or use a union structure.
 
 To use `union` to handle multiple variants, create a separate function for each variant and use the union statement to combine the results:
 
@@ -430,7 +430,7 @@ To make sure that your parser produces valid values, use the ASIM data tester by
   <parser name> | limit <X> | invoke ASimDataTester ('<schema>')
   ```
 
-Specifying a schema is optional. If a schema is not specified, the `EventSchema` field is used to identify the schema the event should adhere to. Ig an event does not include an `EventSchema` field, only common fields will be verified. If a schema is specified as a parameter, this schema will be used to test all records. This is useful for older parsers that do not set the `EventSchema` field. 
+Specifying a schema is optional. If a schema is not specified, the `EventSchema` field is used to identify the schema the event should adhere to. If an event does not include an `EventSchema` field, only common fields will be verified. If a schema is specified as a parameter, this schema will be used to test all records. This is useful for older parsers that do not set the `EventSchema` field. 
 
 > [!NOTE]
 > Even when a schema is not specified, empty parentheses are needed after the function name.

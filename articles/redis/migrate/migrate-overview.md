@@ -66,7 +66,7 @@ Finally, Azure Managed Redis offers the Microsoft Entra ID authentication when y
 | Azure Sovereign Cloud support     | No                                                | Yes (coming soon)                 |
 | Hostname DNS suffix               | `<name>.<region>.redisenterprise.cache.azure.net` | `<name>.<region>.redis.azure.net` |
 
-\* When **High availability** is enabled, Azure Managed Redis is zone redundant in regions with multiple Availability Zones.
+\* When **High availability** is enabled, Azure Managed Redis is zone redundant in regions with multiple availability zones. For more information, see [Reliability in Azure Managed Redis](/azure/reliability/reliability-managed-redis).
 
 ## Considerations when you move from Enterprise to Azure Managed Redis
 

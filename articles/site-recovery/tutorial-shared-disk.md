@@ -15,7 +15,7 @@ ms.custom:
 
 This article describes how to protect, monitor, fail over, and reprotect your workloads that are running on Windows Server Failover Clusters (WSFC) on Azure virtual machines using a shared disk.
 
-Azure shared disks are a feature for Azure managed disks that allow you to attach a managed disk to multiple virtual machines simultaneously. Attaching a managed disk to multiple virtual machines allows you to either deploy new or migrate existing clustered applications to Azure.
+Azure shared disks are a feature for Azure Managed Disks that allow you to attach a managed disk to multiple virtual machines simultaneously. Attaching a managed disk to multiple virtual machines allows you to either deploy new or migrate existing clustered applications to Azure.
 
 Using Azure Site Recovery for Azure shared disks, you can replicate and recover your WSFC-clusters as a single unit throughout the disaster recovery lifecycle, while you create cluster-consistent recovery points that are consistent across all the disks (including the shared disk) of the cluster.
 
@@ -229,5 +229,5 @@ To disable replication of your cluster with Azure Site Recovery, follow these st
 
 Learn more about:
 
--  [Azure managed disk](/azure/virtual-machines/disks-shared).
+-  [Azure Managed Disk](/azure/virtual-machines/disks-shared).
 -  [Support matrix for shared disk in Azure Site Recovery](./shared-disk-support-matrix.md).

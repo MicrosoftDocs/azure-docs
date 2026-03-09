@@ -25,7 +25,7 @@ You can use the following options to configure your DNS settings for private end
 
 - **Use a private DNS zone**. You can use [Private DNS Zones](../dns/private-dns-privatednszone.md) to override the DNS resolution for a private endpoint. A private DNS zone can be linked to your virtual network to resolve specific domains.
 
-- **Use Azure Private Resolver (optional)**. You can use Azure Private Resolver to override the DNS resolution for a private link resource. For more information about Azure Private Resolver, see [What is Azure Private Resolver?](../dns/dns-private-resolver-overview.md).
+- **Use Azure Private Resolver (optional)**. You can use Azure Private Resolver to override the DNS resolution for a private link resource. For more information about Azure Private Resolver, see [What is Azure Private Resolver?](../dns/dns-private-resolver-overview.md)
 
 > [!CAUTION]
 >
@@ -62,7 +62,7 @@ For Azure services, use the recommended zone names as described in the following
 > |---|---|---|---|
 > | Azure Machine Learning workspace (Microsoft.MachineLearningServices/workspaces) | amlworkspace | privatelink.api.azureml.ms<br/>privatelink.notebooks.azure.net | api.azureml.ms<br/>notebooks.azure.net<br/>instances.azureml.ms<br/>aznbcontent.net<br/>inference.ml.azure.com |
 > | Azure Machine Learning registry (Microsoft.MachineLearningServices/registries) | amlregistry | privatelink.api.azureml.ms | api.azureml.ms |
-> | Azure AI services (Microsoft.CognitiveServices/accounts) | account | privatelink.cognitiveservices.azure.com <br/> privatelink.openai.azure.com <br/> privatelink.services.ai.azure.com | cognitiveservices.azure.com <br/> openai.azure.com <br/> services.ai.azure.com |
+> | Foundry Tools (Microsoft.CognitiveServices/accounts) | account | privatelink.cognitiveservices.azure.com <br/> privatelink.openai.azure.com <br/> privatelink.services.ai.azure.com | cognitiveservices.azure.com <br/> openai.azure.com <br/> services.ai.azure.com |
 > | Azure Bot Service (Microsoft.BotService/botServices) | Bot | privatelink.directline.botframework.com | directline.botframework.com |
 > | Azure Bot Service (Microsoft.BotService/botServices) | Token | privatelink.token.botframework.com | token.botframework.com |
 
@@ -81,7 +81,7 @@ For Azure services, use the recommended zone names as described in the following
 > | Azure Data Factory (Microsoft.DataFactory/factories) | portal | privatelink.adf.azure.com | adf.azure.com |
 > | Azure HDInsight (Microsoft.HDInsight/clusters) | gateway </br> headnode | privatelink.azurehdinsight.net | azurehdinsight.net |
 > | Azure Data Explorer (Microsoft.Kusto/Clusters) | cluster | privatelink.{regionName}.kusto.windows.net </br> privatelink.blob.core.windows.net </br> privatelink.queue.core.windows.net </br> privatelink.table.core.windows.net | {regionName}.kusto.windows.net </br> blob.core.windows.net </br> queue.core.windows.net </br> table.core.windows.net |
-> | Microsoft Power BI (Microsoft.PowerBI/privateLinkServicesForPowerBI) | tenant | privatelink.analysis.windows.net </br> privatelink.pbidedicated.windows.net </br> privatelink.tip1.powerquery.microsoft.com | analysis.windows.net </br> pbidedicated.windows.net </br> tip1.powerquery.microsoft.com |
+> | Microsoft Power BI (Microsoft.PowerBI/privateLinkServicesForPowerBI) | tenant | privatelink.analysis.windows.net </br> privatelink.pbidedicated.windows.net </br> privatelink.prod.powerquery.microsoft.com | analysis.windows.net </br> pbidedicated.windows.net </br> prod.powerquery.microsoft.com |
 > | Azure Databricks (Microsoft.Databricks/workspaces) | databricks_ui_api </br> browser_authentication | privatelink.azuredatabricks.net | azuredatabricks.net |
 > | Microsoft Fabric (Microsoft.Fabric/privateLinkServicesForFabric) | workspace | privatelink.fabric.microsoft.com  | fabric.microsoft.com |
 
@@ -103,7 +103,7 @@ For Azure services, use the recommended zone names as described in the following
 > |---|---|---|---|
 > | Azure Kubernetes Service - Kubernetes API (Microsoft.ContainerService/managedClusters) | management | privatelink.{regionName}.azmk8s.io </br> {subzone}.privatelink.{regionName}.azmk8s.io | {regionName}.azmk8s.io |
 > | Azure Container Apps (Microsoft.App/ManagedEnvironments) | managedEnvironments | privatelink.{regionName}.azurecontainerapps.io | azurecontainerapps.io |
-> | Azure Container Registry (Microsoft.ContainerRegistry/registries) | registry | privatelink.azurecr.io </br> {regionName}.data.privatelink.azurecr.io | azurecr.io </br> {regionName}.data.azurecr.io |
+> | Azure Container Registry (Microsoft.ContainerRegistry/registries) | registry | privatelink.azurecr.io </br> {regionName}.data.privatelink.azurecr.io<sup>1</sup> | azurecr.io </br> {regionName}.data.azurecr.io |
 
 ### Databases
 
@@ -119,6 +119,7 @@ For Azure services, use the recommended zone names as described in the following
 > | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Table | privatelink.table.cosmos.azure.com | table.cosmos.azure.com |
 > | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Analytical | privatelink.analytics.cosmos.azure.com | analytics.cosmos.azure.com |
 > | Azure Cosmos DB (Microsoft.DBforPostgreSQL/serverGroupsv2) | coordinator | privatelink.postgres.cosmos.azure.com | postgres.cosmos.azure.com |
+> | Azure Cosmos DB for MongoDB - vCore (Microsoft.DocumentDB/mongoClusters) | MongoCluster | privatelink.mongocluster.cosmos.azure.com | mongocluster.cosmos.azure.com | 
 > | Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) | postgresqlServer | privatelink.postgres.database.azure.com | postgres.database.azure.com |
 > | Azure Database for PostgreSQL - Flexible server (Microsoft.DBforPostgreSQL/flexibleServers) | postgresqlServer | privatelink.postgres.database.azure.com | postgres.database.azure.com |
 > | Azure Database for MySQL - Single Server (Microsoft.DBforMySQL/servers) | mysqlServer | privatelink.mysql.database.azure.com | mysql.database.azure.com |
@@ -154,7 +155,7 @@ For Azure services, use the recommended zone names as described in the following
 > [!div class="mx-tdBreakAll"]
 > | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 > |---|---|---|---|
-> | Azure IoT Hub (Microsoft.Devices/IotHubs) | iotHub | privatelink.azure-devices.net<br/>privatelink.servicebus.windows.net<sup>1</sup> | azure-devices.net<br/>servicebus.windows.net |
+> | Azure IoT Hub (Microsoft.Devices/IotHubs) | iotHub | privatelink.azure-devices.net<br/>privatelink.servicebus.windows.net<sup>2</sup> | azure-devices.net<br/>servicebus.windows.net |
 > | Azure IoT Hub Device Provisioning Service (Microsoft.Devices/ProvisioningServices) | iotDps | privatelink.azure-devices-provisioning.net | azure-devices-provisioning.net |
 > | Device Update for IoT Hubs (Microsoft.DeviceUpdate/accounts) | DeviceUpdate | privatelink.api.adu.microsoft.com | api.adu.microsoft.com |
 > | Azure IoT Central (Microsoft.IoTCentral/IoTApps) | iotApp | privatelink.azureiotcentral.com </br> privatelink.azure-devices.net </br> privatelink.servicebus.windows.net </br> privatelink.azure-devices-provisioning.net | azureiotcentral.com </br> privatelink.azure-devices.net </br> privatelink.servicebus.windows.net </br> privatelink.azure-devices-provisioning.net|
@@ -184,6 +185,7 @@ For Azure services, use the recommended zone names as described in the following
 > | Azure Migrate (Microsoft.Migrate/assessmentProjects) | Default | privatelink.prod.migration.windowsazure.com | prod.migration.windowsazure.com |
 > | Azure Resource Manager (Microsoft.Authorization/resourceManagementPrivateLinks) | ResourceManagement | privatelink.azure.com | azure.com |
 > | Azure Managed Grafana (Microsoft.Dashboard/grafana) | grafana | privatelink.grafana.azure.com | grafana.azure.com |
+> | Azure Managed Prometheus (Microsoft.Monitor/accounts) | prometheusMetrics | privatelink.{region}.prometheus.monitor.azure.com | {region}.prometheus.monitor.azure.com |
 
 ### Security
 
@@ -218,14 +220,16 @@ For Azure services, use the recommended zone names as described in the following
 > |---|---|---|---|
 > | Azure Search (Microsoft.Search/searchServices) | searchService | privatelink.search.windows.net | search.windows.net |
 > | Azure Relay (Microsoft.Relay/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
-> | Azure Web Apps - Azure Function Apps (Microsoft.Web/sites) | sites | privatelink.azurewebsites.net </br> scm.privatelink.azurewebsites.net<sup>2</sup> | azurewebsites.net </br> scm.azurewebsites.net |
+> | Azure Web Apps / Azure Function Apps (Microsoft.Web/sites) | sites | privatelink.azurewebsites.net </br> scm.privatelink.azurewebsites.net<sup>3</sup> | azurewebsites.net </br> scm.azurewebsites.net |
 > | SignalR (Microsoft.SignalRService/SignalR) | signalr | privatelink.service.signalr.net | service.signalr.net |
 > | Azure Static Web Apps (Microsoft.Web/staticSites) | staticSites | privatelink.azurestaticapps.net </br> privatelink.{partitionId}.azurestaticapps.net | azurestaticapps.net </br> {partitionId}.azurestaticapps.net |
 > | Azure Web PubSub service (Microsoft.SignalRService/WebPubSub) | webpubsub | privatelink.webpubsub.azure.com | webpubsub.azure.com |
 
-<sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint)
+<sup>1</sup>If you are using Azure Private DNS Zones, do not deploy this as an additional zone. DNS entries will be automatically added to the existing DNS Zone `privatelink.azurecr.io`.
 
-<sup>2</sup>In scenarios where the Kudu console or Kudu REST API is used, you must create two DNS records pointing to the private endpoint IP in your Azure DNS private zone or custom DNS server. The first record is for your app, and the second record is for the SCM (Source Control Management) of your app.
+<sup>2</sup>To use with the IoT Hub built-in Event Hubs-compatible endpoint. For more information, see [IoT Hub support for virtual networks with Azure Private Link](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint).
+
+<sup>3</sup>To use with the Kudu console or Kudu REST API, you must create two DNS records that point to the private endpoint IP address in your Azure DNS private zone `privatelink.azurewebsites.net` or custom DNS server. The first record is for your app. The second record is for source control management (SCM) for your app. If you use private DNS zones in Azure, don't deploy this as an additional zone.
 
 > [!Note]
 > In the above text, **`{regionCode}`** refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:
@@ -242,7 +246,7 @@ For Azure services, use the recommended zone names as described in the following
 > [!div class="mx-tdBreakAll"]
 > | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 > |---|---|---|---|
-> | Azure AI services (Microsoft.CognitiveServices/accounts) | account | privatelink.cognitiveservices.azure.us | cognitiveservices.azure.us |
+> | Foundry Tools (Microsoft.CognitiveServices/accounts) | account | privatelink.cognitiveservices.azure.us | cognitiveservices.azure.us |
 > | Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) | amlworkspace | privatelink.api.ml.azure.us<br/>privatelink.notebooks.usgovcloudapi.net | api.ml.azure.us<br/>notebooks.usgovcloudapi.net <br/> instances.azureml.us<br/>aznbcontent.net <br/> inference.ml.azure.us |
 
 ### Analytics
@@ -333,6 +337,8 @@ For Azure services, use the recommended zone names as described in the following
 > |---|---|---|---|
 > | Azure Automation / (Microsoft.Automation/automationAccounts) | Webhook </br> DSCAndHybridWorker | privatelink.azure-automation.us | azure-automation.us |
 > | Azure Backup (Microsoft.RecoveryServices/vaults) | AzureBackup | privatelink.{regionCode}.backup.windowsazure.us | {regionCode}.backup.windowsazure.us |
+> | Azure Migrate (Microsoft.Migrate/migrateProjects) | Default | privatelink.prod.migration.windowsazure.us | prod.migration.windowsazure.us |
+> | Azure Migrate (Microsoft.Migrate/assessmentProjects) | Default | privatelink.prod.migration.windowsazure.us | prod.migration.windowsazure.us |
 > | Azure Site Recovery (Microsoft.RecoveryServices/vaults) | AzureSiteRecovery | privatelink.siterecovery.windowsazure.us | {regionCode}.siterecovery.windowsazure.us |
 > | Azure Monitor (Microsoft.Insights/privateLinkScopes) | azuremonitor | privatelink.monitor.azure.us <br/> privatelink.adx.monitor.azure.us <br/> privatelink.oms.opinsights.azure.us <br/> privatelink.ods.opinsights.azure.us <br/> privatelink.agentsvc.azure-automation.us <br/> privatelink.blob.core.usgovcloudapi.net | monitor.azure.us <br/> adx.monitor.azure.us <br/> oms.opinsights.azure.us<br/> ods.opinsights.azure.us<br/> agentsvc.azure-automation.us <br/> blob.core.usgovcloudapi.net |
 > | Microsoft Purview (Microsoft.Purview) | account | privatelink.purview.azure.us | purview.azure.us |
@@ -368,7 +374,10 @@ For Azure services, use the recommended zone names as described in the following
 > | Azure Web Apps (Microsoft.Web/sites) | sites | privatelink.azurewebsites.us </br> scm.privatelink.azurewebsites.us<sup>2</sup> | azurewebsites.us </br> scm.azurewebsites.us |
 > | Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net |
 
-<sup>1</sup>In scenarios where the Kudu console or Kudu REST API is used, you must create two DNS records pointing to the private endpoint IP in your Azure DNS private zone or custom DNS server. The first record is for your app, and the second record is for the SCM (Source Control Management) of your app.
+<sup>1</sup>To use with the IoT Hub built-in Event Hubs-compatible endpoint. For more information, see [IoT Hub support for virtual networks with Azure Private Link](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint).
+
+<sup>2</sup>To use with the Kudu console or Kudu REST API, you must create two DNS records that point to the private endpoint IP address in your Azure DNS private zone `privatelink.azurewebsites.net` or custom DNS server. The first record is for your app. The second record is for SCM for your app. If you use private DNS zones in Azure, don't deploy this as an additional zone.
+
 
 > [!Note]
 > In the above text, `{regionCode}` refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:
@@ -495,7 +504,7 @@ For Azure services, use the recommended zone names as described in the following
 > | Azure Web Apps (Microsoft.Web/sites) | sites | privatelink.chinacloudsites.cn | chinacloudsites.cn |
 > | SignalR (Microsoft.SignalRService/SignalR) | signalR | privatelink.signalr.azure.cn | service.signalr.azure.cn |
 
-<sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint)
+<sup>1</sup>To use with the IoT Hub built-in Event Hubs-compatible endpoint. For more information, see [IoT Hub support for virtual networks with Azure Private Link](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint).
 
 ## Next step
 

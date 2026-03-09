@@ -38,7 +38,7 @@ ms.date: 03/19/2025
    | Storage backend | Select **Azure managed: Durable Task Scheduler**. | 
    | Region | Make sure the scheduler and function app regions are the same. | 
    | Durable Task Scheduler | Use the scheduler name offered, or click **Create new** to create a custom name. | 
-   | Plan | Select the [pricing plan](../durable-task-scheduler-dedicated-sku.md) that fits your project best. Check the [Choosing an orchestration framework](../choose-orchestration-framework.md) guide to determine which plan is best for production use. | 
+   | Plan | Select the [pricing plan](../durable-task-scheduler-billing.md) that fits your project best. Check the [Choosing an orchestration framework](../../choose-orchestration-framework.md) guide to determine which plan is best for production use. | 
    | Capacity units | Only applicable when "Dedicated" pricing plan is selected. You can select up to 3 Capacity Units. | 
 
 1. Click **Review + create** to review the resource creation. 

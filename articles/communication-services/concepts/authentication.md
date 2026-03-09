@@ -2,10 +2,10 @@
 title: Authenticate to Azure Communication Services
 titleSuffix: An Azure Communication Services article
 description: This article describes how you can use an app or service to authenticate to Azure Communication Services.
-author: tophpalmer
+author: sundiraman
 manager: chpalm
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 09/05/2024
 ms.topic: conceptual
 ms.service: azure-communication-services

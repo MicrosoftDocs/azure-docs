@@ -75,6 +75,9 @@ When the initial recovery point expires, it merges with the next incremental rec
 
 - If *Recovery Point 2* expires before *Recovery Point 1*, the data from *Recovery Point 2* is merged with the next available recovery point: *Recovery Point 3*. So block D3 is merged with *Recovery Point 3*.
 - *Recovery Point 1* is still the full backup with block D1 and D2.
+- When an in-between incremental recovery point expires, Azure Backup frees only the data blocks that are overwritten in a subsequent retained recovery point.
+- Data blocks that aren't overwritten are required to maintain the incremental chain and are carried forward (merged) into the next available retained recovery point.
+- Because of this behavior, storage reduction can be gradual and might not map 1:1 to the number of expired recovery points.
 
 ![Second case](./media/manage-recovery-points/second-case.png)
 

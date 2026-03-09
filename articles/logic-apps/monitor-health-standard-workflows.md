@@ -133,19 +133,25 @@ This behavior can happen if the logic app resource isn't healthy, or typically, 
 
 ### My workflow intermittently stops processing messages for hours but runs well most other times.
 
-If your Standard logic app uses the hosting option named **Workflow Service Plan** and isn't hosted in an App Service Environment, make sure that **Runtime Scale Monitoring** is turned on and that **Always Ready Instances** is set to at least **1**.
+If your Standard logic app uses the hosting option named **Workflow Service Plan**, make sure that **Runtime Scale Monitoring** is turned on and that **Always Ready Instances** is set to at least **1**.
 
-1. In the [Azure portal](https://portal.azure.com), find and open your logic app, if not already open.
+1. In the [Azure portal](https://portal.azure.com), open your logic app.
 
-1. On the logic app menu, under **Settings**, select **Configuration**.
+1. On the logic app sidebar, under **Settings**, select **Configuration**.
 
-1. On the **Workflow runtime settings** tab, next to **Runtime Scale Monitoring**, select **On**.
+1. On the **Workflow runtime settings** tab, next to **Runtime Scale Monitoring**, select **On**, then select **Apply**.
 
-1. On the **Configuration** page toolbar, select **Save**.
-
-1. On the logic app menu, under **Settings**, select **Scale out (App Service plan)**.
+1. On the logic app sidebar, under **App Service plan**, select **Scale out**.
 
 1. Under **App Scale out**, make sure that the **Always Ready Instances** value *isn't set* to **0**.
+
+If your Standard logic app is hosted in App Service Environment, make sure that **Always on** is turned on.
+
+1. In the [Azure portal](https://portal.azure.com), find and open your logic app.
+
+1. On the logic app sidebar, under **Settings**, select **Configuration**.
+
+1. On the **General settings** tab, select **Always on** to turn on, then select **Apply**.
 
 ## Related content
 

@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 04/16/2025
+ms.date: 01/06/2026
 ---
 
 # Azure features & resources that help you protect, detect, and respond to ransomware attacks
@@ -115,9 +115,9 @@ Key Features:
 - [Zero Trust Guidance Center](/security/zero-trust/)
 - [Azure Web Application Firewall](../../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md?tabs=owasp32)
 - [Azure VPN gateway](../../vpn-gateway/openvpn-azure-ad-tenant.md#enable-authentication)
-- [Microsoft Entra multifactor authentication (MFA)](../../active-directory/authentication/howto-mfa-userstates.md)
-- [Microsoft Entra ID Protection](../../active-directory/authentication/concept-password-ban-bad.md)
-- [Microsoft Entra Conditional Access](../../active-directory/conditional-access/overview.md)
+- [Microsoft Entra multifactor authentication (MFA)](/entra/identity/authentication/howto-mfa-userstates.md)
+- [Microsoft Entra ID Protection](/entra/identity/authentication/concept-password-ban-bad.md)
+- [Microsoft Entra Conditional Access](/entra/identity/conditional-access/overview.md)
 - [Microsoft Defender for Cloud documentation](/azure/defender-for-cloud/)
 
 ## Conclusion
@@ -135,8 +135,6 @@ For detailed information on how Microsoft secures our cloud, visit the [service 
 ## What's Next
 
 For comprehensive ransomware protection guidance across all Microsoft platforms and services, see [Protect your organization against ransomware and extortion](/security/ransomware/protect-against-ransomware).
-
-See the white paper: [Azure defenses for ransomware attack whitepaper](https://azure.microsoft.com/resources/azure-defenses-for-ransomware-attack).
 
 Other Azure ransomware articles:
 

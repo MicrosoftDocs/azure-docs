@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 09/12/2025
 ms.service: azure
+ms.subservice: azure-firmware-analysis
 ---
 
 # Frequently asked questions about firmware analysis 

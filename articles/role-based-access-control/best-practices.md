@@ -47,7 +47,7 @@ For more information, see [List or manage privileged administrator role assignme
 
 To protect privileged accounts from malicious cyber-attacks, you can use Microsoft Entra Privileged Identity Management (PIM) to lower the exposure time of privileges and increase your visibility into their use through reports and alerts. PIM helps protect privileged accounts by providing just-in-time privileged access to Microsoft Entra ID and Azure resources. Access can be time bound after which privileges are revoked automatically. 
 
-For more information, see [What is Microsoft Entra Privileged Identity Management?](../active-directory/privileged-identity-management/pim-configure.md).
+For more information, see [What is Microsoft Entra Privileged Identity Management?](../active-directory/privileged-identity-management/pim-configure.md)
 
 ## Assign roles to groups, not users
 

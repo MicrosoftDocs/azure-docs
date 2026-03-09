@@ -69,12 +69,16 @@ The column **Logs to Datadog** indicates whether the resource is sending logs to
 
 When you add or remove subscriptions for Datadog monitoring, the system updates the Monitoring Reader role assignment on the System Managed Identity linked to the resource.
 
-**Prerequisites**
+### Prerequisites
 
-To perform these actions, you must have both of the following Azure permissions:
+- To perform these actions, you must have both of the following Azure permissions:
 
-- `Microsoft.Authorization/roleAssignments/write`
-- `Microsoft.Authorization/roleAssignments/delete`
+   - `Microsoft.Authorization/roleAssignments/write`
+   - `Microsoft.Authorization/roleAssignments/delete`
+
+- The resource provider for Datadog (Microosoft.Datadog) must be registered in the target subscription.
+
+### Add subscriptions
 
 To monitor multiple subscriptions:
 
@@ -89,7 +93,8 @@ To monitor multiple subscriptions:
 1. Select the subscriptions you want to monitor through the Datadog resource and select **Add**.
 
     > [!IMPORTANT]
-    > Setting separate tag rules for different subscriptions isn't supported.
+    > - When you link a subscription to a Datadog resource, ensure that the subscription isn't scope locked (read-only or delete locks). Scope locks can prevent the addition and removal of diagnostic settings. For more information, see [Lock your Azure resources](../../azure-resource-manager/management/lock-resources.md).  
+    > - Setting separate tag rules for different subscriptions isn't supported.
 
     Diagnostics settings are automatically added to the subscription's resources that match the defined tag rules.
 
@@ -98,6 +103,9 @@ To monitor multiple subscriptions:
 Once the subscription is added, the status changes to *Active*.  
 
 ### Remove subscriptions
+
+> [!IMPORTANT]
+> When you unlink a subscription from a Datadog resource, ensure that the subscription isn't scope locked (read-only or delete locks). Scope locks can prevent the addition and removal of diagnostic settings. For more information, see [Lock your Azure resources](../../azure-resource-manager/management/lock-resources.md). 
 
 To unlink subscriptions from a Datadog resource:
 

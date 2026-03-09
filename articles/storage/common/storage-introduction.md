@@ -35,7 +35,7 @@ The Azure Storage platform includes the following data services:
 - [Azure Elastic SAN](../elastic-san/elastic-san-introduction.md): A fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN in Azure.
 - [Azure Queues](../queues/storage-queues-introduction.md): A messaging store for reliable messaging between application components.
 - [Azure Tables](../tables/table-storage-overview.md): A NoSQL store for schemaless storage of structured data.
-- [Azure managed Disks](/azure/virtual-machines/managed-disks-overview): Block-level storage volumes for Azure VMs.
+- [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview): Block-level storage volumes for Azure VMs.
 - [Azure Container Storage](/azure/storage/container-storage/container-storage-introduction): A volume management, deployment, and orchestration service built natively for containers.
 
 Each service is accessed through a storage account with a unique address. To get started, see [Create a storage account](storage-account-create.md).
@@ -109,21 +109,18 @@ Azure Elastic storage area network (SAN) is Microsoft's answer to the problem of
 
 Elastic SAN is designed for large scale IO-intensive workloads and top tier databases such as SQL, MariaDB, and support hosting the workloads on virtual machines, or containers such as Azure Kubernetes Service. Elastic SAN volumes are compatible with a wide variety of compute resources through the [iSCSI](https://en.wikipedia.org/wiki/ISCSI) protocol. Some other benefits of Elastic SAN include a simplified deployment and management interface. Since you can manage storage for multiple compute resources from a single interface, and cost optimization.
 
-For more information about Azure Elastic SAN, see [What is Azure Elastic SAN?](../elastic-san/elastic-san-introduction.md).
+For more information about Azure Elastic SAN, see [What is Azure Elastic SAN?](../elastic-san/elastic-san-introduction.md)
 
 ## Azure Container Storage
 
 Azure Container Storage integrates with Kubernetes and utilizes existing Azure Storage offerings for actual data storage, offering a volume orchestration and management solution purposely built for containers. You can choose any of the supported backing storage options to create a storage pool for your persistent volumes.
 
 Azure Container Storage offers substantial benefits:
-
 - Rapid scale out of stateful pods
-
 - Improved performance for stateful workloads
-
 - Kubernetes-native volume orchestration
 
-For more information about Azure Container Storage, see [What is Azure Container Storage? ](../container-storage/container-storage-introduction.md).
+For more information about Azure Container Storage, see [What is Azure Container Storage?](../container-storage/container-storage-introduction.md)
 
 ## Queue Storage
 
@@ -140,9 +137,9 @@ Azure Table Storage is now part of Azure Cosmos DB. To see Azure Table Storage d
 For more information about Table Storage, see [Overview of Azure Table Storage](../tables/table-storage-overview.md).
 
 ## Disk Storage
-An Azure managed disk is a virtual hard disk (VHD). You can think of it like a physical disk in an on-premises server but, virtualized. Azure-managed disks are stored as page blobs, which are a random IO storage object in Azure. We call a managed disk 'managed' because it's an abstraction over page blobs, blob containers, and Azure storage accounts. With managed disks, all you have to do is provision the disk, and Azure takes care of the rest.
+An Azure Managed Disk is a virtual hard disk (VHD). You can think of it like a physical disk in an on-premises server but, virtualized. Azure Managed Disks are stored as page blobs, which are a random IO storage object in Azure. We call a managed disk 'managed' because it's an abstraction over page blobs, blob containers, and Azure storage accounts. With managed disks, all you have to do is provision the disk, and Azure takes care of the rest.
 
-For more information about managed disks, see [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview).
+For more information about managed disks, see [Introduction to Azure Managed Disks](/azure/virtual-machines/managed-disks-overview).
 
 ## Azure NetApp Files
 

@@ -1,6 +1,6 @@
 ---
 description: This article answers common questions and explains how to troubleshoot Cloud Shell issues.
-ms.date: 12/03/2025
+ms.date: 02/09/2026
 ms.topic: troubleshooting
 tags: azure-resource-manager
 ms.custom: has-azure-ad-ps-ref
@@ -147,18 +147,19 @@ command that requires elevated permissions.
      corner. Search for `terminals?` to find the request for a Cloud Shell terminal. Select the one
      of the request entries found by the search. In the **Headers** tab, find the hostname in the
      **Request URL**. The name is similar to
-     `ccon-prod-<region-name>-aci-XX.servicebus.windows.net`. For Azure Government Cloud, the
-     hostname ends with `servicebus.usgovcloudapi.net`.
+     `ccon-prod-<region-name>-aci-XX.servicebus.windows.net`. In the Azure Government Cloud, the
+     hostnames are `ccon-fairfax-usgovvirginia-dedicated-aci-02.servicebus.usgovcloudapi.net` and
+     `ccon-fairfax-arizona-aci-dedicated-01.servicebus.usgovcloudapi.net`.
 
      The following screenshot shows the Developer Tools in Microsoft Edge for a successful request
      for a terminal. The hostname is `ccon-prod-southcentalus-aci-02.servicebus.windows.net`. In
      your case, the request should be unsuccessful, but you can find the hostname you need to
      resolve.
 
-     [![Screenshot of the browser developer tools.](media/faq-troubleshooting/devtools-small.png)](media/faq-troubleshooting/devtools-large.png#lightbox)
+     [![Screenshot of the browser developer tools.][06]][07]
 
      For information about accessing the Developer Tools in other browsers, see
-     [Capture a browser trace for troubleshooting][03].
+     [Capture a browser trace for troubleshooting][01].
 
   1. From a host outside of your private network, run the `nslookup` command to find the IP address
      of the hostname as found in the previous step.
@@ -188,14 +189,14 @@ command that requires elevated permissions.
      - IP Address: 40.84.152.91
 
      For more information about creating DNS records in a private DNS zone, see
-     [Manage DNS record sets and records with Azure DNS][02].
+     [Manage DNS record sets and records with Azure DNS][03].
 
      > [!NOTE]
      > This IP address is subject to change periodically. You might need to repeat this process to
      > discover the new IP address.
 
   Alternately, you can deploy your own private Cloud Shell instance. For more information, see
-  [Deploy Cloud Shell in a virtual network][01].
+  [Deploy Cloud Shell in a virtual network][02].
 
 ### Terminal output - Sorry, your Cloud Shell failed to provision: {"code":"TenantDisabled" ...}
 
@@ -220,10 +221,14 @@ command that requires elevated permissions.
 ### Terminal Output - Audience `<service-audience-url>` is not a supported MSI token audience
 
 - **Details**: Cloud Shell was unable to fetch the necessary token for the Azure service that the
-  command required. This happens when Cloud Shell doesn't support the token audience requested by
-  the command.
+  command required. This error happens when Cloud Shell doesn't support the token audience requested
+  by the command.
 - **Resolution**: Run the following command in Cloud Shell to sign in interactively and acquire the
-  necessary credentials before retrying your original command: `az login --use-device-code`
+  necessary credentials before retrying your original command: `az login --use-device-code`.
+
+  > [!NOTE]
+  > The `https://appservice.azure.com/` audience was added as a supported token audience in the
+  > February 2026 update.
 
 ## Managing Cloud Shell
 
@@ -268,15 +273,23 @@ Use the following steps to delete your user settings.
 ### Block Cloud Shell in a locked down network environment
 
 - **Details**: Administrators might wish to disable access to Cloud Shell for their users. Cloud
-  Shell depends on access to the `ux.console.azure.com` domain, which can be denied, stopping any
-  access to Cloud Shell's entry points including `portal.azure.com`, `shell.azure.com`, Visual
-  Studio Code Azure Account extension, and `learn.microsoft.com`. In the US Government cloud, the
-  entry point is `ux.console.azure.us`; there's no corresponding `shell.azure.us`.
-- **Resolution**: Restrict access to `ux.console.azure.com` or `ux.console.azure.us` from your
-  network. The Cloud Shell icon still exists in the Azure portal, but you can't connect to the
-    service.
+  Shell depends on access to the `console.azure.com` domain, which can be denied, stopping any
+  access to Cloud Shell's entry points including from `portal.azure.com` and `learn.microsoft.com`.
+  In the US Government cloud, Cloud Shell depends on access to the `console.azure.us` domain.
+- **Resolution**: Restrict access to `*.console.azure.com` or `*.console.azure.us` from your
+  network. The icon for Cloud Shell still exists in the Azure portal, but you can't connect to the
+  service.
+
+  > [!NOTE]
+  > Restricting those domains doesn't cover all potential Cloud Shell entry points, notably from
+  > [VS Code for the Web - Azure][05] and [Windows Terminal][04]. To block all Cloud Shell entry
+  > points in a tenant, open a support ticket.
 
 <!-- link references -->
-[01]: /azure/cloud-shell/vnet/overview
-[02]: /azure/dns/dns-operations-recordsets-portal
-[03]: /azure/azure-portal/capture-browser-trace
+[01]: /azure/azure-portal/capture-browser-trace
+[02]: /azure/cloud-shell/vnet/overview
+[03]: /azure/dns/dns-operations-recordsets-portal
+[04]: /shows/it-ops-talk/azure-cloud-shell-in-the-windows-terminal
+[05]: https://code.visualstudio.com/docs/azure/vscodeforweb
+[06]: media/faq-troubleshooting/devtools-small.png
+[07]: media/faq-troubleshooting/devtools-large.png#lightbox

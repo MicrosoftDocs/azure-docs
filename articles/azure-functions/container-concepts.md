@@ -50,7 +50,7 @@ The degree to which various features and behaviors of Azure Functions are suppor
 | [Custom domain names](../app-service/app-service-web-tutorial-custom-domain.md) | [Yes](../container-apps/custom-domains-certificates.md) | Yes | Yes | Yes | No |
 | [Private key certificates](../app-service/overview-tls.md) | [Yes](../container-apps/custom-domains-certificates.md) | Yes | Yes | Yes | No |
 | Virtual networks | [Yes](../container-apps/networking.md) | Yes | Yes | Yes | Yes |
-| Availability zones | [Yes](../reliability/reliability-azure-container-apps.md) | Yes | Yes | Yes | Yes |
+| Availability zones | [Yes](/azure/reliability/reliability-azure-container-apps) | Yes | Yes | Yes | Yes |
 | Diagnostics | [Yes](../container-apps/troubleshooting.md#use-the-diagnose-and-solve-problems-tool) | [Yes](../container-apps/troubleshooting.md#use-the-diagnose-and-solve-problems-tool) | [Yes](./functions-diagnostics.md) | [Yes](./functions-diagnostics.md) | No |
 | Dedicated hardware | Yes ([workload profiles](../container-apps/workload-profiles-overview.md)) | Yes ([workload profiles](../container-apps/workload-profiles-overview.md)) | No | Yes | Yes | 
 | Dedicated GPUs | Yes ([workload profiles](../container-apps/workload-profiles-overview.md)) | Yes ([workload profiles](../container-apps/workload-profiles-overview.md)) | No | No | Yes | 

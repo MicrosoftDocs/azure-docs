@@ -14,13 +14,7 @@ ms.topic: how-to
 
 In this article, you learn how to diagnose and troubleshoot failing load tests in Azure Load Testing. Azure Load Testing provides several options to identify the root cause of a failing load test. For example, you can use the load test dashboard, or download the test results or test log files for an in-depth analysis. Alternately, configure server-side metrics to identify issues with application endpoint.
 
-Azure Load Testing uses two indicators to determine the outcome of a load test:
-
-- **Test status**: indicates whether the load test was able to start successfully and run the test script until the end. For example, the test status is *Failed* if there's an error in the JMeter or Locust test script, or if the [autostop listener](./how-to-define-test-criteria.md#auto-stop-configuration) interrupted the load test because too many requests failed.
-
-- **Test result**: indicates the result of evaluating the [test fail criteria](./how-to-define-test-criteria.md). If at least one of the test fail criteria was met, the test result is set to *Failed*.
-
-Depending on the indicator, you can use a different approach to identify the root cause of a test failure.
+Azure Load Testing uses the test run status to determine the outcome of a load test. Depending on the indicator, you can use a different approach to identify the root cause of a test failure. For more details on test run status, see [Analyze load tests using the results dashboard](./how-to-understand-test-run-results-dashboard.md#test-run-details)
 
 ## Prerequisites  
 
@@ -39,7 +33,7 @@ Use the following steps to get the outcome of a load test:
 
 1. Select a test from the list to view all test runs for that test.
 
-    The list of test runs shows the **Test result** and **Test status** fields.
+    The list of test runs shows the **Status** field.
 
     :::image type="content" source="media/how-to-find-download-logs/load-testing-test-runs-list.png" alt-text="Screenshot that shows the list of test runs in the Azure portal, highlighting the test result and test status columns." lightbox="media/how-to-find-download-logs/load-testing-test-runs-list.png":::
 
@@ -85,20 +79,21 @@ You can use a different approach for diagnosing a load test failure based whethe
 
 ### Load test failed to complete
 
-When the load test fails to complete, the *test status* of the test run is set to *Failed*.
+When the load test fails to complete, the *status* of the test run is set to *Error* or *Stopped*.
 
 A load test can fail to complete because of multiple reasons. Examples of why a load test doesn't finish:
 
 - There are errors in the test script.
 - The test script uses JMeter features that Azure Load Testing doesn't support. Learn about the [supported JMeter features](./resource-jmeter-support.md).
 - The test script references a file or plugin that isn't available on the test engine instance.
-- The autostop functionality interrupted the load test because too many requests are failing and the error rate exceeds the threshold. Learn more about the [autostop functionality in Azure Load Testing](./how-to-define-test-criteria.md#auto-stop-configuration).
+- The auto-stop functionality interrupted the load test because too many requests are failing and the error rate exceeds the threshold. Learn more about the [autostop functionality in Azure Load Testing](./how-to-define-test-criteria.md#auto-stop-configuration).
 
 Use the following steps to help diagnose a test not finishing:
 
 1. Verify the error details on the load test dashboard.
 1. [Download and analyze the test logs](#download-apache-jmeter-or-locust-worker-logs-for-your-load-test) to identify issues in the JMeter test script.
 1. [Download the test results](./how-to-export-test-results.md) to identify issues with individual requests.
+1. Run the test in [debug mode](./how-to-run-tests-in-debug-mode.md) to get debug logs and request and response data for failed requests. 
 
 You can also view AI-based error insights for your test run after a test run completes. The insights generated contain the cause of error and more actionable recommendations. This feature is turned on by default and can be turned off in the error blade settings. Refer to [Microsoft Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=521839).
 
@@ -107,7 +102,7 @@ You can also view AI-based error insights for your test run after a test run com
 
 ### Load test completed
 
-A load test might run the test script until the end (test status equals *Done*), but might not pass all the [test fail criteria](./how-to-define-test-criteria.md). If at least one of the test criteria didn't pass, the *test result* of the test run is set to *Failed*.
+A load test might run the test script until the end, but might not pass all the [test fail criteria](./how-to-define-test-criteria.md). If at least one of the test criteria didn't pass, the *status* of the test run is set to *Failed*.
 
 Use the following steps to help diagnose a test failing to meet the test criteria:
 
@@ -135,7 +130,9 @@ To download the worker logs for an Azure Load Testing test run, follow these ste
 
 1. From the list of test runs, select a test run to view the load test dashboard.
 
-1. On the dashboard, select **Download**, and then select **Logs**.
+1. On the dashboard, select **Download**, and then select **Logs**. To view the logs in Azure portal, select **View**. You can view the files in the storage container, select the required file and view the file. If the file format is not supported for viewing, you can select **Download** to download the specific file. 
+
+1. To download the logs files as a zipped folder, select **Download**. 
 
     The browser should now start downloading a zipped folder that contains the JMeter or Locust worker node log file for each [test engine instance](./concept-load-testing-concepts.md#test-engine).
 

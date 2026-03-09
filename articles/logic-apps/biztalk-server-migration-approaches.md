@@ -1,5 +1,5 @@
 ---
-title: 'Migration approaches: BizTalk Server to Azure Logic Apps'
+title: Migration Approaches for BizTalk Server to Azure Logic Apps
 description: Learn about migration strategies, planning, and best practices for moving from BizTalk Server to Azure Logic Apps.
 services: logic-apps
 ms.service: azure-logic-apps
@@ -8,20 +8,13 @@ author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: concept-article
-ms.date: 06/03/2025
+ms.date: 02/11/2026
 # Customer intent: As a BizTalk Server customer, I want to learn about migration options, planning considerations, and best practices for moving from BizTalk Server to Azure Logic Apps.
 ---
 
 # Migration approaches for BizTalk Server to Azure Logic Apps
 
-This guide covers migration strategies and resources along with planning considerations and best practices to help you deliver successful migration solutions.
-
-> [!NOTE]
->
-> For a migration overview and guide to choosing services in Azure for your migration, review the following documentation:
->
-> - [Why migrate from BizTalk Server to Azure Logic Apps?](biztalk-server-to-azure-integration-services-overview.md)
-> - [Choose the best integration service in Azure for your scenario](azure-integration-services-choose-capabilities.md)
+This guide covers migration strategies and resources along with planning considerations and best practices to help you deliver successful migration solutions. For more information, see [Why migrate from BizTalk Server to Azure Logic Apps?](biztalk-server-to-azure-integration-services-overview.md)
 
 ## Strategy options
 
@@ -41,15 +34,14 @@ This approach provides the opportunity for your organization to incrementally ac
 
 Regardless of your approach, if you plan on moving to Azure Logic Apps or Azure in general, strongly consider refactoring your BizTalk Server solutions into serverless or cloud-native solutions before you decommission your server infrastructure. This choice is an excellent strategy if your organization wants to transform the business completely to the cloud.
 
-BizTalk Server and Azure Logic Apps have different architectures. To further modernize your solutions, you can use Azure Integration Services to extend the capabilities in Azure Logic Apps that address core customer integration needs.
-
-For a higher return on investment (ROI), we recommend that any BizTalk migration use the core native capabilities in Azure Logic Apps (Standard) as much as possible and extended with other Azure Integration Services as needed. This combination makes additional scenarios possible, for example:
+BizTalk Server and Azure Logic Apps have different architectures. For a higher return on investment (ROI), we recommend that any BizTalk migration use the core native capabilities in Azure Logic Apps (Standard) as much as possible and extend with other Azure Integration Services as needed. This combination makes additional scenarios possible, for example:
 
 - Cloud native hybrid capabilities with Azure Logic Apps (Standard) with hybrid deployment
 - Stateful or stateless workflow capabilities in Azure Logic Apps (Standard)
 - Native, built-in (in-app) mainframe and midranges integration with connectors in Azure Logic Apps (Standard)
-- Pub-sub messaging using Azure Service Bus
+- Pub-sub messaging using Azure Service Bus or RabbitMQ
 - Advanced SOAP capabilities in Azure API Management
+- Converting your logic apps into AI agentic workflows 
 
 ## Deliver a BizTalk migration project
 
@@ -72,7 +64,7 @@ During this sprint, we recommend that you execute BizTalk Server Environments Di
 
 To help you with migration discovery, you can use the Azure Integration Migrator command-line tool, also called the [BizTalk Migration tool](https://github.com/Azure/aimbiztalk), which is a Microsoft open-source project. This tool uses a phased approach to help you uncover useful insights and strategies for migrating your solutions to the cloud. We recommend using the migrator tool only for discovery and report generation. You might also want to consider using other products for discovery from partners who provide solutions in this space.
 
-For another way to generate an inventory with BizTalk Server elements, you can use [The BizTalk Documenter](https://github.com/mbrimble/biztalkdocumenter), which is developed by Mark Brimble. This tool works with BizTalk Server 2020, despite stating that only BizTalk Server 2016 is supported.
+For another way to generate an inventory with BizTalk Server elements, you can use the [BizTalk Documenter](https://github.com/mbrimble/biztalkdocumenter) developed by Mark Brimble. This tool works with BizTalk Server 2020, despite stating that only BizTalk Server 2016 is supported.
 
 #### Architecture design
 
@@ -167,7 +159,7 @@ The following diagram shows the events that should happen during migration waves
 |------|--------------|
 | 1 | Discover existing BizTalk apps and interfaces. Although introduced in Sprint 0, this activity should happen when each wave starts. Customers might continue making changes in your BizTalk environment. <br><br>Resources: <br>- [BizTalk Migration tool](https://github.com/Azure/aimtool) <br>- [BizTalk Documenter tool](https://github.com/mbrimble/biztalkdocumenter) |
 | 2 | Set up your initial migration environment. You can use the [Azure Integration Services Landing Zone Accelerator](https://github.com/Azure/Integration-Services-Landing-Zone-Accelerator), which is a cloud adoption framework for building and deploying an integration platform that has a typical enterprise landing zone design. As the workload owner, you can confidently achieve your target technical state by using the provided [architectural guidance and BizTalk migration resources](https://techcommunity.microsoft.com/blog/integrationsonazureblog/biztalk-server-migration-to-azure-integration-services-resources/3733464). <br><br>For an example architecture, see [Example migration environment](#initial-migration-environment). |
-| 3 | Create and test Standard logic app workflows that run in single-tenant Azure Logic Apps using either the Azure portal or Visual Studio Code with the Azure Logic Apps (Standard) extension. With Visual Studio Code, you can locally develop, test, and store your logic app project using any source control system. <br><br>For more information, see the following documentation: <br><br>- [Create an example Standard logic app workflow using the Azure portal](/azure/logic-apps/create-single-tenant-workflows-azure-portal) <br>- [Create an example Standard logic app workflow using Visual Studio Code](/azure/logic-apps/create-single-tenant-workflows-visual-studio-code) <br><br>For a diagram that shows an example logic app and connections, see [Example migration environment](#initial-migration-environment). |
+| 3 | Create and test Standard logic app workflows that run in single-tenant Azure Logic Apps using either the Azure portal or Visual Studio Code with the Azure Logic Apps (Standard) extension. With Visual Studio Code, you can locally develop, test, and store your logic app project using any source control system. <br><br>For more information, see the following documentation: <br><br>- [Create a Standard logic app workflow using the Azure portal](/azure/logic-apps/create-single-tenant-workflows-azure-portal) <br>- [Create a Standard logic app workflow using Visual Studio Code](/azure/logic-apps/create-single-tenant-workflows-visual-studio-code) <br><br>To begin a rapid migration using your BizTalk application source code and bindings, use the [BizTalk Migration Starter](https://github.com/haroldcampos/BizTalkMigrationStarter). With this tool, you can quickly build a proof of concept for your migration that helps you reduce the risks and the number of waves for your migration. This tool creates a logic app workflow definition that resembles your BizTalk orchestration. For Content Based Routing Scenarios (CBR), the tool creates a workflow as well. <br><br>For a diagram that shows an example logic app workflow and connections, see [Example migration environment](#initial-migration-environment). |
 | 4 | To get the full benefits from easily and consistently deploying your Standard logic app workflows across different environments and platforms, you must also automate your build and deployment process. The Azure Logic Apps (Standard) extension for Visual Studio Code provides tools for you to create and maintain automated build and deployment processes using Azure DevOps. <br><br>For more information, see [Automate build and deployment for Standard logic app workflows with Azure DevOps](/azure/logic-apps/automate-build-deployment-standard). | 
 | 5 | To deploy mission-critical Standard logic apps that are always available and responsive, even during updates or maintenance, enable zero downtime deployment by creating and using deployment slots. Zero downtime means that when you deploy new versions of your app, end users shouldn't experience disruption or downtime. <br><br>For more information, see [Set up deployment slots to enable zero downtime deployment in Azure Logic Apps](/azure/logic-apps/set-up-deployment-slots). | 
 
@@ -177,50 +169,25 @@ The following diagram shows an example initial migration environment with a Stan
 
 :::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-migration-environment.png" alt-text="Diagram shows example initial migration environment." border="false":::
 
-#### Test
+The following diagram shows an example initial migration environment with an on-premises deployed Standard logic app that orchestrates workflows for communicating with APIs, services, hybrid solutions, and on-premises resources:
 
-Each *wave* has its own testing activities, which are embedded in each User Story. If you want to use [shift-left testing](/devops/develop/shift-left-make-testing-fast-reliable), make sure that you complete the following tasks:
+:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/architecture-overview-hybrid.png" alt-text="Diagram shows example migration environment with deployed on-premises Standard logic app." border="false":::
 
-- Automate your tests.
+## Test your migration
 
-  Azure Logic Apps (Standard) includes the capability to perform automated testing. The following list includes more information and resources that are freely available on GitHub:
+Each *wave* has its own testing activities, which are embedded in each user story. To use [shift-left testing](/devops/develop/shift-left-make-testing-fast-reliable), make sure that you use the following guidance:
 
-  - [Automated testing with Azure Logic Apps (Standard)](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/automated-testing-with-logic-apps-standard/ba-p/2960623) from the Azure Logic Apps team
-  
-    With Azure Logic Apps (Standard), automated testing is no longer difficult to perform, due to the underlying architecture, which is based on the Azure Functions runtime and can run anywhere that Azure Functions can run. You can write tests for workflows that run locally or in a CI/CD pipeline. For more information, see the sample project for the [Azure Logic Apps Test Framework](https://github.com/Azure/logicapps/tree/master/LogicAppsSampleTestFramework).
+- Create unit tests from Standard workflow runs in Azure Logic Apps with Visual Studio Code.
 
-    This test framework includes the following capabilities:
+  For this task, create an example Standard logic app workflow that you can run in single-tenant Azure Logic Apps by using Visual Studio Code with the Azure Logic Apps (Standard) extension. Follow the steps in [Create Standard logic app workflows with Visual Studio Code](create-standard-workflows-visual-studio-code.md).
 
-    - Write automated tests for end-to-end functionality in Azure Logic Apps.
-    - Perform fine-grained validation at the workflow run and action levels.
-    - Check tests into a Git repo and run either locally or within CI/CD pipelines.
-    - Mock testing capabilities for HTTP actions and Azure connectors.
-    - Configure tests to use different setting values from production.
-    
-  - [Integration Playbook: Logic Apps Standard Testing](https://mikestephenson.me/2021/12/11/logic-app-standard-integration-testing/) from Michael Stephenson, Microsoft MVP
+- Use unit test agent profiles for logic apps and data maps.
 
-    The [Integration Playbook testing framework](https://github.com/michaelstephensonuk/IntegrationPlaybook-LogicApp-Standard-Testing) builds on the Microsoft-provided test framework and supports additional scenarios:
+  Unit test agent profiles are a focused set of agents that help you discover workflows and maps, write reusable specifications, generate typed mocks and test data, and implement MSTest suites for Azure Logic Apps Standard projects. Follow the steps in [Introducing Unit Test Agent Profiles for Logic Apps & Data Maps](https://techcommunity.microsoft.com/blog/integrationsonazureblog/introducing-unit-test-agent-profiles-for-logic-apps--data-maps/4490216).
 
-    - Connect to a workflow in a Standard logic app.
-    - Get the callback URL so that you can trigger the workflow from a test.
-    - Check the results from the workflow run.
-    - Check the operation inputs and outputs from the workflow's run history.
-    - Plug into automated testing frameworks that logic app developers might use.
-    - Plug into SpecFlow to support behavior-driven-development (BDD) for logic apps.
+## Deployment
 
-  Regardless which automation approaches or resources that you use, you're well on your way to having repeatable, consistent, and automated integration tests.
-
-- Set up mock response testing using static results.
-
-  Regardless whether you set up automated tests, you can use the [static results capability](test-logic-apps-mock-data-static-results.md) in Azure Logic Apps to temporarily set mock responses at the action level. This functionality lets you emulate the behavior from a specific system that you want to call. You can then perform some initial testing in isolation and reduce the amount of data that you'd create in line of business systems.
-
-- Run side by side tests.
-
-  Ideally, you already have baseline integration tests for your BizTalk Server environment and established automated tests for Azure Logic Apps. You can then run tests side-by-side in a way that helps you check your interfaces by using the same data sets and improve overall test accuracy.
-
-#### Release to production
-
-After your team finishes and meets the "definition of done" for the User Stories, consider the following tasks:
+After your team finishes and meets the "definition of done" for the user stories, consider the following tasks:
 
 1. Create a communication plan for your release to production.
 
@@ -232,8 +199,8 @@ After your team finishes and meets the "definition of done" for the User Stories
    - Dress rehearsal
    - People
    - Schedule estimates
-   - Disabling interfaces in the old platform
-   - Enabling interfaces in the new platform
+   - Disable interfaces in the BizTalk Server environment
+   - Enable interfaces in the logic apps environment
    - Validation testing
 
 1. Determine a rollback plan.
@@ -248,7 +215,7 @@ After your team finishes and meets the "definition of done" for the User Stories
 
 1. Hold a retrospective.
 
-### Best practices for a BizTalk migration
+## Best practices for a BizTalk migration
 
 While best practices might vary across organizations, consider a conscious effort to promote consistency, which helps reduce unnecessary efforts that "reinvent the wheel" and the redundancy of similar common components. When you help enable reusability, your organization can more quickly build interfaces that become easier to support. Time to market is a key enabler for digital transformation, so a top priority is reducing unnecessary friction for developers and support teams.
 
@@ -280,7 +247,7 @@ From an organizational perspective, you might design a naming pattern that inclu
 
 Suppose you have a Standard logic app in development that implements workflows for the HR department in the Corporate Services business unit. You might name the logic app resource **LAStd-CorporateServices-HR-DEV**, and use [Pascal Case notation](https://www.theserverside.com/definition/Pascal-case) where appropriate for consistency.
 
-#### Logic app workflow names
+### Logic app workflow names
 
 A Consumption logic app resource always maps to only one workflow, so you only need a single name. A Standard logic app resource can include multiple workflows, so design a naming convention that you can also apply to member workflows. For these workflows, consider a naming convention based on the process name, for example:
 
@@ -293,7 +260,7 @@ Here are more considerations for designing your workflow naming convention:
 - Follow the parent-child pattern for workflows where you want to highlight some relationship between one or more workflows.
 - Take into account whether a workflow publishes or consumes a message.
 
-#### Workflow operation names
+### Workflow operation names
 
 When you add a trigger or action to your workflow, the designer automatically assigns the default generic name for that operation. However, operation names must be unique within your workflow, so the designer appends sequential numerical suffixes on subsequent operation instances, which makes readability and deciphering the developer's original intent difficult.
 
@@ -309,7 +276,7 @@ To make operation names more meaningful and easier to understand, you can add a 
 
 To avoid later possible rework and problems around downstream dependencies, which are created when you use operation outputs, rename your operations immediately when you add them to your workflow. Usually, downstream actions are automatically updated when you rename an operation. However, Azure Logic Apps doesn't automatically rename custom expressions that you created before you perform the rename.
 
-#### Connection names
+### Connection names
 
 When you create a connection in your workflow, the underlying connection resource automatically gets a generic name, such as **sql** or **office365**. Like operation names, connection names must also be unique. Subsequent connections with the same type get a sequential numerical suffix, for example, **sql-1**, **sql-2**, and so on. Such names don't provide any context, which makes differentiating and mapping connections to their workflows extremely challenging, especially for developers who don't know the solution space and have to maintain these workflows.
 
@@ -336,7 +303,7 @@ When you implement this pattern, you can also specify when to run the **Scope** 
 - **Is skipped**
 - **Has timed out**
 
-### Consolidate shared services
+## Consolidate shared services
 
 When you build integration solutions, consider creating and using shared services for common tasks. You can have your team build and expose a collection of shared services that your project team and others can use. Everyone gains increased productivity, uniformity, and the capability to enforce governance on your organization's solutions. The following sections describe some areas where you might consider introducing shared services:
 
@@ -350,7 +317,7 @@ When you build integration solutions, consider creating and using shared service
 
 ## Next steps
 
-You've now learned more about available migration approaches and best practices for moving BizTalk Server workloads to Azure Logic Apps. To provide detailed feedback about this guide, you can use the following form:
+You learned more about available migration approaches and best practices for moving BizTalk Server workloads to Azure Logic Apps. To provide detailed feedback about this guide, use the following form:
 
 > [!div class="nextstepaction"]
 >

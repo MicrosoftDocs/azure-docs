@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: concept-article
-ms.date: 12/07/2025
+ms.date: 02/24/2026
 ms.author: anfdocs
 # Customer intent: As a cloud architect, I want to implement Azure NetApp Files to migrate and run mission-critical applications, so that I can ensure high performance, scalability, and security for diverse workloads in the cloud.
 ---
@@ -69,16 +69,6 @@ This section provides references for solutions for Linux OSS applications and da
 * [Moodle deployment with Azure NetApp Files - Azure Example Scenarios](/azure/architecture/example-scenario/file-storage/moodle-azure-netapp-files)
 * [Moodle on Azure NetApp Files NFS storage](https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-netapp-files-for-nfs-storage-with-moodle/ba-p/2300630)
 
-### Mainframe refactor
-
-* [Use Azure NetApp Files to deploy IBM Power in Skytap on Azure – Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/deploy-ibm-power-workloads)
-* [General mainframe refactor to Azure - Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/general-mainframe-refactor)
-* [Refactor mainframe applications with Advanced - Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/refactor-mainframe-applications-advanced)
-* [Refactor mainframe applications with Astadia – Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/refactor-mainframe-applications-astadia)
-* [Refactor mainframe computer systems that run Adabas & Natural - Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/refactor-adabas-aks)
-* [Refactor IBM z/OS mainframe coupling facility (CF) to Azure - Azure Example Scenarios](/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility)
-* [Refactor mainframe applications to Azure with Raincode compilers - Azure Example Scenarios](/azure/architecture/reference-architectures/app-modernization/raincode-reference-architecture)
-
 ## Windows Apps and SQL Server solutions
 
 This section provides references for Windows applications and SQL Server solutions.
@@ -136,6 +126,8 @@ This section provides references to SAP on Azure solutions.
 * [Azure NetApp Files Backup for SAP Solutions](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/anf-backup-for-sap-solutions/ba-p/3717977)
 * [SAP HANA Disaster Recovery with Azure NetApp Files](https://docs.netapp.com/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_Disaster_Recovery_with_Azure_NetApp_Files.pdf)
 * [Running SAP Applications on the Microsoft Platform](https://techcommunity.microsoft.com/blog/sapapplications/designing-migrating-and-managing-a-151-node-sap-bw-scale-out-landscape-on-micros/3715003)
+* [SAP HANA data protection on Azure NetApp Files with SnapCenter](https://techcommunity.microsoft.com/blog/sapapplications/sap-hana-data-protection-on-azure-netapp-files-with-snapcenter/3510031)
+* [SAP System Refresh and Cloning operations on Azure NetApp Files with SnapCenter](https://techcommunity.microsoft.com/blog/sapapplications/sap-system-refresh-and-cloning-operations-on-azure-netapp-files-with-snapcenter/4356389)
 
 ### SAP AnyDB
 
@@ -232,6 +224,11 @@ This section provides references for High Performance Computing (HPC) solutions.
 ## Azure platform services solutions
 
 This section provides solutions for Azure platform services. 
+
+### Azure data and AI services
+
+* [How Azure NetApp Files Object REST API powers Azure and ISV Data and AI services](https://techcommunity.microsoft.com/blog/azurearchitectureblog/how-azure-netapp-files-object-rest-api-powers-azure-and-isv-data-and-ai-services/4459545)
+* [Unlocking Advanced Data Analytics and AI with Azure NetApp Files object REST API](https://techcommunity.microsoft.com/blog/azurearchitectureblog/unlocking-advanced-data-analytics--ai-with-azure-netapp-files-object-rest-api/4486098)
 
 ### Azure Kubernetes Services and Kubernetes
 

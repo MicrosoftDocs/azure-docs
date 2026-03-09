@@ -5,7 +5,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/20/2023
 ms.author: jianleishen
 ---
@@ -197,7 +197,7 @@ To get the index of a table which you need to configure in [dataset properties](
 
     :::image type="content" source="./media/copy-data-from-web-table/AdvancedEditor-Index.png" alt-text="Advanced Editor - Index":::
 
-If you are using Excel 2013, use [Microsoft Power Query for Excel](https://www.microsoft.com/download/details.aspx?id=39379) to get the index. See [Connect to a web page](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) article for details. The steps are similar if you are using [Microsoft Power BI for Desktop](https://powerbi.microsoft.com/desktop/).
+If you are using Excel 2013, use [Connect to a web page](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) article for details. The steps are similar if you are using [Microsoft Power BI for Desktop](https://powerbi.microsoft.com/desktop/).
 
 
 ## Lookup activity properties

@@ -259,6 +259,7 @@
       "author": {
         "articles/advisor/*.md": "ikhapova",
         "articles/ansible/**/*.md": "TomArcherMsft",
+        "articles/api-center/**/*.md": "ProfessorKendrick",
         "articles/app-service-mobile/**/*.md": "elamalani",
         "articles/app-service/containers/*.md": "cephalin",
         "articles/app-service/environment/*.md": "seligj95",
@@ -273,6 +274,7 @@
         "articles/azure-cache-for-redis/**/*.yml": "flang-msft",
         "articles/azure-fluid-relay/**/*.md": "GrantMeStrength",
         "articles/azure-functions/**/*.md": "ggailey777",
+        "articles/azure-functions/durable/**/*.md": "lilyjma",
         "articles/azure-functions/durable/durable-task-scheduler/**/*.md": "hhunter-ms",
         "articles/azure-government/**/*.md": "EliotSeattle",
         "articles/azure-monitor/*.md": "bwren",
@@ -308,8 +310,8 @@
         "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "Juliako",
         "articles/azure-video-indexer/*.md": "Juliako",
         "articles/azure-vmware/**/*.md": "jjaygbay1",
-        "articles/backup/**/*.md": "jyothisuri",
-        "articles/backup/**/*.yml": "jyothisuri",
+        "articles/backup/**/*.md": "AbhishekMallick-MS",
+        "articles/backup/**/*.yml": "AbhishekMallick-MS",
         "articles/baremetal-infrastructure/**/*.md": "dineshga",
         "articles/batch/**/*.md": "padmalathas",
         "articles/blockchain/**/*.md": "PatAltimore",
@@ -387,7 +389,7 @@
         "articles/sap/**/*.md": "lauradolan",
         "articles/service-bus-messaging/*.md": "spelluru",
         "articles/service-health/*.md": "rboucher",
-        "articles/site-recovery/*.md": "ankitaduttaMSFT",
+        "articles/site-recovery/*.md": "Jeronika-MS",
         "articles/stream-analytics/*.md": "alicialimicrosoft",
         "articles/terraform/**/*.md": "TomArcherMsft",
         "articles/update-center/**/*.md": "SnehaSudhirG",
@@ -528,7 +530,6 @@
         "articles/power-bi-embedded/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "articles/power-bi-workspace-collections/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "articles/resiliency/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
-        "articles/scheduler/**/*.md": "https://feedback.azure.com/d365community/forum/7da6a58f-8b26-ec11-b6e6-000d3a4f0789",
         "articles/security/**/*.md": "https://feedback.azure.com/d365community/forum/45d643ce-2025-ec11-b6e6-000d3a4f0f84",
         "articles/sentinel/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "articles/service-bus-messaging/**/*.md": "https://feedback.azure.com/d365community/forum/7c0a897d-2125-ec11-b6e6-000d3a4f0f84",
@@ -694,7 +695,6 @@
         "articles/role-based-access-control/**/*": "https://learn.microsoft.com/answers/tags/189/azure-rbac/",
         "articles/route-server/**/*": "https://learn.microsoft.com/answers/tags/501/route-server/",
         "articles/sap/**/*": "https://learn.microsoft.com/answers/tags/112/azure-sap/",
-        "articles/scheduler/**/*": "https://learn.microsoft.com/answers/tags/134/azure-logic-apps/",
         "articles/security/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/sentinel/**/*": "https://learn.microsoft.com/answers/tags/423/microsoft-sentinel/",
         "articles/service-bus-messaging/**/*": "https://learn.microsoft.com/answers/tags/73/azure-service-bus/",
@@ -866,7 +866,7 @@
       "ms.author": {
         "articles/advisor/*.md": "ikhapova",
         "articles/ansible/**/*.md": "tarcher",
-        "articles/api-center/**/*.md": "dlepow",
+        "articles/api-center/**/*.md": "kkendrick",
         "articles/app-service-mobile/**/*.md": "emalani",
         "articles/app-service/containers/*.md": "cephalin",
         "articles/app-service/environment/*.md": "jordanselig",
@@ -881,6 +881,7 @@
         "articles/azure-cache-for-redis/**/*.yml": "franlanglois",
         "articles/azure-fluid-relay/**/*.md": "jken",
         "articles/azure-functions/**/*.md": "glenga",
+        "articles/azure-functions/durable/**/*.md": "jiayma",
         "articles/azure-functions/durable/durable-task-scheduler/**/*.md": "hannahhunter",
         "articles/azure-government/**/*.md": "eliotgra",
         "articles/azure-monitor/*.*": "bwren",
@@ -916,8 +917,8 @@
         "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "juliako",
         "articles/azure-video-indexer/*.md": "Juliako",
         "articles/azure-vmware/**/*.md": "jacobjaygbay",
-        "articles/backup/**/*.md": "jsuri",
-        "articles/backup/**/*.yml": "jsuri",
+        "articles/backup/**/*.md": "v-mallicka",
+        "articles/backup/**/*.yml": "v-mallicka",
         "articles/baremetal-infrastructure/**/*.md": "kalyank",
         "articles/batch/**/*.md": "padmalathas",
         "articles/blockchain/**/*.md": "patricka",
@@ -1040,7 +1041,7 @@
       "ms.update-cycle": {
         "articles/azure-cache-for-redis/**/*.md": "1095-days",
         "articles/azure-cache-for-redis/**/*.yml": "1095-days",
-        "articles/azure-resource-manager/bicep/*.md": "180-days",
+        "articles/azure-resource-manager/bicep/*.md": "365-days",
         "articles/azure-resource-manager/management/*.md": "365-days",
         "articles/azure-resource-manager/templates/*.md": "365-days",
         "articles/azure-resource-manager/troubleshooting/*.md": "1095-days",
@@ -1144,12 +1145,14 @@
         "articles/automanage/**/*.yml": "jasongroce",
         "articles/avere-vfxt/**/*.yml": "wwilliams, cynthn",
         "articles/azure-boost/**/*.yml": "wwilliams, cynthn",
+        "articles/azure-change-tracking-inventory/**/*.yml": "v-rochak2, jsuri",
         "articles/azure-compute-fleet/**/*.yml": "cynthn",
         "articles/azure-functions/durable/durable-task-scheduler/**/*.md": "azfuncdf",
         "articles/azure-large-instances/**/*.yml": "jacobjaygbay",
         "articles/azure-netapp-files/**/*.yml": "akashdubey-ms",
         "articles/azure-vmware/**/*.yml": "jacobjaygbay",
-        "articles/backup/**/*.yml": "ankitadutta",
+        "articles/backup/**/*.yml": "v-mallicka, jsuri",
+        "articles/resiliency/**/*.yml": "v-mallicka, jsuri",
         "articles/baremetal-infrastructure/**/*.yml": "jacobjaygbay",
         "articles/bastion/**/*.yml": "cherylmc, abell",
         "articles/batch/**/*.yml": "padmalathas",
@@ -1168,10 +1171,10 @@
         "articles/fxt-edge-filer/**/*.yml": "akashdubey-ms",
         "articles/high-performance-computing/**/*.yml": "padmalathas",
         "articles/hpc-cache/**/*.yml": "padmalathas",
-        "articles/import-export/**/*.yml": "ankitadutta",
+        "articles/import-export/**/*.yml": "shaas",
         "articles/internet-peering/**/*.yml": "cherylmc, abell",
         "articles/load-balancer/**/*.yml": "cherylmc, abell",
-        "articles/migrate/**/*.yml": "ankitadutta",
+        "articles/migrate/**/*.yml": "v-uhabiba, jsuri",
         "articles/nat-gateway/**/*.yml": "cherylmc, abell",
         "articles/networking/**/*.yml": "cherylmc, abell",
         "articles/network-watcher/**/*.yml": "cherylmc, abell, halkazwini",
@@ -1179,12 +1182,12 @@
         "articles/oracle/**/*.yml": "jacobjaygbay",
         "articles/peering-service/**/*.yml": "cherylmc, abell",
         "articles/private-link/**/*.yml": "cherylmc, abell",
-        "articles/resource-mover/**/*.yml": "ankitadutta",
+        "articles/resource-mover/**/*.yml": "v-rochak2, jsuri",
         "articles/sap/**/*.yml": "jacobjaygbay",
-        "articles/site-recovery/**/*.yml": "ankitadutta",
+        "articles/site-recovery/**/*.yml": "v-gajeronika, jsuri",
         "articles/storage/**/*.yml": "akashdubey-ms",
         "articles/traffic-manager/**/*.yml": "cherylmc, abell",
-        "articles/update-manager/**/*.yml": "ankitadutta",
+        "articles/update-manager/**/*.yml": "v-uhabiba, jsuri",
         "articles/virtual-network/**/*.yml": "cherylmc, abell",
         "articles/vmware-cloudsimple/**/*.yml": "jacobjaygbay",
         "articles/vpn-gateway/**/*.yml": "cherylmc, abell",
@@ -1193,11 +1196,13 @@
         "articles/automanage/**/*.md": "jacobjaygbay",
         "articles/avere-vfxt/**/*.md": "wwilliams, cynthn",
         "articles/azure-boost/**/*.md": "wwilliams, cynthn",
+        "articles/azure-change-tracking-inventory/**/*.md": "v-rochak2, jsuri",
         "articles/azure-compute-fleet/**/*.md": "cynthn",
         "articles/azure-large-instances/**/*.md": "jacobjaygbay",
         "articles/azure-netapp-files/**/*.md": "akashdubey-ms",
         "articles/azure-vmware/**/*.md": "jacobjaygbay",
-        "articles/backup/**/*.md": "ankitadutta",
+        "articles/backup/**/*.md": "v-mallicka, jsuri",
+        "articles/resiliency/**/*.md": "v-mallicka, jsuri",
         "articles/baremetal-infrastructure/**/*.md": "jacobjaygbay",
         "articles/bastion/**/*.md": "cherylmc, abell",
         "articles/batch/**/*.md": "padmalathas",
@@ -1216,10 +1221,10 @@
         "articles/fxt-edge-filer/**/*.md": "akashdubey-ms",
         "articles/high-performance-computing/**/*.md": "padmalathas",
         "articles/hpc-cache/**/*.md": "padmalathas",
-        "articles/import-export/**/*.md": "ankitadutta",
+        "articles/import-export/**/*.md": "shaas",
         "articles/internet-peering/**/*.md": "cherylmc, abell",
         "articles/load-balancer/**/*.md": "cherylmc, abell",
-        "articles/migrate/**/*.md": "ankitadutta",
+        "articles/migrate/**/*.md": "v-uhabiba, jsuri",
         "articles/nat-gateway/**/*.md": "cherylmc, abell",
         "articles/networking/**/*.md": "cherylmc, abell",
         "articles/network-watcher/**/*.md": "cherylmc, abell, halkazwini",
@@ -1227,12 +1232,12 @@
         "articles/oracle/**/*.md": "jacobjaygbay",
         "articles/peering-service/**/*.md": "cherylmc, abell",
         "articles/private-link/**/*.md": "cherylmc, abell",
-        "articles/resource-mover/**/*.md": "ankitadutta",
+        "articles/resource-mover/**/*.md": "v-rochak2, jsuri",
         "articles/sap/**/*.md": "jacobjaygbay",
-        "articles/site-recovery/**/*.md": "ankitadutta",
+        "articles/site-recovery/**/*.md": "v-gajeronika",
         "articles/storage/**/*.md": "akashdubey-ms",
         "articles/traffic-manager/**/*.md": "cherylmc, abell",
-        "articles/update-manager/**/*.md": "ankitadutta",
+        "articles/update-manager/**/*.md": "v-uhabiba, jsuri",
         "articles/virtual-network/**/*.md": "cherylmc, abell",
         "articles/vmware-cloudsimple/**/*.md": "jacobjaygbay",
         "articles/vpn-gateway/**/*.md": "cherylmc, abell",
@@ -1298,7 +1303,8 @@
         "articles/partner-solutions/qumulo/**/*.yml": "qumulo",
         "articles/partner-solutions/split-experimentation/**/*.md": "split-experimentation",
         "articles/partner-solutions/split-experimentation/**/*.yml": "split-experimentation",
-        "articles/governance/management-groups/**/*.md": "azure-governance"
+        "articles/governance/management-groups/**/*.md": "azure-governance",
+        "articles/sentinel/**/*.md": "sentinel-siem"
       },
       "monikerRange": {
         "articles/migrate/**/*.md": "<=migrate-classic >=migrate"
@@ -1701,6 +1707,8 @@
         "articles/azure-center-sap-solutions/*.yml": "Azure Center for SAP solutions",
         "articles/azure-fluid-relay/**/*.md": "Azure Fluid Relay",
         "articles/azure-fluid-relay/**/*.yml": "Azure Fluid Relay",
+        "articles/azure-functions/durable/**/*.md": "Azure Durable",
+        "articles/azure-functions/durable/**/*.yml": "Azure Durable",
         "articles/azure-government/**/*.md": "Azure Government",
         "articles/azure-monitor/**/*.md": "Azure Monitor",
         "articles/azure-monitor/**/*.yml": "Azure Monitor",
@@ -1785,7 +1793,6 @@
         "articles/playwright-testing/**/*.md": "Microsoft Playwright Testing",
         "articles/quotas/**/*.md": "Azure Quotas",
         "articles/quotas/**/*.yml": "Azure Quotas",
-        "articles/scheduler/*.md": "Azure Scheduler",
         "articles/service-bus-messaging/*.md": "Azure Service Bus",
         "articles/service-health/*.yml": "Azure Service Health",
         "articles/service-health/**/*.md": "Azure Service Health",
@@ -1853,7 +1860,14 @@
           "articles/governance/policy/**/*.md",
           "articles/hdinsight/hdinsight-high-availability-components.md",
           "articles/hdinsight/optimize-hbase-ambari.md",
-          "articles/site-recovery/**/*.md"
+          "articles/site-recovery/**/*.md",
+          "articles/sentinel/ueba-useful-queries.md",
+          "articles/sentinel/identify-threats-with-entity-behavior-analytics.md"
+        ]
+      },
+      "filename-incomplete": {
+        "exclude": [
+          "articles/azure-functions/errors-diagnostics/**/*.md"
         ]
       },
       "sensitive-language-sl": {
@@ -1868,7 +1882,8 @@
           "articles/sap/workloads/**/**.md",
           "articles/site-recovery/**/*.md",
           "articles/virtual-network/accelerated-networking-how-it-works.md",
-          "articles/vmware-cloudsimple/on-premises-dns-setup.md"
+          "articles/vmware-cloudsimple/on-premises-dns-setup.md",
+          "articles/sentinel/includes/sentinel-tables-connectors.md"
         ]
       },
       "sensitive-language-bl": {
@@ -1883,7 +1898,10 @@
           "articles/site-recovery/**/*.md",
           "articles/storsimple/storsimple-configure-mpio-on-linux.md",
           "articles/web-application-firewall/afds/waf-front-door-drs.md",
-          "articles/web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md"
+          "articles/web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md",
+          "articles/sentinel/includes/connector-details.md",
+          "articles/sentinel/includes/deprecated-connectors.md",
+          "articles/sentinel/includes/sentinel-tables-connectors.md"
         ]
       },
       "sensitive-language-wl": {
@@ -1901,7 +1919,10 @@
           "articles/role-based-access-control/resource-provider-operations.md",
           "articles/site-recovery/**/*.md",
           "articles/storsimple/storsimple-configure-mpio-on-linux.md",
-          "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md"
+          "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md",
+          "articles/sentinel/includes/connector-details.md",
+          "articles/sentinel/includes/deprecated-connectors.md",
+          "articles/sentinel/includes/sentinel-tables-connectors.md"
         ]
       }
     }

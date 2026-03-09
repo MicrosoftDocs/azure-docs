@@ -48,6 +48,9 @@ Before you begin this tutorial, you should:
 - [Review](../site-recovery/migrate-tutorial-windows-server-2008.md#limitations-and-known-issues) the limitations related to migrating Windows Server 2008 servers to Azure.
 
 > [!NOTE]
+>  Windows Server 2008 and Windows Server 2008 R2 have reached End of Life (EOL). For more information, see, [End of support for Windows Server 2008 and Windows Server 2008 R2](/troubleshoot/windows-server/windows-server-eos-faq/end-of-support-windows-server-2008-2008r2) and [Perform in-place upgrade to Windows Server 2016, 2019, 2022, or 2025](/azure/virtual-machines/windows-in-place-upgrade#perform-in-place-upgrade-to-windows-server-2016-2019-2022-or-2025). Review your usage and plan OS upgrades and migrations accordingly.
+
+> [!NOTE]
 > If you're planning to upgrade your Windows operating system, Azure Migrate and Modernize might download the Windows SetupDiag utility for error details in case upgrade fails. Ensure that the VM created in Azure after the migration has access to [SetupDiag](https://go.microsoft.com/fwlink/?linkid=870142). If there's no access to SetupDiag, you might not be able to get detailed OS upgrade failure error codes but the upgrade can still proceed.
 
 ## Prepare Azure
@@ -57,7 +60,10 @@ Prepare Azure for migration with the Migration and modernization tool.
 Task | Details
 --- | ---
 Create an Azure Migrate project | Your Azure account needs Contributor or Owner permissions to [create a new project](./create-manage-projects.md).
-Verify permissions for your Azure account | Your Azure account needs permissions to create a VM and write to an Azure managed disk.
+Verify permissions for your Azure account | Your Azure account needs permissions to create a VM and write to an Azure Managed Disk.
+
+>[!NOTE]
+> For the required Azure Migrate built‑in roles and permission details to create a project and run discovery, assessments, and migrations, see [Prepare Azure accounts for Azure Migrate](prepare-azure-accounts.md).
 
 ### Assign permissions to create a project
 
@@ -73,7 +79,7 @@ Assign the VM Contributor role to the Azure account. This role provides permissi
 
 - Create a VM in the selected resource group.
 - Create a VM in the selected virtual network.
-- Write to an Azure managed disk.
+- Write to an Azure Managed Disk.
 
 ### Create an Azure network
 
@@ -119,7 +125,7 @@ The first step of migration is to set up the replication appliance. To set up th
 ## Classic experience (Retiring)
 
 > [!NOTE]
-> Classic experience is scheduled for retirement on **30 September 2026**. Final recovery point for replications will be on **31 May 2026**. Support for migrations continue until the retirement date. 
+>Enabling replications via classic experience appliance will be blocked from **31 March 2026**. Switch to the simplified experience appliance to enable replications.Final recovery point for existing replications will be on **31 May 2026**. Support for migrations will continue until the retirement date (**30 September 2026**)
 > Switch sooner to gain the richer benefits of [simplified experience](simplified-experience-for-azure-migrate.md). [Learn more](tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended) on how to set up the Simplified Experience.
 
 
@@ -160,13 +166,13 @@ This section introduces a new process, which is simplified experience. Users fol
 
 It introduces an upgraded agent-based migration stack for physical and VMware environments. Customers benefit from the ability to migrate newer Linux distributions to Azure, use WS2022 for the replication appliance, and utilize a unified OS support matrix. 
 
-## Navigate to Azure Migrate project
+## Access the Azure Migrate project
 
 Follow the steps to navigate to the Azure Migrate project:
 
-**Step 1**: Navigate to Azure Migrate project
+**Step 1**: Go to Azure Migrate project
 
-1. Open [Azure portal](https://portal.azure.com). 
+1. Go to [Azure portal](https://portal.azure.com). 
 1. Search for the **Azure Migrate** service.
 1. Create a new project or select an existing one. [Learn more](/azure/migrate/).
 
@@ -403,7 +409,7 @@ Now, select machines for migration.
     - **VM Security Type**: Azure Migrate recommends migrating eligible VMs to **Trusted Launch Virtual Machines (TVMs)** for enhanced security. By default, the **VM security type is set to Trusted Launch**. VMs that aren't eligible for Trusted Launch are automatically configured as **standard security VMs**. 
     - **Capacity reservation**: If you already have a capacity reservation for the VM SKU in the target subscription and location, specify it here for this deployment. Capacity reservations ensure that the required VM SKU is available when you start migration. You can associate a reservation now or skip this step and configure it later during the migration. The capacity reservation for the SKU can be in any resource group within the target subscription and location. [Learn more](/azure/virtual-machines/capacity-reservation-create).
 
-1. In **Disks**, specify whether the VM disks should be replicated to Azure. Select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.
+1. In **Disks**, specify whether the VM disks should be replicated to Azure. Select the disk type (Standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.
     - You can exclude disks from replication.
     - If you exclude disks, they won't be present on the Azure VM after migration.
 
@@ -567,7 +573,7 @@ Now, select machines for migration.
     - **Availability Set**: Specify the availability set to use. 
     - **VM Security Type**: Azure Migrate recommends migrating eligible VMs to **Trusted Launch Virtual Machines (TVMs)** for enhanced security. By default, the **VM security type is set to Trusted Launch**. VMs that aren't eligible for Trusted Launch are automatically configured as **standard security VMs**. 
 
-1. In **Disks**, specify whether the VM disks should be replicated to Azure. Select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.
+1. In **Disks**, specify whether the VM disks should be replicated to Azure. Select the disk type (Standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.
     - You can exclude disks from replication.
     - If you exclude disks, they won't be present on the Azure VM after migration.
 

@@ -175,8 +175,6 @@
       items:
       - name: Migrate CDN provider
         href: ../cdn/cdn-change-provider.md?toc=/azure/frontdoor/toc.json
-      - name: Custom domain
-        href: migrate-cdn-to-front-door.md
     - name: AFD/CDN Classic migration FAQ
       href: migration-faq.md
     - name: Post migration Dev-Ops experience
@@ -195,6 +193,8 @@
       href: classic-retirement-faq.md
     - name: Edgio retirement FAQ
       href: /previous-versions/azure/cdn/edgio-retirement-faq?toc=/azure/frontdoor/toc.json
+    - name: DHE Cipher FAQ
+      href: diffie-hellman-ciphers.md
 - name: Security
   items:
   - name: Secure your Front Door
@@ -243,6 +243,8 @@
     href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Operational excellence
   items:
+  - name: High availability implementation guide
+    href: high-availability.md
   - name: WebSocket
     href: standard-premium/websocket.md
   - name: HTTP/2
@@ -269,22 +271,10 @@
     href: understanding-pricing.md
   - name: CDN and Front Door price comparison
     href: compare-cdn-front-door-price.md
-- name: Troubleshoot
-  items:
-  - name: Troubleshoot with RefString
-    href: refstring.md
-  - name: Troubleshoot Front Door issues
-    href: troubleshoot-issues.md
-  - name: Troubleshoot Front Door performance issues
-    href: troubleshoot-performance-issues.md
-  - name: Troubleshoot file compression
-    href: standard-premium/troubleshoot-compression.md
-  - name: Allowed certificate authorities
-    href: https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT
   - name: Subscription offers and bandwidth throttling
     href: standard-premium/subscription-offers.md
-  - name: Questions & answers
-    href: /answers/tags/96/azure-front-door
+- name: Support and troubleshooting
+  href: support-help.md
 - name: CDN and Front Door (classic)
   items:
   - name: Get started
@@ -512,6 +502,8 @@
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Service updates
       href: https://azure.microsoft.com/updates/?product=frontdoor
+    - name: Allowed certificate authorities
+      href: https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT
   - name: CDN
     items:
     - name: Azure Content Delivery Network billing
@@ -530,3 +522,4 @@
       href: /shows/Inside-Azure-for-IT/?products=azure-cdn
   - name: Networking blog
     href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
+

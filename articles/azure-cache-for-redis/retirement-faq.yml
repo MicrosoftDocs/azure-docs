@@ -105,7 +105,7 @@ sections:
       - question: Can I transfer my reservations or reserved pricing from Azure Cache for Redis to Azure Managed Redis?
 
         answer: | 
-          You can cancel or exchange your existing reservation. For more information, see [Cancel, exchange, and refund policies](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+          Your existing reservations will be supported until September 30, 2028. However, you can cancel or exchange your existing reservation earlier than that date. For more information, see [Cancel, exchange, and refund policies](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
   
   - name: Questions on the Enterprise tier of Azure Cache for Redis retirement
     
@@ -184,4 +184,4 @@ sections:
       - question: Can I transfer my reservations or reserved pricing from Azure Cache for Redis to Azure Managed Redis?
 
         answer: |
-            You can cancel or exchange your existing reservation. For more information, see [Cancel, exchange, and refund policies](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+            Your existing reservations will be supported until March 30, 2027. However, you can cancel or exchange your existing reservation earlier than that date. You can cancel or exchange your existing reservation. For more information, see [Cancel, exchange, and refund policies](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).

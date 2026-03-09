@@ -96,7 +96,7 @@ The component trying to replicate data to Azure is either down or not responding
 2. Check if the gateway service is running on the appliance:
    1.  Sign in to the Azure Migrate appliance using remote desktop.
 
-   2.  Open the Microsoft services MMC snap-in (run > services.msc), and check if the Microsoft Azure Gateway Service is running. If the service is stopped or not running, start the service. Alternatively, you can open command prompt or PowerShell and enter 'Net Start asrgwy'.
+   2.  Go to the Microsoft services MMC snap-in (run > services.msc), and check if the Microsoft Azure Gateway Service is running. If the service is stopped or not running, start the service. Alternatively, you can open command prompt or PowerShell and enter 'Net Start asrgwy'.
 
 3. Check for connectivity issues between Azure Migrate appliance and Appliance Storage Account:
 
@@ -151,7 +151,7 @@ The component trying to replicate data to Azure is either down or not responding
 
     1. Fetch the Key Vault URI from the list of resources in the Resource Group corresponding to Azure Migrate Project.
 
-    1. Open PowerShell in the Azure Migrate appliance and run the following command:
+    1. Go to PowerShell in the Azure Migrate appliance and run the following command:
     ```
     _test-netconnection Key Vault URI -P 443_
     ```
@@ -238,7 +238,7 @@ The possible causes include:
 
     1. Fetch the Key Vault URI from the list of resources in the Resource Group corresponding to Azure Migrate Project.
 
-    1. Open PowerShell in the Azure Migrate appliance and run the following command:
+    1. Go to PowerShell in the Azure Migrate appliance and run the following command:
 
     ```
     _test-netconnection Key Vault URI -P 443_

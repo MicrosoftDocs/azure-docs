@@ -71,7 +71,7 @@ Use the following steps to use AZD to package the app, provision the Azure resou
    - No endpoints were found
    
    SUCCESS: Your application was deployed to Azure in xx minutes xx seconds.
-   You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:
+   You can view the resources created under the resource group rg-<your-environment-name> in Azure portal:
    https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/rg-<your-environment-name>/overview
    ```
 

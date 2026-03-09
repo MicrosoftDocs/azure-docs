@@ -4,7 +4,7 @@ description: "Tutorial: Add OPC UA assets that publish messages to the MQTT brok
 author: dominicbetts
 ms.author: dobett
 ms.topic: tutorial
-ms.date: 11/03/2025
+ms.date: 02/16/2026
 ms.custom:
   - ignite-2023
   - sfi-image-nochange
@@ -265,9 +265,12 @@ To view the device and asset you created in the Azure portal, go to Azure Device
 
 :::image type="content" source="media/tutorial-add-assets/azure-portal.png" lightbox="media/tutorial-add-assets/azure-portal.png" alt-text="Screenshot of Azure portal showing the Azure Device Registry.":::
 
-The portal enables you to view the asset details. Select **JSON View** for more details:
+The portal enables you to view the following Azure Device Registry resources:
 
-:::image type="content" source="media/tutorial-add-assets/thermostat-asset.png" lightbox="media/tutorial-add-assets/thermostat-asset.png" alt-text="Screenshot of Azure IoT Operations asset details in the Azure portal.":::
+- Assets: You can view the `thermostat` asset you created in the previous steps.
+- Devices: You can view the `opc-ua-connector` device you created in the previous steps.
+- Namespaces: You can view the namespace that you created when you deployed Azure IoT Operations. The namespace contains the asset and device you created in the previous steps.
+- Schema Registries: You can view the schema registry that was automatically created when you created your asset.
 
 ## Verify data is flowing
 

@@ -1,11 +1,12 @@
 ---
-title: Azure Web Application Firewall (WAF) policy overview
+title: WAF Policy Overview
 description: This article is an overview of Web Application Firewall (WAF) global, per-site, and per-URI policies.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 01/14/2025
+ms.date: 02/25/2026
+
 # Customer intent: "As a cloud security administrator, I want to create and manage Web Application Firewall policies for different application gateways, so that I can customize security settings based on the specific needs of each site and URI. "
 ---
 
@@ -16,7 +17,7 @@ Web Application Firewall Policies contain all the WAF settings and configuration
 There's no limit on the number of policies you can create. When you create a policy, it must be associated to an application gateway to take effect. It can be associated with any combination of application gateways, listeners, and path-based rules.
 
 > [!Note]
-> Application Gateway has two versions of the WAF sku: Application Gateway WAF_v1 and Application Gateway WAF_v2. WAF policy associations are only supported for the Application Gateway WAF_v2 sku.
+> Application Gateway has two versions of the WAF SKU: Application Gateway WAF_v1 and Application Gateway WAF_v2. WAF policy associations are only supported for the Application Gateway WAF_v2 SKU.
 
 ## Global WAF policy
 
@@ -38,7 +39,7 @@ As with per-site WAF policies, more specific policies override less specific one
 
 ### Example
 
-Say you have three sites: contoso.com, fabrikam.com, and adatum.com all behind the same application gateway. You want a WAF applied to all three sites, but you need added security with adatum.com because that is where customers visit, browse, and purchase products.
+Say you have three sites: contoso.com, fabrikam.com, and adatum.com all behind the same application gateway. You want a WAF applied to all three sites, but you need added security with adatum.com because that's where customers visit, browse, and purchase products.
 
 You can apply a global policy to the WAF, with some basic settings, exclusions, or custom rules if necessary to stop some false positives from blocking traffic. In this case, there's no need to have global SQL injection rules running because fabrikam.com and contoso.com are static pages with no SQL backend. So you can disable those rules in the global policy.
 

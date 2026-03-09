@@ -81,13 +81,13 @@ ms.author: wchi
 
 1. Install dependencies.
     ```bash
-    python -m pip install pyodbc
+    python -m pip install mssql-python python-dotenv
     ```
 
 1. Get the Azure SQL Database connection configurations from the environment variable added by Service Connector.
     ```python
-    import os;
-    import pyodbc
+    import os
+    from mssql_python import connect
     
     server = os.getenv('AZURE_SQL_SERVER')
     port = os.getenv('AZURE_SQL_PORT')
@@ -95,16 +95,16 @@ ms.author: wchi
     user = os.getenv('AZURE_SQL_USER')
     password = os.getenv('AZURE_SQL_PASSWORD')
     
-    connString = f'Driver={{ODBC Driver 18 for SQL Server}};Server={server},{port};Database={database};UID={user};PWD={password};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30'    
+    connection_string = f'Server={server},{port};Database={database};UID={user};PWD={password};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30'
 
-    conn = pyodbc.connect(connString)
+    conn = connect(connection_string)
     ```
 
 ### [Django](#tab/sql-secret-django)
 1. Install dependencies.
    ```bash
    pip install django
-   pip install pyodbc
+   pip install mssql-django pyodbc
    ```
 
 1. In the setting file, get the Azure SQL Database connection configurations from the environment variable added by Service Connector.
@@ -119,14 +119,14 @@ ms.author: wchi
 
     DATABASES = {
         'default': {
-            'ENGINE': 'sql_server.pyodbc',
+            'ENGINE': 'mssql',
             'NAME': database,
             'USER': user,
             'PASSWORD': password,
             'HOST': server,
             'PORT': port,
             'OPTIONS': {
-                'driver': 'ODBC Driver 13 for SQL Server',
+                'driver': 'ODBC Driver 18 for SQL Server',
             },
         },
     }

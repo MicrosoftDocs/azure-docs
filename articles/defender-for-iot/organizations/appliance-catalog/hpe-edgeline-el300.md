@@ -144,7 +144,7 @@ This procedure describes how to update the HPE BIOS configuration for your OT de
 
 ## Next steps
 
-Continue understanding system requirements for physical or virtual appliances. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md).
+Continue understanding system requirements for physical or virtual appliances. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md)
 
 Then, use any of the following procedures to continue:
 

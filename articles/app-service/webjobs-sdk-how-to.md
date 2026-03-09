@@ -1092,7 +1092,7 @@ In version 3.*x*, you don't have to flush [`TelemetryClient`] when the host stop
 
 #### Version 2.*x*
 
-In version 2.*x*, the [`TelemetryClient`] instance created internally by the Application Insights provider for the WebJobs SDK uses [`ServerTelemetryChannel`](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/.publicApi/Microsoft.AI.ServerTelemetryChannel.dll). When the Application Insights endpoint is unavailable or is throttling incoming requests, this channel [saves requests in the web app's file system and resubmits them later](/azure/azure-monitor/app/classic-api?tabs=dotnet#telemetry-channels).
+In version 2.*x*, the [`TelemetryClient`] instance created internally by the Application Insights provider for the WebJobs SDK uses `ServerTelemetryChannel`. When the Application Insights endpoint is unavailable or is throttling incoming requests, this channel [saves requests in the web app's file system and resubmits them later](/azure/azure-monitor/app/classic-api?tabs=dotnet#telemetry-channels).
 
 [`TelemetryClient`] is created by a class that implements `ITelemetryClientFactory`. By default, this class is [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/).
 

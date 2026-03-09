@@ -1,13 +1,14 @@
 ---
-title: Create or modify a Direct peering - Azure portal
+title: Create or Modify a Direct Peering - Azure Portal
 titleSuffix: Internet Peering
 description: Learn how to create or modify a Direct peering using the Azure portal.
 author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 03/03/2025
+ms.date: 02/25/2026
 ms.custom: sfi-image-nochange
+
 # Customer intent: As an Internet Service Provider, I want to create or modify Direct peering connections in the cloud, so that I can efficiently manage my network resources and ensure optimal connectivity to Microsoft's infrastructure.
 ---
 

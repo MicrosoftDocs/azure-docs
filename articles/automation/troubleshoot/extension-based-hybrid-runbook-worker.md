@@ -5,8 +5,8 @@ services: automation
 ms.date: 05/08/2025
 ms.topic: troubleshooting 
 ms.custom:
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Troubleshoot VM extension-based Hybrid Runbook Worker issues in Automation
@@ -219,7 +219,7 @@ You are deploying the extension-based Hybrid Worker on a non-Azure VM that does 
 
 ### Resolution
 Non-Azure machines must have the Arc connected machine agent installed on it, before deploying it as an extension-based Hybrid Runbook worker. To install the `AzureConnectedMachineAgent`, see [connect hybrid machines to Azure from the Azure portal](/azure/azure-arc/servers/onboard-portal)
-for Arc-enabled servers or [Manage VMware virtual machines Azure Arc](/azure/azure-arc/vmware-vsphere/manage-vmware-vms-in-azure#enable-guest-management) to enable guest management for Arc-enabled VMware VM. 
+for Arc-enabled servers or [Manage VMware virtual machines Azure Arc](/azure/azure-arc/vmware-vsphere/perform-vm-ops-through-azure#enable-guest-management) to enable guest management for Arc-enabled VMware VM. 
  
 
 ### Scenario: Hybrid Worker deployment fails due to System assigned identity not enabled

@@ -4,7 +4,7 @@ description: Learn how to migrate from the containerized SAP agent to the agentl
 author: mberdugo
 ms.author: monaberdugo
 ms.reviewer: mapankra
-ms.topic: conceptual
+ms.topic: article
 ms.date: 10/23/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -51,12 +51,12 @@ Your existing investment in the Microsoft Sentinel Solution for SAP analytic rul
 1. **Monitor**: Run both the containerized agent and the agentless data connector in parallel for a defined period to ensure stability and completeness of log collection.
 1. **Decommission**: Once you have validated that the agentless data connector is functioning correctly, proceed to decommission the containerized SAP agent. See the "[Stop SAP data collection](stop-collection.md)" article for details.
 
-## Feature parity
-
-The agentless data connector provides built-in feature parity with the containerized SAP agent for most important use cases regarding analytic rules and workbooks. Less relevant features are being covered through the extension patterns available for the agentless data connector. Watchlists and Playbooks remain fully functional without any changes. You may consider using the capabilities of SAP Integration Suite however to further simplify your SOAR workflows. See [this integration flow](https://github.com/Azure-Samples/Sentinel-For-SAP-Community/tree/main/integration-artifacts) for SAP user blocking.
-
 > [!IMPORTANT]
 > Review the authorizations of the Sentinel user and role on your SAP systems used with the containerized agent. The agentless data connector requires less but different authorizations compared to the containerized SAP agent. Refer to the [configuration guide](/azure/sentinel/sap/preparing-sap?pivots=connection-agentless#configure-the-microsoft-sentinel-role) for details and SAP role sample for minimum authorizations.
+
+## Feature parity
+
+The agentless data connector provides built-in feature parity with the containerized SAP agent for most important use cases regarding analytic rules and workbooks. See the [content reference](sap-solution-security-content.md) for details. 
 
 All analytics rules and workbooks built on the underlying SAP sources mentioned on the [table reference](./sap-solution-log-reference.md#logs-collected-by-the-agentless-data-connector) remain functional without any changes.
 
@@ -65,6 +65,8 @@ These sources include but are not limited to the following [logs](sap-solution-s
 - SAPcon - Audit Log
 - SAPcon - Change Documents Log
 - User and User Authorization Details
+
+The solution scope can be extended through [extensions patterns](https://github.com/Azure-Samples/Sentinel-For-SAP-Community) available for the agentless data connector. Watchlists and Playbooks remain fully functional without any changes.
 
 SAP HANA database or OS-level detections are out of scope for the comparison because they are covered by their own connectors in Microsoft Sentinel.
 

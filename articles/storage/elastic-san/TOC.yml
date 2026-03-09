@@ -20,6 +20,9 @@ items:
     href: elastic-san-best-practices.md
   - name: Performance
     href: elastic-san-performance.md
+  - name: Performance on Azure VMware Solution
+    href: elastic-san-performance-on-azure-vmware-solutions.md
+    displayname: Performance, Azure VMware Solutions, Azure Elastic SAN
   - name: Clustered applications
     href: elastic-san-shared-volumes.md
   - name: Encryption
@@ -29,7 +32,7 @@ items:
   - name: Metrics
     href: elastic-san-metrics.md
   - name: Reliability
-    href: ../../reliability/reliability-elastic-san.md?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
+    href: /azure/reliability/reliability-elastic-san?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
 - name: How to
   items:
   - name: Deploy an Elastic SAN

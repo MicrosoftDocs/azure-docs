@@ -2,7 +2,7 @@
 title: Azure Relay Hybrid Connections - WebSocket requests in Python
 description: Write a Python console application for Azure Relay Hybrid Connections WebSocket requests.
 ms.topic: tutorial
-ms.date: 01/30/2025
+ms.date: 01/24/2026
 ms.custom: devx-track-Python, mode-ui, mode-api, devx-track-extended-Python
 ---
 

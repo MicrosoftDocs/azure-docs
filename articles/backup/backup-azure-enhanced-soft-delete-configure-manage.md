@@ -60,7 +60,7 @@ Follow these steps:
 
 Follow these steps:
 
-1. In the **Backup center**, go to the *backup instance* that you want to delete.
+1. In the **Resiliency**, go to the *backup instance* that you want to delete.
 
 1. Select **Stop backup**.
 
@@ -92,7 +92,7 @@ Follow these steps:
 
 1. Go to the *backup item* that you want to retrieve from the *soft deleted* state.
 
-   You can also use the **Backup center** to go to the item by applying the filter **Protection status == Soft deleted** in the *Backup instances*.
+   You can also use the **Resiliency** to go to the item by applying the filter **Protection status == Soft deleted** in the *Backup instances*.
 
 1. Select **Undelete** corresponding to the *soft deleted item*.
 
@@ -111,7 +111,7 @@ Follow these steps:
 
 1. Go to the *deleted backup instance* that you want to recover.
 
-   You can also use the **Backup center** to go to the *instance* by applying the filter **Protection status == Soft deleted** in the *Backup instances*.
+   You can also use the **Resiliency** to go to the *instance* by applying the filter **Protection status == Soft deleted** in the *Backup instances*.
 
 1. Select **Undelete** corresponding to the *soft deleted instance*.
 

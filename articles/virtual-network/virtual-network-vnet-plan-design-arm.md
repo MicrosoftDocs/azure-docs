@@ -25,7 +25,7 @@ All Azure resources are created in an Azure region and subscription. You can cre
 
 - Do you have low network latency? Consumers of resources typically want the lowest network latency to their resources. To determine relative latencies between a specified location and Azure regions, see [View relative latencies](../network-watcher/view-relative-latencies.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Do you have data residency, sovereignty, compliance, or resiliency requirements? If so, choosing the region that aligns to the requirements is critical. For more information, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
-- Do you require resiliency across Azure availability zones within the same Azure region for the resources you deploy? You can deploy resources, such as virtual machines (VMs), to different availability zones within the same virtual network. Not all Azure regions support availability zones. To learn more about availability zones and the regions that support them, see [Availability zones](../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Do you require resiliency across Azure availability zones within the same Azure region for the resources you deploy? You can deploy resources, such as virtual machines (VMs), to different availability zones within the same virtual network. Not all Azure regions support availability zones. To learn more about availability zones and the regions that support them, see [Availability zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## Subscriptions
 

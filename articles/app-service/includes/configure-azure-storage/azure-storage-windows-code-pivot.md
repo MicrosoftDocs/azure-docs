@@ -2,7 +2,7 @@
 author: msangapu-msft
 ms.service: azure-app-service
 ms.topic: include
-ms.date: 03/04/2025
+ms.date: 02/09/2026
 ms.author: msangapu
 ---
 
@@ -72,17 +72,17 @@ No extra steps are required because the portal gets and stores the access key fo
 
 ### [Access Key](#tab/access-key)
 
-You need to obtain the access key from your storage account. <!--link or instructions? -->
+You need to get the access key from your storage account. <!--link or instructions? -->
 
 ### [Key Vault](#tab/key-vault)
 
-Before you can mount storage using Key Vault access, you need to get the Key Vault secret and add it as an application setting in your app.  
+Before you can mount storage by using Key Vault access, you need to get the Key Vault secret and add it as an application setting in your app.  
 
 1. In the Azure portal, browse to your Key Vault. Select **Objects** > **Secrets**. Copy the **Secret Identifier** to your clipboard.
 
    :::image type="content" source="../../media/configure-azure-storage/key-vault-secret-identifier.png" alt-text="Screenshot of Key Vault secret identifier.":::
 
-1. Navigate back to your app, and follow the [key vault reference](../../app-service-key-vault-references.md#source-app-settings-from-key-vault) to create an [application setting](../../configure-common.md#configure-app-settings) using the **Secret Identifier**.
+1. Go back to your app, and follow the [key vault reference](../../app-service-key-vault-references.md#source-app-settings-from-key-vault) to create an [application setting](../../configure-common.md#configure-app-settings) by using the **Secret Identifier**.
 
     Example app setting value: `@Microsoft.KeyVault(SecretUri=https://mykeyvault.vault.azure.net/secrets/mykeyvaultsecret/aaaaaaaa0b0b1c1c2d2d333333333333)`
 
@@ -96,17 +96,17 @@ Now you're ready to use Key Vault to access your storage account.
 
 To mount storage to Windows code by using the Azure portal:
 
-1. In the [Azure portal](https://portal.azure.com), navigate to the app.
-1. From the left navigation, select **Settings** > **Configuration**. Select **Path mappings**, then **New Azure Storage Mount**.
+1. In the [Azure portal](https://portal.azure.com), go to the app.
+1. From the left navigation, select **Settings** > **Configuration**. Select **Path mappings**, and then select **New Azure Storage Mount**.
 1. Configure the storage mount according to the following table. When finished, select **OK**.
 
    | Setting | Description |
    |:--------|:------------|
-   | **Name** | Name of the mount configuration. Spaces aren't allowed. |
+   | **Name** | Name of the mount configuration. Don't use spaces. |
    | **Configuration options** | Select **Basic** if the storage account doesn't use [private endpoints](../../../storage/common/storage-private-endpoints.md) or [Azure Key Vault](/azure/key-vault/general/overview). Otherwise, select **Advanced**. |
    | **Storage accounts** | Azure Storage account. It must contain an Azure Files share. |
    | **Share name** | Files share to mount. |
-   | **Storage access** | Select **Key vault reference** for Azure Key Vault. Otherwise, select **Manual input** |
+   | **Storage access** | Select **Key vault reference** for Azure Key Vault. Otherwise, select **Manual input**. |
    | **Access key** (Advanced only) | [Access key](../../../storage/common/storage-account-keys-manage.md) for your storage account. |
    | **Mount path** | Directory inside your app service that you want to mount. Only */mounts/pathname* is supported. |
    | **Application settings**| Select the app setting with the Azure Key Vault secret. |
@@ -114,13 +114,13 @@ To mount storage to Windows code by using the Azure portal:
 
 # [Azure portal](#tab/portal/access-key)
 
-1. In the [Azure portal](https://portal.azure.com), navigate to the app.
-1. From the left navigation, select **Settings** > **Configuration**. Select **Path mappings**, then **New Azure Storage Mount**.
+1. In the [Azure portal](https://portal.azure.com), go to the app.
+1. From the left navigation, select **Settings** > **Configuration**. Select **Path mappings**, and then select **New Azure Storage Mount**.
 1. Configure the storage mount according to the following table. When finished, select **OK**.
 
    | Setting | Description |
    |:--------|:------------|
-   | **Name** | Name of the mount configuration. Spaces aren't allowed. |
+   | **Name** | Name of the mount configuration. Don't use spaces. |
    | **Configuration options** | Select  **Advanced**. |
    | **Storage accounts** | Azure Storage account. |
    | **Storage type** | Select the type based on the storage you want to mount. Azure Blobs only supports read-only access. |
@@ -132,13 +132,13 @@ To mount storage to Windows code by using the Azure portal:
 
 # [Azure portal](#tab/portal/key-vault)
 
-1. In the [Azure portal](https://portal.azure.com), navigate to the app.
-1. From the left navigation, select **Settings** > **Configuration**. Select **Path mappings**, then **New Azure Storage Mount**.
+1. In the [Azure portal](https://portal.azure.com), go to the app.
+1. From the left navigation, select **Settings** > **Configuration**. Select **Path mappings**, and then select **New Azure Storage Mount**.
 1. Configure the storage mount according to the following table. When finished, select **OK**.
 
    | Setting | Description |
    |:--------|:------------|
-   | **Name** | Name of the mount configuration. Spaces aren't allowed. |
+   | **Name** | Name of the mount configuration. Don't use spaces. |
    | **Configuration options** | Select **Basic** if the storage account doesn't use [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [private endpoints](../../../storage/common/storage-private-endpoints.md), or [Azure Key Vault](/azure/key-vault/general/overview). Otherwise, select **Advanced**. |
    | **Storage accounts** | Azure Storage account. |
    | **Storage type** | Select the type based on the storage you want to mount. Azure Blobs only supports read-only access. |
@@ -175,7 +175,7 @@ The Azure CLI doesn't currently support mounting storage with Key Vault access. 
 ---
 
 > [!NOTE]
-> Adding, editing, or deleting a storage mount causes the app to restart.
+> When you add, edit, or delete a storage mount, the app restarts.
 
 ## Best practices
 
@@ -199,7 +199,7 @@ The Azure CLI doesn't currently support mounting storage with Key Vault access. 
 
 - If you [initiate a storage failover](../../../storage/common/storage-initiate-account-failover.md) when the storage account is mounted to the app, the mount doesn't connect until the app is restarted or the storage mount is removed and added again.
 
-- When virtual network integration is used, ensure app setting, `WEBSITE_CONTENTOVERVNET` is set to `1` and the following ports are open: Azure Files: 80 and 445.
+- Ensure port 445 is open when using Azure Files with virtual network integration. In addition, ensure app setting, `WEBSITE_CONTENTOVERVNET` is set to `1`.
 
 - The mounted Azure Storage account can be either Standard or Premium performance tier. Based on the app capacity and throughput requirements, choose the appropriate performance tier for the storage account. See [the scalability and performance targets for Files](../../../storage/files/storage-files-scale-targets.md).
 

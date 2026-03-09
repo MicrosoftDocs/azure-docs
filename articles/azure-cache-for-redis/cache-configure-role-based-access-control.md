@@ -3,7 +3,7 @@ title: Configure custom data access policies
 description: Learn how to create and configure a data access policy for Azure Cache for Redis and enable role-based access control via Microsoft Entra ID.
 ms.custom: references_regions, ignite-2024
 
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/21/2025
 appliesto:
   - ✅ Azure Cache for Redis

@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Deploy an event-driven job with Azure Container Apps'
-description: Learn to create a job that processes queue messages with Azure Container Apps
+title: 'Tutorial: Deploy an Event-Driven Job with Azure Container Apps'
+description: Learn how to create a job that processes queue messages by using Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 12/09/2024
+ms.date: 02/02/2026
 ms.author: cshoe
 ms.custom:
   - build-2023
@@ -13,28 +13,28 @@ ms.custom:
   - sfi-ropc-nochange
 ---
 
-# Tutorial: Deploy an event-driven job with Azure Container Apps
+# Tutorial: Deploy an event-driven job by using Azure Container Apps
 
-Azure Container Apps [jobs](jobs.md) allow you to run containerized tasks that execute for a finite duration and exit. You can trigger a job execution manually, on a schedule, or based on events. Jobs are best suited to for tasks such as data processing, machine learning, resource cleanup, or any scenario that requires serverless ephemeral compute resources.
+Azure Container Apps [jobs](jobs.md) enable you to run containerized tasks that run for a finite duration and then stop. You can trigger a job execution manually, on a schedule, or based on events. Jobs are best suited to for tasks such as data processing, machine learning, resource cleanup, or any scenario that requires serverless ephemeral compute resources.
 
 In this tutorial, you learn how to work with [event-driven jobs](jobs.md#event-driven-jobs).
 
 > [!div class="checklist"]
-> * Create a Container Apps environment to deploy your container apps
-> * Create an Azure Storage Queue to send messages to the container app
+> * Create a Container Apps environment in which to deploy your container apps
+> * Create an Azure Storage queue to send messages to the container app
 > * Build a container image that runs a job
 > * Deploy the job to the Container Apps environment
 > * Verify that the queue messages are processed by the container app
 
-The job you create starts an execution for each message that is sent to an Azure Storage queue. Each job execution runs a container that performs the following steps:
+The job you create starts an execution for each message that's sent to an Azure Storage queue. Each job execution runs a container that performs the following steps:
 
 1. Gets one message from the queue.
 1. Logs the message to the job execution logs.
 1. Deletes the message from the queue.
-1. Exits.
+1. Stops.
 
 > [!IMPORTANT]
-> The scaler monitors the queue's length to determine how many jobs to start. For accurate scaling, don't delete a message from the queue until the job execution has finished processing it.
+> The scaler monitors the queue's length to determine how many jobs to start. For accurate scaling, don't delete a message from the queue until the job execution finishes processing it.
 
 The source code for the job you run in this tutorial is available in an Azure Samples [GitHub repository](https://github.com/Azure-Samples/container-apps-event-driven-jobs-tutorial/blob/main/index.js).
 
@@ -46,12 +46,12 @@ The job uses an Azure Storage queue to receive messages. In this section, you cr
 
 1. Define a name for your storage account.
 
-    ```bash
+    ```azurecli
     STORAGE_ACCOUNT_NAME="<STORAGE_ACCOUNT_NAME>"
     QUEUE_NAME="myqueue"
     ```
 
-    Replace `<STORAGE_ACCOUNT_NAME>` with a unique name for your storage account. Storage account names must be *unique within Azure* and be from 3 to 24 characters in length containing numbers and lowercase letters only.
+    Replace `<STORAGE_ACCOUNT_NAME>` with a unique name for your storage account. Storage account names must be unique within Azure. They must be between 3 and 24 characters long and contain numbers and lowercase letters only.
 
 1. Create an Azure Storage account.
 
@@ -64,7 +64,7 @@ The job uses an Azure Storage queue to receive messages. In this section, you cr
         --kind StorageV2
     ```
 
-    If this command returns the error:
+    If this command returns the following error, be sure you have registered the `Microsoft.Storage` namespace in your Azure subscription. 
 
     ```
     (SubscriptionNotFound) Subscription <SUBSCRIPTION_ID> was not found.
@@ -72,19 +72,19 @@ The job uses an Azure Storage queue to receive messages. In this section, you cr
     Message: Subscription <SUBSCRIPTION_ID> was not found.
     ```
 
-    Be sure you have registered the `Microsoft.Storage` namespace in your Azure subscription.
+    Use this command to register the namespace: 
 
     ```azurecli
     az provider register --namespace Microsoft.Storage
     ```
 
-1. Save the queue's connection string into a variable.
+1. Save the queue's connection string into a variable:
 
-    ```bash
+    ```azurecli
     QUEUE_CONNECTION_STRING=$(az storage account show-connection-string -g $RESOURCE_GROUP --name $STORAGE_ACCOUNT_NAME --query connectionString --output tsv)
     ```
 
-1. Create the message queue.
+1. Create the message queue:
 
     ```azurecli
     az storage queue create \
@@ -95,11 +95,11 @@ The job uses an Azure Storage queue to receive messages. In this section, you cr
 
 ## Create a user-assigned managed identity
 
-To avoid using administrative credentials, pull images from private repositories in Microsoft Azure Container Registry using managed identities for authentication. When possible, use a user-assigned managed identity to pull images.
+To avoid using administrative credentials, pull images from private repositories in Azure Container Registry. Use managed identities for authentication. When possible, use a user-assigned managed identity to pull images.
 
-1. Create a user-assigned managed identity. Before you run the following commands, choose a name for your managed identity and replace the `\<PLACEHOLDER\>` with the name.
+1. Create a user-assigned managed identity. Before you run the following commands, choose a name for your managed identity and create the following variable:
 
-    ```bash
+    ```azurecli
     IDENTITY="<YOUR_IDENTITY_NAME>"
     ```
 
@@ -109,7 +109,7 @@ To avoid using administrative credentials, pull images from private repositories
         --resource-group $RESOURCE_GROUP
     ```
 
-1. Get the identity's resource ID.
+1. Get the identity's resource ID:
 
     ```azurecli
     IDENTITY_ID=$(az identity show \
@@ -121,18 +121,18 @@ To avoid using administrative credentials, pull images from private repositories
 
 ## Build and deploy the job
 
-To deploy the job, you must first build a container image for the job and push it to a registry. Then, you can deploy the job to the Container Apps environment.
+To deploy the job, you must first build a container image for it and push the container to a registry. You can then deploy the job to the Container Apps environment.
 
-1. Define a name for your container image and registry.
+1. Define a name for your container image and registry:
 
     ```bash
     CONTAINER_IMAGE_NAME="queue-reader-job:1.0"
     CONTAINER_REGISTRY_NAME="<CONTAINER_REGISTRY_NAME>"
     ```
 
-    Replace `<CONTAINER_REGISTRY_NAME>` with a unique name for your container registry. Container registry names must be *unique within Azure* and be from 5 to 50 characters in length containing numbers and lowercase letters only.
+    Replace `<CONTAINER_REGISTRY_NAME>` with a unique name for your container registry. Container registry names must be unique within Azure. They must be between 5 and 50 characters long and contain numbers and lowercase letters only.
 
-1. Create a container registry.
+1. Create a container registry:
 
     ```azurecli
     az acr create \
@@ -144,13 +144,13 @@ To deploy the job, you must first build a container image for the job and push i
 
 1. Your container registry must allow Azure Resource Manager (ARM) audience tokens for authentication in order to use managed identity to pull images.
 
-    Use the following command to check if ARM tokens are allowed to access your Azure Container Registry (ACR).
+    Use the following command to check whether ARM tokens are allowed to access your Azure container registry:
 
     ```azurecli
     az acr config authentication-as-arm show --registry "$CONTAINER_REGISTRY_NAME"
     ```
 
-    If ARM tokens are allowed, the command outputs the following.
+    If ARM tokens are allowed, you see the following output:
     
     ```
     {
@@ -158,13 +158,13 @@ To deploy the job, you must first build a container image for the job and push i
     }
     ```
 
-    If the `status` is `disabled`, allow ARM tokens with the following command.
+    If the `status` is `disabled`, allow ARM tokens by using the following command:
 
     ```azurecli
     az acr config authentication-as-arm update --registry "$CONTAINER_REGISTRY_NAME" --status enabled
     ```
 
-1. The source code for the job is available on [GitHub](https://github.com/Azure-Samples/container-apps-event-driven-jobs-tutorial). Run the following command to clone the repository and build the container image in the cloud using the `az acr build` command.
+1. The source code for the job is available on [GitHub](https://github.com/Azure-Samples/container-apps-event-driven-jobs-tutorial). Run the following command to clone the repository and build the container image in the cloud:
 
     ```azurecli
     az acr build \
@@ -175,7 +175,7 @@ To deploy the job, you must first build a container image for the job and push i
 
     The image is now available in the container registry.
 
-1. Create a job in the Container Apps environment.
+1. Create a job in the Container Apps environment:
 
     ```azurecli
     az containerapp job create \
@@ -201,11 +201,11 @@ To deploy the job, you must first build a container image for the job and push i
         --env-vars "AZURE_STORAGE_QUEUE_NAME=$QUEUE_NAME" "AZURE_STORAGE_CONNECTION_STRING=secretref:connection-string-secret"
     ```
 
-    The following table describes the key parameters used in the command.
+    The following table describes the key parameters used in the previous command.
 
     | Parameter | Description |
     | --- | --- |
-    | `--replica-timeout` | The maximum duration a replica can execute. |
+    | `--replica-timeout` | The maximum duration a replica can run. |
     | `--min-executions` | The minimum number of job executions to run per polling interval. |
     | `--max-executions` | The maximum number of job executions to run per polling interval. |
     | `--polling-interval` | The polling interval at which to evaluate the scale rule. |
@@ -214,22 +214,22 @@ To deploy the job, you must first build a container image for the job and push i
     | `--scale-rule-metadata` | The metadata for the scale rule. |
     | `--scale-rule-auth` | The authentication for the scale rule. |
     | `--secrets` | The secrets to use for the job. |
-    | `--registry-server` | The container registry server to use for the job. For an Azure Container Registry, the command automatically configures authentication. |
+    | `--registry-server` | The container registry server to use for the job. For an Azure container registry, the command automatically configures authentication. |
     | `--mi-user-assigned` | The resource ID of the user-assigned managed identity to assign to the job. |
-    | `--registry-identity` | The resource ID of a managed identity to authenticate with the registry server instead of using a username and password. If possible, an 'acrpull' role assignment is created for the identity automatically. |
+    | `--registry-identity` | The resource ID of a managed identity to authenticate with the registry server instead of using a user name and password. If possible, an `acrpull` role assignment is automatically created for the identity. |
     | `--env-vars` | The environment variables to use for the job. |
 
-    The scale rule configuration defines the event source to monitor. It is evaluated on each polling interval and determines how many job executions to trigger. To learn more, see [Set scaling rules](scale-app.md).
+    The scale rule configuration defines the event source to monitor. It's evaluated on each polling interval and determines how many job executions to trigger. For more information, see [Set scaling rules](scale-app.md).
 
 The event-driven job is now created in the Container Apps environment. 
 
 ## Verify the deployment
 
-The job is configured to evaluate the scale rule every 60 seconds, which checks the number of messages in the queue. For each evaluation period, it starts a new job execution for each message in the queue, up to a maximum of 10 executions.
+The job is configured to evaluate the scale rule every 60 seconds. This evaluation checks the number of messages in the queue. For each evaluation period, it starts a new job execution for each message in the queue, up to a maximum of 10 executions.
 
-To verify the job was configured correctly, you can send some messages to the queue, confirm that job executions are started, and the messages are logged to the job execution logs.
+To verify that the job is configured correctly, you can send some messages to the queue and confirm that job executions are started and that the messages are logged to the job execution logs.
 
-1. Send a message to the queue.
+1. Send a message to the queue:
 
     ```azurecli
     az storage message put \
@@ -238,7 +238,7 @@ To verify the job was configured correctly, you can send some messages to the qu
         --connection-string "$QUEUE_CONNECTION_STRING"
     ```
 
-1. List the executions of a job.
+1. List the executions of a job:
 
     ```azurecli
     az containerapp job execution list \
@@ -247,9 +247,9 @@ To verify the job was configured correctly, you can send some messages to the qu
         --output json
     ```
 
-    Since the job is configured to evaluate the scale rule every 60 seconds, it may take up to a full minute for the job execution to start. Repeat the command until you see the job execution and its status is `Succeeded`.
+    Because the job is configured to evaluate the scale rule every 60 seconds, it might take up to a full minute for the job execution to start. Repeat the command until you see the job execution and its status is `Succeeded`.
 
-1. Run the following commands to see logged messages. These commands require the Log analytics extension, so accept the prompt to install extension when requested.
+1. Run the following commands to see logged messages. These commands require the Log analytics extension, so accept the prompt to install the extension.
 
     ```azurecli
     LOG_ANALYTICS_WORKSPACE_ID=$(az containerapp env show --name $ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --output tsv)
@@ -262,21 +262,21 @@ To verify the job was configured correctly, you can send some messages to the qu
     Until the `ContainerAppConsoleLogs_CL` table is ready, the command returns an error: `BadArgumentError: The request had some invalid properties`. Wait a few minutes and try again.
 
 > [!TIP]
-> Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
+> Having problems? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
 
 ## Clean up resources
 
-Once you're done, run the following command to delete the resource group that contains your Container Apps resources.
+When you're done, run the following command to delete the resource group that contains your Container Apps resources.
 
 >[!CAUTION]
-> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this tutorial exist in the specified resource group, they will also be deleted.
+> The following command deletes the specified resource group and all resources contained in it. If there are resources outside the scope of this tutorial in the specified resource group, they're also deleted.
 
 ```azurecli
 az group delete \
     --resource-group $RESOURCE_GROUP
 ```
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Container Apps jobs](jobs.md)

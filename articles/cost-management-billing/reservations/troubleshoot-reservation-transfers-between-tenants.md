@@ -7,7 +7,7 @@ ms.subservice: reservations
 ms.author: primittal
 ms.reviewer: primittal
 ms.topic: troubleshooting
-ms.date: 10/28/2025
+ms.date: 01/15/2026
 ---
 
 # Change an Azure reservation directory between tenants
@@ -58,4 +58,4 @@ For example, the current scope of the reserved instance is set to Single subscri
 
 ## Next steps
 
-- For more information about reservations, see [What are Azure Reservations?](save-compute-costs-reservations.md).
+- For more information about reservations, see [What are Azure Reservations?](save-compute-costs-reservations.md)

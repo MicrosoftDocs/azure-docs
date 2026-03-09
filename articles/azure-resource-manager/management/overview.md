@@ -2,7 +2,7 @@
 title: What is Azure Resource Manager?
 description: This overview describes how to use Azure Resource Manager to deploy, manage, and control access to Azure resources.
 ms.topic: overview
-ms.date: 02/06/2025
+ms.date: 02/27/2026
 ms.custom: devx-track-arm-template
 ---
 
@@ -33,7 +33,7 @@ If you're new to Resource Manager, you might not be familiar the following terms
 
 * **resource** - A manageable item that's available through Azure. Examples of resources include virtual machines, storage accounts, web apps, databases, and virtual networks. Resource groups, subscriptions, management groups, and tags are also resources.
 
-* **resource group** - A container that holds related resources for an Azure solution. The resource group includes those resources that you want to manage as a group. You decide which resources belong in a resource group based on what makes the most sense for your organization. See [What is a resource group?](#resource-groups).
+* **resource group** - A container that holds related resources for an Azure solution. The resource group includes those resources that you want to manage as a group. You decide which resources belong in a resource group based on what makes the most sense for your organization. See [What is a resource group?](#resource-groups)
 
 * **resource provider** - A service that supplies Azure resources. For example, a common resource provider is `Microsoft.Compute`, which supplies the virtual machine resource. `Microsoft.Storage` is another common resource provider. See [Azure resource providers and types](resource-providers-and-types.md).
 
@@ -91,7 +91,7 @@ There are some important considerations when defining your resource group:
 
 * You can move a resource from one resource group to another group. For more information, see [Move Azure resources to new resource group or subscription](move-resource-group-and-subscription.md).
 
-* The resources in a resource group can be located in different regions than the resource group, but we recommend that you use the same location. See [What location should I use for my resource group?](#which-location-should-i-use-for-my-resource-group).
+* The resources in a resource group can be located in different regions than the resource group, but we recommend that you use the same location. See [What location should I use for my resource group?](#which-location-should-i-use-for-my-resource-group)
 
 * A resource group can be used to scope access control for administrative actions. You can use Azure [policies](../../governance/policy/overview.md), [roles](/azure/role-based-access-control/role-assignments-portal), or [resource locks](lock-resources.md) to manage a resource group.
 

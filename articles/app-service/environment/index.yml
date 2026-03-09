@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: App Service Environment documentation
-summary: Azure App Service Environments enables you to host web apps in a fully isolated and dedicated environment for securely running App Service apps at high scale.
+summary: Azure App Service Environments enable you to host web apps in a fully isolated and dedicated environment for securely running App Service apps at high scale.
 
 metadata:
   title: Azure App Service Environment documentation
@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page
   ms.author: mijacobs
   ms.service: azure-app-service
-  ms.date: 11/15/2021
+  ms.date: 02/05/2026
 
 landingContent:
   - title: About App Service Environment

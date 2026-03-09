@@ -15,7 +15,7 @@ This article shows you how to relocate Azure Container Registry resources to ano
 ## Prerequisites
 
 - You can only relocate a registry within the same Active Directory tenant. This limitation applies to registries that are encrypted and unencrypted with a [customer-managed key](/azure/container-registry/tutorial-enable-customer-managed-keys).
-- If the source registry has [availability zones](../../../reliability/availability-zones-overview.md) enabled, then the target region must also support availability zones. For more information on availability zone support for Azure Container Registry, see [Enable zone redundancy in Azure Container Registry](/azure/container-registry/zone-redundancy).
+- If the source registry has [availability zones](/azure/reliability/availability-zones-overview) enabled, then the target region must also support availability zones. For more information on availability zone support for Azure Container Registry, see [Enable zone redundancy in Azure Container Registry](/azure/container-registry/zone-redundancy).
 
 ## Considerations for Service Endpoints
 

@@ -138,5 +138,5 @@ $job = Search-AzDataProtectionJobInAzGraph -Subscription $sub -ResourceGroupName
 
 ## Related content
 
-- [What is Azure Database for PostgreSQL backup?](backup-azure-database-postgresql-overview.md).
+- [What is Azure Database for PostgreSQL backup?](backup-azure-database-postgresql-overview.md)
 - [Manage an Azure Database for PostgreSQL server by using the Azure portal](manage-azure-database-postgresql.md).

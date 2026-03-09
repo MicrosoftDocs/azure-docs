@@ -3,7 +3,7 @@ title: Configure Dataset in Business Process Solutions
 description: Learn how to configure datasets in Business Process Solutions, including importing template datasets, enabling datasets for extraction and processing, and modifying dataset tables and relationships.
 author: mohitmakhija1
 ms.service: sap-on-azure
-ms.subservice:
+ms.subservice: center-sap-solutions
 ms.topic: how-to
 ms.date: 11/07/2025
 ms.author: momakhij

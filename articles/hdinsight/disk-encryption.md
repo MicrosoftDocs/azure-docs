@@ -22,7 +22,7 @@ This document doesn't address data stored in your Azure Storage account. Your cl
 
 ## Introduction
 
-There are three main managed disk roles in Azure: the data disk, the OS disk, and the temporary disk. For more information about different types of managed disks, see [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview). 
+There are three main managed disk roles in Azure: the data disk, the OS disk, and the temporary disk. For more information about different types of managed disks, see [Introduction to Azure Managed Disks](/azure/virtual-machines/managed-disks-overview). 
 
 HDInsight supports multiple types of encryption in two different layers:
 
@@ -179,7 +179,7 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
 
 #### Using Azure Resource Manager templates
 
-The following example shows how to use an Azure Resource Manager template to create a new Apache Spark cluster with disk encryption enabled. For more information, see [What are ARM templates?](../azure-resource-manager/templates/overview.md). The resource manager template property `diskEncryptionKeyVersion` is optional.
+The following example shows how to use an Azure Resource Manager template to create a new Apache Spark cluster with disk encryption enabled. For more information, see [What are ARM templates?](../azure-resource-manager/templates/overview.md) The resource manager template property `diskEncryptionKeyVersion` is optional.
 
 This example uses PowerShell to call the template.
 

@@ -16,7 +16,7 @@ ms.custom:
 
 # Quickstart: Create an App Service Environment
 
-In this quickstart, you create an App Service Environment. [App Service Environment][Intro] is a single-tenant deployment of Azure App Service that integrates with an Azure virtual network. Each App Service Environment deployment requires a dedicated subnet, which you can't use for other resources.
+In this quickstart, you create an App Service Environment. [App Service Environment](overview.md) is a single-tenant deployment of Azure App Service that integrates with an Azure virtual network. Each App Service Environment deployment requires a dedicated subnet, which you can't use for other resources.
 
 If you don't have an Azure account, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
@@ -48,7 +48,7 @@ If you don't have an Azure account, create a [free account](https://azure.micros
      
      You must pay a minimum charge for one instance of Windows Isolated v2 in your App Service plan. When you use one or more instances, the charge is removed. This fee isn't additive.
     
-   - *Zone redundant deployment:* Zone redundancy ensures that workloads remain available even if one zone experiences an outage. In regions that support availability zones, you can configure App Service Environments so that apps are distributed across multiple availability zones within the same region. You must include at least two instances in your App Service plan to ensure redundancy across zones. You can scale out by adding one or more instances at a time. For more information, see [Reliability in App Service Environment](../../reliability/reliability-app-service-environment.md).
+   - *Zone redundant deployment:* Zone redundancy ensures that workloads remain available even if one zone experiences an outage. In regions that support availability zones, you can configure App Service Environments so that apps are distributed across multiple availability zones within the same region. You must include at least two instances in your App Service plan to ensure redundancy across zones. You can scale out by adding one or more instances at a time. For more information, see [Reliability in App Service Environment](/azure/reliability/reliability-app-service-environment).
    
    - *Host group deployment:* Your apps are deployed onto a dedicated host group. The dedicated host group isn't zone redundant. You can install and use your App Service Environment on dedicated hardware. There's no minimum instance charge for using an App Service Environment on a dedicated host group. However, you must pay for the host group when you provision the App Service Environment. You must also pay a discounted App Service plan rate when you create your plans and scale out.
    
@@ -120,8 +120,4 @@ After you successfully create your App Service Environment, you can select it as
 
 ## Related content
 
-- [Create an App Service Environment by using a Resource Manager template](how-to-create-from-template.md).
-
-<!--Links-->
-[Intro]: ./overview.md
-[UseAppServiceEnvironment]: ./using.md
+- [Create an App Service Environment - Azure Resource Manager template](how-to-create-from-template.md)

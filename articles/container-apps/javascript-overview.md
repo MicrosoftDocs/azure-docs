@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-js
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/14/2025
 ms.author: cshoe
 #CustomerIntent: As a developer new to Azure, I want to understand how to use Azure Container Apps to build, deploy, and manage my applications efficiently.

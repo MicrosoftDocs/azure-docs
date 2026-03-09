@@ -4,9 +4,10 @@ titleSuffix: Microsoft Security
 description: Learn about the different tools available in the Data exploration collection in Microsoft Sentinel 
 author: poliveria
 ms.topic: how-to
-ms.date: 11/24/2025
+ms.date: 02/16/2026
 ms.author: pauloliveria
 ms.service: microsoft-sentinel
+ms.subservice: sentinel-platform
 
 #customer intent: As a security analyst, I want to know the different tools available to explore security data in Microsoft Sentinel data lake
 ---
@@ -30,7 +31,7 @@ To access the data exploration tool collection, you need the following prerequis
 
 ## Add the data exploration collection
 
-To add the data exploration collection, you must first set up add Microsoft Sentinel's unified MCP server interface. Follow the step-by-step instructions for compatible [AI-powered code editors and agent-building platforms](sentinel-mcp-get-started.md#add-microsoft-sentinels-collection-of-mcp-tools).
+To add the data exploration collection, first set up Microsoft Sentinel's unified MCP server interface. Follow the step-by-step instructions for compatible [AI-powered code editors and agent-building platforms](sentinel-mcp-get-started.md#add-microsoft-sentinels-collection-of-mcp-tools).
 
 The data exploration collection is hosted at the following URL:
 ```
@@ -67,7 +68,7 @@ This tool lists all Microsoft Sentinel data lake workspace name and ID pairs ava
 
 These tools use AI to analyze your organization's data in the Microsoft Sentinel data lake. They provide a verdict and detailed insights on URLs, domains, and user entities. They help eliminate the need for manual data collection and complex integrations typically required for enriching and investigating entities.
 
-For example, `analyze_user_entity` reasons over the user's authentication patterns, behavioral anomalies, activity within your organization, and more to provide a verdict and analysis. Meanwhile, `analyze_url_entity` reasons over threat intelligence from Microsoft, your custom threat intelligence in Sentinel threat intelligence platform (TIP), click, email, or connection activity on the URL within your organization, and presence in Sentinel watchlists, among others to similarly provide a verdict and analysis.
+For example, `analyze_user_entity` reasons over the user's authentication patterns, behavioral anomalies, activity within your organization, and more to provide a verdict and analysis. Meanwhile, `analyze_url_entity` reasons over threat intelligence from Microsoft, your custom threat intelligence in Microsoft Sentinel threat intelligence platform (TIP), click, email, or connection activity on the URL within your organization, and presence in Microsoft Sentinel watchlists, among others to similarly provide a verdict and analysis.
 
 Entity analysis tools might require a few minutes to generate results, so there are tools to start analysis for each entity and another one that polls for the analysis results.
 
@@ -75,8 +76,9 @@ Entity analysis tools might require a few minutes to generate results, so there 
 
 | Parameters | Required? | Description | 
 |----------|----------|----------|
-| Microsoft Entra object ID or URL| Yes |This parameter takes in the user or URL you want to analyze. |
-| Lookback time| No |This parameter takes in the lookback time. Default is seven days. |
+| Microsoft Entra object ID, User Principal Name (UPN), or URL| Yes |This parameter takes in the user or URL you want to analyze. |
+| `startTime`| Yes |This parameter takes in the start time of the analysis window.  |
+| `endTime`| Yes |This parameter takes in the end time of the analysis window.  |
 | `workspaceId`| No |This parameter takes in a workspace identifier to limit the search to a single connected Microsoft Sentinel data lake workspace. |
 
 These tools return an identifier value that you can provide to the retrieve analysis tool as input.
@@ -94,18 +96,19 @@ While this tool automatically polls for a few minutes until results are ready, i
 
 #### Additional information
 - `analyze_user_entity` supports a maximum time window of seven days to maximize accuracy of the results. 
+- `analyze_user_entity` only works for users with a Microsoft Entra object ID (cloud users). On-premises Active Directory-only users aren't supported for user analysis.
 - `analyze_user_entity` requires the following tables to be present in the data lake to ensure accuracy of the analysis:
     - [AlertEvidence](../connect-microsoft-365-defender.md)
     - [SigninLogs](../connect-azure-active-directory.md)
-    - [BehaviorAnalytics](../enable-entity-behavior-analytics.md)
     - [CloudAppEvents](../connect-microsoft-365-defender.md)
     - [IdentityInfo](/defender-xdr/advanced-hunting-identityinfo-table) (Available only for tenants with Microsoft Defender for Identity, Microsoft Defender for Cloud Apps, or Microsoft Defender for Endpoint P2 licensing)
 
-    If you don't have any of these required tables, `analyze_user_entity` generates an error message that lists the tables you didn't onboard, along with links to their corresponding onboarding documentation: 
+    If you don't have any of these required tables, `analyze_user_entity` generates an error message that lists the tables you didn't onboard, along with links to their corresponding onboarding documentation.
 
 - `analyze_user_entity` works best when the following table is also present in the data lake, but continues to work and assess risk, even if the said table is unavailable:
     - [AADNonInteractiveUserSignInLogs](../connect-azure-active-directory.md)
-
+    - [BehaviorAnalytics](../enable-entity-behavior-analytics.md)
+    
 - `analyze_url_entity` works best when the following tables are present in the data lake, but continues to work and assess risk, even if the said tables are unavailable:
     - [EmailUrlInfo](../connect-microsoft-365-defender.md)
     - [UrlClickEvents](../connect-microsoft-365-defender.md)
@@ -113,7 +116,9 @@ While this tool automatically polls for a few minutes until results are ready, i
     - [Watchlist](../watchlists-create.md)
     - [DeviceNetworkEvents](../connect-microsoft-365-defender.md)
 
-    If you don't have any of these tables, `analyze_url_entity` generates a response with a disclaimer that lists the tables you didn't onboard, along with links to their corresponding onboarding documentation:
+    If you don't have any of these tables, `analyze_url_entity` generates a response with a disclaimer that lists the tables you didn't onboard, along with links to their corresponding onboarding documentation.
+
+- Running multiple instances of the entity analyzer at the same time can increase latency for each run. To prevent timeouts and avoid hitting the entity analyzer's [preview thresholds](sentinel-mcp-billing.md#microsoft-sentinel-entity-analyzer-tool-1), start by running a maximum of five analyses at once and then adjust it as needed based on how often the logic app is triggered in your organization. 
 
 ## Sample prompts
 
@@ -128,9 +133,9 @@ The following sample prompts demonstrate what you can do with the data explorati
 
 ## How Microsoft Sentinel MCP tools work alongside your agent
 
-Let's take a deeper look into how an agent answers a prompt by dynamically orchestrating over our tools.
+Let's take a deeper look into how an agent answers a prompt by dynamically orchestrating over the tools.
 
-**Sample prompt:** `Find the top three users that are at risk and explain why they are at risk.` 
+**Sample prompt:** `Find the top three users that are at risk and explain why they're at risk.` 
 
 **Typical response (GitHub Copilot using Claude Sonnet 4):**
 
@@ -147,7 +152,7 @@ Let's take a deeper look into how an agent answers a prompt by dynamically orche
  
      :::image type="content" source="media/sentinel-mcp/mcp-tool-search-table.png" alt-text="Screenshot of the agent searching for relevant tables that contain user risk and security information." lightbox="media/sentinel-mcp/mcp-tool-search-table.png"::: 
 
-- The agent does another search using the **Semantic search on table catalog** (`search_tables`) tool, this time with broader terms, to find other tables that it should query data from to influence its reasoning.
+- The agent does another search by using the **Semantic search on table catalog** (`search_tables`) tool, this time with broader terms, to find other tables that it should query data from to influence its reasoning.
 
     :::image type="content" source="media/sentinel-mcp/mcp-tool-semantic-search.png" alt-text="Screenshot of the agent searching using broader terms." lightbox="media/sentinel-mcp/mcp-tool-semantic-search.png"::: 
  

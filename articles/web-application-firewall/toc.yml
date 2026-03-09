@@ -74,6 +74,8 @@ items:
       items:
       - name: Overview
         href: ./ag/application-gateway-crs-rulegroups-rules.md
+      - name: Managed ruleset support policy
+        href: ruleset-support-policy.md?pivots=application-gateway
       - name: Exclusion lists
         href: ./ag/application-gateway-waf-configuration.md
       - name: Upgrade ruleset version
@@ -126,6 +128,8 @@ items:
       items:
       - name: Overview
         href: ./afds/waf-front-door-drs.md
+      - name: Managed ruleset support policy
+        href: ruleset-support-policy.md?pivots=front-door
       - name: Exclusion lists
         href: ./afds/waf-front-door-exclusion.md
       - name: Configure exclusion lists
@@ -206,6 +210,8 @@ items:
       href: ./ag/best-practices.md
     - name: Monitoring and logging
       href: ./ag/application-gateway-waf-metrics.md
+    - name: WAF insights dashboards
+      href: ./ag/insights.md
     - name: Resource logs
       href: ./ag/web-application-firewall-logs.md
     - name: Log Analytics

@@ -1,8 +1,8 @@
 ---
 title: Upgrade Windows Operating System
 description: Learn how to upgrade Windows OS during migration.
-author: AnuragMehrotra
-ms.author: anuragm
+author: vijain
+ms.author: vijain 
 ms.manager: vijain
 ms.topic: how-to
 ms.date: 05/08/2025
@@ -19,6 +19,7 @@ This article describes how to upgrade Windows Server OS while migrating to Azure
 > - The upgrade feature only works for Windows Server Standard, Datacenter, and Enterprise editions.
 > - The upgrade feature doesn't work for non en-US language servers. 
 > - This feature doesn't work for a Windows Server with an evaluation license and needs a full license. If you have any server with an evaluation license, upgrade to full edition before starting migration to Azure.
+> - Windows Server 2008 and Windows Server 2008 R2 have reached End of Life (EOL). For more information, see, [End of support for Windows Server 2008 and Windows Server 2008 R2](/troubleshoot/windows-server/windows-server-eos-faq/end-of-support-windows-server-2008-2008r2) and [Perform in-place upgrade to Windows Server 2016, 2019, 2022, or 2025](/azure/virtual-machines/windows-in-place-upgrade#perform-in-place-upgrade-to-windows-server-2016-2019-2022-or-2025). Review your usage and plan OS upgrades and migrations accordingly.
 
 ## Prerequisites 
 

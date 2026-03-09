@@ -6,8 +6,7 @@ author: ananyagarg
 ms.topic: concept-article
 ms.date: 10/04/2022
 ms.author: ananyagarg
-ms.service: azure-virtual-machines
-ms.subservice: azure-confidential-computing
+ms.service: azure-confidential-computing
 ms.custom: inspire-fall-2022
 # Customer intent: As a cloud engineer, I want to implement confidential VM node pools on Azure Kubernetes Service, so that I can enhance the security of my container workloads with hardware-based Trusted Execution Environment features.
 ---

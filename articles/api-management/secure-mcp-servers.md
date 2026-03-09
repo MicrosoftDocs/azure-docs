@@ -80,6 +80,8 @@ For more inbound authorization options and samples, see:
 
 * [MCP server authorization with Protected Resource Metadata (PRM) sample](https://github.com/blackchoey/remote-mcp-apim-oauth-prm)
 
+* [Lab: MCP with protected resource metadata (PRM) authorization](https://github.com/Azure-Samples/AI-Gateway/tree/main/labs/mcp-prm-oauth)
+
 * [Secure Remote MCP Servers using Azure API Management (Experimental)](https://github.com/Azure-Samples/remote-mcp-apim-functions-python)
 
 * [MCP client authorization lab](https://github.com/Azure-Samples/AI-Gateway/tree/main/labs/mcp-client-authorization)

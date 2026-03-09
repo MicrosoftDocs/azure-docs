@@ -7,10 +7,11 @@ ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/21/2025
+ms.date: 12/29/2025
 ms.custom:
-  - sfi-image-nochange
-  - sfi-ga-nochange
+- sfi-image-nochange
+- sfi-ga-nochange
+service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
 
 # Manage Azure subscription policies
@@ -19,7 +20,7 @@ This article helps you to configure Azure subscription policies to control the m
 
 ## Prerequisites
 
-- Only directory [global administrators](../../active-directory/roles/permissions-reference.md#global-administrator) can edit subscription policies. Before editing subscription policies, the global administrator must [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md). Then they can edit subscription policies.
+- Only directory [global administrators](../../active-directory/roles/permissions-reference.md#global-administrator) with direct role assignment can edit subscription policies. Before editing subscription policies, the global administrator must [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md). Then they can edit subscription policies.
 - All other users can only read the current policy setting.
 - Subscriptions transferred into or out of a directory must remain associated with a Billing Tenant to ensure billing occurs correctly. 
 

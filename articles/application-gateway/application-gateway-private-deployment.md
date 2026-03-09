@@ -6,7 +6,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 08/19/2025
+ms.date: 12/18/2025
 ms.author: mbender
 ms.custom: sfi-image-nochange
 #Customer intent: As an administrator, I want to evaluate Azure Private Application Gateway
@@ -32,17 +32,26 @@ Application Gateway v2 can now address each of these items to further eliminate 
 * Ability to override the default route to the Internet (0.0.0.0/0)
 * DNS resolution via defined resolvers on the virtual network [Learn more](../virtual-network/manage-virtual-network.yml#change-dns-servers), including private link private DNS zones.
 
+>[!Tip]
+> See [Application Gateway DNS resolution](application-gateway-dns-resolution.md) for detailed guidance on configuring DNS for Application Gateway.
+
 Each of these features can be configured independently. For example, a public IP address can be used to allow traffic inbound from the Internet and you can define a **_Deny All_** outbound rule in the network security group configuration to prevent data exfiltration.
 
 ## Onboard to the feature
 
-The functionality of the new controls of private IP frontend configuration, control over NSG rules, and control over route tables, are generally available and supported in production.  To use the features, you must opt in to the experience using the Azure portal, PowerShell, CLI, or REST API.
+The new controls for private IP frontend configuration, NSG rule management, and route table configuration are generally available and supported in production. To use these capabilities, you must opt in to the experience using the Azure portal, PowerShell, CLI, or REST API. This opt‑in mechanism also provides flexibility if you need to revert to traditional Application Gateway functionality when required (for example, to enable Private Link).
 
-When enrolled, all new Application Gateways provision with the ability to define any combination of the NSG, Route Table, or private IP configuration features.  If you wish to opt out from the new functionality, you can do so by [unregistering from the feature](#unregister-the-feature).
+When enrolled, all new Application Gateways provision with the ability to define any combination of NSG, route table, or private IP configuration features. If you wish to opt out of the new functionality, you can do so by [unregistering from the feature](#unregister-the-feature).
+
+>[!Tip]
+>Gateways operate using the capabilities available at the time they are provisioned. If you unregister from the feature, existing gateways continue to operate with the capabilities that were enabled when they were created.
 
 ## Register the feature
 
 # [Azure portal](#tab/portal)
+
+> [!Note]
+> In the Azure portal experience, the feature registration process is labeled as *preview*; however, this experience is **Generally Available**, fully supported for production workloads, and covered under the published Application Gateway SLAs.
 
 Use the following steps to enroll into the feature for the enhanced Application Gateway network controls via the Azure portal:
 
@@ -168,6 +177,9 @@ A list of all Azure CLI references for Private Link Configuration on Application
 ## Configuration of network controls
 
 After registering the feature, configuration of NSG, Route Table, and private IP address frontend configuration can be performed using any methods. For example: REST API, ARM Template, Bicep deployment, Terraform, PowerShell, CLI, or Portal.
+
+> [!NOTE]
+> If your client application connects to App Gateway via a private IP, requires an idle timeout greater > than 4 minutes, and the client application does not send TCP keep-alive packets, contact agprivateip-keepalive@microsoft.com to request initiation of keep‑alive from Application Gateway.
 
 ## Application Gateway Subnet 
 

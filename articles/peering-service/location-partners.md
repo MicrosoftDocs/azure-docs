@@ -1,11 +1,11 @@
 ---
-title: Azure Peering Service locations and partners
+title: Azure Peering Service Locations and Partners
 description: Learn about globally available Microsoft Azure Peering Service locations and partners (ISPs and IXPs).
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-peering-service
 ms.topic: concept-article
-ms.date: 04/10/2025
+ms.date: 02/25/2026
 ms.custom: references_regions
 
 # Customer intent: "As a network architect, I want to access a list of Azure Peering Service partners by region and metro, so that I can select the optimal connectivity provider for reliable and high-performance cloud network solutions."
@@ -30,14 +30,14 @@ The following table provides information on the Peering Service connectivity par
 | [BBIX](https://www.bbix.net/en/service/) | Japan |
 | [CCL](https://concepts.co.nz/news) | Oceania |
 | [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html) | Africa |
-| [Colt](https://www.colt.net/product/cloud-prioritisation/)| Asia, Europe |
+| [Colt](https://docs.colt.net/datasheets/cloud/cloud-prioritisation)| Asia, Europe |
 | [Converge ICT](https://www.convergeict.com/enterprise/) | Asia |
 | [Dimension Data](https://www.dimensiondata.com/en-gb/about-us/our-partners/microsoft/)| Africa |
 | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/)| Asia, Europe, North America |
 | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) | Asia, North America |
 | [France-IX](https://www.franceix.net/en/) | Europe |
 | [IIJ](https://www.iij.ad.jp/en/) | Japan |
-| [Intercloud](https://www.intercloud.com/partners/microsoft-azure)| Europe |
+| [Intercloud](https://www.bso.co/bso-network/cloud-connect-solutions)| Europe |
 | [Kordia](https://www.kordia.co.nz/cloudconnect) | Oceania  |
 | [LINX](https://www.linx.net/services/microsoft-azure-peering/) | Europe, North America |
 | [Liquid Telecom](https://liquidc2.com/connect/#maps) | Africa |
@@ -64,37 +64,37 @@ The following table provides information on the Peering Service connectivity par
 | Metro | Partners (ISPs) |
 |-------|-----------------|
 | Auckland | [Kordia](https://www.kordia.co.nz/cloudconnect), |
-| Amsterdam | [Colt](https://www.colt.net/product/cloud-prioritisation/), [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
+| Amsterdam | [Colt](https://docs.colt.net/datasheets/cloud/cloud-prioritisation), [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Ashburn | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Brussels | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Budapest | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Bucharest | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Cape Town | [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html), [Liquid Telecom](https://liquidc2.com/connect/#maps) |
 | Dublin | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
-| Frankfurt | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions), [Colt](https://www.colt.net/product/cloud-prioritisation/) |
-| Geneva | [Intercloud](https://www.intercloud.com/partners/microsoft-azure), [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline.html), [Sunrise](https://www.sunrise.ch/business/en/home) |
-| Hong Kong SAR | [Colt](https://www.colt.net/product/cloud-prioritisation/), [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct), [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
+| Frankfurt | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions), [Colt](https://docs.colt.net/datasheets/cloud/cloud-prioritisation) |
+| Geneva | [Intercloud](https://www.bso.co/bso-network/cloud-connect-solutions), [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline.html), [Sunrise](https://www.sunrise.ch/business/en/home) |
+| Hong Kong SAR | [Colt](https://docs.colt.net/datasheets/cloud/cloud-prioritisation), [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct), [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Jakarta | [NTT Communications](https://www.ntt.com/en/index.html) |
 | Johannesburg | [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html), [Liquid Telecom](https://liquidc2.com/connect/#maps) |
 | Los Angeles | [Lumen Technologies](https://www.ctl.io/microsoft-azure-peering-services/) |
-| London | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions), [Colt](https://www.colt.net/product/cloud-prioritisation/) |
+| London | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions), [Colt](https://docs.colt.net/datasheets/cloud/cloud-prioritisation) |
 | Madrid | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Manila | [Converge ICT](https://www.convergeict.com/enterprise/) |
 | Marseilles | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Miami | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Milan | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Nairobi | [Liquid Telecom](https://liquidc2.com/connect/#maps) |
-| Osaka | [Colt](https://www.colt.net/product/cloud-prioritisation/), [IIJ](https://www.iij.ad.jp/en/), [NTT Communications](https://www.ntt.com/en/index.html), [TOKAI-NETWORK](https://www.broadline.ne.jp/en/) |
+| Osaka | [Colt](https://docs.colt.net/datasheets/cloud/cloud-prioritisation), [IIJ](https://www.iij.ad.jp/en/), [NTT Communications](https://www.ntt.com/en/index.html), [TOKAI-NETWORK](https://www.broadline.ne.jp/en/) |
 | Paris | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Prague | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
-| Singapore | [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct), [Colt](https://www.colt.net/product/cloud-prioritisation/), [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
+| Singapore | [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct), [Colt](https://docs.colt.net/datasheets/cloud/cloud-prioritisation), [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Seoul | [Sejong Telecom](https://www.sejongtelecom.net/) |
 | Sofia | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Sydney | [Kordia](https://www.kordia.co.nz/cloudconnect), |
-| Tokyo | [Colt](https://www.colt.net/product/cloud-prioritisation/), [IIJ](https://www.iij.ad.jp/en/), [NTT Communications](https://www.ntt.com/en/index.html), [TOKAI-NETWORK](https://www.broadline.ne.jp/en/) |
+| Tokyo | [Colt](https://docs.colt.net/datasheets/cloud/cloud-prioritisation), [IIJ](https://www.iij.ad.jp/en/), [NTT Communications](https://www.ntt.com/en/index.html), [TOKAI-NETWORK](https://www.broadline.ne.jp/en/) |
 | Vienna | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Warsaw | [Atman](https://atman.pl/en/connectivity/internet/atman-internet-with-microsoft-azure-peering-service/) |
-| Zurich | [Intercloud](https://www.intercloud.com/partners/microsoft-azure), [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline.html), [Sunrise](https://www.sunrise.ch/business/en/home) |
+| Zurich | [Intercloud](https://www.bso.co/bso-network/cloud-connect-solutions), [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline.html), [Sunrise](https://www.sunrise.ch/business/en/home) |
 
 # [**IXPs by Metro**](#tab/ixp)
 

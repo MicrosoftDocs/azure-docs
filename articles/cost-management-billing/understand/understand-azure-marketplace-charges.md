@@ -6,11 +6,12 @@ ms.author: jkinma
 ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/10/2025
 ms.custom:
 - build-2025
 - sfi-image-nochange
+service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
 # Understand your Azure external services charges

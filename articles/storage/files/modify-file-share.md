@@ -1,46 +1,31 @@
 ---
 title: Modify an Azure File Share
 titleSuffix: Azure Files
-description: How to change file share size or delete the share by using the Azure portal, Azure PowerShell, or Azure CLI.
+description: Learn how to adjust the size, cost, and performance characteristics of Azure file shares by using the Azure portal, Azure PowerShell, or Azure CLI.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 08/22/2025
+ms.date: 01/29/2026
 ms.author: kendownie
-ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
-# Customer intent: "As a cloud administrator, I want resize or delete my Azure file share."
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+# Customer intent: "As a cloud administrator, I want to adjust the size, cost, or performance characteristics my Azure file share, or delete the file share."
 ---
 
 # How to modify an Azure file share
 
+:heavy_check_mark: **Applies to:** SMB and NFS Azure classic file shares (Microsoft.Storage)
+
+:heavy_check_mark: **Applies to:** File shares created with the Microsoft.FileShares resource provider (preview)
+
 This article explains how to adjust the size, cost, and performance characteristics of Azure file shares using the Azure portal, Azure PowerShell, and Azure CLI. The procedures are different for classic file shares, which use the Microsoft.Storage resource provider, versus file shares created with Microsoft.FileShares (preview).
-
-## Applies to
-
-| Management model     | Billing model  | Media tier     | Redundancy     |                 SMB                 |                 NFS                 |
-| -------------------- | -------------- | -------------- | -------------- | :---------------------------------: | :---------------------------------: |
-| Microsoft.FileShares | Provisioned v2 | SSD (premium)  | Local (LRS)    |  ![No](../media/icons/no-icon.png)  |  ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.FileShares | Provisioned v2 | SSD (premium)  | Zone (ZRS)     |  ![No](../media/icons/no-icon.png)  |  ![Yes](../media/icons/yes-icon.png)  |
-| Microsoft.Storage    | Provisioned v2 | SSD (premium)  | Local (LRS)    | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage    | Provisioned v2 | SSD (premium)  | Zone (ZRS)     | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage    | Provisioned v2 | HDD (standard) | Local (LRS)    | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
-| Microsoft.Storage    | Provisioned v2 | HDD (standard) | Zone (ZRS)     | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
-| Microsoft.Storage    | Provisioned v2 | HDD (standard) | Geo (GRS)      | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
-| Microsoft.Storage    | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
-| Microsoft.Storage    | Provisioned v1 | SSD (premium)  | Local (LRS)    | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage    | Provisioned v1 | SSD (premium)  | Zone (ZRS)     | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage    | Pay-as-you-go  | HDD (standard) | Local (LRS)    | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
-| Microsoft.Storage    | Pay-as-you-go  | HDD (standard) | Zone (ZRS)     | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
-| Microsoft.Storage    | Pay-as-you-go  | HDD (standard) | Geo (GRS)      | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
-| Microsoft.Storage    | Pay-as-you-go  | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
 
 ## Change the cost and performance characteristics of a classic file share
 
-After creating your file share, you might need to adjust the provisioning (provisioned models) or access tier (pay-as-you-go model) of the share. The following sections show you how to adjust the relevant properties for your share.
+After creating your classic file share, you might need to adjust the provisioning (provisioned models) or access tier (pay-as-you-go model) of the share. The following sections show you how to adjust the relevant properties for your share.
 
 ### Change the cost and performance characteristics of a provisioned v2 classic file share
 
-After creating your provisioned v2 file share, you can change one or all three of the provisioned quantities of your file share. The amount of storage, IOPS, and throughput you provision can be dynamically scaled up or down as your needs change. However, you can only decrease a provisioned quantity after 24 hours have elapsed since your last quantity increase. Storage, IOPS, and throughput changes are effective within a few minutes after a provisioning change.
+After creating your provisioned v2 classic file share, you can change one or all three of the provisioned quantities of your file share. The amount of storage, IOPS, and throughput you provision can be dynamically scaled up or down as your needs change. However, you can only decrease a provisioned quantity after 24 hours have elapsed since your last quantity increase. Storage, IOPS, and throughput changes are effective within a few minutes after a provisioning change.
 
 # [Portal](#tab/azure-portal)
 
@@ -70,7 +55,7 @@ Follow these instructions to update the provisioning for your file share.
 
 # [PowerShell](#tab/azure-powershell)
 
-You can modify a provisioned v2 file share with the `Update-AzRmStorageShare` cmdlet. Remember to replace the values for the variables `$resourceGroupName`, `$storageAccountName`, `$shareName`, `$provisionedMibps`, `$provisionedIops`, and `$provisionedStorageGib` with the desired values for your file share.
+You can modify a provisioned v2 file share with the `Update-AzRmStorageShare` cmdlet. Remember to replace the values for the variables `$resourceGroupName`, `$storageAccountName`, `$shareName`, `$provisionedThroughputMibPerSec`, `$provisionedIops`, and `$provisionedStorageGib` with the desired values for your file share.
 
 ```powershell
 # The path to the file share resource to be modified.
@@ -145,11 +130,11 @@ Follow these instructions to update the provisioning for your file share.
 5. Select **Save** to save provisioning changes. Storage, IOPS, and throughput changes are effective within a few minutes after a provisioning change.
 
 > [!NOTE]
-> You can use PowerShell and CLI to enable/disable paid bursting if desired. Paid bursting is an advanced feature of the provisioned v1 billing model. Consult [provisioned v1 paid bursting](./understanding-billing.md#provisioned-v1-paid-bursting) before enabling paid bursting.
+> You can use PowerShell and CLI to enable/disable paid bursting if desired. Paid bursting is an advanced feature of the provisioned v1 billing model. See [provisioned v1 paid bursting](./understanding-billing.md#provisioned-v1-paid-bursting) before enabling paid bursting.
 
 # [PowerShell](#tab/azure-powershell)
 
-You can modify a provisioned v1 file share with the `Update-AzRmStorageShare` cmdlet. Remember to replace the values for the variables `$resourceGroupName`, `$storageAccountName`, and `$fileShareName` with the desired values for your file share. Set `$provisionedStorageGib`, `$paidBurstingEnabled`, `$paidBurstingMaxIops`, and `$paidBurstingMaxThroughputMibPerSec` to non-null (`$null`) values to set on the file share. Paid bursting is an advanced feature of the provisioned v1 model. Consult [provisioned v1 paid bursting](./understanding-billing.md#provisioned-v1-paid-bursting) before enabling.
+You can modify a provisioned v1 file share with the `Update-AzRmStorageShare` cmdlet. Remember to replace the values for the variables `$resourceGroupName`, `$storageAccountName`, and `$fileShareName` with the desired values for your file share. Set `$provisionedStorageGib`, `$paidBurstingEnabled`, `$paidBurstingMaxIops`, and `$paidBurstingMaxThroughputMibPerSec` to non-null (`$null`) values on the file share. Paid bursting is an advanced feature of the provisioned v1 model. See [provisioned v1 paid bursting](./understanding-billing.md#provisioned-v1-paid-bursting) before enabling.
 
 ```PowerShell
 # The path to the file share resource to be modified.
@@ -208,7 +193,7 @@ az storage share-rm update \
         --quota $provisionedStorageGib
 ```
 
-To toggle paid bursting, use the `--paid-bursting-enabled` parameter. Paid bursting is an advanced feature of the provisioned v1 model. Consult [provisioned v1 paid bursting](./understanding-billing.md#provisioned-v1-paid-bursting) before enabling. You can optionally use the `--paid-bursting-max-iops` and `--paid-bursting-max-bandwidth-mibps` flags to set a restriction on the upper amount of paid bursting allowed for cost control purposes. Remember to replace the values for the variables `resourceGroupName`, `storageAccountName`, and `fileShareName` with the desired values for your file share.
+To toggle paid bursting, use the `--paid-bursting-enabled` parameter. Paid bursting is an advanced feature of the provisioned v1 model. See [provisioned v1 paid bursting](./understanding-billing.md#provisioned-v1-paid-bursting) before enabling. You can optionally use the `--paid-bursting-max-iops` and `--paid-bursting-max-bandwidth-mibps` flags to set a restriction on the upper amount of paid bursting allowed for cost control purposes. Remember to replace the values for the variables `resourceGroupName`, `storageAccountName`, and `fileShareName` with the desired values for your file share.
 
 ```bash
 resourceGroupName="<resource-group>"
@@ -230,7 +215,7 @@ After you've created your pay-as-you-go file share, there are two properties you
 
 - **Access tier**: The access tier of the file share dictates to the ratio of storage to IOPS/throughput costs (in the form of transactions). There are three access tiers: _transaction optimized_, _hot_, and _cool_. Changing the tier of the Azure file share results in transaction costs for the movement to the new access tier. For more information, see [switching between access tiers](./understanding-billing.md#switching-between-access-tiers).
 
-- **Quota**: Quota is a limit on the size of the file share. The quota property is used in the provisioned v2 and provisioned v1 models to mean "provisioned storage capacity", however, in the pay-as-you-go model, quota has no direct impact on bill. The two primary reasons you might want to modify this are if you use quota to limit the growth of your file share to keep control of the used storage/transaction costs in the pay-as-you-go model, or if you have a storage account predating the introduction of the large file share feature, which enabled file shares to grow beyond 5 TiB. The maximum file share size for a pay-as-you-go file share is 100 TiB.
+- **Quota**: Quota is a limit on the size of the file share. The quota property is used in the provisioned v2 and provisioned v1 models to mean "provisioned storage capacity", however, in the pay-as-you-go model, quota has no direct impact on billing. The two primary reasons you might want to modify this are if you use quota to limit the growth of your file share to keep control of the used storage/transaction costs in the pay-as-you-go model, or if you have a storage account predating the introduction of the large file share feature, which enabled file shares to grow beyond 5 TiB. The maximum file share size for a pay-as-you-go file share is 100 TiB.
 
 # [Portal](#tab/azure-portal)
 
@@ -408,7 +393,7 @@ az resource show \
 
 ## Delete a classic file share
 
-Depending on your workflow, you might want to delete unused or outdated file shares. File shares in storage accounts with [soft delete enabled](storage-files-prevent-file-share-deletion.md) can be recovered within the retention period.
+You might want to delete unused or outdated file shares. File shares in storage accounts with [soft delete enabled](storage-files-prevent-file-share-deletion.md) can be recovered within the retention period.
 
 # [Portal](#tab/azure-portal)
 
@@ -462,6 +447,8 @@ az storage share-rm delete \
 > [!NOTE]
 > File share with Microsoft.FileShares is currently in preview. You may use the Azure portal, or you can use generic PowerShell or Azure CLI commands to work with file shares. If you want to try the CLI private package for Microsoft.FileShares resource provider, fill out this [survey](https://forms.microsoft.com/r/nEGcB0ccaD).
 
+Before deleting your file share created with the Microsoft.FileShares resource provider, make sure to delete its associated private endpoint. File share deletion will fail if the private endpoint is still present.
+
 # [Portal](#tab/azure-portal)
 
 To delete a file share (Microsoft.FileShares) using the Azure portal, follow these steps.
@@ -472,7 +459,7 @@ To delete a file share (Microsoft.FileShares) using the Azure portal, follow the
 
     ![Delete image](./media/storage-how-to-create-file-share/delete-file-share.png)
 
-3. The **Delete** pop-out contains a survey about why you're deleting the file share. You can skip this, but we appreciate any feedback you have on Azure Files, particularly if something isn't working properly for you.
+3. The **Delete** pop-out contains a survey about why you're deleting the file share. You can skip this, but we appreciate any feedback you have, particularly if something isn't working properly for you.
 
 4. Enter the file share name to confirm deletion and then select **Delete**.
 

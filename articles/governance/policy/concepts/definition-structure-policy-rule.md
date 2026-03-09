@@ -2,7 +2,7 @@
 title: Details of the policy definition structure policy rules
 description: Describes how policy definition policy rules are used to establish conventions for Azure resources in your organization.
 ms.date: 03/19/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Azure Policy definition structure policy rule

@@ -15,7 +15,7 @@ ms.custom:
 ---
 # Create a zone-redundant virtual network gateway in availability zones
 
-You can deploy VPN and ExpressRoute gateways in Azure availability zones. This brings resiliency, scalability, and higher availability to virtual network gateways. Deploying gateways in availability zones physically and logically separates gateways within a region, while protecting your on-premises network connectivity to Azure from zone-level failures. For more information, see  [About zone-redundant virtual network gateways](about-zone-redundant-vnet-gateways.md), [What are availability zones?](../reliability/availability-zones-overview.md), and [Azure regions with availability zones](../reliability/availability-zones-region-support.md).
+You can deploy VPN and ExpressRoute gateways in Azure availability zones. This brings resiliency, scalability, and higher availability to virtual network gateways. Deploying gateways in availability zones physically and logically separates gateways within a region, while protecting your on-premises network connectivity to Azure from zone-level failures. For more information, see  [About zone-redundant virtual network gateways](about-zone-redundant-vnet-gateways.md), [What are availability zones?](/azure/reliability/availability-zones-overview), and [Azure regions with availability zones](/azure/reliability/availability-zones-region-support).
 
 ## Azure portal workflow
 
@@ -47,7 +47,7 @@ For an ExpressRoute gateway, follow the [ExpressRoute documentation](../expressr
 
 ### <a name="variables"></a>1. Declare your variables
 
-Declare the variables that you want to use. Use the following sample, substituting the values for your own when necessary. If you close your PowerShell/Cloud Shell session at any point during the exercise, just copy and paste the values again to redeclare the variables. When specifying location, verify that the region you specify is supported. For more information, see [Azure regions with availability zones](../reliability/availability-zones-region-support.md).
+Declare the variables that you want to use. Use the following sample, substituting the values for your own when necessary. If you close your PowerShell/Cloud Shell session at any point during the exercise, just copy and paste the values again to redeclare the variables. When specifying location, verify that the region you specify is supported. For more information, see [Azure regions with availability zones](/azure/reliability/availability-zones-region-support).
 
 ```azurepowershell-interactive
 $RG1         = "TestRG1"

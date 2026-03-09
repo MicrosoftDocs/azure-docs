@@ -1,23 +1,23 @@
 ---
 title: Self-service trade-in for Azure savings plans
 titleSuffix: Microsoft Cost Management
-description: Learn how you can trade in your reservations for an Azure saving plan.
+description: Learn how you can trade in your reservations for an Azure savings plan.
 author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 07/09/2025
+ms.date: 01/08/2026
 ms.author: onwokolo
 ---
 
 # Self-service trade-in for Azure savings plans
 
-If your [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) (VM), [Dedicated Hosts](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/), or [Azure App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) reservations, don't provide the necessary flexibility you need, you can trade them for a savings plan. When you trade-in a reservation and purchase a savings plan, you can select a savings plan term of either one-year to three-year.
+If your [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) (VM), [Dedicated Hosts](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/), or [Azure App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) reservations don't provide the necessary flexibility you need, you can trade them for a savings plan. When you trade-in a reservation and purchase a savings plan, you can select a savings plan term of either one year or three years.
 
 Although you can return the above offerings for a savings plan, you can't exchange a savings plan for them or for another savings plan. Due to technical limitations, you can only trade in up to 100 reservations at a time as part of a savings plan purchase.
 
-Apart from [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/), [Dedicated Hosts](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/), or [Azure App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) reservations, no other reservations, or prepurchase plans are eligible for trade-in.
+Apart from [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/), [Dedicated Hosts](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/), or [Azure App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) reservations, no other reservations or prepurchase plans are eligible for trade-in.
 
 >[!NOTE]
 > Initially planned to end on January 1, 2024, the availability of Azure compute reservation exchanges for Azure Virtual Machine, Azure Dedicated Host and Azure App Service has been extended **until further notice**.
@@ -30,7 +30,7 @@ Apart from [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/
 >
 > For more information, see [Self-service exchanges and refunds for Azure Reservations](../reservations/exchange-and-refund-azure-reservations.md).
 
-Although compute reservation exchanges become unavailable at the end of the grace period, noncompute reservation exchanges are unchanged. You're able to continue to trade-in reservations for saving plans.​ To trade-in a reservation for a savings plan, you must meet the following criteria: 
+Although compute reservation exchanges become unavailable at the end of the grace period, noncompute reservation exchanges are unchanged. You're able to continue to trade-in reservations for savings plans. To trade-in a reservation for a savings plan, you must meet the following criteria: 
 
 - You must be an owner of the Reservation Order containing the reservation you wish to trade in. To learn more, see [Grant access to individual reservations](../reservations/view-reservations.md#grant-access-to-individual-reservations).
 - You must have the Savings plan purchaser role, or an owner of the subscription you plan to use to purchase the savings plan.
@@ -38,7 +38,7 @@ Although compute reservation exchanges become unavailable at the end of the grac
 
 The new savings plan's total commitment must equal or be greater than the returned reservation's remaining commitment. For example, a three-year reservation that costs $100 per month and is exchanged after the 18th payment, the new savings plan's lifetime commitment must be $1,800 or more.
 
-Microsoft isn't currently charging early termination fees for reservation trade ins. We might charge the fees made in the future. We currently don't have a date for enabling the fee.
+Microsoft isn't currently charging early termination fees for reservation trade-ins. We might charge the fees in the future. We currently don't have a date for enabling the fee.
 
 ## How to trade in an existing reservation
 
@@ -52,7 +52,7 @@ You can trade in your reservation from [Azure portal](https://portal.azure.com/#
 
 ## Determine savings plan commitment needed to replace your reservation
 
-During a reservation trade-in, the default hourly commitment for the savings plan is calculated using the remaining monetary value of the reservations that are being traded in. The resulting hourly commitment might not be a large enough benefit commitment to cover the virtual machines that were previously covered by the returned reservations. You can use the following steps to calculate the necessary savings plan hourly commitment to cover the reservations. As savings plan is a flexible benefit. There isn’t a guarantee that the savings plan benefit always gets applied to usage from the resources that were previously covered by the reservations. These steps assume 100% utilization of the reservations that are being traded in. 
+During a reservation trade-in, the default hourly commitment for the savings plan is calculated using the remaining monetary value of the reservations that are being traded in. The resulting hourly commitment might not be a large enough benefit commitment to cover the virtual machines that were previously covered by the returned reservations. You can use the following steps to calculate the necessary savings plan hourly commitment to cover the reservations. As a savings plan is a flexible benefit, there isn't a guarantee that the savings plan benefit always gets applied to usage from the resources that were previously covered by the reservations. These steps assume 100% utilization of the reservations that are being traded in.
 
 1. Follow the first six steps in [Estimate costs with the Azure pricing calculator](../manage/ea-pricing.md#estimate-costs-with-the-azure-pricing-calculator).
 2. Search for the product that you want to return.
@@ -108,12 +108,12 @@ The original invoice is canceled, and a new invoice is created. The money is ref
 
 ## Need help? Contact us.
 
-If you have Azure savings plan for compute questions, contact your  account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides Azure savings plan for compute expert support requests in English.
+If you have Azure savings plan for compute questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides Azure savings plan for compute expert support requests in English.
 
 ## Next steps
 
 - To learn how to manage a savings plan, see [Manage Azure savings plan](manage-savings-plan.md).
-- To learn more about Azure saving plan, see the following articles:
+- To learn more about Azure savings plans, see the following articles:
   - [What are Azure savings plans?](savings-plan-compute-overview.md)
   - [How a savings plan discount is applied](discount-application.md)
   - [View Azure savings plan cost and usage details](utilization-cost-reports.md)

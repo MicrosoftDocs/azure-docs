@@ -25,13 +25,13 @@ To create a Recovery Services vault:
 
 1. On the **Vault** pane, select **+ Vault**.
 
-    :::image type="content" source="./media/backup-create-rs-vault/create-vault.png" alt-text="Screenshot that shows how to start creating a Recovery Services vault." lightbox="./media/backup-create-rs-vault/create-vault.png"::: 
+    :::image type="content" source="./media/backup-create-rs-vault/create-vault.png" alt-text="Screenshot that shows how to start creating a Recovery Services vault." lightbox="./media/backup-create-rs-vault/create-vault.png":::
 
 1. Select **Recovery Services vault** > **Continue**.
 
-    ![Screenshot that shows where to select Recovery Services as the vault type.](./media/backup-create-rs-vault/backup-center-select-recovery-services-vault.png)
+    :::image type="content" source="./media/backup-create-rs-vault/backup-center-select-recovery-services-vault.png" alt-text="Screenshot that shows where to select Recovery Services as the vault type.":::
 
-1. On the **Recovery Services vault** pane, enter the following values:
+1. On the **Create Recovery Services vault** pane, enter the following values:
 
    - **Subscription**: Select the subscription to use. If you're a member of only one subscription, you see that name. If you're not sure which subscription to use, use the default subscription. Multiple choices appear only if your work or school account is associated with more than one Azure subscription.
    - **Resource group**: Use an existing resource group or create a new one. To view a list of available resource groups in your subscription, select **Use existing**. Then select a resource in the dropdown list. To create a new resource group, select **Create new**, and then enter the name. For more information about resource groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/management/overview.md).
@@ -40,8 +40,8 @@ To create a Recovery Services vault:
 
       > [!IMPORTANT]
       > If you're not sure of the location of your data source, close the window. Go to the list of your resources in the portal. If you have data sources in multiple regions, create a Recovery Services vault for each region. Create the vault in the first location before you create a vault in another location. You don't need to specify storage accounts to store the backup data. The Recovery Services vault and Azure Backup handle that step automatically.
-      
-      ![Screenshot that shows fields for configuring a Recovery Services vault.](./media/backup-create-rs-vault/backup-center-add-vault-details.png)
+
+    :::image type="content" source="./media/backup-create-rs-vault/backup-center-add-vault-details.png" alt-text="Screenshot that shows fields for configuring a Recovery Services vault.":::
 
 1. After you provide the values, select **Review + create**.
 
@@ -49,6 +49,6 @@ To create a Recovery Services vault:
 
    It can take a while to create the Recovery Services vault. Monitor the status notifications in the **Notifications** area at the upper right. After the vault is created, it appears in the list of Recovery Services vaults. If the vault doesn't appear, select **Refresh**.
 
-    ![Screenshot that shows the button for refreshing the list of backup vaults.](./media/backup-create-rs-vault/refresh-button.png)
+    :::image type="content" source="./media/backup-create-rs-vault/refresh-button.png" alt-text="Screenshot that shows the button for refreshing the list of backup vaults.":::
 
-Azure Backup now supports immutable vaults that help you ensure that after recovery points are created, they can't be deleted before their expiry according to the backup policy. You can make the immutability irreversible for maximum protection to protect your backup data from various threats, including ransomware attacks and malicious actors. [Learn more about Azure Backup immutable vaults](/azure/backup/backup-azure-immutable-vault-concept).
+Azure Backup now supports immutable vaults that help you ensure that after recovery points are created, they can't be deleted before their expiry according to the backup policy. You can make the immutability irreversible to help protect your backup data from various threats, including ransomware attacks and malicious actors. [Learn more about Azure Backup immutable vaults](/azure/backup/backup-azure-immutable-vault-concept).

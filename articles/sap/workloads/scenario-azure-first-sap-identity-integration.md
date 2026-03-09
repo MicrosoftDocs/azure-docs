@@ -4,7 +4,7 @@ description: A guide for architects and IT administrators on how to secure acces
 author: MartinPankraz
 ms.service: entra
 ms.subservice: fundamentals
-ms.topic: article
+ms.topic: concept-article
 ms.date: 08/26/2021
 ms.author: mapankra
 ms.custom: sfi-image-nochange

@@ -2,12 +2,12 @@
 title: Monitor IoT messages with distributed tracing (preview)
 titleSuffix: Azure IoT Hub
 description: Learn how to use distributed tracing to trace IoT messages throughout the Azure services that your solution uses.
-author: SoniaLopezBravo
+author: cwatson-cat
 
-ms.author: sonialopez
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 02/29/2024
+ms.date: 08/13/2025
 ms.custom:
   - amqp
   - mqtt
@@ -18,7 +18,7 @@ ms.custom:
 
 # Trace Azure IoT device-to-cloud messages by using distributed tracing (preview)
 
-Use distributed tracing (preview) in IoT Hub to monitor IoT messages as they pass through Azure services. IoT Hub is one of the first Azure services to support distributed tracing. As more Azure services support distributed tracing, you're able to trace Internet of Things (IoT) messages throughout the Azure services involved in your solution. For more information about the feature, see [What is distributed tracing?](/azure/azure-monitor/app/distributed-trace-data).
+Use distributed tracing (preview) in IoT Hub to monitor IoT messages as they pass through Azure services. IoT Hub is one of the first Azure services to support distributed tracing. As more Azure services support distributed tracing, you're able to trace Internet of Things (IoT) messages throughout the Azure services involved in your solution. For more information about the feature, see [Monitor .NET and Node.js applications with Application Insights (Classic API)](/azure/azure-monitor/app/classic-api?tabs=dotnet).
 
 When you enable distributed tracing for IoT Hub, you can:
 
@@ -49,7 +49,7 @@ When you enable distributed tracing for IoT Hub, you can:
 Consider the following limitations to determine if this preview feature is right for your scenarios:
 
 - The proposal for the W3C Trace Context standard is currently a working draft.
-- The only development language that the client SDK currently supports is C, in the [public preview branch of the Azure IoT device SDK for C](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview/readme.md)
+- The only development language that the client SDK currently supports is C, in the [public preview branch of the Azure IoT Device SDK for C](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview/readme.md)
 - Cloud-to-device twin capability isn't available for the [IoT Hub basic tier](iot-hub-scaling.md). However, IoT Hub still logs to Azure Monitor if it sees a properly composed trace context header.
 - To ensure efficient operation, IoT Hub imposes a throttle on the rate of logging that can occur as part of distributed tracing.
 - The distributed tracing feature is supported only for IoT hubs created in the following regions:
@@ -113,7 +113,7 @@ After the logging is turned on, IoT Hub records a log when a message that contai
 - The IoT hub processes the message.
 - The message is routed to custom endpoints. Routing must be enabled.
 
-To learn more about these logs and their schemas, see [Monitor IoT Hub](monitor-iot-hub.md) and [Distributed tracing in IoT Hub resource logs](monitor-iot-hub-reference.md#distributed-tracing-category-preview).
+To learn more about these logs and their schemas, see [Monitor Azure IoT Hub](monitor-iot-hub.md) and [Distributed tracing category (preview)](monitor-iot-hub-reference.md#distributed-tracing-category-preview).
 
 ## Update sampling options
 
@@ -161,8 +161,8 @@ You can use the Azure portal or the Azure IoT Hub extension for Visual Studio Co
 
 1. In the pop-up pane that appears for the sampling rate, enter an integer between 0 and 100, then select **Enter**.
 
-    ![Screenshot that shows entering a sampling rate](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-3.png)
-
+    :::image type="content" source="./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-3.png" alt-text="Screenshot that shows entering a sampling rate.":::
+    
     **Sample rate: 100(%)** now appears under **Distributed Tracing Setting (Preview)** > **Desired**.
 
 ---
@@ -211,13 +211,13 @@ Here are a few example logs in Log Analytics:
 | 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | Informational | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | `{"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"}` |
 | 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | Informational | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | `{"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"}` |
 
-To understand the types of logs, see [Azure IoT Hub distributed tracing logs](monitor-iot-hub-reference.md#distributed-tracing-category-preview).
+To understand the types of logs, see [Distributed tracing category (preview)](monitor-iot-hub-reference.md#distributed-tracing-category-preview).
 
 ## Run a sample application
 
 In this section, you prepare a development environment for use with the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). Then, you modify one of the samples to enable distributed tracing on your device's telemetry messages.
 
-These instructions are for building the sample on Windows. For other environments, see [Compile the C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#compile) or [Prepackaged C SDK for Platform Specific Development](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#prepackaged-c-sdk-for-platform-specific-development).
+These instructions are for building the sample on Windows. For other environments, see [Compiling the C Device SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#compile) or [Prepackaged C SDK for Platform Specific Development](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#prepackaged-c-sdk-for-platform-specific-development).
 
 ### Clone the source code and initialize
 
@@ -310,11 +310,11 @@ First, you must implement all the IoT Hub protocol primitives in your messages b
 
 Specifically:
 
-- For MQTT, add `%24.tracestate=timestamp%3d1539243209` to the message topic. Replace `1539243209` with the creation time of the message in Unix time-stamp format. As an example, refer to the implementation [in the C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761).
+- For MQTT, add `%24.tracestate=timestamp%3d1539243209` to the message topic. Replace `1539243209` with the creation time of the message in Unix time-stamp format. As an example, refer to the implementation [in the Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761).
 - For AMQP, add `key("tracestate")` and `value("timestamp=1539243209")` as message annotation. For a reference implementation, see the [uamqp_messaging.c](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527) file.
 
 To control the percentage of messages that contain this property, implement logic to listen to cloud-initiated events such as twin updates.
 
 ## Next steps
 
-- To learn more about the general distributed tracing pattern in microservices, see [Microservice architecture pattern: distributed tracing](https://microservices.io/patterns/observability/distributed-tracing.html).
+- To learn more about the general distributed tracing pattern in microservices, see [Pattern: Distributed tracing](https://microservices.io/patterns/observability/distributed-tracing.html) in the [microservice architecture documentation](https://microservices.io/index.html).

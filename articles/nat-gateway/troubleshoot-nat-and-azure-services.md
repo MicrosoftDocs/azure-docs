@@ -22,10 +22,6 @@ This article provides guidance on how to troubleshoot connectivity issues when u
 
 * [Azure Databricks](#azure-databricks)
 
-> [!IMPORTANT]
-> Standard V2 SKU Azure NAT Gateway is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Known limitations with StandardV2 NAT Gateway and VNet injection scenarios
 
 * StandardV2 NAT Gateway doesn't support and can't be attached to delegated subnets for the following services: 
@@ -36,7 +32,8 @@ This article provides guidance on how to troubleshoot connectivity issues when u
     * Azure Database for MySQL  
     * Azure Data Factory - Data Movement 
     * Microsoft Power Platform services 
-    * Azure Stream Analytics 
+    * Azure Stream Analytics
+    * Azure Container Apps
     * Azure Web Apps 
     * Azure DNS Private Resolver 
 

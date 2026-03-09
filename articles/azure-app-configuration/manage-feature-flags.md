@@ -194,6 +194,7 @@ To view the underlying key-values of feature flags in **Configuration explorer**
 To start using feature flags with Azure App Configuration, continue to the following quickstarts specific to your application’s language or platform.
 
 - [ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
+- [Aspire](./quickstart-feature-flag-aspire.md)
 - [.NET/.NET Framework](./quickstart-feature-flag-dotnet.md)
 - [.NET background service](./quickstart-feature-flag-dotnet-background-service.md)
 - [Java Spring](./quickstart-feature-flag-spring-boot.md)

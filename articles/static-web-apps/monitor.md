@@ -2,11 +2,11 @@
 title: Monitor Azure Static Web Apps
 description: Monitor requests, failures, and tracing information in Azure Static Web Apps
 services: static-web-apps
-author: v1212
+author: cjk7989
 ms.service: azure-static-web-apps
 ms.topic:  conceptual
 ms.date: 09/19/2022
-ms.author: wujia
+ms.author: jikunchen
 ---
 
 # Monitor Azure Static Web Apps

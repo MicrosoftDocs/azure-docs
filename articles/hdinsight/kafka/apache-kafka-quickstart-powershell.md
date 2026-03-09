@@ -60,7 +60,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 ## Create a storage account
 
-While Kafka on HDInsight uses Azure Managed disks to store Kafka data, the cluster also uses Azure Storage to store information such as logs. Use [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) to create a new storage account.
+While Kafka on HDInsight uses Azure Managed Disks to store Kafka data, the cluster also uses Azure Storage to store information such as logs. Use [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) to create a new storage account.
 
 > [!IMPORTANT]  
 > Storage account kind `BlobStorage` can only be used as secondary storage for HDInsight clusters.

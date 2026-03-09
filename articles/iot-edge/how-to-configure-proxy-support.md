@@ -231,34 +231,6 @@ This step takes place once on the IoT Edge device during initial device setup.
     https_proxy = "<proxy URL>"
     ```
 
-3. Add the **https_proxy** parameter to the environment variables section, and set your proxy URL as its value.
-
-    ```toml
-    [agent]
-    name = "edgeAgent"
-    type = "docker"
-    
-    [agent.config]
-    image = "mcr.microsoft.com/azureiotedge-agent:1.5"
-    
-    [agent.env]
-    # RuntimeLogLevel = "debug"
-    # UpstreamProtocol = "AmqpWs"
-    https_proxy = "<proxy URL>"
-    ```
-
-4. The IoT Edge runtime uses AMQP by default to talk to IoT Hub. Some proxy servers block AMQP ports. If that's the case, then you also need to configure edgeAgent to use AMQP over WebSocket. Uncomment the `UpstreamProtocol` parameter.
-
-    ```toml
-    [agent.config]
-    image = "mcr.microsoft.com/azureiotedge-agent:1.5"
-    
-    [agent.env]
-    # RuntimeLogLevel = "debug"
-    UpstreamProtocol = "AmqpWs"
-    https_proxy = "<proxy URL>"
-    ```
-
 5. Save the changes and close the editor. Apply the changes.
 
    ```bash
@@ -328,7 +300,7 @@ With the environment variables included, the module definition looks like the fo
 }
 ```
 
-If you included the **UpstreamProtocol** environment variable in the config.yaml file on your IoT Edge device, add that to the IoT Edge agent module definition too.
+If you included the **UpstreamProtocol** environment variable in the config.toml file on your IoT Edge device, add that to the IoT Edge agent module definition too.
 
 ```json
 "env": {

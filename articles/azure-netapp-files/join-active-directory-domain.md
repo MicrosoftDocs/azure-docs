@@ -15,7 +15,7 @@ ms.author: anfdocs
 
 # Join a Linux VM to a Microsoft Entra Domain
 
-Joining a Linux virtual machine (VM) to an [Microsoft Entra Domain Services](../active-directory-domain-services/overview.md) managed domain enables users to sign into to VMs with one set of credentials. Once joined, the user accounts and credentials can be used to sign in, access, and manage servers. 
+Joining a Linux virtual machine (VM) to a [Microsoft Entra Domain Services](../active-directory-domain-services/overview.md) managed domain enables users to sign into to VMs with one set of credentials. Once joined, the user accounts and credentials can be used to sign in, access, and manage servers. 
 
 Refer to [Understand guidelines for Active Directory Domain Services site design and planning](understand-guidelines-active-directory-domain-service-site.md) to learn more about using Active Directory in Azure NetApp Files. 
 

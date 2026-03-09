@@ -4,7 +4,7 @@ description: Learn to automate and simplifying routing behaviors using user-defi
 author: mbender-ms
 ms.author: mbender
 ms.topic: overview 
-ms.date: 10/09/2025
+ms.date: 01/09/2026
 ms.service: azure-virtual-network-manager
 ms.custom:
   - references_regions
@@ -21,7 +21,7 @@ Azure Virtual Network Manager allows you to describe your desired routing behavi
 
 ## How does UDR management work?
 
-In virtual network manager, you create a routing configuration. Inside the configuration, you create rule collections to describe the UDRs needed for a network group (target network group). In the rule collection, route rules are used to describe the desired routing behavior for the subnets or virtual networks in the target network group. Once the configuration is created, you need to [deploy the configuration](./concept-deployments.md) for it to apply to your resources. Upon deployment, by default, all routes are stored in a route table located inside a virtual network manager-managed resource group. You can also choose to use and update existing route tables for targeted subnets. Azure Virtual Network Manager will create new route tables only when necessary. The option to use and update existing route tables is a preview feature currently and needs the API version 2025-01-01 and later.
+In virtual network manager, you create a routing configuration. Inside the configuration, you create rule collections to describe the UDRs needed for a network group (target network group). In the rule collection, route rules are used to describe the desired routing behavior for the subnets or virtual networks in the target network group. Once the configuration is created, you need to [deploy the configuration](./concept-deployments.md) for it to apply to your resources. Upon deployment, by default, all routes are stored in a route table located inside a virtual network manager-managed resource group. You can also choose to use and update existing route tables for targeted subnets. Azure Virtual Network Manager creates new route tables only when necessary. The option to use and update existing route tables is a preview feature currently and needs the API version 2025-01-01 and later.
 
 Routing configurations create UDRs for you based on what the route rules specify. For example, you can specify that the spoke network group, consisting of two virtual networks, accesses the DNS service's address through a Firewall. Your network manager creates UDRs to make this routing behavior happen.
 
@@ -99,7 +99,7 @@ In a hub-and-spoke topology, it's common for users to require that network traff
 1. Define a routing rule by adding the address spaces of the spoke virtual networks. Set the next hop to "virtual appliance" and specify the firewall's IP address as the next hop address.
 1. Deploy this routing configuration in the region where the gateway subnet is located.
 
-This method allows the route table of the gateway subnet to accommodate up to 1000 user-defined routes. When adding a new spoke virtual network, simply include its address spaces in the existing rule and redeploy the routing configuration.
+This method allows the route table of the gateway subnet to accommodate up to 1,000 user-defined routes. When adding a new spoke virtual network, simply include its address spaces in the existing rule and redeploy the routing configuration.
 
 ## Common routing scenarios with UDR management
 
@@ -131,14 +131,14 @@ This mode provides greater **control**, ensures **compliance with organizational
 
 #### 1. Enable via Portal or API
 1. Open the **AVNM portal** or use the **API**.
-2. Select your **routing configuration**.
-3. Set the **`routeTableUsageMode`** property to `UseExisting`.  
+1. Select your **routing configuration**.
+1. Set the **`routeTableUsageMode`** property to `UseExisting`.  
    - If a route table already exists on the subnet, AVNM will **append** the required routes.  
    - If no route table is present, AVNM will **create** one automatically.
 
 #### 2. Switching Modes
 - You can switch between `ManagedOnly` and `UseExisting` at any time.  
-- When switching **from ManagedOnly to UseExisting**, note that the existing route tables are **AVNM-managed**, so manual updates and reassociation may be required to align configurations.  
+- When switching **from ManagedOnly to UseExisting**, note that the existing route tables are **AVNM-managed**, so manual updates and reassociation might be required to align configurations.  
 - When switching **from UseExisting to ManagedOnly**, remove any AVNM-created routes from the customer route tables. Reassociation is **not required** since AVNM will automatically manage the new route tables.
 
 ### Behavior
@@ -146,15 +146,15 @@ This mode provides greater **control**, ensures **compliance with organizational
 | Aspect | Description |
 |--------|--------------|
 | **Preservation** | Existing route table properties such as name, tags, and resource group are preserved. |
-| **Manual Changes** | AVNM does not track manual modifications. Any manual edits may lead to configuration drift. |
+| **Manual Changes** | AVNM doesn't track manual modifications. Any manual edits can lead to configuration drift. |
 | **Compliance** | AVNM respects Azure Policy, RBAC permissions, and resource locks. Ensure permissions allow updates. |
 | **Shared Tables** | If multiple subnets share a single route table, all will inherit AVNM routes—verify before enabling. |
-| **Subnet Associations** | AVNM does not automatically remove subnet associations from existing customer route tables. If a subnet is removed from the network group, its association remains intact, meaning the subnet will still be linked to the same route table. |
+| **Subnet Associations** | AVNM doesn't automatically remove subnet associations from existing customer route tables. If a subnet is removed from the network group, its association remains intact, meaning the subnet will still be linked to the same route table. |
 
 ### Route Table Sharing and Cleanup Behavior
-When multiple subnets from different network groups share the same route table, unintended routes may appear, as AVNM does not track which subnet adds specific routes. Customers must manually remove or dissociate subnets if undesired routes occur.
+When multiple subnets from different network groups share the same route table, unintended routes may appear, as AVNM doesn't track which subnet adds specific routes. Customers must manually remove or dissociate subnets if undesired routes occur.
 If any subnet enables properties such as `DisableBgpRoutePropagation`, those settings apply to the entire shared table. Routes remain in the table until all contributing subnets are unmanaged.
-When a subnet is removed from a network group, AVNM stops managing it but does not modify the existing table association. AVNM removes its routes only when no remaining managed subnets depend on them. Customer-created route tables are never deleted, even when left empty after cleanup.
+When a subnet is removed from a network group, AVNM stops managing it but doesn't modify the existing table association. AVNM removes its routes only when no remaining managed subnets depend on them. Customer-created route tables are never deleted, even when left empty after cleanup.
 
 ## Adding other virtual networks
 
@@ -180,7 +180,7 @@ The following items apply when users choose to use AVNM-managed route tables.
 
 The following items apply when users choose to use existing route tables.
 - When a common route table is attached to subnets in different network groups/collections, rules from all collections are added to the route table.
-- If a subnet is removed from a network group, its rules are not removed from the route table unless all associated subnets are removed.
+- If a subnet is removed from a network group, its rules aren't removed from the route table unless all associated subnets are removed.
 
 ## Next step
 

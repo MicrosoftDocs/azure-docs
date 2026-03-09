@@ -5,8 +5,8 @@ services: automation
 ms.date: 07/08/2025
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, no-azure-ad-ps-ref
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Use Microsoft Entra ID to authenticate to Azure
@@ -57,7 +57,7 @@ You can use the Azure portal to create the credential asset. Do this operation f
 
 ### Create the credential asset with Windows PowerShell
 
-To prepare a new credential asset in Windows PowerShell, your script first creates a `PSCredential` object using the assigned user name and password. The script then uses this object to create the asset through a call to the [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential) cmdlet. Alternatively, the script can call the [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) cmdlet to prompt the user to type in a name and password. See [Credential assets in Azure Automation](shared-resources/credentials.md). 
+To prepare a new credential asset in Windows PowerShell, your script first creates a `PSCredential` object using the assigned user name and password. The script then uses this object to create the asset through a call to the [New-AzAutomationCredential](/powershell/module/az.automation/new-azautomationcredential) cmdlet. Alternatively, the script can call the [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) cmdlet to prompt the user to type in a name and password. See [Credential assets in Azure Automation](shared-resources/credentials.md). 
 
 
 ## Manage Azure resources from an Azure Automation runbook

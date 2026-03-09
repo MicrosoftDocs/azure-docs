@@ -3,7 +3,7 @@ title: "Security, access, and operations for Oracle migrations"
 description: Learn about authentication, users, roles, permissions, monitoring, and auditing, and workload management in Azure Synapse Analytics and Oracle.
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: concept-article
 author: ajagadish-24
 ms.author: ajagadish
 
@@ -289,7 +289,7 @@ Azure Synapse automatically takes snapshots throughout the day and creates resto
 
 Azure Synapse supports user-defined restore points, which are created from manually triggered snapshots. By creating restore points before and after large data warehouse modifications, you ensure that the restore points are logically consistent. The user-defined restore points augment data protection and reduce recovery time if there are workload interruptions or user errors.
 
-In addition to snapshots, Azure Synapse performs a standard geo-backup once per day to a [paired data center](../../../reliability/cross-region-replication-azure.md). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any region where Azure Synapse is supported. A geo-backup ensures that a data warehouse can be restored if restore points in the primary region aren't available.
+In addition to snapshots, Azure Synapse performs a standard geo-backup once per day to a [paired data center](/azure/reliability/cross-region-replication-azure). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any region where Azure Synapse is supported. A geo-backup ensures that a data warehouse can be restored if restore points in the primary region aren't available.
 
 >[!TIP]
 >Microsoft Azure provides automatic backups to a separate geographical location to enable DR.

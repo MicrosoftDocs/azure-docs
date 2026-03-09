@@ -5,7 +5,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 08/25/2025
+ms.date: 02/10/2026
 ms.author: mametcal
 ms.custom: devx-track-java, mode-other
 #Customer intent: As an Spring Boot developer, I want to use feature flags to control feature availability quickly and confidently.
@@ -71,7 +71,7 @@ To create a new Spring Boot project:
         <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>6.0.0</version>
+        <version>7.0.0</version>
         <type>pom</type>
         <scope>import</scope>
         </dependency>

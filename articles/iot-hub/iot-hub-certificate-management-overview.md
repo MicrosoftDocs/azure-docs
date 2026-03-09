@@ -2,8 +2,8 @@
 title: What is Microsoft-backed X.509 Certificate Management (Preview)?
 titleSuffix: Azure IoT Hub
 description: This article discusses the basic concepts of how certificate management in Azure IoT Hub helps users manage device certificates.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: overview
@@ -62,7 +62,8 @@ Certificate management uses [Azure Device Registry (ADR)](iot-hub-device-registr
 The following image illustrates the X.509 certificate hierarchy used to authenticate IoT devices in Azure IoT Hub through the ADR namespace.
 
 - Each ADR namespace that has an enabled certificate management will have a unique credential (root CA) managed by Microsoft. This credential represents the top-most certificate authority in the chain.
-- Each policy within the ADR namespace defines one issuing CA (ICA) that is signed by the root CA. Each policy can only share its CA certificate with Hubs linked to the namespace. And, each policy can only issue leaf certificates to devices registered within that namespace. You can configure the validity period of the issued certificates for each policy. The minimum validity period is 1 day and the maximum validity period is 90 days.
+- Each policy within the ADR namespace defines one issuing CA (ICA) that is signed by the root CA. Each policy can only share its CA certificate with Hubs linked to the namespace. And, each policy can only issue leaf certificates to devices registered within that namespace. You can configure the validity period of the issued certificates for each policy. The minimum validity period is 7 day and the maximum validity period is 90 days.
+
 - Once you have created your credential and policies, you can sync these CA certificates directly with IoT Hub. IoT Hub will now be able to authenticate devices that present this certificate chain.
 
 :::image type="content" source="media/certificate-management/device-registry-certificate-management.png" alt-text="Diagram showing how Azure Device Registry integrates with IoT Hub and DPS for certificate management." lightbox="media/certificate-management/device-registry-certificate-management.png":::
@@ -100,7 +101,7 @@ The following diagram illustrates the end-to-end process of device provisioning 
 
 End-entity leaf certificates can be renewed using the same mechanism as first-time certificate issuance. When the device detects a need to renew its operational certificate, it must initiate another registration call to DPS, submitting a new Certificate Signing Request (CSR). Once again, the CSR is sent to the appropriate issuing certificate authority (ICA) to request a renewed leaf certificate. Once approved, the renewed operational certificate is returned to the device to be used for secure communications.
 
-Each device is responsible for monitoring the expiration date of its operational certificate and initiating a certificate renewal when needed. As a best practice, we recommend renewing a certificate before its expiration date to ensure uninterrupted communications. The operational certificate includes its `Valid from` and `Valid until` dates, which the device can monitor to determine when a renewal is needed. During this preview, we recommend that devices use their [Device Twin reported properties](iot-hub-devguide-device-twins.md#device-twins) for reporting the certificate issuance and certificate expiration dates. These properties can then be used for observability, like building dashboards.
+Each device is responsible for monitoring the expiration date of its operational certificate and initiating a certificate renewal when needed. As a best practice, we recommend renewing a certificate before its expiration date to ensure uninterrupted communications. The operational certificate includes its `Valid from` and `Valid until` dates, which the device can monitor to determine when a renewal is needed. During this preview, we recommend that devices use their [Device twin reported properties](iot-hub-devguide-device-twins.md#device-twins) for reporting the certificate issuance and certificate expiration dates. These properties can then be used for observability, like building dashboards.
 
 ## Disable a device
 
@@ -110,3 +111,9 @@ Certificate management doesn't support certificate revocation during public prev
 
 See [Azure subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-iot-hub-limits) for the latest information about limits and quotas for certificate management with IoT Hub.
 
+## Related content
+
+- [FAQ: What is new in Azure IoT Hub?](iot-hub-faq.md)
+- [Key concepts for certificate management](iot-hub-certificate-management-concepts.md)
+- [Get started with ADR and certificate management in IoT Hub](iot-hub-device-registry-setup.md)
+- [Integration with Azure Device Registry](iot-hub-device-registry-overview.md)

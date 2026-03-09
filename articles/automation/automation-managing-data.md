@@ -7,8 +7,8 @@ ms.date: 11/17/2025
 ms.topic: overview
 ms.custom:
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Management of Azure Automation data
@@ -112,7 +112,7 @@ When you delete an Automation account in Azure, all objects in the account are d
 
 ### Runbooks
 
-You can export your runbooks to script files using either the Azure portal or the [Get-AzureAutomationRunbookDefinition](/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) cmdlet in Windows PowerShell. You can import these script files into another Automation account, as discussed in [Manage runbooks in Azure Automation](manage-runbooks.md).
+You can export your runbooks to script files using either the Azure portal or the [Get-AzAutomationRunbookContent](/powershell/module/az.automation/get-azautomationrunbook) cmdlet in Windows PowerShell. You can import these script files into another Automation account, as discussed in [Manage runbooks in Azure Automation](manage-runbooks.md).
 
 ### Integration modules
 

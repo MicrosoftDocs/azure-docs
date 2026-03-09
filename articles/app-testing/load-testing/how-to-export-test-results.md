@@ -12,7 +12,7 @@ ms.topic: how-to
 ---
 # Export test results from Azure Load Testing for use in third-party tools
 
-In this article, you learn how to export your Azure Load Testing test results and reports. You can download the results by using the Azure portal, as an artifact in your CI/CD workflow, in JMeter by using a backend listener, in Locust by using event hooks or listener plugins,  or by copying the results from an Azure storage account. You can use these results for reporting in third-party tools or for diagnosing test failures. Azure Load Testing generates the test results in comma-separated values (CSV) file format, and provides details of each application request for the load test.
+In this article, you learn how to export your Azure Load Testing test results and reports. You can view the results in the Azure portal, download the results using the Azure portal, as an artifact in your CI/CD workflow, in JMeter by using a backend listener, in Locust by using event hooks or listener plugins, or by copying the results from an Azure storage account. You can use these results for reporting in third-party tools or for diagnosing test failures. Azure Load Testing generates the test results in comma-separated values (CSV) file format, and provides details of each application request for the load test.
 
 You can also use the test results to diagnose errors during a load test. The `responseCode` and `responseMessage` fields give you more information about failed requests. For more information about investigating errors, see [Diagnose failing load tests](./how-to-diagnose-failing-load-test.md).
 
@@ -40,9 +40,9 @@ timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success
 1676040230680,101,Homepage,200,OK,172.18.33.7-Thread Group 1-1,text,true,,1591,133,5,5,https://www.example.com/,98,0,94
 ```
 
-## Access and download load test results and report
+## View and download load test results and report
 
-After a load test run finishes, you can access and download the load test results and the HTML report through the Azure portal, or as an artifact in your CI/CD workflow.
+After a load test run finishes, you can view and download the load test results and the HTML report through the Azure portal, or as an artifact in your CI/CD workflow.
 
 >[!IMPORTANT]
 >For load tests with more than 45 engine instances or a greater than 3-hour test run duration, the results file is not available for download. You can [configure a JMeter Backend Listener to export the results](#export-test-results-using-listeners) to a data store of your choice or [copy the results from a storage account container](#copy-test-artifacts-from-a-storage-account-container).
@@ -50,7 +50,7 @@ After a load test run finishes, you can access and download the load test result
 
 # [Azure portal](#tab/portal)
 
-To download the test results and the HTML report for a test run in the Azure portal:
+To view and download the test results and the HTML report for a test run in the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), go to your Azure Load Testing resource.
 
@@ -65,14 +65,18 @@ To download the test results and the HTML report for a test run in the Azure por
 
    * Select the ellipsis (**...**) next to the load test run you're working with, and then select **Download results file**.
 
-     :::image type="content" source="media/how-to-export-test-results/test-run-page-download.png" alt-text="Screenshot that shows how to download the results file for a load test run.":::  
+     :::image type="content" source="media/how-to-export-test-results/test-run-page-download.png" alt-text="Screenshot that shows how to download the results file for a load test run." lightbox="media/how-to-export-test-results/test-run-page-download.png":::  
 
      > [!NOTE]
-     > A load test run needs to have a *Done*, *Stopped*, or *Failed* status for the results file to be available for download.
+     > A load test run needs to have a *Passed*, *Failed*, *Completed*, or *Stopped* status for the results file to be available for download.
 
-   * Select **Download** on the **Test run details** pane. To download the results, select **Results**. To download the HTML report, select **Report**.
+   * Select **Download** on the **Test run details** pane. To download the results, select **Results** and select **Download**. To download the HTML report, select **Report**.
 
-     :::image type="content" source="media/how-to-export-test-results/download-dashboard.png" alt-text="Screenshot that shows how to download the test results from the 'Test run details' pane.":::
+     :::image type="content" source="media/how-to-export-test-results/download-dashboard.png" alt-text="Screenshot that shows how to download the test results from the 'Test run details' pane." lightbox="media/how-to-export-test-results/download-dashboard.png":::
+
+   * To view the results files in the storage container, select **Download** on the **Test run details** pane, select **Results** and select **View**. You can view the results files from all the test engines in the right context pane. Select the file that you want to download and select **Download**. 
+
+     :::image type="content" source="media/how-to-export-test-results/view-results-file.png" alt-text="Screenshot that shows how to view the test results from the 'Test run details' pane." lightbox="media/how-to-export-test-results/view-results-file.png":::
 
 1. You can use any zip tool to extract the folder and access the downloaded files.
 
@@ -177,14 +181,14 @@ To copy the test results and log files for a test run from a storage account, in
    >[!TIP]
    > To limit the number of tests to display in the list, you can use the search box and the **Time range** filter.
 
-1. On the **Test run details** pane, select **Copy artifacts**.
+1. On the **Test run details** pane, select **Download**, then select **Results** and select **View**. You can see the storage container view with the results files. 
 
      :::image type="content" source="media/how-to-export-test-results/test-run-page-copy-artifacts.png" alt-text="Screenshot that shows how to copy the test artifacts from the 'Test run details' pane.":::
 
      > [!NOTE]
      > A load test run needs to be in the *Done*, *Stopped*, or *Failed* status for the results file to be available for download.
 
-1. Copy the SAS URL of the storage account container. 
+1. Select **Copy SAS URL** to copy the SAS URL of the storage account container. 
 
     You can use the SAS URL in the [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#shared-access-signature-sas-url) or [AzCopy](/azure/storage/common/storage-use-azcopy-blobs-copy#copy-a-container) to copy the results CSV files and the log files for the test run to your storage account.
     

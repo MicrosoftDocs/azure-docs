@@ -12,7 +12,7 @@ ms.reviewer: azfuncdf
 
 # The Durable Functions packages
 
-[Durable Functions](./durable-functions-overview.md) is available in all first-party Azure Functions runtime environments, such as .NET, Node.js, and Python. As such, there are multiple Durable Functions SDKs and packages for each language runtime supported. This guide provides a description of each Durable Functions package from the perspective of each runtime supported.
+[Durable Functions](./what-is-durable-task.md) is available in all first-party Azure Functions runtime environments, such as .NET, Node.js, and Python. As such, there are multiple Durable Functions SDKs and packages for each language runtime supported. This guide provides a description of each Durable Functions package from the perspective of each runtime supported.
 
 ## .NET in-process
 

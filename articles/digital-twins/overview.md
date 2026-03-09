@@ -23,7 +23,7 @@ Take advantage of your domain expertise on top of Azure Digital Twins to build c
 * Connect assets such as IoT devices and existing business systems, using a robust event system to build dynamic business logic and data processing
 * Query the live execution environment to extract real-time insights from your twin graph
 * Build connected 3D visualizations of your environment that display business logic and twin data in context
-* Query historized environment data and integrate with other Azure data, analytics, and AI services to better track the past and predict the future
+* Query historized environment data and integrate with other Azure data, analytics, and Foundry Tools to better track the past and predict the future
 
 ## Define your business environment
 

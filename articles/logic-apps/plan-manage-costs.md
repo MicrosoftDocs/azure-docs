@@ -1,11 +1,12 @@
 ---
-title: Plan to manage costs for Azure Logic Apps
-description: Learn how to plan for and manage costs for Azure Logic Apps by using cost analysis in the Azure portal.
+title: Plan and Manage Costs
+description: Learn how to plan and manage costs for Azure Logic Apps by using cost analysis in the Azure portal.
 ms.service: azure-logic-apps
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: subject-cost-optimization
-ms.date: 01/10/2024
+ms.update-cycle: 1095-days
+ms.date: 01/13/2026
 
 # Note for Azure service writer: Links to Cost Management articles are full URLS with the ?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn campaign suffix. Leave those URLs intact. They're used to measure traffic to Cost Management articles.
 ---
@@ -226,7 +227,7 @@ To help you reduce costs on your logic aps and related resources, try these opti
 
 * [Disable logic apps](manage-logic-apps-with-azure-portal.md#disable-enable-logic-apps) that don't have to constantly run, or [delete logic apps](manage-logic-apps-with-azure-portal.md#delete-logic-apps) that you no longer need at all. If possible, disable any other resources that you don't need constantly active.
 
-## Next steps
+## Related content
 
 * [Optimize your cloud investment with Microsoft Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 * [Manage costs using cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

@@ -25,7 +25,7 @@ To use a Fail activity in a pipeline, complete the following steps:
 
    :::image type="content" source="media/control-flow-fail-activity/fail-activity.png" alt-text="Shows the UI for a Fail activity.":::
 
-1. Enter a failure message and error code. These values can be literal string expressions, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
+1. Enter a failure message and error code. These values can be literal string expressions, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#expressions-with-parameters).
 
 ## Syntax
 

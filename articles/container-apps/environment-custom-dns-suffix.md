@@ -22,9 +22,9 @@ Azure Container Apps environment provides a default DNS suffix in the format `<U
 
 1. Go to your Container Apps environment in the [Azure portal](https://portal.azure.com)
 
-1. Under the *Settings* section, select **Custom DNS suffix**.
+1. Under the *Settings* section, select **Networking** and then click on **Custom DNS Suffix**.
 
-1. In **DNS suffix**, enter the custom DNS suffix for the environment.
+1. In **Custom DNS suffix**, enter the custom DNS suffix for the environment.
 
     For example, if you enter `example.com`, the container app domain names are in the format `<APP_NAME>.example.com`.
 

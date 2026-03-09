@@ -1,11 +1,13 @@
 ---
-title: Azure Functions Durable Task Scheduler
-description: Learn about the characteristics of the Azure Functions Durable Task Scheduler.
-ms.topic: conceptual
-ms.date: 10/29/2025
+title: Durable Task Scheduler
+titleSuffix: Durable Task
+description: Learn about the characteristics of the Durable Task Scheduler.
+ms.topic: concept-article
+ms.subservice: durable-task-scheduler
+ms.date: 02/06/2026
 ---
 
-# Azure Functions Durable Task Scheduler
+# Durable Task Scheduler
 
 The Durable Task Scheduler provides durable execution in Azure. Durable execution is a fault-tolerant approach to running code that handles failures and interruptions through automatic retries and state persistence. Durable execution helps with scenarios such as:
 - Distributed transactions
@@ -13,7 +15,7 @@ The Durable Task Scheduler provides durable execution in Azure. Durable executio
 - Data processing
 - Infrastructure management, and others. 
 
-You can use the Durable Task Scheduler with [any of the Functions SKUs](../../functions-scale.md), the [Dedicated SKU](./durable-task-scheduler-dedicated-sku.md#dedicated-sku), or the [Consumption SKU (preview)](./durable-task-scheduler-dedicated-sku.md#consumption-sku-preview).
+You can use the Durable Task Scheduler with [any of the Functions SKUs](../../functions-scale.md), the [Dedicated SKU](./durable-task-scheduler-billing.md#dedicated-sku), or the [Consumption SKU](./durable-task-scheduler-billing.md#consumption-sku).
 
 ## Supported regions
 
@@ -32,7 +34,7 @@ Azure provides two developer-oriented orchestration frameworks you can use to bu
 - Durable Functions
 - Durable Task SDKs
 
-[Learn which orchestration works better for your project.](./choose-orchestration-framework.md)
+[Learn which orchestration works better for your project.](../choose-orchestration-framework.md)
 
 ## Architecture
 
@@ -107,7 +109,7 @@ Creating multiple task hubs isolates different workloads that can be managed ind
 - Create task hubs for different teams within your organization. 
 - Share the same scheduler instance across multiple apps. 
 
-Scheduler sharing is a great way to optimize cost when multiple teams have scenarios requiring orchestrations. Although you can create unlimited task hubs in one scheduler instance, they share the same resources; if one task hub is heavily loaded, it might affect the performance of the other task hubs.
+Scheduler sharing is a great way to optimize cost when multiple teams have scenarios requiring orchestrations. Although you can create multiple task hubs in one scheduler instance, they share the same resources; if one task hub is heavily loaded, it might affect the performance of the other task hubs.
 
 ### Emulator for local development
 
@@ -138,7 +140,18 @@ Stale orchestration data should be purged periodically to ensure efficient stora
 
 - **Scheduler quota:** 
 
-    You can currently create up to **five schedulers per region** per subscription.
+    You're limited in how many schedulers you can create depending on your billing SKU.
+     - [When using the Dedicated SKU,](./durable-task-scheduler-billing.md#dedicated-sku) schedulers are limited to **25** per region per subscription. 
+     - [When using the Consumption SKU,](./durable-task-scheduler-billing.md#consumption-sku) schedulers are limited to **10** per region per subscription. 
+
+- **Task hub quota:**
+
+    You're limited in how many task hubs you can use depending on your billing SKU. 
+
+     - [When using the Dedicated SKU,](./durable-task-scheduler-billing.md#dedicated-sku) task hubs are limited to **25** per region per subscription. 
+     - [When using the Consumption SKU,](./durable-task-scheduler-billing.md#consumption-sku) task hubs are limited to **five** per region per subscription. 
+
+    For more quota, [contact support](https://github.com/Azure/azure-functions-durable-extension/issues).
 
 - **Max payload size:** 
 
@@ -152,11 +165,28 @@ Stale orchestration data should be purged periodically to ensure efficient stora
     | Orchestration custom status | 1 MB |
     | Entity state | 1 MB |
 
+- **Orchestration instance ID length:**
+  
+  Orchestration instance IDs are limited to a maximum length of 100 characters.
+
+  * Allowed characters: Printable ASCII only (letters, numbers, symbols like -, _, ., etc. Characters 0x20 through 0x7E)
+  * Minimum length: 1 character (cannot be empty)
+  * Instance IDs starting with @ are reserved for entities
+
 - **Feature parity:** 
 
     [Extended sessions](../durable-functions-azure-storage-provider.md#extended-sessions) are not available in the Durable Task Scheduler backend yet.
 
+- **Task hub limits:**
+
+    You're limited in how many task hubs you can use depending on your billing SKU. 
+
+     - [When using the Dedicated SKU,](./durable-task-scheduler-billing.md#dedicated-sku) task hubs are limited to 25. 
+     - [When using the Consumption SKU,](./durable-task-scheduler-billing.md#consumption-sku) task hubs are limited to 5. 
+
+    For more quota, [contact support](https://github.com/Azure/azure-functions-durable-extension/issues).
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Choose your orchestration framework](./choose-orchestration-framework.md)
+> [Choose your orchestration framework](../choose-orchestration-framework.md)

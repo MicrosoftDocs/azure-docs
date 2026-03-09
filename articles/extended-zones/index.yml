@@ -56,10 +56,6 @@ landingContent:
         links:
           - text: Deploy Arc-enabled workloads in an Extended Zone - Managed SQL Instance
             url: arc-enabled-workloads-managed-sql.md
-      - linkListType: tutorial
-        links:
-          - text: Deploy Arc-enabled workloads in an Extended Zone - PostgreSQL
-            url: arc-enabled-workloads-postgre-sql.md
 
   # Card
   - title: Reference

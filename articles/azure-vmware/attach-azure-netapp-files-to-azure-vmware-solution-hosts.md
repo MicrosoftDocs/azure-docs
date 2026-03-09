@@ -125,11 +125,11 @@ There are some important best practices to follow for optimal performance of NFS
 - Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. See [Service levels for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-service-levels.md) to understand the throughput allowed per provisioned TiB for each service level. 
 
     >[!IMPORTANT]
-    > If you've changed the Azure NetApp Files volumes performance tier or the volume size after creating the volume and datastore, see [Service level change for Azure NetApp files datastore](#service-level-change-for-azure-netapp-files-datastore) to ensure that volume/datastore metadata is in sync to avoid unexpected behavior in the portal or the API due to metadata mismatch. To do any kind of change to the volume you can use Azure Portal or any other supported solution (CLI\Powershell\API).
+    > If you've changed the Azure NetApp Files volumes performance tier or the volume size after creating the volume and datastore, see [Service level change for Azure NetApp files datastore](#service-level-change-for-azure-netapp-files-datastore) to ensure that volume/datastore metadata is in sync to avoid unexpected behavior in the portal or the API due to metadata mismatch. To do any kind of change to the volume you can use Azure portal or any other supported solution (CLI\PowerShell\API).
     
 - Create one or more volumes based on the required throughput and capacity. See [Performance considerations](../azure-netapp-files/azure-netapp-files-performance-considerations.md) for Azure NetApp Files to understand how volume size, service level, and capacity pool QoS type determines volume throughput. For assistance calculating workload capacity and performance requirements, contact your Azure VMware Solution or Azure NetApp Files field expert. The default maximum number of Azure NetApp Files datastores is 64.
 
--  Ensure that the Azure VMware Solution private cloud and the Azure NetApp Files volumes are deployed within the same [availability zone](../reliability/availability-zones-overview.md) using the [availability zone volume placement](../azure-netapp-files/manage-availability-zone-volume-placement.md) in the same subscription. Information regarding your AVS private cloud's availability zone can be viewed from the overview pane within the AVS private cloud.
+-  Ensure that the Azure VMware Solution private cloud and the Azure NetApp Files volumes are deployed within the same [availability zone](/azure/reliability/availability-zones-overview) using the [availability zone volume placement](../azure-netapp-files/manage-availability-zone-volume-placement.md) in the same subscription. Information regarding your AVS private cloud's availability zone can be viewed from the overview pane within the AVS private cloud.
  
 For performance benchmarks that Azure NetApp Files datastores deliver for VMs on Azure VMware Solution, see [Azure NetApp Files datastore performance benchmarks for Azure VMware Solution](../azure-netapp-files/performance-benchmarks-azure-vmware-solution.md).  
 
@@ -228,7 +228,7 @@ az vmware datastore netapp-volume create \
 
 You can use the instructions provided to delete an Azure NetApp Files-based datastore using either Azure portal or Azure CLI. There's no maintenance window required for this operation. The delete action only removes the Azure NetApp Files volume as a datastore and it doesn't delete the data or the Azure NetApp Files volume.
 
-**Delete an Azure NetApp Files datastore using the Azure Portal**
+**Delete an Azure NetApp Files datastore using the Azure portal**
 
 1. Select the datastore you want to delete from.
 

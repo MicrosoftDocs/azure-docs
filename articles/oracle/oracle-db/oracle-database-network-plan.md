@@ -23,31 +23,39 @@ Default network features enable basic network connectivity for both new and exis
 Advanced network features enhance the virtual networking experience, offering improved security, performance, and control—similar to standard Azure VMs. These features are generally available for new deployments in the following regions:
 
 * Australia East
+* Australia Southeast
 * Brazil South
+* Brazil Southeast
 * Canada Central
+* Canada East
 * Central India
 * Central US 
 * East US 
 * East US2
 * France Central
+* France South
 * Germany North
 * Germany West Central
+* India South
 * Italy North 
 * Japan East
 * Japan West
+* North Central US
 * North Europe
 * South Central US
 * South India
 * Southeast Asia
 * Spain Central
 * Sweden Central
+* Switzerland North
 * UAE Central
 * UAE North
 * UK South 
 * UK West
 * US West
 * US West 2
-* US West 3 
+* US West 3
+* West Europe
 
 
 
@@ -108,6 +116,7 @@ The following table describes required configurations of supported network featu
 | Service tags support| No | Yes | 
 |Virtual network flow logs| No | Yes |
 |Connecting to ODAA instances via Private Endpoint | No | No |
+|Standard V2 NAT GW support | No | No |
 
 > [!NOTE]
 > When using NSGs (Network Security Groups) on the Azure side, ensure that any security rules configured on the Oracle (OCI) side are reviewed to avoid conflicts. While applying security policies on both Azure and OCI can enhance the overall security posture, it also introduces additional complexity in terms of management and requires careful manual synchronization between the two environments. Misalignment between these policies could lead to unintended access issues or operational disruptions. 

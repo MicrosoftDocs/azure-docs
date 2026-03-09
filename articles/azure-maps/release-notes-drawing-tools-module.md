@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Release notes for the Azure Maps Drawing Tools Module. 
 author: sinnypan
 ms.author: sipa
-ms.date: 11/07/2024
+ms.date: 12/17/2025
 ms.topic: reference
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -13,6 +13,16 @@ ms.subservice: web-sdk
 # Drawing Tools Module release notes
 
 This document contains information about new features and other changes to the Azure Maps Drawing Tools Module.
+
+## [2.0.0] (CDN: December 15, 2025, npm: December 17, 2025)
+
+### Breaking Changes
+
+- Aligned the behavior of edit operations with drawing operations. The `drawingchanging` events now fire continuously during editing, and the `drawingchanged` event fires when the operation completes.
+
+### Bug fixes
+
+- Fixed an intermittent console error that occurred when resizing shapes.
 
 ## [1.0.5] (CDN: November 4, 2024, npm: November 7)
 
@@ -52,6 +62,7 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[2.0.0]: https://www.npmjs.com/package/azure-maps-drawing-tools/v/2.0.0
 [1.0.5]: https://www.npmjs.com/package/azure-maps-drawing-tools/v/1.0.5
 [1.0.4]: https://www.npmjs.com/package/azure-maps-drawing-tools/v/1.0.4
 [1.0.3]: https://www.npmjs.com/package/azure-maps-drawing-tools/v/1.0.3

@@ -75,8 +75,6 @@ You can define traffic selectors by using the `trafficSelectorPolicies` attribut
    New-AzVirtualNetworkGatewayConnection -ResourceGroupName $rgname -name $vnetConnectionName -location $location -VirtualNetworkGateway1 $vnetGateway -LocalNetworkGateway2 $localnetGateway -ConnectionType IPsec -RoutingWeight 3 -SharedKey $sharedKey -UsePolicyBasedTrafficSelectors $true -TrafficSelectorPolicy ($trafficSelectorPolicy) 
    ```
 
-1. Once the connection object is created, you can pull the Get-Gateway / refresh ASC and pull the RAW DATA URI (Get-Gateway output) to see the changes.
-
 ## Next steps
 
 For more information about VPN Gateway, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md).

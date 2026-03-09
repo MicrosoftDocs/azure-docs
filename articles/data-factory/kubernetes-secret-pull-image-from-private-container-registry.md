@@ -14,10 +14,9 @@ ms.custom: sfi-image-nochange
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This article explains how to add a Kubernetes secret to pull a custom image from a private Azure Container Registry within the Azure Data Factory Workflow Orchestration Manager environment.
+[!INCLUDE[apache-airflow-notification](includes/apache-airflow-notification.md)]
 
-> [!NOTE]
-> Workflow Orchestration Manager for Azure Data Factory relies on the open-source Apache Airflow application. You can find documentation and more tutorials for Airflow on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) webpages.
+This article explains how to add a Kubernetes secret to pull a custom image from a private Azure Container Registry within the Azure Data Factory Workflow Orchestration Manager environment.
 
 ## Prerequisites
 

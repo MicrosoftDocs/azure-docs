@@ -2,7 +2,7 @@
 title: Customize the setup for an Azure-SSIS Integration Runtime
 description: This article describes how to use the custom setup interface for an Azure-SSIS Integration Runtime to install additional components or change settings
 ms.subservice: integration-services
-ms.topic: conceptual
+ms.topic: how-to
 author: chugugrace
 ms.author: chugu
 ms.date: 05/15/2024

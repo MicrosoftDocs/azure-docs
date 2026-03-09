@@ -403,7 +403,7 @@ The following considerations apply to this kind of deployment:
 
 + Publishing overwrites existing files in the remote function app deployment.
 
-+ You must have already [created a function app in your Azure subscription](functions-cli-samples.md#create). Core Tools deploys your project code to this function app resource. To learn how to create a function app from the command prompt or terminal window using the Azure CLI or Azure PowerShell, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md). You can also [create these resources in the Azure portal](./functions-create-function-app-portal.md#create-a-function-app). You get an error when you try to publish to a `<FunctionAppName>` that doesn't exist in your subscription. 
++ You must have already [created a function app in your Azure subscription](functions-cli-samples.md#create). Core Tools deploys your project code to this function app resource. To learn how to create a function app from the command prompt or terminal window using the Azure CLI or Azure PowerShell, see [Azure CLI Samples](functions-cli-samples.md#create). You can also [create these resources in the Azure portal](./functions-create-function-app-portal.md#create-a-function-app). You get an error when you try to publish to a `<FunctionAppName>` that doesn't exist in your subscription. 
 
 + A project folder may contain language-specific files and directories that shouldn't be published. Excluded items are listed in a .funcignore file in the root project folder. 
 

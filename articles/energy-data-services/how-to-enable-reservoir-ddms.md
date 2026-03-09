@@ -13,6 +13,9 @@ ms.date: 02/08/2025
 # How to enable Reservoir DDMS (Preview)
 The Reservoir Domain Data Management Service (Reservoir DDMS) is a group of services that provides storage associated with seismic and well interpretation, structural modeling, geological modeling, and reservoir modeling including reservoir simulation input.
 
+> [!IMPORTANT]
+> Reservoir DMS is now a generally available service on Azure Data Manager for Energy. The service is available on all instances by default and do not require the steps below to make the service available. 
+
 [OSDU&reg; Reservoir DDMS](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/reservoir/home) is now available as a preview on the Azure Data Manager for Energy on both developer and standard tiers. This preview currently supports features available on the latest OSDU milestone version supported by Azure Data Manager for Energy. The standard tier instance supports testing for scale and performance of the Reservoir DMS functionality.
 
 The DDMS is fully integrated with all other OSDU&reg; services on Azure Data Manager for Energy. However, during the preview phase, it isn't be enabled for all Azure Data Manager for Energy resources by default. Interested customers should submit a support request on the Azure portal providing the following details:

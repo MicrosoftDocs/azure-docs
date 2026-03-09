@@ -7,7 +7,7 @@ ms.author: micahvivion
 
 services: azure-communication-services
 ms.date: 10/17/2024
-ms.topic: conceptual
+ms.topic: troubleshooting-general
 ms.service: azure-communication-services
 ms.subservice: calling
 ---

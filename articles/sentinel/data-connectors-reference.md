@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: EdB-MSFT
 ms.topic: reference
-ms.date: 11/18/2024
+ms.date: 02/05/2026
 ms.custom: linux-related-content
 ms.author: edbaynash
 appliesto:
@@ -21,7 +21,7 @@ ms.collection: usx-security
 This article lists all supported, out-of-the-box data connectors and links to each connector's deployment steps.
 
 > [!IMPORTANT]
-> - Noted Microsoft Sentinel data connectors are currently in **Preview**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> - Note that Microsoft Sentinel data connectors are currently in **Preview**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > - [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 
 Data connectors are available as part of the following offerings:
@@ -56,12 +56,26 @@ Filter and ingest logs in text-file format from network or security applications
 - [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](/azure/sentinel/connect-custom-logs-ama?tabs=portal)
 - [Custom Logs via AMA data connector - Configure data ingestion to Microsoft Sentinel from specific applications](/azure/sentinel/unified-connector-custom-device)
 
-[comment]: <> (DataConnector includes end)
+
+##  Sentinel data connectors
+
+> [!NOTE]
+> The following table lists the data connectors that are available in the Microsoft Sentinel Content hub. The connectors are supported by the product vendor. For support, see the **Supported by** link.
+
+> [!TIP]
+> For a list of tables ingested into Microsoft Sentinel and the connectors that ingest them, see [Microsoft Sentinel tables and associated connectors](sentinel-tables-connectors-reference.md).
+
 
 [!INCLUDE [connector-details](includes/connector-details.md)]
 
 
+## Deprecated Sentinel data connectors
+
+> [!NOTE]
+> The following table lists the deprecated and legacy data connectors. Deprecated connectors are no longer supported.
+
 [!INCLUDE [deprecated-connectors](includes/deprecated-connectors.md)]
+
 
 ## Next steps
 

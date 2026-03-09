@@ -326,7 +326,7 @@ DSC versions, so don't try to manage the same settings.
 - Learn how to view [compliance details for machine configuration][22] policy assignments.
 
 <!-- Reference link definitions -->
-[01]: ../overview.md
+[01]: ../overview/01-overview-concepts.md
 [02]: https://youtu.be/nYd55FiKpgs
 [03]: /powershell/dsc/overview
 [04]: https://github.com/Microsoft/PowerShell-DSC-for-Linux

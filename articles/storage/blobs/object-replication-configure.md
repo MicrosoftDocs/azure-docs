@@ -319,6 +319,84 @@ N/A
 
 ---
 
+## Configure blob index tags replication (preview)
+
+Object replication now supports copying index tags from source blobs to destination blobs. You can configure this capability as part of a new or existing replication rule.
+
+> [!IMPORTANT]
+> Tag replication is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+### Prerequisites
+
+The source storage account must be registered for the EnableObjectReplicationTags preview feature before tag replication can be enabled. Register the preview feature in the Azure portal by following the steps in the [Azure Resource Manager preview features](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal) documentation.
+
+### Enable Tags replication
+
+Tags replication can be enabled on both new and existing object replication policies. Any change to a source blob or it's index tags will trigger replication of tags.
+
+#### [Azure portal](#tab/portal)
+
+Enable tags replication from the Object Replication blade when creating a rule or update existing rules using the Tags replication column.
+
+To configure replicating blob index tags when creating a new rule, follow these steps:
+
+1. Navigate to the source storage account in the Azure portal.
+1. Under **Data management**, select **Object replication**.
+1. Select **Create replication rules**.
+1. Select **Enable tags replication** and finally select **Save and apply** to configure replicating blob index tags.
+
+To configure replicating blob index tags for exsiting rules, follow these steps:
+
+1. Navigate to **Your accounts tab** in **Object replication** page 
+1. Select **Enable** option under Tags replication column in **Objects copied from this account** table and select **OK**.
+1. Status of Tags replication column against a rule now shows **Enabled**.
+
+To disable replicating blob index tags for exsiting rules, follow these steps:
+
+1. Navigate to **Your accounts tab** in **Object replication** page 
+2. Select an exsiting rule and select **Edit rules** from the '…' menu
+3. Unselect **Enable tags replication** option and finally select **Save and apply** to disable replicating blob index tags.
+
+#### [PowerShell](#tab/powershell)
+
+N/A.
+
+#### [Azure CLI](#tab/azure-cli)
+
+N/A.
+
+#### [REST API](#tab/rest-api)
+
+Users can use existing REST APIs: [Object Replication Policies - Create Or Update - REST API](/rest/api/storagerp/object-replication-policies/create-or-update) to configure policies for replicating tags set on the Blobs. 
+
+Add the following line ``` “tagsReplication”: { “enabled”: true }``` when creating or updating the replication 
+rules on the source account.
+
+Tags replication is supported on API version 2022-05-01 and above. You can add the new tagsReplication field to the replication policy.
+
+Sample: 
+
+``` json
+{
+    "sourceAccount": "<source-account-name>",
+    "destinationAccount": "<destination-account-name>",
+    "tagsReplication":
+    {
+     "enabled": true
+    },
+    "rules":
+    [
+        {
+            "ruleId": "<rule-id>",
+            "sourceContainer": "<source-container-name>",
+            "destinationContainer": "<destination-container-name>"
+        }
+    ]
+}
+```
+---
+
 ## Configure replication metrics
 
 ### Enable replication metrics
@@ -472,6 +550,27 @@ az storage account or-policy delete \
 
 N/A
 
+## Behavior when re-creating an object replication policy 
+
+
+When an object replication policy is deleted and re‑created on the same source and destination container pair, Azure treats the new policy as an entirely separate replication relationship. The following behavior applies: 
+
+- A new policy ID is generated for the re‑created policy. 
+
+- Any replication tasks associated with the previous policy are terminated. 
+
+- The destination container is assigned a new replication lock tied to the new policy ID. 
+
+- Replication state from the previous policy is not reused. 
+
+## Replication behavior after re‑creating an object replication policy 
+
+After the policy is re‑created, Azure attempts replication again for eligible blobs, and the outcome depends on the availability of blob version history on the source account: 
+
+- **If a source blob has no previous versions available on the destination:** Azure determines that the blob has already been copied under a prior policy. Re‑replication of that blob does not succeed. Only new blob writes (or new versions created after the policy is re‑created) replicate successfully. 
+
+- **If a source blob has previous versions available on the destination:** Azure is able to re‑replicate the blob. The blob is copied again to the destination as a new version. This enables successful re‑replication of existing blobs without data inconsistency. 
+
 ---
 
 ## Next steps
@@ -479,4 +578,5 @@ N/A
 - [Object replication for block blobs](object-replication-overview.md)
 - [Prevent object replication across Microsoft Entra tenants](object-replication-prevent-cross-tenant-policies.md)
 - [Enable and manage blob versioning](versioning-enable.md)
+
 - [Process change feed in Azure Blob storage](storage-blob-change-feed-how-to.md)

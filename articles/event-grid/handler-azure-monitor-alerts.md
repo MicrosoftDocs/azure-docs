@@ -10,7 +10,7 @@ author: robece
 ms.author: robece
 ---
 
-# How to send events to Azure monitor alerts (Preview)
+# How to send events to Azure monitor alerts
 
 This article describes how Azure Event Grid delivers Azure Key Vault events as Azure Monitor alerts.
 

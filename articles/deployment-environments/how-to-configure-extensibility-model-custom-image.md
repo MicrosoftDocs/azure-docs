@@ -158,7 +158,7 @@ To start with, you can use the published GitHub workflow from the Leveraging ADE
 In order to use the workflow, you will need to:
 
 - Fork this repository into your personal account
-- Allow GitHub Actions to connect to Azure via an Microsoft Entra ID application's federated credentials through OIDC. You can find more documentation about this process here
+- Allow GitHub Actions to connect to Azure via a Microsoft Entra ID application's federated credentials through OIDC. You can find more documentation about this process here
 - Set up Repository Secrets for your repository containing your Microsoft Entra ID application's application ID set as AZURE_CLIENT_ID, the subscription ID set as AZURE_SUBSCRIPTION_ID, and the tenant ID set as AZURE_TENANT_ID
 - Set up Repository Variables for your repository containing your personal Azure Container Registry (ACR) name as REGISTRY_NAME, your preferred repository name as REPOSITORY_NAME, and your preferred tag as TAG for the created image. You can modify your variables between workflow runs to push the generated image to different registries, repositories and tags.
  

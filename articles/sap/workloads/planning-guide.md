@@ -133,7 +133,7 @@ As you start to plan and think about which regions to choose as primary region a
 
 ### Azure paired regions
 
-In an Azure paired region, replication of certain data is enabled by default between the two regions. For more information, see [Cross-region replication in Azure: Business continuity and disaster recovery](../../reliability/cross-region-replication-azure.md).
+In an Azure paired region, replication of certain data is enabled by default between the two regions. For more information, see [Cross-region replication in Azure: Business continuity and disaster recovery](/azure/reliability/cross-region-replication-azure).
 
 Data replication in a region pair is tied to types of Azure storage that you can configure to replicate into a paired region. For details, see [Storage redundancy in a secondary region](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region).
 

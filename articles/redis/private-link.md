@@ -1,7 +1,7 @@
 ---
 title: Azure Managed Redis with Azure Private Link
 description: Learn how to create an Azure Cache, an Azure Virtual Network, and a Private Endpoint using the Azure portal with a managed Redis cache.
-ms.date: 12/01/2025
+ms.date: 01/20/2026
 ms.topic: article
 ai-usage: ai-assisted
 ms.custom:
@@ -143,7 +143,7 @@ With `publicNetworkAccess`, the following network configurations are now support
 - Private traffic without Private Links
 - Private traffic with Private Links
 
-Disabling `publicNetworkAccess` and protecting your cache by using a VNet along with a Private Endpoint and Private Links is the most secure option. A VNet enables network controls and adds an extra layer of security. Private Links restrict traffic to one-way communication from the virtual network, offering enhanced network isolation. This means that even if the Azure Managed Redis resource is compromised, other resources within the virtual network remain secure.
+Disabling `publicNetworkAccess` and protecting your cache by using a VNet along with a Private Endpoint and Private Links is the most secure option. A VNet enables network controls and adds an extra layer of security. Private Links restrict traffic to one-way communication from the virtual network, offering enhanced network isolation. Using a VNet means that even if the Azure Managed Redis resource is compromised, other resources within the virtual network remain secure.
 
 ### Updating a cache to use `publicNetworkAccess` by using the portal
 

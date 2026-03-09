@@ -23,7 +23,7 @@ Microsoft supports the following Kubernetes distributions for Azure IoT Operatio
 
 | Kubernetes distribution           | Architecture         | Support level        | *Minimum validated version*         | *Minimum validated OS*                |
 |-----------------------------------|----------------------|----------------------|-------------------------------------|---------------------------------------|
-| [K3s](https://www.rancher.com/products/k3s)                             | x86_64               | General availability | *1.31.1*                            | *Ubuntu 24.04*                        |
+| [K3s](https://www.rancher.com/products/k3s)                             | x86_64               | General availability | *1.31.1*                            | *Ubuntu 24.04*, <br> Red Hat Enterprise Linux (RHEL) 9.x                        |
 | [Tanzu Kubernetes release (TKr)](https://www.vmware.com/products/app-platform/tanzu-kubernetes-grid)    | x86_64               | General availability | *1.28.11*                           | *Tanzu Kubernetes Grid 2.5.2*         |
 
 * The *minimum validated version* is the lowest version of the Kubernetes distribution that Microsoft uses to validate Azure IoT Operations deployments.

@@ -24,11 +24,11 @@ Learn more about managing AI APIs in API Management:
 
 ## Client compatibility options
 
-API Management supports two client compatibility options for AI APIs from Microsoft Foundry. When you import the API using the wizard, choose the option suitable for your model deployment. The option determines how clients call the API and how the API Management instance routes requests to the AI service.
+API Management supports two client compatibility options for AI APIs from Microsoft Foundry. When you import the API using the wizard, choose the option suitable for your model deployment. The option determines how clients call the API and how the API Management instance routes requests to the Foundry Tool.
 
 * **Azure OpenAI** - Manage Azure OpenAI in Microsoft Foundry model deployments. 
 
-    Clients call the deployment at an `/openai` endpoint such as `/openai/deployments/my-deployment/chat/completions`. Deployment name is passed in the request path. Use this option if your AI service only includes Azure OpenAI model deployments. 
+    Clients call the deployment at an `/openai` endpoint such as `/openai/deployments/my-deployment/chat/completions`. Deployment name is passed in the request path. Use this option if your Foundry Tool only includes Azure OpenAI model deployments. 
 
 * **Azure AI** - Manage model endpoints in Microsoft Foundry that are exposed through the [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api).
 
@@ -38,7 +38,7 @@ API Management supports two client compatibility options for AI APIs from Micros
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
 
-- An Azure AI service in your subscription with one or more models deployed. Examples include models deployed in Microsoft Foundry or Azure OpenAI.
+- A Foundry Tool in your subscription with one or more models deployed. Examples include models deployed in Microsoft Foundry or Azure OpenAI.
 
 ## Import Microsoft Foundry API using the portal
 
@@ -47,22 +47,22 @@ Use the following steps to import an AI API to API Management.
 When you import the API, API Management automatically configures:
 
 * Operations for each of the API's REST API endpoints
-* A system-assigned identity with the necessary permissions to access the AI service deployment.
-* A [backend](backends.md) resource and a [set-backend-service](set-backend-service-policy.md) policy that direct API requests to the AI service endpoint.
+* A system-assigned identity with the necessary permissions to access the Foundry Tool deployment.
+* A [backend](backends.md) resource and a [set-backend-service](set-backend-service-policy.md) policy that direct API requests to the Azure AI Services endpoint.
 * Authentication to the backend using the instance's system-assigned managed identity.
 * (optionally) Policies to help you monitor and manage the API.
 
-To import an Microsoft Foundry API to API Management:
+To import a Microsoft Foundry API to API Management:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **APIs** > **+ Add API**.
 1. Under **Create from Azure resource**, select **Microsoft Foundry**.
 
     :::image type="content" source="media/azure-ai-foundry-api/ai-foundry-api.png" alt-text="Screenshot of creating an OpenAI-compatible API in the portal." :::
-1. On the **Select AI service** tab:
-    1. Select the **Subscription** in which to search for AI services. To get information about the model deployments in a service, select the **deployments** link next to the service name.
+1. On the **Select AI Service** tab:
+    1. Select the **Subscription** in which to search for Foundry Tools. To get information about the model deployments in a service, select the **deployments** link next to the service name.
        :::image type="content" source="media/azure-ai-foundry-api/deployments.png" alt-text="Screenshot of deployments for an AI service in the portal.":::
-    1. Select an AI service. 
+    1. Select a Foundry Tool. 
     1. Select **Next**.
 1. On the **Configure API** tab:
     1. Enter a **Display name** and optional **Description** for the API.
@@ -92,7 +92,21 @@ To ensure that your AI API is working as expected, test it in the API Management
 1. Select the **Test** tab.
 1. Select an operation that's compatible with the model deployment.
     The page displays fields for parameters and headers.
-1. Enter parameters and headers as needed. Depending on the operation, you might need to configure or update a **Request body**.
+1. Enter parameters and headers as needed. Depending on the operation, you might need to configure or update a **Request body**. Here's a very basic example request body for a chat completions operation:
+
+    ```json
+    {
+      "model": "any",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Help me plan a trip to Paris",
+          "max_tokens": 100
+        }
+      ]
+    }
+    ```
+
     > [!NOTE]
     > In the test console, API Management automatically populates an **Ocp-Apim-Subscription-Key** header, and configures the subscription key of the built-in [all-access subscription](api-management-subscriptions.md#all-access-subscription). This key enables access to every API in the API Management instance. Optionally display the **Ocp-Apim-Subscription-Key** header by selecting the "eye" icon next to the **HTTP Request**.
 1. Select **Send**.

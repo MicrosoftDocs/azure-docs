@@ -55,7 +55,7 @@ In contrast, the devices and routing definitions in IoT Hub aren't exposed as in
 
 Azure IoT Operations is a unified data plane for the edge. It's a collection of modular, scalable, and highly available data services that run on Azure Arc-enabled edge Kubernetes clusters such as AKS Edge Essentials. It enables data capture from various different systems and integrates with data modeling applications such as Microsoft Fabric to help organizations deploy the industrial metaverse.
 
-To learn more, see [What is Azure IoT Operations?](../iot-operations/overview-iot-operations.md).
+To learn more, see [What is Azure IoT Operations?](../iot-operations/overview-iot-operations.md)
 
 ### Azure Device Registry
 
@@ -84,7 +84,7 @@ To learn more, see [Azure IoT Operations SDKs](https://github.com/Azure/iot-oper
 
 Azure IoT Hub is a managed service hosted in the cloud that acts as a central message hub for communication between an IoT application and its attached devices. Several messaging patterns are supported, including device-to-cloud messages, uploading files from devices, and request-reply methods to control your devices from the cloud. IoT Hub can route messages from devices to other cloud services for storage, analysis, or processing. IoT Hub also supports monitoring to help you track device creation, device connections, and device failures.
 
-To learn more, see [What is Azure IoT Hub?](../iot-hub/iot-concepts-and-iot-hub.md).
+To learn more, see [What is Azure IoT Hub?](../iot-hub/iot-concepts-and-iot-hub.md)
 
 ### Azure IoT Hub Device Provisioning Service (DPS)
 
@@ -92,7 +92,7 @@ To learn more, see [What is Azure IoT Hub?](../iot-hub/iot-concepts-and-iot-hub.
 
 DPS is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning of IoT devices to an IoT hub without requiring human intervention. Many of the manual steps traditionally involved in provisioning are automated with DPS to reduce the time to deploy IoT devices and lower the risk of manual error. DPS can provision devices that use X.509 certificates and trusted platform modules. IoT Central applications use an internal DPS instance to manage device connections.
 
-To learn more, see [What is Azure IoT Hub Device Provisioning Service?](../iot-dps/about-iot-dps.md).
+To learn more, see [What is Azure IoT Hub Device Provisioning Service?](../iot-dps/about-iot-dps.md)
 
 ### Azure Device Update for IoT Hub
 
@@ -100,7 +100,7 @@ To learn more, see [What is Azure IoT Hub Device Provisioning Service?](../iot-d
 
 Azure Device Update for IoT Hub is a service that enables you to deploy over-the-air updates for your IoT devices, including Azure IoT Edge devices. Device Update offers optimized update deployment and streamlined operations through integration with Azure IoT Hub, making it easy to adopt on any existing IoT Hub-based solution.
 
-To learn more, see [What is Device Update for IoT Hub?](../iot-hub-device-update/understand-device-update.md).
+To learn more, see [What is Device Update for IoT Hub?](../iot-hub-device-update/understand-device-update.md)
 
 ### Azure IoT Edge
 
@@ -116,7 +116,7 @@ To learn more, see [What is Azure IoT Edge](../iot-edge/about-iot-edge.md).
 
 Azure Digital Twins is a platform as a service (PaaS) offering that enables the creation of twin graphs based on digital models of entire environments, which could be buildings, factories, farms, energy networks, railways, stadiums, and more—even entire cities. Azure Digital Twins can be used to design a digital twin architecture that represents actual IoT devices in a wider cloud solution, and which connects to IoT Hub device twins to send and receive live data.
 
-To learn more, see [What is Azure Digital Twins?](../digital-twins/overview.md).
+To learn more, see [What is Azure Digital Twins?](../digital-twins/overview.md)
 
 ## Azure IoT Central
 
@@ -124,7 +124,7 @@ To learn more, see [What is Azure Digital Twins?](../digital-twins/overview.md).
 
 IoT Central is an IoT application platform as a service (aPaaS) that reduces the burden and cost of developing, managing, and maintaining IoT solutions. To streamline the development of a complex and continually evolving IoT infrastructure, IoT Central lets you focus your efforts on determining the business impact you can create with the IoT data stream. The web UI lets you quickly connect devices, monitor device conditions, create rules, manage devices and their data throughout their life cycle, and optionally route device messages to other cloud services for storage, analysis, or processing.
 
-To learn more, see [What is Azure IoT Central?](../iot-central/core/overview-iot-central.md).
+To learn more, see [What is Azure IoT Central?](../iot-central/core/overview-iot-central.md)
 
 ## Azure Event Grid
 
@@ -157,7 +157,7 @@ To learn more, see [Azure IoT device and service SDKs](iot-sdks.md).
 
 IoT Plug and Play enables solution builders to integrate IoT devices with their solutions without any manual configuration. At the core of IoT Plug and Play, is a device _model_ that a device uses to advertise its capabilities to an IoT Plug and Play-enabled service such as IoT Central or Azure Digital Twins. You define IoT Plug and Play models and interfaces using the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md).
 
-To learn more, see [What is IoT Plug and Play?](overview-iot-plug-and-play.md).
+To learn more, see [What is IoT Plug and Play?](overview-iot-plug-and-play.md)
 
 ## Microsoft Defender for IoT
 
@@ -167,7 +167,7 @@ Microsoft Defender for IoT is a unified security solution built specifically to 
 
 Defender for IoT provides agentless, network layer monitoring, and integrates with both industrial equipment and security operation center (SOC) tools.
 
-To learn more, see [What is Microsoft Defender for IoT?](../defender-for-iot/organizations/overview.md).
+To learn more, see [What is Microsoft Defender for IoT?](../defender-for-iot/organizations/overview.md)
 
 ## Other cloud services
 

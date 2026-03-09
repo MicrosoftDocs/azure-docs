@@ -3,7 +3,7 @@ author: ruslanzdor
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 06/15/2025
-ms.author: chpalm
+ms.author: sundraman
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
 

@@ -338,7 +338,7 @@ To use these keys from clients, you need to retrieve them from the key vault.
 > [!NOTE]
 > Publishing as a function app requires the Aspire Azure App Service integration, which is currently in preview.
 
-You can configure Aspire to deploy to a function app using the [Aspire Azure App Service integration](/dotnet/aspire/azure/azure-app-service-integration). Because Aspire publishes the Functions project as a container, the hosting plan for your function app must support deploying containerized applications.
+You can configure Aspire to deploy to a function app using the [Aspire Azure App Service integration](https://aspire.dev/integrations/cloud/azure/azure-functions). Because Aspire publishes the Functions project as a container, the hosting plan for your function app must support deploying containerized applications.
 
 To publish your Aspire Functions project as a function app, follow these steps:
 

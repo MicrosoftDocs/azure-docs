@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-edge
 services: iot-edge
 ms.topic: concept-article
-ms.date: 01/21/2025
+ms.date: 02/25/2026
 ms.custom:
   - linux-related-content
   - sfi-image-nochange
@@ -29,7 +29,7 @@ Industrial IoT is overtaking the era of information technology (IT) and operatio
 
 Imagine a workflow scenario where you have a networking configuration divided into two different networks or zones. In the first zone, you may have a secure network defined as the offline network. The offline network has no internet connectivity and is limited to internal access. In the second zone, you may have a demilitarized zone (DMZ), in which you may have a couple of devices that have limited internet connectivity. When moving the workflow to run on the EFLOW VM, you may have problems accessing the different networks since the EFLOW VM by default has only one NIC attached.
 
-In this scenario, you have an environment with some devices like programmable logic controllers (PLCs) or open platform communications unified architecture (OPC UA)-compatible devices connected to the offline network, and you want to upload all the devices' information to Azure using the OPC Publisher module running on the EFLOW VM.
+In this scenario, you have an environment with some devices like programmable logic controllers (PLCs) or Open Platform Communications Unified Architecture (OPC UA)-compatible devices connected to the offline network, and you want to upload all the devices' information to Azure using the OPC Publisher module running on the EFLOW VM.
 
 Since the EFLOW host device and the PLC or OPC UA devices are physically connected to the offline network, you can use the [Azure IoT Edge for Linux on Windows virtual multiple NIC configurations](./how-to-configure-multiple-nics.md) to connect the EFLOW VM to the offline network. By using an *external virtual switch*, you can connect the EFLOW VM to the offline network and directly communicate with other offline devices.
 
@@ -42,7 +42,7 @@ For the other network, the EFLOW host device is physically connected to the DMZ 
 Secure network:
 
 - No internet connectivity - access restricted.
-- PLCs or UPC UA-compatible devices connected.
+- PLCs or OPC UA-compatible devices connected.
 - EFLOW VM connected using an External virtual switch.
 
 DMZ:
@@ -112,7 +112,7 @@ Once complete, you have the *OnlineOPCUA* switch assigned to the EFLOW VM. To ch
 
 ## Configure VM network routing 
 
-When using the EFLOW multiple NICs feature, you may want to set up the different route priorities. By default, EFLOW creates one *default* route per *ehtX* interface assigned to the VM. EFLOW assigns the default route a random priority. If all interfaces are connected to the internet, random priorities may not be a problem. However, if one of the NICs is connected to an *offline* network, you may want to prioritize the *online* NIC over the *offline* NIC to get the EFLOW VM connected to the internet.
+When using the EFLOW multiple NICs feature, you may want to set up the different route priorities. By default, EFLOW creates one *default* route per *ethX* interface assigned to the VM. EFLOW assigns the default route a random priority. If all interfaces are connected to the internet, random priorities may not be a problem. However, if one of the NICs is connected to an *offline* network, you may want to prioritize the *online* NIC over the *offline* NIC to get the EFLOW VM connected to the internet.
 
 EFLOW uses the [route](https://man7.org/linux/man-pages/man8/route.8.html) service to manage the network routing alternatives. In order to check the available EFLOW VM routes, use the following steps:
 

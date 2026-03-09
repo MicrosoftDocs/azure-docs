@@ -160,7 +160,7 @@ Azure Functions provides serverless compute resources that integrate with AI and
 
 The [Azure OpenAI binding extension](./functions-bindings-openai.md) lets you integrate AI features and behaviors of the [Azure OpenAI service](/azure/ai-services/openai/overview), such as retrieval-augmented generation (RAG), into your function code executions. For more information, see [Retrieval-augmented generation](functions-create-ai-enabled-apps.md#retrieval-augmented-generation).
 
-A function might also call a TensorFlow model or Azure AI services to process and classify a stream of images.
+A function might also call a TensorFlow model or Foundry Tools to process and classify a stream of images.
 
 :::image type="content" source="media/functions-scenarios/machine-learning-and-ai.png" alt-text="Diagram of a machine learning and AI process using Azure Functions." lightbox="media/functions-scenarios/machine-learning-and-ai-expanded.png":::
 
@@ -372,7 +372,7 @@ public static async Task<IActionResult> Run(
 
 ## Build a serverless workflow
 
-Functions often serve as the compute component in a serverless workflow topology, such as a Logic Apps workflow. You can also create long-running orchestrations by using the Durable Functions extension. For more information, see [Durable Functions overview](./durable/durable-functions-overview.md).
+Functions often serve as the compute component in a serverless workflow topology, such as a Logic Apps workflow. You can also create long-running orchestrations by using the Durable Functions extension. For more information, see [Durable Functions overview](./durable/what-is-durable-task.md).
 
 :::image type="content" source="media/functions-scenarios/build-a-serverless-workflow.png" alt-text="A combination diagram of a series of specific serverless workflows using Azure Functions." lightbox="media/functions-scenarios/build-a-serverless-workflow-expanded.png":::
 

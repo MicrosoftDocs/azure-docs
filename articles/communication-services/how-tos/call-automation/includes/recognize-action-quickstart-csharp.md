@@ -19,7 +19,7 @@ ms.author: kpunjabi
 - The latest [NuGet package](https://www.nuget.org/packages/Azure.Communication.CallAutomation/).
 
 ### For AI features 
-- Create and connect [Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
+- Create and connect [Foundry Tools to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 - Create a [custom subdomain](/azure/ai-services/cognitive-services-custom-subdomains) for your Azure AI services resource. 
 
 

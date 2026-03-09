@@ -54,6 +54,9 @@ This table includes additional information about metrics from the Microsoft.Netw
 | Used SNAT ports | Public load balancer | Standard Load Balancer reports the number of SNAT ports that are utilized per backend instance. |
 | Data path availability | Public and internal load balancer |  Standard Load Balancer continuously exercises the data path from within a region to the load balancer front end, all the way to the SDN stack that supports your virtual machine. As long as healthy instances remain, the measurement follows the same path as your application's load-balanced traffic. The data path that your customer's use is also validated. The measurement is invisible to your application and doesn't interfere with other operations. |
 
+  >[!NOTE]
+  >Data Path Availability metric may take up to 10 minutes to appear in Azure Monitor metrics after a load balancer is created or updated. 
+
 ### Global load balancer metrics
 
 This table includes additional information about global metrics from the Microsoft.Network/loadBalancers table:

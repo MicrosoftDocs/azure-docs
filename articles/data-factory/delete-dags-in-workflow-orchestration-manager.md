@@ -11,10 +11,9 @@ ms.subservice: orchestration
 
 # Delete files in Workflow Orchestration Manager
 
-> [!NOTE]
-> Workflow Orchestration Manager is powered by Apache Airflow.
+[!INCLUDE[apache-airflow-notification](includes/apache-airflow-notification.md)]
 
-This article walks you through the steps to delete directed acyclic graph (DAG) files in Workflow Orchestration Manager environment.
+This article walks you through the steps to delete directed acyclic graph (DAG) files in a Workflow Orchestration Manager environment.
 
 ## Prerequisites
 

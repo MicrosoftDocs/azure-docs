@@ -42,7 +42,7 @@ After the server is marked as ready for Azure, the assessment makes sizing recom
 
 | **Assessment type**  | **Data**|
 |------------------|----|
-| **Performance-based** | The compute recommendation is based on CPU and memory utilization data. <br> The storage recommendation is based on the input/output operations per second (IOPS) and throughput of the on-premises disks. Available disk types are Azure Standard HDD, Azure Standard SSD, Azure Premium disks, and Azure Ultra disks.  |
+| **Performance-based** | The compute recommendation is based on CPU and memory utilization data. <br> The storage recommendation is based on the input/output operations per second (IOPS) and throughput of the on-premises disks. Available disk types are Azure Standard HDD, Azure Standard SSD, Azure Premium disks, and Azure Ultra Disks.  |
 | **As-is on-premises** | The compute recommendation is based on the on-premises server size. <br> The recommended storage is based on the selected storage type for the assessment.|
 
 You can review the source properties that were used for right-sizing the targets. For each on-premises workload, the configuration properties and the aggregated performance data are available. Review the allocated cores, allocated memory, CPU utilization, and memory utilization for compute right-sizing and disk size, read IO/s, and throughput for storage recommendations.  
@@ -55,7 +55,7 @@ On the **Target recommendations** page, you can review the target configuration 
 If you use as-is on-premises sizing, the assessment doesn't consider the performance history of the VMs and disks in the Azure VM assessment. 
 
 - **Compute sizing**: The assessment allocates an Azure VM SKU based on the size allocated on-premises. 
-- **Storage and disk sizing**: The assessment recommends the appropriate disk type based on the storage type specified in the assessment properties. Available storage types are Standard HDD, Standard SSD, Premium, and Ultra disk.  
+- **Storage and disk sizing**: The assessment recommends the appropriate disk type based on the storage type specified in the assessment properties. Available storage types are Standard HDD, Standard SSD, Premium, and Ultra Disk.  
 - **Network sizing**: The assessment considers the network adapter on the on-premises server. 
 
 ## Calculate sizing for performance-based assessment
@@ -85,14 +85,14 @@ For storage sizing in an Azure VM assessment, Azure Migrate tries to map each di
    - If assessment can't find a disk with the required IOPS and throughput, it marks the server as unsuitable for Azure. 
    - If assessment finds a set of suitable disks, it selects the disks that support the location specified in the assessment settings. 
    - If there are multiple eligible disks, assessment selects the disk with the lowest cost. 
-   - If performance data for any disk is unavailable, the configuration disk size is used to find a Standard SSD disk in Azure. 
-   - For Ultra disks, there's a range of IOPS and throughput that is allowed for a particular disk size, and thus the logic used in sizing is different from Standard and Premium disks. Three Ultra disk sizes are calculated: 
+   - If performance data for any disk is unavailable, the configuration disk size is used to find a Standard SSD in Azure. 
+   - For Ultra Disks, there's a range of IOPS and throughput that is allowed for a particular disk size, and thus the logic used in sizing is different from Standard and Premium disks. Three Ultra Disk sizes are calculated: 
       - One disk (Disk 1) is found that can satisfy the disk size requirement.
       - One disk (Disk 2) is found that can satisfy total IOPS requirement. IOPS to be provisioned = (source disk throughput) * 1024/256 
       - One disk (Disk 3) is found that can satisfy total throughput requirement 
-    - Out of the three disks, one with the max disk size is found and is rounded up to the next available [Ultra disk offering](/azure/virtual-machines/disks-types#ultra-disks). This is the provisioned Ultra disk size. 
+    - Out of the three disks, one with the max disk size is found and is rounded up to the next available [Ultra Disk offering](/azure/virtual-machines/disks-types#ultra-disks). This is the provisioned Ultra Disk size. 
     - Provisioned IOPS is calculated using the following logic: 
-      - If source throughput discovered is in the allowable range for the Ultra disk size, provisioned IOPS is equal to source disk IOPS.
+      - If source throughput discovered is in the allowable range for the Ultra Disk size, provisioned IOPS is equal to source disk IOPS.
       - Else, provisioned IOPS is calculated using IOPS to be provisioned = (source disk throughput) *1024/256 
       - Provisioned throughput range is dependent on provisioned IOPS. [Learn more](assessment-report.md#coverage)
       
@@ -142,9 +142,9 @@ The monthly storage cost for a server is calculated by aggregating the monthly c
 
 The cost for Standard or Premium disks is calculated based on the selected/recommended disk size. 
 
-### Ultra disk 
+### Ultra Disk 
 
-The cost for Ultra disk is calculated based on the provisioned size, provisioned IOPS, and provisioned throughput. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/).
+The cost for Ultra Disk is calculated based on the provisioned size, provisioned IOPS, and provisioned throughput. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 The cost is calculated using the following logic: 
 
@@ -152,7 +152,7 @@ The cost is calculated using the following logic:
 - Cost of provisioned IOPS is calculated by multiplying provisioned IOPS by hourly provisioned IOPS price.
 - Cost of provisioned throughput is calculated by multiplying provisioned throughput by hourly provisioned throughput price.
 
-The Ultra disk VM reservation fee isn't added in the total cost. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/). 
+The Ultra Disk VM reservation fee isn't added in the total cost. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
 The assessment calculates the total monthly storage costs by aggregating the storage costs of all servers. Currently, the calculation doesn't consider offers specified in the assessment settings. 
 

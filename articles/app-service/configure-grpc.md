@@ -1,88 +1,81 @@
 ---
 title: Configure gRPC on App Service
-description: Learn how to configure a gRPC application with Azure App Service on Linux.
+description: Learn how to configure a Google Remote Procedure Call (gRPC) application with Azure App Service on Linux.
 author: jefmarti
 ms.topic: how-to
 ms.custom: linux-related-content
-ms.date: 11/10/2023
+ms.date: 02/12/2026
 ms.author: jefmarti
 ms.service: azure-app-service
+#customer intent: As an Azure App Service developer, I want to learn how to configure gRPC for my Linux apps so I can streamline messages between my clients and server over HTTP/2.
+
 ---
 
 # Configure gRPC on App Service
 
-This article explains how to configure your web app for gRPC.
-
-gRPC is a Remote Procedure Call framework that can streamline messages between your client and server over HTTP/2. Using the gRPC protocol over HTTP/2 enables the use of features like:
+This article explains how to configure your web app for gRPC, a remote procedure call framework that can streamline messages between your client and server over HTTP/2. Using the gRPC protocol over HTTP/2 lets you use features like:
 
 - Multiplexing to send multiple parallel requests over the same connection.
 - Bidirectional streaming to send requests and responses simultaneously.
 
-Support for gRPC is currently available on Azure App Service for Linux. To use gRPC on your web app, you need to configure your app by selecting the HTTP version, proxy, and port.
+Support for gRPC is available on Azure App Service for Linux. To use gRPC on your web app, you configure your app by selecting the HTTP version, proxy, and port.
 
-For gRPC client and server samples for each supported language, see the [documentation on GitHub](https://github.com/Azure/app-service-linux-docs/tree/master/HowTo/gRPC).
+For gRPC client and server samples for each supported language, see [gRPC on App Service](https://github.com/Azure/app-service-linux-docs/tree/master/HowTo/gRPC) on GitHub.
 
 ## Prerequisite
 
-Create your [web app](getting-started.md) as you normally would. Choose your preferred runtime stack, and choose Linux as your operating system.
+- A Linux [web app](getting-started.md) in Azure App Service that uses your preferred runtime stack.
+
+## Configure gRPC
 
 After you create your web app, configure the following details to enable gRPC before you deploy your application.
 
 > [!NOTE]
-> If you're deploying a .NET gRPC app to App Service by using Visual Studio, skip to [step 3](#3-configure-the-http2-port). Visual Studio sets the HTTP version and the HTTP 2.0 proxy configuration for you.
+> If you're deploying a .NET gRPC app to App Service by using Visual Studio, skip to [Configure the HTTP/2 port](#configure-the-http2-port), because Visual Studio sets the HTTP version and HTTP 2.0 proxy configuration for you.
 
-## 1. Configure the HTTP version
+### Configure the HTTP version and HTTP 2.0 proxy
 
-The first setting that you need to configure is the HTTP version:
+Use the Azure portal page for your web app to configure your app's HTTP version and proxy.
 
-1. On the left pane of your web app, under **Settings**, go to **Configuration**.
-2. On the **General Settings** tab, scroll down to **Platform settings**.
-3. In the **HTTP version** dropdown list, select **2.0**.
-4. Select **Save**.
+1. On the left navigation menu of your web app page, select **Settings** > **Configuration**.
+1. On the **General settings** tab of the **Stack settings** page, configure the following settings:
+   - For **HTTP version**, select **2.0**.
+   - For **HTTP 2.0 Proxy**, select **gRPC only**.
+1. Select **Apply**.
 
-This setting restarts your application and configures the front end to allow clients to make HTTP/2 calls.
+The **HTTP version** setting restarts your application and configures the front end to allow clients to make HTTP/2 calls. The **HTTP 2.0 Proxy** setting configures your site to receive HTTP/2 requests.
 
-## 2. Configure the HTTP 2.0 proxy
+### Configure the HTTP/2 port
 
-Next, you need to configure the HTTP 2.0 proxy:
+App Service requires an application setting that specifically listens for HTTP/2 traffic in addition to HTTP/1.1 traffic. Use **App settings** to define the HTTP/2 port.
 
-1. In the same **Platform settings** section, find the **HTTP 2.0 Proxy** setting and select **gRPC Only**.
-2. Select **Save**.
+1. On the left navigation menu of your web app page, select **Settings** > **Environmental variables**.
+1. On the **App settings** tab of the **Environmental variables** page, select **Add**.
+1. On the **Add/Edit application setting** screen, add the following app setting:
+   - For **Name**, enter *HTTP20_ONLY_PORT*.
+   - For **Value**, enter *8585*.
+1. Select **Apply**, and confirm that your application might restart if necessary.
 
-This setting configures your site to receive HTTP/2 requests.
+This setting configures the port on your application that listens for HTTP/2 requests.
 
-## 3. Configure the HTTP/2 port
+Now that you configured the HTTP version, port, and proxy, you can successfully make HTTP/2 calls to your web app by using gRPC.
 
-App Service requires an application setting that specifically listens for HTTP/2 traffic in addition to HTTP/1.1 traffic. You define the HTTP/2 port in the app settings:
+### Provide a startup command
 
-1. On the left pane of your web app, under **Settings**, go to **Environment variables**.
-2. On the **App settings** tab, add the following app settings to your application:
-   - **Name** = **HTTP20_ONLY_PORT**
-   - **Value** = **8585**
+For Python applications, you must provide a custom startup command. For other languages, a startup command is optional.
 
-These settings configure the port on your application that's specified to listen for HTTP/2 requests.
+1. On the left navigation menu of your web app page, select **Settings** > **Configuration**.
+1. On the **Stack settings** page, select the **Stack settings** tab.
+1. Under **Startup command**, enter `python app.py`.
+1. Select **Apply**.
 
-Now that you've configured the HTTP version, port, and proxy, you can successfully make HTTP/2 calls to your web app by using gRPC.
+## Requirements and limitations
 
-### (Optional) Python startup command
+The following requirements and limitations apply to gRPC usage with App Service.
 
-For Python applications only, you also need to set a custom startup command:
-
-1. On the left pane of your web app, under **Settings**, go to **Configuration**.
-2. Under **General Settings**, add the following value for **Startup Command**: `python app.py`.
-
-## Common topics
-
-The following table can answer your questions about using gRPC with App Service.
-
-> [!NOTE]
-> gRPC is not a supported feature in App Service Environment v2. Use App Service Environment v3.
-
-| Topic | Answer |
-| --- | --- |
-| OS support | gRPC is available on Linux. Windows support is currently in preview. |
-| Language support | gRPC is supported for each language that supports gRPC.  |
-| Client certificates | HTTP/2 enabled on App Service doesn't currently support client certificates. Client certificates need to be ignored when you're using gRPC. |
-| Secure calls | gRPC must make secure HTTP calls to App Service. You can't make nonsecure calls. |
-| Activity timeout | gRPC requests on App Service have a timeout request limit. gRPC requests time out after 20 minutes of inactivity. |
-| Custom containers | HTTP/2 and gRPC support is in addition to App Service HTTP/1.1 support. Custom containers that support HTTP/2 must also support HTTP/1.1.   |
+- **App Service Environment version**. App Service Environment v2 doesn't support gRPC. Use App Service Environment v3.
+- **OS support**. gRPC is available on Linux. Windows support is currently in preview.
+- **Client certificates**. HTTP/2 on App Service doesn't support client certificates. Client certificates must be ignored when you use gRPC.
+- **Secure calls**. gRPC must make secure HTTP calls to App Service. You can't make nonsecure calls.
+- **Activity timeout**. App Service gRPC requests have a timeout request limit. gRPC requests time out after 20 minutes of inactivity.
+- **Custom containers**. HTTP/2 and gRPC support is in addition to App Service HTTP/1.1 support. Custom containers that support HTTP/2 must also support HTTP/1.1.

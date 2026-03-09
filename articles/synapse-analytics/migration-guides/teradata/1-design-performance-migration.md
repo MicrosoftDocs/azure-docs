@@ -230,8 +230,6 @@ Teradata supports special table types for time-series and temporal data. The syn
 
 Teradata implements temporal query functionality by using query rewriting to add additional filters within a temporal query to limit the applicable date range. If you plan to migrate this functionality from the source Teradata environment, then add the additional filtering into the relevant temporal queries.
 
-The Azure environment supports [time series insights](https://azure.microsoft.com/services/time-series-insights) for complex analytics on time-series data at scale. This functionality is aimed at IoT data analysis applications.
-
 #### SQL DML syntax differences
 
 SQL Data Manipulation Language (DML) [syntax differences](5-minimize-sql-issues.md#sql-ddl-differences-between-teradata-and-azure-synapse) exist between Teradata SQL and Azure Synapse T-SQL:

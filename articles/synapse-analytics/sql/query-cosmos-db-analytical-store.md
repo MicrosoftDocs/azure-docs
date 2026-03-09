@@ -5,13 +5,15 @@ author: jovanpop-msft
 ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 01/31/2025
+ms.date: 12/08/2025
 ms.author: jovanpop
 ms.reviewer: sidandrews
 ms.custom: cosmos-db
 ---
 
 # Query Azure Cosmos DB data using a serverless SQL pool
+
+[!INCLUDE[](../includes/appliesto-cosmos-synapse-link.md)]
 
 A serverless SQL pool allows you to analyze data in your Azure Cosmos DB containers that are enabled with [Azure Synapse Link](/azure/cosmos-db/synapse-link) in near real time without affecting the performance of your transactional workloads. It offers a familiar Transact-SQL (T-SQL) syntax to query data from the [analytical store](/azure/cosmos-db/analytical-store-introduction) and integrated connectivity to a wide range of business intelligence (BI) and ad-hoc querying tools via the T-SQL interface.
 
@@ -126,8 +128,6 @@ Database account master key is placed in server-level credential or database sco
 ## Sample dataset
 
 The examples in this article are based on data from the [European Center for Disease Prevention and Control (ECDC) COVID-19 Cases](/azure/open-datasets/dataset-ecdc-covid-cases) and [COVID-19 Open Research Dataset (CORD-19)](/azure/open-datasets/dataset-covid-19-open-research).
-
-You can see the license and the structure of data on these pages. You can also [download sample data for the ECDC](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.json) and CORD-19 datasets.
 
 To follow along with this article showcasing how to query Azure Cosmos DB data with a serverless SQL pool, make sure that you create the following resources:
 
@@ -424,7 +424,7 @@ The number of cases is stored as an `int32` value, but there's one value that's 
 > [!IMPORTANT]
 > The `OPENROWSET` function without a `WITH` clause exposes both values with expected types and the values with incorrectly entered types. This function is designed for data exploration and not for reporting. Don't parse JSON values returned from this function to build reports. Use an explicit [WITH clause](#query-items-with-full-fidelity-schema) to create your reports. You should clean up the values that have incorrect types in the Azure Cosmos DB container to apply corrections in the full fidelity analytical store.
 
-To query Azure Cosmos DB for MongoDB accounts, you can learn more about the full fidelity schema representation in the analytical store and the extended property names to be used in [What is Azure Cosmos DB Analytical Store?](/azure/cosmos-db/analytical-store-introduction).
+To query Azure Cosmos DB for MongoDB accounts, you can learn more about the full fidelity schema representation in the analytical store and the extended property names to be used in [What is Azure Cosmos DB Analytical Store?](/azure/cosmos-db/analytical-store-introduction)
 
 ### Query items with full fidelity schema
 

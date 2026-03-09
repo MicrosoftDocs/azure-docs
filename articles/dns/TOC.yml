@@ -134,6 +134,8 @@
           href: private-dns-autoregistration.md
         - name: Private DNS scenarios
           href: private-dns-scenarios.md
+        - name: Sharding private DNS zones
+          href: sharding-private-dns-zones.md
         - name: DNS resolution in virtual networks
           href: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md?toc=%2fazure%2fdns%2ftoc.json
         - name: Private DNS resiliency

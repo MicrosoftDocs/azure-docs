@@ -12,7 +12,7 @@ ms.custom: sfi-image-nochange
 
 # Create an app registration to use with Azure Digital Twins
 
-This article describes how to create an [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) *app registration* that can access Azure Digital Twins. This article includes steps for the [Azure portal](https://portal.azure.com) and the [Azure CLI](/cli/azure/what-is-azure-cli).
+This article describes how to create a [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) *app registration* that can access Azure Digital Twins. This article includes steps for the [Azure portal](https://portal.azure.com) and the [Azure CLI](/cli/azure/what-is-azure-cli).
 
 When working with Azure Digital Twins, it's common to interact with your instance through client applications. Those applications need to authenticate with Azure Digital Twins, and some of the [authentication mechanisms](how-to-authenticate-client.md) that apps can use involve an app registration.
 

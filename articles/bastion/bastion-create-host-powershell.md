@@ -19,11 +19,11 @@ Once you deploy Bastion to your virtual network, you can connect to your VMs via
 
 :::image type="content" source="./media/create-host/host-architecture.png" alt-text="Diagram showing Azure Bastion architecture." lightbox="./media/create-host/host-architecture.png":::
 
-In this article, you create a virtual network (if you don't already have one), deploy Azure Bastion using PowerShell, and connect to a VM. The examples show Bastion deployed using the Standard SKU tier, but you can use a different Bastion SKU, depending on the features you'd like to use. For more information, see [Bastion SKUs](configuration-settings.md#skus).
+In this article, you create a virtual network (if you don't already have one), deploy Azure Bastion using PowerShell, and connect to a VM. The examples show Bastion deployed using the Standard SKU, but you can use a different Bastion SKU, depending on the features you'd like to use. For more information, see [Bastion SKUs](bastion-sku-comparison.md).
 
 You can also deploy Bastion by using the following other methods:
 
-* [Azure portal - Deploy Bastion with specified settings and SKUs](./tutorial-create-host-portal.md)
+* [Azure portal - Deploy Bastion](./quickstart-host-portal.md)
 * [Azure portal - Deploy Bastion with default settings and Standard SKU](quickstart-host-portal.md)
 * [Deploy using Azure CLI](create-host-cli.md)
 
@@ -63,7 +63,7 @@ You can use the following example values when creating this configuration, or yo
 | Subnet Name | FrontEnd |
 | Subnet Name | AzureBastionSubnet|
 | AzureBastionSubnet addresses | A subnet within your virtual network address space with a subnet mask /26 or larger.<br> For example, 10.1.1.0/26.  |
-| Tier/SKU | Standard |
+| SKU | Standard |
 | Public IP address |  Create new |
 | Public IP address name | VNet1-ip  |
 | Public IP address SKU |  Standard  |
@@ -116,7 +116,7 @@ This section helps you create a virtual network, subnets, and deploy Azure Basti
    -AllocationMethod Static -Sku Standard
    ```
 
-1. Create a new Azure Bastion resource in the AzureBastionSubnet using the [New-AzBastion](/powershell/module/az.network/new-azbastion) command. The following example uses the **Basic SKU**. However, you can also deploy Bastion using a different SKU by changing the -Sku value. The SKU you select determines the Bastion features and connect to VMs using more connection types. For more information, see [Bastion SKUs](configuration-settings.md#skus).
+1. Create a new Azure Bastion resource in the AzureBastionSubnet using the [New-AzBastion](/powershell/module/az.network/new-azbastion) command. The following example uses the **Basic SKU**. However, you can also deploy Bastion using a different SKU by changing the -Sku value. The SKU you select determines the Bastion features and connect to VMs using more connection types. For more information, see [Bastion SKUs](bastion-sku-comparison.md).
 
    ```azurepowershell-interactive
    New-AzBastion -ResourceGroupName "TestRG1" -Name "VNet1-bastion" `
@@ -145,7 +145,7 @@ The following required roles for your resources.
 
 ## <a name="connect"></a>Connect to a VM
 
-You can use the [Connection steps](#steps) in the following section to connect to your VM. You can also use any of the following articles to connect to a VM. Some connection types require the Bastion [Standard SKU](configuration-settings.md#skus).
+You can use the [Connection steps](#steps) in the following section to connect to your VM. You can also use any of the following articles to connect to a VM. Some connection types require the Bastion [Standard SKU](bastion-sku-comparison.md).
 
 [!INCLUDE [Links to Connect to VM articles](../../includes/bastion-vm-connect-article-list.md)]
 

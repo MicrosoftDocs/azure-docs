@@ -41,6 +41,9 @@ This table helps you directly compare the features of Flex Consumption with the 
 
 For a complete comparison of the Flex Consumption plan against the Consumption plan and all other plan and hosting types, see [function scale and hosting options](functions-scale.md).
 
+> [!TIP]
+> If you're migrating from the Linux Consumption plan, see [Migrate Consumption plan apps to the Flex Consumption plan](migration/migrate-plan-consumption-to-flex.md?pivots=platform-linux) for step-by-step migration instructions and important differences between the plans.
+
 ## Virtual network integration
 
 Flex Consumption expands on the traditional benefits of Consumption plan by adding support for [virtual network integration](./functions-networking-options.md#virtual-network-integration). When your apps run in a Flex Consumption plan, they can connect to other Azure services secured inside a virtual network. All while still allowing you to take advantage of serverless billing and scale, together with the scale and throughput benefits of the Flex Consumption plan. For more information, see [Enable virtual network integration](./flex-consumption-how-to.md#enable-virtual-network-integration).
@@ -53,12 +56,12 @@ Currently, Flex Consumption offers these instance size options:
 
 | Instance Memory (MB) | CPU Cores |
 |-----------------|-----------|
-| 512           | 0.25      |
-| 2048         | 1         |
-| 4096        | 2         |
+| 512             | 0.25      |
+| 2048            | 1         |
+| 4096            | 2         |
 
 > [!NOTE]
-> The CPU core values shown are typical allocations for instances with the specified memory size. However, initial instances might be granted slightly different core allocations to improve performance. Each Flex Consumption instance also includes an additional 272 MB of memory allocated by the platform as a buffer for system and host processes. This additional memory doesn't affect billing, and instances are billed based on the configured instance memory size shown in the table above.
+> The CPU core values shown are typical allocations for instances with the specified memory size. However, initial instances might be granted slightly different core allocations to improve performance. Each Flex Consumption instance also includes an extra 272 MB of memory allocated by the platform as a buffer for system and host processes. This extra memory doesn't affect billing, and instances are billed based on the configured instance memory size shown in the preceding table.
 
 When deciding on which instance memory size to use with your apps, here are some things to consider:
 
@@ -89,9 +92,9 @@ All other functions in the app are scaled individually in their own set of insta
 
 Flex Consumption includes an _always ready_ feature that lets you choose instances that are always running and assigned to each of your per-function scale groups or functions. Always ready is a great option for scenarios where you need to have a minimum number of instances always ready to handle requests. For example, to reduce your application's cold start latency. The default is 0 (zero).
 
-For example, if you set always ready to 2 for your HTTP group of functions, the platform keeps two instances always running and assigned to your app for your HTTP functions in the app. Those instances are processing your function executions, but depending on concurrency settings, the platform scales beyond those two instances with on-demand instances.
+For example, if you set always ready to 2 for your HTTP group of functions, the platform keeps two instances always running for those functions. Those instances process your function executions first. Depending on concurrency settings, the platform scales beyond those two instances with on-demand instances.
 
-No less than two always-ready instances can be configured per function or function group while [zone redundancy is enabled](../reliability/reliability-functions.md?pivots=flex-consumption-plan#availability-zone-support). 
+No less than two always-ready instances can be configured per function or function group while [zone redundancy is enabled](/azure/reliability/reliability-functions?pivots=flex-consumption-plan#availability-zone-support). 
 
 To learn how to configure always ready instances, see [Set always ready instance counts](flex-consumption-how-to.md#set-always-ready-instance-counts).
 
@@ -103,7 +106,10 @@ To learn how to set concurrency limits for HTTP trigger functions, see [Set HTTP
 
 ## Deployment
 
-Deployments in the Flex Consumption plan follow a single path, and there's no longer the need for app settings to influence deployment behavior. After your project code is built and zipped into an application package, it's deployed to a blob storage container. On startup, your app gets the package and runs your function code from this package. By default, the same storage account used to store internal host metadata (AzureWebJobsStorage) is also used as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by [configuring your app's deployment settings](flex-consumption-how-to.md#configure-deployment-settings).
+Deployments in the Flex Consumption plan follow a single path, and there's no longer the need for app settings to influence deployment behavior. Your project code is built and zipped into an application package, then deployed to a blob storage container. On startup, your app gets the package and runs your function code from this package. By default, the same storage account used to store internal host metadata (AzureWebJobsStorage) is also used as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by [configuring your app's deployment settings](flex-consumption-how-to.md#configure-deployment-settings).
+
+> [!TIP]
+> A **Flex Consumption Deployment** diagnostic tool is available in the Azure portal. Open your Flex Consumption app, select **Diagnose and solve problems**, and search for `Flex Consumption Deployment`. This tool displays detailed information about your deployments, including deployment history, package status, and troubleshooting recommendations.
 
 ### Zero-downtime deployments
 
@@ -136,22 +142,44 @@ This table shows the language stack versions that are currently supported for Fl
 
 ## Regional subscription memory quotas
 
-The Flex Consumption plan has a memory-based quota that limits how much compute all your Flex Consumption apps can use at the same time in a specific region and subscription. Imagine you have a bucket of memory measured in GB or CPU cores for your entire subscription in a region. All your Flex Consumption apps in that region share this bucket. If your Flex Consumption apps try to use more than the quota allows, some executions may be delayed or throttled from scaling, but you won’t be blocked from creating or deploying apps.
+All Flex Consumption apps in a subscription and region share a compute quota, like a shared bucket of resources. This quota applies only to Flex Consumption apps — other hosting plans like Consumption, Premium, and Dedicated don't count against it. The quota limits how much total compute your Flex Consumption apps can use at the same time. If your apps try to exceed the quota, some executions and deployments might be delayed or fail, and scaling is throttled. However, you can still create new apps.
 
-Currently, each region in a given subscription has a default quota of the lesser of either `512,000 MB` or 250 cores for all instances of apps running on Flex Consumption plans. These quotas mean that, in a given subscription and region, you could have any combination of instance memory sizes and counts, as long as they stay under the quota limits. For example, in each of these scenarios the quota is reached, and apps in the region stops scaling:
+### Default quota
 
-+ You have one 512-MB app scaled to 250 instances and a second 512-MB app scaled to 750 instances. 
-+ You have one 512-MB app scaled to 1,000 instances.
-+ You have one 2,048-MB app scaled to 100 and a second 2,048-MB app scaled to 150 instances
-+ You have one 2,048-MB app that scaled out to 250 instances
-+ You have one 4,096-MB app that scaled out to 125 instances
-+ You have one 4,096-MB app scaled to 100 and one 2,048-MB app scaled to 50 instances
+Each region in a subscription has a default quota of **250 cores** (equivalent to **512,000 MB**) for all Flex Consumption app instances combined. You can use any combination of instance sizes and counts, as long as the total cores stay under the quota.
 
-Flex Consumption apps scaled to zero, or instances marked to be scaled in and deleted, don't count against the quota. This quota can be increased to allow your Flex Consumption apps to scale further, depending on your requirements. If your apps require a larger quota, create a support ticket.
+To calculate the cores used, multiply the cores per instance by the number of instances:
+
+| Instance size | Cores per instance | Formula          |
+|---------------|--------------------|------------------|
+| 512 MB        | 0.25               | instances × 0.25 |
+| 2,048 MB      | 1                  | instances × 1    |
+| 4,096 MB      | 2                  | instances × 2    |
+
+### Quota examples
+
+Each of these scenarios reaches the 250 core quota limit. When the quota is reached, apps in the region stop scaling:
+
+| Scenario                                                                | Calculation           | Total cores |
+| ----------------------------------------------------------------------- | --------------------- | ----------- |
+| One 512-MB app at 1,000 instances                                       | 1,000 × 0.25          | 250         |
+| Two 512-MB apps at 250 and 750 instances                                | (250 + 750) × 0.25    | 250         |
+| One 2,048-MB app at 250 instances                                       | 250 × 1               | 250         |
+| Two 2,048-MB apps at 100 and 150 instances                              | (100 + 150) × 1       | 250         |
+| One 4,096-MB app at 125 instances                                       | 125 × 2               | 250         |
+| One 4,096-MB app at 100 instances + one 2,048-MB app at 50 instances    | (100 × 2) + (50 × 1)  | 250         |
+
+### Important notes
+
++ Flex Consumption scales rapidly based on [concurrency](#concurrency) settings, so apps frequently acquire and release cores from the quota as demand changes.
++ Flex Consumption apps that scale to zero, or instances marked to be scaled in and deleted, don't count against the quota.
++ Always ready instances count against quota.
++ A **Flex Consumption Quota tool** is available in the Azure portal. Open any Flex Consumption app in your subscription, select **Diagnose and solve problems**, search for `Flex Consumption Quota`, then choose a region. The tool displays recommendations, current quota information, and historical usage views.
++ This quota can be increased pending capacity review. For example, from 250 cores to 1,000 cores or more. To request a larger quota, create a support ticket or contact your Microsoft account team.
 
 ## Deprecated properties and settings
 
-In the Flex Consumption plan, many of the standard application settings and site configuration properties are deprecated or have moved and shouldn't be used when automating function app resource creation. For more information, see [Flex Consumption plan deprecations](functions-app-settings.md#flex-consumption-plan-deprecations).
+In the Flex Consumption plan, many standard application settings and site configuration properties are deprecated or moved. Don't use these settings when you automate function app resource creation. For more information, see [Flex Consumption plan deprecations](functions-app-settings.md#flex-consumption-plan-deprecations).
 
 ## Considerations
 
@@ -159,16 +187,17 @@ Keep these other considerations in mind when using Flex Consumption plan:
 
 + **Apps per Plan**: Only one app is allowed per Flex Consumption plan.  
 + **Host**: There's a 30-second time-out for app initialization. When your function app takes longer than 30 seconds to start, you might see gRPC-related `System.TimeoutException` entries logged. You can't currently configure this time-out. For more information, see [this host work item](https://github.com/Azure/azure-functions-host/issues/10482).
-+ **Durable Functions**: Azure Storage is currently the only supported [storage provider](./durable/durable-functions-storage-providers.md) for Durable Functions when hosted in the Flex Consumption plan. See [recommendations](./durable/durable-functions-azure-storage-provider.md#flex-consumption-plan) when hosting Durable Functions in the Flex Consumption plan.
-+ **Virtual network integration** Ensure that the `Microsoft.App` Azure resource provider is enabled for your subscription by [following these instructions](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider). The subnet delegation required by Flex Consumption apps is `Microsoft.App/environments`.
-+ **Triggers**: While all triggers are fully supported in a Flex Consumption plan, the Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). Non-C# function apps must use version `[4.0.0, 5.0.0)` of the [extension bundle](./extension-bundles.md), or a later version. 
-+ **Regions**: Not all regions are currently supported. To learn more, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).
++ **Durable Functions**: Azure Storage and Durable Task Scheduler are the only supported [storage providers](./durable/durable-functions-storage-providers.md) for Durable Functions when hosted in the Flex Consumption plan. See [recommendations](./durable/durable-functions-azure-storage-provider.md#flex-consumption-plan) when hosting Durable Functions in the Flex Consumption plan.
++ **Virtual network integration and Resource provider registration**: You must have the `Microsoft.App` Azure resource provider registered in your subscription to integrate to a virtual network, which is needed for subnet delegation. The Azure portal and Azure CLI enforce registration at app creation time since virtual network integration can be enabled at any point after your app is created. To register this provider, [follow these instructions](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider). The subnet delegation required by Flex Consumption apps is `Microsoft.App/environments`.
++ **Triggers**: While all triggers are fully supported in a Flex Consumption plan, the Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). Non-C# function apps must use version `[4.0.0, 5.0.0)` of the [extension bundle](./extension-bundles.md), or a later version.
++ **Regions**: While the Flex Consumption plan is available in many Azure regions, not all regions are currently supported. To learn more, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).
 + **Deployments**: Deployment slots aren't currently supported. For zero downtime deployments with Flex Consumption, see [Site update strategies in Flex Consumption](flex-consumption-site-updates.md).
-+ **Azure Storage as a local share**: NFS file shares are not available for Flex Consumption. Only SMB and Azure Blobs (read-only) are supported.
-+ **Scale**: The lowest maximum scale is currently `40`. The highest currently supported value is `1000`. 
-+ **Managed dependencies**: [Managed dependencies in PowerShell](functions-reference-powershell.md#managed-dependencies-feature) aren't supported by Flex Consumption. You must instead [upload modules with app content](functions-reference-powershell.md#including-modules-in-app-content).
++ **Azure Storage as a local share**: Network File System (NFS) file shares aren't available for Flex Consumption. Only Server Message Block (SMB) and Azure Blobs (read-only) are supported.
++ **Scale**: The lowest maximum scale is currently `1`. The highest currently supported value is `1000`.
++ **PowerShell Managed dependencies**: Flex Consumption doesn't support [managed dependencies in PowerShell](functions-reference-powershell.md#managed-dependencies-feature). You must instead [upload modules with app content](functions-reference-powershell.md#including-modules-in-app-content).
 + **Certificates**: Loading certificates with the WEBSITE_LOAD_CERTIFICATES app setting, managed certificates, app service certificates, and other platform certificate-based features like endToEndEncryptionEnabled are currently not supported.
 + **Timezones**: `WEBSITE_TIME_ZONE` and `TZ` app settings aren't currently supported when running on Flex Consumption plan.
++ **Azure Functions Runtime Version and Proxies**: Flex Consumption only supports version 4.x and later of the Azure Functions runtime. Azure Functions proxies was a feature of versions 1.x through 3.x of the Azure Functions runtime and is not available in Flex Consumption.
 
 ## Related articles
 

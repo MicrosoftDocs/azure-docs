@@ -1,7 +1,7 @@
 ---
 title: Prepay for compute with reservations
 description: Prepay for Azure Cache for Redis compute resources with reservations.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/22/2025
 appliesto:
   - ✅ Azure Cache for Redis

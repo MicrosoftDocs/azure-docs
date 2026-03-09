@@ -12,7 +12,7 @@ ms.custom: sfi-image-nochange
 ---
 # Create cross-zone replication relationships for Azure NetApp Files
 
-[Cross-zone replication](replication.md#cross-zone-replication) enables you to replicate volumes across availability zones within the same region. It enables you to fail over your critical application if a zonal outage or disaster occurs. 
+[Cross-zone replication](replication.md#cross-zone-replication) enables you to replicate volumes across availability zones within the same region. It enables you to fail over your critical application if a zone outage or disaster occurs. 
 
 For information about availability zones, see [Use availability zone volume placement for application high availability with Azure NetApp Files](replication.md#availability-zones) and [Manage availability zone volume placement for Azure NetApp Files](manage-availability-zone-volume-placement.md). 
 

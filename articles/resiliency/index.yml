@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Resiliency documentation
-summary: Resiliency in Azure (formerly Azure Business Continuity Center) unifies all aspects of resiliency into one platform, combining Zonal Resiliency & High Availability, Backup & Disaster Recovery, and Ransomware Protection. The platform offers expanded capabilities to protect infrastructure, data, and workloads at scale.
+summary: Resiliency in Azure (formerly Azure Business Continuity Center) unifies all aspects of resiliency into one platform, combining Zone Resilience & High Availability, Backup & Disaster Recovery, and Ransomware Protection. The platform offers expanded capabilities to protect infrastructure, data, and workloads at scale.
 
 metadata:
   title: Resiliency Documentation
-  description: Resiliency in Azure (formerly Azure Business Continuity Center) unifies all aspects of resiliency into one platform, combining Zonal Resiliency & High Availability, Backup & Disaster Recovery, and Ransomware Protection. The platform offers expanded capabilities to protect infrastructure, data, and workloads at scale.
+  description: Resiliency in Azure (formerly Azure Business Continuity Center) unifies all aspects of resiliency into one platform, combining Zone Resilience & High Availability, Backup & Disaster Recovery, and Ransomware Protection. The platform offers expanded capabilities to protect infrastructure, data, and workloads at scale.
   ms.service: resiliency
   ms.custom:
     - ignite-2023

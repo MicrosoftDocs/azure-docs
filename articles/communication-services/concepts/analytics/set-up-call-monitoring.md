@@ -7,7 +7,7 @@ services: azure-communication-services
 
 ms.author: aakanmu
 ms.date: 3/26/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: data
 ---

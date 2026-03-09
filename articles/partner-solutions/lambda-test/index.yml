@@ -19,6 +19,8 @@ landingContent:
         links:
           - text: What is LambdaTest - HyperExecute?
             url: overview.md
+          - text: FAQ
+            url: faq.yml
 
   # Card
   - title: Create a LambdaTest - HyperExecute deployment

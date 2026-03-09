@@ -8,6 +8,12 @@
     href: site-recovery-faq.yml
   - name: Manage Site Recovery updates
     href: service-updates-how-to.md
+  - name: Pricing
+    items:
+    - name: Azure to Azure - Costs
+      href: site-recovery-cost.md
+    - name: About Azure Site Recovery deployment planner
+      href: deployment-planner-cost-estimation.md
 - name: What's New
   items:
   - name: Release notes
@@ -168,8 +174,6 @@
       href: azure-to-azure-architecture.md
     - name: Azure trusted launch VMs
       href: concepts-trusted-vm.md
-    - name: Azure to Azure - Costs
-      href: site-recovery-cost.md
     - name: Configure Failover for Multiple IP addresses
       href: concepts-multiple-ip-address-failover.md
     - name: Configure Mobility Service Proxy Settings
@@ -226,7 +230,7 @@
     - name: Migrate to Azure
       href: migrate-overview.md
     - name: Migration to availability zones 
-      href: ../reliability/migrate-recovery-services-vault.md     
+      href: /azure/reliability/migrate-recovery-services-vault     
   - name: Security
     items:
     - name: Security baseline
@@ -327,9 +331,9 @@
           href: site-recovery-deployment-planner.md
         - name: Deployment Planner version history
           href: site-recovery-deployment-planner-history.md
-        - name: Run the Deployment Planner tool
+        - name: Run the Deployment Planner tool and generate a cost report
           href: site-recovery-vmware-deployment-planner-run.md
-        - name: Analyze the generated report
+        - name: Analyze the generated cost report
           href: site-recovery-vmware-deployment-planner-analyze-report.md
         - name: Analyze the cost estimation report
           href: site-recovery-vmware-deployment-planner-cost-estimation.md
@@ -459,9 +463,9 @@
           href: hyper-v-deployment-planner-overview.md
         - name: Deployment Planner version history
           href: site-recovery-deployment-planner-history.md
-        - name: Run the Deployment Planner tool
+        - name: Run the Deployment Planner tool and generate a cost report
           href: hyper-v-deployment-planner-run.md
-        - name: Analyze the generated report
+        - name: Analyze the generated cost report
           href: hyper-v-deployment-planner-analyze-report.md
         - name: Analyze the cost estimation report
           href: hyper-v-deployment-planner-cost-estimation.md
@@ -655,15 +659,17 @@
   items:
   - name: Azure updates
     href: https://azure.microsoft.com/updates/?searchterms=Azure+Site+Recovery
+  - name: Pricing
+    items:
+    - name: Azure Site Recovery Pricing
+      href: https://azure.microsoft.com/pricing/details/site-recovery/
+    - name: Pricing calculator
+      href: https://azure.microsoft.com/pricing/calculator/
   - name: Blog
     href: https://azure.microsoft.com/blog/tag/azure-site-recovery/
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-site-recovery.html
   - name: Learning path
     href: /training/azure/
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/site-recovery/
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=site-recovery

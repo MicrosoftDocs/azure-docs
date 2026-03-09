@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2025
+ms.date: 02/23/2026
 ms.custom: generated
 ---
 
@@ -63,6 +63,37 @@ Azure service: [App Compliance Automation Tool for Microsoft 365](/microsoft-365
 > | Microsoft.AppComplianceAutomation/reports/webhooks/delete | Delete an AppComplianceAutomation webhook. |
 > | Microsoft.AppComplianceAutomation/reports/webhooks/write | Update an exiting AppComplianceAutomation webhook. |
 
+## Microsoft.Attestation
+
+Azure service: Azure Attestation Service
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.Attestation/attestationProviders/read | Gets the attestation service status. |
+> | Microsoft.Attestation/attestationProviders/write | Adds attestation service. |
+> | Microsoft.Attestation/attestationProviders/delete | Removes attestation service. |
+> | Microsoft.Attestation/attestationProviders/PrivateEndpointConnectionsApproval/action | Private endpoints approve description. |
+> | Microsoft.Attestation/attestationProviders/joinPerimeter/action | Action to join the Network Security Perimeter, used by linked access checks by NRP. |
+> | Microsoft.Attestation/attestationProviders/attestation/read | Gets the attestation service status. |
+> | Microsoft.Attestation/attestationProviders/attestation/write | Adds attestation service. |
+> | Microsoft.Attestation/attestationProviders/attestation/delete | Removes attestation service. |
+> | Microsoft.Attestation/attestationProviders/networkSecurityPerimeterAssociationProxies/read | Network Security Perimeter Association Proxy read description. |
+> | Microsoft.Attestation/attestationProviders/networkSecurityPerimeterAssociationProxies/write | Network Security Perimeter Association Proxy write description. |
+> | Microsoft.Attestation/attestationProviders/networkSecurityPerimeterAssociationProxies/delete | Network Security Perimeter Association Proxy delete description. |
+> | Microsoft.Attestation/attestationProviders/networkSecurityPerimeterConfigurations/read | Network Security Perimeter Configuration read description. |
+> | Microsoft.Attestation/attestationProviders/networkSecurityPerimeterConfigurations/reconcile/action | Reconcile the Network Security Perimeter Configuration stored in a Microsoft Azure Attestation with NRP's (Microsoft.Network Resource Provider) copy. |
+> | Microsoft.Attestation/attestationProviders/operationStatus/read | AzureAttestation |
+> | Microsoft.Attestation/attestationProviders/privateEndpointConnectionProxies/read | Private endpoint connection proxies read description. |
+> | Microsoft.Attestation/attestationProviders/privateEndpointConnectionProxies/write | Private endpoint connection proxies write description. |
+> | Microsoft.Attestation/attestationProviders/privateEndpointConnectionProxies/delete | Private endpoint connection proxies delete description. |
+> | Microsoft.Attestation/attestationProviders/privateEndpointConnectionProxies/validate/action | Private endpoint connection proxies validate oescription. |
+> | Microsoft.Attestation/attestationProviders/privateEndpointConnections/read | Private endpoints read description. |
+> | Microsoft.Attestation/attestationProviders/privateEndpointConnections/write | Private endpoints write description. |
+> | Microsoft.Attestation/attestationProviders/privateEndpointConnections/delete | Private endpoints delete description. |
+> | Microsoft.Attestation/attestationProviders/privateLinkResources/read | Gets privatelink resources description. |
+> | Microsoft.Attestation/locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action | Check if the configuration of the Network Security Perimeter needs updating. |
+
 ## Microsoft.DataProtection
 
 Azure service: Data Protection
@@ -118,6 +149,10 @@ Azure service: Data Protection
 > | Microsoft.DataProtection/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
 > | Microsoft.DataProtection/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
 > | Microsoft.DataProtection/operations/read | Operation returns the list of Operations for a Resource Provider |
+> | Microsoft.DataProtection/subscriptions/providers/locations/deletedVaults/read | Get soft-deleted Backup Vault by name |
+> | Microsoft.DataProtection/subscriptions/providers/locations/deletedVaults/read | List soft-deleted Backup Vaults. |
+> | Microsoft.DataProtection/subscriptions/providers/locations/deletedVaults/deletedBackupInstances/read | Get the deleted backup instance under the deleted vault |
+> | Microsoft.DataProtection/subscriptions/providers/locations/deletedVaults/deletedBackupInstances/read | List the deleted backup instances under the deleted vault |
 > | Microsoft.DataProtection/subscriptions/providers/resourceGuards/read | Gets list of ResourceGuards in a Subscription |
 > | Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action | Returns recovery points from secondary region for cross region restore enabled Backup Vaults. |
 > | Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/crossRegionRestore/action | Triggers cross region restore operation on given backup instance. |
@@ -307,8 +342,6 @@ Azure service: [Security Center](/azure/security-center/)
 > | Microsoft.Security/automations/write | Creates or updates the automation for the scope |
 > | Microsoft.Security/automations/delete | Deletes the automation for the scope |
 > | Microsoft.Security/automations/validate/action | Validates the automation model for the scope |
-> | Microsoft.Security/autoProvisioningSettings/read | Get security auto provisioning setting for the subscription |
-> | Microsoft.Security/autoProvisioningSettings/write | Create or update security auto provisioning setting for the subscription |
 > | Microsoft.Security/complianceResults/read | Gets the compliance results for the resource |
 > | Microsoft.Security/customRecommendations/read | Get the custom recommendations |
 > | Microsoft.Security/customRecommendations/write | Create or update the custom recommendation |
@@ -368,6 +401,8 @@ Azure service: [Security Center](/azure/security-center/)
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/write | Creates a new just-in-time network access policy or updates an existing one |
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/delete | Deletes the just-in-time network access policy |
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action | Initiates a just-in-time network access policy request |
+> | Microsoft.Security/locations/operationResults/read | Read result of the asynchronous operation. |
+> | Microsoft.Security/locations/operationStatuses/read | Read status of the asynchronous operation. |
 > | Microsoft.Security/locations/securitySolutions/read | Gets the security solutions |
 > | Microsoft.Security/locations/securitySolutions/write | Creates a new security solution or updates an existing one |
 > | Microsoft.Security/locations/securitySolutions/delete | Deletes a security solution |
@@ -385,6 +420,18 @@ Azure service: [Security Center](/azure/security-center/)
 > | Microsoft.Security/pricings/securityoperators/read | Gets the security operators for the scope |
 > | Microsoft.Security/pricings/securityoperators/write | Updates the security operators for the scope |
 > | Microsoft.Security/pricings/securityoperators/delete | Deletes the security operators for the scope |
+> | Microsoft.Security/privateLinks/read | Gets the Microsoft Security Private Link. |
+> | Microsoft.Security/privateLinks/write | Creates or updates a Microsoft Security Private Link. |
+> | Microsoft.Security/privateLinks/delete | Deletes a Microsoft Security Private Link. |
+> | Microsoft.Security/privateLinks/privateEndpointConnectionProxies/read | Gets the Microsoft Security Private Endpoint Connection Proxy (NRP only). |
+> | Microsoft.Security/privateLinks/privateEndpointConnectionProxies/write | Creates or updates a Microsoft Security Private Endpoint Connection Proxy (NRP only). |
+> | Microsoft.Security/privateLinks/privateEndpointConnectionProxies/delete | Deletes a Microsoft Security Private Endpoint Connection Proxy (NRP only). |
+> | Microsoft.Security/privateLinks/privateEndpointConnectionProxies/validate/action | Validates a Microsoft Security Private Endpoint Connection Proxy object before creation (NRP only). |
+> | Microsoft.Security/privateLinks/privateEndpointConnectionProxies/updatePrivateEndpointProperties/action | Updates the properties of the Microsoft Security Private Endpoint Connection Proxy (NRP only). |
+> | Microsoft.Security/privateLinks/privateEndpointConnections/read | Gets the Microsoft Security Private Endpoint Connection. |
+> | Microsoft.Security/privateLinks/privateEndpointConnections/write | Approves or rejects a Microsoft Security Private Endpoint Connection. |
+> | Microsoft.Security/privateLinks/privateEndpointConnections/delete | Deletes a Microsoft Security Private Endpoint Connection. |
+> | Microsoft.Security/privateLinks/privateLinkResources/read | Gets the Microsoft Security Private Link Resource. |
 > | Microsoft.Security/secureScoreControlDefinitions/read | Get secure score control definition |
 > | Microsoft.Security/secureScoreControls/read | Get calculated secure score control for your subscription |
 > | Microsoft.Security/secureScores/read | Get calculated secure score for your subscription |
@@ -401,50 +448,34 @@ Azure service: [Security Center](/azure/security-center/)
 > | Microsoft.Security/securityConnectors/devops/listAvailableGitHubOwners/action | Returns a list of all GitHub owners accessible by the user token consumed by the connector. |
 > | Microsoft.Security/securityConnectors/devops/listAvailableGitLabGroups/action | Returns a list of all GitLab groups accessible by the user token consumed by the connector. |
 > | Microsoft.Security/securityConnectors/devops/azureDevOpsOrgs/write | Creates or updates monitored Azure DevOps organization details. |
-> | Microsoft.Security/securityConnectors/devops/azureDevOpsOrgs/delete | Deletes a monitored Azure DevOps organization. |
 > | Microsoft.Security/securityConnectors/devops/azureDevOpsOrgs/read | Returns a monitored Azure DevOps organization resource. |
 > | Microsoft.Security/securityConnectors/devops/azureDevOpsOrgs/read | Returns a list of Azure DevOps organizations onboarded to the connector. |
 > | Microsoft.Security/securityConnectors/devops/azureDevOpsOrgs/write | Updates monitored Azure DevOps organization details. |
-> | Microsoft.Security/securityConnectors/devops/azureDevOpsOrgs/listAvailableProjects/action | Returns a list of all Azure DevOps projects accessible by the user token consumed by the connector. |
 > | Microsoft.Security/securityConnectors/devops/azureDevOpsOrgs/projects/write | Creates or updates a monitored Azure DevOps project resource. |
-> | Microsoft.Security/securityConnectors/devops/azureDevOpsOrgs/projects/delete | Deletes a monitored Azure DevOps project resource. |
 > | Microsoft.Security/securityConnectors/devops/azureDevOpsOrgs/projects/read | Returns a monitored Azure DevOps project resource. |
 > | Microsoft.Security/securityConnectors/devops/azureDevOpsOrgs/projects/read | Returns a list of Azure DevOps projects onboarded to the connector. |
 > | Microsoft.Security/securityConnectors/devops/azureDevOpsOrgs/projects/write | Updates a monitored Azure DevOps project resource. |
-> | Microsoft.Security/securityConnectors/devops/azureDevOpsOrgs/projects/listAvailableRepos/action | Returns a list of all Azure DevOps repositories accessible by the user token consumed by the connector. |
 > | Microsoft.Security/securityConnectors/devops/azureDevOpsOrgs/projects/repos/write | Creates or updates a monitored Azure DevOps repository resource. |
-> | Microsoft.Security/securityConnectors/devops/azureDevOpsOrgs/projects/repos/delete | Deletes a monitored Azure DevOps repository resource. |
 > | Microsoft.Security/securityConnectors/devops/azureDevOpsOrgs/projects/repos/read | Returns a monitored Azure DevOps repository resource. |
 > | Microsoft.Security/securityConnectors/devops/azureDevOpsOrgs/projects/repos/read | Returns a list of Azure DevOps repositories onboarded to the connector. |
 > | Microsoft.Security/securityConnectors/devops/azureDevOpsOrgs/projects/repos/write | Updates a monitored Azure DevOps repository resource. |
-> | Microsoft.Security/securityConnectors/devops/gitHubOwners/write | Creates or updates a monitored GitHub owner. |
-> | Microsoft.Security/securityConnectors/devops/gitHubOwners/delete | Deletes a monitored GitHub owner. |
 > | Microsoft.Security/securityConnectors/devops/gitHubOwners/read | Returns a monitored GitHub owner. |
 > | Microsoft.Security/securityConnectors/devops/gitHubOwners/read | Returns a list of GitHub owners onboarded to the connector. |
-> | Microsoft.Security/securityConnectors/devops/gitHubOwners/write | Updates a monitored GitHub owner. |
-> | Microsoft.Security/securityConnectors/devops/gitHubOwners/listAvailableRepos/action | Returns a list of all GitHub repositories accessible by the user token and app installation used by the connector. |
-> | Microsoft.Security/securityConnectors/devops/gitHubOwners/repos/write | Creates or updates a monitored GitHub repository. |
-> | Microsoft.Security/securityConnectors/devops/gitHubOwners/repos/delete | Deletes a monitored GitHub repository. |
+> | Microsoft.Security/securityConnectors/devops/gitHubOwners/repos/issues/action | Creates a GitHub issue for the specified repository and assessment. |
 > | Microsoft.Security/securityConnectors/devops/gitHubOwners/repos/read | Returns a monitored GitHub repository. |
 > | Microsoft.Security/securityConnectors/devops/gitHubOwners/repos/read | Returns a list of GitHub repositories onboarded to the connector. |
-> | Microsoft.Security/securityConnectors/devops/gitHubOwners/repos/write | Updates a monitored GitHub repository. |
-> | Microsoft.Security/securityConnectors/devops/gitLabGroups/write | Creates or updates monitored GitLab Group details. |
-> | Microsoft.Security/securityConnectors/devops/gitLabGroups/delete | Deletes a monitored GitLab Group. |
 > | Microsoft.Security/securityConnectors/devops/gitLabGroups/read | Returns a monitored GitLab Group resource for a given fully-qualified name. |
 > | Microsoft.Security/securityConnectors/devops/gitLabGroups/read | Returns a list of GitLab groups onboarded to the connector. |
-> | Microsoft.Security/securityConnectors/devops/gitLabGroups/write | Updates monitored GitLab Group details. |
-> | Microsoft.Security/securityConnectors/devops/gitLabGroups/listAvailableProjects/action | Gets a list of all GitLab projects that are directly owned by given group and accessible by the user token consumed by the connector. |
 > | Microsoft.Security/securityConnectors/devops/gitLabGroups/listSubgroups/action | Gets nested subgroups of given GitLab Group which are onboarded to the connector. |
-> | Microsoft.Security/securityConnectors/devops/gitLabGroups/listAvailableSubgroups/action | Gets all nested subgroups of given GitLab Group which are accessible by the user token consumed by the connector. |
-> | Microsoft.Security/securityConnectors/devops/gitLabGroups/projects/write | Creates or updates monitored GitLab Project details. |
-> | Microsoft.Security/securityConnectors/devops/gitLabGroups/projects/delete | Deletes a monitored GitLab Project. |
 > | Microsoft.Security/securityConnectors/devops/gitLabGroups/projects/read | Returns a monitored GitLab Project resource for a given fully-qualified group name and project name. |
 > | Microsoft.Security/securityConnectors/devops/gitLabGroups/projects/read | Gets a list of GitLab projects that are directly owned by given group and onboarded to the connector. |
-> | Microsoft.Security/securityConnectors/devops/gitLabGroups/projects/write | Updates monitored GitLab Project details. |
 > | Microsoft.Security/securityConnectors/devops/operationResults/read | Get devops long running operation result. |
 > | Microsoft.Security/securityContacts/read | Gets the security contact |
 > | Microsoft.Security/securityContacts/write | Updates the security contact |
 > | Microsoft.Security/securityContacts/delete | Deletes the security contact |
+> | Microsoft.Security/securityoperators/read | Gets the securityoperators for the scope |
+> | Microsoft.Security/securityoperators/write | Creates or updates the securityoperators for the scope |
+> | Microsoft.Security/securityoperators/delete | Deletes the securityoperators for the scope |
 > | Microsoft.Security/securitySolutions/read | Gets the security solutions |
 > | Microsoft.Security/securitySolutions/write | Creates a new security solution or updates an existing one |
 > | Microsoft.Security/securitySolutions/delete | Deletes a security solution |
@@ -485,18 +516,6 @@ Azure service: [Security Center](/azure/security-center/)
 > | Microsoft.Security/workspaceSettings/delete | Deletes the workspace settings |
 > | Microsoft.Security/workspaceSettings/connect/action | Change workspace settings reconnection settings |
 
-## Microsoft.SecurityGraph
-
-Azure service: Microsoft Monitoring Insights
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | Microsoft.SecurityGraph/diagnosticsettings/write | Writing a diagnostic setting |
-> | Microsoft.SecurityGraph/diagnosticsettings/read | Reading a diagnostic setting |
-> | Microsoft.SecurityGraph/diagnosticsettings/delete | Deleting a diagnostic setting |
-> | Microsoft.SecurityGraph/diagnosticsettingscategories/read | Reading a diagnostic setting categories |
-
 ## Microsoft.SecurityInsights
 
 Azure service: [Microsoft Sentinel](/azure/sentinel/)
@@ -507,7 +526,6 @@ Azure service: [Microsoft Sentinel](/azure/sentinel/)
 > | Microsoft.SecurityInsights/register/action | Registers the subscription to Azure Sentinel |
 > | Microsoft.SecurityInsights/unregister/action | Unregisters the subscription from Azure Sentinel |
 > | Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action | Check user authorization and license |
-> | Microsoft.SecurityInsights/contentTranslators/action | Check a translation of content |
 > | Microsoft.SecurityInsights/Aggregations/read | Gets aggregated information |
 > | Microsoft.SecurityInsights/alertRules/read | Gets the alert rules |
 > | Microsoft.SecurityInsights/alertRules/write | Updates alert rules |
@@ -527,15 +545,6 @@ Azure service: [Microsoft Sentinel](/azure/sentinel/)
 > | Microsoft.SecurityInsights/bookmarks/relations/read | Gets a bookmark relation |
 > | Microsoft.SecurityInsights/bookmarks/relations/write | Updates a bookmark relation |
 > | Microsoft.SecurityInsights/bookmarks/relations/delete | Deletes a bookmark relation |
-> | Microsoft.SecurityInsights/businessApplicationAgents/read | Gets a Business Application Agent |
-> | Microsoft.SecurityInsights/businessApplicationAgents/write | Create or Updates a Business Application Agent |
-> | Microsoft.SecurityInsights/businessApplicationAgents/delete | Deletes a Business Application Agent |
-> | Microsoft.SecurityInsights/businessApplicationAgents/systems/read | Gets a System of a Business Application Agent |
-> | Microsoft.SecurityInsights/businessApplicationAgents/systems/write | Create or Updates a System of a Business Application Agent |
-> | Microsoft.SecurityInsights/businessApplicationAgents/systems/delete | Deletes a System of a Business Application Agent |
-> | Microsoft.SecurityInsights/businessApplicationAgents/systems/listActions/action | Lists the actions of a system |
-> | Microsoft.SecurityInsights/businessApplicationAgents/systems/reportActionStatus/action | Reports the status of an action |
-> | Microsoft.SecurityInsights/businessApplicationAgents/systems/undoAction/action | Undoes an action |
 > | Microsoft.SecurityInsights/cases/read | Gets a case |
 > | Microsoft.SecurityInsights/cases/write | Updates a case |
 > | Microsoft.SecurityInsights/cases/delete | Deletes a case |

@@ -5,7 +5,7 @@ author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 05/24/2025
+ms.date: 02/25/2026
 ms.author: kesheth
 ---
 
@@ -19,14 +19,12 @@ Before you create a workspace in the Azure portal, you need an Azure account sub
 
 ## The role of workspaces
 
-Workspaces in Azure Health Data Services serve as logical containers for instances of the FHIR&reg; service, DICOM&reg; service, and MedTech service. Workplaces ensure healthcare data is managed within a secure boundary, adhering to HIPAA and HITRUST standards.
+Workspaces in Azure Health Data Services serve as logical containers for instances of the FHIR&reg; service and DICOM&reg; service. Workplaces ensure healthcare data is managed within a secure boundary, adhering to HIPAA and HITRUST standards.
 
-After you deploy the Azure Health Data Services resource group, enter the workspace subscription and instance details. For steps, see [Deploy an Azure Health Data Services workspace by using the Azure portal](healthcare-apis-quickstart.md).
+To deploy a workspace, see [Deploy an Azure Health Data Services workspace by using the Azure portal](healthcare-apis-quickstart.md).
 
 > [!NOTE] 
 > You can deploy multiple data services within a workspace, and by design they work seamlessly with one another. Use a workspace to organize all your organization's Azure Health Data Services instances and manage configuration settings that are shared among all the underlying datasets and services where it's applicable. 
-
-:::image type="content" source="media/health-data-services-workspace.png" alt-text="Screenshot showing the Azure Health Data Services workspace." lightbox="media/health-data-services-workspace.png#lightbox":::
 
 ## The role of resource groups 
 
@@ -80,19 +78,6 @@ You can also:
 
 For more information, see [Manage medical imaging data with the DICOM service](./../healthcare-apis/dicom/dicom-data-lake.md).
 
-## MedTech service
-
-The MedTech service transforms device data into FHIR-based observation resources and then persists the transformed messages into the FHIR Service in Azure Health Data Services. The MedTech service provides a unified approach to health data access, standardization, and trend capture, enabling the discovery of operational and clinical insights, connection of new device applications, and enablement of new research projects. 
-
-The MedTech service needs access permissions to Azure Event Hubs and FHIR service. Assign the Azure Event Hubs Data Receiver role to allow the MedTech service to receive data from the event hub. For more information, see [Authentication & Authorization for Azure Health Data Services](./../healthcare-apis/authentication-authorization.md)
-
-You can also:
-- Create a new FHIR service or use an existing one in the same or different workspace.
-- Create a new event hub or use an existing one. 
-- Assign roles to allow the MedTech service to access [Event Hubs](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-access-to-the-device-message-event-hub) and [FHIR service](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-access-to-the-fhir-service).
-- Send data to the event hub, which is associated with the MedTech service.
-
-For more information, see [Get started with the MedTech service](./../healthcare-apis/iot/get-started.md).
 
 ## Related content
 

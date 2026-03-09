@@ -107,6 +107,8 @@ additionalContent:
         # Card
         - title: Well Architected Framework (WAF)
           links:
+          - text: Reliability in Azure VMware Solution
+            url: /azure/reliability/reliability-vmware-solution?pivots=avs-gen1
           - text: Azure VMware Solution design principles
             url: /azure/well-architected/azure-vmware/design-principles
           - text: Infrastructure and provisioning considerations

@@ -5,7 +5,7 @@ description: This article describes how to explore and interact with lake data u
 author: EdB-MSFT  
 ms.author: edbaynash  
 ms.service: microsoft-sentinel
-ms.subservice: sentinel-graph
+ms.subservice: sentinel-platform
 ms.topic: how-to  
 ms.date: 07/09/2025
 

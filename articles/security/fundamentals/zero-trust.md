@@ -6,14 +6,21 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.author: mbaldwin
-ms.date: 11/06/2025
+ms.date: 02/12/2026
 ---
 
 # Zero Trust security in Azure
 
-Zero Trust is a security strategy that assumes breach and verifies each request as though it originated from an uncontrolled network. This article explains how to apply Zero Trust principles to Microsoft Azure infrastructure and services.
+Zero Trust is a security strategy that assumes breach and verifies each request as though it originated from an uncontrolled network. This article introduces Zero Trust principles and how they apply to Microsoft Azure.
 
-For comprehensive information about Zero Trust as a security model and its application across Microsoft products, see [What is Zero Trust?](/security/zero-trust/zero-trust-overview).
+> [!TIP]
+> **For comprehensive Zero Trust guidance**, see the [Zero Trust documentation](/security/zero-trust/) which includes:
+> - [What is Zero Trust?](/security/zero-trust/zero-trust-overview) - Core concepts and principles
+> - [Zero Trust for Azure services](/security/zero-trust/azure-infrastructure-overview) - Detailed implementation guidance for Azure IaaS, networking, and workloads
+> - [Zero Trust deployment guidance](/security/zero-trust/deploy/overview) - Technology-pillar specific deployment objectives
+> - [Zero Trust adoption framework](/security/zero-trust/adopt/zero-trust-adoption-overview) - Business-outcome focused implementation
+>
+> This article provides an Azure-focused introduction to Zero Trust concepts.
 
 ## Zero Trust principles for Azure
 
@@ -107,7 +114,7 @@ Additional detailed guidance is available for specific domains:
 
 ## Application development and Zero Trust
 
-Applications deployed on Azure must authenticate and authorize every request rather than relying on implicit trust from network location. Key principles include using Microsoft Entra ID for identity verification, requesting minimum permissions, protecting sensitive data, and using managed identities instead of stored credentials. For comprehensive guidance, see [Develop using Zero Trust principles](/security/zero-trust/develop/overview) and [Build Zero Trust-ready apps using Microsoft identity platform](../../active-directory/develop/zero-trust-for-developers.md).
+Applications deployed on Azure must authenticate and authorize every request rather than relying on implicit trust from network location. Key principles include using Microsoft Entra ID for identity verification, requesting minimum permissions, protecting sensitive data, and using managed identities instead of stored credentials. For comprehensive guidance, see [Develop using Zero Trust principles](/security/zero-trust/develop/overview) and [Build Zero Trust-ready apps using Microsoft identity platform](/entra/identity-platform/zero-trust-for-developers).
 
 ## Next steps
 

@@ -3,11 +3,10 @@ title: Secret and Key Management in Azure Confidential Computing
 description: This article helps you to understand how confidential computing handles secrets and keys.
 author: vinfnet
 ms.author: sgallagher
-ms.service: azure
+ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 06/09/2023
 ms.custom: template-concept
-ms.subservice: confidential-computing
 # Customer intent: As a security architect, I want to understand how confidential computing manages secrets and keys, so that I can implement robust security measures for applications using sensitive data.
 ---
 # Secrets and key management

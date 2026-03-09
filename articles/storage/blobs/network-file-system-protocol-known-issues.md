@@ -24,7 +24,9 @@ This article describes limitations and known issues of Network File System (NFS)
 
 - NFS 3.0 support can't be disabled in a storage account after you enable it.
 
-- Geo-redundant storage (GRS), Geo-zone-redundant storage (GZRS), and Read-access geo-redundant storage (RA-GRS) redundancy options aren't supported when you create an NFS 3.0 storage account.
+- Geo-Redundant Storage (GRS) is supported only for unplanned failover scenarios and isn't supported for planned failover.
+
+- Geo-zone-redundant storage (GZRS) and Read-access geo-redundant storage (RA-GRS) redundancy options aren't supported when you create an NFS 3.0 storage account.
 
 - Access control lists (ACLs) can't be used to authorize an NFS 3.0 request. In fact, if the ACL or a blob or directory contains an entry for a named user or group, that file becomes inaccessible on the client for nonroot users. You have to remove these entries to restore access to nonroot users on the client. For information about how to remove an ACL entry for named users and groups, see [How to set ACLs](data-lake-storage-access-control.md#how-to-set-acls).
 

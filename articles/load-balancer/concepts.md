@@ -1,12 +1,13 @@
 ---
 title: Azure Load Balancer concepts
-description: Overview of Azure Load Balancer concepts.
+description: Discover the concepts behind Azure Load Balancer, including its five-tuple algorithm, session affinity modes, and traffic distribution strategies.
 services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: concept-article
-ms.date: 06/26/2024
+ms.date: 01/07/2026
 ms.author: mbender
+ms.reviewer: mbender
 # Customer intent: As a cloud architect, I want to understand the load balancing algorithm used by Azure Load Balancer so that I can effectively distribute traffic and ensure high availability for my applications.
 ---
 
@@ -18,7 +19,7 @@ Azure Load Balancer uses a tuple-based hashing as the load-balancing algorithm.
 
 ## Load balancing algorithm
 
-By creating a load balancer rule, you can distribute inbound traffic flows from a load balancer's frontend to its backend pools. Azure Load Balancer uses a five-tuple hashing algorithm for the distribution of inbound flows (not bytes).  Load balancer rewrites the headers of TCP/UDP headers flows when directing traffic to the backend pool instances (load balancer doesn't rewrite HTTP/HTTPS headers). When the load balancer's health probe indicates a healthy backend endpoint, backend instances are available to receive new traffic flows.
+By creating a load balancer rule, you can distribute inbound traffic flows from a load balancer's frontend to its backend pools. Azure Load Balancer uses a five-tuple hashing algorithm for the distribution of inbound flows (not bytes). Load balancer rewrites the headers of TCP/UDP headers flows when directing traffic to the backend pool instances (load balancer doesn't rewrite HTTP/HTTPS headers). When the load balancer's health probe indicates a healthy backend endpoint, backend instances are available to receive new traffic flows.
 
 By default, Azure Load Balancer uses a five-tuple hash.
 

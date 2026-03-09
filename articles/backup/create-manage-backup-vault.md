@@ -2,7 +2,7 @@
 title: Create and delete Backup vaults
 description: Learn how to create and delete the Backup vaults.
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 01/30/2026
 ms.custom: references_regions
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -45,7 +45,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
     ![Select Review + Create](./media/backup-vault-overview/review-and-create.png)
 
-Learn more about [creating a Backup vault using Azure Business Continuity Center](../business-continuity-center/backup-vaults.md).
+Learn more about [creating a Backup vault using Resiliency](../resiliency/backup-vaults.md).
 
 ## Delete a Backup vault
 
@@ -62,7 +62,7 @@ If you try to delete the vault without removing the dependencies, you'll encount
 
 >Cannot delete the Backup vault as there are existing backup instances or backup policies in the vault. Delete all backup instances and backup policies that are present in the vault and then try deleting the vault.
 
-Ensure that you cycle through the **Datasource type** filter options in **Backup center** to not miss any existing Backup Instance or policy that needs to be removed, before being able to delete the Backup Vault.
+Ensure that you cycle through the **Datasource type** filter options in **Resiliency** to not miss any existing Backup Instance or policy that needs to be removed, before being able to delete the Backup Vault.
 
 ![Datasource Types](./media/backup-vault-overview/datasource-types.png)
 

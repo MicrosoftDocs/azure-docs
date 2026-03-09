@@ -22,6 +22,9 @@ items:
       - name: Create Bicep files - VS Code
         href: quickstart-create-bicep-use-visual-studio-code.md
         displayName: vscode,vs code
+      - name: Create Bicep files - Bicep MCP Server
+        href: quickstart-create-bicep-use-visual-studio-code-model-context-protocol.md
+        displayName: vscode,vs code
       - name: Create Bicep files - Visual Studio
         href: quickstart-create-bicep-use-visual-studio.md
       - name: Create template specs
@@ -58,7 +61,7 @@ items:
         items:
           - name: Cognitive Search
             href: /azure/search/search-get-started-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
-          - name: Azure AI services
+          - name: Foundry Tools
             href: /azure/ai-services/create-account-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
           - name: Data Science Virtual Machine
             href: /azure/machine-learning/data-science-virtual-machine/dsvm-tutorial-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
@@ -260,19 +263,19 @@ items:
         displayName: any,supported types,arrays,booleans,integers,objects,strings,secure,interpolation
       - name: Parameters (param)
         href: parameters.md
-        displayName: decorators,secure,objects,constraints
+        displayName: decorator,secure,objects,constraints
       - name: Variables (var)
         href: variables.md
-        displayName: configuration
+        displayName: decorator,configuration
       - name: Resources (resource)
-        displayName: batchsize,onlyifnotexists,description,decorators
+        displayName: batchsize,onlyifnotexists,description,decorator
         href: resource-declaration.md
       - name: Outputs (output)
         href: outputs.md
-        displayName: dynamic number of outputs,modules
+        displayName: decorator,dynamic number of outputs,modules
       - name: Modules (module)
         href: modules.md
-        displayName: scopes,consume,registry,module registry,private module registry,public module registry,avm,azure verified modules
+        displayName: decorator,scopes,consume,registry,module registry,private module registry,public module registry,avm,azure verified modules
       - name: Using (using/using none)
         href: bicep-using.md
         displayName: avm,azure verified modules,using none
@@ -280,10 +283,10 @@ items:
         href: bicep-import.md
       - name: User-defined data types (type)
         href: user-defined-data-types.md
-        displayName: custom,resourceInput,resourceOutput,resource-derived types
+        displayName: decorator,custom,resourceInput,resourceOutput,resource-derived types
       - name: User-defined functions (func)
         href: user-defined-functions.md
-        displayName: custom
+        displayName: custom,decorator
       - name: Existing resources (existing)
         href: existing-resource.md
       - name: Child resources (parent)
@@ -389,6 +392,8 @@ items:
           - name: Visual Studio Code
             href: visual-studio-code.md
             displayName: vscode,vs code,deployment pane
+          - name: Bicep MCP server
+            href: bicep-mcp-server.md
           - name: Private module registry
             href: private-module-registry.md
             displayName: module registry,private module registry
@@ -729,6 +734,8 @@ items:
             href: diagnostics/bcp192.md
           - name: BCP201
             href: diagnostics/bcp201.md
+          - name: BCP226
+            href: diagnostics/bcp226.md
           - name: BCP238
             href: diagnostics/bcp238.md
           - name: BCP266

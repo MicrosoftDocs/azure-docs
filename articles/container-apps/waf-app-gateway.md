@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  how-to
-ms.date: 11/21/2025
+ms.date: 02/26/2026
 ms.author: cshoe
 ---
 
@@ -265,8 +265,6 @@ To connect the frontend and backend pool, perform the following steps:
 
 1. Select the **Backend targets** tab and enter the following values:
 
-1. Toggle to the *Backend targets* tab and enter the following values:
-
     | Setting | Action |
     |---|---|
     | Target type | Select **my-agw-backend-pool** that you created earlier. |
@@ -282,18 +280,12 @@ To connect the frontend and backend pool, perform the following steps:
     | Use well known CA certificate | Select **Yes**. |
     | Override with new host name | Select **Yes**. |
     | Host name override | Select **Pick host name from backend target**. |
-    | Create custom probes | Select **No**. |
-
-1. Under **Request Header Rewrite**, configure the following settings:
-
-    - Enable Request Header Rewrite: Select **Yes**.  
-    - Add a request header:
-      - Header name: `X-Forwarded-Host`
-      - Value: `{http_req_host}`
-
-    This action ensures that the original `Host` header from the client request is preserved and accessible by the backend application.  
+    | Use custom probe | Select **No**. |
 
 1. Select **Add** to add the backend settings.
+
+    > [!NOTE]
+    > To preserve the original host header for redirects and SSO scenarios, configure an `X-Forwarded-Host` header rewrite after creating the Application Gateway. See [Preserve original host header for redirects and SSO](#preserve-original-host-header-for-redirects-and-sso) for details.
 
 1. In the *Add a routing rule* window, select **Add** again.
 

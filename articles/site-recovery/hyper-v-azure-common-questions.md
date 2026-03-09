@@ -1,7 +1,7 @@
 ---
 title: Common questions for Hyper-V disaster recovery with Azure Site Recovery 
 description: This article summarizes common questions about setting up disaster recovery for on-premises Hyper-V VMs to Azure using the Azure Site Recovery site.
-ms.date: 04/26/2025
+ms.date: 02/27/2026
 ms.service: azure-site-recovery
 ms.topic: overview
 ms.author: v-gajeronika
@@ -32,6 +32,8 @@ Yes, you can purchase [reserved Azure virtual machines](https://azure.microsoft.
 ## Azure
 
 ### What do I need in Hyper-V to orchestrate replication with Site Recovery?
+
+[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
 
 For the Hyper-V host server what you need depends on the deployment scenario. Check out the Hyper-V prerequisites in:
 

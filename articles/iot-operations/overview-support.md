@@ -4,7 +4,7 @@ description: Explore supported versions, environments, dependencies, and licensi
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 10/08/2025
+ms.date: 02/18/2026
 ms.custom: references_regions
 
 # As an IT admin, you want to know the supported environments for Azure IoT Operations to plan your deployment effectively.
@@ -57,7 +57,7 @@ Azure IoT Operations depends on these support services and features:
 > For the *Azure Device Registry* service, Azure IoT Operations and Azure IoT Hub are the only products under which this service is licensed for production use. For the *Schema registry* capability, Azure IoT Operations is the only product under which this service is licensed for production use.
 
 > [!NOTE]
-> *Azure Container Storage enabled by Azure Arc* is an optional dependency. Connectors like the *media connector* and the data flow endpoint *local storage* can use this option to synchronize captured data to cloud storage.
+> *Azure Container Storage enabled by Azure Arc* is an optional dependency that you must [install](/azure/azure-arc/container-storage/howto-install-edge-volumes) separately. Connectors like the *media connector* and the data flow endpoint *local storage* can use this option to synchronize captured data to cloud storage.
 
 ## Licensing
 

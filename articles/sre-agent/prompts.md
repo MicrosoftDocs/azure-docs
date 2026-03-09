@@ -2,7 +2,7 @@
 title: Starter Prompts for Azure SRE Agent Preview
 description: Review prompts that you can use with Azure SRE Agent.
 author: craigshoemaker
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/24/2025
 ms.author: cshoe
 ms.service: azure-sre-agent
@@ -110,6 +110,9 @@ Here are some prompts that you can use to help you interact with your agent:
 - My container app is stuck and isn't loading. Investigate for me.
 
 ## Azure Kubernetes Service
+
+> [!NOTE]
+> If your AKS cluster restricts inbound network access, SRE Agent will not be able to access Kubernetes objects in the cluster, such as namespaces and pods.
 
 ### Resource discovery
 

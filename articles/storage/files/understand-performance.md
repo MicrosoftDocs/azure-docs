@@ -4,7 +4,7 @@ description: Learn about the factors that can impact Azure file share performanc
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 07/25/2024
+ms.date: 02/03/2026
 ms.author: kendownie
 # Customer intent: "As a cloud storage administrator, I want to understand the factors affecting Azure file share performance, so that I can optimize configurations for IOPS, throughput, and latency to meet application demands."
 ---
@@ -17,8 +17,10 @@ Azure Files can satisfy performance requirements for most applications and use c
 
 | Management model  | Billing model  | Media tier     | Redundancy     |                 SMB                 |                 NFS                 |
 | ----------------- | -------------- | -------------- | -------------- | :---------------------------------: | :---------------------------------: |
-| Microsoft.Storage | Provisioned v2 | SSD (premium)  | Local (LRS)    |  ![No](../media/icons/no-icon.png)  | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v2 | SSD (premium)  | Zone (ZRS)     |  ![No](../media/icons/no-icon.png)  | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.FileShares | Provisioned v2 | SSD (premium)  | Local (LRS)    | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.FileShares | Provisioned v2 | SSD (premium)  | Zone (ZRS)     | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v2 | SSD (premium)  | Local (LRS)    |  ![Yes](../media/icons/yes-icon.png)  | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v2 | SSD (premium)  | Zone (ZRS)     |  ![Yes](../media/icons/yes-icon.png)  | ![Yes](../media/icons/yes-icon.png) |
 | Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS)    | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
 | Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS)     | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
 | Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS)      | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |

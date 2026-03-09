@@ -1,17 +1,16 @@
 ---
 title: Apply Zero Trust Principles to Segment Azure Network through Traffic Analytics
 description: Learn how to use Azure Traffic Analytics to apply Zero Trust principles, segment networks, and detect security risks in your Azure environment.
-author:      shijaiswal # GitHub alias
-ms.author:   shijaiswal # Microsoft alias
+author: shijaiswal
+ms.author: shijaiswal
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date:     06/04/2025
+ms.date: 06/04/2025
+
 # Customer intent: As a network security engineer, I want to utilize traffic analytics to implement Zero Trust principles in my Azure environment, so that I can enhance network segmentation, detect threats, and improve overall security visibility.
 ---
 
 # Apply Zero Trust principles to segment Azure network through traffic analytics
-
-
 
 Zero Trust is a security strategy. It isn't a product or a service, but an approach in designing and implementing the following set of security principles.
 

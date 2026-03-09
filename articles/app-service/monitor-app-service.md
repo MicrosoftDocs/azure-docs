@@ -3,7 +3,7 @@ title: Monitor Azure App Service
 description: Learn about options in Azure App Service for monitoring resources for availability, performance, and operation.
 ms.date: 04/18/2025
 ms.custom: horz-monitor
-ms.topic: conceptual
+ms.topic: concept-article
 author: msangapu-msft
 ms.author: msangapu
 ms.service: azure-app-service

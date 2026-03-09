@@ -2,8 +2,8 @@
 ms.service: azure-static-web-apps
 ms.topic: include
 ms.date: 10/15/2024
-author: v1212
-ms.author: wujia
+author: cjk7989
+ms.author: jikunchen
 ---
 
 ### Unsupported features in preview

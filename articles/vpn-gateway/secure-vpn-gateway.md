@@ -40,7 +40,7 @@ Network security for VPN Gateway involves implementing multiple layers of protec
 
 Identity management for VPN Gateway focuses on implementing secure authentication mechanisms and centralizing identity controls. Proper identity management ensures that only authorized users and devices can establish VPN connections while maintaining seamless access experiences.
 
-- **Standardize on Microsoft Entra ID for centralized identity management**: Use Microsoft Entra ID as your default identity and access management service for VPN Gateway authentication. This ensures consistent identity governance across Microsoft Cloud resources including Azure portal, Azure Storage, virtual machines, and Key Vault, as well as your organization's applications. For more information, see [What is Microsoft Entra ID?](/entra/fundamentals/what-is-entra).
+- **Standardize on Microsoft Entra ID for centralized identity management**: Use Microsoft Entra ID as your default identity and access management service for VPN Gateway authentication. This ensures consistent identity governance across Microsoft Cloud resources including Azure portal, Azure Storage, virtual machines, and Key Vault, as well as your organization's applications. For more information, see [What is Microsoft Entra ID?](/entra/fundamentals/what-is-entra)
 
 - **Configure Microsoft Entra ID authentication for point-to-site VPN**: Enable Microsoft Entra ID authentication for P2S VPN connections to provide single sign-on capabilities and centralized user management. This allows users to authenticate using their organizational credentials and supports conditional access policies. For more information, see [Configure Microsoft Entra ID authentication for point-to-site VPN](/azure/vpn-gateway/point-to-site-entra-gateway).
 
@@ -104,11 +104,11 @@ Asset management for VPN Gateway ensures proper inventory tracking, compliance m
 
 - **Grant security team visibility**: Ensure security teams have Security Reader permissions across your Azure tenant and subscriptions to monitor VPN Gateway resources for security risks. Create dedicated Microsoft Entra ID groups for security teams and assign appropriate role-based access permissions. For more information, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles#security-reader).
 
-- **Implement policy-based governance**: Use Azure Policy to audit and enforce VPN Gateway configurations according to your organization's security standards. Create custom policies to ensure consistent deployment of security settings across all VPN Gateway instances. For more information, see [What is Azure Policy?](/azure/governance/policy/overview).
+- **Implement policy-based governance**: Use Azure Policy to audit and enforce VPN Gateway configurations according to your organization's security standards. Create custom policies to ensure consistent deployment of security settings across all VPN Gateway instances. For more information, see [What is Azure Policy?](/azure/governance/policy/overview)
 
 - **Monitor compliance with Microsoft Defender for Cloud**: Use Microsoft Defender for Cloud to assess VPN Gateway resources against security benchmarks and receive recommendations for improving your security posture. Enable the Azure Security Benchmark initiative to track compliance with industry standards. For more information, see [Microsoft Defender for Cloud overview](/azure/defender-for-cloud/defender-for-cloud-introduction).
 
-- **Query resources with Azure Resource Graph**: Use Azure Resource Graph to query and discover VPN Gateway resources across subscriptions for comprehensive asset management. Create custom queries to identify configuration drift, unused resources, or non-compliant deployments. For more information, see [What is Azure Resource Graph?](/azure/governance/resource-graph/overview).
+- **Query resources with Azure Resource Graph**: Use Azure Resource Graph to query and discover VPN Gateway resources across subscriptions for comprehensive asset management. Create custom queries to identify configuration drift, unused resources, or non-compliant deployments. For more information, see [What is Azure Resource Graph?](/azure/governance/resource-graph/overview)
 
 ## Next steps
 

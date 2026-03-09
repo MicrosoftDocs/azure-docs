@@ -18,9 +18,9 @@ Also, IP Groups are used in the rules to define the **Source** IP addresses.
 
 [!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
-For information about Azure Firewall Manager, see [What is Azure Firewall Manager?](overview.md).
+For information about Azure Firewall Manager, see [What is Azure Firewall Manager?](overview.md)
 
-For information about Azure Firewall, see [What is Azure Firewall?](../firewall/overview.md).
+For information about Azure Firewall, see [What is Azure Firewall?](../firewall/overview.md)
 
 For information about IP Groups, see [IP Groups in Azure Firewall](../firewall/ip-groups.md).
 

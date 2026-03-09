@@ -413,8 +413,6 @@ Set your TippingPoint SMS to send syslog messages in ArcSight CEF Format v4.2 fo
 
 Send syslog messages in CEF format to the proxy machine. Make sure you to send the logs to port 514 TCP on the machine's IP address.
 
-Download the user guide from https://support.varmour.com/hc/en-us/articles/360057444831-vArmour-Application-Controller-6-0-User-Guide. In the user guide, refer to "Configuring Syslog for Monitoring and Violations" and follow steps 1 to 3.
-
 ## Vectra AI Detect
 
 Configure Vectra (X Series) Agent to forward syslog messages in CEF format to your Microsoft Sentinel workspace via the syslog agent.

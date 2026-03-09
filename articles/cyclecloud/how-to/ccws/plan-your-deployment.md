@@ -1,8 +1,8 @@
 ---
 title: Plan your CycleCloud Workspace for Slurm Deployment
 description: A checklist to help plan for your CycleCloud Workspace for Slurm deployment
-author: xpillons
-ms.date: 07/01/2025
+author: abatallas
+ms.date: 01/13/2025
 ms.author: padmalathas
 ---
 
@@ -21,13 +21,38 @@ When you deploy, grant the Azure user account the following roles:
 > We recommend that you predeploy a [Hub virtual network](/azure/architecture/networking/architecture/hub-spoke) to connect to your enterprise network if you don't already have one. This hub can accommodate a [VPN Gateway](/azure/vpn-gateway/tutorial-create-gateway-portal) and an Azure Bastion. The CycleCloud Workspace for Slurm environment is a spoke that's peered during deployment.
 > Contact Azure HPC Support if VPN or Azure Bastion don't meet your requirements or if your organization blocks them.
 
+## Microsoft Entra ID authentication
+
+Microsoft Entra ID is recommended for all Azure CycleCloud Workspace for Slurm deployments and is required if using Open OnDemand. Both greenfield and brownfield deployments require:
+- A registered Microsoft Entra ID application for authentication with CycleCloud and, optionally, Open OnDemand.
+- (If using Open OnDemand) A user-assigned managed identity used by the registered Microsoft Entra ID application for the federated credentials.
+
+Visit [these instructions](../create-app-registration.md) to create your own Microsoft Entra ID application registration compatible with Azure CycleCloud Workspace for Slurm and Open OnDemand.
+
+### Post-deployment utility
+
+Once you create Microsoft Entra ID application registration, you can update its redirect URIs automatically with the below helper script. 
+
+> [!IMPORTANT]
+> Run the following command from a Linux shell with the Azure CLI installed and authenticated with the Azure account designated for deployment. Azure Cloud Shell may not be supported for this scenario.
+> [!NOTE]
+> Make sure the command-line tool `jq` for JSON processing is installed on your system.
+
+```
+LATEST_RELEASE=$(curl -sSL -H 'Accept: application/vnd.github+json' "https://api.github.com/repos/Azure/cyclecloud-slurm-workspace/releases/latest" | sed -n 's/.*"tag_name":[[:space:]]*"\([^"]*\)".*/\1/p')
+
+bash <(curl -sL "https://raw.githubusercontent.com/Azure/cyclecloud-slurm-workspace/refs/tags/${LATEST_RELEASE}/util/entra_postdeploy.sh") -rg CCW_RESOURCE_GROUP_NAME
+```
+
+Ensure that you substitute `CCW_RESOURCE_GROUP_NAME` in the above with the name of the resource group with resources created by Azure CycleCloud Workspace for Slurm. 
+
 ## Greenfield deployment
 
 A greenfield deployment creates the following resources and role assignments:
 - A resource group.
 - The virtual network and its `ccw-cyclecloud-subnet` and `ccw-compute-subnet` subnets.
 - The `ccw-cyclecloud-vm` virtual machine (VM), NIC, OS, data disks, and a system assigned managed identity.
-- A user assigned managed identity to access the CycleCloud storage account.
+- A user-assigned managed identity to access the CycleCloud storage account.
 - A uniquely named storage account for CycleCloud projects and a private endpoint in the `ccw-cyclecloud-subnet`.
 - The `nsg-ccw-common` network security group (NSG).
 - `Contributor`, `Storage Account Contributor`, and `Storage Blob Data Contributor` roles at the subscription level for the CycleCloud VM system assigned managed identity.
@@ -44,8 +69,6 @@ In a brownfield deployment, you provide existing resources for:
 - The virtual network and subnets in which you deploy the environment.
 - Filesystem Storage for the user's home directories and other filers, such as external NFS mount points or Azure Managed Lustre Filesystem (AMLS).
 - An Azure Database for MySQL flexible server instance for Slurm Job Accounting.
-- A registered Microsoft Entra ID application for Open OnDemand authentication.
-- A User-Assigned Managed Identity used by the registered Microsoft Entra ID application for the federated credentials.
 
 If you bring your own virtual network, follow these prerequisites:
 - A /29 **cyclecloud** subnet for the CycleCloud VM.

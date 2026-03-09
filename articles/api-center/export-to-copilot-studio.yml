@@ -3,11 +3,13 @@
 metadata:
   title: Export API from API Center as Copilot Studio connector
   description: Learn how to export an API definition from your Azure API center as a custom connector in Microsoft Copilot Studio.
-  author: dlepow
-  ms.author: danlep
-  ms.service: azure-api-management
+  
+  
+  ms.service: azure-api-center
   ms.topic: how-to 
   ms.date: 04/28/2025
+  ms.collection: ce-skilling-ai-copilot
+  ms.update-cycle: 180-days
   ms.custom: template-how-to
 
   #customer intent: As an API program manager, I want to export an API from my API center inventory as a connector in Microsoft Copilot Studio for use in agents.

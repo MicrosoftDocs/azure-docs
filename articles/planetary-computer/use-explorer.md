@@ -5,7 +5,7 @@ author: beharris
 ms.author: brentharris
 ms.service: planetary-computer-pro
 ms.topic: quickstart
-ms.date: 05/08/2025
+ms.date: 01/09/2026
 #customer intent: As a Microsoft Planetary Computer Pro user, I want to navigate through the Explorer so that I can visualize my SpatioTemporal Access Catalog (STAC) data.
 ms.custom:
   - build-2025
@@ -158,8 +158,21 @@ You can set a thumbnail for a collection, the image that represents that collect
 
     [ ![Screenshot of set as thumbnail in Explorer.](./media/set-thumbnail.png) ](./media/set-thumbnail.png#lightbox)
 
+## Next steps
+
+Ready to build custom applications beyond the Explorer? Here are some recommended paths:
+
+> [!div class="nextstepaction"]
+> [Build a web application with Microsoft Planetary Computer Pro](./build-web-application.md)
+
+> [!div class="nextstepaction"]
+> [Connect and build applications with your data](./build-applications-with-planetary-computer-pro.md)
+
 ## Related content
 
+* [Connect and build applications with your data](./build-applications-with-planetary-computer-pro.md)
+* [Configure application authentication for Microsoft Planetary Computer Pro](./application-authentication.md)
+* [Build a web application with Microsoft Planetary Computer Pro](./build-web-application.md)
 * [Create a GeoCatalog](./deploy-geocatalog-resource.md)
 * [Create a collection](./create-stac-collection.md)
 * [Ingest STAC items](./ingestion-source.md)

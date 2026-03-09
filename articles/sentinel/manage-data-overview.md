@@ -6,7 +6,7 @@ ms.author: guywild
 author: guywi-ms
 ms.topic: conceptual
 ms.date: 11/05/2025
-# Customer intent: As an Microsoft Defender Portal administrator or subscription owner, I want to configure log table tiers and data retention settings to optimize security operations needs and cost efficiency.
+# Customer intent: As a Microsoft Defender Portal administrator or subscription owner, I want to configure log table tiers and data retention settings to optimize security operations needs and cost efficiency.
 ---
 
 # Manage data tiers and retention in Microsoft Sentinel

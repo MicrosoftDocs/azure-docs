@@ -3,7 +3,7 @@ title: Linter rule - use explicit values for module location parameters
 description: Linter rule - use explicit values for module location parameters.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 06/19/2025
+ms.date: 12/22/2025
 ---
 
 # Linter rule - use explicit values for module location parameters

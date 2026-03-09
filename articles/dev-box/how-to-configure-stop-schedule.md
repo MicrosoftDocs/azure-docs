@@ -1,11 +1,13 @@
 ---
 title: Set Dev Box Autostop Schedule
 description: Learn how to configure an autostop schedule to automatically shut down dev boxes in a pool at a specified time and save on costs.
+#customer intent: As a Dev Box administrator, I want to set the autostop schedule for a dev box pool so that I can adjust the shutdown time to better align with team workflows.
 services: dev-box
 ms.service: dev-box
 ms.custom: devx-track-azurecli
 author: RoseHJM
 ms.author: rosemalcolm
+ms.reviewer: rosemalcolm
 ms.date: 11/30/2025
 ms.topic: how-to
 
@@ -25,7 +27,7 @@ Project administrators can manage autostop schedules by using the Azure portal o
 
 | Category | Requirement |
 |---|---|
-| Permissions | **Owner**, **Contributor**, or **DevCenter Project Admin** role or permissions on a dev box project. |
+| Permissions | **Owner**, **Contributor**, **DevCenter Owner**, or **DevCenter Project Admin** role or permissions on a dev box project. |
 
 ## Create an autostop schedule
 

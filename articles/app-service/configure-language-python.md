@@ -228,7 +228,7 @@ This container has the following characteristics:
 - Apps are run by the [Gunicorn WSGI HTTP Server](https://gunicorn.org/) with the extra arguments `--bind=0.0.0.0 --timeout 600`.
   - You can provide configuration settings for Gunicorn by [customizing the startup command](#customize-startup-command).
 
-  - To protect your web app from accidental or deliberate DDOS attacks, Gunicorn is run behind an Nginx reverse proxy, as described in [Deploying Gunicorn](https://docs.gunicorn.org/en/latest/deploy.html).
+  - To protect your web app from accidental or deliberate DDOS attacks, Gunicorn is run behind an Nginx reverse proxy, as described in [Deploying Gunicorn](https://gunicorn.org/deploy).
 
 - By default, the base container image includes only the Flask web framework, but the container supports other frameworks that are WSGI-compliant and compatible with Python 3.6 and later, such as Django.
 
@@ -316,7 +316,7 @@ App Service ignores any errors that occur when processing a custom startup comma
     gunicorn --bind=0.0.0.0 --timeout 600 --workers=4 --chdir <module_path> <module>.wsgi
     ```
 
-    For more information, see [Running Gunicorn](https://docs.gunicorn.org/en/stable/run.html). If you're using autoscale rules to scale your web app up and down, you should also dynamically set the number of Gunicorn workers by using the `NUM_CORES` environment variable in your startup command. For example, `--workers $((($NUM_CORES*2)+1))`. For more information on setting the recommended number of Gunicorn workers, see [the Gunicorn FAQ](https://docs.gunicorn.org/en/stable/design.html#how-many-workers).
+    For more information, see [Running Gunicorn](https://gunicorn.org/run/). If you're using autoscale rules to scale your web app up and down, you should also dynamically set the number of Gunicorn workers by using the `NUM_CORES` environment variable in your startup command. For example, `--workers $((($NUM_CORES*2)+1))`. For more information on setting the recommended number of Gunicorn workers, see [the Gunicorn FAQ](https://gunicorn.org/design/#how-many-workers).
 
 - **Enable production logging for Django**: Add the `--access-logfile '-'` and `--error-logfile '-'` arguments to the command line:
 
@@ -327,7 +327,7 @@ App Service ignores any errors that occur when processing a custom startup comma
 
     These logs will appear in the [App Service log stream](#access-diagnostic-logs).
 
-    For more information, see [Gunicorn logging](https://docs.gunicorn.org/en/stable/settings.html#logging).
+    For more information, see [Gunicorn logging](https://gunicorn.org/deploy/#logging).
 
 - **Custom Flask main module**: By default, App Service assumes that a Flask app's main module is *application.py* or *app.py*. If your main module uses a different name, you must customize the startup command. For example, if you have a Flask app whose main module is *hello.py* and the Flask app object in that file is named *myapp*, this is the command:
 

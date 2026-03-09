@@ -15,10 +15,6 @@ ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
 
 Learn how to create and remove a NAT gateway resource from a virtual network subnet. A NAT gateway enables outbound connectivity for resources in an Azure Virtual Network. You can change the public IP addresses and public IP address prefixes associated with the NAT gateway changed after deployment.
 
-> [!IMPORTANT]
-> Standard V2 SKU Azure NAT Gateway is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 This article explains how to manage the following aspects of NAT gateway:
 
 - Create a NAT gateway and associate it with an existing subnet.
@@ -829,5 +825,5 @@ Set-AzNatGateway @nt
 To learn more about Azure NAT Gateway and its capabilities, see the following articles:
 
 - [What is Azure NAT Gateway?](nat-overview.md)
-- [NAT gateway and availability zones](nat-availability-zones.md)
+- [Reliability in Azure NAT Gateway](/azure/reliability/reliability-nat-gateway)
 - [Design virtual networks with NAT gateway](nat-gateway-resource.md)

@@ -53,7 +53,7 @@ During the WebSocket passthrough, the client application establishes a WebSocket
 1. When either side disconnects, API Management terminates the corresponding connection.
 
 > [!NOTE]
-> The client-side and backend-side connections consist of one-to-one mapping. 
+> Client-to-backend connections consist of one-to-one mappings. The same WebSocket session cannot be distributed across multiple backends.
 
 ## onHandshake operation
 
@@ -120,6 +120,7 @@ The following are the current restrictions of WebSocket support in API Managemen
 * WebSocket APIs support the following valid buffer types for messages: Close, BinaryFragment, BinaryMessage, UTF8Fragment, and UTF8Message.
 * Currently, the [set-header](set-header-policy.md) policy doesn't support changing certain well-known headers, including `Host` headers, in onHandshake requests.
 * During the TLS handshake with a WebSocket backend, API Management validates that the server certificate is trusted and that its subject name matches the hostname. With HTTP APIs, API Management validates that the certificate is trusted but doesn’t validate that hostname and subject match.
+* WebSocket connections cannot be distributed or load-balanced across multiple backends because, once established, each connection is maintained one-to-one between the client and backend.
 
 For WebSocket connection limits, see [API Management limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-api-management-limits).
 

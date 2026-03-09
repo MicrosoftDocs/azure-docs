@@ -2,10 +2,10 @@
 title: Send short URL
 titleSuffix: An Azure Communication Services article
 description: This article describes how to use the Azure URL Shortener sample to send short links through SMS.
-author: tophpalmer
+author: sundiraman
 manager: shahen
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 03/8/2023
 ms.topic: tutorial
 ms.service: azure-communication-services

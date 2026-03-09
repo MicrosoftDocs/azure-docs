@@ -8,13 +8,13 @@ ms.date: 11/17/2025
 ms.topic: conceptual
 ms.custom: references_regions 
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Availability zones support for Azure Automation
 
-[Azure availability zones](../reliability/availability-zones-overview.md) provides an improved resiliency and high availability to a service instance in a specific Azure region. Azure Automation now supports Availability zones to provide improved resiliency and reliability high availability to the service, runbooks, and other automation assets.
+[Azure availability zones](/azure/reliability/availability-zones-overview) provides an improved resiliency and high availability to a service instance in a specific Azure region. Azure Automation now supports Availability zones to provide improved resiliency and reliability high availability to the service, runbooks, and other automation assets.
  
 Azure availability zones is a high-availability offering that protects your applications and data from data center failures. Availability zones are unique physical locations within an Azure region and each region comprises of one or more data center(s) equipped with independent power, cooling, and networking. To ensure resiliency, there needs to be a minimum of three separate zones in all enabled regions.
 
@@ -33,7 +33,7 @@ In the event when a zone is down, there's no action required by you to recover f
 
 ## Supported regions with availability zones
 
-See [Azure regions with availability zone support](../reliability/availability-zones-region-support.md) for the Azure regions that have availability zones. 
+See [Azure regions with availability zone support](/azure/reliability/availability-zones-region-support) for the Azure regions that have availability zones. 
 Automation accounts currently support the following regions: 
  
 - Australia East
@@ -84,4 +84,4 @@ There is no change to the [Service Level Agreement](https://azure.microsoft.com/
 
 ## Next steps
 
-- Learn more about [regions that support availability zones](../reliability/availability-zones-region-support.md).
+- Learn more about [regions that support availability zones](/azure/reliability/availability-zones-region-support).

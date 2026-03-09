@@ -200,36 +200,6 @@ Disable custom alert rules to prevent them from running without deleting them al
 
 In the **Custom alert rules** page, select one or more rules, and then select  **Disable**, **Enable**, or **Delete** in the toolbar as needed.
 
-## Create alert exclusion rules on an OT sensor
-
-Create alert exclusion rules to instruct your sensors to ignore specific traffic on your network that would otherwise trigger an alert.
-
-For example, if you know that all the OT devices monitored by a specific sensor will be going through maintenance procedures for two days, define an exclusion rule that instructs Defender for IoT to suppress alerts detected by this sensor during the predefined period.
-
-**To create an alert exclusion rule**:
-
-1. Sign into your OT sensor and select **Alert Exclusion** on the left-hand menu.
-
-1. On the **Alert Exclusion** page, select the **+** button at the top-right to add a new rule.
-
-1. In the **Create Exclusion Rule** dialog, enter the following details:
-
-    |Name  |Description  |
-    |---------|---------|
-    |**Name**     |  Enter a meaningful name for your rule. The name can't contain quotes (`"`).      |
-    |**By Time Period**     |   Select a time zone and the specific time period you want the exclusion rule to be active, and then select **ADD**. <br><br>Use this option to create separate rules for different time zones. For example, you might need to apply an exclusion rule between 8:00 AM and 10:00 AM in three different time zones. In this case, create three separate exclusion rules that use the same time period and the relevant time zone.      |
-    |**By Device Address**     |   Select and enter the following values, and then select **ADD**: <br><br>- Select whether the designated device is a source, destination, or both a source and destination device. <br>- Select whether the address is an IP address, MAC address, or subnet <br>- Enter the value of the IP address, MAC address, or subnet. |
-    |**By Alert Title**     |  Select one or more alerts to add to the exclusion rule and then select **ADD**. To find alert titles, enter all, or part of an alert title and select the one you want from the dropdown list.        |
-    |**By Sensor Name**     |  Select one or more sensors to add to the exclusion rule and then select **ADD**. To find sensor names, enter all or part of the sensor name and select the one you want from the dropdown list.         |
-
-    > [!IMPORTANT]
-    > Alert exclusion rules are `AND` based, which means that alerts are only excluded when all rule conditions are met.
-    > If a rule condition is not defined, all options are included. For example, if you don't include the name of a sensor in the rule, the rule is applied to all sensors.
-
-    A summary of the rule parameters is shown at the bottom of the dialog.
-
-1. Check the rule summary shown at the bottom of the **Create Exclusion Rule** dialog and then select **SAVE**
-
 ### Create alert exclusion rules via API
 
 Use the [Defender for IoT API](references-work-with-defender-for-iot-apis.md) to create alert exclusion rules from an external ticketing system or other system that manage network maintenance processes.

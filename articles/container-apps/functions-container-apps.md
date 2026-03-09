@@ -1,16 +1,16 @@
 ---
-title: Create your Azure Functions on Azure Container Apps
-description: Get started with Azure Functions on Azure Container Apps by deploying your function app within a Linux image in a container registry.
+title: Create your Azure Functions app through custom containers on Azure Container Apps
+description: Get started with Azure Functions on Azure Container Apps by deploying your function app within a custom Linux image in a container registry.
 ms.author: deepganguly
 author: deepganguly
 ms.service: azure-container-apps
-ms.date: 01/11/2025
+ms.date: 01/12/2026
 ms.topic: quickstart
 ms.custom: build-2023, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python, linux-related-content, build-2024, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Create your Azure Functions on Azure Container Apps 
+# Create your Azure Functions app custom containers on Azure Container Apps
 
 In this article, you create a function app running in a Linux container and deploy it to an Azure Container Apps environment from a container registry. By deploying to Container Apps, you're able to integrate your function apps into cloud-native microservices. For more information, see [Azure Container Apps hosting of Azure Functions](../azure-functions/functions-container-apps-hosting.md).
 
@@ -64,10 +64,10 @@ Use these commands to create your required Azure resources:
  
     This `az group create` command creates a resource group in the East US region. If you instead want to use a region near you, using an available region code returned from the `az account list-locations` command. You must modify subsequent commands to use your custom region instead of `eastus`.
 
-1. Create Azure Container App environment with workload profiles enabled.
+1. Create an Azure Container Apps environment.
 
     ```azurecli
-    az containerapp env create --name MyContainerappEnvironment --enable-workload-profiles --resource-group AzureFunctionsContainers-rg --location eastus
+    az containerapp env create --name MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --location eastus
     ```
     This command can take a few minutes to complete.
 
@@ -77,9 +77,9 @@ Use these commands to create your required Azure resources:
     az storage account create --name <STORAGE_NAME> --location eastus --resource-group AzureFunctionsContainers-rg --sku Standard_LRS --allow-blob-public-access false --allow-shared-key-access false
     ```
 
-    The `az storage account create` command creates the storage account that can only be accessed by using Microsoft Entra-authenticated identities that have been granted permissions to specific resources. 
+    The `az storage account create` command creates the storage account that is only accessible by using Microsoft Entra-authenticated identities that are granted permissions to specific resources.
 
-    In the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Storage names must contain 3 to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account [supported by Functions](../azure-functions/storage-considerations.md#storage-account-requirements).
+    In the previous example, replace `<STORAGE_NAME>` with a name that's appropriate to you and unique in Azure Storage. Storage names must contain 3 to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account [supported by Functions](../azure-functions/storage-considerations.md#storage-account-requirements).
 
 1. Create a managed identity and use the returned `principalId` to grant it both access to your storage account and pull permissions in your registry instance. 
 
@@ -91,7 +91,7 @@ Use these commands to create your required Azure resources:
     az role assignment create --assignee-object-id $principalId --assignee-principal-type ServicePrincipal --role "Storage Blob Data Owner" --scope $storageId
     ```
 
-    The `az identity create` command creates a user-assigned managed identity and the `az role assignment create`commands adds your identity to the required roles. Replace `<REGISTRY_NAME>`, `<USER_IDENTITY_NAME>`, and `<STORAGE_NAME>` with the name your existing container registry, the name for your managed identity, and the storage account name, respectively. The managed identity can now be used by an app to access both the storage account and Azure Container Registry without using shared secrets.  
+    The `az identity create` command creates a user-assigned managed identity and the `az role assignment create`commands adds your identity to the required roles. Replace `<REGISTRY_NAME>`, `<USER_IDENTITY_NAME>`, and `<STORAGE_NAME>` with the name your existing container registry, the name for your managed identity, and the storage account name, respectively. The managed identity is now available to the app to access both the storage account and Azure Container Registry without using shared secrets.  
   
 ## Create and configure a function app on Azure with the image
 
@@ -136,7 +136,7 @@ az containerapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --envi
 
 In the `az containerapp create --kind=functionapp`command, the `--environment` parameter specifies the Container Apps environment and the `--image` parameter specifies the image to use for the function app. In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you and `<DOCKER_ID>` with your public Docker Hub account ID. 
 
-If you're using a private registry, you need to include the fully qualified domain name of your registry instead of just the Docker ID for `<DOCKER_ID>`, along with the `--registry-username` and `--registry-password` credential required to access the registry. 
+If you're using a private registry, you need to include the fully qualified domain name of your registry instead of just the Docker ID for `<DOCKER_ID>`, along with the `--registry-username` and `--registry-password` credential required to access the registry.
 
 ---
 
@@ -170,7 +170,7 @@ At this point, your functions are running in a Container Apps environment, with 
 
 
 ## Verify your functions on Azure
-With the image deployed to your function app in Azure, you can now invoke the function through HTTP requests.Get detailed information about a specific function:
+With the image deployed to your function app in Azure, you can now invoke the function through HTTP requests. Get detailed information about a specific function:
 
 ```azurecli
     az containerapp function show \
@@ -178,13 +178,15 @@ With the image deployed to your function app in Azure, you can now invoke the fu
     --name <APP_NAME> \
     --function-name HttpExample 
 ```
-Replace <APP_NAME> with the name of your function app.Use the URL you just obtained to call the HttpExample function endpoint, appending the query string ?name=Functions.
+
+Replace <APP_NAME> with the name of your function app. Use the URL you just obtained to call the HttpExample function endpoint, appending the query string `?name=Functions`.
 
 The request URL should look something like this:
 
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 `https://myacafunctionapp.kindtree-796af82b.eastus.azurecontainerapps.io/api/httpexample?name=functions`
-::: zone-end  
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"  
 `https://myacafunctionapp.kindtree-796af82b.eastus.azurecontainerapps.io/api/httpexample`
 ::: zone-end

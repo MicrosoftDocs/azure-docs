@@ -9,7 +9,7 @@ ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
 ms.topic: reference
-ms.date: 10/27/2025
+ms.date: 02/23/2026
 ms.update-cycle: 180-days
 ms.author: danlep
 ---
@@ -23,6 +23,8 @@ Use the `azure-openai-semantic-cache-lookup` policy to perform cache lookup of r
 > [!NOTE]
 > * This policy must have a corresponding [Cache responses to Azure OpenAI API requests](azure-openai-semantic-cache-store-policy.md) policy. 
 > * For prerequisites and steps to enable semantic caching, see [Enable semantic caching for LLM APIs in Azure API Management](azure-openai-enable-semantic-caching.md).
+> * Because semantic caching returns responses based on similarity (not exact match), it can surface responses that are incorrect, outdated, or unsafe for the current request. Evaluate this feature carefully for your workload and include safeguards.
+
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 

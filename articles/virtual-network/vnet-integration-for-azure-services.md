@@ -84,7 +84,7 @@ The client application typically uses a DNS host name to reach the target servic
 
 This exposure of individual instances allows you to [prevent data theft](../private-link/private-endpoint-overview.md#network-security-of-private-endpoints). A malicious actor is unable to gather information from the database and upload it to another public database or storage account. You can prevent access to the public IP addresses of _all_ PaaS services. You can still allow access to PaaS instances through their private endpoints.
 
-For more information on Private link and the list of Azure services supported, see [What is Private Link?](../private-link/private-link-overview.md).
+For more information on Private link and the list of Azure services supported, see [What is Private Link?](../private-link/private-link-overview.md)
 
 ## Service endpoints
 

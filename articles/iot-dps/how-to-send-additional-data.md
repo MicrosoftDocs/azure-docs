@@ -2,8 +2,8 @@
 title: How to transfer a payload between devices and DPS
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: This document describes how to transfer a payload between device and Device Provisioning Service (DPS)
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 08/11/2025
 ms.topic: how-to
 ms.service: azure-iot-hub
@@ -68,7 +68,7 @@ The **payload** property must be a JSON object and can contain any data relevant
 
 ## SDK support
 
-This feature is available in C, C#, JAVA and Node.js client SDKs. To learn more about the Azure IoT SDKs available for IoT Hub and IoT Hub Device Provisioning service, see [Microsoft Azure IoT SDKs]( https://github.com/Azure/azure-iot-sdks).
+This feature is available in C, C#, JAVA and Node.js client SDKs. To learn more about the Azure IoT SDKs available for IoT Hub and IoT Hub Device Provisioning Service, see [Microsoft Azure IoT SDKs]( https://github.com/Azure/azure-iot-sdks).
 
 ## IoT Edge support
 

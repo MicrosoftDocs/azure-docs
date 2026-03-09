@@ -3,7 +3,7 @@ title: "Quickstart: Create a Durable Functions app that uses the MSSQL storage p
 description: Create a Durable Functions app to use the Microsoft SQL Server (MSSQL) storage provider in Azure Functions.
 author: lilyjma
 ms.topic: quickstart
-ms.date: 05/06/2025
+ms.date: 02/04/2026
 ms.reviewer: azfuncdf
 ms.custom:
   - devx-track-dotnet
@@ -77,14 +77,14 @@ Another file, *HelloOrchestration.cs*, contains the basic building blocks of a D
 | `SayHello` | A simple function app that returns *hello*. This function contains the business logic that is orchestrated. |
 | `HelloOrchestration_HttpStart` | An [HTTP-triggered function](../functions-bindings-http-webhook.md) that starts an instance of the orchestration and returns a *check status* response. |
 
-For more information about these functions, see [Durable Functions types and features](./durable-functions-types-features-overview.md).
+For more information about these functions, see [Durable Functions types and features](./programming-model-overview.md).
 
 ## Set up your database
 
 > [!NOTE]
 > If you already have an MSSQL-compatible database, you can skip this section and skip the next section on setting up a Docker-based local database.
 
-Because the MSSQL backend is designed for portability, you have several options to set up your backing database. For example, you can set up an on-premises SQL Server instance, use a fully managed instance of [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), or use any other SQL Server-compatible hosting option.
+Because the MSSQL backend is designed for portability, you have several options to set up your backing database. For example, you can set up an on-premises SQL Server instance, use a fully managed instance of [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), or use any other SQL Server-compatible hosting model.
 
 You can also do local, offline development by using [SQL Server Express](https://www.microsoft.com/sql-server/sql-server-downloads) on your local Windows computer or use a [SQL Server Docker image](https://hub.docker.com/_/microsoft-mssql-server) running in a Docker container.
 
@@ -210,7 +210,7 @@ Open another terminal window in your app's root folder and start the Function ap
 
 ## Run your app in Azure
 
-To run your app in Azure, you need to create various resources. For convenient clean up later, create all the resources in the same resource group. 
+To run your app in Azure, you need to create various resources. For convenient cleanup later, create all the resources in the same resource group. 
 
 ### Create an Azure SQL database
 
@@ -299,7 +299,7 @@ az role assignment create --assignee "$clientId" --role "Storage Blob Data Owner
 
 #### Azure SQL Database
 >[!NOTE]
-> Authenticating to Azure SQL database using managed identity is _not_ supported when hosting a Durable Functions app in the Flex Consumption plan. If your app is hosted in the Flex Consumption plan, skip to the [set app settings](#set-required-app-settings) section. 
+> Authenticating to Azure SQL database using managed identity is _not_ supported when hosting a Durable Functions app in the Flex Consumption plan. If your app is hosted in the Flex Consumption plan, skip to the [set app settings](#set-required-app-settings) section. If you'd like to use it, the Flex Consumption plan is supported by Durable Task Scheduler.
 
 1. Start by setting your developer identity as the database's admin.
   
@@ -313,7 +313,7 @@ az role assignment create --assignee "$clientId" --role "Storage Blob Data Owner
     az sql server ad-admin create --resource-group $resourceGroup --server-name <SQL_SERVER_NAME> --display-name ADMIN --object-id "$assignee"
     ```
 
-1. Connect to the SQL database created previously using tools such as [Azure Data Studio](/azure-data-studio/download-azure-data-studio) or [SQL Management Server Studio](/ssms/download-sql-server-management-studio-ssms). Or you can run the following [SQLCMD](/sql/tools/sqlcmd/sqlcmd-utility) command to connect:
+1. Connect to the SQL database created previously using tools such as [SQL Management Server Studio](/ssms/download-sql-server-management-studio-ssms) or [Visual Studio Code](/sql/tools/visual-studio-code-extensions/mssql/mssql-extension-visual-studio-code). Or you can run the following [SQLCMD](/sql/tools/sqlcmd/sqlcmd-utility) command to connect:
     ```bash
     sqlcmd -S <SQL_SERVER_NAME>.database.windows.net -d <DATABASE_NAME> -U <someone@example.com> -P "ACCOUNT_PASSWORD" -G -l 30
     ```

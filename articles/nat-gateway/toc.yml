@@ -9,12 +9,16 @@ items:
         href: quickstart-create-nat-gateway.md
       - name: Create and validate a Standard V2 Azure NAT Gateway
         href: quickstart-create-nat-gateway-v2.md
-      - name: Availability zones
-        href: nat-availability-zones.md
       - name: NAT gateway resource
         href: nat-gateway-resource.md
       - name: NAT Gateway SKUs
         href: nat-sku.md
+      - name: Migrate NAT Gateway to Standard V2
+        href: nat-gateway-v2-migrate.md
+  - name: Reliability
+    items:
+      - name: Reliability in Azure NAT Gateway
+        href: /azure/reliability/reliability-nat-gateway?toc=/azure/nat-gateway/toc.json&bc=/azure/nat-gateway/breadcrumb/toc.json
   - name: Deploy
     items:
       - name: NAT gateway design guidance

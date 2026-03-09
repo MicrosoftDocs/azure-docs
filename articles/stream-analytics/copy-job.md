@@ -1,5 +1,5 @@
 ---
-title: Copy, back up and move your Azure Stream Analytics jobs between regions
+title: Copy, back up and move your Azure Stream Analytics jobs
 description: This article describes how to move, copy, and back up an Azure Stream Analytics job.
 author: alexlzx
 ms.author: zhenxilin
@@ -10,9 +10,9 @@ ms.date: 12/27/2012
 #Customer intent: As an Azure Stream Analytics job developer or admin, I want export my job so that I can reuse, move between Azure regions, or back up.
 ---
 
-# Copy, back up and move your Azure Stream Analytics jobs between regions
+# Copy, back up and move your Azure Stream Analytics job
 
-If you want to move, copy or back up your Azure Stream Analytics jobs in Azure, the Azure Stream Analytics extension for Visual Studio Code allows you to export an existing job in Azure cloud to your local computer. All the configurations of your Stream Analytics job will be saved locally and you can resubmit it to another cloud region.
+If you want to move, copy or back up your Azure Stream Analytics jobs in Azure, the Azure Stream Analytics extension for Visual Studio Code allows you to export an existing job in Azure cloud to your local computer. All the configurations of your Stream Analytics job will be saved locally and you can resubmit it to the same Azure region or to another cloud region.
 
 > [!NOTE] 
 > * Copying a job to another region does not copy the last output time. Therefore, you cannot use [**When last stopped**](./start-job.md#start-options) option when starting the copied job.

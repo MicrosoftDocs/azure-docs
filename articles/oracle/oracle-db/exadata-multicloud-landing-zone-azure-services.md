@@ -53,7 +53,7 @@ For module details, see [Oracle Multicloud Landing Zone for Azure](https://githu
 | [az-oci-rbac-n-sso-fed](https://github.com/oracle-quickstart/terraform-oci-multicloud-azure/tree/main/templates/az-oci-rbac-n-sso-fed) | Set up both identity federation and RBAC roles/groups | All the following |
 | [az-oci-sso-federation](https://github.com/oracle-quickstart/terraform-oci-multicloud-azure/tree/main/templates/az-oci-sso-federation) | Set up [SSO Between OCI and Microsoft Entra ID](https://docs.oracle.com/iaas/Content/Identity/tutorials/azure_ad/sso_azure/azure_sso.htm) | [hashicorp/azuread](https://registry.terraform.io/providers/hashicorp/azuread/) |
 |   | 1. Get service provider metadata from OCI IAM. | [hashicorp/azurerm](https://registry.terraform.io/providers/hashicorp/azurerm) |
-|   | 2. Create an Microsoft Entra ID application. | [hashicorp/oci](https://registry.terraform.io/providers/hashicorp/oci) |
+|   | 2. Create a Microsoft Entra ID application. | [hashicorp/oci](https://registry.terraform.io/providers/hashicorp/oci) |
 |   | 3. Set up SAML SSO for the Microsoft Entra ID application. |  |
 |   | 4. Set up attributes and claims in the Microsoft Entra ID application. |  |
 |   | 5. Assign a test user to the Microsoft Entra ID application. |  |

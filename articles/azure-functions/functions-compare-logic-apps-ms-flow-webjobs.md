@@ -39,7 +39,7 @@ To help you determine whether you want to use Azure Logic Apps or Power Automate
 
 These Azure services enable you to build and run serverless workloads. Azure Functions is a serverless compute service, while Azure Logic Apps is a serverless workflow integration platform. Both can create complex *orchestrations*. An orchestration is a collection of functions, which are called *actions* in Azure Logic Apps, that you can run to complete a complex task. For example, to process a batch of orders, you might execute many instances of a function in parallel, wait for all instances to finish, and then execute a function that computes a result on the aggregate.
 
-For Azure Functions, you develop orchestrations by writing code and using the [Durable Functions extension](durable/durable-functions-overview.md). For Azure Logic Apps, you create orchestrations by using a visual designer or by editing Azure Resource Manager templates.
+For Azure Functions, you develop orchestrations by writing code and using the [Durable Functions extension](durable/what-is-durable-task.md). For Azure Logic Apps, you create orchestrations by using a visual designer or by editing Azure Resource Manager templates.
 
 You can mix and match services when you build an orchestration. For example, you can call functions from logic app workflows and call logic app workflows from functions. Choose how to build each orchestration based on the services' capabilities or your personal preference. The following table lists some key differences between these services:
 

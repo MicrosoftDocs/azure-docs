@@ -5,7 +5,7 @@ services: firewall
 author: duongau
 ms.service: azure-firewall
 ms.topic: how-to
-ms.date: 09/29/2025
+ms.date: 02/21/2026
 ms.author: duau
 ms.custom:
   - devx-track-azurepowershell
@@ -33,7 +33,7 @@ Before you begin, make sure you have:
 - A planned maintenance window (for manual migration method)
 
 > [!IMPORTANT]
-> This article applies to Azure Firewall Standard and Premium SKUs only. [Azure Firewall Basic SKU](overview.md#azure-firewall-basic) doesn't support SKU changes and must be migrated to Standard SKU first before any upgrade to Premium. Always perform SKU change operations during scheduled maintenance times and test the process thoroughly in a nonproduction environment first.
+> This article applies primarily to Azure Firewall Standard and Premium SKUs. [Azure Firewall Basic SKU](overview.md#azure-firewall-basic) doesn't support direct change to Premium SKU and must be migrated to Standard SKU first before any upgrade to Premium. Downgrading from Azure Firewall Premium or Standard to Basic is supported only through PowerShell or Terraform. Always perform SKU change operations during scheduled maintenance times and test the process thoroughly in a nonproduction environment first.
 
 ## Easy SKU change method (recommended)
 
@@ -46,7 +46,7 @@ Use the easy SKU change method when:
 - Your firewall is deployed in a supported region  
 - You want to minimize downtime (zero downtime with this method)
 - You have a standard deployment without complex custom configurations
-- **For downgrade**: Your Premium policy doesn't use Premium-exclusive features that are incompatible with Standard
+- **For downgrade**: A firewall policy created for a higher SKU (Premium or Standard) can't be attached to a lower SKU firewall. To downgrade, you must create a new firewall policy or use an existing policy that is compatible with the target SKU.
 
 ### Policy considerations for SKU changes
 
@@ -74,7 +74,6 @@ When downgrading from Premium to Standard, consider the following policy require
 **Policy handling options:**
 - **Use existing Standard policy**: Select a preexisting Standard policy that doesn't contain Premium features
 - **Create new Standard policy**: The system can create a new Standard policy, automatically removing Premium-specific features
-- **Modify current policy**: Manually remove Premium features from your current policy before downgrade
 
 ### Change SKU using the Azure portal
 
@@ -88,7 +87,7 @@ To change your firewall SKU using the Azure portal:
 1. In the SKU change dialog box, select **Premium** as the target SKU.
 1. Choose your policy option:
    - Select an existing Premium policy, or
-   - Allow the system to upgrade your current Standard policy to Premium
+   - Create a new Premium policy and select it.
 1. Select **Save** to begin the upgrade.
 
 #### Downgrade to Standard
@@ -110,7 +109,7 @@ The SKU change process typically completes within a few minutes with zero downti
 ### PowerShell and Terraform SKU change
 
 You can also perform SKU changes using:
-- **PowerShell**: Change the `sku_tier` property to "Premium" or "Standard"
+- **PowerShell**: Change the `sku_tier` property to "Premium", "Standard" or "Basic"
 - **Terraform**: Update the `sku_tier` attribute in your configuration to the desired SKU
 
 ### Limitations
@@ -118,14 +117,14 @@ You can also perform SKU changes using:
 The easy SKU change method has the following limitations:
 
 **General limitations:**
-- Doesn't support [Azure Firewall Basic SKU](overview.md#azure-firewall-basic) - Basic SKU users must migrate to Standard first
+- Doesn't support direct upgrades from [Azure Firewall Basic SKU](overview.md#azure-firewall-basic) - Basic SKU users must migrate to Standard first
 - Not available for firewalls with certain complex configurations
 - Limited availability in some regions
 - Requires existing firewall policy (not available for Classic rules)
 
 **Downgrade-specific limitations:**
 - Premium features (TLS inspection, IDPS Alert and Deny mode, URL filtering, web categories) must be removed before downgrade
-- If your Premium policy contains incompatible features, you must modify the policy or create a new Standard policy
+- For the new Firewall SKU, you mustuse an existing compatible policy or create a new Standard policy
 - Some rule configurations might need manual adjustment after downgrade
 
 If the easy SKU change method isn't available for your scenario, use the manual migration method described in the next section.
@@ -426,7 +425,6 @@ If you're unable to downgrade from Premium to Standard:
 
 2. **Policy modification options**:
    - Create a new Standard policy without Premium features
-   - Modify your existing policy to remove Premium features
    - Use Azure PowerShell to identify and remove incompatible rules
 
 3. **Validation steps**:

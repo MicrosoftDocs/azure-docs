@@ -50,7 +50,7 @@ Your Azure account needs permissions to create a Recovery Services vault, and to
     - **Create Azure VMs in the target region**: Either the built-in *Virtual Machine Contributor* role, or specific permissions to:
         - Create a VM in the selected virtual network.
         - Write to an Azure storage account.
-        - Write to an Azure-managed disk.
+        - Write to an Azure Managed Disk.
 
 ### Verify target settings
 

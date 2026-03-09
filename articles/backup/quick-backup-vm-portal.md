@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Back up a VM with the Azure portal by using Azure Backup
 description: In this Quickstart, learn how to create a Recovery Services vault, enable protection on an Azure VM, and back up the VM,  with the Azure portal.
-ms.date: 09/24/2025
+ms.date: 01/27/2026
 ms.topic: quickstart
 ms.devlang: azurecli
 ms.custom: mvc, mode-ui, engagement-fy24
@@ -30,7 +30,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 To apply a backup policy to your Azure VMs, follow these steps:
 
-1. Go to **Business Continuity Center** and select **+ Configure protection**.
+1. Go to **Resiliency** and select **+ Configure protection**.
 
    :::image type="content" source="./media/backup-azure-arm-vms-prepare/configure-protection.png" alt-text="Screenshot shows how to start configuring system backup." lightbox="./media/backup-azure-arm-vms-prepare/configure-protection.png":::
 
@@ -69,7 +69,7 @@ Create a scheduled daily backup to a Recovery Services vault.
      ![Screenshot showing the Select virtual machines blade.](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
     >[!NOTE]
-    > All the VMs in the same region and subscription as that of the vault are available to configure backup. When configuring backup, you can browse to the virtual machine name and its resource group, even though you don’t have the required permission on those VMs. If your VM is in soft deleted state, then it won't be visible in this list. If you need to re-protect the VM, then you need to wait for the soft delete period to expire or undelete the VM from the soft deleted list. For more information, see [the soft delete for VMs article](soft-delete-virtual-machines.md#soft-delete-azure-vm-backups).
+   > All the VMs in the same region and subscription as that of the vault are available to configure backup. When configuring backup, you can browse to the virtual machine name and its resource group, even though you don’t have the required permission on those VMs. If your VM is in soft deleted state, then it won't be visible in this list. If you need to re-protect the VM, then you need to wait for the soft delete period to expire or undelete the VM from the soft deleted list. For more information, see [the soft delete for VMs article](soft-delete-virtual-machines.md#soft-delete-azure-vm-backups).
 
 ## Enable backup on a VM
 
@@ -110,37 +110,24 @@ If you selected to create a new backup policy, fill in the policy settings.
 
 The initial backup will run in accordance with the schedule, but you can run it immediately as follows:
 
-1. Go to **Business Continuity Center** and then select **Protection Inventory** > **Protected items**.
+1. Go to **Resiliency** and then select **Protection Inventory** > **Protected items**.
 1. On the **Protected items** pane, filter **Datasource type** by Virtual machines, and then select the **more icon** > **Details** corresponding to the VM instance you want to back up.
 1. On the selected VM instance pane, right-click the relevant row or select the more icon (…), and then select **Backup Now**.
 1. On the **Backup now** pane, use the calendar control to select the last day that the recovery point should be retained. Then select **OK**.
 
 ## Monitor the backup job
 
-The Backup job details for each VM backup consist of two phases, the **Snapshot** phase followed by the **Transfer data to vault** phase.
-
-The snapshot phase guarantees the availability of a recovery point stored along with the disks for **Instant Restores** and are available for a maximum of five days depending on the snapshot retention configured by the user. Transfer data to vault creates a recovery point in the vault for long-term retention. Transfer data to vault only starts after the snapshot phase is completed.
+Backup job details show **Snapshot** and **Transfer data to vault** subtasks. **Snapshot** ensures availability of a recovery point for Instant Restore. **Transfer data to vault** creates a recovery point in the vault for long-term retention and starts after **Snapshot** completes.
 
   ![Screenshot showing the backup job status.](./media/backup-azure-arm-vms-prepare/backup-job-status.png)
 
-There are two **Sub Tasks** running at the backend, one for front-end backup job that can be checked from the **Backup Job** details blade as given below:
+There are **Sub Tasks** running at the backend, one for front-end backup job that can be checked from the **Backup Job** details blade as given below:
 
   ![Screenshot showing backup job status sub-tasks.](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
 
-The **Transfer data to vault** phase can take multiple days to complete depending on the size of the disks, churn per disk and several other factors.
+For information on VM backup job phases and how to interpret the progress bar, see [Verify the backup job status](backup-azure-arm-vms-prepare.md#verify-the-backup-job-status).
 
-Job status can vary depending on the following scenarios:
-
-**Snapshot** | **Transfer data to vault** | **Job Status**
---- | --- | ---
-Completed | In progress | In progress
-Completed | Skipped | Completed
-Completed | Completed | Completed
-Completed | Failed | Completed with warning
-Failed | Failed | Failed
-
-Now with this capability, for the same VM, two backups can run in parallel, but in either phase (snapshot, transfer data to vault) only one sub task can be running. So in scenarios where a backup job in progress resulted in the next day’s backup to fail, it will be avoided with this decoupling functionality. Subsequent days' backups can have the snapshot completed, while **Transfer data to vault** is skipped if an earlier day’s backup job is in progress state.
-The incremental recovery point created in the vault will capture all the churn from the most recent recovery point created in the vault. There's no cost impact on the user.
+Depending on disk size and churn, **Transfer data to vault** can take time to complete. See the related article for job-status combinations, parallel backup behavior, and recovery-point guidance.
 
 ## Optional steps
 

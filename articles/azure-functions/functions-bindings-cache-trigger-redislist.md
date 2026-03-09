@@ -1,6 +1,6 @@
 ---
 title: RedisListTrigger for Azure Functions
-description: Learn how to use the RedisListTrigger Azure Functions for Azure Cache for Redis.
+description: Learn how to use the RedisListTrigger Azure Functions for Azure Managed Redis.
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 
@@ -15,7 +15,7 @@ ms.date: 07/12/2024
 
 The `RedisListTrigger` pops new elements from a list and surfaces those entries to the function.
 
-For more information about Azure Cache for Redis triggers and bindings, [Redis Extension for Azure Functions](https://github.com/Azure/azure-functions-redis-extension/tree/main).
+For more information about Azure Managed Redis triggers and bindings, [Redis Extension for Azure Functions](https://github.com/Azure/azure-functions-redis-extension/tree/main).
 
 ## Scope of availability for functions triggers
 
@@ -326,7 +326,6 @@ The `RedisListTrigger` pops new elements from a list and surfaces those entries 
 ## Related content
 
 - [Introduction to Azure Functions](functions-overview.md)
-- [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/redis/tutorial-functions-getting-started)
-- [Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis](/azure/redis/tutorial-write-behind)
+- [Overview of Azure functions for Azure Redis](/azure/azure-functions/functions-bindings-cache)
 - [Redis connection string](functions-bindings-cache.md#redis-connection-string)
 - [Redis lists](https://redis.io/docs/latest/operate/rs/databases/active-active/develop/data-types/lists/)

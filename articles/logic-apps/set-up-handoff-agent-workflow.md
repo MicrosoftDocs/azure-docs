@@ -1,17 +1,17 @@
 ---
-title: Hand Off AI Agent Tasks but Keep Chat Context
-description: Learn how to transfer control to specialized AI agents in a workflow but preserve chat continuity in Azure Logic Apps. In this "handoff" pattern, agents pass on control when they get questions outside their expertise or knowledge domain.
+title: Hand Off Agent Loop Tasks but Keep Chat Context
+description: Transfer control to specialized agent loops in a workflow but preserve chat continuity in Azure Logic Apps. In this "handoff" pattern, agent loops pass on control when they get questions outside their expertise or knowledge domain.
 services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, divswa, krmitta, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 09/17/2025
+ms.date: 02/18/2026
 ms.update-cycle: 180-days
-# Customer intent: As an AI developer, I want to set up seamless handoffs to specialized agents that handle domain-specific tasks, while keeping the same chat continuity and context in my workflow using Azure Logic Apps.
+# Customer intent: As an AI developer who works with Azure Logic Apps, I want to set up seamless handoffs to specialized agent loops that handle domain-specific tasks, while keeping the same chat continuity and context in my workflow.
 ---
 
-# Hand off tasks to specialized AI agents but keep chat continuity in Azure Logic Apps (preview)
+# Hand off tasks to specialized agent loops but keep chat continuity in Azure Logic Apps (preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -20,40 +20,40 @@ ms.update-cycle: 180-days
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Sometimes your workflow needs to delegate tasks to specialized AI agents but preserve the chat conversation continuity and context across agent transitions. In this scenario, agents perform domain-specific tasks during different stages in the workflow or business process. These agents must also make dynamic decisions and understand when to hand off tasks to other agents. This behavior is known as the [*handoff* pattern](single-versus-multiple-agents.md#handoff-pattern).
+Sometimes your workflow needs to delegate tasks to specialized AI agent loops but preserve the chat conversation continuity and context across agent loop transitions. In this scenario, agent loops perform domain-specific tasks during different stages in the workflow or business process. These agent loops must also make dynamic decisions and understand when to hand off tasks to other agent loops. This behavior is known as the [*handoff* pattern](single-versus-multiple-agents.md#handoff-pattern).
 
-This guide describes how to set up a central agent and specialized agents that follow the handoff pattern in your workflow. The example sets up a customer service handoff system that manages a complete customer journey from initial triage through specialized support.
+This guide describes how to set up a central agent loop and specialized agent loops that follow the handoff pattern in your workflow. The example sets up a customer service handoff system that manages a complete customer journey from initial triage through specialized support.
 
 The following table lists the inputs, tasks, and outputs:
 
-| Element or agent | Description |
-|------------------|-------------|
+| Element or agent loop | Description |
+|-----------------------|-------------|
 | Input | Customer service request |
-| Customer service agent | Triage and classify the customer request. Identify routing options. |
-| Refund agent | Handle any refund requests, billing questions, and refund processing. |
-| Sales agent | Handle sales questions, product recommendations, and order processing. |
+| Customer service agent loop | Triage and classify the customer request. Identify routing options. |
+| Refund agent loop | Handle any refund requests, billing questions, and refund processing. |
+| Sales agent loop | Handle sales questions, product recommendations, and order processing. |
 | Output | Specialized response with complete conversation context |
 
 ## Prerequisites
 
-Same requirements as [Create conversational agent workflows](create-conversational-agent-workflows.md?tabs=standard#prerequisites).
+Same requirements as [Create conversational agentic workflows](create-conversational-agent-workflows.md?tabs=standard#prerequisites).
 
-The Standard logic app resource that you need can be empty or have other workflows. In this guide, you create the conversational agent workflow that you need. The workflow includes an empty agent and the default trigger that fires when a new chat session starts. You can't delete the default trigger, which is required for the workflow.
+The Standard logic app resource that you need can be empty or have other workflows. In this guide, you create the conversational agentic workflow that you need. The workflow includes an empty agent loop and the default trigger that fires when a new chat session starts. You can't delete the default trigger, which is required for the workflow.
 
 ## Key concepts
 
-The following table describes the key concepts to understand for this example handoff agent workflow:
+The following table describes the key concepts to understand for this example handoff agentic workflow:
 
 | Concept | Description |
 |---------|-------------|
-| Tool separation | The handoff pattern differentiates between the following kinds of tools: <br><br>- Regular tools that run business logic or tasks like "search", "refund", and "order" <br><br>- Delegation tools that hand off control to other agents |
-| Agent specialization | Each agent has specific, relevant tools and capabilities. <br><br>- Customer service agent has only agent handoff tools for delegating questions and requests, no regular tools. <br><br>- Refund specialist agent has the following tools: <br>-- `look_up_item` <br>-- `process_refund` <br>-- `handoff_<ID>_tool` <br><br>- Sales specialist agent has the following tools: <br>-- `search_products` <br>-- `process_order` <br>-- `handoff_<ID>_tool` |
+| Tool separation | The handoff pattern differentiates between the following kinds of tools: <br><br>- Regular tools that run business logic or tasks like "search", "refund", and "order" <br><br>- Delegation tools that hand off control to other agent loops |
+| Agent loop specialization | Each agent loop has specific, relevant tools and capabilities. <br><br>- Customer service agent loop has only agent loop handoff tools for delegating questions and requests, no regular tools. <br><br>- Refund specialist agent loop has the following tools: <br>-- `look_up_item` <br>-- `process_refund` <br>-- `handoff_<ID>_tool` <br><br>- Sales specialist agent loop has the following tools: <br>-- `search_products` <br>-- `process_order` <br>-- `handoff_<ID>_tool` |
 
 For more information, see [Handoff pattern best practices](#handoff-pattern-best-practices).
 
-## 1 - Create a conversational agent workflow
+## 1 - Create a conversational agentic workflow
 
-Follow these steps to create a new conversational agent workflow:
+Follow these steps to create a new conversational agentic workflow:
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -67,11 +67,11 @@ Follow these steps to create a new conversational agent workflow:
 
 > [!NOTE]
 >
-> You can't save your workflow until you create a connection between the agent and the large language model (LLM) that you want to use.
+> You can't save your workflow until you create a connection between the agent loop and the large language model (LLM) that you want to use.
 
-## 2 - Set up the customer service agent
+## 2 - Set up the customer service agent loop
 
-Follow these steps to add set-up your customer service agent:
+Follow these steps to add set-up your customer service agent loop:
 
 1. On the designer, select the empty **Agent** action.
 
@@ -89,30 +89,30 @@ Follow these steps to add set-up your customer service agent:
    1. Greet customers professionally.
    2. Understand their request or problem.
    3. Always use a friendly, polite, and professional voice.
-   4. Hand off tasks to the appropriate specialist agents when necessary.
+   4. Hand off tasks to the appropriate specialist agent when necessary.
 
    You exist in a multi-agent system designed to make agent coordination and execution easy. Agents use two primary abstractions: agents and handoffs. An agent includes instructions, tools, and the capability to hand off a conversation to another agent when appropriate. A handoff calls a handoff function, generally named 'handoff_<ID>_tool'. Transfers between agents happen seamlessly in the background. Don't mention or draw attention to these transfers in your conversation with the customer.
    ```
 
    The completed **Customer service agent** looks like the following example:
 
-   :::image type="content" source="media/set-up-handoff-agent-workflow/customer-service-agent.png" alt-text="Screenshot shows finished customer service agent." lightbox="media/set-up-handoff-agent-workflow/customer-service-agent.png":::
+   :::image type="content" source="media/set-up-handoff-agent-workflow/customer-service-agent.png" alt-text="Screenshot shows finished customer service agent loop." lightbox="media/set-up-handoff-agent-workflow/customer-service-agent.png":::
 
 1. Save your workflow.
 
-## 3 - Add specialized agents with handoff descriptions
+## 3 - Add specialized agent loops with handoff descriptions
 
-Follow these steps to add specialized agents:
+Follow these steps to add specialized agent loops:
 
-### 3.1 - Add the refund specialist agent
+### 3.1 - Add the refund specialist agent loop
 
-1. On the designer, under your customer service agent, select the plus (**+**) sign, and then select **Add a hand-off agent**.
+1. On the designer, under your customer service agent loop, select the plus (**+**) sign, and then select **Add a hand-off agent**.
 
-   :::image type="content" source="media/set-up-handoff-agent-workflow/add-handoff-agent.png" alt-text="Screenshot shows add handoff button between agents and selected option to add a handoff agent." lightbox="media/set-up-handoff-agent-workflow/add-handoff-agent.png":::
+   :::image type="content" source="media/set-up-handoff-agent-workflow/add-handoff-agent.png" alt-text="Screenshot shows add handoff button between agent loops and selected option to add a handoff agent loop." lightbox="media/set-up-handoff-agent-workflow/add-handoff-agent.png":::
 
    A new empty agent appears on the designer. Your **Customer service agent** stays selected, but the agent information pane automatically switches from the **Parameters** tab to the **Handoffs** tab.
 
-1. In the customer service agent's **Handoffs** tab, enter the following handoff description:
+1. In the customer service agent loop's **Handoffs** tab, enter the following handoff description:
 
    ```
    Hand off to the refund specialist agent for refunds, returns, exchanges, and billing issues. This agent specializes in understanding refund policies, processing returns, and resolving billing disputes with empathy and efficiency.
@@ -120,13 +120,13 @@ Follow these steps to add specialized agents:
 
    For example:
 
-   :::image type="content" source="media/set-up-handoff-agent-workflow/hand-off-to-refund-agent.png" alt-text="Screenshot shows customer service agent with handoff to new refund specialist agent." lightbox="media/set-up-handoff-agent-workflow/hand-off-to-refund-agent.png":::
+   :::image type="content" source="media/set-up-handoff-agent-workflow/hand-off-to-refund-agent.png" alt-text="Screenshot shows customer service agent loop with handoff to new refund specialist agent loop." lightbox="media/set-up-handoff-agent-workflow/hand-off-to-refund-agent.png":::
 
-1. Select the new agent, and rename the agent to **Refund specialist agent**.
+1. Select the new agent loop, and rename the agent loop to **Refund specialist agent**.
 
-   In the customer service agent's **Handoffs** tab, the default name for the refund agent automatically changes to the new name.
+   In the customer service agent loop's **Handoffs** tab, the default name for the refund agent loop automatically changes to the new name.
 
-1. On the refund agent's **Parameters** tab, in the **System instructions** box, provide the following information:
+1. On the refund agent loop's **Parameters** tab, in the **System instructions** box, provide the following information:
 
    ```
    You're a refund specialist agent for Fabrikam, Inc. You handle refund requests, returns, and billing issues with empathy and efficiency. If the request is outside your refund expertise, you can hand back control to the main agent.
@@ -144,15 +144,15 @@ Follow these steps to add specialized agents:
 
    The completed **Refund specialist agent** looks like the following example:
 
-   :::image type="content" source="media/set-up-handoff-agent-workflow/refund-agent.png" alt-text="Screenshot shows finished refund specialist agent." lightbox="media/set-up-handoff-agent-workflow/refund-agent.png":::
+   :::image type="content" source="media/set-up-handoff-agent-workflow/refund-agent.png" alt-text="Screenshot shows finished refund specialist agent loop." lightbox="media/set-up-handoff-agent-workflow/refund-agent.png":::
 
-### 3.2 - Add the sales specialist agent
+### 3.2 - Add the sales specialist agent loop
 
-1. On the designer, under your customer service agent, add another handoff agent.
+1. On the designer, under your customer service agent loop, add another handoff agent loop.
 
-   After the new empty agent appears on the designer, your **Customer service agent** stays selected, but the agent information pane now shows the **Handoffs** tab with both the new agent and the refund specialist agent.
+   After the new empty agent loop appears on the designer, your **Customer service agent** stays selected, but the agent loop information pane now shows the **Handoffs** tab with both the new agent loop and the refund specialist agent loop.
 
-1. In the customer service agent's **Handoffs** tab, under the new agent, enter the following handoff description:
+1. In the customer service agent loop's **Handoffs** tab, under the new agent loop, enter the following handoff description:
 
    ```
    Hand off to the sales specialist agent for product questions, purchase assistance, and sales consultations. This agent excels at understanding customer needs, recommending products, and facilitating purchases.
@@ -162,11 +162,11 @@ Follow these steps to add specialized agents:
 
    :::image type="content" source="media/set-up-handoff-agent-workflow/hand-off-to-sales-agent.png" alt-text="Screenshot shows customer service agent with handoff to new sales specialist agent." lightbox="media/set-up-handoff-agent-workflow/hand-off-to-sales-agent.png":::
 
-1. Select the new agent, and rename the agent to **Sales specialist agent**.
+1. Select the new agent loop, and rename the agent loop to **Sales specialist agent**.
 
-   In the customer service agent's **Handoffs** tab, the default name for the sales agent automatically changes to the new name.
+   In the customer service agent loop's **Handoffs** tab, the default name for the sales agent loop automatically changes to the new name.
 
-1. On the sales agent's **Parameters** tab, in the **System instructions** box, provide the following information:
+1. On the sales agent loop's **Parameters** tab, in the **System instructions** box, provide the following information:
 
    ```
    You're a sales specialist agent for Fabrikam, Inc. You help customers with product questions, recommendations, and purchase orders. If the question is outside your sales expertise, you can hand back control to the main agent.
@@ -185,53 +185,53 @@ Follow these steps to add specialized agents:
 
    The completed **Sales specialist agent** looks like the following example:
 
-   :::image type="content" source="media/set-up-handoff-agent-workflow/sales-agent.png" alt-text="Screenshot shows finished sales specialist agent." lightbox="media/set-up-handoff-agent-workflow/sales-agent.png":::
+   :::image type="content" source="media/set-up-handoff-agent-workflow/sales-agent.png" alt-text="Screenshot shows finished sales specialist agent loop." lightbox="media/set-up-handoff-agent-workflow/sales-agent.png":::
 
-## 4 - Set up handoffs from specialized agents
+## 4 - Set up handoffs from specialized agent loops
 
-The system instructions for each specialist agent describe the capability to hand back control to the main customer service agent when they get requests outside their expertise domain. To provide this capability, you must set up a handoff from each specialist agent.
+The system instructions for each specialist agent loop describe the capability to hand back control to the main customer service agent loop when they get requests outside their expertise domain. To provide this capability, you must set up a handoff from each specialist agent loop.
 
-### 4.1 - Set up handoff from the refund agent
+### 4.1 - Set up handoff from the refund agent loop
 
-Follow these steps to set up a handoff from the refund agent to the customer service agent:
+Follow these steps to set up a handoff from the refund agent loop to the customer service agent loop:
 
 1. On the designer, select the **Refund specialist agent**. On the information pane that opens, select **Handoffs**.
 
-1. From the **Select agents** list, choose the agent that gains control for the handoff, which is **Customer service agent** in this example.
+1. From the **Select agents** list, choose the agent loop that gains control for the handoff, which is **Customer service agent** in this example.
 
-1. In the **Handoff description** box for the customer service agent, provide a reason for the handoff, for example:
+1. In the **Handoff description** box for the customer service agent loop, provide a reason for the handoff, for example:
 
    `Return control to the customer service agent when the customer's request is unrelated to refunds, returns, or billing. For example, hand off when customers ask about products, orders, have general questions, or need help that's not related to refunds.`
 
 The finished handoff looks like the following example:
 
-:::image type="content" source="media/set-up-handoff-agent-workflow/hand-off-from-refund-agent.png" alt-text="Screenshot shows completed handoff from the refund agent." lightbox="media/set-up-handoff-agent-workflow/hand-off-from-refund-agent.png":::
+:::image type="content" source="media/set-up-handoff-agent-workflow/hand-off-from-refund-agent.png" alt-text="Screenshot shows completed handoff from the refund agent loop." lightbox="media/set-up-handoff-agent-workflow/hand-off-from-refund-agent.png":::
 
-### 4.2 - Set up handoff from the sales agent
+### 4.2 - Set up handoff from the sales agent loop
 
-Follow these steps to set up a handoff from the sales agent to the customer service agent:
+Follow these steps to set up a handoff from the sales agent loop to the customer service agent loop:
 
 1. On the designer, select the **Sales specialist agent**. On the information pane that opens, select **Handoffs**.
 
-1. From the **Select agents** list, choose the agent that gains control for the handoff, which is **Customer service agent** in this example.
+1. From the **Select agents** list, choose the agent loop that gains control for the handoff, which is **Customer service agent** in this example.
 
-1. In the **Handoff description** box for the customer service agent, provide a reason for the handoff, for example:
+1. In the **Handoff description** box for the customer service agent loop, provide a reason for the handoff, for example:
 
    `Return control to the customer service agent when the customer's request is unrelated to sales, product recommendations, or help with purchases or orders. For example, hand off when customers ask about refunds, returns, billing, have general questions, or need help that's not related to sales.`
 
-The finished handoff to the customer service agent looks like the following example:
+The finished handoff to the customer service agent loop looks like the following example:
 
-:::image type="content" source="media/set-up-handoff-agent-workflow/hand-off-from-sales-agent.png" alt-text="Screenshot shows completed handoff from the sales agent." lightbox="media/set-up-handoff-agent-workflow/hand-off-from-sales-agent.png":::
+:::image type="content" source="media/set-up-handoff-agent-workflow/hand-off-from-sales-agent.png" alt-text="Screenshot shows completed handoff from the sales agent loop." lightbox="media/set-up-handoff-agent-workflow/hand-off-from-sales-agent.png":::
 
-## 5 - Set up agent-specific tools
+## 5 - Set up agent loop-specific tools
 
-Each agent has specialized tools to complete expertise-related tasks. In Azure Logic Apps, you build these tools for each agent. For simplicity, this example uses the **Compose** to mock tool calls. In reality, you'd select from available built-in or connector actions to perform real-world tasks for your specific scenario.
+Each agent loop has specialized tools to complete expertise-related tasks. In Azure Logic Apps, you build these tools for each agent loop. For simplicity, this example uses the **Compose** to mock tool calls. In reality, you'd select from available built-in or connector actions to perform real-world tasks for your specific scenario.
 
 For more information, see [Tool assignment best practices](#tool-assignment-best-practices).
 
-### 5.1 - Add tools to the refund agent
+### 5.1 - Add tools to the refund agent loop
 
-In this section, you add the following specialized tools to the refund specialist agent:
+In this section, you add the following specialized tools to the refund specialist agent loop:
 
 - **look_up_item**
 - **process_refund**
@@ -293,7 +293,7 @@ The finished **look_up_item** tool and **Find item** action look like the follow
 
 #### 5.1.2 - Add the process_refund tool
 
-To add and set up the **process_refund** tool for the refund specialist agent, follow these steps:
+To add and set up the **process_refund** tool for the refund specialist agent loop, follow these steps:
 
 1. To the side of the **look_up_item** tool, select the plus sign (**+**) to add the **Compose** action.
 
@@ -311,16 +311,16 @@ The finished **process_refund** tool and **Execute refund** action look like the
 
 :::image type="content" source="media/set-up-handoff-agent-workflow/process-refund-tool-complete.png" alt-text="Screenshot shows completed process refund tool and Execute refund action." lightbox="media/set-up-handoff-agent-workflow/process-refund-tool-complete.png":::
 
-### 5.2 - Add tools to the sales agent
+### 5.2 - Add tools to the sales agent loop
 
-In this section, you add the following specialized tools to the sales specialist agent:
+In this section, you add the following specialized tools to the sales specialist agent loop:
 
 - **search_products**
 - **process_order**
 
 #### 5.2.1 - Add the search_products tool
 
-To add and set up the **search_products** tool for the sales specialist agent, repeat the preceding general steps but with the following information:
+To add and set up the **search_products** tool for the sales specialist agent loop, repeat the preceding general steps but with the following information:
 
 | Item | Value |
 |------|-------|
@@ -372,7 +372,7 @@ The finished **search_products** tool and **Find products** action look like the
 
 #### 5.2.2 - Add the process_order tool
 
-To add and set up the **process_order** tool for the sales specialist agent, repeat the preceding general steps but with the following information:
+To add and set up the **process_order** tool for the sales specialist agent loop, repeat the preceding general steps but with the following information:
 
 | Item | Value |
 |------|-------|
@@ -396,17 +396,17 @@ The finished **process_order** tool and **Execute order** action look like the f
 
 :::image type="content" source="media/set-up-handoff-agent-workflow/process-order-tool-complete.png" alt-text="Screenshot shows completed process order tool and Execute order action." lightbox="media/set-up-handoff-agent-workflow/process-order-tool-complete.png":::
 
-Your completed handoff agent workflow looks like the following example:
+Your completed handoff agentic workflow looks like the following example:
 
-:::image type="content" source="media/set-up-handoff-agent-workflow/handoff-agent-workflow-complete.png" alt-text="Screenshot shows completed handoff agent workflow." lightbox="media/set-up-handoff-agent-workflow/handoff-agent-workflow-complete.png":::
+:::image type="content" source="media/set-up-handoff-agent-workflow/handoff-agent-workflow-complete.png" alt-text="Screenshot shows completed handoff agentic workflow." lightbox="media/set-up-handoff-agent-workflow/handoff-agent-workflow-complete.png":::
 
 ## 6 - Test the workflow
 
-Confirm that the workflow behaves as expected for both the refund and sales scenarios. Your actual agent responses might vary somewhat from the examples. However, expect the agent responses to include essential, core details.
+Confirm that the workflow behaves as expected for both the refund and sales scenarios. Your actual agent loop responses might vary somewhat from the examples. However, expect the agent loop responses to include essential, core details.
 
 ### 6.1 - Test the refund scenario
 
-For this scenario, the expected behavior follows these steps, while keeping the chat context across agent handoffs:
+For this scenario, the expected behavior follows these steps, while keeping the chat context across agent loop handoffs:
 
 1. The **Customer service agent** greets the customer and understands the return request.
 1. The **Customer service agent** automatically hands off to the **Refund specialist agent**.
@@ -418,23 +418,23 @@ To test this scenario, follow these steps:
 
 1. In the chat box, enter the following text: `Hi, I want to return a pair of shoes. They're too small.`
 
-   The customer service agent responds with a prompt for an order number.
+   The customer service agent loop responds with a prompt for an order number.
 
 1. Enter an example order ID: `XYZ3245`
 
-   The refund agent responds with a prompt to confirm the item's condition.
+   The refund agent loop responds with a prompt to confirm the item's condition.
 
 1. Enter a confirmation: `Yes`
 
-   The refund agent responds that the return successfully processed, reports the refund amount, and includes instructions for returning the item.
+   The refund agent loop responds that the return successfully processed, reports the refund amount, and includes instructions for returning the item.
 
-The following screenshot shows an example chat history for the refund scenario and where different agents have control at different points in the conversation:
+The following screenshot shows an example chat history for the refund scenario and where different agent loops have control at different points in the conversation:
 
 :::image type="content" source="media/set-up-handoff-agent-workflow/test-refund-scenario.png" alt-text="Screenshot shows the chat history for the test refund scenario." lightbox="media/set-up-handoff-agent-workflow/test-refund-scenario.png":::
 
 ### 6.2 - Review the workflow run history for the refund scenario
 
-To view the workflow run history and chat history with agent transitions, handoff tool calls, and agent tool calls, follow these steps:
+To view the workflow run history and chat history with agent loop transitions, handoff tool calls, and agent tool calls, follow these steps:
 
 1. From the chat page, return to the designer.
 
@@ -442,18 +442,18 @@ To view the workflow run history and chat history with agent transitions, handof
 
 1. On the **Run history** page, on the **Run history** tab, in the **Identifier** column, select the most recent workflow run.
 
-   The monitoring view opens and shows the **Agent log** pane, which shows the chat history embedded with agent transitions, handoff tool calls, and agent tool calls. For example:
+   The monitoring view opens and shows the **Agent log** pane, which shows the chat history embedded with agent loop transitions, handoff tool calls, and agent tool calls. For example:
 
-   :::image type="content" source="media/set-up-handoff-agent-workflow/agent-log-refund-scenario.png" alt-text="Screenshot shows the monitoring view and the agent log pane with chat history, agent transitions, and handoff tool calls for the refund scenario." lightbox="media/set-up-handoff-agent-workflow/agent-log-refund-scenario.png":::
+   :::image type="content" source="media/set-up-handoff-agent-workflow/agent-log-refund-scenario.png" alt-text="Screenshot shows the monitoring view and the agent log pane with chat history, agent loop transitions, and handoff tool calls for the refund scenario." lightbox="media/set-up-handoff-agent-workflow/agent-log-refund-scenario.png":::
 
 1. Confirm the following behavior for the system:
 
-   - The agent transitions, handoff tool calls, and agent tool calls look correct.
-   - The refund specialist agent uses only the **look_up_item** and **process_refund** tools.
+   - The agent loop transitions, handoff tool calls, and agent tool calls look correct.
+   - The refund specialist agent loop uses only the **look_up_item** and **process_refund** tools.
 
 ### 6.3 - Test the sales scenario
 
-For this scenario, the expected behavior follows these steps, while keeping the chat context across agent handoffs:
+For this scenario, the expected behavior follows these steps, while keeping the chat context across agent loop handoffs:
 
 1. The **Customer service agent** identifies the request as a sales question.
 1. The **Customer service agent** automatically hands off to the **Sales specialist agent**.
@@ -465,23 +465,23 @@ To test this scenario, follow these steps:
 
 1. In the chat box, enter the following text: `I'm looking for a new laptop for work. Can you help me find something?`
 
-   The customer service agent greets the customer and asks for more information about the customer's needs and budget.
+   The customer service agent loop greets the customer and asks for more information about the customer's needs and budget.
 
 1. Enter an example budget amount: `$1200`
 
-   The sales agent responds with products that match closest to the customer's criteria.
+   The sales agent loop responds with products that match closest to the customer's criteria.
 
 1. Enter a request to place an order, for example: `Please place an order for an Adatum M2?`
 
-   The sales agent responds that the order is successfully processed, and offers more help for shipping or other needs.
+   The sales agent loop responds that the order is successfully processed, and offers more help for shipping or other needs.
 
-The following screenshot shows an example chat history for the sales scenario and where different agents have control at different points in the conversation:
+The following screenshot shows an example chat history for the sales scenario and where different agent loops have control at different points in the conversation:
 
 :::image type="content" source="media/set-up-handoff-agent-workflow/test-sales-scenario.png" alt-text="Screenshot shows the chat history for the test sales scenario." lightbox="media/set-up-handoff-agent-workflow/test-sales-scenario.png":::
 
 ### 6.4 - Review the workflow run history for the sales scenario
 
-To view the workflow run history and chat history with agent transitions, handoff tool calls, and agent tool calls, follow these steps:
+To view the workflow run history and chat history with agent loop transitions, handoff tool calls, and agent tool calls, follow these steps:
 
 1. From the chat page, return to the designer.
 
@@ -489,14 +489,14 @@ To view the workflow run history and chat history with agent transitions, handof
 
 1. On the **Run history** page, on the **Run history** tab, in the **Identifier** column, select the most recent workflow run.
 
-   The monitoring view opens and shows the **Agent log** pane, which shows the chat history embedded with agent transitions, handoff tool calls, and agent tool calls. For example:
+   The monitoring view opens and shows the **Agent log** pane, which shows the chat history embedded with agent loop transitions, handoff tool calls, and agent tool calls. For example:
 
-   :::image type="content" source="media/set-up-handoff-agent-workflow/agent-log-sales-scenario.png" alt-text="Screenshot shows the monitoring view and the agent log pane with chat history, agent transitions, and handoff tool calls for the sales scenario." lightbox="media/set-up-handoff-agent-workflow/agent-log-sales-scenario.png":::
+   :::image type="content" source="media/set-up-handoff-agent-workflow/agent-log-sales-scenario.png" alt-text="Screenshot shows the monitoring view and the agent log pane with chat history, agent loop transitions, and handoff tool calls for the sales scenario." lightbox="media/set-up-handoff-agent-workflow/agent-log-sales-scenario.png":::
 
 1. Confirm the following behavior for the system:
 
-   - The agent transitions, handoff tool calls, and agent tool calls look correct.
-   - The refund specialist agent uses only the **search_products** and **process_order** tools.
+   - The agent loop transitions, handoff tool calls, and agent tool calls look correct.
+   - The refund specialist agent loop uses only the **search_products** and **process_order** tools.
 
 ### 6.5 - Try other tests
 
@@ -505,18 +505,18 @@ You can perform other tests to check that the handoff pattern works as expected,
 - Mixed request test: Start with a refund request, and then ask about sales.
 
   Prompt: `Actually, after the refund, I want to buy something new. What do you recommend?`
-  Expected behavior: The refund specialist agent hands back control to the customer service agent, which then hands off control to the sales specialist agent.
+  Expected behavior: The refund specialist agent loop hands back control to the customer service agent loop, which then hands off control to the sales specialist agent loop.
 
-- Outside the domain test: When you're chatting with the sales specialist agent, ask the agent about an unrelated area.
+- Outside the domain test: When you're chatting with the sales specialist agent loop, ask the agent loop about an unrelated area.
 
   Prompt: `Can you help me with a billing dispute?`
-  Expected behavior: The sales specialist agent hands back control to the customer service agent, which then hands off control to the refund specialist agent.
+  Expected behavior: The sales specialist agent loop hands back control to the customer service agent loop, which then hands off control to the refund specialist agent loop.
 
 [!INCLUDE [clean-up-resources](includes/clean-up-resources.md)]
 
 ## Best practices
 
-A conversational agent workflow that follows the handoff pattern automatically maintains seamless conversation context flow. No manual context passing is required. The following best practices help agents make accurate handoffs and correct choices about the tools to use.
+A conversational agentic workflow that follows the handoff pattern automatically maintains seamless conversation context flow. No manual context passing is required. The following best practices help agent loops make accurate handoffs and correct choices about the tools to use.
 
 ### Handoff pattern best practices
 
@@ -524,23 +524,23 @@ The following table describes best practices for handoff patterns:
 
 | Practice | Description |
 |----------|-------------|
-| Write clear handoff descriptions | Provide detailed handoff instructions in the agent's system instructions to specify exactly when and why to hand off to a specialist agent. For example, the following instructions usually increase handoff accuracy: <br><br>`You're an agent in a multi-agent system designed to make agent coordination and execution easy.` <br><br>`Agents use two primary abstractions: agents and handoffs. An agent includes instructions, tools, and the capability to hand off a conversation to another agent when appropriate. A handoff calls a handoff function, generally named 'handoff_<ID>_tool'.` <br><br>`Transfers between agents happen seamlessly in the background. Don't mention or draw attention to these transfers in your conversation with the end user.` <br><br>**Note**: In Azure Logic Apps, handoffs are built as tools. |
-| Build agents with proper specializations | Design agent roles with clear boundaries and specific expertise areas. |
+| Write clear handoff descriptions | Provide detailed handoff instructions in the agent loop's system instructions to specify exactly when and why to hand off to a specialist agent loop. For example, the following instructions usually increase handoff accuracy: <br><br>`You're an agent in a multi-agent system designed to make agent coordination and execution easy.` <br><br>`Agents use two primary abstractions: agents and handoffs. An agent includes instructions, tools, and the capability to hand off a conversation to another agent when appropriate. A handoff calls a handoff function, generally named 'handoff_<ID>_tool'.` <br><br>`Transfers between agents happen seamlessly in the background. Don't mention or draw attention to these transfers in your conversation with the end user.` <br><br>**Note**: In Azure Logic Apps, handoffs are built as tools. |
+| Build agent loops with proper specializations | Design agent loop roles with clear boundaries and specific expertise areas. |
 | Specify natural handoff triggers | Include natural language cues and customer intent to trigger appropriate and accurate handoffs. |
-| Set up bidirectional handoffs | Make sure agents can receive handoffs and return control when necessary. |
-| Avoid handoff loops | Make sure agents have clear exit strategies. Don't repeatedly hand off the same conversation. |
-| Monitor performance | Track handoff success rates and customer satisfaction across various agent handoffs. |
+| Set up bidirectional handoffs | Make sure agent loops can receive handoffs and return control when necessary. |
+| Avoid handoff loops | Make sure agent loops have clear exit strategies. Don't repeatedly hand off the same conversation. |
+| Monitor performance | Track handoff success rates and customer satisfaction across various agent loop handoffs. |
 
 ### Tool assignment best practices
 
-The following table describes best practices for assigning tools to agents:
+The following table describes best practices for assigning tools to agent loops:
 
 | Practice | Description |
 |----------|-------------|
-| Agent-specific and relevant tools | Agents have only tools specific and relevant to their expertise area. For example: <br><br>- Refund agents: Item lookup, refund processing, return validation <br><br>- Sales agents: Product search, order processing, pricing tools |
-| No tool sharing or access to tools outside domain | Each agent can access only tools in their expertise domain. This practice prevents customer confusion and maintains clear boundaries. For example: <br><br>- Refund agents can't use sales tools. <br><br>- Sales agents can't use refund tools. |
-| Focused agent and tool functionality | Each agent and tool focuses on their own specialized domain expertise. |
-| Clear tool descriptions | Provide precise information about each tool's purpose and tasks to help an agent choose the correct tool and know when to use that tool. Specify required input parameters and add usage guidelines like "Use price in US$". |
+| Agent-specific and relevant tools | Agent loops have only tools specific and relevant to their expertise area. For example: <br><br>- Refund agent loops: Item lookup, refund processing, return validation <br><br>- Sales agent loops: Product search, order processing, pricing tools |
+| No tool sharing or access to tools outside domain | Each agent loop can access only tools in their expertise domain. This practice prevents customer confusion and maintains clear boundaries. For example: <br><br>- Refund agent loops can't use sales tools. <br><br>- Sales agent loops can't use refund tools. |
+| Focused agent loop and tool functionality | Each agent loop and tool focuses on their own specialized domain expertise. |
+| Clear tool descriptions | Provide precise information about each tool's purpose and tasks to help an agent loop choose the correct tool and know when to use that tool. Specify required input parameters and add usage guidelines like "Use price in US$". |
 
 ## Troubleshoot common problems
 
@@ -548,15 +548,15 @@ The following table lists common problems that you might encounter with the hand
 
 | Problem | Solution |
 |---------|----------|
-| Incorrect agent handoffs | Refine handoff descriptions with more specific triggers and conditions. Include the handoff instructions described in [Handoff pattern best practices](#handoff-pattern-best-practices). |
-| Handoff loops between agents | Include clear exit strategies and prevent agents from repeatedly handing off the same requests. |
-| Customers confused by agent transitions | Instruct agents to introduce their specialties for smoother transitions. |
-| Tools unavailable to specialist agents | Check each agent for access to the appropriate tools for their specialty. |
-| Poor handoff choices | Monitor and analyze handoff patterns. Update agent instructions based on performance. |
+| Incorrect agent loop handoffs | Refine handoff descriptions with more specific triggers and conditions. Include the handoff instructions described in [Handoff pattern best practices](#handoff-pattern-best-practices). |
+| Handoff loops between agent loops | Include clear exit strategies and prevent agent loops from repeatedly handing off the same requests. |
+| Customers confused by agent loop transitions | Instruct agent loops to introduce their specialties for smoother transitions. |
+| Tools unavailable to specialist agent loops | Check each agent loop for access to the appropriate tools for their specialty. |
+| Poor handoff choices | Monitor and analyze handoff patterns. Update agent loop instructions based on performance. |
 
 ## Related content
 
-- [Single agent versus multiple agents](single-versus-multiple-agents.md)
-- [Create conversational agent workflows](create-conversational-agent-workflows.md?tabs=standard)
+- [Single agent loops versus multiple agent loops](single-versus-multiple-agents.md)
+- [Create conversational agentic workflows](create-conversational-agent-workflows.md?tabs=standard)
 - [Lab: Implement the handoff pattern](https://azure.github.io/logicapps-labs/docs/logicapps-ai-course/build_multi_agent_systems/handoff-pattern)
 

@@ -6,6 +6,8 @@
       href: virtual-networks-overview.md
     - name: FAQ
       href: virtual-networks-faq.md
+    - name: Cost optimization
+      href: virtual-network-cost-optimization.md
     - name: Accelerated Networking
       href: accelerated-networking-overview.md
     - name: Application security groups
@@ -20,6 +22,8 @@
       href: /azure/well-architected/service-guides/virtual-network
     - name: What is network foundations?
       href: /azure/networking/foundations/network-foundations-overview
+    - name: Virtual network routing appliance
+      href: virtual-network-routing-appliance-overview.md
 - name: Get started
   items:
     - name: Add, change, or delete a subnet
@@ -32,6 +36,8 @@
       href: virtual-network-vnet-plan-design-arm.md
     - name: Traffic routing
       href: virtual-networks-udr-overview.md
+    - name: Create a routing appliance
+      href: how-to-create-virtual-network-routing-appliance.md
 - name: Security
   items:
     - name: Secure Virtual Network
@@ -204,6 +210,8 @@
               href: accelerated-networking-mana-linux.md
             - name: Windows VMs
               href: accelerated-networking-mana-windows.md
+            - name: MANA support for existing VM sizes
+              href: accelerated-networking-mana-existing-sizes.md
         - name: Migrate a VM public IP address to a NAT gateway
           href: /azure/nat-gateway/tutorial-migrate-ilip-nat?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
         - name: Network bandwidth
@@ -229,33 +237,9 @@
         - name: Virtual networks
           href: /azure/resource-mover/tutorial-move-region-virtual-machines?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
     - name: Azure Virtual Network reliability
-      href: ../reliability/reliability-virtual-network.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-- name: Troubleshoot
-  items:
-    - name: Configure reverse lookup zones for an SMTP banner check
-      href: create-ptr-for-smtp-service.md
-    - name: Diagnose a virtual machine network traffic filter problem
-      href: diagnose-network-traffic-filter-problem.md
-    - name: Diagnose a virtual machine routing problem
-      href: diagnose-network-routing-problem.md
-    - name: Network virtual appliance issues in Azure
-      href: virtual-network-troubleshoot-nva.md
-    - name: Resource logging for a network security group
-      href: virtual-network-nsg-manage-log.md
-    - name: Test network latency between Azure VMs
-      href: virtual-network-test-latency.md
-    - name: Test VM network throughput by using NTTTCP
-      href: virtual-network-bandwidth-testing.md
-    - name: Troubleshoot Azure VM connectivity problems
-      href: troubleshoot-vm-connectivity.md
-    - name: Troubleshoot outbound SMTP connectivity problems
-      href: troubleshoot-outbound-smtp-connectivity.md
-    - name: Troubleshoot virtual network peering issues
-      href: virtual-network-troubleshoot-peering-issues.md
-    - name: Troubleshoot connectivity problems between Azure VMs
-      href: virtual-network-troubleshoot-connectivity-problem-between-vms.md
-    - name: Troubleshoot virtual network deletion failures
-      href: virtual-network-troubleshoot-cannot-delete-vnet.md
+      href: /azure/reliability/reliability-virtual-network?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+- name: Support and troubleshooting
+  href: virtual-network-support-help.md
 - name: Reference
   items:
     - name: Monitor data reference

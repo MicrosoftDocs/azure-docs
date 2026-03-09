@@ -37,10 +37,10 @@ When selecting the **Upgrade maps** button, all Map and Filled map visuals in th
 
 All settings associated with the original visuals are carried over to the new Azure Maps visual, ensuring consistency in the migrated report.
 
-:::image type="content" source="media/power-bi-visual/new-azure-maps-visual.gif" alt-text="Screenshot showing the Bubble chart Description automatically generated.":::
+:::image type="content" source="media/power-bi-visual/new-azure-maps-visual.gif" alt-text="Screenshot showing a map with the marker layer in Power BI. The map visualization displays the Denver metropolitan area with blue circular markers scattered across various locations including Westminster, Arvada, Denver, Aurora, Lakewood, Littleton, Centennial, and surrounding suburbs. The Visualizations pane on the right shows the Build visual tab with configuration options including Location which is set to use the FullAddress field.":::
 
 > [!NOTE]
-> Due to differences in supported bubble size ranges between the two platforms, you may notice that some bubbles appear smaller on the converted Azure Maps visual compared to their original size in the Maps visual. This is because the maximum bubble size in Azure Maps is smaller than the maximum bubble size in Bing Maps. Bubble size differences can vary based on the visual dimension and the report's zoom level.
+> Due to differences in supported size ranges between the two platforms, you may notice that some circles appear smaller on the converted Azure Maps visual compared to their original size in the Maps visual. This is because the maximum marker size in Azure Maps is smaller than the maximum bubble size in Bing Maps. Size differences can vary based on the visual dimension and the report's zoom level.
 
 The migration function streamlines the process of converting Map and Filled map visuals to Azure Maps visuals, providing users with an efficient and easy-to-use solution.
 

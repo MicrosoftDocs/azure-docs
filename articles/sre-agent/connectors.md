@@ -19,7 +19,6 @@ Connectors are modular integrations that extend the SRE Agent's capabilities. Th
 | Type | Description | Possible use case |
 |--|--|--|
 | **Communication connectors** | Send notifications and updates to services like Outlook and Microsoft Teams. | When the SRE Agent detects an incident, it can email stakeholders or post updates in Teams. |
-| **Knowledge connectors** | Ingest data from external monitoring platforms such as Datadog, Dynatrace, and New Relic. | During troubleshooting, the agent can query telemetry from Datadog or Dynatrace. |
 | **Custom connectors** | Create a custom connection to an MCP server endpoint of your choice. The [Azure MCP Center](https://mcp.azure.com/?types.remote=true) gives you access to various MCP endpoints you can integrate into SRE Agent. | When connected to a custom endpoint, SRE Agent can gain insight into external services like GitHub, Hugging Face, Stripe, and many more. For a full list of cataloged MCP server endpoints, see [Azure MCP Center](https://mcp.azure.com/?types.remote=true).|
 
 ## Available connectors
@@ -29,7 +28,6 @@ Azure SRE Agent includes these connectors:
 - **Outlook** for sending email notifications.
 - **Microsoft Teams** to post messages to Teams channels.
 - **Custom MCP Servers** for integration with your own remote MCP server.
-- **Approved partners** to ingest telemetry data from Dynatrace, Datadog, and New Relic.
 
 ## Configure a connector
 
@@ -39,6 +37,8 @@ Follow these steps to set up a connector:
 1. Select **Connectors**.
 1. Choose a connector type (Outlook, Teams, or Custom MCP Server).
 1. Authenticate:
-   - For Outlook and Teams, use OAuth-based authentication.
+   - For Outlook and Teams, use OAuth-based authentication. You will need to sign in with the Outlook or Teams account. Additionally, you will need to select the user-assigned managed identity so that the connector can authenticate with Office 365 APIs.
    - For MCP Servers, provide the MCP URL and credentials or OAuth token.
 1. Confirm and save your configuration.
+
+> Note: For connectors that use a managed identity, only user-assigned managed identities are currently supported. Using system-assigned managed identities in connectors is not fully functional yet.

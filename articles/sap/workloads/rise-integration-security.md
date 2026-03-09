@@ -6,7 +6,7 @@ author: msftrobiro
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.topic: article
+ms.topic: concept-article
 ms.tgt_pltfrm: vm-linux
 ms.date: 12/21/2023
 ms.author: robiro
@@ -61,11 +61,11 @@ In addition to that, the Security Copilot experience is embedded on the Defender
    This image shows an example of Microsoft Security Copilot analyzing an incident detected on SAP RISE through Defender XDR. Data ingestion is done through the Microsoft Sentinel solution for SAP applications.
 :::image-end:::
 
-## Microsoft Sentinel with SAP RISE
+## Microsoft Sentinel Solution for SAP with SAP RISE
 
-The [SAP RISE certified](https://www.sap.com/dmc/exp/sap-certified-solutions/#/solutions?search=sentinel&id=s:33db1376-91ae-4f36-a435-aafa892a88d8) Microsoft Sentinel Solution for SAP applications allows you to monitor, detect, respond, and correlate suspicious activities in SAP with your other enterprise-wide signals. Microsoft Sentinel guards your critical data against sophisticated cyberattacks for SAP systems hosted on Azure, other clouds, or on-premises infrastructure. [Microsoft Sentinel Solution for SAP BTP](../../sentinel/sap/sap-btp-solution-overview.md) expands that coverage to SAP Business Technology Platform (BTP).
+The [SAP RISE certified](https://www.sap.com/dmc/exp/sap-certified-solutions/#/solutions?search=sentinel&id=s:33db1376-91ae-4f36-a435-aafa892a88d8) Microsoft [Sentinel Solution for SAP](../../sentinel/sap/deployment-overview.md?tabs=agentless) applications allows you to monitor, detect, respond, and correlate suspicious activities in SAP with your other enterprise-wide signals. Microsoft Sentinel guards your critical data against sophisticated cyberattacks for SAP systems hosted on Azure, other clouds, or on-premises infrastructure. [Microsoft Sentinel Solution for SAP BTP](../../sentinel/sap/sap-btp-solution-overview.md) expands that coverage to SAP Business Technology Platform (BTP).
 
-The solution allows you to gain visibility to user activities on SAP RISE/ECS and the SAP business logic layers and apply Sentinel’s built-in content.
+The solution allows you to gain visibility to user activities on **SAP S/4HANA Cloud private edition** (RISE/ECS) and the SAP business logic layers and apply Sentinel’s built-in content.
 -	Use a single console to monitor all your enterprise estate including SAP instances in SAP RISE/ECS on Azure and other clouds, SAP Azure native and on-premises estate
 -	Detect and automatically respond to threats: detect suspicious activity including privilege escalation, unauthorized changes, sensitive transactions, data exfiltration and more with out-of-the-box detection capabilities
 -	Correlate SAP activity with other signals: more accurately detect SAP threats by cross-correlating across endpoints, Microsoft Entra data and more
@@ -78,11 +78,8 @@ The solution allows you to gain visibility to user activities on SAP RISE/ECS an
 
 For SAP RISE/ECS, the Microsoft Sentinel Solution for SAP must be deployed in customer's Azure subscription. All parts of the Sentinel solution are managed by customer and not by SAP. The SAP Cloud Connector can be hosted either by SAP in the RISE subscription or by the customer in their network if virtual network connectivity is established.
 
-> [!NOTE]
-> Alternatively, you can deploy the Microsoft Sentinel solution for SAP applications without using SAP Integration Suite and SAP Cloud Connector. This approach uses an agent-based data connector that requires you to host a container in your own environment — either in your Azure subscription or on-premises infrastructure. Learn more [here](../../sentinel/sap/deployment-overview.md).
-
 > [!IMPORTANT]
-> As per the RISE shared responsibility model customers using the Sentinel solution for SAP can only integrate the SAP app layer. SAP RISE infrastructure and operating system logs are only available through the optional SAP LogServ solution. It natively supports Sentinel integration. Learn more [here](https://community.sap.com/t5/enterprise-resource-planning-blog-posts-by-members/ultimate-blog-series-sap-logserv-integration-with-microsoft-sentinel/ba-p/14126401).
+> As per the RISE shared responsibility model customers using the Sentinel solution for SAP can only integrate the SAP app layer. SAP RISE infrastructure and operating system logs are only available through the optional **SAP LogServ** solution. It natively supports Sentinel integration. Learn more [here](https://community.sap.com/t5/enterprise-resource-planning-blog-posts-by-members/ultimate-blog-series-sap-logserv-integration-with-microsoft-sentinel/ba-p/14126401).
 
 ### Automatic response with Sentinel's SOAR capabilities
 

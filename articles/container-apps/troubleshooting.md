@@ -241,4 +241,4 @@ If you receive the message **provisioningState: ScheduledForDelete**, but your e
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Reliability in Azure Container Apps](../reliability/reliability-azure-container-apps.md)
+> [Reliability in Azure Container Apps](/azure/reliability/reliability-azure-container-apps)

@@ -1,8 +1,8 @@
 ---
 title: Azure Device Update for IoT Hub configuration file
 description: Understand the Azure Device Update for IoT Hub du-config.json configuration file.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 12/30/2024
 ms.topic: concept-article
 ms.service: azure-iot-hub

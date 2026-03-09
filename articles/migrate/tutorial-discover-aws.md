@@ -61,7 +61,7 @@ Set up an account that the appliance can use to access AWS instances.
 - Azure Migrate uses password authentication when discovering AWS instances. AWS instances don't support password authentication by default. Before you can discover instance, you need to enable password authentication.
     - For Windows servers, allow WinRM port 5985 (HTTP). This allows remote WMI calls.
     - For Linux servers:
-        1. Sign into each Linux  machine.
+        1. Sign into each Linux machine.
         2. Open the sshd_config file: vi /etc/ssh/sshd_config
         3. In the file, locate the **PasswordAuthentication** line, and change the value to **yes**.
         4. Save the file and close it. Restart the ssh service.

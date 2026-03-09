@@ -1,16 +1,16 @@
 ---
-title: Tutorial - Transform and protect your API in Azure API Management
+title: "Tutorial: Transform and protect your API in Azure API Management"
 description: In this tutorial, you learn how to protect your API in API Management with transformation and throttling (rate-limiting) policies.
-
 author: dlepow    
 ms.service: azure-api-management
 ms.topic: tutorial
-ms.date: 11/25/2024
+ms.date: 02/09/2026
 ms.author: danlep
 ms.custom:
   - mvc
   - devdivchpfy22
   - sfi-image-nochange
+#customer intent: As an API developer responsible for an API, I need to use policies to manage access and use of APIs in API Management.
 ---
 
 # Tutorial: Transform and protect your API
@@ -21,7 +21,7 @@ In this tutorial, you learn about configuring [policies](api-management-howto-po
 
 [!INCLUDE [api-management-workspace-try-it](../../includes/api-management-workspace-try-it.md)] 
 
-For example, you might want to set a custom response header. Or, protect your backend API by configuring a rate limit policy, so that the API isn't overused by developers. These examples are a simple introduction to API Management policies. For more policy options, see [API Management policies](api-management-policies.md).
+For example, you might want to set a custom response header. Or, configure a rate limit policy to protect your backend API, so developers don't overuse the API. These examples are a simple introduction to API Management policies. For more policy options, see [API Management policies](api-management-policies.md).
 
 > [!NOTE]
 > By default, API Management configures a global [`forward-request`](forward-request-policy.md) policy. The `forward-request` policy is needed for the gateway to complete a request to a backend service.
@@ -29,18 +29,18 @@ For example, you might want to set a custom response header. Or, protect your ba
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Transform an API to set a custom response header
-> * Protect an API by adding a rate limit policy (throttling)
-> * Test the transformations
+> - Transform an API to set a custom response header
+> - Protect an API by adding a rate limit policy, or *throttling*
+> - Test the transformations
 
 :::image type="content" source="media/transform-api/api-management-console-new.png" lightbox="media/transform-api/api-management-console-new.png" alt-text="Screenshot of API Management policies in the portal.":::
 
 ## Prerequisites
 
-* Learn the [Azure API Management terminology](api-management-terminology.md).
-* Understand the [concept of policies in Azure API Management](api-management-howto-policies.md).
-* Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md). For this tutorial, we recommend that you use one of the classic or v2 tiers, for example, the Developer tier or the Basic v2 tier. The Consumption tier doesn't support all policies used in this tutorial.
-* Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
+- Learn the [Azure API Management terminology](api-management-terminology.md).
+- Understand the [concept of policies in Azure API Management](api-management-howto-policies.md).
+- Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md). For this tutorial, we recommend that you use one of the classic or v2 tiers, for example, the Developer tier or the Basic v2 tier. The Consumption tier doesn't support all policies used in this tutorial.
+- Complete the following tutorial: [Import and publish your first API](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -48,14 +48,15 @@ In this tutorial, you learn how to:
 
 To see the original response:
 
-1. In your API Management service instance, select **APIs**.
-1. Select **Swagger Petstore** from your API list.
-1. Select the **Test** tab, on the top of the screen.
-1. Select the **GET Finds pets by status** operation, and optionally select a different value of the *status* **Query parameter**. Select **Send**.
+1. In your API Management service instance, select **APIs** > **APIs**.
+1. From your API list, select **Swagger Petstore**.
+1. At the top of the screen, select **Test**.
+1. Select the **GET Finds Pets by status** operation, and optionally select a different value of the *status* **Query parameter**. 
+1. Select **Send**.
 
 The original API response should look similar to the following response:
 
-:::image type="content" source="media/transform-api/test-original-response-new.png" lightbox="media/transform-api/test-original-response-new.png" alt-text="Screenshot of the original API response in the portal.":::
+:::image type="content" source="media/transform-api/test-original-response-new.png" lightbox="media/transform-api/test-original-response-new.png" alt-text="Screenshot of the original API response in the Azure portal.":::
 
 ## Transform an API to add a custom response header
 
@@ -74,19 +75,19 @@ This section shows you how to configure a custom response header using the `set-
 
    :::image type="content" source="media/transform-api/set-http-header.png" alt-text="Screenshot of configuring the Set headers policy in the portal.":::
 
-1. To configure the Set headers policy, do the following:
-    1. Under **Name**, enter **Custom**.
-    1. Under **Value**, select **+ Add value**. Enter *"My custom value"*.
-    1. Select **Save**.
+1. To configure the Set headers policy:
+
+   1. Under **Name**, enter *Custom*.
+   1. Under **Value**, select **+ Add value**. Enter *My custom value*.
+   1. Select **Save**.
   
-1. After configuration, a **set-header** policy element appears in the **Outbound processing** section.
+   After configuration, a **set-header** policy element appears in the **Outbound processing** section.
 
    :::image type="content" source="media/transform-api/set-policy.png" alt-text="Screenshot of the Set headers outbound policies in the portal.":::
 
+## Protect an API by adding rate limit policy
 
-## Protect an API by adding rate limit policy (throttling)
-
-This section shows how to add protection to your backend API by configuring rate limits, so that the API isn't overused by developers. This example shows how to configure the `rate-limit-by-key` policy using the code editor. In this example, the limit is set to three calls per 15 seconds. After 15 seconds, a developer can retry calling the API.
+This section shows how to add protection to your backend API by configuring rate limits, so that developers don't overuse the API. This example shows how to configure the `rate-limit-by-key` policy using the code editor. In this example, the limit is set to three calls per 15 seconds. After 15 seconds, a developer can retry calling the API.
 
 > [!NOTE]
 > This policy isn't supported in the Consumption tier.
@@ -96,22 +97,20 @@ This section shows how to add protection to your backend API by configuring rate
 
    :::image type="content" source="media/transform-api/inbound-policy-code.png" lightbox="media/transform-api/inbound-policy-code.png" alt-text="Screenshot of navigating to inbound policy code editor in the portal.":::
 
-1. Position the cursor inside the **`<inbound>`** element on a blank line. Then, select **Show snippets** at the top-right corner of the screen.
+1. Position the cursor inside the `<inbound>` element on a blank line. Then, select **Show snippets** at the top-right corner of the screen.
 
     :::image type="content" source="media/transform-api/show-snippets-2.png" alt-text="Screenshot of selecting show snippets in inbound policy editor in the portal.":::
 
 1. In the right window, under **Access restriction policies**, select **Limit call rate per key**. 
 
-    The **`<rate-limit-by-key />`** element is added at the cursor. 
+    The `<rate-limit-by-key />` element is added at the cursor. 
 
    :::image type="content" source="media/transform-api/limit-call-rate-per-key.png" alt-text="Screenshot of inserting limit call rate per key policy in the portal.":::
 
-1. Modify your **`<rate-limit-by-key />`** code in the  **`<inbound>`** element to the following code. Then select **Save**.
-
+1. Modify your `<rate-limit-by-key />` code in the `<inbound>` element to the following code. Then select **Save**.
     ```xml
     <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
     ```
-
 
 ## Test the transformations
 
@@ -140,17 +139,17 @@ The rest of this section tests policy transformations that you set in this artic
 ### Test the custom response header
 
 1. Select **Swagger Petstore** > **Test**.
-1. Select the **GET Finds pets by status** operation, and optionally select a different value of the *status* **Query parameter**. Select **Send**.
+1. Select the **GET Finds Pets by status** operation, and optionally select a different value of the *status* **Query parameter**. Select **Send**.
 
     As you can see, the custom response header is added:
 
     :::image type="content" source="media/transform-api/custom-response-header.png" alt-text="Screenshot showing custom response header in the portal.":::
 
 
-### Test the rate limit (throttling)
+### Test the rate limit
 
 1. Select **Swagger Petstore** > **Test**.
-1. Select the **GET Finds Pets by Status** operation. Select **Send** several times in a row.
+1. Select the **GET Finds Pets by status** operation. Select **Send** several times in a row.
 
     After sending too many requests in the configured period, you get the **429 Too Many Requests** response.
 
@@ -166,11 +165,11 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 >
-> * Transform an API to set a custom response header
-> * Protect an API by adding a rate limit policy (throttling)
-> * Test the transformations
+> - Transform an API to set a custom response header
+> - Protect an API by adding a rate limit policy
+> - Test the transformations
 
-## Next steps
+## Next step
 
 Advance to the next tutorial:
 

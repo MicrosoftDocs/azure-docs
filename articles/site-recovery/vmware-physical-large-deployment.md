@@ -4,7 +4,7 @@ ms.reviewer: v-gajeronika
 description: Learn how to set up disaster recovery to Azure for large numbers of on-premises VMware VMs or physical servers with Azure Site Recovery.
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 12/08/2025
+ms.date: 01/12/2026
 ms.author: v-gajeronika
 author: Jeronika-MS
 ms.custom: engagement-fy23
@@ -54,7 +54,7 @@ Then run the Planner as follows:
 1. [Learn about](site-recovery-deployment-planner.md) the Deployment Planner. You can download the latest version from the portal, or [download it directly](https://aka.ms/asr-deployment-planner).
 2. Review the [prerequisites](site-recovery-deployment-planner.md#prerequisites) and [latest updates](site-recovery-deployment-planner-history.md) for the Deployment Planner, and [download and extract](site-recovery-deployment-planner.md#download-and-extract-the-deployment-planner-tool) the tool.
 3. [Run the Deployment Planner](site-recovery-vmware-deployment-planner-run.md) on the configuration server.
-4. [Generate a report](site-recovery-vmware-deployment-planner-run.md#generate-report) to summarize estimations and recommendations.
+4. [Generate a cost report](site-recovery-vmware-deployment-planner-run.md#generate-a-cost-report) to summarize estimations and recommendations.
 5. Analyze the [report recommendations](site-recovery-vmware-deployment-planner-analyze-report.md) and [cost estimations](site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 >[!NOTE]

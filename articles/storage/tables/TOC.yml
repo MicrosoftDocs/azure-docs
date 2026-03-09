@@ -78,7 +78,7 @@
   - name: Reliability
     items:
     - name: Reliability in Azure Table storage
-      href: ../../reliability/reliability-storage-table.md?toc=/azure/storage/tables/toc.json
+      href: /azure/reliability/reliability-storage-table?toc=/azure/storage/tables/toc.json
     - name: Data redundancy
       href: ../common/storage-redundancy.md?toc=/azure/storage/tables/toc.json
     - name: Disaster recovery and failover

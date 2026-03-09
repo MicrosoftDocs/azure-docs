@@ -17,9 +17,9 @@ This article describes example scenarios for configuring disaster recovery and g
 
 ## Background
 
-In Durable Functions, all state is persisted in Azure Storage by default. A [task hub](durable-functions-task-hubs.md) is a logical container for Azure Storage resources that are used for [orchestrations](durable-functions-types-features-overview.md#orchestrator-functions) and [entities](durable-functions-types-features-overview.md#entity-functions). Orchestrator, activity, and entity functions can interact with each other only when they belong to the same task hub. This article refers to task hubs when describing scenarios for keeping these Azure Storage resources highly available.
+In Durable Functions, all state is persisted in Azure Storage by default. A [task hub](durable-functions-task-hubs.md) is a logical container for Azure Storage resources that are used for [orchestrations](programming-model-overview.md#orchestrators) and [entities](programming-model-overview.md#entities). Orchestrator, activity, and entity functions can interact with each other only when they belong to the same task hub. This article refers to task hubs when describing scenarios for keeping these Azure Storage resources highly available.
 
-Orchestrations and entities can be triggered via [client functions](durable-functions-types-features-overview.md#client-functions) that are themselves triggered via HTTP or one of the other supported Azure Functions trigger types. Orchestrations and entities can also be triggered via [built-in HTTP APIs](durable-functions-http-features.md#built-in-http-apis). For simplicity, this article focuses on scenarios that involve Azure Storage and HTTP-based function triggers, along with options to increase availability and minimize downtime during disaster recovery. This article doesn't explicitly cover other trigger types, such as Azure Service Bus or Azure Cosmos DB triggers.
+Orchestrations and entities can be triggered via [client functions](programming-model-overview.md#client) that are themselves triggered via HTTP or one of the other supported Azure Functions trigger types. Orchestrations and entities can also be triggered via [built-in HTTP APIs](durable-functions-http-features.md#built-in-http-apis). For simplicity, this article focuses on scenarios that involve Azure Storage and HTTP-based function triggers, along with options to increase availability and minimize downtime during disaster recovery. This article doesn't explicitly cover other trigger types, such as Azure Service Bus or Azure Cosmos DB triggers.
 
 The scenarios in this article are based on active/passive configurations, which best support the usage of Azure Storage. This pattern consists of deploying a backup (passive) function app to a different region. [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) monitors the primary (active) function app for HTTP availability. It fails over to the backup function app when the primary app fails. For more information, see [Priority traffic-routing method](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method).
 
@@ -38,7 +38,7 @@ To mitigate the possibility of downtime if your function app resources become un
 
 Traffic Manager is configured to detect problems in the primary function app and automatically redirect traffic to the function app in the secondary region. This function app shares the same Azure Storage account and task hub. The state of the function apps isn't lost, and work can resume normally. After health is restored to the primary region, Azure Traffic Manager starts routing requests to that function app automatically.
 
-![Diagram that shows function apps in separate regions with a shared Azure Storage account.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario01.png)
+:::image type="content" source="./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario01.png" alt-text="Diagram that shows function apps in separate regions with a shared Azure Storage account.":::
 
 There are several benefits to using this deployment scenario:
 
@@ -65,7 +65,7 @@ The preceding scenario covers only failures limited to the compute infrastructur
 
 To ensure continuous operation of Durable Functions, the second scenario deploys a dedicated storage account or a durable task scheduler in each region where function apps are hosted. We currently recommend this disaster recovery approach when you're using a durable task scheduler.
 
-![Diagram that shows function apps in separate regions with separate Azure Storage accounts.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario02.png)
+:::image type="content" source="./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario02.png" alt-text="Diagram that shows function apps in separate regions with separate Azure Storage accounts.":::
 
 This approach adds improvements to the previous scenario:
 
@@ -82,7 +82,7 @@ This approach adds improvements to the previous scenario:
 
 This scenario is a modification of the first scenario (implementing a shared storage account). The main difference is that the storage account is created with geo-replication enabled.
 
-![Diagram that shows function apps in separate regions sharing a storage account, with failover to a replica.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario03.png)
+:::image type="content" source="./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario03.png" alt-text="Diagram that shows function apps in separate regions sharing a storage account, with failover to a replica.":::
 
 This scenario provides the same functional advantages as the first scenario, but it also enables other data recovery advantages:
 

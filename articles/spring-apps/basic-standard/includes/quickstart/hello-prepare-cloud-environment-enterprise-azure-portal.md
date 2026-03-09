@@ -8,7 +8,7 @@ ms.update-cycle: 1095-days
 ---
 
 <!--
-For clarity of structure, a separate markdown file is used to describe how to prepare cloud env (enterprise plan) using Azure Portal.
+For clarity of structure, a separate markdown file is used to describe how to prepare cloud env (enterprise plan) using Azure portal.
 
 [!INCLUDE [hello-prepare-cloud-environment-enterprise-azure-portal](includes/quickstart/hello-prepare-cloud-environment-enterprise-azure-portal.md)]
 

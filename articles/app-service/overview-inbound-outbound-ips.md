@@ -4,7 +4,7 @@ description: Learn how inbound and outbound IP addresses are used in Azure App S
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: concept-article
-ms.date: 08/05/2025
+ms.date: 01/14/2026
 ms.update-cycle: 1095-days
 ms.custom:
   - UpdateFrequency3
@@ -119,9 +119,6 @@ The tag can be used to allow outbound traffic in a Network security group (NSG) 
 
 Azure App Service supports IPv6 for inbound traffic on all Basic, Standard, and Premium SKUs, as well as Functions Consumption, Functions Elastic Premium, and Logic Apps Standard plans. Apps can receive traffic over both IPv4 and IPv6 protocols, providing compatibility with modern networks and clients that require IPv6 connectivity.
 
-> [!NOTE]
-> Outbound IPv6 support is in public preview just for Windows apps. For more information on outbound IPv6 support, see [Announcing App Service Outbound IPv6 Support in Public Preview](https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-app-service-outbound-ipv6-support-in-public-preview/4423368). All outbound connections from your Linux apps still use IPv4.
-
 ### Prerequisites
 
 To use IPv6 inbound traffic, you need:
@@ -214,6 +211,12 @@ When using custom domains, you can configure DNS records to support IPv6:
 
 - **IPv6 only**: Add an AAAA record pointing to your app's IPv6 address. Clients must support IPv6.
 - **Dual-stack**: Add both A (IPv4) and AAAA (IPv6) records, or use a CNAME record to the default hostname, which inherits the `IPMode` behavior.
+
+## Outbound IPv6 support (preview)
+
+Azure App Service supports IPv6 for outbound traffic in public preview for both Windows and Linux sites. Public preview of outbound IPv6 support for multitenant apps is supported on all App Service plan SKUs, Functions Consumption, Functions Elastic Premium, and Logic Apps Standard.
+
+For more information on outbound IPv6 support, including how to enable it and platform-specific behavior, see [Announcing App Service Outbound IPv6 Support in Public Preview](https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-app-service-outbound-ipv6-support-in-public-preview/4423368).
 
 ## Related content
 

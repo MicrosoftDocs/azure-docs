@@ -109,7 +109,7 @@
   - name: Supported VM sizes
     href: batch-pool-vm-sizes.md
   - name: Reliability in Azure Batch
-    href: ../reliability/reliability-batch.md?toc=/azure/batch/toc.json&bc=/azure/batch/breadcrumb/toc.json
+    href: /azure/reliability/reliability-batch?toc=/azure/batch/toc.json&bc=/azure/batch/breadcrumb/toc.json
   - name: Task runtime environment variables
     href: batch-compute-node-environment-variables.md
   - name: Feature retirements

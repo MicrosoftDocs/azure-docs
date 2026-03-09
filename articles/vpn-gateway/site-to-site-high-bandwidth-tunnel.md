@@ -1,17 +1,17 @@
 ---
-title: 'Create a site-to-site high bandwidth tunnels in the Azure portal'
+title: 'Create site-to-site high bandwidth tunnels in the Azure portal'
 description: In this article, you learn how to create a VPN Gateway site-to-site IPsec with High Bandwidth tunnels to establish connection between your on-premises network and a virtual network through the ExpressRoute private peering.
 titleSuffix: Azure VPN Gateway
 author: fabferri
 ms.author: jonor
 ms.service: azure-vpn-gateway
 ms.topic: tutorial
-ms.date: 07/18/2025
+ms.date: 01/08/2026
 
 #customer intent: As a network engineer, I want to create a site-to-site VPN connection between my on-premises location and my Azure virtual network with High Bandwidth tunnels with transit through ExpressRoute private peering.
 ---
 
-# Create a site-to-site high bandwidth tunnels in the Azure portal **(Preview)**
+# Create site-to-site high bandwidth tunnels in the Azure portal
 
 The Azure VPN Gateway High Bandwidth tunnels feature, part of the Advanced Connectivity capabilities, delivers enhanced tunnel throughput for high-performance IPsec connections between your on-premises network and Azure virtual network. These tunnels are established between your on-premises VPN device and the Azure VPN Gateway, with traffic transiting through ExpressRoute private peering. High Bandwidth tunnels use private IP addresses on-premises to establish a secure, encrypted overlay network between your on-premises infrastructure and Azure.
 
@@ -19,23 +19,24 @@ High Bandwidth tunnels provide end-to-end encryption to meet security compliance
 
 :::image type="content" source="media/site-to-site-high-bandwidth-tunnel/transit-high-bandwidth-tunnels.png" alt-text="Diagram showing Transit High Bandwidth IPsec tunnels architecture.":::
 
+> [!IMPORTANT]
+> There are known issues and regional limitations with this VPN Gateway. Ensure you're familiar with the limitations listed at the end of this document!
+
 ## Prerequisites
 
-To use VPN Gateway High Bandwidth tunnels, your ExpressRoute Connection must have FastPath enabled. FastPath is currently supported only on ExpressRoute Direct port pairs. As a result, your ExpressRoute circuit must be provisioned on an ExpressRoute Direct port pair to support this solution.
+To use VPN Gateway High Bandwidth tunnels, your ExpressRoute Connection must have FastPath enabled.
 
 This article assumes that your Azure subscription already includes:
-- An ExpressRoute circuit deployed on a Direct port pair with private peering.
+- An ExpressRoute circuit deployed with private peering.
 - A virtual network with the address space `10.1.0.0/16` and a Gateway subnet of `10.1.0.0/26`.
 
 The required Azure resources for this deployment are:
 
-- **ExpressRoute Direct Port**
-- **ExpressRoute Circuit**
+- **ExpressRoute Circuit with FastPath support**
 - **ExpressRoute Virtual Network Gateway**
 - **Connection between the ExpressRoute circuit and the virtual network gateway with FastPath enabled**
 - **VPN Gateway (SKU: VpnGw5AZ) with Advanced Connectivity enabled**
 - **VPN Local Network Gateway**
-- (optional) **User Defined Route (UDR) to direct ExpressRoute traffic to the VPN Gateway**
 
 ## <a name="VNetGateway"></a>Create an ExpressRoute Gateway
 
@@ -68,14 +69,6 @@ You can also confirm FastPath is enabled in the Azure portal. Go to your Express
 
 :::image type="content" source="media/site-to-site-high-bandwidth-tunnel/expressroute-connection-fastpath.png" alt-text="Screenshot showing ExpressRoute Connection with FastPath enabled.":::
 
-To enable support for High Bandwidth tunnels, you must activate the **EnablePrivateLinkFastPath** attribute on your ExpressRoute connection. Use the following PowerShell commands:
-
-```azurepowershell-interactive
-
-$connection.EnablePrivateLinkFastPath = $true
-Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
-```
-
 After you complete this step, your Azure virtual network will be connected to your on-premises networks, and ExpressRoute will be configured to support High Bandwidth tunnels.
 
 ## <a name="on-premises network"></a>Advertise on-premises network to ExpressRoute
@@ -84,7 +77,26 @@ When using IPsec tunnels that transit ExpressRoute private peering, you must adv
 
 To ensure all traffic between Azure and your on-premises network is encrypted, configure routing so that only the VPN device tunnel IPs are advertised over ExpressRoute. The actual on-premises network prefixes should be routed through the VPN Gateway, either using static routes or BGP. This approach ensures that on-premises to Azure traffic is always encrypted inside the VPN tunnel before it enters the ExpressRoute data path.
 
-If you advertise on-premises network prefixes to ExpressRoute through BGP, those routes can bypass the VPN Gateway, resulting in unencrypted traffic. To prevent this issue, use a user-defined route (UDR) on your Azure virtual network to direct traffic to the VPN Gateway as the next hop. This configuration guarantees that all traffic is encrypted before transiting ExpressRoute.
+## <a name="Selective traffic encryption"></a>Selective traffic encryption between on-premises networks and Azure VNets
+
+In scenarios where only a portion of the traffic between your on-premises networks and an Azure Virtual Network (VNet) requires encryption, you can choose from the following configuration options.
+
+**Option 1 – Steering encrypted traffic via IPsec tunnels only**
+
+To ensure predictable routing, advertise different on-premises IP network prefixes over ExpressRoute and over the IPsec tunnels. Advertise only the on-premises prefixes that do not require encryption through the ExpressRoute circuit, and configure the IPsec tunnels to advertise only the prefixes that do require encryption.
+
+**Option 2 – Route precedence using more specific network prefixes**
+
+Advertise more specific (longer subnet masks) on‑premises IP network prefixes over the IPsec tunnels than the on-premises prefixes you advertise over the ExpressRoute circuit. Because Azure and on‑premises devices both select routes based on longest prefix match (LPM), these more specific prefixes learned through the IPsec tunnel will take precedence over the less specific prefixes learned through ExpressRoute. This ensures that traffic destined for those networks follows the encrypted IPsec path rather than the unencrypted ExpressRoute path.
+
+These considerations apply regardless of whether static or dynamic routing is used for the IPsec tunnels.
+
+Avoid advertising the same on-premises IP network prefixes simultaneously over both ExpressRoute circuit and IPsec tunnels. If the on-premises routing policies give to the IPsec tunnels higher priority, outbound traffic from on-premises to Azure will prefer the IPsec path. However, Azure typically prefers routes learned from ExpressRoute Gateway when identical prefixes are received from both connections. 
+This mismatch results in asymmetric routing, where traffic flows outbound through one path (IPsec) but returns through another (ExpressRoute). Flows with asymmetric transit can lead to packet drops, especially on stateful on-premises devices.
+
+> [!NOTE]
+> Do not use User Defined Routes (UDRs) with a next-hop type **Virtual Network Gateway** to force traffic through the VPN Gateway. This approach is not supported and does not work.
+
 
 ## <a name="VNetGateway"></a>Create a VPN gateway High Bandwidth tunnel
 
@@ -217,7 +229,7 @@ Configuring your on-premises VPN device is the final step. At this stage, you sh
 
 When configuring your VPN device, you need the following details:
 
-- **Shared key (preshared key)**: This key is specified when you create your site-to-site VPN connections. While the examples use a simple key, we recommend generating a complex, secure key for production environments.
+- **Shared key (pre-shared key)**: This key is specified when you create your site-to-site VPN connections. While the examples use a simple key, we recommend generating a complex, secure key for production environments.
 - **Private tunnel IP addresses of the Azure VPN Gateway**: Each VPN Gateway instance provides two private tunnel IPs, for a total of four IPsec tunnels in a High Bandwidth configuration. Many VPN devices support this setup using Virtual Tunnel Interfaces (VTIs), allowing each on-premises outbound interface IP to be associated with up to two VTIs.
 - **Azure virtual network address space**: The address range assigned to your Azure virtual network.
 
@@ -285,6 +297,37 @@ If you no longer need the resources you created, you can delete them to avoid un
 2. On the resource group page, select **Delete resource group**.
 3. When prompted, type the name of the resource group to confirm, then select **Delete**.
 This action permanently removes the resource group and all resources it contains.
+
+## Unsupported Regions
+The advanced functionality of this gateway requires some of the latest hardware components. These components are available in most but not all Azure Regions. As of January 8, 2026, the Advanced Connectivity VPN Gateway WILL NOT deploy in the following regions:
+ - Australia Central
+ - Brazil South
+ - Central US
+ - Denmark East
+ - East US 2
+ - East US 2 EUAP
+ - Korea Central
+ - Malaysia South
+ - Mexico Central
+ - North Central US
+ - North Europe
+ - Qatar Central
+ - South Central US
+ - Southeast US 5
+ - West Europe
+ - West India
+ - West US 2
+ - West US 3
+
+## Known Issues
+The first release of the Advanced Connectivity VPN Gateway doesn't support some VPN Gateway functions. This list is on our backlog and will be delivered as quickly as possible. The currently unsupported functions are:
+ - Internet based VPN, currently this Gateway is only available over ExpressRoute Private Peering
+ - IKEv1 and P2S aren't supported
+ - No migration path from existing gateways
+ - No APIPA support for BGP sessions
+ - No NAT support
+ - No IPv6 support
+ - No interoperability with Virtual WAN (vWAN)
 
 ## Next steps
 

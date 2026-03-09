@@ -41,17 +41,18 @@ When you create a new blob, a single version exists, and that version is the cur
 The following diagram shows how versions are created on write operations, and how a previous version may be promoted to be the current version:
 
 :::image type="content" source="media/versioning-overview/blob-versioning-diagram.png" alt-text="Diagram showing how blob versioning works":::
+> [!IMPORTANT]
+> Having a large number of versions per blob can increase the latency for blob listing operations. Microsoft recommends maintaining fewer than 1000 versions per blob. You can use lifecycle management to automatically delete old versions. For more information about lifecycle management, see [Optimize costs by automating Azure Blob Storage access tiers](./lifecycle-management-overview.md).
 
 Blob versions are immutable. You can't modify the content or metadata of an existing blob version.
-
-Having a large number of versions per blob can increase the latency for blob listing operations. Microsoft recommends maintaining fewer than 1000 versions per blob. You can use lifecycle management to automatically delete old versions. For more information about lifecycle management, see [Optimize costs by automating Azure Blob Storage access tiers](./lifecycle-management-overview.md).
 
 Blob versioning is available for standard general-purpose v2, premium block blob, and legacy Blob storage accounts. Storage accounts with a hierarchical namespace enabled for use with Azure Data Lake Storage aren't currently supported.
 
 Version 2019-10-10 and higher of the Azure Storage REST API supports blob versioning.
 
 > [!IMPORTANT]
-> Blob versioning cannot help you to recover from the accidental deletion of a storage account or container. To prevent accidental deletion of the storage account, configure a lock on the storage account resource. For more information on locking a storage account, see [Apply an Azure Resource Manager lock to a storage account](../common/lock-account-resource.md).
+> Blob versioning cannot help you to recover from the accidental deletion of a storage account or container. To prevent accidental deletion of the storage account, configure a lock on the storage account resource. For more information on locking a storage account, see [Apply an Azure Resource Manager lock to a storage account](../common/lock-account-resource.md). 
+
 
 ### Version ID
 
@@ -291,7 +292,7 @@ Operations that explicitly set the tier of a blob, version, or snapshot include:
 
 #### Deleting a blob when soft delete is enabled
 
-When blob soft delete is enabled, all soft-deleted entities are billed at full content length. If you delete or overwrite a current version that has had its tier explicitly set, then any previous versions of the soft-deleted blob are billed at full content length. For more information about how blob versioning and soft delete work together, see [Blob versioning and soft delete](#blob-versioning-and-soft-delete).
+When blob soft delete is enabled, all soft-deleted entities are billed at the same rate as live data. If you delete or overwrite a current version that has had its tier explicitly set, then any previous versions of the soft-deleted blob are billed at full content length. For more information about how blob versioning and soft delete work together, see [Blob versioning and soft delete](#blob-versioning-and-soft-delete).
 
 ## Feature support
 

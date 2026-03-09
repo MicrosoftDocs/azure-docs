@@ -28,6 +28,8 @@ The Azure Migrate appliance is used in the following scenarios.
 **Discovery and assessment of servers running in Hyper-V environment** | Azure Migrate: Discovery and assessment | Discover servers running in your Hyper-V environment.<br/><br/> Perform discovery of installed software inventory, SQL Server instances and databases, and agentless dependency analysis.<br/><br/> Collect server configuration and performance metadata for assessments.
 **Discovery and assessment of physical or virtualized servers on-premises** |  Azure Migrate: Discovery and assessment |  Discover physical or virtualized servers on-premises.<br/><br/> Perform discovery of installed software inventory, ASP.NET web apps, SQL Server instances and databases, and agentless dependency analysis.<br/><br/> Collect server configuration and performance metadata for assessments.
 
+>[!IMPORTANT]
+> Before deploying the appliance using any method, ensure your Azure account and subscription meet the required role-based access control (RBAC) and permission prerequisites. For more information, see [Prepare Azure accounts for Azure Migrate](prepare-azure-accounts.md).
 
 ## Deployment methods
 
@@ -82,7 +84,7 @@ C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip 
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | Zip file (693 MB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)  | e42af63e607132b3dfbd2ebbf1c86941ecb03f0a096813910dd29dde14ad4059   |
+    | Zip file (839 MB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)  | 42CF83E265D54E4D014658DAB36457C83B630A2EA22C8150AD41C607DE7A0476   |
 
 
 ## Appliance services

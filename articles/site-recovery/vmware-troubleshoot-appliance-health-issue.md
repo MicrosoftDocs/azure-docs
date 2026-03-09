@@ -1,11 +1,12 @@
 ---
-title: Troubleshoot VMware replication appliance health issues in Azure Site Recovery 
-description: This article describes troubleshooting replication appliance health issues in Azure Site Recovery. 
+title: Troubleshoot VMware replication appliance health issues in Azure Site Recovery
+description: This article describes troubleshooting replication appliance health issues in Azure Site Recovery.
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.date: 12/09/2025
-author: Jeronika-MS
-ms.author: v-gajeronika 
+ms.author: v-gajeronika
+ms.reviewer: v-gajeronika
+ms.date: 02/12/2026
 
 # Customer intent: As an IT administrator managing VMware environments, I want to troubleshoot replication appliance health issues in my Azure Site Recovery setup so that I can ensure reliable disaster recovery and smooth data replication.
 ---
@@ -18,9 +19,9 @@ This article describes how to troubleshoot a replication appliance health issue.
 
 ## Before you start
 
-Before you start troubleshooting, ensure that:
+Before you start troubleshooting, make sure that you:
 
-- You understand how to [deploy Azure Site Recovery replication appliance - Modernized](./deploy-vmware-azure-replication-appliance-modernized.md).
+- Understand how to [deploy Azure Site Recovery replication appliance - Modernized](./deploy-vmware-azure-replication-appliance-modernized.md).
 - Review the [support requirements for Azure Site Recovery replication appliance](./replication-appliance-support-matrix.md).
 
 ## Troubleshoot process
@@ -29,7 +30,7 @@ If you see the following error in the appliance health status:
 
 ### Troubleshoot certificate renewal
 
-This document describes how to troubleshoot replication appliance health issues in Azure Site Recovery for the following critical replication appliance issues:
+This article describes how to troubleshoot replication appliance health issues in Azure Site Recovery for the following critical replication appliance issues:
 
 | Issue | Error ID |
 |-------|----------|
@@ -42,23 +43,23 @@ This document describes how to troubleshoot replication appliance health issues 
 
 To troubleshoot these issues, follow these steps:
 
-1. Navigate to the [replication appliance](./deploy-vmware-azure-replication-appliance-modernized.md) and log in.
-2. Open the Microsoft Appliance configuration manager and ensure to upgrade all the appliance components to the latest version. Find the latest versions [here](./site-recovery-whats-new.md#supported-updates) and follow the upgrade steps [here](./upgrade-mobility-service-modernized.md#upgrade-appliance).
-3. Navigate to the **Certificate renewal** section and select **Renew certificate**. This triggers the certificate renewal operation. Wait for it to complete.
+1. Go to the [replication appliance](./deploy-vmware-azure-replication-appliance-modernized.md) and sign in.
+1. Open the Microsoft Appliance configuration manager and upgrade all the appliance components to the latest version. Find the latest versions [here](./site-recovery-whats-new.md#supported-updates) and follow the upgrade steps [here](./upgrade-mobility-service-modernized.md#upgrade-appliance).
+1. Go to the **Certificate renewal** section and select **Renew certificate**. This action starts the certificate renewal process. Wait for it to finish.
 
 :::image type="content" source="./media/vmware-troubleshoot-appliance-health-issue/certificate.png" alt-text="Screenshot of appliance health error.":::
 
-### Troubleshoot other error
+### Troubleshoot other errors
 
-**If you see the following for your web app in replication appliance:**
+**If you see the following error for your web app in replication appliance:**
 
 :::image type="content" source="./media/vmware-troubleshoot-appliance-health-issue/appliance-health.png" alt-text="Screenshot of appliance health error excel.":::
     
 Follow these steps:
 
 1. Open PowerShell.
-2. Enter `cd "C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell"`.
-3. Enter `.\WebBinding.ps1` to complete the process.
+1. Enter `cd "C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell"`.
+1. Enter `.\WebBinding.ps1` to complete the process.
 
 ## Next steps
 

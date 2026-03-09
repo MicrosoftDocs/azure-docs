@@ -1,7 +1,7 @@
 ---
 title: Connect Azure Functions to Azure SQL Database using Visual Studio Code
 description: Learn how to connect Azure Functions to Azure SQL Database by adding an output binding to your Visual Studio Code project.
-ms.date: 12/29/2024
+ms.date: 02/26/2026
 ms.topic: quickstart
 author: dzsquared
 ms.author: drskwier
@@ -26,7 +26,7 @@ This article shows you how to use Visual Studio Code to connect [Azure SQL Datab
 Before you begin, you must complete the [quickstart: Create a C# function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-csharp). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.
 ::: zone-end
 ::: zone pivot="programming-language-javascript"  
-Before you begin, you must complete the [quickstart: Create a JavaScript function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-javascript?pivot=nodejs-model-v3). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
+Before you begin, you must complete the [quickstart: Create a JavaScript function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-javascript). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
 ::: zone-end
 ::: zone pivot="programming-language-python"  
 Before you begin, you must complete the [quickstart: Create a Python function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-python). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
@@ -158,7 +158,7 @@ Add the following properties to the binding configuration:
 ::: zone-end
 
 ::: zone pivot="programming-language-python"  
-Binding attributes are defined directly in the *function_app.py* file. You use the `generic_output_binding` decorator to add an [Azure SQL output binding](./functions-reference-python.md#outputs):
+Binding attributes are defined directly in the *function_app.py* file. You use the `generic_output_binding` decorator to add an [Azure SQL output binding](./functions-bindings-azure-sql-output.md?programming-language=python):
 
 ```python
 @app.generic_output_binding(arg_name="toDoItems", type="sql", CommandText="dbo.ToDo", ConnectionStringSetting="SqlConnectionString"
@@ -224,7 +224,7 @@ At this point, your function should look as follows:
 
 
 ::: zone pivot="programming-language-python"  
-Update *HttpExample\\function_app.py* to match the following code. Add the `toDoItems` parameter to the function definition and `toDoItems.set()` under the `if name:` statement:
+Update *function_app.py* to match the following code. Add the `toDoItems` parameter to the function definition and `toDoItems.set()` under the `if name:` statement:
 
 ```python
 import azure.functions as func

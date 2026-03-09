@@ -8,7 +8,7 @@ ms.author: rossgrambo
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 10/31/2025
+ms.date: 02/10/2026
 ---
 
 # Use variant feature flags
@@ -78,6 +78,9 @@ Continue to the following instructions to use the variant feature flag in your a
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core](./howto-variant-feature-flags-aspnet-core.md)
+
+> [!div class="nextstepaction"]
+> [Spring Boot](./how-to-variant-feature-flags-spring-boot.md)
 
 > [!div class="nextstepaction"]
 > [Python](./howto-variant-feature-flags-python.md)

@@ -20,10 +20,10 @@ In this article, you'll learn how to deploy an Arc-enabled Managed SQL Instance 
 - Access to an Extended Zone. For more information, see [Request access to an Azure Extended Zone](request-access.md).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 - Access to a public or private container registry, such as the [Azure Container Registry](/azure/container-registry/).
-- Azure Data Studio
-- Azure Arc extension for Azure Data Studio
-- arcdata extension for Azure CLI
-- kubectl
+- [Visual Studio Code](https://code.visualstudio.com/download) (substituting previously used Azure Data Studio, which is now [retired](https://learn.microsoft.com/sql/tools/whats-happening-azure-data-studio?view=sql-server-ver17&tabs=dev)).
+- [Azure Arc for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=azurearc-dev.azurearc)(substituting previously used Azure Data Studio Azure Arc extension, which is now [retired](https://learn.microsoft.com/sql/tools/whats-happening-azure-data-studio?view=sql-server-ver17&tabs=dev)).
+- arcdata extension for Azure CLI.
+- kubectl.
 - An [Azure Arc data controller](/azure/azure-arc/data/plan-azure-arc-data-services), in addition to the required tools. 
 - Other client tools depending on your environment. For a more comprehensive list, see [Client tools](/azure/azure-arc/data/install-client-tools).
 - [An Azure Arc-enabled Kubernetes cluster set up in Extended Zones](/azure/extended-zones/arc-enabled-workloads-arc-enabled-aks-cluster). 
@@ -152,7 +152,7 @@ To view the instance, use the following command:
 az sql mi-arc list --k8s-namespace <namespace> --use-k8s
 ```
 
-You can copy the external IP and port number from here and connect to SQL Managed Instance enabled by Azure Arc. At this time, use the insiders build of [Azure Data Studio](https://github.com/microsoft/azuredatastudio#try-out-the-latest-insiders-build-from-main).
+You can copy the external IP and port number from here and connect to SQL Managed Instance enabled by Azure Arc. At this time, you may use the Visual Studio Code extension for Azure Arc.
 
 
 ## Clean up resources
@@ -167,7 +167,6 @@ az group delete --name my-aks-cluster-group
 
 - [Create an Arc-enabled AKS cluster in an Extended Zone](/azure/extended-zones/arc-enabled-workloads-arc-enabled-aks-cluster)
 - [Deploy Arc-enabled workloads in an Extended Zone: ContainerApps](/azure/extended-zones/arc-enabled-workloads-container-apps)
-- [Deploy Arc-enabled workloads in an Extended Zone: PostgreSQL](/azure/extended-zones/arc-enabled-workloads-postgre-sql)
 - [Deploy an AKS cluster in an Extended Zone](deploy-aks-cluster.md)
 - [Deploy a storage account in an Extended Zone](create-storage-account.md)
 - [Frequently asked questions](faq.md)

@@ -3,7 +3,7 @@ title: Configure VMware syslogs for Azure VMware Solution
 description: Learn how to configure diagnostic settings to collect VMware syslogs for your Azure VMware Solution private cloud.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 6/7/2024
+ms.date: 2/18/2026
 ms.custom: engagement-fy23
 
 #Customer intent: As an Azure service administrator, I want to collect VMware syslogs and store it in my storage account so that I can view the vCenter Server logs and analyze for any diagnostic purposes.
@@ -56,15 +56,17 @@ In this section, you’ll:
 
 #### Create a resource
 
-1. In the Azure portal, go to **Create a resource**.
+1. In the Azure portal, navigate to **Create a resource**.
 2. Search for “Log Analytics Workspace” and select **Create** -> **Log Analytics Workspace**.
 
 :::image type="content" source="media/send-logs-to-log-analytics/marketplace.png" alt-text="Screenshot of Create a resource." border="false"  lightbox="media/send-logs-to-log-analytics/marketplace.png":::
 
 #### Set up your workspace
 
-1. Enter the Subscription you intend to use, the Resource Group chosen to house this workspace. Give it a name and select a region. 
-2. Select **Review** + **Create**.
+1. Navigate to the **Basics** tab on the **Create Log Analytics workspace** page.
+2. Under **Project details**, enter the **Subscription** you intend to use and the **Resource Group** chosen to house this workspace. 
+3. Under **Instance details**, create a **Name** and select a **Region**. 
+3. Select **Review** + **Create**.
 
 :::image type="content" source="media/send-logs-to-log-analytics/create-workspace.png" alt-text="Screenshot of Marketplace." border="false"  lightbox="media/send-logs-to-log-analytics/create-workspace.png":::
 

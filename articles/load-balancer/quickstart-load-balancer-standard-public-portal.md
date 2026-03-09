@@ -5,7 +5,7 @@ description: Learn how to create a public load balancer using the Azure portal.
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 06/28/2024 
+ms.date: 01/09/2026
 ms.author: mbender
 ms.custom:
   - mvc
@@ -87,7 +87,7 @@ During the creation of the load balancer, you configure:
 1. Select **Zone-redundant** in **Availability zone**.
 
     > [!NOTE]
-    > In regions with [Availability Zones](../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear.</br> For more information on availability zones, see [Availability zones overview](../reliability/availability-zones-overview.md).
+    > In regions with [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear.</br> For more information on availability zones, see [Availability zones overview](/azure/reliability/availability-zones-overview).
 
 1. Leave the default of **Microsoft Network** for **Routing preference**.
 

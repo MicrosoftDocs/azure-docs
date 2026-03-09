@@ -1,44 +1,41 @@
 ---
 title: Import an OpenAPI specification to Azure API Management | Microsoft Docs
-description: Learn how to import an OpenAPI specification to an API Management instance using the Azure portal, Azure CLI, or Azure PowerShell. Then, test the API in the Azure portal.
+description: Learn how to import an OpenAPI specification to an API Management instance using the Azure portal, Azure CLI, or Azure PowerShell. Then, test the API.
 services: api-management
 author: dlepow
-
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 11/27/2024
+ms.date: 02/02/2026
 ms.author: danlep
 ms.custom: engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
+#customer intent: As an API developer, I want to know how to import a backend API into API Management to choose the best workflow for my projects.
 ---
 # Import an OpenAPI specification
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-This article shows how to import an "OpenAPI specification" backend API to Azure API Management using various tools. The article also shows how to test the API in API Management. 
+This article shows how to import an *OpenAPI specification* backend API to Azure API Management using various tools. The article also shows how to test the API in API Management. For information about OpenAPI version support, see [API import restrictions and known issues](api-management-api-import-restrictions.md).
 
 In this article, you learn how to:
-> [!div class="checklist"]
-> * Import an OpenAPI specification using the Azure portal, Azure CLI, or Azure PowerShell
-> * Test the API in the Azure portal
 
-> [!NOTE]
-> API import limitations are documented in [API import restrictions and known issues](api-management-api-import-restrictions.md).
+> [!div class="checklist"]
+> - Import an OpenAPI specification using the Azure portal, Azure CLI, or Azure PowerShell
+> - Test the API in the Azure portal
 
 ## Prerequisites
 
-* An API Management instance. If you don't already have one, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
+- An API Management instance. If you don't already have one, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 
-* Azure CLI
+- Azure CLI
     [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 
-* Azure PowerShell
+- Azure PowerShell
     [!INCLUDE [azure-powershell-requirements-no-header](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 ## <a name="create-api"> </a>Import a backend API
 
-For this example, you import the [OpenAPI specification](https://petstore3.swagger.io/api/v3/openapi.json) for the open source [Petstore API](https://petstore3.swagger.io/), but you can substitute an OpenAPI specification of your choice.
-	
+For this example, you import the [OpenAPI specification](https://petstore3.swagger.io/api/v3/openapi.json) for the open source [Petstore API](https://petstore3.swagger.io/). You can substitute an OpenAPI specification of your choice.
 
 #### [Portal](#tab/portal)
 
@@ -46,7 +43,8 @@ For this example, you import the [OpenAPI specification](https://petstore3.swagg
 1. In the left menu, select **APIs** > **+ Add API**.
 1. Under **Create from definition**, select **OpenAPI**.
 
-    :::image type="content" source="media/import-api-from-oas/oas-api.png" alt-text="Screenshot of creating an API from an OpenAPI specification in the portal." border="false":::
+   :::image type="content" source="media/import-api-from-oas/oas-api.png" alt-text="Screenshot of creating an API from an OpenAPI specification in the portal." border="false":::
+
 1. Enter API settings. You can set the values during creation or configure them later by going to the **Settings** tab. The settings are explained in the [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
 1. Select **Create**.
 
@@ -71,7 +69,7 @@ az apim api import --path $APIPath --resource-group $ResourceGroupName \
     --specification-format $SpecificationFormat --specification-url $SpecificationURL
 ```
 
-After importing the API, if needed, you can update the settings by using the [az apim api update](/cli/azure/apim/api#az-apim-api-update) command.
+After you import the API, you can update the settings by using the [az apim api update](/cli/azure/apim/api#az-apim-api-update) command.
 
 #### [PowerShell](#tab/powershell)
 
@@ -95,13 +93,13 @@ $context = New-AzApiManagementContext -ResourceGroupName $resourceGroupName -Ser
 Import-AzApiManagementApi -Context $context -ApiId $apiId -SpecificationFormat $specificationFormat -SpecificationUrl $specificationUrl -Path $apiPath
 ```
 
-After importing the API, if needed, you can update the settings by using the [Set-AzApiManagementApi](/powershell/module/az.apimanagement/set-azapimanagementapi) cmdlet.
+After you import the API, you can update the settings by using the [Set-AzApiManagementApi](/powershell/module/az.apimanagement/set-azapimanagementapi) cmdlet.
 
 ---
 
 ## View and edit OpenAPI specification
 
-In the portal, use the OpenAPI specification editor to view, validate, or edit the specification for the API that you imported. 
+In the Azure portal, use the OpenAPI specification editor to view, validate, or edit the specification for the API that you imported. 
 
 To use the OpenAPI specification editor:
 
@@ -112,8 +110,7 @@ To use the OpenAPI specification editor:
 
 ## Validate against an OpenAPI specification schema
 
-You can configure API Management [validation policies](api-management-policies.md#content-validation) to validate requests and responses (or elements of them) against the schema in an OpenAPI specification. For example, use the [validate-content](validate-content-policy.md) policy to validate the size or content of a request or response body.
-
+You can configure API Management [validation policies](api-management-policies.md#content-validation) to validate requests and responses or elements of them against the schema in an OpenAPI specification. For example, use the [validate-content](validate-content-policy.md) policy to validate the size or content of a request or response body.
 
 [!INCLUDE [api-management-test-api-portal](../../includes/api-management-test-api-portal.md)]
 

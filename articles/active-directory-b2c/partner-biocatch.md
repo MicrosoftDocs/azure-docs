@@ -407,7 +407,7 @@ For the following instructions, see [Tutorial: Register a web application in Azu
 
       "score": 275, 
 
-      "tid": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb" 
+      "tid": "bbbbcccc-1111-dddd-2222-eeee3333ffff" 
 
     }.[Signature]  
 

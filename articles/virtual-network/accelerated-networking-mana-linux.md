@@ -5,7 +5,7 @@ author: mattmcinnes
 ms.service: azure-virtual-network
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 07/10/2023
+ms.date: 02/02/2026
 ms.author: mattmcinnes
 # Customer intent: As a Linux VM administrator, I want to implement the Microsoft Azure Network Adapter, so that I can enhance the networking performance and availability of my virtual machines in Azure.
 ---
@@ -22,22 +22,7 @@ For more info about MANA, see [Microsoft Azure Network Adapter overview](./accel
 
 Several Linux images from [Azure Marketplace](/marketplace/azure-marketplace-overview) have built-in support for the Ethernet driver in MANA:
 
-- Ubuntu 22.04 LTS
-- Ubuntu 24.04 LTS
-- Red Hat Enterprise Linux 8.8
-- Red Hat Enterprise Linux 8.10
-- Red Hat Enterprise Linux 9.2
-- Red Hat Enterprise Linux 9.4
-- Red Hat Enterprise Linux 9.6
-
-- SUSE Linux Enterprise Server 15 SP4
-- Rocky Linux (CIQ) 8.10 (all variants)
-
-- Rocky Linux (CIQ) 9.2+ (all variants)
-
-- Debian 12 "Bookworm"
-- Oracle Linux 8.0 UEK R7
-- Oracle Linux 9.0 UEK R7
+Operating system support details are listed at [Azure Accelerated Networking Overview](accelerated-networking-overview.md).
 
 > [!NOTE]
 > Newer MANA features are under active development and Linux distribution vendors partner with Microsoft to update their kernels with upstream changes. Cadence of updates varies by distribution vendor. The newer your distribution and kernel is, the more likely it is to have the latest updates. 
@@ -62,6 +47,7 @@ When you enable Accelerated Networking, you can identify the underlying MANA NIC
 $ lspci
 7870:00:00.0 Ethernet controller: Microsoft Corporation Device 00ba
 ```
+If you see another Ethernet controller device, you will not be using MANA. In [later steps](#verify-that-traffic-is-flowing-through-mana) you should also confirm that the MANA interface is initialized and bonded correctly. 
 
 ### Kernel version check
 
@@ -75,7 +61,7 @@ kernel/drivers/net/ethernet/microsoft/mana/mana.ko
 
 ## Update the kernel
 
-Ethernet drivers for MANA are included in kernel version 5.15 and later. Kernel version 6.2 includes Linux support for features such as InfiniBand/RDMA and DPDK. Earlier or forked kernel versions (5.15 and 6.1) require backported support.
+Ethernet drivers for MANA are included in kernel version 5.15 and later. Kernel version 6.2 includes Linux support for features such as InfiniBand/RDMA and DPDK. Earlier or forked kernel versions (5.15 and 6.1) require backported support. Operating system support details are listed at [Azure Accelerated Networking Overview](accelerated-networking-overview.md).
 
 To update your VM's Linux kernel, check the documentation for your specific distribution.
 
@@ -105,6 +91,7 @@ $ ethtool -S eth0 | grep -E "^[ \t]+vf"
      vf_tx_bytes: 76231291
      vf_tx_dropped: 0
 ```
+If the values associated with the VF are 0 or do not increment, you are not using the virtual function.
 
 ## Next steps
 

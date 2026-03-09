@@ -33,7 +33,7 @@ In Consumption plan hosting, each function app typically runs in its own plan. I
 
 Use the following links to learn how to create a serverless function app in a Consumption plan, either programmatically or in the Azure portal:
 
-- [Azure CLI](./scripts/functions-cli-create-serverless.md)
+- [Azure CLI](functions-cli-samples.md#create)
 - [Azure portal](./functions-get-started.md)
 - [Azure Resource Manager template](functions-create-first-function-resource-manager.md)
 

@@ -5,7 +5,7 @@ services: databox
 author: v-dalc
 
 ms.service: azure-stack-edge
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/20/2025
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to choose optimal region(s) to meet my performance needs, requirements, and data location preferences for my Azure Stack Edge devices and storage.
@@ -21,7 +21,7 @@ This article describes region availability for the Azure Stack Edge service, dat
 
 The Azure datacenters operate in multiple geographic regions around the world to meet customers' demands of performance, requirements, and preferences for data location. An Azure geography is a defined area of the world that contains at least one Azure region. An Azure region is an area within a geography, containing one or more datacenters.
 
-Choosing an Azure region is very important, and the choice of region is influenced by factors such as data residency and sovereignty, service availability, performance, cost, and redundancy. For more information on how to choose a region, go to [Which Azure region is right for me?](https://azure.microsoft.com/overview/datacenters/how-to-choose/).
+Choosing an Azure region is very important, and the choice of region is influenced by factors such as data residency and sovereignty, service availability, performance, cost, and redundancy. For more information on how to choose a region, go to [Which Azure region is right for me?](https://azure.microsoft.com/overview/datacenters/how-to-choose/)
 
 For an Azure Stack Edge Pro GPU device, the choice of region is determined by the following factors:
 

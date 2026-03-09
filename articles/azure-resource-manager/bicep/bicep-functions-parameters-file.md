@@ -147,7 +147,7 @@ For more information, see [Environment.SetEnvironmentVariable Method](/dotnet/ap
 The following examples show how to retrieve the values of environment variables:
 
 ```bicep
-use './main.bicep'
+using './main.bicep'
 
 param adminPassword = readEnvironmentVariable('admin_password')
 param boolfromEnvironmentVariables = bool(readEnvironmentVariable('boolVariableName','false'))

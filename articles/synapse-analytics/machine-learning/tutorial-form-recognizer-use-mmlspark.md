@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Document Intelligence with Azure AI services'
-description: Learn how to use Azure AI Document Intelligence in Azure Synapse Analytics.
+title: 'Tutorial: Document Intelligence with Foundry Tools'
+description: Learn how to use Azure Document Intelligence in Foundry Tools in Azure Synapse Analytics.
 ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
@@ -9,9 +9,9 @@ author: ruixinxu
 ms.author: ruxu
 ---
 
-# Tutorial: Document Intelligence with Azure AI services
+# Tutorial: Document Intelligence with Foundry Tools
 
-[Azure AI Document Intelligence](/azure/ai-services/document-intelligence/) is an [Azure AI service](/azure/ai-services/) that enables you to build automated data processing application using machine learning technology. In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics. You'll use [Document Intelligence](/azure/ai-services/document-intelligence/) to analyze your forms and documents, extracts text and data, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. 
+[Azure Document Intelligence in Foundry Tools](/azure/ai-services/document-intelligence/) is a [Foundry Tool](/azure/ai-services/) that enables you to build automated data processing application using machine learning technology. In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics. You'll use [Document Intelligence](/azure/ai-services/document-intelligence/) to analyze your forms and documents, extracts text and data, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. 
 
 This tutorial demonstrates using Document Intelligence with [SynapseML](https://github.com/microsoft/SynapseML) to:
 
@@ -30,7 +30,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 - [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
 - Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../quickstart-create-sql-pool-studio.md).
-- Pre-configuration steps described in the tutorial [Configure Azure AI services in Azure Synapse](tutorial-configure-cognitive-services-synapse.md).
+- Pre-configuration steps described in the tutorial [Configure Foundry Tools in Azure Synapse](tutorial-configure-cognitive-services-synapse.md).
 
 
 ## Get started

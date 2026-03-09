@@ -36,7 +36,7 @@ In **Service Details**, set the cache name and these other attributes:
 
 * Location - Select one of the [supported regions](hpc-cache-overview.md#region-availability).
 
-  If that region supports [availability zones](../reliability/availability-zones-overview.md), select the zone that will host your cache resources. Azure HPC Cache is a zonal service.
+  If that region supports [availability zones](/azure/reliability/availability-zones-overview), select the zone that will host your cache resources. Azure HPC Cache is a zonal service.
 
 * Virtual network - You can select an existing one or create a new virtual network.
 * Subnet - Choose or create a subnet with at least 64 IP addresses (/24). This subnet must be used only for this Azure HPC Cache instance.
@@ -154,7 +154,7 @@ Select **Customer managed** to choose customer-managed key encryption. The key v
 
 Check the **Always use current key version** box if you want to use [automatic key rotation](/azure/virtual-machines/disk-encryption#automatic-key-rotation-of-customer-managed-keys).
 
-If you want to use a specific managed identity for this cache, configure it in the **Managed identities** section. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
+If you want to use a specific managed identity for this cache, configure it in the **Managed identities** section. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!NOTE]
 > You cannot change the assigned identity after you create the cache.

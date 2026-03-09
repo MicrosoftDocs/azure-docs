@@ -665,7 +665,7 @@ The render configuration directly references these asset keys to create differen
       "roles": [
         "data"
       ],
-      "title": "Scene classfication map (SCL)"
+      "title": "Scene classification map (SCL)"
     },
     "WVP": {
       "gsd": 10,

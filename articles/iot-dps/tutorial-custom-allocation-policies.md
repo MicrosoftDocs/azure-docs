@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Assign devices to multiple hubs using DPS
 description: This tutorial shows how to provision devices using a custom allocation policy in your Azure IoT Hub Device Provisioning Service (DPS) instance.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 08/12/2025
 ms.topic: tutorial
 ms.service: azure-iot-hub

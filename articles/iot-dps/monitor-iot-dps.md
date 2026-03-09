@@ -3,8 +3,8 @@ title: Monitor Azure IoT Hub Device Provisioning Service
 description: Start here to learn how to monitor metrics and logs from the Azure IoT Hub Device Provisioning Service by using Azure Monitor.
 ms.date: 08/04/2025
 ms.topic: concept-article
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.subservice: azure-iot-hub-dps
 ms.custom:

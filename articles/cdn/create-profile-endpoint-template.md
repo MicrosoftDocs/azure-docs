@@ -9,7 +9,7 @@ manager: KumudD
 ms.service: azure-cdn
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
-ms.date: 03/31/2025
+ms.date: 02/28/2026
 ROBOTS: NOINDEX
 # Customer intent: "As a cloud engineer, I want to deploy a Content Delivery Network profile and endpoint using an ARM template, so that I can efficiently manage content delivery for my applications."
 ---

@@ -15,13 +15,9 @@ ms.author: ofshezaf
 
 The following are the Advanced Security Information Model (ASIM) known issues and limitations:
 
-## Time picker set to a custom range
+## Sentinel data lake
 
-When using filtering ASIM parsers (with the prefixes `_Im`, `im`, or `vim`) in the log screen, the time picker changes automatically to "set in query," which will result in querying over all data in the relevant tables. The query results may not be the expected results and performance may be slow.
-
-:::image type="content" source="media/normalization/asim-custom-time-picker.png" alt-text="Screenshot of custom time picker when using ASIM.":::
-
-To ensure correct and timely results, set the time range to your preferred range after it changes to "set in query". In add-hoc queries, you may want to use nonfiltering parsers (with the prefixes `_ASim` or `ASim`).
+ASIM query time parsers are not supported for lake explorer and KQL jobs.
 
 ## Performance challenges
 

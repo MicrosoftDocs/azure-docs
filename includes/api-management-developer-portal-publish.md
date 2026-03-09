@@ -2,7 +2,7 @@
 author: dlepow
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 11/20/2023
+ms.date: 10/31/2025
 ms.author: danlep
 ---
 1. Make sure you saved your changes by selecting the **Save** button.

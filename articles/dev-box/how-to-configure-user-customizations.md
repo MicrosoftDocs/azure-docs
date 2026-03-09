@@ -11,8 +11,9 @@ ms.custom:
   - ai-gen-title
   - ai-seo-date:04/19/2025
   - ai-gen-description
+  - ai-usage: ai-assisted
 ms.topic: how-to
-ms.date: 08/15/2025
+ms.date: 02/06/2026
 ---
 
 
@@ -20,18 +21,9 @@ ms.date: 08/15/2025
 
 You can personalize your Microsoft Dev Box by uploading a user customization file. User customization files let you configure your dev box with your preferred personal settings and apps, so you can start coding faster. This article explains how to create, test, and upload a user customization file from your local drive or repository using Visual Studio (VS) Code. You also learn how to validate your file and manage customization settings for projects.
 
-Use customizations in Microsoft Dev Box in two ways: team customizations create a shared configuration for a team, and user customizations create a personal configuration for an individual developer. The following table shows the differences between the two types of customizations.
+Dev Box customizations work in two ways: team customizations create shared configurations for teams, and user customizations create personal configurations for individual developers. For a detailed comparison, see [Microsoft Dev Box customizations](concept-what-are-dev-box-customizations.md).
 
-| Feature                     | Team customizations       | User customizations                  |
-|-----------------------------|---------------------------|--------------------------------------|
-| Set up on                   | Dev box pool              | Dev box                              |
-| Customizations apply to     | All dev boxes in pool     | Individual dev box                   |
-| Easily shareable            | Yes                       | No                                   |
-| Customizations file name    | Imagedefinition.yaml      | *myfilename.yaml* or *workload.yaml* |
-| Source                      | Catalog                   | Upload or personal repository        |
-| Supports key vault secrets  | Yes                       | Yes                                  |
-
-User customizations help ensure that developers comply with company guardrails; only tasks custom tasks preapproved through a catalog are available to developers to use in their customization files. Standard dev box users can't run built-in PowerShell and WinGet tasks in a system context, which prevents privilege escalation. 
+User customizations help ensure that developers comply with company guardrails; only tasks preapproved through a catalog are available to developers. Standard dev box users can't run built-in PowerShell and WinGet tasks in a system context, which prevents privilege escalation. 
 
 User customizations can be enabled or disabled at the project level. When you create a project, user customizations are on by default.
 
@@ -42,18 +34,9 @@ To complete the steps in this article:
 
 - Set up a [dev center with a dev box definition, dev box pool, and dev box project](./quickstart-configure-dev-box-service.md) so you can create a dev box.
 - Join the Dev Box Users security group for at least one project.
-- Attach a catalog to the dev center with tasks you use in your customization file. If you don't have a catalog, see [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md).
+- Attach a catalog to the dev center with tasks you use in your customization file. If you don't have a catalog, see [Add and manage catalogs in Microsoft Dev Box](how-to-configure-catalog.md).
 
-
-## Permissions required to set up customizations
-
-To create and apply customizations to a dev box, you need the following permissions:
-
-| Action                                             | Permission or role       |
-|----------------------------------------------------|-------------------------|
-| Enable or disable user customizations on a project | Write permission on the project. |
-| Create a customization file                        | None specified. Anyone can create a customization file. |
-| Use the developer portal to upload and apply a YAML file during dev box creation | Dev Box User           |
+For permissions required to configure customizations, see [Permissions for customizations](concept-what-are-dev-box-customizations.md#permissions-for-customizations).
 
 ## Create a user customization file
 
@@ -86,10 +69,12 @@ This example shows a dev box customization file that uses an existing WinGet Des
 
 
 ```yml
-tasks:
-    - name: winget
-      parameters:
-          configure: "projectConfiguration.dsc.yaml"
+$schema: "1.0"
+name: "devbox-customization"
+userTasks:
+  - name: ~/winget
+    parameters:
+      configure: "projectConfiguration.dsc.yaml"
 ```
 
 
@@ -184,4 +169,4 @@ If you create a dev box with user customizations in a project where user customi
 
 - [Microsoft Dev Box customizations](concept-what-are-dev-box-customizations.md)
 - [Configure dev center imaging](how-to-configure-dev-center-imaging.md)
-- [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md)
+- [Add and manage catalogs in Microsoft Dev Box](how-to-configure-catalog.md)

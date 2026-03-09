@@ -3,7 +3,7 @@ title: Restore Azure Managed Disks via Azure CLI
 description: Learn how to restore Azure Managed Disks using Azure CLI.
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 08/28/2025
+ms.date: 02/13/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to restore Azure Managed Disks using Azure CLI commands, so that I can efficiently recover data from backups to new disks in my chosen resource groups."
@@ -19,6 +19,8 @@ This article describes how to restore [Azure Managed Disks](/azure/virtual-machi
 Currently, the Original-Location Recovery (OLR) option of restoring by replacing the existing source disk from where the backups were taken isn't supported. You can restore from a recovery point to create a new disk in the same resource group of the source disk or in any other resource group, which is called Alternate-Location Recovery (ALR).
 
 Here, let's use an existing Backup vault _TestBkpVault_, under the resource group _testBkpVaultRG_ in the examples.
+
+To view the supported Azure Disk backup and restore scenarios, region availability, and limitations, see the [support matrix](disk-backup-support-matrix.md). For common questions, see the [frequently asked questions](disk-backup-faq.yml).
 
 ## Restore to create a new disk
 
@@ -243,4 +245,5 @@ az dataprotection job list-from-resourcegraph --datasource-type AzureDisk --oper
 
 ## Next steps
 
-[Azure Disk Backup FAQ](./disk-backup-faq.yml)
+- [Azure Disk Backup FAQ](./disk-backup-faq.yml).
+- [Troubleshoot Azure Disk backup](disk-backup-troubleshoot.md).

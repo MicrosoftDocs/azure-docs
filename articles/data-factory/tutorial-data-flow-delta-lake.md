@@ -4,7 +4,7 @@ description: This tutorial provides step-by-step instructions for using data flo
 author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 06/24/2024
 ---
 

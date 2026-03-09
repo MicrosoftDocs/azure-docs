@@ -6,7 +6,7 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/25/2024
 ---
 

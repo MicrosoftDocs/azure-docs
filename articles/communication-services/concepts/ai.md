@@ -2,10 +2,10 @@
 title: AI in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Azure Communication Services AI concepts.
-author: chpalm
+author: sundiraman
 manager: sundraman
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 2/3/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -33,7 +33,6 @@ This section summarizes features for integrating AI into Azure Communication mes
 
 ### Direct Integrations 
 
-- **[Advanced message analysis](../concepts/advanced-messaging/message-analysis/message-analysis.md)**: The Azure Communication Services messaging APIs for WhatsApp provide a built-in integration with Azure OpenAI that analyzes and annotates messages. This integration can detect the user's language, recognize their intent, and extract key phrases. 
 - **[Azure Bot Service: Chat channel integration](../quickstarts/chat/quickstart-botframework-integration.md)**: The Azure Communication Services chat system is directly integrated with Azure Bot Service. This integration simplifies creating chat bots that engage with human users.
 
 ### Accessors
@@ -58,5 +57,5 @@ Similar to Azure Communication Services messaging, there are REST APIs for many 
 - **[Call Automation REST APIs and SDKs](../concepts/call-automation/call-automation.md)**: Services and AI applications  use Call Automation REST APIs to answer, route, and manage all types of Azure voice and video calls.
 - **[Service-to-service audio streaming](../concepts/call-automation/audio-streaming-concept.md)**: AI applications use Azure's service-to-service WebSockets API to stream audio data. This works in both directions, your AI can listen to a call, and speak.
 - **[Service-to-service real-time transcription](../concepts/call-automation/real-time-transcription.md)**: AI applications use Azure's service-to-service WebSockets API to stream a real-time, Azure-generated transcription. Compared to audio or video content, transcript data is often easier for AI models to reason upon.
-- **[Call recording](../concepts/voice-video-calling/call-recording.md)**: You can record Azure calls in your own datastore and then direct AI services to process that content.
+- **[Call recording](../concepts/voice-video-calling/call-recording.md)**: You can record Azure calls in your own datastore and then direct Foundry Tools to process that content.
 - **[Client raw audio and video](../concepts/voice-video-calling/media-access.md)**: The Calling client SDK provides APIs for accessing and modifying the raw audio and video feed. An example scenario is taking the video feed, using computer vision to distinguish the human speaker from their background, and customizing that background.

@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 06/11/2025
+ms.date: 11/12/2025
 ms.author: anfdocs
 ms.custom: sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to create an SMB volume in Azure NetApp Files, so that I can leverage scalable storage solutions that meet my organization’s data management and sharing requirements.
@@ -14,7 +14,10 @@ ms.custom: sfi-image-nochange
 
 Azure NetApp Files supports creating volumes using NFS (NFSv3 or NFSv4.1), SMB3, or dual protocol (NFSv3 and SMB, or NFSv4.1 and SMB). A volume's capacity consumption counts against its pool's provisioned capacity. 
 
-This article shows you how to create an SMB3 volume. For NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volumes.md). For dual-protocol volumes, see [Create a dual-protocol volume](create-volumes-dual-protocol.md).
+This article shows you how to create an SMB3 volume. For NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volumes.md). For dual-protocol volumes, see [Create a dual-protocol volume](create-volumes-dual-protocol.md). 
+
+>[!IMPORTANT]
+>For Elastic zone-redundant storage, see [Create an Elastic zone-redundant SMB volume](elastic-volume-server-message-block.md).
 
 ## Before you begin 
 
@@ -34,7 +37,10 @@ Before creating an SMB volume, you need to create an Active Directory connection
     ![Navigate to Volumes](./media/shared/azure-netapp-files-navigate-to-volumes.png)
 
 2. Select **+ Add volume** to create a volume.  
+    
     The Create a Volume window appears.
+
+    :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-new-volume.png" alt-text="Screenshot of create new volume interface." lightbox="../media/azure-netapp-files/azure-netapp-files-new-volume.png":::
 
 3. In the Create a Volume window, select **Create** and provide information for the following fields under the Basics tab:   
     * **Volume name**      
@@ -78,11 +84,14 @@ Before creating an SMB volume, you need to create an Active Directory connection
     * **Network features**  
         In supported regions, you can specify whether you want to use **Basic** or **Standard** network features for the volume. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
 
+    * **Availability Zone**   
+        This option lets you deploy the new volume in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
+
     * **Encryption key source** 
         Select Microsoft Managed Key or Customer Managed Key.  See [Configure customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) and [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) to learn more about this field. 
 
-    * **Availability zone**   
-        This option lets you deploy the new volume in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
+    * **Advanced Ransomware Protection**
+        Select **Enabled** to configure ransomware threat detection alerts for your volumes. For more information, see [Configure advanced ransomware protection](ransomware-configure.md). 
 
     * If you want to apply an existing snapshot policy to the volume, select **Show advanced section** to expand it, specify whether you want to hide the snapshot path, and select a snapshot policy in the pull-down menu. 
 

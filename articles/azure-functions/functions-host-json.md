@@ -325,13 +325,21 @@ A list of functions that the job host runs. An empty array means run all functio
 
 ## functionTimeout
 
-Indicates the timeout duration for all function executions. It follows the timespan string format. A value of `-1` indicates unbounded execution, but keeping a fixed upper bound is recommended.
+Indicates the timeout duration for all function executions. It follows the [timespan string format](/dotnet/fundamentals/runtime-libraries/system-timespan-parse). A value of `-1` indicates unbounded execution, but keeping a fixed upper bound is recommended.
 
 ```json
 {
     "functionTimeout": "00:05:00"
 }
 ```
+The format of the timespan string needs to follow the syntax `[d.]hh:mm:ss` and the valid values are:
+- d = days (optional)
+- hh = hours (0–23)
+- mm = minutes (0–59)
+- ss = seconds (0–59)
+
+> [!TIP]
+> When you need to set a 24-hour timeout, you must define it as one day (`"1.00:00:00"`) instead of 24 hours (`"24:00:00"`). You might also use `"23:59:59"`.
 
 For more information on the default and maximum values for specific plans, see [Function app timeout duration](./functions-scale.md#timeout).
 

@@ -2,7 +2,7 @@
 title: Manage Azure Files backups with PowerShell
 description: Learn how to use PowerShell to manage and monitor Azure Files backed up by the Azure Backup service.
 ms.topic: how-to
-ms.date: 03/05/2025
+ms.date: 02/17/2026
 ms.custom: devx-track-azurepowershell
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -15,6 +15,9 @@ This article describes how to manage and monitor the backed-up Azure Files ([sna
 
 > [!WARNING]
 > Make sure the PowerShell version is upgraded to the minimum version for `Az.RecoveryServices 2.6.0` for Azure Files backups. [Learn more about the requirements for the change](backup-azure-afs-automation.md#important-notice-backup-item-identification).
+
+To learn about the supported Azure Files backup and restore scenarios, region availability, and limitations, see the [support matrix](azure-file-share-support-matrix.md). For common questions, see the [frequently asked questions](backup-azure-files-faq.yml).
+
 
 ## Modify the protection policy
 

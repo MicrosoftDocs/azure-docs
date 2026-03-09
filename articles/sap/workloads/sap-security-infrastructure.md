@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: concept-article
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 10/07/2025
+ms.date: 02/23/2026
 ms.author: cgardin
 # Customer intent: Secure Azure infrastructure for SAP applications
 ---
@@ -155,8 +155,6 @@ High-priority items for Linux operating systems include:
 - Use a managed identity for Pacemaker, not a service principal name (SPN). For more information, see the Microsoft blog post [SAP on Azure high availability - change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/blog/sapapplications/sap-on-azure-high-availability-%E2%80%93-change-from-spn-to-msi-for-pacemaker-clusters-u/3609278).
 - Disable root sign-in.
 
-SELinux is supported with modern Red Hat Enterprise Linux (RHEL) releases. Microsoft doesn't provide support for SELinux, and careful testing is required. For more information, see [SAP Note 3108302 for SAP HANA DB: Recommended OS Settings for RHEL 9](https://me.sap.com/notes/3108302/E).
-
 Here are resources for hardening Linux OS distributions:
 
 - [Azure security baseline for Virtual Machines - Linux Virtual Machines](/security/benchmark/azure/baselines/virtual-machines-linux-virtual-machines-security-baseline) (Microsoft documentation)
@@ -164,6 +162,16 @@ Here are resources for hardening Linux OS distributions:
 - [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) (CIS documentation)
 - [Operating System Security Hardening Guide for SAP HANA for SUSE Linux Enterprise Server 15 GA and SP1](https://documentation.suse.com/sbp/sap-15/html/OS_Security_Hardening_Guide_for_SAP_HANA_SLES15/index.html) (SUSE documentation)
 - [Security hardening guide for SAP HANA](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html-single/security_hardening_guide_for_sap_hana/index) (Red Hat documentation)
+
+### SELinux
+
+SELinux is supported on the latest Red Hat Enterprise Linux (RHEL) releases. Microsoft supports running SAP workloads on RHEL in accordance with SAP and Red Hat guidance. Microsoft does not deliver, or provide support on managing SELinux policies. Customers are responsible for configuring, maintaining, and validating any SELinux policy changes required for their environments.
+
+For more details about SELinux on RHEL, see:
+
+- [Security hardening guide for SAP HANA on RHEL 10 (Red Hat documentation)](https://docs.redhat.com/documentation/red_hat_enterprise_linux_for_sap_solutions/10/html/security_hardening_guide_for_sap_hana/index)
+- [3562909 - Red Hat Enterprise Linux 10.x: Installation and Configuration](https://me.sap.com/notes/3562909)
+- [3562919 - SAP HANA DB: Recommended OS Settings for RHEL 10 - SAP for Me](https://me.sap.com/notes/3562919)
 
 ### Windows operating systems
 

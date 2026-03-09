@@ -36,6 +36,17 @@ Application Gateway performs DNS resolution for the Fully Qualified Domain Names
 > * .msftcloudes.com
 > * .microsoft.com 
 
+### Short names and single-label domain names
+
+Application Gateway supports short names (e.g., `server1`, `webserver`) in backend pools. Resolution depends on your DNS configuration:
+
+- **Azure DNS (168.63.129.16)**: Resolves short names only within the same virtual network
+- **Custom DNS servers**: Requires search domain configuration
+- **On-premises DNS (via VPN/ExpressRoute)**: Resolves internal hostnames
+
+> [!NOTE]
+> If backend health shows DNS resolution errors with short names, verify resolution from a VM in the same virtual network.
+
 ## DNS configuration types
 Customers have different infrastructure needs, requiring various approaches to name resolution. This document outlines general DNS implementation scenarios and offers recommendations for the efficient operation of application gateway resources.
 

@@ -5,8 +5,8 @@ services: automation
 ms.topic: how-to
 ms.date: 01/28/2025
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Manage Azure Automation subscription limits and quotas

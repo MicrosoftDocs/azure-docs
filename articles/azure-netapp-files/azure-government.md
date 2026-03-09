@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: devx-track-azurecli, no-azure-ad-ps-ref
 ms.topic: concept-article
-ms.date: 09/29/2025
+ms.date: 02/02/2026
 ms.author: anfdocs
 # Customer intent: As a government IT administrator, I want to understand how to access and utilize Azure NetApp Files in Azure Government, so that I can effectively manage mission-critical workloads within the dedicated cloud environment.
 ---
@@ -25,8 +25,10 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 
 | Azure NetApp Files features | Azure public cloud availability |  Azure Government availability |
 |:--- |:--- |:--- |
-| Azure NetApp Files customer-managed key with managed Hardware Security Module | Generally available | No |
-| Azure NetApp Files file access logs | Generally available | [Partial support](manage-file-access-logs.md#supported-regions) |
+| Advanced ransomware protection | Preview | No |
+| Customer-managed keys with managed Hardware Security Module | Generally available | No |
+| Elastic zone-redundant storage service level | Preview | No |
+| File access logs | Generally available | [Partial support](manage-file-access-logs.md#supported-regions) |
 
 ## Portal access
 
@@ -75,7 +77,7 @@ When you connect to Azure Government through PowerShell, you must specify an env
 | [Azure](/powershell/module/az.accounts/Connect-AzAccount) commands | `Connect-AzAccount -EnvironmentName AzureUSGovernment` | 
 | [Microsoft Graph PowerShell](/powershell/microsoftgraph/authentication-commands) | `Connect-MgGraph -Environment USGov` |
 | [Microsoft Entra PowerShell](/powershell/entra-powershell/authentication-scenarios) | `Connect-Entra -Environment USGov` |
-| [Azure (Classic deployment model)](/powershell/module/servicemanagement/azure/add-azureaccount) commands | `Add-AzureAccount -Environment AzureUSGovernment` | 
+| Azure (Classic deployment model) commands | `Add-AzureAccount -Environment AzureUSGovernment` | 
 | [Microsoft Entra ID (Classic deployment model)](/previous-versions/azure/jj151815(v=azure.100)) commands | `Connect-MsolService -AzureEnvironment UsGovernment` | 
 
 For more information, see [Connect to Azure Government with PowerShell](../azure-government/documentation-government-get-started-connect-with-ps.md).

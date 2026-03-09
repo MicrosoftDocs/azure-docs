@@ -4,7 +4,7 @@ description: This article contains a list of Azure Virtual WAN partners and avai
 author: cherylmc
 
 ms.service: azure-virtual-wan
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/05/2024
 ms.author: cherylmc
 ms.custom: references_regions

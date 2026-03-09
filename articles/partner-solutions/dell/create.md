@@ -4,7 +4,7 @@ description: Learn how to create a resource for Dell PowerScale by using the Azu
 author: ProfessorKendrick
 ms.author: kkendrick
 ms.topic: quickstart
-ms.date: 10/31/2025
+ms.date: 12/09/2025
 
 ---
 # Quickstart: Create a Dell PowerScale Preview resource
@@ -32,29 +32,29 @@ The **Basics** tab has three sections:
 
 :::image type="content" source="media/create/basics.png" alt-text="Screenshot that shows the Basics tab of the Create a Dell PowerScale resource page.":::
 
-There are required fields that you need to fill out.
+Enter values for each required setting.
 
-1. Enter the values for each required setting under **Project details**.
+1. **Project details:**
 
-    | Setting        |Action                   |
+    | Setting        |Value                   |
     |----------|------------------|
     | **Subscription**   |   Select the subscription that you want to use.               |
     | **Resource group**   |Select an existing resource group, or create a new one by selecting **Create new**.       |
 
-1. Enter the values for each required setting under **Azure resource details**.
+1. **Azure resource details:**
 
-    | Setting        |Action                   |
+    | Setting        |Value                   |
     |----------|------------------|
     |**Resource name**|Enter a name for your resource.|
     |**Region**|Select the region in which you want to deploy the resource. |
 
-1. Enter the values for each required setting under **Dell PowerScale file system details**. 
+1. **Dell PowerScale file system details:**
 
-    | Setting   |Action    |
+    | Setting   |Value    |
     |----------|------------------|
     |**Dell Reference Number**|Enter your Dell reference number. You can request a reference number by selecting the link in the **Plan** section.|
 
-1. Select Next to go to the **Networking** tab. 
+1. Select Next to go to the **Networking** tab.
 
 ### Networking tab
 
@@ -65,18 +65,18 @@ The **Networking** tab has two sections:
 
 :::image type="content" source="media/create/networking.png" alt-text="Screenshot that shows the Networking tab of the Create a Dell PowerScale resource page.":::
 
-There are required fields that you need to fill out.
+Enter values for each required setting.
 
-1. Enter the values for each required setting under **Networking details**.
+1. **Networking details:**
 
-    | Setting   |Action    |
+    | Setting   |Value    |
     |----------|------------------|
     |**Virtual network**|Select the delegated virtual network in which to deploy the resource.|
-    |**Subnet**|Select the delegated subnet in which to deploy the resource. The subnet must be delegated to Dell.Storage/filesystems and have at least 256 IP addresses reserved for Dell PowerScale.|
+    |**Subnet**|Select the delegated subnet in which to deploy the resource. The subnet must be delegated to **Dell.Storage/filesystems** and have at least 256 IP addresses reserved for Dell PowerScale.|
 
-1. Enter the value for the required setting under **SmartConnect FQDN**. 
+1. **SmartConnect FQDN:** 
  
-    | Setting   |Action    |
+    | Setting   |Value    |
     |----------|------------------|
     |**SmartConnect service name**|Enter a fully qualified domain name to configure SmartConnect.|
 

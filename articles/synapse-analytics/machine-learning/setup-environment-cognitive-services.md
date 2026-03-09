@@ -1,6 +1,6 @@
 ---
-title: "Setup environment for Azure AI services for big data"
-description: Set up your SynapseML or MMLSpark pipeline with Azure AI services in Azure Databricks and run a sample.
+title: "Setup environment for Foundry Tools for big data"
+description: Set up your SynapseML or MMLSpark pipeline with Foundry Tools in Azure Databricks and run a sample.
 ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.reviewer:  negust, ruxu
@@ -12,7 +12,7 @@ ms.devlang: python
 ms.custom: mode-other
 ---
 
-# Setup environment for Azure AI services for big data
+# Setup environment for Foundry Tools for big data
 
 Setting up your environment is the first step to building a pipeline for your data. After your environment is ready, running a sample is quick and easy.
 
@@ -25,33 +25,33 @@ In this article, you'll perform these steps to get started:
 
 ## Create an Azure AI services resource
 
-To work with big data in Azure AI services, first create an Azure AI services resource for your workflow. There are two main types of Azure AI services: cloud services hosted in Azure and containerized services managed by users. We recommend starting with the simpler cloud-based Azure AI services.
+To work with big data in Foundry Tools, first create an Azure AI services resource for your workflow. There are two main types of Foundry Tools: cloud services hosted in Azure and containerized services managed by users. We recommend starting with the simpler cloud-based Foundry Tools.
 
 ### Cloud services
 
-Cloud-based Azure AI services are intelligent algorithms hosted in Azure. These services are ready for use without training, you just need an internet connection. You can [create resources for Azure AI services in the Azure portal](/azure/ai-services/multi-service-resource?pivots=azportal) or with the [Azure CLI](/azure/ai-services/multi-service-resource?pivots=azcli).
+Cloud-based Foundry Tools are intelligent algorithms hosted in Azure. These services are ready for use without training, you just need an internet connection. You can [create resources for Foundry Tools in the Azure portal](/azure/ai-services/multi-service-resource?pivots=azportal) or with the [Azure CLI](/azure/ai-services/multi-service-resource?pivots=azcli).
 
 ### Containerized services (optional)
 
-If your application or workload uses large datasets, requires private networking, or can't contact the cloud, communicating with cloud services might be impossible. In this situation, containerized Azure AI services have these benefits:
+If your application or workload uses large datasets, requires private networking, or can't contact the cloud, communicating with cloud services might be impossible. In this situation, containerized Foundry Tools have these benefits:
 
-* **Low Connectivity**: You can deploy containerized Azure AI services in any computing environment, both on-cloud and off. If your application can't contact the cloud, consider deploying containerized Azure AI services on your application.
+* **Low Connectivity**: You can deploy containerized Foundry Tools in any computing environment, both on-cloud and off. If your application can't contact the cloud, consider deploying containerized Foundry Tools on your application.
 
 * **Low Latency**: Because containerized services don't require the round-trip communication to/from the cloud, responses are returned with much lower latencies.
 
 * **Privacy and Data Security**: You can deploy containerized services into private networks, so that sensitive data doesn't leave the network.
 
-* **High Scalability**: Containerized services don't have "rate limits" and run on user-managed computers. So, you can scale Azure AI services without end to handle much larger workloads.
+* **High Scalability**: Containerized services don't have "rate limits" and run on user-managed computers. So, you can scale Foundry Tools without end to handle much larger workloads.
 
-Follow [this guide](/azure/ai-services/cognitive-services-container-support) to create a containerized Azure AI service.
+Follow [this guide](/azure/ai-services/cognitive-services-container-support) to create a containerized Foundry Tool.
 
 ## Create an Apache Spark cluster
 
-[Apache Spark&trade;](http://spark.apache.org/) is a distributed computing framework designed for big-data data processing. Users can work with Apache Spark in Azure with services like Azure Databricks, Azure Synapse Analytics, HDInsight, and Azure Kubernetes Services. To use the big data Azure AI services, you must first create a cluster. If you already have a Spark cluster, feel free to try an example.
+[Apache Spark&trade;](http://spark.apache.org/) is a distributed computing framework designed for big-data data processing. Users can work with Apache Spark in Azure with services like Azure Databricks, Azure Synapse Analytics, HDInsight, and Azure Kubernetes Services. To use the big data Foundry Tools, you must first create a cluster. If you already have a Spark cluster, feel free to try an example.
 
 ### Azure Databricks
 
-Azure Databricks is an Apache Spark-based analytics platform with a one-click setup, streamlined workflows, and an interactive workspace. It's often used to collaborate between data scientists, engineers, and business analysts. To use the big data Azure AI services on Azure Databricks, follow these steps:
+Azure Databricks is an Apache Spark-based analytics platform with a one-click setup, streamlined workflows, and an interactive workspace. It's often used to collaborate between data scientists, engineers, and business analysts. To use the big data Foundry Tools on Azure Databricks, follow these steps:
 
 1. [Create an Azure Databricks workspace](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal#create-an-azure-databricks-workspace)
 
@@ -82,11 +82,11 @@ Optionally, you can use Synapse Analytics to create a spark cluster. Azure Synap
 
 1. [Create a new serverless Apache Spark pool (preview) using the Azure portal](../quickstart-create-apache-spark-pool-portal.md).
 
-In Azure Synapse Analytics, big data for Azure AI services is installed by default.
+In Azure Synapse Analytics, big data for Foundry Tools is installed by default.
 
 ### Azure Kubernetes Service
 
-If you're using containerized Azure AI services, one popular option for deploying Spark alongside containers is the Azure Kubernetes Service.
+If you're using containerized Foundry Tools, one popular option for deploying Spark alongside containers is the Azure Kubernetes Service.
 
 To get started on Azure Kubernetes Service, follow these steps:
 
@@ -125,7 +125,7 @@ First, you can create a notebook in Azure Databricks. For other Spark cluster pr
     df = spark.createDataFrame([
       ("I am so happy today, its sunny!", "en-US"),
       ("I am frustrated by this rush hour traffic", "en-US"),
-      ("The Azure AI services on spark aint bad", "en-US"),
+      ("The Foundry Tools on spark aint bad", "en-US"),
     ], ["text", "language"])
     
     sentiment = (TextSentiment()
@@ -154,9 +154,9 @@ First, you can create a notebook in Azure Databricks. For other Spark cluster pr
 |:------------------------------------------|------------:|
 | I am so happy today, its sunny!           |   0.978959  |
 | I am frustrated by this rush hour traffic |   0.0237956 |
-| The Azure AI services on spark aint bad  |   0.888896  |
+| The Foundry Tools on spark aint bad  |   0.888896  |
 
 ## Next steps
 
-- [Azure AI services in Azure Synapse Analytics](./overview-cognitive-services.md)
-- [Tutorial: Sentiment analysis with Azure AI Language](./tutorial-cognitive-services-sentiment.md)
+- [Foundry Tools in Azure Synapse Analytics](./overview-cognitive-services.md)
+- [Tutorial: Sentiment analysis with Azure Language in Foundry Tools](./tutorial-cognitive-services-sentiment.md)

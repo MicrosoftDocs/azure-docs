@@ -20,7 +20,8 @@ Parameters can't be removed from a policy definition because there might be an a
 A parameter uses the following properties in a policy definition:
 
 - `name`: The name of your parameter. Used by the `parameters` deployment function within the policy rule. For more information, see [using a parameter value](#using-a-parameter-value).
-- `type`: Determines if the parameter is a `string`, `array`, `object`, `boolean`,  `integer`, `float`, or `dateTime`.
+- `type`: Determines if the parameter is a `string`, `array`, `object`, `boolean`, `integer`, `float`, or `dateTime`. (Where `dateTime` parameters should be in ISO 8601 `yyyy-MM-ddTHH:mm:ss.fffffffZ` format.)
+
 - `metadata`: Defines subproperties primarily used by the Azure portal to display user-friendly information:
   - `description`: The explanation of what the parameter is used for. Can be used to provide examples of acceptable values.
   - `displayName`: The friendly name shown in the portal for the parameter.
@@ -69,7 +70,7 @@ In a more advanced scenario, you could define a policy that requires Kubernetes 
 ```json
 "parameters": {
   "labelSelector": {
-    "type": "Object",
+    "type": "object",
     "metadata": {
       "displayName": "Kubernetes label selector",
       "description": "Label query to select Kubernetes resources for policy evaluation. An empty label selector matches all Kubernetes resources."

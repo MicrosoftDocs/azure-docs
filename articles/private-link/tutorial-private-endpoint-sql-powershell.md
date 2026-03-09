@@ -6,7 +6,7 @@ author: abell
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
 ms.service: azure-private-link
 ms.topic: tutorial
-ms.date: 01/06/2025
+ms.date: 02/20/2026
 ms.author: abell
 ms.custom: template-tutorial, fasttrack-edit, devx-track-azurepowershell
 ---
@@ -85,6 +85,7 @@ $parameters3 = @{
     Name = 'myBastion'
     PublicIpAddress = $publicip
     VirtualNetwork = $vnet
+    Sku = 'Basic'
 }
 New-AzBastion @parameters3
 ```

@@ -9,7 +9,7 @@ editor: jwargo
 ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: csharp
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: sethm
 ms.reviewer: jowargo

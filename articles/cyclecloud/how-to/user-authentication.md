@@ -49,7 +49,7 @@ sign in as **EXAMPLE\\username**, so you enter "EXAMPLE" as the Domain. The serv
 ### Configuring CycleCloud for Entra Authentication and Authorization
 
 > [!NOTE]
-> You must first create a Microsoft Entra application. If you didn't yet create one, see [create one now](./create-app-registration.md#creating-the-cyclecloud-app-registration).
+> You must first create a Microsoft Entra application. If you have yet to create one, see [these instructions](./create-app-registration.md).
 
 #### GUI Configuration
 

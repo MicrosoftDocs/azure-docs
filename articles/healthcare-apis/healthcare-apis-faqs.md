@@ -6,7 +6,7 @@ author: EXPEkesheth
 ms.custom: references_regions
 ms.service: azure-health-data-services
 ms.topic: reference
-ms.date: 06/02/2025
+ms.date: 02/25/2026
 ms.author: kesheth
 ---
 
@@ -53,7 +53,5 @@ For more information, see [Azure Health Data Services service limits](../azure-r
 [FAQs about Azure Health Data Services FHIR service](./fhir/fhir-faq.md)
 
 [FAQs about Azure Health Data Services DICOM service](./dicom/dicom-services-faqs.yml)
-
-[FAQs about Azure Health Data Services MedTech service](./iot/frequently-asked-questions.md)
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

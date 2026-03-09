@@ -2,7 +2,7 @@
 ms.service: azure-logic-apps
 ms.author: estfan
 author: ecfan
-ms.date: 11/18/2025
+ms.date: 02/18/2026
 ms.topic: include
 ---
 
@@ -18,4 +18,4 @@ This section describes the options for how your MCP server sources input paramet
 
 - User-provided inputs
 
-  You specify the parameter values during development. These values are typically hardcoded and stay the same across all interactions between the agent and the end user.
+  You specify the parameter values during development. These values are typically hardcoded and stay the same across all interactions between the agent loop and the end user.

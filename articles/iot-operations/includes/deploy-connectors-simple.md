@@ -13,7 +13,7 @@ All the connectors can publish captured data to the MQTT broker.
 
 To add a connector template instance to your Azure IoT Operations instance:
 
-1. In the Azure portal, go to your Azure IoT Operations instance, select **Connector templates**, and then select **Add connector template instances**:
+1. In the Azure portal, go to your Azure IoT Operations instance, select **Connector templates**, and then select **Create a connector template**:
 
     :::image type="content" source="media/deploy-connectors-simple/portal-add-connector-template.png" alt-text="Screenshot of Azure portal that shows how to add a connector template instance." lightbox="media/deploy-connectors-simple/portal-add-connector-template.png":::
 

@@ -2,7 +2,7 @@
 title: Run your functions from a package file in Azure 
 description: Learn how to configure Azure Functions to run your function app from a deployment package file that contains your function app project.
 ms-service: azure-functions
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2024
 
 # Customer intent: As a function developer, I want to understand how to run my function app from a deployment package file, so I can make my function app run faster and easier to update.
@@ -34,7 +34,7 @@ To enable your function app to run from a package on the [Consumption](./consump
 
 | Value  | Description  |
 |---------|---------|
-| **`1`**  | Indicates that the function app runs from a local package file deployed in the `c:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder of your function app.  |
+| **`1`**  | Indicates that the function app runs from a local package file deployed in the `c:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder of your function app. This is the default option when you use [Azure Functions Core Tools](/azure/azure-functions/functions-run-local).  |
 |**`<URL>`**  | Sets a URL that is the remote location of the specific package file you want to run. Required for functions apps running on Linux in a Consumption plan.  |
 
 The following table indicates the recommended `WEBSITE_RUN_FROM_PACKAGE` values for deployment to a specific operating system and hosting plan:

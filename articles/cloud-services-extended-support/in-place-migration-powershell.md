@@ -26,7 +26,7 @@ Planning is the most important step for a successful migration experience. Revie
 ## Install the latest version of PowerShell
 There are two main options to install Azure PowerShell: [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) or [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps). WebPI receives monthly updates. PowerShell Gallery receives updates on a continuous basis. This article is based on Azure PowerShell version 2.1.0.
 
-For installation instructions, see [How to install and configure Azure PowerShell](/powershell/azure/servicemanagement/install-azure-ps?preserve-view=true&view=azuresmps-4.0.0).
+For installation instructions, see [How to install and configure Azure PowerShell](https://www.powershellgallery.com/packages/Azure/).
 
 ## Ensure Admin permissions
 To perform this migration, you must be added as a coadministrator for the subscription in the [Azure portal](https://portal.azure.com).

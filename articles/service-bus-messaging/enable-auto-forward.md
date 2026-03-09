@@ -115,8 +115,38 @@ Set-AzServiceBusSubscription -ResourceGroup myresourcegroup `
     -ForwardTo mytopic2 
 ```
 
-## Using Azure Resource Manager template
+## Using a template
 To **create a queue with auto forwarding enabled**, set `forwardTo` in the queue properties section to the name of queue or topic to which you want the messages to be forwarded. For more information, see [Microsoft.ServiceBus namespaces/queues template reference](/azure/templates/microsoft.servicebus/namespaces/queues?tabs=json). 
+
+# [Bicep](#tab/bicep)
+
+```bicep
+@description('Name of the Service Bus namespace')
+param serviceBusNamespaceName string
+
+@description('Name of the Queue')
+param serviceBusQueueName string
+
+@description('Location for all resources.')
+param location string = resourceGroup().location
+
+resource serviceBusNamespace 'Microsoft.ServiceBus/namespaces@2024-01-01' = {
+  name: serviceBusNamespaceName
+  location: location
+  sku: {
+    name: 'Standard'
+  }
+
+  resource queue 'queues' = {
+    name: serviceBusQueueName
+    properties: {
+      forwardTo: 'myqueue2'
+    }
+  }
+}
+```
+
+# [ARM template](#tab/arm)
 
 ```json
 {
@@ -146,20 +176,19 @@ To **create a queue with auto forwarding enabled**, set `forwardTo` in the queue
   "resources": [
     {
       "type": "Microsoft.ServiceBus/namespaces",
-      "apiVersion": "2018-01-01-preview",
+      "apiVersion": "2024-01-01",
       "name": "[parameters('serviceBusNamespaceName')]",
       "location": "[parameters('location')]",
       "sku": {
         "name": "Standard"
       },
-      "properties": {},
       "resources": [
         {
-          "type": "Queues",
-          "apiVersion": "2017-04-01",
+          "type": "queues",
+          "apiVersion": "2024-01-01",
           "name": "[parameters('serviceBusQueueName')]",
           "dependsOn": [
-            "[resourceId('Microsoft.ServiceBus/namespaces', parameters('serviceBusNamespaceName'))]"
+            "[parameters('serviceBusNamespaceName')]"
           ],
           "properties": {
             "forwardTo": "myqueue2"
@@ -169,17 +198,58 @@ To **create a queue with auto forwarding enabled**, set `forwardTo` in the queue
     }
   ]
 }
-
 ```
 
-To **create a subscription for a topic with auto forwarding enabled**, set `forwardTo` in the queue properties section to the name of queue or topic to which you want the messages to be forwarded. For more information, see [Microsoft.ServiceBus namespaces/topics/subscriptions template reference](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions?tabs=json). 
+---
+
+To **create a subscription for a topic with auto forwarding enabled**, set `forwardTo` in the subscription properties section to the name of queue or topic to which you want the messages to be forwarded. For more information, see [Microsoft.ServiceBus namespaces/topics/subscriptions template reference](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions?tabs=json). 
+
+# [Bicep](#tab/bicep)
+
+```bicep
+@description('Name of the Service Bus namespace')
+param serviceBusNamespaceName string
+
+@description('Name of the Topic')
+param serviceBusTopicName string
+
+@description('Name of the Subscription')
+param serviceBusSubscriptionName string
+
+@description('Location for all resources.')
+param location string = resourceGroup().location
+
+resource serviceBusNamespace 'Microsoft.ServiceBus/namespaces@2024-01-01' = {
+  name: serviceBusNamespaceName
+  location: location
+  sku: {
+    name: 'Standard'
+  }
+
+  resource topic 'topics' = {
+    name: serviceBusTopicName
+    properties: {
+      maxSizeInMegabytes: 1024
+    }
+
+    resource subscription 'subscriptions' = {
+      name: serviceBusSubscriptionName
+      properties: {
+        forwardTo: 'myqueue2'
+      }
+    }
+  }
+}
+```
+
+# [ARM template](#tab/arm)
 
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "service_BusNamespace_Name": {
+    "serviceBusNamespaceName": {
       "type": "string",
       "metadata": {
         "description": "Name of the Service Bus namespace"
@@ -207,30 +277,29 @@ To **create a subscription for a topic with auto forwarding enabled**, set `forw
   },
   "resources": [
     {
-      "apiVersion": "2018-01-01-preview",
-      "name": "[parameters('service_BusNamespace_Name')]",
       "type": "Microsoft.ServiceBus/namespaces",
+      "apiVersion": "2024-01-01",
+      "name": "[parameters('serviceBusNamespaceName')]",
       "location": "[parameters('location')]",
       "sku": {
         "name": "Standard"
       },
-      "properties": {},
       "resources": [
         {
-          "apiVersion": "2017-04-01",
-          "name": "[parameters('serviceBusTopicName')]",
           "type": "topics",
+          "apiVersion": "2024-01-01",
+          "name": "[parameters('serviceBusTopicName')]",
           "dependsOn": [
-            "[resourceId('Microsoft.ServiceBus/namespaces/', parameters('service_BusNamespace_Name'))]"
+            "[parameters('serviceBusNamespaceName')]"
           ],
           "properties": {
             "maxSizeInMegabytes": 1024
           },
           "resources": [
             {
-              "apiVersion": "2017-04-01",
+              "type": "subscriptions",
+              "apiVersion": "2024-01-01",
               "name": "[parameters('serviceBusSubscriptionName')]",
-              "type": "Subscriptions",
               "dependsOn": [
                 "[parameters('serviceBusTopicName')]"
               ],
@@ -245,6 +314,8 @@ To **create a subscription for a topic with auto forwarding enabled**, set `forw
   ]
 }
 ```
+
+---
 
 ## .NET 
 

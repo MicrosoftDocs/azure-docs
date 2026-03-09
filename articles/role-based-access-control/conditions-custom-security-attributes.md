@@ -53,7 +53,7 @@ Here is what the condition looks like in code:
 )
 ```
 
-For more information about conditions, see [What is Azure attribute-based access control (Azure ABAC)?](conditions-overview.md).
+For more information about conditions, see [What is Azure attribute-based access control (Azure ABAC)?](conditions-overview.md)
 
 ## Step 1: Add a new custom security attribute
 

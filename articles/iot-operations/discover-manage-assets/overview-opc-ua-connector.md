@@ -37,18 +37,21 @@ As part of Azure IoT Operations, the connector for OPC UA is a native Kubernetes
 
 The connector for OPC UA supports the following features as part of Azure IoT Operations:
 
-- Simultaneous connections to multiple OPC UA servers configured by using Kubernetes `device` custom resources (CRs).
-- Publish OPC UA data value changes in OPC UA PubSub format with JSON encoding.
-- Publish message headers as user properties in the MQTT message. The headers in the messages published by the connector for OPC UA are based on the [CloudEvents specification for OPC UA](https://github.com/cloudevents/spec/blob/main/cloudevents/extensions/opcua.md).
-- Publish OPC UA events with predefined event fields.
-- Asset definition by using Kubernetes Asset CRs
-- Payload compression including `gzip` and `brotli`.
-- Automatic reconnection to OPC UA servers.
-- Integrated [OpenTelemetry](https://opentelemetry.io/) compatible observability.
-- OPC UA transport encryption.
-- Anonymous authentication and authorization based on username and password.
-- `device` and `asset` CRs configurable by using Azure REST API and the operations experience web UI.
-- Dynamic resolution of nodes at runtime using the OPC UA `TranslateBrowsePathToNodeId` service.
+| Feature | Supported | Notes |
+|---------|:---------:|-------|
+| Username/password authentication | Yes | |
+| X.509 client certificates | No | |
+| Anonymous access | Yes | For testing purposes |
+| Certificate trust list | Yes | For secure, encrypted OPC UA connections |
+| OpenTelemetry integration | Yes | |
+| Automatic reconnection | Yes | Reconnects to OPC UA servers after failures |
+| Multiple server connections | Yes | Configured using Kubernetes `device` CRs |
+| OPC UA PubSub format | Yes | JSON-encoded data value changes |
+| CloudEvents headers | Yes | Message headers as MQTT user properties |
+| OPC UA events | Yes | Predefined event fields |
+| Payload compression | Yes | Supports `gzip` and `brotli` |
+| Dynamic node resolution | Yes | Using `TranslateBrowsePathToNodeId` service |
+| State store synchronization | Yes | Sync OPC UA node properties to distributed state store |
 
 ## How it works
 

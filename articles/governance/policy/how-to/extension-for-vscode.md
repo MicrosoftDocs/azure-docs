@@ -188,7 +188,7 @@ schema.
 
 > [!NOTE]
 > The VS Code extension will only show the latest version of the policy definition. For more
-> information about the versions of definitions, see the [definitions](../concepts/definition-structure-basics.md#version-preview).
+> information about the versions of definitions, see the [definitions](../concepts/definition-structure-basics.md#version).
 
 ### Export objects
 

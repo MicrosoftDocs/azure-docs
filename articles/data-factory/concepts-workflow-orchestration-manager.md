@@ -2,7 +2,7 @@
 title: What is Workflow Orchestration Manager?
 titleSuffix: Azure Data Factory
 description: Learn about when to use Workflow Orchestration Manager, basic concepts and supported regions.
-ms.topic: conceptual
+ms.topic: overview
 author: nabhishek
 ms.author: abnarain
 ms.date: 10/03/2024
@@ -14,14 +14,7 @@ ms.custom: references_regions
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-> [!NOTE]
-> Apache Airflow is now accessible through Microsoft Fabric. Microsoft Fabric offers a wide range of Apache Airflow capabilities via Data Workflows. 
-> We recommend migrating your existing Workflow Orchestration Manager (Apache Airflow in ADF) based workflows to Data Workflows (Apache Airflow in Microsoft Fabric) for a broader set of features. Apache Airflow capabilities will be Generally Available in Q1 CY2025 only in Microsoft Fabric. 
-> For new Apache Airflow projects, we recommend using Apache Airflow in Microsoft Fabric. More details can be found [here](https://blog.fabric.microsoft.com/blog/introducing-data-workflows-in-microsoft-fabric?ft=All).
-> New users will not be allowed to create a new workflow orchestration manager in ADF, but existing users with a workflow orchestration manager may continue to use it but plan a migration soon.
-
-> [!NOTE]
-> Workflow Orchestration Manager for Azure Data Factory relies on the open source Apache Airflow application. Documentation and more tutorials for Airflow can be found on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) pages.
+[!INCLUDE[apache-airflow-notification](includes/apache-airflow-notification.md)]
 
 Azure Data Factory offers serverless pipelines for data process orchestration, data movement with 100+ managed connectors, and visual transformations with the mapping data flow.
 

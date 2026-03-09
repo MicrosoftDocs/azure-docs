@@ -63,7 +63,7 @@ sections:
     questions:
       - question: What is StandardV2 NAT Gateway?
         answer: |
-          StandardV2 NAT Gateway is a new SKU offering of the Azure NAT Gateway service that is currently in **Public Preview**. StandardV2 NAT Gateway offers zone-redundancy support, enhanced data processing limits, IPv6 support, Flow logs, and increased scalability compared to the original Standard NAT Gateway. For more information, see [NAT Gateway SKUs](nat-sku.md).
+          StandardV2 NAT Gateway is a new SKU offering of the Azure NAT Gateway service. StandardV2 NAT Gateway offers zone-redundancy support, enhanced data processing limits, IPv6 support, Flow logs, and increased scalability compared to the original Standard NAT Gateway. For more information, see [NAT Gateway SKUs](nat-sku.md).
 
       - question: Can I upgrade my existing Standard NAT Gateway to StandardV2 NAT Gateway?
         answer: |
@@ -91,7 +91,7 @@ sections:
 
       - question: Is StandardV2 NAT Gateway available in all public regions?
         answer: |
-          No, StandardV2 NAT Gateway is available in most public regions. StandardV2 NAT Gateway isn't available in: Canada East, Central India, Chile Central, Indonesia Central, Israel Northwest, Malaysia West, Qatar Central, UAE Central.
+          No, StandardV2 NAT Gateway is available in most public regions. To learn more about which regions are not supported yet for StandardV2 NAT Gateway, see [known limitations](./nat-sku.md#known-limitations).
 
   - name: NAT gateway metrics
     questions: 
@@ -120,6 +120,8 @@ sections:
       - question: Are connections disrupted after attaching a NAT gateway to a subnet where a different service is currently used for outbound connectivity?
         answer: |
           No, there's no disruption in connections. Existing connections with the previous outbound service (Load Balancer, Azure Firewall, instance-level public IP addresses) continues to work until those connections close. After a NAT gateway is added to the subnet of the virtual network, all new connections use a NAT gateway for making outbound connections. 
+
+          However, there is a known issue with StandardV2 NAT Gateway and existing connections using a Load balancer, Firewall, or a virtual machine instance level public IP. Existing connections with other outbound connectivity methods will be disrupted after adding StandardV2 NAT Gateway to a subnet. All net new connections will use the StandardV2 NAT Gateway. To learn more see [known issues](./nat-sku.md#known-issues).
      
       - question: Can a NAT gateway public IP connect directly to a private IP address over the internet?
         answer: |

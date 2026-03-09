@@ -74,7 +74,7 @@ Use the following steps to provision the component:
 
 ## Update your container app dependency
 
-To integrate the Admin component into your container app, add the following dependency to your **pom.xml** file. Replace the version number with the latest version from the [Maven Repository](https://search.maven.org/artifact/de.codecentric/spring-boot-admin-starter-client).
+To integrate the Admin component into your container app, add the following dependency to your **pom.xml** file. Replace the version number with the latest version from the [Maven Repository](https://central.sonatype.com/artifact/de.codecentric/spring-boot-admin-starter-client).
 
 ```xml
 <dependency>

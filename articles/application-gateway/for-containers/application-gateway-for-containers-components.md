@@ -57,6 +57,18 @@ This article provides detailed descriptions and requirements for components of A
 - At this time, the only security policy type offered is `waf` for web application firewall capabilities.
 - The `waf` security policy is a one-to-one mapping between the security policy resource and a Web Application Firewall policy.
   - You can reference only one web application firewall policy in any number of security policies for a defined Application Gateway for Containers resource.
+ 
+### Application Gateway for Containers AKS managed add-on
+
+The AKS add-on for Application Gateway for Containers provides a managed deployment experience by AKS for the ALB Controller, eliminating the need to manually deploy a helm chart.
+
+Some of the benefits of using the managed add-on over a helm based deployment are:
+
+- **Managed updates:** No need to manually update Helm charts; updates are managed by AKS.
+- **Automated identity management:** The add-on automatically creates and configures the managed identity (`applicationloadbalancer-<cluster-name>`) with the required permissions.
+- **Simplified subnet configuration:** A dedicated subnet (`aks-appgateway`) is automatically provisioned with the correct delegation.
+- **Reduced configuration complexity:** No need to manually set up federated credentials or role assignments.
+- **AKS Automatic support:** Add-on deployment is required when using AKS Automatic clusters.
 
 ## Azure / general concepts
 

@@ -5,7 +5,7 @@ description: Teams client experience of Azure Communication Services support for
 author: tomaschladek
 ms.author: tchladek
 ms.date: 7/9/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---

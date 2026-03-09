@@ -212,7 +212,7 @@ The following diagram displays the checks performed while configuring subnet pee
     - AVNM Connectivity Configuration<br>
     AVNM today can't differentiate between virtual network peering and subnet peering. If Subnet peering exists between virtual network A and virtual network B, and later an AVNM user tries to establish a virtual network peering between virtual network A and virtual network B through some AVNM connectivity configuration (Hub and Spoke deployment), AVNM assumes that peering between virtual network A and virtual network B already exists and ignores the new peering request. Exercise caution in such conflicting scenarios while using AVNM and Subnet peering.
 
-1. For production deployments, ensure you use V5 SKUs (5th generation VM SKUs) or migrate to them to prevent potential outages that might occur with older generation SKUs.
+1. **Hard limitation**: If you are planning to use the feature in production, **you must use Intel based V5 SKUs/migrate to V5 SKUs (Intel based 5th generation of VM SKUs, or AMD Genoa or Cobalt 100 based SKUs)** to avoid possible outage due to a bug seen on older gen SKUs.
 
 ## Next steps
 

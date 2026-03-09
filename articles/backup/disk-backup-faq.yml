@@ -4,7 +4,7 @@ metadata:
   description: Get answers to frequently asked questions about Azure Disk Backup
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 08/25/2025
+  ms.date: 01/29/2026
   author: AbhishekMallick-MS
   ms.author: v-mallicka
 title: Frequently asked questions about Azure Disk Backup
@@ -24,7 +24,7 @@ sections:
       - question: |
           How do I find the snapshot resource group that I used to configure backup for a disk?
         answer: |
-          In the **Backup Instance** screen, you can find the snapshot resource group field in the **Essentials** section. You can search and select your backup instance of  the corresponding disk from Backup center or the Backup vault.
+          In the **Backup Instance** screen, you can find the snapshot resource group field in the **Essentials** section. You can search and select your backup instance of  the corresponding disk from Resiliency or the Backup vault.
           
           ![Snapshot resource group field](./media/disk-backup-faq/snapshot-resource-group.png)
           
@@ -59,9 +59,9 @@ sections:
           Azure Backup uses [incremental snapshots](/azure/virtual-machines/disks-incremental-snapshots#restrictions) of managed disks that store only the delta changes to disks since the last snapshot on Standard HDD storage, regardless of the storage type of the parent disk. For more reliability, incremental snapshots are stored on Zone Redundant Storage (ZRS) by default in regions that support ZRS. Currently, Azure Disk Backup supports operational backups of managed disks that don't copy the backups to Backup vault storage. So the backup storage redundancy setting of the Backup vault doesn't apply to the recovery points.
           
       - question: |
-          Can I use Backup Center to configure backups and manage backup instances for Azure Disks?
+          Can I use Resiliency to configure backups and manage backup instances for Azure Disks?
         answer: |
-          Yes, Azure Disk Backup is integrated into [Backup Center](backup-center-overview.md), which provides a **single unified management experience** in Azure for enterprises to govern, monitor, operate, and analyze backups at scale. You can also use Backup vault to back up, restore, and manage the backup instances that are protected within the vault.
+          Yes, Azure Disk Backup is integrated into [Resiliency](../resiliency/resiliency-overview.md), which provides a **single unified management experience** in Azure for enterprises to govern, monitor, operate, and analyze backups at scale. You can also use Backup vault to back up, restore, and manage the backup instances that are protected within the vault.
           
       - question: |
           Why do I need to create a Backup vault and not use a Recovery Services vault?

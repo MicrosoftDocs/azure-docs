@@ -15,7 +15,7 @@ This article covers the recommended approach, guidelines, and practices for relo
 
 Before you begin, ensure that you have the following prerequisites:
 
-- If the source VM supports availability zones, then the target region must also support availability zones. To see which regions support availability zones, see [Azure regions with availability zone support](../../../reliability/availability-zones-region-support.md).
+- If the source VM supports availability zones, then the target region must also support availability zones. To see which regions support availability zones, see [Azure regions with availability zone support](/azure/reliability/availability-zones-region-support).
 
 - The subscription in the destination region needs enough quota to create the resources. If you exceeded the quota, request an increase. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 

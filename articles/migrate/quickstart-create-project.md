@@ -66,7 +66,7 @@ After you create the project, perform the following steps to try out the new age
 
 Ensure that you install Az CLI to execute the required commands by following the steps provided in the documentation [here](/cli/azure/install-azure-cli).
 
-After you install the Az CLI (in PowerShell), open PowerShell on your system as an Administrator and execute the following commands:
+After you install the Az CLI (in PowerShell), go to PowerShell on your system as an Administrator and execute the following commands:
 
 1. Log in to the Azure tenant and set the Subscription.  
    - az log in --tenant <TENANT_ID>
@@ -125,7 +125,7 @@ To delete a project, follow these steps:
 
 > [!NOTE]
 > - When you delete, both the project and the metadata about discovered servers are deleted.
-> - If you're using the older version of Azure Migrate, open the Azure resource group in which the project was created. Select the project you want to delete (the resource type is **Migration project**).
+> - If you're using the older version of Azure Migrate, go to the Azure resource group in which the project was created. Select the project you want to delete (the resource type is **Migration project**).
 > - If you're using dependency analysis with an Azure Log Analytics workspace:
     > - If you've attached a Log Analytics workspace to the Server Assessment tool, the workspace isn't automatically deleted. The same Log Analytics workspace can be used for multiple scenarios.
     > - If you want to delete the Log Analytics workspace, do that manually.

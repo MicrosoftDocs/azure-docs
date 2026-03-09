@@ -53,7 +53,11 @@ For more information, review the [SQL Server managed connector reference](/conne
 
   The SQL Server connector requires that your tables contain data so that the connector operations can return results when called. For example, if you use Azure SQL Database, you can use the included sample databases to try the SQL Server connector operations.
 
-* The information required to create a SQL database connection, such as your SQL server and database name. If you're using Windows Authentication or SQL Server Authentication to authenticate access, you also need your user name and password. You can usually find this information in the connection string.
+* The information required to create a SQL database connection, such as your SQL server and database name. If you're using Windows Authentication or SQL Server Authentication to authenticate access, you also need your username and password. You can usually find this information in the connection string.
+
+  > [!IMPORTANT]
+  >
+  > Make sure you or other users have only the minimum permissions for the logic app workflow to successfully perform the required operations on the database, such as permissions to read and write the relevant tables and execute any required stored procedures. To support change tracking, you need permissions such as `VIEW CHANGE TRACKING` and any permissions to create or use the `az_func` schema and `GlobalState` objects. Assign the `db_owner` role only if required for troubleshooting. 
 
   > [!IMPORTANT]
   >

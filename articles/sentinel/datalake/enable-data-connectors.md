@@ -3,12 +3,11 @@ title: Asset data in Microsoft Sentinel data lake
 titleSuffix: Microsoft Security  
 description: Asset data in security data lake 
 author: mberdugo  
-ms.service: microsoft-sentinel  
+ms.service: microsoft-sentinel
+ms.subservice: sentinel-platform  
 ms.topic: conceptual
-ms.custom: sentinel-graph
 ms.date: 11/04/2025
 ms.author: monaberdugo  
-
 ms.collection: ms-security
 
 #Customer intent: As a Microsoft Sentinel user, I want to understand the ingestion of asset data and analysis of security-related data from various sources.

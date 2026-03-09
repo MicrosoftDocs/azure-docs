@@ -1,8 +1,8 @@
 ---
 title: Microsoft Azure IoT DPS IP connection filters
 description: How to use IP filtering to block connections from specific IP addresses to your Azure IoT DPS instance. 
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-iot-hub
 services: iot-dps
 ms.topic: how-to
@@ -125,7 +125,7 @@ There are two ways you can update your DPS IP filter:
 
 1. Call the IoT Hub Resource REST API method. To learn how to update your IP filter rules using REST,  see `IpFilterRule` in the [Definitions](/rest/api/iothub/iot-hub-resource/update#definitions) section of [IoT Hub Resource - Update](/rest/api/iothub/iot-hub-resource/update).
 
-2. Use the Azure Resource Manager templates. For more information about how to use the Resource Manager templates, see [What are ARM templates?](../azure-resource-manager/templates/overview.md). The examples that follow show you how to create, edit, and delete DPS IP filter rules with Azure Resource Manager templates.
+2. Use the Azure Resource Manager templates. For more information about how to use the Resource Manager templates, see [What are ARM templates?](../azure-resource-manager/templates/overview.md) The examples that follow show you how to create, edit, and delete DPS IP filter rules with Azure Resource Manager templates.
 
     >[!NOTE]
     >Azure CLI and Azure PowerShell don't currently support DPS IP filter rules updates.

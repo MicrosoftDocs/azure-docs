@@ -1,6 +1,6 @@
 ---
 title: Managed Disk Options
-description: Learn about volumes (Azure managed disks) within Azure CycleCloud. Understand persistent volumes and disk type options.
+description: Learn about volumes (Azure Managed Disks) within Azure CycleCloud. Understand persistent volumes and disk type options.
 author: mvrequa
 ms.date: 06/30/2025
 ms.author: adjohnso
@@ -35,7 +35,7 @@ This volume is created the first time the instance starts but isn't deleted when
 ## Disk types
 
 ::: moniker range="=cyclecloud-7"
-There are four [Azure disk types](/azure/virtual-machines/linux/disks-types). CycleCloud uses standard hard disk drives (HDD) by default. To use a more performant SSD drive for the disk, set `SSD` to `true`:
+There are four [Azure disk types](/azure/virtual-machines/linux/disks-types). CycleCloud uses Standard HDDs by default. To use a more performant SSD drive for the disk, set `SSD` to `true`:
 
 ``` ini
 [[[volume example-vol]]]

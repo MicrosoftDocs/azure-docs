@@ -17,7 +17,7 @@ ms.custom:
 
 # SAP BusinessObjects BI platform deployment guide for Linux on Azure
 
-This article describes the strategy to deploy SAP BusinessObjects BI (BOBI) platform on Azure for Linux. In this example, you configure two virtual machines with premium solid-state drive (SSD) managed disks as the install directory. You use Azure Database for MySQL for your CMS database, and you share Azure NetApp Files for your file repository server across both servers. On both virtual machines, you install the default Tomcat Java web application and BI platform application together. To load-balance user requests, you use Azure Application Gateway with native TLS/SSL offloading capabilities.
+This article describes the strategy to deploy SAP BusinessObjects BI (BOBI) platform on Azure for Linux. In this example, you configure two virtual machines with Premium SSD managed disks as the install directory. You use Azure Database for MySQL for your CMS database, and you share Azure NetApp Files for your file repository server across both servers. On both virtual machines, you install the default Tomcat Java web application and BI platform application together. To load-balance user requests, you use Azure Application Gateway with native TLS/SSL offloading capabilities.
 
 This type of architecture is effective for small deployments or non-production environments. For large deployments or production environments, you can have separate hosts for your web application. You can also have multiple BOBI application hosts, allowing the server to process more information.
 
@@ -58,7 +58,7 @@ In this section, you create two virtual machines with the Linux operating system
    - You can either use a custom image or choose an image from Azure Marketplace. For more information, see [Deploying a VM from the Azure Marketplace for SAP](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/sap/workloads/deployment-guide.md#scenario-1-deploying-a-vm-from-the-azure-marketplace-for-sap) or [Deploying a VM with a custom image for SAP](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/sap/workloads/deployment-guide.md#scenario-2-deploying-a-vm-with-a-custom-image-for-sap).
 
 5. Create virtual machine 2, called **(azusbosl2)**.
-6. Add one premium SSD disk. You'll use it as your SAP BOBI Installation directory.
+6. Add one Premium SSD. You'll use it as your SAP BOBI Installation directory.
 
 ## Provision Azure NetApp Files
 
@@ -651,7 +651,7 @@ To distribute traffic across a web server, you can either use Azure Load Balance
 
 - For Application Gateway, high availability can be achieved based on the type of tier selected during deployment.
   - v1 SKU supports high-availability scenarios when you've deployed two or more instances. Azure distributes these instances across update and fault domains to ensure that instances don't all fail at the same time. You achieve redundancy within the zone.
-  - v2 SKU automatically ensures that new instances are spread across fault domains and update domains. If you choose zone redundancy, the newest instances are also spread across availability zones to offer zonal failure resiliency. For more details, see [Autoscaling and Zone-redundant Application Gateway v2](../../application-gateway/application-gateway-autoscaling-zone-redundant.md).
+  - v2 SKU automatically ensures that new instances are spread across fault domains and update domains. If you choose zone redundancy, the newest instances are also spread across availability zones to offer zone failure resiliency. For more details, see [Autoscaling and Zone-redundant Application Gateway v2](../../application-gateway/application-gateway-autoscaling-zone-redundant.md).
 
 ### Reference high availability architecture for SAP BOBI platform
 
@@ -697,7 +697,7 @@ Use [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) to repl
 
 Filestore is a disk directory where the actual files, like reports and BI documents, are stored. It's important that all the files in the filestore are in sync to a disaster recovery region. Based on the type of file share service you use for SAP BOBI platform running on Linux, the appropriate disaster recovery strategy needs to be adopted to sync the content.
 
-- **Azure NetApp Files** provides NFS and SMB volumes, so you can use any file-based copy tool to replicate data between Azure regions. For more information on how to copy a volume in another region, see [FAQs About Azure NetApp Files](../../azure-netapp-files/faq-data-migration-protection.md#how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region).
+- **Azure NetApp Files** provides NFS and SMB volumes, so you can use any file-based copy tool to replicate data between Azure regions. For more information on how to copy a volume in another region, see [FAQs About Azure NetApp Files](../../azure-netapp-files/faq-data-migration-protection.md#how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-zone-or-region).
 
   You can use Azure NetApp Files cross-region replication, currently in [preview](https://azure.microsoft.com/blog/azure-netapp-files-cross-region-replication-and-new-enhancements-in-preview/). Only changed blocks are sent over the network in a compressed, efficient format. This minimizes the amount of data required to replicate across the regions, saving data transfer costs. It also shortens the replication time, so you can achieve a smaller RPO. For more information, see [Requirements and considerations for using cross-region replication](../../azure-netapp-files/cross-region-replication-requirements-considerations.md).
 
