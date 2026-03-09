@@ -37,7 +37,8 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 |Azure Synapse serverless SQL pool|[Storage access issues due to authorization header being too long](#storage-access-issues-due-to-authorization-header-being-too-long)|Has workaround|
 |Azure Synapse serverless SQL pool|[Querying a view shows unexpected results](#querying-a-view-shows-unexpected-results)|Has workaround|
 |Azure Synapse serverless SQL pool|[Queries longer than 7,500 characters may not appear in Log Analytics](#queries-longer-than-7500-characters-may-not-appear-in-log-analytics)|Has workaround|
-| Azure Synapse serverless SQL pool | [Queries on external tables may take longer or not complete due to missing statistics](#queries-on-external-tables-may-take-longer-or-not-complete-due-to-missing-statistics) | Has workaround |
+|Azure Synapse serverless SQL pool | [Queries on external tables may take longer or not complete due to missing statistics](#queries-on-external-tables-may-take-longer-or-not-complete-due-to-missing-statistics) | Has workaround |
+|Azure Synapse serverless SQL pool|[Queries fail with “Invalid object name” for Spark created tables with large column counts](#queries-fail-with-invalid-object-name-for-spark-created-tables-with-large-column-counts)|Has workaround|
 |Azure Synapse Workspace|[Blob storage linked service with User Assigned Managed Identity (UAMI) isn't getting listed](#blob-storage-linked-service-with-user-assigned-managed-identity-uami-is-not-getting-listed)|Has workaround|
 |Azure Synapse Workspace|[Failed to delete Synapse workspace & Unable to delete virtual network](#failed-to-delete-synapse-workspace--unable-to-delete-virtual-network)|Has workaround|
 |Azure Synapse Workspace|[REST API PUT operations or ARM/Bicep templates to update network settings fail](#rest-api-put-operations-or-armbicep-templates-to-update-network-settings-fail)|Has workaround|
@@ -310,7 +311,12 @@ ORDER BY [schema_name], [table_name], [column_name];
 ```
 
 In addition to mitigating this issue, maintaining fresh statistics can improve overall query performance. 
- 
+
+### Queries fail with “Invalid object name” for Spark created tables with large column counts   
+
+Tables created in Spark with more than 1,024 columns may appear in Object Explorer but cannot be queried from Serverless SQL pool due to incomplete metadata synchronization.
+
+**Workaround**: Avoid creating Spark tables with more than 1,024 columns if they need to be queried from Serverless SQL pool; redesign the schema and recreate the table.  
 
 ## Azure Synapse Apache Spark pool active known issues summary
 
