@@ -132,26 +132,29 @@ For step-by-step guidance, see [Mount Blob storage by using the Network File Sys
 Traffic must originate from a VNet. A VNet enables clients to securely connect to your storage account. The only way to secure the data in your account is by using a VNet and other network security settings. Any other tool used to secure data including account key authorization, Microsoft Entra security, and access control lists (ACLs) can't be used to authorize an NFS 3.0 request.
 
 To learn more, see [Network security recommendations for Blob storage](security-recommendations.md#networking).
+> [!Note]
+> Public IP filtering to access your storage account is not supported.
 
 ### Supported network connections
 
-A client can connect over a public or a [private endpoint](../common/storage-private-endpoints.md), and can connect from any of the following network locations:
+Clients can connect via a public or [private endpoint](../common/storage-private-endpoints.md), provided the connection originates from any of the following network locations:
 
 - The VNet that you configure for your storage account.
 
   In this article, we'll refer to that VNet as the *primary VNet*. To learn more, see [Grant access from a virtual network](../common/storage-network-security.md#grant-access-from-a-virtual-network).
-
+  
 - A peered VNet that is in the same region as the primary VNet.
 
   You'll have to configure your storage account to allow access to this peered VNet. To learn more, see [Grant access from a virtual network](../common/storage-network-security.md#grant-access-from-a-virtual-network).
-
+  
 - An on-premises network that is connected to your primary VNet by using [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or an [ExpressRoute gateway](../../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md).
 
   To learn more, see [Configuring access from on-premises networks](../common/storage-network-security.md#configuring-access-from-on-premises-networks).
-
+  
 - An on-premises network that is connected to a peered network.
 
   This can be done by using [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or an [ExpressRoute gateway](../../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) along with [Gateway transit](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering#gateway-transit).
+  
 
 > [!IMPORTANT]
 > The NFS 3.0 protocol uses ports 111 and 2048. If you're connecting from an on-premises network, make sure that your client allows outgoing communication through those ports. If you have granted access to specific VNets, make sure that any network security groups associated with those VNets don't contain security rules that block incoming communication through those ports. 

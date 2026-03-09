@@ -102,7 +102,7 @@ There are two options for shared disks in a Windows failover cluster in Azure:
 - Use [Azure shared disks](/azure/virtual-machines/disks-shared) to attach Azure Managed Disks to multiple VMs simultaneously.
 - Use [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/sios-datakeeper/) to create a mirrored storage that simulates cluster shared storage.
 
-When you're selecting the technology for shared disks, keep in mind the following considerations about Azure shared disks for SAP workloads:
+When you select a technology for shared disks, keep in mind the following considerations about Azure shared disks for SAP workloads:
 
 - Use of Azure shared disks with [Azure Premium SSD](/azure/virtual-machines/disks-types#premium-ssds) disks is supported for SAP deployment in availability sets and availability zones.
 - [Ultra Disks](/azure/virtual-machines/disks-types#ultra-disks) and [Azure Standard SSDs](/azure/virtual-machines/disks-types#standard-ssds) are not supported as Azure shared disks for SAP workloads.
@@ -121,7 +121,9 @@ You can implement SAP ASCS/SCS HA with [Azure shared disks](/azure/virtual-machi
 
 #### Prerequisites and limitations
 
-Currently, you can use Azure Premium SSDs as Azure shared disks for the SAP ASCS/SCS instance. The following limitations are currently in place:
+
+You can use Azure Premium SSD disks as Azure shared disks for the SAP ASCS/SCS instance. Consider the following limitations:
+
 
 - [Ultra Disks](/azure/virtual-machines/disks-types#ultra-disks) and [Standard SSDs](/azure/virtual-machines/disks-types#standard-ssds) are not supported as Azure shared disks for SAP workloads.
 - [Azure Shared disks](/azure/virtual-machines/disks-shared) with [Premium SSDs](/azure/virtual-machines/disks-types#premium-ssds) are supported for SAP deployment in availability sets and availability zones.
@@ -133,7 +135,7 @@ Currently, you can use Azure Premium SSDs as Azure shared disks for the SAP ASCS
   - If you're using PPGs for an SAP system deployed in a region, all virtual machines that share a disk must be part of the same PPG.
   - If you're using PPGs for an SAP system deployed across zones, as described in [Proximity placement groups with zonal deployments](proximity-placement-scenarios.md#proximity-placement-groups-with-zonal-deployments), you can attach `Premium_ZRS` storage to virtual machines that share a disk.
 
-For more information, review the [Limitations](/azure/virtual-machines/disks-shared#limitations) section of the documentation for Azure shared disks.
+For more information, see the [Limitations](/azure/virtual-machines/disks-shared#limitations) section of the documentation for Azure shared disks.
 
 #### Important considerations for Premium SSD shared disks
 

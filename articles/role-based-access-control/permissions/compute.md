@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 03/08/2026
 ms.custom: generated
 ---
 
@@ -1025,6 +1025,22 @@ Azure service: [Virtual Machines](/azure/virtual-machines/), [Virtual Machine Sc
 > | Microsoft.Compute/virtualMachines/login/action | Log in to a virtual machine as a regular user |
 > | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Log in to a virtual machine with Windows administrator or Linux root user privileges |
 > | Microsoft.Compute/virtualMachines/WACloginAsAdmin/action | Lets you manage the OS of your resource via Windows Admin Center as an administrator |
+
+## Microsoft.ComputeLimit
+
+Azure service: Microsoft Compute Limit
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.ComputeLimit/register/action | Registers the subscription for the Compute Limit resource provider and enables the management of compute limit resources. |
+> | Microsoft.ComputeLimit/locations/guestSubscriptions/read | Reads guest subscriptions for a given host subscription within a location. |
+> | Microsoft.ComputeLimit/locations/guestSubscriptions/write | Adds a subscription as a guest to consume a host subscription's shared compute limits. |
+> | Microsoft.ComputeLimit/locations/guestSubscriptions/delete | Removes a subscription as a guest preventing it from consuming the host subscription's shared compute limits. |
+> | Microsoft.ComputeLimit/locations/sharedLimits/read | Lists all compute shared limits a host subscription shares with its guest subscriptions. |
+> | Microsoft.ComputeLimit/locations/sharedLimits/write | Enables sharing of a compute limit by a host subscription with its guest subscriptions. |
+> | Microsoft.ComputeLimit/locations/sharedLimits/delete | Disables sharing of a compute limit by a host subscription with its guest subscriptions. |
+> | Microsoft.ComputeLimit/operations/read | Reads all available operations for the Microsoft.ComputeLimit resource provider. |
 
 ## Microsoft.ComputeSchedule
 

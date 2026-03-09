@@ -184,10 +184,10 @@ To configure DNS in Azure DNS private zones:
 :::image type="content" source="./media/custom-domain-suffix/private-dns-zone-vnet-link.png" alt-text="Screenshot of a sample virtual network link for private DNS zone.":::
 1. Optionally create an A record in that zone that points *.scm to the inbound IP address used by your App Service Environment.
 
-For more information on configuring DNS for your domain, see [Use an App Service Environment](./using.md#dns-configuration).
+For more information on configuring DNS for your domain, see [Use an App Service Environment](./using.md#configure-dns).
 
 > [!NOTE]
-> In addition to configuring DNS for your custom domain suffix, you should also consider [configuring DNS for the default domain suffix](./using.md#dns-configuration) to ensure all App Service features function as expected.
+> In addition to configuring DNS for your custom domain suffix, you should also consider [configuring DNS for the default domain suffix](./using.md#configure-dns) to ensure all App Service features function as expected.
 > 
 
 ## Access your apps
@@ -209,7 +209,7 @@ The App Service platform periodically checks if your App Service Environment can
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Using an App Service Environment v3](using.md)
+> [Host an app in an App Service Environment](using.md)
 
 > [!div class="nextstepaction"]
 > [App Service Environment v3 Networking](networking.md)

@@ -288,6 +288,8 @@ items:
     href: ecosystem-external-storage-solutions.md
   - name: Configure Azure Elastic SAN
     href: configure-azure-elastic-san.md
+  - name: Performance with Elastic SAN
+    href: ../storage/elastic-san/elastic-san-performance-on-azure-vmware-solutions.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
   - name: Configure Azure NetApp Files
     items:
     - name: Attach Azure NetApp Files datastores to Azure VMware Solution hosts

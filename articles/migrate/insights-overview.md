@@ -20,8 +20,9 @@ This article describes the **Insights** (preview) feature in Azure Migrate, whic
 - Review security risks in your datacenter early during migration planning.
 - Plan mitigation to fix security issues and make your migration to Azure smooth and secure.
 - Identify and plan upgrade of Windows and Linux servers with end of support operating system, end of support software and pending updates. 
-- Detect vulnerabilities in discovered software and take action to remediate risks.
+- Detect vulnerabilities in servers, databases, web apps and discovered software and take action to remediate risks.
 - Identify servers without security or patch management software, and plan to configure [Microsoft Defender for Cloud](/azure/defender-for-cloud/) and [Azure Update Manager](../update-manager/overview.md).
+- Review and plan upgrade of databases running on end of support database platform and web apps with end of support runtime.
 
 ## Security Insights data
 
@@ -39,6 +40,12 @@ Azure Migrate currently focuses on a core set of security risk areas. Each area 
 | Software | With security risks | Software with at least one of the security risks – end of support, vulnerabilities. | 
 |  | End of support | Software declared end of support by vendor. | 
 |  | With vulnerabilities| Software with known vulnerability (CVE). | 
+| Databases | With security risks | Database with at least one of the security risks in database platform – end of support, vulnerabilities. | 
+|  | End of support | Databases with end of support database platform. | 
+|  | With vulnerabilities| Databases with known vulnerability (CVE) in database platform. | 
+| Web apps | With security risks | Web apps with at least one of the security risks in framework/runtime – end of support, vulnerabilities. | 
+|  | End of support | Web apps with end of support framework/runtime. | 
+|  | With vulnerabilities| Web apps with known vulnerability (CVE) in framework/runtime. | 
 
 ## How are Insights derived
 
@@ -49,9 +56,9 @@ Azure Migrate identifies potential security risks in your datacenter using softw
 
 Security risks are derived through a series of following analyses:
 
-- **End-of-support software**: Azure Migrate checks the versions of discovered software against the publicly available [endoflife.date](https://endoflife.date/) repository. All end of life data is refreshed every 7 days. If software is found to be end of support (meaning the vendor no longer provides security updates), it flags it as a security risk. Identifying unsupported software early helps you plan upgrades or mitigations as part of your cloud migration.
+- **End-of-support**: Azure Migrate checks the versions of discovered Operating system, software, database platform and web app runtime against the publicly available [endoflife.date](https://endoflife.date/) repository. All end of life data is refreshed every 7 days. If software is found to be end of support (meaning the vendor no longer provides security updates), it flags it as a security risk. Similarly, a database instance is flagged as security risk if the database platform is end of support. Likewise, a web app is marked with security risk when it is built on a framework/runtime that is no longer supported. Identifying unsupported resources early helps you plan upgrade or mitigation as part of your cloud migration.
 
-- **Vulnerabilities**: Azure Migrate identifies installed software and operating system (OS) for each server. It maps the discovered software and OS to CPE nomenclature (Common Platform Enumeration) using AI model, which provides a unique identification for each software version. It stores only software metadata (name, publisher, version) and doesn't capture any organization-specific information. Azure Migrate correlates the CPE names with known CVE IDs (Common Vulnerabilities and Exposures). CVE IDs are unique identifiers assigned to publicly disclosed cybersecurity vulnerabilities and help organizations identify and track vulnerabilities in a standard way. Refer to [CVE](https://www.cve.org/) for more details. Information about CVE IDs and related software comes from the publicly available [National Vulnerability Database](https://nvd.nist.gov/) (NVD), managed by NIST. This helps identify vulnerabilities in the software. Each vulnerability is categorized by risk level (Critical, High, Medium, Low) based on the [CVSS](https://nvd.nist.gov/vuln-metrics/cvss) score provided by NVD. This feature uses the NVD API but is not endorsed or certified by the NVD. All CVE data from NVD is refreshed every 7 days. 
+- **Vulnerabilities**: Azure Migrate identifies installed software and operating system (OS) for each server. It maps the discovered software, OS, database platform and web app runtime to CPE nomenclature (Common Platform Enumeration) using AI model, which provides a unique identification for each  version. Azure Migrate stores only software metadata (name, publisher, version) and doesn't capture any organization-specific information. It correlates the CPE names with known CVE IDs (Common Vulnerabilities and Exposures). CVE IDs are unique identifiers assigned to publicly disclosed cybersecurity vulnerabilities and help organizations identify and track vulnerabilities in a standard way. Refer to [CVE](https://www.cve.org/) for more details. Information about CVE IDs and related software comes from the publicly available [National Vulnerability Database](https://nvd.nist.gov/) (NVD), managed by NIST. This helps identify vulnerabilities in the software, operating system, database instance and web app. Each vulnerability is categorized by risk level (Critical, High, Medium, Low) based on the [CVSS](https://nvd.nist.gov/vuln-metrics/cvss) score provided by NVD. This feature uses the NVD API but is not endorsed or certified by the NVD. All CVE data from NVD is refreshed every 7 days. 
 
 - **Pending updates for servers**: Azure Migrate identifies machines that are not fully patched or updated based on [Windows Update](/windows/deployment/update/windows-update-overview) metadata for Windows servers and Linux package manager metadata for Linux servers. It also retrieves the classification of these updates (Critical, Security, Other updates) and shows them for further consideration. Azure Migrate refreshes data from Windows Updates and Linux package managers every 24 hours. This insight appears as Servers with pending security and critical updates, indicating that the server is not fully patched and should be updated.
 
@@ -66,12 +73,24 @@ Use the following formula to calculate number of security risks for a server:
 OS end-of-support flag + Software end-of-support flag + Number of vulnerabilities + Number of pending critical and security updates + Security software flag + Patch management software flag
 
    - **OS end-of-support flag** = 1 if the server operating system is at end of support; otherwise, 0.
-   - **Software end-of-support flag** = 1 if the software is at end of support; otherwise, 0.
+   - **Software end-of-support flag** = 1 if the software is end of support; otherwise, 0.
    - **Number of vulnerabilities** = Count of CVEs identified for the server.
    - **Number of pending critical and security updates** = Pending updates for Windows and Linux servers that are classified as Critical or Security.
    - **Security software flag** = 1 if no software belonging to the Security category was discovered on the server; otherwise, 0.
    - **Patch management software flag** = 1 if no software belonging to the Patch Management sub-category was discovered on the server; otherwise, 0. 
- 
+
+On similar lines, number of security risks for a database instance is calculated as:
+Database platform end-of-support flag + Number of vulnerabilities
+
+- **Database platform end-of-support flag** = 1 if the database platform is end of support; otherwise, 0.
+- **Number of vulnerabilities** = Count of CVEs identified for the Database platform.
+
+In the same way, number of security risks for a web app is calculated as:
+Runtime end-of-support flag + Number of vulnerabilities
+
+- **Runtime end-of-support flag** = 1 if the web app runtime version is end of support; otherwise, 0.
+- **Number of vulnerabilities** = Count of CVEs identified for the runtime version.
+
 >[!Note]
 > Security insights in Azure Migrate help guide and highlight potential security risks in the datacenter. They are not meant to be compared with specialized security tools. We recommend to adopt Azure services such as, [Microsoft Defender for Cloud](/azure/defender-for-cloud/) and [Azure Update Manager](../update-manager/overview.md) for comprehensive protection of your hybrid environment.
 
@@ -117,13 +136,21 @@ The **Servers card** shows a summary of all discovered servers with security ris
 
 ### Review Software risk assessment 
 
-The **Software Card** shows a summary of all discovered software with security risks. Software is flagged as at risk if it is either end-of-support or has known vulnerabilities (CVEs). The card displays the number of end-of-support software and software with vulnerabilities as fractions of the total software with security risks.
+The **Software card** shows a summary of all discovered software with security risks. Software is flagged to be at risk if it is either end-of-support or has known vulnerabilities (CVEs). The card displays the number of end-of-support software and software with vulnerabilities as fractions of the total software with security risks.
 
 :::image type="content" source="./media/security-insights-overview/software-card.png" alt-text="Screenshot provides aggregated view of all software with security risks out of total discovered software." lightbox="./media/security-insights-overview/software-card.png":::
 
+### Review Database risk assessment 
+
+The **Database instances card** shows a summary of all database instances with security risks. Database instance is flagged to be at risk if its database platform is either end-of-support or has known vulnerabilities (CVEs). The card displays the number of database instances on end-of-support platform and database instances with vulnerabilities as fractions of total database instances with security risks.
+
+### Review Web apps risk assessment 
+
+The **Web apps card** shows a summary of all web apps with security risks. Web app is flagged to be at risk if its runtime is either end-of-support or has known vulnerabilities (CVEs). The card displays the number of web apps with end-of-support runtime and web apps with vulnerabilities as fractions of total web apps with security risks.
+
 ## Review detailed Security Insights 
 
-To review detailed security risks for Servers and Software, perform the following actions:
+To review detailed security risks for Servers, Software, Database instances and Web apps, perform the following actions:
 
 ### Review Servers with security risks
 
@@ -166,7 +193,7 @@ To review software with identified security risks, follow these steps:
 
     :::image type="content" source="./media/security-insights-overview/metadata-export-view.png" alt-text="Screenshot shows detailed list of discovered software and its metadata." lightbox="./media/security-insights-overview/metadata-export-view.png":::
 
-1. To view software with specific security risks, go to the **Insights** (preview) pane. here, you see a detailed list of software affected due to the following issues:
+1. To view software with specific security risks, go to the **Insights** (preview) pane. Here, you see a detailed list of software affected due to the following issues:
 
     - End-of-support status
     - Known vulnerabilities (CVEs)
@@ -192,6 +219,66 @@ To view detailed security insights for a specific server:
     - The summary of the top five pending updates and top five vulnerabilities is provided to help prioritize remediation.
 
     :::image type="content" source="./media/security-insights-overview/pending-updates.png" alt-text="Screenshot shows the pending updates and vulnerabilities." lightbox="./media/security-insights-overview/pending-updates.png":::
+
+### Review Database instances with security risks 
+
+To review Database instances with identified security risks, follow these steps:
+
+1. Go to the **Insights** (preview) pane.
+1. In the **Database instances** card, select the link that shows the number of Database instances with security risks.
+
+  
+
+1. You can view the detailed list of database instances, examine associated metadata, and export the data as a .csv file.
+
+   
+
+1. To view database instances with specific security risks, go to the **Insights** (preview) pane. Here, you see a detailed list of database instances affected due to the following issues:
+
+    - End-of-support database platform
+    - Known vulnerabilities (CVEs) in database platform
+
+
+### Review detailed Security Insights for a Database instance 
+
+To view detailed security insights for a specific Database instance:
+
+1. Go to the **Databases** pane from the left menu and select the database instance you want to review.
+1. Select the **Insights** (preview) tab.
+    The tab displays security insights for the selected database instance, including: 
+    - Database platform support status
+    - Known vulnerabilities (CVEs) in database platform
+
+      
+### Review Web apps with security risks 
+
+To review web apps with identified security risks, follow these steps:
+
+1. Go to the **Insights** (preview) pane.
+1. In the **Web apps** card, select the link that shows the number of Web apps with security risks.
+
+  
+
+1. You can view the detailed list of Web apps, examine associated metadata, and export the data as a .csv file.
+
+   
+
+1. To view Web apps with specific security risks, go to the **Insights** (preview) pane. Here, you see a detailed list of Web apps affected due to the following issues:
+
+    - End-of-support runtime/framework
+    - Known vulnerabilities (CVEs) in runtime/framework
+
+
+### Review detailed Security Insights for a Web app
+
+To view detailed security insights for a specific Web app:
+
+1. Go to the **Web apps** pane from the left menu and select the web app you want to review.
+1. Select the **Insights** (preview) tab.
+    The tab displays security insights for the selected web app, including: 
+    - Runtime support status
+    - Known vulnerabilities (CVEs) in runtime
+
 
 ## Manage permissions for Security Insights 
 
@@ -220,7 +307,7 @@ Below error message is displayed when a user does not have permissions to view I
 
 Azure offers integrated solutions to identify and mitigate security risks and strengthen cloud security posture:
 
-- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) delivers unified security management and advanced threat protection. It continuously evaluates resources for misconfigurations and vulnerabilities, providing actionable recommendations to harden your infrastructure. By aligning with industry compliance standards, it ensures your workloads remain secure and compliant.
+- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) delivers unified security management and advanced threat protection. It continuously evaluates resources for misconfigurations and vulnerabilities, providing actionable recommendations to harden your infrastructure. By aligning with industry compliance standards, it ensures your resources remain secure and compliant.
 - [Azure Update Manager](/azure/update-manager/overview) streamlines operating system patching without additional infrastructure. It automates update schedules to minimize security risks from unpatched systems and offers detailed compliance reporting. With granular control over deployments, it helps maintain system integrity and resilience against evolving threats.
 
 ## Next steps

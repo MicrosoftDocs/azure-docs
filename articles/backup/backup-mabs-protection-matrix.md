@@ -1,7 +1,7 @@
 ---
 title: MABS (Azure Backup Server) V4 protection matrix
 description: This article provides a support matrix listing all workloads, data types, and installations that Azure Backup Server v4 protects.
-ms.date: 02/10/2026
+ms.date: 03/09/2026
 ms.topic: reference
 ms.service: azure-backup
 ms.custom: linux-related-content, engagement-fy24
@@ -49,7 +49,7 @@ The following sections details the protection support matrix for MABS:
 | **Workload**                                                 | **Version**                                             | **Azure  Backup Server   installation**                      | **Supported  Azure Backup Server** | **Protection  and recovery**                                 |
 | ------------------------------------------------------------ | ------------------------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
 | Hyper-V  host - MABS protection agent on Hyper-V host server, cluster, or VM | Windows  Server 2022, 2019, 2016, 2012 R2, 2012               | Physical  server  <br><br>    Hyper-V virtual machine <br><br>    VMware  virtual machine | V4                                 | Protect:  Virtual machines, cluster shared volumes (CSVs)  <br><br>    Recover: Virtual machine, Item-level recovery of files and folders available  only for Windows, volumes, virtual hard drives <br><br> Note that Item Level Recovery isn't supported for Virtual Machine volumes that have BitLocker enabled. |
-| Azure Local  |       V1, 20H2, 21H2, 22H2, and 23H2      |    Physical server        <br><br>     Hyper-V / Azure Local virtual machine     <br><br>    VMware virtual machine     |    V4   | Protect: Virtual machines, cluster shared volumes (CSVs)      <br><br>     Recover: Virtual machine, Item-level recovery of files and folders available only for Windows, volumes, virtual hard drives <br><br> Recovery of Arc VMs is supported in a limited capacity in Azure Local, version 23H2. [Learn more](back-up-azure-stack-hyperconverged-infrastructure-virtual-machines.md). |
+| Azure Local  |       Lastest Major Release [Learn More](/azure/azure-local/release-information-23h2?view=azloc-2602&preserve-view=true&tabs=OS-build-26100-xxxx%2COS-build-25398-xxx)       |    Physical server        <br><br>     Hyper-V / Azure Local virtual machine     <br><br>    VMware virtual machine     |    V4   | Protect: Virtual machines, cluster shared volumes (CSVs)      <br><br>     Recover: Virtual machine, Item-level recovery of files and folders available only for Windows, volumes, virtual hard drives <br><br> Recovery of Arc VMs is supported in a limited capacity in Azure Local, version 23H2. [Learn more](back-up-azure-stack-hyperconverged-infrastructure-virtual-machines.md). <br><br> Note that Application Control should be in audit mode for agent installation.|
 | VMware  VMs                                                  | VMware  server 6.5, 6.7, 7.0, 8.0 (Licensed Version) | Hyper-V  virtual machine  <br><br>   VMware  virtual machine         | V4                             | Protect:  VMware VMs on cluster-shared volumes (CSVs), NFS, and SAN storage   <br><br>     Recover:  Virtual machine, Item-level recovery of files and folders available only for  Windows, volumes, virtual hard drives <br><br>    Note that Item Level Recovery isn't supported for Virtual Machine volumes that have BitLocker enabled. <br><br> VMware  vApps aren't supported.        <br><br> vSphere 8.0 DataSets feature isn't supported for backup. |
 
 >[!NOTE]
@@ -72,6 +72,9 @@ For on-premises or hosted environments that you can't upgrade or migrate to Azur
 |Workload |Version |Azure Backup Server installation |Azure Backup Server |Protection and recovery |
 |------------|-----------|---------------|--------------|--------------|
 |Servers (64-bit) | Windows Server 2008 R2 SP1, Windows Server 2008 SP2 (You need to install [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)), Windows Server 2012, Windows Server 2012 R2. | Physical server <br><br> Hyper-V virtual machine <br><br> VMware virtual machine | Volume, share, folder, file, system state/bare metal |
+
+[!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
+
 
 ## Cluster support
 

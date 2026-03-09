@@ -15,7 +15,7 @@ Autopurge operates asynchronously in the background, optimized to minimize syste
 
 ## How it works
 
-Autopurge is an opt-in feature. You can enable it by defining retention policies that control how long to keep the data of orchestrations in certain statuses. The autopurge feature purges orchestration data associated with terminal statuses. "Terminal" refers to orchestrations that have reached a final state with no further scheduling, event processing, or work item generation. Terminal statuses include:
+Autopurge is enabled by default with a 30 day policy, but it can be customized. You can modify it by defining retention policies that specify how long to keep orchestration data for certain statuses. The autopurge feature removes orchestration data that is in terminal statuses. A terminal status means the orchestration has reached a final state and will no longer schedule tasks, process events, or generate work items. Terminal statuses include:
 - `Completed`
 - `Failed`
 - `Canceled`

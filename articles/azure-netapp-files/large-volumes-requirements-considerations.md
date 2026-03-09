@@ -12,7 +12,7 @@ ms.author: anfdocs
 ---
 # Requirements and considerations for Azure NetApp Files large volumes
 
-Large volumes are Azure NetApp Files volumes with a size of 50 TiB to 1,024 TiB.
+Azure NetApp Files large volumes support sizes between 50 TiB  and 1,024 TiB.
 
 With breakthrough mode, you can create large volumes at sizes between 2,400 GiB and 2,400 TiB. You must [request the feature](#register-for-breakthrough-mode) before using it for the first time. With cool access enabled, large volumes can scale to 7.2 PiB in certain situations; for more information, see [large volumes up to 7.2 PiB](#requirements-and-considerations-for-large-volumes-up-to-72-pib-preview).
 
@@ -25,7 +25,6 @@ The following requirements and considerations apply to large volumes. For perfor
 * A regular volume can’t be converted to a large volume.
 * You must create a large volume at a size of 50 TiB or larger. The maximum size of a large volume is 1,024 TiB.
 * You can't resize a large volume to less than 50 TiB.
-    * A large volume can't be resized to more than 30% of its lowest provisioned size. This limit is adjustable via [a support request](azure-netapp-files-resource-limits.md#resource-limits). When requesting the resize, specify the desired size in TiB. 
     * When reducing the size of a large volume, the size depends on the size of files written to the volume and the snapshots currently active on the volumes. 
 * You can't create a large volume with application volume groups.
 * Currently, large volumes aren't suited for database (HANA, Oracle, SQL Server, etc.) data and log volumes. For database workloads requiring more than a single volume’s throughput limit, consider deploying multiple regular volumes. To optimize multiple volume deployments for databases, use [application volume groups](application-volume-group-concept.md).
@@ -39,11 +38,11 @@ The following requirements and considerations apply to large volumes. For perfor
       </tr></thead>
     <tbody>
       <tr>
-        <td>Capacity tier</td>
+        <td>Service level</td>
         <td>Minimum volume size<br>(TiB)</td>
-        <td>Maximum volume size (TiB)*</td>
-        <td>Minimum throughput for capacity tier (MiB/s)</td>
-        <td>Maximum throughput for capacity tier (MiB/s)</td>
+        <td>Maximum volume size (TiB)</td>
+        <td>Base throughput (MiB/s) at 50TiB</td>
+        <td>Maximum throughput for service level (MiB/s)</td>
       </tr>
       <tr>
         <td>Standard (16 MiB/s per TiB)</td>

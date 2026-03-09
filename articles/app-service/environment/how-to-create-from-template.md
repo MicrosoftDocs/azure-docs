@@ -122,6 +122,6 @@ Creating the App Service Environment usually takes about an hour, but if it's a 
 
 ## Related content
 
-- [Use an App Service Environment](using.md)
+- [Host an app in an App Service Environment](using.md)
 - [App Service Environment networking](networking.md)
 - [Certificates and the App Service Environment](overview-certificates.md)

@@ -27,7 +27,7 @@ The SIEM Migration experience includes the following features:
 
 ## Prerequisites
 
-- Microsoft Sentinel in Microsoft Defender portal
+- [Microsoft Sentinel in Microsoft Defender portal](/unified-secops/microsoft-sentinel-onboard#onboard-microsoft-sentinel)
 - At least Microsoft Sentinel Contributor permissions in the Microsoft Sentinel workspace
 - <a href="/copilot/security/get-started-security-copilot" target="_blank">Security Copilot</a> enabled in your tenant with at least a [workspace operator role](/copilot/security/authentication#assign-security-copilot-access) assigned
 

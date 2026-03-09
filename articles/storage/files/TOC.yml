@@ -29,6 +29,8 @@
   items:
   - name: Overview of identity-based authentication
     href: storage-files-active-directory-overview.md
+  - name: Change the identity source for authentication
+    href: change-identity-source.md
   - name: On-premises AD DS authentication
     items:
     - name: AD DS overview

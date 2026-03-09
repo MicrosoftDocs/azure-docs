@@ -143,7 +143,7 @@ az rest --method POST --uri "${ASE_ID}/upgrade?api-version=2022-03-01"
  ## Next steps
 
 > [!div class="nextstepaction"]
-> [Using an App Service Environment v3](using.md)
+> [Host an app in an App Service Environment](using.md)
 
 > [!div class="nextstepaction"]
 > [App Service Environment v3 Networking](networking.md)

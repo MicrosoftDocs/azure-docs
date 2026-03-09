@@ -45,6 +45,7 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.Batch](./permissions/compute.md#microsoftbatch) | Cloud-scale job scheduling and compute management. | [Batch](/azure/batch/) |
 > | [Microsoft.ClassicCompute](./permissions/compute.md#microsoftclassiccompute) |  | Classic deployment model virtual machine |
 > | [Microsoft.Compute](./permissions/compute.md#microsoftcompute) | Access cloud compute capacity and scale on demand (such as virtual machines) and only pay for the resources you use. | [Virtual Machines](/azure/virtual-machines/)<br/>[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/) |
+> | [Microsoft.ComputeLimit](./permissions/compute.md#microsoftcomputelimit) |  |  |
 > | [Microsoft.ComputeSchedule](./permissions/compute.md#microsoftcomputeschedule) |  | [Azure Virtual Desktop](/azure/virtual-desktop/overview) |
 > | [microsoft.connectedvmwarevsphere](./permissions/compute.md#microsoftconnectedvmwarevsphere) |  | [Azure Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vsphere/) |
 > | [Microsoft.DesktopVirtualization](./permissions/compute.md#microsoftdesktopvirtualization) | The best virtual desktop experience, delivered on Azure. | [Azure Virtual Desktop](/azure/virtual-desktop/) |
