@@ -47,39 +47,41 @@ You can create a backup policy while configuring backup, or create it directly i
 
 1.  Go to the Recovery Services vault, and then select **Manage** \> **Backup policies**.
 
-2.  On the **Backup policies** pane, select **+ Add** to create a new policy.
+1.  On the **Backup policies** pane, select **+ Add** to create a new policy.
 
-3.  On the **Select policy type** pane, select **Policy type** as **SQL Server in Azure VM (Snapshot backup) (preview)**.  
+1.  On the **Select policy type** pane, select **Policy type** as **SQL Server in Azure VM (Snapshot backup) (preview)**.  
       
     :::image type="content" source="./media/sql-instance-snapshot-backup/select-policy-type-sql-server.png" alt-text="Screenshot that shows policy type selection in Azure Recovery Services vault for SQL Server in Azure VM (Snapshot backup)." lightbox="./media/sql-instance-snapshot-backup/select-policy-type-sql-server.png":::
 
-4.  Enter the backup schedule and retention periods for **Full Snapshot Backup Policy** and **Log Backup Policy**.  
-    :::image type="content" source="./media/sql-instance-snapshot-backup/full-snapshot-backup-policy.png" alt-text="Screenshot of Azure portal showing Full Snapshot Backup Policy setup with backup schedule, retention range, and OK button." lightbox="./media/sql-instance-snapshot-backup/full-snapshot-backup-policy.png":::
-      
-    :::image type="content" source="./media/sql-instance-snapshot-backup/log-backup-policy-setup.png" alt-text="Screenshot of Log Backup Policy configuration in Azure, displaying backup schedule dropdown, retention input, and action buttons." lightbox="./media/sql-instance-snapshot-backup/log-backup-policy-setup.png":::
+1.  For **Full Snapshot backup** and **Log backup**, select **Edit** corresponding to each backup type and enter the backup schedule and retention periods.  
+    :::image type="content" source="./media/sql-instance-snapshot-backup/create-backup-policy.png" alt-text="Screenshot of Azure portal showing Full Snapshot Backup Policy setup with backup schedule, retention range, and OK button.":::
+
+
       
     The following table lists the retention ranges for schedule backups:
 
-| **Backup point**                     | **Retention period range** |
-|--------------------------------------|----------------------------|
-| Instant recovery Snapshot (Ops tier) | 1-7days                    |
-| Daily backup point                   | 7-9999 days                |
-| Weekly backup point                  | 1-5163 weeks               |
-| Monthly backup point                 | 1-1188 months              |
-| Yearly backup point                  | 1-99 years                 |
-| Log backup point                     | 7-35 days                  |
+    | **Backup point**                     | **Retention period range** |
+    |--------------------------------------|----------------------------|
+    | Instant recovery Snapshot (Ops tier) | 1-7days                    |
+    | Daily backup point                   | 7-9999 days                |
+    | Weekly backup point                  | 1-5163 weeks               |
+    | Monthly backup point                 | 1-1188 months              |
+    | Yearly backup point                  | 1-99 years                 |
+    | Log backup point                     | 7-35 days                  |
 
-> Note:
+    > [!NOTE]
+    >- The available frequency for Snapshot-full backup is between every 6 hours and every 24 hours. Log backup can be scheduled from every 15 mins to 24 hours.
+    >- The **schedule snapshot copy-only full backups** isn’t supported; you can trigger the backup operation only by selecting **Backup now**.
 
-- The available frequency for Snapshot-full backup is between every 6 hours and every 24 hours. Log backup can be scheduled from every 15 mins to 24 hours.
-
-- The **schedule snapshot copy-only full backups** isn’t supported; you can trigger the backup operation only by selecting **Backup now**.
-
-5.  To enable Azure Backup to store snapshots in a resource group of your choice, provide a snapshot identity. Specify the Snapshot resource group and assign a managed identity. This configuration maintains an instant recovery point for faster restores. Learn about how Azure Backup uses managed identities.  
+1.  To enable Azure Backup to store snapshots in a resource group of your choice, for **Snapshot identity**, select **Edit**.and provide a snapshot identity. 
       
     :::image type="content" source="./media/sql-instance-snapshot-backup/snapshot-identity-configuration.png" alt-text="Screenshot of Snapshot Identity settings in Azure Backup policy creation, displaying resource group and managed identity selection fields." lightbox="./media/sql-instance-snapshot-backup/snapshot-identity-configuration.png":::
 
-6.  Select **Validate + Create policy**.
+1. On the **Snapshot Identity** pane, specify the Snapshot resource group and assign a managed identity, and then select **OK**.
+
+    This configuration maintains an instant recovery point for faster restores. Learn about how Azure Backup uses managed identities.  
+
+1.  On the **Create policy** pane, select **Validate + Create policy**.
 
 ## Discover unprotected SQL databases in a subscription
 
