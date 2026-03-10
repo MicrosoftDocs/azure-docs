@@ -101,7 +101,7 @@ To discover unprotected SQL databases in a subscription, follow these steps:
 
 4.  On the Select Virtual Machine pane, select the VMs running the SQL server databases, and then select **Discover DB’s**.  
       
-    :::image type="content" source="./media/sql-instance-snapshot-backup/azure-sql-vm-discovery.png" alt-text="Screenshot that shows the database discovery for backup configuration." lightbox="./media/sql-instance-snapshot-backup/azure-sql-vm-discovery.png":::
+    :::image type="content" source="./media/sql-instance-snapshot-backup/sql-vm-discovery.png" alt-text="Screenshot that shows the database discovery for backup configuration." lightbox="./media/sql-instance-snapshot-backup/sql-vm-discovery.png":::
 
 You can track database discovery in the notifications. The time required depends on the number of databases on the VM. When discovery completes, Azure Backup discovers all SQL Server databases on the VM and shows a success message.
 
@@ -117,9 +117,9 @@ When the SQL database discovery is complete, configure backup for the databases 
       
     :::image type="content" source="./media/sql-instance-snapshot-backup/sql-backup-policy-configuration.png" alt-text="Screenshot that shows the backup configuration in Azure portal." lightbox="./media/sql-instance-snapshot-backup/sql-backup-policy-configuration.png":::
 
-   For **Snapshot backup**, the **Resource Group** and **Managed Identity** is automatically added based on the selection in the backup policy.  
+    For **Snapshot backup**, the **Resource Group** and **Managed Identity** is automatically added based on the selection in the backup policy.  
       
-    Resource group is needed to house the Snapshot backups before they are moved to the Recovery Services Vault. Further [Create a managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) or provide an existing one to allow backup service to take disk snapshots and store it in your resource group.
+    Resource group is needed to house the Snapshot backups before they are moved to the Recovery Services Vault. Further [Create a managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) or provide an existing one to allow backup service to take disk snapshots and store it in your Resource Group.
 
 1. For **SQL Instances or AlwaysOn AGs**, select **+ Add/Edit** to add the instance that you want to back up and select the databases within it.  
     >[!NOTE]
