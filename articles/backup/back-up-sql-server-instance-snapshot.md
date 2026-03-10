@@ -53,10 +53,10 @@ You can create a backup policy while configuring backup, or create it directly i
 
 1.  On the **Select policy type** pane, select **Policy type** as **SQL Server in Azure VM (Snapshot backup) (preview)**.  
       
-    :::image type="content" source="./media/sql-server-instance-snapshot-backup/select-policy-type-sql-server.png" alt-text="Screenshot that shows policy type selection in Azure Recovery Services vault for SQL Server in Azure VM (Snapshot backup)." lightbox="./media/sql-server-instance-snapshot-backup/select-policy-type-sql-server.png":::
+    :::image type="content" source="./media/back-up-sql-server-instance-snapshot/select-policy-type-sql-server.png" alt-text="Screenshot that shows policy type selection in Azure Recovery Services vault for SQL Server in Azure VM (Snapshot backup)." lightbox="./media/back-up-sql-server-instance-snapshot/select-policy-type-sql-server.png":::
 
 1.  For **Full Snapshot backup** and **Log backup**, select **Edit** corresponding to each backup type and enter the backup schedule and retention periods.  
-    :::image type="content" source="./media/sql-server-instance-snapshot-backup/create-backup-policy.png" alt-text="Screenshot that shows the  policy types for SQL server  in Azure VM backup." lightbox="./media/sql-server-instance-snapshot-backup/create-backup-policy.png":::
+    :::image type="content" source="./media/back-up-sql-server-instance-snapshot/create-backup-policy.png" alt-text="Screenshot that shows the  policy types for SQL server  in Azure VM backup." lightbox="./media/back-up-sql-server-instance-snapshot/create-backup-policy.png":::
 
 
       
@@ -77,7 +77,7 @@ You can create a backup policy while configuring backup, or create it directly i
 
 1.  To enable Azure Backup to store snapshots in a resource group of your choice, for **Snapshot identity**, select **Edit**.and provide a snapshot identity. 
       
-    :::image type="content" source="./media/sql-server-instance-snapshot-backup/snapshot-identity-configuration.png" alt-text="Screenshot that shows the addition of Snapshot Identity settings in backup policy." lightbox="./media/sql-server-instance-snapshot-backup/snapshot-identity-configuration.png":::
+    :::image type="content" source="./media/back-up-sql-server-instance-snapshot/snapshot-identity-configuration.png" alt-text="Screenshot that shows the addition of Snapshot Identity settings in backup policy." lightbox="./media/back-up-sql-server-instance-snapshot/snapshot-identity-configuration.png":::
 
 1. On the **Snapshot Identity** pane, specify the Snapshot resource group and assign a managed identity, and then select **OK**.
 
@@ -95,13 +95,13 @@ To discover unprotected SQL databases in a subscription, follow these steps:
 
 2.  On the **Backup Goal** pane, for **What do you want to back up**, select **SQL Server in Azure VM (Snapshot backup) (preview)**.  
       
-    :::image type="content" source="./media/sql-server-instance-snapshot-backup/sql-vm-snapshot-backup.png" alt-text="Screenshot that shows the datasource selection for backup." lightbox="./media/sql-server-instance-snapshot-backup/sql-vm-snapshot-backup.png":::
+    :::image type="content" source="./media/back-up-sql-server-instance-snapshot/sql-vm-snapshot-backup.png" alt-text="Screenshot that shows the datasource selection for backup." lightbox="./media/back-up-sql-server-instance-snapshot/sql-vm-snapshot-backup.png":::
 
 3.  Under **Step 1: Discover DBs in VMs**, select **Start Discovery**.
 
 4.  On the Select Virtual Machine pane, select the VMs running the SQL server databases, and then select **Discover DB’s**.  
       
-    :::image type="content" source="./media/sql-server-instance-snapshot-backup/sql-vm-discovery.png" alt-text="Screenshot that shows the database discovery for backup configuration." lightbox="./media/sql-server-instance-snapshot-backup/sql-vm-discovery.png":::
+    :::image type="content" source="./media/back-up-sql-server-instance-snapshot/sql-vm-discovery.png" alt-text="Screenshot that shows the database discovery for backup configuration." lightbox="./media/back-up-sql-server-instance-snapshot/sql-vm-discovery.png":::
 
 You can track database discovery in the notifications. The time required depends on the number of databases on the VM. When discovery completes, Azure Backup discovers all SQL Server databases on the VM and shows a success message.
 
@@ -115,7 +115,7 @@ When the SQL database discovery is complete, configure backup for the databases 
       
     You can create a new backup policy on the go by selecting **Create a new policy** or create it directly in the vault. To create a new backup policy, see [Create a backup policy for SQL Server in Azure VM (Snapshot backup)](#create-a-backup-policy-for-sql-server-in-azure-vm-snapshot-backup).  
       
-    :::image type="content" source="./media/sql-server-instance-snapshot-backup/sql-backup-policy-configuration.png" alt-text="Screenshot that shows the backup configuration in Azure portal." lightbox="./media/sql-server-instance-snapshot-backup/sql-backup-policy-configuration.png":::
+    :::image type="content" source="./media/back-up-sql-server-instance-snapshot/sql-backup-policy-configuration.png" alt-text="Screenshot that shows the backup configuration in Azure portal." lightbox="./media/back-up-sql-server-instance-snapshot/sql-backup-policy-configuration.png":::
 
     For **Snapshot backup**, the **Resource Group** and **Managed Identity** is automatically added based on the selection in the backup policy.  
       
@@ -145,7 +145,7 @@ To run an on-demand backup at the SQL instance level, follow these steps:
 1.  On the selected backup instance pane, select **Backup now**.
 
 1.  On the **Backup now** pane, select one of the supported **Backup type** - **Snapshot full** or **Snapshot copy only full**.  
-    :::image type="content" source="./media/sql-server-instance-snapshot-backup/sql-instance-backup-type-selection.png" alt-text="Screenshot that shows how to trigger an on-demand backup for a SQL instance in Azure portal." lightbox="./media/sql-server-instance-snapshot-backup/sql-instance-backup-type-selection.png":::
+    :::image type="content" source="./media/back-up-sql-server-instance-snapshot/sql-instance-backup-type-selection.png" alt-text="Screenshot that shows how to trigger an on-demand backup for a SQL instance in Azure portal." lightbox="./media/back-up-sql-server-instance-snapshot/sql-instance-backup-type-selection.png":::
 
 1.  Select **OK**.
 
@@ -166,7 +166,7 @@ To run an on-demand backup at the SQL database level, follow these steps:
 1.  On the **Backup now** pane, select one of the supported **Backup type** - **Copy only full**, **Log**, **Full**, or **Differential**.  
       
     **Note**: The supported on-demand backup types at the database level depend on whether you create the original backup item using streaming backups or snapshot backups.  
-    :::image type="content" source="./media/sql-server-instance-snapshot-backup/sql-backup-type-selection.png" alt-text="Screenshot that shows how to trigger an on-demand backup for a SQL database in Azure portal." lightbox="./media/sql-server-instance-snapshot-backup/sql-backup-type-selection.png":::
+    :::image type="content" source="./media/back-up-sql-server-instance-snapshot/sql-backup-type-selection.png" alt-text="Screenshot that shows how to trigger an on-demand backup for a SQL database in Azure portal." lightbox="./media/back-up-sql-server-instance-snapshot/sql-backup-type-selection.png":::
 
 1.  Select **OK**.
 
