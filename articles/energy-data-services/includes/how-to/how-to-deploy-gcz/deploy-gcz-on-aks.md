@@ -90,7 +90,7 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
    $AZURE_TENANT_ID="<TENANT_ID_of_target_OSDU_deployment>"  # Entra ID tenant ID. Example: aaaabbbb-0000-cccc-1111-dddd2222eeee
    $AZURE_CLIENT_ID="<CLIENT_ID_of_target_OSDU_deployment>"  # App Registration client ID. Example: 00001111-aaaa-2222-bbbb-3333cccc4444
    $AZURE_CLIENT_SECRET="<CLIENT_SECRET_of_target_OSDU_deployment>"  # App Registration client secret. Example: Aa1Bb~2Cc3.-
-   $CLIENT_SECRET_B64=$(echo -n "$CLIENT_SECRET" | base64 -w0)
+   $CLIENT_SECRET_B64=$(echo -n "$AZURE_CLIENT_SECRET" | base64 -w0)
    $AZURE_APP_ID="<CLIENT_ID_of_the_app-id_for_authentication>"
    $AZURE_KEY_VAULT_URL="<YOUR_AZURE_KEYVAULT_URL>"
 
@@ -104,15 +104,15 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
    $GCZ_PROVIDER_IMAGE_TAG="0.28.2"
    $GCZ_TRANSFORMER_IMAGE_NAME="geospatial-transformer"
    $GCZ_TRANSFORMER_IMAGE_TAG="0.28.2"
-   PROVIDER_IMAGE_REPO=myregistry.azurecr.io/provider
-   PROVIDER_IMAGE_NAME=gcz-provider
-   PROVIDER_IMAGE_TAG=v1.0.0
-   IGNITE_IMAGE_REPO=myregistry.azurecr.io/gridgain
-   IGNITE_IMAGE_NAME=ignite
-   IGNITE_IMAGE_TAG=8.9.11
-   TRANSFORMER_IMAGE_REPO=myregistry.azurecr.io/transformer
-   TRANSFORMER_IMAGE_NAME=gcz-transformer
-   TRANSFORMER_IMAGE_TAG=v1.0.0
+   $PROVIDER_IMAGE_REPO=myregistry.azurecr.io/provider
+   $PROVIDER_IMAGE_NAME=gcz-provider
+   $PROVIDER_IMAGE_TAG=v1.0.0
+   $IGNITE_IMAGE_REPO=myregistry.azurecr.io/gridgain
+   $IGNITE_IMAGE_NAME=ignite
+   $IGNITE_IMAGE_TAG=8.9.11
+   $TRANSFORMER_IMAGE_REPO=myregistry.azurecr.io/transformer
+   $TRANSFORMER_IMAGE_NAME=gcz-transformer
+   $TRANSFORMER_IMAGE_TAG=v1.0.0
 
    # Istio Configuration (Enable ONLY if Istio exists on AKS)
    $ISTIO_ENABLED="false"
@@ -184,8 +184,7 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
          port: 8080
          targetPort: 8080
        configuration:
-         secretName: gcz-client-secret
-         configuration:
+         secretName: gcz-client-secret        
          dataPartitionId: $DATA_PARTITION_ID
          clientId: $AZURE_CLIENT_ID
          tenantId: $AZURE_TENANT_ID
@@ -288,7 +287,7 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
    ### [Unix Shell](#tab/unix-shell-2)
 
    ```bash
-   $ cat > ../transformer/templates/service.yaml << EOF
+   $ cat > ../provider/templates/service.yaml << EOF
    apiVersion: v1
    kind: Service
    metadata:
@@ -409,7 +408,7 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
 
    ```bash
    kubectl create secret generic client-secret -n ignite \
-   --from-literal=clientSecret="$CLIENT_SECRET"
+   --from-literal=clientSecret="$AZURE_CLIENT_SECRET"
    ```
 
 1. Deploy the GCZ HELM chart:
@@ -428,7 +427,7 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
 
    Now you should see the pods for the `ignite`, `provider`, `gridgain`, and `transformer` services.
 
-1. Next get note the External IPs for the `provider` and `transformer` services.
+1. Next, note the External IPs for the `provider` and `transformer` services.
 
    ```bash
    kubectl get service -n $NAMESPACE
