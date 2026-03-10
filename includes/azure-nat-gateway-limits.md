@@ -24,7 +24,7 @@ The following limits apply to Standard and StandardV2 NAT gateway resources mana
 |---------------------|--------------------|--------------------|
 | Public IP addresses | 16 IPv4 addresses  | 16 IPv4 addresses  |
 | Subnets             | 800 per NAT gateway | 800 per NAT gateway |
-| Data throughput<sup>1</sup>     | 50 Gbps per NAT gateway | 100 Gbps per NAT gateway, 1 Gbps per NAT gateway |
+| Data throughput<sup>1</sup>     | 50 Gbps per NAT gateway | 100 Gbps per NAT gateway, 1 Gbps per connection |
 | NAT gateways for Enterprise and CSP agreements<sup>2</sup>       | 1,000 per subscription per region | see previous column for combined quota |
 | NAT gateways for Sponsored and pay-as-you-go<sup>2</sup>         | 100 per subscription per region | see previous column for combined quota |
 | NAT gateways for Free Trial and all other offer types<sup>2</sup>             | 15 per subscription per region | see previous column for combined quota|

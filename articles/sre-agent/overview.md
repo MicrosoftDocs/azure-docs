@@ -1,5 +1,5 @@
 ---
-title: Overview of Azure SRE Agent Preview
+title: Overview of Azure SRE Agent
 description: Learn how AI-enabled agents help solve problems and support resilient and self-healing systems on your behalf.
 author: craigshoemaker
 ms.topic: overview
@@ -8,8 +8,7 @@ ms.author: cshoe
 ms.service: azure-sre-agent
 ---
 
-# Overview of Azure SRE Agent Preview
-
+# Overview of Azure SRE Agent
 Azure SRE Agent automates operational work and reduces toil, so developers and operators can focus on high-value tasks.
 
 Typical operational tasks often include managing multiple Azure resources along with on-premises and SaaS systems. These tasks are often repetitive or require orchestrating together multiple tools to provide the insights you need. SRE Agent gives you an AI-driven platform to connect systems together and automate the workflow end-to-end.
@@ -32,7 +31,7 @@ SRE Agent can manage all Azure services through the Azure CLI and REST APIs. Thi
 
 - **Monitoring and management**: Azure Monitor, Log Analytics, Application Insights, and Resource Manager
 
-You can automate any operation you perform with the Azure CLI through SRE Agent by using custom runbooks and [subagents](subagent-builder-overview.md).
+You can automate any operation you perform with the Azure CLI through SRE Agent by using custom runbooks and [subagents](sub-agents.md).
 
 ## Primary use cases
 
@@ -121,7 +120,7 @@ Create a scheduled task to run on a schedule you define.
 
 # [Build a Subagent](#tab/subagent)
 
-Build [custom operational subagents](subagent-builder-overview.md), tools, and integrations by using a visual no-code interface. You can extend the agent's capabilities with specialized subagents for different operational domains.
+Build [custom operational subagents](sub-agents.md), tools, and integrations by using a visual no-code interface. You can extend the agent's capabilities with specialized subagents for different operational domains.
 
 - Create purpose-built subagents for specific operational areas (virtual machines, databases, networking, security)
 

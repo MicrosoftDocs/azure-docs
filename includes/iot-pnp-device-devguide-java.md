@@ -3,12 +3,8 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot
 ms.topic: include
-ms.date: 11/17/2022
+ms.date: 03/10/2026
 ---
-
-## Sample code
-
-You can find the sample code for many of the IoT Plug and Play constructs described in this article in the [Microsoft Azure IoT SDKs for Java](https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples) GitHub repository.
 
 ## Model ID announcement
 

@@ -105,7 +105,7 @@ While this tool automatically polls for a few minutes until results are ready, i
 
     If you don't have any of these required tables, `analyze_user_entity` generates an error message that lists the tables you didn't onboard, along with links to their corresponding onboarding documentation.
 
-- `analyze_user_entity` works best when the following table is also present in the data lake, but continues to work and assess risk, even if the said table is unavailable:
+- `analyze_user_entity` works best when the following tables are also present in the data lake, but continues to work and assess risk, even if the said tables are unavailable:
     - [AADNonInteractiveUserSignInLogs](../connect-azure-active-directory.md)
     - [BehaviorAnalytics](../enable-entity-behavior-analytics.md)
     

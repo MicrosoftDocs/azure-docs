@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#0078d4"/>
+    </marker>
+    <marker id="arrow-gray" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#888"/>
+    </marker>
+  </defs>
+
+  <rect width="720" height="340" fill="#fafafa" rx="8"/>
+
+  <!-- Title -->
+  <text x="360" y="28" text-anchor="middle" font-family="Segoe UI, Arial" font-size="14" fill="#333" font-weight="600">How your agent diagnoses Azure services</text>
+
+  <!-- Left: Service issue -->
+  <rect x="20" y="140" width="105" height="50" rx="8" fill="#ffcdd2" stroke="#c62828" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="72" y="162" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#b71c1c" font-weight="600">Service</text>
+  <text x="72" y="177" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#b71c1c" font-weight="600">issue</text>
+
+  <!-- Arrow to agent -->
+  <path d="M125 165 L160 165" stroke="#0078d4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Center: Agent -->
+  <rect x="168" y="122" width="120" height="86" rx="10" fill="#0078d4" filter="url(#shadow)"/>
+  <text x="228" y="152" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="white" font-weight="600">SRE Agent</text>
+  <text x="228" y="170" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#b3d9ff">queries all sources</text>
+  <text x="228" y="183" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#b3d9ff">correlates evidence</text>
+  <text x="228" y="196" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#b3d9ff">explains root cause</text>
+
+  <!-- Right side: Tool categories -->
+  <!-- Row 1: Application Insights -->
+  <path d="M288 135 L330 80" stroke="#888" stroke-width="1.5" fill="none" marker-end="url(#arrow-gray)"/>
+  <rect x="335" y="48" width="170" height="40" rx="6" fill="#e3f2fd" stroke="#1565c0" stroke-width="1" filter="url(#shadow)"/>
+  <text x="420" y="65" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#0d47a1" font-weight="600">Application Insights</text>
+  <text x="420" y="79" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#1565c0">KQL queries, traces, dependencies</text>
+
+  <!-- Row 2: Log Analytics -->
+  <path d="M288 148 L330 120" stroke="#888" stroke-width="1.5" fill="none" marker-end="url(#arrow-gray)"/>
+  <rect x="335" y="96" width="170" height="40" rx="6" fill="#e3f2fd" stroke="#1565c0" stroke-width="1" filter="url(#shadow)"/>
+  <text x="420" y="113" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#0d47a1" font-weight="600">Log Analytics</text>
+  <text x="420" y="127" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#1565c0">Workspace logs, custom events</text>
+
+  <!-- Row 3: Azure Monitor Metrics -->
+  <path d="M288 165 L330 165" stroke="#888" stroke-width="1.5" fill="none" marker-end="url(#arrow-gray)"/>
+  <rect x="335" y="144" width="170" height="40" rx="6" fill="#e3f2fd" stroke="#1565c0" stroke-width="1" filter="url(#shadow)"/>
+  <text x="420" y="161" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#0d47a1" font-weight="600">Azure Monitor Metrics</text>
+  <text x="420" y="175" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#1565c0">CPU, memory, requests, analysis</text>
+
+  <!-- Row 4: Resource Graph + Activity Logs -->
+  <path d="M288 180 L330 210" stroke="#888" stroke-width="1.5" fill="none" marker-end="url(#arrow-gray)"/>
+  <rect x="335" y="192" width="170" height="40" rx="6" fill="#e3f2fd" stroke="#1565c0" stroke-width="1" filter="url(#shadow)"/>
+  <text x="420" y="209" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#0d47a1" font-weight="600">Resource Graph &amp; Activity</text>
+  <text x="420" y="223" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#1565c0">Topology, changes, deployment logs</text>
+
+  <!-- Row 5: Built-in Skills + Az CLI -->
+  <path d="M288 195 L330 262" stroke="#888" stroke-width="1.5" fill="none" marker-end="url(#arrow-gray)"/>
+  <rect x="335" y="240" width="170" height="52" rx="6" fill="#fff3e0" stroke="#e65100" stroke-width="1" filter="url(#shadow)"/>
+  <text x="420" y="257" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#bf360c" font-weight="600">Built-in Skills &amp; Az CLI</text>
+  <text x="420" y="271" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#e65100">Deep diagnostics, connectivity,</text>
+  <text x="420" y="283" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#e65100">resource-specific checks, remediation</text>
+
+  <!-- Far right: Outcome -->
+  <!-- Lines from all tool boxes to outcome -->
+  <path d="M505 68 L560 165" stroke="#388e3c" stroke-width="1" stroke-dasharray="4,3" fill="none"/>
+  <path d="M505 116 L560 165" stroke="#388e3c" stroke-width="1" stroke-dasharray="4,3" fill="none"/>
+  <path d="M505 164 L560 165" stroke="#388e3c" stroke-width="1" stroke-dasharray="4,3" fill="none"/>
+  <path d="M505 212 L560 165" stroke="#388e3c" stroke-width="1" stroke-dasharray="4,3" fill="none"/>
+  <path d="M505 266 L560 165" stroke="#388e3c" stroke-width="1" stroke-dasharray="4,3" fill="none"/>
+
+  <!-- Outcome box -->
+  <rect x="568" y="130" width="130" height="70" rx="8" fill="#e8f5e9" stroke="#388e3c" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="633" y="153" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#2e7d32" font-weight="600">Correlated</text>
+  <text x="633" y="168" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#2e7d32" font-weight="600">diagnosis</text>
+  <text x="633" y="188" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#4caf50">Evidence from all sources</text>
+
+  <!-- Footer note -->
+  <text x="360" y="325" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#888">No connectors needed — works through managed identity and Azure RBAC</text>
+</svg>

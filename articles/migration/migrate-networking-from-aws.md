@@ -3,7 +3,7 @@ title: Migrate Networking from Amazon Web Services (AWS) to Azure
 description: Learn about concepts, how-tos, and best practices for migrating networking services from Amazon Web Services (AWS) to Azure.
 author: mbender-ms
 ms.author: mbender
-ms.reviewer: prwilk, chkittel
+ms.reviewer: rhackenberg, chkittel
 ms.topic: concept-article
 ms.date: 10/28/2025
 ms.service: azure

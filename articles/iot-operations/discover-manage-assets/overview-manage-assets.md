@@ -136,6 +136,24 @@ Connectors include:
 
 - **Custom connectors**. Services that you create to connect to other data sources and publish data to the MQTT broker. Use the Azure IoT Operations SDKs to create custom connectors that meet your specific requirements.
 
+Each connector organizes asset data using one or more of the following types:
+
+- **Datasets**: A logical grouping of telemetry data points that defines what data is collected and routes it to a destination MQTT topic.
+- **Event groups**: A logical container for related discrete events from an asset, such as state changes or alerts, routed to a destination MQTT topic.
+- **Management groups**: A logical grouping of read, write, or call actions that can be invoked against an asset.
+- **Streams**: A continuous flow of media data, such as video or audio, from an asset such as a camera.
+
+The following table summarizes which data types each connector supports.
+
+| Connector       | Datasets | Event groups | Management groups | Streams |
+|-----------------|:--------:|:------------:|:-----------------:|:-------:|
+| OPC UA          | Yes      | Yes          | Yes               |         |
+| ONVIF           |          | Yes          | Yes               |         |
+| Media           |          |              |                   | Yes     |
+| HTTP/REST       | Yes      |              |                   |         |
+| SSE             | Yes      | Yes          |                   |         |
+| MQTT (preview)  | Yes      |              | Yes               |         |
+
 #### Discovery
 
 You can use Akri services to automatically discover physical devices and assets. Akri services also help operational technology (OT) users set up devices and assets in the operations experience web UI. The connectors described earlier all use the framework that Akri services provide to implement their core capabilities.

@@ -1,5 +1,5 @@
 ---
-title: Use deep investigation in Azure SRE Agent Preview
+title: Use deep investigation in Azure SRE Agent
 description: Use a hypothesis-driven approach to explore multiple potential root causes before acting on mitigation steps.
 author: craigshoemaker
 ms.author: cshoe
@@ -8,8 +8,7 @@ ms.date: 11/04/2025
 ms.service: azure
 ---
 
-# Use deep investigation in Azure SRE Agent Preview
-
+# Use deep investigation in Azure SRE Agent
 Deep investigation gives you greater transparency and accuracy when diagnosing complex issues in the SRE Agent. Unlike standard queries that provide quick insights, deep investigation uses a hypothesis-driven approach so you can explore multiple potential root causes before you decide on mitigation steps.
 
 Use deep investigation when:
@@ -44,4 +43,4 @@ To enable deep investigation in your chat, select the deep investigation (:::ima
 
 ## Related content
 
-- [Incident management overview](incident-management.md)
+- [Incident management overview](incident-response.md)

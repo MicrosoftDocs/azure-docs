@@ -658,6 +658,12 @@ This command shows you what changes would be made to your Azure resources withou
 
 ---
 
+## Add management groups and actions
+
+A management group is a logical grouping of actions that you can invoke against an OPC UA asset, such as writing a value to a tag or calling a method. Actions must belong to a management group.
+
+To create a management group and define actions for it, see [Control OPC UA servers](howto-control-opc-ua.md). That article explains the different types of actions (simple writes, complex writes, and method calls) and the MQTT topics you use to invoke them.
+
 ## Update an asset
 
 # [Operations experience](#tab/portal)
@@ -871,6 +877,7 @@ To delete individual resources by using Bicep, see [Deployment stacks](/azure/az
 ## Related content
 
 - [Manage asset and device configurations](howto-use-operations-experience.md)
+- [Control OPC UA servers](howto-control-opc-ua.md)
 - [Connector for OPC UA overview](overview-opc-ua-connector.md)
 - [az iot ops ns asset](/cli/azure/iot/ops/ns/asset)
 - [az iot ops ns device](/cli/azure/iot/ops/ns/device)

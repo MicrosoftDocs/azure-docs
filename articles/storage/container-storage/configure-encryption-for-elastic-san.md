@@ -91,7 +91,7 @@ Create a YAML manifest file such as `storageclass.yaml`. Use the names and varia
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: azuresan-encrypted
+  name: azuresan-csi-encrypted
 provisioner: san.csi.azure.com
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
@@ -124,7 +124,7 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  storageClassName: azuresan-encrypted
+  storageClassName: azuresan-csi-encrypted
 ```
 
 Apply the manifest to create the PVC.

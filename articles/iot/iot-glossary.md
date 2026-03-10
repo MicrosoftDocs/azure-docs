@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot
 services: iot
 ms.topic: conceptual
-ms.date: 02/03/2026
+ms.date: 03/09/2026
 ai-usage: ai-assisted
 
 # Generated from YAML source.
@@ -366,6 +366,18 @@ Casing rules: Always lowercase.
 
 Applies to: Azure IoT Operations
 
+### Dataset
+
+In [Azure IoT Operations](#azure-iot-operations---enabled-by-azure-arc), a dataset is a logical grouping of [data points](#data-point) collected from an [asset](#asset). A dataset defines which telemetry values belong together and how they're routed to a destination MQTT topic. A single asset can have multiple datasets to group telemetry by purpose, such as process monitoring or energy monitoring. Data points can't exist independently outside a dataset.
+
+Connectors that use datasets include OPC UA, REST/HTTP, MQTT, and SSE.
+
+See also [event group](#event-group), [management group](#management-group).
+
+Casing rules: Always lowercase.
+
+Applies to: Azure IoT Operations
+
 ### Default component
 
 All [IoT Plug and Play device](#iot-plug-and-play-device) [models](#model) have a default [component](#component). A simple [device model](#device-model) only has a default component - such a model is also known as a no-component [device](#device). A more complex model has multiple components nested below the default component.
@@ -702,6 +714,18 @@ Casing rules: Always lowercase.
 
 Applies to: Azure IoT Operations
 
+### Event group
+
+In [Azure IoT Operations](#azure-iot-operations---enabled-by-azure-arc), an event group is a logical container for related [events](#event-azure-iot-operations) from an [asset](#asset). An event group defines which events belong together and the destination MQTT topic where event data is published. Event groups are the event equivalent of [datasets](#dataset) — events within a group can carry metadata such as trigger time, severity, and sensor ID. Events can't exist independently outside an event group.
+
+Connectors that use event groups include OPC UA, ONVIF, and SSE.
+
+See also [dataset](#dataset), [management group](#management-group).
+
+Casing rules: Always lowercase.
+
+Applies to: Azure IoT Operations
+
 ### Event Hubs-compatible endpoint
 
 An [IoT Hub](#iot-hub) [endpoint](#endpoint) that lets you use any Event Hubs-compatible method to read [device](#device) messages sent to the hub. Event Hubs-compatible methods include the [Event Hubs SDKs](../event-hubs/event-hubs-programming-guide.md) and [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md).
@@ -1018,6 +1042,18 @@ Casing rules: Always capitalize as *linked IoT hub*.
 Applies to: IoT Hub, Device Provisioning Service
 
 ## M
+
+### Management group
+
+In [Azure IoT Operations](#azure-iot-operations---enabled-by-azure-arc), a management group is a logical grouping of management actions that can be invoked against an [asset](#asset). Each action has a target URI and an action type: read, write, or call. Management actions can't exist independently outside a management group. Management groups let you organize and secure related control and configuration operations together.
+
+Connectors that use management groups include OPC UA, ONVIF, and MQTT.
+
+See also [dataset](#dataset), [event group](#event-group).
+
+Casing rules: Always lowercase.
+
+Applies to: Azure IoT Operations
 
 ### Model
 

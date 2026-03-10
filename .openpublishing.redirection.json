@@ -6755,11 +6755,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/sre-agent/permissions.md",
-      "redirect_url": "/azure/sre-agent/security-context",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/governance/policy/samples/hipaa-hitrust-9-2.md",
       "redirect_url": "/azure/governance/policy/samples/hipaa-hitrust",
       "redirect_document_id": false
@@ -6989,16 +6984,16 @@
       "redirect_url": "/azure/oracle/oracle-db/database-overview",
       "redirect_document_id": false
     },
-    {
+    { 
       "source_path": "articles/cyclecloud/how-to/ccws/register-entra-id-app.md",
       "redirect_url": "/azure/cyclecloud/how-to/create-app-registration",
       "redirect_document_id": false
     },
-    {
+    { 
       "source_path": "articles/cyclecloud/how-to/ccws/open-ondemand-add-users.md",
       "redirect_url": "/azure/cyclecloud/how-to/ccws/configure-open-ondemand",
       "redirect_document_id": false
-    },
+    },   
     {
       "source_path": "articles/reliability/reliability-health-insights.md",
       "redirect_url": "/azure/azure-health-insights/reliability-health-insights",

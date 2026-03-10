@@ -28,6 +28,8 @@ items:
       href: tutorial-seismic-ddms-sdutil.md
     - name: Use Seismic Store DDMS APIs
       href: tutorial-seismic-ddms.md
+    - name: Change tier for seismic workloads
+      href: tutorial-seismic-change-tier.md
     - name: Use Wellbore DDMS APIs
       href: tutorial-wellbore-ddms.md
     - name: Use Well Delivery DDMS APIs

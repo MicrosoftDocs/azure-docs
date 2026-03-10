@@ -1,12 +1,12 @@
 ---
 title: Restore a dedicated SQL pool (formerly SQL DW) from a deleted server
 description: How-to guide for restoring a dedicated SQL pool from a deleted server.
-author: realAngryAnalytics
 ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: sql-dw
 ms.date: 08/24/2022
-ms.author: stevehow
+author: joannapea 
+ms.author: joanpo
 
 ---
 

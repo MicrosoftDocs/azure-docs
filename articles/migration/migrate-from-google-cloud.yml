@@ -7,9 +7,9 @@ metadata:
   description: Learn about resources that can help you transition your workload components from Google Cloud Platform (GCP) to Azure.
   ms.topic: landing-page
   ms.service: azure-migrate
-  author: robbyatmicrosoft
-  ms.author: robbymillsap
-  ms.reviewr: robbymillsap, chkittel, prwilk
+  author: reginahack
+  ms.author: rhackenberg
+  ms.reviewr: rhackenberg, chkittel
   ms.date: 03/26/2025
   ms.collection:
    - migration

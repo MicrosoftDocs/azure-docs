@@ -11,7 +11,6 @@ ms.date: 01/26/2026
 ---
 
 # Run code by using code interpreter in Azure SRE Agent
-
 The SRE Agent code interpreter enables you to execute Python code and shell commands in a secure, isolated sandbox environment. Use Code Interpreter to analyze data, create visualizations, generate PDF reports, and automate file operations without leaving your SRE Agent conversation.
 
 In this article, you learn how to:
@@ -259,6 +258,6 @@ For security reasons, the system blocks the following operations:
 
 ## Related content
 
-- [Memory system](memory-system.md)
-- [Build subagents](subagent-builder-scenarios.md)
-- [Starter prompts](prompts.md)
+- [Memory system](memory.md)
+- [Build subagents](sub-agents.md)
+- [Starter prompts](starter-prompts.md)

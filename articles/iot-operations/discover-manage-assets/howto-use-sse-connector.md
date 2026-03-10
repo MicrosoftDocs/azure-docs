@@ -178,17 +178,30 @@ To define an asset that publishes events from the SSE endpoint, follow these ste
 
 1. Add any custom properties you want to associate with the asset. For example, you might add a property to indicate the manufacturer of the camera. Select **Next** to continue.
 
-1. On the **Datasets** page, create any datasets required and define the data points.
+A dataset defines where the connector sends the data it collects from a collection of data points. An SSE asset can have multiple datasets. To create a dataset:
 
-1. On the **Event groups** page, create an event group to define the events to publish to the MQTT broker.
+1. Select **Create dataset**.
 
-1. In the event group, select **Add event** to add an event for the asset. For example:
+1. Enter the details for the dataset such as its name, data source, and destination. For SSE assets, the data source is the path on the SSE endpoint. The destination is either an MQTT topic or a [broker state store](../develop-edge-apps/overview-state-store.md) key.
+
+1. Select **Create and next** to create the dataset.
+
+    > [!TIP]
+    > Use the **Manage default settings** option to configure default dataset settings.
+
+An event group defines where the connector sends the data it receives from a collection of events. An SSE asset can have multiple event groups. To create an event group:
+
+1. Select **Create event group**.
+
+1. Enter a name for the event group and the destination MQTT topic.
+
+1. Select **Create and next** to create the event group and go to the events page.
+
+1. Select **Add event** to add an event to the group. For example:
 
     :::image type="content" source="media/howto-use-sse-connector/add-event.png" alt-text="Screenshot that shows how to add an event for SSE source." lightbox="media/howto-use-sse-connector/add-event.png":::
 
-    Add details for each event to publish to the MQTT broker.
-
-    Select **Next** to continue.
+    Add details for each event to publish to the MQTT broker. Select **Next** to continue.
 
 1. On the **Review** page, review the details of the asset and select **Create** to create the asset. After a few minutes, the asset is listed on the **Assets** page:
 
@@ -202,6 +215,10 @@ Run the following command:
 az iot ops ns asset sse create --name mysseasset --instance {your instance name} -g {your resource group name} --device sse-connector-cli --endpoint sse-connector-0
 
 az iot ops ns asset sse dataset add --asset mysseasset --instance {your instance name} -g {your resource group name} --name weatherdata --data-source "/api/weather" --dest topic="azure-iot-operations/data/erp" retain=Never qos=Qos1 ttl=3600
+
+az iot ops ns asset sse event-group add --asset mysseasset --instance {your instance name} -g {your resource group name} --name alerts --data-source "" --dest topic="azure-iot-operations/events/mysseasset" retain=Never qos=Qos1 ttl=3600
+
+az iot ops ns asset sse event add --asset mysseasset --instance {your instance name} -g {your resource group name} --event-group alerts --name temperaturethreshold --data-source "/events/temperaturethreshold" --dest topic="azure-iot-operations/events/mysseasset" retain=Never qos=Qos1 ttl=3600
 ```
 
 To learn more, see [az iot ops ns asset sse](/cli/azure/iot/ops/ns/asset/sse).
@@ -256,6 +273,31 @@ resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2025-10-01' = {
               retain: 'Never'
               ttl: 3600
             }
+          }
+        ]
+      }
+    ]
+
+    eventGroups: [
+      {
+        name: 'alerts'
+        eventGroupConfiguration: '{}'
+        events: [
+          {
+            name: 'temperaturethreshold'
+            dataSource: '/events/temperaturethreshold'
+            eventConfiguration: '{}'
+            destinations: [
+              {
+                target: 'Mqtt'
+                configuration: {
+                  topic: 'azure-iot-operations/events/mysseasset'
+                  qos: 'Qos1'
+                  retain: 'Never'
+                  ttl: 3600
+                }
+              }
+            ]
           }
         ]
       }

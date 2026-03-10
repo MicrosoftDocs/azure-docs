@@ -3,7 +3,7 @@ title: Understand reservation discount in Azure Cosmos DB
 description: Learn how reservation discount is applied to provisioned throughput (RU/s) in Azure Cosmos DB.
 author: pri-mittal
 ms.author: primittal
-ms.service: azure-cosmos-db
+ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 01/15/2026
 ---

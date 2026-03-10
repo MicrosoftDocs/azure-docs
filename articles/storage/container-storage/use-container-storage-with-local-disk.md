@@ -69,7 +69,7 @@ For more information, refer to [Best practices for ephemeral NVMe data disks in 
 
 If you don't already have Azure Container Storage installed, [install it](install-container-storage-aks.md).
 
-Azure Container Storage (version 2.x.x) presents local NVMe as a standard Kubernetes storage class. Create the `local` storage class once per cluster and reuse it for both generic ephemeral volumes and persistent volume claims.
+Azure Container Storage (version 2.x.x) presents local NVMe as a standard Kubernetes storage class. Create the `local-csi` storage class once per cluster and reuse it for both generic ephemeral volumes and persistent volume claims.
 
 1. Use your favorite text editor to create a YAML manifest file such as `storageclass.yaml`, then paste in the following specification.
 
@@ -77,7 +77,7 @@ Azure Container Storage (version 2.x.x) presents local NVMe as a standard Kubern
     apiVersion: storage.k8s.io/v1
     kind: StorageClass
     metadata:
-      name: local
+      name: local-csi
     provisioner: localdisk.csi.acstor.io
     reclaimPolicy: Delete
     volumeBindingMode: WaitForFirstConsumer
@@ -109,9 +109,9 @@ Alternatively, you can create the storage class using Terraform.
       config_path = "~/.kube/config"
     }
 
-    resource "kubernetes_storage_class_v1" "local" {
+    resource "kubernetes_storage_class_v1" "local_csi" {
       metadata {
-        name = "local"
+        name = "local-csi"
       }
 
       storage_provisioner    = "localdisk.csi.acstor.io"
@@ -134,19 +134,19 @@ Alternatively, you can create the storage class using Terraform.
 Run the following command to verify that the storage class is created:
 
 ```azurecli
-kubectl get storageclass local
+kubectl get storageclass local-csi
 ```
 
 You should see output similar to:
 
 ```output
-NAME    PROVISIONER                RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
-local   localdisk.csi.acstor.io    Delete          WaitForFirstConsumer   true                   10s
+NAME       PROVISIONER                RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
+local-csi  localdisk.csi.acstor.io    Delete          WaitForFirstConsumer   true                   10s
 ```
 
 ## Create and attach generic ephemeral volumes
 
-Follow these steps to create and attach a generic ephemeral volume using Azure Container Storage. Make sure Azure Container Storage is [installed](install-container-storage-aks.md) and the `local` storage class exists before you continue.
+Follow these steps to create and attach a generic ephemeral volume using Azure Container Storage. Make sure Azure Container Storage is [installed](install-container-storage-aks.md) and the `local-csi` storage class exists before you continue.
 
 ### Deploy a pod with generic ephemeral volume
 
@@ -178,7 +178,7 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
              spec:
                volumeMode: Filesystem
                accessModes: ["ReadWriteOnce"]
-               storageClassName: local
+               storageClassName: local-csi
                resources:
                  requests:
                    storage: 10Gi
@@ -211,7 +211,7 @@ While generic ephemeral volumes are recommended for ephemeral storage, Azure Con
 > [!NOTE]
 > Azure Container Storage (version 2.x.x) uses the new annotation `localdisk.csi.acstor.io/accept-ephemeral-storage: "true"` instead of the previous `acstor.azure.com/accept-ephemeral-storage: "true"`.
 
-Make sure Azure Container Storage is [installed](install-container-storage-aks.md) and the `local` storage class you created earlier is available before deploying workloads that use it.
+Make sure Azure Container Storage is [installed](install-container-storage-aks.md) and the `local-csi` storage class you created earlier is available before deploying workloads that use it.
 
 ### Deploy a stateful set with persistent volumes
 
@@ -259,7 +259,7 @@ spec:
           localdisk.csi.acstor.io/accept-ephemeral-storage: "true"
       spec:
         accessModes: ["ReadWriteOnce"]
-        storageClassName: local
+        storageClassName: local-csi
         resources:
           requests:
             storage: 10Gi
@@ -289,8 +289,8 @@ You should see output similar to this example:
 
 ```output
 NAME          STORAGE_CLASS   CAPACITY    NODE
-csisc-2pkx4   local           1373172Mi   aks-storagepool-31410930-vmss000001
-csisc-gnmm9   local           1373172Mi   aks-storagepool-31410930-vmss000000
+csisc-2pkx4   local-csi       1373172Mi   aks-storagepool-31410930-vmss000001
+csisc-gnmm9   local-csi       1373172Mi   aks-storagepool-31410930-vmss000000
 ```
 
 If you encounter empty capacity output, confirm that a StorageClass for `localdisk.csi.acstor.io` exists. The `csistoragecapacities.storage.k8s.io` resource is only generated after a StorageClass for `localdisk.csi.acstor.io` exists.
@@ -309,10 +309,10 @@ az aks nodepool scale --cluster-name <cluster-name> --name <nodepool-name> --res
 
 To clean up storage resources, you must first delete all PersistentVolumeClaims and/or PersistentVolumes. Deleting the Azure Container Storage StorageClass doesn't automatically remove your existing PersistentVolumes/PersistentVolumeClaims.
 
-To delete a storage class named `local`, run the following command:
+To delete a storage class named `local-csi`, run the following command:
 
 ```azurecli
-kubectl delete storageclass local
+kubectl delete storageclass local-csi
 ```
 
 ## See also
