@@ -145,7 +145,7 @@ To run an on-demand backup at the SQL instance level, follow these steps:
 1.  On the selected backup instance pane, select **Backup now**.
 
 1.  On the **Backup now** pane, select one of the supported **Backup type** - **Snapshot full** or **Snapshot copy only full**.  
-    :::image type="content" source="./media/sql-instance-snapshot-backup/sql-backup-type-selection.png" alt-text="Screenshot that shows how to trigger an on-demand backup for a SQL instance in Azure portal." lightbox="./media/sql-instance-snapshot-backup/sql-backup-type-selection.png":::
+    :::image type="content" source="./media/sql-instance-snapshot-backup/sql-instance-backup-type-selection.png" alt-text="Screenshot that shows how to trigger an on-demand backup for a SQL instance in Azure portal." lightbox="./media/sql-instance-snapshot-backup/sql-instance-backup-type-selection.png":::
 
 1.  Select **OK**.
 
