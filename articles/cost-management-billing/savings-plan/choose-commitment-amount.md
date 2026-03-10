@@ -1,7 +1,7 @@
 ---
-title: Choose an Azure saving plan commitment amount
+title: Choose an Azure savings plan commitment amount
 titleSuffix: Microsoft Cost Management
-description: This article helps you determine how to choose an Azure saving plan commitment amount.
+description: This article helps you determine how to choose an Azure savings plan commitment amount.
 author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
@@ -11,7 +11,7 @@ ms.date: 01/08/2026
 ms.author: onwokolo
 ---
 
-# Choose an Azure saving plan commitment amount
+# Choose an Azure savings plan commitment amount
 
 Savings plan purchase recommendations are calculated by analyzing your hourly pay-as-you-go usage and cost data. Recommendations are generated for the selected savings plan term (1- or 3-years), [benefit scope](scope-savings-plan.md) (shared, subscription), and look back period (7-, 30-, or 60-days). Azure calculates your potential savings by simulating the total costs you would have under a savings plan. It examines each combination of term, benefit scope, and look back period. It then compares these simulated costs with the actual pay-as-you-go costs you incurred. The commitment amount that returns the greatest savings for each term, benefit scope, and look back period combination is highlighted. To learn more about how recommendations are generated, see [How savings plan recommendations are generated](purchase-recommendations.md#how-savings-plan-recommendations-are-generated).
 
@@ -40,7 +40,7 @@ Currently, the Azure portal doesn't provide savings plan recommendations for man
 
 ## Need help? Contact us
 
-If you have Azure savings plan for compute questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides Azure savings plan for compute expert support requests in English.
+If you have Azure savings plan questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides Azure savings plan expert support requests in English.
 
 ## Next steps
 

@@ -45,7 +45,7 @@ To purchase an Azure savings plan by using the Partner Center APIs, see [Purchas
 
 ## Need help?
 
-If you have Azure savings plan for compute questions, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides answers to expert support requests in English for questions about Azure savings plan for compute.
+If you have Azure savings plan questions, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides answers to expert support requests in English for questions about Azure savings plan.
 
 ## Related content
 
@@ -53,7 +53,7 @@ If you have Azure savings plan for compute questions, contact your account team 
 - To learn how to manage a savings plan, see [Manage Azure savings plans](manage-savings-plan.md).
 - To learn more about Azure savings plans, see:
 
-    - [What are Azure savings plans?](savings-plan-compute-overview.md)
+    - [What are Azure savings plans?](savings-plan-overview.md)
     - [Manage Azure savings plans](manage-savings-plan.md)
     - [How a savings plan discount is applied](discount-application.md)
     - [Understand savings plan costs and usage](utilization-cost-reports.md)

@@ -22,7 +22,7 @@ The following conditions are required to renew a savings plan:
 Billing admin for Enterprise Agreements (EA) and Microsoft Customer Agreements (MCA):
 - You must be either a Billing profile owner or Billing profile contributor of an MCA account.
 - You must be an EA administrator with write access of an EA account.
-- You must be a Savings plan purchaser.
+- You must be a savings plan purchaser.
 
 
 For Microsoft Partner Agreements (MPA):
@@ -81,8 +81,8 @@ Emails are sent to different people depending on your purchase method:
 
 ## Need help? Contact us.
 
-If you have Azure savings plan for compute questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft will only provide Azure savings plan for compute expert support requests in English.
+If you have Azure savings plan questions, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides answers to expert support requests in English for questions about Azure savings plan.
 
 ## Next steps
 
-- To learn more about Azure savings plans, see [What are Azure savings plans?](savings-plan-compute-overview.md)
+- To learn more about Azure savings plans, see [What are Azure savings plans?](savings-plan-overview.md)

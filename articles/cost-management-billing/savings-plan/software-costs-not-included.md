@@ -1,7 +1,7 @@
 ---
 title: Software costs not included in Azure savings plans
 titleSuffix: Microsoft Cost Management
-description: Learn how savings plan discounts apply only to Azure compute infrastructure costs and not to the software costs.
+description: Learn how savings plan discounts apply only to Microsoft cloud infrastructure costs and not to the non-database software costs.
 author: nwokolo
 ms.author: onwokolo
 ms.reviewer: onwokolo
@@ -60,13 +60,13 @@ For information on how to get the pay-as-you-go rates for each Azure meter, see 
 
 ## Need help? Contact us.
 
-If you have Azure savings plan for compute questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides Azure savings plan for compute expert support requests in English.
+If you have Azure savings plan questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides Azure savings plan expert support requests in English.
 
 ## Related content
 
 To learn more about Azure savings plans, see the following articles:
 
-- [What are Azure savings plans?](buy-savings-plan.md)
+- [What are Azure savings plans?](savings-plan-overview.md)
 - [Manage an Azure savings plan](manage-savings-plan.md)
 - [How savings plan discount is applied](discount-application.md)
 - [View Azure savings plan cost and usage details](utilization-cost-reports.md)

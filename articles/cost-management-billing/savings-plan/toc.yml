@@ -3,8 +3,8 @@
 - name: Overview
   expanded: true
   items:
-  - name: What are Azure savings plans for compute?
-    href: savings-plan-compute-overview.md
+  - name: What are Azure savings plans?
+    href: savings-plan-overview.md
 - name: Concepts
   items:
   - name: Savings plan recommendations
@@ -27,7 +27,7 @@
     href: buy-savings-plan.md
   - name: Trade a reservation for a savings plan
     href: reservation-trade-in.md
-  - name: Manage saving plan
+  - name: Manage savings plan
     href: manage-savings-plan.md
   - name: Renew a savings plan
     href: renew-savings-plan.md

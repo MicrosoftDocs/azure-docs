@@ -13,7 +13,7 @@ ms.author: onwokolo
 
 # Buy an Azure savings plan
 
-Azure savings plans help you save money by committing to an hourly spend for one-year or three-year plans for Azure compute resources. 
+Azure savings plans help you save money by committing to an hourly spend for one-year or three-year plans for Microsoft cloud resources. 
 
 You can pay for savings plans with monthly payments. Unlike an upfront purchase, where you pay the full amount, the monthly payment option divides the total cost of the savings plan into 12 or 36 equal payments. The total cost of upfront and monthly savings plans is the same.
 
@@ -45,7 +45,7 @@ After you buy a savings plan, you can [change the savings plan scope](manage-sav
     - **Hourly commitment**: Amount available through the plan each hour. In the Azure portal, up to 10 recommendations might appear. Recommendations are scope-specific. Azure doesn't currently provide recommendations for management groups. Each recommendation includes:
         - An hourly commitment.
         - The potential savings percentage compared to on-demand costs for the commitment.
-        - The percentage of the selected scope's compute usage that is covered by the new savings plan. It includes the commitment amount plus any other previously purchased savings plan or reservation.
+        - The percentage of the selected scope's resource usage that is covered by the new savings plan. It includes the commitment amount plus any other previously purchased savings plan or reservation.
     - **Billing frequency**: **All upfront** or **Monthly**. The total cost of the savings plan is the same regardless of the selected frequency.
     - **Auto-renew**: **On** or **Off**. The savings plan will automatically renew at the end of its term if it is **On**. By default, this option is set to **Off**.
 
@@ -73,18 +73,18 @@ The `billingScopeId` property in the request body must use the `/providers/Micro
 To learn more about viewing savings plan purchases and payments, visit [View savings plan purchases](view-transactions.md#view-savings-plan-purchases-in-the-azure-portal) and [View payments made](view-transactions.md#view-payments-made), respectively.
 
 ## Cancellations, exchanges, and trade-ins
-Unlike reservations, you can't cancel or exchange savings plans. You can trade in select compute reservations for a savings plan. To learn more, visit [Reservation trade-in](reservation-trade-in.md).
+Unlike reservations, you can't cancel or exchange savings plans. You can trade in select reservations for a savings plan. To learn more, visit [Reservation trade-in](reservation-trade-in.md).
 
 ## Need help?
 
-If you have Azure savings plan for compute questions, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides answers to expert support requests in English for questions about Azure savings plan for compute.
+If you have Azure savings plan questions, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides answers to expert support requests in English for questions about Azure savings plan.
 
 ## Related content
 
 - To learn how to manage a savings plan, see [Manage Azure savings plans](manage-savings-plan.md).
 - To learn more about Azure savings plans, see:
 
-    - [What are Azure savings plans?](savings-plan-compute-overview.md)
+    - [What are Azure savings plans?](savings-plan-overview.md)
     - [Manage Azure savings plans](manage-savings-plan.md)
     - [How a savings plan discount is applied](discount-application.md)
     - [Understand savings plan costs and usage](utilization-cost-reports.md)

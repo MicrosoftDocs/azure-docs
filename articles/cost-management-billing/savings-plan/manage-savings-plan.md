@@ -15,11 +15,11 @@ ms.author: onwokolo
 After you buy an Azure savings plan, with sufficient permissions, you can make the following types of changes to a savings plan:
 
 - Update a savings plan scope.
-- Change autorenewal settings.
+- Change auto-renewal settings.
 - View savings plan details and utilization.
 - Delegate savings plan role-based access control (RBAC) roles.
 
-Except for autorenewal, none of the changes causes a new commercial transaction or changes the end date of the savings plan.
+Except for auto-renewal, none of the changes causes a new commercial transaction or changes the end date of the savings plan.
 
 You can't make the following types of changes after purchase:
 - Hourly commitment
@@ -88,7 +88,7 @@ To delegate the administrator, contributor, or reader roles to a specific saving
 1. Select **Role assignment** from the top navigation bar.
 
 ## Cancellations, exchanges, and trade-ins
-Unlike reservations, you can't cancel or exchange savings plans. You can trade-in select compute reservations for a savings plan. To learn more, visit [reservation trade-in](reservation-trade-in.md).
+Unlike reservations, you can't cancel or exchange savings plans. You can trade-in select reservations for a savings plan. To learn more, visit [reservation trade-in](reservation-trade-in.md).
 
 ## Change billing subscription
 Currently, the billing subscription used for monthly payments of a savings plan can't be changed.
@@ -129,7 +129,7 @@ For Microsoft Partner Agreement partners:
 - Notifications are sent to the partner.
 
 ## Need help?
-If you have Azure savings plan for compute questions, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides answers to expert support requests in English for questions about Azure savings plan for compute.
+If you have Azure savings plan questions, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides answers to expert support requests in English for questions about Azure savings plan.
 
 ## Next steps
 

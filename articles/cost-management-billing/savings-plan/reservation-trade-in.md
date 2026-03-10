@@ -20,9 +20,9 @@ Although you can return the above offerings for a savings plan, you can't exchan
 Apart from [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/), [Dedicated Hosts](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/), or [Azure App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) reservations, no other reservations or prepurchase plans are eligible for trade-in.
 
 >[!NOTE]
-> Initially planned to end on January 1, 2024, the availability of Azure compute reservation exchanges for Azure Virtual Machine, Azure Dedicated Host and Azure App Service has been extended **until further notice**.
+> Initially planned to end on January 1, 2024, the availability of Azure reservation exchanges for Azure Virtual Machine, Azure Dedicated Host and Azure App Service has been extended **until further notice**.
 >
-> Launched in October 2022, the [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute) aims at providing savings on consistent spend, across different compute services, regardless of region. With savings plan's automatic flexibility, we've updated our reservations exchange policy. While [instance size flexibility](/azure/virtual-machines/reserved-vm-instance-size-flexibility) for VMs remains post-grace period, exchanges of instance series or regions for Azure Virtual Machine, Azure Dedicated Host and Azure App Service reservations will no longer be supported.
+> Launched in October 2022, the [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan) aims at providing savings on consistent spend, across different compute services, regardless of region. With savings plan's automatic flexibility, we've updated our reservations exchange policy. While [instance size flexibility](/azure/virtual-machines/reserved-vm-instance-size-flexibility) for VMs remains post-grace period, exchanges of instance series or regions for Azure Virtual Machine, Azure Dedicated Host and Azure App Service reservations will no longer be supported.
 >
 > You may continue [exchanging](../reservations/exchange-and-refund-azure-reservations.md) your compute reservations for different instance series and regions until we notify you again, which will be **at least 6 months in advance**. In addition, any compute reservations purchased during this extended grace period will retain the right to **one more exchange after the grace period ends**. The extended grace period allows you to better assess your cost savings commitment needs and plan effectively. For more information, see [Changes to the Azure reservation exchange policy](../reservations/reservation-exchange-policy-changes.md).
 >
@@ -47,7 +47,7 @@ You can trade in your reservation from [Azure portal](https://portal.azure.com/#
 1. Select the reservations that you want to trade in and select **Exchange**.  
   :::image type="content" source="./media/reservation-trade-in/exchange-refund-return.png" alt-text="Screenshot showing the Exchange window." lightbox="./media/reservation-trade-in/exchange-refund-return.png" :::
 1. For each reservation order selected, enter the quantity of reservation instances you want to return. The bottom of the window shows the amount to refund. It also shows the value of future payments that are canceled, if applicable.
-1. Select **Compute Savings Plan** as the product that you want to purchase.
+1. Select **Savings Plan** as the product that you want to purchase.
 1. To complete the purchase, enter the necessary information. For more information, see [Buy a savings plan](buy-savings-plan.md#buy-a-savings-plan-in-the-azure-portal).
 
 ## Determine savings plan commitment needed to replace your reservation
@@ -58,14 +58,14 @@ During a reservation trade-in, the default hourly commitment for the savings pla
 2. Search for the product that you want to return.
 3. Select a savings plan term and operating system, if necessary.
 4. Select **Upfront** as the payment option. You're using the annual cost only because it's easier to work with in this calculation example.
-5. To determine the hourly commitment for the product, divide the upfront compute charge by:
+5. To determine the hourly commitment for the product, divide the upfront charge by:
     - 8,760 for a one-year savings plan
     - 26,280 for a three-year savings plan  
-        :::image type="content" source="./media/reservation-trade-in/pricing-calculator-upfront-example.png" alt-text="Example screenshot showing the Azure pricing calculator upfront compute charge value example." lightbox="./media/reservation-trade-in/pricing-calculator-upfront-example.png" :::
-1. Multiply the product’s hourly commitment by the number of instances you're trading-in.
-1. Repeat steps 2-6 for all reservation products you're trading-in.
-1. Enter the total of the above steps as the hourly commitment, then **Add** to your cart.
-1. Review and complete the transaction.
+        :::image type="content" source="./media/reservation-trade-in/pricing-calculator-upfront-example.png" alt-text="Example screenshot showing the Azure pricing calculator upfront charge value example." lightbox="./media/reservation-trade-in/pricing-calculator-upfront-example.png" :::
+6. Multiply the product’s hourly commitment by the number of instances you're trading-in.
+7. Repeat steps 2-6 for all reservation products you're trading-in.
+8. Enter the total of the above steps as the hourly commitment, then **Add** to your cart.
+9. Review and complete the transaction.
 
 The preceding image's price is an example.
 
@@ -80,10 +80,10 @@ To determine the cost savings difference when switching from reservations to a s
 1. Depending on the payment schedule for the reservation, you're presented with either the monthly or full cost of the reservation. You need the monthly cost. If necessary, divide the value by either 12 or 36, depending on the reservation term.
 1. Multiply the monthly cost of the reservation by the number of instances you want to return.
 1. To determine the monthly cost of an equivalent savings plan, follow the first six steps in [Estimate costs with the Azure pricing calculator](../manage/ea-pricing.md#estimate-costs-with-the-azure-pricing-calculator).
-1. Search for the compute product associated with the reservation that you want to return.
-1. Select savings plan term and operating system, if necessary.
-1. Select **Monthly** as the payment option. It's the monthly cost of a savings plan providing 100% coverage to the resource that was previously covered by the reservation.  
-    :::image type="content" source="./media/reservation-trade-in/pricing-calculator-monthly-example.png" alt-text="Example screenshot showing the Azure pricing calculator monthly compute charge value example." lightbox="./media/reservation-trade-in/pricing-calculator-monthly-example.png" :::
+2. Search for the product associated with the reservation that you want to return.
+3. Select savings plan term and operating system, if necessary.
+4. Select **Monthly** as the payment option. It's the monthly cost of a savings plan providing 100% coverage to the resource that was previously covered by the reservation.  
+    :::image type="content" source="./media/reservation-trade-in/pricing-calculator-monthly-example.png" alt-text="Example screenshot showing the Azure pricing calculator monthly usage charge value example." lightbox="./media/reservation-trade-in/pricing-calculator-monthly-example.png" :::
 1.	Multiply the monthly cost by the number of product instances that are currently covered by the reservations to be returned.
 
 The preceding image's price is an example.
@@ -108,13 +108,13 @@ The original invoice is canceled, and a new invoice is created. The money is ref
 
 ## Need help? Contact us.
 
-If you have Azure savings plan for compute questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides Azure savings plan for compute expert support requests in English.
+If you have Azure savings plan questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides Azure savings plan expert support requests in English.
 
 ## Next steps
 
 - To learn how to manage a savings plan, see [Manage Azure savings plan](manage-savings-plan.md).
 - To learn more about Azure savings plans, see the following articles:
-  - [What are Azure savings plans?](savings-plan-compute-overview.md)
+  - [What are Azure savings plans?](savings-plan-overview.md)
   - [How a savings plan discount is applied](discount-application.md)
   - [View Azure savings plan cost and usage details](utilization-cost-reports.md)
   - [Software costs not included in savings plan](software-costs-not-included.md)

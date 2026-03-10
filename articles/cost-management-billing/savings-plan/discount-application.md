@@ -1,5 +1,5 @@
 ---
-title: How an Azure saving plan discount is applied
+title: How an Azure savings plan discount is applied
 titleSuffix: Microsoft Cost Management
 description: Learn about how the discounts you receive are applied.
 author: nwokolo
@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 01/08/2026
 ---
 
-# How saving plan discount is applied
+# How a savings plan discount is applied
 
-Azure savings plans save you money when you have consistent usage of Azure compute resources. An Azure savings plan can help you save money by allowing you to commit to a fixed hourly spend on compute services for one-year or three-year terms. The savings can significantly reduce your resource costs by up to 65% from pay-as-you-go prices. Discount rates per meter vary by commitment term (1-year or 3-year), not commitment amount.
+Azure savings plans save you money when you have consistent usage of Azure resources. An Azure savings plan can help you save money by allowing you to commit to a fixed hourly spend on services for one-year or three-year terms. The savings can significantly reduce your resource costs by up to 65% from pay-as-you-go prices. Discount rates per meter vary by commitment term (1-year or 3-year), not commitment amount.
 
-Each hour with a savings plan, your eligible compute usage is discounted until you reach your commitment amount – subsequent usage after you reach your commitment amount is priced at pay-as-you-go rates. A resource within the savings plan's scope must generate the usage to be eligible for a savings plan benefit. Each hour's benefit is _use-it-or-lose-it_, and can't be rolled over to another hour.
+Each hour with a savings plan, your eligible usage is discounted until you reach your commitment amount – subsequent usage after you reach your commitment amount is priced at pay-as-you-go rates. A resource within the savings plan's scope must generate the usage to be eligible for a savings plan benefit. Each hour's benefit is _use-it-or-lose-it_, and can't be rolled over to another hour.
 
 The benefit is first applied to the product that has the greatest savings plan discount when compared to the equivalent pay-as-you-go rate (see your price list for savings plan pricing). The application prioritization is done to ensure that you receive the maximum benefit from your savings plan investment. We multiply the savings plan rate to that product's usage and deduct the result from the savings plan commitment. The process repeats until the commitment is exhausted (or until there's no more usage to consume the benefit).
 
 A savings plan discount only applies to resources associated with Enterprise Agreement, Microsoft Partner Agreement, and Microsoft Customer Agreements. Resources that run in a subscription with other offer types don't receive the discount.
 
-Here's a video that explains how an Azure savings plan is applied to the compute environment.
+Here's a video that explains how an Azure savings plan is applied to the environment.
 
 >[!VIDEO https://www.youtube.com/embed/AZOyh1rl3kU]
 

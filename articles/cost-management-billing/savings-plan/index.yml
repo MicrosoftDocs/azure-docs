@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
 title: Save with Azure savings plans
-summary: Learn how Azure savings plans help you save money by committing an hourly spend for one-year or three-year plan for Azure compute resources.
+summary: Learn how Azure savings plans help you save money by committing an hourly spend for one-year or three-year plan for Azure resources.
 metadata:
   title: Save with Azure savings plans
-  description: Learn how Azure savings plans help you save money by committing an hourly spend for one-year or three-year plan for Azure compute resources.
+  description: Learn how Azure savings plans help you save money by committing an hourly spend for one-year or three-year plan for Azure resources.
   ms.service: cost-management-billing
   ms.subservice: savings-plan
   ms.topic: landing-page
@@ -21,8 +21,8 @@ landingContent:
     linkLists:
     - linkListType: concept
       links:
-      - text: What are Azure savings-plans?
-        url: savings-plan-compute-overview.md
+      - text: What are Azure savings plans?
+        url: savings-plan-overview.md
       - text: Savings plan purchase recommendations
         url: purchase-recommendations.md
       - text: Windows and SQL software cost charged separately
@@ -32,7 +32,7 @@ landingContent:
       links:
       - text: Buy a savings plan
         url: buy-savings-plan.md
-      - text: Reservation trade ins
+      - text: Reservation trade-ins
         url: reservation-trade-in.md
       - text: Renew a savings plan
         url: renew-savings-plan.md
@@ -48,7 +48,7 @@ landingContent:
         url: decide-between-savings-plan-reservation.md
     - linkListType: learn
       links:
-      - text: Training - Azure savings plan for compute
+      - text: Training - Azure savings plan
         url: /training/modules/azure-savings-plan-for-compute/
 
   # Card (optional)
