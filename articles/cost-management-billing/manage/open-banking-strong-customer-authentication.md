@@ -6,7 +6,7 @@ ms.reviewer: souchak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 10/14/2025
+ms.date: 03/08/2026
 ms.author: souchak
 service.tree.id: 3b35c9b8-bf14-4e4a-bc0d-21055e56b28c
 ---

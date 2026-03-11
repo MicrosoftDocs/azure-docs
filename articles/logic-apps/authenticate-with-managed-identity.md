@@ -1,42 +1,39 @@
 ---
-title: Authenticate access and connections with managed identities
-description: Set up a managed identity to authenticate workflow access to Microsoft Entra protected resources without using credentials, secrets, or tokens in Azure Logic Apps.
+title: Authenticate Access for Connections with Managed Identities
+description: Set up a managed identity to authenticate connection access from workflows in Azure Logic Apps to Microsoft Entra ID protected resources without using credentials, secrets, or tokens.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 01/27/2025
+ms.date: 03/09/2026
+ms.date-cycle: 365 days
 ms.custom:
   - subject-rbac-steps
   - devx-track-arm-template
   - sfi-image-nochange
-
-##customerIntent: As a logic app developer, I want to authenticate connections for my logic app workflow using a managed identity so I don't have to use credentials or secrets.
+##Customer intent: As an integration developer who works with Azure Logic Apps, I want to authenticate access for connections in my workflows by using a managed identity to avoid managing credentials or secrets.
 ---
 
-# Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps
+# Authenticate connection access to protected Azure resources using managed identities in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-If you want to avoid providing, storing, and managing credentials, secrets, or Microsoft Entra tokens, you can use a managed identity to authenticate access or connections from your logic app workflow to Microsoft Entra protected resources. In Azure Logic Apps, some connector operations support using a managed identity when you must authenticate access to resources protected by Microsoft Entra ID. Azure manages this identity and helps keep authentication information secure so that you don't have to manage this sensitive information. For more information, see [What are managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview)?
+When you need to authenticate connection access to Microsoft Entra ID protected resources from your logic app workflows, use a *managed identity* to avoid storing and managing credentials, secrets, or Microsoft Entra tokens. Azure manages this identity and helps keep authentication information secure so you don't have to manage this sensitive information.
+
+In Azure Logic Apps, some connectors support managed identity authentication when your workflow needs access to resources protected by Microsoft Entra ID. For more information, see [What are managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview)?
 
 Azure Logic Apps supports the following managed identity types:
 
 - [System-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview#managed-identity-types)
-
 - [User-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview#managed-identity-types)
-
-The following list describes some differences between these managed identity types:
-
-- A logic app resource can enable and use only one unique system-assigned identity.
-
-- A logic app resource can share the same user-assigned identity across a group of other logic app resources.
 
 This guide shows how to complete the following tasks:
 
 - Enable and set up the system-assigned identity for your logic app resource. This guide provides an example that shows how to use the identity for authentication.
 
-- Create and set up a user-assigned identity. This guide shows how to create this identity using the Azure portal or an Azure Resource Manager template (ARM template) and how to use the identity for authentication. For Azure PowerShell, Azure CLI, and Azure REST API, see the following documentation:
+- Create and set up a user-assigned identity. This guide shows how to create this identity using the Azure portal or an Azure Resource Manager template (ARM template) and how to use the identity for authentication. 
+
+  For Azure PowerShell, Azure CLI, and Azure REST API, see:
 
   | Tool | Documentation |
   |------|---------------|
@@ -46,11 +43,23 @@ This guide shows how to complete the following tasks:
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). Both the managed identity and the target Azure resource where you need access must use the same Azure subscription.
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- The target Azure resource that you want to access. On this resource, you must add the necessary role for the managed identity to access that resource on your logic app's or connection's behalf. To add a role to a managed identity, you need [Microsoft Entra administrator permissions](/entra/identity/role-based-access-control/permissions-reference) that can assign roles to the identities in the corresponding Microsoft Entra tenant.
+  Both the managed identity and the target Azure resource where you need access must use the same Azure subscription.
 
-- The logic app resource and workflow where you want to use the [trigger or actions that support managed identities](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
+- The target Azure resource that you want to access.
+
+  - On this resource, you must add the necessary role to the managed identity that acts on behalf of your logic app. To add a role to a managed identity, you need [Microsoft Entra administrator permissions](/entra/identity/role-based-access-control/permissions-reference) that can assign roles to the identities in the corresponding Microsoft Entra tenant.
+
+- The logic app resource and workflow where you want to use the [operations that support managed identities](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
+
+## Considerations for using managed identities
+
+- Your logic app resource can have and use only one unique system-assigned identity.
+
+- Your logic app resource can have multiple user-assigned identities, but use only one user-assigned identity at a time.
+
+- You can use the same user-assigned identity across other logic app resources.
 
 ## Managed identity differences between Consumption and Standard logic apps
 
@@ -58,7 +67,7 @@ Based on your logic app resource type, you can enable either the system-assigned
 
 | Logic app | Environment | Managed identity support |
 |-----------|-------------|--------------------------|
-| Consumption | - Multitenant Azure Logic Apps | - You can enable *either* the system-assigned identity or the user-assigned identity, but not both on your logic app. <br><br>- You can use the managed identity at the logic app resource level and at the connection level. <br><br>- If you create and enable the user-assigned identity, your logic app can have *only one* user-assigned identity at a time. |
+| Consumption | - Multitenant Azure Logic Apps | - You can enable *either* the system-assigned identity or the user-assigned identity, but not both at the same time. <br><br>- You can use the managed identity at the logic app resource level and at the connection level. <br><br>- If you create and enable the user-assigned identity, your logic app can have *only one* user-assigned identity at a time. |
 | Standard | - Single-tenant Azure Logic Apps <br><br>- App Service Environment v3 (ASEv3) | - You can enable *both* the system-assigned identity, which is enabled by default, and the user-assigned identity at the same time. You can also add multiple user-assigned identities to your logic app. However, your logic app can use only one managed identity at a time. <br><br>- You can use the managed identity at the logic app resource level and at the connection level. <br><br>**Note**: For hybrid deployment, managed identity authentication is currently unsupported. Instead, you must create and use an app registration. For more information, see [Create Standard logic app workflows for hybrid deployment on your own infrastructure](create-standard-workflows-hybrid-deployment.md). |
 
 For information about managed identity limits in Azure Logic Apps, see [Limits on managed identities for logic apps](logic-apps-limits-and-config.md#managed-identity). For more information about the Consumption and Standard logic app resource types and environments, see [Resource environment differences](logic-apps-overview.md#resource-environment-differences).
@@ -83,7 +92,7 @@ For a Consumption logic app workflow, the following table lists example connecto
 | Connector type | Supported connectors |
 |----------------|----------------------|
 | Built-in | - Azure API Management <br>- Azure App Services <br>- Azure Functions <br>- HTTP <br>- HTTP + Webhook <br><br>**Note**: HTTP operations can authenticate connections to Azure Storage accounts behind Azure firewalls with the system-assigned identity. However, HTTP operations don't support the user-assigned identity for authenticating the same connections. |
-| Managed | - Azure App Service <br>- Azure Automation <br>- Azure Blob Storage <br>- Azure Container Instance <br>- Azure Cosmos DB <br>- Azure Data Explorer <br>- Azure Data Factory <br>- Azure Data Lake <br>- Azure Digital Twins <br>- Azure Event Grid <br>- Azure Event Hubs <br>- Azure IoT Central V2 <br>- Azure Key Vault <br>-Azure Monitor Logs <br>- Azure Queues <br>- Azure Resource Manager <br>- Azure Service Bus <br>- Azure Sentinel <br>- Azure Table Storage <br>- Azure VM <br>- SQL Server |
+| Managed | - Azure App Service <br>- Azure Automation <br>- Azure Blob Storage <br>- Azure Container Instance <br>- Azure Cosmos DB <br>- Azure Data Explorer <br>- Azure Data Factory <br>- Azure Data Lake <br>- Azure Digital Twins <br>- Azure Event Grid <br>- Azure Event Hubs <br>- Azure IoT Central V2 <br>- Azure Key Vault <br>-Azure Monitor Logs <br>- Azure Queues <br>- Azure Resource Manager <br>- Azure Service Bus <br>- Microsoft Sentinel <br>- Azure Table Storage <br>- Azure VM <br>- SQL Server |
 
 ### [Standard](#tab/standard)
 
@@ -92,7 +101,7 @@ For a Standard logic app workflow, the following table lists example connectors 
 | Connector type | Supported connectors |
 |----------------|----------------------|
 | Built-in | - Azure Automation <br>- Azure Blob Storage <br>- Azure Event Hubs <br>- Azure Service Bus <br>- Azure Queues <br>- Azure Tables <br>- HTTP <br>- HTTP + Webhook <br>- SQL Server <br><br>**Note**: Except for the SQL Server and HTTP connectors, most [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/) currently don't support selecting user-assigned identities for authentication. Instead, you must use the system-assigned identity. HTTP operations can authenticate connections to Azure Storage accounts behind Azure firewalls with the system-assigned identity. |
-| Managed | - Azure App Service <br>- Azure Automation <br>- Azure Blob Storage <br>- Azure Container Instance <br>- Azure Cosmos DB <br>- Azure Data Explorer <br>- Azure Data Factory <br>- Azure Data Lake <br>- Azure Digital Twins <br>- Azure Event Grid <br>- Azure Event Hubs <br>- Azure IoT Central V2 <br>- Azure Key Vault <br>- Azure Monitor Logs <br>- Azure Queues <br>- Azure Resource Manager <br>- Azure Service Bus <br>- Azure Sentinel <br>- Azure Table Storage <br>- Azure VM <br>- SQL Server |
+| Managed | - Azure App Service <br>- Azure Automation <br>- Azure Blob Storage <br>- Azure Container Instance <br>- Azure Cosmos DB <br>- Azure Data Explorer <br>- Azure Data Factory <br>- Azure Data Lake <br>- Azure Digital Twins <br>- Azure Event Grid <br>- Azure Event Hubs <br>- Azure IoT Central V2 <br>- Azure Key Vault <br>- Azure Monitor Logs <br>- Azure Queues <br>- Azure Resource Manager <br>- Azure Service Bus <br>- Azure Table Storage <br>- Azure VM <br>- Microsoft Sentinel <br>- SQL Server |
 
 ---
 
@@ -519,7 +528,7 @@ Before you can use your logic app's managed identity for authentication, you hav
 > suppose you have a managed identity for a logic app that needs access to update the application 
 > settings for that same logic app from a workflow. You must give that identity access to the associated logic app.
 
-For example, to use a managed identity for authenticating access to a Blob storage account or key vault in Azure, you need to set up Azure role-based access control (Azure RBAC) and assign the appropriate role for that identity to the storage account or key vault, respectively.
+For example, to use a managed identity for authenticating access to a Blob storage account or key vault in Azure, you need to set up Azure role-based access control (RBAC) and assign the appropriate role for that identity to the storage account or key vault, respectively.
 
 The steps in this section describe how to assign role-based access using the [Azure portal](#azure-portal-assign-role) and [Azure Resource Manager template (ARM template)](../role-based-access-control/role-assignments-template.md). For Azure PowerShell, Azure CLI, and Azure REST API, see the following documentation:
 
@@ -819,7 +828,7 @@ To run the [Snapshot Blob operation](/rest/api/storageservices/snapshot-blob), t
 
    The following example shows a sample HTTP action with all the previously described property values to use for the Snapshot Blob operation:
 
-   :::image type="content" source="media/authenticate-with-managed-identity/http-action-example-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow, and HTTP action set up to access resources." lightbox="media/authenticate-with-managed-identity/http-action-example-consumption.png":::
+   :::image type="content" source="media/authenticate-with-managed-identity/http-action-example-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow, and HTTP action setup to access resources." lightbox="media/authenticate-with-managed-identity/http-action-example-consumption.png":::
 
 1. In the **HTTP** action, add the **Authentication** property. From the **Advanced parameters** list, select **Authentication**.
 
@@ -883,7 +892,7 @@ To run the [Snapshot Blob operation](/rest/api/storageservices/snapshot-blob), t
 
    The following example shows a sample HTTP action with all the previously described property values to use for the Snapshot Blob operation:
 
-   :::image type="content" source="media/authenticate-with-managed-identity/http-action-example-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow, and HTTP action set up to access resources." lightbox="media/authenticate-with-managed-identity/http-action-example-standard.png":::
+   :::image type="content" source="media/authenticate-with-managed-identity/http-action-example-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow, and HTTP action setup to access resources." lightbox="media/authenticate-with-managed-identity/http-action-example-standard.png":::
 
 1. In the **HTTP** action, add the **Authentication** property. From the **Advanced parameters** list, select **Authentication**.
 

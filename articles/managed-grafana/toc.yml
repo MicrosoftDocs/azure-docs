@@ -23,6 +23,8 @@ items:
   items:
   - name: Grafana settings
     href: grafana-settings.md
+  - name: Remote MCP server
+    href: grafana-mcp-server.md
   expanded: true
 - name: How-to guides
   items:
@@ -94,6 +96,8 @@ items:
     items:
     - name: Use service accounts
       href: how-to-service-accounts.md
+    - name: Configure MCP for AI Foundry agents
+      href: how-to-configure-mcp-for-ai-foundry.md
     - name: Monitor using metrics
       href: how-to-monitor-managed-grafana-metrics.md
     - name: Monitor using diagnostic settings

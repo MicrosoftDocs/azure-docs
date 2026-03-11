@@ -17,10 +17,10 @@ ms.author: mareusch
 
 # Troubleshoot the Azure VM Extension for SAP
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[configure]:vm-extension-for-sap-new.md#configure (Configure the Azure VM extension for SAP solutions)
+[configure]:vm-extension-for-sap-new.md#configure-the-azure-vm-extension-for-sap-solutions (Configure the Azure VM extension for SAP solutions)
 
 ## <a name="dee9099b-7b8a-4cdd-86a2-3f6ee964266f"></a>Troubleshooting for Windows
- 
+
 ### Azure performance counters don't show up at all
 The AzureEnhancedMonitoring process collects performance metrics in Azure. If the process isn't running in your virtual machine (VM), no performance metrics can be collected.
 
@@ -31,7 +31,7 @@ C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Wind
 is empty.
 ##### Solution
 The extension isn't installed. Determine whether it is a proxy issue. You might need to restart the machine or install the VM extension again.
- 
+
 ### Some Azure performance counters are missing
 
 The AzureEnhancedMonitoring Windows process collects performance metrics in Azure. The process gets data from several sources. Some configuration data is collected locally, and some performance metrics are read from Azure Monitor.
@@ -48,7 +48,7 @@ Performance metrics in Azure are collected by a daemon. If the daemon isn't runn
 The directory /var/lib/waagent/ doesn't have a subdirectory for the Azure Extension for SAP.
 ##### Solution
 The extension isn't installed. Determine whether it is a proxy issue. You might need to restart the machine and/or install the VM extension again.
- 
+
 ### Some Azure performance counters are missing
 
 Performance metrics in Azure are collected by a daemon, which gets data from several sources. Some configuration data is collected locally, and some performance metrics are read from Azure Monitor.
@@ -57,9 +57,9 @@ If troubleshooting by using SAP Note [1999351] doesn't resolve the issue, instal
 
 
 ## Azure extension error codes
- 
+
 All error IDs have a unique tag in the form of a-#, where # is a number. It allows a fast search for a specific error and possible solutions.
- 
+
 ### <a name="a-0116"></a> a-0116
 
 Error description | Solutions |

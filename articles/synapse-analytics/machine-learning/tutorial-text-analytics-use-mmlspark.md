@@ -12,7 +12,7 @@ ms.author: ruxu
 
 # Tutorial: Text Analytics with Foundry Tools
 
-In this tutorial, you learn how to use [Text Analytics](/azure/ai-services/language-service/) to analyze unstructured text on Azure Synapse Analytics. [Text Analytics](/azure/ai-services/language-service/) is a [Foundry Tool](/azure/ai-services/) that enables you to perform  text mining and text analysis with Natural Language Processing (NLP) features.
+In this tutorial, you learn how to use [Text Analytics](/azure/ai-services/language-service/) to analyze unstructured text on Azure Synapse Analytics. [Text Analytics](/azure/ai-services/language-service/) is a [Microsoft Foundry tool](/azure/ai-services/) that enables you to perform  text mining and text analysis with Natural Language Processing (NLP) features.
 
 This tutorial demonstrates using text analytics with [SynapseML](https://github.com/microsoft/SynapseML) to:
 

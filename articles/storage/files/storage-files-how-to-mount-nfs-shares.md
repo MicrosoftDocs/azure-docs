@@ -12,24 +12,12 @@ ms.author: kendownie
 
 # Mount NFS Azure file shares on Linux
 
+:heavy_check_mark: **Applies to:** Classic NFS file shares created with the Microsoft.Storage resource provider
+
+
+:heavy_check_mark: **Applies to:** File shares created with the Microsoft.FileShares resource provider (preview)
+
 Azure file shares can be mounted in Linux distributions using either the Server Message Block (SMB) protocol or the Network File System (NFS) protocol. This article is focused on mounting with NFS. For details on mounting SMB file shares, see [Use Azure Files with Linux](storage-how-to-use-files-linux.md). For details on each of the available protocols, see [Azure file share protocols](storage-files-planning.md#available-protocols).
-
-## Applies to
-
-| Management model     | Billing model  | Media tier     | Redundancy     |                SMB                |                 NFS                 |
-| -------------------- | -------------- | -------------- | -------------- | :-------------------------------: | :---------------------------------: |
-| Microsoft.FileShares | Provisioned v2 | SSD (premium)  | Local (LRS)    | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.FileShares | Provisioned v2 | SSD (premium)  | Zone (ZRS)     | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage    | Provisioned v2 | HDD (standard) | Local (LRS)    | ![No](../media/icons/no-icon.png) |  ![No](../media/icons/no-icon.png)  |
-| Microsoft.Storage    | Provisioned v2 | HDD (standard) | Zone (ZRS)     | ![No](../media/icons/no-icon.png) |  ![No](../media/icons/no-icon.png)  |
-| Microsoft.Storage    | Provisioned v2 | HDD (standard) | Geo (GRS)      | ![No](../media/icons/no-icon.png) |  ![No](../media/icons/no-icon.png)  |
-| Microsoft.Storage    | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) |  ![No](../media/icons/no-icon.png)  |
-| Microsoft.Storage    | Provisioned v1 | SSD (premium)  | Local (LRS)    | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage    | Provisioned v1 | SSD (premium)  | Zone (ZRS)     | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage    | Pay-as-you-go  | HDD (standard) | Local (LRS)    | ![No](../media/icons/no-icon.png) |  ![No](../media/icons/no-icon.png)  |
-| Microsoft.Storage    | Pay-as-you-go  | HDD (standard) | Zone (ZRS)     | ![No](../media/icons/no-icon.png) |  ![No](../media/icons/no-icon.png)  |
-| Microsoft.Storage    | Pay-as-you-go  | HDD (standard) | Geo (GRS)      | ![No](../media/icons/no-icon.png) |  ![No](../media/icons/no-icon.png)  |
-| Microsoft.Storage    | Pay-as-you-go  | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) |  ![No](../media/icons/no-icon.png)  |
 
 ## Prerequisite: Configure network security
 

@@ -2979,6 +2979,11 @@
       "source_path_from_root": "/articles/app-service/invoke-openapi-web-app-from-azure-ai-agent-service.md",
       "redirect_url": "/azure/app-service/tutorial-ai-integrate-azure-ai-agent-dotnet",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/auto-migration.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
     }
   ]
 }

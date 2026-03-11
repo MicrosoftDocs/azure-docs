@@ -388,4 +388,4 @@ Remove-AzureADKerberosServer -Domain $domain `
 
 ## Next step
 
-- [Mount an SMB Azure file share](storage-files-identity-mount-file-share.md)
+- [Mount an SMB Azure file share on Windows](storage-how-to-use-files-windows.md)

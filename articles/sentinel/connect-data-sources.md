@@ -22,7 +22,7 @@ Built-in connectors enable connection to the broader security ecosystem for non-
 > For information about feature availability in US Government clouds, see the Microsoft Sentinel tables in [Cloud feature availability for US Government customers](/azure/security/fundamentals/feature-availability).
 
 > [!IMPORTANT]
-> As per the [2024 announcement](/azure/azure-monitor/logs/custom-logs-migrate), after September 30, 2026, the legacy HTTP Data Collector API will no longer be supported. Data sources, custom integrations, or connectors that use the HTTP Data Collector API should transition to a supported alternative to avoid potential ingestion interruptions after this date.
+> As per the [2024 announcement](/azure/azure-monitor/logs/custom-logs-migrate), after September 14, 2026, the legacy HTTP Data Collector API will no longer be supported. Data sources, custom integrations, or connectors that use the HTTP Data Collector API should transition to a supported alternative to avoid potential ingestion interruptions after this date.
 >
 > If you're currently using the HTTP Data Collector API, we recommend that you start planning your migration to the [Logs Ingestion API](/azure/azure-monitor/logs/logs-ingestion-api-overview) or the [Codeless Connector Framework (CCF)](/azure/sentinel/create-codeless-connector) to ensure uninterrupted data ingestion, improved reliability, scalability, and long-term support.
 

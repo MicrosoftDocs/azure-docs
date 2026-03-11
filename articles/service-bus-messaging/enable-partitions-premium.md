@@ -17,10 +17,13 @@ Service Bus partitions enable queues and topics, or messaging entities, to be pa
 > - You can't change the partitioning option on any existing namespace. You set the number of partitions during namespace creation.
 > - The number of assigned messaging units is always a multiplier of the number of partitions in a namespace, and is equally distributed across the partitions. For example, in a namespace with 16 MU and 4 partitions, each partition is assigned 4 MU.
 > - Using multiple partitions with lower messaging units (MU) gives you better performance over a single partition with higher MUs.
-> - When using the Service Bus [Geo-disaster recovery](service-bus-geo-dr.md) feature, don't pair a partitioned namespace with a non-partitioned namespace.
-> - You can't [migrate](service-bus-migrate-standard-premium.md) a Standard tier namespace to a Premium tier partitioned namespace.
-> - Batching messages with distinct SessionId or PartitionKey isn't supported on partitioned namespaces.
 > - This feature is currently available in all regions except West India, Qatar Central, and Austria East.
+
+> [!IMPORTANT]
+> **Not supported with partitioned namespaces:**
+> - Batching messages with distinct SessionId or PartitionKey
+> - [Migration](service-bus-migrate-standard-premium.md) from a Standard tier namespace to a Premium tier partitioned namespace
+> - Pairing a partitioned namespace with a non-partitioned namespace when using [Geo-disaster recovery](service-bus-geo-dr.md)
 
 ## Use Azure portal
 When creating a **namespace** in the Azure portal, set the **Partitioning** to **Enabled** and choose the number of partitions, as shown in the following image. 

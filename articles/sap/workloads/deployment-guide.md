@@ -984,7 +984,7 @@ Set the following parameters:
 
 If you want to use the Azure repositories, make sure that the traffic to these repositories isn't going through your on-premises intranet. If you created user-defined routes to enable forced tunneling, make sure that you add a route that routes traffic to the repositories directly to the Internet, and not through your site-to-site VPN connection.
 
-The VM Extension for SAP also needs to be able to access the internet. Make sure to install the new VM Extension for SAP and follow the steps in [Configure the Azure VM extension for SAP solutions](vm-extension-for-sap-new.md#configure) in the VM Extension for SAP installation guide to configure the proxy.
+The VM Extension for SAP also needs to be able to access the internet. Make sure to install the new VM Extension for SAP and follow the steps in [Configure the Azure VM extension for SAP solutions](vm-extension-for-sap-new.md#configure-the-azure-vm-extension-for-sap-solutions) in the VM Extension for SAP installation guide to configure the proxy.
 
 * **SLES**
 

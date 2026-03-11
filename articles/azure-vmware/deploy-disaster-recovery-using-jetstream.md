@@ -52,11 +52,11 @@ In this scenario, the primary site is an Azure VMware Solution private cloud in 
 :::image type="content" source="media/jetstream-disaster-recovery/jetstream-cloud-to-cloud-diagram.png" alt-text="Diagram showing the Azure VMware Solution private cloud to private cloud JetStream deployment." border="false" lightbox="media/jetstream-disaster-recovery/jetstream-cloud-to-cloud-diagram.png":::
 
 
-## Disaster Recovery with Azure NetApp Files, JetStream DR, and Azure VMware Solution 
+## Disaster Recovery with external storage, JetStream DR, and Azure VMware Solution
 
-Disaster Recovery to cloud is a resilient and cost-effective way of protecting the workloads against site outages and data corruption events like ransomware. When you use the VMware VAIO framework, on-premises VMware workloads can be replicated to Azure Blob storage and recovered with minimal or close to no data loss and near-zero Recovery Time Objective (RTO). JetStream DR can seamlessly recover workloads replicated from on-premises to Azure VMware Solution and specifically to Azure NetApp Files. 
+Disaster Recovery to cloud is a resilient and cost-effective way of protecting the workloads against site outages and data corruption events like ransomware. When you use the VMware VAIO framework, on-premises VMware workloads can be replicated to Azure Blob storage and recovered with minimal or close to no data loss and near-zero Recovery Time Objective (RTO). JetStream DR can seamlessly recover workloads replicated from on-premises to Azure VMware Solution and specifically to external storage options like Azure Elastic SAN or Azure NetApp Files. 
 
-JetStream DR enables cost-effective disaster recovery by consuming minimal resources at the DR site and using cost-effective cloud storage. JetStream DR automates recovery to Azure NetApp Files (ANF) datastores using Azure Blob Storage. It can recover independent VMs or groups of related VMs into the recovery site infrastructure according to runbook settings. It also provides point-in-time recovery for ransomware protection. 
+JetStream DR enables cost-effective disaster recovery by consuming minimal resources at the DR site and using cost-effective cloud storage. JetStream DR automates recovery to Azure Elastic SAN and Azure NetApp Files (ANF) datastores using Azure Blob Storage. It can recover independent VMs or groups of related VMs into the recovery site infrastructure according to runbook settings. It also provides point-in-time recovery for ransomware protection. 
 
 ### Install JetStream DR 
 To install JetStream DR in the on-premises data center and in the Azure VMware Solution private cloud:
@@ -67,7 +67,8 @@ To install JetStream DR in the on-premises data center and in the Azure VMware S
   - Configure the cluster with the IO filter package (install JetStream VIB). 
   - Create Azure Blob (Azure Storage Account) in the same region as the DR Azure VMware Solution cluster.
   - Deploy the disaster recovery virtual appliance (DRVA) and assign a replication log volume (VMDK from existing datastore or shared iSCSI storage). 
-  - Create Protected Domains (groups of related VMs) and assign DRVAs and the Azure Blob Storage/ANF.
+  - Create Protected Domains (groups of related VMs) and assign DRVAs and the Azure Blob Storage/Elastic SAN/ANF.
+    
   - Start protection. 
 
 - Install JetStream DR in the Azure VMware Solution private cloud: 
@@ -75,19 +76,21 @@ To install JetStream DR in the on-premises data center and in the Azure VMware S
    - Use the Run command to install and configure JetStream DR.
    - Add the same Azure Blob container and discover domains using the Scan Domain option.
    - Deploy the DRVA appliance. 
-   - Create a replication log volume using an available vSAN or ANF datastore.
-   - Import protected domains and configure RocVA (recovery VA) to use ANF datastore for VM placements. 
+  - Create a replication log volume using an available vSAN, Elastic SAN, or ANF datastore.
+    
+  - Import protected domains and configure RocVA (recovery VA) to use an Elastic SAN or ANF datastore for VM placements. 
+    
    - Select the appropriate failover option and start continuous rehydration for near-zero RTO domains/VMs. 
 
-   >[!NOTE]
-   >During a disaster event, trigger failover to Azure NetApp Files datastores in the designated Azure VMware Solution DR site. 
+  > [!NOTE]
+  > During a disaster event, trigger failover to Azure Elastic SAN or Azure NetApp Files datastores in the designated Azure VMware Solution DR site. 
    > - Invoke failback to the protected site after the protected site is recovered. 
-
+  
 ### Ransomware recovery 
 
 Recovering from ransomware can be a daunting task. It can be hard for IT organizations to pinpoint what the 'safe point of return' is and how to ensure that recovered workloads are safeguarded from the attacks reoccurring by sleeping malware or through vulnerable applications. 
 
-JetStream DR for Azure VMware Solution together with Azure NetApp Files datastores can address these concerns by allowing organizations to recover from an available point-in-time. It ensures workloads are recovered to a functional and isolated network if necessary. It allows the applications to function and communicate with each other without exposing them to any North-South traffic. It also gives security teams a safe place to perform forensics, and conduct other recovery measures. 
+JetStream DR for Azure VMware Solution together with Azure Elastic SAN or Azure NetApp Files datastores can address these concerns by allowing organizations to recover from an available point-in-time. It ensures workloads are recovered to a functional and isolated network if necessary. It allows the applications to function and communicate with each other without exposing them to any North-South traffic. It also gives security teams a safe place to perform forensics, and conduct other recovery measures. 
 
 For full details, refer to the article: [Disaster Recovery with Azure NetApp Files, JetStream DR, and Azure VMware Solution](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/disaster-recovery-with-azure-netapp-files-jetstream-dr-and-avs-azure-vmware-solution/). 
 
@@ -118,9 +121,12 @@ For full details, refer to the article: [Disaster Recovery with Azure NetApp Fil
 
 - A DNS server configured to resolve the IP addresses of Azure VMware Solution vCenter Server, Azure VMware Solution ESXi hosts, Azure Storage account, and the JetStream Marketplace service for the JetStream virtual appliances. 
 
-- (Optional) Azure NetApp Files volumes are created and attached to the Azure VMware Solution private cloud for recovery or failover of protected VMs to Azure NetApp Files backed datastores.  
+- (Optional) Azure Elastic SAN or Azure NetApp Files volumes are created and attached to the Azure VMware Solution private cloud for recovery or failover of protected VMs to Elastic SAN or Azure NetApp Files backed datastores.  
 
+  - [Attach Azure Elastic SAN datastores to Azure VMware Solution hosts](/azure/azure-vmware/configure-azure-elastic-san)
+    
   - [Attach Azure NetApp Files datastores to Azure VMware Solution hosts](attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)
+    
   - [Disaster Recovery with Azure NetApp Files, JetStream DR, and Azure VMware Solution](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/disaster-recovery-with-azure-netapp-files-jetstream-dr-and-avs-azure-vmware-solution/)   
 
 ### Scenario 2: Azure VMware Solution to Azure VMware Solution DR
@@ -139,9 +145,12 @@ For full details, refer to the article: [Disaster Recovery with Azure NetApp Fil
 - An NSX-T network segment configured on Azure VMware Solution private cloud with DHCP enabled on the segment for the transient JetStream Virtual appliances employed during recovery or failover.   
 
 - DNS configured on both the primary and DR sites to resolve the IP addresses of Azure VMware Solution vCenter Server, Azure VMware Solution ESXi hosts, Azure Storage account, the JetStream DR Management Server Appliance (MSA), and the JetStream Marketplace service for the JetStream virtual appliances.
-- (Optional) Azure NetApp Files volumes are created and attached to the Azure VMware Solution private cloud for recovery or failover of protected VMs to Azure NetApp Files backed datastores.
+- (Optional) Azure Elastic SAN or Azure NetApp Files volumes are created and attached to the Azure VMware Solution private cloud for recovery or failover of protected VMs to Elastic SAN or Azure NetApp Files backed datastores.
 
+  - [Attach Azure Elastic SAN datastores to Azure VMware Solution hosts](/azure/azure-vmware/configure-azure-elastic-san)
+    
   - [Attach Azure NetApp Files datastores to Azure VMware Solution hosts](attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)
+    
   - [Disaster Recovery with Azure NetApp Files, JetStream DR, and Azure VMware Solution](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/disaster-recovery-with-azure-netapp-files-jetstream-dr-and-avs-azure-vmware-solution/)
   
 For more on-premises JetStream DR prerequisites, see the [JetStream Pre-Installation Guide](https://jetstreamsoft.com/portal/online-docs/jsdr-admin_4.2/preinstallation.html).

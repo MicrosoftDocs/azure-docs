@@ -17,6 +17,17 @@ ms.custom:
 
 Release notes describe features, enhancements, and bug fixes released in 2026 for the FHIR&reg; service and DICOM&reg; service in Azure Health Data Services.
 
+## March 2026
+### FHIR service
+
+**Token search behavior update**: After 2 March 2026, the Azure FHIR service was updated so that token values longer than 128 characters are no longer truncated during indexing. If your workspace is affected, you may notice changes in the number of resources returned for token-based queries, along with improved overall query performance. The goal for this update is to improve search behavior accuracy and strengthen service reliability. An Azure service notification was sent to affected accounts with more details.
+
+#### Bug fixes:
+
+**Bug fix for `$bulk-delete` with `_remove-references`**: Previously, there was an issue when using `$bulk-delete` with `_remove-references` where the version number wasn't being displayed in the resources after they had their references removed. This issue is fixed.
+
+**Versioning policy regression fix**: Versioning policy behavior was not consistently enforced following infrastructure changes introduced after September 1, 2025. Beginning with the February 20th FHIR service release, a regression in how the service enforces configured FHIR resource versioning policies has been corrected. This update restores behavior so that it aligns with the versioning configuration already set on your FHIR service. An Azure service notification was sent to affected accounts with more details.
+
 ## February 2026
 ### FHIR service
 **Metadata-only updates and versioning configuration with `$bulk-update`**: Introduced new query parameter "_meta-history" for bulk update when versioning policy is set to either "versioned" or "version-update". The new query parameter is used to configure whether or not the old version is saved as a historical record. "_meta-history=true" is the default. By default, the resource version is incremented, a new version is created, and the old version is saved as a historical record. "_meta-history=false" can be configured so that the resource version is incremented, a new version is created, but the old version isn't saved as a historical record. For more information, visit [metadata-only updates and versioning](./fhir/fhir-versioning-policy-and-history-management.md#metadata-only-updates-and-versioning).  

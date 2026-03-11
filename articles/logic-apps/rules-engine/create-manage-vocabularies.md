@@ -1,23 +1,23 @@
 ---
-title: Create and manage vocabularies for rulesets
-description: Learn how to build and manage vocabularies for use with rulesets using the Microsoft Rules Composer.
+title: Create and Manage Vocabularies for Rulesets
+description: Build and manage vocabularies for use with rulesets using the Microsoft Rules Composer.
+services: logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
 author: haroldcampos
 ms.author: hcampos
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 01/27/2025
-
-#CustomerIntent: As a developer, I want to build vocabularies so I can use them with rulesets for my Azure Logic Apps Rules Engine project.
+ms.date: 03/10/2026
+ms.date-cycle: 1095-days
 ms.custom:
   - build-2025
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to build vocabularies so I can use them with rulesets for my Azure Logic Apps Rules Engine project.
 ---
 
 # Create and manage vocabularies to use with rulesets using the Microsoft Rules Composer
 
 [!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
-
 
 A *vocabulary* is a collection of *vocabulary definitions* that use friendly names for the facts used in rule conditions and actions. Vocabulary definitions make rules in your ruleset easier to read, understand, and shareable by multiple people in a specific business domain. For example, tool developers responsible for integrating rule authoring into new or existing applications can consume vocabularies. Vocabularies bridge the gap between business semantics and implementation.
 

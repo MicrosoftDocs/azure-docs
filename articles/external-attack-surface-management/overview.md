@@ -52,6 +52,8 @@ A user in your organization who is assigned the Owner or Contributor role can cr
 
 A user who is assigned the Reader role can view Defender EASM data, but they can't create, delete, or edit a resource or inventory asset.  
 
+Defender EASM does not support cross-tenant resource access, including via Azure Lighthouse. Defender EASM resources must be accessed by authenticating directly to the tenant where the resource is located.
+
 ## Data residency, availability, and privacy
 
 Microsoft Defender EASM contains both global data and customer-specific data. The underlying internet data is global data that originates with Microsoft. Labels that customers apply are considered customer data. Your customer data is stored in the region you select.

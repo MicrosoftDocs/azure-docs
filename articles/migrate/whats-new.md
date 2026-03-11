@@ -60,7 +60,7 @@ Notable aspects of the solution:
  - Built-in dashboard view summarizing security risks in discovered Servers and Software.
  - Auto-detects security risks such as unsupported operating systems and software, pending security and critical updates, known vulnerabilities (CVEs) associated with software versions currently in use, and servers lacking security or patch management software.
  - Recommends mitigation strategies for secure migration by configuring Microsoft Defender for Cloud and Azure Update Manager.
- - Highlights fragmentation in security tooling in the environment through [classification](how-to-discover-applications.md#software-classification--potential-targets).
+ - Highlights fragmentation in security tooling in the environment through [classification](/previous-versions/azure/migrate/how-to-discover-applications#software-classification--potential-targets).
 
 - Public preview: Software inventory enhancements will help improve the usability of the inventory and assist customers in planning for the migration of this software as part of their overall migration planning for their workloads. [Learn more](how-to-discover-applications.md)
 
