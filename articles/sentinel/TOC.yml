@@ -721,6 +721,8 @@
               href: connect-services-windows-based.md
         - name: Azure Functions API connection
           href: connect-azure-functions-template.md
+        - name: Azure Storage blob connectors 
+          href: setup-azure-storage-connector.md                  
         - name: CEF/Syslog
           items:
             - name: Overview
@@ -1034,6 +1036,14 @@
           href: data-connector-connection-rules-reference.md
         - name: GCP data connectors API reference
           href: data-connection-rules-reference-gcp.md
+        - name: Azure Storage Blob data connectors
+          items:
+            - name: Azure Storage Blob data connector reference
+              href: data-connection-rules-reference-azure-storage.md
+            - name: Enable network security for Azure Storage Blob data connector
+              href: enable-storage-network-security.md
+            - name: Troubleshoot Azure Storage Blob connector issues
+              href: azure-storage-blob-connector-troubleshoot.md  
         - name: Sample API requests for creating Data Collection Rules (DCRs)
           href: api-dcr-reference.md
         - name: Microsoft Purview Information Protection reference

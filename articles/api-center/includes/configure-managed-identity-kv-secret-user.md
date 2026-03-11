@@ -76,4 +76,5 @@ To allow import of APIs, assign your API center's managed identity the **Key Vau
         --assignee-object-id $apicObjID `
         --assignee-principal-type ServicePrincipal `
         --scope $scope 
+    ```
 ---

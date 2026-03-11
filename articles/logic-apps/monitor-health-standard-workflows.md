@@ -1,12 +1,13 @@
 ---
-title: Monitor Standard workflows with Health Check
+title: Monitor Standard Workflows with Health Check
 description: Set up Health Check to monitor health for Standard workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/15/2025
-# Customer intent: As a developer, I want to monitor the health for my Standard logic app workflows in single-tenant Azure Logic Apps by setting up Health Check, which is an Azure App Service feature.
+ms.update-cycle: 365-days
+ms.date: 03/10/2026
+# Customer intent: As an integration developer who works with Azure Logic Apps, I want to monitor the health for Standard workflows in Azure Logic Apps by setting up Health Check, which is an Azure App Service feature.
 ---
 
 # Monitor health for Standard workflows in Azure Logic Apps with Health Check
@@ -43,7 +44,7 @@ After Health Check removes the unhealthy instance, the feature continues to ping
 
   - A "health" workflow that specifically runs the health check and the following elements:
 
-    - Starts with the **Request** trigger named **When a HTTP request is received**.
+    - Starts with the **Request** trigger named **When an HTTP request is received**.
 
     - Includes the **Request** action named **Response**. Set this action to return a status code inclusively between **200** to **299**.
 
@@ -93,7 +94,7 @@ After Health Check removes the unhealthy instance, the feature continues to ping
 
    1. When you finish, select **Save**.
 
-## Troubleshooting
+## Troubleshoot problems
 
 ### After I set the health path, my health workflow doesn't trigger.
 

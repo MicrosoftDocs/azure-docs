@@ -73,6 +73,7 @@ Azure Firewall Standard has the following known issues:
 |Can’t deploy Firewall with Availability Zones with a newly created Public IP address|When you deploy a Firewall with Availability Zones, you can’t use a newly created Public IP address.|First create a new zone redundant Public IP address, then assign this previously created IP address during the Firewall deployment.|
 |Associating a Public IP address with Azure Firewall isn't supported in a cross-tenant scenario.|If you create a Public IP address in tenant A, you can't associate it with a firewall deployed in tenant B.|None.|
 |VMs behind Azure Firewall can't connect to DNAT rule destinations using the firewall's public IP|When VMs route traffic through Azure Firewall and attempt to connect to resources configured with DNAT rules by using the firewall's public IP address, the connection fails. The connection failure occurs because Azure Firewall doesn't support hair pinning traffic from internal VMs to the firewall's own public IP address for DNAT rule destinations.|A solution for this limitation is currently in development.|
+|Connectivity issues when routing OS‑native IPsec traffic from Azure VMs to on‑premises through Azure Firewall Standard |In some hybrid deployments, Azure virtual machines use OS‑native IPsec tunnels to connect to on‑premises networks. When this traffic is routed through Azure Firewall Standard- especially when a VPN Gateway or Global VNet Peering is involved, IPsec packets may fail to pass through the firewall, resulting in connectivity issues.|Avoid routing OS‑native IPsec traffic from Azure virtual machines through Azure Firewall Standard. A solution for this limitation is currently in development.
 
 ## Azure Firewall Premium known issues
 
@@ -91,6 +92,7 @@ Azure Firewall Premium has the following known issues:
 |Certificate Propagation|After a CA certificate is applied on the firewall, it might take between 5-10 minutes for the certificate to take effect.|A fix is being investigated.|
 |TLS 1.3 support|TLS 1.3 is partially supported. The TLS tunnel from client to the firewall is based on TLS 1.2, and from the firewall to the external Web server is based on TLS 1.3.|Updates are being investigated.|
 |TLSi intermediate CA certificate expiration|In some unique cases, the intermediate CA certificate can expire two months before the original expiration date.|Renew the intermediate CA certificate two months before the original expiration date. A fix is being investigated.|
+|Connectivity issues when routing OS‑native IPsec traffic from Azure VMs to on‑premises through Azure Firewall Premium |In some hybrid deployments, Azure virtual machines use OS‑native IPsec tunnels to connect to on‑premises networks. When this traffic is routed through Azure Firewall Standard- especially when a VPN Gateway or Global VNet Peering is involved, IPsec packets may fail to pass through the firewall, resulting in connectivity issues.|Avoid routing OS‑native IPsec traffic from Azure virtual machines through Azure Firewall Premium. A solution for this limitation is currently in development.
 
 ## Next steps
 

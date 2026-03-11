@@ -11,7 +11,7 @@ ms.author: kendownie
 
 # Enable Microsoft Entra Kerberos authentication for hybrid and cloud-only identities (preview) on Azure Files
 
-**Applies to:** :heavy_check_mark: SMB Azure file shares
+**Applies to:** :heavy_check_mark: SMB file shares
 
 This article explains how to enable and configure Microsoft Entra ID (formerly Azure AD) for authenticating [hybrid](/entra/identity/hybrid/whatis-hybrid-identity) or cloud-only identities (preview).
 

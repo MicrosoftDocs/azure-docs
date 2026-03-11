@@ -55,9 +55,11 @@ API Management APIs automatically synchronize to the API center whenever existin
     > [!NOTE]
     > You can run Azure CLI command examples in this article in PowerShell or a bash shell. Where different variable syntax is required, the article provides separate command examples for the two shells.
 
+## Enable a managed identity in your API center
+
 [!INCLUDE [enable-managed-identity](includes/enable-managed-identity.md)]
 
-## Assign the managed identity the API Management Service Reader role
+### Assign the managed identity the API Management Service Reader role
 
 [!INCLUDE [configure-managed-identity-apim-reader](includes/configure-managed-identity-apim-reader.md)]
 

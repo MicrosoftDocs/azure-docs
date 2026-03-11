@@ -12,7 +12,7 @@ ms.custom: sfi-image-nochange
 
 # Use Azure Files with multiple Active Directory forests
 
-**Applies to:** :heavy_check_mark: SMB Azure file shares
+**Applies to:** :heavy_check_mark: SMB file shares
 
 Many organizations want to use identity-based authentication for SMB Azure file shares in environments that have multiple on-premises Active Directory Domain Services (AD DS) forests. This is a common IT scenario, especially following mergers and acquisitions, where the acquired company's AD forests are isolated from the parent company's AD forests. This article explains how forest trust relationships work and provides step-by-step instructions for multi-forest setup and validation.
 

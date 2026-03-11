@@ -15,7 +15,7 @@ ms.custom:
 
 # Access Azure file shares using Microsoft Entra ID with Azure Files OAuth over REST
 
-:heavy_check_mark: **Applies to:** Classic file shares created with the Microsoft.Storage resource provider
+:heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the Microsoft.Storage resource provider
 
 :heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider (preview)
 

@@ -13,7 +13,7 @@ ms.custom:
 
 # Mount SMB Azure file share on Windows
 
-**Applies to:** :heavy_check_mark: SMB Azure file shares
+**Applies to:** :heavy_check_mark: SMB file shares
 
 [Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. This article shows you how to mount an SMB Azure file share on Windows and Windows Server.
 

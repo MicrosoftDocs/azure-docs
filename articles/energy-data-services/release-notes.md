@@ -20,8 +20,11 @@ Azure Data Manager for Energy is updated on an ongoing basis. To stay up to date
 - Plans for changes
 
 This page is updated with the details about the upcoming release approximately a week before the actual deployment.
-
 <hr width = 100%>
+
+## March 2026
+### Seismic DDMS Change Tier - Preview
+Azure Data Manager for Energy now supports changing the storage tier of seismic datasets as a preview feature. You can move datasets between **Hot**, **Cool**, and **Cold** storage tiers based on access frequency, helping you reduce storage costs for historical or infrequently accessed data while keeping active datasets performant. This feature is available on request. To enable it, raise a support request in the Azure portal. For more information, see [Tutorial: Change the storage tier of seismic datasets](tutorial-seismic-change-tier.md).
 
 ## February 2026
 ### OSDU&reg; Reservoir DMS - Generally Available

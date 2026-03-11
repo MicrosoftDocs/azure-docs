@@ -30,7 +30,7 @@ Secure by default with soft delete is available in the following regions:
 
 | Vault type               | Availability type    | Regions                                      |
 |--------------------------|----------------------|---------------------------------------------|
-| Recovery Services vault  | General availability | West Central US                            |
+| Recovery Services vault  | General availability | West Central US, East Asia, Australia East |
 | Recovery Services vault  | Preview              | All remaining Azure public regions         |
 | Backup vault             | Preview              | Australia East, West Central US, East Asia |
 

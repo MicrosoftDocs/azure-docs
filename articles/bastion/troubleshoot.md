@@ -5,7 +5,7 @@ services: bastion
 author: abell
 ms.service: azure-bastion
 ms.topic: troubleshooting
-ms.date: 02/04/2026
+ms.date: 02/10/2026
 ms.author: abell
 # Customer intent: As a network administrator, I want to troubleshoot connectivity issues in Azure Bastion so that I can ensure seamless access to my virtual machines and efficiently manage network security settings.
 ---
@@ -26,6 +26,17 @@ This section describes common deployment and configuration issues and their reso
 |Deployment failures|Deployment of Azure Bastion fails with errors.|Review any error messages and [raise a support request in the Azure portal](/azure/azure-portal/supportability/how-to-create-azure-support-request) as needed. Deployment failures can result from [Azure subscription limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md). Specifically, customers might encounter a limit on the number of public IP addresses allowed per subscription that causes the Azure Bastion deployment to fail.|
 |Moving virtual network to another resource group|You want to move your virtual network to a different resource group.|Moving a virtual network with Bastion isn't directly supported. You must first delete Bastion from the virtual network, then move the virtual network to the new resource group. Once the virtual network is in the new resource group, you can deploy Bastion to the virtual network.|
 |Force-tunneling Internet traffic|You're advertising a default route (0.0.0.0/0) over ExpressRoute or VPN.|Force-tunneling with Azure Bastion isn't supported if you're advertising a default route over ExpressRoute or VPN. Azure Bastion needs to communicate with certain internal endpoints. Ensure the host virtual network isn't linked to a private DNS zone with these exact names: management.azure.com, blob.core.windows.NET, core.windows.NET, vaultcore.windows.NET, vault.azure.NET, or azure.com. You can use private DNS zones ending with these names (for example: privatelink.blob.core.windows.NET). Azure Bastion isn't supported with Azure Private DNS Zones in national clouds.|
+
+## SKU upgrade issues
+
+This section describes common issues when upgrading your Azure Bastion SKU and their resolutions. For upgrade instructions, see [View or upgrade an Azure Bastion SKU](upgrade-sku.md).
+
+|Issue  |Description  |Resolution  |
+|---------|---------|---------|
+|Upgrade fails to start|When you try to upgrade your Bastion SKU, the operation fails immediately.|Verify you have Contributor or Owner role on the resource group containing your Bastion host.|
+|Upgrade fails with subnet error|Upgrade from Developer SKU fails with a subnet-related error.|Create a subnet named **AzureBastionSubnet** with a /26 or larger prefix before upgrading. The Developer SKU uses shared infrastructure, while Basic, Standard, and Premium require a dedicated subnet.|
+|Upgrade times out|The upgrade operation takes longer than expected or times out.|The upgrade process typically takes approximately 10 minutes. Wait a few minutes and check the Bastion host status in the portal. If the status shows updating, wait for completion. If the status shows failed, try the upgrade again.|
+|Features not available after upgrade|After upgrading, expected features aren't available.|Features must be explicitly enabled after upgrading. Go to your Bastion host, select **Configuration**, and enable the desired features available for your new SKU tier.|
 
 ## DNS and Private Link issues
 

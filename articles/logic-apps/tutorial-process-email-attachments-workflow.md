@@ -1,20 +1,21 @@
 ---
-title: Create workflows with multiple Azure services
-description: Learn to build an automated workflow using Azure Logic Apps, Azure Functions, and Azure Storage.
+title: Create Workflows with Multiple Azure Services
+description: Build an automated workflow that integrates Azure Functions and Azure Storage by using Azure Logic Apps.
 services: azure-logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: tutorial
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
-ms.date: 09/11/2025
+ms.date: 01/31/2026
 ms.custom:
   - mvc
   - devx-track-csharp
   - sfi-image-nochange
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to learn how to integrate more than one service in a logic app workflow.
 ---
 
-# Tutorial: Create workflows that process emails using Azure Logic Apps, Azure Functions, and Azure Storage
+# Tutorial: Create an automated workflow that processes emails by using Azure Functions and Azure Storage in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
@@ -22,7 +23,7 @@ This tutorial shows how to build an example workflow that integrates Azure Funct
 
 When you finish, your workflow looks like the following high level example:
 
-:::image type="content" source="media/tutorial-process-email-attachments-workflow/overview.png" alt-text="Screenshot shows example Consumption high-level workflow." lightbox="media/tutorial-process-email-attachments-workflow/overview.png":::
+:::image type="content" source="media/tutorial-process-email-attachments-workflow/overview.png" alt-text="Screenshot that shows a high-level example Consumption workflow." lightbox="media/tutorial-process-email-attachments-workflow/overview.png":::
 
 > [!TIP]
 >
@@ -39,7 +40,7 @@ You can create a similar workflow with a Standard logic app resource where some 
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+* An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * An email account from an email provider supported by Azure Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other supported email providers, see [Connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 

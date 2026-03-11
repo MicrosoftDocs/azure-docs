@@ -11,7 +11,7 @@ ms.author: kendownie
 
 # Configure directory and file-level permissions for Azure file shares
 
-**Applies to:** :heavy_check_mark: SMB Azure file shares
+**Applies to:** :heavy_check_mark: SMB file shares
 
 Before you can configure directory and file-level permissions, you must [assign share-level permissions to an identity](storage-files-identity-assign-share-level-permissions.md) with Azure role-based access control (RBAC). After the share-level permissions propagate, you can configure Windows access control lists (ACLs), also known as NTFS permissions, at the root, directory, or file level.
 

@@ -11,7 +11,7 @@ ms.author: kendownie
 
 # Choose how to authorize access to file data in the Azure portal
 
-**Applies to:** :heavy_check_mark: SMB Azure file shares
+**Applies to:** :heavy_check_mark: SMB file shares
 
 When you access file data by using the [Azure portal](https://portal.azure.com?azure-portal=true), the portal makes requests to the Azure Files service behind the scenes. You can authorize these requests by using either your Microsoft Entra account (preferred) or the storage account access key (less secure). The portal shows which method you're using and enables you to switch between the two methods if you have the appropriate permissions. By default, the portal uses whichever method you're already using to authorize all file shares, but you can change this setting for individual file share operations.
 

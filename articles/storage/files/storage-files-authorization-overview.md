@@ -11,7 +11,7 @@ ms.author: kendownie
 
 # Overview of Azure Files authorization and access control
 
-**Applies to:** :heavy_check_mark: SMB Azure file shares
+**Applies to:** :heavy_check_mark: SMB file shares
 
 Regardless of which identity source you choose for [identity-based authentication](storage-files-active-directory-overview.md) on your storage account, you need to configure authorization and access control. Azure Files enforces authorization on user access at both the share level and the directory/file level.
 

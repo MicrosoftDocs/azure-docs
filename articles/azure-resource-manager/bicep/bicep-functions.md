@@ -102,7 +102,7 @@ The following functions are available for working with lambda expressions. All o
 * [filter](bicep-functions-lambda.md#filter)
 * [groupBy](bicep-functions-lambda.md#groupby)
 * [map](bicep-functions-lambda.md#map)
-* [mapValue](bicep-functions-lambda.md#mapvalues)
+* [mapValues](bicep-functions-lambda.md#mapvalues)
 * [reduce](bicep-functions-lambda.md#reduce)
 * [sort](bicep-functions-lambda.md#sort)
 * [toObject](bicep-functions-lambda.md#toobject)

@@ -11,7 +11,7 @@ ms.author: kendownie
 
 # Update the password for your storage account identity in AD DS
 
-**Applies to:** :heavy_check_mark: SMB Azure file shares
+**Applies to:** :heavy_check_mark: SMB file shares
 
 When you domain join your storage account in your Active Directory Domain Services (AD DS), you create an AD principal, either a computer account or service account, with a password. The password for the AD principal is one of the Kerberos keys for the storage account. Depending on the password policy of the organizational unit for the AD principal, you must periodically rotate the password to avoid authentication problems. If you don't change the password before it expires, you lose Kerberos authentication to your Azure file shares. Some AD environments also delete AD principals with expired passwords by using an automated cleanup script.
 

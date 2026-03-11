@@ -7288,6 +7288,11 @@
     {
       "source_path": "articles/virtual-network/virtual-network-troubleshoot-cannot-delete-vnet.md",
       "redirect_url": "/troubleshoot/azure/virtual-network/virtual-network-troubleshoot-cannot-delete-vnet"
-    }
+    },
+    {
+      "source_path": "articles/certification/edge-secured-core-get-certified.md",
+      "redirect_url": "/azure/certification/requirements-edge-secured-core",
+      "redirect_document_id": false
+    },
   ]
 }

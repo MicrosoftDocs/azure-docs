@@ -1,18 +1,17 @@
 ---
 title: Protect Agentic Workflows with Easy Auth
 description: Set up conversational agentic workflows with App Service Authentication (Easy Auth) in Azure Logic Apps.
-author: ecfan
 services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, divswa, edwardyhe, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 10/08/2025
+ms.date: 03/10/2026
 ms.update-cycle: 180-days
 #Customer intent: As an integration and AI developer working with Azure Logic Apps, I want to secure access to my conversational agentic workflow and external chat client by authenticating and authorizing users through Easy Auth.
 ---
 
-# Secure conversational agentic workflows with Easy Auth (App Service Authentication) in Azure Logic Apps (Preview)
+# Secure conversational agentic workflows with Easy Auth (App Service Authentication) in Azure Logic Apps (preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 

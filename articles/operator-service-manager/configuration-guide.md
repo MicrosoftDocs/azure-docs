@@ -12,7 +12,7 @@ ms.service: azure-operator-service-manager
 
 This article provides Azure Operator Service Manager guidelines to optimize the design of configuration group schemas (CGSs) and the operation of configuration group values (CGVs). Network function (NF) vendors, telco operators, and their partners should keep these practices in mind when onboarding and deploying NFs.
 
-## Configuring group resource approach
+## Configurarion group approach
 
 Consider the following meta-schema guidelines when you're designing configuration resources:
 
@@ -90,6 +90,29 @@ This example shows the resulting CGV resource that Azure Operator Service Manage
 "qwe": 20
 }
 ```
+
+## CGS with secrets
+Other then seperating secrets into a unique CGS, no special CGS requirements exist for secret support.
+
+## CGV with secrets
+Considering the following configuration reqiurements to properly obscure secret values:
+* Use `configurationType: 'Secret'` in the resource properties.
+ * Once a CGV is deployed, this prevents the display of the resource in most Azure methods.
+* Use a reference to Azure Key Vault (AKV) in place of the plain-text secret.
+ * This obscures the display of the secret in the CGV deployment template.
+
+The following example shows how to include an AKF reference in an ARM template: 
+```json
+  "password": {
+      "reference": {
+        "keyVault": {
+            "id": "/subscriptions/xxx/resourceGroups/yyy/providers/Microsoft.KeyVault/vaults/zz"
+        },
+        "secretName": "passwd"
+      }
+```
+
+To further secure resources restrict access to the following RBAC scope: `Microsoft.Resources/deployments/exportTemplate/action` 
 
 ## Overview of JSON Schema
 

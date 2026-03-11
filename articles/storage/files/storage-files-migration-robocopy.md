@@ -11,7 +11,7 @@ ms.author: kendownie
 
 # Use RoboCopy to migrate to Azure file shares
 
-**Applies to:** :heavy_check_mark: SMB Azure file shares
+**Applies to:** :heavy_check_mark: SMB file shares
 
 This migration article describes the use of RoboCopy to move or migrate files to an SMB Azure file share. RoboCopy is a trusted and well-known file copy utility with a feature set that makes it well suited for migrations. It uses the SMB protocol, which makes it broadly applicable to any source and target combination that supports SMB.
 

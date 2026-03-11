@@ -11,27 +11,14 @@ ms.author: kendownie
 
 # Replace or extend Windows file servers with Azure Files and Azure File Sync
 
+**Applies to:** :heavy_check_mark: SMB file shares
+
 This article explains how you can use Azure Files and Azure File Sync to replace or extend your on-premises Windows file servers to reduce total cost of ownership (TCO), increase flexibility, and simplify data protection and access control. Azure Files has its origins in the Windows file server role, making it an excellent choice when migrating Windows file servers to the cloud.
 
 Most customers take one of two deployment approaches:
 
 - **Cloud-only deployment:** Migrate on-premises file servers to a fully managed SMB Azure file share (or multiple file shares).
 - **Hybrid deployment:** Use [Azure File Sync](../file-sync/file-sync-introduction.md) to synchronize existing Windows file servers with an SMB Azure file share. Optionally use cloud tiering to scale file data in the cloud while turning on-premises servers into local caches for hot files.
-
-## Applies to
-| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
-|-|-|-|-|:-:|:-:|
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-
 
 ## Reduce TCO with cloud file shares
 

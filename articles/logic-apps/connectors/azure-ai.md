@@ -1,17 +1,18 @@
 ---
-title: Connect to Foundry Tools from Workflows
-description: Learn to integrate workflows with Azure OpenAI and Azure AI Search services using Azure Logic Apps.
-author: ecfan
+title: Connect to Azure OpenAI and Azure AI Search from Workflows
+description: Create workflows that integrate Azure OpenAI and Azure AI Search services by using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
+author: ecfan
 ms.reviewers: estfan, divswa, azla
 ms.topic: how-to
-ms.date: 09/28/2025
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
+ms.date: 03/10/2026
+#Customer intent: As an integration and AI developer who works with Azure Logic Apps, I want to integrate my workflows to use Azure OpenAI and Azure Ai Search.
 ---
 
-# Connect to Foundry Tools from workflows in Azure Logic Apps
+# Connect to Azure OpenAI and Azure AI Search from workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../../includes/logic-apps-sku-consumption-standard.md)]
 
@@ -22,7 +23,7 @@ This guide provides an overview and examples that show how to use **Azure OpenAI
 - [What is Azure OpenAI Service](/azure/ai-services/openai/overview)
 - [What is Azure AI Search](/azure/search/search-what-is-azure-search)
 
-## Why use Azure Logic Apps with Foundry Tools?
+## Why connect to Azure OpenAI and Azure AI Search?
 
 Usually, building AI solutions involves several key steps and requires a few building blocks. Primarily, you need to have a dynamic ingestion pipeline and a chat interface that can communicate with large language models (LLMs) and vector databases.
 
@@ -46,7 +47,7 @@ For more information, see the following resources:
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - The Azure AI Search and Azure OpenAI resources to access and use in your workflow, including connection information:
 
@@ -178,7 +179,7 @@ To save considerable time and effort when you build an ingestion pipeline, imple
 
 Each step in this pattern makes sure that the AI seamlessly extracts all the crucial information from your data files. If run as a stateless workflow, this pattern also provides faster performance. This approach simplifies not only the coding aspect but also guarantees that your workflows have effective authentication, monitoring, and deployment processes in place.
 
-:::image type="content" source="media/azure-ai/ingest-data-workflow.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and workflow operations that implement data ingestion functionality.":::
+:::image type="content" source="media/azure-ai/ingest-data-workflow.png" alt-text="Screenshot that shows the Azure portal, Standard workflow designer, and workflow operations that implement data ingestion functionality.":::
 
 | Step | Task | Underlying operation | Description |
 |------|------|----------------------|-------------|
@@ -199,7 +200,7 @@ As your vector databases continue to ingest data, make sure the data is easily s
 
 The following pattern is only one example that shows how a chat workflow might look:
 
-:::image type="content" source="media/azure-ai/chat-workflow.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and workflow operations that implement a chat interaction.":::
+:::image type="content" source="media/azure-ai/chat-workflow.png" alt-text="Screenshot that shows the Azure portal, Standard workflow designer, and workflow operations that implement a chat interaction.":::
 
 | Step | Task | Underlying operation | Description |
 |------|------|----------------------|-------------|

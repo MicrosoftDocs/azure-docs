@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 # Enable Microsoft Entra Domain Services authentication on Azure Files
 
-**Applies to:** :heavy_check_mark: SMB Azure file shares
+**Applies to:** :heavy_check_mark: SMB file shares
 
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 

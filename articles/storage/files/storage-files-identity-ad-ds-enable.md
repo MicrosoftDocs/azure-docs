@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # Enable Active Directory Domain Services authentication for Azure file shares
 
-**Applies to:** :heavy_check_mark: SMB Azure file shares
+**Applies to:** :heavy_check_mark: SMB file shares
 
 This article explains how to enable Active Directory Domain Services (AD DS) authentication on your storage account so you can use on-premises Active Directory (AD) credentials to authenticate to Azure file shares.
 

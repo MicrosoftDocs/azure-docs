@@ -128,8 +128,8 @@ Azure Bastion supports upgrading from lower SKUs to higher SKUs, but downgrading
 
 ### Upgrade paths
 
-- **Developer to Basic/Standard/Premium**: Requires creating an AzureBastionSubnet (/26 or larger) and a public IP address (Standard SKU, Static allocation). See [Upgrade from Bastion Developer](upgrade-sku.md#upgrade-from-bastion-developer).
-- **Basic and Higher**: Upgrade through the Azure portal. You can add features at the same time you upgrade. See [Upgrade from Basic or Standard SKU](upgrade-sku.md#upgrade-from-the-basic-or-standard-sku).
+- **Developer to Basic/Standard/Premium**: Requires creating an AzureBastionSubnet (/26 or larger) and a public IP address (Standard SKU, Static allocation). See [Upgrade from Developer SKU](upgrade-sku.md#upgrade-from-developer-sku).
+- **Basic and Higher**: Upgrade through the Azure portal. You can add features at the same time you upgrade. See [Upgrade from Basic or Standard SKU](upgrade-sku.md#upgrade-from-basic-or-standard-sku).
 
 > [!IMPORTANT]
 > Upgrades take approximately 10 minutes. Downgrading a SKU isn't supported. You must delete and recreate Azure Bastion. You can add features during the upgrade process.

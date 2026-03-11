@@ -11,7 +11,7 @@ ms.author: kendownie
 
 # Overview: On-premises Active Directory Domain Services authentication over SMB for Azure file shares
 
-**Applies to:** :heavy_check_mark: SMB Azure file shares
+**Applies to:** :heavy_check_mark: SMB file shares
 
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 

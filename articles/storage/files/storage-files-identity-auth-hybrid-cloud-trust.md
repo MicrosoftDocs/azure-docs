@@ -12,7 +12,7 @@ ms.custom: sfi-ga-nochange
 
 # Configure a cloud trust between on-premises AD DS and Microsoft Entra ID for accessing Azure Files
 
-**Applies to:** :heavy_check_mark: SMB Azure file shares
+**Applies to:** :heavy_check_mark: SMB file shares
 
 Many organizations want to use identity-based authentication for SMB Azure file shares in environments that span both on-premises Active Directory Domain Services (AD DS) and Microsoft Entra ID ([formerly Azure Active Directory](/entra/fundamentals/new-name)), but don't meet the necessary [operating system or domain prerequisites](storage-files-identity-auth-hybrid-identities-enable.md#operating-system-and-domain-prerequisites).
 

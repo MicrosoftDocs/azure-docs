@@ -11,7 +11,7 @@ author: khdownie
 
 # Use Azure Storage Mover to migrate to Azure file shares
 
-**Applies to:** :heavy_check_mark: SMB and NFS Azure file shares
+**Applies to:** :heavy_check_mark: Classic SMB and NFS file shares created with the Microsoft.Storage resource provider
 
 This migration guide describes how to migrate on-premises files to Azure file shares with full fidelity using [Azure Storage Mover](../../storage-mover/service-overview.md), a fully managed migration service. You can use Storage Mover to migrate from SMB or NFS source shares, including Windows Server, Linux, or NAS. Storage Mover uses the FileREST API to move the data.
 

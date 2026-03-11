@@ -15,7 +15,7 @@ ms.custom:
 
 # Mount SMB Azure file shares on Linux clients
 
-**Applies to:** :heavy_check_mark: SMB Azure file shares
+**Applies to:** :heavy_check_mark: SMB file shares
 
 Azure file shares can be mounted in Linux distributions using the [SMB kernel client](https://wiki.samba.org/index.php/LinuxCIFS).
 

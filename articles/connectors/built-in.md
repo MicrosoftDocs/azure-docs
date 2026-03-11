@@ -1,12 +1,14 @@
 ---
-title: Built-in connector overview
+title: Built-In Connectors Overview
 description: Learn about connectors that run natively with the runtime in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: concept-article
+ms.update-cycle: 1095-days
+ms.date: 03/09/2026
 ms.custom: engagement-fy23
-ms.date: 03/18/2025
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to learn about built-in connectors, which directly run alongside the runtime to provide better performance and throughput, compared to their counterparts that run in multitenant Azure.
 ---
 
 # Built-in connectors in Azure Logic Apps
@@ -486,10 +488,9 @@ For more information, review the following documentation:
     :::column-end:::
 :::row-end:::
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [Create custom APIs that you can call from Azure Logic Apps](../logic-apps/logic-apps-create-api-app.md)
+- [Create custom APIs that you can call from Azure Logic Apps](../logic-apps/logic-apps-create-api-app.md)
 
 <!-- Built-in icons -->
 [azure-ai-search-icon]: ./media/apis-list/azure-ai-search.png
@@ -600,7 +601,7 @@ For more information, review the following documentation:
 [scope-doc]: ../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md "Organize actions into groups, which get their own status after the actions in group finish running"
 [sftp-doc]: /azure/logic-apps/connectors/built-in/reference/sftp/ "Connect to your SFTP account by using SSH. Upload, get, delete files, and more"
 [smtp-doc]: /azure/logic-apps/connectors/built-in/reference/smtp/ "Connect to your SMTP server so you can send email"
-[sql-server-doc]: /azure/logic-apps/connectors/built-in/reference/sql/ "Connect to Azure SQL Database or SQL Server. Create, update, get, and delete entries in an SQL database table"
+[sql-server-doc]: /azure/logic-apps/connectors/built-in/reference/sql/ "Connect to Azure SQL Database or SQL Server. Create, update, get, and delete entries in a SQL database table"
 [switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Organize actions into cases, which are assigned unique values. Run only the case whose value matches the result from an expression, object, or token. If no matches exist, run the default case"
 [swift-doc]: https://techcommunity.microsoft.com/t5/azure-integration-services-blog/announcement-public-preview-of-swift-message-processing-using/ba-p/3670014 "Encode and decode SWIFT transactions in flat-file XML format"
 [terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Stop or cancel an actively running workflow for your logic app workflow"

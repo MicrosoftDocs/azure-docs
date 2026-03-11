@@ -50,6 +50,10 @@ The below building blocks are available to communicate with the JMS application.
 >
 
 ### Connection factory
+
+> [!NOTE]
+> The `azure-servicebus-jms` library is available in two variants: `com.azure:azure-servicebus-jms` (version 2.0.0+) for **Jakarta EE** (`jakarta.jms.*`) and `com.microsoft.azure:azure-servicebus-jms` (version 1.0.x) for **Java EE** (`javax.jms.*`). For guidance on choosing the right artifact, see [Jakarta EE and javax support](how-to-use-java-message-service-20.md#jakarta-ee-and-javax-support).
+
 The connection factory object is used by the client to connect with the JMS provider. The connection factory encapsulates a set of connection configuration parameters that are defined by the administrator.
 
 Each connection factory is an instance of `ConnectionFactory`, `QueueConnectionFactory`, or `TopicConnectionFactory` interface.

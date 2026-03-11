@@ -11,7 +11,7 @@ ms.author: kendownie
 
 # Overview of Azure Files identity-based authentication for SMB access
 
-**Applies to:** :heavy_check_mark: SMB Azure file shares
+**Applies to:** :heavy_check_mark: SMB file shares
 
 This article explains how you can use identity-based authentication, either on-premises or in Azure, to enable identity-based access to Azure Files over Server Message Block (SMB) protocol. Just like Windows file servers, you can grant permissions to an identity at the share, directory, or file level. There's no extra service charge to enable identity-based authentication on your storage account.
 

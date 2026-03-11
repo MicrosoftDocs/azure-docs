@@ -13,7 +13,7 @@ ms.devlang: azurecli
 
 # Assign share-level permissions for Azure file shares
 
-**Applies to:** :heavy_check_mark: SMB Azure file shares
+**Applies to:** :heavy_check_mark: SMB file shares
 
 After you enable an identity source for your storage account, you must configure share-level permissions to access your file share. You can assign share-level permissions in two ways: to [specific Microsoft Entra users or groups](#share-level-permissions-for-specific-azure-ad-users-or-groups), or to all authenticated identities as a [default share-level permission](#share-level-permissions-for-all-authenticated-identities).
 

@@ -322,11 +322,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/azure-cache-for-redis/monitor-cache-reference.md",
-            "redirect_url": "/azure/redis/monitor-cache-reference",
-            "redirect_document_id": true
-        },
-        {
             "source_path_from_root": "/articles/azure-cache-for-redis/cache-python-get-started.md",
             "redirect_url": "/azure/redis/python-get-started",
             "redirect_document_id": true

@@ -484,8 +484,6 @@ groups:
     title: Windows
   - id: platform-linux
     title: Linux
-  - id: platform-sphere
-    title: Azure Sphere
 - id: app-service-java-deploy
   title: App Service Java deployment
   prompt: Choose how you want to deploy your Java app

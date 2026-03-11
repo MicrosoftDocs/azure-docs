@@ -3,7 +3,7 @@ title: Control upgrade failure behavior with Azure Operator Service Manager
 description: Learn about recovery behaviors including pause on failure and rollback on failure.
 author: msftadam
 ms.author: adamdor
-ms.date: 03/06/2026
+ms.date: 03/10/2026
 ms.topic: upgrade-and-migration-article
 ms.service: azure-operator-service-manager
 ---
@@ -130,43 +130,41 @@ example:
 > * If multiple entries of `nfConfiguration` are found in the `roleOverrideValues`, then the NF reput is returned as a bad request.
 
 ## Manage nfApps that don't support rollback
-Almost all publishers report some nfApps that aren't compatible with helm rollback operations. These nfApps maybe sourced from third-parties who don't common support such strict resiliency requirements. These nfApps maybe related to database applications with complicated schema management requirements. In these cases, special consideration should be taken to deal with nfApps that don't support rollback.
-
-* The strong preference is to push publishers to support helm rollback for all nfApps.
+Almost all publishers have some nfApps which aren't compatible with helm rollback. These nfApps maybe sourced from third-parties who don't commonly support strict resiliency requirements. These nfApps maybe database applications with complicated schema management requirements. Consider the following restrictions when onboarding services with nfApps that don't support rollback.
 * nfApps that don't support rollback can't be skipped.
 * nfApp rollback order can't change.
 * Incremental-NFDV approach must be used in these situations.
 
 ### Selective rollback using incremental NFDVs
-A network function’s composition often includes one, or more, nfApplications that can't support a helm rollback operation, such as Elastic or VoltDb. If a rollback is attempted on one of these nfApplications, the resulting nfApplication is broken. Pursuing publisher enhancements, to make these nfApplications rollback complaint is the best solution. Recognizing the potential for long publisher enhancement lead times, a method to prevent execution of rollback on selective nfApplications is needed. Selectively skipping rollback requires thorough testing with the network function owners as it resulting in transiet condition where multiple version permutation exist. 
+A network function’s composition may include nfAppa that don't support a helm rollback. Known examples are Elastic and VoltDb. An attmept to rollback one of these nfApps will break the nfApp. Pursuing publisher enhancements, to make these nfApps rollback complaint, is the best solution. A paramter to skip rollback is not supported as it introduces the risk of a deployed state not defined in a NFDV. This nondeterministic behavior increases the testing surface area significantly and undermines reliability guarantees of deployments. Instead, the incremental NFDV method enables selective rollback execution while ensuring deterministic deployment states.
 
-#### Problem Statement
-At the network function level, when nfRollbackEnabled is true, and a failure occurs during an upgrade or install, a rollback is executed across all nfApps which proceed the failure. This may include those which are rollback noncompliant. A selective rollback parameter is not supported. It introduces risk of an operational state that doesn't correspond to a defined NFDV. This state mismatch results in nondeterministic behavior, increases the testing surface significantly, and undermines the reliability guarantees of deployment processes. Instead we rely on NFDVs to ensure deterministic workload states that map to well-defined and tested deployment configurations.
-
-#### Proposed Solution 
-AOSM proposes that publishers should use a combination of skipUpgrade and nfRollbackEnabled configurations in CGVs, along with multiple NFDVs, to logically segment nfApplications based on rollback compatibility. This multi-NFDV strategy allows customers to bypass rollback for select charts while preserving safety for the rest. This approach is production-safe and aligns with existing AOSM mechanisms. This staged approach effectively simulates per-chart rollback behavior using NFDV-level constructs. Consider the following example where a network function is composed of 20 nfApps with five nfApps that don't support rollback.
+#### Incremental NFDV approach 
+It's recommended that publishers use a combination of `applicationEnablement`, `skipUpgrade` and `nfRollbackEnabled` configurations in CGVs, along with multiple NFDVs, to logically segment nfApps into sets based on rollback compatibility. This incremental NFDV strategy allows operators to break deployments down into multiple operatons, bypassing rollback for select charts while preserving rollback for the rest. This approach effectively simulates per-chart rollback behavior using NFDV-level constructs. Consider the following example where a network function is composed of 20 nfApps with five nfApps that don't support rollback.
 
 * NFDV1
-  * Performs initial install of all 20 charts with version v1.0.
-  * In CGV1: rollbackEnabled: irrelevant (fresh install).
+  * Performs initial verions 1 install.
+    * Contains all 20 nfApps in an enabled state.
+  * In CGV1: `rollbackEnabled: true`.
+    * On the first install, a failure deletes charts and does not use rollback.
 * NFDV2:
-  * Contains all 20 charts but the five Helm charts without rollback support, upgraded to v2.0.
+  * Performs first step upgrade to version 2.
+    * Contains all 20 nfApps but enable only the five nfApps without rollback support.
   * In CGV2:
-    * Use skipUpgrade: true for the remaining 15 charts.
-    * Set nfRollbackEnabled: false.
-  * Result: 
-    * Success: Only five charts upgrade
-    * Failure:
-      * No rollback if upgrade fails.
-      * Due to chart limitations, the workload is left in a nondeterministic state. No rollback is possible. To recover, there are two options:
-        * Upgrade with a working NFDV2
-        * Upgrade with NFDV1 and skipUpgrade disabled for every nfApplication
+    * Use `skipUpgrade: true` for the 15 nfApps with rollback supprt.
+    * Set `nfRollbackEnabled: false`.
+      * On success, only five nfApps are upgraded.
+      * On failure, no rollback is performed.
+        * Due to chart limitations, the workload is left in a nondeterministic state. No rollback is possible. To recover, there are two options:
+          * Fix NFDV2 and try the upgrade again.
+          * Downgrade to NFDV1 with `skipUpgrade: false` 
 * NFDV3:
-  * Contains all charts but the 15 rollback-compatible charts upgraded to v2.0.
+  * Performs second step upgrade to version 2
+    * Contains all 20 nfApps but enable only the 15 nfApps with rollback support.
   * In CGV3:
-    * Use skipUpgrade: true for the 5 charts already handled in NFDV2.
-    * Set nfRollbackEnabled: true.
-  * Result: Remaining 15 charts upgrade; rollback occurs on failure.
+    * Use `skipUpgrade: true` for the 5 nfApps previous upgraded via NFDV2.
+    * Set `nfRollbackEnabled: true`.
+      * On success, the remaining 15 nfApps are upgraded
+      * On failure, a rollback occurs to restore the starting state.
 
 > [!NOTE]
 > * The five rollback-incompatible charts must not have runtime upgrade dependencies on charts in NFDV3.
@@ -174,7 +172,7 @@ AOSM proposes that publishers should use a combination of skipUpgrade and nfRoll
 
 This approach providers cleaner separation and manageability of applications not supporting standard helm operations. Maintains the operation’s idempotency and state on the cluster reflected by the last operation. NFDV 2/3 can directly be used for install operations as well (installation of previous version not needed) with any difference in goal state. Overall upgrade time and deployment reliability remain the same. 
 
-## How to troubleshoot rollback on failure
+## Troubleshoot rollback on failure
 ### Understand pod states
 Understanding the different pod states is crucial for effective troubleshooting. The following are the most common pod states:
 * Pending: Pod scheduling is in progress by Kubernetes.

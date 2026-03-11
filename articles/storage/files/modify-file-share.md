@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 # How to modify an Azure file share
 
-:heavy_check_mark: **Applies to:** SMB and NFS Azure classic file shares (Microsoft.Storage)
+:heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the Microsoft.Storage resource provider
 
 :heavy_check_mark: **Applies to:** File shares created with the Microsoft.FileShares resource provider (preview)
 

@@ -136,10 +136,11 @@ To learn from an example, see the [Data connector definitions reference example 
 
 ### Data connection rules
 
-There are currently two kinds of data connection rules possible for defining your CCF data connector.
+There are currently three kinds of data connection rules possible for defining your CCF data connector.
 
 - `RestApiPoller` kind allows you to customize paging, authorization and expected request/response payloads for your data source. For more information, see [RestApiPoller data connector connection rules reference](data-connector-connection-rules-reference.md).
 - `GCP` kind allows you to decrease your development time by automatically configuring paging and expected response payloads for your Google Cloud Platform (GCP) data source. For more information, see [GCP data connector connection rules reference](data-connection-rules-reference-gcp.md)
+- `StorageAccountBlobContainer` kind allows you to ingest from an Azure Storage Blob data source. For more information, see [Azure Storage Blob connectors API reference](data-connection-rules-reference-azure-storage.md).
 
 Use an [API testing tool](#testing-apis) to call the data connector API to create the data connector which combines the connection rules and previous components. Verify the connector is now connected in the UI.
 

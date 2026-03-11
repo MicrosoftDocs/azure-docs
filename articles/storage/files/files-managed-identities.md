@@ -13,7 +13,7 @@ ms.custom:
 
 # Access SMB Azure file shares by using managed identities with Microsoft Entra ID (preview)
 
-**Applies to:** :heavy_check_mark: SMB Azure file shares
+**Applies to:** :heavy_check_mark: SMB file shares
 
 This article explains how you can use [managed identities](/entra/identity/managed-identities-azure-resources/overview) to allow Windows and Linux virtual machines (VMs) to access SMB Azure file shares by using identity-based authentication with Microsoft Entra ID (preview).
 

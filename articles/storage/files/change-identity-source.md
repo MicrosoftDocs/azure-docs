@@ -11,7 +11,7 @@ ms.author: kendownie
 
 # Change the identity source for Azure file shares
 
-**Applies to:** :heavy_check_mark: SMB Azure file shares
+**Applies to:** :heavy_check_mark: SMB file shares
 
 Azure Files supports only one identity source per storage account for identity-based authentication over SMB. If you want to switch from one identity source to another, you must first disable the current identity source and then enable the new one.
 
