@@ -62,7 +62,7 @@ TODO
     1. Select one of the following supported auth types:
         - **Basic:** Username and password
         - **API key:** API key
-        - **OAuth2:** OAuth2 style auth, which may be of 
+        - **OAuth2:** OAuth2 style auth
     1. For API key or OAuth2, provide further auth details. If using basic authentication, no further auth details are necessary.
         - **API key**
             1. Provide
@@ -72,15 +72,36 @@ TODO
         - **OAuth2**
             1. Select either `client_credentials` or `authorization_code` grant type. Default is `client_credentials`
             1. If using `authorization_code` grant type, provide
-                - **Authorization endpoint:**
-                - **(Optional) Authorization endpoint headers:**
-                - **(Optional) Authorization endpoint query parameters**
+                - **Authorization endpoint:** URL of the authorization endpoint in the OAuth2 flow
+                - **(Optional) Authorization endpoint headers:** HTTP headers to include in the request to the authorization endpoint
+                - **(Optional) Authorization endpoint query parameters:** URL query parameters to include in the request to the authorization endpoint
             1. Be sure to provide
-                - **Token endpoint:**
-                - **(Optional) Token endpoint headers:**
-                - **(Optional) Token endpoint query parameters:**
-                - **(Optional) Scope:**
+                - **Token endpoint:** URL of the token endpoint in the OAuth2 flow
+                - **(Optional) Token endpoint headers:** HTTP headers to include in the request to the token endpoint
+                - **(Optional) Token endpoint query parameters:** URL query parameters to include in the request to the token endpoint
+                - **(Optional) Scope:** Scope to include in the OAuth2 flow
                 - **(Semi-optional) Include redirect URI?** Indicate if a redirect URI must be included for the OAuth2 flow. This field must be configured to "yes" when using the `authorization_code` grant type.
+    
+1.  **Request**
+
+    Configure the HTTP request structure for your data connector.
+
+    1. Provide
+        - **API endpoint:** URL of the API endpoint from which to fetch data.
+        - **HTTP method:** GET or POST
+        - **(if GET) Query parameters:** URL query parameters of the HTTP GET request
+        - **(if POST) Payload:** Content of the HTTP POST request body
+        - **(Optional) Headers:** HTTP headers to include in the request
+        - **Query window:** Time window size in minutes. This determines how often your API will be polled.
+        - **(Optional) Query window delay:** Number of minutes by which to delay the query window. Use this to accommodate ingestion delays on an API, for example if it takes 30 minutes for event data to be surfaced by the API.
+        - Other fields as described inside the wizard.
+
+1.  **Response**
+
+    Supply a sample response from the API and design a JSONPath expression to extract the response's relevant data.
+
+    1. Supply a sample response from the REST API.
+    1. Provide a JSONPath expression that extracts the response's relevant data. If the JSONPath expression is correct, the preview table in this step of the wizard should have rows that represent individual events in the API response. 
 
 1.  **Deploy or download**
 
@@ -92,7 +113,7 @@ TODO
 
     1. In the Azure portal, search for **Deploy a custom template**
     1. Select **Build your own template in the editor**
-    1. Select **Load file** and select `Package/mainTemplate.json` from your output folder
+    1. Select **Load file** and select your ARM template
     1. Select **Save**
     1. Fill in the deployment parameters:
         - **Subscription:** Your Azure subscription
