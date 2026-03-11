@@ -1,5 +1,5 @@
 ---
-title: Manage and monitor SQL Server DBs on an Azure VM
+title: Manage and monitor SQL Server databases on an Azure VM
 description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
 ms.topic: how-to
 ms.date: 02/13/2026
@@ -11,7 +11,7 @@ ms.author: v-mallicka
 
 # Manage and monitor backed up SQL Server databases using Azure portal
 
-This article describes common tasks for managing and monitoring SQL Server databases that are running on an Azure virtual machine (VM) and that are backed up to an Azure Backup Recovery Services vault by the [Azure Backup](backup-overview.md) service using Azure portal. You can also use [Azure CLI](backup-azure-sql-manage-cli.md) and [REST API](manage-azure-sql-vm-rest-api.md) to manage SQL database backups. You can monitor jobs and alerts, stop and resume database protection, run backup jobs, and unregister a VM from backups.
+This article describes common tasks for managing and monitoring SQL Server databases running on an Azure virtual machine (VM) and backed up to an Azure Backup Recovery Services vault using Azure portal. Azure Backup allows you to manage both SQL database backups and SQL instance snapshot backups. You can also use [Azure CLI](backup-azure-sql-manage-cli.md) and [REST API](manage-azure-sql-vm-rest-api.md) to manage SQL database backups. You can monitor jobs and alerts, stop and resume database protection, run backup jobs, and unregister a VM from backups.
 
 If you haven't yet configured backups for your SQL Server databases, see [Back up SQL Server databases on Azure VMs](backup-azure-sql-database.md)
 
@@ -57,7 +57,7 @@ To monitor SQL in Azure VM backups, go to the **Recovery Services vault**, and t
 
 The Backup job pane provides the following details:
 
-- **Backup jobs**: Jobs for streaming backups appear with the type **SQLDatabase**, where as jobs for snapshot backups appear with the type **SQLInstance**.
+- **Backup jobs**: Jobs for streaming backups appear with the type **SQLDatabase**, whereas jobs for snapshot backups appear with the type **SQLInstance**.
 
 - **Backup item health**: The backup item status might appear as **Unhealthy** immediately after you configure backup. This status occurs when log backups run before the first full snapshot backup completes. The status updates automatically after the first scheduled Snapshot-Full backup finishes. Alternatively, you can trigger an on-demand Snapshot-Full backup to resolve the issue.
 
@@ -137,7 +137,7 @@ You can stop and resume snapshot backups at both the database and instance level
 
 - **Stop backup at database level**: When you stop backup at the database level, only the selected database stops backing up. Azure deletes or retains restore points based on your selection. Other databases in the instance and instance-level backups remain unaffected.
 
-[Learn how to stop backup for SQL in azure VM](#stop-protection-for-a-sql-database).
+[Learn how to stop backup for SQL in Azure VM](#stop-protection-for-a-sql-database).
 
 ## Resume protection for a SQL database
 
@@ -206,7 +206,7 @@ You can fix the policy version for all the impacted items in one click:
 
 When you modify retention settings for SQL instance snapshot backup (preview), the changes apply to all existing and future recovery points. However, any new retention category (weekly, monthly, or yearly) that you add to an existing policy applies only to future recovery points.
 
-To modify an existing SQL instance snapshot backup policy , follow these steps:
+To modify an existing SQL instance snapshot backup policy, follow these steps:
 
 1.  Go to the Recovery Services vault, and then select Manage \> **Backup policies**.
 
@@ -241,7 +241,7 @@ To change the policy associated with a backup item for SQL instance snapshot bac
 Before you unregister the server, [disable soft delete](./backup-azure-security-feature-cloud.md?tabs=azure-portal#disable-soft-delete), and then delete all backup items.
 
 >[!NOTE]
->Deleting backup items with soft delete enabled will lead to 14 days retention, and you will need to wait before the items are completely removed. However, if you've deleted the backup items with soft delete enabled, you can undelete them, disable soft-delete, and then delete them again for immediate removal. [Learn more](./backup-azure-security-feature-cloud.md#delete-soft-deleted-backup-items-permanently)
+>Deleting backup items with soft delete enabled will lead to 14 days retention, and you need to wait before the items are completely removed. However, if you have deleted the backup items with soft delete enabled, you can undelete them, disable soft-delete, and then delete them again for immediate removal. [Learn more](./backup-azure-security-feature-cloud.md#delete-soft-deleted-backup-items-permanently)
 
 Unregister a SQL Server instance after you disable protection but before you delete the vault.
 
