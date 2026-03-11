@@ -45,7 +45,7 @@ Open the draft manager using the action button labeled "Create custom connector"
 
 TODO
 
-1.  Basics
+1.  **Basics**
     
     Name your custom data connector.
 
@@ -55,22 +55,34 @@ TODO
         - **Description:** Description of your custom data connector. This field supports Markdown formatting.
         - **Version:** If you wish to use a different major and minor version than the default "1.0," change it here. The patch version is not configurable, as it is constructed from the datetime of the most recent update to the data connector draft.
 
-1.  Authentication
+1.  **Authentication**
     
     Define the authentication flow for your data connector. 
 
     1. Select one of the following supported auth types:
         - **Basic:** Username and password
         - **API key:** API key
-        - **OAuth2:** OAuth2 style aut, which may be of 
+        - **OAuth2:** OAuth2 style auth, which may be of 
     1. For API key or OAuth2, provide further auth details. If using basic authentication, no further auth details are necessary.
         - **API key**
             1. Provide
-                
+            - **Header name:** Name of the HTTP header that should carry the API key, e.g. "Authorization" or "x-api-key"
+            - **Prefix:** Prefix identifier of the API key, e.g. "Bearer" if the header value should be of the format "Bearer {{apiKey}}"
+            - **(Optional) Is API key in POST payload?** Indicate if the API key should be transmitted in a POST payload rather than in HTTP headers.
         - **OAuth2**
-            1. Select either `client_credentials` or `authorization_code` grant type
+            1. Select either `client_credentials` or `authorization_code` grant type. Default is `client_credentials`
+            1. If using `authorization_code` grant type, provide
+                - **Authorization endpoint:**
+                - **(Optional) Authorization endpoint headers:**
+                - **(Optional) Authorization endpoint query parameters**
+            1. Be sure to provide
+                - **Token endpoint:**
+                - **(Optional) Token endpoint headers:**
+                - **(Optional) Token endpoint query parameters:**
+                - **(Optional) Scope:**
+                - **(Semi-optional) Include redirect URI?** Indicate if a redirect URI must be included for the OAuth2 flow. This field must be configured to "yes" when using the `authorization_code` grant type.
 
-1.  Deploy or download
+1.  **Deploy or download**
 
     Deploy the generated ARM template to your current Sentinel workspace, or download the ARM template if you wish to make modifications not supported by the wizard.
 
@@ -93,48 +105,16 @@ TODO
 
     For detailed steps, see [Quickstart: Create and deploy ARM templates by using the Azure portal](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).
 
-1.  Enable the data connector
+1.  **Enable the data connector**
 
-    After deploying the solution package, enable the connector to provision resources and generate credentials.
+    After deploying the solution package, refresh the Sentinel Data Connectors page to view the newly deployed data connector. Open the connector details and enable the connector to provision resources and generate credentials.
 
-    1. In the Azure portal, navigate to your Microsoft Sentinel workspace
+    1. Navigate to your Microsoft Sentinel workspace.
     1. Go to **Configuration** > **Data connectors**
-    1. Search for and select **Contoso Security Alerts (Push)**
-    1. Select **Open connector page**
-    1. Select the **Deploy Contoso Security Alerts connector** button
-    1. Wait for deployment to complete (creates custom table, DCR, DCE, Entra application with credentials)
-    1. Copy the connection details that appear:
-        - Tenant ID
-        - Application (Client) ID
-        - Client Secret
-        - Data Collection Endpoint URI
-        - Data Collection Rule Immutable ID
-        - Stream Name: `Custom-ContosoSecurityAlerts`
-
-1. Configure your application
-
-    Update your application code with the credentials and resource details from Step 10. The code uses the OAuth 2.0 client credentials flow to authenticate with Azure Monitor.
-
-    > [!CAUTION] 
-    > Protect your credentials: Never hardcode credentials (Tenant ID, Application ID, Client Secret) directly in your application code or commit them to source control. 
-    > Use secure credential storage solutions such as:  
-    > - Azure Key Vault for production applications 
-    > - Environment variables or configuration files (excluded from source control) 
-    > - Managed identities where applicable 
-    > - Secrets management tools that encrypt credentials at rest
-
-
-## Next steps
-
-Now that you understand CCF Push connectors, take the following steps:
-
-1. **Design your data schema** - Identify the events you want to send and their fields.
-1. **Create connector artifacts** - Build the four JSON files (table, DCR, connector definition, data connector).
-1. **Organize solution structure** - Set up Data/ and Data Connectors/ folders with proper naming.
-1. **Package your solution** - Use `createSolutionV3.ps1` to generate deployment templates.
-1. **Deploy and test** - Deploy to your Sentinel workspace and validate data flow.
-1. **Integrate with your application** - Add code to send events in real-time.
-1. **Create alerts and workbooks** - Use your data for security monitoring.
+    1. Select your data connector.
+    1. In the details panel, select **Open connector page**.
+    1. Provide the information required by the data connector, including credentials for authentication.
+    1. Use the **Connect** button and wait for the connection to complete.
 
 ## Additional resources
 
