@@ -5,7 +5,7 @@ description: Learn how to manage SQL database snapshot backups in Azure VMs, inc
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka
-ms.date: 03/10/2026
+ms.date: 03/11/2026
 ms.topic: how-to
 ---
 
