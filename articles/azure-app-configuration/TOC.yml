@@ -192,6 +192,8 @@
       href: howto-chat-completion-config.md
     - name: .NET
       href: quickstart-chat-completion-dotnet.md
+    - name: Python
+      href: quickstart-chat-completion-python.md
     - name: Go
       href: quickstart-chat-completion-go.md
   - name: Agent framework

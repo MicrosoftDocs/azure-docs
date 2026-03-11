@@ -43,7 +43,7 @@ For this example, we created an Allowed Locations policy that restricts the loca
 **Required fields:**
 
 | Field | Guidance |
-|------|---------|
+| ------ | --------- |
 | Definition location | Use a **management group** for enterprise-wide governance (recommended), or a **subscription** for more granular control. |
 | Name | Use a clear, intent-based name (for example, `Deny-NonApproved-Locations`). |
 | Description | Explain what the policy enforces and why. |

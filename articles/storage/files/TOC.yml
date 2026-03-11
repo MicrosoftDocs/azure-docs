@@ -160,15 +160,15 @@
         - name: Configure customer-managed keys in the same tenant
           items:
           - name: Configure customer-managed keys for a new account
-            href: ../common/customer-managed-keys-configure-new-account.md?toc=/azure/storage/tables/toc.json
+            href: ../common/customer-managed-keys-configure-new-account.md?toc=/azure/storage/files/toc.json
           - name: Configure customer-managed keys for an existing account
-            href: ../common/customer-managed-keys-configure-existing-account.md?toc=/azure/storage/tables/toc.json
+            href: ../common/customer-managed-keys-configure-existing-account.md?toc=/azure/storage/files/toc.json
         - name: Configure customer-managed keys in a different tenant
           items:
           - name: Configure customer-managed keys for a new account
-            href: ../common/customer-managed-keys-configure-cross-tenant-new-account.md?toc=/azure/storage/tables/toc.json
+            href: ../common/customer-managed-keys-configure-cross-tenant-new-account.md?toc=/azure/storage/files/toc.json
           - name: Configure customer-managed keys for an existing account
-            href: ../common/customer-managed-keys-configure-cross-tenant-existing-account.md?toc=/azure/storage/tables/toc.json
+            href: ../common/customer-managed-keys-configure-cross-tenant-existing-account.md?toc=/azure/storage/files/toc.json
       - name: Configure customer-managed keys in a managed HSM
         href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=/azure/storage/files/toc.json
     - name: Enable infrastructure encryption

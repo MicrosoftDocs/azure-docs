@@ -3,7 +3,7 @@ title: Azure Firewall integration in Microsoft Security Copilot
 description: Learn about using Microsoft Security Copilot to investigate traffic flagged by Azure Firewall with Intrusion Detection and Prevention System (IDPS).
 keywords: security copilot, copilot for security, threat intelligence, IDPS, intrusion detection and prevention system, plugin, integration, azure firewall, firewall copilot, open ai, openai, co-pilot
 author: abhinavsriram
-ms.author: asriram
+ms.author: duau
 ms.date: 04/25/2025
 ms.update-cycle: 180-days
 ms.topic: concept-article

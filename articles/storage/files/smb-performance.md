@@ -14,7 +14,7 @@ ms.custom:
 
 # Improve performance for SMB Azure file shares
 
-**Applies to:** :heavy_check_mark: SMB Azure file shares
+**Applies to:** :heavy_check_mark: SMB file shares
 
 This article explains how you can improve performance for SSD (premium) SMB Azure file shares, including using SMB Multichannel and metadata caching.
 

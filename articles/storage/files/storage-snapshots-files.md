@@ -11,7 +11,7 @@ ms.author: kendownie
 
 # Use share snapshots with Azure Files
 
-:heavy_check_mark: **Applies to:** SMB and NFS Azure classic file shares (Microsoft.Storage)
+:heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the Microsoft.Storage resource provider
 
 :heavy_check_mark: **Applies to:** File shares created with the Microsoft.FileShares resource provider (preview)
 

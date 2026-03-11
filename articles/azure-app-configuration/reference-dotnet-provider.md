@@ -603,6 +603,9 @@ builder.Configuration.AddAzureAppConfiguration(options =>
 
 Azure App Configuration enables you to configure secret refresh intervals independently of your configuration refresh cycle. This is crucial for security because while the Key Vault reference URI in App Configuration remains unchanged, the underlying secret in Key Vault might be rotated as part of your security practices.
 
+> [!NOTE] 
+> Secret refresh uses a minimum interval of **one minute**. This prevents excessive secret reloads which may induce Key Vault throttling.
+
 To ensure your application always uses the most current secret values, configure the `SetSecretRefreshInterval` method. This forces the provider to retrieve fresh secret values from Key Vault when:
 
 - Your application calls `IConfigurationRefresher.TryRefreshAsync`

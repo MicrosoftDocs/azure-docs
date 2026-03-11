@@ -63,4 +63,5 @@ You successfully added your chat completion configuration named **ChatApp:ChatCo
 1. Continue to the following instructions to implement the chat completion configuration into your application for the language or platform you're using.
 
     - [.NET](./quickstart-chat-completion-dotnet.md)
-    - [.Go](./quickstart-chat-completion-go.md)
+    - [Go](./quickstart-chat-completion-go.md)
+    - [Python](./quickstart-chat-completion-python.md)

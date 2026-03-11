@@ -14,8 +14,10 @@ ms.custom:
 ---
 
 # Encryption in transit for NFS Azure file shares
- 
-This article explains how you can encrypt data in transit for NFS Azure file shares. Azure Files NFS v4.1 volumes enhance network security by enabling secure TLS connections, protecting data in transit from interception, including MITM attacks.
+
+**Applies to:** :heavy_check_mark: NFS file shares
+
+This article explains how you can encrypt data in transit for NFS Azure file shares. Azure Files NFSv4.1 volumes enhance network security by enabling secure TLS connections, protecting data in transit from interception, including MITM attacks.
 
 ## Overview
 
@@ -52,7 +54,7 @@ By enabling the **Secure transfer required** setting on the storage account, you
 
 :::image type="content" source="./media/encryption-in-transit-nfs-shares/storage-account-settings.png" alt-text="Screenshot showing how to enable Secure transfer on a storage account." lightbox="./media/encryption-in-transit-nfs-shares/storage-account-settings.png":::
 
-However, for users who prefer to maintain flexibility between TLS and non-TLS connections on the same storage account, the **Secure transfer** setting must remain OFF.
+However, for users who prefer to maintain flexibility between TLS and non-TLS connections on the same storage account, the **Secure transfer** setting must remain off.
 
 ## Encrypt data in transit for NFS shares
 
@@ -225,10 +227,5 @@ If mounting issues continue, check the log files for more troubleshooting detail
 - **Stunnel Logs**: `/etc/stunnel/microsoft/aznfs/nfsv4_fileShare/logs`
 
 ## See also
- 
+
 - [Azure Storage encryption for data at rest](/azure/storage/common/storage-service-encryption)
-
-
-
-
-
