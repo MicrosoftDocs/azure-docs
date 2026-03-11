@@ -29,15 +29,17 @@ To view the database backup items, follow these steps:
 
 1. On the **Backup items** pane, select the required datasource type - **SQL Database in Azure VM** or **SQL Server in Azure VM (Snapshot backup) (Preview)**.
 
-   :::image type="content" source="media/manage-monitor-sql-database-backup/sql-backup-items-overview.png" alt-text="Screenshot of Backup items pane in Azure portal, showing SQL backup management types and item counts for databases and instances." lightbox="media/manage-monitor-sql-database-backup/sql-backup-items-overview.png":::
+   :::image type="content" source="media/manage-monitor-sql-database-backup/sql-backup-items-overview.png" alt-text="Screenshot that shows the Backup items pane in Azure portal, with the datasources." lightbox="media/manage-monitor-sql-database-backup/sql-backup-items-overview.png":::
 
 1. On the selected datasource backup items pane, view the backup items for the database.
 
-   - For **SQL Database in Azure VM**, the list shows all database‑level backup items, with the Backup type field indicating whether each database uses streaming or snapshot backups.
+   - **SQL Database in Azure VM**: Allows you to back up individual databases. Selection of this datasource shows the list of all database‑level backup items, with the Backup type field indicating whether each database uses streaming or snapshot backups.
 
-   - For **SQL Server in Azure VM (Snapshot) (Preview)**, the list shows all available instance‑level snapshots.
+     :::image type="content" source="media/manage-monitor-sql-database-backup/sql-database-backup-items.png" alt-text="Screenshot that shows the list of SQL database backup items." lightbox="media/manage-monitor-sql-database-backup/sql-database-backup-items.png":::
 
-   :::image type="content" source="media/manage-monitor-sql-database-backup/sql-database-backup-items.png" alt-text="Screenshot of Backup Items list in Azure portal displaying SQL databases, backup types, statuses, and View details links." lightbox="media/manage-monitor-sql-database-backup/sql-database-backup-items.png":::
+   - **SQL Server in Azure VM (Snapshot) (Preview)**: Allows you to back up entire SQL instances in an Azure VM using snapshot. Selection of this datasource shows the list of all available instance‑level snapshots.
+
+     :::image type="content" source="media/manage-monitor-sql-database-backup/sql-instance-backup-items.png" alt-text="Screenshot that shows the list of SQL instance backup items." lightbox="media/manage-monitor-sql-database-backup/sql-instance-backup-items.png":::
 
 ## Monitor backup jobs for SQL Server databases
 
@@ -232,7 +234,7 @@ To change the policy associated with a backup item for SQL instance snapshot bac
 
 4.  On the selected backup instance pane, under **Essentials**, select the backup policy.  
       
-    :::image type="content" source="media/manage-monitor-sql-database-backup/backup-policy-details.png" alt-text="Screenshot of SQL Server in Azure VM backup details with Essentials section, backup policy link, and recent snapshot backups listed." lightbox="media/manage-monitor-sql-database-backup/backup-policy-details.png":::
+    :::image type="content" source="media/manage-monitor-sql-database-backup/backup-policy-change.png" alt-text="Screenshot that shows how to change policy for an SQL instance backup item." lightbox="media/manage-monitor-sql-database-backup/backup-policy-change.png":::
 
 5.  On the **Change Backup Policy** pane, for **Backup policy**, select a policy from the list, and then select **Change**.
 
@@ -284,7 +286,7 @@ To add or remove databases from the backed-up SQL instance, follow these steps:
     To remove a database from the SQL backup instance, select **Remove database**.  
       
       
-    :::image type="content" source="media/manage-monitor-sql-database-backup/add-remove-database-sql.png" alt-text="Screenshot of Azure Backup Items pane for SQL Server VM showing Add new database and Remove database buttons highlighted." lightbox="media/manage-monitor-sql-database-backup/add-remove-database-sql.png":::
+    :::image type="content" source="media/manage-monitor-sql-database-backup/add-remove-database-sql.png" alt-text="Screenshot that shows the Azure Backup Items pane for SQL Server VM with add new database and remove database options." lightbox="media/manage-monitor-sql-database-backup/add-remove-database-sql.png":::
 
 ## Manage database backup when backed-up VM is moved/deleted
 
