@@ -43,7 +43,7 @@ Open the draft manager using the action button labeled "Create custom connector"
 
 ### Step-by-step guide
 
-TODO
+These are the steps of the Sentinel Connector Wizard.
 
 1.  **Basics**
     
@@ -113,49 +113,57 @@ TODO
     1. You may add, edit, or delete fields from the table schema as you see fit.
         1. If using a custom KQL transformation rather than a mapping between the source attribute and the output field, be sure to supply correct KQL syntax. 
             - You should access top-level attributes with brackets, e.g. for the attribute "unixTimeStamp" do `(['unixTimestamp'] * 1ms) + datetime(1970-01-01)` instead of `(unixTimestamp * 1ms) + datetime(1970-01-01)`. 
-            - If an attribute is nested, for example some `event.timestamp`, brackets are not typically necessary.
+            - If an attribute is nested, for example some `event.timestamp`, bracket syntax is not typically necessary.
 
 1.  **Paging**
 
     Configure the pagination style to be used in your data connector.
 
+    1. TODO
+
 1.  **Connector details**
 
     Customize the UI content and provide helpful instructions for the end-user of the data connector.
+
+    1. TODO
 
 1.  **Review**
 
     Review your data connector. Deploy the generated ARM template to your current Sentinel workspace, or download the ARM template if you wish to make modifications not supported by the wizard.
 
-    #### Optional
+### After completing the wizard workflow
+
+If you deployed the custom data connector in the final step of the wizard, you may proceed to enable the data connector. If you downloaded the ARM template to make your own modifications, you can deploy the template manually and then enable it.
+
+#### Enable the data connector
+
+After deploying the solution package, refresh the Sentinel Data Connectors page to view the newly deployed data connector. Then, open the connector details and enable the connector to provision resources and generate credentials.
+
+1. Navigate to / refresh your Microsoft Sentinel in the browser.
+1. Go to **Configuration** > **Data connectors**
+1. Select your data connector.
+1. In the details panel, select **Open connector page**.
+1. Provide the information required by the data connector, including credentials for authentication.
+1. Use the **Connect** button and wait for the connection to complete.
+
+#### (Optional) Manual ARM template deployment
     
-    A downloaded ARM template can be manually deployed through the ARM template deployment workflow in Azure Portal. See the following steps.
+If you downloaded an ARM template from the wizard, it can be manually deployed through the ARM template deployment workflow in Azure Portal. See the following steps.
 
-    1. In the Azure portal, search for **Deploy a custom template**
-    1. Select **Build your own template in the editor**
-    1. Select **Load file** and select your ARM template
-    1. Select **Save**
-    1. Fill in the deployment parameters:
-        - **Subscription:** Your Azure subscription
-        - **Resource Group:** The resource group containing your Sentinel workspace
-        - **Region:** Same region as your Sentinel workspace
-        - **Workspace:** Your Log Analytics workspace name
-    1. Select **Review + create**, then **Create**
+1. In the Azure portal, search for **Deploy a custom template**
+1. Select **Build your own template in the editor**
+1. Select **Load file** and select your ARM template
+1. Select **Save**
+1. Fill in the deployment parameters:
+    - **Subscription:** Your Azure subscription
+    - **Resource Group:** The resource group containing your Sentinel workspace
+    - **Region:** Same region as your Sentinel workspace
+    - **Workspace:** Your Log Analytics workspace name
+1. Select **Review + create**, then **Create**
 
-    This deployment makes the connector available in your Microsoft Sentinel data connectors gallery.
+This deployment makes the connector available in your Microsoft Sentinel data connectors gallery.
 
-    For detailed steps, see [Quickstart: Create and deploy ARM templates by using the Azure portal](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).
-
-1.  **Enable the data connector**
-
-    After deploying the solution package, refresh the Sentinel Data Connectors page to view the newly deployed data connector. Open the connector details and enable the connector to provision resources and generate credentials.
-
-    1. Navigate to your Microsoft Sentinel workspace.
-    1. Go to **Configuration** > **Data connectors**
-    1. Select your data connector.
-    1. In the details panel, select **Open connector page**.
-    1. Provide the information required by the data connector, including credentials for authentication.
-    1. Use the **Connect** button and wait for the connection to complete.
+For detailed steps, see [Quickstart: Create and deploy ARM templates by using the Azure portal](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).
 
 ## Additional resources
 
