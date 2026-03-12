@@ -94,18 +94,38 @@ TODO
         - **(Optional) Headers:** HTTP headers to include in the request
         - **Query window:** Time window size in minutes. This determines how often your API will be polled.
         - **(Optional) Query window delay:** Number of minutes by which to delay the query window. Use this to accommodate ingestion delays on an API, for example if it takes 30 minutes for event data to be surfaced by the API.
-        - Other fields as described inside the wizard.
+        - Other fields as described within the wizard.
 
 1.  **Response**
 
     Supply a sample response from the API and design a JSONPath expression to extract the response's relevant data.
 
-    1. Supply a sample response from the REST API.
-    1. Provide a JSONPath expression that extracts the response's relevant data. If the JSONPath expression is correct, the preview table in this step of the wizard should have rows that represent individual events in the API response. 
+    1. Supply a sample response from your REST API.
+    1. Provide a JSONPath expression that extracts the response's relevant data. If your JSONPath expression is correct, the preview table in this step of the wizard should display rows that represent individual events from the sample API response. 
 
-1.  **Deploy or download**
+1.  **DCR configuration**
 
-    Deploy the generated ARM template to your current Sentinel workspace, or download the ARM template if you wish to make modifications not supported by the wizard.
+    Configure the mapping between attributes from API response and columns of the custom Log Analytics table where your data will be stored.
+
+    1. Name the custom Log Analytics table where your data will be stored. The suffix "_CL" will be appended to the table name.
+    1. Use the "Auto populate from sample data" button to automatically generate Log Analytics table fields from the information entered in the **Response** step. 
+        - Be sure to manually correct any validation issues in the generated fields, such as column names that may be too long or disallowed.
+    1. You may add, edit, or delete fields from the table schema as you see fit.
+        1. If using a custom KQL transformation rather than a mapping between the source attribute and the output field, be sure to supply correct KQL syntax. 
+            - You should access top-level attributes with brackets, e.g. for the attribute "unixTimeStamp" do `(['unixTimestamp'] * 1ms) + datetime(1970-01-01)` instead of `(unixTimestamp * 1ms) + datetime(1970-01-01)`. 
+            - If an attribute is nested, for example some `event.timestamp`, brackets are not typically necessary.
+
+1.  **Paging**
+
+    Configure the pagination style to be used in your data connector.
+
+1.  **Connector details**
+
+    Customize the UI content and provide helpful instructions for the end-user of the data connector.
+
+1.  **Review**
+
+    Review your data connector. Deploy the generated ARM template to your current Sentinel workspace, or download the ARM template if you wish to make modifications not supported by the wizard.
 
     #### Optional
     
