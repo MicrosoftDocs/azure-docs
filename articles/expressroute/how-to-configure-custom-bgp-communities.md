@@ -1,12 +1,11 @@
 ---
 title: 'Configure custom BGP communities for Azure ExpressRoute private peering'
 description: Learn how to apply or update BGP community value for a new or an existing virtual network.
-services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 09/05/2023
+ms.date: 03/11/2026
 ms.author: duau
 # Customer intent: As a network administrator, I want to configure custom BGP community values for virtual networks, so that I can better manage routing decisions for traffic between my on-premises infrastructure and Azure through ExpressRoute.
 ---
@@ -112,5 +111,5 @@ BGP communities are groupings of IP prefixes tagged with a community value. This
 
 ## Next steps
 
-- [Verify ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md).
-- [Troubleshoot your network performance](expressroute-troubleshooting-network-performance.md)
+- [Verify ExpressRoute connectivity](/troubleshoot/azure/expressroute/expressroute-troubleshooting-expressroute-overview).
+- [Troubleshoot your network performance](/troubleshoot/azure/expressroute/expressroute-troubleshooting-network-performance)

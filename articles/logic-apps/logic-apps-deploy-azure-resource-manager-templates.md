@@ -1,18 +1,20 @@
 ---
-title: Deploy Resource Manager templates
-description: Deploy Azure Resource Manager templates created for Azure Logic Apps.
+title: Deploy ARM Templates for Consumption Workflows
+description: Deploy Azure Resource Manager templates (ARM templates) for Consumption logic app workflows in multitenant Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 02/19/2025
+ms.update-cycle: 1095-days
+ms.date: 03/11/2026
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23, devx-track-arm-template
 ms.devlang: azurecli
+# Customer intent: As an integration developer who works with Azure Logic Apps, I want to deploy ARM templates for Consumption logic app workflows in multitenant Azure Logic Apps.
 ---
 
 # Deploy Azure Resource Manager templates for Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](includes/logic-apps-sku-consumption.md)]
 
 After you create an Azure Resource Manager template for your Consumption logic app, you can deploy your template in these ways:
 
@@ -39,10 +41,14 @@ For example, you're prompted for the following information after you sign in to 
 * A test URI
 * Acceptance of the specified terms and conditions
 
-For more information, see these topics:
+For more information, see:
 
 * [Overview: Automate deployment for logic apps with Azure Resource Manager templates](/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
 * [Deploy resources with Azure Resource Manager templates and the Azure portal](/azure/azure-resource-manager/templates/deploy-portal)
+
+## Prerequisites
+
+You need an Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 <a name="powershell"></a>
 

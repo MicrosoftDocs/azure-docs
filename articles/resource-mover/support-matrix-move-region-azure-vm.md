@@ -3,7 +3,7 @@ title: Support matrix for moving Azure VMs to another region with Azure Resource
 description: Review support for moving Azure VMs between regions with Azure Resource Mover.
 author: RochakSingh-blr
 ms.author: v-rochak2
-ms.date: 07/31/2025
+ms.date: 03/05/2026
 ms.service: azure-resource-mover
 ms.topic: how-to
 ms.update-cycle: 365-days
@@ -19,8 +19,7 @@ This article summarizes support and prerequisites when you move virtual machines
 
 Resource Mover supports Azure VMs running these Windows operating systems.
 
-> [!NOTE]
-> Windows Trusted Launch VMs are supported by Resource Mover. 
+[!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
 
 **Operating system** | **Details**
 --- | ---
@@ -34,6 +33,8 @@ Windows 8.1 (x64) | Supported.
 Windows 8 (x64) | Supported.
 Windows 7 (x64) with SP1 onwards | Install a Windows [servicing stack update (SSU)](https://support.microsoft.com/help/4490628) and [SHA-2 update](https://support.microsoft.com/help/4474419) on machines running Windows 7 with SP1. SHA-1 isn't supported from September 2019, and if SHA-2 code signing isn't enabled the 'prepare' step won't succeed. Learn more about [SHA-2 upgrade and requirements](https://aka.ms/SHA-2KB).
 
+> [!NOTE]
+> Windows Trusted Launch VMs are supported by Resource Mover.
 
 ## Linux VM support
 

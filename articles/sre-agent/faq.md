@@ -96,7 +96,7 @@ See [Diagnose your first incident](usage.md) for a step-by-step walkthrough.
 
 ### Can I try the agent without affecting production systems?
 
-Yes, Azure SRE Agent starts in **Reader mode** by default, which provides read-only access to investigate and analyze resources without making any changes.
+Yes, Azure SRE Agent can be used in **Reader mode**, which provides read-only access to investigate and analyze resources without making any changes.
 
 ## Integration capabilities
 

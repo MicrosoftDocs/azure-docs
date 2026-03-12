@@ -15,20 +15,23 @@ ms.author: ofshezaf
 
 This document provides a list of Advanced Security Information Model (ASIM) parsers. For an overview of ASIM parsers refer to the [parsers overview](normalization-parsers-overview.md). To understand how parsers fit within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
 
+Parsers that don't have a value under `Uses pack parameter` don't have the `AdditionalFields` column populated.
+
 ## Alert Event parsers
 
-| **Source** | **Notes** | **Parser** |
-| --- | --------------------------- | ---------- |
-| **Microsoft Defender XDR** | Microsoft Defender XDR alert events (in the `AlertEvidence` table). | `_Im_AlertEvent_MicrosoftDefenderXDRVxx` |
+| **Source** | **Notes** | **Parser** | **Uses pack parameter** |
+| --- | --------------------------- | ---------- | -- |
+| **Microsoft Defender XDR** | Microsoft Defender XDR alert events (in the `AlertEvidence` table). | `_Im_AlertEvent_MicrosoftDefenderXDRVxx` | `false` |
 | **SentinelOne Singularity** | SentinelOne Singularity threat events (in the `SentinelOne_CL` table). | `_Im_AlertEvent_SentinelOneSingularityVxx` |
 
 ## Audit Event parsers
 
-| **Source** | **Notes** | **Parser** |
-| --- | --------------------------- | ---------- |
+| **Source** | **Notes** | **Parser** | **Uses pack parameter** |
+| --- | --------------------------- | ---------- | -- |
 | **Normalized Audit Event Logs** | Any event normalized at ingestion to the `ASimAuditEventLogs` table. | `_Im_AuditEvent_Native` |
-| **AWS CloudTrail** | AWS CloudTrail audit events. | `_Im_AuditEvent_AWSCloudTrailVxx` |
-| **Azure Activity** | Azure Activity events (in the `AzureActivity` table) in the category `Administrative`. | `_Im_AuditEvent_AzureActivityVxx` |
+| **AWS CloudTrail** | AWS CloudTrail audit events. | `_Im_AuditEvent_AWSCloudTrailVxx` | `true` |
+| **Azure Activity** | Azure Activity events (in the `AzureActivity` table) in the category `Administrative`. | `_Im_AuditEvent_AzureActivityVxx` | `false` |
+| **Azure Key Vault** | Azure Key Vault audit events. | `_Im_AuditEvent_AzureKeyVaultVxx` |
 | **Barracuda CEF** | Barracuda events collected using CEF. | `_Im_AuditEvent_BarracudaCEFVxx` |
 | **Barracuda WAF** | Barracuda WAF events. | `_Im_AuditEvent_BarracudaWAFVxx` |
 | **Cisco ISE** | Cisco ISE events. | `_Im_AuditEvent_CiscoISEVxx` |
@@ -36,31 +39,32 @@ This document provides a list of Advanced Security Information Model (ASIM) pars
 | **Cisco Meraki (Syslog)** | Cisco Meraki events collected to the table Syslog. | `_Im_AuditEvent_CiscoMerakiSyslogVxx` |
 | **CrowdStrike Falcon** | CrowdStrike Falcon Host events. | `_Im_AuditEvent_CrowdStrikeFalconHostVxx` |
 | **Illumio SaaS Core** | Illumio SaaS Core events. | `_Im_AuditEvent_IllumioSaaSCoreVxx` |
-| **Infoblox BloxOne** | Infoblox BloxOne events. | `_Im_AuditEvent_InfobloxBloxOneVxx` |
+| **Infoblox BloxOne** | Infoblox BloxOne events. | `_Im_AuditEvent_InfobloxBloxOneVxx` | `false` |
 | **Microsoft Events** | Windows Audit events collected in the `Event` table |  `_Im_AuditEvent_MicrosoftEventVxx` |
 | **Microsoft Exchange 365** | Exchange Administrative events collected using the Office 365 connector (in the `OfficeActivity` table). | `_Im_AuditEvent_MicrosoftExchangeAdmin365Vxx` |
 | **Microsoft Security Events** | Windows Event 1102 collected using Azure Monitor Agent (using the `SecurityEvent` tables). | `_Im_AuditEvent_MicrosoftSecurityEventsVxx` |
 | **Microsoft Windows Events** | Windows Event 1102 collected using Azure Monitor Agent (using the `WindowsEvent` tables). | `_Im_AuditEvent_MicrosoftWindowsEventsVxx` |
-| **SentinelOne** | SentinelOne events. | `_Im_AuditEvent_SentinelOneVxx` |
+| **SentinelOne** | SentinelOne events. | `_Im_AuditEvent_SentinelOneVxx` | `false` |
 | **Vectra XDR** | Vectra XDR audit events. | `_Im_AuditEvent_VectraXDRAuditVxx` |
-| **VMware Carbon Black Cloud** | VMware Carbon Black Cloud events. | `_Im_AuditEvent_VMwareCarbonBlackCloudVxx` |
+| **VMware Carbon Black Cloud** | VMware Carbon Black Cloud events. | `_Im_AuditEvent_VMwareCarbonBlackCloudVxx` | `false` |
 
 ## Authentication parsers
 
-| **Source** | **Notes** | **Parser** |
-| --- | --------------------------- | ---------- |
+| **Source** | **Notes** | **Parser** | **Uses pack parameter** |
+| --- | --------------------------- | ---------- | -- |
 | **Normalized Authentication Logs** | Any event normalized at ingestion to the `ASimAuthenticationEventLogs` table. | `_Im_Authentication_Native` |
 | **AWS CloudTrail** | AWS sign-ins, collected using the AWS CloudTrail connector. | `_Im_Authentication_AWSCloudTrailVxx` |
 | **Barracuda WAF** | Barracuda WAF events. | `_Im_Authentication_BarracudaWAFVxx` |
 | **Cisco ASA** | Cisco ASA events collected using CEF. | `_Im_Authentication_CiscoASAVxx` |
 | **Cisco ISE** | Cisco ISE events. | `_Im_Authentication_CiscoISEVxx` |
-| **Cisco Meraki** | Cisco Meraki events collected using the API connector or Syslog. | `_Im_Authentication_CiscoMerakiVxx` |
-| **Cisco Meraki (Syslog)** | Cisco Meraki events collected to the table Syslog. | `_Im_Authentication_CiscoMerakiSyslogVxx` |
+| **Cisco Meraki** | Cisco Meraki events collected using the API connector or Syslog. |`_Im_Authentication_CiscoMerakiVxx` | `false` |
+| **Cisco Meraki (Syslog)** | Cisco Meraki events collected to the table Syslog. | `_Im_Authentication_CiscoMerakiSyslogVxx` | `false` |
 | **CrowdStrike Falcon** | CrowdStrike Falcon Host events. | `_Im_Authentication_CrowdStrikeFalconHostVxx` |
-| **Google Workspace** | Google Workspace sign-ins. | `_Im_Authentication_GoogleWorkspaceVxx` |
+| **Fortinet Fortigate** | Fortinet Fortigate system admin logs. | `_Im_Authentication_FortigateVxx` |
+| **Google Workspace** | Google Workspace sign-ins. | `_Im_Authentication_GoogleWorkspaceVxx` | `false` |
 | **Illumio SaaS Core** | Illumio SaaS Core events. | `_Im_Authentication_IllumioSaaSCoreVxx` |
 | **Microsoft Defender for IoT** | Microsoft Defender for IoT authentication events. | `_Im_Authentication_MicrosoftMD4IoTVxx` |
-| **Microsoft Defender XDR** | Microsoft Defender XDR for Endpoint sign-ins for Windows and Linux. | `_Im_Authentication_M365DefenderVxx` |
+| **Microsoft Defender XDR** | Microsoft Defender XDR for Endpoint sign-ins for Windows and Linux. | `_Im_Authentication_M365DefenderVxx` | `false` |
 | **Microsoft Entra ID** | Microsoft Entra ID sign-ins, collected using the Microsoft Entra connector for regular sign-ins. | `_Im_Authentication_AADSigninLogsVxx` |
 | **Microsoft Entra ID (Non-Interative)** | Microsoft Entra ID sign-ins, collected using the Microsoft Entra connector for Non-Interactive sign-ins. | `_Im_Authentication_AADNonInteractiveVxx` |
 | **Microsoft Entra ID (Managed Identities)** | Microsoft Entra ID sign-ins, collected using the Microsoft Entra connector for Managed Identities sign-ins. | `_Im_Authentication_AADManagedIdentityVxx` |
@@ -68,6 +72,7 @@ This document provides a list of Advanced Security Information Model (ASIM) pars
 | **Microsoft Windows Events** | Windows sign-ins (Events 4624, 4625, 4634, 4647) collected using Azure Monitor Agent or the Log Analytics Agent to the `SecurityEvent` or `WindowsEvent` tables. | `_Im_Authentication_MicrosoftWindowsEventVxx` |
 | **Okta (V1)** | Okta authentication, collected using the Okta connector (V1 SSO). | `_Im_Authentication_OktaOSSVxx` |
 | **Okta (V2)** | Okta authentication, collected using the Okta connector (V2). | `_Im_Authentication_OktaV2Vxx` |
+| **Okta (OktaSystemLogs)** | Okta authentication, collected using in the OktaSystemLogs table. | `_Im_Authentication_OktaSystemLogsVxx` |
 | **Palo Alto Cortex Data Lake** | Palo Alto Cortex Data Lake events. | `_Im_Authentication_PaloAltoCortexDataLakeVxx` |
 | **PostgreSQL** | PostgreSQL sign-in logs. | `_Im_Authentication_PostgreSQLVxx` |
 | **Salesforce Service Cloud** | Salesforce Service Cloud events. | `_Im_Authentication_SalesforceSCVxx` |
@@ -80,17 +85,17 @@ This document provides a list of Advanced Security Information Model (ASIM) pars
 
 ## DHCP Event parsers
 
-| **Source** | **Notes** | **Parser** |
-| --- | --------------------------- | ---------- |
+| **Source** | **Notes** | **Parser** | **Uses pack parameter** |
+| --- | --------------------------- | ---------- | -- |
 | **Normalized DHCP Event Logs** | Any event normalized at ingestion to the `ASimDhcpEventLogs` table. | `_Im_DhcpEvent_Native` |
-| **Infoblox BloxOne** | Infoblox BloxOne DHCP events. | `_Im_DhcpEvent_InfobloxBloxOneVxx` |
+| **Infoblox BloxOne** | Infoblox BloxOne DHCP events. | `_Im_DhcpEvent_InfobloxBloxOneVxx` | `false` |
 
 ## DNS parsers
 
-| **Source** | **Notes** | **Parser** |
-| --- | --------------------------- | ---------- |
+| **Source** | **Notes** | **Parser** | **Uses pack parameter** |
+| --- | --------------------------- | ---------- | -- |
 | **Normalized DNS Logs** | Any event normalized at ingestion to the `ASimDnsActivityLogs` table. The DNS connector for the Azure Monitor Agent uses the `ASimDnsActivityLogs` table. | `_Im_Dns_Native` |
-| **Azure Firewall** | Azure Firewall DNS logs. | `_Im_Dns_AzureFirewallVxx` |
+| **Azure Firewall** | Azure Firewall DNS logs. | `_Im_Dns_AzureFirewallVxx` | `false` |
 | **Cisco Umbrella** | Cisco Umbrella DNS logs. | `_Im_Dns_CiscoUmbrellaVxx` |
 | **Corelight Zeek** | Corelight Zeek DNS logs. | `_Im_Dns_CorelightZeekVxx` |
 | **Fortinet FortiGate** | Fortinet FortiGate DNS logs. | `_Im_Dns_FortinetFortigateVxx` |
@@ -101,16 +106,16 @@ This document provides a list of Advanced Security Information Model (ASIM) pars
 | **Microsoft DNS Server (NXlog)** | Microsoft DNS Server collected using NXlog. | `_Im_Dns_MicrosoftNXlogVxx` |
 | **Microsoft Sysmon for Windows (Event)** | Sysmon DNS events (Event 22) collected using Azure Monitor Agent or the Log Analytics Agent (legacy) to the `Event` table. | `_Im_Dns_MicrosoftSysmonVxx` | 
 | **Microsoft Sysmon for Windows (WindowsEvent)** | Sysmon DNS events (Event 22) collected using Azure Monitor Agent or the Log Analytics Agent (legacy) to the `WindowsEvent` table. | `_Im_Dns_MicrosoftSysmonWindowsEventVxx` |
-| **SentinelOne** | SentinelOne DNS events. | `_Im_Dns_SentinelOneVxx` |
+| **SentinelOne** | SentinelOne DNS events. | `_Im_Dns_SentinelOneVxx` | `false` |
 | **Vectra AI** | Vectra AI DNS events. | `_Im_Dns_VectraAIVxx` |
 | **Zscaler ZIA** | Zscaler ZIA DNS logs. | `_Im_Dns_ZscalerZIAVxx` |
 
 ## File Activity parsers
 
-| **Source** | **Notes** | **Parser** |
-| --- | --------------------------- | ---------- |
+| **Source** | **Notes** | **Parser** | **Uses pack parameter** |
+| --- | --------------------------- | ---------- | -- |
 | **Normalized File Event Logs** | Any event normalized at ingestion to the `ASimFileEventLogs` table. | `_Im_FileEvent_Native` |
-| **AWS CloudTrail** | AWS CloudTrail file events. | `_Im_FileEvent_AWSCloudTrailVxx` |
+| **AWS CloudTrail** | AWS CloudTrail file events. | `_Im_FileEvent_AWSCloudTrailVxx` | `true` |
 | **Azure Blob Storage** | Azure Blob Storage file events. | `_Im_FileEvent_AzureBlobStorageVxx` |
 | **Azure File Storage** | Azure File Storage events. | `_Im_FileEvent_AzureFileStorageVxx` |
 | **Azure Queue Storage** | Azure Queue Storage events. | `_Im_FileEvent_AzureQueueStorageVxx` |
@@ -125,31 +130,31 @@ This document provides a list of Advanced Security Information Model (ASIM) pars
 | **Microsoft Sysmon for Windows (WindowsEvent)** | Sysmon for Windows file events (Events 11, 23, 26) collected to the `WindowsEvent` table. | `_Im_FileEvent_MicrosoftSysmonWindowsEventVxx` |
 | **Microsoft Windows Events** | Windows file events (Event 4663) collected to the `WindowsEvent` table. | `_Im_FileEvent_MicrosoftWindowsEventsVxx` |
 | **SentinelOne** | SentinelOne file events. | `_Im_FileEvent_SentinelOneVxx` |
-| **VMware Carbon Black Cloud** | VMware Carbon Black Cloud file events. | `_Im_FileEvent_VMwareCarbonBlackCloudVxx` |
+| **VMware Carbon Black Cloud** | VMware Carbon Black Cloud file events. | `_Im_FileEvent_VMwareCarbonBlackCloudVxx` | `false` |
 
 ## Network Session parsers
 
-| **Source** | **Notes** | **Parser** |
-| --- | --------------------------- | ---------- |
+| **Source** | **Notes** | **Parser** | **Uses pack parameter** |
+| --- | --------------------------- | ---------- | -- |
 | **Normalized Network Session Logs** | Any event normalized at ingestion to the `ASimNetworkSessionLogs` table. The Firewall connector for the Azure Monitor Agent uses this table. | `_Im_NetworkSession_Native` |
 | **AppGate SDP** | IP connection logs collected using Syslog. | `_Im_NetworkSession_AppGateSDPVxx` |
 | **AWS VPC logs** | Collected using the AWS S3 connector. | `_Im_NetworkSession_AWSVPCVxx` |
-| **Azure Firewall** | Azure Firewall network logs. | `_Im_NetworkSession_AzureFirewallVxx` |
+| **Azure Firewall** | Azure Firewall network logs. | `_Im_NetworkSession_AzureFirewallVxx` | `false` |
 | **Azure NSG** | Azure Network Security Groups flow logs. | `_Im_NetworkSession_AzureNSGVxx` |
 | **Azure Monitor VMConnection** | Collected as part of the Azure Monitor VM Insights solution. | `_Im_NetworkSession_VMConnectionVxx` |
 | **Barracuda CEF** | Barracuda events collected using CEF. | `_Im_NetworkSession_BarracudaCEFVxx` |
 | **Barracuda WAF** | Barracuda WAF events. | `_Im_NetworkSession_BarracudaWAFVxx` |
-| **Checkpoint Firewall** | Checkpoint Firewall events collected using CEF. | `_Im_NetworkSession_CheckPointFirewallVxx` |
+| **Checkpoint Firewall** | Checkpoint Firewall events collected using CEF. | `_Im_NetworkSession_CheckPointFirewallVxx` | `false` |
 | **Cisco ASA** | Cisco ASA events collected using CEF. | `_Im_NetworkSession_CiscoASAVxx` |
-| **Cisco Firepower** | Cisco Firepower events. | `_Im_NetworkSession_CiscoFirepowerVxx` |
+| **Cisco Firepower** | Cisco Firepower events. | `_Im_NetworkSession_CiscoFirepowerVxx` | `false` |
 | **Cisco ISE** | Cisco ISE events. | `_Im_NetworkSession_CiscoISEVxx` |
-| **Cisco Meraki** | Cisco Meraki events collected using the API connector or Syslog. | `_Im_NetworkSession_CiscoMerakiVxx` |
-| **Cisco Meraki (Syslog)** | Cisco Meraki events collected to the table Syslog. | `_Im_NetworkSession_CiscoMerakiSyslogVxx` |
+| **Cisco Meraki** | Cisco Meraki events collected using the API connector or Syslog. | `_Im_NetworkSession_CiscoMerakiVxx` | `false` |
+| **Cisco Meraki (Syslog)** | Cisco Meraki events collected to the table Syslog. | `_Im_NetworkSession_CiscoMerakiSyslogVxx` | `false` |
 | **Corelight Zeek** | Corelight Zeek network events. | `_Im_NetworkSession_CorelightZeekVxx` |
-| **CrowdStrike Falcon** | CrowdStrike Falcon Host events. | `_Im_NetworkSession_CrowdStrikeFalconHostVxx` |
-| **ForcePoint Firewall** | ForcePoint Firewall events. | `_Im_NetworkSession_ForcePointFirewallVxx` |
+| **CrowdStrike Falcon** | CrowdStrike Falcon Host events. | `_Im_NetworkSession_CrowdStrikeFalconHostVxx` | `false` |
+| **ForcePoint Firewall** | ForcePoint Firewall events. | `_Im_NetworkSession_ForcePointFirewallVxx` | `false` |
 | **Fortinet FortiGate** | Fortinet FortiGate firewall events collected using Syslog. | `_Im_NetworkSession_FortinetFortiGateVxx` |
-| **Illumio SaaS Core** | Illumio SaaS Core events. | `_Im_NetworkSession_IllumioSaaSCoreVxx` |
+| **Illumio SaaS Core** | Illumio SaaS Core events. | `_Im_NetworkSession_IllumioSaaSCoreVxx` | `false` |
 | **Microsoft Defender for IoT (Agent)** | Microsoft Defender for IoT micro agent events. | `_Im_NetworkSession_MD4IoTAgentVxx` |
 | **Microsoft Defender for IoT (Sensor)** | Microsoft Defender for IoT micro  sensor events. | `_Im_NetworkSession_MD4IoTSensorVxx` |
 | **Microsoft Defender XDR** | Microsoft Defender XDR for Endpoint network events. | `_Im_NetworkSession_Microsoft365DefenderVxx` |
@@ -158,20 +163,20 @@ This document provides a list of Advanced Security Information Model (ASIM) pars
 | **Microsoft Sysmon for Windows (WindowsEvent)** | Sysmon for Windows network events (Event 3) collected to the `WindowsEvent` table. | `_Im_NetworkSession_MicrosoftSysmonWindowsEventVxx` |
 | **Microsoft Windows Firewall** | Windows Firewall events (Events 5150-5159) collected using Azure Monitor Agent or the Log Analytics Agent. | `_Im_NetworkSession_MicrosoftWindowsEventFirewallVxx` |
 | **Microsoft Windows Security Events Firewall** | Windows Firewall events collected via Security Events connector. | `_Im_NetworkSession_MicrosoftSecurityEventFirewallVxx` |
-| **NTA NetAnalytics** | Network Traffic Analytics events. | `_Im_NetworkSession_NTANetAnalyticsVxx` |
+| **NTA NetAnalytics** | Network Traffic Analytics events. | `_Im_NetworkSession_NTANetAnalyticsVxx` | `false` |
 | **Palo Alto PanOS** | Palo Alto PanOS traffic logs collected using CEF. | `_Im_NetworkSession_PaloAltoCEFVxx` |
-| **Palo Alto Cortex Data Lake** | Palo Alto Cortex Data Lake events. | `_Im_NetworkSession_PaloAltoCortexDataLakeVxx` |
+| **Palo Alto Cortex Data Lake** | Palo Alto Cortex Data Lake events. | `_Im_NetworkSession_PaloAltoCortexDataLakeVxx` | `false` |
 | **SentinelOne** | SentinelOne network events. | `_Im_NetworkSession_SentinelOneVxx` |
-| **SonicWall Firewall** | SonicWall Firewall events. | `_Im_NetworkSession_SonicWallFirewallVxx` |
-| **Vectra AI** | Vectra AI network events. Supports the pack parameter. | `_Im_NetworkSession_VectraAIVxx` |
-| **VMware Carbon Black Cloud** | VMware Carbon Black Cloud network events. | `_Im_NetworkSession_VMwareCarbonBlackCloudVxx` |
+| **SonicWall Firewall** | SonicWall Firewall events. | `_Im_NetworkSession_SonicWallFirewallVxx` | `false` |
+| **Vectra AI** | Vectra AI network events. Supports the pack parameter. | `_Im_NetworkSession_VectraAIVxx` | `true` |
+| **VMware Carbon Black Cloud** | VMware Carbon Black Cloud network events. | `_Im_NetworkSession_VMwareCarbonBlackCloudVxx` | `false` |
 | **WatchGuard Fireware OS** | WatchGuard Fireware OS events collected using Syslog. | `_Im_NetworkSession_WatchGuardFirewareOSVxx` |
 | **Zscaler ZIA** | Zscaler ZIA firewall logs collected using CEF. | `_Im_NetworkSession_ZscalerZIAVxx` |
 
 ## Process Event parsers
 
-| **Source** | **Notes** | **Parser** |
-| --- | --------------------------- | ---------- |
+| **Source** | **Notes** | **Parser** | **Uses pack parameter** |
+| --- | --------------------------- | ---------- | -- |
 | **Normalized Process Event Logs** | Any event normalized at ingestion to the `ASimProcessEventLogs` table. | `_Im_ProcessEvent_Native` |
 | **Linux Sysmon (Create)** | Sysmon for Linux process creation events (Events 1). | `_Im_ProcessCreate_LinuxSysmonVxx` |
 | **Linux Sysmon (Terminate)** | Sysmon for Linux process termination events (Events 5). | `_Im_ProcessTerminate_LinuxSysmonVxx` |
@@ -184,55 +189,55 @@ This document provides a list of Advanced Security Information Model (ASIM) pars
 | **Microsoft Windows Events (Create)** | Windows process events (Event 4688) collected to the `WindowsEvent` table. | `_Im_ProcessCreate_MicrosoftWindowsEventsVxx` |
 | **Microsoft Windows Events (Terminate)** | Windows process events (Event 4689) collected to the `WindowsEvent` table. | `_Im_ProcessTerminate_MicrosoftWindowsEventsVxx` |
 | **SentinelOne** | SentinelOne process events. | `_Im_ProcessCreate_SentinelOneVxx` |
-| **Trend Micro Vision One** | Trend Micro Vision One process events. | `_Im_ProcessCreate_TrendMicroVisionOneVxx` |
-| **VMware Carbon Black Cloud (Create)** | VMware Carbon Black Cloud process creationevents. | `_Im_ProcessCreate_VMwareCarbonBlackCloudVxx` |
-| **VMware Carbon Black Cloud (Terminate)** | VMware Carbon Black Cloud process termination events. | `_Im_ProcessTerminate_VMwareCarbonBlackCloudVxx` |
+| **Trend Micro Vision One** | Trend Micro Vision One process events. | `_Im_ProcessCreate_TrendMicroVisionOneVxx` | `false` |
+| **VMware Carbon Black Cloud (Create)** | VMware Carbon Black Cloud process creation events. | `_Im_ProcessCreate_VMwareCarbonBlackCloudVxx` | `false` |
+| **VMware Carbon Black Cloud (Terminate)** | VMware Carbon Black Cloud process termination events. | `_Im_ProcessTerminate_VMwareCarbonBlackCloudVxx` | `false` |
 
 ## Registry Event parsers
 
-| **Source** | **Notes** | **Parser** |
-| --- | --------------------------- | ---------- |
+| **Source** | **Notes** | **Parser** | **Uses pack parameter** |
+| --- | --------------------------- | ---------- | -- |
 | **Normalized Registry Event Logs** | Any event normalized at ingestion to the `ASimRegistryEventLogs` table. | `_Im_RegistryEvent_Native` |
 | **Microsoft Defender XDR** | Microsoft Defender XDR for Endpoint registry events. | `_Im_RegistryEvent_Microsoft365DVxx` |
 | **Microsoft Security Events** | Windows Security Events registry events (Events 4657, 4663). | `_Im_RegistryEvent_MicrosoftSecurityEventVxx` |
 | **Microsoft Sysmon for Windows** | Sysmon for Windows registry events (Events 12, 13, 14) collected to the `Event` or `WindowsEvent` tables. | `_Im_RegistryEvent_MicrosoftSysmonVxx` |
 | **Microsoft Windows Events** | Windows registry events collected to the `WindowsEvent` table. | `_Im_RegistryEvent_MicrosoftWindowsEventVxx` |
 | **SentinelOne** | SentinelOne registry events. | `_Im_RegistryEvent_SentinelOneVxx` |
-| **Trend Micro Vision One** | Trend Micro Vision One registry events. | `_Im_RegistryEvent_TrendMicroVisionOneVxx` |
-| **VMware Carbon Black Cloud** | VMware Carbon Black Cloud registry events. | `_Im_RegistryEvent_VMwareCarbonBlackCloudVxx` |
+| **Trend Micro Vision One** | Trend Micro Vision One registry events. | `_Im_RegistryEvent_TrendMicroVisionOneVxx` | `false` |
+| **VMware Carbon Black Cloud** | VMware Carbon Black Cloud registry events. | `_Im_RegistryEvent_VMwareCarbonBlackCloudVxx` | `false` |
 
 ## User Management parsers
 
-| **Source** | **Notes** | **Parser** |
-| --- | --------------------------- | ---------- |
+| **Source** | **Notes** | **Parser** | **Uses pack parameter** |
+| --- | --------------------------- | ---------- | -- |
 | **Normalized User Management Logs** | Any event normalized at ingestion to the `ASimUserManagementLogs` table. | `_Im_UserManagement_Native` |
-| **AWS CloudTrail** | AWS CloudTrail user management events. | `_Im_UserManagement_AWSCloudTrailVxx` |
+| **AWS CloudTrail** | AWS CloudTrail user management events. | `_Im_UserManagement_AWSCloudTrailVxx` | `true` |
 | **Cisco ISE** | Cisco ISE user management events. | `_Im_UserManagement_CiscoISEVxx` |
 | **Linux Authpriv** | Linux authpriv user management events. | `_Im_UserManagement_LinuxAuthprivVxx` |
 | **Microsoft Security Events** | Windows Security Events user management events. | `_Im_UserManagement_MicrosoftSecurityEventVxx` |
 | **Microsoft Windows Events** | Windows user management events collected to the `WindowsEvent` table. | `_Im_UserManagement_MicrosoftWindowsEventVxx` |
-| **SentinelOne** | SentinelOne user management events. | `_Im_UserManagement_SentinelOneVxx` |
+| **SentinelOne** | SentinelOne user management events. | `_Im_UserManagement_SentinelOneVxx` | `false` |
 
 ## Web Session parsers
 
-| **Source** | **Notes** | **Parser** |
-| --- | --------------------------- | ---------- |
+| **Source** | **Notes** | **Parser** | **Uses pack parameter** |
+| --- | --------------------------- | ---------- | -- |
 | **Normalized Web Session Logs** | Any event normalized at ingestion to the `ASimWebSessionLogs` table. | `_Im_WebSession_Native` |
 | **Apache HTTP Server** | Apache HTTP Server logs. | `_Im_WebSession_ApacheHTTPServerVxx` |
-| **Azure Firewall** | Azure Firewall web session logs. | `_Im_WebSession_AzureFirewallVxx` |
-| **Barracuda CEF** | Barracuda events collected using CEF. | `_Im_WebSession_BarracudaCEFVxx` |
-| **Barracuda WAF** | Barracuda WAF events. | `_Im_WebSession_BarracudaWAFVxx` |
-| **Cisco Firepower** | Cisco Firepower web events. | `_Im_WebSession_CiscoFirepowerVxx` |
+| **Azure Firewall** | Azure Firewall web session logs. | `_Im_WebSession_AzureFirewallVxx` | `false` |
+| **Barracuda CEF** | Barracuda events collected using CEF. | `_Im_WebSession_BarracudaCEFVxx` | `false` |
+| **Barracuda WAF** | Barracuda WAF events. | `_Im_WebSession_BarracudaWAFVxx` | `false` |
+| **Cisco Firepower** | Cisco Firepower web events. | `_Im_WebSession_CiscoFirepowerVxx` | `false` |
 | **Cisco Meraki** | Cisco Meraki web events. | `_Im_WebSession_CiscoMerakiVxx` |
-| **Citrix NetScaler** | Citrix NetScaler web events. | `_Im_WebSession_CitrixNetScalerVxx` |
-| **F5 ASM** | F5 ASM web events. | `_Im_WebSession_F5ASMVxx` |
-| **Fortinet FortiGate** | Fortinet FortiGate web session logs. | `_Im_WebSession_FortinetFortiGateVxx` |
+| **Citrix NetScaler** | Citrix NetScaler web events. | `_Im_WebSession_CitrixNetScalerVxx` | `false` |
+| **F5 ASM** | F5 ASM web events. | `_Im_WebSession_F5ASMVxx` | `false` |
+| **Fortinet FortiGate** | Fortinet FortiGate web session logs. | `_Im_WebSession_FortinetFortiGateVxx` | `false` |
 | **Internet Information Services (IIS)** | IIS logs collected using Azure Monitor Agent or Log Analytics Agent. | `_Im_WebSession_IISVxx` |
 | **Palo Alto PanOS** | Palo Alto PanOS threat logs collected using CEF. | `_Im_WebSession_PaloAltoCEFVxx` |
-| **Palo Alto Cortex Data Lake** | Palo Alto Cortex Data Lake events. | `_Im_WebSession_PaloAltoCortexDataLakeVxx` |
-| **SonicWall Firewall** | SonicWall Firewall web events. | `_Im_WebSession_SonicWallFirewallVxx` |
+| **Palo Alto Cortex Data Lake** | Palo Alto Cortex Data Lake events. | `_Im_WebSession_PaloAltoCortexDataLakeVxx` | `false` |
+| **SonicWall Firewall** | SonicWall Firewall web events. | `_Im_WebSession_SonicWallFirewallVxx` | `false` |
 | **Squid Proxy** | Squid Proxy web logs. | `_Im_WebSession_SquidProxyVxx` |
-| **Vectra AI** | Vectra AI web events. Supports the pack parameter. | `_Im_WebSession_VectraAIVxx` |
+| **Vectra AI** | Vectra AI web events. Supports the pack parameter. | `_Im_WebSession_VectraAIVxx` | `true` |
 | **Zscaler ZIA** | Zscaler ZIA web logs collected using CEF. | `_Im_WebSession_ZscalerZIAVxx` |
 
 ## <a name="next-steps"></a>Next steps

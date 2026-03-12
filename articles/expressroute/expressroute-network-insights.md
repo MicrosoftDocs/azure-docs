@@ -1,11 +1,10 @@
 ---
 title: 'Azure ExpressRoute Insights using Network Insights'
 description: Learn about Azure ExpressRoute Insights using Network Insights.
-services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 06/30/2023
+ms.date: 03/11/2026
 ms.author: duau
 ---
 
@@ -80,4 +79,4 @@ Configure your ExpressRoute connection.
 * [Create and modify a circuit](expressroute-howto-circuit-arm.md)
 * [Create and modify peering configuration](expressroute-howto-routing-arm.md)
 * [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)
-* [Customize your metrics](expressroute-monitoring-metrics-alerts.md) and create a [Connection Monitor](../network-watcher/connection-monitor-overview.md)
+* [Customize your metrics](monitor-expressroute-reference.md) and create a [Connection Monitor](../network-watcher/connection-monitor-overview.md)

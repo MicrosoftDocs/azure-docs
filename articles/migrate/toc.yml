@@ -43,6 +43,8 @@ items:
     href: concepts-vmware-agentless-migration.md
   - name: Hyper-V migration architecture
     href: hyper-v-migration-architecture.md
+  - name: Azure Copilot Migration Agent
+    href: azure-copilot-migration-agent.md
   - name: VMware agentless migration
     href: prepare-for-agentless-migration.md
   - name: Hydration process workflow
@@ -99,6 +101,8 @@ items:
         items: 
         - name: Discover MySQL database instances
           href: tutorial-discover-mysql-database-instances.md
+  - name: Discovery using collector
+    href: how-to-discover-using-collector.md
   - name: Discovery using Azure Arc
     items:
     - name: Overview
@@ -249,6 +253,8 @@ items:
     href: tutorial-migrate-vmware-agent.md
   - name: Redeploy servers using IaC 
     href: server-redeploy.md
+  - name: Generate and deploy a platform landing zone
+    href: platform-landing-zone.md
   - name: Support Matrix
     items:
     - name: VMware vSphere migration requirements 
@@ -406,6 +412,8 @@ items:
       href: onboard-to-azure-arc-with-azure-migrate.md
     - name: Manage migration projects with Azure Lighthouse
       href: /azure/lighthouse/how-to/migration-at-scale?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
+  - name: VMware migrations with migration agent
+    href: how-to-plan-analyze-migration-with-agent.md
 - name: Troubleshoot
   items:
   - name: Azure Migrate Project
@@ -470,6 +478,8 @@ items:
     href: common-questions-business-case.md
   - name: Migration and modernization tool
     href: common-questions-server-migration.md
+  - name: Responsible AI FAQ for Azure Copilot Migration Agent
+    href: common-questions-azure-copilot-migration-agent.md
 - name: Reference
   items:
   - name: Azure CLI

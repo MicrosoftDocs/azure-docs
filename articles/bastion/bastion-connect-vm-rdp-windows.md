@@ -31,7 +31,7 @@ Before you begin, verify that you meet the following criteria:
   |---|---|---|
   | Azure portal (browser) | Basic | None |
   | Azure portal with custom ports | Standard | None |
-  | IP-based connection | Standard | [IP-based connection](connect-ip-address.md#configure-bastion) enabled |
+  | IP-based connection | Standard | [IP-based connection](connect-ip-address.md#sku-requirements) enabled |
   | Native client (RDP) | Standard | [Native client support](native-client.md) enabled |
 
 * Users connecting via RDP must have rights on the target virtual machine. If the user isn't a local administrator, add them to the **Remote Desktop Users** group.

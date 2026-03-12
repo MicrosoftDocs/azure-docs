@@ -974,6 +974,8 @@
           href: normalization-known-issues.md
         - name: ASIM entities
           items:
+            - name: ASIM asset entity schema
+              href: normalization-schema-asset.md
             - name: ASIM user entity
               href: normalization-entity-user.md
             - name: ASIM device entity
@@ -984,16 +986,14 @@
           items:
             - name: ASIM alert event schema
               href: normalization-schema-alert.md
-            - name: ASIM asset entity schema
-              href: normalization-schema-asset.md
             - name: ASIM audit event schema
               href: normalization-schema-audit.md
             - name: ASIM authentication schema
               href: normalization-schema-authentication.md
-            - name: ASIM DNS schema
-              href: normalization-schema-dns.md
             - name: ASIM DHCP schema
               href: normalization-schema-dhcp.md
+            - name: ASIM DNS schema
+              href: normalization-schema-dns.md
             - name: ASIM file event schema
               href: normalization-schema-file-event.md
             - name: ASIM network session schema

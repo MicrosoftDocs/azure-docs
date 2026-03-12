@@ -31,19 +31,20 @@ This article describes how to build a Business case for on-premises servers and 
 
 The **Business case** helps you understand where Azure can bring the most value to your organization by estimating total cost of ownership (TCO), potential savings, and sustainability impact for your **applications and workloads**. Highlights include:
 
-- On‑premises vs Azure TCO and year‑over‑year (YoY) cash‑flow.  
+- On‑premises vs Azure (including Azure VMware Solution) TCO and year‑over‑year (YoY) cash‑flow.  
 - Current on-premises vs On-premises with Arc TCO. 
 - Savings from Azure Hybrid Benefit (AHB), Extended Security Updates (ESU) on Azure, and Security & Management with Microsoft Defender for Cloud and Azure Monitor/Update Manager.  
 - Long term cost savings by moving from a capital expenditure model to an Operating expenditure model, by paying for only what you use.
 - Sustainability insights (estimated emissions on‑premises vs Azure and YoY reductions). 
 - Discovery insights that summarize scope, utilization, OS/DB support status, and quick wins for migration/modernization.
 
-There are 2 types of migration preferences that you can choose while building your Business case:
+There are 3 types of migration preferences that you can choose while building your Business case:
 
 | Migration Strategy | Details | Assessment insights |
 | --- | --- | --- |
 | **Modernize (Platform as a Service)** | You can get a PaaS preferred recommendation that means, the logic identifies workloads best fit for PaaS targets. <br/><br/>General servers are recommended with a quick lift and shift recommendation to Azure IaaS. | For SQL Servers, sizing and cost comes from the *Recommended report* with optimization strategy - *Modernize to PaaS* from Azure SQL assessment.<br/><br/> For web apps, sizing and cost comes from Azure App Service and Azure Kubernetes Service assessments, with a preference to App Service. For general servers, sizing and cost comes from Azure VM assessment.<br/><br/> All of these recommendations are  aggregated using the heterogenous assessments.
 | **Migrate to all IaaS (Infrastructure as a Service)** | You can get a quick lift and shift recommendation to Azure IaaS. | For SQL Servers, sizing and cost comes from the *Instance to SQL Server on Azure VM* report. <br/><br/>For general servers and servers hosting web apps, sizing and cost comes from Azure VM assessment. <br/><br/> All of these recommendations are  aggregated using the heterogenous assessments. |
+| **Migrate to Azure VMware Solution** | You can get the TCO for a quick lift and shift recommendation to Azure VMware Solution. | Sizing and cost are derived from an Azure VMware Solution assessment. <br/><br/> All of these recommendations are  aggregated using the heterogenous assessments. |
  
 Business case picks Azure recommendations from heterogenous assessments, and you will be able to access the assessments directly. To deep dive into sizing, readiness, and Azure cost estimates, you can open the respective assessment for the applications or workloads.
 
@@ -83,7 +84,7 @@ To build a business case, follow these steps:
 1. In **Migration preference**, specify the migration preference for your Business case:
     
     - With the default *Modernize*, you can get the most cost-efficient and compatible target recommendation in Azure across Azure PaaS targets with a fallback to IaaS targets if workloads aren't ready to be modernized to PaaS targets.
-    - With the Migrate to IaaS Time option, you can get a quick lift-and-shift recommendation to Azure IaaS offerings like Azure VM and Azure VMware Solution. 
+    - With the *Migrate* option, you can get a quick lift-and-shift recommendation to Azure IaaS offerings like Azure VM and Azure VMware Solution. 
     - Select **Preferred Target** as Azure VM for a quick lift and shift recommendation to Azure VM 
     - Select **Preferred Target** as Azure VMware Solution (AVS) for the most cost-effective and compatible target recommendation for hosting workloads on AVS.
     > [!Note]

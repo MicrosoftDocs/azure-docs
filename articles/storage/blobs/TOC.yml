@@ -232,6 +232,8 @@ items:
                 href: secure-file-transfer-protocol-support-how-to.md
               - name: Authorize access
                 href: secure-file-transfer-protocol-support-authorize-access.md
+              - name: Authorize access with Microsoft Entra ID (preview)
+                href: secure-file-transfer-protocol-support-entra-id-based-access.md
               - name: Connect from an SFTP client
                 href: secure-file-transfer-protocol-support-connect.md
               - name: Performance considerations

@@ -41,6 +41,7 @@ Managed private endpoints work with Azure services that support private link. Us
 - Azure SQL server
 - Azure Databricks
 - Private link services
+- Azure Database for PostgreSQL flexible servers
 
 When you create a managed private endpoint in your Azure Managed Grafana workspace, a private endpoint connection is created in a *Pending* state. This action begins an approval workflow. The private link resource owner is responsible for approving or rejecting the new connection. If the owner approves the connection, the private link is established. Otherwise, the private link isn't set up.
 
