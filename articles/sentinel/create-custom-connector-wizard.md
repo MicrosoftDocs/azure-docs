@@ -94,7 +94,7 @@ These are the steps of the Sentinel Connector Wizard.
         - **(Optional) Headers:** HTTP headers to include in the request
         - **Query window:** Time window size in minutes. This determines how often your API will be polled.
         - **(Optional) Query window delay:** Number of minutes by which to delay the query window. Use this to accommodate ingestion delays on an API, for example if it takes 30 minutes for event data to be surfaced by the API.
-        - Other fields as described within the wizard.
+        - Other fields as described within the wizard. For more information, consult the [CCF request configuration docs](data-connector-connection-rules-reference.md#request-configuration).
 
 1.  **Response**
 
@@ -117,9 +117,17 @@ These are the steps of the Sentinel Connector Wizard.
 
 1.  **Paging**
 
-    Configure the pagination style to be used in your data connector.
+    If your API supports pagination, configure the pagination style to be used in your data connector.
 
-    1. TODO
+    1. Select one of the supported pagination styles. Consult the [CCF paging configuration docs](data-connector-connection-rules-reference.md#paging-configuration) and your API's references for guidance.
+        - **LinkHeader**
+        - **PersistentLinkHeader**
+        - **NextPageToken**
+        - **PersistentToken**
+        - **NextPageUrl**
+        - **CountBasedPaging**
+        - **Offset**
+    1. Provide additional paging details as necessary.
 
 1.  **Connector details**
 
