@@ -56,7 +56,7 @@ You can create a backup policy while configuring backup, or create it directly i
     :::image type="content" source="./media/back-up-sql-server-instance-snapshot/select-policy-type-sql-server.png" alt-text="Screenshot that shows policy type selection in Azure Recovery Services vault for SQL Server in Azure VM (Snapshot backup)." lightbox="./media/back-up-sql-server-instance-snapshot/select-policy-type-sql-server.png":::
 
 1.  For **Full Snapshot backup** and **Log backup**, select **Edit** corresponding to each backup type and enter the backup schedule and retention periods.  
-    :::image type="content" source="./media/back-up-sql-server-instance-snapshot/create-backup-policy.png" alt-text="Screenshot that shows the  policy types for SQL server  in Azure VM backup." lightbox="./media/back-up-sql-server-instance-snapshot/create-backup-policy.png":::
+    :::image type="content" source="./media/back-up-sql-server-instance-snapshot/create-backup-policy.png" alt-text="Screenshot that shows the  policy types for SQL server in Azure VM backup." lightbox="./media/back-up-sql-server-instance-snapshot/create-backup-policy.png":::
 
 
       
@@ -128,7 +128,9 @@ When the SQL database discovery is complete, configure backup for the databases 
 1.  When you assign the managed identity for the first time, **Backup readiness** shows the error **Role/identity assignment not done**. To complete the role assignment, select **Assign missing roles/identity**.  
       
     After the assignment is completed, **Backup readiness** shows **Success**.  
-    Note: If you don't have permission to assign roles, download the identity assignment template and share it with an administrator who has the required access.  
+
+    >[!NOTE]
+    > If you don't have permission to assign roles, download the identity assignment template and share it with an administrator who has the required access.  
     
 1.  Select **Enable Backup** to finish the backup configuration.
 
@@ -165,7 +167,9 @@ To run an on-demand backup at the SQL database level, follow these steps:
 
 1.  On the **Backup now** pane, select one of the supported **Backup type** - **Copy only full**, **Log**, **Full**, or **Differential**.  
       
-    **Note**: The supported on-demand backup types at the database level depend on whether you create the original backup item using streaming backups or snapshot backups.  
+    >[!NOTE]
+    > The supported on-demand backup types at the database level depend on whether you create the original backup item using streaming backups or snapshot backups.  
+
     :::image type="content" source="./media/back-up-sql-server-instance-snapshot/sql-backup-type-selection.png" alt-text="Screenshot that shows how to trigger an on-demand backup for a SQL database in Azure portal." lightbox="./media/back-up-sql-server-instance-snapshot/sql-backup-type-selection.png":::
 
 1.  Select **OK**.
