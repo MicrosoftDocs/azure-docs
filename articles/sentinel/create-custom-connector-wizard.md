@@ -125,7 +125,10 @@ These are the steps of the Sentinel Connector Wizard.
 
     Customize the UI content and provide helpful instructions for the end-user of the data connector.
 
-    1. TODO
+    1. Provide
+        - **Title:** Title of your instruction step.
+        - **Description:** Description body of your instruction step. This field accepts Markdown.
+    1. Edit the individual instructions for your data connector. This section should contain auth fields as well as any other fields that should be supplied by the end-user of the data connector, introduced by usage of field syntax `{{fieldName}}` in previous steps.
 
 1.  **Review**
 
