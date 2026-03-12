@@ -9,12 +9,12 @@ ms.author: v-mallicka
 ---
 # About SQL Server Backup in Azure VMs
 
-[Azure Backup](backup-overview.md) offers a stream-based, specialized solution to back up SQL Server running in Azure VMs. This solution aligns with Azure Backup's benefits of zero-infrastructure backup, long-term retention, and central management. It additionally provides the following advantages specifically for SQL Server:
+[Azure Backup](backup-overview.md) offers a stream-based, specialized solution to back up SQL Server running in Azure Virtual Machines (VMs). This solution aligns with Azure Backup's benefits of zero-infrastructure backup, long-term retention, and central management. It additionally provides the following advantages specifically for SQL Server:
 
 - Workload aware backups that support all backup types - full, differential, and log
 - 15 minute RPO (recovery point objective) with frequent log backups
 - Point-in-time recovery up to a second
-- Individual database level back up and restore
+- Individual-database-levels backup and restore
 
 To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support). For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
 
@@ -23,17 +23,63 @@ To view the backup and restore scenarios that we support today, see the [support
 
 ## Backup process
 
-This solution leverages the SQL native APIs to take backups of your SQL databases.
+This solution uses the SQL native APIs to take backups of your SQL databases.
 
-* Once you specify the SQL Server VM that you want to protect and query for the databases in it, Azure Backup service will install a workload backup extension on the VM by the name `AzureBackupWindowsWorkload` extension.
-* This extension consists of a coordinator and a SQL plugin. While the coordinator is responsible for triggering workflows for various operations like configure backup, backup and restore, the plugin is responsible for actual data flow.
-* To be able to discover databases on this VM, Azure Backup creates the account `NT SERVICE\AzureWLBackupPluginSvc`. This account is used for backup and restore and requires SQL sysadmin permissions. The `NT SERVICE\AzureWLBackupPluginSvc` account is a [Virtual Service Account](/windows/security/identity-protection/access-control/service-accounts#virtual-accounts), and so doesn't require any password management. Azure Backup uses the `NT AUTHORITY\SYSTEM` account for database discovery/inquiry, so this account needs to be a public login on SQL. If you didn't create the SQL Server VM from Azure Marketplace, you might receive an error **UserErrorSQLNoSysadminMembership**. If this occurs [follow these instructions](#set-vm-permissions).
+* Once you specify the SQL Server VM that you want to protect and query for the databases in it, Azure Backup service installs a workload backup extension on the VM by the name `AzureBackupWindowsWorkload` extension.
+* This extension consists of a coordinator and a SQL plugin. While the coordinator is responsible for triggering workflows for various operations like configure backup, backup, and restore, the plugin is responsible for actual data flow.
+* To be able to discover databases on this VM, Azure Backup creates the account `NT SERVICE\AzureWLBackupPluginSvc`. This account is used for backup and restore and requires SQL sysadmin permissions. The `NT SERVICE\AzureWLBackupPluginSvc` account is a [Virtual Service Account](/windows/security/identity-protection/access-control/service-accounts#virtual-accounts), and so doesn't require any password management. Azure Backup uses the `NT AUTHORITY\SYSTEM` account for database discovery/inquiry, so this account needs to be a public login on SQL. If you didn't create the SQL Server VM from Azure Marketplace, you might receive an error **UserErrorSQLNoSysadminMembership**. If the error message appears, [follow these instructions](#set-vm-permissions).
 * Once you trigger configure protection on the selected databases, the backup service sets up the coordinator with the backup schedules and other policy details, which the extension caches locally on the VM.
 * At the scheduled time, the coordinator communicates with the plugin and it starts streaming the backup data from the SQL server using VDI(Virtual Device Interface).  
-* The plugin sends the data directly to the Recovery Services vault, thus eliminating the need for a staging location. The data is encrypted and stored by the Azure Backup service in storage accounts.
+* The plugin sends the data directly to the Recovery Services vault, thus eliminating the need for a staging location. The Azure Backup service encrypts and stores the data in storage accounts.
 * When the data transfer is complete, coordinator confirms the commit with the backup service.
 
   ![SQL Backup architecture](./media/backup-azure-sql-database/azure-backup-sql-overview.png)
+
+## Back up SQL Server instance snapshots (preview)
+
+Azure Backup now offers a snapshot‑based SQL backup solution that enhances performance for large databases. By combining disk snapshots for rapid restores with frequent log backups for minimal data loss, this solution provides improved Recovery Time Objective (RTO) and low Recovery Point Objective (RPO). This feature is designed to meet the performance and resiliency needs of enterprise SQL deployments in Azure.
+
+### Key benefits of snapshot backup for SQL databases in Azure VM
+
+By using the Azure Backup service to back up and restore from snapshot of SQL databases in Azure VM, you get the following advantages:
+
+- **Instance snapshot**: Create snapshot backups at the SQL instance level and select multiple databases in a single operation. Restore the entire instance or individual databases as needed.
+
+- **Minimal impact on the source server**: Azure Backup briefly quiesces the database to capture an application-consistent snapshot. This process takes only a few seconds, unlike streaming backups that continuously consume resources.
+
+- **Cost-effective**: Incremental snapshots reduce storage costs compared to streaming full backups, while providing higher durability through zone-redundant storage by default.
+
+- **Improved RTO**: Restore operations complete faster because snapshots are retained within the customer subscription.
+
+- **Faster RPO**: As with stream-based backups, log backups stream every 15 minutes and can be applied to the restored snapshot during recovery.
+
+### How does the SQL Server instance snapshot backup work?
+
+Azure Backup uses managed-disk incremental snapshots to protect SQL databases in Azure VMs. The backup policy controls snapshot creation, retention, and logs backup behavior to enable fast restores and point-in-time recovery.
+
+The backup and restore flow provides a logical, end-to-end sequence—from snapshot creation and consistency to retention and restore that involves:
+
+1.  Azure Backup creates managed-disk incremental snapshots based on the user-defined backup policy. Currently, the Azure Backup service supports one snapshot every six hours or higher.
+
+2.  The service takes snapshot backups at the SQL instance level. You can select up to eight databases per snapshot operation.
+
+3.  Azure Backup captures an application-consistent snapshot across all selected databases by snapping the underlying disks for the combined set of databases.
+
+4.  The service retains snapshots in the Azure subscription within a specified resource group for a user-defined duration (up to seven days). Azure Backup then moves the data to the Recovery Services vault as vaulted backup for long-term retention based on the configured policy.
+
+5.  Azure Backup streams log backups at the database level to the vault. During restore, the service restores the snapshot to an alternate VM and applies log backups to achieve point-in-time recovery.
+
+### Pricing for snapshot backup of SQL databases in Azure VM
+
+Backup of SQL in Azure VM snapshot incurs the following charges:
+
+- **Snapshot storage cost (Managed Disks)**: Managed disk snapshots incur charges as per Managed Disk snapshot pricing (\$0.05 per GB per month) for the duration they're retained in your subscription. [Learn about Managed disk snapshot pricing](/pricing/details/managed-disks/).
+
+- **Vault storage cost (Recovery Services vault)**: No storage charges apply after the snapshot moves to the Recovery Services vault during preview.
+
+- **Snapshot data transfer / delta cost**: The first snapshot is a full snapshot, and all subsequent snapshots are incremental, reducing the cost for ongoing snapshot storage consumption.
+
+- **Backup management cost**: During preview, Azure Backup doesn’t charge any other backup management fee for snapshot-only backups.
 
 ## Before you start
 
@@ -45,7 +91,7 @@ Before you start, verify the following requirements:
 
 ## Set VM permissions
 
-  When you run discovery on a SQL Server, Azure Backup does the following:
+  When you run discovery on a SQL Server, Azure Backup performs the following actions:
 
 * Adds the AzureBackupWindowsWorkload extension.
 * Creates an NT SERVICE\AzureWLBackupPluginSvc account to discover databases on the virtual machine. This account is used for a backup and restore and requires SQL sysadmin permissions.
@@ -53,7 +99,7 @@ Before you start, verify the following requirements:
 
 If you didn't create the SQL Server VM in Azure Marketplace or if you're on SQL 2008 or 2008 R2, you might receive a **UserErrorSQLNoSysadminMembership** error.
 
-For giving permissions in the case of **SQL 2008** and **2008 R2** running on Windows 2008 R2, refer to [here](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2).
+For giving permissions to **SQL 2008** and **2008 R2** running on Windows 2008 R2, see [this section](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2).
 
 For all other versions, fix permissions with the following steps:
 
@@ -76,7 +122,7 @@ For all other versions, fix permissions with the following steps:
   
      If the SQL Server instance is part of an **Always-On Availability Group (AG)**, ensure that the **NT AUTHORITY\SYSTEM** account has the **VIEW SERVER STATE** permission enabled.
 
-     :::image type="content" source="./media/backup-azure-sql-database/view-server-state-permission.png" alt-text="Screenshot shows how to check permission on an SQL server instance selected for backup." lightbox="./media/backup-azure-sql-database/view-server-state-permission.png":::
+     :::image type="content" source="./media/backup-azure-sql-database/view-server-state-permission.png" alt-text="Screenshot shows how to check permission on a SQL server instance selected for backup." lightbox="./media/backup-azure-sql-database/view-server-state-permission.png":::
 
 6. Now associate the database with the Recovery Services vault. In the Azure portal, in the **Protected Servers** list, right-click the server that's in an error state > **Rediscover DBs**.
 
@@ -178,16 +224,16 @@ To configure simultaneous backups, follow these steps:
      }
      ```
 
-     If there are other pre-populated entries in the JSON file, add the above two entries at the bottom of the JSON file *just before the closing curly bracket*.
+     If there are other prepopulated entries in the JSON file, add the above two entries at the bottom of the JSON file *just before the closing curly bracket*.
 
-3. For the changes to take effect immediately instead of regular one hour, go to **TaskManager** > **Services**, right-click **AzureWLbackupPluginSvc** and select **Stop**.
+3. For the changes to take effect immediately instead of regular one hour, go to **TaskManager** > **Services**, right-click **AzureWLbackupPluginSvc**, and then select **Stop**.
 
    >[!Caution]
    >This action will cancel all the ongoing backup jobs.
 
-   The naming convention of the stored backup file and the folder structure for it will be `{LocalDiskBackupFolderPath}\{SQLInstanceName}\{DatabaseName}`.
+   The naming convention of the stored backup file and the folder structure for it is `{LocalDiskBackupFolderPath}\{SQLInstanceName}\{DatabaseName}`.
 
-   For example, if you have a database `Contoso` under the SQL instance `MSSQLSERVER`, the files will be located at in `E:\LocalBackup\MSSQLSERVER\Contoso`.
+   For example, if you have a database `Contoso` under the SQL instance `MSSQLSERVER`, the files are located at in `E:\LocalBackup\MSSQLSERVER\Contoso`.
 
    The name of the file is the `VDI device set guid`, which is used for the backup operation.
 
