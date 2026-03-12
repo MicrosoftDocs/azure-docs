@@ -73,7 +73,7 @@ The backup and restore flow provides a logical, end-to-end sequence—from snaps
 
 Backup of SQL in Azure VM snapshot incurs the following charges:
 
-- **Snapshot storage cost (Managed Disks)**: Managed disk snapshots incur charges as per Managed Disk snapshot pricing (\$0.05 per GB per month) for the duration they're retained in your subscription. [Learn about Managed disk snapshot pricing](/pricing/details/managed-disks/).
+- **Snapshot storage cost (Managed Disks)**: Managed disk snapshots incur charges as per Managed Disk snapshot pricing (\$0.05 per GB per month) for the duration they're retained in your subscription. [Learn about Managed disk snapshot pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 - **Vault storage cost (Recovery Services vault)**: No storage charges apply after the snapshot moves to the Recovery Services vault during preview.
 
