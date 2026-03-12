@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/api-management/api-management-howto-entra-external-id.md",
+      "redirect_url": "/azure/api-management/api-management-howto-aad#enable-access-by-external-users",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/api-management/api-management-authenticate-authorize-azure-openai.md",
       "redirect_url": "/azure/api-management/api-management-authenticate-authorize-ai-apis",
       "redirect_document_id": false

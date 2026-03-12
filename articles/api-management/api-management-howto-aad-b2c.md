@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 03/12/2026
 ms.author: danlep
 ms.custom:
   - engagement-fy23
@@ -21,7 +21,7 @@ ms.custom:
 [!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 > [!IMPORTANT]
-> We recommend that you use [Microsoft Entra External ID](/entra/external-id/external-identities-overview) as an identity provider instead of Azure Active Directory B2C for new deployments of the API Management developer portal. For more information, see [How to authorize developer accounts by using Microsoft Entra External ID](api-management-howto-entra-external-id.md).
+> We recommend that you [enable access by external users in your Microsoft Entra ID workforce tenant](api-management-howto-aad.md#enable-access-by-external-users-in-your-microsoft-entra-id-tenant-optional) instead of configuring Azure Active Directory B2C for new deployments of the API Management developer portal.
 
 Azure Active Directory B2C is a cloud identity management solution for consumer-facing web and mobile applications. You can use it to manage access to your API Management developer portal. 
 
