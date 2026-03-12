@@ -64,6 +64,8 @@ Geography | Metadata storage location
 Africa | South Africa or North Africa
 Asia Pacific | East Asia
 Australia | Australia East or Australia Southeast
+Austria | AustriaEast
+Belgium | BelgiumCentral
 Brazil | Brazil South
 Canada | Canada Central or Canada East
 Europe | North Europe or West Europe

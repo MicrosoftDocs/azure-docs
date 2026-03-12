@@ -5,7 +5,7 @@ author: duongau
 ms.author: duau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 05/10/2023
+ms.date: 03/11/2026
 # Customer intent: "As a network administrator, I want to understand the planned maintenance process for ExpressRoute circuits, so that I can ensure reliable connectivity and minimize service disruptions during maintenance events."
 ---
 
@@ -52,7 +52,7 @@ After you complete the activation of an ExpressRoute circuit and before being us
 
 The process of validation of ExpressRoute circuit failover can be executed in two steps:
 
-1. Shut down the BGP session between your on-premises edge router and the primary connection on the MSEE router. This forces the traffic only through the secondary connection. You can monitor the traffic statistics on the MSEE connection using the [`Get-AzExpressRouteCircuitStats`](expressroute-troubleshooting-expressroute-overview.md#confirm-the-traffic-flow) command. The **BitsInPerSecond** and **BitsOutPerSecond** traffic metrics should only increment on the path that is currently active.  
+1. Shut down the BGP session between your on-premises edge router and the primary connection on the MSEE router. This forces the traffic only through the secondary connection. You can monitor the traffic statistics on the MSEE connection using the [`Get-AzExpressRouteCircuitStats`](/troubleshoot/azure/expressroute/expressroute-troubleshooting-expressroute-overview#confirm-the-traffic-flow) command. The **BitsInPerSecond** and **BitsOutPerSecond** traffic metrics should only increment on the path that is currently active.
 
     :::image type="content" source="./media/planned-maintenance/primary-down.png" alt-text="Diagram of BGP peering down for primary connection of an ExpressRoute circuit.":::
 
@@ -64,7 +64,7 @@ The process of validation of ExpressRoute circuit failover can be executed in tw
 
 You can run more tests by introducing AS path prepend on each path from your on-premises towards the MSEE to verify the traffic flow failover. A similar testing can be performed working with your service provider to introduce AS path prepend towards your on-premises network from provider edge. The described failover procedure should be verified for the ExpressRoute private peering and ExpressRoute Microsoft peering.
 
-To check the status of BGP sessions in the failover test, you can use the guidelines described in the [Verify ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md) documentation.
+To check the status of BGP sessions in the failover test, you can use the guidelines described in the [Verify ExpressRoute connectivity](/troubleshoot/azure/expressroute/expressroute-troubleshooting-expressroute-overview) documentation.
 
 The failover validation of an ExpressRoute circuit reduces the risk of outages during planned ExpressRoute circuits maintenance.
 
@@ -77,7 +77,7 @@ If the verification of ExpressRoute circuit failover hasn't been completed and t
 
 You should track the status of connections through ExpressRoute circuits. Tracking the health of network connectivity is important to react to unhealthy status and taking prompt remediation. [Azure Monitor alerts](monitor-expressroute.md)  proactively notifies you when conditions causing negative effects are found in your monitoring data.
 
-Review the available metrics for [ExpressRoute monitoring](expressroute-monitoring-metrics-alerts.md) for ExpressRoute circuit and Direct ports. At the minimum you should configure alerts to trigger for **ARP availability**, **BGP availability** and **Line Protocol**. Then configure email notifications to be sent when an out of service occurs.  
+Review the available metrics for [ExpressRoute monitoring](monitor-expressroute-reference.md) for ExpressRoute circuit and Direct ports. At the minimum you should configure alerts to trigger for **ARP availability**, **BGP availability** and **Line Protocol**. Then configure email notifications to be sent when an out of service occurs.  
 
 You can elevate the monitor information by using [Connection Monitor for ExpressRoute](how-to-configure-connection-monitor.md). Connection monitor is a cloud-based network monitoring solution that monitors connectivity between on-premises networks (branch offices, etc.) and Azure cloud deployments. This service is used to track not only service disruptions but also end-to-end performance degradation for your services.
 

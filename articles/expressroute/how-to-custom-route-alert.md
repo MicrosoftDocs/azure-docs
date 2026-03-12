@@ -1,11 +1,10 @@
 ---
 title: 'Configure custom alerts to monitor advertised routes - Azure ExpressRoute'
 description: This article shows you how to use Azure Automation and Logic Apps to monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks.
-services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 12/28/2023
+ms.date: 03/11/2026
 ms.author: duau
 ms.custom:
   - devx-track-azurepowershell
@@ -15,21 +14,21 @@ ms.custom:
 
 # Configure custom alerts to monitor advertised routes
 
-This article helps you use Azure Automation and Logic Apps to constantly monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks. Monitoring can help prevent hitting the 1000 [routes limit](expressroute-faqs.md#how-many-prefixes-can-be-advertised-from-a-virtual-network-to-on-premises-on-expressroute-private-peering)
+This article shows you how to use Azure Automation and Logic Apps to constantly monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks. Monitoring helps prevent hitting the 1,000 [routes limit](expressroute-faqs.md#how-many-prefixes-can-be-advertised-from-a-virtual-network-to-on-premises-on-expressroute-private-peering).
 
-**Azure Automation** allows you to automate execution of custom PowerShell script stored in a *runbook*. This article describes a configuration that uses a runbook with a PowerShell script. The script queries one or more ExpressRoute gateways and collects a dataset. The dataset includes the resource group, the ExpressRoute gateway name, and the number of network prefixes advertised from on-premises networks.
+**Azure Automation** helps you automate the execution of a custom PowerShell script stored in a *runbook*. This article describes a configuration that uses a runbook with a PowerShell script. The script queries one or more ExpressRoute gateways and collects a dataset. The dataset includes the resource group, the ExpressRoute gateway name, and the number of network prefixes advertised from on-premises networks.
 
-**Azure Logic Apps** schedules a custom workflow that calls the Azure Automation runbook. The execution of the runbook is done using a job. After data collection runs, the Azure Logic Apps workflow classifies the data and, based on match criteria on number of network prefixes greater or less than a predefine threshold, then sends information to a destination email address.
+**Azure Logic Apps** schedules a custom workflow that calls the Azure Automation runbook. The workflow uses a job to run the runbook. After data collection runs, the Azure Logic Apps workflow classifies the data. Based on match criteria for the number of network prefixes, it sends an email if the count is greater or less than a predefined threshold.
 
 ### <a name="workflow"></a>Workflow
 
-Setting up a custom alert is based on three main steps:
+Setting up a custom alert involves three main steps:
 
-1. Create an Automation Account with a "Run As" account and permissions.
+1. Create an Automation account with a system-assigned managed identity and permissions.
 
 2. Create and configure runbooks.
 
-3. Create a logic app that fires the Automation Account and send an alerts e-mail if the number is greater than a threshold (for example, 160).
+3. Create a logic app that starts the Automation Account and sends an alert email if the number is greater than a threshold (for example, 160).
 
 ## <a name="before"></a>Before you begin
 
@@ -39,49 +38,43 @@ Verify that you meet the following criteria before beginning your configuration:
 
 * You're familiar with [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
-* You're familiar with using Azure PowerShell. Azure PowerShell is required to collect the network prefixes in ExpressRoute gateway. For more information about Azure PowerShell in general, see the [Azure PowerShell documentation](/powershell/azure/).
+* You're familiar with using Azure PowerShell. You need Azure PowerShell to collect the network prefixes in ExpressRoute gateway. For more information about Azure PowerShell, see the [Azure PowerShell documentation](/powershell/azure/).
 
 ### <a name="limitations"></a>Notes and limitations
 
-* The custom alert discussed in this article is an add-on to achieve better operation and control. It isn't a replacement for the native alerts in ExpressRoute.
-* Data collection for ExpressRoute gateways runs in the background. Runtime can be longer than expected. To avoid job queuing, the workflow recurrence must be set up properly.
-* Deployments by scripts or ARM templates could happen faster than the custom alarm trigger. This could result in increasing in number of network prefixes in ExpressRoute gateway above the limit of 1000 routes.
+* The custom alert discussed in this article provides better operation and control. It isn't a replacement for the native alerts in ExpressRoute.
+* Data collection for ExpressRoute gateways runs in the background. Runtime can be longer than expected. To avoid job queuing, set up the workflow recurrence properly.
+* Deployments by scripts or ARM templates can happen faster than the custom alert trigger. This speed difference can increase the number of network prefixes in an ExpressRoute gateway beyond the limit of 1,000 routes.
 
 ## <a name="accounts"></a>Create and configure accounts
 
-When you create an Automation account in the Azure portal, a Run As account is automatically created. This account takes following actions:
+When you create an Automation account in the Azure portal, you automatically create a system-assigned managed identity. Runbooks use this identity to authenticate and access Azure resources, replacing the retired **Run As** account.
 
-* Creates a Microsoft Entra application with a self-signed certificate. The Run As account itself has a certificate that needs to be renewed by default every year.
-
-* Creates a service principal account for the application in Microsoft Entra ID.
-
-* Assigns itself the Contributor role (Azure role-base access control) on the Azure Subscription in use. This role manages Azure Resource Manager resources using runbooks.
-
-In order to create an Automation account, you need privileges and permissions. For information, see [Permissions required to create an Automation account](../automation/automation-create-standalone-account.md#permissions-required-to-create-an-automation-account).
+To create an Automation account, you need privileges and permissions. For more information, see [Permissions required to create an Automation account](../automation/automation-create-standalone-account.md#permissions-required-to-create-an-automation-account).
 
 ### <a name="about"></a>1. Create an automation account
 
-Create an Automation account with run-as permissions. For instructions, see [Create an Azure Automation account](../automation/quickstarts/create-azure-automation-account-portal.md).
+Create an Automation account. For instructions, see [Create an Azure Automation account](../automation/quickstarts/create-azure-automation-account-portal.md).
 
-### <a name="about"></a>2. Assign the Run As account a role
+### <a name="about"></a>2. Assign the managed identity a role
 
-By default, the **Contributor** role is assigned to the service principal that is used by your **Run As** account. You can keep the default role assigned to the service principal, or you can restrict permissions by assigning a [built-in role](../role-based-access-control/built-in-roles.md) (for example, Reader) or a [custom role](../active-directory/roles/custom-create.md).
+By default, a system-assigned managed identity has no role assignments. Assign it the **Reader** role (or a least-privilege custom role) on the subscriptions or resource groups that contain your ExpressRoute gateways.
 
- Use the following steps to determine the role assign to the service principal that is used by your Run As account:
+Use the following steps to assign a role to the managed identity:
 
-1. Navigate to your Automation account. Navigate to **Account Settings**, then select **Run as accounts**.
+1. Go to your Automation account. Under **Account Settings**, select **Identity**.
 
-2. Select **Roles** to view the role definition that is being used.
+2. On the **System assigned** tab, confirm the status is **On**, and then select **Azure role assignments**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/run-as-account-permissions.png" alt-text="Assign role":::
+3. Select **Add role assignment**, choose the appropriate **Scope**, **Subscription**, and **Resource group**, and then assign the **Reader** role.
 
 ## <a name="runbooks"></a>Create and configure runbooks
 
 ### <a name="install-modules"></a>1. Install modules
 
-In order to run PowerShell cmdlets in Azure Automation runbooks, you need to install a few extra Az PowerShell module. Use the following steps to install the modules:
+To run PowerShell cmdlets in Azure Automation runbooks, you need to install a few extra Az PowerShell modules. Use the following steps to install the modules:
 
-1. Open your Azure Automation Account and navigate to **Modules**.
+1. Open your Azure Automation Account and go to **Modules**.
 
    :::image type="content" source="./media/custom-route-alert-portal/navigate-modules.png" alt-text="Navigate to modules":::
 
@@ -91,20 +84,20 @@ In order to run PowerShell cmdlets in Azure Automation runbooks, you need to ins
   
 ### <a name="create"></a>2. Create a runbook
 
-1. To create your PowerShell runbook, navigate to your Automation Account. Under **Process Automation**, select the **Runbooks** tile, and then select **Create a runbook**.
+1. To create your PowerShell runbook, go to your Automation Account. Under **Process Automation**, select the **Runbooks** tile, and then select **Create a runbook**.
 
 2. Select **Create** to create the runbook.
 
-3. Select the newly created runbook, then select **Edit**.
+3. Select the new runbook, and then select **Edit**.
 
    :::image type="content" source="./media/custom-route-alert-portal/edit-runbook.png" alt-text="Edit runbook":::
 
-4. In **Edit**, paste the PowerShell script. The [Example script](#script) can be modified and used to monitor ExpressRoute gateways in one or more resource groups.
+4. In **Edit**, paste the PowerShell script. You can modify and use the [Example script](#script) to monitor ExpressRoute gateways in one or more resource groups.
 
    In the example script, notice the following settings:
 
-    * The array **$rgList** contains the list of resource groups with ExpressRoute gateways. You can customize the list-based ExpressRoute gateways.
-    * The variable **$thresholdNumRoutes** define the threshold on the number of network prefixes advertised from an ExpressRoute gateway to the on-premises networks.
+    * The array **$rgList** contains the list of resource groups with ExpressRoute gateways. You can customize the list of ExpressRoute gateways.
+    * The variable **$thresholdNumRoutes** defines the threshold for the number of network prefixes advertised from an ExpressRoute gateway to the on-premises networks.
 
 #### <a name="script"></a>Example script
 
@@ -118,41 +111,16 @@ $thresholdNumRoutes = 160
 # Ensures you do not inherit an AzContext in your runbook
 Disable-AzContextAutosave -Scope Process | Out-Null
 
+# Connect using the Automation account's system-assigned managed identity
 Try {
-
-   $conn = Get-AutomationConnection -Name 'AzureRunAsConnection'
-   while(!($connectionResult) -And ($logonAttempt -le 5))
-   {
-        $LogonAttempt++
-        # Logging in to Azure...
-        $connectionResult =  Connect-AzAccount `
-                               -ServicePrincipal `
-                               -ApplicationId $conn.ApplicationId `
-                               -Tenant $conn.TenantId `
-                               -CertificateThumbprint $conn.CertificateThumbprint `
-                               -Subscription $conn.SubscriptionId `
-                               -Environment AzureCloud 
-                               
-        Start-Sleep -Seconds 10
-    }
+    Connect-AzAccount -Identity
 } Catch {
-    if (!$conn)
-    {
-        $ErrorMessage = "Service principal not found."
-        throw $ErrorMessage
-    } 
-    else
-    {
-        Write-Error -Message $_.Exception
-        throw $_.Exception
-    }
+    Write-Error -Message $_.Exception
+    throw $_.Exception
 }
 
 # Get the name of the Azure subscription
-$subscriptionName=(Get-AzSubscription -SubscriptionId $conn.SubscriptionId).Name
-
-#write-Output "<br>$(Get-Date) - selection of the Azure subscription: $subscriptionName" 
-Select-AzSubscription -SubscriptionId $conn.SubscriptionId | Out-Null
+$subscriptionName=(Get-AzContext).Subscription.Name
 
 
 $GtwList = @()
@@ -222,7 +190,7 @@ Write-Output  $jsonResults
 1. Select **Save** to save a draft copy of the runbook.
 2. Select **Publish** to publish the runbook as the official version of the runbook in the automation account.
 
-When you run the PowerShell script, a list of values is collected:
+When you run the PowerShell script, it collects a list of values:
  
 * Resource group
 
@@ -240,25 +208,25 @@ When you run the PowerShell script, a list of values is collected:
 
 * Status, classified as:
 
-  * 'OK' if the number of routes is less than a threshold value
-  * 'ALERT' if the number of routes if above a threshold value
-  * 'WARNING' if the number of network prefixes advertised to the two BGP peer is different
+  * `OK` if the number of routes is less than a threshold value
+  * `ALERT` if the number of routes is above a threshold value
+  * `WARNING` if the number of network prefixes advertised to the two BGP peers is different
 
-* Alert message, for a verbose description of the status (OK, ALERT, WARNING)
+* Alert message, for a verbose description of the status (`OK`, `ALERT`, `WARNING`)
 
-The PowerShell script converts the collected information to a JSON output. The runbook uses the PowerShell cmdlet [Write-Output](/powershell/module/Microsoft.PowerShell.Utility/Write-Output)  as Output stream to communicate information to the client.
+The PowerShell script converts the collected information to JSON output. The runbook uses the PowerShell cmdlet [Write-Output](/powershell/module/Microsoft.PowerShell.Utility/Write-Output) to communicate information to the client through the output stream.
 
 ### <a name="validate"></a>4. Validate the runbook
 
-Once the runbook is created, it must be validated. Select **Start** and check the output and errors for the different job streams.
+After you create the runbook, validate it. Select **Start** and check the output and errors for the different job streams.
 
 ## <a name="logic"></a>Create and configure a logic app
 
-Azure Logic Apps is the orchestrator of all process of collection and actions. In the following sections, you build a workflow using a logic app.
+Azure Logic Apps orchestrates the entire process of collection and actions. In the following sections, you build a workflow by using a logic app.
 
 ### Workflow
 
-For this logic app, you build a workflow that regularly monitors ExpressRoute gateways. If new items exist, the workflow sends an email for each item. When you're done, your workflow looks like this example at a high level:
+For this logic app, you build a workflow that regularly monitors ExpressRoute gateways. If new items exist, the workflow sends an email for each item. When you finish, your workflow looks like this example at a high level:
 
 :::image type="content" source="./media/custom-route-alert-portal/logic-apps-workflow.png" alt-text="Logic Apps workflow":::
 
@@ -278,7 +246,7 @@ In the Recurrence trigger, you can set the time zone and a recurrence for repeat
 
 * The PowerShell script in the Automation runbook takes time to complete. The runtime depends on the number of ExpressRoute gateways to monitor. A too short recurrence frequency causes job queuing.
 
-* The PowerShell script runs as a job in background. It doesn’t start immediately; it runs after a variable delay.
+* The PowerShell script runs as a job in background. It doesn't start immediately; it runs after a variable delay.
 
 * A too short recurrence frequency generates unneeded load on your Azure ExpressRoute gateways.
 
@@ -286,33 +254,31 @@ At the end of the workflow configuration, you can check the consistency of the r
 
 ### <a name="job"></a>3. Create a job
 
-A logic app workflow accesses other apps, services, and the platform though connectors. The next step is to select a connector to access the Azure Automation account that was defined earlier.
+A logic app workflow accesses other apps, services, and the platform through connectors. The next step is to select a connector to access the Azure Automation account that you defined earlier.
 
 1. In **Logic Apps Designer**, below **Recurrence**, select **New step**. Under **Choose an action** and the search box, select **All**.
-2. In the search box, type **Azure Automation** and search. Select **Create job**. **Create job** is used to fire the automation runbook that was created earlier.
+2. In the search box, type **Azure Automation** and search. Select **Create job**. Use **Create job** to start the automation runbook that you created earlier.
 
-3. Sign in using a service principal. You can use an existing service principal, or you can create a new one. To create a new service principal, see [How to use the portal to create a Microsoft Entra service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Select **Connect with Service Principal**.
+3. Sign in by using a managed identity or service principal. To connect by using a managed identity, select **Connect with Managed Identity** and choose the managed identity associated with your Automation account.
 
-4. Type a **Connection Name**, add your **Client ID** (Application ID), **Client Secret**, and your **Tenant ID**. Then, select **Create**.
-
-5. On the **Create job** page, the service principal should have the "Reader" role on the **Resource Group** hosting the automation account, and "Automation Job Operator" on the **Automation Account**. Additionally, verify that you added the **Runbook Name** as a new parameter.
+4. On the **Create job** page, the managed identity should have the **Reader** role on the **Resource Group** hosting the automation account, and **Automation Job Operator** on the **Automation Account**. Additionally, verify that you added the **Runbook Name** as a new parameter.
 
 ### <a name="output"></a>4. Get the job output
 
 1. Select **New step**. Search for *Azure Automation*. From the **Actions** list, select **Get job output**.
 
-2. On the **Get job output** page, specify the required information to access to the automation account. Select the **Subscription, Resource Group**, and **Automation Account** that you want to use. Select inside the **Job ID** box. When the **Dynamic content** list appears, select **Job ID**.
+2. On **Get job output**, specify the required information to access the automation account. Select the **Subscription**, **Resource Group**, and **Automation Account** that you want to use. Select inside the **Job ID** box. When the **Dynamic content** list appears, select **Job ID**.
 
 ### <a name="parse"></a>5. Parse the JSON
 
-The information contained in the output from the 'Azure Automation Create job action' (previous steps) generates a JSON object. The built-in **Parse JSON** action creates user-friendly tokens from the properties and their values in JSON content. You can then use those properties in your workflow.
+The output from the 'Azure Automation Create job action' (previous steps) contains a JSON object. The built-in **Parse JSON** action creates user-friendly tokens from the properties and their values in JSON content. You can then use those properties in your workflow.
 
 1. Add an action. Under the **Get job output ->action**, select **New step**.
 2. In the **Choose an action** search box, type "parse json" to search for connectors that offer this action. Under the **Actions** list, select the **Parse JSON** action for the data operations that you want to use.
 
-3. Select inside the **Content** box. When the Dynamic content list appears, select **Content**.
+3. Select inside the **Content** box. When the **Dynamic content** list appears, select **Content**.
 
-4. Parsing a JSON requires a schema. The schema can be generated using the output of the Automation runbook. Open a new web browser session, run the Automation runbook and grab the output. Return to the **Logic Apps Parse JSON Data Operations** action. At the bottom of the page, select **Use sample payload to generate schema**.
+4. Parsing a JSON requires a schema. You can generate the schema by using the output of the Automation runbook. Open a new web browser session, run the Automation runbook, and grab the output. Return to the **Logic Apps Parse JSON Data Operations** action. At the bottom of the page, select **Use sample payload to generate schema**.
 
 5. For **Enter or paste a sample JSON payload**, paste the output of the Automation runbook and select **Done**.
 
@@ -322,7 +288,7 @@ The information contained in the output from the 'Azure Automation Create job ac
 
 ### <a name="define-variable"></a>6. Define and initialize a variable
 
-In this step of the workflow, we create a condition to send an alarm by email. For a flexible, custom formatting of an email body message, an auxiliary variable is introduced in the workflow.
+In this step of the workflow, you create a condition to send an alarm by email. For a flexible, custom formatting of an email body message, introduce an auxiliary variable in the workflow.
 
 1. Under the **Get job output action**, select **New step**. In the search box, find and select **Variables**.
 
@@ -330,11 +296,11 @@ In this step of the workflow, we create a condition to send an alarm by email. F
 
    :::image type="content" source="./media/custom-route-alert-portal/initialize-variables.png" alt-text="Initialize variables":::
 
-3. Specify the name of the variable. For **Type**, select **String**. The **Value** of the variable gets assigned later in the workflow.
+3. Specify the name of the variable. For **Type**, select **String**. Assign the **Value** of the variable later in the workflow.
 
 ### <a name="cycles-json"></a>7. Create a "For each" action
 
-Once the JSON is parsed, the **Parse JSON Data Operations** action stores the content in the *Body* output. To process the output, you can create a "For each" loop repeating one or more actions on each item in the array.
+Once the JSON is parsed, the **Parse JSON Data Operations** action stores the content in the *Body* output. To process the output, create a "For each" loop that repeats one or more actions on each item in the array.
 
 1. Under **Initialize variable**, select **Add an action**. In the search box, type "for each" as your filter.
 
@@ -342,28 +308,28 @@ Once the JSON is parsed, the **Parse JSON Data Operations** action stores the co
 
 3. Select in the **Select an output from previous steps** text box. When the **Dynamic content** list appears, select the **Body**, which is output from the parsed JSON.
 
-4. For each element of JSON body, we want to set a condition. From the action group, select **Control**.
+4. For each element of JSON body, set a condition. From the action group, select **Control**.
 
 
-5. In the **Actions** list, select **Condition-Control**. The Condition-Control is a control structure compares the data in your workflow against specific values or fields. You can then specify different actions that run based on whether or not, the data meets the condition.
+5. In the **Actions** list, select **Condition-Control**. The Condition-Control is a control structure that compares the data in your workflow against specific values or fields. You can then specify different actions that run based on whether the data meets the condition.
 
 6. In the root of **Condition** action, change the logic operation to **Or**.
 
-7. Check the value for the number of network prefixes an ExpressRoute gateway advertises to the two BGP peers. The number of routes is available in "numRoutePeer1" and "numRoutePeer2" in **Dynamic content**. In the value box, type the value for **numRoutePeer1**.
+7. Check the value for the number of network prefixes an ExpressRoute gateway advertises to the two BGP peers. The number of routes is available in `numRoutePeer1` and `numRoutePeer2` in **Dynamic content**. In the value box, type the value for `numRoutePeer1`.
 
-8. To add another row to your condition, choose **Add -> Add row**. In the second box, from **Dynamic content**, select **numRoutePeer2**.
+8. To add another row to your condition, choose **Add -> Add row**. In the second box, from **Dynamic content**, select `numRoutePeer2`.
 
-9. The logic condition is true when one of two dynamic variables, numRoute1 or numRoute2, is greater than the threshold. In this example, the threshold is fixed to 800 (80% of max value of 1000 routes). You can change the threshold value to fit your requirements. For consistency, the value should be the same value used in the runbook PowerShell script.
+9. The logic condition is true when one of two dynamic variables, `numRoute1` or `numRoute2`, is greater than the threshold. In this example, the threshold is fixed to 800 (80% of max value of 1000 routes). You can change the threshold value to fit your requirements. For consistency, use the same value in the runbook PowerShell script.
 
-10. Under **If true**, format and create the actions to send the alert by email. In **Choose an action, search and select **Variables**.
+10. Under **If true**, format and create the actions to send the alert by email. In **Choose an action**, search and select **Variables**.
 
-11. In Variables, select **Add an action**. In the **Actions** list,  select **Set variable**.
+11. In **Variables**, select **Add an action**. In the **Actions** list, select **Set variable**.
 
-12. In **Name**, select the variable named **EmailBody** that you previously created. For **Value**, paste the HTML script required to format the alert email. Use the **Dynamic content** to include the values of JSON body. After configuring these settings, the result is that the variable **Emailbody** contains all the information related to the alert, in HTML format.
+12. In **Name**, select the variable named **EmailBody** that you previously created. For **Value**, paste the HTML script required to format the alert email. Use the **Dynamic content** to include the values of JSON body. After configuring these settings, the variable **EmailBody** contains all the information related to the alert, in HTML format.
 
 ### <a name="email"></a>8. Add the Email connector
 
-Logic Apps provides many email connectors. In this example, we add an Outlook connector to send the alert by email. Under **Set variable**, select **Add an action**. In **Choose an action**, type "send email" in the search box.
+Logic Apps provides many email connectors. In this example, add an Outlook connector to send the alert by email. Under **Set variable**, select **Add an action**. In **Choose an action**, type "send email" in the search box.
 
 1. Select **Office 365 Outlook**.
 
@@ -373,13 +339,13 @@ Logic Apps provides many email connectors. In this example, we add an Outlook co
 
 4. In the **Body** field, select **Add dynamic content**. From the Dynamic content panel, add the variable **Emailbody**. Fill out the **Subject** and **To** fields.
 
-5. The **Send an email (v2)** action complete the workflow setup.
+5. The **Send an email (v2)** action completes the workflow setup.
 
    :::image type="content" source="./media/custom-route-alert-portal/send-email-v2.png" alt-text="Send email v2" lightbox="./media/custom-route-alert-portal/send-email-v2-expand.png":::
 
 ### <a name="validation"></a>9. Workflow validation
 
-The final step is the workflow validation. In **Logic Apps Overview**, select **Run Trigger**. Select **Recurrence**. The workflow can be monitored and verified in the **Runs history**.
+The final step is the workflow validation. In **Logic Apps Overview**, select **Run Trigger**. Select **Recurrence**. You can monitor and verify the workflow in the **Runs history**.
 
 :::image type="content" source="./media/custom-route-alert-portal/trigger.png" alt-text="Run trigger":::
 

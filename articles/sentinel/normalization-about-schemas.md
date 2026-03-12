@@ -43,6 +43,8 @@ ASIM currently defines the following schemas for entities:
 | ------ | --------------------- | ------- | ------ |
 | [Asset Entity](normalization-schema-asset.md) | `AssetEntity` | 0.1.0 | GA |
 
+For entities which are part of other ASIM schemas, refer to [Event Entities](#event-entities).
+
 ## Field naming
 
 At the core of each schema are its field names. Field names belong to the following groups:
@@ -85,6 +87,9 @@ For more information about specific entity types, refer to:
 - [User Entity](normalization-entity-user.md)
 - [Device Entity](normalization-entity-device.md)
 - [Application Entity](normalization-entity-application.md)
+
+For more information about full entity schemas, refer to:
+- [Asset Entity Schema](normalization-schema-asset.md)
 
 ## Aliases
 
