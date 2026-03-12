@@ -218,7 +218,7 @@ To modify an existing SQL instance snapshot backup policy, follow these steps:
 
     - SQL Server in Azure VM (Snapshot backup)
 
-> :::image type="content" source="media/manage-monitor-sql-database-backup/sql-backup-policy-list.png" alt-text="Screenshot of Azure Recovery Services vault with Backup policies tab selected, listing SQL Server and VM backup policy options." lightbox="media/manage-monitor-sql-database-backup/sql-backup-policy-list.png":::
+    :::image type="content" source="media/manage-monitor-sql-database-backup/sql-backup-policy-list.png" alt-text="Screenshot of Azure Recovery Services vault with Backup policies tab selected, listing SQL Server and VM backup policy options." lightbox="media/manage-monitor-sql-database-backup/sql-backup-policy-list.png":::
 
 3.  On the **Modify policy** pane, do the required changes, and then select **Update**.
 
