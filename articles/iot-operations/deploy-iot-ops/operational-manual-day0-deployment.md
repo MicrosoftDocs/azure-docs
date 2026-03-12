@@ -44,13 +44,55 @@ An Azure IoT Operations *deployment* includes the instance, Arc extensions, cust
 
 | Topology | Use Case | Min Hardware |
 |---|---|---|
-| **Single-node** | Small deployments, up to ~125 assets, ~6,250 tags | 4 vCPU, 16 GB RAM, 30 GB storage |
-| **Multi-node (3-5 nodes)** | High availability, up to ~85K assets, ~50K data points/sec | 8 vCPU, 32 GB RAM per node |
+| **Single-node** | Smaller deployments where high availability isn't required | 4 vCPU, 16 GB RAM, 30 GB storage |
+| **Multi-node (3-5 nodes)** | High availability and higher throughput requirements | 8 vCPU, 32 GB RAM per node |
 
-**Performance benchmarks** (validated by Microsoft):
+**MQTT broker cardinality guidance for optimal performance:**
 
-- **Single-node**: 125 assets, 6,250 tags, 125 msg/sec → 6-8 GB RAM, ~2,500 millicores, <10s E2E latency
-- **5-node cluster**: 85K assets, 50K data points/sec → 25-30 GB RAM, ~3,000 millicores, <10s E2E latency
+The MQTT broker cardinality settings should be tuned based on your cluster hardware. The following recommendations help you get the best performance from your deployment.
+
+#### Single-node recommendations
+
+- **Frontend replicas**: Set to at least **2** so the broker can perform rolling updates without downtime.
+- **Frontend workers**: Set equal to the **number of CPU cores** on the node.
+
+*Example — single node with 4 CPU cores:*
+
+| Setting | Value |
+|---|---|
+| frontendReplicas | 2 |
+| frontendWorkers | 4 |
+| backendRedundancyFactor | 2 |
+| backendWorkers | 1 |
+| backendPartitions | 1 |
+
+#### Multi-node recommendations
+
+- **Frontend replicas**: Set to **1 per node** to distribute load evenly across the cluster.
+- **Frontend workers**: Set equal to the **number of CPU cores** per node.
+- **Backend replicas (redundancy factor)**: Set to **2** for redundancy and rolling update support.
+- **Backend partitions**: Set equal to the **number of nodes** in the cluster.
+- **Backend workers**: Set to **half the number of CPU cores** per node.
+
+*Example — 3-node cluster, 8 CPU cores per node:*
+
+| Setting | Value |
+|---|---|
+| frontendReplicas | 3 |
+| frontendWorkers | 8 |
+| backendRedundancyFactor | 2 |
+| backendWorkers | 4 |
+| backendPartitions | 3 |
+
+*Example — 5-node cluster, 16 CPU cores per node:*
+
+| Setting | Value |
+|---|---|
+| frontendReplicas | 5 |
+| frontendWorkers | 16 |
+| backendRedundancyFactor | 2 |
+| backendWorkers | 8 |
+| backendPartitions | 5 |
 
 ### 1.3 Choose Your Platform
 
@@ -490,18 +532,31 @@ For AKS deployments with secure settings, block pod access to the Azure Instance
    - Choose deployment version **1.2 (latest)**
 
 4. **Configuration tab**:
-   - Configure MQTT broker cardinality and memory profile:
+   - Configure MQTT broker cardinality and memory profile based on your cluster hardware. See [section 1.2](#12-choose-your-cluster-topology) for detailed recommendations.
 
-   | Setting | Single-Node | Multi-Node |
-   |---|---|---|
-   | frontendReplicas | 1 | 5 |
-   | frontendWorkers | 4 | 8 |
-   | backendRedundancyFactor | 2 (minimum) | 2 (minimum) |
-   | backendWorkers | 1 | 4 |
-   | backendPartitions | 1 | 5 |
-   | Memory profile | Low | High |
+   **Single-node example** (4 CPU cores):
 
-   > **Critical**: Backend redundancy factor must be **2 or greater** for high availability and rolling upgrade support.
+   | Setting | Value |
+   |---|---|
+   | frontendReplicas | 2 |
+   | frontendWorkers | 4 |
+   | backendRedundancyFactor | 2 |
+   | backendWorkers | 1 |
+   | backendPartitions | 1 |
+   | Memory profile | Low |
+
+   **Multi-node example** (3 nodes, 8 CPU cores per node):
+
+   | Setting | Value |
+   |---|---|
+   | frontendReplicas | 3 |
+   | frontendWorkers | 8 |
+   | backendRedundancyFactor | 2 |
+   | backendWorkers | 4 |
+   | backendPartitions | 3 |
+   | Memory profile | High |
+
+   > **Critical**: Backend redundancy factor must be **2 or greater** for high availability and rolling upgrade support. Always set at least **2 frontend replicas** on single-node deployments to enable rolling updates.
 
    - Configure data flow profile (instance count for scaling)
 
