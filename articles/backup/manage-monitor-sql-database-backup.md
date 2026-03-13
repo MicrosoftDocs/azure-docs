@@ -17,9 +17,12 @@ If you haven't yet configured backups for your SQL Server databases, see [Back u
 
 To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support). For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
 
-## View backup items for SQL database and snapshot (preview)
+>[!NOTE]
+>SQL Server instance snapshot backup management isn't supported with [Resiliency](../resiliency/resiliency-overview.md). [Learn more about the supported and unsupported scenarios for SQL Server instance snapshot backup (preview)](sql-support-matrix.md#sql-server-instance-snapshot-backups-supported-and-unsupported-scenarios-preview).
 
-After you configure snapshot backup for a SQL instance, Azure Backup shows the backup items in the Azure portal. Azure creates one backup item for the protected SQL instance, which you use for instance-level actions. These items appear under **SQL Server in Azure VM (Snapshot backup)**.
+## View backup items for SQL database and SQL Server instance (preview)
+
+After you configure snapshot backup for a SQL Server instance, Azure Backup shows the backup items in the Azure portal. Azure creates one backup item for the protected SQL instance, which you use for instance-level actions. These items appear under **SQL Server in Azure VM (Snapshot backup)**.
 
 Azure also creates a separate backup item for each protected database in the instance. You use these items to perform database-level actions, such as restoring a database. These items appear under **SQL database in Azure VM (Snapshot backup)**.
 
@@ -41,9 +44,9 @@ To view the database backup items, follow these steps:
 
      :::image type="content" source="media/manage-monitor-sql-database-backup/sql-instance-backup-items.png" alt-text="Screenshot that shows the list of SQL instance backup items." lightbox="media/manage-monitor-sql-database-backup/sql-instance-backup-items.png":::
 
-## Monitor backup jobs for SQL Server databases
+## Monitor backup jobs for SQL database and SQL Server instance snapshot
 
-
+Azure Backup allows you to monitor backup jobs for SQL databases and SQL instance snapshots in the Azure portal. The following sections describe how to monitor backup jobs for each backup type.
 
 ### Monitor backup jobs for SQL database
 
@@ -53,7 +56,7 @@ Azure Backup shows all scheduled and on-demand operations under **Jobs** in **Re
 
 For details on Monitoring scenarios, go to [Monitoring in the Azure portal](backup-azure-monitoring-built-in-monitor.md) and [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
-### Monitor backup jobs for SQL instance snapshot backup (preview)
+### Monitor backup jobs for SQL Server instance snapshot backup (preview)
 
 To monitor SQL in Azure VM backups, go to the **Recovery Services vault**, and then select **Monitor** \> **Backup jobs**.
 
@@ -89,7 +92,11 @@ To monitor database backup alerts, follow these steps:
 
    Learn about [Configure notifications for alerts](backup-azure-monitor-alerts-notification.md#configure-notifications-for-alerts).
 
-## Stop protection for a SQL Server database
+## Stop protection for a SQL database and SQL Server instance snapshot backup
+
+You can stop protection for a SQL database or SQL Server instance snapshot backup in the Azure portal. When you stop protection, you can choose to retain or delete the backup data. If you retain the backup data, you can later resume protection. If you delete the backup data, you can't resume protection.
+
+The following sections describe how to stop protection for a SQL database and SQL Server instance snapshot backup.
 
 ### Stop protection for a SQL database
 
@@ -122,14 +129,10 @@ To stop protection for a database:
 
 6. Select **Stop backup**.
 
-> [!NOTE]
->
->For more information about the delete data option, see the following FAQs:
->
->- [If I delete a database from an autoprotected instance, what will happen to the backups?](faq-backup-sql-server.yml#if-i-delete-a-database-from-an-autoprotected-instance--what-will-happen-to-the-backups-)
->- [If I do stop backup operation of an autoprotected database what will be its behavior?](faq-backup-sql-server.yml#if-i-ve-changed-the-name-of-the-database-after-it-has-been-protected--what-will-be-the-behavior-)
->
->
+For more information about the delete data option, see the following FAQs:
+
+- [If I delete a database from an autoprotected instance, what will happen to the backups?](faq-backup-sql-server.yml#if-i-delete-a-database-from-an-autoprotected-instance--what-will-happen-to-the-backups-)
+- [If I do stop backup operation of an autoprotected database what will be its behavior?](faq-backup-sql-server.yml#if-i-ve-changed-the-name-of-the-database-after-it-has-been-protected--what-will-be-the-behavior-)
 
 ### Stop backup operations SQL instance snapshot backup (preview)
 
@@ -162,37 +165,36 @@ You can run different types of on-demand backups:
 - Differential backup
 - Log backup
 
->[!Note]
->The retention period of this backup is determined by the type of on-demand backup you have run.
->
->- *On-demand full* retains backups for a minimum of *45 days* and a maximum of *99 years*.
->- *On-demand copy only full* accepts any value for retention.
->- *On-demand differential* retains backup as per the retention of scheduled differentials set in policy.
->- *On-demand log* retains backups as per the retention of scheduled logs set in policy.
+The retention period of this backup is determined by the following types of on-demand backup you run:
+
+- *On-demand full* retains backups for a minimum of *45 days* and a maximum of *99 years*.
+- *On-demand copy only full* accepts any value for retention.
+- *On-demand differential* retains backup as per the retention of scheduled differentials set in policy.
+- *On-demand log* retains backups as per the retention of scheduled logs set in policy.
 
 For more information, see [SQL Server backup types](backup-architecture.md#sql-server-backup-types).
 
 ## Modify backup policy for SQL database
 
-Modify policy to change backup frequency or retention range.
+Backup policy modification allows you to change the backup frequency or retention range. Any change to the retention period applies retrospectively to all existing and new recovery points. When you reduce the retention period for differential backups, existing differentials are cleaned up based on the new retention value. Differential backups depend on a previous full backup for recovery. The full backup remains retained until the retention of the last dependent differential backup expires.
 
-> [!NOTE]
-> Any change in the retention period will be applied retrospectively to all the older recovery points besides the new ones.
->
-> When you reduce the retention period for differential backups, keep in mind that differential backups are dependent on the previous full backup for recovery. The full backup is retained until the retention of the last differential backup that depends on it expires. For example, if you reduce the differential backup retention from 30 days to 15 days, existing differential backups are cleaned up after 15 days from their creation. However, the full backup that these differentials depend on is retained until all those differentials expire.
->
-> If differential backups are in a soft-deleted state when a retention policy change is applied, the same dependency rules apply. Soft-deleted backups are retained for an additional 14 days beyond their retention expiry before being permanently deleted.
+For example, if you reduce differential retention from 30 days to 15 days, differential backups are deleted 15 days after creation. However, the associated full backup is retained until all those differentials expire. If differential backups are in a soft-deleted state when the retention policy changes, the same dependency rules apply. Soft-deleted backups are retained for an additional 14 days after retention expiry before permanent deletion.
 
-In the vault dashboard, go to **Manage** > **Backup Policies** and choose the policy you want to edit.
+To modify a SQL database backup policy, follow these steps:
 
-  ![Manage backup policy](./media/backup-azure-sql-database/modify-backup-policy.png)
+1. Go to the **Recovery Services vault**, and select **Manage** > **Backup policies**.
 
-  :::image type="content" source="./media/backup-azure-sql-database/modify-backup-policy-impact.png" alt-text="Screenshot that shows the impact of modifying a backup policy on associated backup items." lightbox="./media/backup-azure-sql-database/modify-backup-policy-impact.png":::
+1. On the **Backup policies** pane, choose the policy you want to edit.
+
+   :::image type="content" source="./media/backup-azure-sql-database/modify-backup-policy.png" alt-text="Screenshot that shows how to modify a backup policy." lightbox="./media/backup-azure-sql-database/modify-backup-policy.png":::
+
+1. On the **Modify policy** pane, make the required changes, and then select **Update**.
+  
+   :::image type="content" source="./media/backup-azure-sql-database/modify-backup-policy-impact.png" alt-text="Screenshot that shows the impact of modifying a backup policy on associated backup items." lightbox="./media/backup-azure-sql-database/modify-backup-policy-impact.png":::
 
 Policy modification will impact all the associated Backup Items and trigger corresponding **configure protection** jobs.
 
->[!Note]
->Modification of policy will affect existing recovery points also. <br><br> For recovery points in archive that haven't stayed for a duration of 180 days in Archive Tier, deletion of those recovery points lead to early deletion cost. [Learn more](../storage/blobs/access-tiers-overview.md).
+Modification of policy will affect existing recovery points also. For recovery points in archive that haven't stayed for a duration of 180 days in Archive Tier, deletion of those recovery points leads to early deletion cost. [Learn more](../storage/blobs/access-tiers-overview.md).
 
 ### Inconsistent policy
 
@@ -204,9 +206,9 @@ You can fix the policy version for all the impacted items in one click:
 
   ![Fix inconsistent policy](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
 
-## Modify a backup policy for SQL instance snapshot backup (preview)
+## Modify a backup policy for SQL Server instance snapshot backup (preview)
 
-When you modify retention settings for SQL instance snapshot backup (preview), the changes apply to all existing and future recovery points. However, any new retention category (weekly, monthly, or yearly) that you add to an existing policy applies only to future recovery points.
+When you modify retention settings for SQL Server instance snapshot backup (preview), the changes apply to all existing and future recovery points. However, any new retention category (weekly, monthly, or yearly) that you add to an existing policy applies only to future recovery points.
 
 To modify an existing SQL instance snapshot backup policy, follow these steps:
 
@@ -222,9 +224,9 @@ To modify an existing SQL instance snapshot backup policy, follow these steps:
 
 3.  On the **Modify policy** pane, do the required changes, and then select **Update**.
 
-### Change a backup policy for SQL instance snapshot backup (preview)
+### Change a backup policy for SQL Server instance snapshot backup (preview)
 
-To change the policy associated with a backup item for SQL instance snapshot backup (preview), follow these steps:
+To change the policy associated with a backup item for SQL Server instance snapshot backup (preview), follow these steps:
 
 1.  Go to the Recovery Services vault, and then select **Protected items** \> **Backup items**.
 
@@ -234,7 +236,7 @@ To change the policy associated with a backup item for SQL instance snapshot bac
 
 4.  On the selected backup instance pane, under **Essentials**, select the backup policy.  
       
-    :::image type="content" source="media/manage-monitor-sql-database-backup/backup-policy-change.png" alt-text="Screenshot that shows how to change policy for an SQL instance backup item." lightbox="media/manage-monitor-sql-database-backup/backup-policy-change.png":::
+    :::image type="content" source="media/manage-monitor-sql-database-backup/backup-policy-change.png" alt-text="Screenshot that shows how to change policy for a SQL instance backup item." lightbox="media/manage-monitor-sql-database-backup/backup-policy-change.png":::
 
 5.  On the **Change Backup Policy** pane, for **Backup policy**, select a policy from the list, and then select **Change**.
 
@@ -242,10 +244,11 @@ To change the policy associated with a backup item for SQL instance snapshot bac
 
 Before you unregister the server, [disable soft delete](./backup-azure-security-feature-cloud.md?tabs=azure-portal#disable-soft-delete), and then delete all backup items.
 
->[!NOTE]
->Deleting backup items with soft delete enabled will lead to 14 days retention, and you need to wait before the items are completely removed. However, if you have deleted the backup items with soft delete enabled, you can undelete them, disable soft-delete, and then delete them again for immediate removal. [Learn more](./backup-azure-security-feature-cloud.md#delete-soft-deleted-backup-items-permanently)
+Deletion of backup items with soft delete enabled lead to 14 days retention, and you need to wait before the items are completely removed. However, if the backup items are deleted with soft delete enabled, you can undelete them, disable soft-delete, and then delete them again for immediate removal. [Learn more](./backup-azure-security-feature-cloud.md#delete-soft-deleted-backup-items-permanently)
 
 Unregister a SQL Server instance after you disable protection but before you delete the vault.
+
+To unregister a SQL Server instance, follow these steps:
 
 1. On the vault dashboard, under **Manage**, select **Backup Infrastructure**.  
 
@@ -295,7 +298,7 @@ The backed-up SQL VM is deleted or moved using Resource move. The experience dep
 New VM subscription | New VM Name | New VM Resource group | New VM Region | Experience
 ------------------- | ----------- | --------------------- | ------------- | ---------------------------------
 Same                | Same        | Same                  | Same          | **What will happen to backups of _old_ VM?** <br><br> You’ll receive an alert that backups will be stopped on the _old_ VM. The backup data will be retained as per the last active policy. You can choose to stop protection and delete data and unregister the old VM once all backup data is cleaned up as per policy.   <br><br> **How to get backup data from _old_ VM to _new_ VM?**    <br><br> No SQL backups will be triggered automatically on the _new_ virtual machine. You must re-register the VM to the same vault. Then it will appear as a valid target, and SQL data can be restored to the latest available point-in-time via the alternate location recovery capability. After you restore SQL data, SQL backups will continue on this machine. VM backup will continue as-is, if previously configured.
-Same                | Same        | Different             | Same          | **What will happen to backups of _old_ VM?**   <br><br> You’ll receive an alert that backups will be stopped on the _old_ VM. The backup data will be retained as per the last active policy. You can choose to stop protection and delete data and unregister the old VM once all backup data is cleaned up as per policy.     <br><br>**How to get backup data from _old_ VM to _new_ VM?** <br><br> As the new virtual machine is in a different resource group, it will be treated as a new machine and you've to explicitly configure SQL backups (and VM backup too, if  previously configured) to the same vault. Then proceed to restore the SQL backup item of the old VM to latest available point-in-time via the _alternate location recovery_ to the new VM. The SQL backups will now continue.
+Same                | Same        | Different             | Same          | **What will happen to backups of _old_ VM?**   <br><br> You’ll receive an alert that backups will be stopped on the _old_ VM. The backup data will be retained as per the last active policy. You can choose to stop protection and delete data and unregister the old VM once all backup data is cleaned up as per policy.     <br><br>**How to get backup data from _old_ VM to _new_ VM?** <br><br> As the new virtual machine is in a different resource group, it will be treated as a new machine and you have to explicitly configure SQL backups (and VM backup too, if  previously configured) to the same vault. Then proceed to restore the SQL backup item of the old VM to latest available point-in-time via the _alternate location recovery_ to the new VM. The SQL backups will now continue.
 Same                | Same        | Same or different     | Different     | **What will happen to backups of _old_ VM?**   <br><br> You’ll receive an alert that backups will be stopped on the _old_ VM. The backup data will be retained as per the last active policy. You can choose to stop protection and delete data and unregister the old VM once all backup data is cleaned up as per policy. <br><br> **How to get backup data from _old_ VM to _new_ VM? <br><br>  As the new virtual machine is in a different region, you’ve to configure SQL backups to a vault in the new region.  <br><br> If the new region is a paired region, you can choose to restore SQL data to latest available point-in-time via the ‘cross region restore’ capability from the SQL backup item of the _old_ VM. <br><br> If the new region is a non-paired region, direct restore from the previous SQL backup item isn't supported. However, you can choose the *restore as files* option, from the SQL backup item of the ‘old’ VM, to get the data to a mounted share in a VM of the old region, and then mount it to the new VM.
 Different           | Same or different        | Same or different     | Same or different     | **What will happen to backups of _old_ VM?** <br><br>  You’ll receive an alert that backups will be stopped on the _old_ VM. The backup data will be retained as per the last active policy. You can choose to stop protection + delete data and unregister the old VM once all backup data is cleaned up as per policy. <br><br> **How to get backup data from _old_ VM to _new_ VM?** <br><br> As the new virtual machine is in a different subscription, you’ve to configure SQL backups to a vault in the new subscription. If it's a new vault in different subscription, direct restore from the previous SQL backup item isn't supported. However, you can choose the *restore as files* option, from the SQL backup item of the _old_ VM, to get the data to a mounted share in a VM of the old subscription, and then mount it to the new VM.
 
