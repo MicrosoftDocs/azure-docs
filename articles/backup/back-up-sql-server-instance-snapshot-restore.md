@@ -11,15 +11,21 @@ ms.topic: how-to
 
 # Restore snapshot for SQL database in Azure VM(preview)
 
-This article describes how to restore an entire SQL instance or individual databases within an instance.
+This article describes how to restore a SQL Server instance or an individual database in an Azure virtual machine (VM) by using snapshot backups. It provides step‑by‑step guidance for instance‑level and database‑level restores.
 
-Note: This preview feature supports Alternate Location Restore (ALR) only.
+>[!NOTE]
+>This preview feature supports Alternate Location Restore (ALR) only.
 
 ## Prerequisites
 
 Before you restore from SQL instance snapshot recovery point, ensure that the following prerequisites are met:
 
+- The SQL instance is backed up using snapshot backup, and the backup is available in the Recovery Services vault.
+- The required permissions to perform restore operations in Azure are available.
+
 ## Restore the entire SQL instance
+
+The SQL instance restore from snapshot backup allows you to restore the entire SQL instance, including all databases, to a previous state. This operation is useful in scenarios where the entire instance encounters issues such as corruption, configuration errors, or other failures.
 
 To restore the entire SQL instance, follow these steps:
 
@@ -58,6 +64,8 @@ To restore the entire SQL instance, follow these steps:
 1. On the **Review + restore** tab, review the restore settings, and then select **Restore**.
 
 ## Restore an individual SQL database
+
+You can restore an individual SQL database from a snapshot backup without affecting the entire SQL instance. This operation is useful when only a specific database encounters issues such as corruption, accidental deletion, or other failures, and you want to restore just that database to a previous state.
 
 To restore an individual SQL database in an instance, follow these steps:
 
