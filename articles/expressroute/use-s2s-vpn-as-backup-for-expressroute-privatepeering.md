@@ -1,19 +1,18 @@
 ---
 title: 'Using S2S VPN as a backup for Azure ExpressRoute Private Peering | Microsoft Docs'
 description: This page provides architectural recommendations for backing up Azure ExpressRoute private peering with S2S VPN.
-services: networking
 author: duongau
 ms.service: azure-expressroute
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 04/15/2024
+ms.date: 03/12/2026
 ms.author: duau 
 # Customer intent: "As a network engineer, I want to configure a site-to-site VPN as a backup for ExpressRoute private peering, so that I can ensure high availability and maintain connectivity during network failures."
 ---
 
 # Using S2S VPN as a backup for ExpressRoute private peering
 
-In the article titled [Designing for disaster recovery with ExpressRoute private peering][DR-PP], we discussed the need for a backup connectivity solution when using ExpressRoute private peering. We also discussed how to use geo-redundant ExpressRoute circuits for high-availability. In this article, we explain how to use and maintain a site-to-site (S2S) VPN as a backup for ExpressRoute private peering. 
+In the article titled [Designing for disaster recovery with ExpressRoute private peering](./designing-for-disaster-recovery-with-expressroute-privatepeering.md), we discussed the need for a backup connectivity solution when using ExpressRoute private peering. We also discussed how to use geo-redundant ExpressRoute circuits for high-availability. In this article, we explain how to use and maintain a site-to-site (S2S) VPN as a backup for ExpressRoute private peering. 
 
 > [!NOTE] 
 > Using site-to-site VPN as a backup solution for ExpressRoute connectivity is not recommended when dealing with latency-sensitive, mission-critical, or bandwidth-intensive workloads. In such cases, it's advisable to design for disaster recovery with ExpressRoute multi-site resiliency to ensure maximum availability.
@@ -31,7 +30,7 @@ In this article, you also learn how to verify the connectivity from both the Azu
 
 In our setup, we have an on-premises network connected to an Azure hub virtual network via both an ExpressRoute circuit and a S2S VPN connection. The Azure hub virtual network is in turn peered to a spoke virtual network, as shown in the diagram:
 
-![1][1]
+:::image type="content" source="./media/use-s2s-vpn-as-backup-for-expressroute-privatepeering/topology.png" alt-text="Diagram of the topology under consideration.":::
 
 In the setup, the ExpressRoute circuit is terminated on a pair of customer edge (CE) routers at the on-premises. The on-premises LAN is connected to the CE routers with a pair of firewalls that operate in leader-follower mode. The S2S VPN is directly terminated on the firewalls.
 
@@ -67,7 +66,7 @@ The following table lists the ASNs of the topology:
 
 ### Configuring for high availability
 
-The article [Configure ExpressRoute and Site-to-Site coexisting connections][Conf-CoExist] explains how to set up coexisting ExpressRoute and S2S VPN connections. As we mentioned in [Designing for high availability with ExpressRoute][HA], our setup ensures network redundancy to eliminate any single point of failure up to the endpoints, which improves ExpressRoute high availability. In addition, both the primary and secondary connections of the ExpressRoute circuits are active and advertise the on-premises prefixes in the same manner through both the connections.
+The article [Configure ExpressRoute and Site-to-Site coexisting connections](./expressroute-howto-coexist-resource-manager.md) explains how to set up coexisting ExpressRoute and S2S VPN connections. As we mentioned in [Designing for high availability with ExpressRoute](./designing-for-high-availability-with-expressroute.md), our setup ensures network redundancy to eliminate any single point of failure up to the endpoints, which improves ExpressRoute high availability. In addition, both the primary and secondary connections of the ExpressRoute circuits are active and advertise the on-premises prefixes in the same manner through both the connections.
 
 The on-premises route advertisement of the primary CE router through the primary connection of the ExpressRoute circuit is shown as follows (Junos commands):
 
@@ -91,7 +90,7 @@ Cust11.inet.0: 8 destinations, 8 routes (7 active, 0 holddown, 1 hidden)
 
 To improve the high availability of the backup connection, the S2S VPN is also configured in the active-active mode. The Azure VPN gateway configuration is shown as follows. Note as part of the VPN configuration VPN the BGP peer IP addresses of the gateway--10.17.11.76 and 10.17.11.77--are also listed.
 
-![2][2]
+:::image type="content" source="./media/use-s2s-vpn-as-backup-for-expressroute-privatepeering/vpn-gw-config.png" alt-text="Screenshot of the VPN gateway configuration.":::
 
 The on-premises route gets advertised by the firewall to the primary and secondary BGP peers of the VPN gateway. The route advertisements are shown as follows (Junos):
 
@@ -242,7 +241,7 @@ Network         NextHop     AsPath Weight
 10.17.11.128/26 10.17.11.77 65515       0
 ```
 
-Failure to see route exchanges indicate connection failure. See [Troubleshooting: An Azure site-to-site VPN connection can't connect and stops working][VPN Troubleshoot] for help with troubleshooting the VPN connection.
+Failure to see route exchanges indicate connection failure. See [Troubleshooting: An Azure site-to-site VPN connection can't connect and stops working](/troubleshoot/azure/vpn-gateway/vpn-gateway-troubleshoot-site-to-site-cannot-connect) for help with troubleshooting the VPN connection.
 
 ## Testing failover
 
@@ -270,7 +269,7 @@ Trace complete.
 
 The primary and secondary ExpressRoute point-to-point connection subnets of our setup are, respectively, 192.168.11.16/30 and 192.168.11.20/30. In the above trace route, in step 3 we see that we're hitting 192.168.11.18, which is the interface IP of the primary MSEE. Presence of MSEE interface confirms that as expected our current path is over the ExpressRoute.
 
-As reported in the [Reset ExpressRoute circuit peerings][RST], let's use the following PowerShell commands to disable both the primary and secondary peering of the ExpressRoute circuit.
+As reported in the [Reset ExpressRoute circuit peerings](./expressroute-howto-reset-peering.md), let's use the following PowerShell commands to disable both the primary and secondary peering of the ExpressRoute circuit.
 
 ```powershell
 $ckt = Get-AzExpressRouteCircuit -Name "expressroute name" -ResourceGroupName "SEA-Cust11"
@@ -306,19 +305,7 @@ To confirm the traffic is switched back to ExpressRoute, repeat the traceroute a
 
 ExpressRoute is designed for high availability with no single point of failure within the Microsoft network. Still an ExpressRoute circuit is confined to a single geographical region and to a service provider. S2S VPN can be a good disaster recovery passive backup solution to an ExpressRoute circuit. For a dependable passive backup connection solution, regular maintenance of the passive configuration and periodical validation the connection are important. It's essential not to let the VPN configuration become stale, and to periodically (say every quarter) repeat the validation and failover test steps described in this article during maintenance window.
 
-To enable monitoring and alerts based on VPN gateway metrics, see [Setup alerts on VPN Gateway metrics][VPN-alerts].
+To enable monitoring and alerts based on VPN gateway metrics, see [Setup alerts on VPN Gateway metrics](/azure/vpn-gateway/monitor-vpn-gateway-reference).
 
-To expedite BGP convergence following an ExpressRoute failure, [Configure BFD over ExpressRoute][BFD].
+To expedite BGP convergence following an ExpressRoute failure, [Configure BFD over ExpressRoute](./expressroute-bfd.md).
 
-<!--Image References-->
-[1]: ./media/use-s2s-vpn-as-backup-for-expressroute-privatepeering/topology.png "topology under consideration"
-[2]: ./media/use-s2s-vpn-as-backup-for-expressroute-privatepeering/vpn-gw-config.png "VPN GW configuration"
-
-<!--Link References-->
-[DR-PP]: ./designing-for-disaster-recovery-with-expressroute-privatepeering.md
-[Conf-CoExist]: ./expressroute-howto-coexist-resource-manager.md
-[HA]: ./designing-for-high-availability-with-expressroute.md
-[VPN Troubleshoot]: ../vpn-gateway/vpn-gateway-troubleshoot-site-to-site-cannot-connect.md
-[VPN-alerts]: ../vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
-[BFD]: ./expressroute-bfd.md
-[RST]: ./expressroute-howto-reset-peering.md

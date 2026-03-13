@@ -135,9 +135,9 @@ Deploy a session pool by using an ARM template with the MCP server enabled.
 
     ```azurecli
     az deployment group create \
-        --resource-group $RESOURCE_GROUP \
-        --template-file deploy.json \
-        --parameters name=$SESSION_POOL_NAME location=$LOCATION
+      --resource-group $RESOURCE_GROUP \
+      --template-file deploy.json \
+      --parameters name=$SESSION_POOL_NAME location=$LOCATION
     ```
 
 ## Get the MCP server endpoint
@@ -145,10 +145,7 @@ Deploy a session pool by using an ARM template with the MCP server enabled.
 After deployment, retrieve the MCP endpoint URL for your session pool.
 
 ```azurecli
-MCP_ENDPOINT=$(az rest --method GET \
-    --uri "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.App/sessionPools/$SESSION_POOL_NAME" \
-    --uri-parameters api-version=2025-02-02-preview \
-    --query "properties.mcpServerSettings.mcpServerEndpoint" -o tsv)
+MCP_ENDPOINT=$(az rest --method GET --uri "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.App/sessionPools/$SESSION_POOL_NAME?api-version=2025-10-02-preview" --query "properties.mcpServerSettings.mcpServerEndpoint" -o tsv)
 ```
 
 ## Get the MCP server credentials
@@ -156,10 +153,7 @@ MCP_ENDPOINT=$(az rest --method GET \
 The platform-managed MCP server uses API key authentication through the `x-ms-apikey` header. This approach is different from the bearer-token authentication that standard session pool management APIs use.
 
 ```azurecli
-API_KEY=$(az rest --method POST \
-    --uri "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.App/sessionPools/$SESSION_POOL_NAME/fetchMCPServerCredentials" \
-    --uri-parameters api-version=2025-02-02-preview \
-    --query "apiKey" -o tsv)
+API_KEY=$(az rest --method POST --uri "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.App/sessionPools/$SESSION_POOL_NAME/fetchMCPServerCredentials?api-version=2025-10-02-preview" --query "apiKey" -o tsv)
 ```
 
 > [!WARNING]

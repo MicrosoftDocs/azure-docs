@@ -72,7 +72,7 @@ Begin by preparing the Azure CLI with the latest updates and signing in to Azure
    RESOURCE_GROUP=<RESOURCE_GROUP_NAME>
    SESSION_POOL_NAME=<SESSION_POOL_NAME>
    LOCATION=<LOCATION>
-   API_VERSION="2025-02-02-preview"
+   API_VERSION="2025-10-02-preview"
    ```
 
    You use these variables to create the resources in the following steps.
@@ -98,8 +98,8 @@ Create an ARM template file named `deploy.json` to define your shell session poo
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
-        {
-            "apiVersion": "2025-02-02-preview",
+      {
+         "apiVersion": "2025-10-02-preview",
             "name": "myshellpool",
             "type": "Microsoft.App/sessionpools",
             "location": "North Central US",

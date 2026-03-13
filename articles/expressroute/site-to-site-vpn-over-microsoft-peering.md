@@ -1,11 +1,10 @@
 ---
 title: 'Azure ExpressRoute: Configure S2S VPN over Microsoft peering'
 description: Learn how to set up IPsec/IKE connectivity to Azure over an ExpressRoute Microsoft peering circuit using a site-to-site VPN gateway.
-services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 03/31/2024
+ms.date: 03/12/2026
 ms.author: duau
 ms.custom:
   - devx-track-azurepowershell
@@ -154,7 +153,7 @@ In this example, the variable declarations correspond to the example network. Wh
   "gatewayPublicIPName1": "vpnGwVIP1",    // Public address name of the first VPN gateway instance
   "gatewayPublicIPName2": "vpnGwVIP2",    // Public address name of the second VPN gateway instance 
   "gatewayName": "vpnGw",                 // Name of the Azure VPN gateway
-  "gatewaySku": "VpnGw1",                 // Azure VPN gateway SKU
+  "gatewaySku": "VpnGw1AZ",               // Azure VPN gateway SKU (AZ-redundant; use VpnGw1 for regions without availability zone support)
   "vpnType": "RouteBased",                // type of VPN gateway
   "sharedKey": "string",                  // shared secret needs to match with on-premises configuration
   "asnVpnGateway": 65000,                 // BGP Autonomous System number assigned to the VPN Gateway 
@@ -164,7 +163,7 @@ In this example, the variable declarations correspond to the example network. Wh
   "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
   "gatewaySubnetRef": "[concat(variables('vnetID'),'/subnets/','GatewaySubnet')]",
   "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]",
-  "api-version": "2017-06-01"
+  "api-version": "2024-05-01"
 },
 ```
 
@@ -365,9 +364,9 @@ The following example shows the configuration for Cisco CSR1000 in a Hyper-V vir
 ```
 !
 crypto ikev2 proposal az-PROPOSAL
- encryption aes-cbc-256 aes-cbc-128 3des
- integrity sha1
- group 2
+ encryption aes-cbc-256 aes-cbc-128
+ integrity sha256
+ group 14
 !
 crypto ikev2 policy az-POLICY
  proposal az-PROPOSAL
@@ -573,12 +572,12 @@ IPv4 Crypto IKEv2  SA
 
 Tunnel-id Local                 Remote                fvrf/ivrf            Status
 2         10.1.10.50/4500       52.175.253.112/4500   none/none            READY
-      Encr: AES-CBC, keysize: 256, PRF: SHA1, Hash: SHA96, DH Grp:2, Auth sign: PSK, Auth verify: PSK
+      Encr: AES-CBC, keysize: 256, PRF: SHA256, Hash: SHA256, DH Grp:14, Auth sign: PSK, Auth verify: PSK
       Life/Active Time: 86400/3277 sec
 
 Tunnel-id Local                 Remote                fvrf/ivrf            Status
 3         10.1.10.50/4500       52.175.250.191/4500   none/none            READY
-      Encr: AES-CBC, keysize: 256, PRF: SHA1, Hash: SHA96, DH Grp:2, Auth sign: PSK, Auth verify: PSK
+      Encr: AES-CBC, keysize: 256, PRF: SHA256, Hash: SHA256, DH Grp:14, Auth sign: PSK, Auth verify: PSK
       Life/Active Time: 86400/3280 sec
 
 IPv6 Crypto IKEv2  SA
@@ -702,6 +701,6 @@ Total number of prefixes 2
 
 ## Next steps
 
-* [Configure Network Performance Monitor for ExpressRoute](how-to-npm.md)
+* [Configure Connection Monitor for ExpressRoute](how-to-configure-connection-monitor.md)
 
 * [Add a site-to-site connection to a virtual network with an existing VPN gateway connection](../vpn-gateway/add-remove-site-to-site-connections.md)
