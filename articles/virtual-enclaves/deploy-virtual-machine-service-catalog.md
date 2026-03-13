@@ -89,8 +89,10 @@ If you publish your application, all of the following fields on this tab must be
 > 
 > The file paths should use forward slashes even for Windows file paths.
 
-- **Application file path**: Provide the file path on the VM app for the application (for example, `C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe`)
-- **Application icon file path**: Provide the file path on the VM for the icon (for example, `C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe`)
+- **Use default naming convention for your publish parameters**: Keeping the default to `True` will ignore the parameter values for `host pool`, `workspace`, and `Application Group` and instead will create resources in this format `<vmName>-<resourceName>` (for example "vm01-hostpool"). You can still add the friendly names to improve the names that customers will see.
+- **Application file path**: Provide the file path on the VM app for the application (for example, `C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe` with no "quotes")
+- **Application icon file path**: Provide the file path on the VM for the icon (for example, `C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe` with no "quotes")
+- **AVD modules URL**: Provide the URL for AVD modules for your cloud. The Azure Commercial URL is provided by default. As an example, if you are deploying to the Azure Government Cloud the URL is `https://wvdportalstorageblob.blob.core.usgovcloudapi.net/galleryartifacts/Configuration_01-20-2022.zip`.
 
 It can take 20+ minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
