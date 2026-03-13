@@ -273,6 +273,8 @@
     - name: Availability zones and disaster recovery
       displayName: availability zones, high-availability, zone redundancy, disaster recovery
       href: /azure/reliability/reliability-functions?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
+    - name: Zone redundancy
+      href: functions-zone-redundancy.md
     - name: Migrate to a zone-redundant plan
       href: /azure/reliability/migrate-functions?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Diagnostics

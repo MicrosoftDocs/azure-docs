@@ -128,6 +128,13 @@ In a terminal window, go to the `FunctionsMcpTool` project folder:
 cd src/FunctionsMcpTool
 ```
 ::: zone-end  
+::: zone pivot="programming-language-java"  
+In a terminal window, go to the `FunctionsMcpTool` project folder:
+
+```console
+cd samples/FunctionsMcpTool
+```
+::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-typescript" 
 
 [!INCLUDE [run-locally](../../includes/functions-mcp-run-locally.md)] 
@@ -180,11 +187,11 @@ The function code for the MCP server tools is defined in the `src` folder. The `
 You can view the complete project template in the [Azure Functions .NET MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-dotnet) GitHub repository.
 ::: zone-end  
 ::: zone pivot="programming-language-java"
-The function code for the MCP server tools is defined in the `src/main/java/com/function/` folder. The `@McpToolTrigger` annotation exposes the functions as MCP Server tools:
+The function code for the MCP server tools is defined in the `samples/FunctionsMcpTool/src/main/java/com/function/` folder. The `@McpToolTrigger` annotation exposes the functions as MCP Server tools:
 
-<!- :::code language="java" source="~/functions-scenarios-custom-mcp-java/src/main/java/com/function/HelloWorld.java" range="35-51" ::: >
+:::code language="java" source="~/functions-scenarios-custom-mcp-java/samples/FunctionsMcpTool/src/main/java/com/function/HelloWorld.java" range="26-40" :::
 
-<!- :::code language="java" source="~/functions-scenarios-custom-mcp-java/src/main/java/com/function/Snippets.java" range="80-118" ::: >
+:::code language="java" source="~/functions-scenarios-custom-mcp-java/samples/FunctionsMcpTool/src/main/java/com/function/Snippets.java" range="50-83" :::
 
 You can view the complete project template in the [Azure Functions Java MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-java) GitHub repository.
 ::: zone-end  

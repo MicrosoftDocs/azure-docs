@@ -17,9 +17,11 @@ ms.custom:
 
 [Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. This article shows you how to mount an SMB Azure file share on Windows and Windows Server.
 
-Azure Files supports [SMB Multichannel](files-smb-protocol.md#smb-multichannel) on SSD file shares only.
+## Windows SMB support and Azure Files features
 
-| Windows version | SMB version | Azure Files SMB Multichannel | Maximum SMB channel encryption |
+The following table shows Windows support for SMB version, SMB Multichannel<sup>1</sup>, and SMB channel encryption when mounting Azure file shares. Use this table to determine feature support and security requirements for the client operating systems that access your Azure file share. We recommend taking the most recent KB for your version of Windows.
+
+| Windows version | SMB version | SMB Multichannel (SSD only) | Maximum SMB channel encryption |
 |-|-|-|-|
 | Windows Server 2025 | SMB 3.1.1 | Yes | AES-256-GCM |
 | Windows 11, version 24H2 | SMB 3.1.1 | Yes | AES-256-GCM |
@@ -39,18 +41,17 @@ Azure Files supports [SMB Multichannel](files-smb-protocol.md#smb-multichannel) 
 | Windows Server 2016 | SMB 3.1.1 | Yes, with KB5004238 or newer and [applied registry key](files-smb-protocol.md#windows-server-2016-and-windows-10-version-1607) | AES-128-GCM |
 | Windows 10, version 1607 | SMB 3.1.1 | Yes, with KB5004238 or newer and [applied registry key](files-smb-protocol.md#windows-server-2016-and-windows-10-version-1607) | AES-128-GCM |
 | Windows 10, version 1507 | SMB 3.1.1 | Yes, with KB5004249 or newer and [applied registry key](files-smb-protocol.md#windows-10-version-1507) | AES-128-GCM |
-| Windows Server 2012 R2<sup>1</sup> | SMB 3.0 | No | AES-128-CCM |
-| Windows Server 2012<sup>1</sup> | SMB 3.0 | No | AES-128-CCM |
-| Windows 8.1<sup>2</sup> | SMB 3.0 | No | AES-128-CCM |
-| Windows Server 2008 R2<sup>2</sup> | SMB 2.1 | No | Not supported |
-| Windows 7<sup>2</sup> | SMB 2.1 | No | Not supported |
+| Windows Server 2012 R2<sup>2</sup> | SMB 3.0 | No | AES-128-CCM |
+| Windows Server 2012<sup>2</sup> | SMB 3.0 | No | AES-128-CCM |
+| Windows 8.1<sup>3</sup> | SMB 3.0 | No | AES-128-CCM |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | No | Not supported |
+| Windows 7<sup>3</sup> | SMB 2.1 | No | Not supported |
 
-<sup>1</sup>Regular Microsoft support for Windows Server 2012 and Windows Server 2012 R2 has ended. It's possible to purchase additional support for security updates only through the [Extended Security Update (ESU) program](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates).
+<sup>1</sup>Azure Files supports [SMB Multichannel](files-smb-protocol.md#smb-multichannel) on SSD file shares only.
 
-<sup>2</sup>Microsoft support for Windows 7, Windows 8, and Windows Server 2008 R2 has ended. We strongly recommend migrating off of these operating systems.
+<sup>2</sup>Regular Microsoft support for Windows Server 2012 and Windows Server 2012 R2 has ended. It's possible to purchase additional support for security updates only through the [Extended Security Update (ESU) program](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates).
 
-> [!NOTE]
-> We recommend taking the most recent KB for your version of Windows.
+<sup>3</sup>Microsoft support for Windows 7, Windows 8, and Windows Server 2008 R2 has ended. We strongly recommend migrating off of these operating systems.
 
 ## Ensure port 445 is open
 
@@ -62,13 +63,14 @@ In order to use an Azure file share via the public endpoint outside of the Azure
 
 ## Use identity-based authentication
 
-To improve security and access control, you can configure [identity-based authentication](storage-files-active-directory-overview.md) and domain-join your clients. This allows you to use your Active Directory or Microsoft Entra identity to access the file share rather than using a storage account key.
+To improve security and access control, configure [identity-based authentication](storage-files-active-directory-overview.md) and domain-join your clients. This allows you to use your Active Directory or Microsoft Entra identity to access the file share rather than using a storage account key.
 
 Before you can mount an Azure file share using identity-based authentication, you must complete the following:
 
+- Configure an identity source for your storage account: either Active Directory Domain Services (AD DS), Microsoft Entra Kerberos, or Microsoft Entra Domain Services.
 - [Assign share-level permissions](storage-files-identity-assign-share-level-permissions.md) and [configure directory and file-level permissions](storage-files-identity-configure-file-level-permissions.md). Remember that share-level role assignment can take some time to take effect.
-- If you're mounting the file share from a client that has previously connected to the file share using your storage account key, make sure that you first unmount the share and remove the persistent credentials of the storage account key. For instructions on how to remove cached credentials and delete existing SMB connections before initializing a new connection with Active Directory Domain Services (AD DS) or Microsoft Entra credentials, follow the two-step process on the [FAQ](./storage-files-faq.md#identity-based-authentication).
-- If your AD source is AD DS or Microsoft Entra Kerberos, your client must have unimpeded network connectivity to your AD DS. If your machine or VM is outside of the network managed by your AD DS, you need to enable VPN to reach AD DS for authentication.
+- If you're mounting the file share from a client that has previously connected to the file share using your storage account key, make sure that you first unmount the share and remove the persistent credentials of the storage account key. For instructions on how to remove cached credentials and delete existing SMB connections before initializing a new connection with AD DS or Microsoft Entra credentials, follow [this process](./storage-files-faq.md#identity-based-authentication).
+- If your AD source is AD DS or Microsoft Entra Kerberos, hybrid clients must have unimpeded network connectivity to your AD DS. If your machine or VM is outside of the network managed by your AD DS, you need to enable VPN to reach AD DS for authentication.
 - Sign in to the client using the credentials of the AD DS or Microsoft Entra identity that you granted permissions to.
 
 If you run into issues, see [Unable to mount Azure file shares with AD credentials](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#unable-to-mount-azure-file-shares-with-ad-credentials).
@@ -82,11 +84,11 @@ To use an Azure file share with Windows, you must either mount it, which means a
 
 ## Mount the Azure file share
 
-You can mount an SMB Azure file share on Windows using the Azure portal or Azure PowerShell.
+You can mount an SMB Azure file share on Windows by using the Azure portal or Azure PowerShell.
 
 # [Portal](#tab/azure-portal)
 
-To mount an Azure file share using the Azure portal, follow these steps:
+To mount an Azure file share by using the Azure portal, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to the storage account that contains the file share you'd like to mount.
@@ -113,7 +115,7 @@ You have now mounted your Azure file share.
 
 # [PowerShell](#tab/azure-powershell)
 
-Run the following PowerShell script to persistently mount the Azure file share from a domain-joined VM and map it to drive `Z:` (or desired mount path) on Windows. The script checks to see if this storage account is accessible via TCP port 445, which is the port SMB uses. Remember to replace the placeholder values with your own values.
+Run the following PowerShell script to persistently mount the Azure file share from a domain-joined VM and map it to drive `Z:` (or desired mount path) on Windows. The script checks to see if this storage account is accessible via TCP port 445, which is the port SMB uses. Replace the placeholder values, including brackets, with your own values.
 
 Unless you're using [custom domain names](#mount-file-shares-using-custom-domain-names), you should mount Azure file shares using the suffix `file.core.windows.net`, even if you set up a private endpoint for your share.
 
@@ -137,7 +139,7 @@ You can also use the `net use` command from a Windows prompt to mount the file s
 
 ### Mount the file share from a domain-joined VM
 
-To mount the file share from a domain-joined VM, run the following command from a Windows command prompt. Remember to replace `<YourStorageAccountName>` and `<FileShareName>` with your own values.
+To mount the file share from a domain-joined VM, run the following command from a Windows command prompt. Replace the placeholder values, including brackets, with your own values.
 
 ```
 net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName>
@@ -145,9 +147,9 @@ net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName>
 
 ### Mount the file share from a non-domain-joined VM or a VM joined to a different AD domain
 
-If your AD source is on-premises AD DS, then non-domain-joined VMs or VMs joined to a different AD domain than the storage account can access Azure file shares if they have unimpeded network connectivity to the AD domain controllers and provide explicit credentials. The user accessing the file share must have an identity and credentials in the AD domain that the storage account is joined to.
+If the identity source for your storage account is on-premises AD DS, then non-domain-joined VMs or VMs joined to a different AD domain than the storage account can access Azure file shares if they have unimpeded network connectivity to the AD domain controllers and provide explicit credentials. The user accessing the file share must have an identity and credentials in the AD domain that the storage account is joined to.
 
-If your AD source is Microsoft Entra Domain Services, the client must have unimpeded network connectivity to the domain controllers for Microsoft Entra Domain Services, which requires setting up a site-to-site or point-to-site VPN. The user accessing the file share must have an identity (a Microsoft Entra identity synced from Microsoft Entra ID to Microsoft Entra Domain Services) in the Microsoft Entra Domain Services managed domain.
+If the identity source for your storage account is Microsoft Entra Domain Services, the client must have unimpeded network connectivity to the domain controllers for Microsoft Entra Domain Services, which requires setting up a site-to-site or point-to-site VPN. The user accessing the file share must have an identity (a Microsoft Entra identity synced from Microsoft Entra ID to Microsoft Entra Domain Services) in the Microsoft Entra Domain Services managed domain.
 
 To mount a file share from a non-domain-joined VM, use the notation **username@domainFQDN**, where **domainFQDN** is the fully qualified domain name, to allow the client to contact the domain controller to request and receive Kerberos tickets. You can get the value of **domainFQDN** by running `(Get-ADDomain).Dnsroot` in Active Directory PowerShell.
 
@@ -157,7 +159,7 @@ For example:
 net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:<username@domainFQDN>
 ```
 
-If your AD source is Microsoft Entra Domain services, you can also provide credentials such as **DOMAINNAME\username** where **DOMAINNAME** is the Microsoft Entra Domain Services domain and **username** is the identity's user name in Microsoft Entra Domain Services:
+If the identity source for your storage account is Microsoft Entra Domain services, you can also provide credentials such as **DOMAINNAME\username** where **DOMAINNAME** is the Microsoft Entra Domain Services domain and **username** is the identity's user name in Microsoft Entra Domain Services:
 
 ```
 net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:<DOMAINNAME\username>
@@ -200,7 +202,7 @@ You don't need to mount the Azure file share to a drive letter to use it. You ca
 
 `\\storageaccountname.file.core.windows.net\myfileshare`
 
-You'll be asked to sign in with your network credentials. Sign in with the Azure subscription under which you've created the storage account and file share. If you don't get prompted for credentials, you can add the credentials using the following command:
+You'll be asked to sign in with your network credentials. Sign in with the Azure subscription under which you've created the storage account and file share. If you aren't prompted for credentials, you can add the credentials using the following command:
 
 `cmdkey /add:StorageAccountName.file.core.windows.net /user:localhost\StorageAccountName /pass:StorageAccountKey`
 
@@ -210,18 +212,18 @@ For Azure Government Cloud, change the servername to:
 
 ## Mount file shares using custom domain names
 
-If you don't want to mount Azure file shares using the suffix `file.core.windows.net`, you can modify the suffix of the storage account name associated with the Azure file share, and then add a canonical name (CNAME) record to route the new suffix to the endpoint of the storage account. The following instructions are for single-forest environments only. To learn how to configure environments that have two or more forests, see [Use Azure Files with multiple Active Directory forests](storage-files-identity-multiple-forests.md).
+If you don't want to mount Azure file shares using the suffix `file.core.windows.net`, you can modify the suffix of the storage account name associated with the Azure file share, and then add a canonical name (CNAME) record to route the new suffix to the endpoint of the storage account. The following instructions are for single-forest AD environments only. To learn how to configure AD environments that have two or more forests, see [Use Azure Files with multiple Active Directory forests](storage-files-identity-multiple-forests.md).
 
 > [!NOTE]
 > Azure Files only supports configuring CNAMES using the storage account name as a domain prefix. If you don't want to use the storage account name as a prefix, consider using [DFS namespaces](files-manage-namespaces.md).
 
-In this example, we have the Active Directory domain *onpremad1.com*, and we have a storage account called *mystorageaccount* which contains SMB Azure file shares. First, we need to modify the SPN suffix of the storage account to map *mystorageaccount.onpremad1.com* to *mystorageaccount.file.core.windows.net*.
+In this example, we have the Active Directory domain *onpremad1.com*, and we have a storage account called *mystorageaccount* which contains SMB Azure file shares. First, modify the SPN suffix of the storage account to map *mystorageaccount.onpremad1.com* to *mystorageaccount.file.core.windows.net*.
 
 You can mount the file share with `net use \\mystorageaccount.onpremad1.com` because clients in *onpremad1* know to search *onpremad1.com* to find the proper resource for that storage account.
 
 To use this method, complete the following steps:
 
-1. Make sure you set up identity-based authentication. If your AD source is AD DS or Microsoft Entra Kerberos, make sure you synced your AD user accounts to Microsoft Entra ID.
+1. Configure identity-based authentication for your storage account. If you're authenticating hybrid identities, you must sync your AD user accounts to Microsoft Entra ID.
 
 2. Modify the SPN of the storage account using the `setspn` tool. You can find `<DomainDnsRoot>` by running the following Active Directory PowerShell command: `(Get-AdDomain).DnsRoot`
 
@@ -240,11 +242,11 @@ To use this method, complete the following steps:
    1. For the target host FQDN, enter **`<storage-account-name>`.file.core.windows.net**
    1. Select **OK**.
 
-You should now be able to mount the file share using *storageaccount.domainname.com*.
+You can now mount the file share using *storageaccount.domainname.com*.
 
 ## Next steps
 
-See these links for more information about Azure Files:
+See the following articles for more information:
 
 - [Planning for an Azure Files deployment](storage-files-planning.md)
 - [FAQ](storage-files-faq.md)
