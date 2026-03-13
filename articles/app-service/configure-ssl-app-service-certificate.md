@@ -59,6 +59,53 @@ Currently, App Service certificates aren't supported in Azure national clouds.
 
 1. After the deployment is finished, select **Go to resource**.
 
+#### Authorize App Service certificate to access Azure Key Vault
+
+By default, the App Service certificate resource provider doesn't have access to your key vault. To store, renew, and rekey a certificate in key vault, you must authorize access for the resource provider (App Service certificate) to the key vault. You can grant access with role-based access control (RBAC) or access policy.
+
+#### [RBAC permissions](#tab/rbac)
+
+| Resource provider | Service principal app ID / assignee | Key Vault RBAC role |
+|--|--|--|
+| Microsoft.Azure.CertificateRegistration | `f3c21649-0979-4721-ac85-b0216b2cf413` | Key Vault Secrets Officer |
+
+The service principal app ID or assignee value is the application (client) ID for the App Service certificate resource provider.
+
+Don't delete these access policy permissions from the key vault. If you do, App Service certificate can't store, renew, or rekey the certificate in key vault.
+
+#### [Access policy permissions](#tab/accesspolicy)
+
+| Resource provider | Service principal app ID | Key Vault secret permissions | Key Vault certificate permissions |
+|--|--|--|--|
+| Microsoft.Azure.CertificateRegistration | `f3c21649-0979-4721-ac85-b0216b2cf413` | Get<br/>List<br/>Set<br/>Delete | Get<br/>List<br/>Set<br/>Delete |
+
+The service principal app ID or assignee value is the ID for the App Service certificate resource provider. To learn how to authorize Key Vault permissions for the App Service certificate resource provider by using an access policy, see [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?tabs=azure-portal).
+
+Don't delete these permissions from the key vault. If you do, App Service certificate can't store, renew, or rekey the certificate in key vault.
+
+---
+
+> [!IMPORTANT]
+> The values in the table are application (client) IDs. If you grant the Key Vault Certificate User role by using infrastructure-as-code (for example, ARM templates or Bicep), you typically must use the object ID of the corresponding enterprise application (service principal) in your Microsoft Entra tenant. Using the application ID works with some tooling (for example, Azure CLI role assignment), but ARM/Bicep role assignments generally require the service principal object ID.
+
+#### [Azure CLI](#tab/azure-cli/rbac)
+
+```azurecli-interactive
+az role assignment create --role "Key Vault Secrets Officer" --assignee "f3c21649-0979-4721-ac85-b0216b2cf413" --scope "/subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}"
+```
+
+#### [Azure PowerShell](#tab/azure-powershell/rbac)
+
+```azurepowershell
+#Assign by Service Principal ApplicationId
+New-AzRoleAssignment -RoleDefinitionName "Key Vault Secrets Officer" -ApplicationId "f3c21649-0979-4721-ac85-b0216b2cf413" -Scope "/subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}"
+```
+---
+
+> [!NOTE]
+> Don't delete these permissions from the key vault. If you do, App Service certificate can't store, renew, or rekey the certificate in key vault.
+
+
 #### Store the certificate in Azure Key Vault
 
 [Key Vault](/azure/key-vault/general/overview) is an Azure service that helps safeguard cryptographic keys and secrets used by cloud applications and services. For App Service certificates, we recommend that you use Key Vault. After you finish the certificate purchase process, you must complete a few more steps before you start using the certificate.
