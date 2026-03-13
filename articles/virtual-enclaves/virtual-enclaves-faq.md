@@ -34,6 +34,12 @@ Yes, communities and enclaves can exist in one subscription or in separate subsc
 ### Which regions are Azure Virtual Enclaves available in today?
 The current regions Azure Virtual Enclaves is available in can be viewed [here](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
 
+You can also query the current regions allowed for communities with the Azure CLI.
+
+```
+az provider show -n Microsoft.Mission --query "resourceTypes[?resourceType=='communities'].locations"
+```
+
 ### What roles are used to manage permissions for Azure Virtual Enclaves resources?
 Azure Virtual Enclaves includes new roles to help you manage your environments with least privileges. These roles include: owner, contributor, reader, and approver scoped at the community or enclave (for example `community owner`). [Learn more](https://aka.ms/ave/concept/rbac)
 
