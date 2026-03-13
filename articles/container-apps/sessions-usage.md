@@ -22,6 +22,11 @@ Your application interacts with a session using the session pool's management AP
 
 To get the session pool management endpoint, see [session pools management endpoint](./session-pool.md#management-endpoint).
 
+```text
+https://<SESSION_POOL_NAME>.<ENVIRONMENT_ID>.<REGION>.azurecontainerapps.io
+```
+
+For more information on managing session pools, see [session pools management endpoint](./session-pool.md#management-endpoint).
 ### Management API authentication and authorization
 
 All requests to the session pool management API require authentication (AuthN) with a Microsoft Entra token and authorization (AuthZ) via the *Azure ContainerApps Session Executor* role on the session pool. For details and examples, see [Authentication and authorization](#authentication).
@@ -317,7 +322,17 @@ This template contains the following settings for managed identity:
 
 ## Logging
 
-Console logs from containers running in a session are available in the Azure Log Analytics workspace associated with the Azure Container Apps environment in a table named `AppEnvSessionConsoleLogs_CL`.
+Azure Container Apps dynamic sessions integrate with Azure Monitor and Log Analytics to collect logs emitted during session execution. The configuration steps are the same for code interpreter and custom container session pools, but the available log categories differ by session type. Metrics returned via API response headers aren't written to Log Analytics.
+
+### Logging differences by session type
+
+Use the following guidance to compare logging behavior and jump to the details that match your session type:
+
+- **Code interpreter sessions**: Outputs are returned from execution (including `stdout` and `stderr`), but AppEnvSession Log Analytics tables aren't emitted. See [Code interpreter sessions logging](./sessions-code-interpreter.md#logging).
+- **Custom container sessions**: AppEnvSession Log Analytics tables are emitted when your container writes to `stdout` or `stderr`, and platform logs are available for pool lifecycle and events. See [Custom container sessions logging](./sessions-custom-container.md#logging).
+- **Common**: Metrics returned via API response headers aren't written to Log Analytics. 
+
+For a full list of supported session categories on the environment resource (`Microsoft.App/managedEnvironments`), see [Supported logs for Microsoft.App/managedEnvironments](/azure/azure-monitor/reference/supported-logs/microsoft-app-managedenvironments-logs).
 
 ## Related content
 

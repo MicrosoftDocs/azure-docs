@@ -14,7 +14,7 @@ titleSuffix: Durable Task
 
 # Choose your hosting model
 
-As described in [What is Durable Task?](what-is-durable-task.md), the Durable Task framework supports two hosting models: 
+As described in [What is Durable Task?](what-is-durable-task.md), Durable Task supports two hosting models: 
 - **Azure Functions** (via [Durable Functions](./durable-functions-overview.md))
 - **Self-hosted** (via [the standalone Durable Task SDKs](./durable-task-scheduler/durable-task-overview.md)). 
 
@@ -137,22 +137,11 @@ If you're already using Durable Functions and want to move to a container-based 
 
 For detailed migration guidance, see [Migrate from Durable Functions to the Durable Task SDKs](durable-functions-migrate.md).
 
-## Unsupported Durable Task SDKs
+### Durable Task Framework (DTFx)
 
-All Durable Task SDKs are open source and available on GitHub. However, some SDKs aren't officially supported by Microsoft or are still in experimental stages. The following SDKs are currently unsupported:
+The [Durable Task Framework](https://github.com/Azure/durabletask) (DTFx) is a community-maintained, open-source .NET library for durable orchestration. It provides similar orchestration primitives to the modern Durable Task SDKs and continues to be actively used in production by many teams, including within Microsoft. Notably, DTFx is used internally as a dependency of Azure Durable Functions, which is one of the reasons it continues to be maintained. However, it doesn't come with official Microsoft support—bugs and feature requests are addressed on a best-effort basis. It also requires you to manage hosting and operational infrastructure yourself.
 
-### Durable Task Framework (Legacy)
-
-The [Durable Task Framework](https://github.com/Azure/durabletask) (DTFx) is an older, open-source .NET Durable Task library. While it provides similar orchestration primitives, it predates the modern Durable Task SDKs and doesn't include official Microsoft support or the latest features. It also requires you to manage hosting, operational infrastructure, and long-term maintenance yourself.
-
-If you're starting a new project, we recommend using the modern Durable Task SDKs or Durable Functions instead.
-
-### Durable Task SDK for Go
-
-The [Durable Task SDK for Go](https://github.com/Azure/durabletask-go) is a community-supported, open-source library that enables durable orchestration capabilities in Go applications. It's currently in experimental stages, doesn't work with any of the supported Durable Task state storage backends, and isn't recommended for production use.
-
-> [!NOTE]
-> If you're interested in using Durable Task with Go with formal support from Microsoft, consider providing feedback by opening an issue in the [durabletask-go GitHub repository](https://github.com/Azure/durabletask-go/issues).
+If you're starting a new project or need official Microsoft support, we recommend using the modern Durable Task SDKs or Durable Functions instead.
 
 ## Next steps
 
