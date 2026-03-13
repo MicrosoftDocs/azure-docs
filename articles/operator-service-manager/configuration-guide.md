@@ -8,21 +8,22 @@ ms.topic: best-practice
 ms.service: azure-operator-service-manager
 ---
 
-# Best practices for configuration groups
+# Configuration best practices
 
-This article provides Azure Operator Service Manager guidelines to optimize the design of configuration group schemas (CGSs) and the operation of configuration group values (CGVs). Network function (NF) vendors, telco operators, and their partners should keep these practices in mind when onboarding and deploying NFs.
+This article provides guidelines to best manage network function configuration requirements using Azure Operator Service Manager. This includes designing optimal configuration group schemas (CGSs), configuration group values (CGVs) and networkFunctions (NFs) resource templates. Keep these practices in mind when onboarding and deploying NFs.
 
-## Configuration group approach
+## Configuration approach
 
 Consider the following meta-schema guidelines when you're designing configuration resources:
 
 * First, choose which parameters to expose to the operator.
-  * A rule of thumb is to expose parameters backed by direct operation, such as a helm value.
+  * A rule of thumb is to expose parameters backed by direct operation, such as a `helm value`.
   * Suppress parameters backed by another agent, such as `cloudinit userdata`.
 * Sort the parameters into site-specific, instance-specific, and security-specific sets. 
   * Ensure that parameters don't overlap between sets.
 * Define required versus optional parameters.
-* For optional parameters, define a reasonable default value.
+  * For optional parameters, define a reasonable default value.
+* To prevent exposing secrets, ensure proper configuration of security-specific parameters.
 
 ## One-CGS approach
 
@@ -47,7 +48,7 @@ We now recommend that you use at least three CGS/CGV sets, organizing parameters
   * Uses CGS/CGV with secrets.
   * Store values in Azure Key Vault (AKV) to obscure during deployments.
 
-> [!NOTE]
+> [!WARNING]
 > * When using secrets, consider restricting access to the role based access control (RBAC) scope `Microsoft.Resources/deployments/exportTemplate/action`.
 
 ## CGS without secrets
@@ -99,7 +100,7 @@ This example shows the rendered CGV resource created after the CGV deployment co
 Where AKV isn't being used, consider the following Azure Resource Manager (ARM) template requirements to properly obscure secret values throughout CGV resource lifecycle.
 
 * To contain all secrets, define an object parameter with `"type": "secureObject"`.
-  * Before a CGV is deployed, this configuration obscures the display of secrets as template parameters.
+  * This configuration obscures the display of secrets as template parameters.
 
 This example shows how to define an object parameter `secretCgvContent`.
 
@@ -112,10 +113,10 @@ This example shows how to define an object parameter `secretCgvContent`.
 ```
 
 > [!NOTE]
-> * Don't hydrate `secretCgvContent` using the bicep loadJsonContent() function as it forces the use of insecure variables.
+> * Don't hydrate `secretCgvContent` using the bicep loadJsonContent() function.
 
 * Under CGV resource properties, use `configurationType: 'Secret'` and `"secretConfigurationValue": "[string(parameters('secretCgvContent'))]"`.
-  * Once a CGV is deployed, this configuration prevents displaying the secret data via most Azure user interfaces.
+  * This configuration prevents displaying the secret data via most Azure user interfaces.
 
 This example shows how to pass all secrets in the object `secretCgvContent` to the CGV resource.
 
@@ -131,46 +132,46 @@ This example shows how to pass all secrets in the object `secretCgvContent` to t
 
 ## CGV with secrets with AKV
 
-Where AKV is being used, consider the following Azure Resource Manager (ARM) template requirements to properly obscure secret values throughout CGV resource lifecycle.
+Where AKV is being used, consider the following ARM template requirements to properly obscure secret values throughout CGV resource lifecycle.
 
 * Define a string `parameter` for each secret and one object `variable` to collect all secret values.
-  * The object variable contains only a reference to the parameter string and exposes no secrets.   
+  * The object variable contains only a reference to the parameter string.   
 
-This example shows how to define a parameter `secretPassword` contained within the object variable `secretVal.configurationValue`. 
+This example shows how to define a parameter `secretPassword1` contained within the object variable `secretVal.configurationValue`. 
 
 ```json
 "parameters": {
-   "secretPassword": {
+   "secretPassword1": {
      "type": "string"
     }
 }
 "variables": {
     "configurationValue": {
      "secretVal": {
-        "elastic_passwd": "secretPassword"
+        "elastic_passwd": "secretPassword1"
       }
     }
 }
 ```
 
 * Use a template reference to AKV in place of the plain-text secret.
-  * Before the CGV is deployed, this configuration obscures the display of the secrets as template variables.
+  * This configuration obscures the display of the secrets as template variables.
 
-This example shows how to hydrate the secret `secretPassword` using AKV secret and key.
+This example shows how to hydrate the secret `secretPassword1` using AKV secret and key.
 
 ```json
-  "secretPassword": {
+  "secretPassword1": {
       "reference": {
         "keyVault": {
             "id": "/subscriptions/xxx/resourceGroups/yyy/providers/Microsoft.KeyVault/vaults/zz"
         },
-        "secretPassword": "<akv-secret-key>"
+        "secretPassword1": "<akv-secret-key>"
       }
 }
 ```
 
 * Under CGV resource properties, use `configurationType: 'Secret'` and `"secretConfigurationValue": "string(secretVal.configurationValue)"`.
-  * Once a CGV is deployed, this configuration prevents displaying the secret data via most Azure user interfaces.
+  * This configuration prevents displaying the secret data via most Azure user interfaces.
 
 This example shows how to pass all secrets in the object `secretVal.configurationValue` to the new CGV.
 
@@ -186,9 +187,9 @@ This example shows how to pass all secrets in the object `secretVal.configuratio
 ]
 ```
 
-## networkFunction with secrets
+## networkFunctions with secrets
 
-Consider the following Azure Resource Manager (ARM) template requirements to properly obscure secret values throughout network function (NF) resource lifecycle.
+Consider the following ARM template requirements to properly obscure secret values throughout networkFunctions resource lifecycle.
 
 * Use `"type": "secureObject"` in the template for the `secretValues` and `config` parameter
   * This configuration obscures the display of the secrets as template parameters.
@@ -212,7 +213,7 @@ Consider the following Azure Resource Manager (ARM) template requirements to pro
 ```
 
 > [!NOTE]
-> * Don't hydrate `secretCgvContent` using the bicep loadJsonContent() function as it forces the use of insecure variables.
+> * Don't hydrate `secretValues` using the bicep loadJsonContent() function.
 
 * Under networkFunctions resource properties, use `configurationType: 'Secret'` and `"secretDeploymentValues": "[string(parameters('config'))]"`.
   * Once a network function is deployed, this configuration prevents displaying the secret data via most Azure user interfaces. 

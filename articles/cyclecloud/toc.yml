@@ -275,10 +275,10 @@ items:
         href: ./release-notes/8-8-0.md
   - name: Release Notes - CycleCloud Workspace for Slurm
     items:
-      - name: Current Release - 2026.02.01
+      - name: Current Release - 2026.03.10
+        href: ./release-notes/ccws/2026-03-10.md
+      - name: Previous Release - 2026.02.01
         href: ./release-notes/ccws/2026-02-01.md
-      - name: Previous Release - 2025.12.01
-        href: ./release-notes/ccws/2025-12-01.md
       - name: All Releases
         href: ./release-notes/ccws/release-notes.md
   - name: Service Policy

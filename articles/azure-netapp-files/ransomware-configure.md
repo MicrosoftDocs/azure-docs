@@ -7,7 +7,6 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 03/05/2026
 ms.author: anfdocs
-ms.custom: references_regions
 ---
 # Configure advanced ransomware protection for Azure NetApp Files volumes (preview)
 
@@ -22,61 +21,6 @@ Advanced ransomware protection builds its profile based on three inputs:
 With this data, advanced ransomware protection monitors your volumes for patterns and extension types that deviate from observed pattern, marking them as ransomware threats. Advanced ransomware protection builds a profile from machine learning and continues to refine its understanding of your workloads based on usage patterns. Advanced ransomware protection hones this profile based on your inputs, learning as you respond to threats.
 
 Advanced ransomware protection's alert mechanisms enable you to stay vigilant in preventing ransomware attacks on your data and maintaining the resiliency of your workload. If a threat is detected, Azure NetApp Files creates a point-in-time snapshot of the volume. You can then evaluate the threat and, if necessary, restore the volume based on the snapshot, ensuring the continuity and safety of your data.  
-
-## Considerations 
-
-* Attack reports are retained for 30 days.  
-* Ransomware threat notifications are sent in the Azure Activity log.  
-* It’s recommended that you enable no more than five volumes per Azure region with advanced ransomware protection to mitigate performance issues. 
-* It's recommended you increase QoS capacity by 5 to 10 percent due to potential performance impacts of advanced ransomware protection. The scale of the impact can vary based on the configurations across your Azure NetApp Files deployment.
-* If your volumes have workloads with a high level of encryption and deletion, it may increase the possibility of false positives. It is recommended not to enable advanced ransomware protection on these volumes.
-
-## Supported regions 
-
-- Australia Central 
-- Australia Central 2 
-- Australia East 
-- Australia Southeast 
-- Brazil South 
-- Brazil Southeast 
-- Canada Central 
-- Canada East 
-- Central India 
-- Central US 
-- East Asia 
-- East US 
-- East US 2 
-- France Central 
-- Germany North 
-- Germany West Central 
-- Israel Central 
-- Italy North 
-- Japan East
-- Japan West 
-- Korea Central 
-- Korea South
-- New Zealand North 
-- North Central US 
-- North Europe 
-- Norway East
-- Norway West 
-- Qatar Central 
-- South Africa North 
-- South Central US
-- South India
-- Southeast Asia 
-- Spain Central 
-- Sweden Central 
-- Switzerland North 
-- Switzerland West 
-- UAE Central 
-- UAE North 
-- UK South 
-- UK West 
-- West Europe 
-- West US 
-- West US 2 
-- West US 3 
 
 ## Register the feature 
 

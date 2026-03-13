@@ -2,7 +2,7 @@
 title: Create serverless APIs using Azure Functions and API Management
 description: Use Visual Studio to create an HTTP triggered function that uses an OpenAPI definition (formerly swagger) to expose a serverless API using API Management.
 ms.topic: tutorial
-ms.date: 08/04/2024
+ms.date: 03/04/2026
 ---
 
 # Create serverless APIs in Visual Studio using Azure Functions and API Management integration
@@ -12,21 +12,23 @@ REST APIs are often described using an OpenAPI definition (formerly known as Swa
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Create the code project in Visual Studio
 > * Install the OpenAPI extension
 > * Add an HTTP trigger endpoint, which includes OpenAPI definitions
 > * Test function APIs locally using built-in OpenAPI functionality
-> * Publish project to a function app in Azure 
-> * Enable API Management integration 
+> * Publish project to a function app in Azure
+> * Enable API Management integration
 > * Download the OpenAPI definition file
 
 The serverless function you create provides an API that lets you determine whether an emergency repair on a wind turbine is cost-effective. Since you create both the function app and API Management instance in a consumption tier, your cost for completing this tutorial is minimal.
 
 ## Prerequisites
 
-+ [Visual Studio 2022](https://azure.microsoft.com/downloads/). Make sure you select the **Azure development** workload during installation. 
+* [Visual Studio](https://azure.microsoft.com/products/visual-studio/). Make sure you select the **Azure development** workload during installation.
 
-+ An active [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
+* An active [Azure subscription](/azure/developer/#understanding-accounts-subscriptions-and-billing
+), create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create the code project
 
@@ -36,56 +38,55 @@ The Azure Functions project template in Visual Studio creates a project that you
 
 1. In **Create a new project**, enter *functions* in the search box, choose the **Azure Functions** template, and then select **Next**.
 
-1. In **Configure your new project**, enter a **Project name** for your project like `TurbineRepair`, and then select **Create**. 
+1. In **Configure your new project**, enter a **Project name** for your project like `TurbineRepair`, and then select **Next**.
 
-1. For the **Create a new Azure Functions application** settings, select one of these options for **Functions worker**, where the option you choose depends on your chosen process model:
+1. For the **Additional information** settings, select one of these options for **Functions worker**, where the option you choose depends on your chosen process model:
 
     ### [Isolated worker model](#tab/isolated-process)
-    
-    **.NET 8.0 Isolated (Long Term Support)**: Your C# functions run in the isolated worker model, which is recommended. For more information, see the [isolated worker model guide](dotnet-isolated-process-guide.md). 
-    
+
+    **.NET 8.0 Isolated (Long Term Support)**: Your C# functions run in the isolated worker model, which is recommended. For more information, see the [isolated worker model guide](dotnet-isolated-process-guide.md).
+
     ### [In-process](#tab/in-process)
 
     [!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
-    **.NET 8.0 (Long Term Support)**: Your C# functions run in the [in-process model](functions-dotnet-class-library.md), which will be retired. To learn more, see the [in-process model guide](functions-dotnet-class-library.md). 
-   
+    **.NET 8.0 (Long Term Support)**: Your C# functions run in the [in-process model](functions-dotnet-class-library.md), which will be retired. To learn more, see the [in-process model guide](functions-dotnet-class-library.md).
+
     ---
 
-1. For the rest of the options, use the values in the following table: 
+1. For the rest of the options, use the values in the following table:
 
     | Setting      | Value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
     | **Function template** | **Empty** | This creates a project without a trigger, which gives you more control over the name of the HTTP triggered function when you add it later.   |
     | **Use Azurite for runtime storage account (AzureWebJobsStorage)**  | **Selected** | You can use the emulator for local development of HTTP trigger functions. Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. |
-    | **Authorization level** | **Function** | When running in Azure, clients must provide a key when accessing the endpoint. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth). |
 
-1. Select **Create** to create the function project. 
+1. Select **Create** to create the function project.
 
-Next, you update the project by installing the OpenAPI extension for Azure Functions, which enables the discoverability of API endpoints in your app. 
+Next, you update the project by installing the OpenAPI extension for Azure Functions, which enables the discoverability of API endpoints in your app.
 
 ## Install the OpenAPI extension
 
-To install the OpenAPI extension: 
+To install the OpenAPI extension:
 
-1. From the **Tools** menu, select **NuGet Package Manager** > **Package Manager Console**. 
+1. From the **Tools** menu, select **NuGet Package Manager** > **Package Manager Console**.
 
-1. In the console, run the following [Install-Package](/nuget/tools/ps-ref-install-package) command to install the OpenAPI extension:
+1. In the console, run the following [Install-Package](/nuget/reference/ps-reference/ps-ref-install-package) command to install the OpenAPI extension:
 
     ### [Isolated worker model](#tab/isolated-process)
-    
+
     ```command
     NuGet\Install-Package Microsoft.Azure.Functions.Worker.Extensions.OpenApi -Version 1.5.1
     ```
     You might need to update the [specific version](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.OpenApi), based on your version of .NET.
-   
-    ### [In-process model](#tab/in-process) 
+
+    ### [In-process model](#tab/in-process)
 
     ```command
     NuGet\Install-Package Microsoft.Azure.WebJobs.Extensions.OpenApi -Version 1.5.1
     ```
     You might need to update the [specific version](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.OpenApi), based on your version of .NET.
-   
+
     ---
 
 Now, you can add your HTTP endpoint function.
@@ -94,7 +95,7 @@ Now, you can add your HTTP endpoint function.
 
 In a C# class library, the bindings used by the function are defined by applying attributes in the code. To create a function with an HTTP trigger:
 
-1. In **Solution Explorer**, right-click your project node and select **Add** > **New Azure Function**. 
+1. In **Solution Explorer**, right-click your project node and select **Add** > **New Azure Function**.
 
 1. Enter **Turbine.cs** for the class, and then select **Add**.
 
@@ -111,15 +112,15 @@ The function uses an HTTP trigger that takes two parameters:
 | *hours* | The estimated time to make a turbine repair, up to the nearest whole hour. |
 | *capacity* | The capacity of the turbine, in kilowatts. |
 
-The function then calculates how much a repair costs, and how much revenue the turbine could make in a 24-hour period. Parameters are supplied either in the query string or in the payload of a POST request. 
+The function then calculates how much a repair costs, and how much revenue the turbine could make in a 24-hour period. Parameters are supplied either in the query string or in the payload of a POST request.
 
 In the Turbine.cs project file, replace the contents of the class generated from the HTTP trigger template with the following code, which depends on your process model:
 
  ### [Isolated worker model](#tab/isolated-process)
-    
+
 :::code language="csharp" source="~/functions-openapi-turbine-repair-isolated/TurbineRepair/Turbine.cs":::
 
-### [In-process model](#tab/in-process) 
+### [In-process model](#tab/in-process)
 
 :::code language="csharp" source="~/functions-openapi-turbine-repair/TurbineRepair/Turbine.cs":::
 
@@ -135,12 +136,12 @@ When you run the function, the OpenAPI endpoints make it easy to try out the fun
 
 1. In your browser, open the RenderSwaggerUI endpoint, which should look like `http://localhost:7071/api/swagger/ui`. A page is rendered, based on your OpenAPI definitions.
 
-1. Select **POST** > **Try it out**, enter values for `hours` and `capacity` either as query parameters or in the JSON request body, and select **Execute**. 
+1. Select **POST** > **Try it out**, enter values for `hours` and `capacity` either as query parameters or in the JSON request body, and select **Execute**.
 
     :::image type="content" source="media/openapi-apim-integrate-vs/swagger-ui-post.png" alt-text="Swagger UI for testing the TurbineRepair API":::
 
 1. When you enter integer values like 6 for `hours` and 2500 for `capacity`, you get a JSON response that looks like the following example:
-   
+
     :::image type="content" source="media/openapi-apim-integrate-vs/swagger-ui-response.png" alt-text="Response JSON data from the TurbineRepair function.":::
 
 Now you have a function that determines the cost-effectiveness of emergency repairs. Next, you publish your project and API definitions to Azure.
@@ -149,9 +150,9 @@ Now you have a function that determines the cost-effectiveness of emergency repa
 
 Before you can publish your project, you must have a function app in your Azure subscription. Visual Studio publishing creates a function app the first time you publish your project. It can also create an API Management instance that integrates with your function app to expose the TurbineRepair API.
 
-1. In **Solution Explorer**, right-click the project and select **Publish** and in **Target**, select **Azure** then **Next**.
+1. In **Solution Explorer**, right-click the project and select **Publish** and in **Target**. Select **Azure** and then **Next**.
 
-1. For the **Specific target**, choose **Azure Function App (Windows)** to create a function app that runs on Windows, then select **Next**.
+1. For the **Specific target**, choose **Azure Function App** to create a function app that runs on Windows. Then select **Next**.
 
 1. In **Function Instance**, choose **+ Create a new Azure Function...**.
 
@@ -162,19 +163,19 @@ Before you can publish your project, you must have a function app in your Azure 
     | Setting      | Value  | Description                                |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Name** | Globally unique name | Name that uniquely identifies your new function app. Accept this name or enter a new name. Valid characters are: `a-z`, `0-9`, and `-`. |
-    | **Subscription** | Your subscription | The Azure subscription to use. Accept this subscription or select a new one from the drop-down list. |
-    | **[Resource group](../azure-resource-manager/management/overview.md)** | Name of your resource group |  The resource group in which to create your function app. Select an existing resource group from the drop-down list or choose **New** to create a new resource group.|
-    | **[Plan Type](functions-scale.md)** | Consumption | When you publish your project to a function app that runs in a [Consumption plan](consumption-plan.md), you pay only for executions of your functions app. Other hosting plans incur higher costs. |
+    | **Subscription** | Your subscription | The Azure subscription to use. Accept this subscription, or select a new one from the drop-down list. |
+    | **[Resource group](../azure-resource-manager/management/overview.md)** | Name of your resource group |  The resource group in which to create your function app. Select an existing resource group from the drop-down list, or choose **New** to create a new resource group.|
+    | **[Plan Type](functions-scale.md)** | Flex Consumption | When you publish your project to a function app that runs in a [Flex Consumption plan](flex-consumption-plan.md), you pay only for executions of your functions app. Other hosting plans incur higher costs. |
     | **Location** | Location of the service | Choose a **Location** in a [region](https://azure.microsoft.com/regions/) near you or other services your functions access. |
-    | **[Azure Storage](storage-considerations.md)** | General-purpose storage account | An Azure Storage account is required by the Functions runtime. Select **New** to configure a general-purpose storage account. You can also choose an existing account that meets the [storage account requirements](storage-considerations.md#storage-account-requirements).  |
+    | **[Azure Storage](storage-considerations.md)** | General-purpose storage account | The Functions runtime requires an Azure Storage account. Select **New** to configure a general-purpose storage account. You can also choose an existing account that meets the [storage account requirements](storage-considerations.md#storage-account-requirements).  |
 
     :::image type="content" source="media/openapi-apim-integrate-vs/create-function-app-with-storage.png" alt-text="Create a new function app in Azure with Storage":::
 
-1. Select **Create** to create a function app and its related resources in Azure. Status of resource creation is shown in the lower left of the window. 
+1. Select **Create** to create a function app and its related resources in Azure. Status of resource creation is shown in the lower left of the window.
 
-1. Back in **Functions instance**, make sure that **Run from package file** is checked. Your function app is deployed using [Zip Deploy](functions-deployment-technologies.md#zip-deploy) with [Run-From-Package](run-functions-from-deployment-package.md) mode enabled. This deployment method is recommended for your functions project, since it results in better performance. 
+1. Back in **Functions instance**, make sure that **Run from package file** is checked. Your function app is deployed using [Zip Deploy](functions-deployment-technologies.md#zip-deploy) with [Run-From-Package](run-functions-from-deployment-package.md) mode enabled. This deployment method is recommended for your functions project, since it results in better performance.
 
-1. Select **Next**, and in **API Management** page, also choose **+ Create an API Management API**.
+1. Select **Next**, and in the **API Management** page, also choose **+ Create new** or **Create a new instance**.
 
 1.  Create an **API in API Management** by using values in the following table:
 
@@ -191,15 +192,15 @@ Before you can publish your project, you must have a function app in your Azure 
 
 1. Select **Finish** and after the publish profile creation process completes, select **Close**.
 
-1. Verify the Publish page now says **Ready to publish**, and then select **Publish** to deploy the package containing your project files to your new function app in Azure. 
+1. Verify the Publish page now says **Ready to publish**, and then select **Publish** to deploy the package containing your project files to your new function app in Azure.
 
-    After the deployment completes, the root URL of the function app in Azure is shown in the **Publish** tab. 
+    After the deployment completes, the root URL of the function app in Azure is shown in the **Publish** tab.
 
 ## Get the function access key
 
-1. In the **Publish** tab, select the ellipses (**...**) next to **Hosting** and select **Open in Azure portal**. The function app you created is opened in the Azure portal in your default browser. 
+1. In the **Publish** tab, select the ellipses (**...**) next to **Hosting** and select **Open in Azure portal**. The function app you created is opened in the Azure portal in your default browser.
 
-1. Under **Functions** on the **Overview page**, select > **Turbine** then select **Function keys**. 
+1. Under **Functions** on the **Overview page**, select > **Turbine** then select **Function keys**.
 
     :::image type="content" source="media/openapi-apim-integrate-vs/get-function-keys.png" alt-text="Get an access key for the TurbineRepair function":::
 
@@ -212,8 +213,8 @@ Before you can publish your project, you must have a function app in your Azure 
 1. If the function app isn't already connected to the new API Management instance, select it under **API Management**, select **API** > **OpenAPI Document on Azure Functions**, make sure **Import functions** is checked, and select **Link API**. Make sure that only **TurbineRepair** is selected for import and then **Select**. 
 
 1. Select **Go to API Management** at the top of the page, and in the API Management instance, expand **APIs**.
- 
-1. Under **APIs** > **All APIs**, select **OpenAPI Document on Azure Functions** > **POST Run**, then under **Inbound processing** select **Add policy** > **Set query parameters**.
+
+1. Under **APIs** > **All APIs**, select **OpenAPI Document on Azure Functions** > **POST Run**. Then under **Inbound processing** select **Add policy** > **Set query parameters**.
 
 1. Below **Inbound processing**, in **Set query parameters**, type `code` for **Name**, select **+Value**, paste in the copied function key, and select **Save**. API Management includes the function key when it passes calls through to the function endpoint.
 
@@ -223,7 +224,7 @@ Now that the function key is set, you can call the `turbine` API endpoint to ver
 
 ## Verify the API in Azure
 
-1. In the API, select the **Test** tab and then **POST Run**, enter the following code in the **Request body** > **Raw**, and select **Send**:
+1. In the API, select the **Test** tab, and then **POST Run**. Enter the following code in the **Request body** > **Raw**, and select **Send**:
 
     ```json
     {
@@ -234,7 +235,7 @@ Now that the function key is set, you can call the `turbine` API endpoint to ver
 
     :::image type="content" source="media/openapi-apim-integrate-vs/api-management-test-function-api.png" alt-text="OpenAPI test page in the API Management API":::
 
-    As before, you can also provide the same values as query parameters. 
+    As before, you can also provide the same values as query parameters.
 
 1. Select **Send**, and then view the **HTTP response** to verify the same results are returned from the API.
 
@@ -242,16 +243,16 @@ Now that the function key is set, you can call the `turbine` API endpoint to ver
 
 If your API works as expected, you can download the OpenAPI definition for the new hosted APIs from API Management.
 
-1. 1. Under **APIs**, select **OpenAPI Document on Azure Functions**, select the ellipses (**...**), and select **Export**.
-   
+1. Under **APIs**, select **OpenAPI Document on Azure Functions**, select the ellipses (**...**), and select **Export**.
+
    ![Download OpenAPI definition](media/openapi-apim-integrate-vs/download-definition.png)
 
-2. Choose the means of API export, including OpenAPI files in various formats. You can also [export APIs from Azure API Management to the Power Platform](../api-management/export-api-power-platform.md). 
+2. Choose the means of API export, including OpenAPI files in various formats. You can also [export APIs from Azure API Management to the Power Platform](../api-management/export-api-power-platform.md).
 
 ## Clean up resources
 
 In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, you can delete them by deleting the resource group.
- 
+
 From the Azure portal menu or **Home** page, select **Resource groups**. Then, on the **Resource groups** page, select the group you created.
 
 On the **myResourceGroup** page, make sure that the listed resources are the ones you want to delete.

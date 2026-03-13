@@ -145,7 +145,7 @@ With cross-zone-region replication, you can protect your volumes by using a seco
 
 * If you use cross-region replication, you must use supported [cross-region replication pairs](#supported-region-pairs).
 
-* Cross-zone-region replication can be performed under a single subscription or [across subscriptions](cross-region-replication-create-peering.md#register-for-cross-subscription-replication).
+* Cross-zone-region replication can be performed under a single subscription or [across subscriptions](enable-cross-subscription-replication.md).
 
 ## <a name="supported-region-pairs"></a>Supported cross-region replication pairs
 
@@ -154,3 +154,4 @@ With cross-zone-region replication, you can protect your volumes by using a seco
 ## Next step
 
 - [Manage cross-zone-region replication](cross-zone-region-replication-configure.md)
+- [Requirements and considerations for Azure NetApp Files replication](replication-requirements.md)

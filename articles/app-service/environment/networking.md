@@ -228,7 +228,7 @@ For FTP access to Internal Load balancer (ILB) App Service Environment v3 specif
 1. Create an Azure DNS private zone named `ftp.appserviceenvironment.net`.
 1. Create an A record in that zone that points `<App Service Environment-name>` to the inbound IP address.
 
-In addition to setting up DNS, you also need to enable it in the [App Service Environment configuration](./configure-network-settings.md#ftp-access) and at the [app level](../deploy-ftp.md?tabs=cli#enforce-ftps).
+In addition to setting up DNS, you also need to enable it in the [App Service Environment - Configure networking settings](./configure-network-settings.md#allow-incoming-ftp-connections) and at the [app level](../deploy-ftp.md?tabs=cli#enforce-ftps).
 
 ### DNS configuration from your App Service Environment
 

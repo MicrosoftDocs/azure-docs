@@ -17,7 +17,7 @@ ms.custom:
 
 [!INCLUDE [app-service-managed-certificate](./includes/managed-certs/managed-certs-note.md)]
 
-In your application code, you can access both [public key certificates and certificates that contain a private key that you add to Azure App Service.](configure-ssl-certificate.md). Your app code might act as a client and access an external service that requires certificate authentication. It might also need to perform cryptographic tasks. This article shows how to use public or private certificates in your application code.
+In your application code, you can access both [public key certificates and certificates that contain a private key that you add to Azure App Service.](configure-ssl-certificate.md). Your app code might act as a client and access an external service that requires certificate authentication. It might also need to perform cryptographic tasks. This article shows how to use publicly or privately signed certificates in your application code.
 
 This approach to using certificates in your code makes use of the Transport Layer Security (TLS) functionality in App Service, which requires your app to be in the Basic tier or higher. If your app is in the Free or Shared tier, you can [include the certificate file in your app repository](#load-a-certificate-from-a-file).
 
@@ -111,7 +111,7 @@ For languages that don't support or offer insufficient support for the Windows c
 
 ## Load a certificate from a file
 
-If you need to load a certificate file that you upload manually, it's better to upload the certificate by using [File Transfer Protocol Secure (FTPS)](deploy-ftp.md) instead of [Git](deploy-local-git.md), for example. Keep sensitive data like a private certificate out of source control.
+If you need to load a certificate file that you upload manually, it's better to upload the certificate by using [File Transfer Protocol Secure (FTPS)](deploy-ftp.md) instead of [Git](deploy-local-git.md), for example. Keep sensitive data like certificate private keys out of source control.
 
 ASP.NET and ASP.NET Core on Windows must access the certificate store even if you load a certificate from a file. To load a certificate file in a Windows .NET app, load the current user profile with the following command in <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
 
@@ -140,7 +140,7 @@ To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, or
 
 The `WEBSITE_LOAD_CERTIFICATES` app setting makes the specified certificates accessible to your Windows or Linux custom containers (including built-in Linux containers) as files. The files are found under the following directories:
 
-| Container platform | Public certificates | Private certificates |
+| Container platform | Public certificate files (no private key) | Certificate files that include a private key |
 | - | - | - |
 | Windows container | `C:\appservice\certificates\public` | `C:\appservice\certificates\private` |
 | Linux container | `/var/ssl/certs` | `/var/ssl/private` |

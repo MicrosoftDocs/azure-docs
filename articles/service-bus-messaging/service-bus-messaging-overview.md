@@ -3,7 +3,7 @@ title: Introduction to Azure Service Bus Messaging
 description: Discover Azure Service Bus, a fully managed serverless message broker that enables reliable communication between applications and services.
 #customer intent: As a developer, I want to understand the core concepts of Azure Service Bus so that I can decide if it fits my application needs.
 ms.topic: overview
-ms.date: 03/13/2025
+ms.date: 03/13/2026
 ---
 
 # What is Azure Service Bus?

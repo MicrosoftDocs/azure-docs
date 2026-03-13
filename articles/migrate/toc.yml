@@ -83,8 +83,6 @@ items:
         href: tutorial-discover-physical.md
       - name: Support matrix for Physical server discovery
         href: migrate-support-matrix-physical.md
-    # - name: Appliance configuration
-    #   items:
     - name: Deep discover database workloads
       items:
       - name: SQL instances
@@ -219,18 +217,6 @@ items:
           href: create-file-share-assessment.md
         - name: Review assessment report
           href: review-file-share-assessment.md
-#     - name: AVS assessment
-#       items:
-#       - name: Create an AVS assessment
-#         href: tutorial-assess-vmware-azure-vmware-solution.md
-#       - name: Customize assessment settings
-#         href: assessment-properties.md
-#       - name: Review assessment report
-#         href: review-azure-vmware-solution-assessment.md
-#      - name: SAP assessment
-#       items:
-#       - name: Review assessment report
-#         href: review-sap-assessment.md
   - name: Wave planning
     items:
     - name: Overview
@@ -263,12 +249,6 @@ items:
       href: ../site-recovery/vmware-physical-azure-support-matrix.md?toc=/azure/migrate/toc.json
     - name: Hyper-V migration requirements
       href: migrate-support-matrix-hyper-v-migration.md
-  # - name: Agent-based migrations
-  #   items:
-  #   - name: Hydration process 
-  #     href: hydration-process.md
-  #   - name: Agentless migrations using scripts
-  #     href: tutorial-migrate-vmware-powershell.md
 - name: Modernize applications
   items:
   - name: Overview of Web App Migration and Modernization
@@ -301,8 +281,6 @@ items:
           href: /azure/azure-local/migrate/migration-azure-migrate-vmware-overview?toc=/azure/migrate/toc.json
     - name: Migrate Hyper-V servers 
       items:
-#       - name: Create Business case and assessment
-#         href: tutorial-assess-hyper-v.md        
         - name: Assess large number of servers in Hyper-V environment
           href: scale-hyper-v-assessment.md
         - name: Migrate to Azure Cloud
@@ -322,16 +300,8 @@ items:
           href: tutorial-discover-aws.md
         - name: Discover GCP inventory
           href: tutorial-discover-gcp.md
-  #     - name: Create Business case and assessment
-  #       href: tutorial-assess-aws.md
         - name: Migrate AWS EC2 to Azure
           href: tutorial-migrate-aws-virtual-machines.md
-  # - name: Migrate SAP applications
-  #   items:
-  #  - name: Discover SAP systems (preview)
-  #    href: tutorial-discover-sap-systems.md
-  #   - name: Assess SAP systems for migration (preview)
-  #     href: tutorial-assess-sap-systems.md
 - name: How-to
   items:
   - name: Discover and assess using Azure Private Link
@@ -364,14 +334,6 @@ items:
     items:
     - name: Enable application and code assessment
       href: appcat/index.yml
-#   - name: Assess a SQL Server database
-#     href: /sql/dma/dma-assess-sql-data-estate-to-sqldb
-#   - name: Create SQL assessment
-#     href: how-to-create-sql-assessment.md
-#   - name: Review SQL assessment
-#     href: how-to-review-sql-assessment.md
-#   - name: Customize an assessment
-#     href: how-to-modify-assessment.md
     - name: Scale assessment
       items:
       - name: Assess large number of servers in VMware environment
@@ -511,78 +473,6 @@ items:
     href: https://azure.microsoft.com/products/azure-migrate
   - name: Azure Roadmap
     href: https://azure.microsoft.com/updates/
-  # - name: Assess
-  #   items:
-  #   - name: Assess servers in VMware environment
-  #     items:
-  #   - name: Assess servers in Hyper-V environment 
-  #     items:
-  #     - name: Assess physical servers
-  #     items:
-  #   - name: Assess GCP instances for migration to Azure
-  #     href: tutorial-assess-gcp.md
-  #   - name: Assess web apps for migration to Azure Kubernetes Service (AKS)
-  #     href: tutorial-assess-aspnet-aks.md
-  #   - name: Assess web apps for migration to Azure App Service
-  #     href: tutorial-assess-webapps.md
-  # - name: Migrate
-  #   items:
-  #   - name: Migrate servers in VMware environment
-  #     items:
-  #   - name: Migrate GCP instances
-  #     href: tutorial-migrate-gcp-virtual-machines.md
-  # - name: Modernize
-  #   items:
-# - name: Concepts
-#   items:
-#   - name: General
-#     items:
-#   - name: Security
-#     items:
-#   - name: Discover
-#     items:
-#     - name: Dependency analysis overview
-#       href: concepts-dependency-visualization.md
-#   - name: Decide
-#     items:
-#   - name: Assess
-#     items:
-#     - name: Assessments overview (migrate to Azure SQL)
-#       href: concepts-azure-sql-assessment-calculation.md
-#   - name: Migrate
-#     items:
-#     - name: Build a migration plan
-#       href: concepts-migration-planning.md
-#     - name: Physical server migration support
-#       href: migrate-support-matrix-physical-migration.md
-#     - name: Replication appliance requirements
-#       href: migrate-replication-appliance.md
-#       items:
-#         - name: Prepare for VMware agentless migration
-#           href: prepare-for-agentless-migration.md
-#     - name: Web apps migration support
-#       href: concepts-migration-webapps.md
-#   - name: Discover
-#     items:
-#     - name: Deploy the Azure Migrate appliance
-#       items:
-#       - name: Deploy appliance with template (VMware)
-#         href: how-to-set-up-appliance-vmware.md
-#       - name: Deploy appliance with template (Hyper-V)
-#         href: how-to-set-up-appliance-hyper-v.md
-#   - name: Assess
-#     items:
-#     - name: Azure Migrate application and code assessment
-#       href: appcat/index.yml
-#     - name: Group machines for assessment
-#       href: how-to-create-a-group.md
-#     - name: Create an Azure SQL assessment
-#       href: how-to-create-azure-sql-assessment.md
-#     - name: Create an Azure App Service assessment
-#       href: how-to-create-azure-app-service-assessment.md
+
 #     - name: Create an AVS assessment
 #       href: how-to-create-azure-vmware-solution-assessment.md
-#   - name: Migrate
-#     items:
-#     - name: Add migration tools
-#       href: how-to-migrate.md

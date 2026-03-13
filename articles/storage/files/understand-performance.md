@@ -4,7 +4,7 @@ description: Learn about the factors that can impact Azure file share performanc
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 02/03/2026
+ms.date: 03/12/2026
 ms.author: kendownie
 # Customer intent: "As a cloud storage administrator, I want to understand the factors affecting Azure file share performance, so that I can optimize configurations for IOPS, throughput, and latency to meet application demands."
 ---
@@ -17,7 +17,7 @@ ms.author: kendownie
 
 Azure Files can satisfy performance requirements for most applications and use cases. This article explains the different factors that can affect file share performance and how to optimize the performance of Azure file shares for your workload.
 
-## Glossary
+## Storage performance glossary
 
 Before reading this article, it's helpful to understand some key terms relating to storage performance:
 
@@ -56,7 +56,7 @@ The following table summarizes the expected performance targets between SSD and 
 
 SSD file shares offer a provisioning model that guarantees the following performance profile based on share size. For more information, see the [provisioned v1 model](understanding-billing.md#provisioned-v1-model).
 
-### Performance checklist
+### Performance best practices
 
 Whether you're assessing performance requirements for a new or existing workload, understanding your usage patterns helps you achieve predictable performance.
 
@@ -69,6 +69,8 @@ Whether you're assessing performance requirements for a new or existing workload
 - **Workload parallelization:** For workloads that perform operations in parallel, such as through multiple threads, processes, or application instances on the same client, SSD file shares provide a clear advantage over HDD file shares: SMB Multichannel. See [Improve SMB Azure file share performance](smb-performance.md) for more information.
 
 - **API operation distribution**: Metadata heavy workloads, such as workloads that are performing read operations against a large number of files, are a better fit for SSD file shares. See [Metadata or namespace heavy workload](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json#cause-2-metadata-or-namespace-heavy-workload).
+
+- **Zonal placement**: Use [zonal placement](zonal-placement.md) to select the specific availability zone in which your storage account resides. This allows you to place your VMs in the same availability zone as your storage, which can reduce latency by up to 30 percent. This feature is currently available only for SSD storage accounts using locally redundant storage (LRS) in [supported regions](zonal-placement.md#region-support).
 
 ## Latency
 

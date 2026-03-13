@@ -19,6 +19,15 @@ ms.author: evach
 
 Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+## March 2026
+### FHIR service
+
+**Bulk Export cancellation behavior update**: Added updates to align the FHIR server to support [Bulk Data Access 2.0](https://hl7.org/fhir/uv/bulkdata/STU2/export.html#bulk-data-delete-request). This includes a change to bulk export cancellation behavior. Previously, cancellation request of an already completed, cancelled, or failed export job returned "200 OK." The behavior is now updated to return more informative operation outcomes:
+  - Cancelling an already-cancelled export job returns "404 Job Not Found."
+  - Cancelling a completed or failed export job returns "404 Job Not Found" if the job has already been cancelled or failed; otherwise returns "202 Accepted."
+  - Cancelling a queued or running export job returns "202 Accepted"; no behavior change.
+  - Trying to get the status of a user-requested cancelled job returns "404 Job Not Found."
+
 ## February 2026
 ### FHIR service
 

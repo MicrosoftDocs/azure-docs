@@ -127,6 +127,10 @@ Any existing SSTP connections after March 31, 2027 will be suspended and will st
 
 Effective November 2025, Basic SKU will start supporting IKEv2 protocol
 
+### Why am I not able to see Azure diagnostics on my VPN gateway?
+
+Azure diagnostics is not supported for SSTP protocol on VPN gateway, please migrate your gateway to use IKEv2 or OpenVPN to enable diagnostics.
+
 ### Will there be downtime while I migrate my SSTP connections to other protocol?
 
 No, there won't be any downtime when you transition your “SSTP” protocol to “IKEv2 and SSTP (SSL)” protocol. However, if you migrate to “IKEv2” only, the gateway will have downtime until the new configuration is applied.
