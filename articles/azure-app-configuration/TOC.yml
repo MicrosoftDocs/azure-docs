@@ -152,6 +152,8 @@
         href: use-key-vault-references-dotnet-core.md
       - name: Spring Boot
         href: use-key-vault-references-spring-boot.md
+      - name: Python
+        href: use-key-vault-references-python-provider.md
     - name: Reload secrets and certificates automatically
       items:
       - name: .NET

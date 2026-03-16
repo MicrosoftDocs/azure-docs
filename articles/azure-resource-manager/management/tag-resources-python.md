@@ -66,7 +66,7 @@ This article describes how to use Python to tag resources, resource groups, and 
 
 ## Apply tags
 
-Azure Python offers the [ResourceManagementClient.tags.begin_create_or_update_at_scope](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.tagsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-tagsoperations-begin-create-or-update-at-scope) method to apply tags. It replaces all tags on the resource, resource group, or subscription. When you call the command, pass the resource ID of the entity you want to tag.
+Azure Python offers the [ResourceManagementClient.tags.begin_create_or_update_at_scope](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.operations.tagsoperations#azure-mgmt-resource-resources-operations-tagsoperations-begin-create-or-update-at-scope) method to apply tags. It replaces all tags on the resource, resource group, or subscription. When you call the command, pass the resource ID of the entity you want to tag.
 
 The following example applies a set of tags to a storage account:
 
@@ -112,7 +112,7 @@ tags = {
 }
 ```
 
-To add tags to a resource that already has tags, use [ResourceManagementClient.tags.begin_update_at_scope](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.tagsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-tagsoperations-begin-update-at-scope). On the [TagsPatchResource](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.models.tagspatchresource) object, set the `operation` parameter to `Merge`.
+To add tags to a resource that already has tags, use [ResourceManagementClient.tags.begin_update_at_scope](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.operations.tagsoperations#azure-mgmt-resource-resources-operations-tagsoperations-begin-update-at-scope). On the [TagsPatchResource](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.models.tagspatchresource) object, set the `operation` parameter to `Merge`.
 
 ```python
 import os
@@ -349,7 +349,7 @@ for resource in resources:
 
 ## List tags
 
-To get the tags for a resource, resource group, or subscription, use the [ResourceManagementClient.tags.get_at_scope](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.tagsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-tagsoperations-get-at-scope) method and pass the resource ID of the entity.
+To get the tags for a resource, resource group, or subscription, use the [ResourceManagementClient.tags.get_at_scope](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.operations.tagsoperations#azure-mgmt-resource-resources-operations-tagsoperations-get-at-scope) method and pass the resource ID of the entity.
 
 To see the tags for a resource, use:
 
@@ -505,7 +505,7 @@ print(f"Tags {tag_patch_resource.properties.tags} were removed from resource: {r
 
 The specified tags are removed.
 
-To remove all tags, use the [ResourceManagementClient.tags.begin_delete_at_scope](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.tagsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-tagsoperations-begin-delete-at-scope) method.
+To remove all tags, use the [ResourceManagementClient.tags.begin_delete_at_scope](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.operations.tagsoperations#azure-mgmt-resource-resources-operations-tagsoperations-begin-delete-at-scope) method.
 
 ```python
 import os

@@ -188,7 +188,7 @@ Optionally, you can also access the mount files by using the direct path. If you
 
 ## Troubleshoot mount issues
 
-If a mount configuration fails, the compute node fails and the node state is set to **Unusable**. To diagnose a mount configuration failure, inspect the [ComputeNodeError](/rest/api/batchservice/computenode/get#computenodeerror) property for details on the error.
+If a mount configuration fails, the compute node fails and the node state is set to **Unusable**. To diagnose a mount configuration failure, inspect the [ComputeNodeError](/rest/api/batchservice/nodes/get-node#batchnodeerror) property for details on the error.
 
 To get log files for debugging, you can use the [OutputFiles](batch-task-output-files.md#specify-output-files-for-task-output) API to upload the *\*.log* files. The *\*.log* files contain information about the file system mount at the `AZ_BATCH_NODE_MOUNTS_DIR` location. Mount log files have the format: *\<type>-\<mountDirOrDrive>.log* for each mount. For example, a CIFS mount at a mount directory named *test* has a mount log file named: *cifs-test.log*.
 

@@ -125,7 +125,7 @@ This example shows how to pass all secrets in the object `secretCgvContent` to t
   "type": "Microsoft.HybridNetwork/configurationGroupValues",
   "properties": {
     "configurationType": "Secret"
-    "secretDeploymentValues": "[string(parameters('secretCgvContent'))]"
+    "secretConfigurationValue": "[string(parameters('secretCgvContent'))]"
   }
 }
 ```
