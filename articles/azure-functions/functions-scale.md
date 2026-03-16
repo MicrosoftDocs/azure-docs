@@ -17,9 +17,10 @@ When you create a function app in Azure, you must choose a hosting option for yo
 | **[Premium plan]** | Azure Functions | GA | Linux |
 | **[Dedicated plan]** | Azure Functions | GA | Linux |
 | **[Container Apps]** | Azure Container Apps | GA | Linux |
-| **[Consumption plan]** | Azure Functions | Windows - GA<br/>Linux - Retired | None |
+| **[Consumption plan]** (legacy) | Azure Functions | Windows - GA<br/>Linux - Retired | None |
 
-[!INCLUDE [functions-linux-consumption-retirement](../../includes/functions-linux-consumption-retirement.md)]
+> [!IMPORTANT]
+> The Consumption plan is a legacy hosting plan. For new serverless function apps, use the [Flex Consumption plan]. For existing Consumption plan apps, [migrate to the Flex Consumption plan](migration/migrate-plan-consumption-to-flex.md).
 
 The Azure App Service infrastructure on both Linux and Windows virtual machines facilitates the Azure Functions hosting options. The hosting option you choose dictates the following behaviors:
 
@@ -42,7 +43,7 @@ The following table summarizes the benefits of the various options for Azure fun
 |**[Premium plan]**|Automatically scales based on demand using prewarmed workers, which run applications with no delay after being idle, runs on more powerful instances, and connects to virtual networks. <br/><br/>Consider the Azure Functions Premium plan in the following situations: <br/><br/>✔ Your function apps run continuously, or nearly continuously.<br/>✔ You want more control of your instances and want to deploy multiple function apps on the same plan with event-driven scaling.<br/>✔ You have a high number of small executions and a high execution bill, but low GB seconds in the Consumption plan.<br/>✔ You need more CPU or memory options than are provided by consumption plans.<br/>✔ Your code needs to run longer than the maximum execution time allowed on the Consumption plan.<br/>✔ You require virtual network connectivity for secure access to Azure resources.<br/>✔ You want to provide a custom Linux image in which to run your functions. |  
 |**[Dedicated plan]** |Run your functions within an App Service plan at regular [App Service plan rates](https://azure.microsoft.com/pricing/details/app-service/windows/).<br/><br/>Best for long-running scenarios where [Durable Functions](durable/what-is-durable-task.md) can't be used. Consider an App Service plan in the following situations:<br/><br/>✔ You have existing and underutilized virtual machines that are already running other App Service instances.<br/>✔ You must have fully predictable billing, or you need to manually scale instances.<br/>✔ You want to run multiple web apps and function apps on the same plan<br/>✔ You need access to larger compute size choices.<br/>✔ Full compute isolation and secure network access provided by an App Service Environment (ASE).<br/>✔ Very high memory usage and high scale (ASE).|  
 | **[Container Apps]** | Create and deploy containerized function apps in a fully managed environment hosted by Azure Container Apps.<br/><br/>Use the Azure Functions programming model to build event-driven, serverless, cloud native function apps. Run your functions alongside other microservices, APIs, websites, and workflows as container-hosted programs. Consider hosting your functions on Container Apps in the following situations:<br/><br/>✔ You want control of the container image and want to package custom libraries with your function code to support line-of-business apps.<br/>✔ You need to migrate code execution from on-premises or legacy apps to cloud native microservices running in containers.<br/>✔ When you want to avoid the overhead and complexity of managing Kubernetes clusters and dedicated compute.<br/>✔ Your functions need high-end processing power provided by dedicated GPU compute resources. |  
-|**[Consumption plan]**| Pay for compute resources only when your functions are running (pay-as-you-go) with automatic scale on Windows.<br/><br/>On the Consumption plan, function instances are dynamically added and removed based on the number of incoming events.<br/><br/>Consider the Consumption plan when:<br/><br/>✔ You have a dependency on Windows. For example, using the v1 runtime, the full .NET Framework, or Windows-specific features like certain PowerShell modules.<br/>✔ You want a serverless billing model and pay only when your functions are running.|
+|**[Consumption plan]** (legacy)| Pay for compute resources only when your functions are running (pay-as-you-go) with automatic scale on Windows.<br/><br/>On the Consumption plan, function instances are dynamically added and removed based on the number of incoming events.<br/><br/>Consider the Consumption plan when:<br/><br/>✔ You have a dependency on Windows. For example, using the v1 runtime, the full .NET Framework, or Windows-specific features like certain PowerShell modules.<br/>✔ You want a serverless billing model and pay only when your functions are running.<br/><br/>For new serverless function apps, use the [Flex Consumption plan] instead.|
 
 The remaining tables in this article compare hosting options based on various features and behaviors. 
 
@@ -56,11 +57,12 @@ This table shows operating system support for the hosting options.
 | **[Premium plan]** | ✅ Code-only<br/>✅ Container | ✅ Code-only | 
 | **[Dedicated plan]** | ✅ Code-only<br/>✅ Container | ✅ Code-only |
 | **[Container Apps]** | ✅ Container-only | ❌ Not supported |
-| **[Consumption plan]**<sup>3</sup> | ✅ Code-only (Retired)<br/>❌ Container (not supported) | ✅ Code-only |
+| **[Consumption plan]** | ✅ Code-only (Retired)<br/>❌ Container (not supported) | ✅ Code-only (legacy) |
 
 1. Linux is the only supported operating system for the [Python runtime stack](./functions-reference-python.md).  
 2. Windows deployments are code-only. Azure Functions doesn't currently support Windows containers. 
-3. The ability to run your app on Linux in a Consumption plan will be retired on 30 September 2028. For more information, see [Consumption plan].   
+
+[!INCLUDE [functions-linux-consumption-retirement](../../includes/functions-linux-consumption-retirement.md)]
 
 [!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
@@ -85,7 +87,7 @@ Maximum instances are given on a per-function app (Consumption) or per-plan (Pre
 2. In some regions, Linux apps on a Premium plan can scale to 100 instances. For more information, see the [Premium plan article](functions-premium-plan.md#region-max-scale-out). 
 3. For specific limits for the various App Service plan options, see the [App Service plan limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits).
 4. On Container Apps, the default is 10 instances, but you can set the [maximum number of replicas](../container-apps/scale-app.md#scale-definition), which has an overall maximum of 1000. This setting is honored as long as there's enough cores quota available. For more information, see [Quotas for Azure Container Apps](/azure/container-apps/quotas). When you create your function app from the Azure portal, you're limited to 300 instances.
-5. During scale-out, there's currently a limit of 500 instances per subscription per hour for Linux apps on a Consumption plan.  
+5. During scale-out, there's currently a limit of 500 instances per subscription per hour for Linux apps on a Consumption plan. 
 6. For private endpoint restricted http triggers, scaling out is limited to at most 20 instances.
 
 ## Cold start behavior

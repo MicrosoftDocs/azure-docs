@@ -211,8 +211,6 @@ groups:
     title: Azure Container Apps
   - id: azure-functions
     title: Azure Functions
-  - id: azure-arc
-    title: Azure Arc (preview)
 - id: df-languages
   title: Durable Functions programming languages
   prompt: Choose a programming language or runtime
@@ -267,8 +265,6 @@ groups:
     title: Container Apps
   - id: consumption-plan
     title: Consumption plan
-  - id: azure-arc
-    title: Azure Arc
 - id: dts-runtime
   title: Application languages for Durable Task Scheduler
   prompt: Choose an option

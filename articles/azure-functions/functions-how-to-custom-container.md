@@ -22,7 +22,7 @@ This article demonstrates the support that Azure Functions provides for containe
 [!INCLUDE [functions-aca-v2-note](../../includes/functions-aca-v2-note.md)]
 
 ::: zone-end
-:::zone pivot="azure-functions,azure-arc"
+:::zone pivot="azure-functions"
 This article demonstrates the support that Azure Functions provides for function apps that run in Linux containers.
 ::: zone-end
 
@@ -38,9 +38,6 @@ To learn more about deployments to Azure Container Apps, see [Azure Container Ap
 :::zone pivot="azure-functions"
 > [Create your first containerized Azure Functions](functions-deploy-container.md)
 :::zone-end
-:::zone pivot="azure-arc"
-> [Working with containers and Azure Functions](functions-how-to-custom-container.md?pivots=azure-arc)
-::: zone-end
 >
 >[!IMPORTANT]
 >This article currently shows how to connect to the default storage account by using a connection string. For the best security, instead create a managed identity-based connection to Azure Storage using Microsoft Entra authentication. For more information, see [Connections](./functions-reference.md#connections).
@@ -170,10 +167,6 @@ The specified image version is deployed to your app.
 The specified image version is deployed to your app.
 ::: zone-end  
 
-:::zone pivot="azure-arc"
-This feature isn't documented.
-::: zone-end
-
 ---
 
 :::zone pivot="azure-functions"  
@@ -295,10 +288,6 @@ Based on your changes, a new image is deployed to your app or new allocations ar
 1. To make updates, modify any of the image settings, such as the **Full Image Name and Tag**, and then select **Save**.
 
 The new image is deployed to your app based on your new settings.
-::: zone-end
-
-:::zone pivot="azure-arc"
-This feature isn't documented.
 ::: zone-end
 
 ---

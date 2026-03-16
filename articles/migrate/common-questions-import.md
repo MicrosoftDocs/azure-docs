@@ -22,10 +22,18 @@ The following sheets and columns are necessary for importing all data:
 **vInfo** | VM, Powerstate, CPUs, Memory, Provisioned MiB, In use MiB, OS according to the configuration file, VM UUID
 **vPartition** | VM, VM UUID, Capacity MiB, Consumed MiB
 **vMemory** | VM, VM UUID, Size MiB, Reservation
+**vDatastore** | Name, Object ID, Type, Hosts, Capacity MiB, Provisioned MiB, In Use MiB
+**vSnapshot** | VM, VM UUID, Powerstate, Size MiB (vmsn), Size MiB (total), Quiesced, Datacenter, Cluster, Host
+**vDisk** | VM, VM UUID, Shared Bus, Controller
+**vCD** | VM, VM UUID, Powerstate, Device Type, Connected
+**vUSB** | VM, VM UUID, Powerstate, Device Type, Connected
+**vNetwork** | VM, VM UUID, Switch, Connected
+**dvPort** | Object ID, Port, Switch, Type, VLAN, Allow Promiscuous, Mac changes, Forged Transmits
  
-### Will the data import fail if I don’t have vPartition and vMemory sheets? 
+### Will the data import fail if I don’t have sheets apart from vInfo? 
 
-Storage sizing is captured using data from the vPartition and vMemory sheets. If these sheets aren't available, it is taken from the vInfo sheet and this data might be inaccurate.  
+- Storage sizing is captured using data from the vPartition and vMemory sheets. If these sheets aren't available, it's taken from the vInfo sheet and this data might not be accurate.
+- The other sheets providing readiness information. Without the presence of those files, readiness data might not be accurate.
 
 
 ### My RVTools XLSX import keeps failing. What do I need to do? 
