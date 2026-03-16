@@ -50,6 +50,8 @@ To mitigate the impact of large inputs and outputs, you can:
 - Delegate work to sub-orchestrators to load balance the history memory burden across multiple orchestrators, keeping the memory footprint of individual histories small.
 - Store large data in external storage (such as Azure Blob Storage) and pass lightweight identifiers that allow you to retrieve that data inside activity functions when needed.
 
+If you use Durable Task Scheduler, you can also use [large payload support](./durable-task-scheduler/durable-task-scheduler-large-payloads.md) to offload larger payloads to Azure Blob Storage.
+
 > [!TIP]
 > The best practice for dealing with large data is to keep it in external storage and materialize that data only inside activities, when needed.
 

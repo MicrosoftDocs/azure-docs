@@ -35,19 +35,26 @@ These scenarios allow you to build event-driven systems using modern architectur
 
 ## Development lifecycle
 
-With Functions, you write your function code in your preferred language using your favorite development tools, and then deploy your code to the Azure cloud. Functions provides native support for developing in [C#, Java, JavaScript, PowerShell, or Python](./supported-languages.md), plus the ability to use [custom handlers](./functions-custom-handlers.md) for other languages, such as Rust and Go.
+Functions supports you through every stage of app development:
 
-Functions integrates directly with Visual Studio, Visual Studio Code, Maven, and other popular development tools to enable seamless debugging and [deployments](functions-deployment-technologies.md). 
-
-Functions also integrates with Azure Monitor and Azure Application Insights to provide comprehensive monitoring and analysis of your [functions in the cloud](functions-monitoring.md).
+1. **Code** in [C#, Java, JavaScript, PowerShell, or Python](./supported-languages.md), or use [custom handlers](./functions-custom-handlers.md) for languages like Rust and Go.
+1. **Develop and debug** locally with [Visual Studio, Visual Studio Code, Maven, and other tools](functions-develop-local.md).
+1. **Deploy** to Azure using [CLI, CI/CD pipelines, or your IDE](functions-deployment-technologies.md).
+1. **Monitor** performance and diagnose issues with built-in [Azure Monitor and Application Insights](functions-monitoring.md) integration.
 
 ## Hosting options
 
-Functions provides various [hosting options](functions-scale.md) for your business needs and application workload. [Event-driven scaling hosting options](event-driven-scaling.md) range from fully serverless, where you only pay for execution time (Consumption plan), to always-warm instances kept ready for the fastest response times (Premium plan).
+Functions provides various [hosting options](functions-scale.md) for your business needs and application workload.
 
-When you have excess App Service hosting resources, you can host your functions in an existing App Service plan. This kind of Dedicated hosting plan is also a good choice when you need predictable scaling behaviors and costs from your functions.
+| Hosting option | Description |
+| --- | --- |
+| [Flex Consumption plan](flex-consumption-plan.md) | **Recommended.** Fast event-driven scaling, virtual network integration, and pay-as-you-go billing. |
+| [Premium plan](functions-premium-plan.md) | Always-warm instances for the fastest response times, unlimited execution duration, and virtual network integration. |
+| [Dedicated plan](dedicated-plan.md) | Run functions in an existing App Service plan with predictable scaling and costs. |
+| [Container Apps](../container-apps/functions-overview.md) | Deploy fully customized containerized function apps alongside microservices in Azure Container Apps. |
+| [Consumption plan](consumption-plan.md) | Legacy serverless plan (Windows only). Use the Flex Consumption plan for new apps. |
 
-If you want complete control over your runtime environment and dependencies, you can even deploy your functions in containers that you can fully customize. Your custom containers can be hosted by Functions, deployed as part of a microservices architecture in Azure Container Apps, or even self-hosted in Kubernetes.
+For a detailed comparison, see [Azure Functions hosting options](functions-scale.md).
 
 ## Related content
 

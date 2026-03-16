@@ -14,7 +14,7 @@ This article shows you how to use the Azure portal to create a function app that
 | ----- | ----- |
 | [Flex Consumption plan](./flex-consumption-plan.md) | Linux-only plan that provides rapid horizontal scaling with support for managed identities, virtual networking, and pay-as-you-go billing. |
 | [Premium plan](./functions-premium-plan.md) | Provides longer execution times, more control over CPU/memory, and support for containers and virtual networks. |
-| [Consumption plan](./consumption-plan.md) | Original dynamic hosting plan, which supports portal development for some languages. |
+| [Consumption plan](./consumption-plan.md) | Legacy dynamic hosting plan that supports Windows apps. |
 
 The Flex Consumption plan is the recommended plan for hosting serverless compute resources in Azure.
 

@@ -362,13 +362,13 @@ Azure Logic Apps provides the following built-in actions for working with data o
         [![Data Operations icon][data-operations-icon]][data-operations-doc]
         <br><br>[**Data Operations**][data-operations-doc]
         <br><br>Perform operations with data.
-        <br><br>**Chunk text**: Split up content into pieces to use in AI solutions or with Foundry Tool operations such as [Azure OpenAI and Azure AI Search operations](../logic-apps/connectors/azure-ai.md). For more information, see [Parse or chunk content](../logic-apps/parse-document-chunk-text.md).
+        <br><br>**Chunk text**: Split up content into pieces to use in AI solutions or with Foundry Tools operations such as [Azure OpenAI and Azure AI Search operations](../logic-apps/connectors/azure-ai.md). For more information, see [Parse or chunk content](../logic-apps/parse-document-chunk-text.md).
         <br><br>**Compose**: Create a single output from multiple inputs with various types.
         <br><br>**Create CSV table**: Create a comma-separated-value (CSV) table from an array with JSON objects.
         <br><br>**Create HTML table**: Create an HTML table from an array with JSON objects.
         <br><br>**Filter array**: Create an array from items in another array that meet your criteria.
         <br><br>**Join**: Create a string from all items in an array and separate those items with the specified delimiter.
-        <br><br>**Parse a document**: Create a tokenized string to use in AI solutions or with Foundry Tool operations such as [Azure OpenAI and Azure AI Search operations](../logic-apps/connectors/azure-ai.md). For more information, see [Parse or chunk content](../logic-apps/parse-document-chunk-text.md).
+        <br><br>**Parse a document**: Create a tokenized string to use in AI solutions or with Foundry Tools operations such as [Azure OpenAI and Azure AI Search operations](../logic-apps/connectors/azure-ai.md). For more information, see [Parse or chunk content](../logic-apps/parse-document-chunk-text.md).
         <br><br>**Parse JSON**: Create user-friendly tokens from properties and their values in JSON content so that you can use those properties in your workflow.
         <br><br>**Select**: Create an array with JSON objects by transforming items or values in another array and mapping those items to specified properties.
     :::column-end:::
