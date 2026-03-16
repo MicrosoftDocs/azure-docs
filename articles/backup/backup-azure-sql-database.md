@@ -2,7 +2,7 @@
 title: Back up SQL Server databases to Azure 
 description: This article explains how to back up SQL Server to Azure. The article also explains SQL Server recovery.
 ms.topic: overview
-ms.date: 02/13/2026
+ms.date: 04/06/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to implement SQL Server backups to Azure, so that I can ensure reliable data recovery and minimize downtime in case of data loss."
@@ -41,7 +41,7 @@ Azure Backup now offers a snapshot‑based SQL backup solution that enhances per
 
 ### Key benefits of snapshot backup for SQL databases in Azure VM
 
-By using the Azure Backup service to back up and restore from snapshot of SQL databases in Azure VM, you get the following advantages:
+By using the Azure Backup service to back up and restore from a snapshot of SQL databases in Azure VM, you get the following advantages:
 
 - **Instance snapshot**: Create snapshot backups at the SQL instance level and select multiple databases in a single operation. Restore the entire instance or individual databases as needed.
 

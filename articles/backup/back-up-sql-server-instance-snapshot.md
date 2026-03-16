@@ -1,38 +1,38 @@
 ---
-title: Back Up SQL Database instance Snapshots in Azure Virtual Machine (VM)
-description: Learn how to back up SQL databases in Azure VMs using snapshot backups. Follow prerequisites, configure policies, and ensure secure data retention.
+title: Back up SQL Server instance snapshot in Azure VM using Azure portal (preview)
+description: Learn how to back up SQL Server instances in Azure VMs using snapshot backups.
 #customer intent: As an IT admin, I want to back up SQL Server databases in Azure VMs using snapshot backups so that I can ensure data recovery in case of failure.
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka
-ms.date: 03/06/2026
+ms.date: 04/06/2026
 ms.topic: how-to
 ms.service: azure-backup
 ---
 
-# Back up snapshot for SQL database instance in Azure VM using Azure portal (preview)
+# Back up SQL Server instance snapshot in Azure VM using Azure portal (preview)
 
-This article describes how to back up SQL Server databases in Azure VMs using snapshot backups. It covers the prerequisites, configuration steps for backup policies, database discovery, and backup operations to help you ensure secure data retention and recovery capabilities.
+This article describes how to back up SQL Server instances in Azure VMs using snapshot backups. It covers the prerequisites, configuration steps for backup policies, database discovery, and backup operations to help you ensure secure data retention and recovery capabilities.
 
 ## Prerequisites
 
-Before you back up SQL database snapshot, ensure that the following prerequisites are met:
+Before you back up a SQL Server instance snapshot, ensure that the following prerequisites are met:
 
 - Identify or [create a Recovery Services vault](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) in the same region and subscription as the VM hosting the SQL Server instance.
 
 - Verify that the VM has [network connectivity established](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 
-- Make sure that the SQL Server databases follow the [database naming guidelines for Azure Backup](backup-sql-server-database-azure-vms.md#database-naming-guidelines-for-azure-backup).
+- Ensure that the SQL Server databases follow the [database naming guidelines for Azure Backup](backup-sql-server-database-azure-vms.md#database-naming-guidelines-for-azure-backup).
 
 - Ensure that .NET 4.6.2 version or higher is installed on the VM.
 
-- Check that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you back up the database.
+- Confirm that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you back up the database.
 
 ## Backup and restore permissions for SQL in Azure VM
 
-The Azure Backup extension on the SQL VM requires permissions to take managed disk snapshots and store them in the user‑specified resource group defined in the policy. Azure Backup uses a user‑assigned managed identity to perform these actions. During restore, Azure Backup uses the target VM’s managed identity to read snapshots from the specified resource group and restore the VM. Azure Backup integrates permission assignment through the built‑in Azure Backup Snapshot Contributor role into both backup and restore flows. You can provide the managed identity details while configuring the backup policy and during restore operations.
+The Azure Backup extension on the SQL VM requires permissions to take managed disk snapshots and store them in the user specified resource group defined in the policy. Azure Backup uses a user assigned managed identity to perform these actions. During restore, Azure Backup uses the target VM’s managed identity to read snapshots from the specified resource group and restore the VM. Azure Backup integrates permission assignment through the builtin Azure Backup Snapshot Contributor role into both backup and restore flows. You can provide the managed identity details while configuring the backup policy and during restore operations.
 
-The following table lists the role and scope assignment details for the managed identities created during backup and restore operations.
+The following table lists the role and scope of assignment details for the managed identities created during backup and restore operations.
 
 | **Managed Identity created** | **Role** | **Scope** |
 |---|---|---|
@@ -47,7 +47,7 @@ When you use snapshot backups, you must also provide a user-assigned managed ide
 
 You can create a backup policy while configuring backup, or create it directly in the vault before configuring backup by following these steps:
 
-1.  Go to the Recovery Services vault, and then select **Manage** \> **Backup policies**.
+1.  Go to the Recovery Services vault, and select **Manage** \> **Backup policies**.
 
 1.  On the **Backup policies** pane, select **+ Add** to create a new policy.
 
@@ -56,6 +56,9 @@ You can create a backup policy while configuring backup, or create it directly i
     :::image type="content" source="./media/back-up-sql-server-instance-snapshot/select-policy-type-sql-server.png" alt-text="Screenshot that shows policy type selection in Azure Recovery Services vault for SQL Server in Azure VM (Snapshot backup)." lightbox="./media/back-up-sql-server-instance-snapshot/select-policy-type-sql-server.png":::
 
 1.  For **Full Snapshot backup** and **Log backup**, select **Edit** corresponding to each backup type and enter the backup schedule and retention periods.  
+
+   You can schedule **Full Snapshot backup** from every 6 hours to every 24 hours. For **Log backup**, you can schedule from every 15 mins to 24 hours. The **schedule snapshot copy-only full backups** isn’t supported; you can trigger the backup operation only by selecting **Backup now**.
+
     :::image type="content" source="./media/back-up-sql-server-instance-snapshot/create-backup-policy.png" alt-text="Screenshot that shows the  policy types for SQL server in Azure VM backup." lightbox="./media/back-up-sql-server-instance-snapshot/create-backup-policy.png":::
 
 
@@ -64,34 +67,31 @@ You can create a backup policy while configuring backup, or create it directly i
 
     | **Backup point**                     | **Retention period range** |
     |--------------------------------------|----------------------------|
-    | Instant recovery Snapshot (Ops tier) | 1-7days                    |
+    | Instant recovery Snapshot (Ops tier) | 1-7 days                    |
     | Daily backup point                   | 7-9999 days                |
     | Weekly backup point                  | 1-5163 weeks               |
     | Monthly backup point                 | 1-1188 months              |
     | Yearly backup point                  | 1-99 years                 |
     | Log backup point                     | 7-35 days                  |
 
-    > [!NOTE]
-    >- The available frequency for Snapshot-full backup is between every 6 hours and every 24 hours. Log backup can be scheduled from every 15 mins to 24 hours.
-    >- The **schedule snapshot copy-only full backups** isn’t supported; you can trigger the backup operation only by selecting **Backup now**.
 
 1.  To enable Azure Backup to store snapshots in a resource group of your choice, for **Snapshot identity**, select **Edit**.and provide a snapshot identity. 
       
     :::image type="content" source="./media/back-up-sql-server-instance-snapshot/snapshot-identity-configuration.png" alt-text="Screenshot that shows the addition of Snapshot Identity settings in backup policy." lightbox="./media/back-up-sql-server-instance-snapshot/snapshot-identity-configuration.png":::
 
-1. On the **Snapshot Identity** pane, specify the Snapshot resource group and assign a managed identity, and then select **OK**.
+1. On the **Snapshot Identity** pane, specify the Snapshot resource group and assign a managed identity, and select **OK**.
 
-    This configuration maintains an instant recovery point for faster restores. Learn about how Azure Backup uses managed identities.  
+    This configuration maintains an instant recovery point for faster restores. [Learn how Azure Backup uses managed identities](/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal?pivots=identity-mi-methods-azp&preserve-view=true#create-a-user-assigned-managed-identity).  
 
 1.  On the **Create policy** pane, select **Validate + Create policy**.
 
 ## Discover unprotected SQL databases in a subscription
 
-When you discover SQL databases, Azure Backup prepares the virtual machine for workload backup in the background. It registers the VM with the selected vault so that all SQL databases on the VM backup only to that vault, installs the AzureBackupWindowsWorkload extension on the VM, and creates the required service account (NT Service\AzureWLBackupPluginSvc). Azure Backup doesn't install any agent on the SQL databases themselves.
+When you discover SQL databases, Azure Backup prepares the virtual machine for workload backup in the background. It registers the VM with the selected vault so that all SQL databases on the VM backup only to that vault, installs the `AzureBackupWindowsWorkload` extension on the VM, and creates the required service account (`NT Service\AzureWLBackupPluginSvc`). Azure Backup doesn't install any agent on the SQL databases themselves.
 
 To discover unprotected SQL databases in a subscription, follow these steps:
 
-1.  Go to the **Recovery Services vault**, and then select **+ Backup**.
+1.  Go to the **Recovery Services vault**, and select **+ Backup**.
 
 2.  On the **Backup Goal** pane, for **What do you want to back up**, select **SQL Server in Azure VM (Snapshot backup) (preview)**.  
       
@@ -99,7 +99,7 @@ To discover unprotected SQL databases in a subscription, follow these steps:
 
 3.  Under **Step 1: Discover DBs in VMs**, select **Start Discovery**.
 
-4.  On the Select Virtual Machine pane, select the VMs running the SQL server databases, and then select **Discover DB’s**.  
+4.  On the Select Virtual Machine pane, select the VMs running the SQL server databases, and select **Discover DB’s**.  
       
     :::image type="content" source="./media/back-up-sql-server-instance-snapshot/sql-vm-discovery.png" alt-text="Screenshot that shows the database discovery for backup configuration." lightbox="./media/back-up-sql-server-instance-snapshot/sql-vm-discovery.png":::
 
@@ -117,20 +117,19 @@ When the SQL database discovery is complete, configure backup for the databases 
       
     :::image type="content" source="./media/back-up-sql-server-instance-snapshot/sql-backup-policy-configuration.png" alt-text="Screenshot that shows the backup configuration in Azure portal." lightbox="./media/back-up-sql-server-instance-snapshot/sql-backup-policy-configuration.png":::
 
-    For **Snapshot backup**, the **Resource Group** and **Managed Identity** is automatically added based on the selection in the backup policy.  
+    For **Snapshot backup**, the **Resource Group** and **Managed Identity** are automatically added based on the selection in the backup policy.  
       
-    Resource group is needed to house the Snapshot backups before they are moved to the Recovery Services Vault. Further [Create a managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) or provide an existing one to allow backup service to take disk snapshots and store it in your Resource Group.
+    You need a Resource group to house the Snapshot backups before they're moved to the Recovery Services Vault. Further [Create a managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) or provide an existing one to allow the Azure Backup service to take disk snapshots and store it in your Resource Group.
 
 1. For **SQL Instances or AlwaysOn AGs**, select **+ Add/Edit** to add the instance that you want to back up and select the databases within it.  
     >[!NOTE]
-    > Azure Backup currently supports selection of maximum 12 databases for backup.
+    > Azure Backup currently supports selection of up to 12 databases for backup.
 
 1.  When you assign the managed identity for the first time, **Backup readiness** shows the error **Role/identity assignment not done**. To complete the role assignment, select **Assign missing roles/identity**.  
       
     After the assignment is completed, **Backup readiness** shows **Success**.  
 
-    >[!NOTE]
-    > If you don't have permission to assign roles, download the identity assignment template and share it with an administrator who has the required access.  
+     If you don't have permission to assign roles, download the identity assignment template and share it with an administrator who has the required access.  
     
 1.  Select **Enable Backup** to finish the backup configuration.
 
@@ -138,11 +137,11 @@ When the SQL database discovery is complete, configure backup for the databases 
 
 To run an on-demand backup at the SQL instance level, follow these steps:
 
-1.  Go to the **Recovery Services vault**, and then select **Protected items** \> **Backup items**.
+1.  Go to the **Recovery Services vault**, and select **Protected items** \> **Backup items**.
 
 1.  On the **Backup items** pane, select **SQL Server in Azure VM (Snapshot backup) (Preview)**.
 
-1.  On the **Backup Items** pane, for the required backup instance, select **View details**.
+1.  On the **Backup Items (SQL Server in Azure VM (Snapshot backup)(Preview))** pane, for the required backup instance, select **View details**.
 
 1.  On the selected backup instance pane, select **Backup now**.
 
@@ -157,18 +156,17 @@ To run an on-demand backup at the SQL instance level, follow these steps:
 
 To run an on-demand backup at the SQL database level, follow these steps:
 
-1.  Go to the **Recovery Services vault**, and then select **Protected items** \> **Backup items**.
+1.  Go to the **Recovery Services vault**, and select **Protected items** \> **Backup items**.
 
 1.  On the **Backup items** pane, select **SQL Database in Azure VM**.
 
-1.  On the **Backup Items** pane, for the required backup item with **Snapshot backup type**, select **View details**.
+1.  On the **Backup Items (SQL Database in Azure VM)** pane, for the required backup item with **Snapshot backup type**, select **View details**.
 
 1.  On the selected backup item pane, select **Backup now**.
 
 1.  On the **Backup now** pane, select one of the supported **Backup type** - **Copy only full**, **Log**, **Full**, or **Differential**.  
       
-    >[!NOTE]
-    > The supported on-demand backup types at the database level depend on whether you create the original backup item using streaming backups or snapshot backups.  
+     The supported on-demand backup types at the database level depend on whether you create the original backup item by using streaming backups or snapshot backups.  
 
     :::image type="content" source="./media/back-up-sql-server-instance-snapshot/sql-backup-type-selection.png" alt-text="Screenshot that shows how to trigger an on-demand backup for a SQL database in Azure portal." lightbox="./media/back-up-sql-server-instance-snapshot/sql-backup-type-selection.png":::
 

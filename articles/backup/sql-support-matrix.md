@@ -2,7 +2,7 @@
 title: Azure Backup support matrix for SQL Server Backup in Azure Virtual Machines (VMs) 
 description: Provides a summary of support settings and limitations when backing up SQL Server in Azure VMs with the Azure Backup service.
 ms.topic: reference
-ms.date: 02/13/2026
+ms.date: 04/06/2026
 ms.custom: references_regions 
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -64,7 +64,7 @@ The following table summarizes the supported and unsupported scenarios for backu
 
 | **Scenarios** | **Supported** | **Unsupported** |
 |----|----|----|
-| SQL Server versions | SQL Server 2016 and above on Windows Server 2016 and above |  |
+| SQL Server versions | SQL Server 2016 (and higher) running on Windows Server 2016 (and higher) |  |
 | Backup types for snapshot | Snapshot Full (with or without Log backup), Snapshot-copy-only-full (Adhoc backups at Instance or DB level) |  |
 | Backup configuration | Standalone instance and Always on AG |  |
 | Storage hardware/configurations |  | Premium SSD V2, Ultradisk, Write-accelerated disks, Ephemeral OS disks, and shared disks. |

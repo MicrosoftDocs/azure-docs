@@ -1,24 +1,24 @@
 ---
-title: Restore SQL Instance or Database in Azure Virtual Machine (VM)
-description: Learn how to restore SQL instances or individual databases in Azure VMs using snapshot backups. Follow step-by-step instructions for efficient recovery.
+title: Restore SQL Instance or Database in Azure Virtual Machine (VM) from Snapshot Backup using Azure portal (Preview)
+description: Learn how to restore SQL instances or individual databases in Azure VMs using snapshot backups.
 #customer intent: As a database administrator, I want to restore an entire SQL instance from a snapshot so that I can recover all databases after a failure.
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka
-ms.date: 03/11/2026
+ms.date: 04/06/2026
 ms.topic: how-to
 ---
 
-# Restore snapshot for SQL database in Azure VM(preview)
+# Restore SQL Server instance or database in Azure VM from snapshot backup by using Azure portal(preview)
 
 This article describes how to restore a SQL Server instance or an individual database in an Azure virtual machine (VM) by using snapshot backups. It provides step‑by‑step guidance for instance‑level and database‑level restores.
 
 >[!NOTE]
->This preview feature supports Alternate Location Restore (ALR) only.
+>This preview feature supports the Alternate Location Restore (ALR) only.
 
 ## Prerequisites
 
-Before you restore from SQL instance snapshot recovery point, ensure that the following prerequisites are met:
+Before you restore from a SQL instance snapshot recovery point, ensure that the following prerequisites are met:
 
 - The SQL instance is backed up using snapshot backup, and the backup is available in the Recovery Services vault.
 - The required permissions to perform restore operations in Azure are available.
@@ -29,7 +29,7 @@ The SQL instance restore from snapshot backup allows you to restore the entire S
 
 To restore the entire SQL instance, follow these steps:
 
-1. Go to the **Recovery Services vault**, and then select **Protected items** \> **Backup items**.
+1. Go to the **Recovery Services vault**, and select  **Protected items** \> **Backup items**.
 
 1. On the **Backup items** pane, select **SQL Server in Azure VM (Snapshot backup) (Preview)**.  
       
@@ -39,13 +39,13 @@ To restore the entire SQL instance, follow these steps:
 
 1. On the selected backup instance pane, select **Restore**.
 
-1. On the **Restore** pane, on the **Basics** tab, select **Next> Restore point**.
+1. On the **Restore** pane, on the **Basics** tab, select **Next > Restore point**.
 
 1. On the **Restore point** tab, for **Selected restore point**, click **Select**.
 
    :::image type="content" source="media/back-up-sql-server-instance-snapshot-restore/select-snapshot-restore-point.png" alt-text="Screenshot that shows the selection of a snapshot restore point." lightbox="media/back-up-sql-server-instance-snapshot-restore/select-snapshot-restore-point.png":::
 
-1. On the **Select restore point** pane, select the required snapshot restore point from the list, and then select **OK**.  
+1. On the **Select restore point** pane, select the required snapshot restore point from the list, and select **OK**.  
 
 1. On the **Restore** pane, on the **Restore point** tab, select **Next > Restore parameters**.
 
@@ -53,23 +53,23 @@ To restore the entire SQL instance, follow these steps:
 
    :::image type="content" source="media/back-up-sql-server-instance-snapshot-restore/select-target-server-instance.png" alt-text="Screenshot that shows the selection of the target server and instance for the restore operation." lightbox="media/back-up-sql-server-instance-snapshot-restore/select-target-server-instance.png":::
 
-1. For **Managed Identities**, select the required managed identity for Azure Backup to do the restore operation, and then select **Validate**.
+1. For **Managed Identities**, select the required managed identity for Azure Backup to do the restore operation, and select **Validate**.
 
    :::image type="content" source="media/back-up-sql-server-instance-snapshot-restore/select-managed-identity.png" alt-text="Screenshot that shows the selection of a managed identity for the restore operation." lightbox="media/back-up-sql-server-instance-snapshot-restore/select-managed-identity.png":::
 
-   If necessary roles are missing, select **Assign missing roles**. If you lack permissions, download the assignment template and share it with your admin to complete the role assignment.
+   If necessary roles are missing, select **Assign missing roles**. If you don't have permissions, download the assignment template and share it with your admin to complete the role assignment.
 
 1. After validation, select **Next > Review + restore**.
 
-1. On the **Review + restore** tab, review the restore settings, and then select **Restore**.
+1. On the **Review + restore** tab, review the restore settings, and select **Restore**.
 
 ## Restore an individual SQL database
 
-You can restore an individual SQL database from a snapshot backup without affecting the entire SQL instance. This operation is useful when only a specific database encounters issues such as corruption, accidental deletion, or other failures, and you want to restore just that database to a previous state.
+You can restore an individual SQL database from a snapshot backup without affecting the entire SQL instance. Use this operation when an issue affects a single database, such as corruption, accidental deletion, or other failures. You can restore only the affected database to a previous state.
 
 To restore an individual SQL database in an instance, follow these steps:
 
-1. Go to the **Recovery Services vault**, and then select **Protected items** \> **Backup items**.
+1. Go to the **Recovery Services vault**, and select **Protected items** \> **Backup items**.
 
 1. On the **Backup items** pane, select **SQL Database in Azure VM**.  
       
@@ -79,7 +79,7 @@ To restore an individual SQL database in an instance, follow these steps:
       
 1. On the selected SQL database backup item pane, select **Restore**.
 
-1. On the **Restore** pane, on the **Basics** tab, select **Next> Restore point**.
+1. On the **Restore** pane, on the **Basics** tab, select **Next > Restore point**.
 
 1. On the **Restore point** tab, for **Selected restore point**, click **Select**.
 
@@ -94,7 +94,7 @@ To restore an individual SQL database in an instance, follow these steps:
 
 1. For **Selected restore point**, click **Select**.
 
-1. On the **Select restore point** pane, select the required snapshot restore point or log point-in-time based on the selected option, and then select **OK**.  
+1. On the **Select restore point** pane, select the required snapshot restore point or log point-in-time based on the selected option, and select **OK**.  
 
 1. On the **Restore** pane, on the **Restore point** tab, select **Next > Restore parameters**.
 
@@ -102,13 +102,13 @@ To restore an individual SQL database in an instance, follow these steps:
 
 1. For **Restored DB Name**, enter the restored database name along with the target path.
 
-1. For **Managed Identity**, select the required identity, and then select **Validate**.  
+1. For **Managed Identity**, select the required identity, and select **Validate**.  
       
-   If necessary roles are missing, select **Assign missing roles**. If you lack permissions, download the assignment template and share it with your admin to complete the role assignment.
+   If necessary roles are missing, select **Assign missing roles**. If you don't have permissions, download the assignment template and share it with your admin to complete the role assignment.
 
 1. After validation, select **Next > Review + restore**.
 
-1. On the **Review + restore** tab, review the restore settings, and then select **Restore**.
+1. On the **Review + restore** tab, review the restore settings, and select **Restore**.
 
 ## Next step
 
