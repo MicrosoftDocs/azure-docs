@@ -75,6 +75,21 @@ configBuilder.AddAzureAppConfiguration(options =>
 });
 ```
 
+#### [Spring](#tab/spring)
+
+```yaml
+spring:
+  config:
+    import: azureAppConfiguration
+  cloud:
+    azure:
+      appconfiguration:
+        stores:
+          - endpoint: <your-app-configuration-store-endpoint>
+            monitoring:
+              enabled: true
+```
+
 #### [JavaScript](#tab/javascript)
 
 ```javascript
@@ -87,6 +102,10 @@ const appConfig = await load(endpoint, credential, {
     }
 });
 ```
+
+#### [Python](#tab/python)
+
+The Azure App Configuration provider for Python doesn't support monitoring all selected keys for changes. You can only monitor individual keys. For more information, see [Monitoring a sentinel key](#monitoring-a-sentinel-key).
 
 #### [Go](#tab/go)
 
@@ -149,6 +168,23 @@ configBuilder.AddAzureAppConfiguration(options =>
 });
 ```
 
+#### [Spring](#tab/spring)
+
+```yaml
+spring:
+  config:
+    import: azureAppConfiguration
+  cloud:
+    azure:
+      appconfiguration:
+        stores:
+          - endpoint: <your-app-configuration-store-endpoint>
+            monitoring:
+              enabled: true
+              triggers:
+                - key: SentinelKey
+```
+
 #### [JavaScript](#tab/javascript)
 
 ```javascript
@@ -161,6 +197,17 @@ const appConfig = await load(endpoint, credential, {
         watchedSettings: [{ key: "SentinelKey" }]
     }
 });
+```
+
+#### [Python](#tab/python)
+
+```python
+config = load(
+    endpoint,
+    credential,
+    # Trigger a refresh only if the `SentinelKey` changes
+    refresh_on=[WatchedKey(key="SentinelKey")]
+)
 ```
 
 #### [Go](#tab/go)

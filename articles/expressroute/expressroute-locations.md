@@ -372,7 +372,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Oncore Cloud Service Inc](https://www.oncore.cloud/services/universaledge-main)**| Equinix | Montreal<br/>Toronto |
 | **POST Telecom Luxembourg**| Equinix | Amsterdam |
 | **[Proximus](https://www.proximus.be/en/id_cl_explore/companies-and-public-sector/networks/corporate-networks/explore.html)**| Bics | Amsterdam<br/>Dublin<br/>London<br/>Paris |
-| **[QSC AG](https://www2.qbeyond.de/en/)** |Interxion | Frankfurt |  
+| **[QSC AG](https://www.qbeyond.de/en/)** |Interxion | Frankfurt |  
 | **[RETN](https://retn.net/products/cloud-connect)** | Equinix | Amsterdam |
 | **Rogers** | Cologix<br/>Equinix | Montreal<br/>Toronto |
 | **[Spectrum Enterprise](https://enterprise.spectrum.com/products/networking/connectivity/cloud-connect.html)** | Equinix | Chicago<br/>Dallas<br/>Los Angeles<br/>New York<br/>Silicon Valley | 

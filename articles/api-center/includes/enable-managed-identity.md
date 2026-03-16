@@ -17,8 +17,8 @@ The following examples show how to enable a system-assigned managed identity by 
 
 #### [Portal](#tab/portal)
 
-1. In the [portal](https://azure.microsoft.com), navigate to your API center.
-1. In the left menu, under **Security**, select **Managed identities**.
+1. In the [portal](https://azure.microsoft.com), go to your API center.
+1. In the sidebar menu, under **Security**, select **Managed identities**.
 1. Select **System assigned**, and set the status to **On**.
 1. Select **Save**.
 

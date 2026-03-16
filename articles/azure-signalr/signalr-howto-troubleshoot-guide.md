@@ -320,7 +320,7 @@ This issue often occurs when someone establishes a SignalR client connection in 
 
 ## Server connection drops
 
-When the app server starts, in the background, the Azure SDK starts to initiate server connections to the remote Azure SignalR. As described in [Internals of Azure SignalR Service](https://github.com/Azure/azure-signalr/blob/dev/docs/internal.md), Azure SignalR routes incoming client traffics to these server connections. When a server connection is dropped, it closes all the client connections it was serving.
+When the app server starts, in the background, the Azure SDK starts to initiate server connections to the remote Azure SignalR. As described in [Internals of Azure SignalR Service](https://github.com/Azure/azure-signalr/blob/dev/docs/internal.md), Azure SignalR routes incoming client traffic to these server connections. When a server connection is dropped, it closes all the client connections it was serving.
 
 As the connections between the app server and SignalR Service are persistent connections, they might experience network connectivity issues. In the Server SDK, we have an **Always Reconnect** strategy to server connections. As a best practice, we also encourage users to add continuous reconnection logic to the clients with a random delay time to avoid massive simultaneous requests to the server.
 
