@@ -221,7 +221,7 @@
         href: container-concepts.md
       - name: Azure Container Apps hosting
         href: functions-container-apps-hosting.md
-    - name: Consumption plan
+    - name: Consumption plan (legacy)
       href: consumption-plan.md
     - name: Host MCP servers
       href: self-hosted-mcp-servers.md
@@ -630,6 +630,8 @@
   - name: Migrate from AWS Lambda
     displayName: AWS Lambda, migration
     href: migration/migrate-aws-lambda-to-azure-functions.md
+  - name: Migrate Consumption plan apps to Flex Consumption
+    href: migration/migrate-plan-consumption-to-flex.md
   - name: Upgrade runtime versions
     items:
     - name: Migrate v3.x to v4.x
@@ -643,8 +645,6 @@
       href: update-language-versions.md
     - name: Migrate Node.js to model v4.x
       href: functions-node-upgrade-v4.md
-  - name: Migrate Consumption plan apps to Flex Consumption
-    href: migration/migrate-plan-consumption-to-flex.md
   - name: Migrate .NET apps to the isolated model
     href: migrate-dotnet-to-isolated-model.md
   - name: Move resources

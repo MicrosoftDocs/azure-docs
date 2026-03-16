@@ -31,10 +31,10 @@ The deployment method also depends on the hosting plan and operating system on w
 Currently, Functions offers five options for hosting your function apps:
 
 + [Flex Consumption plan](flex-consumption-plan.md)
-+ [Consumption](consumption-plan.md)
 + [Elastic Premium plan](functions-premium-plan.md)
 + [Dedicated (App Service) plan](dedicated-plan.md)
 + [Azure Container Apps](../container-apps/functions-overview.md)
++ [Consumption plan](consumption-plan.md) (legacy)
 
 Each plan has different behaviors. Not all deployment technologies are available for each hosting plan and operating system. This chart provides information on the supported deployment technologies:
 

@@ -5,7 +5,7 @@ author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: reference
-ms.date: 03/25/2025
+ms.date: 03/13/2026
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: "As a cloud storage administrator, I want to identify Azure regions that support locally redundant storage (LRS) and zone redundant storage (ZRS) for SSD file shares, so that I can ensure optimal data redundancy and availability for my organization's storage needs."
@@ -53,6 +53,7 @@ LRS for SSD file shares is supported in the following Azure regions:
 - (Asia Pacific) West India
 - (Europe) Austria East
 - (Europe) Belgium Central
+- (Europe) Denmark East
 - (Europe) France Central
 - (Europe) France South
 - (Europe) Germany North
@@ -103,40 +104,42 @@ ZRS for SSD file shares is supported in the following subset of Azure regions:
 
 - (Africa) South Africa North
 - (Asia Pacific) Australia East
-- (Asia Pacific) New Zealand North
+- (Asia Pacific) Central India
 - (Asia Pacific) China North 3
-- (Asia Pacific) Southeast Asia
-- (Asia Pacific) Korea Central
-- (Asia Pacific) Malaysia West
 - (Asia Pacific) East Asia
 - (Asia Pacific) Indonesia Central
 - (Asia Pacific) Japan East
 - (Asia Pacific) Japan West  
-- (Asia Pacific) Central India
+- (Asia Pacific) Korea Central
+- (Asia Pacific) Malaysia West
+- (Asia Pacific) New Zealand North
+- (Asia Pacific) Southeast Asia
 - (Canada) Canada Central
+- (Europe) Austria East
+- (Europe) Belgium Central
 - (Europe) France Central
 - (Europe) Germany West Central
+- (Europe) Italy North
 - (Europe) North Europe
-- (Europe) West Europe
-- (Europe) UK South
-- (Europe) Poland Central
 - (Europe) Norway East
+- (Europe) Poland Central
 - (Europe) Spain Central
 - (Europe) Sweden Central
 - (Europe) Switzerland North
-- (Europe) Italy North
-- (Europe) Austria East
-- (Middle East) Qatar Central
+- (Europe) UK South
+- (Europe) West Europe
 - (Middle East) Israel Central
+- (Middle East) Qatar Central
 - (Middle East) UAE North
+- (North America) Central US
 - (North America) East US
 - (North America) East US 2
+- (North America) Mexico Central
+- (North America) South Central US
 - (North America) West US 2
 - (North America) West US 3
-- (North America) Central US
-- (North America) South Central US
-- (North America) Mexico Central
 - (South America) Brazil South
+- (South America) Chile Central
 - (US Government) US Gov Virginia
   
 ## See also

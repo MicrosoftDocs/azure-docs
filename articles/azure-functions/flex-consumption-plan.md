@@ -14,7 +14,7 @@ ms.custom:
 
 # Azure Functions Flex Consumption plan hosting
 
-Flex Consumption is a Linux-based Azure Functions hosting plan that builds on the Consumption _pay for what you use_ serverless billing model. It gives you more flexibility and customizability by introducing private networking, instance memory size selection, and fast/large scale-out features still based on a <em>serverless</em> model.
+Flex Consumption is a Linux-based Azure Functions hosting plan that builds on the Consumption _pay for what you use_ serverless billing model. It gives you more flexibility and customizability by introducing private networking, instance memory size selection, and fast/large scale-out features still based on a <em>serverless</em> model. Flex Consumption is the recommended serverless hosting plan for Azure Functions.
 
 You can review end-to-end samples that feature the Flex Consumption plan in the [Flex Consumption plan samples repository](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples).
 
@@ -38,6 +38,7 @@ This table helps you directly compare the features of Flex Consumption with the 
 | Dedicated compute (mitigate cold starts) | ❌ None | ✅ Always ready instances (optional) | 
 | Billing | Execution-time only | Execution-time + always-ready instances |
 | Scale-out instances (max) | 200 | 1000 |
+| Windows support | ✅ Yes | ❌ Linux only |
 
 For a complete comparison of the Flex Consumption plan against the Consumption plan and all other plan and hosting types, see [function scale and hosting options](functions-scale.md).
 

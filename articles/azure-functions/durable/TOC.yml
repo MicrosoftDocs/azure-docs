@@ -145,6 +145,8 @@
         items:
         - name: Author Durable Functions apps using the PowerShell SDK
           href: durable-functions-powershell-v2-sdk-migration-guide.md
+      - name: Large payload support - Durable Task Scheduler
+        href: ./durable-task-scheduler/durable-task-scheduler-large-payloads.md?pivots=durable-functions
     - name: Deploy
       items:
       - name: Continuous deployment
@@ -241,6 +243,8 @@
       href: ./durable-task-scheduler/durable-task-schedulers-schedules.md
     - name: Diagnostics
       href: durable-task-diagnostics.md
+    - name: Large payload support
+      href: ./durable-task-scheduler/durable-task-scheduler-large-payloads.md?pivots=durable-task-sdks
     - name: OpenTelemetry and distributed tracing
       href: ./durable-task-scheduler/durable-task-scheduler-opentelemetry-tracing.md?pivots=durable-task-sdks
     - name: Troubleshooting guide
@@ -277,6 +281,8 @@
       href: ./durable-task-scheduler/durable-task-schedulers-schedules.md
     - name: OpenTelemetry and distributed tracing
       href: ./durable-task-scheduler/durable-task-scheduler-opentelemetry-tracing.md
+    - name: Large payload support
+      href: ./durable-task-scheduler/durable-task-scheduler-large-payloads.md
     - name: Throughput benchmarks
       href: ./durable-task-scheduler/durable-task-scheduler-work-item-throughput.md
     - name: Billing

@@ -19,6 +19,8 @@ ms.subservice: b2c
 ---
 
 # Developer notes for Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-identity-protection-retirement](../../includes/active-directory-b2c-identity-protection-retirement.md)]
+
 [!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Azure Active Directory B2C [user flows and custom policies](user-flow-overview.md) are generally available. Azure AD B2C capabilities are under continual development, so although most features are generally available, some features are at different stages in the software release cycle. This article discusses cumulative improvements in Azure AD B2C and specifies feature availability.

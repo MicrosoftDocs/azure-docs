@@ -24,6 +24,9 @@ Before you configure blob vaulted backup, ensure that:
 - You assign permissions to the Backup vault on the storage account. [Learn more](blob-backup-configure-manage.md?tabs=vaulted-backup#grant-permissions-to-the-backup-vault-on-storage-accounts).
 - You create a backup policy for Azure Blobs vaulted backup. [Learn more](blob-backup-configure-manage.md?tabs=vaulted-backup#create-a-backup-policy).
 
+> [!CAUTION]
+> *Azure Backup is not supported for Storage Accounts enabled with network security perimeter. We recommend not associating an account with network security perimeter if you have backups enabled or if you plan to use Azure Backup.*  
+> 
 ## Before you start
 
 Things to remember before you start configuring blob vaulted backup:

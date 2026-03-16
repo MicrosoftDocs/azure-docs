@@ -4,7 +4,7 @@ description: Learn about ways to improve performance and throughput for SSD (pre
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 01/15/2026
+ms.date: 03/16/2026
 ms.author: kendownie
 ms.custom:
   - build-2025
@@ -14,7 +14,7 @@ ms.custom:
 
 # Improve performance for SMB Azure file shares
 
-**Applies to:** :heavy_check_mark: SMB file shares
+**Applies to:** :heavy_check_mark: SMB file shares on SSD media tier
 
 This article explains how you can improve performance for SSD (premium) SMB Azure file shares, including using SMB Multichannel and metadata caching.
 
@@ -29,6 +29,7 @@ The following tips might help you optimize performance:
 - Maximum performance of a single virtual machine (VM) client is still bound to VM limits. For example, [Standard_D32s_v3](/azure/virtual-machines/dv3-dsv3-series) supports a maximum bandwidth of approximately 1.86 GiB/sec. Ingress (writes to storage) is metered, but egress (reads from storage) isn't. File share performance is subject to machine network limits, CPUs, internal storage available network bandwidth, IO sizes, parallelism, and other factors.
 - The initial test is usually a warm-up. Discard the results and repeat the test.
 - If performance is limited by a single client and workload is still below provisioned share limits, you can achieve higher performance by spreading the load over multiple clients.
+- Use [zonal placement](zonal-placement.md) to select the specific availability zone in which your storage account resides. This allows you to place your VMs in the same availability zone as your storage, which can reduce latency by up to 30 percent. 
 
 ### The relationship between IOPS, throughput, and I/O sizes
 

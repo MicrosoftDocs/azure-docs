@@ -165,6 +165,8 @@ Stale orchestration data should be purged periodically to ensure efficient stora
     | Orchestration custom status | 1 MB |
     | Entity state | 1 MB |
 
+    If you need to pass larger payloads, use [large payload support with Durable Task Scheduler](./durable-task-scheduler-large-payloads.md). That option is currently available only for C# apps in Durable Functions .NET isolated and the .NET Durable Task SDK.
+
 - **Orchestration instance ID length:**
   
   Orchestration instance IDs are limited to a maximum length of 100 characters.

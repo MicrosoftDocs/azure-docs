@@ -151,6 +151,6 @@ Get started with the framework you chose:
 > [Durable Functions overview](durable-functions-overview.md)
 
 > [!div class="nextstepaction"]
-> [Durable Functions overview](./durable-task-scheduler/durable-task-overview.md)
+> [Durable Task SDKs overview](./durable-task-scheduler/durable-task-overview.md)
 
 Then, learn more about the [Durable Task Scheduler backend provider](durable-task-scheduler/durable-task-scheduler.md).
