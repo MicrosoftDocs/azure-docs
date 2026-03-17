@@ -1,24 +1,32 @@
 ---
-title: Use redis-cli with Azure Managed Redis
-description: Learn how to use *redis-cli* as a command-line tool for interacting with an Azure Managed Redis as a client
-ms.date: 08/18/2025
-ms.topic: conceptual
+title: Use Client Tools to Access Data in Azure Managed Redis
+description: Learn how to use *Redis Insight* and *redis-cli* as client tools to access data and for troubleshooting and debugging Azure Managed Redis.
+ms.date: 03/11/2026
+ms.topic: concept-article
 ms.custom:
-  - ignite-2024
-  - build-2025
 appliesto:
-  - ✅ Azure Cache for Redis
   - ✅ Azure Managed Redis
 ---
-# Use the Redis command-line tool with Azure Managed Redis
+# Use client tools to manage data in Azure Managed Redis
 
-Use the [redis-cli command-line tool](https://redis.io/docs/latest/operate/rs/references/cli-utilities/redis-cli/#connect-to-a-database) to interact with an Azure Managed Redis as a client. Use this tool to directly interact with your Azure Managed Redis instance and for debugging and troubleshooting.
+You can use the following tools to access and manage data in Azure Managed Redis as a client. Use these tools to directly interact with your Azure Managed Redis instance and for debugging and troubleshooting.
 
-## Install redis-cli
+- Redis Insight
+- redis-cli command-line tool
+
+## Redis Insight
+
+[Redis Insight](https://redis.com/redis-enterprise/redis-insight/) is a rich open-source graphical tool for issuing Redis commands and viewing the contents of a Redis instance. It works with Azure Managed Redis and is supported on Linux, Windows, and macOS.
+
+## redis-cli command-line tool
+
+Use the [redis-cli command-line tool](https://redis.io/docs/latest/operate/rs/references/cli-utilities/redis-cli/#connect-to-a-database) to interact with an Azure Managed Redis instance as a client. Use _redis_cli_ as a lightweight way to issue commands and for repeatable testing in scripts.  
+
+### Install redis-cli
 
 The _redis-cli_ tool is installed automatically with the _Redis package_, which is available for multiple operating systems. See the open source [install Redis](https://redis.io/docs/latest/operate/oss_and_stack/install/) guide for the most detailed documentation on your preferred operating system.
 
-### Linux
+#### Linux
 
 The _redis-cli_ runs natively on Linux, and most distributions include a _Redis package_ that contains the _redis-cli_ tool. On Ubuntu, for instance, you install the _Redis package_  with the following commands:
 
@@ -27,13 +35,13 @@ sudo apt-get update
 sudo apt-get install redis
 ```
 
-### Windows
+#### Windows
 
 The best way to use _redis-cli_ on a Windows computer is to install the [Windows Subsystem for Linux (WSL)](/windows/wsl/about). The Linux subsystem allows you to run linux tools directly on Windows. To install WSL, follow the [WSL installation instructions](/windows/wsl/install).
 
 Once WSL is installed, you can install _redis-cli_ using whatever package management is available in the Linux distro you chose for WSL.
 
-## Gather cache access information
+### Gather cache access information
 
 You can gather the information needed to access the cache using these methods:
 
@@ -41,11 +49,15 @@ You can gather the information needed to access the cache using these methods:
 - Azure PowerShell using [Get-AzRedisEnterpriseCacheKey](/powershell/module/az.redisenterprisecache/get-azredisenterprisecachekey)
 - Using the Azure portal
 
-In this section, you retrieve the keys from the Azure portal.
+In this section, you retrieve the information from the Azure portal.
 
-[!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
+To connect your Azure Managed Redis server, the cache client needs the cache endpoint, port, and a key for the cache. Some clients might refer to these items by slightly different names. You can get this information from the [Azure portal](https://portal.azure.com).
 
-## Connect using redis-cli
+- To get the endpoint and port for your cache, select **Overview** from the **Resource** menu. The endpoint is of the form `{yourcachename}.{region}.redis.azure.net`. The port is `10000` for all Azure Managed Redis instances.
+
+- To get the access keys, select **Authentication** from the **Settings** menu. Then, select the **Access keys** tab. Here, you can find the primary and secondary keys for the cache. You can use either key to connect with your client tool.
+
+### Connect using redis-cli
 
 Open up a shell or terminal on a computer with the _Redis package_ installed. If using WSL, you can [use the Windows Terminal](/windows/wsl/install#ways-to-run-multiple-linux-distributions-with-wsl) to open a Linux command line. Before connecting with redis-cli, check:
 
@@ -61,7 +73,7 @@ Open up a shell or terminal on a computer with the _Redis package_ installed. If
     redis-cli -p 10000 -h {yourcachename}.{region}.redis.azure.net -a YourAccessKey --tls
     ```
 
-1. Connect to an Azure Managed Redis instance using  OSS cluster policy and TLS:
+1. Connect to an Azure Managed Redis instance using OSS cluster policy and TLS:
 
     ```console
     redis-cli -p 10000 -h {yourcachename}.{region}.redis.azure.net -a YourAccessKey --tls -c
@@ -87,12 +99,8 @@ yourcachename.region.redis.azure.net:10000> GET hello
 
 You're now connected to your Azure Managed Redis instance using the _redis-cli_.
 
-## redis-cli alternatives
-
-While the _redis-cli_ is a useful tool, you can connect to your cache in other ways for troubleshooting or testing:
-
-- [RedisInsight](https://redis.com/redis-enterprise/redis-insight/) is a rich open source graphical tool for issuing Redis commands and viewing the contents of a Redis instance. It works with Azure Managed Redis and is supported on Linux, Windows, and macOS.
 
 ## Related content
 
 Get started by creating a [new Azure Managed Redis Instance](quickstart-create-managed-redis.md) instance.
+

@@ -4,7 +4,7 @@ description: Learn how to create an Azure Native Qumulo Scalable File Service re
 ms.topic: quickstart
 ms.custom:
   - ignite-2023
-ms.date: 02/09/2025
+ms.date: 03/09/2026
 ---
 
 # Quickstart: Get started with Qumulo Scalable File Service
@@ -35,74 +35,37 @@ When you create the service instance, the following entities are also created an
 
 [!INCLUDE [create-resource](../includes/create-resource.md)]
 
-### Basics tab
+4. On the **Basics** tab, enter the values for each required field (identified with a red asterisk):
 
-The *Basics* tab has four sections:
-
-- Project details
-- Azure resource details
-- Administrator account credentials
-- Qumulo file system details
-
-:::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create a Qumulo resource in Azure options inside of the Azure portal's working pane with the Basics tab displayed.":::
-
-There are required fields (identified with a red asterisk) in each section that you need to fill out.
-
-1. Enter the values for each required setting under *Project details*.
-
-   | Field               | Action                                                    |
-   |---------------------|-----------------------------------------------------------|
-   | Subscription        | Select a subscription from your existing subscriptions.   |
-   | Resource group      | Use an existing resource group or create a new one.       |
-
-1. Enter the values for each required setting under *Azure Resource details*.
-
-   | Field              | Action                                    |
-   |--------------------|-------------------------------------------|
-   | Resource name      | Specify a unique name for the resource.   |
-   | Region             | Select an Azure region for your resource. |
-
-1. Enter the values for each required setting under *Administrator account credentials*.
-
-   | Field             | Action                                                           |
-   |-------------------|------------------------------------------------------------------|
-   | Password          | Create a password for your administrator account.                |
-   | Confirm password  | Confirm the password you created for your administrator account. |
-
-1. Enter the values for each required setting under *Qumulo file system details*.
-
-   | Field              | Action                                          |
-   |--------------------|-------------------------------------------------|
-   | Storage class      | Choose the storage class for your resource.     |
-   | Availability Zone  | Choose the availability zone for your resource. |
+   | Field | Action |
+   |---|---|
+   | **Subscription** | Select a subscription from your existing subscriptions. |
+   | **Resource group** | Use an existing resource group or create a new one. |
+   | **Resource name** | Specify a unique name for the resource. |
+   | **Region** | Select an Azure region for your resource. |
+   | **Password** | Create a password for your administrator account. |
+   | **Confirm password** | Confirm the password you created for your administrator account. |
+   | **Storage class** | Choose the storage class for your resource. |
+   | **Availability Zone** | Choose the availability zone for your resource. |
+   | **Pre-provisioned performance** | Select the pre-provisioned performance for your resource. The default is *Elastic Pay-as-you-go*, or you can provision dedicated capacity during resource creation. |
 
    > [!NOTE]
-   > If you select *Hot ZRS* as your storage class, you won't specify an Availability Zone.
-   
-   Select the **Change plan** link to change your billing plan.
+   > If you select *Hot ZRS* as your storage class, you don't need to specify an availability zone.
 
-   The remaining fields update to reflect the details of the plan you selected for this resource.
+5. If needed, select the **Change plan** link to change your billing plan. The remaining fields update to reflect your selected plan.
 
-1. Select the **Next** button at the bottom of the page.
+6. Select **Next** to continue to the **Networking** tab and enter the values for each required setting:
 
-### Networking tab
+   | Field | Action |
+   |---|---|
+   | **Virtual network** | Choose the virtual network for your resource. |
+   | **Subnet** | Choose the Qumulo-delegated subnet for your resource. |
 
-Enter the values for each required setting.
+7. Optionally, select the **Tags** tab to add tags to your resource.
 
-:::image type="content" source="media/create/networking-tab.png" alt-text="A screenshot of the Create a Qumulo resource in Azure options inside of the Azure portal's working pane with the Networking tab displayed.":::
+8. Select **Review + Create** to validate and create your resource. If the review identifies errors, go back to fix them and then select **Review + Create** again.
 
-   | Field             | Action                                                |
-   |-------------------|-------------------------------------------------------|
-   | Virtual network   | Choose the virtual network for your resource.         |
-   | Subnet            | Choose the Qumulo-delegated subnet for your resource. |
-
-### Tags (optional)
-
-[!INCLUDE [tags](../includes/tags.md)]
-
-### Review + Create tab
-
-[!INCLUDE [review-create](../includes/review-create.md)]
+9. When validation passes, select **Create**. A deployment notification appears. When the deployment is complete, select **Go to resource** to view your new Qumulo resource.
 
 ## Next step
 

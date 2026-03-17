@@ -136,6 +136,8 @@
       href: tutorial-restore-postgresql-flex.md
   - name: Configure item level backup of an AKS cluster
     href: tutorial-configure-backup-aks.md
+  - name: Back up Azure Files volumes in AKS clusters
+    href: tutorial-backup-aks-azure-files.md
   - name: Configure vaulted backup for Azure Blob
     href: blob-backup-configure-tutorial.md  
   - name: Back up Azure Data Lake Storage

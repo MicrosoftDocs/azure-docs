@@ -1,7 +1,7 @@
 ---
 title: Azure Managed Redis Architecture
 description: Learn how Azure Managed Redis is architected
-ms.date: 12/08/2025
+ms.date: 03/11/2026
 ms.topic: article
 ai-usage: ai-assisted
 ms.custom:
@@ -130,6 +130,8 @@ This table shows a general example of the relationship of _Size_ to _vCPUs/prima
 ## Running without high availability mode enabled
 
 You can run without high availability (HA) mode enabled. This configuration means that your Redis instance doesn't have replication enabled and doesn't have access to the availability SLA. Don't run in non-HA mode outside of development and test scenarios. You can't disable high availability in an instance that you already created. You can enable high availability in an instance that doesn't have it. Because an instance running without high availability uses fewer VMs and nodes, vCPUs aren't used as efficiently, so performance might be lower.
+
+When you enable HA mode, your instance is deployed with primary and replica shards distributed across at least two nodes. This configuration is recommended for all production scenarios and for access to the availability SLA. In regions that support availability zones, Azure Managed Redis distributes the nodes across zones by default. For more information, see [Reliability in Azure Managed Redis](/azure/reliability/reliability-managed-redis).
 
 ## Reserved memory
 
