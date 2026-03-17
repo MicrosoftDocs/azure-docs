@@ -37,7 +37,7 @@ sections:
         answer: | 
           The pods associated with the AKS Backup Extension are deployed on the NodePools of the AKS cluster. To successfully deploy these pods and prevent them from interfering with your application resources, ensure the following:
           - The AKS cluster must have the agent node pool with the `Linux` operating system including both Azure Linux and Ubuntu.
-          - The agent node pool must have VMSS SKUs based on non-ARM64 based architecture.
+          - The agent node pool must have Azure Virtual Machine Scale Sets SKUs based on non-ARM64 based architecture.
           - The agent node pool must have the taint `CriticalAddOnOnly` associated with it. This taint is automatically added to the node pool when the AKS Cluster is created via Portal. It ensures that only critical add-on pods, such as the AKS Backup Extension pods, are scheduled on the node pool. This prevents interference with your application workloads and ensures that backup operations are isolated from other workloads in the cluster. In case the taint isn't present, you can add it manually before installing the AKS Backup Extension.
 
       - question: |
@@ -70,10 +70,10 @@ sections:
           As part of the Backup Extension installation, a User Identity also gets created in the Node Resource Group of the cluster. This identity is used by the AKS Backup Extension to access the Azure resources required for backup operations. The User Identity is assigned `Storage Blob Data Contributor` role over the storage account to enable access for the Extension. Whenever extension is uninstalled from the AKS cluster, the identity also gets deleted.
 
       - question: |
-          Why should Velero shouldn't be used in the cluster alongside of AKS Backup Extension?
+          Why Velero shouldn't be used in the cluster alongside of AKS Backup Extension?
         answer: | 
           Velero is a third-party backup solution for Kubernetes that can conflict with the AKS Backup Extension. It's recommended to use only the AKS Backup Extension for backup operations in a cluster, but not both simultaneously. 
-          AKS Backup Extension also deploys Velero CRDs in the cluster. In case standalone Velero is installed in the AKS cluster along with Backup Extension and the versions used by each installation differ at any point in time can lead to failures due to contract mismatches. Additionally, custom Velero configurations created by the you—such as a VolumeSnapshotClass for Velero CSI-based snapshotting—might interfere with the AKS Backup snapshotting setup. Velero annotations containing `velero.io` applied to various resources in the cluster can also impact the behavior of AKS Backup in unsupported ways.
+          AKS Backup Extension also deploys Velero CRDs in the cluster. In case standalone Velero is installed in the AKS cluster along with Backup Extension and the versions used by each installation differ at any point in time can lead to failures due to contract mismatches. Additionally, custom Velero configurations created by you such as a VolumeSnapshotClass for Velero CSI-based snapshotting—might interfere with the AKS Backup snapshotting setup. Velero annotations containing `velero.io` applied to various resources in the cluster can also impact the behavior of AKS Backup in unsupported ways.
           
       - question: |
            What is a snapshot resource group?
@@ -88,16 +88,34 @@ sections:
       - question: |
            What are the types of Persistent Volumes that are supported by Azure Backup for AKS?
         answer: | 
-           Azure Backup for AKS relies on CSI driver-based snapshots for its backup and restore operations. Because of this dependency, only Azure Disk-based Persistent Volumes attached via the CSI driver are currently supported. Other Azure storage options—such as Azure File Share, Azure Blob, Azure Container Storage, Azure NetApp Files, Azure Managed Lustre, and third-party storage solutions—aren't supported at this time. Within Azure Disks, the following SKUs are supported:
+           Azure Backup for AKS relies on CSI driver-based snapshots for its backup and restore operations. The following persistent volume types are supported:
+           
+           **Azure Disk-based Persistent Volumes**: Attached via the CSI driver with the following SKUs:
             
            - Premium SSD
            - Standard SSD
            - Standard HDD
+           - Premium SSD v2
+           - Ultra Disks
            
-           However, Premium SSD v2 and Ultra Disks aren't supported. Additionally, when it comes to Azure Disks with network access settings:
+           > [!NOTE]
+           > While snapshot and restore operations are supported across all disk SKUs, operations for Premium SSD v2 and Ultra Disks may take longer because the process involves copying data from the volume to a snapshot and back. The snapshot may appear available and the volume may be mounted before the underlying data copy operation is fully completed, causing a delay before the restored data becomes visible.
+           
+           When it comes to Azure Disks with network access settings:
 
            - The Operational Tier supports both Public and Private access disks of any size.
            - The Vault Tier supports only Public access disks, with a maximum size of up to 1TB.
+           
+           **Azure Files-based Persistent Volumes**: Provisioned via the CSI driver (`file.csi.azure.com`) with the following characteristics:
+           
+           - SMB protocol only (NFS is not supported)
+           - Both Standard and Premium file shares
+           - Public network endpoints only (private endpoints are not supported)
+           - Maximum 25,000 files per file share
+           - Operational Tier backup only (Vault Tier is not supported)
+           - Retention up to 30 days
+           
+           Other Azure storage options—such as Azure Blob, Azure Container Storage, Azure NetApp Files, Azure Managed Lustre, and third-party storage solutions—aren't supported at this time. [Learn more about Azure Files support and limitations](azure-kubernetes-service-cluster-backup-support-matrix.md#azure-files-based-persistent-volumes---additional-considerations).
 
       - question: |
            If an AKS cluster has Persistent Volumes of unsupported types, what happens during the backup operation?

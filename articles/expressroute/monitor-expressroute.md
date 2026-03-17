@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure ExpressRoute
 description: Start here to learn how to monitor Azure ExpressRoute by using Azure Monitor. This article includes links to other resources.
-ms.date: 07/11/2024
+ms.date: 03/12/2026
 ms.custom: horz-monitor, subject-monitoring, FY 23 content-maintenance
 ms.topic: concept-article
 author: duongau
@@ -16,56 +16,56 @@ ms.service: azure-expressroute
 
 [!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
 
-ExpressRoute uses Network insights to provide a detailed topology mapping of all ExpressRoute components (peerings, connections, gateways) in relation with one another. Network insights for ExpressRoute also have preloaded metrics dashboard for availability, throughput, packet drops, and gateway metrics. For more information, see [Azure ExpressRoute Insights using Networking Insights](expressroute-network-insights.md).
+ExpressRoute uses Network insights to provide a detailed topology mapping of all ExpressRoute components, such as peerings, connections, and gateways, in relation to one another. Network insights for ExpressRoute also have a preloaded metrics dashboard for availability, throughput, packet drops, and gateway metrics. For more information, see [Azure ExpressRoute Insights using Networking Insights](expressroute-network-insights.md).
 
 [!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 For more information about the resource types for ExpressRoute, see [Azure ExpressRoute monitoring data reference](monitor-expressroute-reference.md).
 
 [!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
-Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations.
+Resource logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations.
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/essentials/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for *Azure ExpressRoute* are listed in [Azure ExpressRoute monitoring data reference](monitor-expressroute-reference.md#resource-logs).
+See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/essentials/diagnostic-settings) for the detailed process for creating a diagnostic setting by using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, specify which categories of logs to collect. The categories for *Azure ExpressRoute* are listed in [Azure ExpressRoute monitoring data reference](monitor-expressroute-reference.md#resource-logs).
 
 > [!IMPORTANT]
-> Enabling these settings requires additional Azure services (storage account, event hub, or Log Analytics), which may increase your cost. To calculate an estimated cost, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
+> Enabling these settings requires additional Azure services, such as a storage account, event hub, or Log Analytics, which might increase your cost. To calculate an estimated cost, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
 For a list of available metrics for ExpressRoute, see [Azure ExpressRoute monitoring data reference](monitor-expressroute-reference.md#metrics).
 
 > [!NOTE]
-> Using **Classic Metrics** is not recommended.
+> Don't use **Classic Metrics**.
 >
 
 ## Analyzing metrics
 
-You can analyze metrics for *Azure ExpressRoute* with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics) for details on using this tool.
+You can analyze metrics for *Azure ExpressRoute* alongside metrics from other Azure services by using Metrics Explorer. Open **Metrics** from the **Azure Monitor** menu. For details about using this tool, see [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics).
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/metrics-page.png" alt-text="Screenshot of the metrics dashboard for ExpressRoute.":::
 
-For reference, you can see a list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/essentials/metrics-supported).
+For reference, see the list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/essentials/metrics-supported).
 
 - To view **ExpressRoute** metrics, filter by Resource Type *ExpressRoute circuits*. 
 - To view **Global Reach** metrics, filter by Resource Type *ExpressRoute circuits* and select an ExpressRoute circuit resource that has Global Reach enabled. 
 - To view **ExpressRoute Direct** metrics, filter Resource Type by *ExpressRoute Ports*. 
 
-Once a metric is selected, the default aggregation is applied. Optionally, you can apply splitting, which shows the metric with different dimensions.
+Once you select a metric, the portal applies the default aggregation. Optionally, you can apply splitting, which shows the metric with different dimensions.
 
 ### ExpressRoute metrics
 
 To view **Metrics**, go to the *Azure Monitor* page and select *Metrics*. To view **ExpressRoute** metrics, filter by Resource Type *ExpressRoute circuits*. To view **Global Reach** metrics, filter by Resource Type *ExpressRoute circuits* and select an ExpressRoute circuit resource that has Global Reach enabled. To view **ExpressRoute Direct** metrics, filter Resource Type by *ExpressRoute Ports*. 
 
-After a metric is selected, the default aggregation is applied. Optionally, you can apply splitting, which shows the metric with different dimensions.
+After you select a metric, the portal applies the default aggregation. Optionally, you can apply splitting, which shows the metric with different dimensions.
 
 > [!IMPORTANT]
-> When viewing ExpressRoute metrics in the Azure portal, select a time granularity of **5 minutes or greater** for best possible results.
+> When you view ExpressRoute metrics in the Azure portal, select a time granularity of **5 minutes or greater** for best results.
 
 For the ExpressRoute metrics, see [Azure ExpressRoute monitoring data reference](monitor-expressroute-reference.md).
 
-### Aggregation Types
+### Aggregation types
 
-Metrics explorer supports sum, maximum, minimum, average and count as [aggregation types](/azure/azure-monitor/essentials/metrics-charts#aggregation). You should use the recommended Aggregation type when reviewing the insights for each ExpressRoute metric.
+Metrics Explorer supports sum, maximum, minimum, average, and count as [aggregation types](/azure/azure-monitor/essentials/metrics-charts#aggregation). Use the recommended aggregation type when you review the insights for each ExpressRoute metric.
 
 - Sum: The sum of all values captured during the aggregation interval.
 - Count: The number of measurements captured during the aggregation interval.
@@ -81,7 +81,7 @@ For the available resource log categories, their associated Log Analytics tables
 
 ### More metrics in Log Analytics
 
-You can also view ExpressRoute metrics by going to your ExpressRoute circuit resource and selecting the *Logs* tab. For any metrics you query, the output contains the following columns.
+You can also view ExpressRoute metrics by going to your ExpressRoute circuit resource and selecting the **Logs** tab. For any metrics you query, the output contains the following columns.
 
 | Column | Type | Description |
 |:-------|:-----|:------------|
@@ -96,23 +96,23 @@ You can also view ExpressRoute metrics by going to your ExpressRoute circuit res
 
 ## Analyzing logs
 
-Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
+Azure Monitor Logs stores data in tables, and each table has its own unique set of properties.  
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema#top-level-common-schema). The schema for ExpressRoute resource logs is found in the [Azure ExpressRoute Data Reference](monitor-expressroute-reference.md#schemas).
+All resource logs in Azure Monitor include the same fields, followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema#top-level-common-schema). You can find the schema for ExpressRoute resource logs in the [Azure ExpressRoute Data Reference](monitor-expressroute-reference.md#schemas).
 
-The [Activity log](/azure/azure-monitor/essentials/activity-log) is a platform logging that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.
+The [Activity log](/azure/azure-monitor/essentials/activity-log) is a platform log that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs. By using Log Analytics, you can run more complex queries on the data.
 
 ExpressRoute stores data in the following tables.
 
 | Table | Description |
 |:------|:------------|
-| AzureDiagnostics | Common table used by multiple services to store Resource logs. Resource logs from ExpressRoute can be identified with `MICROSOFT.NETWORK`. |
-| AzureMetrics | Metric data emitted by ExpressRoute that measure their health and performance. 
+| AzureDiagnostics | Common table used by multiple services to store resource logs. You can identify resource logs from ExpressRoute by using `MICROSOFT.NETWORK`. |
+| AzureMetrics | Metric data emitted by ExpressRoute that measure their health and performance. |
 
-To view these tables, navigate to your ExpressRoute circuit resource and select **Logs** under *Monitoring*.
+To view these tables, go to your ExpressRoute circuit resource and select **Logs** under *Monitoring*.
 
 > [!NOTE]
-> Azure diagnostic logs, such as BGP route table log are updated every 24 hours.
+> Azure diagnostic logs, such as BGP route table logs, update every 24 hours.
 
 [!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
@@ -181,7 +181,7 @@ These queries work with the [new language](/azure/azure-monitor/logs/log-query-o
 [!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
 > [!NOTE]
-> During maintenance between the Microsoft edge and core network, BGP availability appears down even if the BGP session between the customer edge and Microsoft edge remains up. For information about maintenance between the Microsoft edge and core network, make sure to have your [maintenance alerts turned on and configured](./maintenance-alerts.md).
+> During maintenance between the Microsoft edge and core network, BGP availability appears down even if the BGP session between the customer edge and Microsoft edge remains up. For information about maintenance between the Microsoft edge and core network, make sure to [turn on and configure maintenance alerts](./maintenance-alerts.md).
 
 [!INCLUDE [horz-monitor-insights-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights-alerts.md)]
 
@@ -196,15 +196,15 @@ The following table lists some suggested alert rules for ExpressRoute. These ale
 
 ### Alerts for ExpressRoute gateway connections
 
-1. To configure alerts, navigate to **Azure Monitor**, then select **Alerts**.
+1. To configure alerts, go to **Azure Monitor**, and then select **Alerts**.
 
 1. Select **+ Create** > **Alert rule** and select the ExpressRoute gateway connection resource. Select **Next: Condition >** to configure the signal.
 
-1. On the *Select a signal* page, select a metric, resource health, or activity log that you want to be alerted. Depending on the signal you select, you might need to enter additional information such as a threshold value. You can also combine multiple signals into a single alert. Select **Next: Actions >** to define who and how they get notify.
+1. On the *Select a signal* page, select a metric, resource health, or activity log that you want to be alerted on. Depending on the signal you select, you might need to enter additional information such as a threshold value. You can also combine multiple signals into a single alert. Select **Next: Actions >** to define who and how they get notify.
 
    :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/signal.png" alt-text="Screenshot of list of signals that can be alerted for ExpressRoute gateways.":::
 
-1. Select **+ Select action groups** to choose an existing action group you previously created or select **+ Create action group** to define a new one. In the action group, you determine how notifications get sent and who receives them.
+1. Select **+ Select action groups** to choose an existing action group you previously created or select **+ Create action group** to define a new one. In the action group, you determine how to send notifications and who receives them.
 
 1. Select **Review + create** and then **Create** to deploy the alert into your subscription.
 
@@ -212,17 +212,17 @@ The following table lists some suggested alert rules for ExpressRoute. These ale
 
 ### Alerts based on each peering
 
-After you select a metric, certain metric allow you to set up dimensions based on peering or a specific peer (virtual networks).
+After you select a metric, you can set up dimensions based on peering or a specific peer (virtual networks) for certain metrics.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alerts-peering-dimensions.png" alt-text="Screenshot of an alert rule based on ExpressRoute peering setup.":::
 
 ### Configure alerts for activity logs on circuits
 
-When selecting signals to be alerted on, you can select **Activity Log** signal type.
+When you select signals to be alerted on, select the **Activity Log** signal type.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/activity-log.png" alt-text="Screenshot of activity log signals from the select a signal page.":::
 
 ## Related content
 
-- See [Azure ExpressRoute monitoring data reference](monitor-expressroute-reference.md) for a reference of the metrics, logs, and other important values created for ExpressRoute.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
+- For a reference of the metrics, logs, and other important values created for ExpressRoute, see [Azure ExpressRoute monitoring data reference](monitor-expressroute-reference.md).
+- For general details on monitoring Azure resources, see [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource).

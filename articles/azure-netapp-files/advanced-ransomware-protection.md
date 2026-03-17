@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: netapp-manishc
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 01/13/2026
+ms.date: 03/17/2026
 ms.author: anfdocs
 ms.custom: references_regions
 # Customer intent: "As a data engineer, I want to understand the advanced ransomware protection features of Azure NetApp Files, so that I can safeguard the cloud file data against ransomware attacks."
@@ -56,7 +56,10 @@ Advanced ransomware protection (ARP) in Azure NetApp Files is a built-in capabil
 - UAE Central 
 - UAE North 
 - UK South 
-- UK West 
+- UK West
+- US Gov Arizona
+- US Gov Texas
+- US Gov Virginia  
 - West Europe 
 - West US 
 - West US 2 

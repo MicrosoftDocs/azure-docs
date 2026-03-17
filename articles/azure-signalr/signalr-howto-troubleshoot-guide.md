@@ -23,7 +23,7 @@ This article provides troubleshooting guidance for some of the common issues tha
 
 ### Root cause
 
-For HTTP/2, the max length for a single header is **4 K**, so if using browser to access Azure service, there's an error `ERR_CONNECTION_` for this limitation.
+For HTTP/2, the max length for a single header is **4 K**, so if you're using a browser to access the Azure service, you might encounter an error `ERR_CONNECTION_` for this limitation.
 
 For HTTP/1.1, or C# clients, the max URI length is **12 K** and the max header length is **16 K**.
 

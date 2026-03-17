@@ -183,6 +183,8 @@
     href: traffic-analytics-schema.md
   - name: Use queries in traffic analytics
     href: traffic-analytics-queries.md
+  - name: Integrate Microsoft Sentinel with traffic analytics
+    href: traffic-analytics-sentinel.md
   - name: Apply Zero Trust principles to segment Azure network
     href: traffic-analytics-zero-trust.md
   - name: Enable traffic analytics using Azure policy

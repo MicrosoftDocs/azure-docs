@@ -17,16 +17,16 @@
   items:
   - name: Deploy Bastion - Azure portal
     href: quickstart-host-portal.md
+  - name: Azure PowerShell
+    href: bastion-create-host-powershell.md
+  - name: Azure CLI
+    href: create-host-cli.md  
   - name: Deploy private-only Bastion
     href: private-only-deployment.md
   - name: Deploy Bastion - ARM template
     href: quickstart-host-arm-template.md
   - name: Deploy Bastion - Terraform
     href: quickstart-deploy-terraform.md
-  - name: Azure PowerShell
-    href: bastion-create-host-powershell.md
-  - name: Azure CLI
-    href: create-host-cli.md
 - name: Design & Architecture
   items:
   - name: Identity & authentication
@@ -51,6 +51,8 @@
           href: bastion-connect-vm-linux-rdp.md
   - name: Connectivity & Access Methods
     items:
+    - name: About IP-based connection
+      href: connect-ip-address.md
     - name: Bastion and VNet peering
       href: vnet-peering.md
     - name: Connect to an AKS cluster
@@ -64,8 +66,6 @@
         href: connect-vm-native-client-linux.md
       - name: Transfer files - native client
         href: vm-upload-download-native.md
-    - name: Connect to a VM - IP address
-      href: connect-ip-address.md
     - name: Connect to a VM scale set
       href: bastion-connect-vm-scale-set.md
     - name: Connect to DevTest Labs VMs

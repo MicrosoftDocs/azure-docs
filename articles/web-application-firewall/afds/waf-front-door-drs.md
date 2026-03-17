@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 10/28/2025
+ms.date: 03/17/2026
 
 # Customer intent: As a web application administrator, I want to configure and manage the Default Rule Set (DRS) for the Web Application Firewall, so that I can effectively protect my applications from various vulnerabilities and security threats.
 ---
@@ -87,9 +87,6 @@ If you're upgrading, or assigning a new ruleset version, and would like to prese
 > If you're using the Azure portal to assign a new managed ruleset to a WAF policy, all the previous customizations from the existing managed ruleset such as rule state, rule actions, and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules, or policy settings will remain unaffected during the new ruleset assignment. You need to redefine rule overrides and validate changes before deploying in a production environment.
 
 ### DRS 2.2
-
-> [!IMPORTANT]
-> Currently, you can't assign DRS 2.2, even though it's shown as available in the Azure portal.
 
 DRS 2.2 rules offer better protection than earlier versions of the DRS. It includes other rules developed by the Microsoft Threat Intelligence team and updates to signatures to reduce false positives. It also supports transformations beyond just URL decoding.
 

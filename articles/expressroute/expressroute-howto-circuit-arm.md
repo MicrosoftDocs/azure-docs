@@ -1,10 +1,9 @@
 ---
 title: 'Quickstart: Create and modify an ExpressRoute circuit using Azure PowerShell'
 description: This quickstart shows you how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
-services: expressroute
 author: duongau
 ms.author: duau
-ms.date: 09/25/2024
+ms.date: 03/16/2026
 ms.topic: quickstart
 ms.service: azure-expressroute
 ms.custom: devx-track-azurepowershell, mode-api
@@ -130,7 +129,7 @@ New-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 
 Make sure that you specify the correct SKU tier and SKU family:
 
-* SKU tier determines whether an ExpressRoute circuit is [Local](expressroute-faqs.md#expressroute-local), Standard, or [Premium](expressroute-faqs.md#expressroute-premium). You can specify *Local*, *Standard, or *Premium*.
+* SKU tier determines whether an ExpressRoute circuit is [Local](expressroute-faqs.md#expressroute-local), Standard, or [Premium](expressroute-faqs.md#expressroute-premium). You can specify *Local*, *Standard*, or *Premium*.
 * SKU family determines the billing type. You can specify *MeteredData* for a metered data plan and *UnlimitedData* for an unlimited data plan. You can change the billing type from *MeteredData* to *UnlimitedData*, but you can't change the type from *UnlimitedData* to *MeteredData*. A *Local* circuit is always *UnlimitedData*.
 
 > [!IMPORTANT]
@@ -377,7 +376,7 @@ $ckt.sku.Name = "Premium_MeteredData"
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-The circuit now has the ExpressRoute premium add-on features enabled. We begin billing you for the premium add-on capability as soon as the command successfully ran.
+The circuit now has the ExpressRoute premium add-on features enabled. Microsoft begins billing you for the premium add-on capability as soon as the command runs successfully.
 
 ### To disable the ExpressRoute premium add-on
 
@@ -387,8 +386,8 @@ The circuit now has the ExpressRoute premium add-on features enabled. We begin b
 
 Note the following information:
 
-* Before you downgrade from premium to standard, you must ensure that the number of virtual networks that are linked to the circuit is less than 10. If you don't, your update request fails, and we bill you at premium rates.
-* All virtual networks in other geopolitical regions must be first unlinked. If you don't remove the link, your update request fails and we continue to bill you at premium rates.
+* Before you downgrade from premium to standard, you must ensure that the number of virtual networks that are linked to the circuit is less than 10. If you don't, your update request fails, and Microsoft bills you at premium rates.
+* All virtual networks in other geopolitical regions must be first unlinked. If you don't remove the link, your update request fails and Microsoft continues to bill you at premium rates.
 * Your route table must be less than 4,000 routes for private peering. If your route table size is greater than 4,000 routes, the BGP session drops. The BGP session doesn't re-establish until the number of advertised prefixes is under 4,000.
 
 You can disable the ExpressRoute premium add-on for the existing circuit by using the following PowerShell cmdlet:
@@ -407,9 +406,9 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 For supported bandwidth options for your provider, check the [ExpressRoute FAQ](expressroute-faqs.md). You can pick any size greater than the size of your existing circuit.
 
 > [!IMPORTANT]
-> You may have to recreate the ExpressRoute circuit if there is inadequate capacity on the existing port. You cannot upgrade the circuit if there is no additional capacity available at that location.
+> You might have to recreate the ExpressRoute circuit if there's inadequate capacity on the existing port. You can't upgrade the circuit if there's no additional capacity available at that location.
 >
-> You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
+> You can't reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
 >
 
 After you decide what size you need, use the following command to resize your circuit:
@@ -422,7 +421,7 @@ $ckt.ServiceProviderProperties.BandwidthInMbps = 1000
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-Your circuit is upgraded on the Microsoft side. Then you must contact your connectivity provider to update configurations on their side to match this change. After you make this notification, we'll begin billing you for the updated bandwidth option.
+Your circuit is upgraded on the Microsoft side. Then you must contact your connectivity provider to update configurations on their side to match this change. After you make this notification, Microsoft will begin billing you for the updated bandwidth option.
 
 ### To move the SKU from metered to unlimited
 
@@ -446,7 +445,7 @@ Review the instructions in [Move ExpressRoute circuits from the classic to the R
 Note the following information:
 
 * All virtual networks, route filters, authorizations, and global reach associations must be unlinked from the ExpressRoute circuit. If this operation fails, check to see if any virtual networks are linked to the circuit.
-* If the ExpressRoute circuit service provider provisioning state is **Provisioning** or **Provisioned** you must work with your service provider to deprovision the circuit on their side. We continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
+* If the ExpressRoute circuit service provider provisioning state is **Provisioning** or **Provisioned** you must work with your service provider to deprovision the circuit on their side. Microsoft continues to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies Microsoft.
 * If the service provider deprovisioned the circuit, meaning the service provider provisioning state gets set to **Not provisioned**, you can delete the circuit. The billing for the circuit stops.
 
 ## Clean up resources
