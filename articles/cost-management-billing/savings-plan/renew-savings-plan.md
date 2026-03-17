@@ -1,7 +1,7 @@
 ---
-title: Automatically renew your Azure savings plan
+title: Automatically renew your savings plan
 titleSuffix: Microsoft Cost Management
-description: Learn how you can automatically renew an Azure savings plan to continue getting discounts.
+description: Learn how you can automatically renew a savings plan to continue getting discounts.
 author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
@@ -11,7 +11,7 @@ ms.date: 01/08/2026
 ms.author: onwokolo
 ---
 
-# Automatically renew your Azure savings plan
+# Automatically renew your savings plan
 
 You can automatically purchase a replacement savings plan when an existing savings plan expires. Automatic renewal provides an effortless way to continue getting savings plan discounts without having to closely monitor a savings plan's expiration. The renewal setting is turned off by default. Enable or disable the renewal setting anytime, up to the expiration of the existing savings plan, by selecting your savings plan at Azure portal > Savings Plan, then go to renewal settings. Renewing a savings plan creates a new savings plan when the existing one expires. It doesn't extend the term of the existing savings plan.
 
@@ -81,8 +81,8 @@ Emails are sent to different people depending on your purchase method:
 
 ## Need help? Contact us.
 
-If you have Azure savings plan for compute questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft will only provide Azure savings plan for compute expert support requests in English.
+If you have savings plan questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft will only provide savings plan expert support requests in English.
 
 ## Next steps
 
-- To learn more about Azure savings plans, see [What are Azure savings plans?](savings-plan-compute-overview.md)
+- To learn more about savings plans, see [What are savings plans?](savings-plan-overview.md)

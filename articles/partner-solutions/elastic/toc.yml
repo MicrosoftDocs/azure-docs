@@ -5,6 +5,8 @@ items:
   items:
   - name: What is Elastic?
     href: overview.md
+  - name: FAQ
+    href: faq.yml
 - name: Quickstarts
   expanded: true
   items:

@@ -48,13 +48,13 @@ To learn more about downloading your price sheet using price sheet APIs, see the
 
 ## Need help? Contact us.
 
-If you have questions about Azure savings plan for compute, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides expert support for Azure savings plan for compute in English.
+If you have questions about savings plans, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides expert support for savings plans in English.
 
 ## Next steps
 
-- To learn more about Azure savings plans, see the following articles:
-  - [What are Azure Savings plans?](savings-plan-compute-overview.md)
-  - [Manage Azure savings plans](manage-savings-plan.md)
-  - [How saving plan discount is applied](discount-application.md)
+- To learn more about savings plans, see the following articles:
+  - [What are Savings plans?](savings-plan-overview.md)
+  - [Manage savings plans](manage-savings-plan.md)
+  - [How a savings plan discount is applied](discount-application.md)
   - [Understand savings plan costs and usage](utilization-cost-reports.md)
-  - [Software costs not included with Azure savings plans](software-costs-not-included.md)
+  - [Software costs not included with savings plans](software-costs-not-included.md)

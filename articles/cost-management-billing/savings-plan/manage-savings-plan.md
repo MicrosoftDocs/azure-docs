@@ -1,5 +1,5 @@
 ---
-title: Manage Azure savings plans
+title: Manage savings plans
 titleSuffix: Microsoft Cost Management
 description: Learn how to manage savings plans. See steps to change the plan's scope, split a plan, and optimize its use.
 author: nwokolo
@@ -11,8 +11,8 @@ ms.date: 01/08/2026
 ms.author: onwokolo
 ---
 
-# Manage Azure savings plans
-After you buy an Azure savings plan, with sufficient permissions, you can make the following types of changes to a savings plan:
+# Manage savings plans
+After you buy a savings plan, with sufficient permissions, you can make the following types of changes to a savings plan:
 
 - Update a savings plan scope.
 - Change autorenewal settings.
@@ -93,9 +93,9 @@ Unlike reservations, you can't cancel or exchange savings plans. You can trade-i
 ## Change billing subscription
 Currently, the billing subscription used for monthly payments of a savings plan can't be changed.
 
-## Check billing subscription for an Azure savings plan
+## Check billing subscription for a savings plan
 
-To check the billing subscription for an Azure savings plan:
+To check the billing subscription for a savings plan:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** > **Savings plans**.
@@ -129,11 +129,11 @@ For Microsoft Partner Agreement partners:
 - Notifications are sent to the partner.
 
 ## Need help?
-If you have Azure savings plan for compute questions, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides answers to expert support requests in English for questions about Azure savings plan for compute.
+If you have savings plan questions, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides answers to expert support requests in English for questions about savings plans.
 
 ## Next steps
 
-To learn more about Azure savings plans, see:
+To learn more about savings plans, see:
 
 - [View savings plan utilization](utilization-cost-reports.md)
 - [Cancellation policy](cancel-savings-plan.md)

@@ -2,11 +2,13 @@
 title: Azure Cloud Services (extended support) Def. WebRole Schema | Microsoft Docs
 description: Information related to the web role for Cloud Services (extended support)
 ms.topic: concept-article
-ms.service: azure-virtual-machines
+ms.service: azure-cloud-services-classic
 ms.date: 07/24/2024
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
+ms.update-cycle: 1095-days
+ms.custom: cloud-services-extended-support
 # Customer intent: As a cloud developer or architect, I want to understand the schema definitions and configuration options available in web roles for Azure Cloud Services, so that I can correctly define and configure service behavior, endpoints, and resources for my applications.
 ---
 

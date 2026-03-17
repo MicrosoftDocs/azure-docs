@@ -57,13 +57,13 @@ In each REST API URI, there are variables that are used that you need to replace
 
 The scan supports evaluation of resources in a subscription or in a resource group. Start a scan by scope with a REST API POST command using the following URI structures:
 
-Use the following command to evaluate a subscription. You can run the command from your browser at [Policy States - Trigger Subscription Evaluation](/rest/api/policy/policy-states/trigger-subscription-evaluation) using the **Try it** option.
+Use the following command to evaluate a subscription. You can run the command from your browser at [Policy States - Trigger Subscription Evaluation](/rest/api/policyinsights/policy-states/trigger-subscription-evaluation) using the **Try it** option.
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2019-10-01
 ```
 
-Use the following command to evaluate a resource group. You can run the command from your browser at [Policy States - Trigger Resource Group Evaluation](/rest/api/policy/policy-states/trigger-resource-group-evaluation) using the **Try it** option.
+Use the following command to evaluate a resource group. You can run the command from your browser at [Policy States - Trigger Resource Group Evaluation](/rest/api/policyinsights/policy-states/trigger-resource-group-evaluation) using the **Try it** option.
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2019-10-01
@@ -184,7 +184,7 @@ For details about the REST API, see the [Azure Policy](/rest/api/policy/) refere
 
 #### Summarize results
 
-With the REST API, you can summarize by container, definition, or assignment. Here's an example of summarization at the subscription level using Azure Policy Insight's [Summarize For Subscription](/rest/api/policy/policy-states/summarize-for-subscription):
+With the REST API, you can summarize by container, definition, or assignment. Here's an example of summarization at the subscription level using Azure Policy Insight's [Summarize For Subscription](/rest/api/policyinsights/policy-states/summarize-for-subscription):
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2019-10-01
@@ -210,7 +210,7 @@ When a resource is created or updated, a policy evaluation result is generated. 
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyEvents/default/queryResults?api-version=2019-10-01
 ```
 
-For more information about querying policy events, see [Azure Policy Events](/rest/api/policy/policy-events).
+For more information about querying policy events, see [Azure Policy Events](/rest/api/policyinsights/policy-events).
 
 ### Azure CLI
 

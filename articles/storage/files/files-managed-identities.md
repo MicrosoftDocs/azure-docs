@@ -4,7 +4,7 @@ description: This article explains how you can authenticate managed identities t
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 03/04/2026
+ms.date: 03/17/2026
 ms.author: kendownie
 ms.custom:
   - devx-track-azurepowershell
@@ -41,15 +41,15 @@ Benefits include:
 
 Azure provides two types of managed identities: **system assigned** and **user assigned**.
 
-A system assigned managed identity is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). The managed identity is authenticated with Microsoft Entra ID, so you don’t have to store any credentials in code. System assigned managed identities aren't supported on Linux VMs.
+A system assigned managed identity is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). The managed identity is authenticated with Microsoft Entra ID, so you don’t have to store any credentials in code.
 
 User assigned managed identities enable Azure resources to authenticate to cloud services without storing credentials in code. You create this type of managed identity as a standalone Azure resource with its own lifecycle. A single resource, like a VM, can use multiple user assigned managed identities. Also, multiple VMs can share a single user assigned managed identity.
 
-You can configure both user assigned and system assigned managed identities on Windows VMs.
+Although you can configure both user assigned and system assigned managed identities on a single VM, we recommend using one or the other.
 
 ## Prerequisites
 
-This article assumes that you have an Azure subscription with permissions to create storage accounts and assign Azure RBAC roles. To assign roles, you need role assignments write permission (Microsoft.Authorization/roleAssignments/write) at the scope you want to assign the role.
+This article assumes that you have an Azure subscription with permissions to create storage accounts and assign Azure RBAC roles. To assign roles, you need role assignments write permission (`Microsoft.Authorization/roleAssignments/write`) at the scope you want to assign the role.
 
 The clients that need to authenticate by using a managed identity shouldn't be joined to any domain.
 
@@ -155,13 +155,23 @@ The enablement steps described here are for Azure VMs. If you want to enable a m
 
 ### Enable managed identity on an Azure VM
 
-Follow these steps to enable a managed identity on an Azure VM.
+The managed identity can be either [system assigned or user assigned](/entra/identity/managed-identities-azure-resources/overview#differences-between-system-assigned-and-user-assigned-managed-identities). If the VM has both system assigned and user assigned managed identities, Azure defaults to system assigned. Assign only one for best results.
+
+#### Enable a system assigned managed identity
+
+Follow these steps to enable a system assigned managed identity on a Windows VM running in Azure.
 
 1. Sign in to the Azure portal and create a Windows VM. Your VM must run Windows Server 2019 or higher for server versions, or any Windows client version. See [Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal).
 
-1. Enable a managed identity on the VM. It can be either [system assigned or user assigned](/entra/identity/managed-identities-azure-resources/overview#differences-between-system-assigned-and-user-assigned-managed-identities). If the VM has both system assigned and user assigned identities, Azure defaults to system assigned. Assign only one for best results. You can enable a system assigned managed identity during VM creation on the **Management** tab.
+1. You can enable a system assigned managed identity during VM creation on the **Management** tab.
 
     :::image type="content" source="media/managed-identities/enable-system-assigned-managed-identity.png" alt-text="Screenshot showing how to enable system assigned managed identity when creating a new VM using the Azure portal." border="true":::
+
+#### Enable a user assigned managed identity
+
+1. Sign in to the Azure portal and follow the steps to [create a user assigned managed identity](/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal#create-a-user-assigned-managed-identity).
+
+1. Go to the user assigned managed identity you just created and copy the **Client ID**. You need this value later.
 
 ### Assign a built-in RBAC role to the managed identity or application identity
 
@@ -185,17 +195,37 @@ Follow these steps to assign the built-in Azure RBAC role [Storage File Data SMB
 
 1. Select **Review + assign** to add the role assignment to the storage account.
 
+### Add user assigned managed identity to VM
+
+If you created a user assigned managed identity, follow these steps to add it to your VM.
+
+1. Go to your VM. From the service menu, under **Security**, select **Identity**.
+
+1. Select the **User assigned** tab, and then select **Add user assigned managed identity**. Select the managed identity you created, and then select **Add**.
 
 ### [Linux](#tab/linux)
 
-To configure a managed identity on a Linux VM running in Azure, follow these steps. Your VM must be running Azure Linux 3.0, Ubuntu 22.04, or Ubuntu 24.04.
+To configure a managed identity on a Linux VM running in Azure, follow these steps. Your VM must be running Azure Linux 3.0, Ubuntu 22.04, Ubuntu 24.04, RHEL 9.6+, or SLES 15 SP6+.
 
-> [!NOTE]
-> System assigned managed identities aren't supported on Linux VMs. You must create a user assigned managed identity.
+### Enable managed identity on an Azure VM
 
-1. Sign in to the Azure portal and [create a user assigned managed identity](/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal#create-a-user-assigned-managed-identity).
+The managed identity can be either [system assigned or user assigned](/entra/identity/managed-identities-azure-resources/overview#differences-between-system-assigned-and-user-assigned-managed-identities). If the VM has both system assigned and user assigned managed identities, Azure defaults to system assigned. Assign only one for best results.
 
-1. Go to the managed identity you just created and copy the **Client ID**. You need this value later.
+#### Enable a system assigned managed identity
+
+1. Sign in to the Azure portal.
+
+1. You can enable a system assigned managed identity during VM creation on the **Management** tab. See [Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal).
+
+    :::image type="content" source="media/managed-identities/enable-system-assigned-managed-identity.png" alt-text="Screenshot showing how to enable system assigned managed identity when creating a new VM using the Azure portal." border="true":::
+
+#### Enable a user assigned managed identity
+
+1. Sign in to the Azure portal and follow the steps to [create a user assigned managed identity](/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal#create-a-user-assigned-managed-identity).
+
+1. Go to the user assigned managed identity you just created and copy the **Client ID**. You need this value later.
+
+### Assign a built-in RBAC role to the managed identity
 
 1. Go to the storage account that contains the file share you want to mount by using a managed identity. Select **Access Control (IAM)** from the service menu.
 
@@ -207,15 +237,19 @@ To configure a managed identity on a Linux VM running in Azure, follow these ste
 
 1. Under **Members**, select **+ Select members**. The **Select managed identities** pane appears.
 
-1. Under **Managed identity**, select the user assigned managed identity that you created, and then click **Select**.
+1. Under **Managed identity**, select the managed identity, and then click **Select**.
 
 1. You should now see the managed identity listed under **Members**. Select **Next**.
 
 1. Select **Review + assign** to add the role assignment to the storage account.
 
+### Add user assigned managed identity to VM
+
+If you created a user assigned managed identity, follow these steps to add it to your VM.
+
 1. Go to your VM. From the service menu, under **Security**, select **Identity**.
 
-1. Select the **User assigned** tab, and then select **Add user assigned managed identity**. Select the user assigned managed identity you created, and then select **Add**.
+1. Select the **User assigned** tab, and then select **Add user assigned managed identity**. Select the managed identity you created, and then select **Add**.
 
 ---
 
@@ -252,13 +286,13 @@ To prepare your client VM or Windows device to authenticate by using a managed i
 
 Before you can mount the file share by using the managed identity, refresh the authentication credentials and specify your storage account endpoint. To copy your storage account URI, go to the storage account in the Azure portal and then select **Settings** > **Endpoints** from the service menu. Be sure to copy the entire URI including the trailing slash: `https://<storage-account-name>.file.core.windows.net/`
 
+For a system assigned managed identity, run the following command to get an OAuth token, insert it in the Kerberos cache, and auto-refresh when the token is close to expiration. You can optionally omit the `refresh`.
+
 ```powershell
 AzFilesSmbMIClient.exe refresh --uri https://<storage-account-name>.file.core.windows.net/
 ```
 
-This command gets an OAuth token and inserts it in the Kerberos cache. It auto-refreshes when the token is close to expiration. You can optionally omit the `refresh`.
-
-If your Windows VM has both user assigned and system assigned managed identities configured, use the following command to specify the user assigned managed identity. Replace `<client-id>` with the Client ID of the managed identity.
+For a user assigned managed identity, you need to specify the Client ID. Replace `<client-id>` with the Client ID of the managed identity.
 
 ```powershell
 AzFilesSmbMIClient.exe refresh --uri https://<storage-account-name>.file.core.windows.net/ --clientId <client-id> 
@@ -282,6 +316,50 @@ Run the following commands to install `azfilesauth` on Azure Linux 3.0:
 ```bash
 tdnf update 
 tdnf install azfilesauth
+```
+
+#### RHEL 9.6+
+
+Run the following commands to install `azfilesauth` on RHEL 9.6+:
+
+```bash
+curl -sSL -O https://packages.microsoft.com/config/$(source /etc/os-release && echo "$ID/${VERSION_ID%%.*}")/packages-microsoft-prod.rpm
+sudo rpm -i packages-microsoft-prod.rpm
+rm packages-microsoft-prod.rpm
+dnf update
+dnf install -y azfilesauth
+```
+
+Sometimes RHEL can block kernel upcall access to the credential cache file. If a failure occurs, see `/var/log/messages` for potential causes.
+
+RHEL uses a persistent credential or KCM cache by default. You can switch to a FILE-based cache for `azfilesauth`:
+
+```bash
+  sudo tee /etc/krb5.conf.d/00-azfilesauth.conf > /dev/null <<EOF
+  [libdefaults]
+    default_ccache_name = FILE:/tmp/krb5cc_%{uid}
+  EOF
+```
+
+#### SLES 15 SP6+
+
+Run the following commands to install `azfilesauth` on SLES 15 SP6+:
+
+```bash
+curl -sSL -O https://packages.microsoft.com/config/sles/15/packages-microsoft-prod.rpm
+sudo rpm -i packages-microsoft-prod.rpm
+rm packages-microsoft-prod.rpm
+sudo zypper refresh
+sudo zypper install -y azfilesauth
+```
+
+SLES 15 SP6+ uses a persistent credential or KCM cache by default. You can switch to a FILE-based cache for `azfilesauth`:
+
+```bash
+  sudo tee /etc/krb5.conf.d/00-azfilesauth.conf > /dev/null <<EOF
+  [libdefaults]
+    default_ccache_name = FILE:/tmp/krb5cc_%{uid}
+  EOF
 ```
 
 #### Ubuntu 22.04
@@ -314,17 +392,28 @@ sudo apt-get install -y azfilesauth
 
 You have two options for configuring authentication on Linux:
 
-- **Use a VM managed identity:** Select this option when your VM has a user-assigned managed identity assigned.
+- **Use a VM managed identity:** Select this option if your VM has a managed identity assigned.
 - **Supply the OAuth token directly**: Select this option if you're managing OAuth tokens yourself.
 
 #### Option 1: Use a VM managed identity
 
-If your VM has a user-assigned managed identity, run the following commands. Be sure to replace `<client-id>` with the client ID of your managed identity. If you don't have the Client ID, go to the managed identity and copy the Client ID.
+You can use a system assigned or user assigned managed identity to configure authentication.
+
+If your VM has a user assigned managed identity, run the following command to get a token from the Azure Instance Metadata Service (IMDS) and store it automatically. Replace `<storage-account-name>` with your storage account name. Replace `<client-id>` with the client ID of your managed identity. If you don't have the Client ID, go to the managed identity in the Azure portal and copy the Client ID.
 
 ```bash
-# Get a token from the Azure Instance Metadata Service (IMDS) and store it automatically
-sudo azfilesauthmanager set https://<storage_account>.file.core.windows.net --imds-client-id <client-id>
-# Verify the ticket was created properly
+sudo azfilesauthmanager set https://<storage-account-name>.file.core.windows.net --imds-client-id <client-id>
+```
+
+If your VM has a system assigned managed identity, use the `--system` flag:
+
+```bash
+sudo azfilesauthmanager set https://<storage-account-name>.file.core.windows.net --imds-client-id <client-id> --system
+```
+
+Verify the ticket was created properly:
+
+```bash
 sudo azfilesauthmanager list
 ```
 
@@ -357,10 +446,10 @@ For more information, see [Mount SMB Azure file share on Windows](storage-how-to
 
 ### [Linux](#tab/linux)
 
-Run the following command to mount the file share with the recommended mount options. Replace `<storage-account-name>` with your storage account name and `<file-share-name>` with your file share name. You can find your credential ID in the following config file: `cat /etc/azfilesauth/config.yaml`
+Run the following command to mount the file share with the recommended mount options. Replace `<storage-account-name>` with your storage account name and `<file-share-name>` with your file share name. You can find your credential ID in the following config file: `cat /etc/azfilesauth/config.yaml`. For a user assigned managed identity, include the client ID of the managed identity. For a system assigned managed identity, omit the mount option `username=<client-id>`.
 
 ```bash
-sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<file-share-name> /mnt/smb -o sec=krb5,cruid=<credential-id>,dir_mode=0755,file_mode=0755,serverino,nosharesock,mfsymlinks,actimeo=30
+sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<file-share-name> /mnt/smb -o sec=krb5,cruid=<credential-id>,username=<client-id>,dir_mode=0755,file_mode=0755,serverino,nosharesock,mfsymlinks,actimeo=30
 ```
 
 Verify that the mount succeeded:
@@ -373,13 +462,19 @@ For more information, see [Mount SMB Azure file shares on Linux clients](storage
 
 ### Refresh your credentials
 
-After you mount the file share for the first time, start the refresh service to keep credentials up to date. You can only refresh credentials if your VM has a user-assigned managed identity assigned. If you're supplying the OAuth token directly, the refresh doesn't work.
+The refresh service automatically detects and refreshes credentials. After you mount the file share for the first time, start the refresh service to keep credentials up to date. You can only refresh credentials if your VM has a managed identity assigned. If you're supplying the OAuth token directly, the refresh doesn't work.
 
 ```bash
-sudo systemctl start azfilesauth
+sudo systemctl start azfilesrefresh
 ```
 
 You should refresh your credentials periodically to avoid access interruptions. You can refresh credentials manually by using the `azfilesauthmanager set` command as described in [Configure authentication](#configure-authentication), or you can automate the refresh by using the shared library APIs.
+
+To persist the settings and enable the refresh service to start on every boot up:
+
+```bash
+sudo systemctl enable --now azfilesrefresh
+```
 
 ---
 
@@ -443,7 +538,7 @@ extern "C" AZFILESSMBMI_API HRESULT SmbClearCredential(
 
 ### [Linux](#tab/linux)
 
-Linux developers can use the shared library that's automatically installed with the azfilesauth package. You can link against the library in your C/C++ applications for direct API access.
+Linux developers can use the shared library that's automatically installed with the `azfilesauth` package. You can link against the library in your C/C++ applications for direct API access.
 
 Be sure to include the [public header](https://github.com/Azure/AzFilesAuthenticator/blob/main/include/azfilesauth.h).
 

@@ -5,7 +5,7 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: azure-ddos-protection
 ms.topic: tutorial
-ms.date: 03/17/2025
+ms.date: 03/17/2026
 ms.author: abell
 # Customer intent: "As a network administrator, I want to configure DDoS protection diagnostic logging alerts so that I can receive timely notifications and take action during potential DDoS attacks to protect my resources."
 ---

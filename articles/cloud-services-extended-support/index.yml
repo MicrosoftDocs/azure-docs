@@ -6,11 +6,13 @@ summary: Learn how to use Cloud Services to host and run highly available, scala
 metadata:
   title: Azure Cloud Services (extended support) documentation
   description: Describes how to use Cloud Services to host and run highly available and scalable cloud applications and APIs.
-  ms.service: azure-virtual-machines
+  ms.service: azure-cloud-services-classic
   ms.topic: landing-page
   author: mimckitt
   ms.author: mimckitt
   ms.date: 07/24/2024
+  ms.update-cycle: 1095-days
+  ms.custom: cloud-services-extended-support
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 

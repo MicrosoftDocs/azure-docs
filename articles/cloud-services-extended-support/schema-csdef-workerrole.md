@@ -2,11 +2,13 @@
 title: Azure Cloud Services (extended support) Def. WorkerRole Schema | Microsoft Docs
 description: Information related to the worker role schema for Cloud Services (extended support)
 ms.topic: concept-article
-ms.service: azure-virtual-machines
+ms.service: azure-cloud-services-classic
 ms.date: 07/24/2024
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
+ms.update-cycle: 1095-days
+ms.custom: cloud-services-extended-support
 # Customer intent: As a cloud developer, I want to understand the WorkerRole schema and its attributes, so that I can configure and deploy background-processing roles effectively within my cloud services application.
 ---
 

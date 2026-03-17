@@ -2,12 +2,13 @@
 title: Generate ARM Template for Cloud Services (extended support) using the Azure portal
 description: Generate and download ARM Template and parameter file for Cloud Services (extended support) using the Azure portal
 ms.topic: how-to
-ms.service: azure-virtual-machines
+ms.service: azure-cloud-services-classic
 author: surbhijain
 ms.author: surbhijain
 ms.reviewer: gachandw
 ms.date: 07/24/2024
-ms.custom: devx-track-arm-template
+ms.update-cycle: 365-days
+ms.custom: devx-track-arm-template, cloud-services-extended-support
 # Customer intent: As an IT administrator, I want to generate and download ARM templates for Cloud Services (extended support) using the Azure portal, so that I can automate deployment and configuration through PowerShell.
 ---
 

@@ -6,6 +6,8 @@ items:
   - name: What is Datadog?
     href: overview.md
     displayName: Datadog, Monitoring
+  - name: FAQ
+    href: faq.yml
 - name: Quickstarts
   expanded: true
   items:

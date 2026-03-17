@@ -1,0 +1,155 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Native Dynatrace Service FAQ
+  description: Answers to common questions about using Azure Native Dynatrace Service in Azure, including prerequisites, setup, and management.
+  ms.service: partner-services
+  ms.subservice: dynatrace
+  ai-usage: ai-generated
+  ms.topic: faq
+  ms.date: 12/17/2025
+
+title: Azure Native Dynatrace Service frequently asked questions (FAQ)
+summary: |
+  This FAQ covers common questions about onboarding, linking existing environments,
+  configuring metrics and logs, setting up single sign-on (SSO), monitoring with Dynatrace OneAgent,
+  billing, data residency, the free trial, and troubleshooting for Azure Native Dynatrace Service.
+
+sections:
+  - name: Getting started
+    questions:
+      - question: What is Azure Native Dynatrace Service?
+        answer: |
+          Azure Native Dynatrace Service is a jointly developed and managed offering from Microsoft and Dynatrace that provides deep cloud observability, AIOps, and continuous runtime application security for Azure workloads. It delivers a seamless, integrated experience in the Azure portal to procure, create, configure, and manage Dynatrace environments. For an overview, see [Azure Native Dynatrace Service overview](overview.md).
+
+      - question: Where can I find the service?
+        answer: |
+          You can find Azure Native Dynatrace Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Dynatrace.Observability%2Fmonitors) and on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview).
+
+      - question: What gets created for billing and monitoring?
+        answer: |
+          When you use the integrated experience, three entities are mapped:
+          - **Dynatrace resource in Azure:** Created in the subscription and resource group you select; used to manage the environment.
+          - **Dynatrace environment (SaaS):** Created on Dynatrace SaaS when you create a new environment, or linked when you connect an existing environment.
+          - **Marketplace SaaS resource:** Created based on the plan you select; used for billing.
+          For details, see [Overview](overview.md#billing).
+
+  - name: Setup and access
+    questions:
+      - question: What permissions are required to create or manage a Dynatrace resource?
+        answer: |
+          To set up the service, you need **Owner** or **Contributor** access on the Azure subscription. Confirm your access before starting setup. See [Configure pre-deployment](configure-prerequisites.md#access-control).
+
+      - question: Do I need to complete any prerequisites before creating a resource?
+        answer: |
+          Yes. Complete the pre-deployment steps in your Azure subscription and Microsoft Entra ID (formerly Azure AD), including optional setup for SAML-based SSO. See [Configure pre-deployment](configure-prerequisites.md).
+
+      - question: How do I create a new Dynatrace resource?
+        answer: |
+          Use the Azure portal quickstart to create a resource, choose a plan, and configure optional metrics and logs, tags, and SSO. See [Quickstart: Get started with Dynatrace](create.md).
+
+  - name: Linking an existing environment
+    questions:
+      - question: Can I link my Azure subscription to an existing Dynatrace environment?
+        answer: |
+          Yes. Choose the option to link an Azure subscription to an existing environment. A new Dynatrace resource is created in Azure and linked to your Dynatrace SaaS environment. The environment and Dynatrace resource must reside in the same Azure region, and the linking user should have admin permissions on the target environment. See [Link to an existing Dynatrace environment](link-to-existing-resources.md).
+
+      - question: Can I set up SSO during linking?
+        answer: |
+          No. SSO setup isn’t available during linking. You can configure or reconfigure SSO after the resource is created. See [Manage: Reconfigure single sign-on](manage.md#reconfigure-single-sign-on).
+
+  - name: Metrics and logs
+    questions:
+      - question: What can I send to Dynatrace?
+        answer: |
+          You can enable platform metrics collection, subscription activity logs, and Azure resource logs. Resource log categories vary by service; see [Azure Monitor resource log categories](/azure/azure-monitor/essentials/resource-logs-categories). Configure these options when creating or managing the resource. See [Create: Metrics and logs](create.md#metrics-and-logs-tab-optional) and [Manage settings](manage.md#reconfigure-rules-for-metrics-and-logs).
+
+      - question: Why aren’t logs being emitted, or why do I see a limit message?
+        answer: |
+          - Only resource types with monitoring log categories can send logs. Verify support in [resource log categories](/azure/azure-monitor/essentials/resource-logs-categories).
+          - Each Azure resource can have a maximum of five diagnostic settings. Remove other destinations if needed. See [Diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal).
+
+      - question: Are metrics exported via diagnostic settings supported?
+        answer: |
+          Export of metrics data via Azure Monitor diagnostic settings isn’t currently supported by partner solutions. You can still enable metrics collection at creation and use Dynatrace OneAgent for deeper metrics on supported resources. See [Troubleshooting](troubleshoot.md#logs-not-being-emitted-or-limit-reached-issue).
+
+      - question: Why do diagnostic settings persist after I disable the resource or change tag rules?
+        answer: |
+          A delete lock on the resource or resource group can prevent cleanup of diagnostic settings. To stop forwarding, remove the lock. If the lock is removed after the Dynatrace resource is deleted, clean up diagnostic settings manually. See [Troubleshooting](troubleshoot.md#diagnostic-settings-are-active-even-after-disabling-the-dynatrace-resource-or-applying-necessary-tag-rules).
+
+  - name: Monitoring with Dynatrace OneAgent
+    questions:
+      - question: Which Azure services support Dynatrace OneAgent from the Azure portal?
+        answer: |
+          You can install and manage OneAgent for **Virtual machines**, **App Service**, **Azure Kubernetes Service (AKS)**, and **Azure Arc Machines** from the Dynatrace resource. See [Manage: Monitor resources using Dynatrace OneAgent](manage.md#monitor-resources-using-dynatrace-oneagent).
+
+      - question: Why can’t I install OneAgent on a virtual machine?
+        answer: |
+          OneAgent installation is disabled if the virtual machine is stopped. Start the virtual machine and try again. If a virtual machine shows OneAgent installed and **Uninstall extension** is disabled, another Dynatrace resource configured the agent; make changes from that resource. See the virtual machine tab in [Manage](manage.md#monitor-resources-using-dynatrace-oneagent).
+
+      - question: AKS installation or uninstallation options are inactive. What should I do?
+        answer: |
+          If AKS installation or uninstallation is inactive, see [AKS agent installation/uninstallation not available](https://go.microsoft.com/fwlink/?linkid=2331926).
+
+  - name: Multiple subscriptions
+    questions:
+      - question: Can I monitor multiple subscriptions with one Dynatrace resource?
+        answer: |
+          Yes. You can link up to **20 subscriptions**. Separate tag rules per subscription aren’t supported. Diagnostic settings are automatically added to resources that match defined tag rules. See [Manage: Monitor multiple subscriptions](manage.md#monitor-multiple-subscriptions).
+
+      - question: How do I avoid duplicate data and charges when adding subscriptions?
+        answer: |
+          If a subscription already has a Dynatrace resource linked to the same environment, delete that resource before adding the subscription to avoid duplicate data and double charges. See [Manage](manage.md#monitor-multiple-subscriptions).
+
+  - name: Single sign-on (SSO)
+    questions:
+      - question: How do I set up SAML-based single sign-on?
+        answer: |
+          In Microsoft Entra ID, add the **Dynatrace** enterprise application from the gallery, set **Assignment required?** to **No**, and select **SAML** for single sign-on. Save the single sign-on setting when prompted. See [Configure pre-deployment](configure-prerequisites.md#add-an-enterprise-application).
+
+      - question: Why can’t I save SSO settings?
+        answer: |
+          Another enterprise app might already be using the Dynatrace SAML identifier. In **Basic SAML configuration**, select **Edit** to find the app using the identifier. Either disable the other app or use it as the enterprise app for SAML SSO. See [Troubleshooting](troubleshoot.md#single-sign-on-errors).
+
+      - question: Why doesn’t my app appear on the single sign-on settings page?
+        answer: |
+          Search by application ID. If no result is shown, verify that the app has correct SAML settings; only apps with valid SAML settings are listed. See [Troubleshooting](troubleshoot.md#single-sign-on-errors).
+
+  - name: Free trial
+    questions:
+      - question: How do I start a free trial?
+        answer: |
+          A 30-day free trial is available from Azure Marketplace. Ensure your subscription is enabled for Marketplace purchases, then choose the free trial plan when you subscribe. See [Start a free trial](free-trial.md#subscribe-to-a-free-trial).
+
+      - question: What are the free trial limitations and what happens at expiration?
+        answer: |
+          During the trial, a Dynatrace account can have only **one environment**, so you can create only one Dynatrace resource. At trial expiry, the Dynatrace resource on Azure is deleted and data flow stops. You can upgrade to a paid plan from the Azure portal or contact Dynatrace for a custom offer. See [Free trial upgrade and expiration](free-trial.md#free-trial-upgrade-and-expiration).
+
+  - name: Billing and data residency
+    questions:
+      - question: Where is customer data stored and processed?
+        answer: |
+          Customer data is stored and processed only in the region where Azure Native Dynatrace Service was deployed. No data is stored outside that region. See [Overview](overview.md).
+
+      - question: How is billing handled?
+        answer: |
+          Billing is unified through Azure. The Marketplace SaaS resource created when you subscribe is used for billing. See [Overview](overview.md#billing).
+
+  - name: Troubleshooting and support
+    questions:
+      - question: Why can’t I create a Dynatrace resource?
+        answer: |
+          Ensure you have **Owner** or **Contributor** access on the subscription. Creation can also fail if the user profile in Microsoft Entra ID lacks a **Last Name** value. Ask your tenant admin to update the profile and try again. See [Troubleshooting](troubleshoot.md#unable-to-create-dynatrace-resource).
+
+      - question: How do I get support?
+        answer: |
+          Contact [Dynatrace support](https://support.dynatrace.com/). You can also request support from the **Support + Troubleshooting** section of your Dynatrace resource in the Azure portal. See [Manage: Get support](manage.md#get-support).
+
+additionalContent: |
+  ## Related content
+
+  - [Azure Native Dynatrace Service overview](overview.md)
+  - [Quickstart: Get started with Dynatrace](create.md)
+  - [Link to an existing Dynatrace environment](link-to-existing-resources.md)
+  - [Manage settings for your Dynatrace resource](manage.md)
+  - [Start a free trial](free-trial.md)
+  - [Troubleshooting](troubleshoot.md)

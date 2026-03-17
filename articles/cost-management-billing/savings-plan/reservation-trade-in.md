@@ -1,7 +1,7 @@
 ---
-title: Self-service trade-in for Azure savings plans
+title: Self-service trade-in for savings plans
 titleSuffix: Microsoft Cost Management
-description: Learn how you can trade in your reservations for an Azure savings plan.
+description: Learn how you can trade in your reservations for a savings plan.
 author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
@@ -11,7 +11,7 @@ ms.date: 01/08/2026
 ms.author: onwokolo
 ---
 
-# Self-service trade-in for Azure savings plans
+# Self-service trade-in for savings plans
 
 If your [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) (VM), [Dedicated Hosts](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/), or [Azure App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) reservations don't provide the necessary flexibility you need, you can trade them for a savings plan. When you trade-in a reservation and purchase a savings plan, you can select a savings plan term of either one year or three years.
 
@@ -22,15 +22,15 @@ Apart from [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/
 >[!NOTE]
 > Initially planned to end on January 1, 2024, the availability of Azure compute reservation exchanges for Azure Virtual Machine, Azure Dedicated Host and Azure App Service has been extended **until further notice**.
 >
-> Launched in October 2022, the [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute) aims at providing savings on consistent spend, across different compute services, regardless of region. With savings plan's automatic flexibility, we've updated our reservations exchange policy. While [instance size flexibility](/azure/virtual-machines/reserved-vm-instance-size-flexibility) for VMs remains post-grace period, exchanges of instance series or regions for Azure Virtual Machine, Azure Dedicated Host and Azure App Service reservations will no longer be supported.
+> Launched in October 2022, the [savings plan](https://azure.microsoft.com/pricing/offers/savings-plan-compute) aims at providing savings on consistent spend, across different compute services, regardless of region. With savings plan's automatic flexibility, we've updated our reservations exchange policy. While [instance size flexibility](/azure/virtual-machines/reserved-vm-instance-size-flexibility) for VMs remains post-grace period, exchanges of instance series or regions for Azure Virtual Machine, Azure Dedicated Host and Azure App Service reservations will no longer be supported.
 >
 > You may continue [exchanging](../reservations/exchange-and-refund-azure-reservations.md) your compute reservations for different instance series and regions until we notify you again, which will be **at least 6 months in advance**. In addition, any compute reservations purchased during this extended grace period will retain the right to **one more exchange after the grace period ends**. The extended grace period allows you to better assess your cost savings commitment needs and plan effectively. For more information, see [Changes to the Azure reservation exchange policy](../reservations/reservation-exchange-policy-changes.md).
 >
 > You may trade-in your Azure Virtual Machine, Azure Dedicated Host and Azure App Service reservations that are used to cover dynamic/evolving workloads for a savings plan or may continue to use and purchase reservations for stable workloads where the specific configuration needs are known.
 >
-> For more information, see [Self-service exchanges and refunds for Azure Reservations](../reservations/exchange-and-refund-azure-reservations.md).
+> For more information, see [Self-service exchanges and refunds for compute Reservations](../reservations/exchange-and-refund-azure-reservations.md).
 
-Although compute reservation exchanges become unavailable at the end of the grace period, noncompute reservation exchanges are unchanged. You're able to continue to trade-in reservations for savings plans. To trade-in a reservation for a savings plan, you must meet the following criteria: 
+Although compute reservation exchanges become unavailable at the end of the grace period, non-compute reservation exchanges are unchanged. You're able to continue to trade-in reservations for savings plans. To trade-in a reservation for a savings plan, you must meet the following criteria: 
 
 - You must be an owner of the Reservation Order containing the reservation you wish to trade in. To learn more, see [Grant access to individual reservations](../reservations/view-reservations.md#grant-access-to-individual-reservations).
 - You must have the Savings plan purchaser role, or an owner of the subscription you plan to use to purchase the savings plan.
@@ -108,13 +108,13 @@ The original invoice is canceled, and a new invoice is created. The money is ref
 
 ## Need help? Contact us.
 
-If you have Azure savings plan for compute questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides Azure savings plan for compute expert support requests in English.
+If you have savings plan questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides savings plan expert support requests in English.
 
 ## Next steps
 
-- To learn how to manage a savings plan, see [Manage Azure savings plan](manage-savings-plan.md).
-- To learn more about Azure savings plans, see the following articles:
-  - [What are Azure savings plans?](savings-plan-compute-overview.md)
+- To learn how to manage a savings plan, see [Manage savings plan](manage-savings-plan.md).
+- To learn more about savings plans, see the following articles:
+  - [What are savings plans?](savings-plan-overview.md)
   - [How a savings plan discount is applied](discount-application.md)
-  - [View Azure savings plan cost and usage details](utilization-cost-reports.md)
+  - [View savings plan cost and usage details](utilization-cost-reports.md)
   - [Software costs not included in savings plan](software-costs-not-included.md)

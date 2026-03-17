@@ -2,7 +2,7 @@
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: include
-ms.date: 03/02/2026    
+ms.date: 03/17/2026    
 # This file is auto-generated. Do not edit manually. Changes will be overwritten.
 ---
 
@@ -105,13 +105,13 @@ ms.date: 03/02/2026
 |CarbonBlackAuditLogs_CL|[VMware Carbon Black Cloud (using Azure Functions)](/azure/sentinel/data-connectors-reference#vmware-carbon-black-cloud-using-azure-functions)|No|No|
 |CarbonBlackEvents_CL|[VMware Carbon Black Cloud (using Azure Functions)](/azure/sentinel/data-connectors-reference#vmware-carbon-black-cloud-using-azure-functions)|No|No|
 |CarbonBlackNotifications_CL|[VMware Carbon Black Cloud (using Azure Functions)](/azure/sentinel/data-connectors-reference#vmware-carbon-black-cloud-using-azure-functions)|No|No|
-|CBSLog_Azure_1_CL|[Cyber Blind Spot Integration (using Azure Functions)](/azure/sentinel/data-connectors-reference#cyber-blind-spot-integration-using-azure-functions)|No|No|
+|CBSLog_AzureV2_CL|[CTM360 CyberBlindSpot (Serverless)](/azure/sentinel/data-connectors-reference#ctm360-cyberblindspot-serverless)|No|No|
 |Cisco_Umbrella_audit_CL|[Cisco Cloud Security (using Azure Functions)](/azure/sentinel/data-connectors-reference#cisco-cloud-security-using-azure-functions)<br>[Cisco Cloud Security (using elastic premium plan) (using Azure Functions)](/azure/sentinel/data-connectors-reference#cisco-cloud-security-using-elastic-premium-plan-using-azure-functions)|No|No|
-|Cisco_Umbrella_cloudfirewall_CL|[Cisco Cloud Security (using Azure Functions)](/azure/sentinel/data-connectors-reference#cisco-cloud-security-using-azure-functions)<br>[Cisco Cloud Security (using elastic premium plan) (using Azure Functions)](/azure/sentinel/data-connectors-reference#cisco-cloud-security-using-elastic-premium-plan-using-azure-functions)|No|No|
+|Cisco_Umbrella_cloudfirewall_CL|[Cisco Cloud Security (using Azure Functions)](/azure/sentinel/data-connectors-reference#cisco-cloud-security-using-azure-functions)<br>[Cisco Cloud Security (using elastic premium plan) (using Azure Functions)](/azure/sentinel/data-connectors-reference#cisco-cloud-security-using-elastic-premium-plan-using-azure-functions)|Yes|Yes|
 |Cisco_Umbrella_dlp_CL|[Cisco Cloud Security (using Azure Functions)](/azure/sentinel/data-connectors-reference#cisco-cloud-security-using-azure-functions)<br>[Cisco Cloud Security (using elastic premium plan) (using Azure Functions)](/azure/sentinel/data-connectors-reference#cisco-cloud-security-using-elastic-premium-plan-using-azure-functions)|No|No|
 |Cisco_Umbrella_dns_CL|[Cisco Cloud Security (using Azure Functions)](/azure/sentinel/data-connectors-reference#cisco-cloud-security-using-azure-functions)<br>[Cisco Cloud Security (using elastic premium plan) (using Azure Functions)](/azure/sentinel/data-connectors-reference#cisco-cloud-security-using-elastic-premium-plan-using-azure-functions)|Yes|Yes|
 |Cisco_Umbrella_fileevent_CL|[Cisco Cloud Security (using Azure Functions)](/azure/sentinel/data-connectors-reference#cisco-cloud-security-using-azure-functions)<br>[Cisco Cloud Security (using elastic premium plan) (using Azure Functions)](/azure/sentinel/data-connectors-reference#cisco-cloud-security-using-elastic-premium-plan-using-azure-functions)|No|No|
-|Cisco_Umbrella_firewall_CL|[Cisco Cloud Security (using Azure Functions)](/azure/sentinel/data-connectors-reference#cisco-cloud-security-using-azure-functions)<br>[Cisco Cloud Security (using elastic premium plan) (using Azure Functions)](/azure/sentinel/data-connectors-reference#cisco-cloud-security-using-elastic-premium-plan-using-azure-functions)|No|No|
+|Cisco_Umbrella_firewall_CL|[Cisco Cloud Security (using Azure Functions)](/azure/sentinel/data-connectors-reference#cisco-cloud-security-using-azure-functions)<br>[Cisco Cloud Security (using elastic premium plan) (using Azure Functions)](/azure/sentinel/data-connectors-reference#cisco-cloud-security-using-elastic-premium-plan-using-azure-functions)|Yes|Yes|
 |Cisco_Umbrella_intrusion_CL|[Cisco Cloud Security (using Azure Functions)](/azure/sentinel/data-connectors-reference#cisco-cloud-security-using-azure-functions)<br>[Cisco Cloud Security (using elastic premium plan) (using Azure Functions)](/azure/sentinel/data-connectors-reference#cisco-cloud-security-using-elastic-premium-plan-using-azure-functions)|No|No|
 |Cisco_Umbrella_ip_CL|[Cisco Cloud Security (using Azure Functions)](/azure/sentinel/data-connectors-reference#cisco-cloud-security-using-azure-functions)<br>[Cisco Cloud Security (using elastic premium plan) (using Azure Functions)](/azure/sentinel/data-connectors-reference#cisco-cloud-security-using-elastic-premium-plan-using-azure-functions)|Yes|Yes|
 |Cisco_Umbrella_proxy_CL|[Cisco Cloud Security (using Azure Functions)](/azure/sentinel/data-connectors-reference#cisco-cloud-security-using-azure-functions)<br>[Cisco Cloud Security (using elastic premium plan) (using Azure Functions)](/azure/sentinel/data-connectors-reference#cisco-cloud-security-using-elastic-premium-plan-using-azure-functions)|Yes|Yes|
@@ -131,7 +131,7 @@ ms.date: 03/02/2026
 |CognniIncidents_CL|[Cognni](/azure/sentinel/data-connectors-reference#cognni)|Yes|Yes|
 |Cohesity_CL|[Cohesity (using Azure Functions)](/azure/sentinel/data-connectors-reference#cohesity-using-azure-functions)|Yes|Yes|
 |[CommonSecurityLog](/azure/azure-monitor/reference/tables/CommonSecurityLog)|[Cisco ASA/FTD via AMA](/azure/sentinel/data-connectors-reference#cisco-asaftd-via-ama)<br>[Claroty xDome](/azure/sentinel/data-connectors-reference#claroty-xdome)<br>[Infoblox Cloud Data Connector via AMA](/azure/sentinel/data-connectors-reference#infoblox-cloud-data-connector-via-ama)<br>[Infoblox SOC Insight Data Connector via AMA](/azure/sentinel/data-connectors-reference#infoblox-soc-insight-data-connector-via-ama)<br>[Silverfort Admin Console](/azure/sentinel/data-connectors-reference#silverfort-admin-console)<br>[VirtualMetric DataStream for Microsoft Sentinel data lake](/azure/sentinel/data-connectors-reference#virtualmetric-datastream-for-microsoft-sentinel-data-lake)<br>[VirtualMetric DataStream for Microsoft Sentinel](/azure/sentinel/data-connectors-reference#virtualmetric-datastream-for-microsoft-sentinel)<br>[VirtualMetric Director Proxy](/azure/sentinel/data-connectors-reference#virtualmetric-director-proxy)<br>[[Deprecated] Infoblox SOC Insight Data Connector via Legacy Agent](/azure/sentinel/data-connectors-reference#deprecated-infoblox-soc-insight-data-connector-via-legacy-agent)|Yes|Yes|
-|CommvaultSecurityIQ_CL|[CommvaultSecurityIQ](/azure/sentinel/data-connectors-reference#commvaultsecurityiq)|No|No|
+|CommvaultAlerts_CL|[CommvaultSecurityIQ](/azure/sentinel/data-connectors-reference#commvaultsecurityiq)|Yes|Yes|
 |ConfluenceAuditLogs_CL|[Atlassian Confluence Audit (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#atlassian-confluence-audit-via-codeless-connector-framework)|Yes|Yes|
 |ContrastADR_CL|[ContrastADR](/azure/sentinel/data-connectors-reference#contrastadr)|No|No|
 |ContrastADRIncident_CL|[ContrastADR](/azure/sentinel/data-connectors-reference#contrastadr)|No|No|
@@ -143,10 +143,15 @@ ms.date: 03/02/2026
 |CrowdStrike_Additional_Events_CL|[CrowdStrike Falcon Data Replicator (AWS S3) (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#crowdstrike-falcon-data-replicator-aws-s3-via-codeless-connector-framework)|Yes|Yes|
 |[CrowdStrikeAlerts](/azure/azure-monitor/reference/tables/CrowdStrikeAlerts)|[CrowdStrike API Data Connector (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#crowdstrike-api-data-connector-via-codeless-connector-framework)|Yes|Yes|
 |CrowdStrikeReplicatorV2|[CrowdStrike Falcon Data Replicator (CrowdStrike Managed AWS-S3) (using Azure Functions)](/azure/sentinel/data-connectors-reference#crowdstrike-falcon-data-replicator-crowdstrike-managed-aws-s3-using-azure-functions)|No|No|
-|CyberArk_AuditEvents_CL|[CyberArkAudit (using Azure Functions)](/azure/sentinel/data-connectors-reference#cyberarkaudit-using-azure-functions)|Yes|Yes|
+|CyberArk_AuditEvents_CL|[CyberArk Audit](/azure/sentinel/data-connectors-reference#cyberark-audit)<br>[CyberArkAudit (using Azure Functions)](/azure/sentinel/data-connectors-reference#cyberarkaudit-using-azure-functions)|Yes|Yes|
 |CyberpionActionItems_CL|[IONIX Security Logs](/azure/sentinel/data-connectors-reference#ionix-security-logs)|No|No|
 |CyberSixgill_Alerts_CL|[Cybersixgill Actionable Alerts (using Azure Functions)](/azure/sentinel/data-connectors-reference#cybersixgill-actionable-alerts-using-azure-functions)|No|No|
 |CybleVisionAlerts_CL|[Cyble Vision Alerts](/azure/sentinel/data-connectors-reference#cyble-vision-alerts)|No|No|
+|CyeraAssets_CL|[Cyera DSPM Microsoft Sentinel Data Connector](/azure/sentinel/data-connectors-reference#cyera-dspm-microsoft-sentinel-data-connector)|No|No|
+|CyeraAssets_MS_CL|[Cyera DSPM Microsoft Sentinel Data Connector](/azure/sentinel/data-connectors-reference#cyera-dspm-microsoft-sentinel-data-connector)|No|No|
+|CyeraClassifications_CL|[Cyera DSPM Microsoft Sentinel Data Connector](/azure/sentinel/data-connectors-reference#cyera-dspm-microsoft-sentinel-data-connector)|No|No|
+|CyeraIdentities_CL|[Cyera DSPM Microsoft Sentinel Data Connector](/azure/sentinel/data-connectors-reference#cyera-dspm-microsoft-sentinel-data-connector)|No|No|
+|CyeraIssues_CL|[Cyera DSPM Microsoft Sentinel Data Connector](/azure/sentinel/data-connectors-reference#cyera-dspm-microsoft-sentinel-data-connector)|No|No|
 |CyfirmaASCertificatesAlerts_CL|[CYFIRMA Attack Surface](/azure/sentinel/data-connectors-reference#cyfirma-attack-surface)|Yes|Yes|
 |CyfirmaASCloudWeaknessAlerts_CL|[CYFIRMA Attack Surface](/azure/sentinel/data-connectors-reference#cyfirma-attack-surface)|Yes|Yes|
 |CyfirmaASConfigurationAlerts_CL|[CYFIRMA Attack Surface](/azure/sentinel/data-connectors-reference#cyfirma-attack-surface)|Yes|Yes|
@@ -188,6 +193,9 @@ ms.date: 03/02/2026
 |CynerioEvent_CL|[Cynerio Security Events](/azure/sentinel/data-connectors-reference#cynerio-security-events)|No|No|
 |Cyren_Indicators_CL|[Cyren Threat Intelligence](/azure/sentinel/data-connectors-reference#cyren-threat-intelligence)|No|No|
 |darktrace_model_alerts_CL|[Darktrace Connector for Microsoft Sentinel REST API](/azure/sentinel/data-connectors-reference#darktrace-connector-for-microsoft-sentinel-rest-api)|Yes|Yes|
+|databahn_alerts_CL|[DataBahn](/azure/sentinel/data-connectors-reference#databahn)|No|No|
+|databahn_audit_logs_CL|[DataBahn](/azure/sentinel/data-connectors-reference#databahn)|No|No|
+|databahn_device_inventory_CL|[DataBahn](/azure/sentinel/data-connectors-reference#databahn)|No|No|
 |DataminrPulse_Alerts_CL|[Dataminr Pulse Alerts Data Connector (using Azure Functions)](/azure/sentinel/data-connectors-reference#dataminr-pulse-alerts-data-connector-using-azure-functions)|No|No|
 |[DataverseActivity](/azure/azure-monitor/reference/tables/DataverseActivity)|[Microsoft Dataverse](/azure/sentinel/data-connectors-reference#microsoft-dataverse)|Yes|Yes|
 |datawizaserveraccess_CL|[Datawiza DAP](/azure/sentinel/data-connectors-reference#datawiza-dap)|No|No|
@@ -266,19 +274,19 @@ ms.date: 03/02/2026
 |[GCPNATAudit](/azure/azure-monitor/reference/tables/GCPNATAudit)|[Google Cloud Platform NAT (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#google-cloud-platform-nat-via-codeless-connector-framework)|Yes|Yes|
 |[GCPResourceManager](/azure/azure-monitor/reference/tables/GCPResourceManager)|[Google Cloud Platform Resource Manager (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#google-cloud-platform-resource-manager-via-codeless-connector-framework)|Yes|Yes|
 |[GCPVPCFlow](/azure/azure-monitor/reference/tables/GCPVPCFlow)|[GCP Pub/Sub VPC Flow Logs (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#gcp-pubsub-vpc-flow-logs-via-codeless-connector-framework)|Yes|Yes|
-|Gigamon_CL|[Gigamon AMX Data Connector](/azure/sentinel/data-connectors-reference#gigamon-amx-data-connector)|No|No|
+|GigamonV2_CL|[Gigamon AMX Connector](/azure/sentinel/data-connectors-reference#gigamon-amx-connector)|No|No|
 |GitHubAuditLogPolling_CL|[[Deprecated] GitHub Enterprise Audit Log](/azure/sentinel/data-connectors-reference#deprecated-github-enterprise-audit-log)|Yes|Yes|
 |GitHubAuditLogsV2_CL|[GitHub Enterprise Audit Log (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#github-enterprise-audit-log-via-codeless-connector-framework)|Yes|Yes|
 |githubscanaudit_CL|[GitHub (using Webhooks)](/azure/sentinel/data-connectors-reference#github-using-webhooks)|Yes|Yes|
 |[GKEAudit](/azure/azure-monitor/reference/tables/GKEAudit)|[Google Kubernetes Engine (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#google-kubernetes-engine-via-codeless-connector-framework)|Yes|Yes|
 |[GoogleCloudSCC](/azure/azure-monitor/reference/tables/GoogleCloudSCC)|[Google Security Command Center](/azure/sentinel/data-connectors-reference#google-security-command-center)|Yes|Yes|
 |[GoogleWorkspaceReports](/azure/azure-monitor/reference/tables/GoogleWorkspaceReports)|[Google Workspace Activities (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#google-workspace-activities-via-codeless-connector-framework)|Yes|Yes|
-|HackerViewLog_Azure_1_CL|[HackerView Intergration (using Azure Functions)](/azure/sentinel/data-connectors-reference#hackerview-intergration-using-azure-functions)|No|No|
-|HalcyonAuthenticationEvents_CL|[Halcyon Connector](/azure/sentinel/data-connectors-reference#halcyon-connector)|No|No|
-|HalcyonDnsActivity_CL|[Halcyon Connector](/azure/sentinel/data-connectors-reference#halcyon-connector)|No|No|
-|HalcyonFileActivity_CL|[Halcyon Connector](/azure/sentinel/data-connectors-reference#halcyon-connector)|No|No|
-|HalcyonNetworkSession_CL|[Halcyon Connector](/azure/sentinel/data-connectors-reference#halcyon-connector)|No|No|
-|HalcyonProcessEvent_CL|[Halcyon Connector](/azure/sentinel/data-connectors-reference#halcyon-connector)|No|No|
+|HackerViewLog_AzureV2_CL|[CTM360 HackerView (Serverless)](/azure/sentinel/data-connectors-reference#ctm360-hackerview-serverless)|No|No|
+|HalcyonAuthenticationEvents_CL|[Halcyon Connector](/azure/sentinel/data-connectors-reference#halcyon-connector)|Yes|Yes|
+|HalcyonDnsActivity_CL|[Halcyon Connector](/azure/sentinel/data-connectors-reference#halcyon-connector)|Yes|Yes|
+|HalcyonFileActivity_CL|[Halcyon Connector](/azure/sentinel/data-connectors-reference#halcyon-connector)|Yes|Yes|
+|HalcyonNetworkSession_CL|[Halcyon Connector](/azure/sentinel/data-connectors-reference#halcyon-connector)|Yes|Yes|
+|HalcyonProcessEvent_CL|[Halcyon Connector](/azure/sentinel/data-connectors-reference#halcyon-connector)|Yes|Yes|
 |Health_Data_CL|[Vectra XDR (using Azure Functions)](/azure/sentinel/data-connectors-reference#vectra-xdr-using-azure-functions)|Yes|Yes|
 |[IdentityLogonEvents](/azure/azure-monitor/reference/tables/IdentityLogonEvents)|[Microsoft Defender XDR](/azure/sentinel/data-connectors-reference#microsoft-defender-xdr)|Yes|Yes|
 |Illumio_Auditable_Events_CL|[Illumio SaaS (using Azure Functions)](/azure/sentinel/data-connectors-reference#illumio-saas-using-azure-functions)|Yes|Yes|
@@ -292,6 +300,26 @@ ms.date: 03/02/2026
 |IntegrationTable_CL|[ESET Protect Platform (using Azure Functions)](/azure/sentinel/data-connectors-reference#eset-protect-platform-using-azure-functions)|Yes|Yes|
 |IntegrationTableIncidents_CL|[ESET Protect Platform (using Azure Functions)](/azure/sentinel/data-connectors-reference#eset-protect-platform-using-azure-functions)|Yes|Yes|
 |iocsent_CL|[Check Point Cyberint IOC Connector](/azure/sentinel/data-connectors-reference#check-point-cyberint-ioc-connector)|No|No|
+|Ipinfo_Abuse_CL|[IPinfo Abuse Data Connector](/azure/sentinel/data-connectors-reference#ipinfo-abuse-data-connector)|No|No|
+|Ipinfo_ASN_CL|[IPinfo ASN Data Connector](/azure/sentinel/data-connectors-reference#ipinfo-asn-data-connector)|No|No|
+|Ipinfo_Carrier_CL|[IPinfo Carrier Data Connector](/azure/sentinel/data-connectors-reference#ipinfo-carrier-data-connector)|No|No|
+|Ipinfo_Company_CL|[IPinfo Company Data Connector](/azure/sentinel/data-connectors-reference#ipinfo-company-data-connector)|No|No|
+|Ipinfo_CORE_CL|[IPinfo Core Data Connector](/azure/sentinel/data-connectors-reference#ipinfo-core-data-connector)|No|No|
+|Ipinfo_Country_CL|[IPinfo Country ASN Data Connector](/azure/sentinel/data-connectors-reference#ipinfo-country-asn-data-connector)|No|No|
+|Ipinfo_Domain_CL|[IPinfo Domain Data Connector](/azure/sentinel/data-connectors-reference#ipinfo-domain-data-connector)|No|No|
+|Ipinfo_Location_CL|[IPinfo Iplocation Data Connector](/azure/sentinel/data-connectors-reference#ipinfo-iplocation-data-connector)|No|No|
+|Ipinfo_Location_extended_CL|[IPinfo Iplocation Extended Data Connector](/azure/sentinel/data-connectors-reference#ipinfo-iplocation-extended-data-connector)|No|No|
+|Ipinfo_PLUS_CL|[IPinfo Plus Data Connector](/azure/sentinel/data-connectors-reference#ipinfo-plus-data-connector)|No|No|
+|Ipinfo_Privacy_CL|[IPinfo Privacy Data Connector](/azure/sentinel/data-connectors-reference#ipinfo-privacy-data-connector)|No|No|
+|Ipinfo_Privacy_extended_CL|[IPinfo Privacy Extended Data Connector](/azure/sentinel/data-connectors-reference#ipinfo-privacy-extended-data-connector)|No|No|
+|Ipinfo_RESIDENTIAL_PROXY_CL|[IPinfo ResProxy Data Connector](/azure/sentinel/data-connectors-reference#ipinfo-resproxy-data-connector)|No|No|
+|Ipinfo_RIRWHOIS_CL|[IPinfo RIRWHOIS Data Connector](/azure/sentinel/data-connectors-reference#ipinfo-rirwhois-data-connector)|No|No|
+|Ipinfo_RWHOIS_CL|[IPinfo RWHOIS Data Connector](/azure/sentinel/data-connectors-reference#ipinfo-rwhois-data-connector)|No|No|
+|Ipinfo_WHOIS_ASN_CL|[IPinfo WHOIS ASN Data Connector](/azure/sentinel/data-connectors-reference#ipinfo-whois-asn-data-connector)|No|No|
+|Ipinfo_WHOIS_MNT_CL|[IPinfo WHOIS MNT Data Connector](/azure/sentinel/data-connectors-reference#ipinfo-whois-mnt-data-connector)|No|No|
+|Ipinfo_WHOIS_NET_CL|[IPinfo WHOIS NET Data Connector](/azure/sentinel/data-connectors-reference#ipinfo-whois-net-data-connector)|No|No|
+|Ipinfo_WHOIS_ORG_CL|[IPinfo WHOIS ORG Data Connector](/azure/sentinel/data-connectors-reference#ipinfo-whois-org-data-connector)|No|No|
+|Ipinfo_WHOIS_POC_CL|[IPinfo WHOIS POC Data Connector](/azure/sentinel/data-connectors-reference#ipinfo-whois-poc-data-connector)|No|No|
 |Island_Admin_CL|[Island Enterprise Browser Admin Audit (Polling CCP)](/azure/sentinel/data-connectors-reference#island-enterprise-browser-admin-audit-polling-ccp)|Yes|Yes|
 |Island_User_CL|[Island Enterprise Browser User Activity (Polling CCP)](/azure/sentinel/data-connectors-reference#island-enterprise-browser-user-activity-polling-ccp)|Yes|Yes|
 |jamfprotectalerts_CL|[Jamf Protect Push Connector](/azure/sentinel/data-connectors-reference#jamf-protect-push-connector)|Yes|Yes|
@@ -435,12 +463,13 @@ ms.date: 03/02/2026
 |Tenable_VM_Vuln_CL|[Tenable Vulnerability Management (using Azure Functions)](/azure/sentinel/data-connectors-reference#tenable-vulnerability-management-using-azure-functions)|Yes|Yes|
 |Tenable_WAS_Asset_CL|[Tenable Vulnerability Management (using Azure Functions)](/azure/sentinel/data-connectors-reference#tenable-vulnerability-management-using-azure-functions)|Yes|Yes|
 |Tenable_WAS_Vuln_CL|[Tenable Vulnerability Management (using Azure Functions)](/azure/sentinel/data-connectors-reference#tenable-vulnerability-management-using-azure-functions)|Yes|Yes|
-|TheHive_CL|[TheHive Project - TheHive (using Azure Functions)](/azure/sentinel/data-connectors-reference#thehive-project---thehive-using-azure-functions)|No|No|
+|TheHiveData|[TheHive (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#thehive-via-codeless-connector-framework)|No|No|
 |TheomAlerts_CL|[Theom](/azure/sentinel/data-connectors-reference#theom)|No|No|
 |[ThreatIntelIndicators](/azure/azure-monitor/reference/tables/ThreatIntelIndicators)|[CrowdStrike Falcon Adversary Intelligence  (using Azure Functions)](/azure/sentinel/data-connectors-reference#crowdstrike-falcon-adversary-intelligence--using-azure-functions)|Yes|No|
 |[ThreatIntelligenceIndicator](/azure/azure-monitor/reference/tables/ThreatIntelligenceIndicator)|[Datalake2Sentinel](/azure/sentinel/data-connectors-reference#datalake2sentinel)<br>[GreyNoise Threat Intelligence](/azure/sentinel/data-connectors-reference#greynoise-threat-intelligence)<br>[JoeSandboxThreatIntelligence (using Azure Functions)](/azure/sentinel/data-connectors-reference#joesandboxthreatintelligence-using-azure-functions)<br>[Luminar IOCs and Leaked Credentials (using Azure Functions)](/azure/sentinel/data-connectors-reference#luminar-iocs-and-leaked-credentials-using-azure-functions)<br>[MISP2Sentinel](/azure/sentinel/data-connectors-reference#misp2sentinel)<br>[Microsoft Defender Threat Intelligence](/azure/sentinel/data-connectors-reference#microsoft-defender-threat-intelligence)<br>[Mimecast Intelligence for Microsoft - Microsoft Sentinel (using Azure Functions)](/azure/sentinel/data-connectors-reference#mimecast-intelligence-for-microsoft---microsoft-sentinel-using-azure-functions)<br>[Premium Microsoft Defender Threat Intelligence](/azure/sentinel/data-connectors-reference#premium-microsoft-defender-threat-intelligence)<br>[Threat Intelligence Platforms](/azure/sentinel/data-connectors-reference#threat-intelligence-platforms)<br>[Threat Intelligence Upload API (Preview)](/azure/sentinel/data-connectors-reference#threat-intelligence-upload-api-preview)<br>[Threat intelligence - TAXII](/azure/sentinel/data-connectors-reference#threat-intelligence---taxii)<br>[VMRayThreatIntelligence (using Azure Functions)](/azure/sentinel/data-connectors-reference#vmraythreatintelligence-using-azure-functions)|Yes|No|
 |Tomcat_CL|[Custom logs via AMA](/azure/sentinel/data-connectors-reference#custom-logs-via-ama)|Yes|Yes|
 |TransmitSecurityActivity_CL|[Transmit Security Connector (using Azure Functions)](/azure/sentinel/data-connectors-reference#transmit-security-connector-using-azure-functions)|No|No|
+|TrellixEvents|[Trellix Endpoint Security (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#trellix-endpoint-security-via-codeless-connector-framework)|No|No|
 |TrendMicro_XDR_OAT_CL|[Trend Vision One (using Azure Functions)](/azure/sentinel/data-connectors-reference#trend-vision-one-using-azure-functions)|No|No|
 |TrendMicro_XDR_RCA_Result_CL|[Trend Vision One (using Azure Functions)](/azure/sentinel/data-connectors-reference#trend-vision-one-using-azure-functions)|No|No|
 |TrendMicro_XDR_RCA_Task_CL|[Trend Vision One (using Azure Functions)](/azure/sentinel/data-connectors-reference#trend-vision-one-using-azure-functions)|No|No|
@@ -449,6 +478,7 @@ ms.date: 03/02/2026
 |Ttp_Impersonation_CL|[Mimecast Targeted Threat Protection](/azure/sentinel/data-connectors-reference#mimecast-targeted-threat-protection)|Yes|Yes|
 |Ttp_Url_CL|[Mimecast Targeted Threat Protection](/azure/sentinel/data-connectors-reference#mimecast-targeted-threat-protection)|Yes|Yes|
 |Ubiquiti_CL|[Custom logs via AMA](/azure/sentinel/data-connectors-reference#custom-logs-via-ama)|Yes|Yes|
+|union ASimAuditEventLogs, ASimAuthenticationEventLogs, ASimDhcpEventLogs, ASimDnsActivityLogs, ASimFileEventLogs, ASimNetworkSessionLogs, ASimProcessEventLogs, ASimRegistryEventLogs, ASimUserManagementActivityLogs, ASimWebSessionLogs|[Synqly Integration Connector](/azure/sentinel/data-connectors-reference#synqly-integration-connector)|No|No|
 |union isfuzzy=true (WizAuditLogs_CL),(WizAuditLogsV2_CL)|[Wiz (using Azure Functions)](/azure/sentinel/data-connectors-reference#wiz-using-azure-functions)|No|No|
 |union isfuzzy=true (WizIssues_CL),(WizIssuesV2_CL)|[Wiz (using Azure Functions)](/azure/sentinel/data-connectors-reference#wiz-using-azure-functions)|No|No|
 |union isfuzzy=true (WizVulnerabilities_CL),(WizVulnerabilitiesV2_CL)|[Wiz (using Azure Functions)](/azure/sentinel/data-connectors-reference#wiz-using-azure-functions)|No|No|
@@ -493,5 +523,5 @@ ms.date: 03/02/2026
 |ZeroFoxAlertPoller_CL|[ZeroFox Enterprise - Alerts (Polling CCF)](/azure/sentinel/data-connectors-reference#zerofox-enterprise---alerts-polling-ccf)|Yes|Yes|
 |ZimperiumThreatLog_CL|[Zimperium Mobile Threat Defense](/azure/sentinel/data-connectors-reference#zimperium-mobile-threat-defense)|No|No|
 |ZNSegmentAuditNativePoller_CL|[Zero Networks Segment Audit](/azure/sentinel/data-connectors-reference#zero-networks-segment-audit)|No|No|
-|Zoom_CL|[Zoom Reports (using Azure Functions)](/azure/sentinel/data-connectors-reference#zoom-reports-using-azure-functions)|Yes|Yes|
+|Zoom_CL|[Zoom Reports (using Azure Functions)](/azure/sentinel/data-connectors-reference#zoom-reports-using-azure-functions)<br>[Zoom Reports Connector (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#zoom-reports-connector-via-codeless-connector-framework)|Yes|Yes|
 |ZPA_CL|[Custom logs via AMA](/azure/sentinel/data-connectors-reference#custom-logs-via-ama)|Yes|Yes|

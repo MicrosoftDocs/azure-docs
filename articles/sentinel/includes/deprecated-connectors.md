@@ -2,9 +2,9 @@
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: include
-ms.date: 03/02/2026
+ms.date: 03/17/2026
 
-# This file is auto-generated . Do not edit manually. Changes will be overwritten.
+# This file is auto-generated. Do not edit manually. Changes will be overwritten.
 ---
 
 <a name="deprecated-github-enterprise-audit-log"></a><details><summary>**[Deprecated] GitHub Enterprise Audit Log**</summary>

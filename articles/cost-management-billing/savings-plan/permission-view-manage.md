@@ -1,5 +1,5 @@
 ---
-title: Permissions to view and manage Azure savings plans
+title: Permissions to view and manage savings plans
 titleSuffix: Microsoft Cost Management
 description: Learn how savings plan permissions work and how to view and manage your savings plan in the Azure portal.
 author: nwokolo
@@ -12,8 +12,8 @@ ms.date: 01/08/2026
 ms.author: onwokolo
 ---
 
-# Permissions to view and manage Azure savings plans
-This article explains how savings plan permissions work and how users can view and manage Azure savings plans in the Azure portal.
+# Permissions to view and manage savings plans
+This article explains how savings plan permissions work and how users can view and manage savings plans in the Azure portal.
 
 ## Who can manage a savings plan by default
 Two different authorization methods control a user's ability to view, manage, and delegate permissions to savings plans. They're billing admin roles and savings plan role-based access control (RBAC) roles.
@@ -64,7 +64,7 @@ There are four savings plan-specific RBAC roles:
 - **Savings plan administrator**: Allows [management](manage-savings-plan.md) of one or more savings plans in a tenant and [delegation of RBAC roles](/azure/role-based-access-control/role-assignments-portal) to other users.
 - **Savings plan purchaser**: Allows purchase of savings plans with a specified subscription.
     - Allows savings plans purchase or [reservation trade-in](reservation-trade-in.md) by nonbilling admins and nonsubscription owners.
-    - Savings plan purchasing by nonbilling admins must be enabled. For more information, see [Permissions to buy an Azure savings plan](permission-buy-savings-plan.md).
+    - Savings plan purchasing by nonbilling admins must be enabled. For more information, see [Permissions to buy an savings plan](permission-buy-savings-plan.md).
 - **Savings plan contributor**: Allows management of one or more savings plans in a tenant but not delegation of RBAC roles to other users.
 - **Savings plan reader**: Allows read-only access to one or more savings plans in a tenant.
 
@@ -224,4 +224,4 @@ New-AzRoleAssignment -Scope "/providers/Microsoft.BillingBenefits" -PrincipalId 
 
 ## Next steps
 
-- [Manage Azure savings plans](manage-savings-plan.md)
+- [Manage savings plans](manage-savings-plan.md)

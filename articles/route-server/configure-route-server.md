@@ -303,7 +303,7 @@ The page output shows the following fields:
 
 * **Prefix**: Address prefix known to the current entity (learned from Route Server)
 * **Next hop type**: Can be VPN, HubBgpConnection (NVA BGP peers), Virtual Network Connection, or ExpressRoute.
-* **Next hop**: This is the IP address of the next hop (This will be "on-link" for Virtual Network connections)
+* **Next hop**: This is the IP address of the next hop (For virtual network connections, this will be "on-link". For ExpressRoute, this will be the IP address of the Microsoft Enterprise Edge Router)
 * **Origin**: Link to the resource ID of the next hop (This will be empty for Virtual Network Connections)
 * **AS Path**: BGP Attribute AS (autonomous system) path lists all the AS numbers that need to be traversed to reach the location where the prefix that the path is attached to, is advertised from.
 
