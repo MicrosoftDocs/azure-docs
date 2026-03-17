@@ -114,7 +114,7 @@ To restore an individual SQL database in an instance, follow these steps:
 
 ## Next step
 
-[Manage and monitor backed up SQL Server databases using Azure portal](manage-monitor-sql-database-backup.md).
+[Manage and monitor SQL Server database and instance snapshot (preview) backups](manage-monitor-sql-database-backup.md).
 
 
 
