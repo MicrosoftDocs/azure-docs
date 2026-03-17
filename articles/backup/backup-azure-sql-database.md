@@ -19,7 +19,7 @@ ms.author: v-mallicka
 To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support). For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
 
 >[!Note]
->Private Preview for Snapshot based backup is now available! Snapshot based backup will help you backup large sized databases in a performant way and will also ensure faster restores from instant restore tier.
+>Snapshot based backup is now in preview. Snapshot based backup helps you backup large sized databases in a performant way and also ensures faster restores from instant restore tier. Currently, the instance snapshot backup operation isn't supported via [Resiliency](../resiliency/resiliency-overview.md).
 
 ## Backup process
 
@@ -68,6 +68,8 @@ The backup and restore flow provides a logical, end-to-end sequence—from snaps
 4.  The service retains snapshots in the Azure subscription within a specified resource group for a user-defined duration (up to seven days). Azure Backup then moves the data to the Recovery Services vault as vaulted backup for long-term retention based on the configured policy.
 
 5.  Azure Backup streams log backups at the database level to the vault. During restore, the service restores the snapshot to an alternate VM and applies log backups to achieve point-in-time recovery.
+
+[Learn how to back up SQL Server instance snapshot in Azure VM using Azure portal (preview)](back-up-sql-server-instance-snapshot.md).
 
 ### Pricing for snapshot backup of SQL databases in Azure VM
 
@@ -259,9 +261,9 @@ To configure simultaneous backups, follow these steps:
 ## Next steps
 
 * [Back up SQL Server databases running on an Azure VM](backup-sql-server-database-azure-vms.md).
+* [Back up SQL Server instance snapshot in Azure VM using Azure portal (preview)](back-up-sql-server-instance-snapshot.md).
 * [Restore backed up SQL Server databases](restore-sql-database-azure-vm.md).
 * [Manage backed up SQL Server databases](manage-monitor-sql-database-backup.md).
-
 
 ## Related content
 

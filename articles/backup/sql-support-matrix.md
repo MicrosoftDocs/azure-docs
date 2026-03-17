@@ -10,9 +10,9 @@ ms.author: v-mallicka
 # Customer intent: As a database administrator, I want to understand the support matrix for SQL Server Backup in Azure VMs so that I can ensure compliance with the system requirements and optimize my backup strategy for our SQL Server environments.
 ---
 
-# Support matrix for SQL Server Backup in Azure VMs
+# Support matrix for SQL Server database and instance snapshot (preview) backups in Azure VMs
 
-You can use Azure Backup to back up SQL Server databases and SQL Server instance snapshots (preview) in Azure VMs hosted on the Microsoft Azure cloud platform. This article summarizes the general support settings and limitations for scenarios and deployments of SQL Server Backup and SQL Server instance snapshot backup in Azure VMs. For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
+You can use Azure Backup to back up SQL Server databases and [SQL Server instance snapshots (preview)](backup-azure-sql-database.md#back-up-sql-server-instance-snapshots-preview) in Azure VMs hosted on the Microsoft Azure cloud platform. This article summarizes the general support settings and limitations for scenarios and deployments of SQL Server Backup and SQL Server instance snapshot backup in Azure VMs. For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
 
 ## Scenario support
 
@@ -99,4 +99,6 @@ Azure Backup supports a consistent data transfer rate of 350 MBps for full and d
 
 - [Back up a SQL Server database running on an Azure VM](backup-azure-sql-database.md).
 - [Restore backed up SQL Server databases](restore-sql-database-azure-vm.md).
-- [Manage and monitor backed up SQL Server databases using Azure portal](manage-monitor-sql-database-backup.md).
+- [Back up SQL Server instance snapshot in Azure VM using Azure portal (preview)](back-up-sql-server-instance-snapshot.md).
+- [Restore backed up SQL Server databases](restore-sql-database-azure-vm.md).
+- [Manage backed up SQL Server databases](manage-monitor-sql-database-backup.md).

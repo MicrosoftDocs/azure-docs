@@ -12,7 +12,9 @@ ms.service: azure-backup
 
 # Back up SQL Server instance snapshot in Azure VM using Azure portal (preview)
 
-This article describes how to back up SQL Server instances in Azure VMs using snapshot backups. It covers the prerequisites, configuration steps for backup policies, database discovery, and backup operations to help you ensure secure data retention and recovery capabilities.
+This article describes how to back up [SQL Server instances in Azure VMs using snapshot backups (preview)](backup-azure-sql-database.md#back-up-sql-server-instance-snapshots-preview). It covers the prerequisites, configuration steps for backup policies, database discovery, and backup operations to help you ensure secure data retention and recovery capabilities.
+
+[Learn about the supported scenarios and limitations for SQL Server instance snapshot backup (preview](sql-support-matrix.md#sql-server-instance-snapshot-backups-supported-and-unsupported-scenarios-preview).
 
 ## Prerequisites
 
@@ -173,6 +175,7 @@ To run an on-demand backup at the SQL database level, follow these steps:
 1.  Select **OK**.
 
 
-## Next step
+## Next steps
 
-[Manage and monitor backed up SQL Server databases using Azure portal](manage-monitor-sql-database-backup.md).
+- [Restore SQL Server instance or database in Azure VM from snapshot backup by using Azure portal(preview)](back-up-sql-server-instance-snapshot-restore.md).
+- [Manage and monitor SQL Server database and instance snapshot (preview) backups](manage-monitor-sql-database-backup.md).

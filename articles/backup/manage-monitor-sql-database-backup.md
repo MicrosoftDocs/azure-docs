@@ -2,7 +2,7 @@
 title: Manage and monitor SQL Server database and instance snapshot (preview) on an Azure VM
 description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
 ms.topic: how-to
-ms.date: 02/13/2026
+ms.date: 04/06/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -11,7 +11,7 @@ ms.author: v-mallicka
 
 # Manage and monitor SQL Server database and instance snapshot (preview) backups 
 
-This article describes common tasks for managing and monitoring SQL Server databases running on an Azure virtual machine (VM) and backed up to an Azure Backup Recovery Services vault by using Azure portal. Azure Backup allows you to manage both SQL database backups and SQL instance snapshot backups. You can also use [Azure CLI](backup-azure-sql-manage-cli.md) and [REST API](manage-azure-sql-vm-rest-api.md) to manage SQL database backups. You can monitor jobs and alerts, stop and resume database protection, run backup jobs, and unregister a VM from backups.
+This article describes common tasks for managing and monitoring SQL Server databases running on an Azure virtual machine (VM) and backed up to an Azure Backup Recovery Services vault by using Azure portal. Azure Backup allows you to manage both SQL database backups and [SQL instance snapshot backups (preview)](backup-azure-sql-database.md#back-up-sql-server-instance-snapshots-preview). You can also use [Azure CLI](backup-azure-sql-manage-cli.md) and [REST API](manage-azure-sql-vm-rest-api.md) to manage SQL database backups. You can monitor jobs and alerts, stop and resume database protection, run backup jobs, and unregister a VM from backups.
 
 If you didn't configure backups for your SQL Server databases, see [Back up SQL Server databases on Azure VMs](backup-azure-sql-database.md)
 
