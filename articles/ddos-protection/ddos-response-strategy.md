@@ -5,7 +5,7 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: azure-ddos-protection
 ms.topic: concept-article
-ms.date: 03/17/2025
+ms.date: 03/17/2026
 ms.author: abell
 # Customer intent: As an IT security manager, I want to develop a comprehensive DDoS response strategy, so that I can effectively mitigate threats and ensure business continuity during an attack on our Azure resources.
 ---

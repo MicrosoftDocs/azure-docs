@@ -213,20 +213,22 @@ Microsoft offers the programs to help partners approach Microsoft customers:
 For more information, see:
 
 **Data collection**:
+
 - [Data collection best practices](best-practices-data.md)
 - [Microsoft Sentinel data connectors](connect-data-sources.md)
 - [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
 - [Understand threat intelligence in Microsoft Sentinel](understand-threat-intelligence.md)
 
-
 **Threat detection**:
+
 - [Automate incident handling in Microsoft Sentinel with automation rules](automate-incident-handling-with-automation-rules.md)
 - [Investigate incidents with Microsoft Sentinel](investigate-cases.md)
 - [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md)
 
-**Hunting and notebooks**
+**Hunting and notebooks**:
+
 - [Hunt for threats with Microsoft Sentinel](hunting.md)
-- [Manage hunting and livestream queries in Microsoft Sentinel using REST API](hunting-with-rest-api.md)
+- [Manage hunting queries in Microsoft Sentinel using REST API](hunting-with-rest-api.md)
 - [Use Jupyter notebooks to hunt for security threats](notebooks.md)
 
 **Visualization**: [Visualize collected data](get-visibility.md).
@@ -234,6 +236,6 @@ For more information, see:
 **Investigation**: [Investigate incidents with Microsoft Sentinel](investigate-cases.md).
 
 **Response**:
+
 - [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md)
 - [Create and customize Microsoft Sentinel playbooks from built-in templates](use-playbook-templates.md)
- 

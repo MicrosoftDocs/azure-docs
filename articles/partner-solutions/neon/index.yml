@@ -19,6 +19,8 @@ landingContent:
         links:
           - text: What is Neon Serverless Postgres?
             url: overview.md
+          - text: FAQ
+            url: faq.yml
       - linkListType: how-to-guide
         links:
           - text: Manage your Neon Serverless Postgres resource

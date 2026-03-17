@@ -22,7 +22,7 @@ landingContent:
     - linkListType: concept
       links:
       - text: What are Azure savings-plans?
-        url: savings-plan-compute-overview.md
+        url: savings-plan-overview.md
       - text: Savings plan purchase recommendations
         url: purchase-recommendations.md
       - text: Windows and SQL software cost charged separately

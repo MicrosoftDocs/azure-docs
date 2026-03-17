@@ -1,0 +1,115 @@
+### YamlMime:FAQ
+metadata:
+  title: Elastic integration with Azure frequently asked questions
+  description: Answers to common questions about using Elastic Cloud (Elasticsearch), Elastic Observability, and Elastic Security in Azure.
+  ms.topic: faq 
+  ai-usage: ai-generated
+  ms.date: 12/17/2025
+
+title: Elastic integration with Azure FAQ
+summary: |
+
+sections:
+  - name: General
+    questions:
+      - question: What is Elastic in Azure?
+        answer: |
+            Elastic in Azure is a set of managed services that deliver search, log analytics, and security monitoring functions for Azure environments. Microsoft and Elastic developed these services and manage them together. The three services are:
+            - **Elastic Cloud (Elasticsearch):** A managed Elasticsearch service for storing, searching, and analyzing structured and unstructured data.
+            - **Elastic Observability:** Collects and analyzes telemetry data (logs, metrics, traces) to monitor the performance and health of applications and infrastructure.
+            - **Elastic Security:** Collects and analyzes security-related data to support threat detection, investigation, and response across Azure resources.
+      - question: How do I subscribe to Elastic?
+        answer: |
+            You can subscribe to Elastic through Azure Marketplace. Choose from three offerings:
+            - [ElasticCloud (Elasticsearch)](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp?tab=Overview)
+            - [Elastic Observability](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-observability?tab=Overview)
+            - [Elastic Security](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-security?tab=Overview)
+            
+            You can also subscribe directly from the Azure portal when creating a new Elastic resource.
+      - question: What are the differences between Serverless and Cloud Hosted deployment options?
+        answer: |
+            Elastic resources are available as Serverless and Cloud Hosted:
+            - **Serverless:** Usage-based scaling with automatic infrastructure management. Available for Elastic Search, Elastic Observability, and Elastic Security.
+            - **Cloud Hosted:** Dedicated, managed clusters with configurable versions and sizes. Provides more control over deployment specifications.
+            
+            For more information, see [Compare Elastic Cloud Hosted and Serverless](https://www.elastic.co/docs/deploy-manage/deploy/elastic-cloud/differences-from-other-elasticsearch-offerings).
+      - question: Where can I learn more about Elastic integration with Azure?
+        answer: |
+            For more help using the Elastic service, see the [Elastic documentation](https://www.elastic.co/guide/en/cloud/current/ec-azure-marketplace-native.html) for Azure integration.
+  - name: Authentication and access
+    questions:
+      - question: Is single sign-on (SSO) supported?
+        answer: |
+            Yes. The ability to automatically navigate between the Azure portal and Elastic Cloud is enabled by using single sign-on (SSO). This option is automatically enabled and turned on for all Azure users.
+      - question: What permissions do I need to create an Elastic resource?
+        answer: |
+            You must have *Owner* or *Contributor* access on the Azure subscription to create an Elastic resource. If you're unable to create a resource, confirm that you have the appropriate access.
+  - name: Monitoring and logs
+    questions:
+      - question: Can I send Azure logs and metrics to Elastic?
+        answer: |
+            Yes. You can configure resources to send metrics and logs to Elastic during resource creation or afterward. Select **Send subscription activity logs** and **Send Azure resource logs for all defined sources** in the **Logs & metrics** tab. You can reconfigure these settings anytime by selecting **Elastic deployment configuration** > **Logs & metrics** in the Azure portal.
+      - question: Why are my logs not being emitted to Elastic?
+        answer: |
+            Common reasons include:
+            - Only resources listed in [Azure Monitor resource log categories](/azure/azure-monitor/essentials/resource-logs-categories) emit logs to Elastic.
+            - The resource doesn't support sending logs. Only resource types with monitoring log categories can be configured.
+            - The resource reached the limit of five diagnostic settings.
+            - A delete lock is applied to the resource or resource group, preventing diagnostic setting cleanup.
+            - Export of metrics data isn't currently supported by partner solutions under Azure Monitor diagnostic settings.
+      - question: Can I monitor multiple Azure subscriptions with one Elastic resource?
+        answer: |
+            Yes. To monitor multiple subscriptions:
+            1. Select **Elastic deployment configuration** > **Monitored Subscriptions**.
+            2. Select **Add subscriptions** from the command bar.
+            3. Select the subscriptions you want to monitor and select **Add**.
+            
+            You must have *Owner* role assigned to the subscriptions you want to add.
+      - question: How do I monitor Azure virtual machines with Elastic agents?
+        answer: |
+            You can install Elastic agents on virtual machines by selecting **Elastic deployment configuration** > **Virtual machines** in the service menu, then following the installation instructions.
+  - name: Integration and configuration
+    questions:
+      - question: Can I integrate Azure OpenAI with Elastic?
+        answer: |
+            Yes. You can configure Azure OpenAI integration:
+            1. Select **Elastic deployment configuration** > **Azure OpenAI configuration**.
+            2. Select **Add** from the command bar.
+            3. Select your preferred **Azure OpenAI Resource** and **Azure OpenAI Deployment**.
+            4. Select **Create**.
+            
+            After the connector is created, navigate to Kibana. Your connector can be used in Elastic's Observability AI Assistant. Currently, Elastic resources support only deployments of text or chat completion models, like GPT-4.
+      - question: What are traffic filters and how do I use them?
+        answer: |
+            Traffic filters allow you to control network access to your Elastic deployment. To create a traffic filter:
+            1. Select **Elastic deployment configuration** > **Traffic Filter**.
+            2. Enter a name for the filter.
+            3. Select a **Filter Type**.
+            4. Select **Create**.
+            
+            The traffic filter must be in the same region as the deployment. If a traffic filter is no longer needed, unlink it from deployment and then delete it.
+  - name: Billing and resources
+    questions:
+      - question: How is Elastic billed in Azure?
+        answer: |
+            A single Azure Marketplace SaaS unifies billing for multiple Elastic deployments.
+      - question: How do I delete an Elastic resource?
+        answer: |
+            To delete all linked Elastic deployments and serverless projects created from the Azure portal and the Elastic console, follow the standard Azure resource deletion process. If you wish to completely stop billing for the marketplace SaaS, delete all linked Elastic deployments created from the Azure portal or Elastic portal.
+      - question: Can I view all my connected Elastic resources in one place?
+        answer: |
+            Yes. To access all Elastic resources and deployments you created using the Azure or Elastic portal, go to the **Connected Elastic Resources** tab in any of your Azure Elastic resources. You can easily manage the corresponding Elastic deployments or Azure resources using the links, provided you have owner or contributor rights.
+  - name: Troubleshooting
+    questions:
+      - question: What should I do if I encounter marketplace purchase errors?
+        answer: |
+            Common marketplace purchase errors and their resolutions are documented in the troubleshooting guide. Verify your subscription permissions and ensure you have the necessary access to complete the purchase.
+      - question: How can I suggest a new feature for Elastic integration with Azure?
+        answer: |
+            Select the **Suggest a feature** link at the top of the resource overview page in the Azure portal. This link takes you to the **Developer community forum** where you can suggest new features, view, upvote, or comment on feature suggestions from other customers.
+      - question: Where can I get more support?
+        answer: |
+            For more help:
+            - Review the [Elastic documentation](https://www.elastic.co/guide/en/cloud/current/ec-azure-marketplace-native.html) for Azure integration.
+            - Check the [troubleshooting guide](troubleshoot.md) for common issues and solutions.
+            - Contact support through the Azure portal or [Elastic support channels](https://support.elastic.co/home).

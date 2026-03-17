@@ -19,6 +19,8 @@ landingContent:
         links:
           - text: What is Cloud NGFW by Palo Alto Networks?
             url: overview.md
+          - text: FAQ
+            url: faq.yml
       - linkListType: how-to-guide
         links:
           - text: Manage your Cloud NGFW by Palo Alto Networks resource

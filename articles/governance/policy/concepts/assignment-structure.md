@@ -349,7 +349,7 @@ In this example, the parameters previously defined in the policy definition are 
 
 Policy assignments with effect set to `deployIfNotExists` or `modify` must have an identity property to do remediation on non-compliant resources. A single policy assignment can be associated with only one system-assigned or user-assigned managed identity. However, that identity can be assigned more than one role if necessary.
 
-Assignments using a system-assigned managed identity must also specify a top-level `location` property to determine where it will be deployed. The location cannot be set to `global`, and it cannot be changed. The `location` property is only specified in [Rest API](/rest/api/policy/policy-assignments/create) versions 2018-05-01 and later. If a location is specified in an assignment that doesn't use an identity, then the location will be ignored.
+Assignments using a system-assigned managed identity must also specify a top-level `location` property to determine where it will be deployed. The location cannot be set to `global`, and it cannot be changed. The `location` property is only specified in [Rest API](/rest/api/policy-authorization/policy-assignments/create) versions 2018-05-01 and later. If a location is specified in an assignment that doesn't use an identity, then the location will be ignored.
 
 
 ```json

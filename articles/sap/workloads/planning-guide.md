@@ -350,7 +350,7 @@ To get detailed information about VM pricing for different Azure services, opera
 
 To learn about the pricing and flexibility of one-year and three-year savings plans and reserved instances, see these articles:
 
-- [What are Azure savings plans for compute?](../../cost-management-billing/savings-plan/savings-plan-compute-overview.md)
+- [What are Azure savings plans for compute?](../../cost-management-billing/savings-plan/savings-plan-overview.md)
 - [What are Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
 - [Virtual machine size flexibility with Reserved VM Instances](/azure/virtual-machines/reserved-vm-instance-size-flexibility)
 - [How the Azure reservation discount is applied to virtual machines](../../cost-management-billing/manage/understand-vm-reservation-charges.md)

@@ -4,7 +4,7 @@ description: Learn how to grant access to Azure resources for users, groups, ser
 author: rolyon
 ms.author: rolyon
 manager: pmwongera
-ms.date: 08/01/2025
+ms.date: 03/17/2026
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.custom:
@@ -63,31 +63,29 @@ If you need to assign administrator roles in Microsoft Entra ID, see [Assign Mic
 
 To select a role, follow these steps:
 
-1. On the **Role** tab, select a role that you want to use.
+1. On the **Role** tab, select the tab for the type of role you want to assign.
 
-   You can search for a role by name or by description. You can also filter roles by type and category.
+   - **Job function roles** – Roles for general Azure resource management or roles for specific services.
+   - **Privileged administrator roles** – Roles that grant privileged access, such as Owner, Contributor, User Access Administrator, or Role Based Access Control Administrator. For best practices when using privileged administrator role assignments, see [Best practices for Azure RBAC](best-practices.md#limit-privileged-administrator-role-assignments).
 
    ![Screenshot of Add role assignment page with Role tab.](./media/shared/roles.png)
 
-   Note, If you're unsure of which role you need to assign, you can now use Copilot to help you select the appropriate role. (Limited preview. This capability is being deployed in stages, so it might not be available yet in your tenant or your interface might look different.)
+1. Select a role from the list by clicking on it.
 
-1. (Optional) In the **Role** tab, click the **Copilot can help pick role** button. The Copilot dialog box opens.
-
-   ![Screenshot of Copilot button in the Add role assignment page.](./media/role-assignments-portal/copilot-for-role-assignment.png)
-
-   In the dialog box, you can add descriptive prompts to tell Copilot your requirements for the role, and what you need a user to be authorized to do, for example, *"Help me select a role to deploy and manage Azure functions."*, or *"Which role should I use if I want a user to manage and view a workspace?"* Using phrases such as *'Help me select...'* or *'Which role should I use to...'* helps Copilot understand your intent more clearly in order to deliver the best results.
-
-   From the direction of your prompt, Copilot suggests a role, or multiple roles, based on the requirements provided. Copilot asks you to confirm by **Select permissions**. Copilot then recommends a role based on the criteria provided. You can **Select role**, or you can ask Copilot to **Recommend other roles**. If you select **Select role**, you're taken back to the **Add role assignment** page where you can select the recommended role and view its details.
-
-1. If you want to assign a privileged administrator role, select the **Privileged administrator roles** tab to select the role.
-
-   For best practices when using privileged administrator role assignments, see [Best practices for Azure RBAC](best-practices.md#limit-privileged-administrator-role-assignments).
-
-   ![Screenshot of Add role assignment page with Privileged administrator roles tab selected.](./media/shared/privileged-administrator-roles.png)
+    Use the **Search** box to filter the list of roles by name or description. You can also filter roles by **Type** and **Category** to narrow down the results.
 
 1. In the **Details** column, click **View** to get more details about a role.
 
    ![Screenshot of View role details pane with Permissions tab.](./media/role-assignments-portal/select-role-permissions.png)
+
+   > [!TIP]
+   > If you're unsure which role to assign, you can use Copilot to help you select the appropriate role. On the **Role** tab, click **Copilot can help pick role** to open the Copilot dialog box.
+   >
+   > ![Screenshot of Copilot button in the Add role assignment page.](./media/role-assignments-portal/copilot-for-role-assignment.png)
+   >
+   > In the dialog box, describe what you need the user to be authorized to do. For example, *"Help me select a role to deploy and manage Azure functions"* or *"Which role should I use if I want a user to manage and view a workspace?"*
+   >
+   > Copilot suggests one or more roles based on your requirements. Click **Select permissions** to confirm, and then **Select role** to apply the recommendation, or click **Recommend other roles** to see alternatives.
 
 1. Click **Next**.
 

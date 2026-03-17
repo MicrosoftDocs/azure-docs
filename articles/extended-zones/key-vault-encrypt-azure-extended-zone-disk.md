@@ -34,7 +34,7 @@ When using customer-managed keys with Azure Extended Zones resources:
 - Data plane resources (virtual machines and disks) run in the Extended Zone location.
 - Disk encryption is enforced at the managed disk level (data plane) using a Disk Encryption Set.
 
-## Create a Key Vault and encryption key in an Azure Extended Zone
+## Create a Key Vault, encryption key and Disk Encryption Set in an Azure Extended Zone's parent region
 
 In this section, you create a Key Vault, encryption key and Disk Encryption Set in the parent region of an Extended Zone. 
 

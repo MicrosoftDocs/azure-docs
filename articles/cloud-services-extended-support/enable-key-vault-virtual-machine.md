@@ -2,11 +2,13 @@
 title: Apply the Key Vault VM extension in Azure Cloud Services (extended support) 
 description: Learn about the Key Vault VM extension for Windows and how to enable it in Azure Cloud Services.
 ms.topic: how-to
-ms.service: azure-virtual-machines
+ms.service: azure-cloud-services-classic
 author: msmbaldwin
 ms.author: mbaldwin
 ms.reviewer: gachandw
 ms.date: 04/23/2025
+ms.update-cycle: 365-days
+ms.custom: cloud-services-extended-support
 # Customer intent: As an IT administrator, I want to configure the Key Vault VM extension for Azure Cloud Services, so that I can automate certificate management and ensure timely updates for secured operations.
 ---
 

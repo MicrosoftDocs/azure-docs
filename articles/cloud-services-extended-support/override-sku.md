@@ -2,12 +2,13 @@
 title: Override SKU information over CSCFG/CSDEF for Azure Cloud Services (extended support)
 description: This article describes how to override SKU information in .cscfg and .csdef files for Azure Cloud Services (extended support).
 ms.topic: how-to
-ms.service: azure-virtual-machines
+ms.service: azure-cloud-services-classic
 author: surbhijain
 ms.author: surbhijain
 ms.reviewer: gachandw
 ms.date: 07/24/2024
-ms.custom: devx-track-azurepowershell
+ms.update-cycle: 365-days
+ms.custom: devx-track-azurepowershell, cloud-services-extended-support
 # Customer intent: As a cloud service developer, I want to override role size and instance count settings programmatically, so that I can scale services without modifying and redeploying configuration and definition files.
 ---
 

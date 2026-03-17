@@ -18,6 +18,8 @@ landingContent:
         links:
           - text: What is MongoDB Atlas?
             url: overview.md
+          - text: FAQ
+            url: faq.yml
 
   # Card
   - title: Get started with MongoDB Atlas

@@ -33,7 +33,7 @@ Examples:
 
 - [Microsoft Azure Consumption Commitment (MACC)](../../marketplace/azure-consumption-commitment-benefit.md#determine-which-offers-are-eligible-for-azure-consumption-commitments-maccctc)
 - [Reservations](../reservations/save-compute-costs-reservations.md)
-- [Savings plan](../savings-plan/savings-plan-compute-overview.md)
+- [Savings plan](../savings-plan/savings-plan-overview.md)
 
 
 ### Credits
@@ -93,7 +93,7 @@ See: [Azure PowerShell Billing Benefits Module](/powershell/module/az.billingben
 ## Related content
 
 - [What are Azure Reservations?](../reservations/save-compute-costs-reservations.md)
-- [What is Azure savings plans for compute?](../savings-plan/savings-plan-compute-overview.md)
+- [What is Azure savings plans for compute?](../savings-plan/savings-plan-overview.md)
 - [Azure Consumption Commitment Benefit](../../marketplace/azure-consumption-commitment-benefit.md#determine-which-offers-are-eligible-for-azure-consumption-commitments-maccctc)
 - [Azure Billing Benefits REST API](/rest/api/billingbenefits/operation-groups)
 - [Resource Provider: Microsoft.BillingBenefits (Azure Resource Manager reference)](/azure/templates/microsoft.billingbenefits/allversions)

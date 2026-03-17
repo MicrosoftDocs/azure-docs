@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 10/08/2025
+ms.date: 03/17/2026
 ms.author: kendownie
 # Customer intent: "As an IT admin, I want to learn how to deploy an NFS file share with Microsoft.FileShares resource provider (preview)."
 ---
@@ -39,9 +39,6 @@ Make sure both Microsoft.FileShares and Microsoft.Storage resource providers are
 1. Select the resource provider you intend to add and then select **Register**.
 
 ## Create a file share (Microsoft.FileShares)
-
-> [!NOTE]
-> File share with Microsoft.FileShares is currently in preview. You may use the Azure portal, or you can use generic PowerShell or Azure CLI commands to work with file shares. If you want to try the CLI private package for Microsoft.FileShares resource provider, fill out this [survey](https://forms.microsoft.com/r/nEGcB0ccaD).
 
 You can also create a file share with Microsoft.FileShares using Azure MCP Server. To learn more, see [Azure Files tools for the Azure MCP Server overview](/azure/developer/azure-mcp-server/tools/azure-file-shares). 
 
@@ -109,27 +106,28 @@ The final step to create the file share is to select the **Create** button on th
 
 # [PowerShell](#tab/powershell)
 
-To create a file share via PowerShell, run this command.
+To create a file share by using PowerShell, run the following commands. Replace the variables with your intended values. 
 
-```azure-powershell
-New-AzResource -ResourceType "Microsoft.FileShares/fileShares" `
-               -ResourceName "<your-file-share-name>" `
-               -Location "<intended-region-for-deployment>" `
-               -ResourceGroupName "<your-resource-group-name>" `
-               -Properties @{
-                   # redundancy support "Local" and "Zone"
-                   redundancy = "Local"
-                   protocol = "NFS"
-                   provisionedStorageGiB = <intended capacity>
-                   ProvisionedIoPerSec = <intended IOPS> 
-                   ProvisionedThroughputMiBPerSec = <intended throughput>
-                   mediaTier = "SSD"
-                   # optional: mountName = "<mount-name-for-file-share>"
-                   nfsProtocolProperties = @{
-                       rootSquash = "RootSquash"
-                   }
-               } `
-               -Force
+```powershell
+# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/0.1.0
+Install-Module -Name Az.FileShare -Repository psgallery -RequiredVersion 0.1.0
+
+# To learn more about the parameters for New-AzFileShare, use command 
+# Get-Help New-AzFileShare
+
+$shareName = "<your-file-share-name>"
+$resourceGroup = "<your-resource-group-name>"
+$region = "<intended-region-for-deployment>"
+
+# The provisioned storage size of the share in GiB. Valid range is 32 to 262,144.
+$provisionedStorageGib = 1024
+
+# If you don't specify ProvisionedBandwidthMibps and ProvisionedIops, the deployment will use the recommended provisioning.
+$provisionedIops = 3500
+$provisionedThroughput = 200
+
+New-AzFileShare -ResourceName $shareName -ResourceGroupName $resourceGroup -Location $region -Protocol NFS -ProvisionedStorageGiB $provisionedStorageGib  #-ProvisionedIoPerSec $provisionedIops -ProvisionedThroughputMiBPerSec $provisionedThroughput
+
 ```
 
 # [Azure CLI](#tab/azure-cli)

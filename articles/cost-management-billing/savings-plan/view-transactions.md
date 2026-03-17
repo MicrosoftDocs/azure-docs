@@ -1,5 +1,5 @@
 ---
-title: View Azure savings plan purchase transactions
+title: View savings plan purchase transactions
 titleSuffix: Microsoft Cost Management
 description: Learn how to view savings plan purchase transactions and details.
 author: nwokolo
@@ -11,7 +11,7 @@ ms.date: 01/08/2026
 ms.author: onwokolo
 ---
 
-# View Azure savings plan purchase transactions
+# View savings plan purchase transactions
 
 You can view savings plan purchase and refund transactions in the Azure portal.
 
@@ -39,8 +39,8 @@ Cost analysis shows monthly purchases in the default view. Apply the **purchase*
 
 ## Need help? Contact us.
 
-If you have Azure savings plan for compute questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft will only provide Azure savings plan for compute expert support requests in English.
+If you have savings plan for compute questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft will only provide savings plan for compute expert support requests in English.
 
 ## Next steps
 
-- To learn how to manage a reservation, see [Manage Azure savings plans](manage-savings-plan.md).
+- To learn how to manage a reservation, see [Manage savings plans](manage-savings-plan.md).

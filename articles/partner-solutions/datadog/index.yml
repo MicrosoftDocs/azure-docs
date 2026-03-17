@@ -21,6 +21,8 @@ landingContent:
         links:
           - text: What is Datadog?
             url: overview.md
+          - text: FAQ
+            url: faq.yml
       - linkListType: how-to-guide
         links:
           - text: Manage your Datadog resource

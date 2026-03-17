@@ -21,6 +21,8 @@ landingContent:
         links:
           - text: What is Apache Kafka & Apache Flink on Confluent Cloud?
             url: overview.md
+          - text: FAQ
+            url: faq.yml
       - linkListType: how-to-guide
         links:
           - text: Manage a resource
