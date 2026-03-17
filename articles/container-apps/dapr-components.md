@@ -177,7 +177,7 @@ This resource defines a Dapr component called `dapr-pubsub` by using an ARM temp
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Connect to other Azure or external services via Dapr components][dapr-components-connect-services]
+> [Connect to other Azure or partner services by using Dapr components][dapr-components-connect-services]
 
 <!-- Links Internal -->
 
