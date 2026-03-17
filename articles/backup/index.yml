@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: AbhishekMallick-MS
   ms.author: v-mallicka
-  ms.date: 11/01/2025
+  ms.date: 04/06/2026
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -65,6 +65,8 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: SQL Server instance snapshot in Azure VMs backup (preview)
+            url: backup-azure-sql-database.md#back-up-sql-server-instance-snapshots-preview
           - text: Confidential VM backup (preview)
             url: confidential-vm-backup.md
           - text: Threat Detection with Microsoft Defender for Cloud integration (preview)

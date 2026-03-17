@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 01/28/2026
+ms.date: 04/06/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -19,7 +19,9 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
-- January 2026
+- April 2026
+  - [SQL Server instance snapshot backup in Azure VMs (Preview)](#sql-server-instance-snapshot-backup-in-azure-vms-preview)
+- February 2026
   - [Backup support for Confidential VMs (preview)](#backup-support-for-confidential-vms-preview)
 - November 2025
   - [Threat detection in Azure Backup with Microsoft Defender for Cloud integration (preview)](#threat-detection-in-azure-backup-with-microsoft-defender-for-cloud-integration-preview)
@@ -63,6 +65,20 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
 
+
+## SQL Server instance snapshot backup in Azure VMs (preview)
+
+Azure Backup now supports snapshot based backups for SQL Server instances in Azure virtual machines (preview). This capability combines fast, disk based snapshots with frequent log backups to deliver faster restores (improved [Recovery Time Objective](azure-backup-glossary.md#recovery-time-objective-rto)) and minimal data loss (low [Recovery Point Objective](azure-backup-glossary.md#recovery-point-objective-rpo)) for large, enterprise SQL databases. 
+
+This feature includes:
+
+- **Instance level snapshots**: Back up multiple databases together at the SQL Server instance level and restore the entire instance or individual databases as required.
+- **Minimal impact on the source server**: Capture application consistent snapshots with a minimal database quiesce that lasts only a few seconds, unlike resource intensive streaming backups.
+- **Cost efficient protection**: Use incremental snapshots to reduce storage costs while benefiting from zone redundant storage by default.
+- **Improved Recovery Time Objective (RTO)**: Perform restore operations faster by retaining snapshots within the customer subscription.
+- **Low Recovery Point Objective (RPO)**: Apply frequent log backups (every 15 minutes) to snapshots during restore for point in time recovery.
+
+For more information, see [Back up SQL Server instance snapshots (preview)](backup-azure-sql-database.md#back-up-sql-server-instance-snapshots-preview).
 
 ## Backup support for Confidential VMs (preview)
 
