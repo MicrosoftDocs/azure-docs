@@ -33,11 +33,38 @@ Azure IoT Operations uses:
 
 | Component | Purpose |
 |---|---|
+| **Unified Health Status Reporting** | Reports runtime health (Available, Degraded, Unavailable, Unknown) for all components and resources to the cloud via Azure Resource Manager |
 | **OpenTelemetry Collector** | Collects metrics from AIO services |
 | **Azure Monitor (Prometheus)** | Stores and queries time-series metrics |
-| **Azure Managed Grafana** | Dashboards and visualization |
+| **Azure Managed Grafana** | Unified dashboards combining health status, metrics, and logs |
 | **Container Insights** | Pod logs and Kubernetes-level telemetry |
 | **Log Analytics** | Log queries and alerting |
+
+Health status and metrics serve complementary roles:
+
+| Aspect | Health Status | Metrics |
+|---|---|---|
+| **Purpose** | Current state snapshot (point-in-time) | Historical trends and patterns |
+| **Visibility** | Operations experience web UI, Azure portal, ARM | Grafana dashboards |
+| **Use case** | "Is my system healthy right now?" | "What happened over the last hour or day?" |
+| **Update frequency** | Every ~1 minute per component | Configurable scrape intervals |
+
+For full details, see the unified health status reporting article.
+
+#### Health States
+
+Each supported Azure IoT Operations resource reports one of the following health states:
+
+| Status | Description | Color |
+|---|---|---|
+| **Available** | Resource is healthy and functioning as expected | 🟢 Green |
+| **Degraded** | Resource is partially functional but might not operate optimally | 🟡 Yellow |
+| **Unavailable** | Resource isn't functioning | 🔴 Red |
+| **Unknown** | Health status can't be determined (e.g., no recent reports within 15 minutes) | ⚪ Gray |
+
+Supported resources that report health status: Broker, Data flows and data flow graphs, Akri connectors, Device inbound endpoints, and Assets.
+
+When a resource is Degraded or Unavailable, a reason code and human-readable message are included to help you diagnose the issue.
 
 ### 1.2 Key Metrics to Monitor
 
@@ -74,13 +101,21 @@ Azure IoT Operations uses:
 
 ### 1.3 Grafana Dashboards
 
-1. Access Grafana:
+Azure IoT Operations provides a unified Grafana dashboard that brings health status, metrics, and logs together in a single view. Key characteristics:
+
+- A **health overview** visible at the top of the dashboard
+- Component-specific sections that load only when expanded
+- Metrics and logs shown side-by-side for common troubleshooting workflows
+
+To access Grafana:
+
+1. Get the URL:
    ```bash
    az grafana show --name <GRAFANA_NAME> --resource-group <RESOURCE_GROUP> --query url -o tsv
    ```
 
-2. Import the curated AIO dashboard from:
-   `https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/observability`
+2. Import the unified AIO dashboard from:
+   `https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/observability/grafana-dashboard`
 
 3. Ensure both **Prometheus** and **Azure Monitor** datasources are configured in the dashboard JSON, and set the `subscriptionId` variable.
 
@@ -88,6 +123,7 @@ Azure IoT Operations uses:
 
 Configure Prometheus alerts in Azure Monitor for critical conditions:
 
+- **Health status**: Component transitions from Available to Degraded or Unavailable, resource status Unknown for > 15 minutes
 - **MQTT Broker**: Pod restarts > 3 in 5 minutes, connection failures > threshold, memory > 80%
 - **OPC UA Connector**: Zero data changes for > 5 minutes, MQTT publish failures
 - **Data Flows**: `AllBrokersDown` error, zero messages processed for > 5 minutes
@@ -113,6 +149,13 @@ az iot ops support create-bundle
 az iot ops show --name <INSTANCE_NAME> --resource-group <RG> --tree
 ```
 
+#### Check Health Status via Operations Experience or Portal
+
+- Open the [operations experience web UI](https://iotoperations.azure.com) to see the health overview for your instance
+- In the Azure portal, navigate to your Azure IoT Operations instance to view health states
+- Filter and group resources by health state (Available, Degraded, Unavailable, Unknown)
+- Drill into Degraded or Unavailable resources to view the reason code and diagnostic message
+
 ---
 
 ## 2. Routine Maintenance
@@ -121,12 +164,13 @@ az iot ops show --name <INSTANCE_NAME> --resource-group <RG> --tree
 
 | Check | Command / Action |
 |---|---|
+| Health status overview | Check operations experience UI or Azure portal for any Degraded/Unavailable/Unknown components |
 | All pods healthy | `kubectl get pods -n azure-iot-operations` |
 | No crash loops | `kubectl get pods -n azure-iot-operations --field-selector=status.phase!=Running` |
 | Arc connectivity | `az connectedk8s show --name <CLUSTER> -g <RG> --query connectivityStatus` |
 | Broker health | `az iot ops check --ops-service broker` |
 | Data flow health | `az iot ops check --ops-service dataflow` |
-| Grafana dashboards | Review for anomalies in message rates, latencies, error counts |
+| Grafana dashboards | Review unified dashboard for anomalies in health states, message rates, latencies, error counts |
 | Disk usage | `kubectl top nodes` and check persistent volume usage |
 
 ### 2.2 Weekly Checks
@@ -539,6 +583,18 @@ Adjust data flow profile instance counts for throughput and high availability:
 ---
 
 ## 8. Troubleshooting Guide
+
+### 8.0 Using Health Status for Troubleshooting
+
+When a component reports **Degraded** or **Unavailable** health status, use the following approach:
+
+1. **Identify the issue**: Open the operations experience web UI or Azure portal and look for components that aren't Available (🟢)
+2. **Check the reason code**: Each unhealthy resource includes a reason code (e.g., `DataflowMqttSourceConnectionFailed`, `BrokerReplicaFailed`, `OpcUaConnectorInboundEndpointDisconnected`) and a human-readable message explaining the problem
+3. **Look up the recommended action**: See the health status reason codes reference for detailed descriptions and recommended actions for every reason code
+4. **Check timestamps**: The `lastTransitionTime` shows when the issue started; `lastUpdateTime` shows the most recent status update
+5. **Investigate further**: Use `az iot ops check`, pod logs, and the Grafana dashboard metrics to correlate the health status with runtime behavior
+
+> **Tip**: If a resource shows **Unknown** (⚪), it hasn't reported status in the last 15 minutes. Check that the component pods are running and that K8s Bridge is syncing status to ARM.
 
 ### 8.1 Deployment Issues
 
@@ -1017,6 +1073,8 @@ kubectl delete pod -n azure-iot-operations aio-akri-webhook-0 --ignore-not-found
 |---|---|
 | **Health check** | `az iot ops check` |
 | **Verbose check** | `az iot ops check --detail-level 2` |
+| **Health status** | Operations experience UI or Azure portal → instance overview |
+| **Reason codes** | See health status reason codes reference |
 | **Support bundle** | `az iot ops support create-bundle` |
 | **View instance** | `az iot ops show -n <NAME> -g <RG> --tree` |
 | **List pods** | `kubectl get pods -n azure-iot-operations` |
@@ -1035,6 +1093,8 @@ kubectl delete pod -n azure-iot-operations aio-akri-webhook-0 --ignore-not-found
 ## Next Steps
 
 - Review the [Day 0 Deployment Manual](./operational-manual-day0-deployment.md) if you need to deploy a new instance.
+- Review [Unified health status reporting](../configure-observability-monitoring/health-status-reporting.md) for details on how health status and metrics work together.
+- Review [Health status reason codes](../reference/health-status-reason-codes.md) for a full reference of diagnostic reason codes.
 - For the latest known issues, see [Known issues](../troubleshoot/known-issues.md).
 - For detailed troubleshooting, see [Troubleshoot Azure IoT Operations](../troubleshoot/troubleshoot.md).
 - For troubleshooting tools, see [Tips and tools](../troubleshoot/tips-tools.md).

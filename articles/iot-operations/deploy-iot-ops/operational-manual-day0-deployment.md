@@ -297,6 +297,8 @@ If you use enterprise firewalls or proxies, add the Azure IoT Operations endpoin
 
 > **Important**: Deploy observability resources **before** deploying Azure IoT Operations.
 
+Azure IoT Operations provides unified health status reporting across all components and resources. Health status (Available, Degraded, Unavailable, Unknown) is reported through Azure Resource Manager and visible in the operations experience web UI and Azure portal. Combined with metrics and logs, this gives you a complete operational view of your deployment. The steps below set up the metrics and logging infrastructure that complements the built-in health status reporting.
+
 ### 4.1 Register Azure Providers
 
 ```bash
@@ -367,6 +369,8 @@ az k8s-extension create \
 ```
 
 ### 4.5 Deploy OpenTelemetry Collector
+
+> **Note**: The OpenTelemetry Collector deployed here is for **cluster observability** — collecting Azure IoT Operations component health metrics and logs. This is separate from the OTEL data flow endpoint, which routes device and asset telemetry to OpenTelemetry-compatible backends.
 
 Create `otel-collector-values.yaml`:
 
@@ -637,7 +641,17 @@ az iot ops check --ops-service broker
 
 > The `check` command displays a warning about missing data flows—this is expected until you create one.
 
-### 7.2 Verify Pods Are Running
+### 7.2 Verify Health Status
+
+After deployment, verify that all components report **Available** health status:
+
+1. Open the [operations experience web UI](https://iotoperations.azure.com) and check the health overview for your instance. Components should show 🟢 green (Available).
+2. In the Azure portal, navigate to your Azure IoT Operations instance and review the health state of the broker, data flows, and connectors.
+3. If any component reports **Degraded** (🟡) or **Unavailable** (🔴), check the reason code and message for diagnostic details. See the health status reason codes reference for troubleshooting guidance.
+
+> **Note**: If a resource hasn't reported status within 15 minutes, it shows as **Unknown** (⚪). Allow a few minutes after deployment for initial health reports to appear.
+
+### 7.3 Verify Pods Are Running
 
 ```bash
 kubectl get pods -n azure-iot-operations
@@ -832,8 +846,9 @@ mosquitto_sub --host aio-broker --port 18883 \
 ### 11.3 Verify Observability
 
 1. Access Grafana: `az grafana show --name $GRAFANA_NAME --resource-group $RESOURCE_GROUP --query url -o tsv`
-2. Import the Azure IoT Operations dashboard from [explore-iot-operations samples](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/observability)
-3. Verify metrics are flowing for MQTT broker, OPC UA connector, and data flows
+2. Import the unified Azure IoT Operations Grafana dashboard — this brings health status, metrics, and logs together in a single view
+3. Verify the health overview at the top of the dashboard shows components as Available
+4. Verify metrics are flowing for MQTT broker, OPC UA connector, and data flows
 
 ### 11.4 Create a Support Bundle
 
@@ -883,8 +898,9 @@ az iot ops support create-bundle
 - [ ] Log Analytics workspace created
 - [ ] OpenTelemetry Collector deployed
 - [ ] Prometheus scrape config applied
-- [ ] Grafana dashboards imported
+- [ ] Unified Grafana dashboard imported (health + metrics + logs)
 - [ ] Prometheus alerts configured in Azure Monitor
+- [ ] Health status verified: all components report Available (🟢)
 
 ### Data Pipeline
 
@@ -900,6 +916,7 @@ az iot ops support create-bundle
 
 - [ ] `az iot ops check` passes
 - [ ] All pods running in `azure-iot-operations` namespace
+- [ ] All components report Available health status (🟢) in operations experience or Azure portal
 - [ ] MQTT broker accessible and accepting connections
 - [ ] Asset data flowing from OPC UA to MQTT broker
 - [ ] Data flows pushing data to cloud endpoints
@@ -913,6 +930,7 @@ az iot ops support create-bundle
 | Action | Command |
 |---|---|
 | Check health | `az iot ops check` |
+| View health status | Operations experience UI or Azure portal → instance overview |
 | View instance | `az iot ops show -n <NAME> -g <RG> --tree` |
 | List instances | `az iot ops list -g <RG>` |
 | Create support bundle | `az iot ops support create-bundle` |
@@ -926,5 +944,7 @@ az iot ops support create-bundle
 ## Next Steps
 
 - Proceed to the [Day 1 Operational Manual](./operational-manual-day1-operations.md) for maintenance, monitoring, troubleshooting, and upgrade procedures.
+- Review [Unified health status reporting](../configure-observability-monitoring/health-status-reporting.md) for details on health states and observability.
+- Review [Health status reason codes](../reference/health-status-reason-codes.md) for a full reference of diagnostic reason codes.
 - Review [Production deployment guidelines](./concept-production-guidelines.md) for additional best practices.
 - Review [Production deployment examples](./concept-production-examples.md) for validated scaling configurations.
