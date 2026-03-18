@@ -147,7 +147,7 @@ You can add to the deny rules by repeating the command with a different `--ip-ad
 
 You can update a rule using the `az containerapp ingress access-restriction set` command. You can change the IP address range and the rule description, but not the rule name or action.
 
-The `--action` parameter is required, but you can't change the action from Allow to Deny or vice versa. If you omit the `---description` parameter, the description is deleted.
+The `--action` parameter is required, but you can't change the action from Allow to Deny or vice versa. If you omit the `--description` parameter, the description is deleted.
 
 The following example updates the ip address range.
 
@@ -166,7 +166,7 @@ az containerapp ingress access-restriction set \
 The following example `az containerapp ingress access-restriction remove` command removes a rule.
 
 ```azurecli
-az containerapp ingress access-restriction remove
+az containerapp ingress access-restriction remove \
   --name <CONTAINER_APP_NAME> \
   --resource-group <RESOURCE_GROUP> \
   --rule-name "<your rule name>"
