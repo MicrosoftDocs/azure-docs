@@ -39,15 +39,15 @@ The NFS 3.0 protocol is supported for standard general-purpose v2 storage accoun
 
 To configure the account, choose the following values.
 
-|Setting | Premium performance | Standard performance
+|Setting | Premium performance | Standard performance|
 |----|---|---|
-|Location|All available regions |All available regions
-|Performance|Premium| Standard
-|Account kind|BlockBlobStorage| General purpose V2
-|Replication|Locally redundant storage (LRS), Zone-redundant storage (ZRS)| LRS, ZRS
-|Connectivity method|Public endpoint (selected networks) or private endpoint |Public endpoint (selected networks) or private endpoint
-|Hierarchical namespace|Enabled|Enabled
-|NFS V3|Enabled |Enabled
+|Location|All available regions |All available regions|
+|Performance|Premium| Standard|
+|Account kind|BlockBlobStorage| General purpose V2|
+|Replication|Locally redundant storage (LRS), Zone redundant storage (ZRS)|Locally redundant storage (LRS), Zone redundant storage (ZRS), Geo redundant storage (GRS)|
+|Connectivity method|Public endpoint (selected networks) or private endpoint |Public endpoint (selected networks) or private endpoint|
+|Hierarchical namespace|Enabled|Enabled|
+|NFS V3|Enabled |Enabled|
 
 You can accept the default values for all other settings.
 
@@ -93,8 +93,11 @@ If a change is detected, this background job updates the Destination Network Add
 AZNFS is supported on the following Linux distributions:
 
 - Ubuntu (18.04 LTS, 20.04 LTS, 22.04 LTS, 24.04 LTS)
-- RedHat7, RedHat8, RedHat9
+- RedHat7, RedHat8, RedHat9, RedHat10
+
 - Rocky8, Rocky9
+- CentOS7, CentOS8
+
 - SUSE (SLES 15)
 
 > [!TIP]

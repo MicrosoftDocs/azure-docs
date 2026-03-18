@@ -160,6 +160,7 @@ Java sample isn't available yet.
 This code shows an orchestrator that calls three activities in sequence and passes each output to the next activity:
 
 ```csharp
+using System.Threading.Tasks;
 using Microsoft.DurableTask;
 
 [DurableTask]
@@ -246,7 +247,10 @@ This sample is shown for .NET, JavaScript, Java, and Python.
 The following code shows an orchestrator that calls three activities in sequence:
 
 ```java
-import com.microsoft.durabletask.*;
+import com.microsoft.durabletask.DurableTaskGrpcWorker;
+import com.microsoft.durabletask.DurableTaskSchedulerWorkerExtensions;
+import com.microsoft.durabletask.TaskOrchestration;
+import com.microsoft.durabletask.TaskOrchestrationFactory;
 
 DurableTaskGrpcWorker worker = DurableTaskSchedulerWorkerExtensions.createWorkerBuilder(connectionString)
     .addOrchestration(new TaskOrchestrationFactory() {
@@ -367,6 +371,7 @@ Java sample coming soon.
 Activities in the Durable Task SDK inherit from `TaskActivity<TInput, TOutput>`:
 
 ```csharp
+using System.Threading.Tasks;
 using Microsoft.DurableTask;
 using Microsoft.Extensions.Logging;
 
@@ -461,7 +466,8 @@ This sample is shown for .NET, JavaScript, Java, and Python.
 Activities in Java are defined using `TaskActivityFactory`:
 
 ```java
-import com.microsoft.durabletask.*;
+import com.microsoft.durabletask.TaskActivity;
+import com.microsoft.durabletask.TaskActivityFactory;
 
 .addActivity(new TaskActivityFactory() {
     @Override
@@ -583,6 +589,7 @@ Start an orchestration from a client application. The client schedules the orche
 # [C#](#tab/csharp)
 
 ```csharp
+using System;
 using Microsoft.DurableTask.Client;
 
 // Create the client
@@ -655,7 +662,7 @@ print(f"Started orchestration with ID: {instance_id}")
 # Wait for the orchestration to complete
 result = client.wait_for_orchestration_completion(instance_id, timeout=60)
 
-if result and result.runtime_status == OrchestrationStatus.COMPLETED:
+if result and result.runtime_status == "COMPLETED":
     print(f"Orchestration completed with result: {result.serialized_output}")
 ```
 
@@ -668,7 +675,11 @@ This sample is shown for .NET, JavaScript, Java, and Python.
 # [Java](#tab/java)
 
 ```java
-import com.microsoft.durabletask.*;
+import java.time.Duration;
+
+import com.microsoft.durabletask.DurableTaskClient;
+import com.microsoft.durabletask.NewOrchestrationInstanceOptions;
+import com.microsoft.durabletask.OrchestrationMetadata;
 import com.microsoft.durabletask.azuremanaged.DurableTaskSchedulerClientExtensions;
 
 // Create the client

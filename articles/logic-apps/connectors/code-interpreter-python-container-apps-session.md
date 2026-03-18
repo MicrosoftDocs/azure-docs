@@ -86,7 +86,7 @@ This guide shows how to set up and use various **Code Interpreter (Python Contai
     >
     > To manage files or run code in the session pool, make sure that you have the Azure 
     > built-in role named **Azure ContainerApps Session Executor** on the session pool. 
-    > For this task, see [Give identity access to resources](../authenticate-with-managed-identity.md?tabs=standard#give-identity-access-to-resources).
+    > For this task, see [Give identity access to resources](../authenticate-with-managed-identity.md?tabs=standard#access-other-resources).
 
     To upload the file through Azure portal, follow these steps:
 

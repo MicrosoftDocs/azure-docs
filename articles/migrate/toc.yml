@@ -5,6 +5,8 @@ items:
   items:
   - name: What is Azure Migrate?
     href: migrate-services-overview.md
+  - name: What is Azure Copilot Migration Agent?
+    href: azure-copilot-migration-agent.md
   - name: What's new
     href: whats-new.md
 - name: Quickstarts
@@ -43,8 +45,6 @@ items:
     href: concepts-vmware-agentless-migration.md
   - name: Hyper-V migration architecture
     href: hyper-v-migration-architecture.md
-  - name: Azure Copilot Migration Agent
-    href: azure-copilot-migration-agent.md
   - name: VMware agentless migration
     href: prepare-for-agentless-migration.md
   - name: Hydration process workflow

@@ -213,6 +213,8 @@ items:
                 href: namespace-event-filtering.md
               - name: Custom domains for namespaces
                 href: custom-domains-namespaces.md
+              - name: Reliability
+                href: /azure/reliability/reliability-event-grid?toc=/azure/event-grid/toc.json
               - name: Security
                 items:
                   - name: Security baseline
@@ -517,7 +519,7 @@ items:
                 href: event-schema-compatibility.md
               - name: Custom delivery properties
                 href: delivery-properties.md
-          - name: Availability zones and disaster recovery
+          - name: Reliability
             href: /azure/reliability/reliability-event-grid?toc=/azure/event-grid/toc.json
           - name: Security
             items:

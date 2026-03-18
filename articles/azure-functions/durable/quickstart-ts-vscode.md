@@ -131,7 +131,7 @@ To use the v4 programming model, you need to install the v3.x version of the dur
 
 ::: zone pivot="nodejs-model-v4"
 
-2. Install the durable-functions npm package preview version by running `npm install durable-functions@preview` in the root directory of the function app.
+2. Install the durable-functions npm package by running `npm install durable-functions` in the root directory of the function app.
 
 ::: zone-end
 
