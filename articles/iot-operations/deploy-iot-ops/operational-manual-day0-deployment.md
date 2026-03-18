@@ -1,6 +1,6 @@
 # Azure IoT Operations — Day 0 Operational Manual: Deployment
 
-This operational manual provides a comprehensive, step-by-step guide for deploying Azure IoT Operations to a production Kubernetes cluster. It covers everything from initial planning and prerequisites through cluster preparation, deployment, configuration of assets and data flows, and post-deployment validation.
+This operational manual provides a comprehensive, step-by-step guide for deploying [Azure IoT Operations](../overview-iot-operations.md) to a production Kubernetes cluster. It covers everything from initial planning and prerequisites through cluster preparation, deployment, configuration of assets and data flows, and post-deployment validation.
 
 > **Audience**: IT administrators, platform engineers, and OT professionals responsible for deploying Azure IoT Operations.
 
@@ -31,12 +31,12 @@ Azure IoT Operations is a set of modular, Kubernetes-native services deployed to
 
 | Component | Purpose |
 |---|---|
-| **MQTT Broker** | High-performance MQTT v3.1.1/v5 broker for edge messaging |
-| **Connector for OPC UA** | Collects data from OPC UA servers and publishes to MQTT |
-| **Data Flows** | Routes, transforms, and pushes data to cloud endpoints |
+| **[MQTT Broker](../manage-mqtt-broker/overview-broker.md)** | High-performance MQTT v3.1.1/v5 broker for edge messaging |
+| **[Connector for OPC UA](../discover-manage-assets/overview-opc-ua-connector.md)** | Collects data from OPC UA servers and publishes to MQTT |
+| **[Data Flows](../connect-to-cloud/overview-dataflow.md)** | Routes, transforms, and pushes data to cloud endpoints |
 | **Azure Device Registry** | Cloud-based registry for devices, assets, and schemas |
-| **Akri Services** | Device discovery and protocol adapters |
-| **State Store** | Key-value persistence layer in the MQTT broker |
+| **[Akri Services](../discover-manage-assets/overview-akri.md)** | Device discovery and protocol adapters |
+| **[State Store](../develop-edge-apps/overview-state-store.md)** | Key-value persistence layer in the MQTT broker |
 
 An Azure IoT Operations *deployment* includes the instance, Arc extensions, custom locations, and all configurable resources (assets, devices, data flows). The *instance* is the parent resource that bundles the services.
 
@@ -49,7 +49,7 @@ An Azure IoT Operations *deployment* includes the instance, Arc extensions, cust
 
 **MQTT broker cardinality guidance for optimal performance:**
 
-The MQTT broker cardinality settings should be tuned based on your cluster hardware. The following recommendations help you get the best performance from your deployment.
+The [MQTT broker cardinality settings](../manage-mqtt-broker/howto-configure-availability-scale.md) should be tuned based on your cluster hardware. The following recommendations help you get the best performance from your deployment.
 
 #### Single-node recommendations
 
@@ -118,7 +118,7 @@ You will need the following Azure resources:
 | **Resource Group** | Container for all AIO-related resources |
 | **Azure Key Vault** | Secrets management (must use Azure RBAC permission model) |
 | **Azure Storage Account** | Schema registry backend (hierarchical namespace required) |
-| **Schema Registry** | Data validation and serialization |
+| **[Schema Registry](../connect-to-cloud/concept-schema-registry.md)** | Data validation and serialization |
 | **Device Registry Namespace** | Organizes assets and devices |
 | **User-Assigned Managed Identities (×2)** | One for secrets, one for AIO components |
 | **Azure Monitor Workspace** | Metrics collection (recommended) |
@@ -289,15 +289,15 @@ If you use enterprise firewalls or proxies, add the Azure IoT Operations endpoin
 
 1. **Azure Arc gateway** — Network proxy for simplifying firewall configuration
 2. **Explicit proxy** — Azure Firewall Explicit Proxy for traffic inspection
-3. **Layered networking** — For Purdue Network Architecture / ISA-95 scenarios
+3. **[Layered networking](../manage-layered-network/overview-layered-network.md)** — For Purdue Network Architecture / ISA-95 scenarios
 
 ---
 
 ## 4. Observability Setup (Pre-Deployment)
 
-> **Important**: Deploy observability resources **before** deploying Azure IoT Operations.
+> **Important**: Deploy [observability resources](../configure-observability-monitoring/howto-configure-observability.md) **before** deploying Azure IoT Operations.
 
-Azure IoT Operations provides unified health status reporting across all components and resources. Health status (Available, Degraded, Unavailable, Unknown) is reported through Azure Resource Manager and visible in the operations experience web UI and Azure portal. Combined with metrics and logs, this gives you a complete operational view of your deployment. The steps below set up the metrics and logging infrastructure that complements the built-in health status reporting.
+Azure IoT Operations provides [unified health status reporting](../configure-observability-monitoring/health-status-reporting.md) across all components and resources. Health status (Available, Degraded, Unavailable, Unknown) is reported through Azure Resource Manager and visible in the [operations experience](../discover-manage-assets/howto-use-operations-experience.md) web UI and Azure portal. Combined with metrics and logs, this gives you a complete operational view of your deployment. The steps below set up the metrics and logging infrastructure that complements the built-in health status reporting.
 
 ### 4.1 Register Azure Providers
 
@@ -370,7 +370,7 @@ az k8s-extension create \
 
 ### 4.5 Deploy OpenTelemetry Collector
 
-> **Note**: The OpenTelemetry Collector deployed here is for **cluster observability** — collecting Azure IoT Operations component health metrics and logs. This is separate from the OTEL data flow endpoint, which routes device and asset telemetry to OpenTelemetry-compatible backends.
+> **Note**: The OpenTelemetry Collector deployed here is for **cluster observability** — collecting Azure IoT Operations component health metrics and logs. This is separate from the [OTEL data flow endpoint](../connect-to-cloud/open-telemetry.md), which routes device and asset telemetry to OpenTelemetry-compatible backends.
 
 Create `otel-collector-values.yaml`:
 
@@ -520,7 +520,7 @@ Before deployment, optionally validate that Azure IoT Operations images are sign
 
 ### 5.3 Block IMDS Access (AKS Deployments)
 
-For AKS deployments with secure settings, block pod access to the Azure Instance Metadata Service (IMDS) to prevent credential leakage.
+For AKS deployments with [secure settings](./howto-enable-secure-settings.md), block pod access to the Azure Instance Metadata Service (IMDS) to prevent credential leakage.
 
 ---
 
@@ -562,12 +562,12 @@ For AKS deployments with secure settings, block pod access to the Azure Instance
 
    > **Critical**: Backend redundancy factor must be **2 or greater** for high availability and rolling upgrade support. Always set at least **2 frontend replicas** on single-node deployments to enable rolling updates.
 
-   - Configure data flow profile (instance count for scaling)
+   - Configure [data flow profile](../connect-to-cloud/howto-configure-dataflow-profile.md) (instance count for scaling)
 
 5. **Dependency management tab**:
-   - Create or select a **Schema Registry** backed by a hierarchical-namespace-enabled storage account
+   - Create or select a **[Schema Registry](../connect-to-cloud/concept-schema-registry.md)** backed by a hierarchical-namespace-enabled storage account
    - Create or select an **Azure Device Registry Namespace**
-   - Select **Secure settings** deployment option
+   - Select **[Secure settings](./howto-enable-secure-settings.md)** deployment option
    - Configure Azure Key Vault, user-assigned managed identity for secrets, and user-assigned managed identity for AIO components
 
    > **Important**: Use **different** managed identities for secrets and AIO components.
@@ -647,7 +647,7 @@ After deployment, verify that all components report **Available** health status:
 
 1. Open the [operations experience web UI](https://iotoperations.azure.com) and check the health overview for your instance. Components should show 🟢 green (Available).
 2. In the Azure portal, navigate to your Azure IoT Operations instance and review the health state of the broker, data flows, and connectors.
-3. If any component reports **Degraded** (🟡) or **Unavailable** (🔴), check the reason code and message for diagnostic details. See the health status reason codes reference for troubleshooting guidance.
+3. If any component reports **Degraded** (🟡) or **Unavailable** (🔴), check the reason code and message for diagnostic details. See the [health status reason codes reference](../reference/health-status-reason-codes.md) for troubleshooting guidance.
 
 > **Note**: If a resource hasn't reported status within 15 minutes, it shows as **Unknown** (⚪). Allow a few minutes after deployment for initial health reports to appear.
 
@@ -676,14 +676,14 @@ az iot ops get-versions
 
 ### 8.1 Configure TLS Listeners
 
-After deployment, configure TLS on broker listeners:
+After deployment, configure TLS on [broker listeners](../manage-mqtt-broker/howto-configure-brokerlistener.md):
 
 - Use **automatic certificate management** with cert-manager for listeners
 - For external clients, configure a `BrokerListener` with TLS and your preferred service type (NodePort or LoadBalancer)
 
 ### 8.2 Configure Authentication
 
-Production authentication options (do **not** use no-auth):
+Production [authentication](../manage-mqtt-broker/howto-configure-authentication.md) options (do **not** use no-auth):
 
 | Method | Use Case |
 |---|---|
@@ -695,12 +695,12 @@ Production authentication options (do **not** use no-auth):
 
 Create `BrokerAuthorization` resources with least-privilege access per topic:
 
-- Define authorization policies mapping clients to allowed topic patterns
+- Define [authorization policies](../manage-mqtt-broker/howto-configure-authorization.md) mapping clients to allowed topic patterns
 - Support for attribute-based access control (ABAC)
 
 ### 8.4 Encrypt Internal Traffic
 
-For production, enable encryption between broker frontend and backend pods:
+For production, enable [encryption between broker frontend and backend pods](../manage-mqtt-broker/howto-encrypt-internal-traffic.md):
 
 ```bash
 # See: manage-mqtt-broker/howto-encrypt-internal-traffic.md
@@ -708,7 +708,7 @@ For production, enable encryption between broker frontend and backend pods:
 
 ### 8.5 Configure Disk-Backed Message Buffer
 
-Set a disk-backed message buffer with a max size to prevent RAM overflow:
+Set a [disk-backed message buffer](../manage-mqtt-broker/howto-disk-backed-message-buffer.md) with a max size to prevent RAM overflow:
 
 ```bash
 # See: manage-mqtt-broker/howto-disk-backed-message-buffer.md
@@ -716,7 +716,7 @@ Set a disk-backed message buffer with a max size to prevent RAM overflow:
 
 ### 8.6 Configure Persistence
 
-Enable data persistence for the MQTT broker to survive pod restarts and ensure message durability.
+Enable [data persistence](../manage-mqtt-broker/howto-broker-persistence.md) for the MQTT broker to survive pod restarts and ensure message durability.
 
 ---
 
@@ -724,16 +724,16 @@ Enable data persistence for the MQTT broker to survive pod restarts and ensure m
 
 ### 9.1 Configure OPC UA Connectivity
 
-1. **Set up OPC UA authentication** — Do not use no-auth for production. Options:
+1. **Set up [OPC UA authentication](../discover-manage-assets/howto-configure-opc-ua.md)** — Do not use no-auth for production. Options:
    - Username/password authentication (secrets stored in Azure Key Vault)
    - X.509 certificate mutual authentication
 
-2. **Configure certificates**:
-   - Set up application instance certificates for the OPC UA connector
+2. **[Configure certificates](../discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md)**:
+   - Set up application instance certificates for the [OPC UA connector](../discover-manage-assets/overview-opc-ua-connector.md)
    - Configure trusted certificates list for OPC UA servers
    - Use production PKI (not self-signed certificates)
 
-3. **Create devices and assets** via the operations experience UI at [iotoperations.azure.com](https://iotoperations.azure.com) or via CLI:
+3. **Create [devices and assets](../discover-manage-assets/concept-assets-devices.md)** via the operations experience UI at [iotoperations.azure.com](https://iotoperations.azure.com) or via CLI:
 
 ```bash
 # Example: Create a device with OPC UA endpoint
@@ -750,8 +750,8 @@ Azure IoT Operations supports multiple connector types:
 | Connector | Protocol | Use Case |
 |---|---|---|
 | **OPC UA** | OPC UA | Industrial PLCs and SCADA |
-| **ONVIF** | ONVIF | IP cameras |
-| **Media** | RTSP/HTTP | Video streaming |
+| **[ONVIF](../discover-manage-assets/howto-use-onvif-connector.md)** | ONVIF | IP cameras |
+| **[Media](../discover-manage-assets/howto-use-media-connector.md)** | RTSP/HTTP | Video streaming |
 | **MQTT** | MQTT | External MQTT brokers |
 | **HTTP/REST** | HTTP | REST APIs |
 | **SSE** | Server-Sent Events | Event streams |
@@ -759,7 +759,7 @@ Azure IoT Operations supports multiple connector types:
 
 ### 9.3 Automatic Asset Discovery
 
-Enable Akri-based auto-discovery for OPC UA servers:
+Enable Akri-based [auto-discovery](../discover-manage-assets/howto-detect-opc-ua-assets.md) for OPC UA servers:
 
 ```bash
 # Enable resource sync rules
@@ -784,7 +784,7 @@ az iot ops enable-rsync -n <INSTANCE_NAME> -g $RESOURCE_GROUP
 
 ### 10.2 Create Data Flow Endpoints
 
-Configure endpoints with user-assigned managed identity authentication (recommended):
+Configure [endpoints](../connect-to-cloud/howto-configure-dataflow-endpoint.md) with user-assigned managed identity authentication (recommended):
 
 ```bash
 # Example: Create an Event Hubs endpoint via operations experience UI
@@ -793,10 +793,10 @@ Configure endpoints with user-assigned managed identity authentication (recommen
 
 ### 10.3 Create Data Flows
 
-Data flows define the pipeline: **Source → Transformation → Destination**
+[Data flows](../connect-to-cloud/howto-create-dataflow.md) define the pipeline: **Source → Transformation → Destination**
 
 - **Source**: MQTT broker topics (default), Kafka, or asset data
-- **Transformations**: Filtering, mapping (one-to-one, many-to-one), enrichment from reference datasets, type conversions
+- **Transformations**: Filtering, [mapping](../connect-to-cloud/concept-dataflow-mapping.md) (one-to-one, many-to-one), [enrichment](../connect-to-cloud/concept-dataflow-enrich.md) from reference datasets, type conversions
 - **Destination**: Any supported cloud endpoint
 
 ### 10.4 Scale Data Flow Profiles
@@ -806,14 +806,14 @@ Data flows define the pipeline: **Source → Transformation → Destination**
 # Group related flows into profiles and scale each independently
 ```
 
-> **Limitation**: A data flow profile can't exceed 70 data flows. Create multiple profiles and distribute flows if needed.
+> **Limitation**: A [data flow profile](../connect-to-cloud/howto-configure-dataflow-profile.md) can't exceed 70 data flows. Create multiple profiles and distribute flows if needed.
 
 ### 10.5 WebAssembly (WASM) Data Processing
 
-For advanced edge processing, deploy custom WASM modules:
+For advanced edge processing, deploy custom [WASM modules](../develop-edge-apps/howto-develop-wasm-modules.md):
 
 - Supports Rust and Python
-- Can run ONNX inference models at the edge
+- Can run [ONNX inference](../develop-edge-apps/howto-wasm-onnx-inference.md) models at the edge
 - Deployed as graph definitions in data flow pipelines
 
 ---
@@ -841,12 +841,12 @@ mosquitto_sub --host aio-broker --port 18883 \
 
 - Check Azure Event Hubs for incoming messages
 - Verify data in Azure Data Lake, Data Explorer, or Fabric OneLake
-- Use the operations experience portal to monitor connector and data flow status
+- Use the [operations experience](../discover-manage-assets/howto-use-operations-experience.md) portal to monitor connector and data flow status
 
 ### 11.3 Verify Observability
 
 1. Access Grafana: `az grafana show --name $GRAFANA_NAME --resource-group $RESOURCE_GROUP --query url -o tsv`
-2. Import the unified Azure IoT Operations Grafana dashboard — this brings health status, metrics, and logs together in a single view
+2. Import the unified Azure IoT Operations Grafana dashboard — this brings [health status](../configure-observability-monitoring/health-status-reporting.md), metrics, and logs together in a single view
 3. Verify the health overview at the top of the dashboard shows components as Available
 4. Verify metrics are flowing for MQTT broker, OPC UA connector, and data flows
 
@@ -874,7 +874,7 @@ az iot ops support create-bundle
 
 - [ ] Enterprise CA issuer configured (not default self-signed)
 - [ ] Container images validated (signed by Microsoft)
-- [ ] Secure settings deployment (not test settings)
+- [ ] [Secure settings](./howto-enable-secure-settings.md) deployment (not test settings)
 - [ ] Azure Key Vault with RBAC permission model
 - [ ] Two separate user-assigned managed identities created
 - [ ] Key Vault Secrets Officer role assigned
@@ -900,16 +900,16 @@ az iot ops support create-bundle
 - [ ] Prometheus scrape config applied
 - [ ] Unified Grafana dashboard imported (health + metrics + logs)
 - [ ] Prometheus alerts configured in Azure Monitor
-- [ ] Health status verified: all components report Available (🟢)
+- [ ] [Health status](../configure-observability-monitoring/health-status-reporting.md) verified: all components report Available (🟢)
 
 ### Data Pipeline
 
-- [ ] Schema registry created with hierarchical-namespace storage
+- [ ] [Schema registry](../connect-to-cloud/concept-schema-registry.md) created with hierarchical-namespace storage
 - [ ] Storage account scoped to trusted Azure services only
 - [ ] OPC UA authentication configured (not no-auth)
 - [ ] OPC UA certificates and trust lists configured with production PKI
 - [ ] Data flow endpoints using user-assigned managed identity
-- [ ] Data flow profiles scaled for throughput and HA
+- [ ] [Data flow profiles](../connect-to-cloud/howto-configure-dataflow-profile.md) scaled for throughput and HA
 - [ ] Data flows created and validated end-to-end
 
 ### Validation

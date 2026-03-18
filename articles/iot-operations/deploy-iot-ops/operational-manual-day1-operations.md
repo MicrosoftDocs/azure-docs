@@ -1,6 +1,6 @@
 # Azure IoT Operations — Day 1 Operational Manual: Maintenance & Troubleshooting
 
-This operational manual provides a comprehensive guide for maintaining, monitoring, troubleshooting, upgrading, and operating Azure IoT Operations in production. It covers day-to-day operations, incident response, scaling, certificate and secrets management, and disaster recovery.
+This operational manual provides a comprehensive guide for maintaining, monitoring, troubleshooting, upgrading, and operating [Azure IoT Operations](../overview-iot-operations.md) in production. It covers day-to-day operations, incident response, scaling, certificate and secrets management, and disaster recovery.
 
 > **Audience**: Site reliability engineers (SREs), IT administrators, OT operators, and support engineers responsible for the ongoing operation of Azure IoT Operations.
 
@@ -33,8 +33,8 @@ Azure IoT Operations uses:
 
 | Component | Purpose |
 |---|---|
-| **Unified Health Status Reporting** | Reports runtime health (Available, Degraded, Unavailable, Unknown) for all components and resources to the cloud via Azure Resource Manager |
-| **OpenTelemetry Collector** | Collects metrics from AIO services |
+| [**Unified Health Status Reporting**](../configure-observability-monitoring/health-status-reporting.md) | Reports runtime health (Available, Degraded, Unavailable, Unknown) for all components and resources to the cloud via Azure Resource Manager |
+| [**OpenTelemetry Collector**](../connect-to-cloud/open-telemetry.md) | Collects metrics from AIO services |
 | **Azure Monitor (Prometheus)** | Stores and queries time-series metrics |
 | **Azure Managed Grafana** | Unified dashboards combining health status, metrics, and logs |
 | **Container Insights** | Pod logs and Kubernetes-level telemetry |
@@ -62,9 +62,9 @@ Each supported Azure IoT Operations resource reports one of the following health
 | **Unavailable** | Resource isn't functioning | 🔴 Red |
 | **Unknown** | Health status can't be determined (e.g., no recent reports within 15 minutes) | ⚪ Gray |
 
-Supported resources that report health status: Broker, Data flows and data flow graphs, Akri connectors, Device inbound endpoints, and Assets.
+Supported resources that report health status: Broker, [Data flows](../connect-to-cloud/overview-dataflow.md) and data flow graphs, [Akri](../discover-manage-assets/overview-akri.md) connectors, Device inbound endpoints, and Assets.
 
-When a resource is Degraded or Unavailable, a reason code and human-readable message are included to help you diagnose the issue.
+When a resource is Degraded or Unavailable, a [reason code](../reference/health-status-reason-codes.md) and human-readable message are included to help you diagnose the issue.
 
 ### 1.2 Key Metrics to Monitor
 
@@ -76,8 +76,8 @@ When a resource is Degraded or Unavailable, a reason code and human-readable mes
 | **Connections** | Active connections, connection/disconnection rates, authentication failures |
 | **Subscriptions** | Active subscriptions, subscription churn |
 | **Authorization** | Authorization denials (spike = misconfiguration or attack) |
-| **State Store** | Key-value operation latency and throughput |
-| **Disk Buffer** | Disk usage, buffer overflow events |
+| [**State Store**](../develop-edge-apps/overview-state-store.md) | Key-value operation latency and throughput |
+| [**Disk Buffer**](../manage-mqtt-broker/howto-disk-backed-message-buffer.md) | Disk usage, buffer overflow events |
 | **Broker Health** | Pod readiness, restart counts, memory usage |
 
 #### OPC UA Connector Metrics
@@ -191,14 +191,14 @@ az iot ops show --name <INSTANCE_NAME> --resource-group <RG> --tree
 | Security patches | Review and plan upgrades for security fixes |
 | Azure Arc agents | `az connectedk8s show` — Check agent version, manually upgrade if needed |
 | RBAC audit | Review role assignments on resource group and Key Vault |
-| Storage account | Verify schema registry storage health and access policies |
+| Storage account | Verify [schema registry](../connect-to-cloud/concept-schema-registry.md) storage health and access policies |
 
 ### 2.4 Offline Operation
 
 Azure IoT Operations can operate offline for a **maximum of 72 hours**. During offline periods:
 
-- The MQTT broker continues to accept and route messages locally
-- Data flows buffer messages for later delivery
+- The [MQTT broker](../manage-mqtt-broker/overview-broker.md) continues to accept and route messages locally
+- [Data flows](../connect-to-cloud/overview-dataflow.md) buffer messages for later delivery
 - Ensure sufficient disk space is allocated for offline caching
 - Arc connectivity will automatically restore when network is available
 
@@ -224,7 +224,7 @@ Azure IoT Operations can operate offline for a **maximum of 72 hours**. During o
 - [ ] Review release notes for the target version
 - [ ] Verify CLI extension compatibility: `az iot ops get-versions`
 - [ ] Test the upgrade on a staging cluster first (if available)
-- [ ] Ensure MQTT broker backend redundancy factor ≥ 2 (required for rolling updates)
+- [ ] Ensure [MQTT broker](../manage-mqtt-broker/overview-broker.md) backend redundancy factor ≥ 2 (required for rolling updates)
 - [ ] Notify stakeholders of planned downtime window
 
 ### 3.3 Perform the Upgrade
@@ -309,7 +309,7 @@ Connectors / Data Flows (consumption)
 
 Use the operations experience UI at [iotoperations.azure.com](https://iotoperations.azure.com):
 
-1. Navigate to **Device inbound endpoints** or **Data flow endpoints**
+1. Navigate to **Device inbound endpoints** or **[Data flow endpoints](../connect-to-cloud/howto-configure-dataflow-endpoint.md)**
 2. Select **Add reference** → **Create a new secret** or **Add from Azure Key Vault**
 3. Name the synchronized secret (this becomes the Kubernetes secret name)
 
@@ -336,7 +336,7 @@ az keyvault secret set \
 #### Rotate Secrets
 
 1. Update the secret value in Azure Key Vault
-2. The Secret Store extension automatically syncs the new version to the cluster
+2. The [Secret Store extension](./howto-enable-secure-settings.md) automatically syncs the new version to the cluster
 3. **Known issue**: Connectors may not detect credential updates until restarted. Restart the affected connector pod if needed.
 
 > **Warning**: Do not directly edit `SecretProviderClass` or `SecretSync` custom resources in Kubernetes. Always use the operations experience web UI or CLI.
@@ -345,7 +345,7 @@ az keyvault secret set \
 
 #### Internal Certificates (TLS between components)
 
-- Managed by **cert-manager** — automatic rotation
+- Managed by [**cert-manager**](../secure-iot-ops/howto-manage-certificates.md) — automatic rotation
 - Default self-signed CA: `CN=Azure IoT Operations Quickstart Root CA - Not for Production`
 - Root CA stored in secret: `azure-iot-operations-aio-ca-certificate` (namespace: `cert-manager`)
 - Trust bundle in ConfigMap: `azure-iot-operations-aio-ca-trust-bundle` (namespace: `azure-iot-operations`)
@@ -398,7 +398,7 @@ kubectl get brokerauthorization -n azure-iot-operations
 
 ### 5.2 Modify Broker Listeners
 
-Edit `BrokerListener` resources to:
+Edit [`BrokerListener`](../manage-mqtt-broker/howto-configure-brokerlistener.md) resources to:
 
 - Change TLS configuration
 - Add/remove ports
@@ -414,7 +414,7 @@ kubectl edit brokerlistener <LISTENER_NAME> -n azure-iot-operations
 kubectl edit brokerauthentication <AUTH_NAME> -n azure-iot-operations
 ```
 
-Supported authentication methods:
+Supported [authentication](../manage-mqtt-broker/howto-configure-authentication.md) methods:
 - **X.509 certificates** — Best for machine-to-machine
 - **Kubernetes SAT** — Best for in-cluster workloads
 - **Custom** — External identity providers
@@ -425,11 +425,11 @@ Supported authentication methods:
 kubectl edit brokerauthorization <AUTHZ_NAME> -n azure-iot-operations
 ```
 
-Authorization policies map clients → allowed topic patterns with attribute-based access control (ABAC).
+[Authorization](../manage-mqtt-broker/howto-configure-authorization.md) policies map clients → allowed topic patterns with attribute-based access control (ABAC).
 
 ### 5.5 Broker Diagnostics
 
-Configure broker self-check and diagnostics:
+Configure broker self-check and [diagnostics](../manage-mqtt-broker/howto-broker-diagnostics.md):
 
 - Enable self-check probes for connection health
 - Configure metrics export intervals
@@ -490,7 +490,7 @@ az iot ops ns asset create --instance <INSTANCE> -g <RG> --name <ASSET_NAME>
 
 ### 6.3 Migrate Legacy Assets
 
-If you have root-level assets (classic) from older versions:
+If you have root-level [assets](../discover-manage-assets/concept-assets-devices.md) (classic) from older versions:
 
 ```bash
 # Take a snapshot first!
@@ -507,7 +507,7 @@ az iot ops migrate-assets -n <INSTANCE> -g <RG> --pattern asset-pl-* asset-eng?-
 
 ### 6.4 Azure Device Registry
 
-View devices, assets, schema registries, and namespaces in the Azure portal:
+View devices, assets, [schema registries](../connect-to-cloud/concept-schema-registry.md), and namespaces in the Azure portal:
 
 1. Search for **Azure Device Registry** in the Azure portal
 2. Browse **Assets**, **Schema registries**, and **Namespaces** tabs
@@ -553,11 +553,11 @@ kubectl get dataflowprofiles -n azure-iot-operations
 kubectl get dataflowendpoints -n azure-iot-operations
 ```
 
-> **Note**: Data flow resources created via Kubernetes aren't visible in the operations experience web UI (known limitation).
+> **Note**: Data flow resources created via Kubernetes aren't visible in the [operations experience](../discover-manage-assets/howto-use-operations-experience.md) web UI (known limitation).
 
 ### 7.2 Scale Data Flows
 
-Adjust data flow profile instance counts for throughput and high availability:
+Adjust [data flow profile](../connect-to-cloud/howto-configure-dataflow-profile.md) instance counts for throughput and high availability:
 
 - Group related flows into profiles
 - Scale each profile independently
@@ -565,7 +565,7 @@ Adjust data flow profile instance counts for throughput and high availability:
 
 ### 7.3 Data Flow Best Practices
 
-- Use **SAT authentication** for MQTT broker connections (default)
+- Use **SAT authentication** for [MQTT broker](../manage-mqtt-broker/overview-broker.md) connections (default)
 - Use **user-assigned managed identity** for cloud endpoint authentication
 - Keep data flows per profile under **70** (hard limit)
 - Use multiple profiles to distribute flows beyond the limit
@@ -588,9 +588,9 @@ Adjust data flow profile instance counts for throughput and high availability:
 
 When a component reports **Degraded** or **Unavailable** health status, use the following approach:
 
-1. **Identify the issue**: Open the operations experience web UI or Azure portal and look for components that aren't Available (🟢)
+1. **Identify the issue**: Open the [operations experience](../discover-manage-assets/howto-use-operations-experience.md) web UI or Azure portal and look for components that aren't Available (🟢)
 2. **Check the reason code**: Each unhealthy resource includes a reason code (e.g., `DataflowMqttSourceConnectionFailed`, `BrokerReplicaFailed`, `OpcUaConnectorInboundEndpointDisconnected`) and a human-readable message explaining the problem
-3. **Look up the recommended action**: See the health status reason codes reference for detailed descriptions and recommended actions for every reason code
+3. **Look up the recommended action**: See the [health status reason codes](../reference/health-status-reason-codes.md) reference for detailed descriptions and recommended actions for every reason code
 4. **Check timestamps**: The `lastTransitionTime` shows when the issue started; `lastUpdateTime` shows the most recent status update
 5. **Investigate further**: Use `az iot ops check`, pod logs, and the Grafana dashboard metrics to correlate the health status with runtime behavior
 
@@ -615,7 +615,7 @@ When a component reports **Degraded** or **Unavailable** health status, use the 
 
 #### MQTT Broker Deployment Fails
 **Symptom**: Broker pods fail to start  
-**Cause**: Insufficient cluster resources for the configured cardinality and memory profile  
+**Cause**: Insufficient cluster resources for the configured [cardinality and memory profile](../manage-mqtt-broker/howto-configure-availability-scale.md)  
 **Fix**: Reduce replica count, workers, sharding, or memory profile. **Warning**: Setting replica count to 1 risks data loss.
 
 ### 8.2 Secret and Certificate Issues
@@ -644,7 +644,7 @@ kubectl delete pod <CONNECTOR_POD> -n azure-iot-operations
 ### 8.3 OPC UA Issues
 
 #### BadSecurityModeRejected
-**Symptom**: OPC UA connector can't connect to server  
+**Symptom**: [OPC UA connector](../discover-manage-assets/overview-opc-ua-connector.md) can't connect to server  
 **Cause**: Server has no security endpoints matching the connector's settings  
 **Fix Option 1**: Set device additional configuration:
 ```yaml
@@ -676,7 +676,7 @@ az iot ops ns device endpoint inbound add opcua \
 ### 8.5 Data Flow Issues
 
 #### "Global error: AllBrokersDown"
-**Symptom**: Data flow reports error after 4-5 minutes of no messages  
+**Symptom**: [Data flow](../connect-to-cloud/overview-dataflow.md) reports error after 4-5 minutes of no messages  
 **Fix**: Verify data flow source configuration — check that the MQTT topic name is correct and the broker is publishing messages
 
 #### Data Flow Resources Not Visible in UI
@@ -747,7 +747,7 @@ Adjust cardinality settings based on load:
 
 ### 9.2 Data Flow Scaling
 
-- Increase **instance count** on data flow profiles for higher throughput
+- Increase **instance count** on [data flow profiles](../connect-to-cloud/howto-configure-dataflow-profile.md) for higher throughput
 - Group related flows and scale profiles independently
 - For Event Grid destinations: limited to ~100 msg/sec per flow
 - For Event Hubs destinations: higher throughput supported
@@ -802,7 +802,7 @@ The clone captures:
 |---|---|---|
 | AIO instance config | `az iot ops clone` | Before any change/upgrade |
 | Azure Key Vault secrets | Key Vault soft-delete + purge protection | Continuous (built-in) |
-| Schema registry schemas | Azure Storage replication | Continuous (built-in) |
+| [Schema registry](../connect-to-cloud/concept-schema-registry.md) schemas | Azure Storage replication | Continuous (built-in) |
 | Kubernetes resources | `kubectl get <resource> -o yaml > backup.yaml` | Weekly |
 | Grafana dashboards | Export dashboard JSON | After changes |
 
@@ -950,12 +950,12 @@ az iot ops show -n <NAME> -g <RG> --query "extendedLocation.name" -o tsv
 
 ### Connectors
 - Connectors don't detect updated credentials in Key Vault until restarted
-- Akri connectors only support artifact pull secrets authentication
+- [Akri](../discover-manage-assets/overview-akri.md) connectors only support artifact pull secrets authentication
 - Can't use special characters (`#`, `%`, `&`) in OPC UA event names
 - Secret names must be globally unique to avoid retrieval conflicts
 
 ### Data Flows
-- Resources created via Kubernetes aren't visible in the operations experience web UI
+- Resources created via Kubernetes aren't visible in the [operations experience](../discover-manage-assets/howto-use-operations-experience.md) web UI
 - A data flow profile can't exceed 70 data flows
 - Data flow graphs only support MQTT, Kafka, and OpenTelemetry (destination-only) endpoints
 - Can't reuse the same graph definition multiple times in a chained graph scenario
@@ -1030,16 +1030,16 @@ kubectl top pods -n azure-iot-operations
 1. Open [iotoperations.azure.com](https://iotoperations.azure.com)
 2. Navigate to **Devices** → Create a new device with the OPC UA endpoint
 3. Configure authentication (username/password or X.509)
-4. Add certificates to the trust list via **Manage certificates and secrets**
+4. Add [certificates](../discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md) to the trust list via **Manage certificates and secrets**
 5. Create assets with data points referencing the OPC UA node IDs
 6. Verify data appears on MQTT broker topics
 
 ### 14.6 Procedure: Add a New Cloud Data Flow
 
-1. Create a data flow endpoint for the target service (Event Hubs, Data Lake, Fabric, etc.)
+1. Create a [data flow endpoint](../connect-to-cloud/howto-configure-dataflow-endpoint.md) for the target service (Event Hubs, Data Lake, Fabric, etc.)
 2. Configure authentication using user-assigned managed identity
 3. Create a data flow with source (MQTT topic), optional transformations, and destination endpoint
-4. Assign the data flow to a data flow profile
+4. Assign the data flow to a [data flow profile](../connect-to-cloud/howto-configure-dataflow-profile.md)
 5. Verify data arrives at the cloud destination
 
 ### 14.7 Procedure: Handle Expired Akri Webhook Certificate
@@ -1074,7 +1074,7 @@ kubectl delete pod -n azure-iot-operations aio-akri-webhook-0 --ignore-not-found
 | **Health check** | `az iot ops check` |
 | **Verbose check** | `az iot ops check --detail-level 2` |
 | **Health status** | Operations experience UI or Azure portal → instance overview |
-| **Reason codes** | See health status reason codes reference |
+| **Reason codes** | See [health status reason codes](../reference/health-status-reason-codes.md) reference |
 | **Support bundle** | `az iot ops support create-bundle` |
 | **View instance** | `az iot ops show -n <NAME> -g <RG> --tree` |
 | **List pods** | `kubectl get pods -n azure-iot-operations` |
