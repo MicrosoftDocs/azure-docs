@@ -35,11 +35,11 @@ This article explains how to migrate the [Azure Maps Route v1.0] APIs to [Azure
 | Batch operations           | Sync and async requests | Sync requests                            |
 | Coordinate format          | Latitude/longitude | Longitude/latitude, as defined by [GeoJSON].  |
 | Electric consumption model | Supported      | Not supported                                     |
-| Localization               | Use the "language" parameter to localize the language of the route instructions. | Use the “Accept-Language” request header to input a localization code to localize the language of the route instructions. |
+| Localization               | Use the "language" parameter to localize the language of the route instructions. | Use the "Accept-Language" request header to input a localization code to localize the language of the route instructions. |
 | Request type               | GET, POST      | POST                                              |
 | Response format            | XML, JSON      | GeoJSON                                           |
 | Travel mode                | Car, truck, pedestrian.<BR>Beta profiles: Bus, bicycle, motorcycle, taxi, van. | Car, truck, pedestrian. |
-| Waypoint Optimization      | Supported      | Currently only supported for truck routing.       |
+| Waypoint Optimization      | Supported      | supported       |
 | Waypoints                  | Supported      | Supported. Also supports `viaWaypoints` for driving and walking modes. |
 
 ### Route Matrix notable differences

@@ -67,7 +67,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, use the `OrchestrationClient` attribute instead of the `DurableClient` attribute, and use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see [Durable Functions versions](durable-functions-versions.md).
+> The previous C# code uses the in-process model with `IDurableOrchestrationClient`, which is marked as obsolete in newer versions of the Durable Functions extension. For new .NET projects, consider using the [.NET isolated worker model](durable-functions-dotnet-isolated-overview.md) with `DurableTaskClient`. For more information, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 # [JavaScript](#tab/javascript)
 
@@ -381,7 +381,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, use the `OrchestrationClient` attribute instead of the `DurableClient` attribute, and use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> The previous C# code uses the in-process model with `IDurableOrchestrationClient`, which is marked as obsolete in newer versions of the Durable Functions extension. For new .NET projects, consider using the [.NET isolated worker model](durable-functions-dotnet-isolated-overview.md) with `DurableTaskClient`. For more information, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 # [JavaScript](#tab/javascript)
 
@@ -547,7 +547,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> The previous C# code uses the in-process model with `IDurableOrchestrationClient`, which is marked as obsolete in newer versions of the Durable Functions extension. For new .NET projects, consider using the [.NET isolated worker model](durable-functions-dotnet-isolated-overview.md) with `DurableTaskClient`. For more information, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 # [JavaScript](#tab/javascript)
 
@@ -713,7 +713,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> The previous C# code uses the in-process model with `IDurableOrchestrationClient`, which is marked as obsolete in newer versions of the Durable Functions extension. For new .NET projects, consider using the [.NET isolated worker model](durable-functions-dotnet-isolated-overview.md) with `DurableTaskClient`. For more information, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 # [JavaScript](#tab/javascript)
 
@@ -907,7 +907,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> The previous C# code uses the in-process model with `IDurableOrchestrationClient`, which is marked as obsolete in newer versions of the Durable Functions extension. For new .NET projects, consider using the [.NET isolated worker model](durable-functions-dotnet-isolated-overview.md) with `DurableTaskClient`. For more information, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 # [JavaScript](#tab/javascript)
 
@@ -1233,7 +1233,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> The previous C# code uses the in-process model with `IDurableOrchestrationClient`, which is marked as obsolete in newer versions of the Durable Functions extension. For new .NET projects, consider using the [.NET isolated worker model](durable-functions-dotnet-isolated-overview.md) with `DurableTaskClient`. For more information, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 # [JavaScript](#tab/javascript)
 
@@ -1612,7 +1612,7 @@ public static void SendInstanceInfo(
 ```
 
 > [!NOTE]
-> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, use `DurableActivityContext` instead of `IDurableActivityContext`, use the `OrchestrationClient` attribute instead of the `DurableClient` attribute, and use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> The previous C# code uses the in-process model with `IDurableOrchestrationClient` and `IDurableActivityContext`, which are marked as obsolete in newer versions of the Durable Functions extension. For new .NET projects, consider using the [.NET isolated worker model](durable-functions-dotnet-isolated-overview.md) with `DurableTaskClient`. For more information, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 # [JavaScript](#tab/javascript)
 
@@ -1704,7 +1704,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> The previous C# code uses the in-process model with `IDurableOrchestrationClient`, which is marked as obsolete in newer versions of the Durable Functions extension. For new .NET projects, consider using the [.NET isolated worker model](durable-functions-dotnet-isolated-overview.md) with `DurableTaskClient`. For more information, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 # [JavaScript](#tab/javascript)
 
@@ -1823,7 +1823,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> The previous C# code uses the in-process model with `IDurableOrchestrationClient`, which is marked as obsolete in newer versions of the Durable Functions extension. For new .NET projects, consider using the [.NET isolated worker model](durable-functions-dotnet-isolated-overview.md) with `DurableTaskClient`. For more information, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 # [JavaScript](#tab/javascript)
 
@@ -2046,7 +2046,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> The previous C# code uses the in-process model with `IDurableOrchestrationClient`, which is marked as obsolete in newer versions of the Durable Functions extension. For new .NET projects, consider using the [.NET isolated worker model](durable-functions-dotnet-isolated-overview.md) with `DurableTaskClient`. For more information, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 # [JavaScript](#tab/javascript)
 

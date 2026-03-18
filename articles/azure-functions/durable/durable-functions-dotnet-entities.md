@@ -151,13 +151,65 @@ public class Counter : TaskEntity<int>
 
 ### Deleting entities in the isolated model
 
-Deleting an entity in the isolated model is accomplished by setting the entity state to `null`, and this process depends on the entity implementation path used:
+Deleting an entity in the isolated model is accomplished by setting the entity state to `null`, and this process depends on the entity implementation path used.
 
-- When deriving from `ITaskEntity` or using [function based syntax](#function-based-syntax), delete is accomplished by calling `TaskEntityOperation.State.SetState(null)`.
-- When deriving from `TaskEntity<TState>`, delete is implicitly defined. However, it can be overridden by defining a method `Delete` on the entity. State can also be deleted from any operation via `this.State = null`.
-    - To delete by setting state to null requires `TState` to be nullable.
-    - The implicitly defined delete operation deletes non-nullable `TState`.
-- When using a POCO as your state (not deriving from `TaskEntity<TState>`), delete is implicitly defined. It's possible to override the delete operation by defining a method `Delete` on the POCO. However, there isn't a way to set state to `null` in the POCO route, so the implicitly defined delete operation is the only true delete.
+#### Delete with ITaskEntity or function-based syntax
+
+When deriving from `ITaskEntity` or using [function based syntax](#function-based-syntax), delete is accomplished by calling `TaskEntityOperation.State.SetState(null)`:
+
+```csharp
+// Inside a function-based entity dispatch
+switch (operation.Name.ToLowerInvariant())
+{
+    case "delete":
+        operation.State.SetState(null);
+        break;
+}
+```
+
+#### Delete with TaskEntity\<TState\>
+
+When deriving from `TaskEntity<TState>`, a delete operation is implicitly defined. However, it can be overridden by defining a method `Delete` on the entity. State can also be deleted from any operation via `this.State = null`.
+
+- To delete by setting state to `null` requires `TState` to be nullable.
+- The implicitly defined delete operation deletes non-nullable `TState`.
+
+The following example shows a `TaskEntity<int?>` with nullable state that overrides the default delete:
+
+```csharp
+public class Counter : TaskEntity<int?>
+{
+    public void Delete()
+    {
+        // Custom logic before deleting, such as logging
+        this.State = null;
+    }
+
+    [Function(nameof(Counter))]
+    public static Task Run([EntityTrigger] TaskEntityDispatcher dispatcher)
+        => dispatcher.DispatchAsync<Counter>();
+}
+```
+
+#### Delete with a POCO entity
+
+When using a POCO as your state (not deriving from `TaskEntity<TState>`), a delete operation is implicitly defined. It's possible to override the delete operation by defining a method `Delete` on the POCO. However, there isn't a way to set state to `null` in the POCO route, so the implicitly defined delete operation is the only true delete.
+
+```csharp
+public class Counter
+{
+    public int Value { get; set; }
+
+    // The implicit delete operation handles state removal.
+    // Defining a Delete method here overrides the implicit behavior,
+    // but you cannot set state to null from within a POCO entity.
+
+    [Function(nameof(Counter))]
+    public static Task Run([EntityTrigger] TaskEntityDispatcher dispatcher)
+        => dispatcher.DispatchAsync<Counter>();
+}
+```
+
 ::: zone-end
 
 ::: zone pivot="in-proc"
