@@ -32,7 +32,7 @@ Following GA, advanced features are being released, including:
 - Live Captions
 - Email Integration
 
-Azure Communication Services is committed to releasing these features as part of its roadmap. Regular releases ensure feature parity with Azure Communication Services Commercial within six months of each feature becoming available in the commercial cloud.
+Azure Communication Services is committed to releasing these features as part of its roadmap.
 
 ## Related articles
 
