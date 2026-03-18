@@ -1,28 +1,29 @@
 ---
 title: Set up IP ingress restrictions in Azure Container Apps
-description: Enable IP restrictions to limit access to your app with Azure Container Apps.
+description: Enable IP restrictions to limit access to your app with Azure Container Apps. You can create rules to allow or deny IP ranges.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 12/02/2024
+ms.date: 03/19/2026
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ms.custom:
   - devx-track-azurecli
   - sfi-image-nochange
+#customer intent: As an application developer using Azure Container Apps, I need rules to constrain access to my applications for security and general access reasons.
 ---
 
 # Set up IP ingress restrictions in Azure Container Apps
 
-Azure Container Apps allows you to limit inbound traffic to your container app by configuring IP ingress restrictions via ingress configuration.
+Azure Container Apps allows you to limit inbound traffic to your container app by configuring IP ingress restrictions.
 
 There are two types of restrictions:
 
-* *Allow*: Allow inbound traffic only from address ranges you specify in allow rules.
-* *Deny*: Deny all inbound traffic only from address ranges you specify in deny rules.
+- *Allow*: Allow inbound traffic only from address ranges you specify in allow rules.
+- *Deny*: Deny all inbound traffic from address ranges you specify in deny rules.
 
-When no IP restriction rules are defined, all inbound traffic is allowed.
+When you define no IP restriction rules, all inbound traffic is allowed.
 
 IP restrictions rules contain the following properties:
 
@@ -46,12 +47,12 @@ You can manage IP access restrictions rules through the Azure portal or Azure CL
 
 ### Add rules
 
-1. Go to your container app in the Azure portal.
-1. Select **Ingress** from the left side menu.
-1. Select the **IP Security Restrictions Mode** toggle to enable IP restrictions. You can choose to allow or deny traffic from the specified IP address ranges.
+1. In the [Azure portal](https://portal.azure.com), go to your container app.
+1. In the left menu, select **Networking** > **Ingress**.
+1. Under **IP Restrictions**, you can choose to allow or deny traffic from the specified IP address ranges. In this example, select **Allow traffic from IPs configured below, deny all other traffic**.
 1. Select **Add** to create the rule.
 
-    :::image type="content" source="media/ingress/screenshot-ingress-page-ip-restrictions.png" alt-text="Screenshot of IP restriction settings on container app Ingress page.":::
+   :::image type="content" source="media/ingress/screenshot-ingress-page-ip-restrictions.png" alt-text="Screenshot of IP restriction settings on container app Ingress page." lightbox="media/ingress/screenshot-ingress-page-ip-restrictions.png":::
 
 1. Enter values in the following fields:
 
@@ -67,17 +68,17 @@ You can manage IP access restrictions rules through the Azure portal or Azure CL
 
 ### Update a rule
 
-1. Go to your container app in the Azure portal.
-1. Select **Ingress** from the left side menu.
+1. In the Azure portal, go to your container app.
+1. In the left menu, select **Networking** > **Ingress**.
 1. Select the rule you want to update.
 1. Change the rule settings.
 1. Select **Save** to save the updates.
-1. Select **Save** on the Ingress page to save the updated rules.
+1. On the **Ingress** page, select **Save** to save your updated rules.
 
 ### Delete a rule
 
-1. Go to your container app in the Azure portal.
-1. Select **Ingress** from the left side menu.
+1. In the Azure portal, go to your container app.
+1. In the left menu, select **Networking** > **Ingress**.
 1. Select the delete icon next to the rule you want to delete.
 1. Select **Save**.
 
@@ -105,8 +106,6 @@ The `az containerapp ingress access-restriction set` command group uses the foll
 | `--ip-address` (required) | IP address or range of IP addresses in CIDR notation | Specifies the IP address range to allow or deny. |
 
 Add more rules by repeating the command with a different `--rule-name` and -`--ip-address` values.
-
-
 
 #### Create allow rules
 
@@ -167,7 +166,7 @@ az containerapp ingress access-restriction set \
 The following example `az containerapp ingress access-restriction remove` command removes a rule.
 
 ```azurecli
-az containerapp ingress access-restriction list
+az containerapp ingress access-restriction remove
   --name <CONTAINER_APP_NAME> \
   --resource-group <RESOURCE_GROUP> \
   --rule-name "<your rule name>"
@@ -178,7 +177,7 @@ az containerapp ingress access-restriction list
 The following example `az containerapp ingress access-restriction list` command lists the IP restriction rules for the container app.
 
 ```azurecli
-az containerapp ingress access-restriction list
+az containerapp ingress access-restriction list \
   --name <CONTAINER_APP_NAME> \
   --resource-group <RESOURCE_GROUP>
 ```
@@ -191,11 +190,11 @@ Use the following information to help you troubleshoot IP-related issues in your
 
 ### Access denied
 
-An *RBAC: Access Denied* message returned to the client indicates the client is blocked by IP restrictions from the container app. To fix this issue, make sure the client IP address requesting access is allowed based on either the "allow" or "deny" rules.
+An *RBAC: Access Denied* message returned to the client indicates the client is blocked by IP restrictions from the container app. To fix this issue, make sure the client IP address requesting access is allowed based on either the *allow* or *deny* rules.
 
 If using an address range, make sure the blocked IP falls within an allowed range.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Configure Ingress](ingress-how-to.md)
