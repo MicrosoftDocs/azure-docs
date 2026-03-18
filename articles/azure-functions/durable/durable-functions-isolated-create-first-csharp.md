@@ -37,7 +37,7 @@ To complete this quickstart, you need:
 
 * An Azure subscription. To use Durable Functions, you must have an Azure Storage account.
 
-* [.NET Core SDK](https://dotnet.microsoft.com/download) version 3.1 or later installed.
+* [.NET SDK](https://dotnet.microsoft.com/download) version 8.0 or later installed.
 
 * An HTTP test tool that keeps your data secure. For more information, see [HTTP test tools](../functions-develop-local.md#http-test-tools).
 
@@ -70,6 +70,16 @@ In Visual Studio Code, create a local Azure Functions project.
 
 Visual Studio Code installs Azure Functions Core Tools if it's required to create the project. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
 
+If you don't see **C#** in the language list or if only *function.json* is generated, verify the following prerequisites and then create the project again in a new empty folder:
+
+* The latest [Azure Functions Core Tools](../functions-run-local.md) is installed.
+* A supported [.NET SDK](https://dotnet.microsoft.com/download) is installed.
+* The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) is installed in Visual Studio Code.
+
+These checks usually resolve cases where Visual Studio Code scaffolds only metadata instead of generating the C# project files.
+
+For more troubleshooting steps, see the [Azure Functions Core Tools reference](../functions-core-tools-reference.md).
+
 Another file, *HelloOrchestration.cs*, contains the basic building blocks of a Durable Functions app:
 
 | Method | Description |
@@ -100,7 +110,7 @@ You can use other storage options for your Durable Functions app. For more infor
 
 ## Test the function locally
 
-Azure Functions Core Tools gives you the capability to run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function in Visual Studio Code.
+Azure Functions Core Tools gives you the capability to run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function in Visual Studio.
 
 1. In Visual Studio Code, set a breakpoint in the `SayHello` activity function code, and then select F5 to start the function app project. The terminal panel displays output from Core Tools.
 
@@ -228,7 +238,7 @@ For more information about these functions, see [Durable Functions types and fea
 
 Azure Functions Core Tools gives you the capability to run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function in Visual Studio Code.
 
-1. In Visual Studio Code, set a breakpoint in the `SayHello` activity function code, and then select F5. If you're prompted, accept the request from Visual Studio to download and install Azure Functions Core (command-line) tools. You might also need to enable a firewall exception so that the tools can handle HTTP requests.
+1. In Visual Studio, set a breakpoint in the `SayHello` activity function code, and then select F5. If you're prompted, accept the request from Visual Studio to download and install Azure Functions Core (command-line) tools. You might also need to enable a firewall exception so that the tools can handle HTTP requests.
 
    > [!NOTE]
    > For more information about debugging, see [Durable Functions diagnostics](durable-functions-diagnostics.md#debugging).

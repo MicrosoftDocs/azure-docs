@@ -240,6 +240,32 @@ module.exports = df.orchestrator(function*(context){
 });
 ```
 
+<br>
+<details>
+<summary><b>Node.js programming model v4 apps (including TypeScript)</b></summary>
+
+Use the same replay check pattern in your orchestration function:
+
+```typescript
+import * as df from "durable-functions";
+
+df.app.orchestration("FunctionChain", function* (context) {
+    if (!context.df.isReplaying) context.log("Calling F1.");
+    yield context.df.callActivity("F1");
+    if (!context.df.isReplaying) context.log("Calling F2.");
+    yield context.df.callActivity("F2");
+    if (!context.df.isReplaying) context.log("Calling F3.");
+    yield context.df.callActivity("F3");
+    context.log("Done!");
+});
+```
+
+> [!NOTE]
+> The `isReplaying` check suppresses duplicate logs caused by orchestrator replay. It doesn't suppress duplicate logs caused by full re-execution (for example, host restarts, long local debugging sessions, or queue message visibility timeouts). In those cases, you might still see repeated log lines with the same orchestration instance ID.
+
+</details>
+<br>
+
 # [Python](#tab/python)
 
 ```python
@@ -377,6 +403,25 @@ module.exports = df.orchestrator(function*(context){
 });
 ```
 
+<details>
+<summary><b>Node.js programming model v4 apps (including TypeScript)</b></summary>
+
+```typescript
+import * as df from "durable-functions";
+
+df.app.orchestration("FunctionChain", function* (context) {
+    if (!context.df.isReplaying) context.log("Calling F1.");
+    yield context.df.callActivity("F1");
+    if (!context.df.isReplaying) context.log("Calling F2.");
+    yield context.df.callActivity("F2");
+    if (!context.df.isReplaying) context.log("Calling F3.");
+    yield context.df.callActivity("F3");
+    context.log("Done!");
+});
+```
+
+</details>
+
 # [Python](#tab/python)
 
 ```python
@@ -483,6 +528,25 @@ module.exports = df.orchestrator(function*(context) {
     // ...do more work...
 });
 ```
+
+<details>
+<summary><b>Node.js programming model v4 apps (including TypeScript)</b></summary>
+
+```typescript
+import * as df from "durable-functions";
+
+df.app.orchestration("SetStatusTest", function* (context) {
+    // ...do work...
+
+    // update the status of the orchestration with some arbitrary data
+    const customStatus = { completionPercentage: 90.0, status: "Updating database records" };
+    context.df.setCustomStatus(customStatus);
+
+    // ...do more work...
+});
+```
+
+</details>
 
 # [Python](#tab/python)
 

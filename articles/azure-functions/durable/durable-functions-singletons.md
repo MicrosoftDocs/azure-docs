@@ -26,7 +26,7 @@ For background jobs, you often need to ensure that only one instance of a partic
 
 ::: zone pivot="durable-functions"
 
-The following example shows an HTTP-trigger function that creates a singleton background job orchestration. The code ensures that only one instance exists for a specified instance ID.
+The following example shows an HTTP-trigger function that creates a singleton background job orchestration. The code attempts to ensure that only one active instance exists for a specified instance ID.
 
 # [C#](#tab/csharp)
 
@@ -42,7 +42,7 @@ public static async Task<HttpResponseData> RunSingle(
     ILogger logger = executionContext.GetLogger("HttpStartSingle");
 
     // Check if an instance with the specified ID already exists or an existing one stopped running(completed/failed/terminated).
-    OrchestrationMetadata? existingInstance = await starter.GetInstancesAsync(instanceId);
+    OrchestrationMetadata? existingInstance = await starter.GetInstanceAsync(instanceId, getInputsAndOutputs: false);
     if (existingInstance == null 
     || existingInstance.RuntimeStatus == OrchestrationRuntimeStatus.Completed 
     || existingInstance.RuntimeStatus == OrchestrationRuntimeStatus.Failed 
@@ -250,7 +250,7 @@ public HttpResponseMessage runSingle(
 
 ::: zone pivot="durable-task-sdks"
 
-The following example shows how to create a singleton orchestration using the Durable Task SDKs. The code ensures that only one instance exists for a specified instance ID.
+The following example shows how to create a singleton orchestration using the Durable Task SDKs. The code attempts to ensure that only one active instance exists for a specified instance ID.
 
 # [C#](#tab/csharp)
 

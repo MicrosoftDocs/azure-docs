@@ -123,17 +123,23 @@ To use the v4 programming model, you install the v3.x version of the durable-fun
 
 ::: zone-end
 
+::: zone pivot="nodejs-model-v3"
+
+To use the v3 programming model, install the durable-functions v2.x library.
+
+::: zone-end
+
 1. Use the **View** menu or select Ctrl+Shift+` to open a new terminal in Visual Studio Code.
 
 ::: zone pivot="nodejs-model-v3"
 
-2. Install the durable-functions npm package by running `npm install durable-functions` in the root directory of the function app.
+2. Install the durable-functions npm package by running `npm install durable-functions@2.1.4` in the root directory of the function app.
 
 ::: zone-end
 
 ::: zone pivot="nodejs-model-v4"
 
-2. Install the durable-functions npm package preview version by running `npm install durable-functions@preview` in the root directory of the function app.
+2. Install the durable-functions npm package by running `npm install durable-functions` in the root directory of the function app.
 
 ::: zone-end
 
@@ -278,7 +284,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 5. Use your browser or an HTTP test tool to send an HTTP POST request to the URL endpoint.
 
-   Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
+    Replace the last segment with the name of the orchestrator function (`helloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/helloOrchestrator`.
 
    The response is the HTTP function's initial result. It lets you know that the durable orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
 
