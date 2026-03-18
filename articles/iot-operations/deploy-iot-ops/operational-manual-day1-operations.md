@@ -400,6 +400,8 @@ kubectl get brokerauthorization -n azure-iot-operations
 
 Edit [`BrokerListener`](../manage-mqtt-broker/howto-configure-brokerlistener.md) resources to:
 
+> **Warning**: Do not modify the default broker listener on port 18883 — it is used for internal Azure IoT Operations communication. Create new `BrokerListener` resources for external client access instead.
+
 - Change TLS configuration
 - Add/remove ports
 - Change service type (ClusterIP, NodePort, LoadBalancer)
@@ -435,7 +437,35 @@ Configure broker self-check and [diagnostics](../manage-mqtt-broker/howto-broker
 - Configure metrics export intervals
 - Set log levels for troubleshooting
 
-### 5.6 Testing Broker Connectivity
+### 5.6 Data Persistence
+
+Data persistence allows the MQTT broker to survive pod restarts and preserve messages. Persistence settings are partially configurable at runtime:
+
+- **Deployment-time settings** (immutable): Enable/disable persistence, maximum storage size, storage class. These require uninstall and redeploy to change.
+- **Runtime-configurable settings**: Which data types are persisted (retained messages, subscriber queues, state store data) and which specific topics/clients/keys are included.
+
+> **Warning**: Once persistence is enabled at deployment, it **cannot be disabled** without uninstalling and redeploying Azure IoT Operations.
+
+#### Manage persistence at runtime
+
+```bash
+# Update retained message persistence
+az iot ops broker persist update --persist-mode retain=All \
+  --resource-group <RG> --instance <INSTANCE>
+
+# Update subscriber queue persistence (custom — specific client IDs)
+az iot ops broker persist update --persist-mode subscriberQueue=Custom \
+  --subscriber-client-ids "client1" "client2" \
+  --resource-group <RG> --instance <INSTANCE>
+
+# Update state store persistence
+az iot ops broker persist update --persist-mode stateStore=All \
+  --resource-group <RG> --instance <INSTANCE>
+```
+
+> **Note**: The state store is **in-memory only** by default — all contents are lost on cluster restart unless persistence is explicitly enabled.
+
+### 5.7 Testing Broker Connectivity
 
 Three approaches (development/test environments):
 
@@ -555,6 +585,19 @@ kubectl get dataflowendpoints -n azure-iot-operations
 
 > **Note**: Data flow resources created via Kubernetes aren't visible in the [operations experience](../discover-manage-assets/howto-use-operations-experience.md) web UI (known limitation).
 
+#### Via Azure CLI
+
+```bash
+# View data flow profile
+az iot ops dataflow profile show --resource-group <RG> --instance <INSTANCE> --name default
+
+# View a specific data flow
+az iot ops dataflow show --resource-group <RG> --instance <INSTANCE> --name <FLOW_NAME> --profile <PROFILE>
+
+# Export data flow configuration
+az iot ops dataflow show --resource-group <RG> --instance <INSTANCE> --name <FLOW_NAME> --profile <PROFILE> --output json > my-dataflow.json
+```
+
 ### 7.2 Scale Data Flows
 
 Adjust [data flow profile](../connect-to-cloud/howto-configure-dataflow-profile.md) instance counts for throughput and high availability:
@@ -563,6 +606,14 @@ Adjust [data flow profile](../connect-to-cloud/howto-configure-dataflow-profile.
 - Scale each profile independently
 - Monitor throughput and adjust as needed
 
+```bash
+# Scale a data flow profile (set instance count)
+az iot ops dataflow profile update --resource-group <RG> --instance <INSTANCE> --name <PROFILE> --profile-instances <COUNT>
+
+# Set log level for troubleshooting
+az iot ops dataflow profile update --resource-group <RG> --instance <INSTANCE> --name <PROFILE> --log-level debug
+```
+
 ### 7.3 Data Flow Best Practices
 
 - Use **SAT authentication** for [MQTT broker](../manage-mqtt-broker/overview-broker.md) connections (default)
@@ -570,6 +621,8 @@ Adjust [data flow profile](../connect-to-cloud/howto-configure-dataflow-profile.
 - Keep data flows per profile under **70** (hard limit)
 - Use multiple profiles to distribute flows beyond the limit
 - Monitor for `AllBrokersDown` errors — indicates source misconfiguration
+- **Data flow profile assignment is immutable** — you cannot reassign a data flow to a different profile after creation. Delete and recreate the data flow if you need to change its profile.
+- Every data flow **must include the local MQTT broker** default endpoint (`aio-broker`) as either its source or its destination
 
 ### 7.4 Supported Data Flow Graph Endpoints
 
@@ -732,7 +785,9 @@ az iot ops enable-rsync -n <INSTANCE> -g <RG> --k8-bridge-sp-oid $K8_BRIDGE_OID
 
 ### 9.1 MQTT Broker Scaling
 
-Adjust cardinality settings based on load:
+Cardinality settings are configured **at deployment time only** and cannot be changed on a running instance. To adjust these settings, you must uninstall and redeploy Azure IoT Operations. Plan your broker sizing carefully during [Day 0 deployment](./operational-manual-day0-deployment.md#12-choose-your-cluster-topology).
+
+For measured baseline resource consumption at each memory profile level, see [Baseline resource profiles](./concept-resource-profiles.md).
 
 | Setting | Effect |
 |---|---|
@@ -744,6 +799,19 @@ Adjust cardinality settings based on load:
 | **memoryProfile** | Low / Medium / High — controls memory allocation |
 
 > **Tip**: Test MQTT broker configuration before production to ensure it handles the expected message load.
+
+#### Memory profile limits
+
+The per-pod memory figures below are **idle baselines measured with near-zero traffic** — actual consumption will grow with message throughput and connected clients:
+
+| Memory Profile | Max Message Size | Idle Frontend Memory (per pod) | Idle Backend Memory (per pod) |
+|---|---|---|---|
+| **Tiny** | 4 MB | ~29 MiB | ~41 MiB |
+| **Low** | 16 MB | ~33 MiB | ~66 MiB |
+| **Medium** | 64 MB | ~169 MiB | ~211 MiB |
+| **High** | 256 MB | ~4.9 GiB | ~5.8 GiB |
+
+> **Warning**: The broker rejects messages when memory usage reaches 75% capacity. The memory profile controls the maximum message size — messages exceeding the limit are rejected. Total broker memory depends on **both** the memory profile and the cardinality (more replicas and partitions mean more pods and more total memory).
 
 ### 9.2 Data Flow Scaling
 
@@ -796,6 +864,8 @@ The clone captures:
 - Connector configurations
 - Data flow definitions
 
+> **Note**: The `az iot ops clone` command requires a specific CLI extension version (`1.0.34 ≤ version < 1.2.0`). Check your version with `az extension show --name azure-iot-ops --query version`. Resource sync rules and user-created ConfigMaps are not captured by the clone — re-apply these manually on the target cluster.
+
 ### 10.2 Backup Strategy
 
 | What | How | Frequency |
@@ -804,6 +874,8 @@ The clone captures:
 | Azure Key Vault secrets | Key Vault soft-delete + purge protection | Continuous (built-in) |
 | [Schema registry](../connect-to-cloud/concept-schema-registry.md) schemas | Azure Storage replication | Continuous (built-in) |
 | Kubernetes resources | `kubectl get <resource> -o yaml > backup.yaml` | Weekly |
+| Device/asset data points | Operations experience → Export (CSV) | After changes |
+| Data flow configurations | Operations experience → Export (JSON) | After changes |
 | Grafana dashboards | Export dashboard JSON | After changes |
 
 ### 10.3 Recovery Procedures
@@ -964,6 +1036,10 @@ az iot ops show -n <NAME> -g <RG> --query "extendedLocation.name" -o tsv
 - Azure IoT Operations does not support live upgrades (expect downtime)
 - Maximum offline operation: 72 hours
 - Custom location name maximum length: 63 characters
+- Broker cardinality settings are immutable after deployment (uninstall + redeploy required to change)
+- Persistence cannot be disabled once enabled (uninstall + redeploy required)
+- State store is in-memory by default — contents lost on cluster restart unless persistence is enabled
+- Data flow profile assignment is immutable — delete and recreate required to change profile
 
 ---
 
@@ -1098,4 +1174,5 @@ kubectl delete pod -n azure-iot-operations aio-akri-webhook-0 --ignore-not-found
 - For the latest known issues, see [Known issues](../troubleshoot/known-issues.md).
 - For detailed troubleshooting, see [Troubleshoot Azure IoT Operations](../troubleshoot/troubleshoot.md).
 - For troubleshooting tools, see [Tips and tools](../troubleshoot/tips-tools.md).
+- Review [Baseline resource profiles](./concept-resource-profiles.md) for measured resource consumption at each memory profile level.
 - For support information, see [Azure IoT Operations support](../overview-support.md).

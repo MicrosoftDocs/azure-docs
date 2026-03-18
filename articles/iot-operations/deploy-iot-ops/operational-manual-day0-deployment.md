@@ -94,16 +94,31 @@ The [MQTT broker cardinality settings](../manage-mqtt-broker/howto-configure-ava
 | backendWorkers | 8 |
 | backendPartitions | 5 |
 
+#### Memory profile and message size limits
+
+The memory profile controls the maximum MQTT message size the broker accepts. The per-pod memory figures below are **idle baselines measured with near-zero traffic** — actual consumption will grow with message throughput and connected clients:
+
+| Memory Profile | Max Message Size | Idle Frontend Memory (per pod) | Idle Backend Memory (per pod) | Use Case |
+|---|---|---|---|---|
+| **Tiny** | 4 MB | ~29 MiB | ~41 MiB | Low traffic, small packets only |
+| **Low** | 16 MB | ~33 MiB | ~66 MiB | Limited memory, small packets |
+| **Medium** | 64 MB | ~169 MiB | ~211 MiB | Moderate traffic and message sizes |
+| **High** | 256 MB | ~4.9 GiB | ~5.8 GiB | High throughput, large messages |
+
+> **Warning**: The broker rejects messages when memory usage reaches 75% capacity. Choose a profile with sufficient headroom for your expected message sizes and throughput.
+
+Total broker memory depends on **both** the memory profile and the cardinality (number of frontend replicas, backend partitions, and redundancy factor). More pods means more total memory. For measured baseline resource consumption across different configurations, see [Baseline resource profiles](./concept-resource-profiles.md).
+
 ### 1.3 Choose Your Platform
 
 | Platform | OS | Production Status |
 |---|---|---|
-| **K3s** | Ubuntu 24.04 (x86_64) | ✅ GA (recommended for production) |
+| **K3s** | Ubuntu 24.04 / RHEL 9.x (x86_64) | ✅ GA (recommended for production) |
 | **Tanzu Kubernetes (TKr)** | x86_64 | ✅ GA |
-| **AKS Edge Essentials** | Windows | ✅ GA (single-node only) |
-| **AKS on Azure Local** | Windows | ✅ GA |
+| **AKS Edge Essentials** | Windows (x86_64) | ⚠️ Public preview |
+| **AKS on Azure Local** | Windows (x86_64) | ⚠️ Public preview |
 
-> **Recommendation**: K3s on Ubuntu 24.04 is the only GA platform for multi-node production deployments.
+> **Recommendation**: For multi-node production deployments, use K3s on Ubuntu/RHEL or Tanzu Kubernetes (both GA).
 
 ### 1.4 Supported Azure Regions
 
@@ -166,7 +181,21 @@ kubectl version --client
 helm version
 ```
 
-### 2.4 Create Azure Resources
+### 2.4 Register Required Resource Providers
+
+```bash
+# Register Azure IoT Operations core resource providers
+az provider register --namespace Microsoft.ExtendedLocation
+az provider register --namespace Microsoft.Kubernetes
+az provider register --namespace Microsoft.KubernetesConfiguration
+az provider register --namespace Microsoft.IoTOperations
+az provider register --namespace Microsoft.DeviceRegistry
+az provider register --namespace Microsoft.SecretSyncController
+```
+
+> **Note**: Provider registration is a one-time operation per subscription. Verify status with `az provider show --namespace <NAME> --query registrationState`.
+
+### 2.5 Create Azure Resources
 
 ```bash
 # Set variables
@@ -214,6 +243,8 @@ az storage container create \
   --account-name "<storage-account-name>"
 ```
 
+> **Production hardening**: After deployment, restrict the storage account to **"Enabled from selected virtual networks and IP addresses"** and enable the **"Allow trusted Microsoft services"** exception. This prevents public access while allowing Azure IoT Operations schema registry to function.
+
 ---
 
 ## 3. Cluster Preparation
@@ -243,7 +274,7 @@ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p
 
 # Increase file descriptor limit (recommended for performance)
-echo fs.file-max=1048576 | sudo tee -a /etc/sysctl.conf
+echo fs.file-max=100000 | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p
 ```
 
@@ -261,26 +292,48 @@ For multi-node clusters with fault tolerance:
 ```bash
 export CLUSTER_NAME="<your-cluster-name>"
 
-# Connect the cluster to Azure Arc
+# Connect the cluster to Azure Arc (with workload identity for secure settings)
 az connectedk8s connect \
   --name $CLUSTER_NAME \
   --resource-group $RESOURCE_GROUP \
-  --location $LOCATION
+  --location $LOCATION \
+  --enable-oidc-issuer \
+  --enable-workload-identity \
+  --disable-auto-upgrade
+
+# Retrieve the custom location object ID
+export CUSTOM_LOC_OID=$(az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv)
 
 # Enable custom locations feature
 az connectedk8s enable-features \
   --name $CLUSTER_NAME \
   --resource-group $RESOURCE_GROUP \
-  --features cluster-connect custom-locations
-
-# Disable auto-upgrade for Arc agents (recommended for production)
-az connectedk8s update \
-  --name $CLUSTER_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --auto-upgrade false
+  --features cluster-connect custom-locations \
+  --custom-locations-oid $CUSTOM_LOC_OID
 
 # Verify cluster is connected
 az connectedk8s show --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --query connectivityStatus
+```
+
+> **Note**: You must use a Microsoft Entra user account (not a service principal) for this step.
+
+#### Configure K3s for Workload Identity
+
+After Arc-enabling, configure K3s to support workload identity federation (required for secret sync):
+
+```bash
+# Get the OIDC issuer URL
+export OIDC_ISSUER=$(az connectedk8s show --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --query oidcIssuerProfile.issuerUrl -o tsv)
+
+# Edit K3s config
+sudo tee -a /etc/rancher/k3s/config.yaml > /dev/null <<EOF
+kube-apiserver-arg:
+  - service-account-issuer=$OIDC_ISSUER
+  - service-account-max-token-expiration=24h
+EOF
+
+# Restart K3s to apply
+sudo systemctl restart k3s
 ```
 
 ### 3.5 Networking and Firewall Configuration
@@ -562,6 +615,8 @@ For AKS deployments with [secure settings](./howto-enable-secure-settings.md), b
 
    > **Critical**: Backend redundancy factor must be **2 or greater** for high availability and rolling upgrade support. Always set at least **2 frontend replicas** on single-node deployments to enable rolling updates.
 
+   > **Warning**: MQTT broker cardinality settings (replicas, workers, partitions) are configured **only at deployment time**. To change these settings later, you must uninstall and redeploy Azure IoT Operations.
+
    - Configure [data flow profile](../connect-to-cloud/howto-configure-dataflow-profile.md) (instance count for scaling)
 
 5. **Dependency management tab**:
@@ -677,6 +732,8 @@ az iot ops get-versions
 ### 8.1 Configure TLS Listeners
 
 After deployment, configure TLS on [broker listeners](../manage-mqtt-broker/howto-configure-brokerlistener.md):
+
+> **Warning**: Do not modify the default broker listener on port 18883. This listener is used for internal Azure IoT Operations communication. Create additional `BrokerListener` resources for external client access instead.
 
 - Use **automatic certificate management** with cert-manager for listeners
 - For external clients, configure a `BrokerListener` with TLS and your preferred service type (NodePort or LoadBalancer)
@@ -795,6 +852,8 @@ Configure [endpoints](../connect-to-cloud/howto-configure-dataflow-endpoint.md) 
 
 [Data flows](../connect-to-cloud/howto-create-dataflow.md) define the pipeline: **Source → Transformation → Destination**
 
+> **Requirement**: Every data flow must include the local MQTT broker default endpoint (`aio-broker`) as either its source or its destination. You cannot connect two custom endpoints directly without the local broker in between.
+
 - **Source**: MQTT broker topics (default), Kafka, or asset data
 - **Transformations**: Filtering, [mapping](../connect-to-cloud/concept-dataflow-mapping.md) (one-to-one, many-to-one), [enrichment](../connect-to-cloud/concept-dataflow-enrich.md) from reference datasets, type conversions
 - **Destination**: Any supported cloud endpoint
@@ -869,6 +928,7 @@ az iot ops support create-bundle
 - [ ] Arc agent auto-upgrade disabled
 - [ ] Firewall/proxy rules configured for Azure IoT Operations endpoints
 - [ ] Multi-node: Edge Volumes configured for fault tolerance
+- [ ] Hardware validated against [baseline resource profiles](./concept-resource-profiles.md) for chosen memory profile
 
 ### Security
 
@@ -948,3 +1008,4 @@ az iot ops support create-bundle
 - Review [Health status reason codes](../reference/health-status-reason-codes.md) for a full reference of diagnostic reason codes.
 - Review [Production deployment guidelines](./concept-production-guidelines.md) for additional best practices.
 - Review [Production deployment examples](./concept-production-examples.md) for validated scaling configurations.
+- Review [Baseline resource profiles](./concept-resource-profiles.md) for measured resource consumption at each memory profile level.

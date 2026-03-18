@@ -134,7 +134,50 @@ The backend chain subfield defines the settings for the backend partitions. The 
 
 When you increase the cardinality values, the broker's capacity to handle more connections and messages generally improves, and it enhances high availability if there are pod or node failures. This increased capacity also leads to higher resource consumption. So when you adjust cardinality values, consider the [memory profile settings](#configure-memory-profile) and broker's [CPU resource requests](#cardinality-and-kubernetes-resource-limits). Increasing the number of workers per frontend replica can help increase CPU core utilization if you discover that frontend CPU utilization is a bottleneck. Increasing the number of backend workers can help with the message throughput if backend CPU utilization is a bottleneck.
 
-For example, if your cluster has three nodes, each with eight CPU cores, then set the number of frontend replicas to match the number of nodes (3) and set the number of workers to 1. Set the number of backend partitions to match the number of nodes (3) and set the backend workers to 1. Set the redundancy factor as desired (2 or 3). Increase the number of frontend workers if you discover that frontend CPU utilization is a bottleneck. Remember that backend and frontend workers might compete for CPU resources with each other and other pods.
+#### Single-node recommendations
+
+- **Frontend replicas**: Set to at least **2** so the broker can perform rolling updates without downtime.
+- **Frontend workers**: Set equal to the **number of CPU cores** on the node.
+
+*Example — single node with 4 CPU cores:*
+
+| Setting | Recommended value |
+|---|---|
+| frontendReplicas | 2 |
+| frontendWorkers | 4 |
+| backendRedundancyFactor | 2 |
+| backendWorkers | 1 |
+| backendPartitions | 1 |
+
+#### Multi-node recommendations
+
+- **Frontend replicas**: Set to **1 per node** to distribute load evenly across the cluster.
+- **Frontend workers**: Set equal to the **number of CPU cores** per node.
+- **Backend replicas (redundancy factor)**: Set to **2** for redundancy and rolling update support.
+- **Backend partitions**: Set equal to the **number of nodes** in the cluster.
+- **Backend workers**: Set to **half the number of CPU cores** per node.
+
+*Example — 3-node cluster, 8 CPU cores per node:*
+
+| Setting | Recommended value |
+|---|---|
+| frontendReplicas | 3 |
+| frontendWorkers | 8 |
+| backendRedundancyFactor | 2 |
+| backendWorkers | 4 |
+| backendPartitions | 3 |
+
+*Example — 5-node cluster, 16 CPU cores per node:*
+
+| Setting | Recommended value |
+|---|---|
+| frontendReplicas | 5 |
+| frontendWorkers | 16 |
+| backendRedundancyFactor | 2 |
+| backendWorkers | 8 |
+| backendPartitions | 5 |
+
+Remember that backend and frontend workers might compete for CPU resources with each other and other pods.
 
 ## Configure memory profile
 
