@@ -33,7 +33,7 @@ Before you begin, make sure you have:
 - A planned maintenance window (for manual migration method)
 
 > [!IMPORTANT]
-> This article applies primarily to Azure Firewall Standard and Premium SKUs. [Azure Firewall Basic SKU](overview.md#azure-firewall-basic) doesn't support direct change to Premium SKU and must be migrated to Standard SKU first before any upgrade to Premium. Downgrading from Azure Firewall Premium or Standard to Basic is supported only through PowerShell or Terraform. Always perform SKU change operations during scheduled maintenance times and test the process thoroughly in a nonproduction environment first.
+> This article applies primarily to Azure Firewall Standard and Premium SKUs. [Azure Firewall Basic SKU](overview.md#azure-firewall-basic) doesn't support SKU changes on an existing firewall. Upgrading from Basic to Premium is supported only as part of a stop/start flow. Upgrading from Basic to Standard isn't supported. Downgrading from Azure Firewall Premium or Standard to Basic is supported only through PowerShell or Terraform. Always perform SKU change operations during scheduled maintenance times and test the process thoroughly in a nonproduction environment first.
 
 ## Easy SKU change method (recommended)
 
@@ -117,7 +117,7 @@ You can also perform SKU changes using:
 The easy SKU change method has the following limitations:
 
 **General limitations:**
-- Doesn't support direct upgrades from [Azure Firewall Basic SKU](overview.md#azure-firewall-basic) - Basic SKU users must migrate to Standard first
+- Doesn't support SKU upgrades from [Azure Firewall Basic SKU](overview.md#azure-firewall-basic) on an existing firewall. Basic to Premium upgrades require stopping and restarting the firewall. Basic to Standard isn't supported.
 - Not available for firewalls with certain complex configurations
 - Limited availability in some regions
 - Requires existing firewall policy (not available for Classic rules)
@@ -131,7 +131,8 @@ If the easy SKU change method isn't available for your scenario, use the manual 
 
 ## Manual migration method
 
-If the easy upgrade method isn't available or suitable for your deployment, you can use the manual migration method. This approach provides more control but requires downtime.
+If the easy upgrade method isn't available or suitable for your deployment, you can use the manual migration method. This approach provides more control but requires downtime. Manual migration doesn’t enable SKU changes from Azure Firewall Basic on an existing firewall.
+
 
 ### When to use manual migration
 

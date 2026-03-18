@@ -1,7 +1,7 @@
 ---
-title: Permissions to buy a savings plan
+title: Permissions to buy an savings plan
 titleSuffix: Microsoft Cost Management
-description: This article provides you with information to understand who can buy a savings plan.
+description: This article provides you with information to understand who can buy an savings plan.
 author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
@@ -11,7 +11,7 @@ ms.date: 01/08/2026
 ms.author: onwokolo
 ---
 
-# Permissions to buy a savings plan
+# Permissions to buy an savings plan
 
 Savings plan discounts only apply to resources associated with subscriptions purchased through an Enterprise Agreement, Microsoft Customer Agreement, or Microsoft Partner Agreement. You can buy a savings plan for an Azure subscription that's of type Enterprise Agreement (MS-AZR-0017P or MS-AZR-0148P), Microsoft Customer Agreement, or Microsoft Partner Agreement. To determine if you're eligible to buy a plan, [check your billing type](../manage/view-all-accounts.md#check-the-type-of-your-account).
 
@@ -39,9 +39,9 @@ Microsoft Customer Agreement (MCA), Billing Profile Owners can restrict savings 
 
 Partners can use **Home** > **Savings plan** in the [Azure portal](https://portal.azure.com/) to purchase savings plans on behalf of their customers.
 
-As of June 2023, partners can purchase a savings plan through the Partner Center. Previously, the savings plan was only supported for purchase through the Azure portal. Partners can now purchase a savings plan through the Partner Center portal or APIs. They can also continue to use the Azure portal.
+As of June 2023, partners can purchase an savings plan through the Partner Center. Previously, the savings plan was only supported for purchase through the Azure portal. Partners can now purchase an savings plan through the Partner Center portal or APIs. They can also continue to use the Azure portal.
 
-To purchase a savings plan by using the Partner Center APIs, see [Purchase savings plans](/partner-center/developer/azure-purchase-savings-plan).
+To purchase an savings plan by using the Partner Center APIs, see [Purchase savings plans](/partner-center/developer/azure-purchase-savings-plan).
 
 ## Need help?
 
