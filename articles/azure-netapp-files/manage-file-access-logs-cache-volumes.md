@@ -74,54 +74,6 @@ The events capture in file access logs depend on the protocol of your volume.
 * Unlink
 * Write
 
-## Supported regions
-
-Availability for file access log is limited to the following regions: 
-
-- Australia Central
-- Australia Central 2
-- Australia East
-- Australia Southeast
-- Brazil South
-- Brazil Southeast 
-- Canada Central
-- Canada East
-- Central India
-- Central US
-- East Asia
-- East US
-- East US 2
-- France Central 
-- Germany North
-- Israel Central 
-- Italy North
-- Japan East
-- Japan West
-- Korea Central
-- Korea South
-- New Zealand North
-- North Europe
-- Norway East
-- Norway West
-- South Africa North
-- South Central US
-- Southeast Asia
-- South India
-- Spain Central
-- Sweden Central
-- Switzerland North
-- Switzerland West
-- UAE Central 
-- UAE North 
-- UK South
-- UK West
-- US Gov Arizona 
-- US Gov Virginia
-- West Europe
-- West US
-- West US 2
-- West US 3
-
 ## Set SACLs or Audit ACEs on files and directories  
 
 You must set SACLs for SMB shares or Audit ACEs for NFSv4.1 exports for auditing. 
