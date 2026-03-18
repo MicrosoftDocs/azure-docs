@@ -43,7 +43,7 @@ spec:
       value: [METADATA-VALUE]
 ```
 
-In Azure Container Apps, this schema is slightly simplified to support Dapr components and remove unnecessary fields, including `apiVersion`, `kind`, and redundant metadata and spec properties.
+In Azure Container Apps, this schema is slightly simplified to support Dapr components. The simplified version removes unnecessary fields, including `apiVersion`, `kind`, and redundant metadata and spec properties.
 
 ```yaml
 componentType: [COMPONENT-TYPE]
@@ -57,7 +57,7 @@ metadata:
 
 ## Component scopes
 
-By default, all Dapr-enabled container apps within the same environment load the full set of deployed components. To ensure only the appropriate container apps load components at runtime, you should use application scopes. In the following example, the component is loaded only by the two Dapr-enabled container apps with Dapr application IDs `APP-ID-1` and `APP-ID-2`.
+By default, all Dapr-enabled container apps in the same environment load the full set of deployed components. To ensure only the appropriate container apps load components at runtime, you should use application scopes. In the following example, the component is loaded only by the two Dapr-enabled container apps with Dapr application IDs `APP-ID-1` and `APP-ID-2`.
 
 ```yaml
 componentType: [COMPONENT-TYPE]
