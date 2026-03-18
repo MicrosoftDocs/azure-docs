@@ -7,7 +7,6 @@ ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 03/19/2026
 ms.author: cshoe
-ms.custom:
 #customer intent: As an application developer using Azure Container Apps, I need to know how to address an image pull failure if one occurs in an app.
 ---
 
