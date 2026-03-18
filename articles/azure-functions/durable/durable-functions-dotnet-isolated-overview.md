@@ -53,23 +53,65 @@ public static class MyFunctions
 }
 ```
 
-#### Class-based example
+#### Class-based example (with input/output)
 
 ```csharp
-[Function(nameof(MyOrchestration))]
-public static async Task<string> MyOrchestration(
-    [OrchestrationTrigger] TaskOrchestrationContext context)
+using Microsoft.DurableTask;
+
+[DurableTask]
+public class MyOrchestration : TaskOrchestrator<string, string>
 {
-    string input = context.GetInput<string>()!;
-    return await context.CallActivityAsync<string>(nameof(MyActivity), input);
+    public override async Task<string> RunAsync(TaskOrchestrationContext context, string input)
+    {
+        return await context.CallActivityAsync<string>(nameof(MyActivity), input);
+    }
 }
 
-[Function(nameof(MyActivity))]
-public static string MyActivity([ActivityTrigger] string input)
+[DurableTask]
+public class MyActivity : TaskActivity<string, string>
 {
-    return $"Processed: {input}";
+    public override Task<string> RunAsync(TaskActivityContext context, string input)
+    {
+        return Task.FromResult($"Processed: {input}");
+    }
 }
 ```
+
+#### Class-based example (no input/output, `ILogger` in activity)
+
+```csharp
+using Microsoft.DurableTask;
+using Microsoft.Extensions.Logging;
+
+[DurableTask]
+public class MaintenanceOrchestration : TaskOrchestrator<object?, object?>
+{
+    public override async Task<object?> RunAsync(TaskOrchestrationContext context, object? input)
+    {
+        await context.CallActivityAsync(nameof(WriteHeartbeatLogActivity), (object?)null);
+        return null;
+    }
+}
+
+[DurableTask]
+public class WriteHeartbeatLogActivity : TaskActivity<object?, object?>
+{
+    private readonly ILogger<WriteHeartbeatLogActivity> _logger;
+
+    public WriteHeartbeatLogActivity(ILogger<WriteHeartbeatLogActivity> logger)
+    {
+        _logger = logger;
+    }
+
+    public override Task<object?> RunAsync(TaskActivityContext context, object? input)
+    {
+        _logger.LogInformation("Heartbeat logged at {Timestamp}.", DateTimeOffset.UtcNow);
+        return Task.FromResult<object?>(null);
+    }
+}
+```
+
+Use `object?` as the generic type argument for class-based orchestrations and activities that don't need functional input or output. This pattern lets you use dependency injection (for example, `ILogger<T>`) in activities while still using the class-based model.
 
 ## Durable entities
 
