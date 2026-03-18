@@ -33,10 +33,10 @@ IP restrictions rules contain the following properties:
 | ipAddressRange | IP address range in CIDR format | The IP address range in CIDR notation. |
 | action | Allow or Deny | The action to take for the rule. |
 
-The `ipAddressRange` parameter accepts IPv4 addresses. Define each IPv4 address block in [Classless Inter-Domain Routing (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.  
+The `ipAddressRange` parameter accepts IPv4 addresses. Define each IPv4 address block in [Classless Inter-Domain Routing (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
 
 > [!NOTE]
-> All rules must be the same type. You cannot combine allow rules and deny rules.
+> All rules must be the same type. You can't combine allow rules and deny rules.
 
 ## Manage IP ingress restrictions
 
@@ -48,7 +48,7 @@ You can manage IP access restrictions rules through the Azure portal or Azure CL
 
 1. Go to your container app in the Azure portal.
 1. Select **Ingress** from the left side menu.
-1. Select the **IP Security Restrictions Mode** toggle to enable IP restrictions.  You can choose to allow or deny traffic from the specified IP address ranges.
+1. Select the **IP Security Restrictions Mode** toggle to enable IP restrictions. You can choose to allow or deny traffic from the specified IP address ranges.
 1. Select **Add** to create the rule.
 
     :::image type="content" source="media/ingress/screenshot-ingress-page-ip-restrictions.png" alt-text="Screenshot of IP restriction settings on container app Ingress page.":::
@@ -63,7 +63,7 @@ You can manage IP access restrictions rules through the Azure portal or Azure CL
   
 1. Select **Add**.
 1. Repeat steps 4-6 to add more rules.
-1. When you have finished adding rules, select **Save**.
+1. When you finish adding rules, select **Save**.
 
 ### Update a rule
 
@@ -85,7 +85,7 @@ You can manage IP access restrictions rules through the Azure portal or Azure CL
 
 ::: zone pivot="azure-cli"
 
-You can manage IP Access Restrictions using the `az containerapp ingress access-restriction` command group.  This command group has the options to:
+You can manage IP Access Restrictions using the `az containerapp ingress access-restriction` command group. This command group has the options to:
 
 - `set`: Create or update a rule.
 - `remove`: Delete a rule.
@@ -93,7 +93,7 @@ You can manage IP Access Restrictions using the `az containerapp ingress access-
 
 ### Create or update rules
 
-You can create or update IP restrictions using the `az containerapp ingress access-restriction set` command.  
+You can create or update IP restrictions using the `az containerapp ingress access-restriction set` command.
 
 The `az containerapp ingress access-restriction set` command group uses the following parameters.
 
@@ -110,7 +110,7 @@ Add more rules by repeating the command with a different `--rule-name` and -`--i
 
 #### Create allow rules
 
-The following example `az containerapp access-restriction set` command creates a rule to restrict inbound access to an IP address range.  You must delete any existing deny rules before you can add any allow rules.
+The following example `az containerapp access-restriction set` command creates a rule to restrict inbound access to an IP address range. You must delete any existing deny rules before you can add any allow rules.
 
 Replace the values in the following example with your own values.
 
@@ -128,7 +128,7 @@ You can add to the allow rules by repeating the command with a different `--ip-a
 
 #### Create deny rules
 
-The following example of the `az containerapp access-restriction set` command creates an access rule to deny inbound traffic from a specified IP range.  You must delete any existing allow rules before you can add deny rules.
+The following example of the `az containerapp access-restriction set` command creates an access rule to deny inbound traffic from a specified IP range. You must delete any existing allow rules before you can add deny rules.
 
 Replace the placeholders in the following example with your own values.
 
@@ -142,14 +142,13 @@ az containerapp ingress access-restriction set \
   --action Deny
 ```
 
-You can add to the deny rules by repeating the command with a different `--ip-address` and `--rule-name` values.  If you use a rule name that already exists, the existing rule is updated.
+You can add to the deny rules by repeating the command with a different `--ip-address` and `--rule-name` values. If you use a rule name that already exists, the existing rule is updated.
 
 ### Update a rule
 
-You can update a rule using the `az containerapp ingress access-restriction set` command.  You can change the IP address range and the rule description, but not the rule name or action.
+You can update a rule using the `az containerapp ingress access-restriction set` command. You can change the IP address range and the rule description, but not the rule name or action.
 
-The `--action` parameter is required, but you can't change the action from Allow to Deny or vice versa.  
-If you omit the `---description` parameter, the description is deleted.
+The `--action` parameter is required, but you can't change the action from Allow to Deny or vice versa. If you omit the `---description` parameter, the description is deleted.
 
 The following example updates the ip address range.
 
@@ -192,7 +191,7 @@ Use the following information to help you troubleshoot IP-related issues in your
 
 ### Access denied
 
-An *RBAC: Access Denied* message returned to the client indicates the client is blocked by IP restrictions from the container app. To fix this, make sure the client IP address requesting access is allowed based on either the "allow" or "deny" rules.
+An *RBAC: Access Denied* message returned to the client indicates the client is blocked by IP restrictions from the container app. To fix this issue, make sure the client IP address requesting access is allowed based on either the "allow" or "deny" rules.
 
 If using an address range, make sure the blocked IP falls within an allowed range.
 
