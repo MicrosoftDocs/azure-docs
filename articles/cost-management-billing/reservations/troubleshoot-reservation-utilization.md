@@ -7,7 +7,7 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: primittal
 ms.topic: troubleshooting
-ms.date: 05/14/2024
+ms.date: 03/19/2026
 ---
 
 # Troubleshoot reservation utilization
