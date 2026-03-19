@@ -270,7 +270,7 @@
       href: /security/benchmark/azure/baselines/functions-security-baseline?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
   - name: Reliability
     items:
-    - name: Availability zones and disaster recovery
+    - name: Reliability in Azure Functions
       displayName: availability zones, high-availability, zone redundancy, disaster recovery
       href: /azure/reliability/reliability-functions?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
     - name: Zone redundancy

@@ -6,7 +6,7 @@ author: jinglouMSFT
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 03/17/2026
 ms.author: jinglou
 ms.reviewer: cralvord,richardgao
 # Customer intent: "As a cloud storage user, I want to understand the support lifecycle and update policy for my storage management tool, so that I can ensure I am using a supported version with the latest features and security enhancements."
@@ -38,10 +38,13 @@ This table describes the release date and the end of support date for each relea
 
 | Storage Explorer version | Release date       | End of support date |
 |:------------------------:|:------------------:|:-------------------:|
+| 1.42.0                   | March 17, 2026     | March 17, 2027      |
+| 1.41.1                   | February 17, 2026  | February 2, 2027    |
+| 1.41.0                   | February 2, 2026   | February 2, 2027    |
 | 1.40.2                   | November 3, 2025   | November 3, 2026    |
 | 1.40.0                   | September 25, 2025 | September 25, 2026  |
 | 1.39.1                   | July 15, 2025      | July 15, 2026       |
-| 1.39.0                   | June 25, 2025      | June 25, 2026        |
+| 1.39.0                   | June 25, 2025      | June 25, 2026       |
 | 1.38.0                   | April 14, 2025     | April 14, 2026      |
 | 1.37.0                   | January 6, 2025    | January 6, 2026     |
 | 1.36.2                   | October 29, 2024   | October 14, 2025    |
@@ -49,19 +52,4 @@ This table describes the release date and the end of support date for each relea
 | 1.36.0                   | October 14, 2024   | October 14, 2025    |
 | 1.35.0                   | August 19, 2024    | August 19, 2025     |
 | 1.34.0                   | May 24, 2024       | May 24, 2025        |
-| 1.33.0                   | March 1, 2024      | March 1, 2025       |
-| 1.32.1                   | November 15, 2023  | November 1, 2024    |
-| 1.32.0                   | November 1, 2023   | November 1, 2024    |
-| 1.31.2                   | October 3, 2023    | August 11, 2024     |
-| 1.31.1                   | August 22, 2023    | August 11, 2024     |
-| 1.31.0                   | August 11, 2023    | August 11, 2024     |
-| 1.30.2                   | July 21, 2023      | July 21, 2024       |
-| 1.30.1                   | July 13, 2023      | July 13, 2024       |
-| 1.30.0                   | June 12, 2023      | June 12, 2024       |
-| 1.29.3                   | October 6, 2023    | May 24, 2024        |
-| 1.29.2                   | May 24, 2023       | May 24, 2024        |
-| 1.29.1                   | May 10, 2022       | May 10, 2024        |
-| 1.29.0                   | April 28, 2023     | April 28, 2024      |
-| 1.28.1                   | March 9, 2023      | March 9, 2024       |
-| 1.28.0                   | February 14, 2023  | February 14, 2024   |
-| 1.27.2 (and older)       | January 24, 2023   | January 24, 2024    |
+| 1.33.0 (and older)       | March 1, 2024      | March 1, 2025       |

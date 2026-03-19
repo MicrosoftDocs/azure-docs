@@ -385,8 +385,8 @@ For the legacy cloning script, version 1.0.11 is the new version of the migratio
 ### Public IP retention script
 
 After you successfully migrate the configuration and thoroughly test your new V2 gateway, this step focuses on redirecting live traffic.
-
-We provide an Azure PowerShell script that *retains the public IP address from V1*. Here are important considerations for the script:
+> [!NOTE]
+> The IP migration script does not support public IP address resources that have name beginning with a numeric character. 
 
 - The script reserves the Basic public IP from V1, converts it to Standard, and attaches it to the V2 gateway. This action effectively redirects all incoming traffic to the V2 gateway.
 - This IP swap operation typically results in a brief *downtime of approximately one to five minutes*. Plan accordingly.

@@ -25,7 +25,7 @@ ms.custom:
 
 # Tutorial: Deploy a Node.js + MongoDB web app to Azure
 
-This tutorial shows how to create a secure Node.js app in [Azure App Service](overview.md) that's connected to an [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction) database. Azure App Service provides a highly scalable, self-patching web hosting service using the Linux operating system. When you're finished, you have an Express.js app running on Azure App Service on Linux.
+This tutorial shows how to create a secure Node.js app in [Azure App Service](overview.md) that's connected to an [Azure DocumentDB](https://learn.microsoft.com/azure/documentdb/) database. Azure App Service provides a highly scalable, self-patching web hosting service using the Linux operating system. When you're finished, you have an Express.js app running on Azure App Service on Linux.
 
 :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-browse-app-2.png" alt-text="Screenshot of Node.js application storing data in Cosmos DB.":::
 
@@ -125,7 +125,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## Create App Service and Azure Cosmos DB
 
-In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Cosmos DB for MongoDB. For the creation process, you specify:
+In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure DocumentDB. For the creation process, you specify:
 
 - The **Name** for the web app. It's part of the DNS name for your app.
 - The **Region** to run the app physically in the world. It's also part of the DNS name for your app.
@@ -171,7 +171,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         - **Virtual network** &rarr; Integrated with the App Service app and isolates back-end network traffic.
         - **Private endpoint** &rarr; Access endpoint for the database resource in the virtual network.
         - **Network interface** &rarr; Represents a private IP address for the private endpoint.
-        - **Azure Cosmos DB for MongoDB** &rarr; Accessible only from behind the private endpoint. A database and a user are created for you on the server.
+        - **Azure DocumentDB** &rarr; Accessible only from behind the private endpoint. A database and a user are created for you on the server.
         - **Private DNS zone** &rarr; Enables DNS resolution of the Azure Cosmos DB server in the virtual network.
         
     :::column-end:::
