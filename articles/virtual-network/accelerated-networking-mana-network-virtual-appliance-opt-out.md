@@ -58,7 +58,7 @@ The tag will be usable until the end of September 2026. After this time, the sys
 
 ### What support is available to help apply this tag on my applicable resources?
 
-To apply this tag across applicable resources at scale, you can apply a built-in Azure Policy definition: **Adds a tag to Network Virtual Appliances (NVAs) VMs and Virtual Machine Scale Sets for MANA support**.
+To apply this tag across applicable resources at scale, you can [apply a built-in Azure Policy definition](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe87a87f5-e6dd-4919-be21-abb0a4ea4630/version/1.0.0/scopes~/%5B%22%2Fsubscriptions%2F12015272-f077-4945-81de-a5f607d067e1%22%2C%22%2Fsubscriptions%2F0ba674a6-9fde-43b4-8370-a7e16fdf0641%22%5D/contextRender~/false).
 
 Like any other Azure Policy assignment, it can be applied at the following scope levels to cover applicable resources underneath it:
 
