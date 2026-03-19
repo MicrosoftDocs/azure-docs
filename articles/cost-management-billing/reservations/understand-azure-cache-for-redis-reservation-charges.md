@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: azure-cache-redis
 ms.topic: conceptual
-ms.date: 05/14/2024
+ms.date: 03/19/2026
 
 ---
 
