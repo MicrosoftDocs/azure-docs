@@ -149,7 +149,7 @@ Every ExpressRoute Direct instance consists of two physical ports. You can activ
 
     MACsec is now enabled on the ExpressRoute Direct ports on Microsoft side. If you didn't configure it on your edge devices, you can proceed to configure them with the same MACsec secrets and cipher.
 
-1. (Optional) To activate the ports that are in Administrative Down state, run the following commands:
+1. (Required for on-premises Cisco devices) Enable Secure Channel Identifier (SCI) on the ExpressRoute Direct ports. This setting is required when your on-premises device is a Cisco router connecting to the Azure Juniper MSEE. Without SCI enabled, traffic fails between both sides.
 
     ```azurepowershell-interactive
     $erDirect = Get-AzExpressRoutePort -ResourceGroupName "your_resource_group" -Name "your_direct_port_name"
@@ -159,6 +159,9 @@ Every ExpressRoute Direct instance consists of two physical ports. You can activ
     ```
     
     SCI is now enabled on the ExpressRoute Direct ports.
+
+    > [!IMPORTANT]
+    > MACsec on ExpressRoute Direct is only supported on Juniper MSEE devices. If your ExpressRoute Direct resource is on a Cisco MSEE, you need to recreate the ExpressRoute Direct resource to land on a Juniper device. To verify your MSEE device type, check the ExpressRoute Direct resource in the Azure portal.
     
 ### How to disable MACsec
 

@@ -24,6 +24,9 @@ This article gives you an overview of orchestrator functions and how they can he
 
 For information about the types of functions available in a Durable Functions app, see [Durable Task programming model](programming-model-overview.md).
 
+> [!TIP]
+> If you use C# with the .NET isolated worker model, you can write orchestrations using either a **function-based** approach (static methods with `[Function]` attributes) or a **class-based** approach (classes that inherit from `TaskOrchestrator<TInput, TOutput>`). The class-based approach requires the [Microsoft.DurableTask.Generators](https://www.nuget.org/packages/Microsoft.DurableTask.Generators) source generator package and provides strongly typed invocations. For more information, see [Class-based activities and orchestrations](durable-functions-dotnet-isolated-overview.md#source-generator-and-class-based-activities-and-orchestrations). The C# code examples in this article show both approaches.
+
 ::: zone-end
 
 ::: zone pivot="durable-task-sdks"
@@ -109,6 +112,36 @@ public static async Task<List<string>> Run(
 
     // Return ["Hello Tokyo!", "Hello Seattle!", "Hello London!"].
     return outputs;
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>Class-based model (isolated worker)</b></summary>
+
+The class-based approach uses a source generator and requires the [Microsoft.DurableTask.Generators](https://www.nuget.org/packages/Microsoft.DurableTask.Generators) NuGet package.
+
+```csharp
+using Microsoft.DurableTask;
+
+[DurableTask]
+public class HelloCities : TaskOrchestrator<object?, List<string>>
+{
+    public override async Task<List<string>> RunAsync(
+        TaskOrchestrationContext context, object? input)
+    {
+        var outputs = new List<string>();
+
+        outputs.Add(await context.CallActivityAsync<string>("SayHello", "Tokyo"));
+        outputs.Add(await context.CallActivityAsync<string>("SayHello", "Seattle"));
+        outputs.Add(await context.CallActivityAsync<string>("SayHello", "London"));
+
+        // Return ["Hello Tokyo!", "Hello Seattle!", "Hello London!"].
+        return outputs;
+    }
 }
 ```
 

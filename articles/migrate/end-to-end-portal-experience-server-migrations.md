@@ -34,7 +34,7 @@ Before you begin, ensure the following:
     - [Discover physical servers and servers running in AWS and GCP](tutorial-discover-physical.md)
 
     >[!NOTE]
-    > Use the link on the Migrations page by navigating to **Execute** > **Migrations** in your Azure Migrate Project to switch to the classic portal for discovery and execution of agent-based and Hyper-V migrations using the replication appliance without the Azure Migrate appliance. These servers will not be visible for tracking in the end-to-end portal experience. We recommend starting discovery with the Azure Migrate appliance to take advantage of the benefits of the end-to-end portal experience. 
+    > Migrations using other tools (agent-based replication appliance, Hyper-V replication provider) without installing Azure Migrate appliance (VMWare, Hyper-V, Physical) is not supported in the new end-to-end experience. Navigate to Azure Migrate Project>Execute>Migrations and switch to the old classic portal for these scenarios. 
 
 ## Execute migrations using the end-to-end portal
 

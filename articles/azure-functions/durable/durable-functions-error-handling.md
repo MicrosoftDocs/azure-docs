@@ -83,6 +83,9 @@ public static async Task Run(
 > - The exception message typically identifies which activity functions or sub-orchestrations caused the failure. To access more detailed error information, inspect the [`FailureDetails`](/dotnet/api/microsoft.durabletask.taskfailuredetails) property.  
 > - By default, `FailureDetails` includes the **error type**, **error message**, **stack trace**, and any **nested inner exceptions** (each represented as a recursive `FailureDetails` object). To include additional exception properties in the failure output, see [Include Custom Exception Properties for FailureDetails (.NET Isolated)](#include-custom-exception-properties-for-failuredetails-net-isolated).  
 
+> [!IMPORTANT]
+> **Migration note (in-process to isolated):** In the in-process model, `FunctionFailedException.InnerException` contains the original exception object thrown by the activity, which you can cast and inspect directly. In the isolated worker model, `TaskFailedException` does **not** contain the original exception as an `InnerException`. Instead, error details are available only through the [`FailureDetails`](/dotnet/api/microsoft.durabletask.taskfailuredetails) property, which provides string-based properties (`ErrorType`, `ErrorMessage`, `StackTrace`). You can't cast or access the original exception object directly. Use [`FailureDetails.IsCausedBy<T>()`](/dotnet/api/microsoft.durabletask.taskfailuredetails.iscausedby) to check the original exception type.
+
 </details>
 <br>
 <details>
@@ -437,6 +440,102 @@ If the **CreditAccount** activity fails, the orchestrator catches the exception 
 ::: zone-end
 
 ::: zone pivot="durable-functions"
+
+## Errors with multiple activity calls (fan-out/fan-in)
+
+# [C#](#tab/csharp)
+
+When you use `Task.WhenAll` to run multiple activity calls in parallel (fan-out/fan-in pattern) and one or more activities fail, `await` throws only the first exception. To access all failures, inspect the `Exception` property on the `Task` returned by `Task.WhenAll`.
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+var tasks = new[]
+{
+    context.CallActivityAsync("Activity1", input1),
+    context.CallActivityAsync("Activity2", input2),
+    context.CallActivityAsync("Activity3", input3),
+};
+
+var allTask = Task.WhenAll(tasks);
+try
+{
+    await allTask;
+}
+catch (TaskFailedException)
+{
+    // 'await' rethrows only the first exception. To inspect all failures,
+    // check allTask.Exception, which is an AggregateException.
+    if (allTask.Exception != null)
+    {
+        foreach (var inner in allTask.Exception.InnerExceptions)
+        {
+            if (inner is TaskFailedException taskFailed)
+            {
+                // Use taskFailed.FailureDetails to inspect error details
+                var errorType = taskFailed.FailureDetails.ErrorType;
+                var errorMessage = taskFailed.FailureDetails.ErrorMessage;
+            }
+        }
+    }
+}
+```
+
+</details>
+<br>
+<details>
+<summary><b>In-process model</b></summary>
+
+```csharp
+var tasks = new[]
+{
+    context.CallActivityAsync("Activity1", input1),
+    context.CallActivityAsync("Activity2", input2),
+    context.CallActivityAsync("Activity3", input3),
+};
+
+var allTask = Task.WhenAll(tasks);
+try
+{
+    await allTask;
+}
+catch (FunctionFailedException)
+{
+    // 'await' rethrows only the first exception. To inspect all failures,
+    // check allTask.Exception, which is an AggregateException.
+    if (allTask.Exception != null)
+    {
+        foreach (var inner in allTask.Exception.InnerExceptions)
+        {
+            if (inner is FunctionFailedException funcFailed)
+            {
+                // Use funcFailed.InnerException to access the original exception
+            }
+        }
+    }
+}
+```
+
+</details>
+
+# [JavaScript](#tab/javascript)
+
+In JavaScript, when you use `context.df.Task.all` to run multiple activity calls in parallel, the first failure causes the task to complete with an error. Wrap the call in a try/catch block to handle the error.
+
+# [Python](#tab/python)
+
+In Python, when you use `context.task_all` to run multiple activity calls in parallel, the first failure causes the task to complete with an error. Wrap the call in a try/except block to handle the error.
+
+# [PowerShell](#tab/powershell)
+
+In PowerShell, use `Wait-DurableTask` with multiple tasks. If any task fails, the error is raised.
+
+# [Java](#tab/java)
+
+In Java, when you use `ctx.allOf` to run multiple activity calls in parallel, the first failure causes the task to complete with an error. Use a try/catch block to handle the error.
+
+---
 
 ## Errors in entity functions
 Exception handling in entity functions depends on the Durable Functions hosting model:
@@ -1229,7 +1328,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     activity_task = context.call_activity('FlakyFunction')
     timeout_task = context.create_timer(deadline)
 
-    winner = yield context.task_any(activity_task, timeout_task)
+    winner = yield context.task_any([activity_task, timeout_task])
     if winner == activity_task:
         timeout_task.cancel()
         return True

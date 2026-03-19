@@ -4,7 +4,7 @@ description: Move Microsoft Sentinel operations from the Azure portal to the Mic
 author: guywi-ms
 ms.author: guywild
 ms.topic: how-to #Required; leave this attribute/value as-is
-ms.date: 02/09/2026
+ms.date: 03/17/2026
 ms.collection: usx-security
 
 #Customer intent: As a security operations team member, I want to understand the process involved in moving our Microsoft Sentinel experience from the Azure portal to the Defender portal so that I can benefit from unified security operations across my entire environment.
@@ -44,6 +44,8 @@ Before you start, note:
 Review all planning guidance and finish all prerequisites before you onboard your workspace to the Defender portal. For more information, see the following articles:
 
 - [**Plan for unified security operations in the Defender portal**](/unified-secops-platform/overview-plan). After onboarding to the Defender portal, the **[Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles/security#microsoft-sentinel-contributor)** role is assigned to the **Microsoft Threat Protection** and **WindowsDefenderATP** apps in your subscription.
+
+- [**Manage Microsoft Sentinel and Defender XDR permissions in the Defender portal**](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/managing-microsoft-sentinel-and-microsoft-defender-xdr-permissions-in-microsoft-/4480583). This blog post explains how Microsoft Sentinel and Defender XDR permissions work in the unified Defender portal, what to expect as you transition, as well as an introduction to the new unified role-based access control (URBAC). To read more about URBAC, see [Map Microsoft Defender XDR unified RBAC permissions to existing RBAC permissions](/defender-xdr/compare-rbac-roles#map-microsoft-defender-xdr-unified-rbac-permissions-to-existing-rbac-permissions).
 
 - [**Deploy for unified security operations in the Defender portal**](/unified-secops-platform/overview-deploy). While this article is for new customers who don't yet have a workspace for Microsoft Sentinel or other services onboarded to the Defender portal, use it as a reference if you're moving to the Defender portal.
 

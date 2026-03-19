@@ -96,7 +96,7 @@ While this tool automatically polls for a few minutes until results are ready, i
 
 #### Additional information
 - `analyze_user_entity` supports a maximum time window of seven days to maximize accuracy of the results. 
-- `analyze_user_entity` only works for users with a Microsoft Entra object ID (cloud users). On-premises Active Directory-only users aren't supported for user analysis.
+- `analyze_user_entity` only works for users with a Microsoft Entra object ID (users). On-premises Active Directory-only users aren't supported for user analysis.
 - `analyze_user_entity` requires the following tables to be present in the data lake to ensure accuracy of the analysis:
     - [AlertEvidence](../connect-microsoft-365-defender.md)
     - [SigninLogs](../connect-azure-active-directory.md)

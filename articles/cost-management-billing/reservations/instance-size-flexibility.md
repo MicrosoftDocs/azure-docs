@@ -85,6 +85,82 @@ The ISF ratio information is found in the API response within each catalog item'
 - `ReservationsAutofitGroup` - Contains the flexibility group name
 - `ReservationsAutofitRatio` - Contains the ratio value for that SKU
 
+ ## Normalize ISF ratios
+
+The raw ISF ratios from the API and powershell don't always start at `1` for the smallest SKU in a group. For example, the `BS Series` group starts at `0.25` and the `Ddsv5 Series` starts at `2`. To make ratios easier to compare, you can normalize them so the smallest SKU in each flexibility group has a ratio of `1`.
+
+```powershell
+# Function to normalize ISF ratios so the smallest SKU in each group = 1
+function Get-NormalizedISFRatios {
+    param(
+        [Parameter(Mandatory=$true)]
+        [PSCustomObject[]]$ISFData
+    )
+
+    $NormalizedData = @()
+    $groups = $ISFData | Group-Object InstanceSizeFlexibilityGroup
+
+    foreach ($group in $groups) {
+        # Find the minimum ratio in the group
+        $minRatio = ($group.Group | ForEach-Object { [double]$_.Ratio } | Measure-Object -Minimum).Minimum
+
+        foreach ($item in $group.Group) {
+            $NormalizedData += [PSCustomObject]@{
+                InstanceSizeFlexibilityGroup = $item.InstanceSizeFlexibilityGroup
+                ArmSkuName                   = $item.ArmSkuName
+                Ratio                        = [math]::Round([double]$item.Ratio / $minRatio, 4)
+            }
+        }
+    }
+
+    return $NormalizedData
+}
+
+# Normalize the extracted ISF data
+$NormalizedRatios = Get-NormalizedISFRatios -ISFData $ISFRatios
+
+# Export to CSV
+$NormalizedRatios | Export-Csv -Path "isf-ratios-normalized.csv" -NoTypeInformation
+
+# Display sample results
+$NormalizedRatios | Select-Object -First 10 | Format-Table
+```
+
+#### Example: before and after normalization
+
+**BS Series**
+
+| ArmSkuName | Original Ratio | Normalized Ratio |
+|---|---|---|
+| Standard\_B1ls | 0.25 | 1 |
+| Standard\_B1s | 0.5 | 2 |
+| Standard\_B2s | 2 | 8 |
+
+**Ddsv5 Series**
+
+| ArmSkuName | Original Ratio | Normalized Ratio |
+|---|---|---|
+| Standard\_D2ds\_v5 | 2 | 1 |
+| Standard\_D4ds\_v5 | 4 | 2 |
+| Standard\_D8ds\_v5 | 8 | 4 |
+| Standard\_D16ds\_v5 | 16 | 8 |
+| Standard\_D32ds\_v5 | 32 | 16 |
+| Standard\_D48ds\_v5 | 48 | 24 |
+| Standard\_D64ds\_v5 | 64 | 32 |
+| Standard\_D96ds\_v5 | 96 | 48 |
+
+#### Normalized CSV file structure
+
+| Column | Description |
+|---|---|
+| `InstanceSizeFlexibilityGroup` | The flexibility group name |
+| `ArmSkuName` | The Azure Resource Manager SKU name |
+| `Ratio` | The normalized ratio (smallest SKU in each group = 1) |
+
+> [!NOTE]
+> After normalization, the ratios remain proportional within each group. A normalized ratio of 2 means the SKU consumes twice the reservation units of the smallest SKU in that group.
+ 
+
 ## Using PowerShell
 
 ### Install required module
