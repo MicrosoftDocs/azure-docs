@@ -205,6 +205,15 @@ Many customers want to use persistence to take periodic backups of the data on t
 
 The E1 SKU is intended for dev/test scenarios, primarily. E1 runs on smaller [burstable VMs](/azure/virtual-machines/b-series-cpu-credit-model/b-series-cpu-credit-model). Burstable VMs offer variable performance based on how much CPU is consumed. Unlike other Enterprise SKU offerings, you can't _scale out_ the E1 SKU, although it's still possible to _scale up_ to a larger SKU. The E1 SKU also doesn't support [active geo-replication](cache-how-to-active-geo-replication.md).
 
+## Memory management
+
+For guidance on understanding memory usage, capacity planning, and eviction policies, see [Memory management for Azure Managed Redis](/azure/redis/best-practices-memory-management). Key points for Enterprise tier caches:
+
+- The **Used Memory** metric includes memory from both primary and replica shards when High Availability is enabled, which can make the value appear twice as large as the actual dataset.
+- Each key has internal metadata overhead beyond the raw value size. For workloads with many small keys, this overhead can be significant.
+- Use the Redis `MEMORY USAGE` command to check the exact per-key memory cost.
+
 ## Related content
 
+- [Memory management for Azure Managed Redis](/azure/redis/best-practices-memory-management)
 - [Development](cache-best-practices-development.md)

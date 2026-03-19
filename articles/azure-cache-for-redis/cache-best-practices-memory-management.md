@@ -59,6 +59,8 @@ Eviction can increase server load and memory fragmentation. For more information
 
 - [Memory policies](cache-configure.md#memory-policies)
 - [Troubleshoot high memory usage](cache-troubleshoot-timeouts.md#high-memory-usage)
+- [Best practices for Enterprise tiers](cache-best-practices-enterprise-tiers.md)
+- [Memory management for Azure Managed Redis](/azure/redis/best-practices-memory-management)
 - [Best practices for scaling](cache-best-practices-scale.md)
 - [Best practices for development](cache-best-practices-development.md)
 - [Azure Cache for Redis development FAQs](cache-development-faq.yml)
