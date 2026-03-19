@@ -7,7 +7,7 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: bshy
 ms.topic: troubleshooting
-ms.date: 11/17/2023
+ms.date: 03/19/2026
 ---
 
 # Change an Azure reservation directory between tenants
