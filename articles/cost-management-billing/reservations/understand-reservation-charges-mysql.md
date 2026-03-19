@@ -6,7 +6,7 @@ ms.author: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 01/15/2026
+ms.date: 03/19/2026
 ---
 
 # How a reservation discount is applied to Azure Database for MySQL

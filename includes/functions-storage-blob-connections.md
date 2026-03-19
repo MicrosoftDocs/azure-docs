@@ -46,6 +46,31 @@ The `serviceUri` form  can't be used when the overall connection configuration i
 
 Other properties may be set to customize the connection. See [Common properties for identity-based connections](../articles/azure-functions/functions-reference.md#common-properties-for-identity-based-connections).
 
+#### User-assigned managed identity
+
+To use a user-assigned managed identity, add the `credential` and `clientId` properties in addition to the service URI:
+
+| Property                  | Environment variable template                       | Description                                | Example value |
+|---------------------------|-----------------------------------------------------|--------------------------------------------|---------|
+| Blob Service URI | `<CONNECTION_NAME_PREFIX>__blobServiceUri` | The data plane URI of the blob service. | `https://mystorageaccount.blob.core.windows.net` |
+| Queue Service URI | `<CONNECTION_NAME_PREFIX>__queueServiceUri` | The data plane URI of the queue service (required for blob triggers). | `https://mystorageaccount.queue.core.windows.net` |
+| Credential | `<CONNECTION_NAME_PREFIX>__credential` | Must be set to `managedidentity`. | `managedidentity` |
+| Client ID | `<CONNECTION_NAME_PREFIX>__clientId` | The client ID of the user-assigned managed identity. | `00000000-0000-0000-0000-000000000000` |
+
+For example, if your binding configuration specifies `connection = "BlobStorageConnection"`, you would configure the following application settings:
+
+```json
+{
+    "BlobStorageConnection__blobServiceUri": "https://mystorageaccount.blob.core.windows.net",
+    "BlobStorageConnection__queueServiceUri": "https://mystorageaccount.queue.core.windows.net",
+    "BlobStorageConnection__credential": "managedidentity",
+    "BlobStorageConnection__clientId": "00000000-0000-0000-0000-000000000000"
+}
+```
+
+> [!TIP]
+> User-assigned managed identities are recommended for production scenarios where you need fine-grained control over identity permissions across multiple resources.
+
 [!INCLUDE [functions-identity-based-connections-configuration](./functions-identity-based-connections-configuration.md)]
 
 [!INCLUDE [functions-blob-permissions](./functions-blob-permissions.md)]
