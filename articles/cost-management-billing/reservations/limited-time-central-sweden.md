@@ -6,7 +6,7 @@ ms.reviewer: kyleikeda
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 03/01/2024
+ms.date: 03/19/2026
 ms.author: banders
 ms.custom: references_regions, linux-related-content
 ---
