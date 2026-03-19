@@ -69,7 +69,7 @@ Example of selecting a dimension to split an alert.
 
 :::image type="content" source="media/observability/metrics-alert-split-by-dimension.png" alt-text="Screenshot of the metrics explorer alert rule editor example that shows the Split by dimensions options in the Configure signal logic pane.":::
 
- To learn more about configuring alerts, see [Create a metric alert for an Azure resource](/azure/azure-monitor/alerts/tutorial-metric-alert).
+To learn more about configuring alerts, see [Create a metric alert for an Azure resource](/azure/azure-monitor/alerts/tutorial-metric-alert).
 
 ## Create log alert rules
 
@@ -94,7 +94,7 @@ To create an alert rule:
 
    :::image type="content" source="media/observability/log-alerts-splitting.png" alt-text="Screenshot of the Create an alert rule Split by dimensions section":::
 
-1. Enter the threshold criteria in the**Alert logic** section.
+1. Enter the threshold criteria in the **Alert logic** section.
 
    :::image type="content" source="media/observability/log-alert-alert-logic.png" alt-text="Screenshot of the Create an alert rule Alert logic section.":::
 
