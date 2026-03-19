@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 05/07/2024
+ms.date: 03/19/2026
 ms.author: banders
 ---
 
