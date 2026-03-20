@@ -67,7 +67,7 @@ You can receive individual alerts for specific revisions or replicas by enabling
 
 Example of selecting a dimension to split an alert.
 
-:::image type="content" source="media/observability/metrics-alert-split-by-dimension.png" alt-text="Screenshot of the metrics explorer alert rule editor example that shows the Split by dimensions options in the Configure signal logic pane.":::
+:::image type="content" source="media/observability/metrics-alert-split-by-dimension.png" alt-text="Screenshot of the metrics explorer alert rule editor example that shows the Split by dimensions options in the Configure signal logic pane." lightbox="media/observability/metrics-alert-split-by-dimension.png":::
 
 To learn more about configuring alerts, see [Create a metric alert for an Azure resource](/azure/azure-monitor/alerts/tutorial-metric-alert).
 
@@ -84,7 +84,7 @@ To create an alert rule:
 
 1. The **Create an alert rule** editor opens to the **Condition** tab, which is populated with your log query.
 
-   :::image type="content" source="media/observability/log-alerts-rule-editor.png" alt-text="Screenshot of the Log Analytics alert rule editor.":::
+   :::image type="content" source="media/observability/log-alerts-rule-editor.png" alt-text="Screenshot of the Log Analytics alert rule editor." lightbox="media/observability/log-alerts-rule-editor.png":::
 
 1. Configure the settings in the **Measurement** section
 
@@ -101,7 +101,7 @@ To create an alert rule:
 1. Select the **Details** tab.
 1. Enter a name and description for the alert rule.
 
-:::image type="content" source="media/observability/screenshot-alert-details-dialog.png" alt-text="Screenshot of the alert details configuration page.":::
+   :::image type="content" source="media/observability/screenshot-alert-details-dialog.png" alt-text="Screenshot of the alert details configuration page.":::
 
 1. Select **Review + create**.
 1. Select **Create**.
