@@ -2,7 +2,7 @@
 title: Change directory tenants with your individual Visual Studio Subscription Azure subscriptions
 description: Change directory tenants with your Azure subscriptions.
 ms.author: amast
-author: jose-rdc
+author: joseb-rdc
 ms.service: visual-studio-family
 ms.subservice: subscriptions
 ms.topic: how-to 
@@ -59,4 +59,4 @@ To change the Entra Directory of your Azure subscription, you need to complete t
 1. To initiate a change directory request, you need to be a subscription owner of the subscription in the source directory.
 2. To accept a change directory request, you or another party need to be an Entra admin in the destination directory.
 
-This process requires coordination between the source and destination directories. For the complete workflow—including prerequisites, role requirements, and approval steps—visit [How to change the Entra directory of your Azure subscription]( https://learn.microsoft.com/azure/cost-management-billing/manage/subscription-change-directory).
+This process requires coordination between the source and destination directories. For the complete workflow—including prerequisites, role requirements, and approval steps—visit [How to change the Entra directory of your Azure subscription](/azure/cost-management-billing/manage/subscription-change-director).
