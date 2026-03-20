@@ -35,7 +35,7 @@ The `azure-servicebus-jms` library is available in two variants to support both 
     <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-servicebus-jms</artifactId>
-      <version>2.0.0</version>
+      <version>2.1.0</version>
     </dependency>
     ```
 
@@ -90,7 +90,7 @@ To utilize all the features available in the premium tier, add the **azure-servi
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-servicebus-jms</artifactId>
-  <version>2.0.0</version>
+  <version>2.1.0</version>
 </dependency>
 ```
 
