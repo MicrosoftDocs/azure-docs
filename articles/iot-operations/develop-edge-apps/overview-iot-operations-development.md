@@ -32,7 +32,7 @@ You can develop custom solutions to address various scenarios with Azure IoT Ope
     - [State store support for WASM operators](howto-build-wasm-modules-vscode.md#state-store-support-for-wasm-operators)
 
 - Build highly available applications that programmatically interact with the MQTT broker for reliable communication with Azure IoT Operations services. For example, the OPC UA connector enables you to control connected OPC UA servers by sending commands through the MQTT broker. The protocol compiler tool in the SDK lets you generate client code from models to simplify the development of such applications. The v2 version of the protocol compiler uses [Web of Things (WoT)](https://www.w3.org/TR/wot-thing-description11/) model files as input. To learn more, see:
-    - [Protocol compiler v2](https://github.com/Azure/iot-operations-sdks/blob/main/codegen2/README.md)
+    - [Protocol compiler v2](https://github.com/Azure/iot-operations-sdks/blob/main/wot-codegen/README.md)
     - [Protocol compiler](https://github.com/Azure/iot-operations-sdks/blob/main/codegen/README.md)
     - [OPC UA sample application](../discover-manage-assets/howto-control-opc-ua.md#sample-application)
     

@@ -4,6 +4,7 @@ description: Learn how to integrate Microsoft Defender for Cloud and Azure Backu
 ms.topic: how-to
 ms.custom: references_regions
 ms.date: 03/25/2025
+ms.update-cycle: 1095-days
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka

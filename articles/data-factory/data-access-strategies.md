@@ -47,6 +47,9 @@ This should work in many scenarios, and we do understand that a unique Static IP
      >     - AzureFile
      >     - OData
 
+> [!NOTE]
+> Resource instance network rules for Azure Storage is not supported by user managed enviroment such as self-hosted integration runtime and SSIS integration runtime.
+
 * **Unique Static IP** - You'll need to set up a self-hosted integration runtime to get a Static IP for Data Factory connectors. This mechanism ensures you can block access from all other IP addresses.
 * **[Static IP range](./azure-integration-runtime-ip-addresses.md)** - You can use Azure Integration Runtime's IP addresses to allowlist it in your storage (say S3, Salesforce, etc.). It certainly restricts IP addresses that can connect to the data stores but also relies on Authentication/ Authorization rules.
 * **[Service Tag](../virtual-network/service-tags-overview.md)** - A service tag represents a group of IP address prefixes from a given Azure service (like Azure Data Factory). Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules. It's useful when filtering data access on IaaS hosted data stores in Virtual Network.

@@ -11,20 +11,18 @@ monikerRange: migrate
 Customer intent: This article is intended to guide users on leveraging the Azure Copilot migration agent for planning and analyzing migrations. It covers how the agent utilizes Azure Migrate data, outlines supported migration scenarios, details available capabilities, and provides example interactions to help users understand and execute migration processes effectively.
 ---
 
-# Simplify end-to-end portal experience for server migrations with Azure Migrate
+# Simplify server migrations with new end to end portal experience with Azure Migrate
 
-Azure Migrate provides an enhanced portal experience for migrations that streamlines the end‑to‑end, application‑aware migration journey. This experience lets you move seamlessly through each stage of migration—from discovering your source environment to completing migrations to Azure, using a single, unified workflow.
+Azure Migrate provides an enhanced portal experience for migrations that streamlines the end‑to‑end, application‑aware migration journey. In this article, you'll learn  how to navigate the end-to-end portal to do the below activities for migrations,
 
-In this article, you'll learn  how to navigate the end-to-end portal to do the below activities for migrations:
-
-- Complete the required configuration for your source environment, and then start migration execution for servers discovered by using the Azure Migrate appliance.
-- You can track execution progress across the **Preparation**, **Testing**, and **Completion** stages.
+- Start migration execution for servers discovered by using the Azure Migrate appliance (VMware, Hyper-V or Physical).
+- Track migration progress across the **Preparation**, **Testing**, and **Completion** stages and perform required actions at each stage.
 
 ## Prerequisites  
 
 Before you begin, ensure the following:
 
-- You have installed the Azure Migrate appliance that matches your source environment **(VMware, Hyper‑V, or Physical)**. The Azure Migrate appliance is required to use the end‑to‑end portal experience, from discovery through migration.
+- You have installed the Azure Migrate appliance that matches your source environment **(VMware, Hyper‑V, or Physical)**. Azure Migrate appliance is required to use the end‑to‑end portal experience.
 
 - You have completed server discovery by using the installed Azure Migrate appliance.
 
@@ -34,13 +32,11 @@ Before you begin, ensure the following:
     - [Discover physical servers and servers running in AWS and GCP](tutorial-discover-physical.md)
 
     >[!NOTE]
-    > Migrations using other tools (agent-based replication appliance, Hyper-V replication provider) without installing Azure Migrate appliance (VMWare, Hyper-V, Physical) is not supported in the new end-to-end experience. Navigate to Azure Migrate Project>Execute>Migrations and switch to the old classic portal for these scenarios. 
+    > Migrations using other tools (agent-based replication appliance, Hyper-V replication provider) directly without installing Azure Migrate appliance (VMWare, Hyper-V, Physical) is not supported in the new portal experience. Navigate to Azure Migrate Project>Execute>Migrations and switch to the old classic portal for these scenarios. 
 
-## Execute migrations using the end-to-end portal
+## Execute migrations
 
 This section explains how to start execution for your servers discovered using the Azure Migrate appliance. Follow the steps below to start migration execution from your Azure Migrate project. 
-
-To start migration execution from your Azure Migrate project, follow the steps:
 
 1. In Azure Migrate project, go to **Execute** > **Migrations**, and then select **Start execution**.
 1. On the **Specify intent** pane, select **Servers** or **Virtual machines (VMs)**, and choose Azure VM as the target. You can either select an existing assessment or manually select servers from the discovered inventory.
@@ -55,7 +51,7 @@ To start migration execution from your Azure Migrate project, follow the steps:
     
 1. Complete the remaining configuration for **Target, Compute, Disk**, and **Tags**, review your settings, and then select **Execute migration**. The selected servers move into execution and are available for tracking.
 
-## Track migrations using end-to-end portal
+## Track migrations
 
 This section explains how to track server migrations in the new Azure Migrate experience, including viewing execution stages, tracking status, and taking required actions during each phase.
 

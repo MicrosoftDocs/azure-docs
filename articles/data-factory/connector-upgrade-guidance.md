@@ -29,7 +29,7 @@ Here's the steps to help you find the notification:
 
     :::image type="content" source="media/connector-lifecycle/service-health-health-advisories.png" alt-text="Screenshot of service health.":::
 
-To learn more about the Service Health portal, see this [article](/azure/service-health/service-health-overview).
+To learn more about the Service Health portal, see this [article](/azure/service-health/overview).
 
 
 ## How to find your impacted objects from data factory portal

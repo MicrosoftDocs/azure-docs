@@ -31,13 +31,13 @@ You can also learn more about the different checks that go into resource health 
 
 ## Use Azure Service Health
 
-[Azure Service Health](/azure/service-health/service-health-overview) can help you check the health of the entire Azure Digital Twins service in a certain region, and be aware of events like ongoing service issues and upcoming planned maintenance.
+[Azure Service Health](/azure/service-health/overview) can help you check the health of the entire Azure Digital Twins service in a certain region, and be aware of events like ongoing service issues and upcoming planned maintenance.
 
 To check service health, sign in to the [Azure portal](https://portal.azure.com) and navigate to the **Service Health** service. You can find it by typing "service health" into the portal search bar. 
 
 You can then filter service issues by subscription, region, and service.
 
-For more information on using Azure Service Health, see [Service Health overview](/azure/service-health/service-health-overview).
+For more information on using Azure Service Health, see [Service Health overview](/azure/service-health/overview).
 
 ## Use Azure status
 
