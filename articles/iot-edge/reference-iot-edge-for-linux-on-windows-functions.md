@@ -3,7 +3,7 @@ title: PowerShell functions for Azure IoT Edge for Linux on Windows
 description: Reference information for Azure IoT Edge for Linux on Windows PowerShell functions to deploy, provision, and get status.
 author: sethmanheim
 ms.author: sethm
-ms.date: 02/20/2026
+ms.date: 03/20/2026
 ms.topic: reference
 ms.service: azure-iot-edge
 services: iot-edge
@@ -103,7 +103,7 @@ The **Add-EflowVmSharedFolder** command allows sharing one or more Windows host 
 
 The JSON configuration file must have the following structure:
 
-- **sharedFOlderRoot** : Path to the Windows root folder that contains all the folders to be shared with the EFLOW virtual machine.
+- **sharedFolderRoot** : Path to the Windows root folder that contains all the folders to be shared with the EFLOW virtual machine.
 - **hostFolderPath**: Relative path (to the parent root folder) of the folder to be shared with the EFLOW VM.
 - **readOnly**: Defines if the shared folder is writeable or read-only from the EFLOW virtual machine - Values: **false** or **true**.
 - **targetFolderOnGuest** : Folder path inside the EFLOW virtual machine where Windows host OS folder is mounted. 
