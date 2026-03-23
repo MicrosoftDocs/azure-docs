@@ -9,12 +9,12 @@ ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.date: 05/12/2025
 ms.custom: vmware-scenario-422, mvc, engagement-fy23
-# Customer intent: As an IT administrator migrating on-premises VMware VMs, I want to perform an agentless migration to Azure, so that I can seamlessly transition my workloads without the overhead of installing migration agents.
+# Customer intent: As an IT administrator migrating on-premises VMware or Azure VMware Solution VMs, I want to perform an agentless migration to Azure, so that I can seamlessly transition my workloads without the overhead of installing migration agents.
 ---
 
 # Migrate VMware VMs to Azure (agentless)
 
-This article shows you how to migrate on-premises VMware VMs to Azure, using the [Migration and modernization](migrate-services-overview.md) tool, with agentless migration. You can also migrate VMware VMs using agent-based migration. [Compare](server-migrate-overview.md) the methods.
+This article shows you how to migrate on-premises VMware or Azure VMware Solution VMs to Azure, using the [Migration and modernization](migrate-services-overview.md) tool, with agentless migration. You can also migrate VMware VMs using agent-based migration. [Compare](server-migrate-overview.md) the methods.
 
 This tutorial is the third in a series that demonstrates how to assess and migrate VMware VMs to Azure.
 

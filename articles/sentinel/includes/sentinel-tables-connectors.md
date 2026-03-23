@@ -2,7 +2,7 @@
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: include
-ms.date: 03/17/2026    
+ms.date: 03/23/2026    
 # This file is auto-generated. Do not edit manually. Changes will be overwritten.
 ---
 
@@ -60,6 +60,7 @@ ms.date: 03/17/2026
 |AWSCloudFront_AccessLog_CL|[Amazon Web Services CloudFront (via Codeless Connector Framework) (Preview)](/azure/sentinel/data-connectors-reference#amazon-web-services-cloudfront-via-codeless-connector-framework-preview)|Yes|Yes|
 |[AWSCloudTrail](/azure/azure-monitor/reference/tables/AWSCloudTrail)|[Amazon Web Services S3](/azure/sentinel/data-connectors-reference#amazon-web-services-s3)<br>[Amazon Web Services](/azure/sentinel/data-connectors-reference#amazon-web-services)|Yes|Yes|
 |[AWSCloudWatch](/azure/azure-monitor/reference/tables/AWSCloudWatch)|[Amazon Web Services S3](/azure/sentinel/data-connectors-reference#amazon-web-services-s3)|Yes|Yes|
+|AWSEKSLogs_CL|[AWS EKS Data Connector (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#aws-eks-data-connector-via-codeless-connector-framework)|No|No|
 |[AWSGuardDuty](/azure/azure-monitor/reference/tables/AWSGuardDuty)|[Amazon Web Services S3](/azure/sentinel/data-connectors-reference#amazon-web-services-s3)|Yes|Yes|
 |[AWSNetworkFirewallFlow](/azure/azure-monitor/reference/tables/AWSNetworkFirewallFlow)|[Amazon Web Services NetworkFirewall (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#amazon-web-services-networkfirewall-via-codeless-connector-framework)|Yes|Yes|
 |[AWSRoute53Resolver](/azure/azure-monitor/reference/tables/AWSRoute53Resolver)|[Amazon Web Services S3 DNS Route53 (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#amazon-web-services-s3-dns-route53-via-codeless-connector-framework)|Yes|Yes|
@@ -331,6 +332,9 @@ ms.date: 03/17/2026
 |JuniperIDP_CL|[Custom logs via AMA](/azure/sentinel/data-connectors-reference#custom-logs-via-ama)|Yes|Yes|
 |KeeperSecurityEventNewLogs_CL|[Keeper Security Push Connector](/azure/sentinel/data-connectors-reference#keeper-security-push-connector)|Yes|Yes|
 |LastPassNativePoller_CL|[LastPass Enterprise - Reporting (Polling CCP)](/azure/sentinel/data-connectors-reference#lastpass-enterprise---reporting-polling-ccp)|No|No|
+|LightningAttackPaths_CL|[Semperis Lightning Logs](/azure/sentinel/data-connectors-reference#semperis-lightning-logs)|No|No|
+|LightningIOEResults_CL|[Semperis Lightning Logs](/azure/sentinel/data-connectors-reference#semperis-lightning-logs)|No|No|
+|LightningTier0Nodes_CL|[Semperis Lightning Logs](/azure/sentinel/data-connectors-reference#semperis-lightning-logs)|No|No|
 |Lockdown_Data_CL|[Vectra XDR (using Azure Functions)](/azure/sentinel/data-connectors-reference#vectra-xdr-using-azure-functions)|Yes|Yes|
 |Lookout_CL|[[DEPRECATED] Lookout](/azure/sentinel/data-connectors-reference#deprecated-lookout)|No|No|
 |LookoutMtdV2_CL|[Lookout Mobile Threat Detection Connector (via Codeless Connector Framework) (Preview)](/azure/sentinel/data-connectors-reference#lookout-mobile-threat-detection-connector-via-codeless-connector-framework-preview)|Yes|Yes|
@@ -446,7 +450,6 @@ ms.date: 03/17/2026
 |SnowflakeUsers_CL|[Snowflake (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#snowflake-via-codeless-connector-framework)|Yes|Yes|
 |SOCPrimeAuditLogs_CL|[SOC Prime Platform Audit Logs Data Connector](/azure/sentinel/data-connectors-reference#soc-prime-platform-audit-logs-data-connector)|Yes|Yes|
 |Sonrai_Tickets_CL|[Sonrai Data Connector](/azure/sentinel/data-connectors-reference#sonrai-data-connector)|No|No|
-|SophosCloudOptix_CL|[Sophos Cloud Optix](/azure/sentinel/data-connectors-reference#sophos-cloud-optix)|No|No|
 |SophosEP_CL|[Sophos Endpoint Protection (using Azure Functions)](/azure/sentinel/data-connectors-reference#sophos-endpoint-protection-using-azure-functions)|Yes|Yes|
 |SophosEPEvents_CL|[Sophos Endpoint Protection (using REST API)](/azure/sentinel/data-connectors-reference#sophos-endpoint-protection-using-rest-api)|Yes|Yes|
 |SquidProxy_CL|[Custom logs via AMA](/azure/sentinel/data-connectors-reference#custom-logs-via-ama)|Yes|Yes|
@@ -500,6 +503,9 @@ ms.date: 03/17/2026
 |[WindowsEvent](/azure/azure-monitor/reference/tables/WindowsEvent)|[Windows Forwarded Events](/azure/sentinel/data-connectors-reference#windows-forwarded-events)|Yes|Yes|
 |Workplace_Facebook_CL|[Workplace from Facebook (using Azure Functions)](/azure/sentinel/data-connectors-reference#workplace-from-facebook-using-azure-functions)|No|No|
 |WsSecurityEvents_CL|[WithSecure Elements API (Azure Function)](/azure/sentinel/data-connectors-reference#withsecure-elements-api-azure-function)|Yes|Yes|
+|XbowAssessments_CL|[XBOW Security Platform (via Azure Function)](/azure/sentinel/data-connectors-reference#xbow-security-platform-via-azure-function)|No|No|
+|XbowAssets_CL|[XBOW Security Platform (via Azure Function)](/azure/sentinel/data-connectors-reference#xbow-security-platform-via-azure-function)|No|No|
+|XbowFindings_CL|[XBOW Security Platform (via Azure Function)](/azure/sentinel/data-connectors-reference#xbow-security-platform-via-azure-function)|No|No|
 |ZeroFox_CTI_advanced_dark_web_CL|[ZeroFox CTI](/azure/sentinel/data-connectors-reference#zerofox-cti)|No|No|
 |ZeroFox_CTI_botnet_CL|[ZeroFox CTI](/azure/sentinel/data-connectors-reference#zerofox-cti)|No|No|
 |ZeroFox_CTI_breaches_CL|[ZeroFox CTI](/azure/sentinel/data-connectors-reference#zerofox-cti)|No|No|
@@ -522,6 +528,11 @@ ms.date: 03/17/2026
 |ZeroFox_CTI_vulnerabilities_CL|[ZeroFox CTI](/azure/sentinel/data-connectors-reference#zerofox-cti)|No|No|
 |ZeroFoxAlertPoller_CL|[ZeroFox Enterprise - Alerts (Polling CCF)](/azure/sentinel/data-connectors-reference#zerofox-enterprise---alerts-polling-ccf)|Yes|Yes|
 |ZimperiumThreatLog_CL|[Zimperium Mobile Threat Defense](/azure/sentinel/data-connectors-reference#zimperium-mobile-threat-defense)|No|No|
+|ZNAudit_CL|[Zero Networks Segment (Push)](/azure/sentinel/data-connectors-reference#zero-networks-segment-push)|No|No|
+|ZNIdentityActivity_CL|[Zero Networks Segment (Push)](/azure/sentinel/data-connectors-reference#zero-networks-segment-push)|No|No|
+|ZNNetworkActivity_CL|[Zero Networks Segment (Push)](/azure/sentinel/data-connectors-reference#zero-networks-segment-push)|No|No|
+|ZNRPCActivity_CL|[Zero Networks Segment (Push)](/azure/sentinel/data-connectors-reference#zero-networks-segment-push)|No|No|
 |ZNSegmentAuditNativePoller_CL|[Zero Networks Segment Audit](/azure/sentinel/data-connectors-reference#zero-networks-segment-audit)|No|No|
-|Zoom_CL|[Zoom Reports (using Azure Functions)](/azure/sentinel/data-connectors-reference#zoom-reports-using-azure-functions)<br>[Zoom Reports Connector (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#zoom-reports-connector-via-codeless-connector-framework)|Yes|Yes|
+|Zoom_CL|[Zoom Reports (using Azure Functions)](/azure/sentinel/data-connectors-reference#zoom-reports-using-azure-functions)|Yes|Yes|
+|ZoomV2_CL|[Zoom Reports Connector (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#zoom-reports-connector-via-codeless-connector-framework)|No|No|
 |ZPA_CL|[Custom logs via AMA](/azure/sentinel/data-connectors-reference#custom-logs-via-ama)|Yes|Yes|

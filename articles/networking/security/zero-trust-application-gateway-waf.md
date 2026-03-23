@@ -17,16 +17,37 @@ For a summary of all Azure network security Zero Trust recommendations, see [Azu
 
 ## Recommendations
 
-| Recommendation | Risk level | User impact | Implementation cost |
-|---|---|---|---|
-| [!INCLUDE [Application Gateway WAF is enabled in prevention mode](includes/25541.md)] | High | Low | Low |
-| [!INCLUDE [Request body inspection is enabled in Application Gateway WAF](includes/26879.md)] | High | Low | Low |
-| [!INCLUDE [Default rule set is enabled in Application Gateway WAF](includes/26881.md)] | High | Low | Low |
-| [!INCLUDE [Bot protection rule set is enabled and assigned in Application Gateway WAF](includes/26882.md)] | High | Low | Low |
-| [!INCLUDE [HTTP DDoS protection rule set is enabled in Application Gateway WAF](includes/27015.md)] | High | Low | Low |
-| [!INCLUDE [Rate limiting is enabled in Application Gateway WAF](includes/27016.md)] | High | Low | Medium |
-| [!INCLUDE [JavaScript challenge is enabled in Application Gateway WAF](includes/27017.md)] | Medium | Low | Low |
-| [!INCLUDE [Diagnostic logging is enabled in Application Gateway WAF](includes/26888.md)] | High | Low | Low |
+### Application Gateway WAF is enabled in prevention mode
+
+[!INCLUDE [Application Gateway WAF is enabled in prevention mode](includes/25541.md)]
+
+### Request body inspection is enabled in Application Gateway WAF
+
+[!INCLUDE [Request body inspection is enabled in Application Gateway WAF](includes/26879.md)]
+
+### Default rule set is enabled in Application Gateway WAF
+
+[!INCLUDE [Default rule set is enabled in Application Gateway WAF](includes/26881.md)]
+
+### Bot protection rule set is enabled and assigned in Application Gateway WAF
+
+[!INCLUDE [Bot protection rule set is enabled and assigned in Application Gateway WAF](includes/26882.md)]
+
+### HTTP DDoS protection rule set is enabled in Application Gateway WAF
+
+[!INCLUDE [HTTP DDoS protection rule set is enabled in Application Gateway WAF](includes/27015.md)]
+
+### Rate limiting is enabled in Application Gateway WAF
+
+[!INCLUDE [Rate limiting is enabled in Application Gateway WAF](includes/27016.md)]
+
+### JavaScript challenge is enabled in Application Gateway WAF
+
+[!INCLUDE [JavaScript challenge is enabled in Application Gateway WAF](includes/27017.md)]
+
+### Diagnostic logging is enabled in Application Gateway WAF
+
+[!INCLUDE [Diagnostic logging is enabled in Application Gateway WAF](includes/26888.md)]
 
 ## Related content
 

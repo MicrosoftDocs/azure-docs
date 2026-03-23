@@ -48,6 +48,6 @@ Use the following steps to configure your source system:
 
 ## Next steps
 
-Now that you have configured Salesforce source system in your Business Process Solution item, you can proceed to configure dataset and relationships.
+Now that you have configured Salesforce source system in your Business Process Solution item, you can proceed to configure insights.
 
-- [Configure Dataset in Business Process Solutions](configure-dataset.md)
+- [Configure Insights in Business Process Solutions](configure-insights.md)

@@ -4,7 +4,7 @@ description: This article explains how you can authenticate managed identities t
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 03/17/2026
+ms.date: 03/23/2026
 ms.author: kendownie
 ms.custom:
   - devx-track-azurepowershell
@@ -408,7 +408,7 @@ sudo azfilesauthmanager set https://<storage-account-name>.file.core.windows.net
 If your VM has a system assigned managed identity, use the `--system` flag:
 
 ```bash
-sudo azfilesauthmanager set https://<storage-account-name>.file.core.windows.net --imds-client-id <client-id> --system
+sudo azfilesauthmanager set https://<storage-account-name>.file.core.windows.net --system
 ```
 
 Verify the ticket was created properly:
@@ -446,7 +446,7 @@ For more information, see [Mount SMB Azure file share on Windows](storage-how-to
 
 ### [Linux](#tab/linux)
 
-Run the following command to mount the file share with the recommended mount options. Replace `<storage-account-name>` with your storage account name and `<file-share-name>` with your file share name. You can find your credential ID in the following config file: `cat /etc/azfilesauth/config.yaml`. For a user assigned managed identity, include the client ID of the managed identity. For a system assigned managed identity, omit the mount option `username=<client-id>`.
+Run the following command to mount the file share with the recommended mount options. Replace `<storage-account-name>` with your storage account name and `<file-share-name>` with your file share name. You can find your credential ID in the following config file: `cat /etc/azfilesauth/config.yaml`. For a user assigned managed identity, include the client ID of the managed identity using the `username=<client-id>` mount option.  For a system assigned managed identity, omit the mount option `username=<client-id>`.
 
 ```bash
 sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<file-share-name> /mnt/smb -o sec=krb5,cruid=<credential-id>,username=<client-id>,dir_mode=0755,file_mode=0755,serverino,nosharesock,mfsymlinks,actimeo=30
@@ -462,19 +462,21 @@ For more information, see [Mount SMB Azure file shares on Linux clients](storage
 
 ### Refresh your credentials
 
-The refresh service automatically detects and refreshes credentials. After you mount the file share for the first time, start the refresh service to keep credentials up to date. You can only refresh credentials if your VM has a managed identity assigned. If you're supplying the OAuth token directly, the refresh doesn't work.
+To prevent access interruptions, you should refresh your credentials periodically. The refresh service automatically detects and renews credentials as needed.
+
+After mounting the file share for the first time, start the refresh service:
 
 ```bash
 sudo systemctl start azfilesrefresh
 ```
 
-You should refresh your credentials periodically to avoid access interruptions. You can refresh credentials manually by using the `azfilesauthmanager set` command as described in [Configure authentication](#configure-authentication), or you can automate the refresh by using the shared library APIs.
-
-To persist the settings and enable the refresh service to start on every boot up:
+To ensure the service starts automatically on every boot:
 
 ```bash
 sudo systemctl enable --now azfilesrefresh
 ```
+
+Automatic credential refresh requires a managed identity assigned to your VM. If you're supplying the OAuth token directly, you must refresh credentials manually by using the `azfilesauthmanager set` command as described in [Configure authentication](#configure-authentication), or programmatically via the shared library APIs.
 
 ---
 
