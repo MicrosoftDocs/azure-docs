@@ -21,6 +21,9 @@ As Application Insights instrumentation is built into Azure Functions, you need 
 
 You can also monitor the function app itself by using Azure Monitor. To learn more, see [Monitor Azure Functions](monitor-functions.md).
 
+> [!CAUTION]
+> **We recommend using OpenTelemetry instead of the classic Application Insights SDKs.** For new or existing applications, use the Azure Monitor Exporter to send telemetry to Application Insights. Customers using the classic SDKs should plan to migrate to OpenTelemetry for long‑term support and access to the latest observability capabilities. OpenTelemetry is not supported for In‑Process applications. To learn more, see [Use OpenTelemetry with Azure Functions](opentelemetry-howto.md).
+
 ## Application Insights pricing and limits
 
 You can try out Application Insights integration with Azure Functions for free featuring a daily limit to how much data is processed for free.
