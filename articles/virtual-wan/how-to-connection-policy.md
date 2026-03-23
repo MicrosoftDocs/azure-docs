@@ -9,6 +9,8 @@ ms.date: 03/18/2026
 ms.author: wellee
 ---
 
+# Connection policy 
+
 The following document describes how to use connection policy in Azure Virtual WAN.
 
 ## Background
@@ -73,7 +75,6 @@ Virtual WAN control plane uses the following order of preference when determinin
 
 1. Click on **Apply Connection Policy to Connections**.
 1. Select the connection policy you want to apply to Virtual Network connections as **None**.
-:::image type="content" source="./media/connection-policy/none-connection-policy.png"alt-text="Screenshot showing none policy selection."lightbox="./media/connection-policy/none
--connection-policy.png":::
+:::image type="content" source="./media/connection-policy/none-connection-policy.png"alt-text="Screenshot showing none policy selection."lightbox="./media/connection-policy/none-connection-policy.png":::
 1. Select the Virtual Network connections you want to dissociate from connection policy and select **Save**. This removes the connection policy settings from the Virtual Network connections and any existing connection-level settings take effect.
 
