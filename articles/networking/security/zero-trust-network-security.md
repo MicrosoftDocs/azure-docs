@@ -30,9 +30,9 @@ For more information, see [Zero Trust recommendations for Azure DDoS Protection]
 
 | Recommendation | Risk level | User impact | Implementation cost |
 |---|---|---|---|
-| [!INCLUDE [DDoS Protection is enabled for all public IP addresses in VNets](includes/25533.md)] | High | Low | Low |
-| [!INCLUDE [Metrics are enabled for DDoS-protected public IPs](includes/26885.md)] | Medium | Low | Low |
-| [!INCLUDE [Diagnostic logging is enabled for DDoS-protected public IPs](includes/26886.md)] | Medium | Low | Low |
+| [DDoS Protection is enabled for all public IP addresses in VNets](zero-trust-ddos-protection.md#ddos-protection-is-enabled-for-all-public-ip-addresses-in-vnets) | High | Low | Low |
+| [Metrics are enabled for DDoS-protected public IPs](zero-trust-ddos-protection.md#metrics-are-enabled-for-ddos-protected-public-ips) | Medium | Low | Low |
+| [Diagnostic logging is enabled for DDoS-protected public IPs](zero-trust-ddos-protection.md#diagnostic-logging-is-enabled-for-ddos-protected-public-ips) | Medium | Low | Low |
 
 ## Azure Firewall
 
@@ -42,11 +42,11 @@ For more information, see [Zero Trust recommendations for Azure Firewall](zero-t
 
 | Recommendation | Risk level | User impact | Implementation cost |
 |---|---|---|---|
-| [!INCLUDE [Outbound traffic from VNet-integrated workloads is routed through Azure Firewall](includes/25535.md)] | High | Low | Medium |
-| [!INCLUDE [Threat intelligence is enabled in deny mode on Azure Firewall](includes/25537.md)] | High | Low | Low |
-| [!INCLUDE [IDPS inspection is enabled in deny mode on Azure Firewall](includes/25539.md)] | High | Low | Low |
-| [!INCLUDE [Inspection of outbound TLS traffic is enabled on Azure Firewall](includes/25550.md)] | High | Low | Low |
-| [!INCLUDE [Diagnostic logging is enabled in Azure Firewall](includes/26887.md)] | High | Low | Low |
+| [Outbound traffic from VNet-integrated workloads is routed through Azure Firewall](zero-trust-azure-firewall.md#outbound-traffic-from-vnet-integrated-workloads-is-routed-through-azure-firewall) | High | Low | Medium |
+| [Threat intelligence is enabled in deny mode on Azure Firewall](zero-trust-azure-firewall.md#threat-intelligence-is-enabled-in-deny-mode-on-azure-firewall) | High | Low | Low |
+| [IDPS inspection is enabled in deny mode on Azure Firewall](zero-trust-azure-firewall.md#idps-inspection-is-enabled-in-deny-mode-on-azure-firewall) | High | Low | Low |
+| [Inspection of outbound TLS traffic is enabled on Azure Firewall](zero-trust-azure-firewall.md#inspection-of-outbound-tls-traffic-is-enabled-on-azure-firewall) | High | Low | Low |
+| [Diagnostic logging is enabled in Azure Firewall](zero-trust-azure-firewall.md#diagnostic-logging-is-enabled-in-azure-firewall) | High | Low | Low |
 
 ## Application Gateway WAF
 
@@ -56,14 +56,14 @@ For more information, see [Zero Trust recommendations for Application Gateway WA
 
 | Recommendation | Risk level | User impact | Implementation cost |
 |---|---|---|---|
-| [!INCLUDE [Application Gateway WAF is enabled in prevention mode](includes/25541.md)] | High | Low | Low |
-| [!INCLUDE [Request body inspection is enabled in Application Gateway WAF](includes/26879.md)] | High | Low | Low |
-| [!INCLUDE [Default rule set is enabled in Application Gateway WAF](includes/26881.md)] | High | Low | Low |
-| [!INCLUDE [Bot protection rule set is enabled and assigned in Application Gateway WAF](includes/26882.md)] | High | Low | Low |
-| [!INCLUDE [HTTP DDoS protection rule set is enabled in Application Gateway WAF](includes/27015.md)] | High | Low | Low |
-| [!INCLUDE [Rate limiting is enabled in Application Gateway WAF](includes/27016.md)] | High | Low | Medium |
-| [!INCLUDE [JavaScript challenge is enabled in Application Gateway WAF](includes/27017.md)] | Medium | Low | Low |
-| [!INCLUDE [Diagnostic logging is enabled in Application Gateway WAF](includes/26888.md)] | High | Low | Low |
+| [Application Gateway WAF is enabled in prevention mode](zero-trust-application-gateway-waf.md#application-gateway-waf-is-enabled-in-prevention-mode) | High | Low | Low |
+| [Request body inspection is enabled in Application Gateway WAF](zero-trust-application-gateway-waf.md#request-body-inspection-is-enabled-in-application-gateway-waf) | High | Low | Low |
+| [Default rule set is enabled in Application Gateway WAF](zero-trust-application-gateway-waf.md#default-rule-set-is-enabled-in-application-gateway-waf) | High | Low | Low |
+| [Bot protection rule set is enabled and assigned in Application Gateway WAF](zero-trust-application-gateway-waf.md#bot-protection-rule-set-is-enabled-and-assigned-in-application-gateway-waf) | High | Low | Low |
+| [HTTP DDoS protection rule set is enabled in Application Gateway WAF](zero-trust-application-gateway-waf.md#http-ddos-protection-rule-set-is-enabled-in-application-gateway-waf) | High | Low | Low |
+| [Rate limiting is enabled in Application Gateway WAF](zero-trust-application-gateway-waf.md#rate-limiting-is-enabled-in-application-gateway-waf) | High | Low | Medium |
+| [JavaScript challenge is enabled in Application Gateway WAF](zero-trust-application-gateway-waf.md#javascript-challenge-is-enabled-in-application-gateway-waf) | Medium | Low | Low |
+| [Diagnostic logging is enabled in Application Gateway WAF](zero-trust-application-gateway-waf.md#diagnostic-logging-is-enabled-in-application-gateway-waf) | High | Low | Low |
 
 ## Azure Front Door WAF
 
@@ -73,14 +73,14 @@ For more information, see [Zero Trust recommendations for Azure Front Door WAF](
 
 | Recommendation | Risk level | User impact | Implementation cost |
 |---|---|---|---|
-| [!INCLUDE [Azure Front Door WAF is enabled in prevention mode](includes/25543.md)] | High | Low | Low |
-| [!INCLUDE [Request body inspection is enabled in Azure Front Door WAF](includes/26880.md)] | High | Low | Low |
-| [!INCLUDE [Default rule set is assigned in Azure Front Door WAF](includes/26883.md)] | High | Low | Low |
-| [!INCLUDE [Bot protection rule set is enabled and assigned in Azure Front Door WAF](includes/26884.md)] | High | Low | Low |
-| [!INCLUDE [Rate limiting is enabled in Azure Front Door WAF](includes/27018.md)] | High | Low | Medium |
-| [!INCLUDE [JavaScript challenge is enabled in Azure Front Door WAF](includes/27019.md)] | Medium | Low | Low |
-| [!INCLUDE [CAPTCHA challenge is enabled in Azure Front Door WAF](includes/27020.md)] | Medium | Low | Low |
-| [!INCLUDE [Diagnostic logging is enabled in Azure Front Door WAF](includes/26889.md)] | High | Low | Low |
+| [Azure Front Door WAF is enabled in prevention mode](zero-trust-front-door-waf.md#azure-front-door-waf-is-enabled-in-prevention-mode) | High | Low | Low |
+| [Request body inspection is enabled in Azure Front Door WAF](zero-trust-front-door-waf.md#request-body-inspection-is-enabled-in-azure-front-door-waf) | High | Low | Low |
+| [Default rule set is assigned in Azure Front Door WAF](zero-trust-front-door-waf.md#default-rule-set-is-assigned-in-azure-front-door-waf) | High | Low | Low |
+| [Bot protection rule set is enabled and assigned in Azure Front Door WAF](zero-trust-front-door-waf.md#bot-protection-rule-set-is-enabled-and-assigned-in-azure-front-door-waf) | High | Low | Low |
+| [Rate limiting is enabled in Azure Front Door WAF](zero-trust-front-door-waf.md#rate-limiting-is-enabled-in-azure-front-door-waf) | High | Low | Medium |
+| [JavaScript challenge is enabled in Azure Front Door WAF](zero-trust-front-door-waf.md#javascript-challenge-is-enabled-in-azure-front-door-waf) | Medium | Low | Low |
+| [CAPTCHA challenge is enabled in Azure Front Door WAF](zero-trust-front-door-waf.md#captcha-challenge-is-enabled-in-azure-front-door-waf) | Medium | Low | Low |
+| [Diagnostic logging is enabled in Azure Front Door WAF](zero-trust-front-door-waf.md#diagnostic-logging-is-enabled-in-azure-front-door-waf) | High | Low | Low |
 
 ## Related content
 

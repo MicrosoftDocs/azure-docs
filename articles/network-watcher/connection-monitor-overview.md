@@ -41,7 +41,7 @@ Here are some of the benefits of using Connection monitor:
 
 - Supported source endpoints enabled with Network Watcher extension: Azure VMs, Azure virtual machine scale sets, and Arc enabled on-premises hosts.
 
-- Supported destination endpoints: Azure VMs, Azure virtual machine scale sets, Arc enabled on-premises hosts, URLs, FQDNs, and IP addresses. Destination endpoints don't require the Network Watcher extension.
+- Supported destination endpoints: Azure Virtual Machines, Azure virtual machine scale sets, Arc enabled on-premises hosts, URLs, FQDNs, or IP addresses, including on-premises endpoints without Arc. Destination endpoints don't require the Network Watcher extension.
 
 - High probing frequencies and visibility into network performance  
 

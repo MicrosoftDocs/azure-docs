@@ -664,6 +664,8 @@ This section describes known issues and conditions in the current release of the
 - BlobDeleted events are not generated when blob versions or snapshots are deleted. A BlobDeleted event is added only when a base (root) blob is deleted.
 - Event records are added only for changes to blobs that result from requests to the Blob Service endpoint (`blob.core.windows.net`). Changes that result from requests to the Data Lake Storage endpoint (`dfs.core.windows.net`) endpoint aren't logged and won't appear in change feed records.
 
+- If the **`$blobchangefeed`** container is deleted while there are pending events to be published, the system automatically recreates the container. In this scenario, the customer may delete the container later.
+
 ## Frequently asked questions (FAQ)
 
 See [Change feed support FAQ](storage-blob-faq.yml#change-feed-support).
