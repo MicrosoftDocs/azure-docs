@@ -31,6 +31,7 @@ The following features are available in Azure Government:
 - Direct Routing
 - Call Automation
 - Call Logs
+- Call Recording
 - Email
 
 ## Related articles
