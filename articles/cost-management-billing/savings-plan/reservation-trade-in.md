@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 01/08/2026
+ms.date: 03/14/2026
 ms.author: onwokolo
 ---
 
@@ -25,7 +25,7 @@ Apart from [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/
 > [!NOTE]
 > Initially planned to end on January 1, 2024, the availability of Azure compute reservation exchanges for Azure Virtual Machine, Azure Dedicated Host and Azure App Service has been extended **until further notice**.
 >
-> Launched in October 2022, the [savings plan](https://azure.microsoft.com/pricing/offers/savings-plan) aims at providing savings on consistent spend, across different compute services, regardless of region. With savings plan's automatic flexibility, we've updated our reservations exchange policy. While [instance size flexibility](/azure/virtual-machines/reserved-vm-instance-size-flexibility) for VMs remains post-grace period, exchanges of instance series or regions for Azure Virtual Machine, Azure Dedicated Host and Azure App Service reservations will no longer be supported.
+> Launched in October 2022, the [savings plan](https://azure.microsoft.com/pricing/offers/savings-plans) aims at providing savings on consistent spend, across different compute services, regardless of region. With savings plan's automatic flexibility, we've updated our reservations exchange policy. While [instance size flexibility](/azure/virtual-machines/reserved-vm-instance-size-flexibility) for VMs remains post-grace period, exchanges of instance series or regions for Azure Virtual Machine, Azure Dedicated Host and Azure App Service reservations will no longer be supported.
 >
 > You may continue [exchanging](../reservations/exchange-and-refund-azure-reservations.md) your compute reservations for different instance series and regions until we notify you again, which will be **at least 6 months in advance**. In addition, any compute reservations purchased during this extended grace period will retain the right to **one more exchange after the grace period ends**. The extended grace period allows you to better assess your cost savings commitment needs and plan effectively. For more information, see [Changes to the Azure reservation exchange policy](../reservations/reservation-exchange-policy-changes.md).
 >

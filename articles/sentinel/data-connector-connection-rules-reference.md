@@ -369,6 +369,7 @@ The request section defines how the CCF data connector sends requests to your da
 | `QueryTimeIntervalPrepend` | True when `QueryTimeIntervalAttributeName` is set. | String | Reference `QueryTimeIntervalAttributeName`. |
 | `QueryTimeIntervalDelimiter` |  True when `QueryTimeIntervalAttributeName` is set. | String | Reference `QueryTimeIntervalAttributeName`. |
 | `QueryParametersTemplate` |  | String | This field references the query template to use when passing parameters in advanced scenarios.<br><br>For example: `"queryParametersTemplate": "{'cid': 1234567, 'cmd': 'reporting', 'format': 'siem', 'data': { 'from': '{_QueryWindowStartTime}', 'to': '{_QueryWindowEndTime}'}, '{_APIKeyName}': '{_APIKey}'}"`. |
+| `InitialCheckpointTimeUtc` |  | DateTime (UTC) | Specifies the query start time for the very first poll when no stored checkpoint exists. Once a checkpoint is persisted after the first successful poll, this value is ignored. This setting only takes effect when the connector's request configuration defines a start-time query parameter (such as `startTimeAttributeName` or the `{_QueryWindowStartTime}` replacement token) without a corresponding end-time parameter. It has no effect on connectors that rely solely on pagination cursors or tokens. Format: ISO 8601 UTC datetime (for example, `2024-01-15T00:00:00Z`). |
 
 When the API requires complex parameters, use `queryParameters` or `queryParametersTemplate`. These commands include some built-in variables.
 

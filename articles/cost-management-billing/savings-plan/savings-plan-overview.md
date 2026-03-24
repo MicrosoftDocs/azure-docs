@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: overview
-ms.date: 01/08/2026
+ms.date: 03/14/2026
 ms.author: onwokolo
 ---
 
@@ -76,7 +76,7 @@ Azure provides commitment recommendations based on your savings plan eligible on
 To learn more, visit [Savings plan recommendations](purchase-recommendations.md).
 
 ## How savings plan benefits are applied
-With savings plan, hourly usage charges incurred from [savings plan-eligible resources](https://azure.microsoft.com/pricing/offers/savings-plan/#how-it-works), which are within the benefit scope of the savings plan, are discounted and applied to your hourly commitment until the hourly commitment is reached. The savings apply to *all eligible resources*. Usage charges above the commitment are billed at your on-demand rate.
+With savings plan, hourly usage charges incurred from [savings plan-eligible resources](https://azure.microsoft.com/pricing/offers/savings-plans/#How-it-works), which are within the benefit scope of the savings plan, are discounted and applied to your hourly commitment until the hourly commitment is reached. The savings apply to *all eligible resources*. Usage charges above the commitment are billed at your on-demand rate.
 
 ## How to find products covered under a savings plan
 To learn about included products, visit [included products](download-savings-plan-price-sheet.md).

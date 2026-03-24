@@ -2,14 +2,13 @@
 title: About migrating to an availability zone-enabled ExpressRoute virtual network gateway
 titleSuffix: Azure ExpressRoute
 description: This article explains how to migrate from Standard/HighPerf/UltraPerf SKUs to ErGw1/2/3AZ SKUs.
-services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.custom:
   - ignite-2023
   - build-2025
 ms.topic: concept-article
-ms.date: 05/19/2025
+ms.date: 03/23/2026
 ms.author: duau
 # Customer intent: As a network administrator, I want to migrate my existing ExpressRoute gateway to an Availability Zone-enabled SKU, so that I can enhance the reliability and high availability of my network connections without significant downtime.
 ---
@@ -80,9 +79,9 @@ For more information, see [About Scalable Gateway](scalable-gateway.md).
 The guided gateway migration experience has the following limitations:
 
 - **ExpressRoute Only**: The migration tool is designed for **ExpressRoute virtual network gateways**. It does **not** support VPN gateways or other gateway types.
--**Same Virtual Network Requirement**: Migration is only supported within the same **virtual network**. Cross-subscription, cross-region, or cross-gateway-type migrations (for example, to/from VPN gateways) aren't supported.
+- **Same Virtual Network Requirement**: Migration is only supported within the same **virtual network**. Cross-subscription, cross-region, or cross-gateway-type migrations (for example, to/from VPN gateways) aren't supported.
 - **No Downgrades**: Downgrading from an **Az-enabled SKU** to a **non-Az-enabled SKU** is **not** supported.
-- **GatewaySubnet Size**: The GatewaySubnet must have a /27 prefix or longer to proceed with migration. For more information, see [Create multiple prefixes for a subnet](../virtual-network/virtual-network-manage-subnet.md) for more information.
+- **GatewaySubnet Size**: The GatewaySubnet must have a /27 prefix or larger (for example, /26 or /25) to proceed with migration. For more information, see [Create multiple prefixes for a subnet](../virtual-network/virtual-network-manage-subnet.md).
 - **Private Endpoint Connectivity**: Private endpoints (PEs) connected via ExpressRoute private peering may experience **connectivity issues** during migration. Refer to guidance on mitigating these issues in the Private endpoint connectivity documentation. [Private endpoint connectivity](expressroute-about-virtual-network-gateways.md#private-endpoint-connectivity-and-planned-maintenance-events).
 - **Legacy Gateways**: ExpressRoute gateways created or connected to circuits in **2017 or earlier** aren't supported.
 - **Unsupported SKUs**: Gateways using the **"default" SKU** aren't eligible for migration. To check the migration eligibility of your Gateway, there should be an Advisor notification.
