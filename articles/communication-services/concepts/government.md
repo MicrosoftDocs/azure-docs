@@ -30,6 +30,8 @@ The following features are available in Azure Government:
 - Chat
 - Direct Routing
 - Call Automation
+- Call Logs
+- Email
 
 ## Related articles
 
