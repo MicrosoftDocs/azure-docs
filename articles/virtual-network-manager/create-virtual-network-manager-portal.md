@@ -1,11 +1,11 @@
 ---
 title: 'Quickstart: Create a mesh network topology with Azure Virtual Network Manager - Azure portal'
-description: Learn to a mesh virtual network topology with Azure Virtual Network Manager by using the Azure portal.
+description: Learn to create a mesh virtual network topology with Azure Virtual Network Manager by using the Azure portal.
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: quickstart
-ms.date: 07/11/2025
+ms.date: 03/23/2026
 ms.custom:
   - template-quickstart
   - mode-ui
@@ -26,7 +26,28 @@ In this quickstart, you deploy three virtual networks and use Azure Virtual Netw
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - To modify network groups using Azure Policy to conditionally define membership, you must be [granted access through Azure Role-based Access Control (RBAC) role](concept-network-groups.md#network-groups-and-azure-policy) assignment only. Classic Admin or legacy authorization isn't supported.
 
-[!INCLUDE [virtual-network-manager-create-instance](../../includes/virtual-network-manager-create-instance.md)]
+## Sample values
+
+This quickstart uses the following sample values for creating resources. Use these values to follow along, or replace them with your own.
+
+| Resource | Sample value |
+| --- | --- |
+| Resource group | **resource-group** |
+| Network Manager name | **network-manager** |
+| Region | **West US 2** |
+| Virtual networks | **vnet-00**, **vnet-01**, **vnet-02** |
+| VNet address spaces | **10.0.0.0/16**, **10.1.0.0/16**, **10.2.0.0/16** |
+| Network group | **network-group** |
+| Connectivity configuration | **connectivity-configuration** |
+| Azure Policy name | **azure-policy** |
+| Tag | Name: **NetworkType** / Value: **Production** |
+
+[!INCLUDE [create-resource-group](../networking/includes/azure-virtual-network-manager/create-resource-group.md)]
+
+> [!NOTE]
+> For this quickstart, select **Connectivity** from the **Features** dropdown when creating your Virtual Network Manager instance. Use the sample values from the preceding table for the resource group, name, and region fields.
+
+[!INCLUDE [virtual-network-manager-create-instance-portal](../networking/includes/azure-virtual-network-manager/virtual-network-manager-create-instance-portal.md)]
 
 ## Create virtual networks
 
@@ -40,7 +61,7 @@ Create three virtual networks by using the portal. Each virtual network has a `n
     | ------- | ----- |
     | **Subscription** | Select the subscription where you want to deploy this virtual network. |
     | **Resource group** | Select **resource-group**. |
-    | **Virtual network name** | Enter **vnet-000**. |
+    | **Virtual network name** | Enter **vnet-00**. |
     | **Region** | Select **(US) West 2**. |
 
 1. Select the **IP addresses** tab.
@@ -70,16 +91,16 @@ Create three virtual networks by using the portal. Each virtual network has a `n
     | **Resource group** | Select **resource-group**. |
     | **Name** | Enter **vnet-01** and **vnet-02** for the other virtual networks. |
     | **Region** | Select **(US) West 2**. |
-    | **vnet-01 IP addresses** | IPv4 address space: **10.1.0.0/16** </br> Subnet name: **default** </br> Subnet address space: **10.1.0.0/24**|
-    | **vnet-01 Tags** | Name: **NetworkType** </br> Value: **Production** </br> Resource: **Virtual network**. |
-    | **vnet-02 IP addresses** | IPv4 address space: **10.2.0.0/16** </br> Subnet name: **default** </br> Subnet address space: **10.2.0.0/24**|
-    | **vnet-02 Tags** | Name: **NetworkType** </br> Value: **Production** </br> Resource: **Virtual network**. |
+    | **vnet-01 IP addresses** | IPv4 address space: **10.1.0.0/16** <br> Subnet name: **default** <br> Subnet address space: **10.1.0.0/24** |
+    | **vnet-01 Tags** | Name: **NetworkType** <br> Value: **Production** <br> Resource: **Virtual network**. |
+    | **vnet-02 IP addresses** | IPv4 address space: **10.2.0.0/16** <br> Subnet name: **default** <br> Subnet address space: **10.2.0.0/24** |
+    | **vnet-02 Tags** | Name: **NetworkType** <br> Value: **Production** <br> Resource: **Virtual network**. |
 
 ## Create a network group
 
 Azure Virtual Network Manager applies configurations to groups of virtual networks known as network groups. To create a network group:
 
-[!INCLUDE [virtual-network-manager-create-network-group](../../includes/virtual-network-manager-create-network-group.md)]
+[!INCLUDE [virtual-network-manager-create-network-group](../networking/includes/azure-virtual-network-manager/virtual-network-manager-create-network-group.md)]
 
 ## Define membership for a connectivity configuration
 
@@ -113,17 +134,17 @@ By using [Azure Policy](concept-azure-policy-integration.md), you define a condi
     | **Scope** | Choose **Select scopes** and then select your current subscription. |
     | **Parameter** | Select **Name** from the dropdown list.|
     | **Operator** | Select **Key value pair** from the dropdown list.|
-    | **Condition** | Enter name of **NetworkType**.</br> Enter value of **Production**. |
+    | **Condition** | Enter name of **NetworkType**.<br> Enter value of **Production**. |
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/network-group-conditional-thumb.png" alt-text="Screenshot of the pane for creating an Azure policy, including criteria for definitions." lightbox="media/create-virtual-network-manager-portal/network-group-conditional.png":::
 
-2. The **Preview resources** pane shows the virtual networks for addition to the network group based on the defined conditions in Azure Policy. When you're ready, select **Close**.
+1. The **Preview resources** pane shows the virtual networks for addition to the network group based on the defined conditions in Azure Policy. When you're ready, select **Close**.
 
     :::image type="content" source="media/create-virtual-network-manager-portal/preview-virtual-networks.png" alt-text="Screenshot of the pane for previewing the virtual networks.":::
 
-3. Select **Save** to deploy the Azure Policy. It can take up to one minute for the policy to take effect and be added to your network group.
+1. Select **Save** to deploy the Azure Policy. It can take up to one minute for the policy to take effect and be added to your network group.
 
-4. On the **Network Group** pane, under **Settings**, select **Group members** to view the membership of the group based on the conditions that you defined in Azure Policy. Confirm the **Source** is listed as **azure-policy - subscriptions/subscription_id**.
+1. On the **Network Group** pane, under **Settings**, select **Group members** to view the membership of the group based on the conditions that you defined in Azure Policy. Confirm the **Source** is listed as **azure-policy - subscriptions/subscription_id**.
 
     :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list.png" alt-text="Screenshot of listed group members with a configured source.":::
 
@@ -131,7 +152,7 @@ By using [Azure Policy](concept-azure-policy-integration.md), you define a condi
 
 ## Create a configuration
 
-Now that you created the network group and updated its membership with virtual networks, you create a mesh connectivity configuration. Replace `<subscription_id>` with your subscription.
+Now that you created the network group and updated its membership with virtual networks, you create a mesh connectivity configuration.
 
 1. Under **Settings**, select **Configurations**. Then select **Create**.
 

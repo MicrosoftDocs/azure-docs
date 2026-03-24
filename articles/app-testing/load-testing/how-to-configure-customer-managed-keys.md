@@ -4,8 +4,8 @@ titleSuffix: Azure Load Testing
 description: Learn how to configure customer-managed keys for your Azure load testing resource with Azure Key Vault
 services: load-testing
 ms.service: azure-load-testing
-ms.author: ninallam
-author: ninallam
+ms.author: nandinim
+author: nandinimurali
 ms.date: 09/18/2023
 ms.topic: how-to
 ---

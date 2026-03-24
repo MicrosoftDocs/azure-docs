@@ -12,10 +12,6 @@
 ---
 The following limits apply to Standard and StandardV2 NAT gateway resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
-> [!IMPORTANT]
-> Standard V2 SKU Azure NAT Gateway is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 > [!NOTE]
 > Each subscription has a combined quota for both Standard and StandardV2 NAT gateways. For example, if your subscription has a quota of 100 NAT gateways, you can create any combination of Standard and StandardV2 NAT gateways up to that quota.
 

@@ -4,8 +4,8 @@ description: 'Learn how to create and run load tests in Azure App Testing using 
 services: load-testing
 ms.service: azure-load-testing
 ms.topic: quickstart
-author: ninallam
-ms.author: ninallam
+author: nandinimurali
+ms.author: nandinim
 ms.date: 10/23/2023
 ms.custom: template-quickstart, mode-other
 adobe-target: true

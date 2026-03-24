@@ -256,6 +256,8 @@ items:
           href: migrate-heroku-overview.md
         - name: Migrate from Heroku
           href: migrate-heroku.md
+    - name: Azure Developer CLI (azd) templates
+      href: container-apps-cli-templates.md
 - name: Observability
   items:
     - name: Overview

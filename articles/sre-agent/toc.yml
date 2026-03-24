@@ -160,6 +160,8 @@ items:
         href: starter-prompts.md
       - name: Data privacy and residency
         href: data-privacy.md
+      - name: Anthropic subprocessor
+        href: anthropic-sub-processor.md
       - name: Billing
         href: billing.md
       - name: Frequently asked questions

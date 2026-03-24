@@ -4,8 +4,8 @@ titleSuffix: Azure Load Testing
 description: Learn how to configure notifications for events in Azure Load Testing, enabling notifications for test completions, scheduled tests, and other key events.
 services: load-testing
 ms.service: azure-load-testing
-author: ninallam
-ms.author: ninallam
+author: nandinimurali
+ms.author: nandinim
 ms.topic: how-to
 ms.date: 01/09/2025
 ---

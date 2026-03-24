@@ -5,8 +5,8 @@ description: Learn which Apache JMeter features are supported in Azure Load Test
 services: load-testing
 ms.service: azure-load-testing
 ms.topic: reference
-ms.author: ninallam
-author: ninallam
+ms.author: nandinim
+author: nandinimurali
 ms.date: 06/14/2023
 ---
 

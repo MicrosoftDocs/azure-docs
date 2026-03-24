@@ -28,6 +28,10 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
   - Cancelling a queued or running export job returns "202 Accepted"; no behavior change.
   - Trying to get the status of a user-requested cancelled job returns "404 Job Not Found."
 
+
+#### Bug fixes:
+**Fix for versioning configuration issue**:  On 10 March 2026, a release rolled out that fixed a bug that prevented the resource versioning policy default setting from being honored in the FHIR server. This fix revealed another bug involving a bad configuration setting value that resulted in some requests failing with 500 errors. The issue was fixed on 10 March 2026.
+
 ## February 2026
 ### FHIR service
 

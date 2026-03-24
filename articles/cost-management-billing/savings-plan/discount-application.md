@@ -25,9 +25,13 @@ Here's a video that explains how an savings plan is applied to the compute envir
 
 >[!VIDEO https://www.youtube.com/embed/AZOyh1rl3kU]
 
-## Savings plans and VM reservations
+## Changes to savings plans discounts
 
-If you have both dynamic and stable workloads, you likely have both savings plans and VM reservations. Since reservation benefits are more restrictive than savings plans, and usually have greater discounts, Azure applies reservation benefits first.
+Like the pay-as-you-go model, prices under savings plans are subject to change. All price changes take effect on the first day of the month. Regardless of when an active saving plan was purchased, current savings plan pricing is used when applying savings plan benefits.
+
+## Savings plans and reservations
+
+If you have both dynamic and stable workloads, you likely have both savings plans and reservations. Since reservation benefits are more restrictive than savings plans, and usually have greater discounts, Azure applies reservation benefits first.
 
 For example, VM _X_ has the highest savings plan discount of all savings plan-eligible resources you used in a particular hour. If you have an available VM reservation that's compatible with _X_, the reservation is consumed instead of the savings plan. The approach reduces the possibility of waste and it ensures that you’re always getting the best benefit.
 

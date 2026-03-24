@@ -4,8 +4,8 @@ description: 'The list of Apache JMeter properties that are overridden by Azure 
 services: load-testing
 ms.service: azure-load-testing
 ms.topic: reference
-ms.author: ninallam
-author: ninallam
+ms.author: nandinim
+author: nandinimurali
 ms.date: 01/12/2023
 ---
 
