@@ -37,7 +37,7 @@ Sign-in to the [Azure portal](https://portal.azure.com).
 
 - **FQDN Tag**: Enable traffic from Enclaves to known Microsoft Azure services via FQDN Tags (for example `AzurePortal`).
 
-- **Service Tag**: Enable traffic from enclaves to Azure services using Azure Service Tags. Service Tags represent groups of IP address prefixes for specific Azure services (for example `AzureStorage`, `AzureKeyVault`, `Sql`). Azure automatically maintains the underlying IP addresses, eliminating the need for manual updates when service addresses change. For a complete list of available Service Tags, see [Virtual network service tags](https://learn.microsoft.com/azure/virtual-network/service-tags-overview).
+- **Service Tag**: Enable traffic from enclaves to Azure services using Azure Service Tags. Service Tags represent groups of IP address prefixes for specific Azure services (for example `AzureStorage`, `AzureKeyVault`, `Sql`). Azure automatically maintains the underlying IP addresses, eliminating the need for manual updates when service addresses change. For a complete list of available Service Tags, see [Virtual network service tags](/azure/virtual-network/service-tags-overview).
 
 - **Private Network**: Enable traffic from Enclaves to an external private network through a [transit hub](./create-transit-hub-portal.md) connection.
 

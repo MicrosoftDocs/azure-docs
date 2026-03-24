@@ -23,11 +23,11 @@ Enclave connections support multiple source and destination configurations:
 
 ### Enclave-to-enclave connections
 
-Connect resources in one enclave to resources in another enclave within the same community. This enables secure communication between isolated workloads while maintaining network boundaries.
+Connect resources in one enclave to resources in another enclave within the same community. Enclave to enclave connections enable secure communication between isolated workloads while maintaining network boundaries.
 
 ### Enclave-to-community endpoint connections
 
-Connect resources in an enclave to external destinations defined in a community endpoint. This enables controlled outbound access to:
+Connect resources in an enclave to external destinations defined in a community endpoint. Community endpoints enable controlled outbound access to:
 - Public internet destinations (via IP, FQDN, FQDN Tag, or Service Tag rules)
 - External private networks (via transit hub connections)
 
@@ -55,7 +55,7 @@ To create a transit hub-to-transit hub connection, both transit hubs must exist 
 All enclave connections are governed by:
 
 - **Azure Firewall rules** - Traffic is evaluated against community-level firewall policies
-- **Network security groups** - Enclave-level NSGs provide additional traffic filtering
+- **Network security groups** - Enclave-level network security groups (NSGs) provide extra traffic filtering
 - **Private endpoints** - Resources communicate over private IP addresses within the Azure backbone
 
 ## Template

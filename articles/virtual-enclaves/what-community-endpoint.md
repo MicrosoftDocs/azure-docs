@@ -53,7 +53,7 @@ Community endpoints support several rule types that define how enclaves can conn
   - `AzureMonitor` - Azure Monitor service IP addresses
   - `Sql` - Azure SQL Database service IP addresses
 
-  For a complete list of available Service Tags, see [Virtual network service tags](https://learn.microsoft.com/azure/virtual-network/service-tags-overview).
+  For a complete list of available Service Tags, see [Virtual network service tags](/azure/virtual-network/service-tags-overview).
 
 - **Private Network**  
   Enable traffic from enclaves to an external private network through an existing **transit hub** connection. The transit hub must exist before a private network rule can be created.
@@ -96,9 +96,9 @@ Because rule evaluation relies on Azure Firewall behavior, community endpoint co
 
 For more information, see the following Azure Firewall documentation:
 
-- [Azure Firewall rule processing logic](https://learn.microsoft.com/azure/firewall/rule-processing)
-- [Azure Firewall network rule filtering](https://learn.microsoft.com/azure/firewall/firewall-faq#how-do-network-rules-work)
-- [Azure Firewall FQDN filtering in network rules](https://learn.microsoft.com/azure/firewall/domain-filtering-overview)
+- [Azure Firewall rule processing logic](/azure/firewall/rule-processing)
+- [Azure Firewall network rule filtering](/azure/firewall/firewall-faq#how-do-network-rules-work)
+- [Azure Firewall FQDN filtering in network rules](/azure/firewall/domain-filtering-overview)
 
 ## Related documentation
 
