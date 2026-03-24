@@ -21,18 +21,9 @@ You can use Azure Communication Services within [Azure Government](https://azure
 
 Azure Communication Services in Azure Government has achieved FedRAMP High accreditation as part of the [Microsoft 365 Government Community Cloud (GCC) - High service offering](https://marketplace.fedramp.gov/products/FR1824057433). The service is now Generally Available (GA) and meets the requirements of FedRAMP. Government customers can use the service knowing it is secure and compliant with federal standards.
 
-## General availability and feature releases
+## General availability
 
-Azure Communication Services for US Government is now Generally Available (GA). The initial release delivers core capabilities, including basic video calling and messaging, to provide government customers with a secure and compliant communication solution.
-
-Following GA, advanced features are being released, including:
-- Call Logs
-- Call Records
-- Transcriptions
-- Live Captions
-- Email Integration
-
-Azure Communication Services is committed to releasing these features as part of its roadmap.
+Azure Communication Services for US Government is now Generally Available (GA), providing government customers with a secure and compliant communication solution.
 
 ## Related articles
 
