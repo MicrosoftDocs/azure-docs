@@ -41,6 +41,9 @@
       href: ./durable-task-scheduler/quickstart-container-apps-durable-task-sdk.md
     - name: Host a .NET Durable Task SDK app on Azure Kubernetes Service
       href: ./durable-task-scheduler/quickstart-aks-durable-task-scheduler.md
+    - name: Use work item filtering with the .NET Durable Task SDK
+      displayName: get started, durable task scheduler
+      href: ./durable-task-scheduler/quickstart-work-item-filtering-durable-task.md
 - name: Core concepts
   items:
   - name: Fundamentals
