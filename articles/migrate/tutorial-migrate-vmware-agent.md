@@ -14,7 +14,7 @@ ms.custom: vmware-scenario-422, MVC, engagement-fy25
 
 # Migrate VMware vSphere VMs to Azure (agent-based)
 
-This article shows you how to migrate on-premises VMware vSphere VMs to Azure, using the [Migration and modernization](migrate-services-overview.md) tool, with agent-based migration.  You can also migrate VMware vSphere VMs using agentless migration (Recommended). [Compare](server-migrate-overview.md) the methods.
+This article shows you how to migrate on-premises VMware vSphere or Azure VMware Solution VMs to Azure, using the [Migration and modernization](migrate-services-overview.md) tool, with agent-based migration.  You can also migrate VMware vSphere VMs using agentless migration (Recommended). [Compare](server-migrate-overview.md) the methods.
 
  In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -76,7 +76,7 @@ If you are following the least privilege principle, assign the **Application Dev
 
 ### Set up an Azure network
 
-[Set up an Azure network](/azure/virtual-network/manage-virtual-network). On-premises machines are replicated to Azure Managed Disks. When you fail over to Azure for migration, Azure VMs are created from these managed disks, and joined to the Azure network you set up.
+[Set up an Azure network](/azure/virtual-network/manage-virtual-network). Source (on-premises or Azure VMware Solution) machines are replicated to Azure Managed Disks. When you fail over to Azure for migration, Azure VMs are created from these managed disks, and joined to the Azure network you set up.
 
 
 ## Prepare for migration
@@ -128,7 +128,7 @@ Make sure VMware vSphere VMs comply with requirements for migration to Azure.
 
 1. [Verify](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agent-based) VMware vSphere VM requirements.
 2. [Verify](migrate-support-matrix-vmware-migration.md#vm-requirements-agent-based) VM requirements for migration.
-3. Verify Azure settings. On-premises VMs you replicate to Azure must comply with [Azure VM requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
+3. Verify Azure settings. Source VMs (on-premises or Azure VMware Solution VMs) you replicate to Azure must comply with [Azure VM requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 4. There are some changes needed on VMs before you migrate them to Azure.
     - It's important to make these changes before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
     - Review [Windows](prepare-for-migration.md#windows-machines) and [Linux](prepare-for-migration.md#linux-machines) changes you need to make.
@@ -308,7 +308,7 @@ The new simplified process follows a streamlined flow that begins with discovery
 
 Replication occurs as follows:
 - When the Start Replication job finishes successfully, the machines begin their initial replication to Azure.
-- After initial replication finishes, delta replication begins. Incremental changes to on-premises disks are periodically replicated to the replica disks in Azure.
+- After initial replication finishes, delta replication begins. Incremental changes to source disks (on-premises or AVS disks) are periodically replicated to the replica disks in Azure.
 
 
 ## Run a test migration
@@ -316,7 +316,7 @@ Replication occurs as follows:
 
 When delta replication begins, you can run a test migration for the VMs, before running a full migration to Azure. We highly recommend that you do this at least once for each machine, before you migrate it.
 
-- Running a test migration checks that migration will work as expected, without impacting the on-premises machines, which remain operational, and continue replicating.
+- Running a test migration checks that migration will work as expected, without impacting the source machines (on-premises or AVS machines), which remain operational, and continue replicating.
 - Test migration simulates the migration by creating an Azure VM using replicated data (usually migrating to a non-production VNet in your Azure subscription).
 - You can use the replicated test Azure VM to validate the migration, perform app testing, and address any issues before full migration.
 
@@ -339,12 +339,12 @@ Do a test migration as follows:
 
 ## Migrate VMs
 
-After you've verified that the test migration works as expected, you can migrate the on-premises machines.
+After you've verified that the test migration works as expected, you can migrate the source machine (on-premises or AVS).
 
 1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization**, select **Replicating servers**.
 2. In **Replicating machines**, right-click the VM > **Migrate**.
 3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.
-    - By default Azure Migrate shuts down the on-premises VM to ensure minimum data loss.
+    - By default Azure Migrate shuts down the source VM (on-premises or AVS) to ensure minimum data loss.
     - If you don't want to shut down the VM, select **No**
 4. A migration job starts for the VM. Track the job in Azure notifications.
 5. After the job finishes, you can view and manage the VM from the **Virtual Machines** page.
@@ -352,23 +352,23 @@ After you've verified that the test migration works as expected, you can migrate
 ## Complete the migration
 
 1. After the migration is done, right-click the VM > **Stop replication**. This does the following:
-    - Stops replication for the on-premises machine.
+    - Stops replication for the source machine (on-premises or AVS).
     - Removes the machine from the **Replicating servers** count in the Migration and modernization tool.
     - Cleans up replication state information for the VM.
 1. Verify and [troubleshoot any Windows activation issues on the Azure VM.](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems)
 1. Perform any post-migration app tweaks, such as host names, updating database connection strings, and web server configurations.
 1. Perform final application and migration acceptance testing on the migrated application now running in Azure.
 1. Cut over traffic to the migrated Azure VM instance.
-1. Remove the on-premises VMs from your local VM inventory.
-1. Remove the on-premises VMs from local backups.
+1. Remove the source (on-premises or AVS) VMs from your local VM inventory.
+1. Remove the source (on-premises or AVS) VMs from local backups.
 1. Update any internal documentation to show the new location and IP address of the Azure VMs.
 
 ## Post-migration best practices
 
-- On-premises
+- On-premises or on Azure VMware Solution
     - Move app traffic over to the app running on the migrated Azure VM instance.
-    - Remove the on-premises VMs from your local VM inventory.
-    - Remove the on-premises VMs from local backups.
+    - Remove the source VMs (on-premises or AVS) from your local VM inventory.
+    - Remove the source VMs (on-premises or AVS) from local backups.
     - Update any internal documentation to show the new location and IP address of the Azure VMs.
 - Tweak Azure VM settings after migration:
     - The [Azure VM agent](/azure/virtual-machines/extensions/agent-windows) manages VM interaction with the Azure Fabric Controller. It's required for some Azure services, such as Azure Backup, Site Recovery, and Azure Security. When migrating VMware VMs with agent-based migration, the Mobility Service installer installs Azure VM agent on Windows machines. On Linux VMs, we recommend that you install the agent after migration.

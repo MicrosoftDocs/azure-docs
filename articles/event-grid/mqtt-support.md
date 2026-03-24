@@ -182,7 +182,7 @@ The MQTT broker is adding more MQTT v5 and MQTT v3.1.1 features in the future to
 MQTT v5 currently differs from the [MQTT v5 specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html) in the following ways:
 
 - Shared subscriptions aren't supported yet.
-- Maximum Will delay interval is 300.
+- The effective will delay interval is the lesser of the provided Will Delay Interval and the session expiry interval (if provided).
 - Maximum QoS is 1.
 - Maximum packet size is 512 KiB.
 - Subscription identifiers aren't supported.

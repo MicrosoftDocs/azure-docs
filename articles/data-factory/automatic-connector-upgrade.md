@@ -9,7 +9,7 @@ ms.topic: concept-article
 ms.custom:
   - references_regions
   - build-2025
-ms.date: 01/08/2026
+ms.date: 03/24/2026
 ---
 
 # Automatic connector upgrade
@@ -73,7 +73,7 @@ You can find more details from the table below on the connector list that is pla
 | [Greenplum](connector-greenplum.md) | If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.56 or above. |
 | [Hive](connector-hive.md) | Scenario that doesn't rely on below capability in Hive (version 1.0):<br><br>• Use Username authentication type.<br>• Thrift transport protocol:<br>&nbsp;&nbsp;• HiveServer1<br>• Service discovery mode: True<br>• Use native query: True <br><br>If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.59 or above.|
 | [Impala](connector-impala.md) | Scenario that doesn't rely on below capability in Impala (version 1.0):<br><br>• Use SASL Username authentication type.<br><br>If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.59 or above. |
-| [Jira](connector-jira.md) | Scenario that doesn't rely on below capability in Jira (version 1.0):<br><br>• Use `useEncryptedEndpoints`, `useHostVerification` and `usePeerVerification` as connection properties. <br>• Use `query`. <br><br>The following Jira tables are supported for automatic upgrade:<br>&nbsp;&nbsp;Platform.Api_Groups_Picker, Platform.Api_Issue_Type, Platform.Api_Project, Platform.Api_Field, Platform.Api_Status, Platform.Api_Status_Category, Platform.Api_Project_Type, Platform.Api_Resolution, Platform.Api_Priority, Platform.ApiAllUsers, Platform.Api_Issue_Link_Type, Platform.Api_Role, Platform.Api_Project_Versions, Platform.Api_Component, Platform.Api_Project_IssueTypes, Agile.Agile_Board_Epic, Agile.Agile_Board, Agile.Agile_Board_Sprint, Agile.Agile_Board_Issue, Agile.Agile_Board_Epic_Issue. <br><br>If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.63 or above. |
+| [Jira](connector-jira.md) | Scenario that doesn't rely on below capability in Jira (version 1.0):<br><br>• Use `useEncryptedEndpoints`, `useHostVerification` and `usePeerVerification` as connection properties. <br>• Use `query`. <br><br>The following Jira tables are supported for automatic upgrade:<br>&nbsp;&nbsp;Platform.Api_Groups_Picker, Platform.Api_Issue_Type, Platform.Api_Project, Platform.Api_Field, Platform.Api_Status, Platform.Api_Status_Category, Platform.Api_Project_Type, Platform.Api_Resolution, Platform.Api_Priority, Platform.ApiAllUsers, Platform.Api_Issue_Link_Type, Platform.Api_Role, Platform.Api_Project_Versions, Platform.Api_Component, Platform.Api_Project_IssueTypes, Platform.Api_Issue, Agile.Agile_Board_Epic, Agile.Agile_Board, Agile.Agile_Board_Sprint, Agile.Column_Config_Columns, Agile.Agile_Board_Issue_Fields_Components, Agile.Agile_Board_Issue_Fields_Closed_Sprints, Agile.AgileBoardProjects. <br><br>If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.64 or above. |
 | [MariaDB](connector-mariadb.md) | If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.58 or above. |
 | [MySQL](connector-mysql.md) | If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.58 or above. |
 | [Netezza](connector-netezza.md) | If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.59 or above. |

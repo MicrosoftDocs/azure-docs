@@ -8,6 +8,7 @@ ms.date: 03/23/2026
 ms.author: kendownie
 ms.custom:
   - devx-track-azurepowershell
+zone_pivot_groups: azure-files-windows-linux
 # Customer intent: As a cloud administrator, I want to improve security by authenticating managed identities to allow applications and virtual machines to access SMB Azure Files shares using identity-based authentication with Microsoft Entra ID instead of using a storage account key.
 ---
 
@@ -59,7 +60,7 @@ To authenticate a managed identity, you must enable the **SMBOAuth** property on
 
 To enable the **SMBOAuth** property on your storage account, use either the Azure portal or Azure PowerShell. For instructions, select the appropriate tab.
 
-### [Portal](#tab/windows)
+### [Portal](#tab/portal)
 
 To create a new storage account with the **SMBOAuth** property enabled by using the Azure portal, follow [these steps](create-classic-file-share.md#create-a-storage-account). Under the **Advanced** tab, select the **Enable Managed Identity for SMB** checkbox.
 
@@ -73,7 +74,7 @@ Go to the storage account. From the service menu, under **Settings**, select **C
 
 Next, [create an SMB file share](create-classic-file-share.md) on the storage account.
 
-### [PowerShell](#tab/linux)
+### [PowerShell](#tab/powershell)
 
 To enable the **SMBOAuth** property on your storage account by using Azure PowerShell, first prepare your PowerShell environment.
 
@@ -147,9 +148,9 @@ You now have a storage account and file share ready for SMB OAuth authentication
 
 ## Configure managed identity
 
-You can use managed identities with Windows or Linux. Select the appropriate tab and follow the instructions for your operating system.
+You can use managed identities with Windows or Linux. Select your operating system and follow the instructions.
 
-### [Windows](#tab/windows)
+::: zone pivot="windows"
 
 The enablement steps described here are for Azure VMs. If you want to enable a managed identity on non-Azure Windows machines (on-premises or other cloud), you must [onboard them to Azure Arc and assign a managed identity](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-identity-and-access-management). You can also authenticate by using an application identity instead of using a managed identity on a VM or Windows device.
 
@@ -203,7 +204,9 @@ If you created a user assigned managed identity, follow these steps to add it to
 
 1. Select the **User assigned** tab, and then select **Add user assigned managed identity**. Select the managed identity you created, and then select **Add**.
 
-### [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="linux"
 
 To configure a managed identity on a Linux VM running in Azure, follow these steps. Your VM must be running Azure Linux 3.0, Ubuntu 22.04, Ubuntu 24.04, RHEL 9.6+, or SLES 15 SP6+.
 
@@ -251,13 +254,13 @@ If you created a user assigned managed identity, follow these steps to add it to
 
 1. Select the **User assigned** tab, and then select **Add user assigned managed identity**. Select the managed identity you created, and then select **Add**.
 
----
+::: zone-end
 
 ## Prepare your client to authenticate by using a managed identity
 
 Follow these steps to prepare your system to mount the file share using managed identity authentication. The steps are different for Windows and Linux clients. Clients shouldn't be domain joined.
 
-### [Windows](#tab/windows)
+::: zone pivot="windows"
 
 To prepare your client VM or Windows device to authenticate by using a managed identity, follow these steps.
 
@@ -292,7 +295,7 @@ For a system assigned managed identity, run the following command to get an OAut
 AzFilesSmbMIClient.exe refresh --uri https://<storage-account-name>.file.core.windows.net/
 ```
 
-For a user assigned managed identity, you need to specify the Client ID. Replace `<client-id>` with the Client ID of the managed identity.
+For a user assigned managed identity, you need to specify the client ID. Replace `<client-id>` with the client ID of the managed identity.
 
 ```powershell
 AzFilesSmbMIClient.exe refresh --uri https://<storage-account-name>.file.core.windows.net/ --clientId <client-id> 
@@ -301,7 +304,9 @@ AzFilesSmbMIClient.exe refresh --uri https://<storage-account-name>.file.core.wi
 > [!TIP]
 > To view complete usage information and examples, run the executable without any parameters: `AzFilesSmbMIClient.exe`
 
-### [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="linux"
 
 To prepare your Linux VM to authenticate by using a managed identity, follow these steps.
 
@@ -399,13 +404,13 @@ You have two options for configuring authentication on Linux:
 
 You can use a system assigned or user assigned managed identity to configure authentication.
 
-If your VM has a user assigned managed identity, run the following command to get a token from the Azure Instance Metadata Service (IMDS) and store it automatically. Replace `<storage-account-name>` with your storage account name. Replace `<client-id>` with the client ID of your managed identity. If you don't have the Client ID, go to the managed identity in the Azure portal and copy the Client ID.
+If your VM has a user assigned managed identity, run the following command to get a token from the Azure Instance Metadata Service (IMDS) and store it automatically. Replace `<storage-account-name>` with your storage account name. Replace `<client-id>` with the client ID of your managed identity. If you don't have the client ID, go to the managed identity in the Azure portal and copy the client ID.
 
 ```bash
 sudo azfilesauthmanager set https://<storage-account-name>.file.core.windows.net --imds-client-id <client-id>
 ```
 
-If your VM has a system assigned managed identity, use the `--system` flag:
+If your VM has a system assigned managed identity, use the `--system` flag and don't supply a client ID:
 
 ```bash
 sudo azfilesauthmanager set https://<storage-account-name>.file.core.windows.net --system
@@ -430,13 +435,13 @@ sudo azfilesauthmanager set https://<storage-account-name>.file.core.windows.net
 sudo azfilesauthmanager list
 ```
 
----
+::: zone-end
 
 ## Mount the file share
 
 You can now mount the file share on Windows or Linux without using a storage account key.
 
-### [Windows](#tab/windows)
+::: zone pivot="windows"
 
 On Windows clients, you can directly access your Azure file share using the UNC path by entering the following path into Windows File Explorer. Replace `<storage-account-name>` with your storage account name and `<file-share-name>` with your file share name:
 
@@ -444,7 +449,9 @@ On Windows clients, you can directly access your Azure file share using the UNC 
 
 For more information, see [Mount SMB Azure file share on Windows](storage-how-to-use-files-windows.md).
 
-### [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="linux"
 
 Run the following command to mount the file share with the recommended mount options. Replace `<storage-account-name>` with your storage account name and `<file-share-name>` with your file share name. You can find your credential ID in the following config file: `cat /etc/azfilesauth/config.yaml`. For a user assigned managed identity, include the client ID of the managed identity using the `username=<client-id>` mount option.  For a system assigned managed identity, omit the mount option `username=<client-id>`.
 
@@ -478,13 +485,13 @@ sudo systemctl enable --now azfilesrefresh
 
 Automatic credential refresh requires a managed identity assigned to your VM. If you're supplying the OAuth token directly, you must refresh credentials manually by using the `azfilesauthmanager set` command as described in [Configure authentication](#configure-authentication), or programmatically via the shared library APIs.
 
----
+::: zone-end
 
 ## Troubleshooting
 
 Troubleshooting steps are different for Windows and Linux clients.
 
-### [Windows](#tab/windows)
+::: zone pivot="windows"
 
 If you encounter problems when mounting your file share on Windows, follow these steps to enable verbose logging and collect diagnostic information.
 
@@ -494,17 +501,19 @@ If you encounter problems when mounting your file share on Windows, follow these
 
 1. You should now have a file named `AzFilesSmbMILog.log`. Send the log file to azurefilespm@microsoft.com for assistance.
 
-### [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="linux"
 
 If you encounter problems when mounting your file share on Linux, follow [these SMB diagnostics steps](https://github.com/Azure-Samples/azure-files-samples/tree/master/SMBDiagnostics).
 
----
+::: zone-end
 
 ## Client library installation and integration options
 
 The following information is for developers who need to integrate managed identities into their applications.
 
-### [Windows](#tab/windows)
+::: zone pivot="windows"
 
 For developers who need to integrate managed identities into their Windows applications, multiple implementation approaches are available depending on your application architecture and requirements.
 
@@ -538,7 +547,9 @@ extern "C" AZFILESSMBMI_API HRESULT SmbClearCredential(
 ); 
 ```
 
-### [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="linux"
 
 Linux developers can use the shared library that's automatically installed with the `azfilesauth` package. You can link against the library in your C/C++ applications for direct API access.
 
@@ -581,7 +592,7 @@ The following table lists the API commands and their usage. Returned values foll
 | `extern_smb_list_credential()` | Lists all stored credentials. |
 | `extern_smb_version()` | Returns the version string of the azfilesauth library. |
 
----
+::: zone-end
 
 ## See also
  

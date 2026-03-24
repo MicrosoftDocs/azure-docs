@@ -54,7 +54,7 @@ Refer [this article](prepare-azure-accounts.md) to prepare Azure accounts.
 > Ensure the Azure user account has the required Azure Migrate built-in roles to create projects, register appliances, and access discovery results. To understand the minimum role requirements, see [Azure Migrate built‑in roles](prepare-azure-accounts.md).
 
 ## Prepare VMware
-You can skip this step if you are discovering VMs from your Azure VMware Solution environment. You should be able to use your AVS cloudadmin account to discover and assess servers.
+You can skip this step if you are discovering VMs from your Azure VMware Solution environment. You should be able to use your [AVS cloudadmin account](/azure/azure-vmware/architecture-identity#vcenter-server-access-and-identity) to discover and assess servers.
 
 On your on-premises vCenter Server, check that your account has [permissions](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agentless) to create a VM by using a VMware Open Virtualization Appliance (OVA) virtual machine (VM) installation file. You must have these [permissions](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agentless) when you deploy the Azure Migrate appliance as a VMware VM by using an OVA file.
 
