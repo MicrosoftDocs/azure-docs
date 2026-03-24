@@ -30,12 +30,12 @@ With Azure Virtual Enclaves, you can easily create new isolated, zero-trust soft
 
 - [**Enclaves**](./what-enclave.md) - Isolated, zero-trust, platform-managed virtual networks connected to the community hub protected through a combination of Network Security Groups (NSG), policy guardrails, and RBAC Deny Assignments that serve as the Virtual Network for one or more workloads. Enclave virtual networks and NSGs can't be directly modified and must be managed through enclave endpoints and enclave resources to establish network connectivity.
 
-- [**Workloads**](./what-workload.md) - The resource that links your [workload resource groups](./what-workload.md#workload-resource-group) to the enclave and community boundary. Workload resource groups are protected by the community, enclave, and workload policies and permissions and this is where you'll put your customer deployed resources. platform-managed resource groups protected by Azure policy guardrails and RBAC Deny Assignments that serve as the resource container for an individual service or application hosted within an Enclave.
+- [**Workloads**](./what-workload.md) - The resource that links your [workload resource groups](./what-workload.md#workload-resource-group) to the enclave and community boundary. Workload resource groups are protected by the community, enclave, and workload policies and permissions and workload resource groups are where you put your customer deployed resources. platform-managed resource groups protected by Azure policy guardrails and RBAC Deny Assignments that serve as the resource container for an individual service or application hosted within an Enclave.
 
 [ ![Diagram showing the layers Azure Virtual Enclaves within the management layers in Azure.](./media/ave-azure-layers-hierarchy.png) ](./media/ave-azure-layers-hierarchy.png#lightbox)
 
 ## What gets deployed
-When you deploy Azure Virtual Enclaves resources, these are the resources that are deployed for you:
+When you deploy Azure Virtual Enclaves resources, these resources are deployed for you:
 
 - [**Communities**](./what-community.md) - The community managed resource group contains these resources depending on your selections during community creation.
   - Azure Virtual WAN
@@ -93,15 +93,15 @@ These guardrails include:
 
 **Logging and Monitoring**: Each activity is logged an auditable and can be centralized to a community Workspace, isolated to an Enclave, or both.
 
-**Virtual Network Isolation**: Next-level zero-trust networking that uses Azure vWAN, Firewall, Policy, RBAC, Network Watcher, Monitor, Microsoft Sentinel, Defender, and others to ensure that you know where your data is and who is accessing it.
+**Virtual Network Isolation**: Zero-trust networking that uses Azure vWAN, Firewall, Policy, RBAC, Network Watcher, Monitor, Microsoft Sentinel, Defender, and others to ensure that you know where your data is and who is accessing it.
 
-**Connection Management**: All connections, internal or external, are governed by strict, user-defined rules to prevent unwarranted access through.
+**Connection Management**: User-defined rules prevent unwarranted access through your enclave connections.
 
 **Policy Guardrails**: Ensure your environments remain secure through build-in policies at the community, Enclave, and workload levels to audit and/or enforce consistency and compliance across your environment.
 
-**Mandatory Access Control**: Access is granted not merely by identity but by role, ensuring users only access what they need, and nothing more.
+**Mandatory Access Control**: Azure assigned roles ensure users only access what they need.
 
-**Observability**: Azure Virtual Enclaves uses Azure's built-in logging, alerting, and auditing that seamlessly integrates with Microsoft Sentinel, Defender, and other network monitoring and security tools to ensure that your data remains secure.
+**Observability**: Azure Virtual Enclaves uses Azure's built-in logging, alerting, and auditing that seamlessly integrates with Microsoft Sentinel, Defender, and other network monitoring and security tools. These security tools ensure that your data remains secure.
 
 **Secure transit hub**: Managed VPN Gateway, ExpressRoute, or Virtual Network peering connections.
 
@@ -116,7 +116,7 @@ Azure Virtual Enclaves simplifies integration with existing secure Azure securit
 
 **Azure Monitor**: Get end-to-end visibility and in-depth monitoring of your Azure Virtual Enclaves operations, benefiting from Azure Monitor's advanced analytics.
 
-**Microsoft Defender for Cloud**: Bolster the security posture of your Azure Virtual Enclaves by using the comprehensive threat protection features and security baseline insights of Microsoft Defender for Cloud.
+**Microsoft Defender for Cloud**: Fortify your Azure Virtual Enclaves by using the comprehensive threat protection features and security baseline insights of Microsoft Defender for Cloud.
 
 **Azure Virtual Desktop**: Integrate your enclaves with Azure Virtual Desktop to provide users with a secure, remote desktop experience from anywhere.
 
