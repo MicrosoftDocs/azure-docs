@@ -25,7 +25,7 @@ Azure Communication Services in Azure Government has achieved FedRAMP High accre
 
 Azure Communication Services for US Government is now Generally Available (GA), providing government customers with a secure and compliant communication solution.
 
-The following features are available in Azure Government today:
+The following features are available in Azure Government:
 - Voice and Video Calling
 - Chat
 - Direct Routing
