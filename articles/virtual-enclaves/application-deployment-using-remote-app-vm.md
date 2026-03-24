@@ -24,32 +24,27 @@ The application installation scripting supports the following scenarios:
 
 
 ## Prerequisites
-The RemoteApp template supports scripting to automate the process of installing applications and configuring the Virtual Machine. Before you can start using the RemoteAppVM app installation, you need to make sure you have:
+The RemoteApp template supports scripting to automate the process of installing applications and configuring the Virtual Machine. Before you can start using the RemoteApp app installation, you need to make sure you have:
 - A [community](./what-community.md), [enclave](./what-enclave.md), [workload](./what-workload.md), and at least one [workload resource group](./what-workload.md#workload-resource-group) and permissions to create resources inside the workload resource group.
 - Enable `Advanced` [maintenance mode](./maintenance-mode.md) for your enclave so you can add the Private Link resources to your enclave managed resource group.
 - A [container](/azure/storage/blobs/blob-containers-portal) (artifacts) within the [storage account](./deploy-storage-account-service-catalog.md).
-- A [community endpoint](./create-community-endpoint-portal.md) to the storage account and AzToolBox.
+- A [community endpoint](./create-community-endpoint-portal.md) to the storage account and optionally to an existing copy of AzCopy.exe.
 - A copy of AzCopy.exe
-    1. Get AzCopy from the [AzToolBox](./application-deployment-using-remote-app-vm.md). Create a [community endpoint](./create-community-endpoint-portal.md) to the storage account and AzToolBox.
-    2. Use my copy of [AzCopy.exe](/azure/storage/common/storage-use-azcopy-v10#download-azcopy) in my Storage Account/Container.
-        - Upload the AzCopy installer to the storage account at the same level as your app folder.
-        - File Structure: 
-            ```md
-                - storage account
-                    - artifacts container
-                        - app folder
-                        - azcopy.exe 
-            ```
-        ![Screenshot showing storage container organization structure.](./media/remoteapp-container-artifacts.png)
-
-        - The picture shows multiple app folders can be in the same container and utilize the same copy of AzCopy.exe.
-- [Enclave connections](./create-enclave-connection-portal.md) to the previously made community endpoints using IP groups `(enclave-name}`-ipg-eas and another at `{enclave-name}`-ipg-mgmt-vms.
-
-![Screenshot showing example community endpoint rules.](./media/remoteapp-community-endpoint-rules.png)
+  - [Download AzCopy](/azure/storage/common/storage-use-azcopy-v10#download-a-portable-binary).
+  - Upload the AzCopy installer to the storage account at the same level as your app folder.
+  - File Structure: 
+    ```md
+        - storage account
+            - artifacts container
+                - app folder
+                - azcopy.exe 
+    ```
+    ![Screenshot showing storage container organization structure with multiple app folders in the same container and using the same copy of AzCopy.exe.](./media/remoteapp-container-artifacts.png)
+- [Enclave connections](./create-enclave-connection-portal.md) between the previously made community endpoints and the enclave subnet.
 
 > [!NOTE]
 > 
-> If the storage account is in a different enclave, create an [enclave endpoint](./create-enclave-endpoint-portal.md) in the enclave with the storage account and [enclave connection](./create-enclave-connection-portal.md) to that storage account.
+> If the storage account is in a different enclave, create an [enclave endpoint](./create-enclave-endpoint-portal.md) in the enclave with the storage account. Then create an [enclave connection](./create-enclave-connection-portal.md) between that storage account enclave and the enclave where you're installing the application.
 
 
 ### Azure Resources Deployed
@@ -67,8 +62,8 @@ The RemoteApp template supports scripting to automate the process of installing 
 
 ## Installation 
 
-### Setup Storage Account
-1. Add app folder to container within storage account
+### Set up Storage Account to install Visual Studio Code
+1. Add app folder to container within storage account.
 ![Diagram showing method of installation within the same enclave.](./media/remoteapp-install-inside-storage-account-enclave.png)
 ![Diagram showing method of installation outside enclave that contains the storage account.](./media/remoteapp-install-outside-storage-account-enclave.png)
     - File Structure:
@@ -80,9 +75,9 @@ The RemoteApp template supports scripting to automate the process of installing 
                     - (optional) additional scripts
                     - (optional) azcopy.exe
         ```
-2. Download [Vscode.exe file](https://code.visualstudio.com/sha/download?build=stable&os=win32-x64) and upload the installer (.exe file) into the app folder
-3. Upload `main.ps1` script, using whichever version of Visual Studio Code you installed into the app folder:
-    ```
+2. Download the application installer you need. In this example download [Vscode.exe](https://code.visualstudio.com/sha/download?build=stable&os=win32-x64) and upload the installer into the storage account app folder.
+3. Upload the `main.ps1` application installer script compatible with the version of Visual Studio Code you added to the storage account app folder:
+    ```powershell
         # Main powershell script that installs the application
 
         Start-Process 'C:/vscode/VSCodeSetup-x64-{version}.exe' -Argument "/VERYSILENT /MERGETASKS=!runcode"
@@ -94,15 +89,14 @@ The RemoteApp template supports scripting to automate the process of installing 
 ![Screenshot showing workload overview page.](./media/workload-overview.png)
 
 2. For `Service`, select `Virtual Machine`.
-3. For `Version`, if not selected by default, select the most recent version (for example: 1.0.0(latest)).
 
 ![Screenshot showing Virtual Machine selected from the service catalog list.](./media/service-catalog-list-virtual-machine.png)
 
-4. Select `Next`
-5. Basics Tab:
+3. Confirm the resource group selection and select `Next`
+4. Basics Tab:
     - For `Virtual Machine name`, input the name of the Virtual Machine.
     - For  `Admin username` and `Admin password`, input the username and password you use to log into your Virtual Machine.
-6. App Tab:
+5. App Tab:
     - For `App folder URI`, input the URI to the container. Select an artifact within the container, copy its URI, **remove everything** after the folder name in the URI.
         ![Screenshot showing the application folder URI for use in this deployment.](./media/remoteapp-vm-app-folder-uri.png)
 
@@ -112,7 +106,7 @@ The RemoteApp template supports scripting to automate the process of installing 
 
     - Example:
         - storageaccountexample.blob.core.windows.net/artifacts/vscode
-    - For `Main Script` input the name (ex: main.ps1) of the script that installs the application.
+    - For `Main Script` input the name (ex: `main.ps1`) of the script that installs the application.
 
     ![Screenshow showing the App tab during a Virtual Machine deployment.](./media/remoteapp-app-tab.png)
 
@@ -143,7 +137,7 @@ Example Private Container Parameters:
 ## WinGet Installation
 
 Folder Structure:
-```
+```md
 - artifacts container
     - WinGet app folder ('winget')
         - WinGet installer ('Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle')
@@ -155,11 +149,11 @@ Folder Structure:
 [ ![Screenshot showing the artifacts needed to install winget onto the RemoteApp to then install and manage other applications using winget.](./media/remoteapp-winget-folder.png) ](./media/remoteapp-winget-folder.png#lightbox)
 
 1. Download installers and upload them to the winget folder in storage container
-    1. WinGet `MSIX` bundle ([Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle](https://github.com/microsoft/winget-cli/releases/tag/v1.8.1911))
-    2. Windows UI Library ([Microsoft.UI.Xaml.2.8.x64.appx](https://github.com/microsoft/microsoft-ui-xaml/releases/tag/v2.8.6))
+    - WinGet `MSIX` bundle ([Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle](https://github.com/microsoft/winget-cli/releases/tag/v1.8.1911))
+    - Windows UI Library ([Microsoft.UI.Xaml.2.8.x64.appx](https://github.com/microsoft/microsoft-ui-xaml/releases/tag/v2.8.6))
 2. Create and upload scripts
     1. main.ps1
-        ```
+        ```powershell
         # This script creates and runs a scheduled task to install the appx package and msix bundle with elevated privileges
 
         $installScriptPath = "C:\winget\install_winget.ps1"
@@ -175,7 +169,7 @@ Folder Structure:
         Register-ScheduledTask -TaskName "InstallWinget" -Action $taskAction -Trigger $taskTrigger -Principal $taskPrincipal
         ```
     2. install_winget.ps1
-        ```
+        ```powershell
         Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
 
         Start-Process -FilePath "DISM.exe" -ArgumentList "/Online /Add-ProvisionedAppxPackage /PackagePath:C:\winget\Microsoft.UI.Xaml.2.8.x64.appx /SkipLicense" -NoNewWindow -Wait
@@ -197,7 +191,7 @@ Folder Structure:
         Register-ScheduledTask -TaskName "Reboot" -Action $taskAction -Trigger $taskTrigger -Principal $taskPrincipal
         ```
     3.  restart.ps1
-        ```
+        ```powershell
         Restart-Computer -Force
         ```
 3. Proceed to [Deploy Template](#setup-template)

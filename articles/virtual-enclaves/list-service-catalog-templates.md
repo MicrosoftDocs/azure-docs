@@ -8,27 +8,26 @@ ms.date: 9/30/2025
 ---
 
 # List of service catalog templates
-This is the current list of Azure services and workload templates in the service catalog.
+The current list of Azure services and workload templates in the service catalog.
 
 ## Table of Azure Service templates
+These customer workload accelerators are available from the workload service catalog or [scripts](./deploy-template-service-catalog-azure-cli.md)
 
 | Template Name | Description | Status |
 |--|--|--|
 | Admin VM | [link](#admin-vm) | Available |
-| Common Dependencies | [link](#common-dependencies) | Available |
-| Private DNS Zones | [link](#private-dns-zones) | Available |
-| Virtual Machine | [link](#virtual-machine) | Available |
-| Storage Account | [link](#storage-account) | Available |
-| Key Vault | [link](#key-vault) | Available |
 | App Service: Web App | [link](#app-service-web-app) | Available |
-| App Service: Functions | [link](#app-service-function-app) | Available |
-| Azure SQL | [link](#azure-sql) | Available |
-| Azure Kubernetes Service (AKS) | [link](#azure-kubernetes-service-aks) | Available |
 | Azure Container Registry (ACR) | [link](#azure-container-registry-acr) | Available |
 | Azure Cosmos DB | [link](#azure-cosmos-db) | Available |
+| Azure Kubernetes Service (AKS) | [link](#azure-kubernetes-service-aks) | Available |
+| Azure SQL | [link](#azure-sql) | Available |
+| Common Dependencies | [link](#common-dependencies) | Available |
+| App Service: Functions | [link](#app-service-function-app) | Available |
+| Key Vault | [link](#key-vault) | Available |
+| Private DNS Zones | [link](#private-dns-zones) | Available |
 | Service Bus | [link](#service-bus) | Available |
-
-New templates will be added over time.
+| Storage Account | [link](#storage-account) | Available |
+| Virtual Machine | [link](#virtual-machine) | Available |
 
 ## Admin VM
 [How to create an Admin VM](./deploy-admin-vm-service-catalog.md)
@@ -48,7 +47,7 @@ Documentation:
   - [Customer Managed Key (CMK)](/azure/storage/common/customer-managed-keys-overview) for encryption
   - [Disk Encryption Set (DES)](/azure/virtual-machines/disk-encryption#full-control-of-your-keys) for disk encryption
   - [Storage Account](/azure/storage/common/storage-account-overview) quickstart. See the separate Storage Account service catalog template for more deployment customization
-  - [Managed Identity](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) to securely access your resources within Azure Virtual Enclaves
+  - [Managed Identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) to securely access your resources within Azure Virtual Enclaves
 
 ## Private DNS Zones
 [How to create the Private DNS Zones you need for your other resources from the service catalog](./deploy-private-dns-zones-service-catalog.md)
@@ -59,7 +58,7 @@ Description: This template makes it easier to create the [Private DNS Zones](/az
 [How to create a Virtual Machine](./deploy-virtual-machine-service-catalog.md)
 
 Description:
-This template and deploy a virtual machine that is domain joined and optionally published as a [RemoteApp](/azure/virtual-desktop/publish-applications-stream-remoteapp) by joining and deploying a host pool, app location group, and workspace. The default application published as a RemoteApp is the edge browser.
+This template creates a virtual machine. You can decide if the Virtual Machine is joined to the domain or published as a [RemoteApp](/azure/virtual-desktop/publish-applications-stream-remoteapp).
 
 Documentation:
 [RemoteApp Streaming Overview](/azure/virtual-desktop/remote-app-streaming/overview)
@@ -75,7 +74,7 @@ Description: Azure Key Vault is one of several key management solutions in Azure
 
  - Secrets Management - Azure Key Vault can be used to Securely store and tightly control access to tokens, passwords, certificates, API keys, and other secrets
  - Key Management - Azure Key Vault can be used as a Key Management solution. Azure Key Vault makes it easy to create and control the encryption keys used to encrypt your data.
- - Certificate Management - Azure Key Vault lets you easily create, manage, and deploy public and private Transport Layer Security/Secure Sockets Layer (TLS/SSL) certificates for use with Azure and your internal connected resources.
+ - Certificate Management - Azure Key Vault lets you easily create, manage, and deploy public and private certificates for use with Azure and your internal connected resources.
 
 Documentation:
 [About Azure Key Vault](/azure/key-vault/general/overview)

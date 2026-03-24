@@ -10,15 +10,15 @@ ms.custom: references_region
 
 # Tutorial 2-2: Create Azure Virtual Enclave environment for workloads
 
-This tutorial guides you through creating the Azure Virtual Enclaves environment for AVD and AKS workloads. You set up common dependencies, create separate enclaves with properly sized subnets, deploy private DNS zones, and configure community and enclave endpoints for network connectivity.
+This tutorial guides you through creating the Azure Virtual Enclaves environment for Azure Virtual Desktop (AVD) and Azure Kubernetes Service (AKS) workloads. You set up common dependencies, create separate enclaves with properly sized subnets, deploy private DNS zones, and configure community and enclave endpoints for network connectivity.
 
 In this tutorial, you learn how to:
-✅ Set up common dependencies (managed identity, Key Vault, encryption)
-✅ Create AVD enclave with management and session host subnets
-✅ Create AKS enclave with node, API server, and private endpoint subnets
-✅ Deploy and link private DNS zones
-✅ Create community endpoints for external connectivity
-✅ Create enclave endpoints and connections for inter-enclave communication
+  - Set up common dependencies (managed identity, Key Vault, encryption)
+  - Create AVD enclave with management and session host subnets
+  - Create AKS enclave with node, API server, and private endpoint subnets
+  - Deploy and link private DNS zones
+  - Create community endpoints for external connectivity
+  - Create enclave endpoints and connections for inter-enclave communication
 
 ## Prerequisites
 
@@ -48,8 +48,8 @@ First, create a workload in your existing enclave (or create a new enclave) to h
 2. Select **Communities** and open your community (for example, `fabrikam`).
 3. Select an existing enclave or create a new shared services enclave:
    - **Enclave name**: `shared-services`
-   - **Address space**: `10.1.0.0/16` (adjust based on your community CIDR)
-   - Configure a subnet for shared resources: `SharedServicesSubnet` with `/24` CIDR
+   - **Address space**: `10.1.0.0/16` (adjust based on your community IP address range)
+   - Configure a subnet for shared resources: `SharedServicesSubnet` with `/24` IP address range
 4. In the enclave, select `Workloads` > `+ Create`.
 5. Configure the workload:
    - **Workload name**: `shared-workload`
@@ -63,7 +63,7 @@ Add required dependency resources to your workload:
 - A managed identity provides an identity for Azure resources to authenticate without storing credentials.
 - Azure Key Vault stores encryption keys, secrets, and certificates securely.
 - The customer-managed key encrypts data at rest in your workloads.
-- The disk encryption set applies the customer-managed key to VM disks.
+- The disk encryption set applies the customer-managed key (CMK) based encryption to Virtual Machine (VM) disks.
 
 1. In the Azure portal, search for your shared services workload name
 2. Select `+Add An Azure Service`.
@@ -112,12 +112,12 @@ For AVE-managed resources, the identity needs contributor access.
 
 Verify all resources are created and configured correctly:
 
-✅ User Assigned Managed Identity `id-ave-encryption` created
-✅ Key Vault `kv-ave-shared-<uniqueid>` created
-✅ Customer Managed Key `cmk-ave-encryption` created in Key Vault
-✅ Managed identity has `Key Vault Crypto Service Encryption User` role on the key
-✅ Disk Encryption Set `des-ave-encryption` created and linked to key and identity
-✅ Managed identity has `Contributor` role on enclave managed resource group
+  - User Assigned Managed Identity `id-ave-encryption` created
+  - Key Vault `kv-ave-shared-<uniqueid>` created
+  - Customer Managed Key `cmk-ave-encryption` created in Key Vault
+  - Managed identity has `Key Vault Crypto Service Encryption User` role on the key
+  - Disk Encryption Set `des-ave-encryption` created and linked to key and identity
+  - Managed identity has `Contributor` role on enclave managed resource group
 
 ## Create AVD enclave
 
@@ -315,7 +315,7 @@ Community endpoints allow traffic from your enclaves to external Azure services 
 4. Select `Review + create` and then `Create`.
 
 > [!NOTE]
-> Service tags aren't currently available in AVE. You must use specific FQDNs for AKS endpoints.
+> Service tags aren't currently available in AVE. You must use specific Fully Qualified Domain Names (FQDNs) for AKS endpoints.
 
 ## Create enclave endpoints and connections
 
@@ -334,7 +334,7 @@ Enclave endpoints and connections enable communication between enclaves for acce
    - **Name**: `key-vault`
    - **Protocol**: `HTTPS`
    - **Port**: `443`
-   - **Source IP/CIDR**: `10.2.0.0/16,10.3.0.0/16` (AVD and AKS enclave CIDRs)
+   - **Source IP/CIDR**: `10.2.0.0/16,10.3.0.0/16` (AVD and AKS enclave IP address ranges)
 
    **Rule 2: DNS**
    - **Name**: `dns`
@@ -362,19 +362,19 @@ Create enclave connections to link the enclaves together.
 
 ## Validate the environment
 
-Verify that your environment is correctly configured:
+Verify that your environment configuration:
 
-✅ Common dependencies deployed in shared services workload
-✅ AVD enclave created with management and session hosts subnets
-✅ AKS enclave created with node, API server, and private endpoint subnets
-✅ Private DNS zones deployed and linked to enclaves
-✅ Community endpoints created for AVD and AKS external connectivity
-✅ Enclave endpoints created for shared services
-✅ Enclave connections created from AVD and AKS to shared services
+  - Common dependencies deployed in shared services workload
+  - AVD enclave created with management and session hosts subnets
+  - AKS enclave created with node, API server, and private endpoint subnets
+  - Private DNS zones deployed and linked to enclaves
+  - Community endpoints created for AVD and AKS external connectivity
+  - Enclave endpoints created for shared services
+  - Enclave connections created from AVD and AKS to shared services
 
 ## Next steps
 
-With your AVE environment configured, you're ready to deploy workloads. The next tutorial guides you through deploying Azure Virtual Desktop.
+With your AVE environment configured correctly, you're ready to deploy workloads. The next tutorial guides you through deploying Azure Virtual Desktop.
 
 > [Tutorial 2-3: Deploy Azure Virtual Desktop (AVD) workload](./2-3-deploy-virtual-desktop-workload.md)
 

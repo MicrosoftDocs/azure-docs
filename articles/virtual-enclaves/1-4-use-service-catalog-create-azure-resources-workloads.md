@@ -13,7 +13,7 @@ The service catalog enables you to deploy Azure services and streaming applicati
 
 In this tutorial, part four of eight, you create Azure resources using service catalog in workloads. You learn how to:
 
-✅ Deploy a service catalog template for an Azure resource into an existing workload from the Portal
+  - Deploy a service catalog template for an Azure resource into an existing workload from the Portal
 
 > [!NOTE] 
 > 

@@ -13,11 +13,11 @@ ms.custom: references_region
 This tutorial helps you plan your Azure Virtual Enclaves (AVE) architecture for deploying Azure Virtual Desktop (AVD) and Azure Kubernetes Service (AKS) workloads. Proper planning ensures optimal security, network isolation, and resource organization.
 
 In this tutorial, you learn how to:
-✅ Plan your enclave topology for workload isolation
-✅ Calculate subnet sizing requirements for AVD and AKS
-✅ Identify required network endpoints and connectivity
-✅ Design enclave connections for inter-enclave communication
-✅ Organize workload resource groups effectively
+  - Plan your enclave topology for workload isolation
+  - Calculate subnet sizing requirements for AVD and AKS
+  - Identify required network endpoints and connectivity
+  - Design enclave connections for inter-enclave communication
+  - Organize workload resource groups effectively
 
 ## Prerequisites
 

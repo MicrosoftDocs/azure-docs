@@ -13,9 +13,9 @@ Community endpoints enable enclaves in a community to establish connections to r
 
 In this tutorial, part six of eight, you create community and enclave endpoint resources. You learn how to:
 
-✅ Create community endpoint resources in communities
-✅ Create enclave endpoint resources in enclaves
-✅ View your endpoints in Azure portal
+  - Create community endpoint resources in communities
+  - Create enclave endpoint resources in enclaves
+  - View your endpoints in Azure portal
 
 ## Before you begin
 In the previous tutorials, you created a [community](./1-1-create-community.md) and an [enclave](./1-2-create-enclaves-inside-community.md) using the Azure portal.

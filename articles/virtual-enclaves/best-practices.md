@@ -107,15 +107,15 @@ Consider these security design patterns when designing your Azure Virtual Enclav
 
 ### Security boundaries
 
-AVE employs a defense-in-depth approach when it comes to cybersecurity. When you deploy a community and the enclaves, AVE establishes several layers of network isolation, security, access controls, and logging and monitoring capabilities.
+AVE employs a defense-in-depth approach when it comes to cybersecurity. When you deploy a community and enclaves, AVE establishes several layers of network isolation, security, access controls, and logging and monitoring capabilities.
 
 ### Shared security responsibilities
 
 As a service on Azure, AVE also is committed to upholding the [shared responsibility model](/azure/security/fundamentals/shared-responsibility) in the cloud. For AVE specifically, [workloads](./what-workload.md) are the customer's responsibility. Platform shared responsibility is inherited in workloads if the customer deployed PaaS services into their workloads.
 
-Customer instances of [communities](./what-community.md) and [enclaves](./what-enclave.md) represent a shared responsibility. Communities and enclaves use a shared responsibility model where the AVE Resource Provider creates a secured, preconfigured hub-and-spoke network environment for the customer. This network environment is then managed by the customer by creating [enclave endpoints](./create-enclave-endpoint-portal.md), [community endpoints](./create-community-endpoint-portal.md), [transit hubs](./create-transit-hub-portal.md), or [enclave connections](./create-enclave-connection-portal.md). Certain preview versions of AVE also allow the customer to manually make changes to the network through underlying controls provided by [Azure VWAN](/azure/virtual-wan/virtual-wan-about), [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview), and other underlying Azure networking services.
+Customer instances of [communities](./what-community.md) and [enclaves](./what-enclave.md) represent a shared responsibility. Communities and enclaves use a shared responsibility model where the AVE Resource Provider creates a secured, preconfigured hub-and-spoke network environment for the customer. This network environment is managed by the customer by creating [enclave endpoints](./create-enclave-endpoint-portal.md), [community endpoints](./create-community-endpoint-portal.md), [transit hubs](./create-transit-hub-portal.md), or [enclave connections](./create-enclave-connection-portal.md). Certain preview versions of AVE also allow the customer to manually make changes to the network through underlying controls provided by [Azure VWAN](/azure/virtual-wan/virtual-wan-about), [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview), and other underlying Azure networking services.
 
-AVE [governance](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring) is also a shared responsibility. The AVE Resource Provider creates a secured, preconfigured list of [Azure Policy initiatives](/azure/virtual-enclaves/aks-initiative) per [workload](./what-workload.md) deployment. However, [communities](./what-community.md) now have the capability to configure their own list of Azure Policy Initiatives, which overrides the preconfigured list for the workload. Despite the policy requirements, customers retain the ability to make manual [exemptions](./policy-compliance-exemptions.md) to these Azure Policy Initiative assignments depending on their compliance or governance requirements.
+AVE [governance](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring) is also a shared responsibility. The AVE Resource Provider creates a secured, preconfigured list of [Azure Policy initiatives](./aks-initiative.md) per [workload](./what-workload.md) deployment. However, [communities](./what-community.md) now have the capability to configure their own list of Azure Policy Initiatives, which overrides the preconfigured list for the workload. Despite the policy requirements, customers retain the ability to make manual [exemptions](./policy-compliance-exemptions.md) to these Azure Policy Initiative assignments depending on their compliance or governance requirements.
 
 ### Azure Security best practices
 
@@ -133,7 +133,7 @@ In DNS-based data exfiltration attacks, malicious actors encode stolen data into
 
 Azure DNS Security Policy provides comprehensive protection against DNS-based data exfiltration attacks by offering granular control over DNS traffic within Azure Virtual Networks. This service enables organizations to implement proactive security measures that can detect, alert on, and block suspicious DNS activity before data can be successfully exfiltrated.
 
-Azure DNS Security Policy addresses DNS data exfiltration through several key mechanisms. First, it provides the ability to create DNS traffic rules that can block queries to known malicious domains or suspicious domain patterns commonly used in exfiltration attempts. Organizations can maintain blocklists of domains associated with command and control infrastructure or data exfiltration services. Second, the service offers comprehensive DNS logging capabilities that capture all DNS queries and responses within protected virtual networks. This logging enables security teams to analyze DNS traffic patterns and identify potential exfiltration attempts. Third, the policy engine supports wildcard domain filtering, allowing organizations to block entire categories of suspicious domains or implement allowlists for approved DNS destinations.
+Azure DNS Security Policy addresses DNS data exfiltration through several key mechanisms. First, it provides the ability to create DNS traffic rules that can block queries to known malicious domains or suspicious domain patterns commonly used in exfiltration attempts. Organizations can maintain block lists of domains associated with command and control infrastructure or data exfiltration services. Second, the service offers comprehensive DNS logging capabilities that capture all DNS queries and responses within protected virtual networks. This logging enables security teams to analyze DNS traffic patterns and identify potential exfiltration attempts. Third, the policy engine supports wildcard domain filtering, allowing organizations to block entire categories of suspicious domains or implement allow lists for approved DNS destinations.
 
 The implementation of Azure DNS Security Policy creates multiple layers of defense against DNS data exfiltration. Traffic rules can be configured with different priority levels, allowing for complex security policies that balance security with operational requirements. The service supports real-time blocking of malicious queries while providing detailed logs for forensic analysis and threat hunting. Additionally, virtual network links ensure that DNS security policies are consistently applied across all resources within protected network segments, creating a comprehensive security perimeter that's difficult for attackers to bypass.
 
@@ -164,7 +164,7 @@ Create separate DNS Domain Lists containing specific domains that are required f
 - Operating system update services
 - Certificate authority domains
 
-Associate these allowlists to DNS traffic rules configured with:
+Associate the allow lists to DNS traffic rules configured with:
 
 - **Priority**: 500-1000 (higher priority than the default deny)
 - **Action**: Allow
@@ -174,7 +174,7 @@ Associate these allowlists to DNS traffic rules configured with:
 Azure DNS Security Policy processes rules in priority order (lower numbers = higher priority). When a DNS query is made:
 
 1. The system first evaluates high-priority allow rules (priority 500-1000)
-2. If the domain matches an allowlist, the query is permitted
+2. If the domain matches an allow list, the query is permitted
 3. If no `allow` rules match, the query falls through to the default deny rule (priority 65000) and the traffic is blocked
 
 This approach provides several security advantages:
@@ -182,7 +182,7 @@ This approach provides several security advantages:
 - **Zero trust model**: No DNS queries are permitted unless explicitly authorized
 - **Granular control**: Organizations can precisely control which domains are accessible
 - **Audit trail**: All blocked queries are logged, providing visibility into potential threats
-- **Incremental updates**: New approved domains can be added to allowlists without modifying the default deny rule
+- **Incremental updates**: New approved domains can be added to allow lists without modifying the default deny rule
 
 **Example implementation:**
 
@@ -200,7 +200,7 @@ Priority 65000: Default deny rule
 - Action: Block
 ```
 
-Organizations implementing this approach should start with a comprehensive inventory of required domains and gradually refine the allowlists based on operational needs and security logs. Regular review of blocked queries helps identify legitimate domains that might need to be added to the allowlists while maintaining strong security posture.
+Organizations implementing this approach should start with a comprehensive inventory of required domains and gradually refine the list of allowed domains based on operational needs and security logs. Regular review of blocked queries helps identify legitimate domains that might need to be added to the allow lists while maintaining strong security posture.
 
 #### Implementing deny-by-default DNS policies with Windows DNS Server
 
@@ -228,9 +228,9 @@ The community managed resource group has the following limitations:
 - You can't specify names for the managed resources within the community managed resource group.
 - You can't modify or delete Azure-created tags of managed resources within the community managed resource group.
 
-If you modify or delete Azure-created tags, resources, and other resource properties in the community managed resource group, you could get unexpected results, such as network, access, and monitoring errors. As Azure Virtual Enclaves manages the lifecycle of infrastructure in the community managed resource group, any changes could potentially move your enclave into an unsupported state.
+If you modify or delete Azure-created tags, resources, and other resource properties in the community managed resource group, you could see unexpected results. As Azure Virtual Enclaves manages the lifecycle of infrastructure in the community managed resource group, any changes could potentially move your enclave into an unsupported state.
 
-A common scenario where customers want to modify resources is through tags. Azure Virtual Enclaves allows you to create and modify tags that are propagated to resources in the community managed resource group, and you can add those tags when creating the community. You might want to create or modify custom tags, for example, to assign a business unit or cost center. This can also be achieved by creating Azure Policies with a scope on the community managed resource group.
+A common scenario where customers want to modify resources is through tags. Azure Virtual Enclaves allows you to create and modify tags that are propagated to resources in the community managed resource group. You might want to create or modify custom tags, for example, to assign a business unit or cost center. This can also be achieved by creating Azure Policies with a scope on the community managed resource group.
 
 > [!NOTE]
 >
@@ -266,15 +266,15 @@ The workload is linked to one or more resource groups where you can create and o
 
 #### Add a resource group to a workload
 
-Adding a new resource group normally requires the user to have permissions to create a new resource group. Subscription `Owner` or `Contributor` roles have this permission but the person creating the workload resource group might not have or need this privileged permission. Azure Virtual Enclaves attempts three ways to create the new resource group, by following a tiered approach, ranging from the highest to lowest user permission requirements, offering flexibility for the user:
+Adding a new resource group normally requires the user to have permissions to create a new resource group. Subscription `Owner` or `Contributor` roles have this permission but the person creating the workload resource group might not have or need this privileged permission. Azure Virtual Enclaves attempts three ways to create the new resource group ranging from the highest to lowest user permission requirements, offering flexibility for the user:
 
 - Option 1: Requires the most privileged permissions for the individual creating or updating the workload, providing full control but necessitating elevated access.
 - Option 2: Involves manual intervention by the user to [grant our `Mission Enclave` application ownership at the subscription level](./onboard.md), which might not align with all customers’ preferences.
 - Option 3: Requires no permissions for either the user or the `Mission Enclave` application, making it the easiest method but imposing a strict 1:1 relationship between the resource group and workload.
 
-Each option has benefits and limitations, balancing control, convenience, and flexibility to fit varying needs. These options are each evaluated starting with Option 1 and the first option to succeed is used to create the new resource group.
+Each option has benefits and limitations, balancing control, convenience, and flexibility to fit varying needs. These options are each evaluated starting with option 1 and the first option to succeed is used to create the new resource group.
 
-After you create on workload resource group using Option 3, a warning will be displayed to alert you that method #1 or #2 will be needed for more workload resource groups on this workload. You can also create a new workload and then create a new workload resource group using Option 3 again.
+After you create on workload resource group using option 3, you'll see a warning that option 3 can't be used for the next workload resource groups on this workload. You can also create a new workload and then create a new workload resource group using option 3 again.
 
 Add a resource group to your enclave:
 
@@ -299,7 +299,7 @@ If you wanted to split your resources into two resource groups, you can choose e
 
 #### Workload deletion
 
-When a workload deletion is requested, the workload resource groups are checked to make sure they're empty. If the workload resource groups contain resources, the requested workload deletion with fail and show an error. If you want to delete the workload and workload resource groups, the workload resource groups need to be empty. This help to avoid deleting important resources by accident.
+When a workload deletion is requested, the workload resource groups are checked to make sure they're empty. If the workload resource groups contain resources, the requested workload deletion with fail and show an error. If you want to delete the workload and workload resource groups, the workload resource groups need to be empty. Empty workload resource groups help to avoid deleting important resources by accident.
 
 Deletion of a resource that is linked to the workload also follows this same behavior. For example: if a Community deletion is requested but all of the workload resource groups aren't empty, the operation shows an error. Empty the workload resource groups and try again.
 
@@ -310,7 +310,7 @@ The workload managed resource group has the following limitations:
 - You can't change the workload managed resource group name after the workload is created.
 - You can't modify or delete Azure-created tags of managed resources within the workload managed resource group.
 
-A common scenario where customers want to modify resources is through tags. Azure Virtual Enclaves allows you to create and modify tags that are propagated to resources in the workload managed resource group, and you can add those tags when creating the workload. You might want to create or modify custom tags, for example, to assign a business unit or cost center. This can also be achieved by creating Azure Policies with a scope on the workload managed resource group.
+A common scenario where customers want to modify resources is through tags. Azure Virtual Enclaves allows you to create and modify tags that are propagated to resources in the workload managed resource group. You might want to create or modify custom tags, for example, to assign a business unit or cost center. Tagging can also be achieved by creating Azure Policies with a scope on the workload managed resource group.
 
 ## Other Azure best practices
 

@@ -14,11 +14,11 @@ An enclave is an isolated Azure Virtual Network that is part of a community in w
 
 In this tutorial, part two of eight, you deploy enclaves into a community. You learn how to:
 
-✅ Create several isolated enclaves as spokes in the hub-and-spoke network
-✅ View enclaves in Azure portal
+  - Create several isolated enclaves as spokes in the hub-and-spoke network
+  - View enclaves in Azure portal
 
 ## Before you begin
-In the previous [tutorial](./1-1-create-community.md), you used Azure portal to create a simple community. If you haven't created the community yet, return to [Tutorial 1-1 - Deploy a community](./1-1-create-community.md).
+In the previous [tutorial](./1-1-create-community.md), you used Azure portal to create a community. If you need to create the community, return to [Tutorial 1-1 - Deploy a community](./1-1-create-community.md).
 
 ## Create an enclave using Azure Virtual Enclaves
 Before creating an enclave instance, you need a resource group. An Azure resource group is a logical container into which you deploy and manage Azure resources. Learn more about each of the settings of an [enclave](./what-enclave.md) and [How-To create an enclave](./create-enclave-portal.md).
@@ -46,7 +46,7 @@ Enclave deployments take around 30-45 minutes to complete. Once it completes, op
 
 4. Select `Review + create` and validate the details for your enclave are correct, then select `Create`.
 
-5. Now, to deploy another enclave -- **repeat Steps 1 and 2.** Once you're on the `Enclave Create` page, Enter these basic details for your second enclave:
+5. Now, to deploy another enclave **repeat Steps 1 and 2.** Once you're on the `Enclave Create` page, Enter these basic details for your second enclave:
    - **Subscription**: Select an existing Subscription
    - **Resource Group**: `myResourceGroup`
    - **Enclave name**: `Enclave-DMZ`
@@ -55,7 +55,7 @@ Enclave deployments take around 30-45 minutes to complete. Once it completes, op
 
 ![Screenshot showing the create DMZ enclave screen with the basics inputs for the tutorial environment.](./media/tutorial-step-two-create-dmz-enclave-screen-basics-input.png)
 
-6. After the enclave resources have been created, you can view them in Azure portal from the fabrikam community.
+6. After the enclave resources are created, you can view them in Azure portal from the fabrikam community.
 
 ![Screenshot showing created enclaves on listed on enclaves page.](./media/tutorial-step-two-azure-virtual-enclaves-page-enclaves-list-both-deployed.png)
 
@@ -64,7 +64,7 @@ Enclave deployments take around 30-45 minutes to complete. Once it completes, op
 ![Screenshot showing created WebApp enclave on its overview page.](./media/tutorial-step-two-webapp-enclave-overview-page.png)
 
 ## Clean up resources
-If you need to delete your enclaves created after completing this tutorial, this can be also done from the Azure portal.
+If you need to delete your enclaves created after completing this tutorial, you can delete the resources from this tutorial from the Azure portal.
 
 ![Screenshot showing the completed enclave in the Azure Virtual Enclaves portal page.](./media/tutorial-step-two-azure-virtual-enclaves-page-enclaves-list-both-deployed.png)
 

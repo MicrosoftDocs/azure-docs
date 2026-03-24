@@ -15,9 +15,9 @@ Many of these services are linked to the overall [Azure Monitor](https://aka.ms/
 
 In this tutorial, part eight of eight, you learn how to monitor the state of your enclave. You learn how to:
 
-✅ Use built in Azure Monitoring and logging tools and services
-✅ View your Azure Virtual Enclaves resources in Azure portal
-✅ Monitor your workloads in Azure portal
+  - Use built in Azure Monitoring and logging tools and services
+  - View your Azure Virtual Enclaves resources in Azure portal
+  - Monitor your workloads in Azure portal
 
 ## Before you begin
 Throughout this tutorial series, you created several resources using Azure Virtual Enclaves using the Azure portal. You also created several Azure resources representing your system workloads.

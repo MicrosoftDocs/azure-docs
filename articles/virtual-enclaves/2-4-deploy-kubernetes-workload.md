@@ -13,12 +13,12 @@ ms.custom: references_region
 This tutorial guides you through deploying a private Azure Kubernetes Service (AKS) cluster in Azure Virtual Enclaves. You create a fully private AKS cluster with customer-managed encryption, network integration, and secure access patterns.
 
 In this tutorial, you learn how to:
-✅ Enable required Azure features for private AKS
-✅ Deploy private AKS cluster with network infrastructure
-✅ Configure customer-managed key encryption
-✅ Create community endpoints for AKS connectivity
-✅ Associate multiple resource groups to AKS workload
-✅ Access the AKS cluster and validate
+  - Enable required Azure features for private AKS
+  - Deploy private AKS cluster with network infrastructure
+  - Configure customer-managed key encryption
+  - Create community endpoints for AKS connectivity
+  - Associate multiple resource groups to AKS workload
+  - Access the AKS cluster and validate
 
 ## Prerequisites
 

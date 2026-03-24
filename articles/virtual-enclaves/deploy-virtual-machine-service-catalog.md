@@ -8,7 +8,7 @@ ms.date: 9/30/2025
 ---
 
 # Deploy Virtual Machine from the service catalog into a workload
-The Virtual Machine template allows customers to install an application they want to publish to one or more users without installing that application on each users' desktop.
+The Virtual Machine (VM) template allows customers to install an application they want to publish to one or more users without installing that application on each users' desktop.
 
 In this article, you:
 
@@ -34,7 +34,7 @@ The Virtual Machine template can be deployed in multiple configurations:
 - Enable `Advanced` [maintenance mode](./maintenance-mode.md) for your enclave so you can add the Private Link resources to your enclave managed resource group.
 
 ## Prerequisites
-There are guardrail requirements on the enclaves to ensure enclave resources are using Customer-Managed Keys (CMK) encryption. This requires a key and identity to access the key to be accessible in the enclave. Create the CMK (optional Key Vault) and Managed Identity in the [Common Dependencies service catalog template](./deploy-common-dependencies-service-catalog.md)
+There are guardrail requirements on the enclaves to ensure enclave resources are using Customer-Managed Keys (CMK) encryption. You need a key in a key vault and a managed identity to access the key. Create the CMK (optional Key Vault) and Managed Identity in the [Common Dependencies service catalog template](./deploy-common-dependencies-service-catalog.md)
 
 1. Subnet for Private Endpoints: You can create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation. The private endpoint subnet should have no [subnet delegation](/azure/virtual-network/subnet-delegation-overview) for the private endpoints to work properly.
 2. Quickly create these [Private DNS Zones](./deploy-private-dns-zones-service-catalog.md) based on what you create next:
@@ -82,24 +82,30 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
 
 ## Publish RemoteApp (Optional)
 If you publish your application, all of the following fields on this tab must be filled out.
+
 ![Screenshot showing the inputs needed to publish an app on the Virtual Machine.](./media/service-catalog-remote-app-vm-publish-inputs.png)
 
 > [!NOTE]
 > 
 > The file paths should use forward slashes even for Windows file paths.
 
+- **Use default naming convention for your publish parameters**: Keeping the default to `True` will ignore the parameter values for `host pool`, `workspace`, and `Application Group` and instead will create resources in this format `<vmName>-<resourceName>` (for example "vm01-hostpool"). You can still add the friendly names to improve the names that customers will see.
+- **Application file path**: Provide the file path on the VM app for the application (for example, `C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe` with no "quotes")
+- **Application icon file path**: Provide the file path on the VM for the icon (for example, `C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe` with no "quotes")
+- **AVD modules URL**: Provide the URL for AVD modules for your cloud. The Azure Commercial URL is provided by default. As an example, if you are deploying to the Azure Government Cloud the URL is `https://wvdportalstorageblob.blob.core.usgovcloudapi.net/galleryartifacts/Configuration_01-20-2022.zip`.
+
 It can take 20+ minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
 ## Validate the deployment
-1. Go to the specified resource group, the workload resource group by default, to confirm the intended resources were created. Including: Virtual Machine and OS Disk.
+1. Go to the specified resource group, the workload resource group by default, and confirm the intended resources were created. Including: Virtual Machine and OS Disk.
 2. If the RemoteApp was published: host pool, app group, and workspace.
 
 ## Connect to the Application Virtual Machine
 Via the [Admin VM](./understand-admin-vm.md):
 The Admin VM is used for administrator access the resources within the enclave boundary from outside the boundary. The Admin VM might also be called a "jumpbox."
 1. Sign in to a desktop session on the [Admin VM](./understand-admin-vm.md) page for the enclave.
-2. From the start menu, type `RDP`, and open the RDP app
-3. Enter the Virtual Machine IP address as the destination IP address for the RDP connection.
+2. From the start menu, type `RDP`, and open the Remote Desktop Connection app.
+3. Enter the Virtual Machine IP address as the destination IP address for the Remote Desktop Connection.
 4. Enter Virtual Machine credentials and select `Accept/Yes` to warnings about a new connection.
 5. From the Virtual Machine desktop, validate any Virtual Machine settings set during the deployment or complete any custom configuration.
 6. Next, [install application](#install-remoteapp-optional)
@@ -113,7 +119,7 @@ Install an application on your Virtual Machine using one of these methods or a m
     1. A [container](/azure/storage/blobs/blob-containers-portal) (artifacts) within the [storage account](./deploy-storage-account-service-catalog.md).
         - **Private or Public Container**
             - *Private Container* - securely store installers, main script, and any supporting scripts. 
-                - You might want to choose this option if your scripts or installers can’t be shared with others who have access to that storage account container.
+                - Choose this option if your scripts or installers can’t be shared with others who have access to that storage account container.
             - *Public Container* - stores publicly accessible artifacts in the remoteappvm folder in the service catalog's container
         - App Folder:
             - app installer (ex: VSCodeSetup.exe)
@@ -139,8 +145,8 @@ Install an application on your Virtual Machine using one of these methods or a m
         - For `App Folder URI` add the URI to the app folder from the container.
         - For `Main Script` add the name of the main script (ex: main.ps1) in the app folder that installs the application.
         - Private Container: 
-            - For `Storage Container Resource ID` add the [resource ID ](./application-deployment-using-remote-app-vm.md) of the container.
-            - For `App folder in private container` select "true." If it's a private container, this enables reader role access to the storage account via the Virtual Machine.
+            - For `Storage Container Resource ID` add the [resource ID](./application-deployment-using-remote-app-vm.md) of the container.
+            - For `App folder in private container` select `true`. If it's a private container, selecting `true` enables reader role access to the storage account via the Virtual Machine.
 
         > [!NOTE] 
         > 

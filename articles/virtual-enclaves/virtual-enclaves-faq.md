@@ -34,6 +34,12 @@ Yes, communities and enclaves can exist in one subscription or in separate subsc
 ### Which regions are Azure Virtual Enclaves available in today?
 The current regions Azure Virtual Enclaves is available in can be viewed [here](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
 
+You can also query the current regions allowed for communities with the Azure CLI.
+
+```
+az provider show -n Microsoft.Mission --query "resourceTypes[?resourceType=='communities'].locations"
+```
+
 ### What roles are used to manage permissions for Azure Virtual Enclaves resources?
 Azure Virtual Enclaves includes new roles to help you manage your environments with least privileges. These roles include: owner, contributor, reader, and approver scoped at the community or enclave (for example `community owner`). [Learn more](https://aka.ms/ave/concept/rbac)
 
@@ -60,6 +66,14 @@ As an example, to prevent deploying Communities to a Subscription, you would ass
 
 ### Can I `move` my enclave?
 Moving the enclave resource itself isn't supported. Additionally, moves aren't supported for some of the resources deployed in the enclave managed resource group (for example Azure Bastion, IP Groups, and user-assigned managed identity). [Learn more](/azure/azure-resource-manager/management/move-support-resources).
+
+Workload resources that allow moving can be moved according to the move options supported for that resource type. For example, you could make a virtual machine image and move the image to recreate or replicate a virtual machine in a new enclave.
+
+### How can I quickly stop resource access to a URL or IP?
+For example, if you need to quickly block or remove access from a resource like a virtual machine to a problematic website, you can:
+- delete the enclave connection (for example from your enclave to a community endpoint allowing access to a problematic website or IP address)
+- remove the virtual machine's subnet from the enclave connection
+- if you have access to the community or enclave endpoint, you can also remove the problematic website or IP address from the endpoint rules
 
 ## Billing
 Questions related to Azure Virtual Enclaves billing.
