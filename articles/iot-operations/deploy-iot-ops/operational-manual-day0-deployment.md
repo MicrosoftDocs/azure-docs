@@ -53,20 +53,24 @@ The [MQTT broker cardinality settings](../manage-mqtt-broker/howto-configure-ava
 
 #### Single-node recommendations
 
-- **Frontend replicas**: Set to at least **2** so the broker can perform rolling updates without downtime.
+- **Frontend replicas**: Set to at least **1**.
 - **Frontend workers**: Set equal to the **number of CPU cores** on the node.
+- **backendRedundancyFactor**: Set to at least **2** so the broker can perform rolling updates.
 
 *Example — single node with 4 CPU cores:*
 
 | Setting | Value |
 |---|---|
-| frontendReplicas | 2 |
+| frontendReplicas | 1 |
 | frontendWorkers | 4 |
 | backendRedundancyFactor | 2 |
 | backendWorkers | 1 |
 | backendPartitions | 1 |
 
 #### Multi-node recommendations
+
+> [!NOTE]
+> The values below are recommendations for optimal performance. Minor deviations should not cause issues, but may result in slightly reduced performance. For very large clusters with low traffic, these values can be set lower than the recommendations without causing issues. Additional considerations such as memory (RAM) and performance characteristics are discussed in the sections below.
 
 - **Frontend replicas**: Set to **1 per node** to distribute load evenly across the cluster.
 - **Frontend workers**: Set equal to the **number of CPU cores** per node.
@@ -108,6 +112,14 @@ The memory profile controls the maximum MQTT message size the broker accepts. Th
 > **Warning**: The broker rejects messages when memory usage reaches 75% capacity. Choose a profile with sufficient headroom for your expected message sizes and throughput.
 
 Total broker memory depends on **both** the memory profile and the cardinality (number of frontend replicas, backend partitions, and redundancy factor). More pods means more total memory. For measured baseline resource consumption across different configurations, see [Baseline resource profiles](./concept-resource-profiles.md).
+
+#### Performance and throughput planning
+
+The MQTT broker can scale horizontally by increasing the number of backend workers and backend partitions. Because the broker distributes topics across backend partitions using hashing, the effectiveness of scaling depends on how evenly the topic space is spread across those partitions. A highly skewed distribution can create hotspots, which may become performance bottlenecks. Similarly, the performance of an individual partition depends heavily on the CPU characteristics of the node it is running on.
+
+As a rule of thumb for capacity planning, a ballpark throughput per partition is on the order of **5–6K messages per second** for QoS 1 with 8 KB payloads on 2 GHz base frequency CPU (~4 GHz turbo). Real-world performance depends on many factors. For detailed benchmark data, see [MQTT Broker performance benchmarking](https://techcommunity.microsoft.com/blog/iotblog/azure-iot-operations-mqtt-broker-performance-benchmarking-on-throughput-and-late/4405528).
+
+For more information, see [Performance](../manage-mqtt-broker/howto-configure-availability-scale.md#performance).
 
 ### 1.3 Choose Your Platform
 
@@ -773,7 +785,40 @@ Set a [disk-backed message buffer](../manage-mqtt-broker/howto-disk-backed-messa
 
 ### 8.6 Configure Persistence
 
-Enable [data persistence](../manage-mqtt-broker/howto-broker-persistence.md) for the MQTT broker to survive pod restarts and ensure message durability.
+Enable [data persistence](../manage-mqtt-broker/howto-broker-persistence.md) for the MQTT broker to survive pod restarts and ensure message durability. Persistence complements the broker's replication system — while replication protects against individual node failures, persistence protects against cluster-wide shutdowns.
+
+Key deployment-time decisions (cannot be changed after deployment):
+
+- **Volume and size**: Set `maxSize` for the persistent volume (must be > 100 MB). Example: `10GiB`.
+- **PersistentVolumeClaim spec**: Optionally provide a custom PVC template. If omitted, the broker uses the default storage class, which may not be optimal for performance. Use a local path provisioner for best results. Access mode must be `ReadWriteOncePod`.
+- **Encryption**: Configure encryption for data at rest if required by your security policies.
+
+> **Important**: You set persistence during deployment and can't turn it off afterward. You can change some persistence-related options (retained messages, subscriber queue, state store persistence) after deployment. See [Configure MQTT broker persistence](../manage-mqtt-broker/howto-broker-persistence.md) for all options.
+
+### 8.7 Configure CPU Resource Limits
+
+To prevent resource starvation, the broker can [request Kubernetes CPU resource limits](../manage-mqtt-broker/howto-configure-availability-scale.md#cardinality-and-kubernetes-resource-limits) based on the cardinality settings. When enabled, scaling replicas or workers proportionally increases the CPU resources required.
+
+> **Note**: The default for `generateResourceLimits.cpu` depends on the deployment method:
+> - **Azure CLI (`az iot ops create`)**: `Disabled` by default to avoid deployment failures on resource-constrained clusters.
+> - **REST API, Bicep, and ARM templates**: `Enabled` by default.
+
+**CPU requirements per pod:**
+
+| Component | CPU per worker |
+|---|---|
+| Frontend pods | 1.0 CPU per worker |
+| Backend pods | 2.0 CPU per worker |
+
+**Formulas:**
+
+| Component | Formula |
+|---|---|
+| Frontend CPU | `replicas` × `frontend.workers` × 1.0 CPU |
+| Backend CPU | `partitions` × `redundancyFactor` × `backend.workers` × 2.0 CPU |
+| **Total broker CPU** | Frontend CPU + Backend CPU |
+
+> **Caution**: The broker isn't the only component that consumes CPU. Other Azure IoT Operations components (dataflow engine, OPC UA connector, system pods) typically consume ~200–300m in aggregate. Account for this overhead when planning cluster capacity. If total CPU requested exceeds available CPU, broker pods get stuck in `Pending` state.
 
 ---
 
@@ -945,11 +990,13 @@ az iot ops support create-bundle
 - [ ] Backend redundancy factor ≥ 2
 - [ ] Cardinality configured for expected load
 - [ ] Memory profile set appropriately (Low/High)
+- [ ] CPU resource limits evaluated (`generateResourceLimits.cpu`) and cluster capacity verified
 - [ ] TLS enabled on all listeners
 - [ ] Authentication configured (X.509 or SAT — no no-auth)
 - [ ] Authorization policies with least privilege
 - [ ] Internal traffic encryption enabled
 - [ ] Disk-backed message buffer configured
+- [ ] Data persistence enabled with appropriate volume size and PVC spec
 
 ### Observability
 

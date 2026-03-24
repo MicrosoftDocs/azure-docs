@@ -136,20 +136,24 @@ When you increase the cardinality values, the broker's capacity to handle more c
 
 #### Single-node recommendations
 
-- **Frontend replicas**: Set to at least **2** so the broker can perform rolling updates without downtime.
+- **Frontend replicas**: Set to at least **1**
 - **Frontend workers**: Set equal to the **number of CPU cores** on the node.
+- **backendRedundancyFactor**: Set to at least **2** so the broker can perform rolling updates.
 
 *Example — single node with 4 CPU cores:*
 
 | Setting | Recommended value |
 |---|---|
-| frontendReplicas | 2 |
+| frontendReplicas | 1 |
 | frontendWorkers | 4 |
 | backendRedundancyFactor | 2 |
 | backendWorkers | 1 |
 | backendPartitions | 1 |
 
 #### Multi-node recommendations
+Note: The values below are recommendations for optimal performance. Minor deviations should not cause issues, but may result in slightly reduced performance.
+For very large clusters with low traffic, these values can be set lower than the recommendations without causing issues.
+Additional considerations such as memory (RAM) and performance characteristics are discussed in the sections below.
 
 - **Frontend replicas**: Set to **1 per node** to distribute load evenly across the cluster.
 - **Frontend workers**: Set equal to the **number of CPU cores** per node.
@@ -265,7 +269,7 @@ Use this profile when you need to handle a large number of client messages.
 
 ## Calculate total memory usage
 
-The memory profile setting specifies the memory usage for each frontend and backend replica and interacts with the cardinality settings. You can calculate the total memory usage using the formula: 
+The memory profile setting specifies the memory usage for each frontend and backend replica and interacts with the cardinality settings. You can calculate the total memory usage using the formula:
 
 *M_total = R_fe * M_fe + (P_be * RF_be) * M_be * W_be*
 
@@ -291,6 +295,18 @@ In comparison, the *Tiny* memory profile has a frontend memory usage of 99 MiB a
 
 > [!IMPORTANT]
 > The MQTT broker starts rejecting messages when memory is 75% full.
+
+## Performance
+The MQTT broker can scale horizontally by increasing the number of backend workers and backend partitions.
+
+Because the broker distributes topics across backend partitions using hashing, the effectiveness of scaling depends on how evenly the topic space is spread across those partitions. A highly skewed distribution can create hotspots, which may become performance bottlenecks.
+Similarly, the performance of an individual partition depends heavily on the CPU characteristics of the node it is running on.
+
+With these considerations in mind, a ballpark throughput per partition is on the order of 5–6K messages per second for QoS 1 with 8 KB payloads on 2Ghz base frequency cpu(~4Ghz turbo). This estimate is intentionally approximate—real-world performance depends on many factors—but it can serve as a rule of thumb for capacity planning.
+
+More details are available here:
+https://techcommunity.microsoft.com/blog/iotblog/azure-iot-operations-mqtt-broker-performance-benchmarking-on-throughput-and-late/4405528
+
 
 ## Cardinality and Kubernetes resource limits
 

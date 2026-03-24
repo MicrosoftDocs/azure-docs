@@ -836,6 +836,8 @@ kubectl describe pv <PV_NAME>
 
 ### 9.4 Capacity Planning Guidelines
 
+As a rule of thumb, a ballpark throughput per backend partition is on the order of **5–6K messages per second** for QoS 1 with 8 KB payloads on 2 GHz base frequency CPU (~4 GHz turbo). Real-world performance depends on topic distribution, CPU characteristics, and payload sizes. For detailed benchmark data, see [MQTT Broker performance benchmarking](https://techcommunity.microsoft.com/blog/iotblog/azure-iot-operations-mqtt-broker-performance-benchmarking-on-throughput-and-late/4405528).
+
 | Scenario | Hardware (per node) | MQTT Broker Config |
 |---|---|---|
 | Small (≤125 assets, ≤6,250 tags) | 4 vCPU, 16 GB RAM | 1/1/2/1/1, Low memory |
