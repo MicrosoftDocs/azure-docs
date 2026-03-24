@@ -98,14 +98,14 @@ The following metric charts are viewable in the Storage Sync Service portal:
 | Agent Version Expiration Information | Number of days until the agent version expires | Storage Sync Service - Metrics |
 | Bytes synced | Size of data transferred (upload and download) | Sync Group - Status, Server endpoint - Sync status, Storage Sync Service - Metrics |
 | Cache data size by last access time | Size of data by last access time | Server Endpoint - Cloud Tiering Status, Storage Sync Service - Metrics |
-| Cloud tiering cache hit rate | Percentage of bytes that have been served from the cache vs. recalled from the cloud | Sync Group - Status, Server Endpoint - Cloud Tiering Status, Storage Sync Service - Metrics |
+| Cloud tiering cache hit rate | Percentage of bytes that have been served from the cache vs. recalled from the cloud. This metric is generated only when there is active I/O (such as file reads or recalls) on the server endpoint. | Sync Group - Status, Server Endpoint - Cloud Tiering Status, Storage Sync Service - Metrics |
 | Cloud tiering low disk space mode | Status of disk space on server | Storage Sync Service - Metrics |
-| Cloud tiering recall success rate | Success status of cloud tiering recall | Storage Sync Service - Metrics |
+| Cloud tiering recall success rate | Success status of cloud tiering recall. This metric is generated only when there is active I/O (such as file reads or recalls) on the server endpoint. | Storage Sync Service - Metrics |
 | Cloud tiering size of data tiered | Size of data tiered | Storage Sync Service - Metrics |
 | Cloud tiering size of data tiered by last maintenance job | Size of data tiered during last maintenance job. | Storage Sync Service - Metrics |
 | Cloud tiering recall size | Size of data recalled | Sync Group – Status, Registered Servers, Storage Sync Service - Metrics |
-| Cloud tiering recall size by application | Size of data recalled by application | Server Endpoint - Cloud Tiering Status, Storage Sync Service - Metrics |  
-| Cloud tiering recall throughput | Throughput of data recalled | Storage Sync Service - Metrics |
+| Cloud tiering recall size by application | Size of data recalled by application. This metric is generated only when there is active I/O (such as file reads or recalls) on the server endpoint. | Server Endpoint - Cloud Tiering Status, Storage Sync Service - Metrics |  
+| Cloud tiering recall throughput | Throughput of data recalled. This metric is generated only when there is active I/O (such as file reads or recalls) on the server endpoint. | Storage Sync Service - Metrics |
 | Egress Breakdown | Egress breakdown by user recalls of tiered files, background recalls, and sync downloads | Server Endpoint - Cloud Tiering Status |
 | Files synced | Count of files transferred (upload and download) | Sync Group - Status, Server endpoint - Sync status, Storage Sync Service - Metrics |
 | Files not syncing | Count of files that are failing to sync | Sync Group - Status, Server endpoint - Sync status, Storage Sync Service - Metrics |
