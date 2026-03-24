@@ -116,7 +116,11 @@ If the total amount of traffic that passes through an NVA at a given time goes a
 
 ### <a name="hubspace"></a> Hub address space
 
-Every Virtual WAN hub is deployed with a hub address space. The minimum recommended hub address space is /23. Virtual WAN automatically carves out subnets within the hub to deploy different services within the Virtual WAN hub such as Azure Firewalls, NVAs and gateway connectivity services.
+Every Virtual WAN hub is deployed with a hub address space. The minimum recommended hub address space is /23. Certain NVA capabilities have a minimum hub address space requirement. 
+
+|Capability|Minimum Hub Address Space required|
+|--|--|
+| NVA deployments with greater than 2 network interfaces|/23|
 
 There are a limited number of IP addresses available in the Virtual WAN hub that can be assigned to the internal or external subnet of NVA deployments. The number of IP addresses allocated to either the internal or external subnet of NVAs is static for all Virtual WAN hubs deployed with a specific address size, irrespective of whether or not customers utilize or plan to utilize all services in the Virtual WAN hub. Service-level allocation can't be modified.
 
@@ -131,7 +135,7 @@ The following table describes the number of IP addresses available for NVA deplo
 
 #### <a name="ipconsumed" ></a> Consumed IP addresses
 
->[NOTE]
+>[!NOTE]
 > Select your hub address space with scalability taken into consideration as the subnets allocated to NVAs can't be re-sized. Actions such as deploying multiple NVAs in the hub or adding additional IP configurations to existing NVAs requires sufficient available IP addresses.
 
 The number of IP addresses that are consumed by a single NVA deployment is calculated separately for the internal and external interfaces. NVAs deployed in the same hub consume IP addresses from the same subnet as other NVAs and therefore all NVAs in the same hub contribute towards to hub's limit.

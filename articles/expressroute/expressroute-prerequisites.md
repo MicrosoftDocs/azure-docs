@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 01/31/2025
+ms.date: 03/23/2026
 ms.author: duau
 ---
 
@@ -18,6 +18,7 @@ To connect to Microsoft cloud services using ExpressRoute, ensure the following 
 ## Azure account
 
 * A valid and active Microsoft Azure account is required to set up the ExpressRoute circuit. ExpressRoute circuits are resources within Azure subscriptions. An Azure subscription is necessary even if connectivity is limited to non-Azure Microsoft cloud services, such as Microsoft 365.
+* The **Microsoft.Network** resource provider must be [registered in your Azure subscription](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider). This requirement is automatically satisfied if a virtual network already exists in the subscription. If not, you must register it before you can create an ExpressRoute circuit or view available peering locations.
 * An active Microsoft 365 subscription is needed if using Microsoft 365 services. For more information, see the Microsoft 365 specific requirements section of this article.
 * Before using ExpressRoute Direct, you must first enroll your subscription using Azure PowerShell [commands](expressroute-howto-erdirect.md#before-you-begin).
 
