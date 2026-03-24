@@ -67,13 +67,13 @@ As an example, to prevent deploying Communities to a Subscription, you would ass
 ### Can I `move` my enclave?
 Moving the enclave resource itself isn't supported. Additionally, moves aren't supported for some of the resources deployed in the enclave managed resource group (for example Azure Bastion, IP Groups, and user-assigned managed identity). [Learn more](/azure/azure-resource-manager/management/move-support-resources).
 
-Workload resources that allow moving may be moved according the move options supported for that resource type. For example, you could make a virtual machine image and move the image to recreate or replicate a virtual machine in a new enclave.
+Workload resources that allow moving can be moved according to the move options supported for that resource type. For example, you could make a virtual machine image and move the image to recreate or replicate a virtual machine in a new enclave.
 
 ### How can I quickly stop resource access to a URL or IP?
-For example, if you need to quickly block or remove access from a resource like a virtual machine to a problemmatic website, you can:
-- delete the enclave connection (for example from your enclave to a community endpoint allowing access to a problemmatic website or IP address)
+For example, if you need to quickly block or remove access from a resource like a virtual machine to a problematic website, you can:
+- delete the enclave connection (for example from your enclave to a community endpoint allowing access to a problematic website or IP address)
 - remove the virtual machine's subnet from the enclave connection
-- if you have access to the community or enclave endpoint, you can also remove the problemmatic website or IP address from the endpoint rules
+- if you have access to the community or enclave endpoint, you can also remove the problematic website or IP address from the endpoint rules
 
 ## Billing
 Questions related to Azure Virtual Enclaves billing.
