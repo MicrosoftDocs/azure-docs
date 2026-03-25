@@ -48,6 +48,15 @@ items:
           - name: Production deployment examples
             href: deploy-iot-ops/concept-production-examples.md
             displayName: Kubernetes, cluster, single, multiple, node, multi, performance
+          - name: Baseline resource profiles
+            href: deploy-iot-ops/concept-resource-profiles.md
+            displayName: memory, CPU, resource consumption, idle, baseline, profiles
+          - name: "Day 0 operational manual: Deployment"
+            href: deploy-iot-ops/operational-manual-day0-deployment.md
+            displayName: deployment, planning, prerequisites, cluster, production, checklist
+          - name: "Day 1 operational manual: Maintenance"
+            href: deploy-iot-ops/operational-manual-day1-operations.md
+            displayName: maintenance, monitoring, troubleshooting, upgrade, operations
       - name: Secure your deployment
         items:
           - name: Built-in RBAC
