@@ -1,3 +1,13 @@
+---
+title: "Azure IoT Operations Baseline Resource Profiles"
+description: Measured baseline resource consumption for Azure IoT Operations deployments at idle, including memory and CPU profiles across configurations.
+author: huguesbouvier
+ms.author: hubouvie
+ms.topic: concept-article
+ms.date: 03/25/2026
+
+---
+
 # Azure IoT Operations—Baseline Resource Profiles
 
 This reference provides measured baseline resource consumption for Azure IoT Operations deployments at idle (no active workloads). Use these profiles to validate your hardware meets minimum requirements and to establish resource monitoring baselines.

@@ -3,7 +3,7 @@ title: "Azure IoT Operations Day 0 Operational Manual: Deployment"
 description: Step-by-step guide for deploying Azure IoT Operations to a production Kubernetes cluster, covering planning, prerequisites, cluster preparation, and post-deployment validation.
 author: huguesbouvier
 ms.author: hubouvie
-ms.topic: operations-manual
+ms.topic: how-to
 ms.date: 03/25/2026
 
 ---
@@ -377,7 +377,7 @@ If you use enterprise firewalls or proxies, add the Azure IoT Operations endpoin
 
 > **Important**: Deploy [observability resources](../configure-observability-monitoring/howto-configure-observability.md) **before** deploying Azure IoT Operations.
 
-Azure IoT Operations provides [unified health status reporting](../configure-observability-monitoring/health-status-reporting.md) across all components and resources. Health status (Available, Degraded, Unavailable, Unknown) is reported through Azure Resource Manager and visible in the [operations experience](../discover-manage-assets/howto-use-operations-experience.md) web UI and Azure portal. Combined with metrics and logs, this combination gives you a complete operational view of your deployment. The following steps set up the metrics and logging infrastructure that complements the built-in health status reporting.
+Azure IoT Operations provides unified health status reporting across all components and resources. Health status (Available, Degraded, Unavailable, Unknown) is reported through Azure Resource Manager and visible in the [operations experience](../discover-manage-assets/howto-use-operations-experience.md) web UI and Azure portal. Combined with metrics and logs, this combination gives you a complete operational view of your deployment. The following steps set up the metrics and logging infrastructure that complements the built-in health status reporting.
 
 ### 4.1 Register Azure Providers
 
@@ -729,7 +729,7 @@ After deployment, verify that all components report **Available** health status:
 
 1. Open the [operations experience web UI](https://iotoperations.azure.com) and check the health overview for your instance. Components should show 🟢 green (Available).
 2. In the Azure portal, navigate to your Azure IoT Operations instance and review the health state of the broker, data flows, and connectors.
-3. If any component reports **Degraded** (🟡) or **Unavailable** (🔴), check the reason code and message for diagnostic details. See the [health status reason codes reference](../reference/health-status-reason-codes.md) for troubleshooting guidance.
+3. If any component reports **Degraded** (🟡) or **Unavailable** (🔴), check the reason code and message for diagnostic details.
 
 > **Note**: If a resource hasn't reported status within 15 minutes, it shows as **Unknown** (⚪). Allow a few minutes after deployment for initial health reports to appear.
 
@@ -965,7 +965,7 @@ mosquitto_sub --host aio-broker --port 18883 \
 ### 11.3 Verify Observability
 
 1. Access Grafana: `az grafana show --name $GRAFANA_NAME --resource-group $RESOURCE_GROUP --query url -o tsv`
-2. Import the unified Azure IoT Operations Grafana dashboard—it brings [health status](../configure-observability-monitoring/health-status-reporting.md), metrics, and logs together in a single view
+2. Import the unified Azure IoT Operations Grafana dashboard—it brings health status, metrics, and logs together in a single view
 3. Verify the health overview at the top of the dashboard shows components as Available
 4. Verify metrics are flowing for MQTT broker, OPC UA connector, and data flows
 
@@ -1022,7 +1022,7 @@ az iot ops support create-bundle
 - [ ] Prometheus scrape config applied
 - [ ] Unified Grafana dashboard imported (health + metrics + logs)
 - [ ] Prometheus alerts configured in Azure Monitor
-- [ ] [Health status](../configure-observability-monitoring/health-status-reporting.md) verified: all components report Available (🟢)
+- [ ] Health status verified: all components report Available (🟢)
 
 ### Data Pipeline
 
@@ -1066,8 +1066,6 @@ az iot ops support create-bundle
 ## Next Steps
 
 - Proceed to the [Day 1 Operational Manual](./operational-manual-day1-operations.md) for maintenance, monitoring, troubleshooting, and upgrade procedures.
-- Review [Unified health status reporting](../configure-observability-monitoring/health-status-reporting.md) for details on health states and observability.
-- Review [Health status reason codes](../reference/health-status-reason-codes.md) for a full reference of diagnostic reason codes.
 - Review [Production deployment guidelines](./concept-production-guidelines.md) for more best practices.
 - Review [Production deployment examples](./concept-production-examples.md) for validated scaling configurations.
 - Review [Baseline resource profiles](./concept-resource-profiles.md) for measured resource consumption at each memory profile level.

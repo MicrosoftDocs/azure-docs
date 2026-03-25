@@ -3,7 +3,7 @@ title: "Azure IoT Operations Day 1 Operational Manual: Maintenance and Troublesh
 description: Comprehensive guide for maintaining, monitoring, troubleshooting, upgrading, and operating Azure IoT Operations in production environments.
 author: huguesbouvier
 ms.author: hubouvie
-ms.topic: operations-manual
+ms.topic: how-to
 ms.date: 03/25/2026
 
 ---
@@ -43,8 +43,8 @@ Azure IoT Operations uses:
 
 | Component | Purpose |
 |---|---|
-| [**Unified Health Status Reporting**](../configure-observability-monitoring/health-status-reporting.md) | Reports runtime health (Available, Degraded, Unavailable, Unknown) for all components and resources to the cloud via Azure Resource Manager |
-| [**OpenTelemetry Collector**](../connect-to-cloud/open-telemetry.md) | Collects metrics from AIO services |
+| **Unified Health Status Reporting** | Reports runtime health (Available, Degraded, Unavailable, Unknown) for all components and resources to the cloud via Azure Resource Manager |
+| [**OpenTelemetry Collector**](../connect-to-cloud/open-telemetry.md) | Collects metrics from Azure IoT Operations services |
 | **Azure Monitor (Prometheus)** | Stores and queries time-series metrics |
 | **Azure Managed Grafana** | Unified dashboards combining health status, metrics, and logs |
 | **Container Insights** | Pod logs and Kubernetes-level telemetry |
@@ -74,7 +74,7 @@ Each supported Azure IoT Operations resource reports one of the following health
 
 Supported resources that report health status: Broker, [Data flows](../connect-to-cloud/overview-dataflow.md) and data flow graphs, [Akri](../discover-manage-assets/overview-akri.md) connectors, Device inbound endpoints, and Assets.
 
-When a resource is Degraded or Unavailable, a [reason code](../reference/health-status-reason-codes.md) and human-readable message are included to help you diagnose the issue.
+When a resource is Degraded or Unavailable, a reason code and human-readable message are included to help you diagnose the issue.
 
 ### 1.2 Key Metrics to Monitor
 
@@ -653,7 +653,7 @@ When a component reports **Degraded** or **Unavailable** health status, use the 
 
 1. **Identify the issue**: Open the [operations experience](../discover-manage-assets/howto-use-operations-experience.md) web UI or Azure portal and look for components that aren't Available (🟢)
 2. **Check the reason code**: Each unhealthy resource includes a reason code (for example, `DataflowMqttSourceConnectionFailed`, `BrokerReplicaFailed`, `OpcUaConnectorInboundEndpointDisconnected`) and a human-readable message explaining the problem
-3. **Look up the recommended action**: See the [health status reason codes](../reference/health-status-reason-codes.md) reference for detailed descriptions and recommended actions for every reason code
+3. **Look up the recommended action**: Check the health status reason codes for detailed descriptions and recommended actions for every reason code
 4. **Check timestamps**: The `lastTransitionTime` shows when the issue started; `lastUpdateTime` shows the most recent status update
 5. **Investigate further**: Use `az iot ops check`, pod logs, and the Grafana dashboard metrics to correlate the health status with runtime behavior
 
@@ -1162,7 +1162,7 @@ kubectl delete pod -n azure-iot-operations aio-akri-webhook-0 --ignore-not-found
 | **Health check** | `az iot ops check` |
 | **Verbose check** | `az iot ops check --detail-level 2` |
 | **Health status** | Operations experience UI or Azure portal → instance overview |
-| **Reason codes** | See [health status reason codes](../reference/health-status-reason-codes.md) reference |
+| **Reason codes** | Check health status reason codes in the operations experience UI or Azure portal |
 | **Support bundle** | `az iot ops support create-bundle` |
 | **View instance** | `az iot ops show -n <NAME> -g <RG> --tree` |
 | **List pods** | `kubectl get pods -n azure-iot-operations` |
@@ -1181,8 +1181,6 @@ kubectl delete pod -n azure-iot-operations aio-akri-webhook-0 --ignore-not-found
 ## Next Steps
 
 - Review the [Day 0 Deployment Manual](./operational-manual-day0-deployment.md) if you need to deploy a new instance.
-- Review [Unified health status reporting](../configure-observability-monitoring/health-status-reporting.md) for details on how health status and metrics work together.
-- Review [Health status reason codes](../reference/health-status-reason-codes.md) for a full reference of diagnostic reason codes.
 - For the latest known issues, see [Known issues](../troubleshoot/known-issues.md).
 - For detailed troubleshooting, see [Troubleshoot Azure IoT Operations](../troubleshoot/troubleshoot.md).
 - For troubleshooting tools, see [Tips and tools](../troubleshoot/tips-tools.md).
