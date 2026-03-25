@@ -33,7 +33,7 @@ Sign-in to the [Azure portal](https://portal.azure.com).
 
 - **IP Address**: Enable traffic from an enclave to an IP address outside of the community vWAN.
 
-- **FQDN**: Enable traffic from an enclave to a trusted Fully Qualified Domain Name (FQDN) (for example `*portal.azure.com`). FQDN rules support TCP and UDP protocols.
+- **FQDN**: Enable traffic from an enclave to a trusted Fully Qualified Domain Name (FQDN) (for example `*.portal.azure.com`). FQDN rules support TCP and UDP protocols.
 
 - **FQDN Tag**: Enable traffic from Enclaves to known Microsoft Azure services via FQDN Tags (for example `AzurePortal`).
 

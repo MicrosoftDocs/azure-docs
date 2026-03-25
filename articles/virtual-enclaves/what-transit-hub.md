@@ -40,7 +40,7 @@ Simplified S2S connections support the following deployment scenarios:
 
 | Scenario | Description |
 |----------|-------------|
-| **Azure Local to community** | Connect Azure Local clusters to your AVE community for hybrid workload deployment |
+| **Azure Local to community** | Connect Azure Local clusters to your community for hybrid workload deployment |
 | **On-premises datacenter** | Establish secure connectivity from traditional on-premises infrastructure |
 | **Branch office** | Connect remote branch locations through VPN tunnels |
 | **Multi-site mesh** | Create interconnected network topologies across multiple locations |
@@ -76,6 +76,7 @@ When two transit hubs are interconnected:
 3. Traffic exits through the second transit hub to the target external network
 
 This architecture leverages Azure Virtual WAN's native routing capabilities to provide:
+
 - **Optimized paths** - Traffic follows the most efficient route through the Azure backbone
 - **Centralized policy** - All traffic is subject to community-level Azure Firewall rules
 - **Simplified management** - No need to configure complex routing tables at each location
