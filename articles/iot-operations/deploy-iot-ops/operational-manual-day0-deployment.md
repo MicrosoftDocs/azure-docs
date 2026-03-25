@@ -1,4 +1,14 @@
-# Azure IoT Operations — Day 0 Operational Manual: Deployment
+---
+title: "Azure IoT Operations Day 0 Operational Manual: Deployment"
+description: Step-by-step guide for deploying Azure IoT Operations to a production Kubernetes cluster, covering planning, prerequisites, cluster preparation, and post-deployment validation.
+author: huguesbouvier
+ms.author: hubouvie
+ms.topic: operations-manual
+ms.date: 03/25/2026
+
+---
+
+# Azure IoT Operations—Day 0 Operational Manual: Deployment
 
 This operational manual provides a comprehensive, step-by-step guide for deploying [Azure IoT Operations](../overview-iot-operations.md) to a production Kubernetes cluster. It covers everything from initial planning and prerequisites through cluster preparation, deployment, configuration of assets and data flows, and post-deployment validation.
 
@@ -44,8 +54,8 @@ An Azure IoT Operations *deployment* includes the instance, Arc extensions, cust
 
 | Topology | Use Case | Min Hardware |
 |---|---|---|
-| **Single-node** | Smaller deployments where high availability isn't required | 4 vCPU, 16 GB RAM, 30 GB storage |
-| **Multi-node (3-5 nodes)** | High availability and higher throughput requirements | 8 vCPU, 32 GB RAM per node |
+| **Single-node** | Smaller deployments where high availability isn't required | 4 vCPU, 16-GB RAM, 30-GB storage |
+| **Multi-node (3-5 nodes)** | High availability and higher throughput requirements | 8 vCPU, 32-GB RAM per node |
 
 **MQTT broker cardinality guidance for optimal performance:**
 
@@ -57,7 +67,7 @@ The [MQTT broker cardinality settings](../manage-mqtt-broker/howto-configure-ava
 - **Frontend workers**: Set equal to the **number of CPU cores** on the node.
 - **backendRedundancyFactor**: Set to at least **2** so the broker can perform rolling updates.
 
-*Example — single node with 4 CPU cores:*
+*Example—single node with four CPU cores:*
 
 | Setting | Value |
 |---|---|
@@ -70,7 +80,7 @@ The [MQTT broker cardinality settings](../manage-mqtt-broker/howto-configure-ava
 #### Multi-node recommendations
 
 > [!NOTE]
-> The values below are recommendations for optimal performance. Minor deviations should not cause issues, but may result in slightly reduced performance. For very large clusters with low traffic, these values can be set lower than the recommendations without causing issues. Additional considerations such as memory (RAM) and performance characteristics are discussed in the sections below.
+> The following values are recommendations for optimal performance. Minor deviations shouldn't cause issues, but may result in slightly reduced performance. For large clusters with low traffic, these values can be set lower than the recommendations without causing issues. More considerations such as memory (RAM) and performance characteristics are discussed in the following sections.
 
 - **Frontend replicas**: Set to **1 per node** to distribute load evenly across the cluster.
 - **Frontend workers**: Set equal to the **number of CPU cores** per node.
@@ -78,7 +88,7 @@ The [MQTT broker cardinality settings](../manage-mqtt-broker/howto-configure-ava
 - **Backend partitions**: Set equal to the **number of nodes** in the cluster.
 - **Backend workers**: Set to **half the number of CPU cores** per node.
 
-*Example — 3-node cluster, 8 CPU cores per node:*
+*Example—3-node cluster, eight CPU cores per node:*
 
 | Setting | Value |
 |---|---|
@@ -88,7 +98,7 @@ The [MQTT broker cardinality settings](../manage-mqtt-broker/howto-configure-ava
 | backendWorkers | 4 |
 | backendPartitions | 3 |
 
-*Example — 5-node cluster, 16 CPU cores per node:*
+*Example—5-node cluster, 16 CPU cores per node:*
 
 | Setting | Value |
 |---|---|
@@ -100,7 +110,7 @@ The [MQTT broker cardinality settings](../manage-mqtt-broker/howto-configure-ava
 
 #### Memory profile and message size limits
 
-The memory profile controls the maximum MQTT message size the broker accepts. The per-pod memory figures below are **idle baselines measured with near-zero traffic** — actual consumption will grow with message throughput and connected clients:
+The memory profile controls the maximum MQTT message size the broker accepts. The following per-pod memory figures are **idle baselines measured with near-zero traffic**—actual consumption grows with message throughput and connected clients:
 
 | Memory Profile | Max Message Size | Idle Frontend Memory (per pod) | Idle Backend Memory (per pod) | Use Case |
 |---|---|---|---|---|
@@ -111,13 +121,13 @@ The memory profile controls the maximum MQTT message size the broker accepts. Th
 
 > **Warning**: The broker rejects messages when memory usage reaches 75% capacity. Choose a profile with sufficient headroom for your expected message sizes and throughput.
 
-Total broker memory depends on **both** the memory profile and the cardinality (number of frontend replicas, backend partitions, and redundancy factor). More pods means more total memory. For measured baseline resource consumption across different configurations, see [Baseline resource profiles](./concept-resource-profiles.md).
+Total broker memory depends on **both** the memory profile and the cardinality (number of frontend replicas, backend partitions, and redundancy factor). More pods mean more total memory. For measured baseline resource consumption across different configurations, see [Baseline resource profiles](./concept-resource-profiles.md).
 
 #### Performance and throughput planning
 
-The MQTT broker can scale horizontally by increasing the number of backend workers and backend partitions. Because the broker distributes topics across backend partitions using hashing, the effectiveness of scaling depends on how evenly the topic space is spread across those partitions. A highly skewed distribution can create hotspots, which may become performance bottlenecks. Similarly, the performance of an individual partition depends heavily on the CPU characteristics of the node it is running on.
+The MQTT broker can scale horizontally by increasing the number of backend workers and backend partitions. Because the broker distributes topics across backend partitions using hashing, the effectiveness of scaling depends on how evenly the topic space is spread across those partitions. A highly skewed distribution can create hotspots, which may become performance bottlenecks. Similarly, the performance of an individual partition depends heavily on the CPU characteristics of the node it's running on.
 
-As a rule of thumb for capacity planning, a ballpark throughput per partition is on the order of **5–6K messages per second** for QoS 1 with 8 KB payloads on 2 GHz base frequency CPU (~4 GHz turbo). Real-world performance depends on many factors. For detailed benchmark data, see [MQTT Broker performance benchmarking](https://techcommunity.microsoft.com/blog/iotblog/azure-iot-operations-mqtt-broker-performance-benchmarking-on-throughput-and-late/4405528).
+As a rule of thumb for capacity planning, an approximate throughput per partition is on the order of **5–6K messages per second** for QoS 1 with 8-KB payloads on 2-GHz base frequency CPU (~4-GHz turbo). Real-world performance depends on many factors. For detailed benchmark data, see [MQTT Broker performance benchmarking](https://techcommunity.microsoft.com/blog/iotblog/azure-iot-operations-mqtt-broker-performance-benchmarking-on-throughput-and-late/4405528).
 
 For more information, see [Performance](../manage-mqtt-broker/howto-configure-availability-scale.md#performance).
 
@@ -125,7 +135,7 @@ For more information, see [Performance](../manage-mqtt-broker/howto-configure-av
 
 | Platform | OS | Production Status |
 |---|---|---|
-| **K3s** | Ubuntu 24.04 / RHEL 9.x (x86_64) | ✅ GA (recommended for production) |
+| **K3s** | Ubuntu 24.04 / Red Hat Enterprise Linux (RHEL) 9.x (x86_64) | ✅ GA (recommended for production) |
 | **Tanzu Kubernetes (TKr)** | x86_64 | ✅ GA |
 | **AKS Edge Essentials** | Windows (x86_64) | ⚠️ Public preview |
 | **AKS on Azure Local** | Windows (x86_64) | ⚠️ Public preview |
@@ -138,16 +148,16 @@ Azure IoT Operations is available in: East US, East US 2, West US, West US 2, We
 
 ### 1.5 Plan Your Azure Resources
 
-You will need the following Azure resources:
+You need the following Azure resources:
 
 | Resource | Purpose |
 |---|---|
-| **Resource Group** | Container for all AIO-related resources |
-| **Azure Key Vault** | Secrets management (must use Azure RBAC permission model) |
+| **Resource Group** | Container for all Azure IoT Operations resources |
+| **Azure Key Vault** | Secrets management (must use Azure role-based access control (RBAC) permission model) |
 | **Azure Storage Account** | Schema registry backend (hierarchical namespace required) |
 | **[Schema Registry](../connect-to-cloud/concept-schema-registry.md)** | Data validation and serialization |
 | **Device Registry Namespace** | Organizes assets and devices |
-| **User-Assigned Managed Identities (×2)** | One for secrets, one for AIO components |
+| **User-Assigned Managed Identities (×2)** | One for secrets, one for Azure IoT Operations components |
 | **Azure Monitor Workspace** | Metrics collection (recommended) |
 | **Azure Managed Grafana** | Dashboard visualization (recommended) |
 | **Log Analytics Workspace** | Container logs (recommended) |
@@ -163,7 +173,7 @@ Required permissions:
 - **Contributor** role on the resource group
 - **Microsoft.Authorization/roleAssignments/write** permission (for role assignments)
 - **Key Vault Secrets Officer** on the Azure Key Vault
-- **Storage Blob Data Contributor** on the storage account (auto-assigned during schema registry creation)
+- **Storage Blob Data Contributor** on the storage account (autoassigned during schema registry creation)
 
 ### 2.2 Install Azure CLI and Extensions
 
@@ -357,9 +367,9 @@ sudo systemctl restart k3s
 
 If you use enterprise firewalls or proxies, add the Azure IoT Operations endpoints to your allow list. Three networking approaches are supported:
 
-1. **Azure Arc gateway** — Network proxy for simplifying firewall configuration
-2. **Explicit proxy** — Azure Firewall Explicit Proxy for traffic inspection
-3. **[Layered networking](../manage-layered-network/overview-layered-network.md)** — For Purdue Network Architecture / ISA-95 scenarios
+1. **Azure Arc gateway**—Network proxy for simplifying firewall configuration
+2. **Explicit proxy**—Azure Firewall Explicit Proxy for traffic inspection
+3. **[Layered networking](../manage-layered-network/overview-layered-network.md)**—For Purdue Network Architecture / ISA-95 scenarios
 
 ---
 
@@ -367,7 +377,7 @@ If you use enterprise firewalls or proxies, add the Azure IoT Operations endpoin
 
 > **Important**: Deploy [observability resources](../configure-observability-monitoring/howto-configure-observability.md) **before** deploying Azure IoT Operations.
 
-Azure IoT Operations provides [unified health status reporting](../configure-observability-monitoring/health-status-reporting.md) across all components and resources. Health status (Available, Degraded, Unavailable, Unknown) is reported through Azure Resource Manager and visible in the [operations experience](../discover-manage-assets/howto-use-operations-experience.md) web UI and Azure portal. Combined with metrics and logs, this gives you a complete operational view of your deployment. The steps below set up the metrics and logging infrastructure that complements the built-in health status reporting.
+Azure IoT Operations provides [unified health status reporting](../configure-observability-monitoring/health-status-reporting.md) across all components and resources. Health status (Available, Degraded, Unavailable, Unknown) is reported through Azure Resource Manager and visible in the [operations experience](../discover-manage-assets/howto-use-operations-experience.md) web UI and Azure portal. Combined with metrics and logs, this combination gives you a complete operational view of your deployment. The following steps set up the metrics and logging infrastructure that complements the built-in health status reporting.
 
 ### 4.1 Register Azure Providers
 
@@ -440,7 +450,7 @@ az k8s-extension create \
 
 ### 4.5 Deploy OpenTelemetry Collector
 
-> **Note**: The OpenTelemetry Collector deployed here is for **cluster observability** — collecting Azure IoT Operations component health metrics and logs. This is separate from the [OTEL data flow endpoint](../connect-to-cloud/open-telemetry.md), which routes device and asset telemetry to OpenTelemetry-compatible backends.
+> **Note**: The OpenTelemetry Collector deployed here is for **cluster observability**—collecting Azure IoT Operations component health metrics and logs. This is separate from the [OTEL data flow endpoint](../connect-to-cloud/open-telemetry.md), which routes device and asset telemetry to OpenTelemetry-compatible backends.
 
 Create `otel-collector-values.yaml`:
 
@@ -564,7 +574,7 @@ kubectl apply -f ama-metrics-prometheus-config.yaml
 
 ### 5.1 Bring Your Own Certificate Authority (Recommended)
 
-For production, replace the default self-signed CA with an enterprise PKI issuer.
+For production, replace the default self-signed CA with an enterprise public key infrastructure (PKI) issuer.
 
 ```bash
 # Install cert-manager (if not already installed)
@@ -586,9 +596,9 @@ kubectl create configmap -n azure-iot-operations <YOUR_CONFIGMAP_NAME> \
 
 ### 5.2 Validate Container Images
 
-Before deployment, optionally validate that Azure IoT Operations images are signed by Microsoft. See [Validate images](../secure-iot-ops/howto-validate-images.md).
+Before deployment, optionally validate the Microsoft signatures on Azure IoT Operations images. See [Validate images](../secure-iot-ops/howto-validate-images.md).
 
-### 5.3 Block IMDS Access (AKS Deployments)
+### 5.3 Block IMDS Access (Azure Kubernetes Service (AKS) Deployments)
 
 For AKS deployments with [secure settings](./howto-enable-secure-settings.md), block pod access to the Azure Instance Metadata Service (IMDS) to prevent credential leakage.
 
@@ -596,7 +606,7 @@ For AKS deployments with [secure settings](./howto-enable-secure-settings.md), b
 
 ## 6. Deploy Azure IoT Operations
 
-### 6.1 Deploy via Azure Portal
+### 6.1 Deploy via Azure portal
 
 1. Sign in to [Azure portal](https://portal.azure.com)
 2. Search for **Azure IoT Operations** → Select **Create**
@@ -644,7 +654,7 @@ For AKS deployments with [secure settings](./howto-enable-secure-settings.md), b
 
    > **Important**: Use **different** managed identities for secrets and AIO components.
 
-6. **Automation tab** — Run the generated CLI commands (see next section)
+6. **Automation tab**—Run the generated CLI commands (see next section)
 
 ### 6.2 Run the CLI Commands
 
@@ -746,7 +756,7 @@ az iot ops get-versions
 
 ## 8. Configure MQTT Broker for Production
 
-### 8.1 Configure TLS Listeners
+### 8.1 Configure Transport Layer Security (TLS) Listeners
 
 After deployment, configure TLS on [broker listeners](../manage-mqtt-broker/howto-configure-brokerlistener.md):
 
@@ -782,7 +792,7 @@ For production, enable [encryption between broker frontend and backend pods](../
 
 ### 8.5 Configure Disk-Backed Message Buffer
 
-Set a [disk-backed message buffer](../manage-mqtt-broker/howto-disk-backed-message-buffer.md) with a max size to prevent RAM overflow:
+To prevent RAM overflow, set a [disk-backed message buffer](../manage-mqtt-broker/howto-disk-backed-message-buffer.md) with a max size:
 
 ```bash
 # See: manage-mqtt-broker/howto-disk-backed-message-buffer.md
@@ -790,9 +800,9 @@ Set a [disk-backed message buffer](../manage-mqtt-broker/howto-disk-backed-messa
 
 ### 8.6 Configure Persistence
 
-Enable [data persistence](../manage-mqtt-broker/howto-broker-persistence.md) for the MQTT broker to survive pod restarts and ensure message durability. Persistence complements the broker's replication system — while replication protects against individual node failures, persistence protects against cluster-wide shutdowns.
+Enable [data persistence](../manage-mqtt-broker/howto-broker-persistence.md) for the MQTT broker to survive pod restarts and ensure message durability. Persistence complements the broker's replication system—while replication protects against individual node failures, persistence protects against cluster-wide shutdowns.
 
-Key deployment-time decisions (cannot be changed after deployment):
+Key deployment-time decisions (can't be changed after deployment):
 
 - **Volume and size**: Set `maxSize` for the persistent volume (must be > 100 MB). Example: `10GiB`.
 - **PersistentVolumeClaim spec**: Optionally provide a custom PVC template. If omitted, the broker uses the default storage class, which may not be optimal for performance. Use a local path provisioner for best results. Access mode must be `ReadWriteOncePod`.
@@ -831,7 +841,7 @@ To prevent resource starvation, the broker can [request Kubernetes CPU resource 
 
 ### 9.1 Configure OPC UA Connectivity
 
-1. **Set up [OPC UA authentication](../discover-manage-assets/howto-configure-opc-ua.md)** — Do not use no-auth for production. Options:
+1. **Set up [OPC UA authentication](../discover-manage-assets/howto-configure-opc-ua.md)**—Don't use no-auth for production. Options:
    - Username/password authentication (secrets stored in Azure Key Vault)
    - X.509 certificate mutual authentication
 
@@ -850,13 +860,13 @@ az iot ops ns device create ...
 az iot ops ns asset create ...
 ```
 
-### 9.2 Configure Additional Connectors
+### 9.2 Configure More Connectors
 
 Azure IoT Operations supports multiple connector types:
 
 | Connector | Protocol | Use Case |
 |---|---|---|
-| **OPC UA** | OPC UA | Industrial PLCs and SCADA |
+| **OPC UA** | OPC UA | Industrial programmable logic controllers (PLCs) and SCADA |
 | **[ONVIF](../discover-manage-assets/howto-use-onvif-connector.md)** | ONVIF | IP cameras |
 | **[Media](../discover-manage-assets/howto-use-media-connector.md)** | RTSP/HTTP | Video streaming |
 | **MQTT** | MQTT | External MQTT brokers |
@@ -866,7 +876,7 @@ Azure IoT Operations supports multiple connector types:
 
 ### 9.3 Automatic Asset Discovery
 
-Enable Akri-based [auto-discovery](../discover-manage-assets/howto-detect-opc-ua-assets.md) for OPC UA servers:
+Enable Akri-based [autodiscovery](../discover-manage-assets/howto-detect-opc-ua-assets.md) for OPC UA servers:
 
 ```bash
 # Enable resource sync rules
@@ -922,7 +932,7 @@ Configure [endpoints](../connect-to-cloud/howto-configure-dataflow-endpoint.md) 
 For advanced edge processing, deploy custom [WASM modules](../develop-edge-apps/howto-develop-wasm-modules.md):
 
 - Supports Rust and Python
-- Can run [ONNX inference](../develop-edge-apps/howto-wasm-onnx-inference.md) models at the edge
+- Can run [Open Neural Network Exchange (ONNX) inference](../develop-edge-apps/howto-wasm-onnx-inference.md) models at the edge
 - Deployed as graph definitions in data flow pipelines
 
 ---
@@ -955,7 +965,7 @@ mosquitto_sub --host aio-broker --port 18883 \
 ### 11.3 Verify Observability
 
 1. Access Grafana: `az grafana show --name $GRAFANA_NAME --resource-group $RESOURCE_GROUP --query url -o tsv`
-2. Import the unified Azure IoT Operations Grafana dashboard — this brings [health status](../configure-observability-monitoring/health-status-reporting.md), metrics, and logs together in a single view
+2. Import the unified Azure IoT Operations Grafana dashboard—it brings [health status](../configure-observability-monitoring/health-status-reporting.md), metrics, and logs together in a single view
 3. Verify the health overview at the top of the dashboard shows components as Available
 4. Verify metrics are flowing for MQTT broker, OPC UA connector, and data flows
 
@@ -975,14 +985,14 @@ az iot ops support create-bundle
 - [ ] K3s on Ubuntu 24.04 (production GA platform)
 - [ ] System parameters tuned (inotify, file descriptors)
 - [ ] Cluster Arc-enabled with custom locations and workload identity
-- [ ] Arc agent auto-upgrade disabled
+- [ ] Arc agent autoupgrade disabled
 - [ ] Firewall/proxy rules configured for Azure IoT Operations endpoints
 - [ ] Multi-node: Edge Volumes configured for fault tolerance
 - [ ] Hardware validated against [baseline resource profiles](./concept-resource-profiles.md) for chosen memory profile
 
 ### Security
 
-- [ ] Enterprise CA issuer configured (not default self-signed)
+- [ ] Enterprise CA issuer is configured (not default self-signed)
 - [ ] Container images validated (signed by Microsoft)
 - [ ] [Secure settings](./howto-enable-secure-settings.md) deployment (not test settings)
 - [ ] Azure Key Vault with RBAC permission model
@@ -997,10 +1007,10 @@ az iot ops support create-bundle
 - [ ] Memory profile set appropriately (Low/High)
 - [ ] CPU resource limits evaluated (`generateResourceLimits.cpu`) and cluster capacity verified
 - [ ] TLS enabled on all listeners
-- [ ] Authentication configured (X.509 or SAT — no no-auth)
+- [ ] Authentication is configured (X.509 or SAT—no no-auth)
 - [ ] Authorization policies with least privilege
 - [ ] Internal traffic encryption enabled
-- [ ] Disk-backed message buffer configured
+- [ ] Disk-backed message buffer is configured
 - [ ] Data persistence enabled with appropriate volume size and PVC spec
 
 ### Observability
@@ -1018,7 +1028,7 @@ az iot ops support create-bundle
 
 - [ ] [Schema registry](../connect-to-cloud/concept-schema-registry.md) created with hierarchical-namespace storage
 - [ ] Storage account scoped to trusted Azure services only
-- [ ] OPC UA authentication configured (not no-auth)
+- [ ] OPC UA authentication is configured (not no-auth)
 - [ ] OPC UA certificates and trust lists configured with production PKI
 - [ ] Data flow endpoints using user-assigned managed identity
 - [ ] [Data flow profiles](../connect-to-cloud/howto-configure-dataflow-profile.md) scaled for throughput and HA
@@ -1058,6 +1068,6 @@ az iot ops support create-bundle
 - Proceed to the [Day 1 Operational Manual](./operational-manual-day1-operations.md) for maintenance, monitoring, troubleshooting, and upgrade procedures.
 - Review [Unified health status reporting](../configure-observability-monitoring/health-status-reporting.md) for details on health states and observability.
 - Review [Health status reason codes](../reference/health-status-reason-codes.md) for a full reference of diagnostic reason codes.
-- Review [Production deployment guidelines](./concept-production-guidelines.md) for additional best practices.
+- Review [Production deployment guidelines](./concept-production-guidelines.md) for more best practices.
 - Review [Production deployment examples](./concept-production-examples.md) for validated scaling configurations.
 - Review [Baseline resource profiles](./concept-resource-profiles.md) for measured resource consumption at each memory profile level.
