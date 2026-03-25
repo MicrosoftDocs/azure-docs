@@ -4,7 +4,7 @@ description: Learn about the different device types supported by Azure IoT and h
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 03/13/2025
 ms.update-cycle: 1095-days
 ---

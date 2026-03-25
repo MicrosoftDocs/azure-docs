@@ -1,7 +1,7 @@
 ---
 title: Execute Mitigations in Azure SRE Agent
 description: Learn how your agent diagnoses issues and fixes them by restarting services, scaling resources, hardening security settings, and collecting diagnostics with the level of control you choose.
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.service: azure-sre-agent
 ms.date: 03/04/2026
 author: craigshoemaker

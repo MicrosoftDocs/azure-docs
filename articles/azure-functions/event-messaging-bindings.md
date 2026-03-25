@@ -2,7 +2,7 @@
 title: Connect to eventing and messaging services in Azure Functions
 description: Provides an overview of how to connect your functions to other messaging and event-driven services in Azure, such as Azure Service Bus, Azure Event Grid, and Azure Event Hubs. 
 ms.date: 10/20/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-functions
 
 ---

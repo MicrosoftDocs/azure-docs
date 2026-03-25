@@ -1,7 +1,7 @@
 ---
 title: Fan-out/fan-in scenarios in Durable Functions - Azure
 description: Learn how to implement a fan-out-fan-in scenario using Durable Functions or Durable Task SDKs.
-ms.topic: conceptual
+ms.topic: tutorial
 ms.custom: devx-track-js, devx-track-python
 ms.date: 02/04/2026
 ms.author: azfuncdf

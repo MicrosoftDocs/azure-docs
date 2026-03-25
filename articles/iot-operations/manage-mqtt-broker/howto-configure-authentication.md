@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
-ms.date: 04/10/2025
+ms.date: 03/25/2026
 ms.custom:
   - ignite-2023
   - sfi-image-nochange
@@ -457,6 +457,9 @@ To get started with X.509 authentication, import the trusted CA certificate into
 ```bash
 kubectl create configmap client-ca --from-file=ca.pem -n azure-iot-operations
 ```
+
+> [!IMPORTANT]
+> The ConfigMap name is used as a Kubernetes volume name internally by the broker operator. Volume names must conform to [RFC 1123 label rules](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-label-names), which means they can only contain lowercase alphanumeric characters and hyphens. For example, `client-ca` and `my-root-ca` are valid names, but `my-root-ca.crt` is not. If the ConfigMap name contains dots or other invalid characters, the broker's reconciliation fails silently and listeners don't provision correctly.
 
 In this example, the CA certificate is imported under the key `ca.pem`. The MQTT broker trusts all CA certificates in the ConfigMap, so you can use anything for the name of the key.
 

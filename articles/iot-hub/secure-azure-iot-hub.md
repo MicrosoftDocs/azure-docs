@@ -4,7 +4,7 @@ description: Learn how to secure Azure IoT Hub, with best practices for protecti
 author: cwatson-cat
 ms.author: cwatson
 ms.service: azure-iot-hub
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom: horz-security
 ms.date: 08/28/2025
 ai-usage: ai-assisted

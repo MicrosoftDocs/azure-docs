@@ -4,7 +4,7 @@ description: Learn how Azure Health Data Services empowers healthcare organizati
 author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 02/25/2026
 ms.author: kesheth
 ---

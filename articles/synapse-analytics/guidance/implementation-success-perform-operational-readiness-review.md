@@ -4,7 +4,7 @@ description: "Learn how to perform an operational readiness review to evaluate y
 author: juluczni
 ms.author: juluczni
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: best-practice
 ms.date: 05/31/2022
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: OAuth 2.0 JWT authentication
 description: Describes OAuth 2.0 JWT authentication and authorization to publish or subscribe to MQTT messages
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: build-2024
 ms.date: 04/30/2025
 author: Connected-Seth

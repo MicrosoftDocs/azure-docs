@@ -1,7 +1,7 @@
 ---
 title: Azure DevOps Wiki Knowledge in Azure SRE Agent
 description: Connect your Azure DevOps wikis as knowledge sources so your agent references runbooks, procedures, and documentation during investigations.
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.service: azure-sre-agent
 ms.date: 03/09/2026
 author: craigshoemaker

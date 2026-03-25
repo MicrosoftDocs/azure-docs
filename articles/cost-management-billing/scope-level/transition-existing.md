@@ -4,7 +4,7 @@ description: This article describes the changes and several transition scenarios
 author: pri-mittal
 ms.author: primittal
 ms.date: 03/19/2026
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: ahb
 ---

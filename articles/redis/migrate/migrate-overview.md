@@ -2,7 +2,7 @@
 title: Move from Basic, Standard, Premium, and Enterprise tiers to Azure Managed Redis
 description: In this article, you learn how and why to migrate an Enterprise cache from Azure Cache for Redis to Azure Managed Redis
 ms.date: 09/28/2025
-ms.topic: conceptual
+ms.topic: upgrade-and-migration-article
 ms.custom:
   - ignite-2024
   - references_regions

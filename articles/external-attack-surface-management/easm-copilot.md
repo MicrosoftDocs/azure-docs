@@ -6,7 +6,7 @@ description: Learn how to use Microsoft Security Copilot to get information abou
 author: dandennis
 ms.author: dandennis
 ms.date: 11/20/2024
-ms.topic: conceptual
+ms.topic: integration
 ms.service: defender-easm
 ms.localizationpriority: high
 ms.custom: sfi-image-nochange

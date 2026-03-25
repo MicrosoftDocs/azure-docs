@@ -6,7 +6,7 @@ ms.reviewer: spelluru
 ms.date: 01/15/2026
 author: EldertGrootenboer
 ms.author: egrootenboer
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.custom:
 ---
 

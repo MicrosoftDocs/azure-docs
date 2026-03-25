@@ -1,7 +1,7 @@
 ---
 title: Memory and Knowledge in Azure SRE Agent
 description: Learn how your agent remembers past incident resolutions and references your documentation to improve over time.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-sre-agent
 ms.date: 03/06/2026
 author: craigshoemaker

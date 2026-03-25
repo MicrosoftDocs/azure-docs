@@ -7,7 +7,7 @@ ms.author: harmeetgill
 ms.date: 02/29/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: partner-tools
 ---
 
 # Azure Synapse Analytics data management partners

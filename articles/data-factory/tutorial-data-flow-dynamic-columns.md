@@ -3,7 +3,7 @@ title: Dynamically set column names in data flows
 description:  This tutorial provides steps for dynamically setting column names in data flows
 author: kromerm
 ms.author: makromer
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: data-flows
 ---

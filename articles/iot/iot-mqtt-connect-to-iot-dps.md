@@ -5,7 +5,7 @@ description: Guidance on using the MQTT protocol to connect a device to the Azur
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2025
 ms.custom:  [amqp, mqtt]
 ---

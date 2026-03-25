@@ -30,6 +30,8 @@ landingContent:
             url: create.md
       - linkListType: how-to-guide
         links:
+          - text: Connect Foundry agents to MongoDB Atlas
+            url: connect-foundry-agents.md
           - text: Manage a resource
             url: manage.md
           - text: Troubleshoot

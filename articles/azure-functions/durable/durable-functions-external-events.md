@@ -1,7 +1,7 @@
 ---
 title: Handling external events
 description: Learn how to handle external events
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/28/2026
 ms.author: azfuncdf
 # ms.devlang: csharp, javascript, powershell, python, java

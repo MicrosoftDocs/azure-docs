@@ -5,7 +5,7 @@ description: Exploring and interacting with the Microsoft Sentinel data lake usi
 author: EdB-MSFT  
 ms.service: microsoft-sentinel
 ms.subservice: sentinel-platform
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/27/2025
 ms.author: edbaynash  
 ms.collection: ms-security  

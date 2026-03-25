@@ -7,7 +7,7 @@ manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ms.date: 09/01/2025
-ms.topic: conceptual
+ms.topic: faq
 ms.author: henikaraa
 ms.custom: general_availability
 services: azure-communication-services

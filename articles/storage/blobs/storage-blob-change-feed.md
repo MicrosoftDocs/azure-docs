@@ -650,7 +650,7 @@ The following example shows a change event record in JSON format that uses event
 
 ```
 
-<a id="conditions"></a>
+- <a id="conditions"></a>If event publishing remains blocked for over six months due to customer configuration errors (such as `KeyVaultNotFound` or authentication failures), the events are automatically deleted and garbage‑collected.
 
 ## Conditions and known issues
 

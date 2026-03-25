@@ -1,7 +1,7 @@
 ---
 title: Azure Service Bus with confidential computing
 description: Learn how to enable confidential computing on Azure Service Bus Premium namespaces to protect data in use with hardware-based trusted execution environments.
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 01/22/2026
 ms.service: azure-service-bus
 author: EldertGrootenboer

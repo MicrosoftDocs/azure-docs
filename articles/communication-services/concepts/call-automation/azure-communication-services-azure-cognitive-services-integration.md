@@ -5,7 +5,7 @@ description: Provides a how-to guide for connecting Azure Communication Services
 author: kunaal
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/27/2023
 ms.author: kpunjabi
 ms.custom: references_regions

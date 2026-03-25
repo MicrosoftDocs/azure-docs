@@ -4,7 +4,7 @@ description: Learn about solutions that ISVs build on top of Azure Data Manager 
 author: BlackRider97
 ms.author: ramithar
 ms.service: azure-data-manager-agriculture
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 02/14/2023
 ms.custom: template-concept
 ---

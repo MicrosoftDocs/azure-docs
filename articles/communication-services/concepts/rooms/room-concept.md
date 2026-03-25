@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: jorgegarc
 ms.date: 05/15/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ---
 # Rooms API for structured meetings

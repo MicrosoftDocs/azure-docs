@@ -5,7 +5,7 @@ description: Set up and configuring connectors for Microsoft Sentinel data lake.
 author: EdB-MSFT  
 ms.service: microsoft-sentinel
 ms.subservice: sentinel-platform  
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/05/2025
 ms.author: edbaynash  
 ms.collection: ms-security  

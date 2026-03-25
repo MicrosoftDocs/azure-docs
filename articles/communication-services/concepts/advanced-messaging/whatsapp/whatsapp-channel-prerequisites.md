@@ -7,7 +7,7 @@ manager: darmour
 services: azure-communication-services
 ms.author: anniewang
 ms.date: 06/18/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
 ---

@@ -5,7 +5,7 @@ description: Learn how to copy and transform data in Snowflake V1 using Data Fac
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/15/2025
 ms.custom:
   - synapse

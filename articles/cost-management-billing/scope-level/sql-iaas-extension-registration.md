@@ -4,7 +4,7 @@ description: This article explains the SQL IaaS extension registration options a
 author: pri-mittal
 ms.author: primittal
 ms.date: 03/19/2026
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: ahb
 ms.reviewer: primittal

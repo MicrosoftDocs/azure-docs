@@ -3,7 +3,7 @@ title: Interpreting extractor paths from SBOM view in firmware analysis
 description: Learn how to interpret extractor paths from the SBOM view in firmware analysis results.
 author: karengu0
 ms.author: karenguo
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/12/2025
 ms.service: azure
 ms.subservice: azure-firmware-analysis

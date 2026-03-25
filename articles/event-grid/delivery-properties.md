@@ -1,7 +1,7 @@
 ---
 title: Azure Event Grid - Set custom headers on delivered events 
 description: Describes how you can set custom headers (or delivery properties) on delivered events. 
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 02/21/2023
 ---

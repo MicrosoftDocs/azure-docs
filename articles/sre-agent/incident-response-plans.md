@@ -1,7 +1,7 @@
 ---
 title: Incident Response Plans in Azure SRE Agent
 description: Learn how to route incidents to specialized subagents with the right tools, investigation depth, and autonomy level automatically.
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.service: azure-sre-agent
 ms.date: 03/04/2026
 author: craigshoemaker

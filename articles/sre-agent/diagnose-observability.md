@@ -1,7 +1,7 @@
 ---
 title: Diagnose with External Observability in Azure SRE Agent
 description: Query Azure Monitor and external observability tools like Dynatrace, Datadog, and Splunk in a single investigation through MCP.
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.service: azure-sre-agent
 ms.date: 03/04/2026
 author: craigshoemaker

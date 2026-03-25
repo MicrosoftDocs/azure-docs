@@ -4,7 +4,7 @@ description: Helps developers decide which C-based Azure IoT device SDK to use f
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 1/10/2025
 ms.update-cycle: 1095-days
 ms.custom: template-concept, linux-related-content

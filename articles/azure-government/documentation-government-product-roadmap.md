@@ -2,7 +2,7 @@
 title: Azure Government product General Availability (GA) roadmap
 description: Overview of Azure Government product General Availability (GA) by authorization level
 ms.service: azure-government
-ms.topic: conceptual
+ms.topic: feature-availability
 ms.author: russellkirk
 author: krussell09
 recommendations: false

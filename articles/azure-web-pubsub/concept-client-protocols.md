@@ -4,7 +4,7 @@ description: This article presents an overview of the client protocols for Azure
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
-ms.topic: conceptual 
+ms.topic: reference
 ms.date: 11/08/2021
 ms.custom: sfi-ropc-nochange
 ---

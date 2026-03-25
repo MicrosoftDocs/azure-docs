@@ -2,7 +2,7 @@
 title: Prepay for compute with reservations - Azure Managed Redis
 description: Prepay for Azure Managed Redis compute resources with reservations
 ms.date: 11/12/2025
-ms.topic: conceptual
+ms.topic: how-to
 ai-usage: ai-assisted
 ms.custom:
   - ignite-2024

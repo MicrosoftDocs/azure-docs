@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: micahvivion
 ms.date: 05/01/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
