@@ -1,7 +1,7 @@
 ---
 title: Connectors in Azure SRE Agent
 description: Extend your agent's capabilities to external data sources, collaboration tools, and custom APIs using connectors.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-sre-agent
 ms.date: 03/09/2026
 author: craigshoemaker

@@ -2,7 +2,7 @@
 title: Submit Apache Hadoop jobs in HDInsight 
 description: Submit Apache Hadoop jobs in Azure HDInsight using Microsoft .NET SDK, curl, or PowerShell
 ms.service: azure-hdinsight
-ms.topic: conceptual
+ms.topic: hub-page
 ms.custom: hdinsightactive, devx-track-dotnet
 author: hareshg
 ms.author: hgowrisankar

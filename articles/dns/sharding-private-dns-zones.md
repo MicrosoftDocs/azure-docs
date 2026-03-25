@@ -128,11 +128,6 @@ Sharding doesn't require new Azure features. Implement it by using existing Priv
 
     - This approach is recommended for hub-and-spoke or hybrid architectures.
 
-:::image type="content" source="media/sharding-private-dns-zones/dns-shard-central-resolution.png" alt-text="Screenshot of sharded private DNS zones with selective virtual network links and centralized resolution." lightbox="media/sharding-private-dns-zones/dns-shard-central-resolution.png":::
-
-:::image type="content" source="media/sharding-private-dns-zones/dns-shard-central-resolver.png" alt-text="Screenshot of sharded private DNS zones architecture with centralized resolution." lightbox="media/sharding-private-dns-zones/dns-shard-central-resolver.png":::
-
-**Figure 2: Sharded private DNS zones with selective virtual network links and centralized resolution**
 
 ## When to use sharding
 

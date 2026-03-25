@@ -5,7 +5,7 @@ description: Learn how to copy and transform data in Microsoft Fabric Lakehouse 
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/30/2026
 ms.custom:
   - synapse

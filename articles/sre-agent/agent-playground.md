@@ -1,7 +1,7 @@
 ---
 title: Agent Playground in Azure SRE Agent
 description: Test and refine your agent configurations in real time before deploying changes with the split-screen editor and AI-powered evaluation.
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.service: azure-sre-agent
 ms.date: 03/09/2026
 author: craigshoemaker

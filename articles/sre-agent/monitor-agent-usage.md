@@ -1,7 +1,7 @@
 ---
 title: Monitor Agent Usage in Azure SRE Agent
 description: Track Azure AI Unit consumption, manage allocation limits, and generate session insights to review your agent's performance.
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-sre-agent
 ms.date: 03/09/2026
 author: craigshoemaker

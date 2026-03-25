@@ -1,7 +1,7 @@
 ---
 title: Use cases for Event Domains in Azure Event Grid
 description: This article describes a few use cases for using event domains in Azure Event Grid. 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/04/2021
 ---
 

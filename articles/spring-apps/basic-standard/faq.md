@@ -3,7 +3,7 @@ title: Frequently Asked Questions About Azure Spring Apps
 description: This article answers frequently asked questions about Azure Spring Apps.
 author: KarlErickson
 ms.service: azure-spring-apps
-ms.topic: conceptual
+ms.topic: faq
 ms.date: 08/19/2025
 ms.update-cycle: 1095-days
 ms.author: karler

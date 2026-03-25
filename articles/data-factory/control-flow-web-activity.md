@@ -5,7 +5,7 @@ description: Learn how you can use Web Activity, one of the control flow activit
 author: nabhishek
 ms.author: abnarain
 ms.subservice: orchestration
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/25/2024
 ms.custom:
   - synapse

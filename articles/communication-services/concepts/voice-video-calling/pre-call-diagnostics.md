@@ -7,7 +7,7 @@ manager: chpalm
 services: azure-communication-services
 ms.author: sundraman
 ms.date: 04/01/2021
-ms.topic: conceptual
+ms.topic: overview
 ms.service: azure-communication-services
 ms.custom: sfi-ropc-nochange
 ---

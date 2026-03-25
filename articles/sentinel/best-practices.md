@@ -3,7 +3,7 @@ title: Best practices for Microsoft Sentinel
 description: Learn about best practices to employ when managing your Log Analytics workspace for Microsoft Sentinel.
 author: EdB-MSFT
 ms.author: edbaynash
-ms.topic: conceptual
+ms.topic: best-practice
 ms.date: 07/16/2025
 
 #Customer intent: As a security operations center (SOC) analyst, I want to implement best practices for deploying and managing a cloud-based SIEM solution so that I can enhance threat detection, incident response, and overall security posture.

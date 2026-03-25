@@ -5,7 +5,7 @@ author: vikramdesai01
 ms.reviewer: vikdesai
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 03/03/2026
 ms.author: vikdesai
 ---

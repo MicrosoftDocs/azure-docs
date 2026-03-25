@@ -7,7 +7,7 @@ manager: chpalm
 services: azure-communication-services
 ms.author: jacadd
 ms.date: 09/01/2025
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: general_availability
 ms.service: azure-communication-services
 ---

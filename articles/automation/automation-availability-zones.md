@@ -5,7 +5,7 @@ keywords: automation availability zones.
 services: automation
 ms.subservice: process-automation
 ms.date: 11/17/2025
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.custom: references_regions 
 ms.service: azure-automation
 ms.author: v-rochak2

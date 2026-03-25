@@ -2,7 +2,7 @@
 title: Unit testing Durable Functions and Durable Task SDKs
 description: Learn how to unit test orchestrator, activity, and client functions for Azure Durable Functions and standalone Durable Task SDKs.
 author: cgillum
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/19/2026
 ms.author: azfuncdf
 ms.service: azure-functions

@@ -1,7 +1,7 @@
 ---
 title: Diagnose with Azure Observability in Azure SRE Agent
 description: Learn how your agent queries Application Insights, Log Analytics, Azure Monitor metrics, Activity Logs, Resource Graph, and resource-specific diagnostics automatically without connectors.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-sre-agent
 ms.date: 03/04/2026
 author: craigshoemaker

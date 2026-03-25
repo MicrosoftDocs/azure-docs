@@ -4,7 +4,7 @@ description: Learn how to communicate between different container apps in the sa
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/07/2025
 ms.author: cshoe
 ---

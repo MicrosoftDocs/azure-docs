@@ -4,7 +4,7 @@ description: This article describes using Azure Data Explorer as an output for A
 author: AliciaLiMicrosoft 
 ms.author: ali 
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/01/2023
 ---
 

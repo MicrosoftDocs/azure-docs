@@ -3,7 +3,7 @@ title: Out-of-the-box (OOTB) content centralization changes
 titleSuffix: Microsoft Sentinel
 description: This article describes upcoming centralization changes for out-of-the-box content in Microsoft Sentinel.
 author: batamig
-ms.topic: conceptual
+ms.topic: whats-new
 ms.date: 06/22/2023
 ms.author: bagol
 

@@ -1,7 +1,7 @@
 ---
 title: Subagents in Azure SRE Agent
 description: Learn how subagents provide specialized domain expertise that you invoke on demand through the /agent command.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-sre-agent
 ms.date: 03/09/2026
 author: craigshoemaker

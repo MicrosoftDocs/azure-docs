@@ -1,7 +1,7 @@
 ---
 title: MQTT Features Supported by Azure Event Grid MQTT Broker
 description: This article describes the MQTT features supported by the Azure Event Grid MQTT broker.
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.custom:
   - ignite-2023
   - build-2024

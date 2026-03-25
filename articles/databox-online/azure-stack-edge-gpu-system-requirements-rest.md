@@ -5,7 +5,7 @@ services: databox
 author: alkohli
 
 ms.service: azure-stack-edge
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/21/2020
 ms.author: alkohli
 ms.custom: sfi-ropc-nochange

@@ -4,7 +4,7 @@ description: Learn how to manage and monitor app with Spring Boot Actuator.
 author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/19/2025
 ms.update-cycle: 1095-days
 ms.custom: devx-track-java

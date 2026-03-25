@@ -4,7 +4,7 @@ description: Understand how Device Update for IoT Hub protects data privacy.
 author: cwatson-cat
 ms.author: cwatson
 ms.date: 04/26/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-hub
 ms.subservice: device-update
 ---

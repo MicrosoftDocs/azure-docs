@@ -5,7 +5,7 @@ description: Learn how to copy data from Salesforce V2 to supported sink data st
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: synapse
 ms.date: 09/04/2025
 ---

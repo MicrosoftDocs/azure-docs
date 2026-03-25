@@ -7,7 +7,7 @@ ms.service: azure-load-testing
 ms.author: nandinim
 author: nandinimurali
 ms.date: 06/30/2023
-ms.topic: conceptual
+ms.topic: concept-article
 
 ---
 

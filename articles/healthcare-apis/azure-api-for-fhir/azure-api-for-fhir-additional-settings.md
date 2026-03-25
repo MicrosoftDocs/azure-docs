@@ -3,7 +3,7 @@ title: Additional Settings for Azure API for FHIR
 description: Overview of the additional settings you can set for Azure API for FHIR
 ms.service: azure-health-data-services
 ms.subservice: fhir
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: kesheth
 author: expekesheth
 ms.date: 07/24/2025

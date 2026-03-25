@@ -5,7 +5,7 @@ description: Learn how to transform data in Google Sheets (Preview) by using Dat
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: synapse
 ms.date: 05/15/2024
 ---

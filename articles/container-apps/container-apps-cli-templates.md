@@ -4,7 +4,7 @@ description: Find Microsoft and community-authored Azure Developer CLI (AZD) tem
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: landing-page
 ms.date: 03/20/2026
 ms.author: cshoe
 ai-usage: ai-generated

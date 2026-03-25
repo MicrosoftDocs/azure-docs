@@ -1,7 +1,7 @@
 ---
 title: Orchestration versioning
 description: Learn how to version orchestrations for safe deployments with Durable Functions and Durable Task SDKs.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/25/2026
 author: AnatoliB
 ms.author: azfuncdf

@@ -1,7 +1,7 @@
 ---
 title: Agent Reasoning in Azure SRE Agent
 description: Learn how your agent processes requests, selects tools, classifies actions, and explains its thinking.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-sre-agent
 ms.date: 03/09/2026
 author: craigshoemaker

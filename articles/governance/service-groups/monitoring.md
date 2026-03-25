@@ -4,7 +4,7 @@ description: Learn how to monitor the health and performance of Azure Service Gr
 author: lauradolan
 ms.author: ladolan
 ms.service: azure-policy 
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/19/2025
 
 ---

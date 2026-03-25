@@ -5,7 +5,7 @@ author: Nicholak-MS
 ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/25/2026
 ms.author: nicholak
 ms.custom: sfi-image-nochange

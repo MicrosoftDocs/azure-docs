@@ -1,7 +1,7 @@
 ---
 title: Run Modes in Azure SRE Agent
 description: Learn how run modes control whether your agent asks for approval before taking actions or acts autonomously.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-sre-agent
 ms.date: 03/09/2026
 author: craigshoemaker

@@ -2,7 +2,7 @@
 title: Configure data persistence - Azure Managed Redis
 description: Learn how to configure and manage data persistence your Azure Managed Redis instances
 ms.date: 10/22/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - devx-track-azurecli
   - ignite-2024

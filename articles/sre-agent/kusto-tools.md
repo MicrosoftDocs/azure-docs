@@ -1,7 +1,7 @@
 ---
 title: Kusto Tools in Azure SRE Agent
 description: Create deterministic query tools that run exact KQL queries against Azure Data Explorer, turning tribal knowledge into reusable agent capabilities.
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.service: azure-sre-agent
 ms.date: 03/04/2026
 author: craigshoemaker

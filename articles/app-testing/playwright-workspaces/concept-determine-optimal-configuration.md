@@ -6,7 +6,7 @@ ms.service: azure-app-testing
 ms.subservice: playwright-workspaces
 author: johnsta
 ms.author: johnsta
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/07/2025
 ms.custom: playwright-workspaces
 ---
