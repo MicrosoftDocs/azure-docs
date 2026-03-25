@@ -4,7 +4,7 @@ description: Expose stable URLs for named environments to evaluate changes in Az
 author: cjk7989
 ms.author: jikunchen
 ms.service: azure-static-web-apps
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/24/2023
 ms.custom: template-how-to
 ---

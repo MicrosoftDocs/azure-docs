@@ -4,7 +4,7 @@ description: Learn how to secure IoT solutions, with best practices for cloud-ba
 author: dominicbetts
 ms.service: azure-iot
 services: iot
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom: horz-security
 ms.date: 06/13/2025
 ms.author: dobett

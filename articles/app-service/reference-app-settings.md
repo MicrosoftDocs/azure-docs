@@ -1,7 +1,7 @@
 ---
 title: Environment Variables and App Settings Reference
 description: This article describes the commonly used environment variables in Azure App Service, and which ones can be modified with app settings.
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 02/26/2026
 author: cephalin
 ms.author: cephalin

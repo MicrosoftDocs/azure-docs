@@ -6,7 +6,7 @@ ms.author: joanpo
 ms.date: 03/21/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Backup and restore dedicated SQL pools in Azure Synapse Analytics

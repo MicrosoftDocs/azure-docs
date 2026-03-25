@@ -1,7 +1,7 @@
 ---
 title: On-premises management console retirement - Microsoft Defender for IoT
 description: This article describes the retirement of the on-premises management console from **January 1, 2025**.
-ms.topic: conceptual
+ms.topic: retired
 ms.date: 12/17/2024
 ---
 

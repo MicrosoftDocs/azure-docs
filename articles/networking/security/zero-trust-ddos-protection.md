@@ -4,7 +4,7 @@ description: Review Zero Trust security recommendations for Azure DDoS Protectio
 author: duongau
 ms.author: duau
 ms.service: azure-ddos-protection
-ms.topic: conceptual
+ms.topic: best-practice
 ms.date: 03/17/2026
 ms.custom: Network-Secure-Recommendation
 ---

@@ -2,7 +2,7 @@
 title: Data persistence
 description: Learn about Redis persistence, and how to configure and manage data persistence in your Premium and Enterprise tier Azure Cache for Redis instances.
 ms.custom: devx-track-azurecli
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/21/2025
 appliesto:
   - ✅ Azure Cache for Redis

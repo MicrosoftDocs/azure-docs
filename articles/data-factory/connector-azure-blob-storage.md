@@ -5,7 +5,7 @@ description: Learn how to copy data to and from Blob storage, and transform data
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/25/2025
 ms.custom:
   - synapse

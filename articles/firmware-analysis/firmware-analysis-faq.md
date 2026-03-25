@@ -3,7 +3,7 @@ title: Frequently asked questions about firmware analysis
 description: Find answers to some of the common questions about firmware analysis. This article includes the file systems that are supported by firmware analysis, and links to the Azure CLI and Azure PowerShell commands.
 author: karengu0
 ms.author: karenguo
-ms.topic: conceptual
+ms.topic: faq
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 09/12/2025
 ms.service: azure

@@ -4,7 +4,7 @@ description: In this article, you learn how Dynamic Allocation of Executors work
 services: synapse analytics 
 author: santhoshravindran7
 ms.service: azure-synapse-analytics
-ms.topic: conceptual 
+ms.topic: concept-article
 ms.subservice: spark
 ms.date: 11/07/2022
 ms.author: saravi 

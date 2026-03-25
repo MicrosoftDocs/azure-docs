@@ -4,7 +4,7 @@ description: Learn how to integrate with data providers for farm activities and 
 author: BlackRider97
 ms.author: ramithar
 ms.service: azure-data-manager-agriculture
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/14/2023
 ms.custom: template-concept
 ---

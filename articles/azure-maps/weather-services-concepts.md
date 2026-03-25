@@ -4,7 +4,7 @@ description: Learn about the concepts that apply to Microsoft Azure Maps Weather
 author: farazgis
 ms.author: fsiddiqui
 ms.date: 09/10/2020
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-maps
 ms.subservice: weather
 ---

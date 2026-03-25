@@ -4,7 +4,7 @@ description: This article guides you through the process of creating and publish
 author: anilgodavarthy
 ms.author: angodavarthy
 ms.service: microsoft-sentinel
-ms.topic: conceptual 
+ms.topic: how-to
 ms.date: 1/23/2025
 
 #CustomerIntent: As a ISV partner, I want to create and publish playbooks for my Microsoft Sentinel solution so that I can provide inbuilt automation use cases to my customers.

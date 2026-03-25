@@ -2,7 +2,7 @@
 title: Function chaining
 description: Learn how to run a sample that executes a sequence of functions using Durable Functions or Durable Task SDKs.
 author: cgillum
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/04/2026
 ms.author: azfuncdf
 ms.devlang: csharp

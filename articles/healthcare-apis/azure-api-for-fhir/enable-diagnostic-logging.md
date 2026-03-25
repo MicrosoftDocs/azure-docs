@@ -4,7 +4,7 @@ description: This article explains how to enable diagnostic logging in Azure API
 services: healthcare-apis
 ms.service: azure-health-data-services
 ms.subservice: fhir
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: kesheth
 author: expekesheth
 ms.date: 11/20/2025

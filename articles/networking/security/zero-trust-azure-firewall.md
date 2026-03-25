@@ -4,7 +4,7 @@ description: Review Zero Trust security recommendations for Azure Firewall to he
 author: duongau
 ms.author: duau
 ms.service: azure-firewall
-ms.topic: conceptual
+ms.topic: best-practice
 ms.date: 03/17/2026
 ms.custom: Network-Secure-Recommendation
 ---

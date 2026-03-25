@@ -1,7 +1,7 @@
 ---
 title: Sub-orchestrations - Azure
 description: Learn how to call orchestrations from orchestrations in Durable Functions and Durable Task SDKs.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/25/2026
 ms.author: azfuncdf
 zone_pivot_groups: azure-durable-approach

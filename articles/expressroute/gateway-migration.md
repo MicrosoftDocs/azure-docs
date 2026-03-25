@@ -15,6 +15,9 @@ ms.author: duau
 
 # About ExpressRoute Gateway Migration
 
+> [!IMPORTANT]
+> ExpressRoute gateway migrations are temporarily paused. Don't initiate migrations at this time. You will be notified when migrations can resume.
+
 This article outlines the ExpressRoute gateway migration process, allowing you to move from your current SKU to any equal or higher SKU and from Basic IP to Standard IP—enhancing reliability and availability, while downgrades aren't supported.
 
 For guidance on upgrading Basic SKU public IP addresses for other networking services, see [Upgrading Basic to Standard SKU](../virtual-network/ip-services/public-ip-basic-upgrade-guidance.md#steps-to-complete-the-upgrade).

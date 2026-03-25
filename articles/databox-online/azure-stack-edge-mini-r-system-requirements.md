@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: azure-stack-edge
 ms.custom: devx-track-arm-template
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 06/26/2024
 ms.author: alkohli
 ---

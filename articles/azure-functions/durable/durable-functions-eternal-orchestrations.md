@@ -2,7 +2,7 @@
 title: Eternal orchestrations
 description: Learn how to implement eternal orchestrations
 author: cgillum
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/28/2026
 ms.author: azfuncdf
 ms.devlang: csharp

@@ -1,7 +1,7 @@
 ---
 title: Azure API Center as Event Grid source
 description: Describes the properties that are provided for Azure API Center events with Azure Event Grid
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 03/05/2024
 author: spelluru
 ms.author: spelluru

@@ -2,7 +2,7 @@
 title: Azure HDInsight component retirements and action required
 description: Learn about HDInsight retirement versions and its components in Azure HDInsight clusters.
 ms.service: azure-hdinsight
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/11/2025
 author: apurbasroy
 ms.author: apsinhar

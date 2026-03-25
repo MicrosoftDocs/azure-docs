@@ -1,7 +1,7 @@
 ---
 title: Azure Functions runtime versions overview
 description: Learn how Azure Functions supports multiple versions of the runtime, and understand the differences between them and how to choose the one that's right for you.
-ms.topic: conceptual
+ms.topic: overview
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, ignite-2023, devx-track-ts
 ms.date: 03/06/2025
 zone_pivot_groups: programming-languages-set-functions

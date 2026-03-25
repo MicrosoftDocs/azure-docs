@@ -4,7 +4,7 @@ titleSuffix: Microsoft Sentinel
 description: Learn how to identify, compare, and migrate your Splunk detection rules to Microsoft Sentinel built-in rules.
 author: guywild
 ms.author: guywild
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/23/2024
 
 

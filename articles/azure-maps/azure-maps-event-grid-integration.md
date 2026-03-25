@@ -4,7 +4,7 @@ description: Find out how to react to Azure Maps events involving geofences. See
 author: faterceros
 ms.author: aterceros
 ms.date: 01/08/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-maps
 ms.subservice: general
 ms.custom: mvc

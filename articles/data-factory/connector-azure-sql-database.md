@@ -5,7 +5,7 @@ description: Learn how to copy data to and from Azure SQL Database, and transfor
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/25/2025
 ms.custom:
   - synapse

@@ -7,7 +7,7 @@ ms.author: fipopovi
 ms.date: 10/11/2022
 ms.service: azure-synapse-analytics
 ms.subservice: sql
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 # Statistics in Synapse SQL
 

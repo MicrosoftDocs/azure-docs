@@ -2,7 +2,7 @@
 title: Transform data using Hadoop Pig activity
 description: Learn how you can use the Pig Activity to run Pig scripts on an on-demand/your own HDInsight cluster with Azure Data Factory or Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
-ms.topic: conceptual
+ms.topic: how-to
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse

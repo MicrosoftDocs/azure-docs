@@ -6,7 +6,7 @@ ms.author: sosivara
 ms.date: 01/10/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: sfi-image-nochange
 ---
 

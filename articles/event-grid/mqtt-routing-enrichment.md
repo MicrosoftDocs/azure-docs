@@ -1,7 +1,7 @@
 ---
 title: 'Enrichments for MQTT Routed Messages'
 description: 'An overview of the Enrichments for MQTT Routed Messages and how to configure them.'
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - build-2023
   - ignite-2023

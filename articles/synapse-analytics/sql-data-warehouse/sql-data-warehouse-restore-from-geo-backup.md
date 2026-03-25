@@ -7,7 +7,7 @@ ms.author: joanpo
 ms.date: 11/13/2020
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - devx-track-azurepowershell
 ---

@@ -6,7 +6,7 @@ ms.author: ajagadish
 ms.date: 09/19/2023
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
 ---
 # Column-level security
 

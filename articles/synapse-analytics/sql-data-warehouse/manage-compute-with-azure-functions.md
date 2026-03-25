@@ -6,7 +6,7 @@ ms.author: ajagadish
 ms.date: 04/27/2018
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - azure-synapse
   - devx-track-arm-template

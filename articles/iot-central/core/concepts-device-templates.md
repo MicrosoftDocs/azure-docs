@@ -4,7 +4,7 @@ description: Device templates let you specify the behavior of the devices connec
 author: dominicbetts
 ms.author: dobett
 ms.date: 07/12/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-central
 services: iot-central
 ms.custom: device-developer

@@ -7,7 +7,7 @@ manager: sundraman
 services: azure-communication-services
 ms.author: sundraman
 ms.date: 2/3/2025
-ms.topic: conceptual
+ms.topic: overview
 ms.service: azure-communication-services
 ---
 

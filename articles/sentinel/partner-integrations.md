@@ -3,7 +3,7 @@ title: Microsoft Sentinel components and patterns
 description: This article describes best practices for creating your own integrations with Microsoft Sentinel.
 author: EdB-MSFT
 ms.author: edbaynash
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/30/2025
 
 

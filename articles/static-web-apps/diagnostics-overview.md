@@ -4,7 +4,7 @@ description: Learn to troubleshoot issues with your static web app with the diag
 ms.date: 12/08/2022
 author: cjk7989
 ms.service: azure-static-web-apps
-ms.topic:  conceptual
+ms.topic:  feature-guide
 ms.author: jikunchen
 ---
 

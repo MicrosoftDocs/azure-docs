@@ -4,7 +4,7 @@ description: This article introduces key IoT Central architectural concepts such
 author: dominicbetts
 ms.author: dobett
 ms.date: 04/15/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-central
 services: iot-central
 ms.custom: [iot-central-frontdoor]

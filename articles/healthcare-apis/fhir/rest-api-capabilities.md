@@ -4,7 +4,7 @@ description: Explore the RESTful capabilities of Azure Health Data Services FHIR
 author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/10/2025
 ms.author: kesheth
 ---

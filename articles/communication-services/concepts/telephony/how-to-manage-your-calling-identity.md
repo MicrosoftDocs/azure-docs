@@ -8,7 +8,7 @@ manager: ankura
 services: azure-communication-services
 ms.author: henikaraa
 ms.date: 02/13/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-communication-services
 ms.custom:
   - build-2025

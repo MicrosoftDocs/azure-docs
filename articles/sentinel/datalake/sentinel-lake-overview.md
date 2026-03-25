@@ -5,7 +5,7 @@ description: An overview of Microsoft Sentinel data lake, a cloud-native platfor
 author: EdB-MSFT  
 ms.service: microsoft-sentinel
 ms.subservice: sentinel-platform  
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: references_regions
 ms.date: 08/11/2025
 ms.author: edbaynash  

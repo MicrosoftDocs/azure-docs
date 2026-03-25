@@ -3,7 +3,7 @@ title: Best practices for client libraries
 description: Learn about recommended client libraries for Azure Cache for Redis, including a section devoted to Redisson best practices.
 
 
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 05/05/2025
 appliesto:
   - ✅ Azure Cache for Redis

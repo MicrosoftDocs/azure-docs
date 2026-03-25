@@ -5,7 +5,7 @@ description: Learn how to use the Set Variable activity to set the value of an e
 ms.subservice: orchestration
 ms.custom: synapse
 ms.date: 02/13/2025
-ms.topic: conceptual
+ms.topic: how-to
 author: kromerm
 ms.author: makromer
 ms.reviewer: whhender

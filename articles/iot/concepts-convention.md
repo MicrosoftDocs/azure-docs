@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 1/10/2025
 ms.update-cycle: 1095-days
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot
 ---
 

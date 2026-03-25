@@ -4,7 +4,7 @@ description: This reference describes the JavaScript SDK for the Azure Web PubSu
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 11/11/2021
 ms.custom:
   - devx-track-js

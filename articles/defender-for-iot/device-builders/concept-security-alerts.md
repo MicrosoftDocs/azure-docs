@@ -1,7 +1,7 @@
 ---
 title: Built-in & custom alerts list
 description: Learn about security alerts and recommended remediation using Defender for IoT Hub's features and service.
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 01/01/2023
 ---
 

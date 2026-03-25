@@ -4,7 +4,7 @@ description: Learn about recent updates about Azure Web PubSub
 author: kevinguo-ed
 ms.author: kevinguo
 ms.service: azure-web-pubsub
-ms.topic: conceptual
+ms.topic: whats-new
 ms.date: 11/15/2023
 ms.custom: mode-other
 ---

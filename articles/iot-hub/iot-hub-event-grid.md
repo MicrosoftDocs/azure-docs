@@ -6,7 +6,7 @@ author: cwatson-cat
 
 ms.service: azure-iot-hub
 services: iot-hub
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 03/28/2025
 ms.author: cwatson
 ms.custom: [amqp, mqtt, 'Role: Cloud Development']

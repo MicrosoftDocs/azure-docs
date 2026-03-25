@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: This article describes how to monitor Azure virtual machines hosting the self-hosted integration runtime.
 author: whhender
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/25/2025
 ms.subservice: integration-runtime
 ms.author: whhender

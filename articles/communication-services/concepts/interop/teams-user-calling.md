@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: tchladek
 ms.date: 12/01/2021
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ms.custom: has-azure-ad-ps-ref

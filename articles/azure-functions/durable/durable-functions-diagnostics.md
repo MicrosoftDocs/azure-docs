@@ -3,7 +3,7 @@ title: Diagnostics in Durable Functions
 titleSuffix: Durable Task
 description: Learn how to diagnose problems with the Durable Functions extension for Azure Functions.
 author: cgillum
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/02/2026
 ms.author: azfuncdf
 ms.service: azure-functions

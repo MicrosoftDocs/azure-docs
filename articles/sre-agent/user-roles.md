@@ -1,7 +1,7 @@
 ---
 title: User Roles and Permissions in Azure SRE Agent
 description: Learn how to control who can view, interact with, and administer your agent by using Azure RBAC roles and layered access control.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-sre-agent
 ms.date: 03/09/2026
 author: craigshoemaker

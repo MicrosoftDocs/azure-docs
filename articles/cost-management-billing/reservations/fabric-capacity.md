@@ -5,7 +5,7 @@ author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2026
 ms.author: primittal
 ms.custom: ignite-2023

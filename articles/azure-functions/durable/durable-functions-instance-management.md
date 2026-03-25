@@ -2,7 +2,7 @@
 title: Manage orchestration instances - Azure Durable Functions and Durable Task SDKs
 description: Learn how to manage orchestration instances in Durable Functions and the Durable Task SDKs, including starting, querying, terminating, and sending events.
 author: cgillum
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/30/2026
 ms.author: azfuncdf
 reviewer: hhunter-ms

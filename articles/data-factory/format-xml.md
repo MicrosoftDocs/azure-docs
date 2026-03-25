@@ -5,7 +5,7 @@ description: This topic describes how to deal with XML format in Azure Data Fact
 author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 05/15/2024
 ms.author: jianleishen
 ---

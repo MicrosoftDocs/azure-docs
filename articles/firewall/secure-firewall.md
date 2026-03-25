@@ -4,7 +4,7 @@ description: Learn how to secure Azure Firewall with best practices for network 
 author: duongau
 ms.author: duau
 ms.service: azure-firewall
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom: horz-security
 ms.date: 07/07/2025
 ai-usage: ai-assisted

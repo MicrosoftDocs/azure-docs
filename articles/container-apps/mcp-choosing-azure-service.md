@@ -2,7 +2,7 @@
 title: Choose an Azure service for your MCP server
 description: Compare Azure Container Apps, App Service, and Azure Functions for hosting MCP servers and pick the best fit for your workload.
 #customer intent: As a developer, I want to understand how Azure hosting options compare for MCP servers so that I can pick the right service for my workload.
-ms.topic: conceptual
+ms.topic: product-comparison
 ms.service: azure-container-apps
 ms.collection: ce-skilling-ai-copilot
 ms.custom: cross-service

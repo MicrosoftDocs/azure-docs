@@ -5,7 +5,7 @@ description: Learn how to copy data from Salesforce Service Cloud V1 to supporte
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/07/2025
 ms.custom:
   - synapse

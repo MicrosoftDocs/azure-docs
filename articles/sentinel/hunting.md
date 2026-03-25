@@ -1,7 +1,7 @@
 ---
 title: Hunting capabilities in Microsoft Sentinel| Microsoft Docs
 description: Use Microsoft Sentinel's built-in hunting queries to guide you into asking the right questions to find issues in your data.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/31/2024
 ms.author: monaberdugo
 author: mberdugo

@@ -1,7 +1,7 @@
 ---
 title: Tools in Azure SRE Agent
 description: Learn how your agent's tools are organized, including built-in Azure tools, MCP extensibility, code execution, knowledge, and communication.
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-sre-agent
 ms.date: 03/06/2026
 author: craigshoemaker

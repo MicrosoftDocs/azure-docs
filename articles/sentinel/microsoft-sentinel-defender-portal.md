@@ -3,7 +3,7 @@ title: Microsoft Sentinel in the Microsoft Defender portal
 description: Learn about the Microsoft Sentinel experience when you onboard Microsoft Sentinel to the Microsoft Defender portal.
 author: batamig
 ms.author: bagol
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 07/13/2025
 appliesto: 
     - Microsoft Sentinel in the Microsoft Defender portal

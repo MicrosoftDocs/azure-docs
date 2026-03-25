@@ -4,7 +4,7 @@ description: Use Visual Studio to query dedicated SQL pool using Azure Synapse A
 services: synapse analytics
 author: azaricstefan 
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: get-started
 ms.subservice: sql
 ms.date: 02/04/2026
 ms.author: stefanazaric 

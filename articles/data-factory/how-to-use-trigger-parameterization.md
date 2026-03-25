@@ -4,7 +4,7 @@ description: Learn how to reference trigger metadata in pipelines.
 ms.subservice: orchestration
 author: kromerm
 ms.author: makromer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/13/2025
 ---
 

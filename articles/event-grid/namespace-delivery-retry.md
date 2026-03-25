@@ -1,7 +1,7 @@
 ---
 title: Delivery and retry mechanism for push delivery with Event Grid namespaces
 description: This article describes how delivery and retry works with Azure Event Grid namespaces.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom:
   - build-2024
 ms.date: 05/08/2024

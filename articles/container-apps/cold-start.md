@@ -4,7 +4,7 @@ description: Learn best practices for creating rapid response times for containe
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: best-practice
 ms.date: 05/06/2025
 ms.author: cshoe
 ---

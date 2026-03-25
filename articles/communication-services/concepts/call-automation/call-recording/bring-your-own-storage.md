@@ -7,7 +7,7 @@ manager: seaen
 services: azure-communication-services
 ms.author: dbasantes
 ms.date: 03/16/2023
-ms.topic: conceptual
+ms.topic: overview
 ms.service: azure-communication-services
 ---
 

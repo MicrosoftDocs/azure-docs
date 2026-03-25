@@ -1,7 +1,7 @@
 ---
 title: Root Cause Analysis in Azure SRE Agent
 description: Learn how your agent reasons like an expert SRE by forming hypotheses, testing them with evidence, and explaining its conclusions.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-sre-agent
 ms.date: 03/04/2026
 author: craigshoemaker

@@ -6,7 +6,7 @@ ms.author: ajagadish
 ms.date: 08/13/2020
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Convert Resource Classes to Workload Groups

@@ -4,7 +4,7 @@ description: This article introduces the key concepts and best practices for imp
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/14/2024
-ms.topic: conceptual
+ms.topic: best-practice
 ms.service: azure-iot-central
 services: iot-central
 

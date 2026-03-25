@@ -4,7 +4,7 @@ description: Learn how to secure Azure App Configuration, with best practices fo
 author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom: horz-security
 ms.date: 10/27/2025
 ai-usage: ai-assisted

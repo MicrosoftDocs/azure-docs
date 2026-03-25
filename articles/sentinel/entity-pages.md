@@ -3,7 +3,7 @@ title: Entity pages in Microsoft Sentinel
 description: Entity pages display information about entities surfaced in your alerts, or that you otherwise come across in your incident investigations. Among this information is the timeline of alerts involving the entity, and curated insights into entity activities. Entity pages provide a rich foundation and context for your investigations, helping you detect, analyze, mitigate, and respond to security threats.
 author: guywi-ms
 ms.author: guywild
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/16/2024
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal

@@ -5,7 +5,7 @@ author: mariyaali
 ms.author: mariyaali
 
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.date: 07/16/2023
 ---
 

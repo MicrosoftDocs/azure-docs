@@ -4,7 +4,7 @@ description: Learn about the latest additions to Azure Communication Services.
 author: sroons
 ms.author: serooney
 ms.service: azure-communication-services
-ms.topic: conceptual
+ms.topic: whats-new
 ms.date: 06/24/2025
 ms.custom: template-concept, references_regions
 ---

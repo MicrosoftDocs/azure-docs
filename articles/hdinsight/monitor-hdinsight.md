@@ -3,7 +3,7 @@ title: Monitor Azure HDInsight
 description: Start here to learn how to monitor Azure HDInsight.
 ms.date: 10/15/2024
 ms.custom: horz-monitor
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-hdinsight
 author: yeturis
 ms.author: sairamyeturi

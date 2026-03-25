@@ -4,7 +4,7 @@ description: Learn how to use the Azure Static Web Apps CLI
 services: static-web-apps
 author: cjk7989
 ms.service: azure-static-web-apps
-ms.topic:  conceptual
+ms.topic:  overview
 ms.date: 02/06/2024
 ms.author: jikunchen
 ---

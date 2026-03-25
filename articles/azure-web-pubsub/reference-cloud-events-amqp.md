@@ -4,7 +4,7 @@ description: The reference defines CloudEvents extensions for Azure Web PubSub e
 author: Y-Sindo
 ms.author: zityang
 ms.service: azure-web-pubsub
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/30/2022
 ---
 

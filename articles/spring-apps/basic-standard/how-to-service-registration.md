@@ -4,7 +4,7 @@ description: Discover and register your Spring Boot applications with managed Sp
 author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/19/2025
 ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java, engagement-fy23

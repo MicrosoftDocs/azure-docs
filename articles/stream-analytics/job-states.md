@@ -4,7 +4,7 @@ description: This article describes the four different states of a Stream Analyt
 author: xujxu
 ms.author: xujiang1
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 12/21/2022
 ms.custom: sfi-image-nochange
 ---

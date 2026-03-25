@@ -6,7 +6,7 @@ author: cwatson-cat
 ms.service: azure-iot-hub
 services: iot-hub
 ms.author: cwatson
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/28/2025
 ms.custom:
   - "Role: Cloud Development"

@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.date: 02/18/2026
 ms.author: harazi
-ms.topic: conceptual 
+ms.topic: feature-availability
 ms.service: azure-communication-services
 ---
 

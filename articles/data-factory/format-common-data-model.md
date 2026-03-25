@@ -5,7 +5,7 @@ description: Transform data using the Common Data Model metadata system in Azure
 author: kromerm
 ms.subservice: data-flows
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/04/2025
 ms.author: makromer
 ---

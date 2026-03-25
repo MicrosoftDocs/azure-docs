@@ -4,7 +4,7 @@ description: Best practices for using Azure role-based access control (Azure RBA
 author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
-ms.topic: conceptual
+ms.topic: best-practice
 ms.date: 03/30/2025
 ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to learn how to best use Azure RBAC.

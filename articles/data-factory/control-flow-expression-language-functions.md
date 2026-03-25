@@ -7,7 +7,7 @@ ms.author: makromer
 ms.reviewer: whhender
 ms.subservice: orchestration
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 02/13/2025
 ---
 

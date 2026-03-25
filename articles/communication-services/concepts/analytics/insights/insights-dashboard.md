@@ -7,7 +7,7 @@ services: azure-communication-services
 
 ms.author: amagginetti
 ms.date: 03/08/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: data
 ---

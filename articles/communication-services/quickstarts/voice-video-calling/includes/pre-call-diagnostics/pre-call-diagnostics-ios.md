@@ -7,7 +7,7 @@ manager: bobgao
 services: azure-communication-services
 ms.author: ybisteni
 ms.date: 11/11/2024
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-communication-services
 ---
 

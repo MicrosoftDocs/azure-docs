@@ -4,7 +4,7 @@ description: Learn how to configure private endpoints and DNS for virtual networ
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic:  conceptual
+ms.topic:  concept-article
 ms.date: 01/12/2026
 ms.author: cshoe
 ---

@@ -5,7 +5,7 @@ description: Known issues and limitations of Azure Communication Services suppor
 author: tomaschladek
 ms.author: tchladek
 ms.date: 7/9/2022
-ms.topic: conceptual
+ms.topic: troubleshooting-known-issue
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---

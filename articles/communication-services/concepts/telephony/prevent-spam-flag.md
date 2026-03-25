@@ -7,7 +7,7 @@ manager: ankura
 services: azure-communication-services
 ms.author: henikaraa
 ms.date: 04/07/2025
-ms.topic: conceptual
+ms.topic: best-practice
 ms.service: azure-communication-services
 ---
 

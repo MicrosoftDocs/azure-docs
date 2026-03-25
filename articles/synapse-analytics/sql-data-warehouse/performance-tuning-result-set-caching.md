@@ -7,7 +7,7 @@ ms.reviewer: nidejaco;
 ms.date: 10/10/2019
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: azure-synapse
 ---
 

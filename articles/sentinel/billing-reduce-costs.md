@@ -4,7 +4,7 @@ description: Learn how to reduce costs for Microsoft Sentinel by using different
 author: EdB-MSFT
 ms.author: edbaynash
 ms.custom: subject-cost-optimization
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/14/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal

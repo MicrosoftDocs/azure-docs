@@ -1,7 +1,7 @@
 ---
 title: Durable Timers
 description: Learn how to implement durable timers in Durable Functions and Durable Task SDKs.
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.date: 01/28/2026
 ms.author: azfuncdf
 ms.devlang: csharp

@@ -6,7 +6,7 @@ author: henikaraa
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ms.date: 05/20/2025
-ms.topic: conceptual
+ms.topic: overview
 ms.author: henikaraa
 ms.custom: general_availability
 services: azure-communication-services

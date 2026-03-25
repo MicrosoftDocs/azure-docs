@@ -1,7 +1,7 @@
 ---
 title: Skills in Azure SRE Agent
 description: Learn how skills extend your agent with procedural guidance and execution capabilities like Azure CLI, Kusto queries, and Python scripts.
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.service: azure-sre-agent
 ms.date: 03/09/2026
 author: craigshoemaker

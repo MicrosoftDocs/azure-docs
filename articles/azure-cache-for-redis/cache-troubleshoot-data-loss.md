@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot data loss
 description: Learn to troubleshoot data-loss problems with Azure Cache for Redis, including partial or complete loss of keys.
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/22/2025
 appliesto:
   - ✅ Azure Cache for Redis

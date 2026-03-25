@@ -5,7 +5,7 @@ author: SandeepReddyAcc
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.reviewer: anjai
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/29/2025
 ms.author: v-salin
 ms.custom: NonCE

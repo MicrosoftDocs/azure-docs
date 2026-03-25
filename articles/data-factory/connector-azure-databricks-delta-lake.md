@@ -5,7 +5,7 @@ description: Learn how to copy data to and from Azure Databricks Delta Lake by u
 ms.author: susabat
 author: ssabat
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: synapse
 ms.date: 01/16/2025
 ---

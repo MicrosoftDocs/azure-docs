@@ -6,7 +6,7 @@ ms.author: ajagadish
 ms.date: 03/09/2022
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: reference
 ms.custom:
   - azure-synapse
 ---

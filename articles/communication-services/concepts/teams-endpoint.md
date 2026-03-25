@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: tchladek
 ms.date: 06/30/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---

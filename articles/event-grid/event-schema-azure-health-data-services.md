@@ -1,7 +1,7 @@
 ---
 title: Azure Health Data Services as Event Grid source
 description: Describes the properties that are provided for Azure Health Data Services events with Azure Event Grid
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 01/31/2023
 ---
 

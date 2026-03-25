@@ -4,7 +4,7 @@ description: Learn how to select a workload profile for your container app
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/04/2025
 ms.author: cshoe
 ms.custom:

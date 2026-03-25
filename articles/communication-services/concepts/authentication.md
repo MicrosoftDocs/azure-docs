@@ -7,7 +7,7 @@ manager: chpalm
 services: azure-communication-services
 ms.author: sundraman
 ms.date: 09/05/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: identity
 ---

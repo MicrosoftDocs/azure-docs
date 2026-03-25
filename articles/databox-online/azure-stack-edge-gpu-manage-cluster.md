@@ -5,7 +5,7 @@ services: databox
 author: alkohli
 
 ms.service: azure-stack-edge
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/15/2022
 ms.author: alkohli
 ms.custom: sfi-image-nochange

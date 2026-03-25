@@ -4,7 +4,7 @@ description: Manage log data in Microsoft Sentinel and with Microsoft Defender X
 ms.reviewer: dzatakovi
 ms.author: guywild
 author: guywi-ms
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2026
 # Customer intent: As a Microsoft Defender Portal administrator or subscription owner, I want to configure log table tiers and data retention settings to optimize security operations needs and cost efficiency.
 ---

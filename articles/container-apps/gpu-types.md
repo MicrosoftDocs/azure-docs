@@ -4,7 +4,7 @@ description: Learn to how select the most appropriate GPU type for your containe
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: product-comparison
 ms.date: 06/02/2025
 ms.author: cshoe
 ai-usage: ai-generated

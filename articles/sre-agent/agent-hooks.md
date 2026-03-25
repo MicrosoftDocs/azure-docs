@@ -1,7 +1,7 @@
 ---
 title: Agent Hooks in Azure SRE Agent
 description: Intercept and control agent behavior with custom scripts or LLM-based validation that runs before or after specific agent actions.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-sre-agent
 ms.date: 03/09/2026
 author: craigshoemaker

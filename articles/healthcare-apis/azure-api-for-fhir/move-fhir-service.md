@@ -4,7 +4,7 @@ description: This article describes how to move Azure an API for FHIR instance
 author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2025
 ms.author: kesheth
 ms.custom: sfi-image-nochange

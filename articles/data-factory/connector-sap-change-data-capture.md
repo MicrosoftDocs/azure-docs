@@ -5,7 +5,7 @@ description: Learn how to transform data from an SAP ODP source by using mapping
 author: ukchrist
 ms.author: ulrichchrist
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: synapse
 ms.date: 02/13/2025
 ---

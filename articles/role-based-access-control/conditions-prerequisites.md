@@ -5,7 +5,7 @@ author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.subservice: conditions
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 12/01/2023
 ms.author: rolyon

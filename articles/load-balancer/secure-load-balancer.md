@@ -4,7 +4,7 @@ description: Learn how to secure Azure Load Balancer, with best practices for pr
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom: horz-security
 ms.date: 08/13/2025
 ai-usage: ai-assisted

@@ -4,7 +4,7 @@ description: This tutorial helps you reduce Azure costs when you act on optimiza
 author: vikramdesai01
 ms.author: vikdesai
 ms.date: 07/03/2025
-ms.topic: conceptual
+ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: vikdesai

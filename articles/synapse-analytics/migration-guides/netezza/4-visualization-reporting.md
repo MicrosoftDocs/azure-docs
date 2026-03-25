@@ -3,7 +3,7 @@ title: "Visualization and reporting for Netezza migrations"
 description: Learn about Microsoft and third-party BI tools for reports and visualizations in Azure Synapse Analytics compared to Netezza.
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: best-practice
 author: ajagadish-24
 ms.author: ajagadish
 

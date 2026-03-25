@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot
 services: iot
-ms.topic: conceptual
+ms.topic: glossary
 ms.date: 03/09/2026
 ai-usage: ai-assisted
 

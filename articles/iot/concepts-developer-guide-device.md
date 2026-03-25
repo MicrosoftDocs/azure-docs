@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 1/10/2025
 ms.update-cycle: 1095-days
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-iot
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-twenty-seven

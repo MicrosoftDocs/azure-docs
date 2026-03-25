@@ -1,7 +1,7 @@
 ---
 title: Incident Platforms in Azure SRE Agent
 description: Connect an incident platform to your agent so it can receive alerts, investigate issues, and take action automatically.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-sre-agent
 ms.date: 03/09/2026
 author: craigshoemaker

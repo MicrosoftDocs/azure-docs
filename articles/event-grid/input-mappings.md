@@ -1,7 +1,7 @@
 ---
 title: Map custom field to Azure Event Grid schema
 description: This article describes how to convert your custom schema to the Azure Event Grid schema when your event data doesn't match Event Grid schema.  
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/28/2021 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli

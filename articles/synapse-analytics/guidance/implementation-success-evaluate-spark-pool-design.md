@@ -4,7 +4,7 @@ description: "Learn how to evaluate your Spark pool design to identify issues an
 author: ms-arali
 ms.author: arali
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: best-practice
 ms.date: 05/31/2022
 ---
 

@@ -4,7 +4,7 @@ description: The Teradata Connector in Azure Data Factory and Synapse Analytics 
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/05/2025
 ms.author: jianleishen
 ms.custom:

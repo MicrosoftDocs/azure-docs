@@ -2,7 +2,7 @@
 title: Performance and scale in Durable Functions - Azure
 description: Learn about the unique scaling characteristics of the Durable Functions extension for Azure Functions.
 author: cgillum
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/03/2026
 ms.author: azfuncdf
 ---

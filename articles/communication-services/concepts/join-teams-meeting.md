@@ -5,7 +5,7 @@ description: Join Teams meetings
 author: tomkau
 ms.author: tomkau
 ms.date: 10/15/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---

@@ -4,7 +4,7 @@ description: This article provides release notes for Azure Data Manager for Agri
 author: BlackRider97 
 ms.author: ramithar 
 ms.service: azure-data-manager-agriculture
-ms.topic: conceptual 
+ms.topic: release-notes
 ms.date: 11/16/2023 
 ms.custom: template-concept 
 ---

@@ -2,7 +2,7 @@
 title: Singleton orchestrators - Azure Durable Functions and Durable Task SDKs
 description: Learn how to implement singleton orchestrations that ensure only one instance runs at a time using Durable Functions or the Durable Task SDKs.
 author: cgillum
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/30/2026
 ms.author: azfuncdf
 reviewer: hhunter-ms

@@ -1,7 +1,7 @@
 ---
 title: Azure Cache for Redis network isolation options 
 description: In this article, you learn how to determine the best network isolation solution for your needs. We go through the basics of Azure Private Link, Azure Virtual Network (VNet) injection, and Azure Firewall Rules with their advantages and limitations.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/11/2024
 appliesto:
   - ✅ Azure Cache for Redis

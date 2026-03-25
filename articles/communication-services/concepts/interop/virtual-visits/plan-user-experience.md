@@ -5,7 +5,7 @@ description: Plan the user experience for virtual appointments with Azure Commun
 author: tomaschladek
 ms.author: tchladek
 ms.date: 4/3/2023
-ms.topic: conceptual
+ms.topic: best-practice
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---

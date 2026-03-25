@@ -1,7 +1,7 @@
 ---
 title: OpenTelemetry and distributed tracing with Durable Task Scheduler
 description: Learn how to enable OpenTelemetry distributed tracing to visualize orchestration flows in Durable Functions and Durable Task SDKs with Durable Task Scheduler.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/03/2026
 ms.author: azfuncdf
 ms.service: azure-functions

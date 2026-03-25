@@ -1,7 +1,7 @@
 ---
 title: Microsoft Sharepoint events
 description: This article describes Microsoft Sharepoint event types and provides event samples.
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 12/6/2023
 ---
 

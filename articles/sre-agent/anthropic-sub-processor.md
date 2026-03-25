@@ -3,7 +3,7 @@ title: Anthropic as a subprocessor in Azure SRE Agent
 description: Learn how Anthropic operates as a Microsoft subprocessor in Azure SRE Agent, including model selection, and data residency controls.
 author: craigshoemaker
 ms.author: cshoe
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/23/2026
 ms.service: azure
 ---

@@ -3,7 +3,7 @@ title: Edge Secured-core Requirements
 description: Edge Secured-core requirements
 author: sufenfong
 ms.author: sufon
-ms.topic: conceptual 
+ms.topic: checklist
 ms.date: 01/12/2026
 ms.custom: Edge Secured-core Requirements, linux-related-content
 ms.service: azure-certified-device

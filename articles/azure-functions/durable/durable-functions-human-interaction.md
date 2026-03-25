@@ -1,7 +1,7 @@
 ---
 title: Human interaction
 description: Learn how to handle human interaction and timeouts in durable orchestrations with Durable Functions or Durable Task SDKs.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/04/2026
 ms.author: azfuncdf
 ms.devlang: csharp

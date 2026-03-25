@@ -1,7 +1,7 @@
 ---
 title: Custom orchestration status
 description: Learn how to configure and use custom orchestration status.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/15/2026
 ms.author: azfuncdf
 reviewer: hhunter-ms

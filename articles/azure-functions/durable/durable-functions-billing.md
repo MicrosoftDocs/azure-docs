@@ -4,7 +4,7 @@ titleSuffix: Durable Task
 description: Learn about the internal behaviors of Durable Functions and how they affect billing for Azure Functions.
 author: cgillum
 reviewer: hhunter-ms
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/11/2026
 ms.author: azfuncdf
 ms.service: azure-functions

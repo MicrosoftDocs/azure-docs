@@ -1,7 +1,7 @@
 ---
 title: Network security for Azure Service Bus
 description: This article describes network security features such as service tags, IP firewall rules, service endpoints, and private endpoints. 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/08/2023
 ---
 

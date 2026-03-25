@@ -5,7 +5,7 @@ description: Learn how to copy data from supported source stores to Azure Table 
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2024
 ms.custom:
   - synapse

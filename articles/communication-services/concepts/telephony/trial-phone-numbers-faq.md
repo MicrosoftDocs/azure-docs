@@ -4,7 +4,7 @@ description: A conceptual overview plus FAQ for trial phone numbers and verified
 author: jadacampbell
 ms.author: jadacampbell
 ms.service: azure-communication-services
-ms.topic: conceptual
+ms.topic: faq
 ms.date: 07/19/2023
 ms.custom: template-concept
 ---

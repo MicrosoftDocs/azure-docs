@@ -4,7 +4,7 @@ description: Learn how to secure VPN Gateway, with best practices for network se
 author: cherylmc
 ms.author: cherylmc
 ms.service: azure-vpn-gateway
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom: horz-security
 ai-usage: ai-assisted
 ms.date: 09/08/2025

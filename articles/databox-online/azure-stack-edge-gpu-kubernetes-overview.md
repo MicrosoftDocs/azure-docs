@@ -5,7 +5,7 @@ services: databox
 author: alkohli
 
 ms.service: azure-stack-edge
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/01/2024
 ms.author: alkohli
 ---

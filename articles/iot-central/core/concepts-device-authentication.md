@@ -4,7 +4,7 @@ description: This article introduces key IoT Central device authentication conce
 author: dominicbetts
 ms.author: dobett
 ms.date: 04/22/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-central
 services: iot-central
 

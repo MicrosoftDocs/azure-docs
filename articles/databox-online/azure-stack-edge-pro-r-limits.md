@@ -5,7 +5,7 @@ services: databox
 author: alkohli
 
 ms.service: azure-stack-edge
-ms.topic: conceptual
+ms.topic: limits-and-quotas
 ms.date: 10/13/2020
 ms.author: alkohli
 ---

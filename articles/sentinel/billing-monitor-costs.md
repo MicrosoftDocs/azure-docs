@@ -4,7 +4,7 @@ description: Learn how to manage and monitor costs and billing for Microsoft Sen
 author: EdB-MSFT
 ms.author: edbaynash
 ms.custom: subject-cost-optimization
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/09/2025
 ms.collection: usx-security
 appliesto:

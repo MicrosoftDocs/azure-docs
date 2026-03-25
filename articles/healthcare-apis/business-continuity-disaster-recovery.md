@@ -1,7 +1,7 @@
 ---
 title: Business continuity and disaster recovery (BCDR) in Azure Health Data Services
 description: Learn about protecting your health data and applications from disruptions or disasters using BCDR capabilities in Azure Health Data Services.
-ms.topic: conceptual
+ms.topic: concept-article
 author: KendalBond007
 ms.author: ounyman
 ms.service: azure-health-data-services

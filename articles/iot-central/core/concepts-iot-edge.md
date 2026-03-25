@@ -4,7 +4,7 @@ description: Understand how to use Azure IoT Edge with an IoT Central applicatio
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/23/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-central
 services: iot-central
 ms.custom: [device-developer, iot-edge]

@@ -1,7 +1,7 @@
 ---
 title: Network security for Azure Event Hubs 
 description: This article describes how to configure access from private endpoints.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/13/2022
 ---
 

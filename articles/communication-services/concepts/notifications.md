@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: sundraman
 ms.date: 06/27/2025
-ms.topic: conceptual
+ms.topic: overview
 ms.service: azure-communication-services
 ms.custom: sfi-ropc-nochange
 ---
