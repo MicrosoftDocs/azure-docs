@@ -6,7 +6,7 @@ ms.author: sethm
 ms.topic: reference
 ms.custom:
   - ignite-2023
-ms.date: 10/22/2024
+ms.date: 03/25/2026
 
 # CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data
 # on the health of my industrial assets and edge environment.
@@ -112,4 +112,4 @@ Emitted by all components: Supervisor, OPC UA Connector, and OPC UA Commander.
 
 ## Related content
 
-- [Configure observability](../configure-observability-monitoring/howto-configure-observability.md)
+[Configure observability](../configure-observability-monitoring/howto-configure-observability.md)

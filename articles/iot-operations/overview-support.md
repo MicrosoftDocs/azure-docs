@@ -33,6 +33,7 @@ Azure IoT Operations supports Arc-enabled clusters in these regions:
 | West US      | westus      |
 | West US 2    | westus2     |
 | West US 3    | westus3     |
+| South Central US | southcentralus |
 | West Europe  | westeurope  |
 | North Europe | northeurope |
 | Germany West Central | germanywestcentral |

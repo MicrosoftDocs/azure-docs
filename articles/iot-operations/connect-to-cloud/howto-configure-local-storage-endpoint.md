@@ -181,7 +181,7 @@ To write your data to the cloud, follow the instructions in [Cloud Ingest Edge V
 
 Then, when configuring your local storage data flow endpoint, input the PVC name under `persistentVolumeClaimRef`.
 
-Finally, when you create the data flow, the [data destination](howto-create-dataflow.md#configure-data-destination-topic-container-or-table) parameter must match the `spec.path` parameter you created for your subvolume during configuration.
+Finally, when you create the data flow, the [data destination](howto-configure-dataflow-destination.md#configure-the-data-destination-topic-container-or-table) parameter must match the `spec.path` parameter you created for your subvolume during configuration.
 
 ## Next steps
 

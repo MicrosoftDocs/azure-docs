@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1350 440" font-family="'Segoe UI', -apple-system, sans-serif" style="background-color: white">
+  <title>Architecture diagram showing the management actions request and response message flows through Azure Event Grid, data flows, MQTT broker, and connector to a southbound asset.</title>
+
+  <defs>
+    <marker id="arrow-blue" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,0 L9,4 L0,8Z" fill="#0078D4"/>
+    </marker>
+    <marker id="arrow-orange" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,0 L9,4 L0,8Z" fill="#ff8c00"/>
+    </marker>
+  </defs>
+
+  <!-- Edge background (left side) -->
+  <rect x="12" y="42" width="848" height="348" rx="12" fill="#EEF7EE" stroke="#107C10" stroke-width="1.2"/>
+  <text x="26" y="66" font-size="13" font-weight="600" fill="#107C10">Azure IoT Operations cluster</text>
+
+  <!-- Cloud background (right side) -->
+  <rect x="880" y="42" width="458" height="348" rx="12" fill="#EDF5FD" stroke="#0078D4" stroke-width="1.2"/>
+  <text x="1312" y="66" text-anchor="end" font-size="13" font-weight="600" fill="#0078D4">Cloud</text>
+
+  <!-- 1. Southbound asset box (far left) -->
+  <rect x="35" y="174" width="140" height="78" rx="8" fill="#fff" stroke="#000000" stroke-width="1.5"/>
+  <text x="105" y="208" text-anchor="middle" font-size="14" font-weight="600" fill="#000000">Southbound</text>
+  <text x="105" y="225" text-anchor="middle" font-size="14" font-weight="600" fill="#000000">asset</text>
+
+  <!-- 2. Connector box -->
+  <rect x="240" y="168" width="140" height="90" rx="8" fill="#fff" stroke="#000000" stroke-width="1.5"/>
+  <text x="310" y="202" text-anchor="middle" font-size="14" font-weight="600" fill="#000000">Connector</text>
+  <text x="310" y="222" text-anchor="middle" font-size="10" fill="#000000">(OPC UA / ONVIF / MQTT)</text>
+
+  <!-- 3. MQTT broker box -->
+  <rect x="455" y="168" width="140" height="90" rx="8" fill="#fff" stroke="#000000" stroke-width="1.5"/>
+  <text x="525" y="205" text-anchor="middle" font-size="14" font-weight="600" fill="#000000">MQTT</text>
+  <text x="525" y="222" text-anchor="middle" font-size="14" font-weight="600" fill="#000000">broker</text>
+
+  <!-- 4. Data flows box -->
+  <rect x="670" y="138" width="175" height="150" rx="8" fill="#fff" stroke="#000000" stroke-width="1.5"/>
+  <text x="757" y="162" text-anchor="middle" font-size="13" font-weight="600" fill="#000000">Data flows</text>
+  <!-- Request data flow sub-box (with WASM nested inside) -->
+  <rect x="684" y="170" width="147" height="52" rx="5" fill="#EDF5FD" stroke="#0078D4" stroke-width="1"/>
+  <text x="757" y="186" text-anchor="middle" font-size="11" fill="#0078D4">Request data flow</text>
+  <rect x="692" y="194" width="131" height="22" rx="4" fill="#F3EFFC" stroke="#5c2d91" stroke-width="1"/>
+  <text x="757" y="209" text-anchor="middle" font-size="9" fill="#5c2d91">WASM graph module</text>
+  <!-- Response data flow sub-box -->
+  <rect x="684" y="230" width="147" height="28" rx="5" fill="#FFF4E5" stroke="#ff8c00" stroke-width="1"/>
+  <text x="757" y="249" text-anchor="middle" font-size="11" fill="#ff8c00">Response data flow</text>
+
+  <!-- 5. Event Grid namespace box -->
+  <rect x="920" y="155" width="155" height="115" rx="8" fill="#fff" stroke="#000000" stroke-width="1.5"/>
+  <text x="997" y="195" text-anchor="middle" font-size="14" font-weight="600" fill="#000000">Event Grid</text>
+  <text x="997" y="212" text-anchor="middle" font-size="14" font-weight="600" fill="#000000">namespace</text>
+  <text x="997" y="234" text-anchor="middle" font-size="10" fill="#000000">actions/requests/</text>
+  <text x="997" y="248" text-anchor="middle" font-size="10" fill="#000000">actions/responses/</text>
+
+  <!-- 6. Client box (far right) -->
+  <rect x="1145" y="178" width="120" height="70" rx="8" fill="#fff" stroke="#000000" stroke-width="1.5"/>
+  <text x="1205" y="218" text-anchor="middle" font-size="14" font-weight="600" fill="#000000">Client</text>
+
+  <!-- Request arrows (solid blue, right to left: Client → Asset) -->
+  <line x1="1143" y1="196" x2="1077" y2="196" stroke="#0078D4" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <line x1="918" y1="196" x2="847" y2="196" stroke="#0078D4" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <line x1="668" y1="196" x2="597" y2="196" stroke="#0078D4" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <line x1="453" y1="196" x2="382" y2="196" stroke="#0078D4" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <line x1="238" y1="196" x2="177" y2="196" stroke="#0078D4" stroke-width="2" marker-end="url(#arrow-blue)"/>
+
+  <!-- Request arrow labels (above blue arrows) -->
+  <text x="1110" y="189" text-anchor="middle" font-size="10" fill="#0078D4">Publish</text>
+  <text x="882" y="189" text-anchor="middle" font-size="10" fill="#0078D4">Subscribe</text>
+  <text x="632" y="189" text-anchor="middle" font-size="10" fill="#0078D4">Publish</text>
+  <text x="417" y="189" text-anchor="middle" font-size="10" fill="#0078D4">Subscribe</text>
+  <text x="207" y="189" text-anchor="middle" font-size="10" fill="#0078D4">Execute</text>
+
+  <!-- Response arrows (dashed orange, left to right: Asset → Client) -->
+  <line x1="177" y1="240" x2="238" y2="240" stroke="#ff8c00" stroke-width="2" marker-end="url(#arrow-orange)"/>
+  <line x1="382" y1="240" x2="453" y2="240" stroke="#ff8c00" stroke-width="2" marker-end="url(#arrow-orange)"/>
+  <line x1="597" y1="240" x2="668" y2="240" stroke="#ff8c00" stroke-width="2" marker-end="url(#arrow-orange)"/>
+  <line x1="847" y1="240" x2="918" y2="240" stroke="#ff8c00" stroke-width="2" marker-end="url(#arrow-orange)"/>
+  <line x1="1077" y1="240" x2="1143" y2="240" stroke="#ff8c00" stroke-width="2" marker-end="url(#arrow-orange)"/>
+
+  <!-- Response arrow labels (below orange arrows) -->
+  <text x="207" y="256" text-anchor="middle" font-size="10" fill="#ff8c00">Response</text>
+  <text x="417" y="256" text-anchor="middle" font-size="10" fill="#ff8c00">Publish</text>
+  <text x="632" y="256" text-anchor="middle" font-size="10" fill="#ff8c00">Subscribe</text>
+  <text x="882" y="256" text-anchor="middle" font-size="10" fill="#ff8c00">Publish</text>
+  <text x="1110" y="256" text-anchor="middle" font-size="10" fill="#ff8c00">Subscribe</text>
+
+  <!-- Legend -->
+  <line x1="35" y1="415" x2="70" y2="415" stroke="#0078D4" stroke-width="2"/>
+  <polygon points="72,411 80,415 72,419" fill="#0078D4"/>
+  <text x="88" y="419" font-size="11" fill="#0078D4">Request flow</text>
+  <line x1="195" y1="415" x2="230" y2="415" stroke="#ff8c00" stroke-width="2"/>
+  <polygon points="232,411 240,415 232,419" fill="#ff8c00"/>
+  <text x="248" y="419" font-size="11" fill="#ff8c00">Response flow</text>
+</svg>

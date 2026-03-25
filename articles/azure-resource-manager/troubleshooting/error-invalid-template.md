@@ -21,6 +21,9 @@ Message=<varies>
 
 The error message depends on the type of error.
 
+>[!Note]
+>Even when you deploy resources through the Azure Portal and do not create a template yourself, the portal still generates and submits an underlying ARM/Bicep template. If the portal-selected values fail validation (for example, due to policy restrictions, quota limits, unsupported regions, or SKU constraints), you may still receive an InvalidTemplate error.
+
 ## Cause
 
 This error can result from several different types of errors. They usually involve a syntax or structural error in the template.

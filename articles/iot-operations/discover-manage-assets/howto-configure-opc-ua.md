@@ -32,7 +32,7 @@ The connector can use `anonymous` or `username password` user authentication whe
 
 ## Prerequisites
 
-To configure devices and assets, you need an instance of Azure IoT Operations.
+To configure devices and assets, you need an instance of Azure IoT Operations with the connector for OPC UA enabled.
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
@@ -218,7 +218,7 @@ A dataset defines where the connector sends the data it collects from a collecti
 
     :::image type="content" source="media/howto-configure-opc-ua/create-dataset.png" alt-text="Screenshot that shows how to create a dataset in the operations experience." lightbox="media/howto-configure-opc-ua/create-dataset.png":::
 
-    Use the **Start instance** field to specify the starting node for resolving relative browse paths for data points in the dataset. For more information, see [Resolve nodes dynamically using browse paths](overview-opc-ua-connector.md#resolve-nodes-dynamically-using-browse-paths).
+    Use the **Start instance** field to specify the starting node for resolving relative browse paths for data points in the dataset. For more information, see [Resolve nodes dynamically using browse paths](overview-opc-ua-connector.md#resolve-nodes-dynamically-by-using-browse-paths).
 
 1. Select **Create and next** to create the dataset.
 
@@ -240,6 +240,7 @@ Now you can define the data points associated with the dataset. To add OPC UA da
       - Data point name (Optional). This value is the friendly name that you want to use for the data point. If you don't specify a data point name, the node ID is used as the data point name.
       - Sampling interval (milliseconds). You can override the default value for this data point.
       - Queue size. You can override the default value for this data point.
+      - Key frame count. By default, key frames are disabled. Use this setting to enable key frames and specify how frequently the connector generates key frames. For more information, see [Understand key frames for OPC UA data points](overview-opc-ua-connector.md#understand-key-frames-for-opc-ua-data-points).
 
     :::image type="content" source="media/howto-configure-opc-ua/add-data-point.png" alt-text="Screenshot that shows adding data points in the operations experience." lightbox="media/howto-configure-opc-ua/add-data-point.png":::
 
@@ -251,7 +252,7 @@ Now you can define the data points associated with the dataset. To add OPC UA da
     | ns=3;s=FastUInt100 | Humidity |
 
     > [!NOTE]
-    > If you're using relative browse paths to resolve dynamic nodes, the **Data source** field contains a relative browse path. For more information, see [Resolve nodes dynamically using browse paths](overview-opc-ua-connector.md#resolve-nodes-dynamically-using-browse-paths).
+    > If you're using relative browse paths to resolve dynamic nodes, the **Data source** field contains a relative browse path. For more information, see [Resolve nodes dynamically using browse paths](overview-opc-ua-connector.md#resolve-nodes-dynamically-by-using-browse-paths).
 
 1. On the **data points** page, select **Next** to go to the **Add events** page.
 
@@ -316,7 +317,7 @@ When you create an asset by using the Azure CLI, you can define:
   - Software version
   - Serial number
   - Documentation URI
-- Default values for sampling interval, publishing interval, and queue size.
+- Dataset values for sampling interval, publishing interval, key frame count, and queue size.
 - Datapoint specific values for sampling interval, publishing interval, and queue size.
 - Event specific values for sampling publishing interval, and queue size.
 - The observability mode for each data point and event
@@ -422,7 +423,7 @@ Now you can define the events associated with the event group. To add OPC UA eve
       - Topic. The MQTT topic that you want the event to be published to.
       - Sampling interval (milliseconds). You can override the default value for this data point.
       - Queue size. You can override the default value for this data point.
-      - Start instance. This value is the starting node for resolving relative browse paths for this event. This field is required if you use relative browse paths in the Data source field. For more information, see [Resolve nodes dynamically using browse paths](overview-opc-ua-connector.md#resolve-nodes-dynamically-using-browse-paths).
+      - Start instance. This value is the starting node for resolving relative browse paths for this event. This field is required if you use relative browse paths in the Data source field. For more information, see [Resolve nodes dynamically using browse paths](overview-opc-ua-connector.md#resolve-nodes-dynamically-by-using-browse-paths).
       - Event filter. An optional configuration that defines the event filter for this event. For more information, see the [Event filters](#event-filters) section.
 
     :::image type="content" source="media/howto-configure-opc-ua/add-event.png" alt-text="Screenshot that shows adding events in the operations experience." lightbox="media/howto-configure-opc-ua/add-event.png":::
