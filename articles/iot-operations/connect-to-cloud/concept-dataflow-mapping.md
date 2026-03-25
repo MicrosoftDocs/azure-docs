@@ -5,7 +5,7 @@ author: sethmanheim
 ms.author: sethm
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 11/11/2024
+ms.date: 03/19/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to use the data flow mapping language to transform data.
@@ -15,6 +15,9 @@ ms.service: azure-iot-operations
 # Map data by using data flows
 
 [!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
+
+> [!TIP]
+> Data flow graphs offer an expanded mapping language with additional functions, composable transforms, and features like conditional routing and time-based aggregation. For new projects that use MQTT, Kafka, or OpenTelemetry endpoints, see [Transform data with map in data flow graphs](howto-dataflow-graphs-map.md).
 
 Use the data flow mapping language to transform data in Azure IoT Operations. The syntax is a simple, yet powerful, way to define mappings that transform data from one format to another. This article provides an overview of the data flow mapping language and key concepts.
 
@@ -952,3 +955,10 @@ output: 'Thermostat.Temperature'
 ---
 
 In this example, the last known value of `Temperature` is tracked. If a subsequent input payload doesn't contain a `Temperature` value, the last known value is used in the output.
+
+## Related content
+
+- [Expressions reference](concept-dataflow-graphs-expressions.md) - Operators, functions, data types, and type conversion rules for all data flow transforms.
+- [Filter data in a data flow](howto-dataflow-filter.md)
+- [Enrich data by using data flows](concept-dataflow-enrich.md)
+- [Create a data flow](howto-create-dataflow.md)

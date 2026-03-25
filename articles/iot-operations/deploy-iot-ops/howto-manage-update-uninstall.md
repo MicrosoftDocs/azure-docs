@@ -67,7 +67,7 @@ You can view your Azure IoT Operations instance in the Azure portal.
 
 1. Select the name of your Azure IoT Operations instance.
 
-1. On the **Overview** page of your instance, you can see the properties of your instance. For example, you can see the status of the **connectors**, which can be enabled or disabled. To change the status of the connectors, click on **Edit**. 
+1. On the **Overview** page of your instance, you can see the properties of your instance. For example, you can see the status of the **connectors**, which can be enabled or disabled. To change the status of the connectors, select **Edit**. 
 
     :::image type="content" source="./media/howto-manage-update-uninstall/view-enable-connectors.png" alt-text="Screenshot that shows the Azure IoT Operations instance on your Arc-enabled cluster and how to enable connectors." lightbox="./media/howto-manage-update-uninstall/view-enable-connectors.png":::
 
@@ -180,6 +180,22 @@ To learn more about connector templates, see [Deploy the connector for ONVIF](..
 ### Manage instance components
 
 Each Azure IoT Operations instance includes several components, like the MQTT broker, connector for OPC UA, and data flows. To learn more about managing these components, see their respective articles. For example, to manage the MQTT broker, start with [Broker overview](../manage-mqtt-broker/overview-broker.md).
+
+To add or remove the connector for OPC UA from your instance, go to your instance in the Azure portal and select **Edit** next to **Optional components** on the **Overview** page. The **Optional components** configuration panel lets you add or remove the connector for OPC UA from your instance:
+
+:::image type="content" source="media/howto-manage-update-uninstall/optional-components.png" alt-text="Screenshot that shows how to add or remove the optional connector for OPC UA." lightbox="media/howto-manage-update-uninstall/optional-components.png":::
+
+You can also use the Azure CLI to enable or disable the connector for OPC UA. To enable the connector for OPC UA, run: 
+
+```azurecli
+az iot ops update --name myinstance -g myresourcegroup --feature opcua.mode=Stable
+```
+
+To disable the connector for OPC UA, run: 
+
+```azurecli
+az iot ops update --name myinstance -g myresourcegroup --feature opcua.mode=Disabled
+```
 
 ### Manage components using Kubernetes deployment manifests (preview)
 

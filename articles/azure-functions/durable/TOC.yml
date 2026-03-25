@@ -116,6 +116,8 @@
       href: durable-functions-versioning.md
   - name: Tutorials
     items: 
+    - name: Durable text analysis with Azure Files mount
+      href: tutorial-durable-text-analysis-azure-files.md
     - name: Configure Durable Functions with managed identity
       href: durable-functions-configure-managed-identity.md
     - name: Configure Durable Functions with Durable Task Scheduler

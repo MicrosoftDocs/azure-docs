@@ -64,7 +64,9 @@ public static async Task Run([BlobTrigger("catalog-uploads/{name}", Source = Blo
 
 ::: zone pivot="programming-language-python" 
 + [Quickstart: Respond to blob storage events by using Azure Functions](scenario-blob-storage-events.md)
++ [Tutorial: Process images by using FFmpeg on a mounted Azure Files share](tutorial-ffmpeg-processing-azure-files.md)
 + [Sample: Blob trigger with the Event Grid source type quickstart sample)](https://github.com/Azure-Samples/functions-quickstart-python-azd-eventgrid-blob)
++ [Sample: FFmpeg image processing with Azure Files storage mount](https://github.com/Azure-Samples/Azure-Functions-Flex-Consumption-with-Azure-Files-OS-Mount-Samples)
 + [Tutorial: Trigger Azure Functions on blob containers using an event subscription](functions-event-grid-blob-trigger.md?pivots=programming-language-python)
 ::: zone-end
 
@@ -394,6 +396,8 @@ Functions often serve as the compute component in a serverless workflow topology
 
 ::: zone pivot="programming-language-python" 
 + [Quickstart: Create your first durable function in Azure using Python](./durable/quickstart-python-vscode.md)
++ [Tutorial: Durable text analysis with a mounted Azure Files share](durable/tutorial-durable-text-analysis-azure-files.md)
++ [Sample: Durable text analysis with Azure Files storage mount](https://github.com/Azure-Samples/Azure-Functions-Flex-Consumption-with-Azure-Files-OS-Mount-Samples)
 + [Training: Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis/)
 ::: zone-end
 
