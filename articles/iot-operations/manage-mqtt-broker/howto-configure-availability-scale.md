@@ -127,6 +127,7 @@ The backend chain subfield defines the settings for the backend partitions. The 
 - **Redundancy factor**: The number of backend replicas (pods) to deploy per partition. Increasing the redundancy factor increases the number of data copies to provide resiliency against node failures in the cluster.
 - **Workers**: The number of workers to deploy per backend replica. Increasing the number of workers per backend replica might increase the number of messages that the backend pod can handle. Each worker can consume up to two CPU cores at most, so be careful when you increase the number of workers per replica to not exceed the number of CPU cores in the cluster.
 
+<a id="backend-redundancy-factor"></a>
 > [!IMPORTANT]
 > The backend redundancy factor must be set to **2 or greater**. The broker requires at least two backend replicas per partition for high availability and rolling upgrade support. Setting the redundancy factor to `1` results in a deployment validation error.
 
@@ -138,7 +139,7 @@ When you increase the cardinality values, the broker's capacity to handle more c
 
 - **Frontend replicas**: Set to at least **1**
 - **Frontend workers**: Set equal to the **number of CPU cores** on the node.
-- **backendRedundancyFactor**: Set to at least **2** so the broker can perform rolling updates.
+- **Backend replicas (redundancy factor)**: Set to at least **2** so the broker can perform rolling updates. For more information, see the [backend redundancy factor requirement](#backend-redundancy-factor).
 
 *Example — single node with 4 CPU cores:*
 
@@ -157,7 +158,7 @@ Additional considerations such as memory (RAM) and performance characteristics a
 
 - **Frontend replicas**: Set to **1 per node** to distribute load evenly across the cluster.
 - **Frontend workers**: Set equal to the **number of CPU cores** per node.
-- **Backend replicas (redundancy factor)**: Set to **2** for redundancy and rolling update support.
+- **Backend replicas (redundancy factor)**: Set to at least **2** so the broker can perform rolling updates. For more information, see the [backend redundancy factor requirement](#backend-redundancy-factor).
 - **Backend partitions**: Set equal to the **number of nodes** in the cluster.
 - **Backend workers**: Set to **half the number of CPU cores** per node.
 
