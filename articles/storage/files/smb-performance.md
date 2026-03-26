@@ -212,8 +212,7 @@ Register-AzProviderFeature -FeatureName AzurePremiumFilesMetadataCacheFeature -P
 ---
 
 > [!IMPORTANT]
-> - Although listed under Preview Features, we honor GA SLAs.
-> - After registering the feature, contact azfilespreview@microsoft.com for further instructions.
+> Although listed under Preview Features, we honor GA SLAs. After registering the feature, contact the [Azure Files team](mailto:azfilespreview@microsoft.com) for further instructions.
 
 ### Performance improvements with metadata caching
 
@@ -248,7 +247,7 @@ Metadata caching can increase network throughput by more than 60% for metadata-h
 
 ## Register for increased file handle limits (preview)
 
-To increase the maximum number of concurrent handles per file and directory for SSD SMB file shares from 2,000 to 10,000, register for the preview feature using the Azure portal or Azure PowerShell. If you have questions, email azfilespreview@microsoft.com.
+To increase the maximum number of concurrent handles per file and directory for SSD SMB file shares from 2,000 to 10,000, register for the preview feature using the Azure portal or Azure PowerShell. If you have questions, contact the [Azure Files team](mailto:azfilespreview@microsoft.com).
 
 # [Azure portal](#tab/portal)
 

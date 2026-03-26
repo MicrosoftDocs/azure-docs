@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/backup/backup-azure-enhanced-soft-delete-about.md",
+      "redirect_url": "/azure/backup/secure-by-default",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/migrate/best-practices-assessment.md",
       "redirect_url": "/previous-versions/azure/migrate/best-practices-assessment",
       "redirect_document_id": false,

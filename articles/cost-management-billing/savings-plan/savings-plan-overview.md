@@ -85,7 +85,7 @@ To learn about included products, visit [included products](download-savings-pla
 Savings plans are available to organizations with either Enterprise Agreement (EA), Microsoft Customer Agreement (MCA), or Microsoft Partner Agreement (MPA) agreements. Enterprise Agreement customers must have an offer type of MS-AZR-0017P (EA) or MS-AZR-0148P (DevTest) to purchase savings plans.
 
 ## Who can buy a savings plan?
-To determine what roles are permitted to purchase savings plans, see [Permissions to buy an savings plan](permission-buy-savings-plan.md).
+To determine what roles are permitted to purchase savings plans, see [Permissions to buy a savings plan](permission-buy-savings-plan.md).
 
 ## Who can manage a savings plan by default?
 To determine which roles are permitted to manage a savings plan, see [Manage savings plan resources](manage-savings-plan.md).

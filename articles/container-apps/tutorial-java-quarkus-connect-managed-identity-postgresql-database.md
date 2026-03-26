@@ -7,7 +7,7 @@ ms.author: karler
 ms.reviewer: edburns
 ms.topic: tutorial
 ms.service: azure-container-apps
-ms.date: 02/03/2025
+ms.date: 03/26/2026
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, passwordless-java, service-connector, devx-track-javaee-quarkus-aca
 ---
 

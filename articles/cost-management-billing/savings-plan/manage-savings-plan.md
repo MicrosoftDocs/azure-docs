@@ -12,7 +12,7 @@ ms.author: onwokolo
 ---
 
 # Manage savings plans
-After you buy an savings plan, with sufficient permissions, you can make the following types of changes to a savings plan:
+After you buy a savings plan, with sufficient permissions, you can make the following types of changes to a savings plan:
 
 - Update a savings plan scope.
 - Change autorenewal settings.
@@ -93,9 +93,9 @@ Unlike reservations, you can't cancel or exchange savings plans. You can trade-i
 ## Change billing subscription
 Currently, the billing subscription used for monthly payments of a savings plan can't be changed.
 
-## Check billing subscription for an savings plan
+## Check billing subscription for a savings plan
 
-To check the billing subscription for an savings plan:
+To check the billing subscription for a savings plan:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** > **Savings plans**.

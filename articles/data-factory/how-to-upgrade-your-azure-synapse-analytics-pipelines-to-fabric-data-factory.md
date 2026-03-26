@@ -28,7 +28,6 @@ Before you start:
 
 - You have an **Azure Synapse Analytics workspace** that contains pipelines.
 - You have access to a **Microsoft Fabric tenant** and a **Fabric workspace**.
-- To preserve your folder structure, **create the same folders in your Fabric workspace first**, then migrate pipelines one folder at a time.
 
 ## Migrate Spark items to Fabric first
 

@@ -21,7 +21,7 @@ landingContent:
     linkLists:
     - linkListType: concept
       links:
-      - text: What are Azure savings-plans?
+      - text: What are Azure savings plans?
         url: savings-plan-overview.md
       - text: Savings plan purchase recommendations
         url: purchase-recommendations.md

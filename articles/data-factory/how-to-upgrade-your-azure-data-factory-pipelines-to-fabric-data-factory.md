@@ -75,12 +75,10 @@ Select the pipelines you want to migrate.
 
 :::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/pick-pipelines-for-migration.png" alt-text="Screenshot showing the option to select pipelines for migration." lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/pick-pipelines-for-migration.png":::
 
-> [!NOTE]
-> To preserve your existing Azure Data Factory folder structure, first recreate the same folders in your Fabric workspace. Then migrate pipelines folder by folder, selecting the corresponding Fabric folders during migration.
 
 ## Step 5: Map linked services to Fabric connections and complete migration
 
-Select **Review connections** to map Azure Data Factory linked services to Fabric connections.
+Select **Review connections** to map Azure Data Factory linked services to Fabric connections and then select **Confirm**.
 
 The migration experience attempts to automatically create connections for authentication methods that can be safely and reliably mapped from Azure Data Factory to Fabric’s managed identity and security model without requiring customer‑managed infrastructure or network configuration.
 
@@ -105,12 +103,11 @@ The migration experience attempts to automatically create connections for authen
 
 For other connections, either select an existing Fabric connection or create new connections by using the modern Get Data experience or from workspace settings. Then select **Confirm**.
 
-Next, select an existing folder or create a new folder to migrate your Azure Data Factory pipelines, and then select **Confirm**.
-This action starts the migration of the selected pipelines to the chosen folder in the Fabric workspace. A confirmation message appears when the migration completes successfully.
+This action starts the migration of the selected pipelines to the root folder in the Fabric workspace. A confirmation message appears when the migration completes successfully.
 
 :::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/migration-successfully-completed.png" alt-text="Screenshot showing successful completion of migration from Azure Data Factory to Fabric." lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/migration-successfully-completed.png":::
 
-After the migration completes, go to the folder you selected in the Fabric workspace to view the migrated pipelines. You can open each pipeline to review and validate it before you continue with further configuration or testing.
+After migration completes, go to your Fabric workspace to review the migrated pipelines. Each pipeline is created under the workspace and prefixed with its source factory name. You can open each pipeline to review and validate it before you continue with further configuration or testing.
 
 :::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/validate-migration.png" alt-text="Screenshot showing the migration folder with the migrated pipelines for validation." lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/validate-migration.png":::
 
@@ -156,7 +153,7 @@ The following items aren't supported in the UX-based migration experience today.
 | | Marketing and finance software‑as‑a‑service connectors (HubSpot, Google Ads, QuickBooks, Shopify, Xero) | Not supported today. |
 | **Triggers and orchestration** | Custom event triggers | Custom event triggers can't be migrated. |
 | | Storage event triggers | Support is coming soon. |
-| | Tumbling window triggers | Interval‑based scheduling support is coming soon. Watermark and backfill workloads must be redesigned. |
+| | Tumbling window triggers | Known as Interval‑based scheduling in Fabric. Watermark and backfill workloads must be redesigned. |
 | | Chaining or dependency triggers | Chaining and dependency trigger semantics aren't supported yet. |
 | **Security and authentication** | Advanced configurations (customer‑managed keys (CMK), dual tokens, federated identity credential (FIC) flows) | Unsupported workspace identity or service principal authentication models don't migrate. |
 | | Certificate‑based authentication (Web activity) | Unsupported and requires redesign. |
