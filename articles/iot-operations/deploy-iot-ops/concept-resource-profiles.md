@@ -24,9 +24,9 @@ Three configurations were measured on single-node clusters at idle (no connected
 
 | Configuration | Memory Profile | Cardinality | Node Peak Memory | Azure IoT Operations Namespace Peak RSS | Total Pod Peak RSS | Pod Count |
 |---|---|---|---|---|---|---|
-| **Config A** | Tiny | 1 frontend / 1 partition / redundancy factor 2 | ~4,979 MiB | ~1,298 MiB | ~5,409 MiB | 55 |
-| **Config B** | Low | 2 frontends / 2 partitions / redundancy factor 2 | ~5,130 MiB | ~1,559 MiB | ~5,695 MiB | 58 |
-| **Config C** | Medium | 2 frontends / 2 partitions / redundancy factor 2 | ~6,088 MiB | ~2,407 MiB | ~6,564 MiB | 58 |
+| **Config A** | Tiny | 1 frontend <br> 1 partition <br> redundancy factor 2 | ~4,979 MiB | ~1,298 MiB | ~5,409 MiB | 55 |
+| **Config B** | Low | 2 frontends <br> 2 partitions <br> redundancy factor 2 | ~5,130 MiB | ~1,559 MiB | ~5,695 MiB | 58 |
+| **Config C** | Medium | 2 frontends <br> 2 partitions <br> redundancy factor 2 | ~6,088 MiB | ~2,407 MiB | ~6,564 MiB | 58 |
 
 > **Note**: The difference between Config A and Config B comes from both higher cardinality (more broker pods) and a different memory profile. The difference between Config B and Config C is purely from the memory profile (same cardinality, same pod count). See [Production deployment examples](./concept-production-examples.md) for loaded scenarios.
 
