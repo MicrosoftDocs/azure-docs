@@ -105,6 +105,7 @@ Application Gateway for Containers is currently offered in the following regions
 - East US2
 - France Central
 - Germany West Central
+- Japan East
 - Korea Central
 - North Central US
 - North Europe
