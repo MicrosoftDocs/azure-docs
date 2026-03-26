@@ -12,7 +12,7 @@ ms.author: v-mallicka
 
 # Support matrix for SQL Server database and instance snapshot (preview) backups in Azure VMs
 
-You can use Azure Backup to back up SQL Server databases and [SQL Server instance snapshots (preview)](backup-azure-sql-database.md#back-up-sql-server-instance-snapshots-preview) in Azure VMs hosted on the Microsoft Azure cloud platform. This article summarizes the general support settings and limitations for scenarios and deployments of SQL Server Backup and SQL Server instance snapshot backup in Azure VMs. For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
+You can use Azure Backup to back up SQL Server databases and [SQL Server instance snapshots (preview)](backup-azure-sql-database.md#snapshot-backup-for-sql-instances-in-azure-vm-preview) in Azure VMs hosted on the Microsoft Azure cloud platform. This article summarizes the general support settings and limitations for scenarios and deployments of SQL Server Backup and SQL Server instance snapshot backup in Azure VMs. For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
 
 ## Scenario support
 
@@ -46,7 +46,7 @@ The following table summarizes the support for different scenarios for SQL Serve
 | Number of databases that can be restored as files concurrently | 15 per VM |
 | Allowed number of restores per database | 20 per day |
 
-_*The database size limit depends on the data transfer rate that we support and the backup time limit configuration. It’s not the hard limit. [Learn more](#backup-throughput-performance) on backup throughput performance._
+_*The database size limit depends on the data transfer rate that we support and the backup time limit configuration. It’s not the hard limit. [Learn more](#backup-throughput-performance-for-sql-streaming-backup) on backup throughput performance._
 
 * SQL Server backup can be configured in the Azure portal or **PowerShell**. CLI isn't supported.
 * The solution is supported on both kinds of [deployments](../azure-resource-manager/management/deployment-models.md) - Azure Resource Manager VMs and classic VMs.

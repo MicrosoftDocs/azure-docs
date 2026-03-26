@@ -78,7 +78,7 @@ This feature includes:
 - **Improved Recovery Time Objective (RTO)**: Performs faster restores from snapshots retained within the user subscription. This capability also provides secure, long‑term retention in the Recovery Services vault.
 - **Low Recovery Point Objective (RPO)**: Apply frequent log backups (every 15 minutes) to snapshots during restore for point in time recovery.
 
-For more information, see [Back up SQL Server instance snapshots (preview)](backup-azure-sql-database.md#back-up-sql-server-instance-snapshots-preview).
+For more information, see [Back up SQL Server instance snapshots (preview)](backup-azure-sql-database.md#snapshot-backup-for-sql-instances-in-azure-vm-preview).
 
 ## Backup support for Confidential VMs (preview)
 

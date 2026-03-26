@@ -12,9 +12,9 @@ ms.service: azure-backup
 
 # Back up SQL Server instance snapshot in Azure VM using Azure portal (preview)
 
-This article describes how to back up [SQL Server instances in Azure VMs using snapshot backups (preview)](backup-azure-sql-database.md#back-up-sql-server-instance-snapshots-preview). It covers the prerequisites, configuration steps for backup policies, database discovery, and backup operations to help you ensure secure data retention and recovery capabilities.
+This article describes how to back up [SQL Server instances in Azure VMs using snapshot backups (preview)](backup-azure-sql-database.md#snapshot-backup-for-sql-instances-in-azure-vm-preview). It covers the prerequisites, configuration steps for backup policies, database discovery, and backup operations to help you ensure secure data retention and recovery capabilities.
 
-[Learn about the supported scenarios and limitations for SQL Server instance snapshot backup (preview](sql-support-matrix.md#sql-server-instance-snapshot-backups-supported-and-unsupported-scenarios-preview).
+[Learn about the supported scenarios and limitations for SQL Server instance snapshot backup (preview](sql-support-matrix.md#sql-server-instance-snapshot-backups-supported-scenarios-preview).
 
 ## Prerequisites
 
@@ -115,7 +115,7 @@ When the SQL Server instance discovery is complete, configure backup for the ins
 
 1.  On the Configure backup pane, for Backup policy, select an existing snapshot backup policy for the instance.  
       
-    You can create a new backup policy on the go by selecting **Create a new policy** or create it directly in the vault. To create a new backup policy, see [Create a backup policy for SQL Server in Azure VM (Snapshot backup)](#create-a-backup-policy-for-sql-server-in-azure-vm-snapshot-backup).  
+    You can create a new backup policy on the go by selecting **Create a new policy** or create it directly in the vault. To create a new backup policy, see [Create a backup policy for SQL Server in Azure VM (Snapshot backup)](#create-a-backup-policy-for-sql-server-instance-in-azure-vm-snapshot-backup).  
       
     :::image type="content" source="./media/back-up-sql-server-instance-snapshot/sql-backup-policy-configuration.png" alt-text="Screenshot that shows the backup configuration in Azure portal." lightbox="./media/back-up-sql-server-instance-snapshot/sql-backup-policy-configuration.png":::
 
