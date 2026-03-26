@@ -20,7 +20,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - April 2026
-  - [SQL Server instance snapshot backup in Azure VMs (Preview)](#sql-server-instance-snapshot-backup-in-azure-vms-preview)
+  - [Snapshot backup for SQL Instances in Azure VM (preview)](#snapshot-backup-for-sql-instances-in-azure-vm-preview)
 - February 2026
   - [Backup support for Confidential VMs (preview)](#backup-support-for-confidential-vms-preview)
 - November 2025
@@ -66,7 +66,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
 
 
-## SQL Server instance snapshot backup in Azure VMs (preview)
+## Snapshot backup for SQL Instances in Azure VM (preview)
 
 Azure Backup now supports snapshot based backups for SQL Server instances in Azure virtual machines (preview). This capability combines fast, disk based snapshots with frequent log backups to deliver faster restores (improved [Recovery Time Objective](azure-backup-glossary.md#recovery-time-objective-rto)) and minimal data loss (low [Recovery Point Objective](azure-backup-glossary.md#recovery-point-objective-rpo)) for large, SQL databases. 
 
