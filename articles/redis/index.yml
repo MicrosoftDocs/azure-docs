@@ -28,8 +28,10 @@ landingContent:
             url: best-practices-performance.md
       - linkListType: how-to-guide
         links:
-          - text: How to migrate to Azure Managed Redis from Azure Cache for Redis
-            url: migrate/migrate-overview.md
+          - text: Migrate Basic, Standard, and Premium tiers to Azure Managed Redis
+            url: migrate/migrate-basic-standard-premium-overview.md
+          - text: Migrate Enterprise tier to Azure Managed Redis
+            url: migrate/migrate-redis-enterprise-overview.md
       - linkListType: whats-new
         links:
           - text: What's new?

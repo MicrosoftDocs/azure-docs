@@ -74,6 +74,9 @@ IoT Hub with ADR integration and certificate management is available in the foll
 - West Europe
 - North Europe
 
+> [!IMPORTANT]
+> In Preview, Certificate Management is not supported in East US. East US is supported for IoT Hub, Device Provisioning Service, and ADR Namespaces.
+
 ## Related content
 
 - [Integration with Azure Device Registry](iot-hub-device-registry-overview.md)

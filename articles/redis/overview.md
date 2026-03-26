@@ -179,7 +179,10 @@ Azure Managed Redis is continually expanding into new regions. To check the avai
 
 ## Moving from Azure Cache for Redis
 
-For more information about migrating from Azure Cache for Redis to Azure Managed Redis, see [Move from Azure Cache for Redis to Azure Managed Redis](migrate/migrate-overview.md).
+For more information about migrating from Azure Cache for Redis to Azure Managed Redis, see:
+
+- [Migrate Basic, Standard, and Premium tiers to Azure Managed Redis](migrate/migrate-basic-standard-premium-overview.md)
+- [Migrate Enterprise tier to Azure Managed Redis](migrate/migrate-redis-enterprise-overview.md)
 
 ## Related content
 

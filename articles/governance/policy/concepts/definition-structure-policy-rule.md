@@ -664,6 +664,11 @@ The following functions are only available in policy rules:
       }
     ```
 
+  - `http: //schemas.microsoft.com/identity/claims/objectidentifier`: returns the user (or object) ID associated with the request.
+  ```json
+   "value": "[tryGet(requestContext().identity, 'http: //schemas.microsoft.com/identity/claims/objectidentifier')]",
+   "in": ['userId']
+```
 - `policy()`
   - Returns the following information about the policy that is being evaluated. Properties can be accessed from the returned object (example: `[policy().assignmentId]`).
 

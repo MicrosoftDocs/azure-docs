@@ -403,8 +403,8 @@
         },
         {
             "source_path_from_root": "/articles/azure-cache-for-redis/migrate/migrate-overview.md",
-            "redirect_url": "/azure/redis/migrate/migrate-overview",
-            "redirect_document_id": true
+            "redirect_url": "/azure/redis/migrate/migrate-basic-standard-premium-overview",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-cache-for-redis/cache-overview-vector-similarity.md",

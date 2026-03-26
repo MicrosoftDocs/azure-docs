@@ -6,7 +6,7 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 03/19/2026
+ms.date: 03/25/2026
 ms.author: radeltch
 ms.custom:
   - devx-track-azurecli
@@ -535,9 +535,11 @@ Few details to consider when setting up basic pacemaker cluster for HANA scale-o
   
 After the base Pacemaker cluster is configured, complete the following additional steps.
 
-1. Configure a delayed start for pacemaker.service at boot by creating the file /etc/systemd/system/pacemaker.timer with the following content:
+1. **[A]** Configure a delayed start for pacemaker.service at boot by creating the file /etc/systemd/system/pacemaker.timer with the following content:
 
     ```bash
+    vi /etc/systemd/system/pacemaker.timer
+
     [Unit]
     Description=Delay start of pacemaker.service after boot
        
@@ -549,19 +551,26 @@ After the base Pacemaker cluster is configured, complete the following additiona
     WantedBy=timers.target
     ```
 
-1. Disable the Pacemaker service and enable the timer. This ensures Pacemaker is started by the timer instead of immediately at boot.
+1. **[A]** Disable the Pacemaker service and enable the timer. This ensures Pacemaker is started by the timer instead of immediately at boot.
 
     ```bash
     systemctl disable pacemaker.service
     systemctl enable pacemaker.timer
     ```
   
-1. Edit `SBD_DELAY_START` value in `/etc/sysconfig/sbd`. This step applies only if SBD is configured as the STONITH mechanism.
+1. **[A]** Edit `SBD_DELAY_START` value in `/etc/sysconfig/sbd`. This step applies only if SBD is configured as the STONITH mechanism.
 
     ```bash
     SBD_DELAY_START=no
     ```
-  
+
+1. **[1]** Restart cluster services on all nodes
+
+    ```bash
+    # When --all is specified, cluster service is restarted on all nodes. 
+    crm cluster restart --all
+    ```
+
 ## Installation  
 
 In this example for deploying SAP HANA in scale-out configuration with HSR on Azure VMs, we've used HANA 2.0 SP5.  

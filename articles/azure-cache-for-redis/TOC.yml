@@ -31,8 +31,22 @@
 - name: Migration 
   expanded: true
   items:
-  - name: Migrate to Azure Managed Redis
-    href: /azure/redis/migrate/migrate-overview
+  - name: Migrate Basic, Standard, or Premium tiers to Azure Managed Redis
+    items:
+    - name: Overview
+      href: /azure/redis/migrate/migrate-basic-standard-premium-overview
+    - name: Understand
+      href: /azure/redis/migrate/migrate-basic-standard-premium-understand
+    - name: Self-service
+      href: /azure/redis/migrate/migrate-basic-standard-premium-self-service
+  - name: Migrate Enterprise tier to Azure Managed Redis
+    items:
+    - name: Overview
+      href: /azure/redis/migrate/migrate-redis-enterprise-overview
+    - name: Understand
+      href: /azure/redis/migrate/migrate-redis-enterprise-understand
+    - name: Self-service
+      href: /azure/redis/migrate/migrate-redis-enterprise-self-service
   - name: Migrate to Azure Redis from other caches
     href: cache-migration-guide.md
 

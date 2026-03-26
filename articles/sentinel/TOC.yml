@@ -649,6 +649,9 @@
         - name: Run KQL queries
           href: datalake/kql-queries.md
           displayName: data lake
+        - name: KQL using the API
+          href: datalake/kql-queries-api.md
+          displayName: data lake  
         - name: Sample KQL queries
           href: datalake/kql-sample-queries.md
           displayName: data lake KQL

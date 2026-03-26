@@ -816,7 +816,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Single-file snapshot restore](snapshots-restore-file-single.md) (preview)
 
-    Azure NetApp Files provides ways to quickly restore data from snapshots (mainly at the volume level). See [How Azure NetApp Files snapshots work](snapshots-introduction.md). Options for user file self-restore are available via client-side data copy from the `~snapshot` (Windows) or `.snapshot` (Linux) folders. These operations require data (files and directories) to traverse the network twice (upon read and write). As such, the operations aren't time and resource efficient, especially with large data sets. If you don't want to restore the entire snapshot to a new volume, revert a volume, or copy large files across the network, you can use the single-file snapshot restore feature to restore individual files directly on the service from a volume snapshot without requiring data copy via an external client. This approach drastically reduces recovery time objective (RTO) and network resource usage when restoring large files.
+    Azure NetApp Files provides ways to quickly restore data from snapshots (mainly at the volume level). See [Understand Azure NetApp Files snapshot-based data protection](snapshots-introduction.md). Options for user file self-restore are available via client-side data copy from the `~snapshot` (Windows) or `.snapshot` (Linux) folders. These operations require data (files and directories) to traverse the network twice (upon read and write). As such, the operations aren't time and resource efficient, especially with large data sets. If you don't want to restore the entire snapshot to a new volume, revert a volume, or copy large files across the network, you can use the single-file snapshot restore feature to restore individual files directly on the service from a volume snapshot without requiring data copy via an external client. This approach drastically reduces recovery time objective (RTO) and network resource usage when restoring large files.
 
 * Features that are now generally available (GA)
 
@@ -861,7 +861,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Azure NetApp Files backup extends ONTAP's built-in snapshot technology. When snapshots are vaulted to Azure storage, only changed blocks relative to previously vaulted snapshots are copied and stored, in an efficient format. Vaulted snapshots are still represented in full. You can restore them to a new volume individually and directly, eliminating the need for an iterative, full-incremental recovery process. This advanced technology minimizes the amount of data required to store to and retrieve from Azure storage, therefore saving data transfer and storage costs. It also shortens the backup vaulting time, so you can achieve a smaller Restore Point Objective (RPO). You can keep a minimum number of snapshots online on the Azure NetApp Files service for the most immediate, near-instantaneous data-recovery needs. In doing so, you can build up a longer history of snapshots at a lower cost for long-term retention in the Azure NetApp Files backup vault.
 
-    For more information, see [How Azure NetApp Files snapshots work](snapshots-introduction.md).
+    For more information, see [Understand Azure NetApp Files snapshot-based data protection](snapshots-introduction.md).
 
 * [**Administrators**](create-active-directory-connections.md#create-an-active-directory-connection) option in Active Directory connections (preview)
 

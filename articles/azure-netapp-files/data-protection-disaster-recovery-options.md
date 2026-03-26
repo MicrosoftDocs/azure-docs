@@ -28,7 +28,7 @@ The foundation of data protection solutions including volume restores and clones
 - Restore a snapshot to new volume (clone) in seconds to test or develop with current data  
 - Application-consistent snapshots with [AzAcSnap integration](azacsnap-introduction.md) and third party backup tools 
 
-To learn more, see [How Azure NetApp Files Snapshots work](snapshots-introduction.md) and [Ways to restore data from snapshots](snapshots-introduction.md#ways-to-restore-data-from-snapshots). To create a Snapshot policy, see [Manage Snapshot policies in Azure NetApp Files](snapshots-manage-policy.md). 
+To learn more, see [Understand Azure NetApp Files snapshot-based data protection](snapshots-introduction.md) and [Ways to restore data from snapshots](snapshots-introduction.md#ways-to-restore-data-from-snapshots). To create a Snapshot policy, see [Manage Snapshot policies in Azure NetApp Files](snapshots-manage-policy.md). 
 
 ## Backups
 
@@ -93,7 +93,7 @@ Fast data recovery (whole volume) | Revert volume from snapshot | Revert volume 
 
 ## Next steps
 
-* [How Azure NetApp Files snapshots work](snapshots-introduction.md)
+* [Understand Azure NetApp Files snapshot-based data protection](snapshots-introduction.md)
 * [Understand Azure NetApp Files backup](backup-introduction.md)
 * [Understand Azure NetApp Files replication](replication.md)
 * [Reliability in Azure NetApp Files](/azure/reliability/reliability-netapp-files)

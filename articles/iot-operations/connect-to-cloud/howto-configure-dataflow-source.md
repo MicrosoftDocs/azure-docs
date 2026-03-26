@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 03/19/2026
+ms.date: 03/25/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to configure the source for a data flow or data flow graph.
@@ -17,6 +17,9 @@ ai-usage: ai-assisted
 [!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
 The source is where data enters a data flow or data flow graph. You configure the source by specifying an endpoint reference and a list of data sources (topics) for that endpoint.
+
+> [!TIP]
+> A single data flow source can subscribe to **multiple MQTT or Kafka topics** at once. You don't need to create separate data flows for each topic. Use the `dataSources` field (or **Topic(s)** > **Add row** in the operations experience) to add multiple topic filters, including wildcards. For more information, see [Configure MQTT or Kafka topics](#configure-data-sources-mqtt-or-kafka-topics).
 
 This page applies to both [data flows](overview-dataflow.md) and [data flow graphs](concept-dataflow-graphs.md). For data flows, the source is an operation in the `Dataflow` resource. For data flow graphs, the source is a `Source` node in the `DataflowGraph` resource.
 
@@ -196,6 +199,8 @@ When the source is an MQTT (Event Grid included) endpoint, use the MQTT topic fi
 # [Operations experience](#tab/portal)
 
 In the operations experience data flow **Source details**, select **Message broker**, then use the **Topic(s)** field to specify the MQTT topic filters to subscribe to for incoming messages. To add multiple MQTT topics, select **Add row** and enter a new topic.
+
+:::image type="content" source="media/howto-configure-dataflow-source/dataflow-source-multiple-topics.png" alt-text="Screenshot of the operations experience interface showing multiple MQTT topic filters configured in the source details for a data flow.":::
 
 # [Azure CLI](#tab/cli)
 

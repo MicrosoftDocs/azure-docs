@@ -4,7 +4,7 @@ description: Supported platforms, topologies, and capabilities for SAP Deploymen
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 5/23/2023
+ms.date: 3/26/2026
 ms.topic: concept-article
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -31,17 +31,17 @@ The framework supports the following operating systems and distributions:
 
 - Windows server 64 bit for the x86-64 platform
 - SUSE Linux 64 bit for the x86-64 platform (12.x and 15.x)
-- Red Hat Linux 64 bit for the x86-64 platform (7.x and 8.x)
+- Red Hat Linux 64 bit for the x86-64 platform (7.x, 8.x, 9.x, 10.0)
 - Oracle Linux 64 bit for the x86-64 platform
 
 The following distributions have been tested with the framework:
 
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Database       | Versions                                | 
-> | -------------- | --------------------------------------- | 
-> | Red Hat        | 7.9, 8.2, 8.4, 8.6, 8.8, 9.0, 9.2       |
-> | SUSE           | 12 SP4, 15 SP2, 15 SP3, 15 SP4, 15 SP5  |
+> | Database       | Versions                                                | 
+> | -------------- | ------------------------------------------------------- | 
+> | Red Hat        | 7.9, 8.2, 8.4, 8.6, 8.8, 9.0, 9.2, 9.4, 9.6, 10.0       |
+> | SUSE           | 12 SP4, 15 SP2, 15 SP3, 15 SP4, 15 SP5, 15 SP6, 15 SP7  |
 > | Oracle         | 8.2, 8.4, 8.6, 8.8, 8.9                 |
 > | Windows Server | 2016, 2019, 2022                        |
 
@@ -51,12 +51,13 @@ The following distributions have been tested with the framework:
 The automation framework supports the following database back ends:
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Database                             | Versions                          | 
-> | ------------------------------------ | --------------------------------- | 
-> | SAP HANA (S4/NW)                     | 1909, 2020, 2021, 2022, 2023      |
-> | ASE                                  | 1603SP11, 1603SP14                |
-> | DB2                                  | 11.5                              |
-> | MS SQL Server                        | 2016, 2019, 2022                  |
+> | Database                             | Versions                                | 
+> | ------------------------------------ | --------------------------------------- | 
+> | SAP HANA (S4/NW)                     | 1909, 2020, 2021, 2022, 2023, 2025      |
+> | ASE                                  | 1603SP11, 1603SP14                      |
+> | DB2                                  | 11.5                                    |
+> | ORACLE                               | 19.0                                    |
+> | MS SQL Server                        | 2016, 2019, 2022                        |
 
 
 ## Supported storage types

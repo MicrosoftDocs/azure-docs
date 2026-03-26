@@ -34,5 +34,14 @@ The recommended discovery source is the Azure Migrate appliance as it provides a
 
 If you're using the Azure Migrate appliance for assessment, see [metadata and performance data](discovered-metadata.md) collected as an input for the assessment. 
 
+## Tag workloads correctly
+
+It is recommended to correctly tag all the servers and workloads for appropriate target recommendations. Assessment uses special tags for identifying the machines and workloads operating in the Dev/Test environment and to mark the workloads and servers for retention or retirement. 
+
+In case the workloads and servers are operating in the Dev/Test environment they should be tagged with the tag **AzM.Environment: Dev**. In case this tag is absent on the servers or workloads, they are considered as production workloads by default. 
+
+In case the workloads and servers are to be retained or retired they should be tagged with the tag **AzM.MigrationIntent: Retain** or **AzM.MigrationIntent:Retire** respectively. In case these tags are absent on these servers or workloads, they are considered for migration or modernization. 
+It is recommended that the servers and all the associated workloads are tagged consistently for appropriate and consistent recommendations. For eg. In case *Server 1* hosts *Database 1* and *Database 2* and the server has to be retained, it is expected that the tag exists on server as well as the databases for appropriate recommendation. 
+
 ## Next steps
 Migrate [VMware VMs](tutorial-migrate-vmware.md), [Hyper-V VMs](tutorial-migrate-hyper-v.md), and [physical servers](tutorial-migrate-physical-virtual-machines.md).
