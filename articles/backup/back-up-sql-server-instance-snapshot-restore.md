@@ -27,7 +27,7 @@ Before you restore from a SQL instance snapshot recovery point, ensure that the 
 
 ## Restore the entire SQL instance
 
-The SQL instance restore from snapshot backup allows you to restore the entire SQL instance, including all databases, to a previous state. This operation is useful in scenarios where the entire instance encounters issues such as corruption, configuration errors, or other failures.
+The SQL instance restore from snapshot backup allows you to restore the entire SQL instance, including all databases, to a previous state. This operation is useful in scenarios when you need to restore the entire SQL Server instance at once.
 
 To restore the entire SQL instance, follow these steps:
 
@@ -43,13 +43,26 @@ To restore the entire SQL instance, follow these steps:
 
 1. On the **Restore** pane, on the **Basics** tab, select **Next > Restore point**.
 
-1. On the **Restore point** tab, for **Selected restore point**, click **Select**.
+1. On the **Restore point** tab, for **Select restore type**, choose **Alternate location restore (ALR)** or **Restore as disk**.
+
+   - **Alternate location restore**: Restores the SQL instance or database to a different location on another virtual machine (VM).
+   - **Restore as disk**: Restores individual disks and attach them to the virtual machine of your choice.
 
    :::image type="content" source="media/back-up-sql-server-instance-snapshot-restore/select-snapshot-restore-point.png" alt-text="Screenshot that shows the selection of a snapshot restore point." lightbox="media/back-up-sql-server-instance-snapshot-restore/select-snapshot-restore-point.png":::
 
+1. For **Selected restore point**, click **Select** to select an available restore point.
+
+   By default, the latest restore point is selected.
+
 1. On the **Select restore point** pane, select the required snapshot restore point from the list, and select **OK**.  
 
-1. On the **Restore** pane, on the **Restore point** tab, select **Next > Restore parameters**.
+1. On the **Restore** pane, on the **Restore point** tab, you can select **Point in time restore** to apply transaction logs for a more granular restore.
+
+   The available log points for each database show the log backup frequency you set up during backup configuration.
+
+   :::image type="content" source="media/back-up-sql-server-instance-snapshot-restore/select-point-in-time-restore.png" alt-text="Screenshot that shows the selection of Point in time restore." lightbox="media/back-up-sql-server-instance-snapshot-restore/select-point-in-time-restore.png":::
+
+1. Select **Next > Restore parameters**.
 
 1. On the **Restore parameters** tab, select the **Target Server** and **Target Instance** where you want to restore.  
 

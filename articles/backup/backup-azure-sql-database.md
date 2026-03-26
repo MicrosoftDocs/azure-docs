@@ -18,10 +18,28 @@ ms.author: v-mallicka
 
 To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support). For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
 
->[!Note]
->Snapshot based backup is now in preview. Snapshot based backup helps you backup large sized databases in a performant way and also ensures faster restores from instant restore tier. Currently, the instance snapshot backup operation isn't supported via [Resiliency](../resiliency/resiliency-overview.md).
+## Snapshot backup for SQL Instances in Azure VM (preview)
 
-## Backup process
+Azure Backup provides a snapshot‑based SQL backup solution that improves performance for large databases. You can use disk snapshots for fast restores and frequent log backups to minimize data loss, helping you achieve lower Recovery Time Objective (RTO) and improved Recovery Point Objective (RPO).
+
+>[!Note]
+>Snapshot Backup for SQL Server instances is available in preview. Snapshot‑based backups allow you to protect large databases with improved performance and achieve faster restores from the instant recovery tier.
+
+Snapshot backups provide the following benefits while backing up large databases:
+
+- **Instance level snapshot**: Creates snapshot backups at the SQL instance level and select multiple databases in a single operation. Restore the entire instance or individual databases as needed.
+
+- **Minimal impact on the source server**: Azure Backup briefly quiesces the database to capture an application-consistent snapshot. While database is quiesced only for a few seconds, snapshot creation and availability in operational tier completes within minutes. Unlike streaming backups, the source machine’s resources aren't consumed for a long duration.
+
+- **Cost-effective**: Optimizes storage cost with incremental snapshots.
+
+- **Improved RTO**: Uses faster restores from Instant/operational tier.
+
+- **Low RPO**: Combines log backups with snapshots to achieve a lower RPO and enable point-in-time restores.
+
+Learn about the supported scenarios and limitations for SQL backup using snapshots in the [support matrix](sql-support-matrix.md#sql-server-instance-snapshot-backups-supported-scenarios-preview). To back up SQL Server instance snapshot in Azure VM using Azure portal, see [this article](back-up-sql-server-instance-snapshot.md).
+
+## Backup process for SQL Server database
 
 This solution uses the SQL native APIs to take backups of your SQL databases.
 
@@ -35,53 +53,33 @@ This solution uses the SQL native APIs to take backups of your SQL databases.
 
   ![SQL Backup architecture](./media/backup-azure-sql-database/azure-backup-sql-overview.png)
 
-## Back up SQL Server instance snapshots (preview)
-
-Azure Backup now offers a snapshot‑based SQL backup solution that enhances performance for large databases. By combining disk snapshots for rapid restores with frequent log backups for minimal data loss, this solution provides improved Recovery Time Objective (RTO) and low Recovery Point Objective (RPO). This feature is designed to meet the performance and resiliency needs of enterprise SQL deployments in Azure.
-
-### Key benefits of snapshot backup for SQL databases in Azure VM
-
-By using the Azure Backup service to back up and restore from a snapshot of SQL databases in Azure VM, you get the following advantages:
-
-- **Instance snapshot**: Create snapshot backups at the SQL instance level and select multiple databases in a single operation. Restore the entire instance or individual databases as needed.
-
-- **Minimal impact on the source server**: Azure Backup briefly quiesces the database to capture an application-consistent snapshot. This process takes only a few seconds, unlike streaming backups that continuously consume resources.
-
-- **Cost-effective**: Incremental snapshots reduce storage costs compared to streaming full backups, while providing higher durability through zone-redundant storage by default.
-
-- **Improved RTO**: Restore operations complete faster because snapshots are retained within the customer subscription.
-
-- **Faster RPO**: As with stream-based backups, log backups stream every 15 minutes and can be applied to the restored snapshot during recovery.
-
-### How does the SQL Server instance snapshot backup work?
+## Backup process for SQL Server instance snapshots
 
 Azure Backup uses managed-disk incremental snapshots to protect SQL databases in Azure VMs. The backup policy controls snapshot creation, retention, and logs backup behavior to enable fast restores and point-in-time recovery.
 
-The backup and restore flow provides a logical, end-to-end sequence—from snapshot creation and consistency to retention and restore that involves:
+The backup and restore flow outlines a logical, end-to-end sequence of operations performed by Azure Backup that include the following operations:
 
-1.  Azure Backup creates managed-disk incremental snapshots based on the user-defined backup policy. Currently, the Azure Backup service supports one snapshot every six hours or higher.
+- Creates managed-disk incremental snapshots based on the user-defined backup policy. Currently, the Azure Backup service supports one snapshot every 6 hours or higher. You can configure Log backups for every 15 minutes or higher.
 
-2.  The service takes snapshot backups at the SQL instance level. You can select up to eight databases per snapshot operation.
+- Takes snapshot backups at the SQL instance level. You can select up to 12 databases per snapshot operation.
 
-3.  Azure Backup captures an application-consistent snapshot across all selected databases by snapping the underlying disks for the combined set of databases.
+- Captures an application-consistent snapshot across all selected databases by snapping the underlying disks for the combined set of databases.
 
-4.  The service retains snapshots in the Azure subscription within a specified resource group for a user-defined duration (up to seven days). Azure Backup then moves the data to the Recovery Services vault as vaulted backup for long-term retention based on the configured policy.
+- Retains snapshots in the Azure subscription within a specified resource group for a user-defined duration (up to 7 days). Azure Backup then moves the data to the Recovery Services vault as vaulted backup for long-term retention based on the configured policy.
 
-5.  Azure Backup streams log backups at the database level to the vault. During restore, the service restores the snapshot to an alternate VM and applies log backups to achieve point-in-time recovery.
+- Streams log backups at the database level to the vault. During restore, the service restores the snapshot to an alternate VM and applies log backups to achieve point-in-time recovery.
 
 [Learn how to back up SQL Server instance snapshot in Azure VM using Azure portal (preview)](back-up-sql-server-instance-snapshot.md).
 
-### Pricing for snapshot backup of SQL databases in Azure VM
+## Pricing for snapshot backup of SQL Server instances in Azure VMs
 
 Backup of SQL in Azure VM snapshot incurs the following charges:
 
-- **Snapshot storage cost (Managed Disks)**: Managed disk snapshots incur charges as per Managed Disk snapshot pricing (\$0.05 per GB per month) for the duration they're retained in your subscription. [Learn about Managed disk snapshot pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+- Snapshot backups stored in a Recovery Services vault are priced based on [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/?msockid=229ace64ee9568201c64da31efc769d2).
 
-- **Vault storage cost (Recovery Services vault)**: No storage charges apply after the snapshot moves to the Recovery Services vault during preview.
+- In addition to the Protected Instance fee and vault storage cost, Azure Backup incurs extra charges for snapshot storage in the operational tier.
 
-- **Snapshot data transfer / delta cost**: The first snapshot is a full snapshot, and all subsequent snapshots are incremental, reducing the cost for ongoing snapshot storage consumption.
-
-- **Backup management cost**: During preview, Azure Backup doesn’t charge any other backup management fee for snapshot-only backups.
+- Managed disk snapshots incur charges based on [Managed Disk snapshot pricing](https://azure.microsoft.com/pricing/details/managed-disks/) for the duration they're retained in your subscription.
 
 ## Before you start
 
@@ -160,7 +158,7 @@ Add **NT AUTHORITY\SYSTEM** and **NT Service\AzureWLBackupPluginSvc** logins to 
     ![Grant permissions in SSMS](media/backup-azure-sql-database/sql-2k8-grant-permission-ssms.png)
 
 7. Select OK.
-8. Repeat the same sequence of steps (1-7 above) to add NT Service\AzureWLBackupPluginSvc login to the SQL Server instance. If the login already exists, make sure it has the sysadmin server role and under Status it has Grant the Permission to connect to database engine and Login as Enabled.
+8. Repeat the same sequence of steps (preceding 1-7 steps) to add NT Service\AzureWLBackupPluginSvc login to the SQL Server instance. If the login already exists, make sure it has the sysadmin server role and under Status it has Grant the Permission to connect to database engine and Login as Enabled.
 9. After granting permission, **Rediscover DBs** in the portal: Vault **->** Manage **->** Backup Infrastructure **->** Workload in Azure VM:
 
     ![Rediscover DBs in Azure portal](media/backup-azure-sql-database/sql-rediscover-dbs.png)
@@ -174,7 +172,7 @@ param(
 )
 if ($InstanceName -eq "MSSQLSERVER")
 {
-    $fullInstance = $env:COMPUTERNAME   # In case it is the default SQL Server Instance
+    $fullInstance = $env:COMPUTERNAME   # In case it's the default SQL Server Instance
 }
 else
 {
@@ -226,14 +224,14 @@ To configure simultaneous backups, follow these steps:
      }
      ```
 
-     If there are other prepopulated entries in the JSON file, add the above two entries at the bottom of the JSON file *just before the closing curly bracket*.
+     If there are other prepopulated entries in the JSON file, add the preceding two entries at the bottom of the JSON file *just before the closing curly bracket*.
 
 3. For the changes to take effect immediately instead of regular one hour, go to **TaskManager** > **Services**, right-click **AzureWLbackupPluginSvc**, and then select **Stop**.
 
    >[!Caution]
-   >This action will cancel all the ongoing backup jobs.
+   >This action cancels all the ongoing backup jobs.
 
-   The naming convention of the stored backup file and the folder structure for it is `{LocalDiskBackupFolderPath}\{SQLInstanceName}\{DatabaseName}`.
+   The naming convention of the stored backup file and the folder structure for the SQL Server database is `{LocalDiskBackupFolderPath}\{SQLInstanceName}\{DatabaseName}`.
 
    For example, if you have a database `Contoso` under the SQL instance `MSSQLSERVER`, the files are located at in `E:\LocalBackup\MSSQLSERVER\Contoso`.
 
@@ -244,7 +242,7 @@ To configure simultaneous backups, follow these steps:
    >[!Note]
    >For a folder on the local VM disks, right-click the folder and configure the required permissions for `NT Service\AzureWLBackupPluginSvc` on the **Security** tab.
    
-   If you're using a network or SMB share, configure the permissions by running the below PowerShell cmdlets from a user console that already has the permission to access the share:
+   If you're using a network or SMB share, configure the permissions by running the following PowerShell cmdlets from a user console that already has the permission to access the share:
 
    ```azurepowershell
    $cred = Get-Credential
@@ -263,7 +261,7 @@ To configure simultaneous backups, follow these steps:
 * [Back up SQL Server databases running on an Azure VM](backup-sql-server-database-azure-vms.md).
 * [Back up SQL Server instance snapshot in Azure VM using Azure portal (preview)](back-up-sql-server-instance-snapshot.md).
 * [Restore backed up SQL Server databases](restore-sql-database-azure-vm.md).
-* [Manage backed up SQL Server databases](manage-monitor-sql-database-backup.md).
+* [Manage and monitor SQL Server database and instance snapshot (preview) backups](manage-monitor-sql-database-backup.md).
 
 ## Related content
 

@@ -1,5 +1,5 @@
 ---
-title: Back up SQL Server instance snapshot in Azure VM using Azure portal (preview)
+title: Back up SQL Server instance snapshot in Azure Virtual Machine (VM) using Azure portal (preview)
 description: Learn how to back up SQL Server instances in Azure VMs using snapshot backups.
 #customer intent: As an IT admin, I want to back up SQL Server databases in Azure VMs using snapshot backups so that I can ensure data recovery in case of failure.
 author: AbhishekMallick-MS
@@ -41,7 +41,7 @@ The following table lists the role and scope of assignment details for the manag
 | Backup MSI (Added in the backup policy by user) | Azure Backup Snapshot Contributor | Source VM resource group, Snapshot resource group (can be different from source VM Resource Group) |
 | Restore MSI (Added in restore flow by user; can be different or same as the backup MSI) | Azure Backup Snapshot Contributor | Target VM Resource Group, Snapshot Resource Group, Target resource group (where disks are created to attach to target VM) |
 
-## Create a backup policy for SQL Server in Azure VM (Snapshot backup)
+## Create a backup policy for SQL Server instance in Azure VM (Snapshot backup)
 
 A backup policy defines when backups run and how long data is retained. For snapshot backups, the policy specifies the frequency and retention for both snapshot and transaction log backups.
 
@@ -59,7 +59,7 @@ You can create a backup policy while configuring backup, or create it directly i
 
 1.  For **Full Snapshot backup** and **Log backup**, select **Edit** corresponding to each backup type and enter the backup schedule and retention periods.  
 
-    You can schedule **Full Snapshot backup** from every 6 hours to every 24 hours. For **Log backup**, you can schedule from every 15 mins to 24 hours. The **schedule snapshot copy-only full backups** isn’t supported; you can trigger the backup operation only by selecting **Backup now**.
+    You can schedule **Full Snapshot backup** from every 6 hours to every 24 hours. For **Log backup**, you can schedule from every 15 mins to 24 hours. Scheduling snapshot **Copy only full** backups isn’t supported; you can trigger the backup operation only by selecting **Backup now**.
 
     :::image type="content" source="./media/back-up-sql-server-instance-snapshot/create-backup-policy.png" alt-text="Screenshot that shows the  policy types for SQL server in Azure VM backup." lightbox="./media/back-up-sql-server-instance-snapshot/create-backup-policy.png":::
 
@@ -87,11 +87,11 @@ You can create a backup policy while configuring backup, or create it directly i
 
 1.  On the **Create policy** pane, select **Validate + Create policy**.
 
-## Discover unprotected SQL databases in a subscription
+## Discover unprotected SQL Server instance in a subscription
 
-When you discover SQL databases, Azure Backup prepares the virtual machine for workload backup in the background. It registers the VM with the selected vault so that all SQL databases on the VM backup only to that vault, installs the `AzureBackupWindowsWorkload` extension on the VM, and creates the required service account (`NT Service\AzureWLBackupPluginSvc`). Azure Backup doesn't install any agent on the SQL databases themselves.
+When you discover SQL Server instance, Azure Backup prepares the virtual machine for workload backup in the background. It registers the VM with the selected vault so that all SQL databases on the VM backup only to that vault, installs the `AzureBackupWindowsWorkload` extension on the VM, and creates the required service account (`NT Service\AzureWLBackupPluginSvc`). Azure Backup doesn't install any agent on the SQL databases themselves.
 
-To discover unprotected SQL databases in a subscription, follow these steps:
+To discover unprotected SQL Server instance in a subscription, follow these steps:
 
 1.  Go to the **Recovery Services vault**, and select **+ Backup**.
 
@@ -107,9 +107,9 @@ To discover unprotected SQL databases in a subscription, follow these steps:
 
 You can track database discovery in the notifications. The time required depends on the number of databases on the VM. When discovery completes, Azure Backup discovers all SQL Server databases on the VM and shows a success message.
 
-## Configure backup for the SQL Server databases
+## Configure backup for the SQL Server instance
 
-When the SQL database discovery is complete, configure backup for the databases by following these steps:
+When the SQL Server instance discovery is complete, configure backup for the instance by following these steps:
 
 1.  On the **Backup Goal** pane, under **Step 2: Configure Backup**, select **Configure Backup**.
 
@@ -152,28 +152,7 @@ To run an on-demand backup at the SQL instance level, follow these steps:
 
 1.  Select **OK**.
 
-[Learn how to trigger on-demand backups at the database level.](manage-monitor-sql-database-backup.md#run-an-on-demand-backup)
-
-## Run an on-demand backup of SQL database
-
-To run an on-demand backup at the SQL database level, follow these steps:
-
-1.  Go to the **Recovery Services vault**, and select **Protected items** \> **Backup items**.
-
-1.  On the **Backup items** pane, select **SQL Database in Azure VM**.
-
-1.  On the **Backup Items (SQL Database in Azure VM)** pane, for the required backup item with **Snapshot backup type**, select **View details**.
-
-1.  On the selected backup item pane, select **Backup now**.
-
-1.  On the **Backup now** pane, select one of the supported **Backup type** - **Copy only full**, **Log**, **Full**, or **Differential**.  
-      
-     The supported on-demand backup types at the database level depend on whether you create the original backup item by using streaming backups or snapshot backups.  
-
-    :::image type="content" source="./media/back-up-sql-server-instance-snapshot/sql-backup-type-selection.png" alt-text="Screenshot that shows how to trigger an on-demand backup for a SQL database in Azure portal." lightbox="./media/back-up-sql-server-instance-snapshot/sql-backup-type-selection.png":::
-
-1.  Select **OK**.
-
+[Learn how to trigger on-demand backups at the database level.](manage-monitor-sql-database-backup.md#run-an-on-demand-backup-for-sql-server-database).
 
 ## Next steps
 

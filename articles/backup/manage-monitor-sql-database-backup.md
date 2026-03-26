@@ -24,7 +24,7 @@ To view the backup and restore scenarios that we support today, see the [support
 
 After you configure snapshot backup for a SQL Server instance, Azure Backup shows the backup items in the Azure portal. Azure creates one backup item for the protected SQL instance, which you use for instance-level actions. These items appear under **SQL Server in Azure VM (Snapshot backup)**.
 
-Azure also creates a separate backup item for each protected database in the instance. You use these items to perform database-level actions, such as restoring a database. These items appear under **SQL database in Azure VM (Snapshot backup)**.
+Azure also creates a separate backup item for each protected database in the instance. You use these items to perform database-level actions, such as restoring a database. These items appear under **SQL database in Azure VM** with backup type as **Snapshot backup**.
 
 To view the database backup items, follow these steps:
 
@@ -60,11 +60,7 @@ For more information on Monitoring scenarios, see [Monitoring in the Azure porta
 
 To monitor SQL in Azure VM backups, go to the **Recovery Services vault**, and select **Monitor** \> **Backup jobs**.
 
-The Backup job pane provides the following details:
-
-- **Backup jobs**: Jobs for streaming backups appear with the type **SQLDatabase**, whereas jobs for snapshot backups appear with the type **SQLInstance**.
-
-- **Backup item health**: The backup item status might appear as **Unhealthy** immediately after you configure backup. This status occurs when log backups run before the first full snapshot backup completes. The status updates automatically after the first scheduled Snapshot-Full backup finishes. Alternatively, you can trigger an on-demand Snapshot-Full backup to resolve the issue.
+The Backup job pane provides the **Backup jobs** details. Jobs for streaming backups appear with the type **SQLDatabase**, whereas jobs for snapshot backups appear with the type **SQLInstance**.
 
 ## View backup alerts
 
@@ -103,7 +99,7 @@ The following sections describe how to stop protection for a SQL database and SQ
 Azure Backup provides the following options to stop protection of a SQL Server database:
 
 - **Stop protection and retain backup data (Retain forever)**: Stops all future backup jobs from protecting a SQL Server database and retains the existing backup data in the Recovery Services vault forever. This retention incurs a storage fee as per [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/). If needed, you can use the backup data to restore the SQL Server database and use the **Resume backup** option to resume protection.
-- **Stop protection and retain backup data (Retain as per policy)**: Stops all future backup jobs from protecting a SQL Server database and retains the existing backup data in the Recovery Services vault as per policy. However, the latest recovery point is retained forever. This retention incurs a storage fee as per [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/). If needed, you can use the backup data to restore the SQL Server database and use the **Resume backup** option to resume protection.
+- **Stop protection and retain backup data (Retain as per policy)**: Stops all future backup jobs from protecting a SQL Server database and retains the existing backup data in the Recovery Services vault as per policy. However, the latest recovery point is retained forever. This retention incurs a storage fee as per [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/). If needed, you can use the backup data to restore the SQL Server database and use the **Resume backup** option to resume protection. This feature is only available for immutable vaults.
 - **Stop protection and delete backup data**: Stops future backup jobs for a SQL Server database and deletes all backup data. You can't restore the SQL Server database or use the **Resume backup** option.
 
 To stop protection for a database:
@@ -156,7 +152,7 @@ To resume protection for a SQL database, follow these steps:
 
 2. On the **Backup policy** menu, select a policy, and select **Save**.
 
-## Run an on-demand backup
+## Run an on-demand backup for SQL Server database
 
 You can run different types of on-demand backups:
 
@@ -173,6 +169,25 @@ The following types of on-demand backup determine the retention period of the ba
 - *On-demand log* retains backups as per the retention of scheduled logs set in policy.
 
 For more information, see [SQL Server backup types](backup-architecture.md#sql-server-backup-types).
+
+To run an on-demand backup at the SQL database level, follow these steps:
+
+1.  Go to the **Recovery Services vault**, and select **Protected items** \> **Backup items**.
+
+1.  On the **Backup items** pane, select **SQL Database in Azure VM**.
+
+1.  On the **Backup Items (SQL Database in Azure VM)** pane, for the required backup item with **Snapshot backup type**, select **View details**.
+
+1.  On the selected backup item pane, select **Backup now**.
+
+1.  On the **Backup now** pane, select one of the supported **Backup type** - **Copy only full**, **Log**, **Full**, or **Differential**.  
+      
+     The supported on-demand backup types at the database level depend on whether you create the original backup item by using streaming backups or snapshot backups.  
+
+    :::image type="content" source="./media/back-up-sql-server-instance-snapshot/sql-backup-type-selection.png" alt-text="Screenshot that shows how to trigger an on-demand backup for a SQL database in Azure portal." lightbox="./media/back-up-sql-server-instance-snapshot/sql-backup-type-selection.png":::
+
+1.  Select **OK**.
+
 
 ## Modify backup policy for SQL database
 
@@ -298,7 +313,7 @@ The backed-up SQL VM is deleted or moved using Resource move. The experience dep
 New VM subscription | New VM Name | New VM Resource group | New VM Region | Experience
 ------------------- | ----------- | --------------------- | ------------- | ---------------------------------
 Same                | Same        | Same                  | Same          | **What happens to backups of _old_ VM?** <br><br> You receive an alert that backups are stopped on the _old_ VM. The backup data is retained as per the last active policy. You can choose to stop protection and delete data and unregister the old VM once all backup data is cleaned up as per policy.   <br><br> **How to get backup data from _old_ VM to _new_ VM?**    <br><br> No SQL backups are triggered automatically on the _new_ virtual machine. You must re-register the VM to the same vault. Then it appears as a valid target, and SQL data can be restored to the latest available point-in-time via the alternate location recovery capability. After you restore SQL data, SQL backups continue on this machine. VM backup continues as-is, if previously configured.
-Same                | Same        | Different             | Same          | **What happens to backups of _old_ VM?**   <br><br> You receive an alert that backups are stopped on the _old_ VM. The backup data is retained as per the last active policy. You can choose to stop protection and delete data and unregister the old VM once all backup data is cleaned up as per policy.     <br><br>**How to get backup data from _old_ VM to _new_ VM?** <br><br> As the new virtual machine is in a different resource group, it's treated as a new machine and you have to explicitly configure SQL backups (and VM backup too, if  previously configured) to the same vault. Then proceed to restore the SQL backup item of the old VM to latest available point-in-time via the _alternate location recovery_ to the new VM. The SQL backups will now continue.
+Same                | Same        | Different             | Same          | **What happens to backups of _old_ VM?**   <br><br> You receive an alert that backups are stopped on the _old_ VM. The backup data is retained as per the last active policy. You can choose to stop protection and delete data and unregister the old VM once all backup data is cleaned up as per policy.     <br><br>**How to get backup data from _old_ VM to _new_ VM?** <br><br> The new virtual machine is in a different resource group, so Azure treats it as a new machine. You must explicitly configure SQL backups (and VM backup, if previously configured) to the same vault. Then proceed to restore the SQL backup item of the old VM to latest available point-in-time via the _alternate location recovery_ to the new VM. The SQL backups then continue.
 Same                | Same        | Same or different     | Different     | **What happens to backups of _old_ VM?**   <br><br> You receive an alert that backups are stopped on the _old_ VM. The backup data is retained as per the last active policy. You can choose to stop protection and delete data and unregister the old VM once all backup data is cleaned up as per policy. <br><br> **How to get backup data from _old_ VM to _new_ VM? <br><br>  As the new virtual machine is in a different region, you’ve to configure SQL backups to a vault in the new region.  <br><br> In a paired region, you can restore SQL data to the latest available point‑in‑time by using cross‑region restore from the old VM’s SQL backup item. <br><br> If the new region is a nonpaired region, direct restore from the previous SQL backup item isn't supported. However, you can choose the *restore as files* option, from the SQL backup item of the ‘old’ VM, to get the data to a mounted share in a VM of the old region, and mount it to the new VM.
 Different           | Same or different        | Same or different     | Same or different     | **What happens to backups of _old_ VM?** <br><br>  You receive an alert that backups are stopped on the _old_ VM. The backup data is retained as per the last active policy. You can choose to stop protection + delete data and unregister the old VM once all backup data is cleaned up as per policy. <br><br> **How to get backup data from _old_ VM to _new_ VM?** <br><br> As the new virtual machine is in a different subscription, you’ve to configure SQL backups to a vault in the new subscription. If it's a new vault in different subscription, direct restore from the previous SQL backup item isn't supported. However, you can choose the *restore as files* option, from the SQL backup item of the _old_ VM, to get the data to a mounted share in a VM of the old subscription, and mount it to the new VM.
 
