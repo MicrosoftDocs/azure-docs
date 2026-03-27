@@ -99,15 +99,15 @@ To use the Windows permission model for SMB admin, follow these steps:
 
 1. Have users mount the file share by using their domain identity. As long as [identity-based authentication](storage-files-active-directory-overview.md) is configured for your storage account, you can mount the share and configure and edit Windows ACLs without using your storage account key.
 
-   Sign in to a domain-joined device or a device that has unimpeded network connectivity to the domain controllers. Sign in as a Microsoft Entra user if your identity source is Microsoft Entra Domain Services.
+   1. Sign in to a domain-joined device or a device that has unimpeded network connectivity to the domain controllers. Sign in as a Microsoft Entra user if your identity source is Microsoft Entra Domain Services.
 
-   Open a Windows command prompt and mount the file share by running the following command. Replace `<YourStorageAccountName>` and `<FileShareName>` with your own values. If drive Z is already in use, replace it with an available drive letter.
+   1. Open a Windows command prompt and mount the file share by running the following command. Replace `<YourStorageAccountName>` and `<FileShareName>` with your own values. If drive Z is already in use, replace it with an available drive letter.
 
-   Use the `net use` command to mount the share at this stage and not PowerShell. If you use PowerShell to mount the share, the share isn't visible to Windows File Explorer or cmd.exe, and you have difficulty configuring Windows ACLs.
+      Use the `net use` command to mount the share at this stage and not PowerShell. If you use PowerShell to mount the share, the share isn't visible to Windows File Explorer or cmd.exe, and you have difficulty configuring Windows ACLs.
 
-   ```
-   net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName>
-   ```
+      ```
+      net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName>
+      ```
 
 ### Mount the file share by using your storage account key (not recommended)
 

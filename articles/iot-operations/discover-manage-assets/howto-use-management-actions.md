@@ -41,7 +41,7 @@ The `az iot ops mgmt-actions enable` command in the quickstart script provisions
 | Event Grid data flow endpoint | Connects the Azure IoT Operations data flow runtime to the Event Grid namespace. |
 | Request data flow graph | Routes messages from Event Grid to the MQTT broker, applying a WASM module to rewrite topic paths. |
 | Response data flow | Routes responses from the MQTT broker back to Event Grid. |
-| Managed identity | If you don't specify a user-assigned managed identity, the command creates a system-assigned managed identity for the data flow endpoint and Azure Device Registry namespace. If the Azure Device Registry namespace doesn't have a system-assigned managed identity enabled, the `az iot ops mgmt-actions enable` command enables one to allow authentication with the Event Grid namespace. |
+| Managed identity | If you don't specify a user-assigned managed identity, the command creates a system-assigned managed identity for the data flow endpoint. If the Azure Device Registry namespace doesn't have a system-assigned managed identity enabled, the `az iot ops mgmt-actions enable` command enables one to allow authentication with the Event Grid namespace. |
 | Role assignments | Grants the data flow identity and the Azure Device Registry namespace the required permissions. |
 | Management endpoint | A management endpoint for the Azure Device Registry namespace linking it to the Event Grid namespace. |
 

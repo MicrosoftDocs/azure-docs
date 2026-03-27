@@ -1,25 +1,39 @@
 ---
-title: "Tutorial: Configure Agent Hooks in Azure SRE Agent"
-description: Add Stop and PostToolUse hooks to your agent to validate responses, audit tool usage, and enforce policies using the REST API.
+title: "Tutorial: Configure Agent Hooks (API) in Azure SRE Agent"
+description: Add Stop and PostToolUse hooks to your agent using the REST API v2 to validate responses, audit tool usage, and enforce policies.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/09/2026
+ms.date: 03/18/2026
 author: craigshoemaker
 ms.author: cshoe
-ms.custom: hooks, agent-hooks, stop-hook, post-tool-use, configuration
+ms.custom: hooks, agent-hooks, stop-hook, post-tool-use, configuration, REST API
 ms.ai-usage: ai-assisted
 #customer intent: As an SRE, I want to configure agent hooks so that I can validate responses, audit tool usage, and enforce security policies on my agent.
 ---
 
-# Tutorial: Configure agent hooks in Azure SRE Agent
-In this tutorial, you create a subagent with a Stop hook that forces the agent to add a completion marker to every response. You configure the hook through the REST API, then test it in the portal's playground.
+# Tutorial: Configure agent hooks (API) in Azure SRE Agent
+
+> [!TIP]
+> **Prefer the portal UI?** You can now create and manage hooks directly in the portal without using the REST API. The portal provides a visual form and code editor. No `curl` commands are required.
+
+In this tutorial, you create a custom agent with a Stop hook that forces the agent to add a completion marker to every response. You configure the hook through the REST API, then test it in the portal's playground.
 
 **Estimated time**: 15 minutes
+
+> [!NOTE]
+> **Agent-level vs. custom-agent-level hooks:** This tutorial creates hooks on a **custom agent** (custom-agent-level hooks). These hooks only fire when that specific custom agent runs.
+>
+> To create **agent-level hooks** that apply to the entire agent (all threads, all custom agents), use **Builder** > **Hooks** in the portal.
+>
+> | Level | How to create | Scope |
+> |-------|--------------|-------|
+> | **Agent level** | Portal: Builder > Hooks | Applies to all threads and custom agents |
+> | **Custom agent level** | REST API (this tutorial) or Portal: Agent Canvas > Custom agent > Manage Hooks | Applies only to one custom agent |
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> - Create a subagent with a Stop hook using the REST API
+> - Create a custom agent with a Stop hook using the REST API
 > - Test hook behavior in the portal's Test playground
 > - Add a PostToolUse hook for auditing tool usage
 > - Block dangerous commands with a policy hook
@@ -27,30 +41,35 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - An Azure SRE Agent in **Running** state
-- **curl** (or Postman) to call the REST API
+- **curl** to call the REST API
 - **Azure CLI** logged in (`az login`) to get an access token
 
 ## Understand the hook API format
 
-Hooks require the **v2 API** format. The portal's YAML editor only shows v1 and can't display or edit hooks. You use the REST API to configure hooks, then use the portal's **Test playground** to verify they work.
+This tutorial uses the **REST API v2** to create hooks on a custom agent. The portal's YAML editor tab shows v1 format and doesn't display hooks configured via the API, but the hooks are still active. You can verify them in the **Builder** > **Hooks** page or the **Test playground**.
 
-:::image type="content" source="media/tutorial-agent-hooks/hooks-portal-yaml-v1.png" alt-text="Portal YAML tab showing v1 format. Hooks are not visible here." lightbox="media/tutorial-agent-hooks/hooks-portal-yaml-v1.png":::
-
-The portal YAML tab shows v1 format. Hooks you configure through the API are active but don't appear in the portal YAML tab.
+> [!TIP]
+> **When to use the API vs the portal:**
+> - **Portal** (Builder > Hooks): Best for agent-level hooks in visual form. No code is necessary.
+> - **API** (this tutorial): Best for custom-agent-level hooks, CI/CD pipelines, or programmatic management.
 
 ## Find your agent's API URL
 
-Follow these steps to locate the API base URL for your agent:
+Your agent's API base URL follows this pattern:
+
+```plaintext
+https://{agent-name}--{hash}.{hash}.{region}.azuresre.ai
+```
+
+To find it:
 
 1. Open [sre.azure.com](https://sre.azure.com) and select your agent.
-1. After the agent loads, look at the browser address bar to find the portal URL.
-1. In the left sidebar, select **Builder** > **Subagent builder**. The page loads inside an iframe whose URL is your agent's API base. The URL looks like:
+1. In the left sidebar, select **Builder** > **Agent Canvas**.
+1. Open your browser's **Developer Tools** (F12 or right-click > Inspect).
+1. Go to the **Network** tab, filter by "api", and look for requests to a URL ending in `.azuresre.ai`.
+1. The base URL is everything before `/api/...`.
 
-    ```plaintext
-    https://your-agent--xxxxxxxx.yyyyyyyy.region.azuresre.ai
-    ```
-
-You can find it by right-clicking the main content area, selecting **Inspect**, and looking at the iframe `src`. Alternatively, check the browser developer tools **Network** tab for API calls.
+Alternatively, check the `src` attribute in the **Elements** tab. Look for an `<iframe>` whose `src` starts with `https://{agent-name}--`.
 
 ## Get an access token
 
@@ -62,9 +81,9 @@ TOKEN=$(az account get-access-token \
   --query accessToken -o tsv)
 ```
 
-## Create a subagent with a Stop hook
+## Create a custom agent with a Stop hook
 
-This step creates a subagent called `my_hooked_agent` with a Stop hook that checks whether the response ends with `=== RESPONSE COMPLETE ===`. If the marker is missing, the hook rejects the response and tells the agent to add the marker.
+This step creates a custom agent called `my_hooked_agent` with a Stop hook that checks whether the response ends with `=== RESPONSE COMPLETE ===`. If the marker is missing, the hook rejects the response and tells the agent to add the marker.
 
 ```bash
 AGENT_URL="https://your-agent--xxxxxxxx.yyyyyyyy.region.azuresre.ai"
@@ -94,7 +113,7 @@ curl -X PUT "${AGENT_URL}/api/v2/extendedAgent/agents/my_hooked_agent" \
 EOF
 ```
 
-You should get HTTP **202 Accepted** with the full agent config in the response body.
+You receive HTTP **202 Accepted** with the full agent config in the response body.
 
 The following example shows the same configuration in v2 YAML format for reference:
 
@@ -135,7 +154,7 @@ The Stop hook evaluates the agent's response before it returns to the user:
 
 Follow these steps to test the Stop hook:
 
-1. Go to your agent in the portal and select **Builder** > **Subagent builder**.
+1. Go to your agent in the portal and select **Builder** > **Agent Canvas**.
 1. Select the **Test playground** radio button.
 1. Select the **Subagent/Tool** dropdown, find **my_hooked_agent**, and select **Apply**.
 
@@ -285,8 +304,10 @@ Command hooks can also use exit codes instead of JSON:
 
 ## Verify
 
-After you configure and test the hooks, confirm the following:
+After you configure and test the hooks, confirm the following conditions:
 
+- You configure **custom-agent-level hooks** by using REST API v2. They apply only to that custom agent.
+- You create **agent-level hooks** in Builder > Hooks. They apply across the entire agent.
 - The stop hook causes the agent to add the `=== RESPONSE COMPLETE ===` marker before stopping.
 - The PostToolUse audit hook logs `[AUDIT]` messages for tool calls.
 - The policy hook blocks dangerous commands like `rm -rf` and `sudo`.
@@ -297,7 +318,7 @@ The following table lists common problems and solutions for agent hooks.
 
 | Problem | Solution |
 |---|---|
-| Hooks not visible in portal YAML tab | Expected behavior. The portal shows v1 only. Hooks are active; test them through the playground. |
+| Hooks not visible in portal YAML tab | Expected - the YAML tab shows v1 only. Custom agent-level hooks created through the API are active and visible in **Builder** > **Hooks** or the playground. |
 | `Unsupported kind: ExtendedAgent` | Use the v2 endpoint: `PUT /api/v2/extendedAgent/agents/{name}`. |
 | `Handoffs cannot be null` | Add `"handoffs": []` to the JSON payload. |
 | Hook has no effect | Include a `reason` field when rejecting. Without it, rejection is treated as approval. |
@@ -306,10 +327,11 @@ The following table lists common problems and solutions for agent hooks.
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Learn about agent hooks](./agent-hooks.md)
+> [Learn about agent hooks](./agent-hooks.md).
 
 ## Related content
 
 - [Agent hooks capability overview](agent-hooks.md)
+- [Create and manage hooks (portal)](create-manage-hooks-ui.md)
 - [Run modes](run-modes.md)
 - [Python code execution](python-code-execution.md)

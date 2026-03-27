@@ -3,7 +3,7 @@ title: Agent Hooks in Azure SRE Agent
 description: Intercept and control agent behavior with custom scripts or LLM-based validation that runs before or after specific agent actions.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 03/09/2026
+ms.date: 03/18/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -13,7 +13,7 @@ ms.custom: hooks, agent hooks, stop hook, post tool use, validation, audit, poli
 
 # Agent hooks in Azure SRE Agent
 
-Hooks are custom checkpoints that intercept and control agent behavior at key moments. Use hooks to enforce quality gates on agent responses, audit and control tool usage, block dangerous operations with policy enforcement, and prevent early task completion by validating agent output.
+Hooks are custom checkpoints that intercept and control agent behavior at key moments. Use hooks to enforce quality gates on agent responses, audit and control tool usage, block dangerous operations by enforcing policies, and prevent early task completion by validating agent output.
 
 <!-- > [!VIDEO https://www.youtube.com/embed/VIDEO_ID]
 >
@@ -44,7 +44,18 @@ Two hook events are currently supported:
 | Event | Triggers when | What you can do |
 |---|---|---|
 | **Stop** | Agent is about to return a final response | Validate completeness, reject and force the agent to continue |
-| **PostToolUse** | A tool finishes executing successfully | Audit usage, block results, inject additional context |
+| **PostToolUse** | A tool finishes executing successfully | Audit usage, block results, inject extra context |
+
+### Two levels of hooks
+
+Hooks operate at two levels:
+
+| Level | Where to configure | Scope |
+|-------|--------------------|-------|
+| **Agent level** | **Builder → Hooks** in the portal | Applies to the entire agent including all threads and all custom agents |
+| **Custom agent level** | **Agent Canvas → Custom agent → Manage Hooks**, or via the REST API v2 | Applies only when that specific custom agent runs |
+
+Both levels can coexist. If an agent-level hook and a custom-agent-level hook both match the same event, **both run**. The agent-level hooks fire first.
 
 ### Execution types
 
@@ -55,11 +66,11 @@ You can implement hooks by using either an LLM or a shell script:
 | **Prompt** | An LLM evaluates your prompt and returns a JSON decision | Nuanced validation ("Is this response complete?") |
 | **Command** | A bash or Python script runs in a sandboxed environment | Deterministic checks, policy enforcement, auditing |
 
-**Prompt hooks** are powerful for subjective evaluation, such as checking if a response addresses all user concerns or verifying that an investigation was thorough enough. They use the `$ARGUMENTS` placeholder to receive the full hook context. If `$ARGUMENTS` isn't present in the prompt, the context is appended automatically. Prompt hooks also receive `ReadFile` and `GrepSearch` tools when a conversation transcript is available, which lets the LLM reason about the full conversation history.
+**Prompt hooks** are powerful for subjective evaluation, such as checking if a response addresses all user concerns or verifying that an investigation was thorough enough. They use the `$ARGUMENTS` placeholder to receive the full hook context. If `$ARGUMENTS` isn't present in the prompt, the context is appended automatically. When a conversation transcript is available, prompt hooks also receive `ReadFile` and `GrepSearch` tools, which let the LLM reason about the full conversation history.
 
 **Command hooks** are better for deterministic checks, such as validating that a response contains required markers, blocking dangerous commands, or logging tool usage to an external system.
 
-## What makes this different
+## What makes this approach different
 
 The following table compares agent behavior with and without hooks.
 
@@ -83,21 +94,15 @@ Hooks don't replace run mode safety controls - they complement them. Run modes c
 
 ## Configure hooks
 
-Hooks require the **v2 YAML format** (`api_version: azuresre.ai/v2`, `kind: ExtendedAgent`). Define hooks under `spec.hooks` in the agent configuration.
+The easiest way to create hooks is through the portal UI:
 
-> [!WARNING]
-> The portal's Subagent builder YAML tab displays agent configuration in **v1 format only**. It doesn't show or support editing hooks. To configure hooks, use the **REST API v2** endpoint:
+1. **Agent-level hooks:** Go to **Builder** → **Hooks** → select **Create hook**.
+2. **Custom-agent-level hooks:** Go to **Agent Canvas** → select a custom agent → **Manage Hooks**.
+
+> [!TIP]
+> You can also configure hooks through **REST API v2** by using `PUT /api/v2/extendedAgent/agents/{agentName}`. The YAML format in the following section shows the full configuration schema. To learn more, see the [API tutorial](tutorial-agent-hooks.md).
 >
-> ```
-> PUT /api/v2/extendedAgent/agents/{agentName}
-> Content-Type: application/json
-> ```
->
-> Hooks configured through the API are active even though they don't appear in the portal YAML view. You can verify hooks are working by testing the agent in the portal's **Test playground**.
->
-> :::image type="content" source="media/agent-hooks/hooks-portal-v1-limitation.png" alt-text="Screenshot of the portal YAML tab showing v1 format without hooks." lightbox="media/agent-hooks/hooks-portal-v1-limitation.png":::
->
-> The portal YAML tab displays v1 format. Hooks aren't visible here but are active on the server.
+> The **Agent Canvas YAML** tab displays v1 format and doesn't show hooks. Use the **Hooks** page under **Builder** to view and manage hooks.
 
 The following example shows a complete hook configuration:
 
@@ -168,7 +173,7 @@ Command hooks can also use exit codes instead of JSON output:
 |---|---|
 | `0` with no output | Allow (no objection) |
 | `0` with JSON | Parse JSON for decision |
-| `2` | Always block — stderr becomes the reason |
+| `2` | Always block. stderr becomes the reason |
 | Other | Uses `failMode` setting (`allow` or `block`) |
 
 > [!CAUTION]
@@ -252,7 +257,7 @@ The following limits apply to agent hooks.
 
 ## Example: Audit all tool usage
 
-The following PostToolUse hook logs every tool call and injects an audit context message:
+The following PostToolUse hook logs every tool call and adds an audit context message:
 
 ```yaml
 hooks:
@@ -279,7 +284,7 @@ hooks:
         print(json.dumps(output))
 ```
 
-The `additionalContext` field is injected as a user message into the conversation, giving the agent visibility into the audit trail.
+The `additionalContext` field is added as a user message into the conversation, giving the agent visibility into the audit trail.
 
 ## Example: Require a completion marker
 
@@ -308,12 +313,12 @@ hooks:
 
 Follow these guidelines when you configure agent hooks:
 
-1. **Always provide a reason when rejecting** — Rejections without reasons are treated as approvals.
-1. **Use appropriate timeouts** — Long-running hooks slow down agent execution.
-1. **Handle errors gracefully** — Use `failMode: allow` unless strict enforcement is required.
-1. **Be specific with matchers** — Overly broad PostToolUse matchers can cause performance problems.
-1. **Test hooks thoroughly** — Hooks that always reject can cause loops (mitigated by `maxRejections`).
-1. **Log to stderr** — Use stderr for debugging output. Stdout is parsed as the hook result.
+1. **Always provide a reason when rejecting**.  Treat rejections without reasons as approvals.
+1. **Use appropriate timeouts**: Long-running hooks slow down agent execution.
+1. **Handle errors gracefully**: Use `failMode: allow` unless strict enforcement is required.
+1. **Be specific with matchers**: Overly broad PostToolUse matchers can cause performance problems.
+1. **Test hooks thoroughly**: Hooks that always reject can cause loops (mitigated by `maxRejections`).
+1. **Log to stderr**: Use stderr for debugging output. The system parses stdout as the hook result.
 
 ## Try it yourself
 
@@ -321,12 +326,15 @@ The following screenshot shows a Stop hook in action. The agent initially respon
 
 :::image type="content" source="media/agent-hooks/hooks-stop-hook-working.png" alt-text="Screenshot showing a Stop hook in action where the agent response is decorated with a completion marker after hook rejection." lightbox="media/agent-hooks/hooks-stop-hook-working.png":::
 
-## Next step
+## Get started
 
-> [!div class="nextstepaction"]
-> [Tutorial: Configure agent hooks](./tutorial-agent-hooks.md)
+| Resource | What you'll learn |
+|----------|-------------------|
+| [Configure agent hooks (API)](tutorial-agent-hooks.md) | Set up hooks by using REST API v2 and YAML |
 
 ## Related content
 
-- [Run modes](./run-modes.md)
-- [Python code execution](python-code-execution.md)
+| Capability | How it relates |
+|------------|----------------|
+| [Run modes](run-modes.md) | Hooks complement run mode safety controls. Modes control *what* runs, hooks control *how well* it runs. |
+| [Python tools](python-code-execution.md) | Create custom tools that hooks can audit and validate. |

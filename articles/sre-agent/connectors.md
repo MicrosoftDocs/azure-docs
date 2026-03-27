@@ -3,7 +3,7 @@ title: Connectors in Azure SRE Agent
 description: Extend your agent's capabilities to external data sources, collaboration tools, and custom APIs using connectors.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 03/09/2026
+ms.date: 03/18/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -33,12 +33,12 @@ Even with no connectors configured, your agent has built-in capabilities through
 |---|---|
 | **Application Insights** | Query application telemetry, traces, and exceptions |
 | **Log Analytics** | Query Log Analytics workspaces |
-| **Azure Monitor metrics** | List and query metrics, analyze trends and anomalies |
+| **Azure Monitor metrics** | List and query metrics, analyze trends, and anomalies |
 | **Azure Resource Graph** | Discover and query any Azure resource across subscriptions |
 | **Azure Resource Manager / Azure CLI** | Read and modify any Azure resource type |
 | **AKS diagnostics** | Run kubectl commands, diagnose Kubernetes issues |
 
-Azure Resource Graph and ARM operations work with any Azure resource type, including App Services, Container Apps, VMs, networking, storage, and more. If your logs and metrics live in Azure Monitor and Application Insights, your agent can start investigating problems immediately with no connector setup required. Connectors become valuable when you need the agent to reach systems *outside* Azure.
+Azure Resource Graph and Azure Resource Manager operations work with any Azure resource type, including App Services, Container Apps, VMs, networking, storage, and more. If your logs and metrics live in Azure Monitor and Application Insights, your agent can start investigating problems immediately with no connector setup required. Connectors become valuable when you need the agent to reach systems *outside* Azure.
 
 ## What connectors provide
 
@@ -51,7 +51,7 @@ Query logs, metrics, and telemetry stored outside Azure Monitor.
 | Connector | What it provides |
 |---|---|
 | **Database query (Azure Data Explorer)** | Run predefined KQL queries against your Kusto clusters |
-| **Database indexing (Azure Data Explorer)** | Auto-learn your Kusto schema so the agent can generate queries dynamically |
+| **Database indexing (Azure Data Explorer)** | Autolearn your Kusto schema so the agent can generate queries dynamically |
 
 ### Source code and knowledge
 
@@ -79,7 +79,7 @@ Let your agent communicate findings through the channels your team already uses.
 
 By using MCP (Model Context Protocol), you can connect your agent to any system: on-premises databases, cross-cloud applications, proprietary APIs, or third-party platforms like Datadog, Splunk, Grafana, or Jira.
 
-Browse available servers at [Azure MCP Center](https://mcp.azure.com). When adding MCP tools to subagents, you can add all tools from a server at once by using the [wildcard pattern](#add-all-tools-from-an-mcp-server-wildcard).
+Browse available servers at [Azure MCP Center](https://mcp.azure.com). When you add MCP tools to custom agents, use the [wildcard pattern](#add-all-tools-from-an-mcp-server-wildcard) to add all tools from a server at once.
 
 ## MCP connector health monitoring
 
@@ -95,7 +95,7 @@ Your agent continuously monitors the health of every MCP server connection. Each
 | **Initializing** | Connection is being established | Yellow indicator |
 | **Not Available** | No running agent instance is available; status can't be determined | Gray question mark |
 
-Go to **Builder > Connectors** to see all your connectors with their current status.
+Go to **Builder** > **Connectors** to see all your connectors with their current status.
 
 :::image type="content" source="media/connectors/connectors-status-indicators.png" alt-text="Screenshot of connectors list showing status indicators for each MCP server connection.":::
 
@@ -114,9 +114,9 @@ Your agent doesn't just report broken connections. It recovers from them when po
 >
 > If an MCP server goes offline, the connector stays visible in your portal with its error status. It doesn't silently disappear. You can see exactly what went wrong and fix the configuration without re-creating the connector.
 
-### When auto-recovery can't help
+### When autorecovery can't help
 
-The following table describes scenarios where automatic recovery might not resolve the issue.
+The following table describes scenarios where automatic recovery can't resolve the issue.
 
 | Situation | What happens | What to do |
 |---|---|---|
@@ -144,13 +144,13 @@ For connectors that use the agent's **managed identity** (like Azure Data Explor
 
 Once configured, all agent users benefit from connectors automatically. They just ask the agent questions and it uses the available connectors behind the scenes.
 
-## Connectors and subagents
+## Connectors and custom agents
 
-You can assign specific MCP tools to specialized subagents. A database troubleshooting subagent might get Kusto tools, while a deployment subagent gets GitHub access. This approach keeps each subagent focused and prevents overwhelming it with too many tools.
+You can assign specific MCP tools to specialized custom agents. A database troubleshooting custom agent might get Kusto tools, while a deployment custom agent gets GitHub access. This approach keeps each custom agent focused and prevents overwhelming it with too many tools.
 
 ### Add MCP tools individually
 
-In the portal, go to **Builder > Subagent builder**, create or edit a subagent, and select **Choose tools** under Advanced settings. The tool picker displays tools grouped by MCP connection. Select the ones your subagent needs.
+In the portal, go to **Builder** > **Custom agent builder**, create or edit a custom agent, and select **Choose tools** under Advanced settings. The tool picker displays tools grouped by MCP connection. Select the ones your custom agent needs.
 
 In YAML, list each tool by its full name:
 
@@ -165,7 +165,7 @@ mcp_tools:
 
 **Applies to**: version 26.2.9.0 and later
 
-When an MCP server exposes many tools and your subagent needs all of them, use the wildcard pattern instead of listing each tool individually:
+When an MCP server exposes many tools and your custom agent needs all of them, use the wildcard pattern instead of listing each tool individually:
 
 ```yaml
 mcp_tools:
@@ -191,17 +191,17 @@ The following table compares individual tool selection and the wildcard approach
 
 | Approach | When to use |
 |---|---|
-| **Individual tools** | You want precise control over which tools a subagent can access |
+| **Individual tools** | You want precise control over which tools a custom agent can access |
 | **Wildcard (`connection-id/*`)** | You trust the MCP server and want all its tools, including any added later |
 | **Mixed** | You want all tools from one server, plus specific tools from another |
 
-**Why use the wildcard?** When an MCP server adds new tools, the wildcard picks them up automatically without reconfiguring your subagent. Individual tool selection gives you precise control. The wildcard gives you automatic coverage.
+**Why use the wildcard?** When an MCP server adds new tools, the wildcard picks them up automatically without reconfiguring your custom agent. Individual tool selection gives you precise control. The wildcard gives you automatic coverage.
 
 ### When MCP tools aren't ready yet
 
-If an MCP server isn't ready when your agent starts, the agent can't access tools from that server. Your agent handles this condition gracefully. The agent defers subagents with unresolved wildcards or missing tools and automatically loads them once the agent establishes the MCP connection. You don't need to take any manual action.
+If an MCP server isn't ready when your agent starts, your agent can't access tools from that server. Your agent handles this condition gracefully. It defers custom agents with unresolved wildcards or missing tools and automatically loads them once your agent establishes the MCP connection. You don't need to take any manual action.
 
-For more information, see [Subagents](sub-agents.md).
+For more information, see [Custom Agents](sub-agents.md).
 
 ## Next step
 
@@ -211,6 +211,6 @@ For more information, see [Subagents](sub-agents.md).
 ## Related content
 
 - [Incident platforms](incident-platforms.md): Learn how your agent receives and responds to incidents automatically.
-- [Connect source code](./connect-source-code.md): Set up GitHub or Azure DevOps connectors.
-- [Subagents](sub-agents.md): Create specialized agents with focused connector access.
+- [Connect source code](connect-source-code.md): Set up GitHub or Azure DevOps connectors.
+- [Custom Agents](sub-agents.md): Create specialized agents with focused connector access.
 - [Permissions](permissions.md): Configure Azure resource access for your agent.
