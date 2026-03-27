@@ -65,7 +65,7 @@ The [MQTT broker cardinality settings](../manage-mqtt-broker/howto-configure-ava
 
 - **Frontend replicas**: Set to at least **1**.
 - **Frontend workers**: Set equal to the **number of CPU cores** on the node.
-- **backendRedundancyFactor**: Set to at least **2** so the broker can perform rolling updates.
+- **Backend replicas (redundancy factor)**: Set to at least **2** so the broker can perform rolling updates.
 
 *Example—single node with four CPU cores:*
 

@@ -47,11 +47,10 @@ The following table shows peak RSS memory by namespace across all three configur
 | **azure-secret-store** | 87 | 88 | 87 | Secret sync controller |
 | **Total** | **~5,409** | **~5,695** | **~6,564** | |
 
-Key observations:
-
-- **Azure Arc, cert-manager, gatekeeper, and other infrastructure namespaces consume ~3.8–4.1 GB regardless of broker configuration.** This overhead is the fixed cost of running an Arc-enabled cluster with Azure IoT Operations.
-- **Only the `azure-iot-operations` namespace scales with the memory profile and cardinality choices**, from ~1.3 GB (Tiny, minimal cardinality) to ~2.4 GB (Medium, higher cardinality).
-- Plan for at least **6 GB of memory** dedicated to Azure IoT Operations infrastructure at idle before accounting for any workloads.
+> **Note**:
+> - **Azure Arc, cert-manager, gatekeeper, and other infrastructure namespaces consume ~3.8–4.1 GB regardless of broker configuration.** This overhead is the fixed cost of running an Arc-enabled cluster with Azure IoT Operations.
+> - **Only the `azure-iot-operations` namespace scales with the memory profile and cardinality choices**, from ~1.3 GB (Tiny, minimal cardinality) to ~2.4 GB (Medium, higher cardinality).
+> - Plan for at least **6 GB of memory** dedicated to Azure IoT Operations infrastructure at idle before accounting for any workloads.
 
 ---
 
