@@ -6,7 +6,7 @@ author: jegeib
 ms.service: azure-information-protection
 ms.subservice: azure-information-protection-policy
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/26/2026
 ms.author: jegeib
 ms.custom: devx-track-csharp
 ---
@@ -483,7 +483,7 @@ await deviceClient.SendEventAsync(message);
     ```javascript
     var clientFromConnectionString = require('azure-iot-device-amqp').clientFromConnectionString;
     var Message = require('azure-iot-device').Message;
-    var connectionString = 'HostName=<HostName>DeviceId=<DeviceId>SharedAccessKey=<SharedAccessKey>';
+    var connectionString = 'HostName=<host-name>DeviceId=<device-id>SharedAccessKey=<shared-access-key>';
     var client = clientFromConnectionString(connectionString);
     ```
   #### SAS Token
@@ -492,7 +492,7 @@ await deviceClient.SendEventAsync(message);
 * Create a sas token :
     ```javascript
     resourceUri = encodeURIComponent(resourceUri.toLowerCase()).toLowerCase();
-    var deviceName = "<deviceName >";
+    var deviceName = "<device-name>";
     var expires = (Date.now() / 1000) + expiresInMins * 60;
     var toSign = resourceUri + '\n' + expires;
     // using crypto
@@ -515,13 +515,13 @@ await deviceClient.SendEventAsync(message);
 * Generate a self signed X509 certificate using any tool such as OpenSSL to generate a .cert and .key files to store the certificate and the key respectively
 * Provision a device that accepts secured connection using certificates.
     ```javascript
-    var connectionString = '<connectionString>';
+    var connectionString = '<connection-string>';
     var registry = iothub.Registry.fromConnectionString(connectionString);
-    var deviceJSON = {deviceId:"<deviceId>",
+    var deviceJSON = {deviceId:"<device-id>",
     authentication: {
         x509Thumbprint: {
-        primaryThumbprint: "<PrimaryThumbprint>",
-        secondaryThumbprint: "<SecondaryThumbprint>"
+        primaryThumbprint: "<primary-thumbprint>",
+        secondaryThumbprint: "<secondary-thumbprint>"
         }
     }}
     var device = deviceJSON;
@@ -531,7 +531,7 @@ await deviceClient.SendEventAsync(message);
     ```javascript
     var Protocol = require('azure-iot-device-http').Http;
     var Client = require('azure-iot-device').Client;
-    var connectionString = 'HostName=<HostName>DeviceId=<DeviceId>x509=true';
+    var connectionString = 'HostName=<host-name>DeviceId=<device-id>x509=true';
     var client = Client.fromConnectionString(connectionString, Protocol);
     var options = {
         key: fs.readFileSync('./key.pem', 'utf8'),

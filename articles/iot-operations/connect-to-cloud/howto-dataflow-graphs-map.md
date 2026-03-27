@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 03/19/2026
+ms.date: 03/26/2026
 ai-usage: ai-assisted
 
 ---
@@ -236,7 +236,7 @@ When the output should closely match the input with only a few changes, use a wi
 
 # [Operations experience](#tab/portal)
 
-Add a passthrough rule that copies all fields. In the Operations experience, this is typically the default behavior when you add a map transform.
+Add a passthrough rule that copies all fields. Set the input to `*` and the output to `*`.
 
 # [Bicep](#tab/bicep)
 
@@ -460,6 +460,48 @@ This rule uses the current value when present, falls back to the last known valu
 ## Enrich with external data
 
 You can augment messages with data from an external state store by configuring datasets. For example, look up a device's metadata by its ID and include it in the output. For details, see [Enrich with external data](howto-dataflow-graphs-enrich.md).
+
+## Data flow graph exclusive features
+
+Data flow graphs support several features that aren't available in data flow `builtInTransformation` mappings.
+
+### Default values for missing fields
+
+Use the `?? <default>` syntax on an input to provide a static fallback when a field is missing. This is simpler than writing an `if` expression to check for empty values.
+
+# [Operations experience](#tab/portal)
+
+In the map transform configuration, set the input to include the `??` syntax followed by the default value. For example, enter `temperature ?? 0` as the input field to use `0` when the temperature field is missing.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  inputs: [ 'temperature ?? 0' ]
+  output: 'temperature'
+}
+```
+
+# [Kubernetes (preview)](#tab/kubernetes)
+
+```yaml
+- inputs:
+    - temperature ?? 0
+  output: temperature
+```
+
+---
+
+For details on supported default types and combining defaults with last known values, see [Default values](concept-dataflow-graphs-expressions.md#default-values) in the expressions reference.
+
+### Regex functions
+
+Data flow graphs support regular expression matching and replacement:
+
+- `str::regex_matches(string, pattern)`: Returns true if the string matches the regex pattern.
+- `str::regex_replace(string, pattern, replacement)`: Replaces all regex matches with the replacement string.
+
+These functions are useful in filter expressions or for cleaning and transforming string data. For the full list of string functions, see [String functions](concept-dataflow-graphs-expressions.md#string-functions) in the expressions reference.
 
 ## Full configuration example
 

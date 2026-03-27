@@ -32,9 +32,6 @@ Before you start, make sure you complete the following steps:
 1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 1. Deploy the TollApp event generator to Azure. Use this link to [Deploy TollApp Azure Template](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json). Set the `interval` parameter to 1. Use a new resource group for this step.
 1. Create an [Azure Synapse Analytics workspace](../synapse-analytics/get-started-create-workspace.md) with a [Dedicated SQL pool](../synapse-analytics/get-started-analyze-sql-pool.md#create-a-dedicated-sql-pool).
-    > [!NOTE]
-    > If you want to build the real-time Power BI dashboard directly without capturing the data into a database, you can skip steps 3 and 4. Then, go to this guide to [<u>build real-time dashboard with Power BI dataset produced by Stream Analytics job</u>](./no-code-build-power-bi-dashboard.md).
-
 1. [Create a table](../synapse-analytics/sql/get-started-visual-studio.md) named `carsummary` by using your Dedicated SQL pool. Run the following SQL script:
     ```SQL
     CREATE TABLE carsummary   

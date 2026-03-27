@@ -8,14 +8,14 @@ ms.service: azure-migrate
 ms.date: 09/09/2024
 ms.reviewer: v-uhabiba
 ms.custom: engagement-fy25
-# Customer intent: As a cloud migration planner, I want to utilize dependency analysis for my on-premises servers, so that I can accurately group and assess them for migration to ensure smooth application functionality and avoid potential outages post-migration.
+# Customer intent: As a cloud migration planner, I want to utilize dependency analysis for my on-premises or Azure VMware Solution servers, so that I can accurately group and assess them for migration to ensure smooth application functionality and avoid potential outages post-migration.
 ---
 
 # Dependency analysis
 
 This article describes dependency analysis in Azure Migrate: Discovery and assessment.
 
-Dependency analysis identifies dependencies between discovered on-premises servers. It provides these advantages:
+Dependency analysis identifies dependencies between discovered on-premises or Azure VMware Solution servers. It provides these advantages:
 
 - You can gather servers into groups for assessment, more accurately, with greater confidence.
 - You can identify servers that must be migrated together. This is especially useful if you're not sure which servers are part of an app deployment that you want to migrate to Azure.
@@ -30,7 +30,7 @@ There are two options for deploying dependency analysis
 **Option** | **Details** | **Public cloud** | **Azure Government**
 ----  |---- | ---- |----
 **Agentless** | Generally available for VMware VMs, Hyper-V VMs, bare-metal servers, and servers running on other public clouds like AWS, GCP etc. | Supported | Supported
-**Agent-based analysis** | Uses the [Service Map solution](/previous-versions/azure/azure-monitor/vm/service-map) in Azure Monitor, to enable dependency visualization and analysis.<br/><br/> You need to install agents on each on-premises server that you want to analyze. | Supported | Not supported.
+**Agent-based analysis** | Uses the [Service Map solution](/previous-versions/azure/azure-monitor/vm/service-map) in Azure Monitor, to enable dependency visualization and analysis.<br/><br/> You need to install agents on each source (on-premises or Azure VMware Solution) server that you want to analyze. | Supported | Not supported.
 
 ## Agentless analysis
 
@@ -69,7 +69,7 @@ The differences between agentless visualization and agent-based visualization ar
 **Requirement** | **Agentless** | **Agent-based**
 --- | --- | ---
 **Support** | Generally Available for VMware VMs, Hyper-V VMs, Physical servers, or servers running on other public clouds like AWS and GCP. | In general availability (GA).
-**Agent** | No agents needed on servers you want to analyze. | Agents required on each on-premises server that you want to analyze.
+**Agent** | No agents needed on servers you want to analyze. | Agents required on each source (on-premises or Azure VMware Solution) server that you want to analyze.
 **Log Analytics** | Not required. | Azure Migrate uses the [Service Map](/previous-versions/azure/azure-monitor/vm/service-map) solution in [Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview) for dependency analysis.<br/><br/> You associate a Log Analytics workspace with a project. The workspace must reside in the East US, Southeast Asia, or West Europe regions. The workspace must be in a region in which [Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.
 **Process** | Captures TCP connection data. After discovery, it gathers data at intervals of five minutes. | Service Map agents installed on a server gather data about TCP processes, and inbound/outbound connections for each process.
 **Data** | Source server name, process, application name.<br/><br/> Destination server name, process, application name, and port. | Source server name, process, application name.<br/><br/> Destination server name, process, application name, and port.<br/><br/> Number of connections, latency, and data transfer information are gathered and available for Log Analytics queries. 
