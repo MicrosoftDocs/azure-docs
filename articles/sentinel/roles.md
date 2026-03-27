@@ -2,7 +2,7 @@
 title: Roles and permissions in the Microsoft Sentinel platform
 description: Learn how Microsoft Sentinel assigns permissions to users using both Azure and Microsoft Entra ID role-based access control, and identify the allowed actions for each role.
 author: mberdugo
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 06/19/2025
 ms.author: monaberdugo
 ms.collection: usx-security

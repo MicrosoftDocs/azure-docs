@@ -4,7 +4,7 @@ description: Learn about Azure Web PubSub Service internals, the architecture, t
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/21/2024
 ---
 

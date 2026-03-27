@@ -5,7 +5,7 @@ description: Learn how to copy data from Google BigQuery V1 to supported sink da
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/01/2025
 ms.custom:
   - synapse

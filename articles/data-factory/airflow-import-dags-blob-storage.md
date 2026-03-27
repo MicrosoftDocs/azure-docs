@@ -2,7 +2,7 @@
 title: Import DAGs by using Azure Blob Storage
 titleSuffix: Azure Data Factory
 description: This article shows the steps required to import DAGs by using Azure Blob Storage.
-ms.topic: conceptual
+ms.topic: how-to
 author: nabhishek
 ms.author: abnarain
 ms.date: 02/13/2025

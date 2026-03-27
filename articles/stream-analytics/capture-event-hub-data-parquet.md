@@ -1,11 +1,12 @@
 ---
-title: Event Hubs to Azure Data Lake in Parquet format
+title: Event Hubs Data Capture to Azure Data Lake Parquet
 description: Learn how to use the node code editor to automatically capture the streaming data in Event Hubs in an Azure Data Lake Storage Gen2 account in Parquet format.
 author: xujxu
 ms.author: xujiang1
+ms.reviewer: spelluru
 ms.service: azure-stream-analytics
 ms.topic: how-to
-ms.date: 01/23/2025
+ms.date: 03/26/2026
 ms.custom:
   - mvc
   - sfi-image-nochange
@@ -20,7 +21,7 @@ This article explains how to use the no code editor to automatically capture str
 
     If you don't have an event hub, create one by following instructions from [Quickstart: Create an event hub](../event-hubs/event-hubs-create.md). 
 
-    If you don't have a Data Lake Storage Gen2 account, create one by following instructions from [Create a storage account](../storage/blobs/create-data-lake-storage-account.md)
+    If you don't have a Data Lake Storage Gen2 account, create one by following instructions from [Create a storage account](../storage/blobs/create-data-lake-storage-account.md).
 - The data in your Event Hubs instance (event hub) must be serialized in either JSON, CSV, or Avro format. On the **Event Hubs Instance** page for your event hub, follow these steps:  
     1. On the left menu, select **Data Explorer**. 
     1. In the middle pane, select **Send events**. 
@@ -33,8 +34,8 @@ This article explains how to use the no code editor to automatically capture str
 
 Use the following steps to configure a Stream Analytics job to capture data in Azure Data Lake Storage Gen2.
 
-1. In the Azure portal, navigate to your event hub. 
-1. On the left menu, select **Process Data** under **Features**. Then, select **Start** on the **Capture data to ADLS Gen2 in Parquet format** card.  
+1. In the Azure portal, go to your event hub. 
+1. On the left menu, under **Features**, select **Process Data**. Then, select **Start** on the **Capture data to ADLS Gen2 in Parquet format** card.  
 
     :::image type="content" source="./media/capture-event-hub-data-parquet/process-event-hub-data-cards.png" alt-text="Screenshot showing the Process Event Hubs data start cards." lightbox="./media/capture-event-hub-data-parquet/process-event-hub-data-cards.png" :::
 1. Enter a **name** for your Stream Analytics job, and then select **Create**.  
@@ -51,25 +52,26 @@ Use the following steps to configure a Stream Analytics job to capture data in A
 1. Select the **Azure Data Lake Storage Gen2** tile to edit the configuration. 
 1. On the **Azure Data Lake Storage Gen2** configuration page, follow these steps:     
     1. Select the subscription, storage account name, and container from the drop-down menu. 
-    1. Once the subscription is selected, the authentication method and storage account key should be automatically filled in.  
+    1. After you select the subscription, the authentication method and storage account key are automatically filled in.  
     1. Select **Parquet** for **Serialization** format. 
     
         :::image type="content" source="./media/capture-event-hub-data-parquet/job-top-settings.png" alt-text="Screenshot showing the Data Lake Storage Gen2 configuration page." lightbox="./media/capture-event-hub-data-parquet/job-top-settings.png":::
-    1. For streaming blobs, the directory path pattern is expected to be a dynamic value. It's required for the date to be a part of the file path for the blob – referenced as `{date}`. To learn about custom path patterns, see to [Azure Stream Analytics custom blob output partitioning](stream-analytics-custom-path-patterns-blob-storage-output.md).  
+    1. For streaming blobs, the directory path pattern is a dynamic value. The date must be part of the file path for the blob – referenced as `{date}`. To learn about custom path patterns, see [Azure Stream Analytics custom blob output partitioning](stream-analytics-custom-path-patterns-blob-storage-output.md).  
     
         :::image type="content" source="./media/capture-event-hub-data-parquet/blob-configuration.png" alt-text="First screenshot showing the Blob window where you edit a blob's connection configuration." lightbox="./media/capture-event-hub-data-parquet/blob-configuration.png" :::  
     1. Select **Connect**
 1. When the connection is established, you see fields that are present in the output data.
 1. Select **Save** on the command bar to save your configuration.
 
-    :::image type="content" source="./media/capture-event-hub-data-parquet/save-configuration.png" alt-text="Screenshot showing the Save button selected on the command bar." :::
-1. Select **Start** on the command bar to start the streaming flow to capture data. Then in the Start Stream Analytics job window:
+    :::image type="content" source="./media/capture-event-hub-data-parquet/save-configuration.png" alt-text="Screenshot showing the Save button on the command bar." :::
+1. Select **Start** on the command bar to start the streaming flow to capture data. Then in the **Start Stream Analytics job** window:
     1. Choose the output start time.
     1. Select the pricing plan.
     1. Select the number of Streaming Units (SU) that the job runs with. SU represents the computing resources that are allocated to execute a Stream Analytics job. For more information, see [Streaming Units in Azure Stream Analytics](stream-analytics-streaming-unit-consumption.md).
     
         :::image type="content" source="./media/capture-event-hub-data-parquet/start-job.png" alt-text="Screenshot showing the Start Stream Analytics job window where you set the output start time, streaming units, and error handling." lightbox="./media/capture-event-hub-data-parquet/start-job.png" :::
-1. You should see the Stream Analytic job in the **Stream Analytics job** tab of the **Process data** page for your event hub. 
+1. Select **X** at the top-right corner to close the **Stream Analytics job** window.
+1. You see the Stream Analytic job in the **Stream Analytics job** tab of the **Process data** page for your event hub. 
 
     :::image type="content" source="./media/capture-event-hub-data-parquet/process-data-page-jobs.png" alt-text="Screenshot showing the Stream Analytics job on the Process data page." lightbox="./media/capture-event-hub-data-parquet/process-data-page-jobs.png" :::
     
@@ -84,7 +86,7 @@ Use the following steps to configure a Stream Analytics job to capture data in A
 1. Verify that the Parquet files are generated in the Azure Data Lake Storage container. 
 
     :::image type="content" source="./media/capture-event-hub-data-parquet/verify-captured-data.png" alt-text="Screenshot showing the generated Parquet files in the Azure Data Lake Storage container." lightbox="./media/capture-event-hub-data-parquet/verify-captured-data.png" :::
-1. Back on the Event Hubs instance page, select **Process data** on the left menu. Switch to the **Stream Analytics jobs** tab. Select **Open metrics** to monitor it. Add **Input metrics** to the chart using the **Add metric** on the toolbar. If you don't see the metrics in the chart, wait for a few minutes, and refresh the page. 
+1. Now, on the Event Hubs instance page, select **Process data** in the left menu. Switch to the **Stream Analytics jobs** tab. Select **Open metrics** to monitor it. Add **Input metrics** to the chart using the **Add metric** on the toolbar. If you don't see the metrics in the chart, wait for a few minutes, and refresh the page. 
 
     :::image type="content" source="./media/capture-event-hub-data-parquet/open-metrics-link.png" alt-text="Screenshot showing Open Metrics link selected." lightbox="./media/capture-event-hub-data-parquet/open-metrics-link.png" :::
     

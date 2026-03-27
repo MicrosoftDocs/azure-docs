@@ -5,7 +5,7 @@ author: mariyaali
 ms.author: mariyaali
 
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/28/2021
 ms.custom: template-concept
 ---

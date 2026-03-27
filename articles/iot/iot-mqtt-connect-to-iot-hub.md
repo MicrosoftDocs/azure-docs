@@ -5,7 +5,7 @@ description: Guidance on using the MQTT protocol to connect a device to IoT Hub.
 author: dominicbetts
 ms.service: azure-iot
 services: iot
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2025
 ms.author: dobett
 ms.custom:

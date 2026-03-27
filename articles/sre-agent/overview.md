@@ -3,15 +3,18 @@ title: Overview of Azure SRE Agent
 description: Learn how AI-enabled agents help solve problems and support resilient and self-healing systems on your behalf.
 author: craigshoemaker
 ms.topic: overview
-ms.date: 12/08/2025
+ms.date: 03/18/2026
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
 
 # Overview of Azure SRE Agent
+
 Azure SRE Agent automates operational work and reduces toil, so developers and operators can focus on high-value tasks.
 
-Typical operational tasks often include managing multiple Azure resources along with on-premises and SaaS systems. These tasks are often repetitive or require orchestrating together multiple tools to provide the insights you need. SRE Agent gives you an AI-driven platform to connect systems together and automate the workflow end-to-end.
+Typical operational tasks often include managing multiple Azure resources along with on-premises and SaaS systems. These tasks are often repetitive or require orchestrating together multiple tools to provide the insights you need. SRE Agent gives you an AI-driven platform to connect observability tools, incident platforms, and source code repositories, and automate the workflow end-to-end.
+
+What makes it different: SRE Agent continuously builds expertise on your environment. It remembers every investigation, learns your team's patterns, and runs background analysis even when nobody is asking questions. The agent gets smarter with every interaction.
 
 ## What is SRE Agent?
 
@@ -31,7 +34,7 @@ SRE Agent can manage all Azure services through the Azure CLI and REST APIs. Thi
 
 - **Monitoring and management**: Azure Monitor, Log Analytics, Application Insights, and Resource Manager
 
-You can automate any operation you perform with the Azure CLI through SRE Agent by using custom runbooks and [subagents](sub-agents.md).
+You can automate any operation you perform by using the Azure CLI through SRE Agent by using custom runbooks and [subagents](sub-agents.md).
 
 ## Primary use cases
 
@@ -61,6 +64,12 @@ The agent operates through multiple automation mechanisms, including:
 
 This extensibility ensures that SRE Agent can adapt to your environment and operational requirements across your entire Azure infrastructure.
 
+## Knowledge that never leaves
+
+Every investigation teaches your agent something new. It captures root causes, resolution steps, team preferences, and operational patterns that build institutional knowledge that persists across conversations and never leaves. New team members ramp up faster, on-call quality stays consistent regardless of who's paged, and your team's collective expertise grows automatically.
+
+> **Example:** New engineer joins on-call → Agent already knows deployment patterns, past incidents, and team procedures which remain consistent quality from day one.
+
 ## Integrations
 
 Azure SRE Agent integrates with your operational ecosystem in the following ways:
@@ -86,7 +95,7 @@ Azure SRE Agent integrates with your operational ecosystem in the following ways
   
 ## Get started
 
-Get started working with Azure SRE Agent by scheduling a task, handling an incident, or building a subagent.
+Get started working with Azure SRE Agent by scheduling a task, handling an incident, or building a custom agent.
 
 # [Schedule a task](#tab/task)
 
@@ -112,36 +121,48 @@ Create a scheduled task to run on a schedule you define.
 
     - Ticketing systems: Azure Boards.
 
-    - Source code repositories: Connect to GitHub or Azure DevOps.  
+    - Source code repositories: Connect to GitHub or Azure DevOps repos.  
 
-1. Send a test incident to validate enrichment, RCA, and automation flow.
+1. Send a test incident to validate enrichment, root cause analysis, and automation flow.
 
-1. Review incident context, RCA timeline, and proposed mitigations.
+1. Review incident context, root cause analysis timeline, and proposed mitigations.
 
-# [Build a Subagent](#tab/subagent)
+# [Build a custom agent](#tab/subagent)
 
 Build [custom operational subagents](sub-agents.md), tools, and integrations by using a visual no-code interface. You can extend the agent's capabilities with specialized subagents for different operational domains.
 
-- Create purpose-built subagents for specific operational areas (virtual machines, databases, networking, security)
+- Create purpose-built subagents for specific operational areas such as virtual machines, databases, networking, and security.
 
-- Connect your observability tools and knowledge sources through Model Context Protocol (MCP) servers
+- Connect your observability tools and knowledge sources through Model Context Protocol (MCP) servers.
 
-- Build custom tools that execute Azure CLI commands, query Kusto, or integrate with internal and external systems through MCP servers
+- Browse and install community-built skills from the Plugin Marketplace with a single select.
 
-- Define agent handoff workflows for complex multi-domain incidents
+- Build custom tools that execute Azure CLI commands, query Kusto, or integrate with internal and external systems through MCP servers.
 
-- Test your subagent's performance by using the playground feature inside agent builder
+- Define agent handoff workflows for complex multi-domain incidents.
 
-- Refine the subagent workflow until your operational needs are met
+- Test your subagent's performance by using the playground feature inside agent builder.
+
+- Refine the subagent workflow until your operational needs are met.
 
 ---
+
+## Your agent grows with your team
+
+SRE Agent delivers progressive value over time as it learns your environment, your team's patterns, and your operational history.
+
+| Milestone | What happens |
+|-----------|-------------|
+| **Day 1** | Connect your tools, triage your first incident, and get immediate diagnostic value from built-in Azure knowledge. |
+| **Week 1** | The agent learns your environment topology, common failure patterns, and team escalation preferences. Investigations get faster and more accurate. |
+| **Month 1** | Institutional knowledge compounds. The agent proactively identifies risks, suggests preventive actions, and ramps new team members from their first on-call shift. |
 
 ## Considerations
 
 Keep the following considerations in mind as you use Azure SRE Agent:
 
 - English is the only supported language in the chat interface.
-- For more information on how data is managed in Azure SRE Agent, see the [Microsoft privacy policy](https://www.microsoft.com/privacy/privacystatement).
+- For more information about how Azure SRE Agent manages data, see the [Microsoft privacy policy](https://www.microsoft.com/privacy/privacystatement).
 - Availability varies by region and tenant configuration.  
 
 When you create an agent, the following resources are also automatically created for you:
@@ -152,5 +173,9 @@ When you create an agent, the following resources are also automatically created
 
 ## Next step
 
-> [!div class="nextstepaction"]
-> [Use an agent](./usage.md)
+Create and set up your first agent.
+
+| Resource | Description |
+|----------|-------------|
+| [Get started](create-agent.md) | Create an agent and connect it to your Azure resources. |
+| [Memory and knowledge](memory.md) | Learn how your agent remembers past investigations and builds institutional knowledge. |

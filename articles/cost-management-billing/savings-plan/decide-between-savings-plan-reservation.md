@@ -7,8 +7,8 @@ ms.author: onwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
-ms.topic: conceptual
-ms.date: 01/08/2026
+ms.topic: concept-article
+ms.date: 03/14/2026
 ---
 
 # Decide between a savings plan and a reservation
@@ -17,7 +17,7 @@ Azure provides you with two ways to save on your usage by committing for one or 
 
 ## Compare reservations with savings plans
 
-When you opt for reservations, you're making a commitment to use a specific type of compute instance or instance family, in a specific Azure region, for a set period of time. For example, you might commit to using a D2v4 virtual machine in the Japan East region for one year. An savings plan involves committing to a specific hourly expenditure on eligible compute services across all Azure regions for a certain period. For instance, you might commit to spending $5.00 per hour for three years. Reservations only apply to the specified compute service and region combination. Savings plan benefits are applicable to all usage from participating compute services across the globe, up to the hourly commitment.
+When you opt for reservations, you're making a commitment to use a specific type of compute instance or instance family, in a specific Azure region, for a set period of time. For example, you might commit to using a D2v4 virtual machine in the Japan East region for one year. A savings plan involves committing to a specific hourly expenditure on eligible compute services across all Azure regions for a certain period. For instance, you might commit to spending $5.00 per hour for three years. Reservations only apply to the specified compute service and region combination. Savings plan benefits are applicable to all usage from participating compute services across the globe, up to the hourly commitment.
 
 ### Choose a reservation
 

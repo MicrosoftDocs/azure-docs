@@ -7,7 +7,7 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2023
   - ignite-2024
-ms.date: 06/18/2025
+ms.date: 03/20/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to manage backups for Azure Kubernetes Service clusters using Azure Backup, so that I can ensure data protection and recovery for my applications and services."
@@ -127,7 +127,7 @@ To ensure successful backup and restore operations, manually update the resource
 
 1. Open the AKS cluster in the Azure portal.
 
-    ![Screenshot shows AKS cluster in Azure portal.](./media/azure-kubernetes-service-cluster-manage-backups/aks-cluster.png)
+    :::image type="content" source="./media/azure-kubernetes-service-cluster-manage-backups/aks-cluster.png" alt-text="Screenshot shows AKS cluster in Azure portal." lightbox="./media/azure-kubernetes-service-cluster-manage-backups/aks-cluster.png":::
 
 1. Navigate to Extensions + Applications under Settings in the left-hand pane.
 
@@ -156,9 +156,9 @@ Once changes are applied, either wait for a scheduled backup to run or initiate 
 
 The Azure Backup service creates a job for scheduled backups or if you trigger on-demand backup operation for tracking. To view the backup job status:
 
-1. Go to the **Azure Business Continuity Center** and select **Protected Items** under **Protection Inventory**.
+1. Go to the **Resiliency** and select **Protected Items** under **Protection Inventory**.
 
-   The **Protected Items** blade shows all the backup instances created across the subscriptions. Use the filters to access the backup instance you would like to take a look at. Select on the protected item and open it.
+   The **Protected Items** pane shows all the backup instances created across the subscriptions. Use the filters to access the backup instance you would like to take a look at. Select on the protected item and open it.
 
    :::image type="content" source="./media/backup-managed-disks/jobs-dashboard.png" alt-text="Screenshot shows the jobs dashboard." lightbox="./media/backup-managed-disks/jobs-dashboard.png":::
 
@@ -176,21 +176,23 @@ The Azure Backup service creates a job for scheduled backups or if you trigger o
 
 After you trigger the restore operation, the backup service creates a job for tracking. Azure Backup displays notifications about the job in the portal. To view the restore job progress:
 
-1. Go to the **Azure Business Continuity Center** and select **Protected Items** under **Protection Inventory**.
+1. Go to the **Resiliency** and select **Protected Items** under **Protection Inventory**.
 
-   The **Protected Items** blade shows all the backup instances created across the subscriptions. Use the filters to access the backup instance you would like to take a look at. Select on the protected item and open it.
+   The **Protected Items** pane shows all the backup instances created across the subscriptions. Use the filters to access the backup instance you would like to take a look at. Select on the protected item and open it.
 
-   :::image type="content" source="./media/backup-managed-disks/jobs-dashboard.png" alt-text="Screenshot shows the jobs dashboard." lightbox="./media/backup-managed-disks/jobs-dashboard.png":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-manage-backups/protected-items-dashboard.png" alt-text="Screenshot that shows the Protected items dashboard." lightbox="./media/azure-kubernetes-service-cluster-manage-backups/protected-items-dashboard.png":::
 
 1. Now select on the **Associated Items** to open up the dashboard for the backup instance. Here you can see the backup jobs for the last seven days. 
 
 1. To view the status of the restore operation, select **View all** to show ongoing and past jobs of this backup instance.
 
-    ![Screenshot shows how to select View all.](./media/restore-managed-disks/view-all.png)
+1. On the **Backup jobs** pane, review the list of backup and restore jobs and their status. Select a restore job from the list of jobs to view job details.
 
-1. Review the list of backup and restore jobs and their status. Select a job from the list of jobs to view job details.
+    :::image type="content" source="./media/azure-kubernetes-service-cluster-manage-backups/view-all-jobs.png" alt-text="Screenshot that shows the list of backup jobs." lightbox="./media/azure-kubernetes-service-cluster-manage-backups/view-all-jobs.png":::
 
-    ![Screenshot shows the list of jobs.](./media/restore-managed-disks/list-of-jobs.png)
+1. On the **Restore** pane, review the selected restore job details.
+
+    :::image type="content" source="./media/azure-kubernetes-service-cluster-manage-backups/restore-job-details.png" alt-text="Screenshot that shows the restore job details." lightbox="./media/azure-kubernetes-service-cluster-manage-backups/restore-job-details.png":::
 
 
 ### Monitor backup and restore jobs with the completed with warnings status
@@ -270,9 +272,9 @@ AKS Backup now allows you to modify the configuration of an existing backup inst
 
 #### Stop Protection and Retain Data
 
-1. Go to the **Azure Business Continuity Center** and select **Protected Items** under **Protection Inventory**.
+1. Go to the **Resiliency** and select **Protected Items** under **Protection Inventory**.
 
-   The **Protected Items** blade shows all the backup instances created across the subscriptions. Use the filters to access the backup instance you would like to take a look at. Select on the protected item and open it.
+   The **Protected Items** pane shows all the backup instances created across the subscriptions. Use the filters to access the backup instance you would like to take a look at. Select on the protected item and open it.
 
    :::image type="content" source="./media/backup-managed-disks/jobs-dashboard.png" alt-text="Screenshot shows the jobs dashboard." lightbox="./media/backup-managed-disks/jobs-dashboard.png":::
 
@@ -299,9 +301,9 @@ AKS Backup now allows you to modify the configuration of an existing backup inst
 
 #### Stop Protection and Delete Data
 
-1. Go to the **Azure Business Continuity Center** and select **Protected Items** under **Protection Inventory**.
+1. Go to the **Resiliency** and select **Protected Items** under **Protection Inventory**.
 
-   The **Protected Items** blade shows all the backup instances created across the subscriptions. Use the filters to access the backup instance you would like to take a look at. Select on the protected item and open it.
+   The **Protected Items** pane shows all the backup instances created across the subscriptions. Use the filters to access the backup instance you would like to take a look at. Select on the protected item and open it.
 
    :::image type="content" source="./media/backup-managed-disks/jobs-dashboard.png" alt-text="Screenshot shows the jobs dashboard." lightbox="./media/backup-managed-disks/jobs-dashboard.png":::
 
@@ -330,9 +332,9 @@ If you have selected the **Stop Protection and Retain data** option, you can res
 
 Use the following steps:
 
-1. Go to the **Azure Business Continuity Center** and select **Protected Items** under **Protection Inventory**.
+1. Go to the **Resiliency** and select **Protected Items** under **Protection Inventory**.
 
-   The **Protected Items** blade shows all the backup instances created across the subscriptions. Use the filters to access the backup instance you would like to take a look at. Select on the protected item and open it.
+   The **Protected Items** pane shows all the backup instances created across the subscriptions. Use the filters to access the backup instance you would like to take a look at. Select on the protected item and open it.
 
    :::image type="content" source="./media/backup-managed-disks/jobs-dashboard.png" alt-text="Screenshot shows the jobs dashboard." lightbox="./media/backup-managed-disks/jobs-dashboard.png":::
 

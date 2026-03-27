@@ -7,7 +7,7 @@ manager: chpalm
 ms.author: sundraman
 author: sundiraman
 ms.date: 06/08/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python

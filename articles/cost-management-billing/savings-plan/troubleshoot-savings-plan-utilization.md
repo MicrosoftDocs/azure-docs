@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: troubleshooting
-ms.date: 01/08/2026
+ms.date: 03/14/2026
 ms.author: onwokolo
 ---
 
@@ -21,7 +21,7 @@ Only usage from eligible Azure resources may receive cost savings through saving
 1. Benefit scope - the resource must be within the benefit scope of the savings plan. To learn more, see [Savings plan scopes](scope-savings-plan.md)
 2. Product inclusion - the resource must be an instance of a product that is included in the savings plan model. To learn which products are eligible for savings plan, follow the instruction in [Download your savings plan price sheet](download-savings-plan-price-sheet.md)
 
-There are numerous reasons that an savings plan may be underutilized. Examples are listed below. In some cases, broadening the savings plan benefit scope can result in greater utilization.
+There are numerous reasons that a savings plan may be underutilized. Examples are listed below. In some cases, broadening the savings plan benefit scope can result in greater utilization.
 - **Custom hourly commitment too large** - it is important to follow purchase recommendations provided through Azure Advisor, the savings plan purchase experience in Azure portal, and through the Savings plan benefit recommendations API. Purchasing an amount greater than the recommended value may result in underutilization, and negatively impact your cost savings goals. To learn more, see [savings plans recommendations](purchase-recommendations.md).
 - **Recent changes in resource usage** - your savings plan eligible usage may have recently decreased. Reasons for these changes include:
   - ***VM rightsizing*** - To learn more, see [VM shutdown recommendations](/azure/advisor/advisor-cost-recommendations#shutdown-recommendations)
@@ -38,7 +38,7 @@ Savings plan is an hourly benefit - this means each of the 24 hours in a day is 
 
 Savings plans can temporarily have utilization greater than 100%, as shown in the Azure portal and from APIs.
 
-Savings plan benefits are flexible and cover usage across various products and regions. Under an savings plan, Azure applies plan benefits to your usage that has the largest percentage discount off its pay-as-you-go rate first, until we reach your hourly commitment.
+Savings plan benefits are flexible and cover usage across various products and regions. Under a savings plan, Azure applies plan benefits to your usage that has the largest percentage discount off its pay-as-you-go rate first, until we reach your hourly commitment.
 
 The Azure usage and billing systems determine your hourly cost by examining your usage for each hour. Usage of all services that you used in the previous hour is reported to the Azure billing systems. However, usage isn't always sent instantly, which makes it difficult to determine which resources should receive the benefit. To compensate, Azure temporarily applies the maximum benefit to all usage received. This may result in Azure applying benefits that are greater than the hourly commitment. Azure then does extra processing to quickly reconcile utilization back down to 100%. Periods of such overutilization are most likely to appear immediately after a usage hour.
 

@@ -5,7 +5,7 @@ description: This article introduces you to different Azure tools and features t
 author: vikramdesai01
 ms.author: vikdesai
 ms.date: 06/27/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: vikdesai

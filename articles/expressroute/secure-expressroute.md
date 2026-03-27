@@ -4,7 +4,7 @@ description: Learn how to secure Azure ExpressRoute with best practices for netw
 author: duongau
 ms.author: duau
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom: horz-security
 ms.date: 06/17/2025
 ai-usage: ai-assisted

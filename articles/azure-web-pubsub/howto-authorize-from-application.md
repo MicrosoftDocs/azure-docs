@@ -5,7 +5,7 @@ author: terencefan
 ms.author: lianwei
 ms.date: 03/11/2025
 ms.service: azure-web-pubsub
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Authorize requests to Azure Web PubSub resources with Microsoft Entra applications

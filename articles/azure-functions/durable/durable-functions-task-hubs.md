@@ -2,7 +2,7 @@
 title: Task hubs in Durable Task - Azure
 description: Learn what a task hub is in Durable Functions and Durable Task SDKs. Learn how to configure and manage task hubs.
 author: cgillum
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/24/2026
 ms.author: azfuncdf
 zone_pivot_groups: azure-durable-approach

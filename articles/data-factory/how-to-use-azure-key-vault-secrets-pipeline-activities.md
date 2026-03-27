@@ -4,7 +4,7 @@ description: Learn how to fetch stored credentials from Azure Key Vault and use 
 author: nabhishek
 ms.author: abnarain
 ms.subservice: security
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/13/2025
 ms.custom: sfi-image-nochange
 ---

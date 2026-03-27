@@ -2,7 +2,7 @@
 title: Heroku to Azure Container Apps overview
 description: Plan your migration from Heroku to Azure Container Apps with concept mapping, service equivalents, cost comparison, and pitfalls to avoid.
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: upgrade-and-migration-article
 ms.date: 02/12/2026
 ms.author: simonjakesch
 author: simonjj

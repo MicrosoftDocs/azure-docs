@@ -7,7 +7,7 @@ manager: mharbut
 services: azure-communication-services
 ms.date: 02/01/2025
 ms.author: harazi
-ms.topic: conceptual 
+ms.topic: how-to
 ms.service: azure-communication-services
 ---
 

@@ -4,7 +4,7 @@ description: Learn about the differences between Azure Public cloud and Azure US
 author: aloverro
 ms.author: adamloverro
 ms.service: planetary-computer-pro
-ms.topic: conceptual
+ms.topic: feature-availability
 ms.date: 02/03/2026
 
 #customer intent: As a developer or IT administrator, I want to understand the differences between Azure Public and US Government clouds so that I can correctly configure Microsoft Planetary Computer Pro in the US Government environment.

@@ -4,7 +4,7 @@ description: Learn how to use dynamic sessions in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2025
 ms.author: cshoe
 ms.custom: references_regions, ignite-2024

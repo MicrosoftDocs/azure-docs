@@ -1,9 +1,9 @@
 ---
 title: Root Cause Analysis in Azure SRE Agent
 description: Learn how your agent reasons like an expert SRE by forming hypotheses, testing them with evidence, and explaining its conclusions.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 03/04/2026
+ms.date: 03/18/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -19,7 +19,7 @@ ms.custom: RCA, root cause, investigation, hypothesis, diagnostics, incident, de
 
 ## The problem: log searching isn't investigation
 
-Most debugging starts with "show me the errors." You query logs, scroll through results, copy a timestamp, switch tools, and run another query. You're not investigating. You're correlating data manually and holding the reasoning in your head.
+Most debugging starts with "show me the errors." You query logs, scroll through results, copy a timestamp, switch tools, and run another query. You're not investigating. You're manually correlating data and holding the reasoning in your head.
 
 The real problem isn't finding logs. It's knowing what questions to ask, what tools to check, and how to connect the dots across logs, metrics, deployments, and past incidents. That mental model lives in the heads of your senior engineers, and they can't be on every call. New team members spend hours on problems that veterans solve in minutes, because the reasoning isn't documented anywhere.
 
@@ -34,7 +34,7 @@ Your agent investigates like an expert SRE. It doesn't just search logs. It form
 1. **Validates each one**: Tests hypotheses systematically, ruling out false leads.
 1. **Explains the conclusion**: Shows the full reasoning trail with supporting evidence and citations.
 
-## What makes this different
+## What makes this approach different
 
 **Unlike log searching**, your agent reasons about the problem. "Show me errors" gives you data to interpret. Your agent interprets the data for you by forming theories, testing them, and explaining conclusions.
 
@@ -42,18 +42,11 @@ Your agent investigates like an expert SRE. It doesn't just search logs. It form
 
 **Unlike scripts**, your agent handles novel situations. A script runs the same steps every time. Your agent reasons about what's different this time and adjusts its investigation accordingly.
 
-| Capability | What it contributes |
-|---|---|
-| [Memory](memory.md) | "We saw this exact issue 3 weeks ago. The fix was X." |
-| [Knowledge base](memory.md) | Your runbooks and architecture docs guide hypothesis formation |
-| [Source code](connectors.md) | Correlate errors with source code and find related changes |
-| [Subagents](sub-agents.md) | Delegate to service-specific specialists (Application Insights, AKS, Container Apps, and more) |
-
 ## Before and after
 
 | Category | Before | After |
 |---|---|---|
-| **Investigation approach** | Search logs, hope you find something | Agent forms and tests hypotheses |
+| **Investigation approach** | Search logs and hope you find something | Agent forms and tests hypotheses |
 | **Tools opened** | 4+ portals, manual correlation | 0 (agent queries all sources) |
 | **Reasoning** | "I think it's the database..." | "Database DTU at 98%, validated" |
 | **Evidence trail** | In your head | Full chain with explanation |
@@ -89,8 +82,8 @@ Root cause analysis works automatically with Azure's built-in tools. To enable d
 | Enhancement | What it enables | Setup |
 |---|---|---|
 | Source control | Error-to-code correlation, semantic code search | [Connect source code](connect-source-code.md) |
-| Knowledge base | Context for hypothesis generation | [Upload knowledge](memory.md) |
-| Custom telemetry | Business metrics in Kusto | [Kusto connector](kusto-tools.md) |
+| Knowledge base | Context for hypothesis generation | [Upload knowledge](tutorial-upload-knowledge-document.md) |
+| Custom telemetry | Business metrics in Kusto | [Set up Kusto connector](kusto-connector.md) |
 
 ## Next step
 

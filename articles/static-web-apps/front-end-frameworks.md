@@ -4,7 +4,7 @@ description: Settings for popular front-end frameworks needed for Azure Static W
 services: static-web-apps
 author: cjk7989
 ms.service: azure-static-web-apps
-ms.topic:  conceptual
+ms.topic:  reference
 ms.date: 06/24/2024
 ms.author: jikunchen
 ---

@@ -7,7 +7,7 @@ author: chugugrace
 ms.author: chugu
 manager: mflasko
 ms.reviewer: douglasl
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/05/2024
 ---
 

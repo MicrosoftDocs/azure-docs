@@ -1,9 +1,9 @@
 ---
 title: Incident Platforms in Azure SRE Agent
 description: Connect an incident platform to your agent so it can receive alerts, investigate issues, and take action automatically.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 03/09/2026
+ms.date: 03/18/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -25,15 +25,10 @@ Your agent integrates with the following incident platforms.
 | Platform | What it provides |
 |---|---|
 | **Azure Monitor** | Connected by default. Alerts from your managed resource groups flow to the agent automatically. |
-| **PagerDuty** | Incident alerting and on-call management with API-based integration. |
-| **ServiceNow** | Enterprise IT service management integration. |
+| **[PagerDuty](connect-pagerduty.md)** | Incident alerting and on-call management with API-based integration. |
+| **[ServiceNow](connect-servicenow.md)** | Enterprise IT service management integration. |
 
 Only one incident platform can be active at a time. Azure Monitor is the default. Switching to another platform disconnects Azure Monitor.
-
-> [!NOTE]
-> **ServiceNow authentication options**
->
-> ServiceNow supports two authentication methods: **Basic Authentication** (username/password) and **OAuth 2.0** (token-based). Use OAuth 2.0 for production because tokens refresh automatically and no passwords are stored in your agent configuration. For setup instructions, see [Connect to ServiceNow](connect-servicenow.md).
 
 ## What connecting an incident platform enables
 
@@ -41,11 +36,11 @@ Connecting an incident platform gives your agent the following capabilities.
 
 ### Automatic incident reception
 
-Your agent receives incidents as soon as they're created in your platform. No one needs to copy and paste alerts or manually start an investigation. The agent automatically picks up incidents.
+Your agent receives incidents as soon as you create them in your platform. No one needs to copy and paste alerts or manually start an investigation. The agent automatically picks up incidents.
 
 ### Rich incident cards
 
-Incoming incidents from all supported platforms (PagerDuty, ServiceNow, Azure Monitor, and IcM) display as **rich cards** in the chat interface. Each card shows the following information.
+The chat interface shows incoming incidents from all supported platforms (PagerDuty, ServiceNow, and Azure Monitor) as **rich cards**. Each card shows the following information.
 
 | Field | Details |
 |---|---|
@@ -57,21 +52,23 @@ Incoming incidents from all supported platforms (PagerDuty, ServiceNow, Azure Mo
 | **Response plan** | Link to the response plan handling the incident, if configured |
 | **View Details** | Link to the incident in its source platform |
 
-Rich cards replace the plain-text incident notifications used previously, making it easier to scan incident details at a glance.
+Rich cards replace the plain-text incident notifications used previously, so you can more easily scan incident details at a glance.
 
 ### Incident interaction
 
-Your agent can read from and write back to the incident platform.
+Your agent can read from and write back to the incident platform. When you connect the corresponding platform, the chat interface automatically provides these tools - no extra setup needed.
 
 | Platform | Read capabilities | Write capabilities |
 |---|---|---|
-| **Azure Monitor** | Alert details, severity, affected resources | Close alerts |
-| **PagerDuty** | Incident details, history, on-call info | Acknowledge, resolve, add notes |
-| **ServiceNow** | Incident details, related records | Post discussion entries, acknowledge, resolve |
+| **Azure Monitor** | Alert details, severity, affected resources | Acknowledge alerts, close alerts |
+| **[PagerDuty](connect-pagerduty.md)** | Incident details, diagnostics | Acknowledge, resolve, add notes |
+| **[ServiceNow](connect-servicenow.md)** | Incident details | Post discussion entries, acknowledge, resolve |
 
 ### Response plans
 
 Response plans define what your agent does when specific types of incidents arrive. You configure rules based on incident severity, title patterns, or other criteria, and the agent follows the plan automatically.
+
+For more information, see [Incident response plans](incident-response-plans.md).
 
 :::image type="content" source="media/incident-platforms/response-plan-flow.svg" alt-text="Screenshot of diagram showing how response plans combine filters, autonomy levels, and custom instructions." lightbox="media/incident-platforms/response-plan-flow.svg":::
 
@@ -90,8 +87,10 @@ When you connect an incident platform, you can enable the **Quickstart response 
 
 | Platform | Default plan handles | Autonomy level |
 |---|---|---|
-| **Azure Monitor** | Sev3 alerts | Autonomous |
+| **Azure Monitor** | Sev0, Sev1, Sev2 alerts | Autonomous |
 | **PagerDuty** | P1 incidents | Autonomous |
+
+Azure Monitor supports all severity levels (Sev0–Sev4). The quickstart plan targets the highest-priority alerts by default. You can customize it to include extra severities or create separate plans for lower-priority alerts.
 
 The quickstart plan creates a response plan named `quickstart_handler` that:
 
@@ -102,21 +101,23 @@ The quickstart plan creates a response plan named `quickstart_handler` that:
 
 You can customize this default plan or create more response plans with different filters and autonomy levels.
 
-### Incident metrics
+### Track incident value
 
-The **Monitor > Incident metrics** section gives you visibility into how your agent handles incidents over time.
+The **Monitor > Incident metrics** section shows how your agent handles incidents over time.
+
+For more information, see [Track incident value](track-incident-value.md).
 
 :::image type="content" source="media/incident-platforms/incident-metrics-dashboard.svg" alt-text="Diagram of KPI cards showing incidents reviewed, mitigated by agent, assisted, and pending." lightbox="media/incident-platforms/incident-metrics-dashboard.svg":::
 
 | Metric | What it shows |
 |---|---|
-| **Incidents reviewed** | Total incidents processed by the agent |
-| **Mitigated by agent** | Incidents the agent resolved autonomously |
-| **Assisted by agent** | Incidents where agent helped, user completed resolution |
-| **Mitigated by user** | Incidents resolved by user with agent-provided information |
+| **Incidents reviewed** | Total incidents the agent processes |
+| **Mitigated by agent** | Incidents the agent resolves on its own |
+| **Assisted by agent** | Incidents where the agent helps and the user finishes the resolution |
+| **Mitigated by user** | Incidents the user resolves with information from the agent |
 | **Pending user action** | Incidents waiting for human input |
 
-Use these metrics to understand your agent's effectiveness and identify response plans that might need tuning.
+Use these metrics to understand your agent's effectiveness and identify response plans that might need to tune.
 
 ## Incident platforms vs. connectors
 
@@ -125,19 +126,21 @@ Incident platforms and connectors are different concepts that work together.
 | Aspect | Incident platforms | Connectors |
 |---|---|---|
 | **Purpose** | Where alerts come from | Data and actions the agent can use |
-| **Configured in** | Settings > Incident Platform | Builder > Connectors |
+| **Configured in** | Builder > Incident Platform | Builder > Connectors |
 | **Direction** | Inbound (incidents flow to the agent) | Outbound (agent reaches out to systems) |
 | **Example** | PagerDuty sends an alert, then the agent investigates | Agent queries Kusto, then finds root cause |
 
 Your agent uses both concepts: the incident platform *triggers* the investigation, and connectors provide the *tools* to investigate.
 
-## Next step
-
-> [!div class="nextstepaction"]
-> [Connect to PagerDuty](./connect-pagerduty.md)
-
 ## Related content
 
-- [Set up incident response plans](response-plan.md): End-to-end guide to set up automated incident handling.
-- [Incident response plans](incident-response-plans.md): Define how your agent handles different incident types.
-- [Connectors](connectors.md): Give your agent access to data sources and actions.
+| Resource | Description |
+|---|---|
+| [Set up incident response plans](response-plan.md) | Step-by-step guide to create your first response plan. |
+| [Incident response plans](incident-response-plans.md) | How response plans route incidents to custom agents. |
+| [Automate incident response](incident-response.md) | End-to-end incident automation capabilities. |
+| [Track incident value](track-incident-value.md) | Measure your agent's incident resolution impact. |
+| [Monitor agent usage](monitor-agent-usage.md) | Track usage, session insights, and agent activity. |
+| [Connect to PagerDuty](connect-pagerduty.md) | PagerDuty-specific setup and capabilities. |
+| [Connect to ServiceNow](connect-servicenow.md) | ServiceNow-specific setup and capabilities. |
+| [Connectors](connectors.md) | How connectors provide tools for investigation. |

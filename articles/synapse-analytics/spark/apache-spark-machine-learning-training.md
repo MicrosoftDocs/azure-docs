@@ -5,7 +5,7 @@ author: midesa
 ms.author: midesa
 ms.reviewer: euang
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: machine-learning
 ms.date: 09/13/2020
 ---

@@ -5,7 +5,7 @@ author: im-microsoft
 ms.author: imotiwala
 ms.reviewer: wiassaf, yexu
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: synapse-link
 ms.date: 10/31/2025
 ms.update-cycle: 1825-days

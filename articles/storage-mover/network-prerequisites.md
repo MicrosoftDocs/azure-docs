@@ -4,7 +4,7 @@ description: Learn about the network prerequisites for using Azure Storage Mover
 author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/22/2025
 ---
 

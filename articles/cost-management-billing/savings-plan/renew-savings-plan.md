@@ -1,13 +1,13 @@
 ---
 title: Automatically renew your savings plan
 titleSuffix: Microsoft Cost Management
-description: Learn how you can automatically renew an savings plan to continue getting discounts.
+description: Learn how you can automatically renew a savings plan to continue getting discounts.
 author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 01/08/2026
+ms.date: 03/14/2026
 ms.author: onwokolo
 ---
 

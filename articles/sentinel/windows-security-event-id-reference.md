@@ -4,7 +4,7 @@ description: Learn about the pre-built sets of Windows security events that you 
 author: guywi-ms
 ms.author: guywild
 ms.topic: reference
-ms.date: 11/09/2021
+ms.date: 03/12/2026
 
 #Customer intent: As a security analyst, I want to select specific sets of Windows security events to ingest into Microsoft Sentinel, so that I can efficiently monitor and detect potential threats while managing data volume.
 
@@ -14,7 +14,7 @@ ms.date: 11/09/2021
 
 When ingesting security events from Windows devices using the [Windows Security Events data connector](data-connectors-reference.md#windows-security-events-via-ama) (including the legacy version), you can choose which events to collect from among the following sets:
 
-- **All events** - All Windows security and AppLocker events.
+- **All events** - Collects the full, unfiltered set of events from the Windows Security event log and the AppLocker event log channels. The Security log (`Windows Logs > Security` in Event Viewer) records auditing events such as logons, privilege use, and policy changes. The AppLocker logs (`Application and Services Logs > Microsoft > Windows > AppLocker`) cover application execution and installation policies. This set does *not* include events from other Windows event logs such as Application, System, or Setup.
 
 - **Common** - A standard set of events for auditing purposes. A full user audit trail is included in this set. For example, it contains both user sign-in and user sign-out events (event IDs 4624, 4634). There are also auditing actions such as security group changes, key domain controller Kerberos operations, and other types of events in line with accepted best practices.
 
@@ -38,5 +38,5 @@ The following list provides a complete breakdown of the Security and App Locker 
 
 In this document, you learned how to filter the collection of Windows events into Microsoft Sentinel.
 
-- Learn more about [collecting Windows security events](connect-windows-security-events.md).
+- Learn more about [collecting Windows security events](connect-services-windows-based.md).
 - Get started detecting threats with Microsoft Sentinel, using [built-in](detect-threats-built-in.md) or [custom](detect-threats-custom.md) rules.

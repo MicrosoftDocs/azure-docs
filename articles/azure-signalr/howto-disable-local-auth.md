@@ -7,7 +7,7 @@ ms.author: lianwei
 ms.date: 03/31/2023
 ms.service: azure-signalr-service
 ms.custom: devx-track-arm-template
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Disable local (access key) authentication with Azure SignalR Service

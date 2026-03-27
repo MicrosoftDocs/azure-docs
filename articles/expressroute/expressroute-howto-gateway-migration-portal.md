@@ -16,6 +16,9 @@ ms.custom:
 
 # Migrate to an availability zone-enabled ExpressRoute virtual network gateway in Azure portal
 
+> [!IMPORTANT]
+> ExpressRoute gateway migrations are temporarily paused. Don't initiate migrations at this time. You will be notified when migrations can resume.
+
 When creating an ExpressRoute virtual network gateway, you must select a [gateway SKU](expressroute-about-virtual-network-gateways.md). Higher-level SKUs allocate more CPUs and network bandwidth, enabling the gateway to support higher throughput and more reliable connections to the virtual network.
 
 ## Prerequisites

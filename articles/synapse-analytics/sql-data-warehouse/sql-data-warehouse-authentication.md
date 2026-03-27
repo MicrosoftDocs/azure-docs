@@ -6,7 +6,7 @@ ms.author: ajagadish
 ms.date: 04/02/2019
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
 tag: azure-synapse
 ---
 

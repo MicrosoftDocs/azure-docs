@@ -5,8 +5,8 @@ description: Learn how to copy and transform data in Microsoft Fabric Lakehouse 
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.date: 10/23/2025
+ms.topic: how-to
+ms.date: 01/30/2026
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -691,6 +691,9 @@ For more information, see the [source transformation](data-flow-source.md) and [
 ### Microsoft Fabric Lakehouse Files in mapping data flow
 
 To use Microsoft Fabric Lakehouse Files dataset as a source or sink dataset in mapping data flow, go to the following sections for the detailed configurations.
+
+>[!NOTE]
+> Mapping data flows currently support service principal authentication only.
 
 #### Microsoft Fabric Lakehouse Files as a source or sink type
 

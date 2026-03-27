@@ -4,7 +4,7 @@ description: Support for government clouds for Azure Communication Chat service
 author: kperla97
 ms.author: kaperla
 ms.date: 12/01/2023
-ms.topic: conceptual
+ms.topic: feature-availability
 ms.service: azure-communication-services
 ms.subservice: chat
 ---

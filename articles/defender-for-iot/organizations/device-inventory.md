@@ -2,7 +2,7 @@
 title: Device inventory - Microsoft Defender for IoT
 description: Learn about the Defender for IoT device inventory features available from the Azure portal, and OT sensor console.
 ms.date: 02/19/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Defender for IoT device inventory

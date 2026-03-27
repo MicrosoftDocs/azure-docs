@@ -2,11 +2,11 @@
 title: Azure Government product General Availability (GA) roadmap
 description: Overview of Azure Government product General Availability (GA) by authorization level
 ms.service: azure-government
-ms.topic: conceptual
+ms.topic: feature-availability
 ms.author: russellkirk
 author: krussell09
 recommendations: false
-ms.date: 03/05/2026
+ms.date: 03/19/2026
 ---
 # Microsoft Azure Government Product General Availability(GA) Roadmap
 
@@ -241,7 +241,7 @@ For comprehensive information about compliance in Azure Government clouds, see [
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Azure Translator | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Azure Vision | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Azure Vision - Face | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | Awaiting Review |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Content Safety | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | n/a |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Content Safety | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | Planned |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Foundry Agent Service | Forecasted | Forecasted | Forecasted | Forecasted |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Foundry Models | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | n/a |
 | Microsoft Graph | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: |
