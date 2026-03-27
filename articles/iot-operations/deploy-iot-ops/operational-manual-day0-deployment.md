@@ -69,13 +69,32 @@ The [MQTT broker cardinality settings](../manage-mqtt-broker/howto-configure-ava
 
 *Example—single node with four CPU cores:*
 
-| Setting | Value |
-|---|---|
-| frontendReplicas | 1 |
-| frontendWorkers | 4 |
-| backendRedundancyFactor | 2 |
-| backendWorkers | 1 |
-| backendPartitions | 1 |
+<table>
+    <thead>
+        <tr>
+            <th colspan="2">Frontend</th>
+            <th colspan="2">Backend</th>
+        </tr>
+        <tr>
+            <th>Setting</th><th>Value</th>
+            <th>Setting</th><th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Replicas</td><td>1</td>
+            <td>Redundancy Factor</td><td>2</td>
+        </tr>
+        <tr>
+            <td>Workers</td><td>4</td>
+            <td>Workers</td><td>1</td>
+        </tr>
+        <tr>
+            <td></td><td></td>
+            <td>Partitions</td><td>1</td>
+        </tr>
+    </tbody>
+</table>
 
 #### Multi-node recommendations
 
@@ -90,23 +109,61 @@ The [MQTT broker cardinality settings](../manage-mqtt-broker/howto-configure-ava
 
 *Example—3-node cluster, eight CPU cores per node:*
 
-| Setting | Value |
-|---|---|
-| frontendReplicas | 3 |
-| frontendWorkers | 8 |
-| backendRedundancyFactor | 2 |
-| backendWorkers | 4 |
-| backendPartitions | 3 |
+<table>
+    <thead>
+        <tr>
+            <th colspan="2">Frontend</th>
+            <th colspan="2">Backend</th>
+        </tr>
+        <tr>
+            <th>Setting</th><th>Value</th>
+            <th>Setting</th><th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Replicas</td><td>3</td>
+            <td>Redundancy Factor</td><td>2</td>
+        </tr>
+        <tr>
+            <td>Workers</td><td>4</td>
+            <td>Workers</td><td>4</td>
+        </tr>
+        <tr>
+            <td></td><td></td>
+            <td>Partitions</td><td>3</td>
+        </tr>
+    </tbody>
+</table>
 
 *Example—5-node cluster, 16 CPU cores per node:*
 
-| Setting | Value |
-|---|---|
-| frontendReplicas | 5 |
-| frontendWorkers | 16 |
-| backendRedundancyFactor | 2 |
-| backendWorkers | 8 |
-| backendPartitions | 5 |
+<table>
+    <thead>
+        <tr>
+            <th colspan="2">Frontend</th>
+            <th colspan="2">Backend</th>
+        </tr>
+        <tr>
+            <th>Setting</th><th>Value</th>
+            <th>Setting</th><th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Replicas</td><td>5</td>
+            <td>Redundancy Factor</td><td>2</td>
+        </tr>
+        <tr>
+            <td>Workers</td><td>8</td>
+            <td>Workers</td><td>8</td>
+        </tr>
+        <tr>
+            <td></td><td></td>
+            <td>Partitions</td><td>5</td>
+        </tr>
+    </tbody>
+</table>
 
 #### Memory profile and message size limits
 
@@ -620,25 +677,71 @@ For AKS deployments with [secure settings](./howto-enable-secure-settings.md), b
 
    **Single-node example** (4 CPU cores):
 
-   | Setting | Value |
-   |---|---|
-   | frontendReplicas | 2 |
-   | frontendWorkers | 4 |
-   | backendRedundancyFactor | 2 |
-   | backendWorkers | 1 |
-   | backendPartitions | 1 |
-   | Memory profile | Low |
+   <table>
+       <thead>
+           <tr>
+               <th colspan="2">Frontend</th>
+               <th colspan="2">Backend</th>
+               <th colspan="2">Broker</th>
+           </tr>
+           <tr>
+               <th>Setting</th><th>Value</th>
+               <th>Setting</th><th>Value</th>
+               <th>Setting</th><th>Value</th>
+           </tr>
+       </thead>
+       <tbody>
+           <tr>
+               <td>Replicas</td><td>2</td>
+               <td>Redundancy Factor</td><td>2</td>
+               <td>Memory profile</td><td>Low</td>
+           </tr>
+           <tr>
+               <td>Workers</td><td>4</td>
+               <td>Workers</td><td>1</td>
+               <td></td><td></td>
+           </tr>
+           <tr>
+               <td></td><td></td>
+               <td>Partitions</td><td>1</td>
+               <td></td><td></td>
+           </tr>
+       </tbody>
+   </table>
 
    **Multi-node example** (3 nodes, 8 CPU cores per node):
 
-   | Setting | Value |
-   |---|---|
-   | frontendReplicas | 3 |
-   | frontendWorkers | 8 |
-   | backendRedundancyFactor | 2 |
-   | backendWorkers | 4 |
-   | backendPartitions | 3 |
-   | Memory profile | High |
+   <table>
+       <thead>
+           <tr>
+               <th colspan="2">Frontend</th>
+               <th colspan="2">Backend</th>
+               <th colspan="2">Broker</th>
+           </tr>
+           <tr>
+               <th>Setting</th><th>Value</th>
+               <th>Setting</th><th>Value</th>
+               <th>Setting</th><th>Value</th>
+           </tr>
+       </thead>
+       <tbody>
+           <tr>
+               <td>Replicas</td><td>3</td>
+               <td>Redundancy Factor</td><td>2</td>
+               <td>Memory profile</td><td>High</td>
+           </tr>
+           <tr>
+               <td>Workers</td><td>4</td>
+               <td>Workers</td><td>4</td>
+               <td></td><td></td>
+           </tr>
+           <tr>
+               <td></td><td></td>
+               <td>Partitions</td><td>3</td>
+               <td></td><td></td>
+           </tr>
+       </tbody>
+   </table>
 
    > **Critical**: Backend redundancy factor must be **2 or greater** for high availability and rolling upgrade support. Always set at least **2 frontend replicas** on single-node deployments to enable rolling updates.
 
