@@ -1,8 +1,12 @@
 ---
-title: Dead letter and retry policies - Azure Event Grid
-description: Describes how to customize event delivery options for Event Grid. Set a dead-letter destination, and specify how long to retry delivery.
+title: "Set Dead Letter Location and Retry Policy - Azure Event Grid"
+description: "Learn how to set a dead letter location and customize retry policy settings for Azure Event Grid subscriptions. Configure event delivery options using Azure portal, CLI, or PowerShell."
+#customer intent: As a developer, I want to set up a dead-letter location for my Event Grid subscription so that I can capture events that fail to deliver and troubleshoot delivery issues.
 ms.topic: how-to
-ms.date: 02/14/2025
+ms.date: 03/27/2026
+author: spelluru
+ms.author: spelluru
+ms.reviewer: spelluru
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 # Customer intent: As a developer, I want to know how to set a dead-letter location and a retry policy. 
@@ -27,11 +31,11 @@ While creating an event subscription, you can enable dead-lettering on the **Add
 
 You can optionally enable a system-assigned or user-assigned managed identity for dead-lettering. The managed identity must be a member of a [role-based access control (RBAC) role](../storage/blobs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-blobs) that allows writing events to the storage. 
 
-:::image type="content" source="./media/manage-event-delivery/dead-letter-configuration.png" alt-text="Screenshot showing the dead-letter configuration of an event subscription.":::
+:::image type="content" source="./media/manage-event-delivery/dead-letter-configuration.png" alt-text="Screenshot of the dead-letter configuration settings on the Additional features tab when creating an Event Grid subscription.":::
 
 You can also enable dead-lettering and configure the settings for an existing event subscription. On the **Event Subscription** page of your event subscription, switch to the **Additional features** tab to see the dead-letter settings as shown in the following image. 
 
-:::image type="content" source="./media/manage-event-delivery/dead-letter-configuration-existing-subscription.png" alt-text="Screenshot showing the dead-letter configuration of an existing event subscription.":::
+:::image type="content" source="./media/manage-event-delivery/dead-letter-configuration-existing-subscription.png" alt-text="Screenshot of the dead-letter settings on the Additional features tab for an existing Event Grid event subscription.":::
 
 
 ### Azure CLI
@@ -84,11 +88,11 @@ You can't configure the [retry schedule](delivery-and-retry.md#retry-schedule).
 
 While creating an event subscription, you can configure retry policy settings on the **Additional features** tab. 
 
-:::image type="content" source="./media/manage-event-delivery/retry-policy-settings.png" alt-text="Screenshot showing the retry policy configuration of an event subscription.":::
+:::image type="content" source="./media/manage-event-delivery/retry-policy-settings.png" alt-text="Screenshot of the retry policy configuration settings on the Additional features tab when creating an Event Grid subscription.":::
 
 You can also configure retry policy settings for an existing event subscription. On the **Event Subscription** page of your event subscription, switch to the **Additional features** tab to see the retry policy settings as shown in the following image. 
 
-:::image type="content" source="./media/manage-event-delivery/retry-policy-settings-existing-subscription.png" alt-text="Screenshot showing the retry policy configuration of an existing event subscription.":::
+:::image type="content" source="./media/manage-event-delivery/retry-policy-settings-existing-subscription.png" alt-text="Screenshot of the retry policy settings on the Additional features tab for an existing Event Grid event subscription.":::
 
 
 ### Azure CLI

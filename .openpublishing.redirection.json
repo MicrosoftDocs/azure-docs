@@ -1,6 +1,190 @@
 {
   "redirections": [
     {
+      "source_path": "articles/iot-hub/horizontal-arm-route-messages.md",
+      "redirect_url": "/previous-versions/azure/iot-hub/horizontal-arm-route-messages",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/how-to-routing-arm.md",
+      "redirect_url": "/previous-versions/azure/iot-hub/how-to-routing-arm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/how-to-routing-powershell.md",
+      "redirect_url": "/previous-versions/azure/iot-hub/how-to-routing-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/how-to-routing-azure-cli.md",
+      "redirect_url": "/previous-versions/azure/iot-hub/how-to-routing-azure-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/iot-hub-how-to-order-connection-state-events.md",
+      "redirect_url": "/previous-versions/azure/iot-hub/iot-hub-how-to-order-connection-state-events",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md",
+      "redirect_url": "/previous-versions/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md",
+      "redirect_url": "/previous-versions/azure/iot-hub/iot-hub-live-data-visualization-in-web-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md",
+      "redirect_url": "/previous-versions/azure/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/iot-hub-query-avro-data.md",
+      "redirect_url": "/previous-versions/azure/iot-hub/iot-hub-query-avro-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/module-twins-portal-dotnet.md",
+      "redirect_url": "/previous-versions/azure/iot-hub/module-twins-portal-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/quickstart-bicep-route-messages.md",
+      "redirect_url": "/previous-versions/azure/iot-hub/quickstart-bicep-route-messages",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/tutorial-device-twins.md",
+      "redirect_url": "/previous-versions/azure/iot-hub/tutorial-device-twins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/concepts-architecture.md",
+      "redirect_url": "/previous-versions/azure/iot/concepts-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/concepts-convention.md",
+      "redirect_url": "/previous-versions/azure/iot/concepts-convention",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/concepts-developer-guide-device.md",
+      "redirect_url": "/previous-versions/azure/iot/concepts-developer-guide-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/concepts-developer-guide-service.md",
+      "redirect_url": "/previous-versions/azure/iot/concepts-developer-guide-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/concepts-digital-twin.md",
+      "redirect_url": "/previous-versions/azure/iot/concepts-digital-twin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/concepts-iot-device-types.md",
+      "redirect_url": "/previous-versions/azure/iot/concepts-iot-device-types",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/concepts-message-payloads.md",
+      "redirect_url": "/previous-versions/azure/iot/concepts-message-payloads",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/concepts-model-discovery.md",
+      "redirect_url": "/previous-versions/azure/iot/concepts-model-discovery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/concepts-modeling-guide.md",
+      "redirect_url": "/previous-versions/azure/iot/concepts-modeling-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/concepts-using-c-sdk-and-embedded-c-sdk.md",
+      "redirect_url": "/previous-versions/azure/iot/concepts-using-c-sdk-and-embedded-c-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/howto-use-iot-explorer.md",
+      "redirect_url": "/previous-versions/azure/iot/howto-use-iot-explorer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/iot-overview-analyze-visualize.md",
+      "redirect_url": "/previous-versions/azure/iot/iot-overview-analyze-visualize",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/iot-overview-device-connectivity.md",
+      "redirect_url": "/previous-versions/azure/iot/iot-overview-device-connectivity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/iot-overview-message-processing.md",
+      "redirect_url": "/previous-versions/azure/iot/iot-overview-message-processing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/iot-overview-device-management.md",
+      "redirect_url": "/previous-versions/azure/iot/iot-overview-device-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/iot-overview-scalability-high-availability.md",
+      "redirect_url": "/previous-versions/azure/iot/iot-overview-scalability-high-availability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/iot-overview-solution-extensibility.md",
+      "redirect_url": "/previous-versions/azure/iot/iot-overview-solution-extensibility",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/iot-overview-solution-management.md",
+      "redirect_url": "/previous-versions/azure/iot/iot-overview-solution-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/overview-iot-plug-and-play.md",
+      "redirect_url": "/previous-versions/azure/iot/overview-iot-plug-and-play",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/iot-phone-app-how-to.md",
+      "redirect_url": "/previous-versions/azure/iot/iot-phone-app-how-to",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/troubleshoot-embedded-device-tutorials.md",
+      "redirect_url": "/previous-versions/azure/iot/troubleshoot-embedded-device-tutorials",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/tutorial-devkit-espressif-esp32-freertos-iot-hub.md",
+      "redirect_url": "/previous-versions/azure/iot/tutorial-devkit-espressif-esp32-freertos-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/tutorial-devkit-mxchip-az3166-iot-hub.md",
+      "redirect_url": "/previous-versions/azure/iot/tutorial-devkit-mxchip-az3166-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/tutorial-devkit-stm-b-l475e-iot-hub.md",
+      "redirect_url": "/previous-versions/azure/iot/tutorial-devkit-stm-b-l475e-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/tutorial-send-telemetry-iot-hub.md",
+      "redirect_url": "/previous-versions/azure/iot/tutorial-send-telemetry-iot-hub",
+    },
+    {
       "source_path": "articles/backup/backup-azure-enhanced-soft-delete-about.md",
       "redirect_url": "/azure/backup/secure-by-default",
       "redirect_document_id": false

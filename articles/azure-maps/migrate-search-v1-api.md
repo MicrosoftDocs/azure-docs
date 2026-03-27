@@ -12,7 +12,7 @@ ms.subservice: search
 
 # Migrate Azure Maps Search 1.0 APIs
 
-[Search][Search v1] API version 1.0 is superseded by the [Search][Search v2026-01-01] 2026‑01‑01 API. The newer version introduces task‑specific endpoints, clearer intent, and improved scalability. This article explains how to migrate existing Search v1 integrations.
+[Search][Search v2026-01-01] API version 2026‑01‑01 supersedes [Search][Search v1] API version 1.0. The newer version introduces task‑specific endpoints, clearer intent, and improved scalability. This article explains how to migrate existing Search v1 integrations.
 
 > [!IMPORTANT]
 > Azure Maps [Search API version 1.0][Search v1] has been superseded by [Search API version 2026‑01‑01][Search v2026-01-01]. While Search v1 continues to function, new development should use the latest Search API to access task‑specific endpoints, improved performance, and long‑term support. To avoid future service disruptions, migrate existing Search v1 integrations to Search 2026‑01‑01.
@@ -22,12 +22,57 @@ ms.subservice: search
 | Purpose            | Search v1 API                   | Search 2026‑01‑01 API         |
 |--------------------|---------------------------------|-------------------------------|
 | Forward geocoding  | [Get Search Address]            | [Get Geocoding]               |
-| Address/POI search | [Get Search Fuzzy] (final)      | [Get Geocoding]               |
+| Address            | [Get Search Fuzzy] (final)      | [Get Geocoding]               |
 | Autocomplete       | [Get Search Fuzzy] (type‑ahead) | [Get Geocode Autocomplete]    |
 | Batch geocoding    | [Get Search Address Batch]      | [Get Geocoding Batch]         |
 | Reverse geocoding  | [Get Search Address Reverse]    | [Get Reverse Geocoding]       |
 | Batch reverse      |[Get Search Address Reverse Batch]|[Get Reverse Geocoding Batch] |
 | Boundaries         | [Get Search Polygon]            | [Get Polygon]                 |
+
+## Notable differences
+
+The Search 2026‑01‑01 APIs introduce intent‑specific endpoints, clearer request semantics, and stricter result behavior compared to Search v1. The following table summarizes the most important differences to be aware of when migrating.
+
+| Area | Search v1 | Search 2026‑01‑01 |
+|---|---|---|
+| API design | Multi‑purpose endpoints (for example, Search Fuzzy used for both autocomplete and final search) | Intent‑specific APIs (for example, Get Geocoding, Get Geocode Autocomplete, Get Reverse Geocoding) |
+| Autocomplete behavior | Implemented using Search Fuzzy with `typeahead=true` | Dedicated Get Geocode Autocomplete API |
+| Final geocoding | Often relied on fuzzy matching to return a "best guess" | Get Geocoding prioritizes correctness and may return no results |
+| Empty results | Often returned a low‑confidence match | May return HTTP 200 with an empty results array when no match is found |
+| Result confidence handling | Confidence and match quality were often implicit | Confidence, match codes, and entity type are explicit and should be evaluated |
+| Entity hierarchy handling | Fuzzy results could return loosely related entities | Results may roll up to a higher‑level entity (for example, county or region) and should be filtered by entity type |
+| Batch usage | Batch APIs available but often optional | Batch APIs are recommended for large‑scale and enrichment workflows |
+| Data enrichment workflows | Commonly retried with fuzzy search | Explicitly supports enrichment patterns with clearer no‑match signaling |
+| URL structure | Versioned under `/search/*` endpoints | Simplified, task‑specific endpoints (for example, `/geocode`, `/reverseGeocode`) |
+| Future extensibility | Limited ability to evolve individual behaviors | APIs evolve independently based on intent (autocomplete, geocoding, reverse) |
+
+### Transactions usage differences
+
+Search 2026‑01‑01 uses intent‑specific APIs, which can change how transactions are consumed compared to Search v1.
+
+In Search v1, a single multi‑purpose endpoint was often used for both autocomplete and final geocoding. In Search 2026‑01‑01, these scenarios are separated into distinct APIs, which helps align transaction usage more closely with user intent.
+
+Key considerations when migrating:
+
+- Use [Get Geocode Autocomplete] only for type‑ahead user interactions.
+- Use [Get Geocoding] only when a final address or place is required.
+- Avoid calling final geocoding APIs repeatedly during interactive typing scenarios.
+- Prefer **batch APIs** for large‑scale or background geocoding workflows.
+
+For details on how Azure Maps transactions are calculated and billed, see [Understanding Azure Maps transactions].
+
+### Result handling changes
+
+Search 2026‑01‑01 places greater emphasis on result correctness and explicit match signaling than Search v1.
+
+When migrating, review how your application interprets search responses:
+
+- A successful request may return **no results** when no suitable match is found. For more information, see [Understand empty geocoding results].
+- Low‑confidence or loosely related matches are less likely to be returned automatically.
+- Applications should evaluate **confidence values**, **match codes**, and **entity types** when determining whether a result is acceptable. For more information, see [Improve result quality for query-based geocoding].
+- If a requested entity isn't found, the service may return a higher‑level entity in the address hierarchy (for example, a region instead of a city). For more information on evaluating result quality and validating that returned entity types match the intended search scenario, see [Best practices for forward geocoding] in _Best practices for Azure Maps Search service_.
+
+Don't assume that every successful request returns a usable result. Explicit result evaluation is required to maintain data quality.
 
 ## Request and response example comparison
 
@@ -209,3 +254,7 @@ GET https://atlas.microsoft.com/polygon
 [Get Reverse Geocoding]: /rest/api/maps/search/get-reverse-geocoding
 [Get Reverse Geocoding Batch]: /rest/api/maps/search/get-reverse-geocoding-batch
 [Get Polygon]: /rest/api/maps/search/get-polygon
+[Understanding Azure Maps transactions]: understanding-azure-maps-transactions.md
+[Understand empty geocoding results]: how-to-use-best-practices-for-search.md#understand-empty-geocoding-results
+[Improve result quality for query-based geocoding]: how-to-use-best-practices-for-search.md#improve-result-quality-for-query-based-geocoding
+[Best practices for forward geocoding]: how-to-use-best-practices-for-search.md#best-practices-for-forward-geocoding

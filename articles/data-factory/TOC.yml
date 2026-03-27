@@ -59,8 +59,6 @@ items:
       href: /fabric/data-factory/move-dataflow-gen1-to-dataflow-gen2?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
     - name: Migrate to Dataflow Gen2 using Save As
       href: /fabric/data-factory/migrate-to-dataflow-gen2-using-save-as?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
-    - name: How to ingest data from ADF to Fabric
-      href: /fabric/data-factory/how-to-ingest-data-into-fabric-from-azure-data-factory?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
 - name: Quickstarts
   expanded: true
   items:
