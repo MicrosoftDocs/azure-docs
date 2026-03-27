@@ -329,6 +329,7 @@ az storage container create \
 ## 3. Cluster Preparation
 
 ### 3.1 Create a K3s Cluster (Ubuntu)
+For additional details on K3s and setting up more complicated clusters, see [here](https://docs.k3s.io/)
 
 ```bash
 # Install K3s
@@ -359,12 +360,7 @@ sudo sysctl -p
 
 ### 3.3 Multi-Node Cluster Preparation
 
-For multi-node clusters with fault tolerance:
-
-```bash
-# Configure clusters with Edge Volumes for Azure Container Storage
-# Follow: https://learn.microsoft.com/azure/azure-arc/container-storage/howto-prepare-linux-edge-volumes
-```
+For multi-node clusters with fault tolerance, configure Edge Volumes for Azure Container Storage. For more information, see [Prepare Linux for Edge Volumes](/azure/azure-arc/container-storage/howto-prepare-linux-edge-volumes).
 
 ### 3.4 Arc-Enable the Cluster
 
@@ -887,19 +883,11 @@ Create `BrokerAuthorization` resources with least-privilege access per topic:
 
 ### 8.4 Encrypt Internal Traffic
 
-For production, enable [encryption between broker frontend and backend pods](../manage-mqtt-broker/howto-encrypt-internal-traffic.md):
-
-```bash
-# See: manage-mqtt-broker/howto-encrypt-internal-traffic.md
-```
+For production, enable [encryption between broker frontend and backend pods](../manage-mqtt-broker/howto-encrypt-internal-traffic.md).
 
 ### 8.5 Configure Disk-Backed Message Buffer
 
-To prevent RAM overflow, set a [disk-backed message buffer](../manage-mqtt-broker/howto-disk-backed-message-buffer.md) with a max size:
-
-```bash
-# See: manage-mqtt-broker/howto-disk-backed-message-buffer.md
-```
+To prevent RAM overflow, set a [disk-backed message buffer](../manage-mqtt-broker/howto-disk-backed-message-buffer.md) with a max size. This works similar to an operating system's swap file, the data is stored to disk but it is **not** durable, a restart will lose everything in the swap.
 
 ### 8.6 Configure Persistence
 
