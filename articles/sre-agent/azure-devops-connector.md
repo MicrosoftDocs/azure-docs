@@ -1,18 +1,18 @@
 ---
 title: "Tutorial: Set Up an Azure DevOps Connector in Azure SRE Agent"
-description: Connect your agent to Azure DevOps for repository access, work item management, and wiki documentation.
+description: Connect your agent to Azure DevOps for repository access, work item management, and wiki documentation using OAuth or PAT authentication.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/09/2026
+ms.date: 03/18/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
-ms.custom: azure devops, connector, repositories, work items, setup, tutorial
+ms.custom: azure devops, connector, repositories, work items, setup, tutorial, oauth, pat
 #customer intent: As an SRE, I want to connect my agent to Azure DevOps so that it can access repositories, wikis, and documentation during investigations.
 ---
 
 # Tutorial: Set up an Azure DevOps connector in Azure SRE Agent
-In this tutorial, you connect your agent to Azure DevOps so it can access repositories, wikis, and documentation across your organization. When you finish this tutorial, your agent has authenticated access to an Azure DevOps organization and can read repositories, create work items, and correlate code changes with incidents.
+In this tutorial, you connect your agent to Azure DevOps so it can access repositories, wikis, and documentation during investigations. Choose OAuth for automatic token management or PAT for service account scenarios. When you finish this tutorial, your agent has authenticated access to an Azure DevOps organization and can read repositories, create work items, and correlate code changes with incidents.
 
 **Estimated time**: 5 minutes
 
@@ -49,7 +49,7 @@ The connectors list shows any existing connectors for your agent.
 Select the Azure DevOps OAuth connector type from the wizard.
 
 1. Select **Add connector** in the toolbar.
-1. In the **Add a connector** wizard, select **Azure DevOps OAuth connector**.
+1. In **Add a connector**, select **Azure DevOps OAuth connector**.
 1. Select **Next**.
 
 :::image type="content" source="media/azure-devops-connector/oauth-connector-picker-all.png" alt-text="Screenshot of the connector picker showing Azure DevOps OAuth connector option." lightbox="media/azure-devops-connector/oauth-connector-picker-all.png":::
@@ -91,34 +91,31 @@ The organization name must:
 
 Choose how your agent authenticates to Azure DevOps:
 
-| Method | When to use |
-|--------|-------------|
-| **User account** | Quick setup for individual users. Sign in with your Microsoft Entra ID account. |
-| **Managed identity** | Production agents that need persistent, unattended access. |
+| Method | Best for | Token lifecycle |
+|--------|----------|----------------|
+| **User account** | Quick setup with your Microsoft Entra ID identity | Auto refreshes with no manual renewal |
+| **Managed identity** | Unattended production agents | Managed by Azure. There is no expiration. |
 
 > [!TIP]
-> Use PAT authentication through the **Documentation connector** (Azure DevOps). For more information, see the [alternative PAT path](#alternative-set-up-with-pat-authentication) section later in this article, or [learn more about connectors](connectors.md).
+> OAuth uses your Microsoft Entra ID session so you never manage tokens manually. Tokens refresh automatically in the background. Choose PAT only when you need a service account connection or CI/CD pipeline integration. See the [alternative PAT path](#alternative-set-up-with-pat-authentication) section later in this article.
 
 ## Sign in with user account (OAuth)
 
 If you select **User account**, complete OAuth authentication by using your Microsoft Entra ID credentials.
 
 1. Select **Sign in to Azure DevOps**.
-1. Complete the Microsoft Entra ID authentication in the dialog.
+1. An **Authorize Azure DevOps** consent dialog appears, listing the permissions your agent needs:
+   - Read and write access to repositories and projects
+   - Act on behalf of the signed-in user
+1. Select **Authorize** to grant access.
 1. On success, you see **Connected to Azure DevOps** with a green checkmark.
 
-> [!WARNING]
-> If the authentication dialog doesn't appear, check that your browser isn't blocking popups from `sre.azure.com`.
-
-If authentication fails, a dialog shows **Authentication Failed** with details. Check that:
-
-- Your Microsoft Entra ID account has access to the specified organization.
-- Your account has the `vso.code` (Code.Read) scope.
+**Checkpoint:** The **Connected to Azure DevOps** card appears with a green checkmark. If you see an error instead, check that your Microsoft Entra ID account has access to the specified organization.
 
 > [!TIP]
-> Select **Sign in with different account** to re-authenticate by using a different Microsoft Entra ID identity.
+> Select **Sign in with different account** to reauthenticate by using a different Microsoft Entra ID identity.
 
-## Use Managed identity (alternative)
+## Use managed identity (alternative)
 
 If you select **Managed identity**, configure the identity your agent uses for unattended authentication.
 
@@ -140,7 +137,7 @@ Confirm the connector details and create the connector.
    - **Name**: your chosen name
    - **Organization**: your Azure DevOps organization
    - **Type**: Azure DevOps OAuth
-1. Select **Add** to create the connector.
+1. Select **Add connector** to create the connector.
 
 Your connector now appears in the connectors list with a **Connected** status indicator.
 
@@ -161,7 +158,7 @@ Show me recent commits in the payment-service repository.
 ```
 
 > [!NOTE]
-> If your agent returns repository information, your connector is working. If you see a "Token lacks Code.Read permission" error, re-authenticate and ensure your account has the `vso.code` scope.
+> If your agent returns repository information, your connector is working. If you see a "Token lacks `Code.Read` permission" error, reauthenticate and ensure your account has the `vso.code` scope.
 
 ## Alternative: Set up with PAT authentication
 
@@ -172,9 +169,9 @@ If your team uses Personal Access Tokens (PATs) instead of OAuth, use the **Docu
 1. Enter a **Name** and your **Azure DevOps URL** (repository or wiki URL).
 1. Under **Authentication method**, select **Personal Access Token (PAT)**.
 1. Enter your Azure DevOps PAT in the secure input field.
-1. Select **Next** to review, then select **Add**.
+1. Select **Next** to review, and then select **Add**.
 
-Your PAT is stored securely and can't be retrieved after saving. The connector tests connectivity before saving. If the PAT lacks the required `vso.code` scope, the connector creation fails with a clear error message.
+Your PAT is stored securely and you can't retrieve it after saving. The connector tests connectivity before saving. If the PAT lacks the required `vso.code` scope, the connector creation fails with a clear error message.
 
 The following URL formats are accepted:
 
@@ -183,31 +180,56 @@ The following URL formats are accepted:
 - Wiki URLs: `https://dev.azure.com/{org}/{project}/_wiki/wikis/{wiki}`
 
 > [!TIP]
-> Use PAT authentication when your organization already manages Azure DevOps PATs, when you need a service account connection without user-specific OAuth, or when integrating with CI/CD pipelines.
+> Use PAT authentication when your organization already manages Azure DevOps PATs, when you need a service account connection without user-specific OAuth, or when you're integrating with CI/CD pipelines.
+
+## Edit or remove a connector
+
+You can modify or delete existing connectors from the connectors list.
+
+### Edit
+
+1. In the connectors list, select the **⋮** (more actions) menu on the connector row.
+1. Select **Edit connector**.
+1. The edit dialog opens with your current settings. Modify the organization, reauthenticate, or change the managed identity.
+1. Select **Save**.
+
+### Delete
+
+To remove a single connector:
+
+1. Select **⋮** on the connector row, and then select **Delete connector**.
+1. Confirm the deletion.
+
+To remove multiple connectors at once:
+
+1. Select connectors by using the checkboxes in the grid.
+1. Select **Remove** in the toolbar.
+1. Confirm in the deletion dialog.
 
 ## Troubleshooting
 
 Use the following information to resolve common errors when setting up an Azure DevOps connector.
 
-### "Azure DevOps access token not configured. Please authenticate."
+| Issue | Solution |
+|-------|----------|
+| "Authorize Azure DevOps" dialog doesn't appear | Refresh the page and try again. If your Microsoft Entra ID session expired, sign in again at the portal. |
+| "Invalid or expired token" | Your Microsoft Entra ID session expired. Refresh the portal page to get a new session, then try signing in again. |
+| "Azure DevOps access token not configured. Please authenticate." | No OAuth token exists for this connector. Edit the connector and sign in again. |
+| "Token lacks `Code.Read` permission" | Re-authenticate with an account that has `Code.Read` permissions in the organization. |
+| "Organization not configured for this connector" | Organization name is missing. Delete and re-create the connector with the correct organization name. |
+| "A connector for this organization already exists" | Each organization can only have one connector. Edit the existing one or delete it first. |
+| "A connector with this name already exists" | Another connector already uses this name. Choose a different name. |
+| Sign-in button is disabled | Enter your organization name first. The button enables once the **Organization** field is filled. |
 
-No OAuth token exists for this connector. Edit the connector and sign in again.
+## Summary
 
-### "Token lacks Code.Read permission"
+In this tutorial, you learned how to:
 
-Your token doesn't have the `vso.code` scope required to access repositories. Sign in again by using an account that has Code.Read permissions in the organization.
-
-### "Organization not configured for this connector"
-
-The organization name is missing from the connector configuration. Delete and re-create the connector with the correct organization name.
-
-### "A connector for this organization already exists"
-
-You already have an Azure DevOps OAuth connector for this organization. Each organization can only have one connector. Edit the existing connector or delete it first.
-
-### "A connector with this name already exists"
-
-Another connector (of any type) already uses this name. Choose a different name for your Azure DevOps connector.
+- Add an Azure DevOps connector by using OAuth or managed identity authentication
+- Understand the difference between OAuth (autorefreshing) and PAT (manually managed) authentication
+- Verify that your agent can access your Azure DevOps repositories
+- Set up PAT authentication through the documentation connector
+- Set up multiple connectors for different organizations
 
 ## Next step
 

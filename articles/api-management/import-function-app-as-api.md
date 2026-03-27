@@ -1,29 +1,29 @@
 ---
-title: Import an Azure Function App as an API in API Management
+title: Import an Azure Function App as an API
 titleSuffix: Azure API Management
 description: Learn how to import an Azure function app into Azure API Management as an API.
 services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 03/28/2025
+ms.date: 03/12/2026
 ms.author: danlep
 ms.custom: sfi-image-nochange
 
 #customer intent: As an API developer, I want to import an Azure function app as an API in API Management. 
 ---
 
-# Import an Azure function app as an API in Azure API Management
+# Import an Azure function app as an API
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 Azure API Management supports importing Azure function apps as new APIs or appending them to existing APIs. The process automatically generates a host key in the Azure function app, which is then assigned to a named value in API Management.
 
-[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
-
 This article describes how to import an Azure function app as an API to Azure API Management and test the API.
 
-You'll learn how to:
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
+
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Import an Azure function app as an API
@@ -33,20 +33,21 @@ You'll learn how to:
 
 ## Prerequisites
 
-* Complete the [Create an Azure API Management instance](get-started-create-service-instance.md) quickstart.
+* Create an [Azure API Management instance](get-started-create-service-instance.md).
 * Make sure you have an Azure function app in your subscription. For more information, see [Getting started with Azure Functions](../azure-functions/functions-get-started.md). The function must have an HTTP trigger. The authorization level must be set to *Anonymous* or *Function*.
 
 > [!NOTE]
-> You can also use the API Management Extension for Visual Studio Code to import and manage your APIs. Complete the [API Management Extension tutorial](visual-studio-code-tutorial.md) to get started.
+> You can also use the API Management Extension for Visual Studio Code to import and manage your APIs. To get started, complete the [API Management Extension tutorial](visual-studio-code-tutorial.md).
 
 ## Import an Azure function app as a new API
 
 To create a new API from an Azure function app:
 
 1. Navigate to your API Management service in the Azure portal.
-1. Select **APIs** > **APIs** in the left pane.
 
-1. Under **Create from Azure resource**, select **Function App**:
+1. In the sidebar menu, select **APIs** > **APIs**, and then select **+ Add API**.
+
+1. Under **Create from Azure resource**, select the **Function App** tile:
 
     :::image type="content" source="./media/import-function-app-as-api/add-01.png" alt-text="Screenshot that shows the Function App tile in the Azure portal.":::
 
@@ -77,15 +78,13 @@ To create a new API from an Azure function app:
 
 1. As needed, specify other settings. You can also specify settings later via the **Settings** tab. These settings are explained in the [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
 
-    
-
 1. Select **Create**.
 
 ## Append a function app to an existing API
 
 To append a function app to an existing API:
 
-1. In your **Azure API Management** service instance, select **APIs** > **APIs** in the left pane.
+1. In your **Azure API Management** service instance, select **APIs** > **APIs** in the sidebar menu.
 
 1. Choose an API that you want to import a function app to. Select the ellipsis (**...**) next to the API, and then select **Import**:
 
@@ -125,7 +124,7 @@ When you import an Azure function app, these items are automatically generated:
 For APIs created after April 4, 2019, the host key is passed in HTTP requests from API Management to the function app in a header. Older APIs pass the host key as [a query parameter](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). You can change this behavior by using the `PATCH Backend` [REST API call](/rest/api/apimanagement/current-ga/backend/update#backendcredentialscontract) on the `Backend` entity that's associated with the function app.
 
 > [!WARNING]
-> Removing or changing either the Azure function app host key value or the API Management named value will disable communication between the services. The values don't automatically sync.
+> Removing or changing either the Azure function app host key value or the API Management named value disables communication between the services. The values don't automatically sync.
 >
 > If you need to rotate the host key, be sure to also change the named value in API Management.
 
@@ -135,17 +134,13 @@ For APIs created after April 4, 2019, the host key is passed in HTTP requests fr
 
     :::image type="content" source="./media/import-function-app-as-api/keys-01.png" alt-text="Screenshot that shows a list of function app instances." lightbox="./media/import-function-app-as-api/keys-01.png":::
 
-1. In the **Functions** section of the left pane, select **App keys**:
+1. In the **Functions** section of the sidebar menu, select **App keys**. Find the keys in the **Host keys** section:
 
     :::image type="content" source="./media/import-function-app-as-api/keys-02b.png" alt-text="Screenshot that shows App keys in the menu." lightbox="./media/import-function-app-as-api/keys-02b.png":::
 
-1. Find the keys in the **Host keys** section:
-
-    :::image type="content" source="./media/import-function-app-as-api/keys-03.png" alt-text="Screenshot that shows the host keys." lightbox="./media/import-function-app-as-api/keys-03.png":::
-
 ### Access the named value in API Management
 
-Navigate to your API Management instance and select **APIs** > **Named values** in the left pane. The Azure function app key is stored there.
+Navigate to your API Management instance and select **APIs** > **Named values** in the sidebar menu. The Azure function app key is stored there.
 
 :::image type="content" source="./media/import-function-app-as-api/api-named-value.png" alt-text="Screenshot that shows the location of the function app key." lightbox="./media/import-function-app-as-api/api-named-value.png":::
 

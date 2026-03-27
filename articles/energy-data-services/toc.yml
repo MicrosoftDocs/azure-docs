@@ -125,6 +125,8 @@ items:
       href: how-to-generate-auth-token.md
     - name: Upload large files using file service
       href: how-to-upload-large-files-using-file-service.md
+    - name: Manage upgrade settings
+      href: how-to-manage-upgrade-settings.md
 - name: References
   items:
   - name: REST API

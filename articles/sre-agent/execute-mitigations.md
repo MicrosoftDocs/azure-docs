@@ -3,7 +3,7 @@ title: Execute Mitigations in Azure SRE Agent
 description: Learn how your agent diagnoses issues and fixes them by restarting services, scaling resources, hardening security settings, and collecting diagnostics with the level of control you choose.
 ms.topic: feature-guide
 ms.service: azure-sre-agent
-ms.date: 03/04/2026
+ms.date: 03/18/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -23,7 +23,7 @@ Your agent diagnoses problems and fixes them. It restarts services, scales resou
 
 ## The problem: diagnosis without action wastes time
 
-You identified the problem. Now what? You go to the Azure portal, find the right blade, confirm the resource, click through confirmation dialogs, wait for the operation to complete, and then verify it worked. The investigation took five minutes. The fix takes another ten.
+You identified the problem. Now what? You go to the Azure portal, find the right blade, confirm the resource, select through confirmation dialogs, wait for the operation to complete, and then verify it worked. The investigation took five minutes. The fix takes another ten.
 
 This friction exists across your operational workflows:
 
@@ -40,9 +40,9 @@ The agent follows a consistent pattern: **diagnose → identify action → check
 
 :::image type="content" source="media/execute-mitigations/notification-paths.svg" alt-text="Diagram that shows agent response paths: execute fix, create work item, or send notification.":::
 
-After investigating, your agent can take direct action, create tracking items, or notify your team — each with full context.
+After investigating, your agent can take direct action, create tracking items, or notify your team.
 
-## What makes this different from scripts
+## What makes this approach different from scripts
 
 Scripts are rigid. They run the same action regardless of context. Your agent reasons about the situation first. It considers what it found during investigation, what it remembers from past incidents, and what your [skills](skills.md) and [knowledge base](memory.md) recommend. The same symptom might lead to a restart in one case and a scale-up in another, because the agent adapts based on evidence.
 
@@ -63,10 +63,10 @@ The agent's actions are constrained only by the permissions assigned to its mana
 
 The agent enforces safety constraints at the command level.
 
-- **Delete operations blocked** — The agent never runs `delete` and `remove` commands. It returns an error that directs users to the Azure portal for deletions.
-- **Key Vault commands blocked** — The agent blocks all `az keyvault` commands to prevent credential exposure.
-- **Management locks respected** — Before modifying any resource, the agent checks for Azure management locks. Resources with ReadOnly locks can't be modified.
-- **Subscription validation** — The agent validates subscription IDs in commands for correct GUID format before execution.
+- **Delete operations blocked**: The agent never runs `delete` and `remove` commands. It returns an error that directs users to the Azure portal for deletions.
+- **Key Vault commands blocked**: The agent blocks all `az keyvault` commands to prevent credential exposure.
+- **Management locks respected**: Before modifying any resource, the agent checks for Azure management locks. Resources with ReadOnly locks can't be modified.
+- **Subscription validation**: The agent validates subscription IDs in commands for correct GUID format before execution.
 
 ## Before and after
 
@@ -74,7 +74,7 @@ The following table compares the manual mitigation process with the agent-assist
 
 |  | Before | After |
 |---|---|---|
-| **Fix execution** | Navigate to Azure portal, find resource, click through blades | Ask agent, approve, done |
+| **Fix execution** | Navigate to Azure portal, find resource, select through blades | Ask agent, approve, done |
 | **Verification** | Manually check if fix worked | Agent verifies and reports result |
 | **Audit** | Hope someone documented what they did | Full audit trail in Application Insights |
 | **Knowledge** | One engineer knows the fix | Agent applies learned patterns consistently |
@@ -85,7 +85,7 @@ By default, agents have **Reader** access and can't take actions. You explicitly
 
 | Scope | What the agent can act on | Recommended for |
 |---|---|---|
-| **Resource** | A single resource only | Maximum restriction, start here |
+| **Resource** | A single resource only | Maximum restriction. Start here. |
 | **Resource Group** | All resources in one group | Production workloads |
 | **Subscription** | Any resource in the subscription | Development and testing only |
 
@@ -111,18 +111,18 @@ For more information, see [Send notifications](send-notifications.md) and [Workf
 
 The following example shows how your agent handles a memory incident at 3:47 AM while you sleep.
 
-**3:47 AM** — PagerDuty fires an alert: "High memory on prod-api"
+**3:47 AM**: PagerDuty fires an alert: "High memory on prod-api"
 
 Your agent (in Review mode) handles everything:
 
-1. **Acknowledges the incident** — PagerDuty shows "Acknowledged by SRE Agent."
+1. **Acknowledges the incident**: PagerDuty shows "Acknowledged by SRE Agent."
 
 1. **Investigates automatically**:
     - Queries App Insights: memory at 94%, trending up over 2 hours.
     - Checks deployment history: no recent deploys.
     - Recalls from memory: "Last time this happened, restart resolved it."
 
-1. **Proposes a fix** — Posts to the incident thread:
+1. **Proposes a fix**: Posts to the incident thread:
 
     ```console
     Memory at 94% on prod-api (App Service).
@@ -146,7 +146,7 @@ Your agent (in Review mode) handles everything:
     ✓ Incident resolved
     ```
 
-**What happened:** You clicked **Approve** and the agent handled investigation, action, and verification.
+**What happened:** You selected **Approve** and the agent handled investigation, action, and verification.
 
 ## Audit trail
 
@@ -161,6 +161,15 @@ The system records every mitigation action along with the full context.
 | **Result** | Success or failure, with post-action verification |
 
 You can query the audit trail in Application Insights through **Monitor > Logs** in the agent portal. The system logs every `az` command as an `AgentAzCliExecution` custom event. For more information, see [Audit agent actions](audit-agent-actions.md).
+
+## Get started
+
+Mitigations work automatically with the built-in Azure CLI tool. Control how much autonomy your agent has through [run modes](run-modes.md).
+
+| Resource | What you'll learn |
+|---|---|
+| [Set up a response plan](response-plan.md) | Configure response plans that include automated mitigations |
+| [Run modes](run-modes.md) | Configure ReadOnly, Review, or Autonomous execution levels |
 
 ## Next step
 

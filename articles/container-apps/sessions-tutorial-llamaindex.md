@@ -6,7 +6,7 @@ author: anthonychu
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, ignite-2024
 ms.topic: tutorial
-ms.date: 10/11/2024
+ms.date: 03/26/2026
 ms.author: antchu
 ---
 

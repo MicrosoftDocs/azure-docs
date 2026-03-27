@@ -3,7 +3,7 @@ title: Memory and Knowledge in Azure SRE Agent
 description: Learn how your agent remembers past incident resolutions and references your documentation to improve over time.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 03/06/2026
+ms.date: 03/18/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -32,11 +32,11 @@ The agent returns a grounded response with **clickable citations** that show exa
 
 ## Automatic learning
 
-Your agent learns from every conversation. No manual training is required.
+Your agent learns from every conversation. It doesn't need any manual training.
 
 :::image type="content" source="media/memory/memory-auto-learning.svg" alt-text="Diagram showing the agent automatically extracting learnings after each session: symptoms, resolution steps, root cause, and pitfalls to avoid." lightbox="media/memory/memory-auto-learning.svg":::
 
-After each thread completes, the agent captures the following information.
+After each thread finishes, the agent captures the following information.
 
 | What | Description |
 |---|---|
@@ -49,17 +49,17 @@ This process happens automatically. Thirty minutes after a thread goes quiet, th
 
 ### Same-resource priority
 
-When investigating a resource issue, the agent prioritizes past sessions on the **exact same resource**.
+When investigating a resource problem, the agent prioritizes past sessions on the **exact same resource**.
 
 ```text
 "App Service app-prod-01 is returning 503 errors"
 ```
 
-Your agent first checks whether it saw problems on `app-prod-01` before. If yes, those learnings appear first because they have the highest relevance.
+Your agent first checks whether it saw problems on `app-prod-01` before. If yes, those learnings appear first because they're the most relevant.
 
 ## Proactive knowledge persistence
 
-Beyond learning from completed threads, your agent actively saves what it discovers during conversations. When your agent encounters something important (a tricky configuration, a non-obvious dependency, or a debugging gotcha), it records the insight in persistent knowledge files that carry across sessions.
+Beyond learning from completed threads, your agent actively saves what it discovers during conversations. When your agent encounters something important (a tricky configuration, a nonobvious dependency, or a debugging gotcha), it records the insight in persistent knowledge files that carry across sessions.
 
 ### How it works
 
@@ -67,7 +67,7 @@ Your agent keeps a knowledge directory at `memories/synthesizedKnowledge/`. The 
 
 | Component | What it does |
 |---|---|
-| **`overview.md`** | Service summary and index. Always loaded into context (~2,000 character budget). |
+| **`overview.md`** | Service summary and index. Always loaded into context (about 2,000 character budget). |
 | **Topic files** | Detailed notes on specific subjects (for example, `aks-networking-gotchas.md`). |
 | **Links from overview** | `overview.md` links to topic files so your agent knows what detailed knowledge exists. |
 
@@ -77,11 +77,11 @@ Your agent proactively records insights during conversations.
 
 | Category | Examples |
 |---|---|
-| **Problem constraints** | "This service can't scale past 10 replicas due to quota limits" |
-| **Strategies that worked** | "Restarting the pod with `--grace-period=0` resolved the stuck deployment" |
-| **Strategies that failed** | "Increasing memory limit didn't help. The issue was CPU throttling" |
-| **Non-obvious dependencies** | "app-frontend depends on a sidecar proxy that must start first" |
-| **Configuration details** | "Production uses custom TLS certificates stored in Key Vault" |
+| **Problem constraints** | "This service can't scale past 10 replicas due to quota limits." |
+| **Strategies that worked** | "Restarting the pod with `--grace-period=0` resolved the stuck deployment." |
+| **Strategies that failed** | "Increasing memory limit didn't help. The issue was CPU throttling." |
+| **Non-obvious dependencies** | "app-frontend depends on a sidecar proxy that must start first." |
+| **Configuration details** | "Production uses custom TLS certificates stored in Key Vault." |
 
 ### Knowledge organization
 
@@ -89,14 +89,14 @@ Your agent organizes knowledge **semantically by topic**, not chronologically. E
 
 | File | What it captures |
 |---|---|
-| `overview.md` | Service summary, key links, index of topic files (~2,000 chars) |
-| `team.md` | Team members, roles, expertise (~500 chars) |
-| `architecture.md` | Components, connections, environments (~1,500 chars) |
-| `logs.md` | Log sources, tables, key fields, useful queries (~1,500 chars) |
-| `deployment.md` | Pipeline details, version lookup, rollback procedures (~1,000 chars) |
-| `auth.md` | Auth mechanisms, identity flows (~800 chars) |
-| `debugging.md` | Common issues, troubleshooting guides, runbook links (~1,000 chars) |
-| `queries/*.md` | Extracted queries organized by topic (~1,000 chars each) |
+| `overview.md` | Service summary, key links, index of topic files (~2,000 characters) |
+| `team.md` | Team members, roles, expertise (~500 characters) |
+| `architecture.md` | Components, connections, environments (~1,500 characters) |
+| `logs.md` | Log sources, tables, key fields, useful queries (~1,500 characters) |
+| `deployment.md` | Pipeline details, version lookup, rollback procedures (~1,000 characters) |
+| `auth.md` | Auth mechanisms, identity flows (~800 characters) |
+| `debugging.md` | Common issues, troubleshooting guides, runbook links (~1,000 characters) |
+| `queries/*.md` | Extracted queries organized by topic (~1,000 characters each) |
 
 When updating existing knowledge, your agent reads the current file, merges new information, and removes anything that becomes outdated or incorrect.
 
@@ -159,11 +159,11 @@ The agent responds based on the saved memory: "Database failover takes approxima
 
 Upload your documentation and connect external sources to give your agent a broader reference library.
 
-:::image type="content" source="media/memory/knowledge-sources.svg" alt-text="Diagram showing knowledge coming from uploaded documents and MCP connectors, all searchable together.":::
+:::image type="content" source="media/memory/knowledge-sources.svg" alt-text="Diagram showing knowledge coming from uploaded documents and MCP connectors, all searchable together." lightbox="media/memory/knowledge-sources.svg":::
 
 ### Upload documents
 
-Go to **Builder > Knowledge base** to upload your documentation.
+Go to **Builder** > **Knowledge base** to upload your documentation. For full details on supported formats, limits, and how your agent creates knowledge automatically, see [Upload knowledge documents](upload-knowledge-document.md).
 
 | Document type | Good for |
 |---|---|
@@ -173,20 +173,19 @@ Go to **Builder > Knowledge base** to upload your documentation.
 | API documentation | Service-specific knowledge |
 | Team procedures | Workflow and process docs |
 
-**Supported formats:** Markdown (`.md`), Plain text (`.txt`). Maximum file size is 16 MB.
+**Supported formats:** Markdown, plain text, PDF, Word, PowerPoint, Excel, images, and more. The maximum size is 16 MB per file. For the full list, see [Upload knowledge documents](upload-knowledge-document.md).
 
 ### Connect external sources
 
-Access knowledge directly from external systems by using [connectors](connectors.md).
+Access knowledge directly from external systems by using [connectors](connectors.md). For the full list of supported sources, see [Connectors](connectors.md).
 
 | Connector | What it provides |
 |---|---|
 | **Azure DevOps** | Query your ADO wiki pages |
 | **GitHub** | Search repos, wikis, issues |
-| **Microsoft Learn** | Official Microsoft documentation |
 | **Custom MCP** | Any knowledge source you configure |
 
-Configure connectors in **Settings > Connectors**. For more information, see [Connectors](connectors.md).
+Configure connectors in **Builder** > **Connectors**. For more information, see [Connectors](connectors.md).
 
 ## Use knowledge in conversations
 
@@ -218,9 +217,9 @@ Each session insight extracts structured learnings that become searchable memory
 | **Root cause** | Why it happened | "Memory leak in deployment v2.3" |
 | **Pitfalls to avoid** | What didn't work | "Restarting didn't help" |
 
-### When insights are generated
+### When the system generates insights
 
-The following table describes when session insights are generated.
+The following table describes when the system generates session insights.
 
 | Thread type | When | Auto or manual |
 |---|---|---|
@@ -230,7 +229,7 @@ The following table describes when session insights are generated.
 
 ### View session insights
 
-Go to **Monitor > Session insights** to see:
+Go to **Monitor** > **Session insights** to see:
 
 - Timeline of agent actions
 - Evaluation scores
@@ -272,12 +271,10 @@ Use descriptive file names to help your agent and your team find the right docum
 | runbook.md | aks-cluster-scaling-runbook.md |
 | notes.txt | escalation-procedures-2026.txt |
 
-## Next step
-
-> [!div class="nextstepaction"]
-> [Upload a knowledge document](./upload-knowledge-document.md)
-
 ## Related content
 
-- [Connectors](connectors.md): Connect external knowledge sources to your agent.
-- [Subagents](sub-agents.md): Create specialized agents with focused capabilities.
+| Resource | Why it matters |
+|----------|----------------|
+| [Upload knowledge documents](upload-knowledge-document.md) | Detailed file format support, limits, and agent-generated knowledge |
+| [Connectors](connectors.md) | How connectors bring external data to your agent |
+| [Custom agents](sub-agents.md) | How custom agents use knowledge in workflows |

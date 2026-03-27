@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 03/19/2026
+ms.date: 03/26/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to configure the destination for a data flow or data flow graph.
@@ -173,9 +173,9 @@ destinationSettings:
 
 For MQTT endpoints, you can use dynamic topic variables in the `dataDestination` field to route messages based on the source topic structure or message content.
 
-### Data flows: route by source topic
+### Route by source topic
 
-In data flows, use the following variables to reference segments of the source topic:
+In both data flows and data flow graphs, use the following variables to reference segments of the source topic in the `dataDestination` field:
 
 - `${inputTopic}`: The full original input topic
 - `${inputTopic.index}`: A segment of the input topic (index starts at 1)
@@ -223,7 +223,7 @@ destinationSettings:
 
 ### Data flow graphs: route by message content
 
-In data flow graphs, you can set the destination topic dynamically based on message content by combining a map transform with the `${outputTopic}` variable:
+Data flow graphs support an additional approach: you can set the destination topic dynamically based on message content by combining a map transform with the `${outputTopic}` variable:
 
 1. In a map transform, write a value to `$metadata.topic` based on message content. For example, use an expression like `if($1 > 1000, "alerts", "historian")`.
 2. In the destination, reference the value with `${outputTopic}` in the `dataDestination` field.

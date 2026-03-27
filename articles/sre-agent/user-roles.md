@@ -3,7 +3,7 @@ title: User Roles and Permissions in Azure SRE Agent
 description: Learn how to control who can view, interact with, and administer your agent by using Azure RBAC roles and layered access control.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 03/09/2026
+ms.date: 03/18/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -18,18 +18,17 @@ Your agent can investigate problems, take actions on production infrastructure, 
 
 ## Access control overview
 
-Access control works across four layers.
+Access control works across three layers.
 
-:::image type="content" source="media/user-roles/access-control-hierarchy.svg" alt-text="Diagram of access control hierarchy showing user roles, run modes, agent identity, and on-behalf-of fallback." lightbox="media/user-roles/access-control-hierarchy.svg":::
+:::image type="content" source="media/user-roles/access-control-hierarchy.svg" alt-text="Diagram of access control hierarchy showing user roles, run modes, and agent permissions." lightbox="media/user-roles/access-control-hierarchy.svg":::
 
 | Layer | Controls | Configured at |
 |---|---|---|
 | **User roles** (this article) | What *users* can do with the agent | Azure IAM on the agent resource |
-| **[Run modes](run-modes.md)** | Whether the agent asks before acting | Per trigger and per scheduled task |
-| **[Agent identity](permissions.md)** | What *the agent* can access on Azure | RBAC roles on resource groups |
-| **OBO fallback** | Temporary elevated access | Administrator authorizes on demand |
+| **[Run modes](run-modes.md)** | Whether the agent asks before acting | Per response plan and per scheduled task |
+| **[Agent permissions](permissions.md)** | What *the agent* can access on Azure, which includes managed identity RBAC roles and on-behalf-of fallback | RBAC roles on resource groups |
 
-## Three built-in roles
+## Layer 1: User roles
 
 Your agent includes three built-in Azure RBAC roles.
 
@@ -55,15 +54,15 @@ Use the following guidance to assign roles based on team responsibilities.
 
 ## How the portal enforces permissions
 
-The portal checks your Azure role assignments when you access the agent. Access is enforced at two levels.
+The portal checks your Azure role assignments when you access the agent. The portal enforces access at two levels.
 
 ### Level 1: No agent access
 
-When you don't have the SRE Agent role assignment, the portal shows an **Access Required** screen with a shield icon and a **Go to Access Control** button that opens the Azure IAM blade. If you have Azure Owner or Contributor on the resource, you also see a banner offering to auto-assign the Administrator role.
+When you don't have the SRE Agent role assignment, the portal shows an **Access Required** screen with a shield icon and a **Go to Access Control** button that opens the Azure IAM window. If you have Azure Owner or Contributor on the resource, you also see a banner offering to autoassign the Administrator role.
 
 ### Level 2: Backend enforcement
 
-When you have an SRE Agent role but attempt an action beyond your permissions (for example, a Reader trying to send a message, or a Standard User trying to create a subagent), the backend blocks the action with a 403 error. The portal might let you navigate to a page or select a button, but the operation fails with a permission error when it reaches the server.
+When you have an SRE Agent role but attempt an action beyond your permissions, the backend blocks the action with a 403 error. The portal might let you navigate to a page or select a button, but the operation fails with a permission error when it reaches the server.
 
 > [!NOTE]
 > Some portal features proactively disable buttons when you lack write permissions (for example, connector management shows disabled buttons with tooltips). However, this behavior isn't yet consistent across all features. The backend always enforces the correct permissions regardless of what the UI shows.
@@ -75,7 +74,7 @@ The following table summarizes the access level for each role across different a
 | Area | Reader | Standard User | Administrator |
 |---|---|---|---|
 | **Chat** | View threads (read-only) | Send messages, start threads | Full access, approve actions, delete threads |
-| **Subagent builder** | View subagents | View subagents | Create, edit, delete subagents |
+| **Agent Canvas** | View custom agents | View custom agents | Create, edit, delete custom agents |
 | **Knowledge base** | Browse documents | Upload documents | Upload and delete documents |
 | **Connectors** | View connectors | View connectors | Add, edit, delete connectors |
 | **Response plans** | View plans | View plans | Create, edit, delete plans |
@@ -117,29 +116,12 @@ The following example shows how roles interact during an action approval workflo
 | 4 | Manager (Administrator) | Reviews and approves |
 | 5 | Agent | Executes fix using managed identity or [on-behalf-of](permissions.md#on-behalf-of-obo) authorization |
 
-## User roles vs. agent permissions
+## Learn how the access control layers interact
 
-User roles and agent permissions control different aspects of access.
+This article covers **user roles** which includes who can do what with the agent. To understand the full access control picture, see:
 
-| Concept | Controls |
-|---|---|
-| **User roles and permissions** (this article) | What *users* can do with the agent |
-| **[Agent permissions](permissions.md)** | What *the agent* can do on Azure resources |
-
-When an administrator approves an action, the agent uses one of the following methods:
-
-- **Agent's managed identity**: Use this method when the agent has the required Azure RBAC permissions.
-- **[On-behalf-of](permissions.md#on-behalf-of-obo) authorization**: Use this method when the agent lacks permissions but the administrator has them.
-
-> [!TIP]
-> Only SRE Agent Administrators can authorize on-behalf-of access. Standard Users can't approve actions that require elevated permissions.
-
-## Next step
-
-> [!div class="nextstepaction"]
-> [Understand agent permissions](./permissions.md)
-
-## Related content
-
-- [Agent permissions](permissions.md)
-- [Run modes](run-modes.md)
+| Article | Page | What you'll learn |
+|-------|------|-------------------|
+| **Run modes** | [Run modes](run-modes.md) | How Review and Autonomous modes control whether the agent asks before acting. Only Administrators can approve in Review mode |
+| **Agent permissions** | [Agent permissions](permissions.md) | How the agent gets access to Azure resources. This includes *Reader* vs *Privileged* permission levels, RBAC roles, and OBO fallback |
+| **Audit** | [Audit agent actions](audit-agent-actions.md) | Review what your agent did, who approved it, and which identity was used |

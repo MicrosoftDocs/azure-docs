@@ -3,7 +3,7 @@ title: "Tutorial: Create a Python Tool in Azure SRE Agent"
 description: Build an SLA calculator tool for your Azure SRE Agent using AI-generated Python code.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/09/2026
+ms.date: 03/18/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you begin, make sure you have the following:
+Before you begin, make sure you have the following resources and permissions:
 
 - An Azure SRE Agent. For more information, see [Create an agent](create-agent.md).
 - Builder permissions on the agent.
@@ -34,11 +34,11 @@ Before you begin, make sure you have the following:
 
 ## Open the Python tool dialog
 
-Navigate to the subagent builder and start creating a Python tool.
+Go to the Agent Canvas and start creating a Python tool.
 
 1. Open the [SRE Agent portal](https://sre.azure.com) and select your agent.
 1. Select **Builder** in the left navigation.
-1. Expand **Builder** and select **Subagent builder**.
+1. Expand **Builder** and select **Agent Canvas**.
 1. Select **Create** > **Tool** > **Python tool**.
 
 :::image type="content" source="media/create-python-tool/python-tool-create-menu.png" alt-text="Screenshot of Create menu showing Tool and Python tool options.":::
@@ -103,11 +103,11 @@ def main(total_uptime_minutes: int, total_downtime_minutes: int,
 
 :::image type="content" source="media/create-python-tool/python-tool-code.png" alt-text="Screenshot of Code tab showing generated Python function.":::
 
-The Code tab shows a `main()` function with typed parameters. The tool name is auto-generated from your description.
+The Code tab shows a `main()` function with typed parameters. The tool name comes from your description.
 
 ## Test with real inputs
 
-Before you create the tool, test it with actual values.
+Before you create the tool, test it by using actual values.
 
 1. Select the **Test playground** tab.
 1. Enter the following test values:
@@ -129,11 +129,11 @@ The following example shows the expected result:
 }
 ```
 
-The test shows a green success indicator and the JSON output matches expected values.
+The test shows a green success indicator, and the JSON output matches the expected values.
 
 ## Create the tool
 
-After testing passes, select **Create tool**.
+After the tests pass, select **Create tool**.
 
 Your tool is now available. The agent can call it automatically when a task matches the tool's description.
 
@@ -145,11 +145,11 @@ In a new chat thread, ask your agent a question that triggers the tool:
 What's my SLA for last month? We had 43185 minutes of uptime and 15 minutes of downtime.
 ```
 
-The agent recognizes this matches your tool and calls it to calculate the result.
+The agent recognizes this question matches your tool and calls it to calculate the result.
 
 ## Troubleshooting
 
-Use the following information to resolve common issues.
+Use the following information to resolve common problems.
 
 ### Test button is disabled
 
@@ -170,11 +170,29 @@ Select the description field, refine your text, and select **Generate** again. B
 
 ### Test returns an error
 
-Check the error message in the results panel. Common issues include:
+Check the error message in the results panel. Common problems include:
 
 - Division by zero (add handling for edge cases)
 - Incorrect parameter types (ensure inputs match expected types)
 - Import errors (check that libraries are available)
+
+## Edit or delete a tool
+
+You can modify or remove tools directly from the Agent Canvas.
+
+### Edit
+
+1. On the **Agent Canvas**, select the tool node to open the info panel.
+1. Select the **edit** (pencil) icon in the panel header.
+1. The edit dialog opens. Modify the description, code, or parameters.
+1. Select **Save**.
+
+### Delete
+
+1. Select the tool node to open the info panel.
+1. Select the **⋯** (more actions) menu in the panel header.
+1. Select **Delete tool**.
+1. Confirm the deletion in the dialog.
 
 ## Next step
 
@@ -183,6 +201,6 @@ Check the error message in the results panel. Common issues include:
 
 ## Related content
 
-- [Python code execution](python-code-execution.md)
-- [Create a Kusto tool](create-kusto-tool.md)
-- [Tools](tools.md)
+- [Python Tools](python-code-execution.md)
+- [Create a Kusto Tool](create-kusto-tool.md)
+- [Tools overview](tools.md)

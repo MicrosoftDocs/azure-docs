@@ -3,7 +3,7 @@ title: Python Tools in Azure SRE Agent
 description: Extend your agent to reach internal systems, multicloud platforms, and custom business logic by creating Python tools.
 ms.topic: how-to
 ms.service: azure-sre-agent
-ms.date: 03/09/2026
+ms.date: 03/18/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -12,16 +12,16 @@ ms.custom: python, custom tools, extensibility, hybrid, multicloud, custom logic
 ---
 
 # Python tools in Azure SRE Agent
-Python tools extend your Azure SRE Agent beyond built-in Azure capabilities. Create custom tools that connect to internal APIs, on-premises databases, multicloud platforms, and proprietary systems using Python code. Describe what you need in plain English, paste existing scripts, or wrap HTTP endpoints, then test and deploy without a restart.
+Python tools extend your Azure SRE Agent beyond built-in Azure capabilities. Create custom tools that connect to internal APIs, on-premises databases, multicloud platforms, and proprietary systems by using Python code. Describe what you need in plain English, paste existing scripts, or wrap HTTP endpoints, then test and deploy without a restart.
 
 > [!TIP]
 > - Extend your agent to reach systems it doesn't have built-in support for.
 > - Connect to internal APIs, on-premises databases, and multicloud platforms.
-> - Encode custom business logic (SLA calculations, cost models, compliance rules).
+> - Encode custom business logic, such as SLA calculations, cost models, and compliance rules.
 
 ## The problem
 
-Your agent has powerful built-in tools for Azure, including Kusto queries, Azure Monitor, and ARM operations. But your organization doesn't live entirely in Azure:
+Your agent has powerful built-in tools for Azure, including Kusto queries, Azure Monitor, and Azure Resource Manager operations. But your organization doesn't live entirely in Azure:
 
 - **Internal systems**: CMDB databases, custom ticketing systems, and internal APIs that only your organization uses.
 - **Multicloud**: Datadog dashboards, Splunk logs, and AWS CloudWatch metrics alongside Azure.
@@ -32,7 +32,7 @@ The agent can diagnose Azure problems, but it can't reach your internal systems 
 
 ## How Python tools work
 
-Python tools let you teach your agent new capabilities. Describe what you need, generate the code, test it, and deploy. Your agent can then reach systems and apply logic that weren't possible before.
+Python tools let you teach your agent new capabilities. Describe what you need, generate the code, test it, and deploy it. Your agent can then reach systems and apply logic that weren't possible before.
 
 :::image type="content" source="media/common/python-tool-generate.png" alt-text="Screenshot of the Python tool dialog.":::
 
@@ -40,7 +40,7 @@ The generated code follows a consistent pattern:
 
 - A `main()` function that accepts typed parameters.
 - JSON-serializable return values.
-- Descriptive docstrings that explain the logic.
+- Descriptive text that explains the logic.
 
 Before creating the tool, test it with real inputs in the playground. Enter parameter values, select **Test**, and see actual results, not just syntax validation.
 
@@ -50,7 +50,7 @@ After you test the tool, select **Create tool**. Your agent can immediately use 
 
 ## Python tools vs. MCP connectors
 
-For third-party platforms, you have two options.
+For non-Microsoft platforms, you have two options.
 
 | Approach | Best for | Examples |
 |---|---|---|
@@ -99,7 +99,7 @@ You can create Python tools by using three approaches.
 
 ### Option 1: Let AI write the code
 
-Describe what you need in the dialog and select **Generate**. AI creates a working Python function with typed parameters, error handling, and docstrings.
+Describe what you need in the dialog and select **Generate**. AI creates a working Python function with typed parameters, error handling, and docs.
 
 **You describe:** "Calculate SLA compliance from uptime and downtime minutes, return whether it meets 99.9% threshold"
 
@@ -209,7 +209,7 @@ Python tools can authenticate to Azure resources by using managed identity with 
 | **Key Vault** | Secrets, keys, certificates (`vault.azure.net`) |
 | **Storage** | Blob, queue, table storage (`storage.azure.com`) |
 
-Enable authentication in the **Identity** tab when creating a tool.
+Enable authentication in the **Identity** tab when you create a tool.
 
 ## Limitations
 
@@ -218,12 +218,9 @@ Enable authentication in the **Identity** tab when creating a tool.
 - **No GPU**: CPU-only execution environment.
 - **JSON output required**: Return values must be JSON-serializable.
 
-## Next step
-
-> [!div class="nextstepaction"]
-> [Create a Python tool](./create-python-tool.md)
-
 ## Related content
 
-- [Tools overview](./tools.md)
-- [Connectors](./connectors.md)
+| Capability | What it adds |
+|----------|-------------------|
+| [Tools overview](tools.md) | All tool types your agent can use |
+| [Connectors](connectors.md) | Built-in integrations for common platforms |

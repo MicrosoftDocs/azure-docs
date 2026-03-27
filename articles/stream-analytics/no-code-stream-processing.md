@@ -58,7 +58,6 @@ To access the no-code editor for building your stream analytics job, there are t
 
    The predefined templates can assist you in developing and running a job to address various scenarios, including:
 
-    - [Build real-time dashboard with Power BI dataset](./no-code-build-power-bi-dashboard.md)
     - [Capture data from Event Hubs in Delta Lake format (preview)](./capture-event-hub-data-delta-lake.md)
     - [Filtering and ingesting to Azure Synapse SQL](./filter-ingest-synapse-sql.md)
     - [Capturing your Event Hubs data in Parquet format in Azure Data Lake Storage Gen2](./capture-event-hub-data-parquet.md)
@@ -355,7 +354,7 @@ For more information about Azure Data Explorer output for a Stream Analytics job
 
 ### Power BI
 
-[Power BI](https://powerbi.microsoft.com/) offers a comprehensive visualization experience for your data analysis result. With Power BI output to Stream Analytics, the processed streaming data is written to Power BI streaming dataset, then it can be used to build the near real-time Power BI dashboard. To learn more about how to build the near real-time dashboard, see [Build real-time dashboard with Power BI dataset produced from Stream Analytics no code editor](./no-code-build-power-bi-dashboard.md).
+[Power BI](https://powerbi.microsoft.com/) offers a comprehensive visualization experience for your data analysis result. With Power BI output to Stream Analytics, the processed streaming data is written to Power BI streaming dataset, then it can be used to build the near real-time Power BI dashboard. 
 
 To configure Power BI as output, select **Power BI** under the **Outputs** section on the ribbon. Then fill in the needed information to connect your Power BI workspace and provide the names for the streaming dataset and table that you want to write the data to. To learn more about the details of each field, see [Power BI output from Azure Stream Analytics](./power-bi-output.md).
 

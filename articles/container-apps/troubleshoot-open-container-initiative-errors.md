@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 01/24/2025
+ms.date: 03/24/2026
 ms.author: cshoe
 ms.custom:
 ---
@@ -48,6 +48,6 @@ The Container Apps diagnostics features an intelligent and interactive experienc
 
 1. In the left navigation of the *Availability and Performance* category, select **Container Create Failures**. The information returned provides details on the error along with recommended actions to resolve the issue and more troubleshooting information.  
 
-    By selecting the required revision from the dropdown, you can inspect any container create failure events per revision in the last 24 hours.
+   By selecting the required revision from the dropdown, you can inspect any container create failure events per revision in the last 24 hours.
 
-    You can also look at the number of containers create failures per revision for your container app, by selecting **Click to show**.
+   You can also look at the number of containers create failures per revision for your container app, by selecting **Click to show**.

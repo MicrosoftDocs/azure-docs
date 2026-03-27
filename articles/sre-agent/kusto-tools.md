@@ -3,7 +3,7 @@ title: Kusto Tools in Azure SRE Agent
 description: Create deterministic query tools that run exact KQL queries against Azure Data Explorer, turning tribal knowledge into reusable agent capabilities.
 ms.topic: feature-guide
 ms.service: azure-sre-agent
-ms.date: 03/04/2026
+ms.date: 03/18/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -12,24 +12,24 @@ ms.custom: kusto, adx, azure-data-explorer, queries, tools, data-source, charts,
 ---
 
 # Kusto tools in Azure SRE Agent
-Kusto tools help you turn your best KQL queries into reusable, parameterized tools. Your agent runs the exact query you write with no interpretation, no variation. Your team's expertise becomes a shared capability.
+Kusto tools help you turn your best KQL queries into reusable, parameterized tools. Your agent runs the exact query you write with no interpretation or variation. Your team's expertise becomes a shared capability.
 
 > [!TIP]
 > - **Standardize incident queries** - The same proven KQL runs every time, with no variations.
 > - **Turn tribal knowledge into reusable tools** - Your best queries become shared capabilities.
 > - **Query with parameters** - Users ask in plain language, and the agent substitutes values automatically.
-> - **Test before deploy** - Validate queries execute correctly before adding to subagents.
+> - **Test before deploy** - Validate queries execute correctly before adding to custom agents.
 
 ## The problem: everyone writes their own queries
 
 During incidents, your team's senior engineers use battle-tested queries that find problems fast. But that knowledge stays in their heads, Slack threads, and personal notebooks. When they're not on-call, less experienced responders waste time:
 
 - **Reinventing queries** from scratch, often with mistakes
-- **Writing overly broad queries** that return too much data or miss edge cases
+- **Writing overly broad queries that return too much data or missing edge cases
 - **Missing critical columns** that would reveal the root cause
 - **Using wrong time windows** or forgetting to filter by environment
 
-Each engineer queries the same data differently. One finds the problem in five minutes. Another spends 30 minutes going in circles with ad-hoc KQL.
+Each engineer queries the same data differently. One engineer finds the problem in five minutes. Another engineer spends 30 minutes going in circles with ad-hoc KQL.
 
 ## How Kusto tools solve this problem
 
@@ -40,7 +40,7 @@ Kusto tools let you save your team's best queries as parameterized, deterministi
 | Senior engineer writes query from memory | Query is saved as a tool, anyone can use it |
 | On-call guesses at time ranges and filters | Parameters prompt for what's needed |
 | Each responder gets different results | Same query runs every time |
-| Complex joins must be remembered | Multi-step logic is pre-built |
+| Complex joins must be remembered | Multi-step logic is prebuilt |
 
 Instead of asking the on-call engineer to "figure out how to query error logs," they ask the agent:
 
@@ -48,17 +48,17 @@ Instead of asking the on-call engineer to "figure out how to query error logs," 
 Show me errors from the last 24 hours
 ```
 
-The agent uses your pre-built tool with `timeRange=24h`, returning exactly the columns and filters your team needs.
+The agent uses your prebuilt tool with `timeRange=24h`, returning exactly the columns and filters your team needs.
 
 ## How it works
 
 Follow these steps to create and use a Kusto tool:
 
-1. **Connect** — Add your Azure Data Explorer cluster as a connector.
-1. **Create** — Define queries with parameters using `##parameterName##` syntax.
-1. **Test** — Validate the query executes correctly in the portal.
-1. **Attach** — Add the tool to a subagent.
-1. **Use** — Your agent calls the tool when user questions match the tool's description.
+1. **Connect**: Add your Azure Data Explorer cluster as a connector.
+1. **Create**: Define queries with parameters using `##parameterName##` syntax.
+1. **Test**: Validate the query executes correctly in the portal.
+1. **Attach**: Add the tool to a custom agent.
+1. **Use**: Your agent calls the tool when user questions match the tool's description.
 
 ### Two approaches to data queries
 
@@ -71,44 +71,13 @@ When you add an Azure Data Explorer connector, choose between deterministic or f
 
 ### Create a Kusto tool
 
-Go to **Builder** > **Subagent builder**, and select **Create** > **Tool** > **Kusto tool**.
+Create tools in **Builder** > **Agent Canvas** > **Create** > **Tool** > **Kusto tool**. Each tool needs a name, description, connector, database, and KQL query with optional `##paramName##` parameter placeholders.
 
-| Field | Description | Example |
-|---|---|---|
-| **Tool name** | How the agent references the tool | `QueryAppLogs` |
-| **Description** | When the agent should use this tool | "Query AppLogs table for errors in the specified time range" |
-| **Connector** | Your ADX connector | `kusto-helloworld` |
-| **Database** | Database name (auto-populated from connector URL) | `helloworld-app` |
-| **Query** | KQL with parameter placeholders | See the following example |
+For the full walkthrough with screenshots, see [Tutorial: Create a Kusto tool](create-kusto-tool.md).
 
-The following example query uses a parameter:
+### Add a tool to a custom agent
 
-```kql
-AppLogs
-| where Timestamp > ago(##timeRange##)
-| where Level == "Error"
-| order by Timestamp desc
-| take 10
-```
-
-The `##timeRange##` syntax creates a parameter. The agent automatically prompts for or substitutes this value based on user input like "errors from the last 24 hours."
-
-Test the query before you create the tool. The portal validates it against your cluster. A successful test shows execution time and confirms the query runs correctly.
-
-### Add a tool to a subagent
-
-After creating your tool, attach it to a subagent:
-
-1. In **Canvas view**, find your subagent.
-1. Select the **+** button on the right side of the card.
-1. Select **Add existing tools**.
-1. Check your Kusto tools from the list.
-1. Select **Add tools**.
-
-The subagent now has access to your query.
-
-> [!TIP]
-> For step-by-step instructions with screenshots, see [Tutorial: Create a Kusto tool](create-kusto-tool.md).
+After creating your tool, attach it to a [custom agent](sub-agents.md) through the canvas view **+** button > **Add existing tools**.
 
 ## Prerequisites
 
@@ -124,7 +93,7 @@ Use the following KQL management command:
 .add cluster AllDatabasesViewer ('aadapp=<MANAGED_IDENTITY_CLIENT_ID>;<TENANT_ID>')
 ```
 
-Alternatively, in the Azure portal, navigate to your Azure Data Explorer cluster > **Security + networking** > **Permissions** > **Add** > **AllDatabasesViewer**.
+Alternatively, in the Azure portal, go to your Azure Data Explorer cluster. Select **Security + networking** > **Permissions** > **Add** > **AllDatabasesViewer**.
 
 ### Kusto connector
 
@@ -211,13 +180,15 @@ Choose the right approach based on your scenario.
 | Exploring unfamiliar data | No | Yes |
 | One-time investigations | No | Yes |
 
-## Next step
+## Get started
 
-> [!div class="nextstepaction"]
-> [Create a Kusto tool](./create-kusto-tool.md)
+| Resource | What you'll learn |
+|---|---|
+| [Create a Kusto tool](create-kusto-tool.md) | Step-by-step walkthrough with screenshots |
 
 ## Related content
 
-- [Tutorial: Create a Kusto tool](create-kusto-tool.md) - Step-by-step walkthrough with screenshots.
-- [Subagents](sub-agents.md) - Assign tools to specialized subagents.
-- [Connectors](connectors.md) - Connect other data sources.
+| Capability | What it adds |
+|---|---|
+| [Custom agents](sub-agents.md) | Assign tools to specialized custom agents |
+| [Connectors](connectors.md) | Connect other data sources |
