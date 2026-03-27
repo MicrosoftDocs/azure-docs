@@ -43,6 +43,28 @@ When exporting a Resource Manager template, Data Factory reads this file from wh
 > [!NOTE]
 > A custom Resource Manager parameter configuration doesn't change the ARM template parameter limit of 256. It lets you choose and decrease the number of parameterized properties.
 
+## Considerations for service principal credential parameterization
+> [!WARNING]
+> The `servicePrincipalCredential` property for linked services using `AADServicePrincipal` authentication with `ServicePrincipalKey` credential type is **always parameterized** by the ADF npm publish tool (`@microsoft/azure-data-factory-utilities`) regardless of any exclusion rules defined in `arm-template-parameters-definition.json`. The `-` prefix exclusion syntax has no effect on this property.
+> This means the generated ARM template will always include a parameter for `servicePrincipalCredential` which must be supplied at deployment time.If no value is provided, the deployment will fail.
+> To avoid this, use one of the following approaches:
+> - **Azure Key Vault reference** - replace the `servicePrincipalCredential` 
+  value with an `AzureKeyVaultSecret` reference. The credential is resolved 
+  at runtime from Key Vault and is not parameterized by the publish tool
+>  - **Managed Identity (MSI)** - where the target service supports it, switch 
+  `authenticationType` to `ManagedServiceIdentity` in the source linked 
+  service definition. This eliminates the credential property entirely from 
+  the ARM template. Use a post-deployment script to restore environment-specific 
+  SP credentials in target environments that require them
+
+> [!NOTE]
+> This behavior applies specifically to linked services of type 
+> `CommonDataServiceForApps`, `Dynamics`, and other connectors that support 
+> `AADServicePrincipal` + `ServicePrincipalKey` authentication. It is 
+> hardcoded in the publish tool and cannot be overridden through 
+> `arm-template-parameters-definition.json`.
+
+
 ## Custom parameter syntax
 
 The following are some guidelines to follow when you create the custom parameters file, **arm-template-parameters-definition.json**. The file consists of a section for each entity type: trigger, pipeline, linked service, dataset, integration runtime, and data flow.
