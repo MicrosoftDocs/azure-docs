@@ -16,7 +16,7 @@ This article describes how to restore a [SQL Server instance or an individual da
 >[!NOTE]
 >This preview feature supports the Alternate Location Restore (ALR) only.
 
-[Learn about the supported scenarios and limitations for SQL Server instance snapshot backup (preview](sql-support-matrix.md#sql-server-instance-snapshot-backups-supported-scenarios-preview).
+[Learn about the supported scenarios and limitations for SQL Server instance snapshot backup (preview)](sql-support-matrix.md#sql-server-instance-snapshot-backups-supported-scenarios-preview).
 
 ## Prerequisites
 

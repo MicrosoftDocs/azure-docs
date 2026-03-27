@@ -275,7 +275,7 @@ $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload 
 
 ### Fetch the relevant restore time
 
-As outlined above, you can restore the backed-up SQL DB to a full/differential copy **OR** to a log point-in-time.
+As outlined previously, you can restore the backed-up SQL DB to a full/differential copy **OR** to a log-point-in-time.
 
 #### Fetch distinct recovery points
 
@@ -355,7 +355,7 @@ $OverwriteWithLogConfig = Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -Po
 > [!IMPORTANT]
 > A backed-up SQL DB can be restored as a new DB to another SQLInstance only, in an Azure VM 'registered' to this vault.
 
-As outlined above, if the target SQLInstance lies within another Azure VM, make sure it's [registered to this vault](#register-the-sql-vm) and the relevant SQLInstance appears as a protectable item. In this document, let's assume that the target SQLInstance name is MSSQLSERVER within another VM "Contoso2".
+As outlined previously, if the target SQLInstance lies within another Azure VM, make sure it's [registered to this vault](#register-the-sql-vm) and the relevant SQLInstance appears as a protectable item. In this document, let's assume that the target SQLInstance name is MSSQLSERVER within another VM "Contoso2".
 
 ```powershell
 $TargetContainer =  Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppContainer -Status Registered  -VaultId $testVault.ID -FriendlyName "Contoso2"
