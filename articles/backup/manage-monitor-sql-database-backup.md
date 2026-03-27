@@ -11,7 +11,7 @@ ms.author: v-mallicka
 
 # Manage and monitor SQL Server database and instance snapshot (preview) backups 
 
-This article describes common tasks for managing and monitoring SQL Server databases running on an Azure virtual machine (VM) and backed up to an Azure Backup Recovery Services vault by using Azure portal. Azure Backup allows you to manage both SQL database backups and [SQL instance snapshot backups (preview)](backup-azure-sql-database.md#snapshot-backup-for-sql-instances-in-azure-vm-preview). You can also use [Azure CLI](backup-azure-sql-manage-cli.md) and [REST API](manage-azure-sql-vm-rest-api.md) to manage SQL database backups. You can monitor jobs and alerts, stop and resume database protection, run backup jobs, and unregister a VM from backups.
+This article describes common tasks for managing and monitoring SQL Server databases running on an Azure virtual machine (VM) and backed up to an Azure Backup Recovery Services vault by using the Azure portal. Azure Backup allows you to manage both SQL database backups and [SQL instance snapshot backups (preview)](backup-azure-sql-database.md#snapshot-backup-for-sql-instances-in-azure-vm-preview). You can also use [Azure CLI](backup-azure-sql-manage-cli.md) and [REST API](manage-azure-sql-vm-rest-api.md) to manage SQL database backups. You can monitor jobs and alerts, stop and resume database protection, run backup jobs, and unregister a VM from backups.
 
 If you didn't configure backups for your SQL Server databases, see [Back up SQL Server databases on Azure VMs](backup-azure-sql-database.md)
 
@@ -28,7 +28,7 @@ Azure also creates a separate backup item for each protected database in the ins
 
 To view the database backup items, follow these steps:
 
-1. On the **Recovery Services vault**, select **Protected items** > **Backup items**.
+1. On the **Recovery Services vault** and select **Protected items** > **Backup items**.
 
 1. On the **Backup items** pane, select the required datasource type - **SQL Database in Azure VM** or **SQL Server in Azure VM (Snapshot backup) (Preview)**.
 
@@ -172,7 +172,7 @@ For more information, see [SQL Server backup types](backup-architecture.md#sql-s
 
 To run an on-demand backup at the SQL database level, follow these steps:
 
-1.  Go to the **Recovery Services vault**, and select **Protected items** \> **Backup items**.
+1.  Go to the **Recovery Services vault** and select **Protected items** \> **Backup items**.
 
 1.  On the **Backup items** pane, select **SQL Database in Azure VM**.
 
@@ -227,7 +227,7 @@ When you modify retention settings for SQL Server instance snapshot backup (prev
 
 To modify an existing SQL instance snapshot backup policy, follow these steps:
 
-1.  Go to the Recovery Services vault, and select Manage \> **Backup policies**.
+1.  Go to the **Recovery Services vault** and select Manage \> **Backup policies**.
 
 2.  On the **Backup policies** pane, select the required existing backup policy type from the list:
 
@@ -243,7 +243,7 @@ To modify an existing SQL instance snapshot backup policy, follow these steps:
 
 To change the policy associated with a backup item for SQL Server instance snapshot backup (preview), follow these steps:
 
-1.  Go to the Recovery Services vault, and select **Protected items** \> **Backup items**.
+1.  Go to the **Recovery Services vault** and select **Protected items** \> **Backup items**.
 
 2.  On the **Backup items** pane, select **SQL Server in Azure VM (Snapshot backup) (Preview)**.
 

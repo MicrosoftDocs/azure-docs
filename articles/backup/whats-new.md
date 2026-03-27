@@ -68,7 +68,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Snapshot backup for SQL Instances in Azure VM (preview)
 
-Azure Backup now supports snapshot based backups for SQL Server instances in Azure virtual machines (preview). This capability combines fast, disk based snapshots with frequent log backups to deliver faster restores (improved [Recovery Time Objective](azure-backup-glossary.md#recovery-time-objective-rto)) and minimal data loss (low [Recovery Point Objective](azure-backup-glossary.md#recovery-point-objective-rpo)) for large, SQL databases. 
+Azure Backup now supports snapshot-based backups for SQL Server instances in Azure virtual machines (preview). This capability combines fast, disk-based snapshots with frequent log backups to deliver faster restores (improved [Recovery Time Objective](azure-backup-glossary.md#recovery-time-objective-rto)) and minimal data loss (low [Recovery Point Objective](azure-backup-glossary.md#recovery-point-objective-rpo)) for large SQL databases. 
 
 This feature includes:
 

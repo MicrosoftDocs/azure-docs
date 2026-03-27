@@ -31,7 +31,7 @@ The SQL instance restore from snapshot backup allows you to restore the entire S
 
 To restore the entire SQL instance, follow these steps:
 
-1. Go to the **Recovery Services vault**, and select  **Protected items** \> **Backup items**.
+1. Go to the **Recovery Services vault** and select  **Protected items** \> **Backup items**.
 
 1. On the **Backup items** pane, select **SQL Server in Azure VM (Snapshot backup) (Preview)**.  
       
@@ -84,7 +84,7 @@ You can restore an individual SQL database from a snapshot backup without affect
 
 To restore an individual SQL database in an instance, follow these steps:
 
-1. Go to the **Recovery Services vault**, and select **Protected items** \> **Backup items**.
+1. Go to the **Recovery Services vault** and select **Protected items** \> **Backup items**.
 
 1. On the **Backup items** pane, select **SQL Database in Azure VM**.  
       

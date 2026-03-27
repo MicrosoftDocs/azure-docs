@@ -29,7 +29,7 @@ Snapshot backups provide the following benefits while backing up large databases
 
 - **Instance level snapshot**: Creates snapshot backups at the SQL instance level and select multiple databases in a single operation. Restore the entire instance or individual databases as needed.
 
-- **Minimal impact on the source server**: Azure Backup briefly quiesces the database to capture an application-consistent snapshot. While database is quiesced only for a few seconds, snapshot creation and availability in operational tier completes within minutes. Unlike streaming backups, the source machine’s resources aren't consumed for a long duration.
+- **Minimal impact on the source server**: Azure Backup briefly quiesces the database to capture an application-consistent snapshot. While the database is quiesced only for a few seconds, snapshot creation and availability in operational tier complete within minutes. Unlike streaming backups, the source machine’s resources aren't consumed for a long duration.
 
 - **Cost-effective**: Optimizes storage cost with incremental snapshots.
 
@@ -37,7 +37,7 @@ Snapshot backups provide the following benefits while backing up large databases
 
 - **Low RPO**: Combines log backups with snapshots to achieve a lower RPO and enable point-in-time restores.
 
-Learn about the supported scenarios and limitations for SQL backup using snapshots in the [support matrix](sql-support-matrix.md#sql-server-instance-snapshot-backups-supported-scenarios-preview). To back up SQL Server instance snapshot in Azure VM using Azure portal, see [this article](back-up-sql-server-instance-snapshot.md).
+Learn about the supported scenarios and limitations for SQL backup using snapshots in the [support matrix](sql-support-matrix.md#sql-server-instance-snapshot-backups-supported-scenarios-preview). To back up SQL Server instance snapshot in Azure VM using the Azure portal, see [this article](back-up-sql-server-instance-snapshot.md).
 
 ## Backup process for SQL Server database
 

@@ -14,7 +14,7 @@ ms.service: azure-backup
 
 This article describes how to back up [SQL Server instances in Azure VMs using snapshot backups (preview)](backup-azure-sql-database.md#snapshot-backup-for-sql-instances-in-azure-vm-preview). It covers the prerequisites, configuration steps for backup policies, database discovery, and backup operations to help you ensure secure data retention and recovery capabilities.
 
-[Learn about the supported scenarios and limitations for SQL Server instance snapshot backup (preview](sql-support-matrix.md#sql-server-instance-snapshot-backups-supported-scenarios-preview).
+[Learn about the supported scenarios and limitations for SQL Server instance snapshot backup (preview)](sql-support-matrix.md#sql-server-instance-snapshot-backups-supported-scenarios-preview).
 
 ## Prerequisites
 
@@ -32,14 +32,14 @@ Before you back up a SQL Server instance snapshot, ensure that the following pre
 
 ## Backup and restore permissions for SQL in Azure VM
 
-The Azure Backup extension on the SQL VM requires permissions to take managed disk snapshots and store them in the user specified resource group defined in the policy. Azure Backup uses a user assigned managed identity to perform these actions. During restore, Azure Backup uses the target VM’s managed identity to read snapshots from the specified resource group and restore the VM. Azure Backup integrates permission assignment through the builtin Azure Backup Snapshot Contributor role into both backup and restore flows. You can provide the managed identity details while configuring the backup policy and during restore operations.
+The Azure Backup extension on the SQL VM requires permissions to take managed disk snapshots and store them in the user specified resource group defined in the policy. Azure Backup uses a user assigned managed identity to perform these actions. During restore, Azure Backup uses the target VM’s managed identity to read snapshots from the specified resource group and restore the VM. Azure Backup integrates permission assignment through the built-in Azure Backup Snapshot Contributor role into both backup and restore flows. You can provide the managed identity details while configuring the backup policy and during restore operations.
 
 The following table lists the role and scope of assignment details for the managed identities created during backup and restore operations.
 
 | **Managed Identity created** | **Role** | **Scope** |
 |---|---|---|
 | Backup MSI (Added in the backup policy by user) | Azure Backup Snapshot Contributor | Source VM resource group, Snapshot resource group (can be different from source VM Resource Group) |
-| Restore MSI (Added in restore flow by user; can be different or same as the backup MSI) | Azure Backup Snapshot Contributor | Target VM Resource Group, Snapshot Resource Group, Target resource group (where disks are created to attach to target VM) |
+| Restore MSI (Added in restore flow by user; can be different or same as the backup MSI) | Azure Backup Snapshot Contributor | Target VM resource group, Snapshot resource group, Target resource group (where disks are created to attach to target VM) |
 
 ## Create a backup policy for SQL Server instance in Azure VM (Snapshot backup)
 
@@ -49,7 +49,7 @@ When you use snapshot backups, you must also provide a user-assigned managed ide
 
 You can create a backup policy while configuring backup, or create it directly in the vault before configuring backup by following these steps:
 
-1.  Go to the Recovery Services vault, and select **Manage** \> **Backup policies**.
+1.  Go to the **Recovery Services vault** and select **Manage** \> **Backup policies**.
 
 1.  On the **Backup policies** pane, select **+ Add** to create a new policy.
 
@@ -59,7 +59,7 @@ You can create a backup policy while configuring backup, or create it directly i
 
 1.  For **Full Snapshot backup** and **Log backup**, select **Edit** corresponding to each backup type and enter the backup schedule and retention periods.  
 
-    You can schedule **Full Snapshot backup** from every 6 hours to every 24 hours. For **Log backup**, you can schedule from every 15 mins to 24 hours. Scheduling snapshot **Copy only full** backups isn’t supported; you can trigger the backup operation only by selecting **Backup now**.
+    You can schedule **Full Snapshot backup** from every 6 hours to every 24 hours. For **Log backup**, you can schedule from every 15 mins to 24 hours. Scheduling snapshot **Copy only full** backups isn’t supported; you can trigger the backup operation only by selecting **Backup now** after the backup [configuration](#configure-backup-for-the-sql-server-instance). Learn [how to run an on-demand backup](#run-an-on-demand-backup-of-sql-instance)
 
     :::image type="content" source="./media/back-up-sql-server-instance-snapshot/create-backup-policy.png" alt-text="Screenshot that shows the  policy types for SQL server in Azure VM backup." lightbox="./media/back-up-sql-server-instance-snapshot/create-backup-policy.png":::
 
@@ -77,13 +77,13 @@ You can create a backup policy while configuring backup, or create it directly i
     | Log backup point                     | 7-35 days                  |
 
 
-1.  To enable Azure Backup to store snapshots in a resource group of your choice, for **Snapshot identity**, select **Edit**.and provide a snapshot identity. 
-      
-    :::image type="content" source="./media/back-up-sql-server-instance-snapshot/snapshot-identity-configuration.png" alt-text="Screenshot that shows the addition of Snapshot Identity settings in backup policy." lightbox="./media/back-up-sql-server-instance-snapshot/snapshot-identity-configuration.png":::
+1.  To enable Azure Backup to store snapshots in a resource group of your choice, for **Snapshot identity**, select **Edit** and provide a snapshot identity. 
 
 1. On the **Snapshot Identity** pane, specify the Snapshot resource group and assign a managed identity, and select **OK**.
 
     This configuration maintains an instant recovery point for faster restores. [Learn how Azure Backup uses managed identities](/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal?pivots=identity-mi-methods-azp&preserve-view=true#create-a-user-assigned-managed-identity).  
+
+    :::image type="content" source="./media/back-up-sql-server-instance-snapshot/snapshot-identity-configuration.png" alt-text="Screenshot that shows the addition of Snapshot Identity settings in backup policy." lightbox="./media/back-up-sql-server-instance-snapshot/snapshot-identity-configuration.png":::
 
 1.  On the **Create policy** pane, select **Validate + Create policy**.
 
@@ -95,7 +95,7 @@ To discover unprotected SQL Server instance in a subscription, follow these step
 
 1.  Go to the **Recovery Services vault**, and select **+ Backup**.
 
-2.  On the **Backup Goal** pane, for **What do you want to back up**, select **SQL Server in Azure VM (Snapshot backup) (preview)**.  
+2.  On the **Backup Goal** pane, for **What do you want to backup**, select **SQL Server in Azure VM (Snapshot backup) (preview)**.  
       
     :::image type="content" source="./media/back-up-sql-server-instance-snapshot/sql-vm-snapshot-backup.png" alt-text="Screenshot that shows the datasource selection for backup." lightbox="./media/back-up-sql-server-instance-snapshot/sql-vm-snapshot-backup.png":::
 
@@ -139,7 +139,7 @@ When the SQL Server instance discovery is complete, configure backup for the ins
 
 To run an on-demand backup at the SQL instance level, follow these steps:
 
-1.  Go to the **Recovery Services vault**, and select **Protected items** \> **Backup items**.
+1.  Go to the **Recovery Services vault** and select **Protected items** \> **Backup items**.
 
 1.  On the **Backup items** pane, select **SQL Server in Azure VM (Snapshot backup) (Preview)**.
 
@@ -152,7 +152,7 @@ To run an on-demand backup at the SQL instance level, follow these steps:
 
 1.  Select **OK**.
 
-[Learn how to trigger on-demand backups at the database level.](manage-monitor-sql-database-backup.md#run-an-on-demand-backup-for-sql-server-database).
+[Learn how to trigger on-demand backups at the database level](manage-monitor-sql-database-backup.md#run-an-on-demand-backup-for-sql-server-database).
 
 ## Next steps
 

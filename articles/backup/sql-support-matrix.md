@@ -74,12 +74,12 @@ The following table summarizes the supported and unsupported scenarios for backu
 | SQL compression |  | Not supported |
 | Restore process | Alternate location recovery (ALR) that supports restore to a different target VM from the original one. | Original Location Restore (OLR), Cross region restore, Cross subscription restore |
 | Integration with Resiliency experience |  | Not supported |
-| Clients supported | Azure portal, PowerShell | CLI |
-| Vault based features | Immutability, Private Endpoints (via Proxy) |     |
+| Supported clients | Azure portal, PowerShell | CLI |
+| Vault-based features | Immutability, Private Endpoints (via Proxy) |     |
 | Database type |  | Snapshot backups of system databases |
 | Database size | Maximum 35 TB database |  |
 | Database selection during instance snapshot | Up to 12 user databases |      |
-| Protection mode within a SQL instance | Protecting all selected databases using only snapshot-based protection | Mixed protection modes (some databases using snapshot and others using streaming) |
+| Protection mode within a SQL instance | Protects all selected databases using only snapshot-based protection | Mixed protection modes (some databases using snapshot and others using streaming) |
 
 ## Backup throughput performance for SQL streaming backup
 
