@@ -1,6 +1,6 @@
 ---
 title: Create Knowledge Bases for Agentic Workflows
-description: Create knowledge hubs from unstructured data so agentic workflows can retrieve relevant content in Azure Logic Apps by using Retrieval-Augmented Generation (RAG).
+description: Create knowledge bases from unstructured data so agentic workflows can retrieve relevant content in Azure Logic Apps by using Retrieval-Augmented Generation (RAG).
 services: logic-apps
 ms.services: azure-logic-apps, azure-cosmos-db, azure-ai-foundry
 ms.suite: integration
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ai-usage: ai-assisted
-ms.date: 02/28/2026
+ms.date: 03/28/2026
 #Customer intent: As an AI integration developer who works with Azure Logic Apps, I want to create knowledge bases from unstructured documents so my agentic workflows can retrieve relevant information.
 ---
 
@@ -22,11 +22,11 @@ ms.date: 02/28/2026
 > This preview feature is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Your organization generates unstructured data from documents, spreadsheets, APIs, and internal systems. By using the Knowledge Base-as-a-Service (KBaaS) capability in Azure Logic Apps, you can convert this content into a structured and more searchable *knowledge hub* that agentic workflows use to complete tasks. A knowledge hub is a logical container that organizes related *knowledge artifacts* such as documents related to a specific domain.
+Your organization generates unstructured data from documents, spreadsheets, APIs, and internal systems. By using the Knowledge Base-as-a-Service (KBaaS) capability in Azure Logic Apps, you can convert this content into a structured and more searchable *knowledge base* that agentic workflows use to complete tasks. A knowledge base is a logical container that organizes related *knowledge artifacts* such as documents related to a specific domain.
 
-For example, you might create a knowledge hub that contains all the documents related to HR policies and procedures. When you create a knowledge hub, the KBaaS automatically sets up the required Azure Cosmos DB databases, containers, and indexing policies.
+For example, you might create a knowledge base that contains all the documents related to HR policies and procedures. When you create a knowledge base, the KBaaS automatically sets up the required Azure Cosmos DB databases, containers, and indexing policies.
 
-This guide shows how to create a *knowledge hub*, upload *knowledge artifacts*, and set up the hub as a tool that your Standard agentic workflows can use.
+This guide shows how to create a *knowledge base*, upload *knowledge artifacts*, and set up the knowledge base as a tool that your Standard agentic workflows can use.
 
 ## Prerequisites
 
@@ -39,18 +39,16 @@ This guide shows how to create a *knowledge hub*, upload *knowledge artifacts*, 
     - A completions model, such as **gpt-4o**
     - An embeddings model, such as **text-embedding-3-small**
 
-  - To set up your knowledge hub connection later, you need the following values from your OpenAI resource:
+  - To create a connection later between your OpenAI resource and knowledge hub, you need the following values from your OpenAI resource:
 
     - Endpoint URL
     - Access key. See [Authentication](#authentication).
 
 - An Azure Cosmos DB for NoSQL account. For more information, see [Quickstart: Create an Azure Cosmos DB for NoSQL account using the Azure portal](/azure/cosmos-db/quickstart-portal).
 
-  - Before you create your knowledge hub, [enable vector search](/azure/cosmos-db/nosql/vector-search#enroll-in-the-vector-search-preview-feature) on your Cosmos DB account. This operation might take up to 15 minutes before completion.
+  - Before you create your knowledge base, [enable vector search](/azure/cosmos-db/nosql/vector-search#enroll-in-the-vector-search-preview-feature) on your Cosmos DB account. This operation might take up to 15 minutes before completion. For more information, see [Vector search in Azure Cosmos DB for NoSQL](/azure/cosmos-db/vector-search).
 
-    For more information, see [Vector search in Azure Cosmos DB for NoSQL](/azure/cosmos-db/vector-search).
-
-  - To set up your knowledge hub connection later, you need the following values from your Cosmos DB account:
+  - To create a connection later between your Cosmos DB and knowledge base, you need the following values from your Cosmos DB:
 
     - Endpoint URL
     - Access key. See [Authentication](#authentication).
@@ -68,9 +66,9 @@ KBaaS simplifies data transformation and provides an abstraction layer over Azur
 
 The KBaaS has the following pipelines:
 
-- *Ingestion pipeline*: When you upload a document, or knowledge artifact, to a knowledge hub, the service automatically parses, chunks, summarizes, and vectorizes the content. The service then stores the results in Azure Cosmos DB.
+- *Ingestion pipeline*: When you upload a document, or knowledge artifact, to your knowledge base, the service automatically parses, chunks, summarizes, and vectorizes the content. The service then stores the results in Azure Cosmos DB.
 
-- *Retrieval pipeline*: When the agent loop queries a knowledge hub, the service rewrites the query if needed, generates a vector representation, performs a semantic search against Azure Cosmos DB, and returns the most relevant chunks to the large language model (LLM) for response generation.
+- *Retrieval pipeline*: When the agent loop queries your knowledge base, the service rewrites the query if needed, generates a vector representation, performs a semantic search against Azure Cosmos DB, and returns the most relevant chunks to the large language model (LLM) for response generation.
 
 ## Limitations
 
@@ -93,9 +91,9 @@ For more information, see the following resources:
 - [Best practices for protecting secrets](/azure/security/fundamentals/secrets-best-practices)
 - [Secrets in Azure Key Vault](/azure/key-vault/secrets/)
 
-## 1: Add app settings for the knowledge hub
+## 1: Add app settings for the knowledge base
 
-Before you create a knowledge hub, add the required hub connection information as app settings to your Standard logic app resource:
+Before you create a knowledge base, add the required knowledge base connection information as app settings to your Standard logic app resource:
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -112,11 +110,11 @@ Before you create a knowledge hub, add the required hub connection information a
    | **cosmosdbEndpoint** | The Cosmos DB account endpoint URL. |
    | **cosmosdbKey** | The Cosmos DB account access key. |
 
-1. Continue to the next section to create the knowledge hub connection.
+1. Continue to the next section to create the knowledge base connection.
 
-## 2: Set up the knowledge hub connection
+## 2: Set up the knowledge base connection
 
-After you add the app settings, set up the knowledge hub connection in your logic app's *connections.json* file. This connection defines the OpenAI models and Cosmos DB account that the knowledge hub uses.
+After you add the app settings, set up the knowledge base connection in your logic app's *connections.json* file. This connection defines the OpenAI models and Cosmos DB account that the knowledge base uses.
 
 ### 2a: Open the connections.json file
 
@@ -152,7 +150,7 @@ At the file's root level, add the `knowledgeHubConnections` JSON object with the
 
 | Placeholder | Required | Value |
 |-------------|----------|-------|
-| `<connection-name>` | Yes | A name for your knowledge hub connection. Use the same name as the knowledge hub that you plan to create so that the retrieval action can associate the correct connection. |
+| `<connection-name>` | Yes | A name for your knowledge base connection. Use the same name as the knowledge base that you plan to create so that the retrieval action can associate the correct connection. |
 | `<connection-display-name>` | Yes | A human-readable label for the connection. |
 
 ```json
@@ -195,22 +193,22 @@ At the file's root level, add the `knowledgeHubConnections` JSON object with the
 }
 ```
 
-<a name="create-knowledge-hub"></a>
+<a name="create-knowledge-base"></a>
 
-## 3: Create a knowledge hub
+## 3: Create a knowledge base
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. On the logic app sidebar, select **Knowledge Hubs**.
+1. On the logic app sidebar, under **Agents**, select **Knowledge base**.
 
-1. On the **Knowledge Hubs** page, from the toolbar, select **Create**.
+1. On the **Knowledge base** page, from the toolbar, select **Create**.
 
 1. On the creation pane, provide the following information:
 
-   | Parameter | Required | Value | Description |
-   |-----------|----------|-------|-------------|
-   | **Name** | Yes | <*hub-name*> | A unique name for the knowledge hub, for example, `HRKnowledgeHub`. |
-   | **Description** | No | <*hub-description*> | An optional description for the knowledge hub. |
+   | Parameter | Required | Description |
+   |-----------|----------|-------------|
+   | **Name** | Yes | A unique name for the knowledge base, for example, `HRKnowledgeBase`. |
+   | **Description** | No | An optional description for the knowledge base. |
 
 1. When you finish, select **Create**.
 
@@ -218,12 +216,12 @@ At the file's root level, add the `knowledgeHubConnections` JSON object with the
 
    | Container | Purpose |
    |-----------|---------|
-   | **KnowledgeHubs** | Stores knowledge hub metadata. |
+   | **KnowledgeHubs** | Stores knowledge base metadata. |
    | **KnowledgeArtifacts** | Stores artifact metadata and source document references. |
    | **KnowledgeArtifactChunks** | Stores full-text document chunks. |
    | **KnowledgeArtifactChunkSummaries** | Stores summarized chunks with vector embeddings for semantic search. |
 
-   After KBaaS creates the knowledge hub, you can add the knowledge hub as a tool that your agentic workflow can use.
+   After KBaaS creates the knowledge base, you can add the knowledge base as a tool that your agentic workflow can use.
 
 <a name="upload-knowledge-artifacts"></a>
 
