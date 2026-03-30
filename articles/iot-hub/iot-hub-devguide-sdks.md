@@ -14,7 +14,7 @@ ms.custom: [mqtt, 'Role: IoT Device', 'Role: Cloud Development']
 
 IoT Hub provides three categories of software development kits (SDKs) to help you build device and back-end applications:
 
-* [**IoT Hub device SDKs**](#azure-iot-hub-device-sdks) enable you to build applications that run on your IoT devices using the device client or module client. These apps send telemetry to your IoT hub, and can also receive messages, jobs, methods, or twin updates from your IoT hub. You can use these SDKs to build device apps that use [Azure IoT Plug and Play](../iot/overview-iot-plug-and-play.md) conventions and models to advertise their capabilities to IoT Plug and Play-enabled applications. You can also use the module client to author modules for [Azure IoT Edge](../iot-edge/about-iot-edge.md).
+* [**IoT Hub device SDKs**](#azure-iot-hub-device-sdks) enable you to build applications that run on your IoT devices using the device client or module client. These apps send telemetry to your IoT hub, and can also receive messages, jobs, methods, or twin updates from your IoT hub. You can use these SDKs to build device apps that use [Azure IoT Plug and Play](/previous-versions/azure/iot/overview-iot-plug-and-play) conventions and models to advertise their capabilities to IoT Plug and Play-enabled applications. You can also use the module client to author modules for [Azure IoT Edge](../iot-edge/about-iot-edge.md).
 
 * [**IoT Hub service SDKs**](#azure-iot-hub-service-sdks) enable you to build backend applications to manage your IoT hub, and can also send messages, schedule jobs, invoke direct methods, or send desired property updates to your IoT devices or modules.
 
@@ -30,7 +30,7 @@ Learn about the [benefits of developing using Azure IoT SDKs](https://azure.micr
 
 [!INCLUDE [iot-hub-sdks-device](../../includes/iot-hub-sdks-device.md)]
 
-Learn more about the IoT Hub device SDKs in the [IoT device development documentation](../iot/iot-sdks.md).
+Learn more about the IoT Hub device SDKs in the [IoT device development documentation](iot-sdks.md).
 
 ### Embedded device SDKs
 
@@ -54,4 +54,4 @@ Azure IoT SDKs are also available for the following services:
 
 ## Next steps
 
-Learn about [IoT asset and device development](../iot/concepts-manage-device-reconnections.md).
+Learn about [IoT asset and device development](concepts-manage-device-reconnections.md).

@@ -2,12 +2,11 @@
 title: Use MQTT to communicate with Azure IoT Hub
 titleSuffix: Azure IoT Hub
 description: Guidance on using the MQTT protocol to connect a device to IoT Hub. Includes using the Azure IoT device SDKs and connecting directly using MQTT.
-author: dominicbetts
-ms.service: azure-iot
-services: iot
+author: cwatson-cat
+ms.author: cwatson
+ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 03/19/2025
-ms.author: dobett
 ms.custom:
   - amqp
   - mqtt
@@ -53,7 +52,7 @@ Many corporate and educational firewalls block the MQTT port (TCP port 8883). If
 
 ## Use the device SDKs
 
-[Azure IoT device SDKs](../iot/iot-sdks.md#device-sdks) that support the MQTT protocol are available for Java, Node.js, C, C#, and Python. The device SDKs use the chosen [authentication mechanism](../iot-hub/iot-concepts-and-iot-hub.md#connect-and-authenticate-devices) to establish a connection to an IoT hub. To use the MQTT protocol, the client protocol parameter must be set to **MQTT**. You can also specify MQTT over WebSockets in the client protocol parameter. By default, the device SDKs connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub. While it's possible to configure **QoS 0** for faster message exchange, you should note that the delivery isn't guaranteed and isn't acknowledged. For this reason, **QoS 0** is often referred as "fire and forget".
+[Azure IoT device SDKs](iot-sdks.md#device-sdks) that support the MQTT protocol are available for Java, Node.js, C, C#, and Python. The device SDKs use the chosen [authentication mechanism](../iot-hub/iot-concepts-and-iot-hub.md#connect-and-authenticate-devices) to establish a connection to an IoT hub. To use the MQTT protocol, the client protocol parameter must be set to **MQTT**. You can also specify MQTT over WebSockets in the client protocol parameter. By default, the device SDKs connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub. While it's possible to configure **QoS 0** for faster message exchange, you should note that the delivery isn't guaranteed and isn't acknowledged. For this reason, **QoS 0** is often referred as "fire and forget".
 
 When a device connects to an IoT hub, the device SDKs provide methods that enable the device to exchange messages with an IoT hub.
 
