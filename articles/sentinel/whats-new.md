@@ -21,6 +21,7 @@ The listed features were released in the last six months. For information about 
 ## March 2026
 
 - [Call to action: update older Microsoft Sentinel content as code (Sentinel repositories) API versions before June 15, 2026](#call-to-action-update-older-microsoft-sentinel-content-as-code-sentinel-repositories-api-versions-before-june-15-2026)
+- Microsoft Sentinel repositories are now generally available. For more information, see [Manage content as code with Microsoft Sentinel repositories](ci-cd-custom-content.md).
 
 ### Call to action: update older Microsoft Sentinel content as code (Sentinel repositories) API versions before June 15, 2026
 

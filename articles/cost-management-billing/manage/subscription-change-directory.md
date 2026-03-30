@@ -2,8 +2,8 @@
 title: Azure subscription change directory
 description: This article helps you to complete the Azure subscription change directory two-party request and accept workflow. 
 author: Nicholak-MS
-ms.author: nicholak
-ms.reviewer: nicholak
+ms.author: clodwig
+ms.reviewer: clodwig
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article

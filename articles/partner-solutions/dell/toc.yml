@@ -22,4 +22,12 @@ items:
       href: https://www.dell.com/support/home/
     - name: Troubleshoot
       href: /troubleshoot/azure/partner-solutions
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/service-page/dell%20powerscale
+  - name: Azure SDK
+    href: https://azure.github.io/azure-sdk/releases/latest/?search=Dell#go  
+  - name: REST API
+    href: /rest/api/dellstorage/file-systems/create-or-update  
     

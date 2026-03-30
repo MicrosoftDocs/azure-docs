@@ -4,7 +4,7 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 03/09/2026
+ms.date: 03/30/2026
 # Customer intent: "As an Azure VMware Solution user, I want to stay informed about platform updates and maintenance schedules, so that I can ensure my workloads remain optimized and secure during transitions."
 ---
 
@@ -13,6 +13,10 @@ ms.date: 03/09/2026
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-private-cloud-maintenance.md#host-maintenance-and-lifecycle-management).
 
 ## March 2026
+
+**VMware NSX 4.2.3.2**
+
+All new Azure VMware Solution private clouds are being deployed with VMware NSX version 4.2.3.2 [Learn more](architecture-private-clouds.md#vmware-software-versions)
 
 **Microsoft Entra ID integration for Azure VMware Solution**
 

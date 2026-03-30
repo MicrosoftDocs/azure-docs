@@ -393,8 +393,14 @@ items:
               - name: MQTT broker
                 href: reference/observability-metrics-mqtt-broker.md
                 displayName: metrics, observability
+              - name: Data flows
+                href: reference/observability-metrics-data-flows.md
+                displayName: metrics, observability
               - name: Connector for OPC UA
                 href: reference/observability-metrics-opcua-broker.md
+                displayName: metrics, observability
+              - name: Akri and connectors
+                href: reference/observability-metrics-akri-connectors.md
                 displayName: metrics, observability
               - name: Layered Network Management
                 href: reference/observability-metrics-layered-network.md

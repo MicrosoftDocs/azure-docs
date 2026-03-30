@@ -203,7 +203,7 @@ The following table shows locations by service provider. If you want to view ava
 | **RISQ** |&check; | &check; | Quebec City<br/>Montreal |
 | **SCSK** |&check; | &check; | Tokyo3 |
 | **[Sejong Telecom](https://www.sejongtelecom.net/)** | &check; | &check; | Seoul |
-| **[SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)** | &check; | &check; | London2<br/>Washington DC |
+| **[SES](https://www.ses.com/network-and-technology/technology-enablers/azure-expressroute)** | &check; | &check; | London2<br/>Washington DC |
 | **[SIFY](https://sifytechnologies.com/)** | &check; | &check; | Chennai<br/>Mumbai2<br/>Pune |
 | **[SingTel](https://www.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |&check; |&check; | Hong Kong2<br/>Singapore<br/>Singapore2 |
 | **[SK Telecom](http://b2b.tworld.co.kr/bizts/solution/solutionTemplate.bs?solutionId=0085)** | &check; | &check; | Seoul |
@@ -309,7 +309,7 @@ If your connectivity provider isn't listed in previous sections, you can still c
 If you're remote and don't have fiber connectivity, or you want to explore other connectivity options you can check the following satellite operators. 
 
 * Intelsat
-* [SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)
+* [SES](https://www.ses.com/network-and-technology/technology-enablers/azure-expressroute)
 * [Viasat](https://news.viasat.com/newsroom/press-releases/viasat-introduces-direct-cloud-connect-a-new-service-providing-fast-secure-private-connections-to-business-critical-cloud-services)
 * [Marlink](https://www.marlink.com/)
 

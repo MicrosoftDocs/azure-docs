@@ -5,7 +5,7 @@ services: private-link
 author: AbdullahBell
 ms.service: azure-private-link
 ms.topic: concept-article
-ms.date: 10/15/2024
+ms.date: 03/30/2026
 ms.author: abell
 ms.custom: sfi-image-nochange
 # Customer intent: "As a service provider, I want to configure an Azure Private Link Service for my application behind a standard load balancer, so that I can enable secure private access for consumers from their virtual networks."

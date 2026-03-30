@@ -238,7 +238,7 @@ If your connectivity provider isn't listed in previous sections, you can still c
 If you're remote and don't have fiber connectivity or want to explore other connectivity options, you can check the following satellite operators. 
 
 * Intelsat
-* [SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)
+* [SES](https://www.ses.com/network-and-technology/technology-enablers/azure-expressroute)
 * [Viasat](https://news.viasat.com/newsroom/press-releases/viasat-introduces-direct-cloud-connect-a-new-service-providing-fast-secure-private-connections-to-business-critical-cloud-services)
 * Marlink
 

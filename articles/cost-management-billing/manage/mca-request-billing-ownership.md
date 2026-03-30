@@ -4,8 +4,8 @@ description: Learn how to transfer billing ownership of Azure subscriptions, res
 ms.topic: how-to
 ms.date: 12/29/2025
 author: Nicholak-MS
-ms.author: nicholak
-ms.reviewer: nicholak
+ms.author: clodwig
+ms.reviewer: clodwig
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.custom: sfi-image-nochange
