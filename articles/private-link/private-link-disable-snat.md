@@ -5,7 +5,7 @@ author: abell
 ms.author: abell
 ms.service: azure-private-link
 ms.topic: how-to #Don't change
-ms.date: 03/11/2025
+ms.date: 03/30/2026
 
 #customer intent: As a network administrator, I want to disable SNAT requirement for private endpoint traffic through NVA so that I can ensure symmetric routing and comply with internal logging standards.
 

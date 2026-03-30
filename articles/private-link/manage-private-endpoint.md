@@ -2,11 +2,10 @@
 title: Manage Azure private endpoints
 titleSuffix: Azure Private Link
 description: Learn how to manage private endpoints in Azure.
-services: private-link
 author: abell
 ms.service: azure-private-link
 ms.topic: how-to
-ms.date: 03/25/2025
+ms.date: 03/30/2026
 ms.author: abell 
 ms.custom:
   - devx-track-azurepowershell
@@ -175,9 +174,9 @@ Use the following steps to manage a private endpoint connection in the Azure por
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box at the top of the portal, enter **Private Link**. In the search results, select **Private link**.
+1. In the search box at the top of the portal, enter **Private Link**. In the search results, select **Private Link**.
 
-1. In the **Private Link Center**, select **Private endpoints** or **Private link services**.
+1. In **Network foundation**, expand **Private Link** in the left menu and select **Private endpoints** or **Private link services**.
 
 1. For each of your endpoints, you can view the number of private endpoint connections associated with it. You can filter the resources as needed.
 

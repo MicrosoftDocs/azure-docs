@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Private Link
 description: Learn how to monitor Azure Private Link using Azure Monitor, including data collection, analysis, and alerting.
-ms.date: 03/25/2025
+ms.date: 03/30/2026
 ms.custom: horz-monitor
 ms.topic: concept-article
 author: AbdullahBell

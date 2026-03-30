@@ -898,6 +898,9 @@
       href: solution-setup-essentials.md      
     - name: Sentinel SIEM content 
       items:
+      - name: Create custom connectors using AI agent in Microsoft Sentinel
+        href: create-custom-connector-builder-agent.md
+        displayName: custom sentinel connector agent
       - name: Creating codeless data connectors (CCF)
         href: create-codeless-connector.md
       - name: Creating push codeless data connectors (CCF)
