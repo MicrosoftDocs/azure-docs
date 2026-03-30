@@ -46,7 +46,7 @@ Both tiers offer the same security and authentication features.
 | [Device twins](iot-hub-devguide-device-twins.md), [module twins](iot-hub-devguide-module-twins.md), and [device management](iot-hub-device-management-overview.md) |   | Yes |
 | [Device streams (preview)](iot-hub-device-streams-overview.md) |   | Yes |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Yes |
-| [IoT Plug and Play](../iot/overview-iot-plug-and-play.md) |   | Yes |
+| [IoT Plug and Play](/previous-versions/azure/iot/overview-iot-plug-and-play) |   | Yes |
 
 IoT Hub also offers a free tier that is meant for testing and evaluation. It has all the capabilities of the standard tier, but includes limited messaging allowances. You can't upgrade from the free tier to either the basic or standard tier.
 

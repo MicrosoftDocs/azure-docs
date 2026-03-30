@@ -91,7 +91,7 @@ Examples of specialized hardware and operating systems include:
 
 [Eclipse ThreadX](https://github.com/eclipse-threadx/rtos-docs) is a real time operating system for IoT and edge devices powered by MCUs. Eclipse ThreadX is designed to support highly constrained devices that are battery powered and have less than 64 KB of flash memory.
 
-[FreeRTOS](https://www.freertos.org) is a real time operating system for embedded devices. You can use FreeRTOS with the Azure IoT Middleware for FreeRTOS to connect devices to Azure IoT. For an overview of RTOS options for device development, see [C SDK and Embedded C SDK usage scenarios](concepts-using-c-sdk-and-embedded-c-sdk.md).
+[FreeRTOS](https://www.freertos.org) is a real time operating system for embedded devices. You can use FreeRTOS with the Azure IoT Middleware for FreeRTOS to connect devices to Azure IoT. For an overview of RTOS options for device development, see [C SDK and Embedded C SDK usage scenarios](/previous-versions/azure/iot/concepts-using-c-sdk-and-embedded-c-sdk).
 
 [Azure Sphere (Integrated)](/azure-sphere/product-overview/what-is-azure-sphere?view=azure-sphere-integrated&preserve-view=true) is a secure, high-level application platform with built-in communication and security features for internet-connected devices. It comprises a secured, connected, crossover MCU, a custom high-level Linux-based operating system, and a cloud-based security service that provides continuous, renewable security.
 
@@ -140,7 +140,7 @@ Although you're recommended to use one of the device SDKS, there might be scenar
 
 For more information, see:
 
-- [Using the MQTT protocol directly (as a device)](iot-mqtt-connect-to-iot-hub.md#use-the-mqtt-protocol-directly-from-a-device)
+- [Using the MQTT protocol directly (as a device)](../iot-hub/iot-mqtt-connect-to-iot-hub.md#use-the-mqtt-protocol-directly-from-a-device)
 - [Using the AMQP protocol directly (as a device)](../iot-hub/iot-hub-amqp-support.md#device-client)
 
 ---
@@ -174,11 +174,6 @@ The use of IoT Plug and Play, modeling and DTDL is optional. You can use the IoT
 
 As a device developer, when you implement an IoT Plug and Play device there are a set of conventions to follow. These conventions provide a standard way to implement the device model in code by using the primitives available in the device SDKs.
 
-To learn more, see:
-
-- [What is IoT Plug and Play?](../iot/overview-iot-plug-and-play.md)
-- [IoT Plug and Play modeling guide](../iot/concepts-modeling-guide.md)
-
 ---
 
 ## Containerization
@@ -198,7 +193,7 @@ If you use containers, such as in Docker, to run your device code you can deploy
 Azure IoT Edge runs device code in containers. You can use Azure IoT Edge to deploy code modules to your devices. To learn more, see [Develop your own IoT Edge modules](../iot-edge/module-development.md).
 
 > [!TIP]
-> Azure IoT Edge enables multiple scenarios. In addition to running your IoT device code in containers, you can use Azure IoT Edge to run Azure services on your devices and implement [field gateways](iot-overview-device-connectivity.md#edge-gateways). For more information, see [What is Azure IoT Edge?](../iot-edge/about-iot-edge.md)
+> Azure IoT Edge enables multiple scenarios. In addition to running your IoT device code in containers, you can use Azure IoT Edge to run Azure services on your devices and implement [field gateways](/previous-versions/azure/iot/iot-overview-device-connectivity#edge-gateways). For more information, see [What is Azure IoT Edge?](../iot-edge/about-iot-edge.md)
 
 ---
 
@@ -209,11 +204,11 @@ The following table lists some of the available IoT device development tools:
 | Tool | Description |
 | --- | --- |
 | [Azure IoT Hub (VS Code extension)](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) | This VS Code extension lets you manage your IoT Hub resources and devices from within VS Code. |
-| [Azure IoT explorer](howto-use-iot-explorer.md) | This cross-platform tool lets you manage your IoT Hub resources and devices from a desktop application. |
+| [Azure IoT explorer](/previous-versions/azure/iot/howto-use-iot-explorer) | This cross-platform tool lets you manage your IoT Hub resources and devices from a desktop application. |
 | [Azure IoT extension for Azure CLI](/cli/azure/service-page/azure%20iot) | This CLI extension includes commands such as `az iot device simulate`, `az iot device c2d-message`, and `az iot hub monitor-events` that help you test interactions with devices. |
 
 ## Related content
 
-- [IoT device connectivity and infrastructure](iot-overview-device-connectivity.md)
-- [IoT device management and control](iot-overview-device-management.md)
+- [IoT device connectivity and infrastructure](/previous-versions/azure/iot/iot-overview-device-connectivity)
+- [IoT device management and control](/previous-versions/azure/iot/iot-overview-device-management)
 - [Choose an Azure IoT service](iot-services-and-technologies.md)

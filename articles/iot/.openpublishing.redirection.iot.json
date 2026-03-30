@@ -154,6 +154,31 @@
       "source_path_from_root": "/articles/iot/concepts-iot-device-selection.md",
       "redirect_url": "/azure/iot/concepts-iot-device-types",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot/iot-mqtt-connect-to-iot-hub.md",
+      "redirect_url": "/azure/iot-hub/iot-mqtt-connect-to-iot-hub",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot/iot-sdks.md",
+      "redirect_url": "/azure/iot-hub/iot-sdks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot/tutorial-use-mqtt.md",
+      "redirect_url": "/azure/iot-hub/tutorial-use-mqtt",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot/concepts-manage-device-reconnections.md",
+      "redirect_url": "/azure/iot-hub/concepts-manage-device-reconnections",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot/iot-mqtt-connect-to-iot-dps.md",
+      "redirect_url": "/azure/iot-dps/iot-mqtt-connect-to-iot-dps",
+      "redirect_document_id": true
     }
   ]
 }

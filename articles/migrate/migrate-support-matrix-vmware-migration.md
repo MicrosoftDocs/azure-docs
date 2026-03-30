@@ -66,6 +66,8 @@ The VMware vSphere hypervisor requirements are:
     **Guest operations** | Allow Discovery, Software Inventory, and Dependency Mapping on VMs. | Virtual machines | VirtualMachine.GuestOperations.* 
     **Interaction Power Off** | Allow the VM to be powered off during migration to Azure. | Virtual machines | VirtualMachine.Interact.PowerOff
 
+If you are migrating VMs from Azure VMware Solution, you can use the [CloudAdmin account](/azure/azure-vmware/architecture-identity#vcenter-server-access-and-identity) which has the requisite permissions required for querying VMware vCenter.
+
 ### VM requirements (agentless)
 
 The table summarizes agentless migration requirements for VMware vSphere VMs.

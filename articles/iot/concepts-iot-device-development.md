@@ -37,7 +37,7 @@ Some developers adapt existing, general purpose devices to connect to the cloud 
 Rather than develop constrained devices at scale, general device developers focus on enabling a specific IoT scenario required by their cloud solution. Some developers also work on constrained devices for their cloud solution. For developers working with resource constrained devices, see the [Embedded Device Development](#embedded-device-development) path.
 
 > [!IMPORTANT]
-> For information on SDKs to use for general device development, see the [Device SDKs](iot-sdks.md#device-sdks).
+> For information on SDKs to use for general device development, see the [Device SDKs](../iot-hub/iot-sdks.md#device-sdks).
 
 ### Embedded device development
 Embedded development targets constrained devices that have limited memory and processing. Constrained devices restrict what can be achieved compared to a traditional development platform.
@@ -47,26 +47,26 @@ Embedded devices typically use a real-time operating system (RTOS), or no operat
 The current embedded SDKs target the **C** language. The embedded SDKs provide either no operating system, or Eclipse ThreadX support. They're designed with embedded targets in mind. The design considerations include the need for a minimal footprint, and a non-memory allocating design.
 
 > [!IMPORTANT]
-> For information on SDKs to use with embedded device development, see the [Embedded device SDKs](iot-sdks.md#embedded-device-sdks).
+> For information on SDKs to use with embedded device development, see the [Embedded device SDKs](../iot-hub/iot-sdks.md#embedded-device-sdks).
 
 ## Choosing your hardware
 Azure IoT devices are the basic building blocks of an IoT solution and are responsible for observing and interacting with their environment. There are many different types of IoT devices, and it's helpful to understand the kinds of devices that exist and how they can affect your development process.
 
-For more information on the difference between devices types covered in this article, see [About IoT Device Types](./concepts-iot-device-types.md).
+For more information on the difference between devices types covered in this article, see [About IoT Device Types](/previous-versions/azure/iot/concepts-iot-device-types).
 
 ## Choosing an SDK
 As an Azure IoT device developer, you have a diverse set of SDKs, protocols and tools to help build device-enabled cloud applications. 
 
 There are two main options to connect devices and communicate with IoT Hub:
 - **Use the Azure IoT SDKs**. In most cases, we recommend that you use the Azure IoT SDKs versus using MQTT directly. The SDKs streamline your development effort and simplify the complexity of connecting and managing devices. IoT Hub supports the [MQTT v3.1.1](https://mqtt.org/) protocol, and the IoT SDKs simplify the process of using MQTT to communicate with IoT Hub. 
-- **Use the MQTT protocol directly**.  There are some advantages of building an IoT Hub solution to use MQTT directly. For example, a solution that uses MQTT directly without the SDKs can be built on the open MQTT standard. A standards-based approach makes the solution more portable, and gives you more control over how devices connect and communicate. However, IoT Hub isn't a full-featured MQTT broker and doesn't support all behaviors specified in the MQTT v3.1.1 standard. The partial support for MQTT v3.1.1 adds development cost and complexity.  Device developers should weigh the trade-offs of using the IoT device SDKs versus using MQTT directly.  For more information, see [Communicate with an IoT hub using the MQTT protocol](./iot-mqtt-connect-to-iot-hub.md). 
+- **Use the MQTT protocol directly**.  There are some advantages of building an IoT Hub solution to use MQTT directly. For example, a solution that uses MQTT directly without the SDKs can be built on the open MQTT standard. A standards-based approach makes the solution more portable, and gives you more control over how devices connect and communicate. However, IoT Hub isn't a full-featured MQTT broker and doesn't support all behaviors specified in the MQTT v3.1.1 standard. The partial support for MQTT v3.1.1 adds development cost and complexity.  Device developers should weigh the trade-offs of using the IoT device SDKs versus using MQTT directly.  For more information, see [Communicate with an IoT hub using the MQTT protocol](../iot-hub/iot-mqtt-connect-to-iot-hub.md). 
 
 There are three sets of IoT SDKs for device development:
 - Device SDKs (for using higher order languages to connect existing general purpose devices to IoT applications)
 - Embedded device SDKs (for connecting resource constrained devices to IoT applications)
 - Service SDKs (for building Azure IoT solutions that connect devices to services)
 
-To learn more about choosing an Azure IoT device or service SDK, see [Azure IoT SDKs](iot-sdks.md).
+To learn more about choosing an Azure IoT device or service SDK, see [Azure IoT SDKs](../iot-hub/iot-sdks.md).
 
 ## Selecting a service
 A key step in the development process is selecting a service to connect your devices to. There are two primary Azure IoT service options for connecting and managing devices: IoT Hub, and IoT Central. 
@@ -92,9 +92,9 @@ After you have selected hardware and a device SDK to use, you have several optio
 
 ## Next steps
 To learn more about device SDKs you can use to connect devices to Azure IoT, see the following article.
-- [Azure IoT SDKs](iot-sdks.md)
+- [Azure IoT SDKs](../iot-hub/iot-sdks.md)
 
 To get started with hands-on device development, select a device development tutorial is relevant to the devices you're using. The following tutorials are good starting points for general device development, or embedded device development. 
-- [Tutorial: Send telemetry from an IoT Plug and Play device to Azure IoT Hub](tutorial-send-telemetry-iot-hub.md)
-- [Tutorial: Use Eclipse ThreadX to connect an STMicroelectronics B-L475E-IOT01A Discovery kit to IoT Hub](tutorial-devkit-stm-b-l475e-iot-hub.md)
-- [Tutorial: Connect an ESPRESSIF ESP32-Azure IoT Kit to IoT Hub](tutorial-devkit-espressif-esp32-freertos-iot-hub.md)
+- [Tutorial: Send telemetry from an IoT Plug and Play device to Azure IoT Hub](/previous-versions/azure/iot/tutorial-send-telemetry-iot-hub)
+- [Tutorial: Use Eclipse ThreadX to connect an STMicroelectronics B-L475E-IOT01A Discovery kit to IoT Hub](/previous-versions/azure/iot/tutorial-devkit-stm-b-l475e-iot-hub)
+- [Tutorial: Connect an ESPRESSIF ESP32-Azure IoT Kit to IoT Hub](/previous-versions/azure/iot/tutorial-devkit-espressif-esp32-freertos-iot-hub)

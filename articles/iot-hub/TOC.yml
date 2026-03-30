@@ -40,7 +40,7 @@
   - name: Protocol support
     items:
     - name: MQTT support
-      href: ../iot/iot-mqtt-connect-to-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
+      href: iot-mqtt-connect-to-iot-hub.md
     - name: AMQP support
       href: iot-hub-amqp-support.md
     - name: Supporting additional protocols
@@ -242,6 +242,8 @@
     href: iot-hub-message-enrichments-overview.md
   - name: Use message enrichments
     href: tutorial-message-enrichments.md
+  - name: Tutorial - Connect a device with MQTT
+    href: tutorial-use-mqtt.md
 - name: Authentication and authorization
   items:
   - name: Built-in RBAC roles for IoT
@@ -303,6 +305,8 @@
     href: /azure/reliability/reliability-device-registry?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
   - name: Disable disaster recovery
     href: how-to-disable-dr.md
+  - name: Manage device reconnections
+    href: concepts-manage-device-reconnections.md
   - name: Perform manual failover
     displayName: disaster recovery, failback, failover, geo-redundancy
     href: tutorial-manual-failover.md
@@ -385,7 +389,6 @@
   - name: X.509 certificates
     displayName: certificate authority (CA), subordinate CA, certificate versions, unique identifier, key identifier, binary certificate, PEM certificate, PKCS, X.509 certificates, OpenSSL, CSR, thumbprint
     href: reference-x509-certificates.md
-  - name: Feature and API retirement
   - name: Monitoring data reference
     href: monitor-iot-hub-reference.md
 - name: Resources
@@ -413,7 +416,7 @@
     - name: IoT Service SDKs
       href: ./iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
     - name: IoT Device SDKs
-      href: ../iot/iot-sdks.md
+      href: iot-sdks.md
   - name: Azure IoT samples
     items:
     - name: C# (.NET)

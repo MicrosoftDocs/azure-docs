@@ -2,8 +2,8 @@
 title: Azure product transfer hub
 description: This article helps you understand the Azure subscription, reservation, and savings plan transfer requirements and support. This article also provides links to other articles for more detailed information.
 author: Nicholak-MS
-ms.author: nicholak
-ms.reviewer: nicholak
+ms.author: clodwig
+ms.reviewer: clodwig
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
@@ -140,6 +140,73 @@ Cost Management Data Access Requirements After Subscription Transfer
 ### Transfer terms and conditions
 
 When you send or accept a transfer, you agree to terms and conditions. The following information provides more details.
+
+#### Azure Marketplace: Transfer Between Billing Accounts — Subscription Type Eligibility
+
+**Overview:**
+
+When you transfer an Azure subscription from one billing account to another, all Azure Marketplace resources on that subscription move with it. The subscription itself remains the same — only the billing account it belongs to changes.
+
+Before the transfer proceeds, Azure validates whether the **target billing account** supports the Marketplace products on the subscription.
+
+---
+
+**How does the eligibility check work?**
+
+The check evaluates the **target billing account's** payment type. The source billing account's type is not relevant to this check.
+
+- **Paid Marketplace products**: The target billing account must have a supported payment type (see the table below).
+- **Free Marketplace products**: No payment type restriction — the transfer is allowed to any billing account type.
+
+---
+
+**Transfer Eligibility by Payment Type — Paid Marketplace Products:**
+
+Each Azure billing account has a **payment type**. For paid Marketplace products, the transfer is allowed only when the target billing account's payment type is **Paid** or **SponsoredPlus (MultipleSponsorships)**.
+
+| Target Payment Type | Transfer Allowed | Examples |
+|---------------------|:---:|--------------------------|
+| **Paid** | ✅ | Pay-As-You-Go, Microsoft Customer Agreement, Enterprise Agreement, CSP |
+| **SponsoredPlus** (MultipleSponsorships) | ✅ | Azure Sponsorship |
+| SponsoredPlus (without MultipleSponsorships) | ❌ | — |
+| Free | ❌ | Azure Free Account, Azure for Students |
+| Sponsored | ❌ | Academic Sponsorship |
+| Entitlement | ❌ | Visual Studio Enterprise, Visual Studio Professional, MPN, MSDN Platforms |
+| Benefit | ❌ | Partner benefit |
+
+---
+
+**Free Marketplace products have no payment type restrictions. Transfers are allowed regardless of the target billing account type.**
+
+---
+
+Common Scenarios:
+
+| Scenario | Allowed | Reason |
+|----------|:---:|--------|
+| Transfer paid product to a Pay-As-You-Go billing account | ✅ | Payment type is Paid. |
+| Transfer paid product to a Microsoft Customer Agreement billing account | ✅ | Payment type is Paid. |
+| Transfer paid product to a CSP billing account | ✅ | Payment type is Paid. |
+| Transfer paid product to an Azure Sponsorship (MultipleSponsorships) billing account | ✅ | Payment type is SponsoredPlus with MultipleSponsorships. |
+| Transfer paid product to an Azure Free Account | ❌ | Payment type is Free. |
+| Transfer paid product to an Academic Sponsorship billing account | ❌ | Payment type is Sponsored. |
+| Transfer paid product to a Visual Studio Enterprise billing account | ❌ | Payment type is Entitlement. |
+| Transfer free product to any billing account | ✅ | Free products have no payment type restrictions. |
+
+---
+
+**Error Message:**
+
+If the target billing account does not support the Marketplace product being transferred, you will see the following error:
+
+> *"The operation has failed because we couldn't find a valid payment method on this Azure subscription, or the existing payment method is not allowed for transfer. Please add/update current payment method for this subscription and retry."*
+
+**How to resolve:**
+
+- Verify that the target billing account has a **Paid** or **SponsoredPlus (MultipleSponsorships)** payment type.
+- Billing accounts with a Free, Sponsored, Entitlement, or Benefit payment type do not support transfer of paid Marketplace products.
+- Free Marketplace products can be transferred to any billing account type. If you see this error for a free product, please contact support.
+
 
 #### Send transfer
 

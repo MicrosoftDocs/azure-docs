@@ -25,13 +25,13 @@ A device can:
 
 By default, commands expect a device to be connected and fail if the device can't be reached. If you select the **Queue if offline** option in the device template UI a command can be queued until a device comes online. These *offline commands* are described in a separate section later in this article.
 
-To learn about the IoT Pug and Play command conventions, see [IoT Plug and Play conventions](../../iot/concepts-convention.md).
+To learn about the IoT Pug and Play command conventions, see [IoT Plug and Play conventions](/previous-versions/azure/iot/concepts-convention).
 
-To learn more about the command data that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md).
+To learn more about the command data that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](/previous-versions/azure/iot/concepts-message-payloads).
 
 To learn how to manage commands by using the IoT Central REST API, see [How to use the IoT Central REST API to control devices](../core/howto-control-devices-with-rest-api.md).
 
-To learn how to implement commands in a device without using the device SDKs, see [Communicate with an IoT hub using the MQTT protocol](../../iot/iot-mqtt-connect-to-iot-hub.md).
+To learn how to implement commands in a device without using the device SDKs, see [Communicate with an IoT hub using the MQTT protocol](../../iot-hub/iot-mqtt-connect-to-iot-hub.md).
 
 ## Define your commands
 
@@ -54,7 +54,7 @@ The following table shows the configuration settings for a command capability:
 | Request     | The payload for the device command.|
 | Response     | The payload of the device command response.|
 
-To learn about the Digital Twin Definition Language (DTDL) that Azure IoT Central uses to define commands in a device template, see [IoT Plug and Play conventions > Commands](../../iot/concepts-convention.md#commands).
+To learn about the Digital Twin Definition Language (DTDL) that Azure IoT Central uses to define commands in a device template, see [IoT Plug and Play conventions > Commands](/previous-versions/azure/iot/concepts-convention#commands).
 
 Optional fields, such as display name and description, let you add more details to the interface and capabilities.
 
@@ -177,4 +177,4 @@ You can call commands on a device that isn't assigned to a device template. To c
 
 ## Next steps
 
-Now that you know how to use commands in your Azure IoT Central application, see [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md) to learn more about command parameters and [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) to see complete code samples in different languages.
+Now that you know how to use commands in your Azure IoT Central application, see [Telemetry, property, and command payloads](/previous-versions/azure/iot/concepts-message-payloads) to learn more about command parameters and [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) to see complete code samples in different languages.

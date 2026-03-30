@@ -137,6 +137,12 @@ items:
     href: how-to-build-a-business-case.md
   - name: Review business case
     href: how-to-view-a-business-case.md
+- name: Create Reports
+  items:
+   - name: Overview reports
+     href: reports-overview.md
+   - name: Build a report
+     href: how-to-build-a-report.md
 - name: Plan migrations
   items:
   - name: Assessments

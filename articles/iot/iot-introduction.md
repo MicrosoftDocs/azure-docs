@@ -138,7 +138,7 @@ The following are examples of category 3 devices:
 - Security video cameras.
 - Programmable logic controllers.
 
-There's a wide variety of devices available from different manufacturers to build your solution. For prototyping a microprocessor device, you can use a device such as a [Raspberry Pi](https://www.raspberrypi.org/). The Raspberry Pi lets you attach many different types of sensor. For prototyping a microcontroller device, use devices such as the [ESPRESSIF ESP32](./tutorial-devkit-espressif-esp32-freertos-iot-hub.md), or [STMicroelectronics B-L475E-IOT01A Discovery kit to IoT Hub](tutorial-devkit-stm-b-l475e-iot-hub.md). These boards typically have built-in sensors, such as temperature and accelerometer sensors.
+There's a wide variety of devices available from different manufacturers to build your solution. For prototyping a microprocessor device, you can use a device such as a [Raspberry Pi](https://www.raspberrypi.org/). The Raspberry Pi lets you attach many different types of sensor. For prototyping a microcontroller device, use devices such as the [ESPRESSIF ESP32](/previous-versions/azure/iot/tutorial-devkit-espressif-esp32-freertos-iot-hub), or [STMicroelectronics B-L475E-IOT01A Discovery kit to IoT Hub](/previous-versions/azure/iot/tutorial-devkit-stm-b-l475e-iot-hub). These boards typically have built-in sensors, such as temperature and accelerometer sensors.
 
 Microsoft provides open-source [Device SDKs](../iot-hub/iot-hub-devguide-sdks.md) that you can use to build the apps that run on your devices.
 
@@ -164,7 +164,7 @@ IoT devices have different characteristics when compared to other clients such a
 
 The device SDKs help you address the challenges of connecting devices securely and reliably to your cloud services.
 
-To learn more about device connectivity and gateways, see [IoT device connectivity and infrastructure](iot-overview-device-connectivity.md).
+To learn more about device connectivity and gateways, see [IoT device connectivity and infrastructure](/previous-versions/azure/iot/iot-overview-device-connectivity).
 
 ### Connectivity in an edge-based solution
 
@@ -176,7 +176,7 @@ In an edge-based solution, IoT devices connect to an edge environment that proce
 
 In the edge-based solution diagram shown previously, the *southbound connectors* represent the protocols and standards that devices use to connect to the edge environment.
 
-To learn more about processing messages sent from your devices, see [Message processing in an IoT solution](iot-overview-message-processing.md).
+To learn more about processing messages sent from your devices, see [Message processing in an IoT solution](/previous-versions/azure/iot/iot-overview-message-processing).
 
 ### Device comparisons
 
@@ -186,7 +186,7 @@ The following table summarizes current options for devices and connectivity:
 |---------------------------------|----------------------|---------------------|
 | Connected object types          | Category 1 and 2 IoT devices | Category 2 and 3 IoT devices |
 | Device connectivity protocols   | HTTP, AMQP, MQTT v3.1.1      | Azure IoT Edge enables HTTP, AMQP, MQTT v3.1.1, and MQTT v5. <br><br> Azure IoT Operations enables MQTT v3.1.1, and MQTT v5 for category 2 devices, connectors enable other protocols such as OPC UA, ONVIF, SQL, and REST for category 3 devices. Custom connectors are possible. |
-| Device implementation           | Microsoft Azure IoT [device SDKs](iot-sdks.md#device-sdks) and [embedded device SDKs](iot-sdks.md#embedded-device-sdks)   | Category 2 devices can use any MQTT library to connect to the MQTT broker. <br><br> Category 3 devices typically come with standard firmware. |
+| Device implementation           | Microsoft Azure IoT [device SDKs](../iot-hub/iot-sdks.md#device-sdks) and [embedded device SDKs](../iot-hub/iot-sdks.md#embedded-device-sdks)   | Category 2 devices can use any MQTT library to connect to the MQTT broker. <br><br> Category 3 devices typically come with standard firmware. |
 | Device management               | [IoT DPS](../iot-dps/index.yml), [Device Update](../iot-hub-device-update/index.yml), [IoT Central](../iot-central/index.yml), Azure Device Registry (preview)  | In Azure IoT Operations, use [Azure Device Registry](../iot-operations/discover-manage-assets/overview-manage-assets.md). Use Akri to enable automated device discovery with native protocols. <br><br> In IoT Edge, use [IoT DPS](../iot-dps/index.yml) for large-scale device management.|
 
 ## Services and applications
@@ -205,7 +205,7 @@ In a cloud-based IoT solution, the IoT cloud services typically:
 
 For example, in a remote monitoring solution for an oil pumping station, the services use sensor data from the pumps to identify anomalous behavior. When a cloud service identifies an anomaly, it can automatically send a command to the device to take a corrective action. This process implements an automated feedback loop between the device and the cloud that greatly increases the solution efficiency.
 
-To learn more about key concepts around managing and controlling devices, see [IoT device management and control](iot-overview-device-management.md).
+To learn more about key concepts around managing and controlling devices, see [IoT device management and control](/previous-versions/azure/iot/iot-overview-device-management).
 
 ### Edge runtime
 
@@ -230,8 +230,8 @@ Both cloud-based and edge-based solutions can use other cloud services to provid
 
 To learn more, see:
 
-- [Extend your IoT solution](iot-overview-solution-extensibility.md)
-- [Analyze and visualize your IoT data](iot-overview-analyze-visualize.md)
+- [Extend your IoT solution](/previous-versions/azure/iot/iot-overview-solution-extensibility)
+- [Analyze and visualize your IoT data](/previous-versions/azure/iot/iot-overview-analyze-visualize)
 
 ### IoT services comparisons
 
@@ -248,16 +248,16 @@ The following table summarizes current deployment options:
 
 | Current offerings (GA) | Cloud-based solution | Edge-based solution |
 |------------------------|----------------------|---------------------|
-| Topology               | Devices connect directly to cloud messaging services such as [IoT Hub](../iot-hub/index.yml). Managed in the cloud using Azure Resource Manager (ARM) or [IoT Hub service SDKs](iot-sdks.md#iot-hub-service-sdks).  | [Azure IoT Operations](../iot-operations/overview-iot-operations.md) provides a way to connect devices to an on-premises Kubernetes cluster. Devices connect to the Azure IoT Operations MQTT broker, either directly over standard networking protocols, or through intermediate devices. Managed in the cloud using Azure Arc-enabled services. <br><br> You can also use [IoT Edge](../iot-edge/index.yml). IoT Edge is a device-focused runtime that enables you to deploy, run, and monitor containerized Linux workloads at the edge, bringing analytics closer to your devices for faster insights and offline decision-making. IoT Edge is a feature of [IoT Hub](../iot-hub/index.yml). |
+| Topology               | Devices connect directly to cloud messaging services such as [IoT Hub](../iot-hub/index.yml). Managed in the cloud using Azure Resource Manager (ARM) or [IoT Hub service SDKs](../iot-hub/iot-sdks.md#iot-hub-service-sdks).  | [Azure IoT Operations](../iot-operations/overview-iot-operations.md) provides a way to connect devices to an on-premises Kubernetes cluster. Devices connect to the Azure IoT Operations MQTT broker, either directly over standard networking protocols, or through intermediate devices. Managed in the cloud using Azure Arc-enabled services. <br><br> You can also use [IoT Edge](../iot-edge/index.yml). IoT Edge is a device-focused runtime that enables you to deploy, run, and monitor containerized Linux workloads at the edge, bringing analytics closer to your devices for faster insights and offline decision-making. IoT Edge is a feature of [IoT Hub](../iot-hub/index.yml). |
 | Infrastructure         | Cloud services like [IoT Hub](../iot-hub/index.yml), and standard computing devices that contain a CPU/MPU, or constrained and embedded devices that contain an MCU. | [Azure IoT Operations](../iot-operations/overview-iot-operations.md), which runs on a Kubernetes cluster, and devices that connect to the cluster. <br><br> You can also use [IoT Edge](../iot-edge/index.yml), which runs on a gateway device like a Raspberry Pi or an industrial PC, and devices that connect to the gateway device.<br><br> Devices that connect to Azure IoT Operations or IoT Edge, can include standard computing devices that contain a CPU/MPU, or constrained and embedded devices that contain an MCU. |
 
 ## Solution-wide concerns
 
 Any IoT solution must address the following solution-wide concerns:
 
-- [Solution management](iot-overview-solution-management.md) including deployment and monitoring.
+- [Solution management](/previous-versions/azure/iot/iot-overview-solution-management) including deployment and monitoring.
 - [Security](iot-overview-security.md) including physical security, authentication, authorization, and encryption.
-- [Scalability, high availability, and disaster recovery](iot-overview-scalability-high-availability.md) for all the components in your solution.
+- [Scalability, high availability, and disaster recovery](/previous-versions/azure/iot/iot-overview-scalability-high-availability) for all the components in your solution.
 
 ### Solution management
 
@@ -281,8 +281,8 @@ The following table summarizes current security options:
 Suggested next steps to explore Azure IoT further include:
 
 - [IoT device development](iot-overview-device-development.md)
-- [Message processing in an IoT solution](iot-overview-message-processing.md)
-- [Manage your IoT solution](iot-overview-solution-management.md)
+- [Message processing in an IoT solution](/previous-versions/azure/iot/iot-overview-message-processing)
+- [Manage your IoT solution](/previous-versions/azure/iot/iot-overview-solution-management)
 - [Choose an Azure IoT service](iot-services-and-technologies.md)
 
 To learn more about Azure IoT architectures, see:

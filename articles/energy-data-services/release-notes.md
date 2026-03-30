@@ -23,6 +23,9 @@ This page is updated with the details about the upcoming release approximately a
 <hr width = 100%>
 
 ## March 2026
+### Manage OSDU milestone upgrade settings
+Milestone upgrades are major version upgrades to Azure Data Manager for Energy, such as moving from a release compatible with OSDU milestone M25 to M26. ADME now allows customers to choose whether to upgrade the instance immediately as the upgrade becomes available or defer the upgrade for up to 30 days. To learn more, see [Manage upgrade settings in Azure Data Manager for Energy](how-to-manage-upgrade-settings.md).
+
 ### Seismic DDMS Change Tier - Preview
 Azure Data Manager for Energy now supports changing the storage tier of seismic datasets as a preview feature. You can move datasets between **Hot**, **Cool**, and **Cold** storage tiers based on access frequency, helping you reduce storage costs for historical or infrequently accessed data while keeping active datasets performant. This feature is available on request. To enable it, raise a support request in the Azure portal. For more information, see [Tutorial: Change the storage tier of seismic datasets](tutorial-seismic-change-tier.md).
 

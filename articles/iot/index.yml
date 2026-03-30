@@ -59,26 +59,23 @@ conceptualContent:
         - url: ./iot-overview-device-development.md
           itemType: overview
           text: Introduction to IoT device development
-        - url: ./iot-sdks.md#device-sdks
+        - url: ../iot-hub/iot-sdks.md#device-sdks
           itemType: reference
           text: Device SDKs reference
         - url: ./concepts-iot-device-development.md
           itemType: concept
           text: Device development for IoT Hub
-        - url: ./tutorial-send-telemetry-iot-hub.md
+        - url: /previous-versions/azure/iot/tutorial-send-telemetry-iot-hub
           itemType: tutorial
           text: Send sensor data from a device to an Azure IoT hub
 
     # Card
     - title: Device connectivity
       links:
-        - url: ./iot-overview-device-connectivity.md
-          itemType: overview
-          text: Introduction to IoT device connectivity and infrastructure
         - url: ../iot-operations/end-to-end-tutorials/tutorial-add-assets.md
           itemType: tutorial
           text: Connect OPC UA assets to Azure IoT Operations
-        - url: ../iot/iot-mqtt-connect-to-iot-hub.md
+        - url: ../iot-hub/iot-mqtt-connect-to-iot-hub.md
           itemType: concept
           text: MQTT support in Azure IoT Hub
         - url: ../iot-edge/about-iot-edge.md
@@ -87,9 +84,6 @@ conceptualContent:
     # Card
     - title: Device management and control
       links:
-        - url: ./iot-overview-device-management.md
-          itemType: overview
-          text: Introduction to IoT device management and control
         - url: ../iot-operations/discover-manage-assets/overview-manage-assets.md
           itemType: concept
           text: What is device management in Azure IoT Operations?
@@ -105,9 +99,6 @@ conceptualContent:
     # Card
     - title: Process and route messages
       links:
-        - url: ./iot-overview-message-processing.md
-          itemType: overview
-          text: Introduction to message processing in an IoT solution
         - url: ../iot-operations/connect-to-cloud/overview-dataflow.md
           itemType: concept
           text: Process and route data with data flows in Azure IoT Operations
@@ -123,24 +114,18 @@ conceptualContent:
     # Card
     - title: Extend your IoT solution
       links:
-        - url: ./iot-overview-solution-extensibility.md
-          itemType: overview
-          text: Introduction to Azure IoT extensibility options
         - url: ../iot-operations/connect-to-cloud/howto-configure-dataflow-endpoint.md
           itemType: how-to-guide
           text: Configure data flow endpoints in Azure IoT Operations
         - url: ../iot-operations/create-edge-apps/edge-apps-overview.md
           itemType: how-to-guide
           text: Develop applications for Azure IoT Operations
-        - url: ../iot/iot-sdks.md#iot-hub-service-sdks
+        - url: ../iot-hub/iot-sdks.md#iot-hub-service-sdks
           itemType: reference
           text: Service SDKs for IoT Hub
     # Card
     - title: Analyze and visualize IoT data
       links:
-        - url: ./iot-overview-analyze-visualize.md
-          itemType: overview
-          text: Introduction to analyzing and visualizing your IoT data
         - url: ../iot-operations/end-to-end-tutorials/tutorial-get-insights.md
           itemType: tutorial
           text: Get insights from your processed data in Azure IoT Operations
